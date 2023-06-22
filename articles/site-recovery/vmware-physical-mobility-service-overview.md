@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 03/31/2023
+ms.date: 05/02/2023
 ms.custom: engagement-fy23
 ---
 
@@ -151,20 +151,20 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
 
 1. From a terminal session, copy the installer to a local folder such as _/tmp_ on the server that you want to protect. Replace the installer's file name with your Linux distribution's actual file name, then run the commands.
 
-   ```shell
+   ```bash
    cd /tmp ;
    tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
    ```
 
 2. Install as follows (root account is not required, but root permissions are required):
 
-   ```shell
+   ```bash
    sudo ./install -r MS -v VmWare -d <Install Location> -q
    ```
 
 3. After the installation is finished, the Mobility service must be registered to the configuration server. Run the following command to register the Mobility service with the configuration server.
 
-   ```shell
+   ```bash
    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
    ```
 
@@ -356,7 +356,7 @@ Locate the installer files for the server’s operating system using the followi
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```cmd
-   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredLessDiscovery true
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime /CredentialLessDiscovery true
    ```
 
 #### Installation settings
@@ -384,21 +384,21 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
 1. From a terminal session, copy the installer to a local folder such as **/tmp** on the server that you want to protect. Then run the below command:
 
-   ```shell
+   ```bash
        cd /tmp ;
        tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
    ```
 
 2. To install, use the below command:
-   ```shell
-        ./install -q -r MS -v VmWare -c CSPrime
+   ```bash
+       sudo  ./install -q -r MS -v VmWare -c CSPrime
     ```
 
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
 3. After successfully installing, register the source machine with the above appliance using the following command:
 
-   ```shell
+   ```bash
         <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q
     ```
 #### Installation settings

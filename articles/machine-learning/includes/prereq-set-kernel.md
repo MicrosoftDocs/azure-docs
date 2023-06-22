@@ -24,6 +24,8 @@ ms.custom: include file
 
     :::image type="content" source="../media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot shows how to set the kernel." lightbox="../media/tutorial-azure-ml-in-a-day/set-kernel.png":::
 
+1. If you see a banner that says you need to be authenticated, select **Authenticate**.
+
 > [!Important]
 > The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
 >

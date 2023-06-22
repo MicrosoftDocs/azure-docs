@@ -87,7 +87,7 @@ When planning the DNS configuration for the automation framework, consider the f
  - Is there an existing Private DNS that the solutions can integrate with or do you need to use a custom Private DNS zone for the deployment environment?
  - Are you going to use predefined IP addresses for the Virtual Machines or let Azure assign them dynamically?
 
-You can integrate with an exiting Private DNS Zone by providing the following values in your tfvars files:
+You can integrate with an existing Private DNS Zone by providing the following values in your tfvars files:
 
 ```tfvars
 management_dns_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

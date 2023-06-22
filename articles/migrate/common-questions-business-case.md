@@ -50,7 +50,7 @@ The **Build business case** feature will be enabled only when you have discovery
 
 ### Why can’t I build business case from my project?
 
-You will not be able to create a business case if your project is in one of the 3 project regions:
+You will not be able to create a business case if your project is in one of these 3 project regions:
 
 Germany West Central, East Asia and Switzerland North.
 

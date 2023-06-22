@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/03/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Compose custom models

@@ -317,7 +317,7 @@ You can visualize the feature importance chart in your workspace in [Azure Machi
 
 [![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 
-For more information on the explanation dashboard visualizations and specific plots, please refer to the [how-to doc on interpretability](../how-to-machine-learning-interpretability-aml.md).
+For more information on the explanation dashboard visualizations and specific plots, please refer to the [how-to doc on interpretability](how-to-machine-learning-interpretability-aml.md).
 
 ## Next steps
 

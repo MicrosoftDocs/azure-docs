@@ -1,7 +1,7 @@
 ---
 title: Provide administrative access to projects
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure administrative access for dev managers by using the DevCenter Project Admin built-in role.
+description: Learn how to configure administrative access for dev team leads by using the DevCenter Project Admin built-in role.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: rosemalcolm
@@ -10,11 +10,11 @@ ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
-# Provide access for dev managers to Deployment Environments projects
+# Provide access for dev team leads to Deployment Environments projects
 
 In Azure Deployment Environments, you can create multiple projects associated with the dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure [project environment types](concept-environments-key-concepts.md#project-environment-types) to enable developers to create various types of [environments](concept-environments-key-concepts.md#environments) and apply settings to each environment type. 
 
-You can assign the DevCenter Project Admin role to a dev manager at either the project level or the environment type level.
+You can assign the DevCenter Project Admin role to a dev team lead at either the project level or the environment type level.
 
 Based on the scope of access that you allow, a DevCenter Project Admin user can:
 
@@ -25,7 +25,7 @@ Based on the scope of access that you allow, a DevCenter Project Admin user can:
 
 When you assign the role at the project level, the user can perform the preceding actions on all environment types at the project level. When you assign the role to specific environment types, the user can perform the actions only on the respective environment types.
 
-## Assign permissions to dev managers for a project
+## Assign permissions to dev team leads for a project
 
 1. Select the project that you want your development team members to be able to access.
 1. Select **Access control (IAM)** from the left menu.
@@ -43,7 +43,7 @@ When you assign the role at the project level, the user can perform the precedin
 
 The users can now view the project and manage all the environment types that you've enabled within it. DevCenter Project Admin users can also [create environments from the Azure CLI](./quickstart-create-access-environments.md).
 
-## Assign permissions to dev managers for an environment type
+## Assign permissions to dev team leads for an environment type
 
 1. Select the project that you want your development team members to be able to access.
 2. Select **Environment types**, and then select the ellipsis (**...**) beside the specific environment type.

@@ -44,9 +44,6 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 | Speed Limits            | See [Reverse geocode a coordinate] section.    |
 | Static Map              | [Render]                                       |
 | Time Zone               | [Time Zone]                                    |
-| Elevation               | [Elevation]<sup>1</sup>                        |
-
-<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 The following service APIs aren't currently available in Azure Maps:
 
@@ -507,7 +504,6 @@ Learn more about Azure Maps REST services:
 [Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
 [Render]: /rest/api/maps/render/getmapimage
 [Time Zone]: /rest/api/maps/timezone
-[Elevation]: /rest/api/maps/elevation
 [Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
 [Spatial operations]: /rest/api/maps/spatial
 [Traffic]: /rest/api/maps/traffic

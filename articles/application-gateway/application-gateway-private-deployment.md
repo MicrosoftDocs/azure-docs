@@ -355,9 +355,9 @@ AGIC v1.7 must be used to introduce support for private frontend IP only.
 
 If Application Gateway has a backend target or key vault reference to a private endpoint located in a VNet that is accessible via global VNet peering, traffic is dropped, resulting in an unhealthy status.
 
-### Network watcher integration
+### Network Watcher integration
 
-Connection Troubleshoot and NSG Diagnostics will return an error when running check and diagnostic tests.
+Connection troubleshoot and NSG diagnostics will return an error when running check and diagnostic tests.
 
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
@@ -375,5 +375,5 @@ This error can be ignored and will be clarified in a future release.
 
 ## Next steps
 
-- See [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline.md) for more security best practices.
+- See [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline) for more security best practices.
 

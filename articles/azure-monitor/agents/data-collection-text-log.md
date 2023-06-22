@@ -122,12 +122,12 @@ To create the data collection rule in the Azure portal:
 
 1. Specify the following information:
  
-    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas.  
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns).
     
         Examples of valid inputs: 
         - 20220122-MyLog.txt 
         - ProcessA_MyLog.txt  
-        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt 
+        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
     
         > [!NOTE]
         > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
@@ -359,6 +359,9 @@ The column names used here are for example only. The column names for your log w
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
+## Troubleshooting Tool
+Use the [Asure monitor troubleshooter tool](use-azure-monitor-agent-troubleshooter.md) to look for common issues and share results with Microsoft.
+
 ### Check if any custom logs have been received
 Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If records aren't returned, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created won't be uploaded.
 
@@ -450,13 +453,6 @@ while ($true)
 
 ```
 
-### Share logs with Microsoft
-If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
-
-1. Open an elevated PowerShell window.
-2. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
-3. Execute the script: `.\CollectAMALogs.ps1`.
-4. Share the `AMAFiles.zip` file generated on the desktop.
 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: "Apache Spark in Azure Machine Learning (preview)"
+title: "Apache Spark in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: This article explains the options for accessing Apache Spark in Azure Machine Learning.
 services: machine-learning
@@ -9,25 +9,23 @@ ms.topic: conceptual
 ms.author: franksolomon
 author: ynpandey
 ms.reviewer: franksolomon
-ms.date: 03/06/2023
-ms.custom: cliv2, sdkv2
+ms.date: 05/11/2023
+ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.
 ---
 
-# Apache Spark in Azure Machine Learning (preview)
+# Apache Spark in Azure Machine Learning
 
-Azure Machine Learning integration with Azure Synapse Analytics (preview) provides easy access to distributed computation resources through the Apache Spark framework. This integration offers these Apache Spark computing experiences:
+Azure Machine Learning integration with Azure Synapse Analytics provides easy access to distributed computation resources through the Apache Spark framework. This integration offers these Apache Spark computing experiences:
 
-- Managed (Automatic) Spark compute
+- Serverless Spark compute
 - Attached Synapse Spark pool
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+## Serverless Spark compute
 
-## Managed (Automatic) Spark compute
+With the Apache Spark framework, Azure Machine Learning serverless Spark compute is the easiest way to accomplish distributed computing tasks in the Azure Machine Learning environment. Azure Machine Learning offers a fully managed, serverless, on-demand Apache Spark compute cluster. Its users can avoid the need to create an Azure Synapse workspace and a Synapse Spark pool.
 
-With the Apache Spark framework, Azure Machine Learning Managed (Automatic) Spark compute is the easiest way to accomplish distributed computing tasks in the Azure Machine Learning environment. Azure Machine Learning offers a fully managed, serverless, on-demand Apache Spark compute cluster. Its users can avoid the need to create an Azure Synapse workspace and a Synapse Spark pool.
-
-Users can define resources, including instance type and the Apache Spark runtime version. They can then use those resources to access Managed (Automatic) Spark compute, in Azure Machine Learning notebooks, for:
+Users can define resources, including instance type and the Apache Spark runtime version. They can then use those resources to access serverless Spark compute, in Azure Machine Learning notebooks, for:
 
 - [Interactive Spark code development](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Spark batch job submissions](./how-to-submit-spark-jobs.md)
@@ -35,7 +33,7 @@ Users can define resources, including instance type and the Apache Spark runtime
 
 ### Points to consider
 
-Managed (Automatic) Spark compute works well for most user scenarios that require quick access to distributed computing through Apache Spark. However, to make an informed decision, users should consider the advantages and disadvantages of this approach.
+serverless Spark compute works well for most user scenarios that require quick access to distributed computing through Apache Spark. However, to make an informed decision, users should consider the advantages and disadvantages of this approach.
 
 Advantages:
   
@@ -45,7 +43,7 @@ Advantages:
 
 Disadvantages:
 
-- A persistent Hive metastore is missing. Managed (Automatic) Spark compute supports only in-memory Spark SQL.
+- A persistent Hive metastore is missing. Serverless Spark compute supports only in-memory Spark SQL.
 - No available tables or databases.
 - Missing Azure Purview integration.
 - No available linked services.
@@ -56,15 +54,15 @@ Disadvantages:
 
 ### Network configuration
 
-As of January 2023, creation of a Managed (Automatic) Spark compute, inside a virtual network, and creation of a private endpoint to Azure Synapse, aren't supported.
+To use network isolation with Azure Machine Learning and serverless Spark compute, use a [managed virtual network](how-to-managed-network.md).
 
 ### Inactivity periods and tear-down mechanism
 
-At first launch, a Managed (Automatic) Spark compute (*cold start*) resource might need three to five minutes to start the Spark session itself. The automated Managed (Automatic) Spark compute provisioning, backed by Azure Synapse, causes this delay. After the Managed (Automatic) Spark compute is provisioned, and an Apache Spark session starts, subsequent code executions (*warm start*) won't experience this delay.
+At first launch, a serverless Spark compute (*cold start*) resource might need three to five minutes to start the Spark session itself. The automated serverless Spark compute provisioning, backed by Azure Synapse, causes this delay. After the serverless Spark compute is provisioned, and an Apache Spark session starts, subsequent code executions (*warm start*) won't experience this delay.
 
-The Spark session configuration offers an option that defines a session timeout (in minutes). The Spark session will end after an inactivity period that exceeds the user-defined timeout. If another Spark session doesn't start in the following ten minutes, resources provisioned for the Managed (Automatic) Spark compute will be torn down.
+The Spark session configuration offers an option that defines a session timeout (in minutes). The Spark session will end after an inactivity period that exceeds the user-defined timeout. If another Spark session doesn't start in the following ten minutes, resources provisioned for the serverless Spark compute will be torn down.
 
-After the Managed (Automatic) Spark compute resource tear-down happens, submission of the next job will require a *cold start*. The next visualization shows some session inactivity period and cluster teardown scenarios.
+After the serverless Spark compute resource tear-down happens, submission of the next job will require a *cold start*. The next visualization shows some session inactivity period and cluster teardown scenarios.
 
 :::image type="content" source="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" lightbox="./media/apache-spark-azure-ml-concepts/spark-session-timeout-teardown.png" alt-text="Expandable diagram that shows scenarios for Apache Spark session inactivity period and cluster teardown.":::
 
@@ -106,20 +104,20 @@ To access data and other resources, a Spark job can use either a user identity p
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
-|Managed (Automatic) Spark compute|User identity and managed identity|User identity|
+|Serverless Spark compute|User identity and managed identity|User identity|
 |Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
 
-[This article](./apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs) describes resource access for Spark jobs. In a notebook session, both the Managed (Automatic) Spark compute and the attached Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
+[This article](./apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs) describes resource access for Spark jobs. In a notebook session, both the serverless Spark compute and the attached Synapse Spark pool use user identity passthrough for data access during [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 > [!NOTE]
 > - To ensure successful Spark job execution, assign **Contributor** and **Storage Blob Data Contributor** roles (on the Azure storage account used for data input and output) to the identity that will be used for the Spark job submission.
 > - If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool in an Azure Synapse workspace, and that workspace has an associated managed virtual network, [configure a managed private endpoint to a storage account](../synapse-analytics/security/connect-to-a-secure-storage-account.md). This configuration will help ensure data access.
-> - Both Managed (Automatic) Spark compute and attached Synapse Spark pool do not work in a notebook created in a private link enabled workspace.
+> - Both serverless Spark compute and attached Synapse Spark pool do not work in a notebook created in a private link enabled workspace.
 
 ## Next steps
 
-- [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
-- [Interactive data wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
-- [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
+- [Attach and manage a Synapse Spark pool in Azure Machine Learning](./how-to-manage-synapse-spark-pool.md)
+- [Interactive data wrangling with Apache Spark in Azure Machine Learning](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Submit Spark jobs in Azure Machine Learning](./how-to-submit-spark-jobs.md)
 - [Code samples for Spark jobs using the Azure Machine Learning CLI](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/spark)
 - [Code samples for Spark jobs using the Azure Machine Learning Python SDK](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/spark)

@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/05/2023
+ms.date: 04/27/2023
 ms.author: owenrichards
-ms.reviewer: xurobert, brianokoyo
+ms.reviewer: xurobert
 ms.custom: contperf-fy21q4, aaddev
 ---
 

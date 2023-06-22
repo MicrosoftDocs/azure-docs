@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) Ubuntu image alignment with Center for Int
 description: Learn how AKS applies the CIS benchmark
 ms.topic: article
 ms.date: 04/19/2023
-ms.author: mgoedtel
+ms.author: magoedte
 ms.reviewer: mattmcinnes
 ---
 

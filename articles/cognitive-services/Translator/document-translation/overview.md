@@ -6,17 +6,17 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 04/17/2023
+ms.date: 05/05/2023
 ms.author: lajanuar
+ms.custom: references_regions
 recommendations: false
 ---
 # What is Document Translation?
 
 Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md), while preserving original document structure and data format.
 
-## Document Translation key features
+## Key features
 
 | Feature | Description |
 | ---------| -------------|
@@ -32,7 +32,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 > For more information on input requirements, *see* [Document Transaltion request limits](../request-limits.md#document-translation)
 
-## Document Translation development options
+## Development options
 
 You can add Document Translation to your applications using the REST API or a client-library SDK:
 
@@ -93,6 +93,42 @@ Document Translation supports the following glossary file types:
 |Comma-Separated Values| `csv` |A comma-delimited raw-data file used by spreadsheet programs.|
 |Localization Interchange File Format| `xlf` , `xliff`| A parallel document format, export of Translation Memory systems The languages used are defined inside the file.|
 |Tab-Separated Values/TAB|`tsv`, `tab`| A tab-delimited raw-data file used by spreadsheet programs.|
+
+## Data residency
+
+Document Translation data residency depends on the Azure region where your Translator resource was created:
+
+* Translator resources **created** in any region in Europe are **processed** at data center in West Europe and North Europe.
+* Translator resources **created** in any region in Asia or Australia are **processed** at data center in Southeast Asia and Australia East.
+* Translator resource **created** in all other regions including Global, North America and South America are **processed** at data center in East US and West US 2.
+
+### Text Translation data residency
+
+✔️ Feature: **Translator Text** </br>
+✔️ Region where resource created: **Any**
+
+| Service endpoint | Request processing data center |
+|------------------|--------------------------|
+|**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
+|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US &bull; South Central US &bull; West Central US &bull; West US 2|
+|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|North Europe &bull; West Europe|
+| **Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Korea South &bull; Japan East &bull; Southeast Asia &bull; Australia East|
+|
+
+### Document Translation data residency
+
+✔️ Feature: **Document Translation**</br>
+✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.0`**
+
+ |Resource region| Request processing data center |
+|----------------------------------|-----------------------|
+|**Global and any region in the Americas**  | East US &bull; West US 2|
+|**Any region in Europe**| North Europe &bull; West Europe|
+|**Any region in Asia Pacific**| Southeast Asia &bull; Australia East|
+
+
+### Document Translation data residency
+
 
 ## Next steps
 

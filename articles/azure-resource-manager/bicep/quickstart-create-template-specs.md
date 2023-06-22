@@ -16,7 +16,7 @@ When you create a template spec, the Bicep file is transpiled into JavaScript Ob
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell [version 6.3.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.27.0 or later](/cli/azure/install-azure-cli).
+- Azure PowerShell [version 6.3.0 or later](/powershell/azure/install-azure-powershell) or Azure CLI [version 2.27.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
 ## Create Bicep file

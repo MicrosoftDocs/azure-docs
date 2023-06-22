@@ -166,20 +166,22 @@ For more information about troubleshooting failed health checks, see [Troublesho
 Azure Traffic Manager also enables you to configure endpoint **Health Checks** to be enabled or disabled. To disable monitoring, choose the option to **Always serve traffic**.
 
 > [!IMPORTANT]
-> The Always Serve function is in public preview. To access this preview, use the following preview link: https://ms.portal.azure.com/?feature.canmodifystamps=true&feature.trafficmanageralwaysserve=true. 
+> The Always Serve function is in public preview. To access this preview, use the [API version 2022-04-01-preview](https://ms.portal.azure.com/?feature.canmodifystamps=true&feature.trafficmanageralwaysserve=true) link. 
 
 There are two available settings for **Health Checks**:
 
 1. **Enable** (health checks). Traffic is served to the endpoint based on health. This is the default setting.
 2. **Always serve traffic**. This setting disables health checks.
 
+### Always Serve
+
 When **Always serve traffic** is selected, monitoring is bypassed and traffic is always sent to an endpoint. The [endpoint monitor status](#endpoint-monitor-status) displayed will be **Unmonitored**. 
 
-To configure health checks:
-1. Use the [preview link](https://ms.portal.azure.com/?feature.canmodifystamps=true&feature.trafficmanageralwaysserve=true) to access the portal.
+To enable Always Serve:
+1. Use the [API version 2022-04-01-preview](https://ms.portal.azure.com/?feature.canmodifystamps=true&feature.trafficmanageralwaysserve=true) link to access the portal.
 2. Select **Endpoints** in the **Settings** section of your Traffic Manager profile blade. 
 3. Select the endpoint that you want to configure.
-4. Under **Health Checks**, choose **Enable** or **Always serve traffic**.
+4. Under **Health Checks**, choose **Always serve traffic**.
 5. Select **Save**.
 
 See the following example:

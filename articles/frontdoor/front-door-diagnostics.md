@@ -55,7 +55,7 @@ There are multiple Front Door logs, which you can use for different purposes:
 - [Health probe logs](#health-probe-log) can be used to identify origins that are unhealthy or that don't respond to requests from some of Front Door's geographically distributed PoPs.
 - [Activity logs](#activity-logs) provide visibility into the operations performed on your Azure resources, such as configuration changes to your Azure Front Door profile.
 
-The activity log and web application firewall log includes a *tracking reference*, which is also propagated in requests to origins and to client responses by using the `X-Azure-Ref` header. You can use the tracking reference to gain an end-to-end view of your application request processing. 
+Access logs and WAF logs include a *tracking reference*, which is also propagated in requests to origins and to client responses by using the `X-Azure-Ref` header. You can use the tracking reference to gain an end-to-end view of your application request processing.
 
 Access logs, health probe logs, and WAF logs aren't enabled by default. To enable and store your diagnostic logs, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md). Activity log entries are collected by default, and you can view them in the Azure portal.
 

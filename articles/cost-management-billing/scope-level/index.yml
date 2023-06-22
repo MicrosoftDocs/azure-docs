@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 04/20/2023
+  ms.date: 04/23/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,7 +28,7 @@ landingContent:
         url: overview-azure-hybrid-benefit-scope.md
     - linkListType: video
       links:
-      - text: Demo - How to Leverage Centrally-managed Azure Hybrid Benefit
+      - text: Demo - Reduce costs and increase SQL license utilization using Azure Hybrid Benefit
         url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
     - linkListType: tutorial
       links:

@@ -70,7 +70,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support multiple attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to three attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
@@ -102,13 +102,13 @@ You need to agree with the enterprise team which IP subnets and addresses will b
 
 The RAN that you use to broadcast the signal across the enterprise site must comply with local regulations. For example, this could mean:
 
-- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country.
+- The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country/region.
 - You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecom operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
 - The RAN units in a site have access to high-precision timing sources, such as Precision Time Protocol (PTP) and GPS location services.
 
 You should ask your RAN partner for the countries/regions and frequency bands for which the RAN is approved. You may find that you need to use multiple RAN partners to cover the countries and regions in which you provide your solution. Although the RAN, UE and packet core all communicate using standard protocols, we recommend that you perform interoperability testing for the specific 4G Long-Term Evolution (LTE) or 5G standalone (SA) protocol between Azure Private 5G Core, UEs and the RAN prior to any deployment at an enterprise customer.
 
-Your RAN will transmit a Public Land Mobile Network Identity (PLMN ID) to all UEs on the frequency band it is configured to use. You should define the PLMN ID and confirm your access to spectrum. In some countries, spectrum must be obtained from the national regulator or incumbent telecommunications operator. For example, if you're using the band 48 Citizens Broadband Radio Service (CBRS) spectrum, you may need to work with your RAN partner to deploy a Spectrum Access System (SAS) domain proxy on the enterprise site so that the RAN can continuously check that it is authorized to broadcast.
+Your RAN will transmit a Public Land Mobile Network Identity (PLMN ID) to all UEs on the frequency band it is configured to use. You should define the PLMN ID and confirm your access to spectrum. In some countries/regions, spectrum must be obtained from the national/regional regulator or incumbent telecommunications operator. For example, if you're using the band 48 Citizens Broadband Radio Service (CBRS) spectrum, you may need to work with your RAN partner to deploy a Spectrum Access System (SAS) domain proxy on the enterprise site so that the RAN can continuously check that it is authorized to broadcast.
 
 #### Maximum Transmission Units (MTUs)
 

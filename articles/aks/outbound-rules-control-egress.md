@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 ms.subservice: aks-networking
 ms.topic: article
 ms.author: allensu
-ms.date: 03/10/2023
+ms.date: 06/13/2023
 author: asudbring
 
 #Customer intent: As an cluster operator, I want to learn the network and FQDNs rules to control egress traffic and improve security for my AKS clusters.
@@ -143,11 +143,11 @@ If you choose to block/not allow these FQDNs, the nodes will only receive OS upd
 
 #### Required FQDN / application rules
 
-| FQDN                                          | Port      | Use      |
-|-----------------------------------------------|-----------|----------|
-| **`login.microsoftonline.com`** | **`HTTPS:443`** | Required for Active Directory Authentication. |
-| **`*.ods.opinsights.azure.com`** | **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
-| **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
+| FQDN                                                       | Port      | Use      |
+|------------------------------------------------------------|-----------|----------|
+| **`login.microsoftonline.com`** <br/> **`login.microsoftonline.us`** (Azure Government) <br/> **`login.microsoftonline.cn`** (Azure China 21Vianet) | **`HTTPS:443`** | Required for Active Directory Authentication. |
+| **`*.ods.opinsights.azure.com`** <br/> **`*.ods.opinsights.azure.us`** (Azure Government) <br/> **`*.ods.opinsights.azure.cn`** (Azure China 21Vianet)| **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
+| **`*.oms.opinsights.azure.com`** <br/> **`*.oms.opinsights.azure.us`** (Azure Government) <br/> **`*.oms.opinsights.azure.cn`** (Azure China 21Vianet)| **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
 
 ### CSI Secret Store
 
@@ -207,10 +207,13 @@ There are two options to provide access to Azure Monitor for containers:
 
 ### Required FQDN / application rules
 
-| FQDN | Port | Use |
+| FQDN | Port               | Use |
 |-----------------------------------------------|-----------|----------|
 | **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
+|**`arcmktplaceprod.azurecr.io`**|**`HTTPS:443`**|This address is required to pull container images for installing marketplace extensions on AKS cluster.|
+|**`*.ingestion.msftcloudes.com, *.microsoftmetrics.com`**|**`HTTPS:443`**|This address is used to send agents metrics data to Azure.|
+|**`marketplaceapi.microsoft.com`**|**`HTTPS: 443`**|This address is used to send custom meter-based usage to the commerce metering API.|
 
 #### Azure US Government required FQDN / application rules
 

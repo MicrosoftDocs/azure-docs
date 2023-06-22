@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale with a Configuration Manager custom task sequence
 description: You can use a custom task sequence that can deploy the Connected Machine Agent to onboard a collection of devices to Azure Arc-enabled servers.
-ms.date: 01/20/2022
+ms.date: 05/25/2023
 ms.topic: how-to
 ---
 
@@ -69,7 +69,7 @@ After you complete the Create Task Sequence Wizard, Configuration Manager adds t
    ```
 
    :::image type="content" source="media/onboard-configuration-manager-custom-task/configuration-manager-connect-to-azure-arc.png" alt-text="Screenshot showing a task sequence being edited to run a PowerShell script.":::
-
+1. Set **PowerShell execution policy** to **Bypass** (if not already set by default). 
 1. Select **OK** to save the changes to your custom task sequence.
 
 ## Deploy the custom task sequence and verify connection to Azure Arc

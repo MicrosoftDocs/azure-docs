@@ -2,12 +2,12 @@
 title: Azure VM Disaster Recovery - High Churn support (Public Preview) 
 description: Describes how to protect your Azure VMs having high churning workloads 
 services: site-recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/07/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ---
 
 # Azure VM Disaster Recovery - High Churn Support (Public Preview)

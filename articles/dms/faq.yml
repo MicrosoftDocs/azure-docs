@@ -35,7 +35,7 @@ sections:
       - question: |
           What versions of SQL Server does Azure Database Migration Service support as a source?
         answer: |
-          When migrating from SQL Server, supported sources for Azure Database Migration Service are SQL Server 2005 through SQL Server 2019. If you use Azure Data Studio with SQL Migration extension, supported sources are SQL Server 2008 through SQL Server 2022.
+          When migrating from SQL Server, supported sources for Azure Database Migration Service are SQL Server 2008 and later versions. If you use Azure Data Studio with SQL Migration extension, supported sources are SQL Server 2008 through SQL Server 2022.
 
       - question: |
           When using Azure Database Migration Service, what's the difference between an offline and an online migration?

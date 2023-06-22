@@ -9,7 +9,7 @@ ms.service: backup
 ms.custom: engagement-fy23
 ---
 
-# Back up SQL Server to Azure by using Azure Backup Server
+# Back up SQL Server to Azure using Azure Backup Server
 
 This article describes how to back up and restore SQL Server to Azure by using Microsoft Azure Backup Server (MABS).
 
@@ -97,7 +97,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
 1. Select **Next**. MABS shows the overall storage space available. It also shows the potential disk space utilization.
 
-    ![Screenshot shows how to set up disk allocation in MABS.](./media/backup-azure-backup-sql/pg-storage.png)
+    :::image type="content" source="./media/backup-azure-backup-sql/postgresql-storage-inline.png" alt-text="Screenshot shows how to set up disk allocation in MABS." lightbox="./media/backup-azure-backup-sql/postgresql-storage-expanded.png":::
 
    *Total data size* is the size of the data you want to back up, and disk space to be provisioned on DPM is the space that MABS recommends for the protection group. DPM chooses the ideal backup volume based on the settings. However, you can edit the backup volume choices in the disk allocation details. For the workloads, select the preferred storage in the dropdown menu. The edits change the values for *Total Storage* and *Free Storage* in the **Available Disk Storage** pane. *Underprovisioned space* is the amount of storage that DPM suggests you add to the volume for continuous smooth backups.
     

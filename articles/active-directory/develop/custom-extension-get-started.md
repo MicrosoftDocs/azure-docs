@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/10/2023
+ms.date: 05/23/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -63,7 +63,7 @@ After the Azure Function app is created, create an HTTP trigger function. The HT
 1. Within your **Function App**, from the menu select **Functions**.
 1. From the top menu, select **+ Create**.
 1. In the **Create Function** window, leave the **Development environment** property as **Develop in portal**, and then select the **HTTP trigger** template.
-1. Under **Template details**, enter *CustomExtensionsAPI* for the **New Function** property.
+1. Under **Template details**, enter *CustomAuthenticationExtensionsAPI* for the **New Function** property.
 1. For the **Authorization level**, select **Function**.
 1. Select **Create**
 
@@ -128,7 +128,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
         public Claims claims { get; set; }
         public Action()
         {
-            odatatype = "microsoft.graph.provideClaimsForToken";
+            odatatype = "microsoft.graph.tokenIssuanceStart.provideClaimsForToken";
             claims = new Claims();
         }
     }
@@ -285,10 +285,6 @@ Next, you register the custom extension. You register the custom extension by as
             "@odata.type": "#microsoft.graph.azureAdTokenAuthentication",
             "resourceId": "{functionApp_IdentifierUri}"
         },
-        "clientConfiguration": {
-            "timeoutInMilliseconds": 2000,
-            "maximumRetries": 1
-        },
         "claimsForTokenConfiguration": [
             {
                 "claimIdInApiResponse": "DateOfBirth"
@@ -369,7 +365,7 @@ The following JSON snippet demonstrates how to configure these properties.
 ```
 
 > [!WARNING]
-> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](active-directory-claims-mapping.md#configure-a-custom-signing-key).
+> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app. Instead [configure a custom signing key](/graph/application-saml-sso-configure-api#option-2-create-a-custom-signing-certificate).
 
 ## Step 4. Assign a custom claims provider to your app
 

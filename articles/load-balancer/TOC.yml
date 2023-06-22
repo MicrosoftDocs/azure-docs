@@ -44,6 +44,8 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: Create a multiple VMs inbound NAT rule
       href: tutorial-nat-rule-multi-instance-portal.md
+    - name: Migrate Inbound NAT Pools to NAT Rules
+      href: load-balancer-nat-pool-migration.md
   - name: Scaling and availability
     items:
     - name: Load balance a VM within a specific availability zone
@@ -258,6 +260,8 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
+    - name: Testing inbound frontend IP address reachability
+      href: load-balancer-test-frontend-reachability.md
     - name: Health Probe status
       href: load-balancer-troubleshoot-health-probe-status.md
     - name: Backend pool (VM) traffic
@@ -275,7 +279,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
-    href: /powershell/module/az.network
+    href: /powershell/module/az.network#load-balancer
   - name: Azure CLI
     href: /cli/azure/network/lb
   - name: .NET

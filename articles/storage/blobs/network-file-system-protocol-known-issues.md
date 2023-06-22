@@ -58,6 +58,12 @@ To see how each Blob Storage feature is supported in accounts that have NFS 3.0 
 > [!NOTE]
 > Static websites is an example of a partially supported feature because the configuration page for static websites does not yet appear in the Azure portal for accounts that have NFS 3.0 support enabled. You can enable static websites only by using PowerShell or Azure CLI.
 
+## Blob Storage events
+
+The names of NFS operations don't appear in resource logs or in responses returned by the Event Grid. Only block blob operations appear. When your application makes a request by using the NFS 3.0 protocol, that request is translated into combination of block blob operations. For example, NFS 3.0 read Remote Procedure Call (RPC) requests are translated into Get Blob operation. NFS 3.0 write RPC requests are translated into a combination of Get Block List, Put Block, and Put Block List.
+
+Storage Events aren't supported for NFS specific operations. However, if you are performing blob or data lake storage operations on NFS enabled account, then the events shall get created based on the API being called.
+
 ## See also
 
 - [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-support.md)

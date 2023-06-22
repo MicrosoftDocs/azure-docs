@@ -918,8 +918,6 @@ items:
           href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
         - name: Troubleshoot initial snapshot
           href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
-        - name: Troubleshoot snapshot errors due to primary key column order
-          href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md
         - name: Troubleshoot creation
           href: ./synapse-link/troubleshoot/troubleshoot-sql-link-creation.md
     - name: SQL Server 2022

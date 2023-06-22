@@ -74,6 +74,8 @@ landingContent:
             url: how-to-convert-segy-to-ovds.md
           - text: How to convert SEG-Y to ZGY
             url: how-to-convert-segy-to-zgy.md
+          - text: How to Upload large files using file service
+            url: how-to-upload-large-files-using-file-service.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
@@ -98,6 +100,8 @@ landingContent:
             url: how-to-integrate-airflow-logs-with-azure-monitor.md
           - text: How to integrate elastic logs with Azure Monitor
             url: how-to-integrate-elastic-logs-with-azure-monitor.md
+          - text: How to integrate OSDU service logs with Azure Monitor
+            url: how-to-integrate-osdu-service-logs-with-azure-monitor.md
   - title: Security
     linkLists:
       - linkListType: how-to-guide

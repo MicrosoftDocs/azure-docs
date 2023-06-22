@@ -1,0 +1,44 @@
+### YamlMime:FAQ
+metadata:
+  title: "Microsoft Dev Box: Frequently asked questions" 
+  description: Frequently asked questions about Microsoft Dev Box. 
+  author: RoseHJM 
+  ms.author: rosemalcolm 
+  ms.service: dev-box 
+  ms.topic: faq 
+  ms.date: 05/16/2023 
+title: "Microsoft Dev Box: Frequently asked questions"
+summary: This article provides answers to some of the most commonly asked questions about [Microsoft Dev Box](https://azure.microsoft.com/services/dev-box/).
+  
+# Remove all the comments in this template before you sign-off or merge to the main branch.
+
+# Remember that indentation is significant in YAML files.
+# If there is any disallowed spacing, the build will fail.
+
+sections:
+  - name: General FAQ
+    questions:
+      - question: Which repository providers does Dev Box support?
+        answer: Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery for Dev Box.  
+                For more information, see [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)
+
+      - question: Dev boxes that I create from my custom image take an hour to provision and up to 30 minutes to start. How do I make provisioning and startup faster? # Question.
+        answer: |
+          When you create a generalized VM to capture to an image, the following issues can impact provisioning and startup times:
+          1. Enable the Read/Write cache on the OS disk. 
+             - To verify, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
+          2. Create the image using the following sysprep options: `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`.
+             - This prevents a lengthy search for and installation of drivers during the first boot.
+          3. Enable nested virtualization in your base image.
+             - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**. 
+             - Or run the following PowerShell command, Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online 
+          4. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`.   
+
+          For more information, see: [Compute gallery image requirements](how-to-configure-azure-compute-gallery.md#compute-gallery-image-requirements).
+      
+
+additionalContent: |
+    ## Next steps
+
+    To learn more, see [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md).
+    

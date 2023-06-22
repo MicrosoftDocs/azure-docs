@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
 recommendations: false
-ms.date: 04/02/2023
+ms.date: 05/09/2023
 ---
 
 # Department of Defense (DoD) in Azure Government
@@ -20,16 +20,16 @@ Azure Government offers the following regions to DoD mission owners and their pa
 
 |Regions|Relevant authorizations|# of IL5 PA services|
 |------|------|------|
-|US Gov Arizona </br> US Gov Texas </br> US Gov Virginia|FedRAMP High, DoD IL4, DoD IL5|145|
+|US Gov Arizona </br> US Gov Texas </br> US Gov Virginia|FedRAMP High, DoD IL4, DoD IL5|150|
 |US DoD Central </br> US DoD East|DoD IL5|60|
 
-**Azure Government regions** US Gov Arizona, US Gov Texas, and US Gov Virginia (**US Gov regions**) are intended for US federal (including DoD), state, and local government agencies, and their partners. **Azure Government DoD regions** US DoD Central and US DoD East (**US DoD regions**) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for US Gov regions vs. US DoD regions. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (**US Gov regions**) are intended for US federal (including DoD), state, and local government agencies, and their partners. Azure Government regions US DoD Central and US DoD East (**US DoD regions**) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for US Gov regions vs. US DoD regions. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 The primary differences between DoD IL5 PAs that are in place for US Gov regions vs. US DoD regions are:
 
 - **IL5 compliance scope:** US Gov regions have many more services authorized provisionally at DoD IL5, which in turn enables DoD mission owners and their partners to deploy more realistic applications in these regions.
   - For a complete list of services in scope for DoD IL5 PA in US Gov regions, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
-  - For a complete list of services in scope for DoD IL5 in US DoD regions, see [Azure Government DoD regions IL5 audit scope](#us-dod-regions-il5-audit-scope) in this article.
+  - For a complete list of services in scope for DoD IL5 in US DoD regions, see [US DoD regions IL5 audit scope](#us-dod-regions-il5-audit-scope) in this article.
 - **IL5 configuration:** US DoD regions are reserved for exclusive DoD use. Therefore, no extra configuration is needed in US DoD regions when deploying Azure services intended for IL5 workloads. In contrast, some Azure services deployed in US Gov regions require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).
 
 > [!NOTE]
@@ -40,7 +40,7 @@ The primary differences between DoD IL5 PAs that are in place for US Gov regions
 
 Azure provides [extensive support for tenant isolation](./azure-secure-isolation-guidance.md) across compute, storage, and networking services to segregate each customer's applications and data. This approach provides the scale and economic benefits of multi-tenant cloud services while rigorously helping prevent other customers from accessing your data or applications.
 
-Hyperscale cloud also offers a feature-rich environment incorporating the latest cloud innovations such as artificial intelligence, machine learning, IoT services, intelligent edge, and many more to help DoD mission owners implement their mission objectives. Using Azure Government cloud capabilities, you benefit from rapid feature growth, resiliency, and the cost-effective operation of the hyperscale cloud while still obtaining the levels of isolation, security, and confidence required to handle workloads subject to FedRAMP High, DoD IL4, and DoD IL5 requirements.
+Hyper-scale cloud also offers a feature-rich environment incorporating the latest cloud innovations such as artificial intelligence, machine learning, IoT services, intelligent edge, and many more to help DoD mission owners implement their mission objectives. Using Azure Government cloud capabilities, you benefit from rapid feature growth, resiliency, and the cost-effective operation of the hyper-scale cloud while still obtaining the levels of isolation, security, and confidence required to handle workloads subject to FedRAMP High, DoD IL4, and DoD IL5 requirements.
 
 ## US Gov regions IL5 audit scope
 
@@ -112,11 +112,11 @@ The following services are in scope for DoD IL5 PA in US DoD regions (US DoD Cen
 
 ## Frequently asked questions
 
-### What are the Azure Government DoD regions?
-Azure Government DoD regions US DoD Central and US DoD East (US DoD regions) are physically separated Azure Government regions reserved for exclusive use by the DoD. They reside on the same isolated network as Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) and use the same identity model. Both the network and identity model are separate from Azure commercial.
+### What are the US DoD regions?
+Azure Government regions US DoD Central and US DoD East (US DoD regions) are physically separated Azure Government regions reserved for exclusive use by the DoD. They reside on the same isolated network as Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) and use the same identity model. Both the network and identity model are separate from Azure commercial.
 
-### What is the difference between Azure Government and Azure Government DoD regions?
-Azure Government is a US government community cloud providing services for federal, state and local government customers, tribal entities, and other entities subject to various US government regulations such as CJIS, ITAR, and others. All Azure Government regions are designed to meet the security requirements for DoD IL5 workloads. They are deployed on a separate and isolated network and use a separate identity model from Azure commercial regions. US DoD regions achieve DoD IL5 tenant separation requirements by being dedicated exclusively to DoD. In US Gov regions , some services require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).
+### What is the difference between US Gov regions and US DoD regions?
+Azure Government is a US government community cloud providing services for federal, state and local government customers, tribal entities, and other entities subject to various US government regulations such as CJIS, ITAR, and others. All Azure Government regions are designed to meet the security requirements for DoD IL5 workloads. They're deployed on a separate and isolated network and use a separate identity model from Azure commercial regions. US DoD regions achieve DoD IL5 tenant separation requirements by being dedicated exclusively to DoD. In US Gov regions, some services require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).
 
 ### How do US Gov regions support IL5 data?
 Azure provides [extensive support for tenant isolation](./azure-secure-isolation-guidance.md) across compute, storage, and networking services to segregate each customer's applications and data. This approach provides the scale and economic benefits of multi-tenant cloud services while rigorously helping prevent other customers from accessing your data or applications. Some Azure services deployed in US Gov regions require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).
@@ -151,7 +151,7 @@ All Azure Government regions are built to support DoD customers, including:
 For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 ### What services are part of your IL5 authorization scope?
-For a complete list of services in scope for DoD IL5 PA in US Gov regions, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). For a complete list of services in scope for DoD IL5 PA in US DoD regions, see [Azure Government DoD regions IL5 audit scope](#us-dod-regions-il5-audit-scope) in this article.
+For a complete list of services in scope for DoD IL5 PA in US Gov regions, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). For a complete list of services in scope for DoD IL5 PA in US DoD regions, see [US DoD regions IL5 audit scope](#us-dod-regions-il5-audit-scope) in this article.
 
 ## Next steps
 

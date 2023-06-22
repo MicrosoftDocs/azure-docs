@@ -3,7 +3,7 @@ title: Create SQL Server license assignments for Azure Hybrid Benefit
 description: This article explains how to create SQL Server license assignments for Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2023
+ms.date: 04/23/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -16,7 +16,9 @@ The centralized Azure Hybrid Benefit experience in the Azure portal supports SQL
 
 For each license assignment, a scope is selected and then licenses are assigned to the scope. Each scope can have multiple license entries.
 
-Here's a video demonstrating how [centralized Azure Hybrid Benefit works](https://www.youtube.com/watch?v=LvtUXO4wcjs).
+Here's a video demonstrating how [centralized Azure Hybrid Benefit works](https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo).
+
+>[!VIDEO https://www.youtube.com/embed/ReoLB9N76Lo]
 
 ## Prerequisites
 

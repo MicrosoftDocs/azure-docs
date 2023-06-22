@@ -124,9 +124,9 @@ sections:
           The following ports are restricted for HTTP health probes: 19, 21, 25, 70, 110, 119, 143, 220, 993. These ports are blocked for security reasons by WinHTTP, meaning that Load Balancer health probes are unable to use these ports. For more information, see [What's New in WinHTTP 5.1](/windows/win32/winhttp/what-s-new-in-winhttp-5-1#changes-to-default-settings).
     
       - question: |
-          How can I ping my load balancer?
+          Can I ping my load balancer?
         answer: |
-          ICMP ping is currently not supported by Azure Load Balancer. You can use any tool that supports TCP ping instead to test your load balancer's connectivity. 
+          Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [how to ping the frontend of your load balancer.](load-balancer-test-frontend-reachability.md)  
 
 additionalContent: |
 

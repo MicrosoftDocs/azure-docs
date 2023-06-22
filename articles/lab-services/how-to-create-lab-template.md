@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 ms.topic: how-to
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 05/10/2022
 ---
 
@@ -20,10 +20,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-To complete this quick start, make sure that you have:
-
-- Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- Lab plan.  If you haven't create a lab plan, see [Create a lab plan using an ARM template](how-to-create-lab-plan-template.md).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Review the template
 

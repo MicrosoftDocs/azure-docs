@@ -5,7 +5,7 @@ metadata:
   author: roygara
   ms.service: storage
   ms.topic: faq
-  ms.date: 10/03/2022
+  ms.date: 05/04/2023
   ms.author: rogarana
   ms.subservice: disks
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
@@ -326,6 +326,16 @@ sections:
           Will an exported VHD from a managed disk or a snapshot also be encrypted?
         answer: |
           No. But if you export a VHD to an encrypted storage account from an encrypted managed disk or snapshot, then it's encrypted.
+
+      - question: |
+          Can I switch from Azure Disk Encryption to server-side encryption with customer-managed keys?
+        answer: |
+          For Windows VMs, yes. For Linux VMs, maybe. If you encrypted the OS disk of a Linux VM with ADE, you can't disable ADE on either the OS or data disks. First [disable encryption and remove the encryption extension](windows/disk-encryption-windows.md#disable-encryption-and-remove-the-encryption-extension), then make a new managed disk using the current disk as a source, and encrypt that new disk with customer-managed keys.
+
+      - question: |
+          Can I switch from server-side encryption with customer-managed keys to Azure Disk Encryption?
+        answer: |
+          Yes. First, switch your disk to use platform-managed keys, and then encrypt your current disk with Azure Disk Encryption.
 
   - name: "Premium disks: Managed and unmanaged"
     questions:

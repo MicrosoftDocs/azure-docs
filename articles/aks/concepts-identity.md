@@ -2,7 +2,7 @@
 title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (Kubernetes RBAC), and roles and bindings.
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 04/28/2023
 author: palma21
 ms.author: jpalma
 
@@ -96,8 +96,6 @@ There are two levels of access needed to fully operate an AKS cluster:
 ### Azure RBAC to authorize access to the AKS resource
 
 With Azure RBAC, you can provide your users (or identities) with granular access to AKS resources across one or more subscriptions. For example, you could use the [Azure Kubernetes Service Contributor role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role) to scale and upgrade your cluster. Meanwhile, another user with the [Azure Kubernetes Service Cluster Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) only has permission to pull the Admin `kubeconfig`.
-
-Alternatively, you could give your user the general [Contributor](../role-based-access-control/built-in-roles.md#contributor) role. With the general Contributor role, users can perform the above permissions and every action possible on the AKS resource, except managing permissions.
 
 [Use Azure RBAC to define access to the Kubernetes configuration file in AKS](control-kubeconfig-access.md).
 
@@ -263,7 +261,8 @@ In the Azure portal, you can find:
 - To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
 - For associated best practices, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
 - To get started with Azure RBAC for Kubernetes Authorization, see [Use Azure RBAC to authorize access within the Azure Kubernetes Service (AKS) Cluster](manage-azure-rbac.md).
-- To get started securing your `kubeconfig` file, see [Limit access to cluster configuration file](control-kubeconfig-access.md)
+- To get started securing your `kubeconfig` file, see [Limit access to cluster configuration file](control-kubeconfig-access.md).
+- To get started with managed identities in AKS, see [Use a managed identity in AKS](./use-managed-identity.md).
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 

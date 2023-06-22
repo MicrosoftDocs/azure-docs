@@ -2,7 +2,7 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 04/27/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -157,16 +157,18 @@ After you've downloaded all the files, select **MicrosoftAzureBackupInstaller.ex
 
 ![Setup extracting files for install](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Once the extraction process complete, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select the **Finish** button.
+Once the extraction process completes, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select the **Finish** button.
 
 ### Installing the software package
 
-1. Select **Microsoft Azure Backup** to launch the setup wizard.
+1. Select **Microsoft Azure Backup Server** to launch the setup wizard.
 
-    ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. On the Welcome screen, select the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, select **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you'll see a message indicating that the machine meets the requirements. Select the **Next** button.
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/launch-setup-wizard.png" alt-text="Screenshot shows Microsoft Azure Backup Setup Wizard.":::
+2. On the **Welcome** screen, select **Next**.
 
-    ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   This takes you to the *Prerequisite Checks* section. On this screen, select **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you'll see a message indicating that the machine meets the requirements. Select the **Next** button.
+
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/prereq/welcome-screen.png" alt-text="Screenshot shows Azure Backup Server welcome and prerequisites check.":::
 3. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting  a new Azure Backup Server installation, pick the option **Install new Instance of SQL Server with this Setup** and select the **Check and Install** button. Once the prerequisites are successfully installed, select **Next**.
 
     >[!NOTE]
@@ -174,7 +176,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     >If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2022 and 2019. All SQL Server versions should be Standard or Enterprise 64-bit.
     >Azure Backup Server won't work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you're using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
 
-    ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/sql/install-new-instance-of-sql-server.png" alt-text="Screenshot shows Azure Backup Server SQL check.":::
 
     If a failure occurs with a recommendation to restart the machine, do so and select **Check Again**. If there are any SQL configuration issues, reconfigure SQL according to the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
 
@@ -182,9 +184,9 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
    When you use your own instance of SQL, make sure you add builtin\Administrators to sysadmin role to master DB.
 
-    **SSRS Configuration with SQL 2017**
+    **SSRS Configuration with SQL**
 
-    When you're using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
+    When you're using your own instance of SQL 2019 or 2022 with MABS V4, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
     Use the following values for SSRS configuration:
     * Service Account: ‘Use built-in account’ should be Network Service
@@ -199,7 +201,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 4. Provide a location for the installation of Microsoft Azure Backup server files and select **Next**.
 
-    ![Provide location for installation of files](./media/backup-azure-microsoft-azure-backup/space-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/space-screen.png" alt-text="Screenshot shows how to provide location for installation of files.":::
 
     The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
@@ -207,7 +209,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 5. Provide a strong password for restricted local user accounts and select **Next**.
 
-    ![Provide strong password](./media/backup-azure-microsoft-azure-backup/security-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/security-screen.png" alt-text="Screenshot shows how to provide strong password.":::
 6. Select whether you want to use *Microsoft Update* to check for updates and select **Next**.
 
    > [!NOTE]
@@ -215,10 +217,11 @@ Once the extraction process complete, check the box to launch the freshly extrac
    >
    >
 
-    ![Microsoft Update Opt-In](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png" alt-text="Screenshot shows the Microsoft Update Opt-In page.":::
 7. Review the *Summary of Settings* and select **Install**.
 
-    ![Summary of settings](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/summary-screen.png" alt-text="Screenshot shows the summary of settings.":::
+
 8. The installation happens in phases. In the first phase, the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available, you can continue with the installation. If not, you need to provide proxy details to connect to the Internet.
 
     >[!Important]
@@ -226,10 +229,10 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the Recovery Services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
-    ![Register Server Wizard](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/mars/register-server-wizard.png" alt-text="Screenshot shows the Register Server Wizard.":::
 9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
 
-    ![Azure Backup Server setup progress](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png" alt-text="Screenshot shows the Azure Backup Server setup progress.":::
 
 When the installation step has completed, the product's desktop icons will have been created as well. Double-click the icon to launch the product.
 

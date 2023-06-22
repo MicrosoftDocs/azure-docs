@@ -51,7 +51,7 @@ Depending on your network configuration, you can access the VNET via a VPN conne
 
 This method uses a proxy server hosted within Azure. To handle load balancing and failover, the proxy is configured to scale automatically behind a load balancer.
 
-For more information, see [Connect via an Azure proxy](connect-sensors.md#connect-via-an-azure-proxy).
+For more information, see [Connect via an Azure proxy](connect-sensors.md#set-up-an-azure-proxy).
 
 ## Proxy connections with proxy chaining
 
@@ -59,9 +59,9 @@ The following image shows how you can connect your sensors to the Defender for I
 
 :::image type="content" source="media/architecture-connections/proxy-chaining.png" alt-text="Diagram of a proxy connection using proxy chaining." border="false":::
 
-This method supports connecting your sensors without direct internet access, using an SSL-encrypted tunnel to transfer data from the sensor to the service endpoint via proxy servers. The proxy server doesn't perform any data inspection, analysis, or caching.
+This method supports connecting your sensors with either direct internet access, private VPN or ExpressRoute, the sensor will establish an SSL-encrypted tunnel to transfer data from the sensor to the service endpoint via multiple proxy servers. The proxy server doesn't perform any data inspection, analysis, or caching.
 
-With a proxy chaining method, Defender for IoT doesn't support your proxy service. It's the customer's responsibility to set up and maintain the proxy service.
+It is the customer's responsibility to set up and maintain third-party proxy services with proxy chaining; Microsoft does not provide support for them.
 
 For more information, see [Connect via proxy chaining](connect-sensors.md#connect-via-proxy-chaining).
 
@@ -73,7 +73,7 @@ The following image shows how you can connect your sensors to the Defender for I
 
 With direct connections:
 
-- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS1.2/AES-256) provides *always-on* communication between the sensor and Azure resources.
+- Any sensors connected to Azure data centers directly over the internet or Azure ExpressRoute have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS1.2/AES-256) provides *always-on* communication between the sensor and Azure resources.
 
 - The sensor initiates all connections to the Azure portal. Initiating connections only from the sensor protects internal network devices from unsolicited inbound connections, but also means that you don't need to configure any inbound firewall rules.
 
@@ -91,7 +91,7 @@ Depending on your environment configuration, you might connect using one of the 
 
 - A site-to-site VPN over the internet.
 
-For more information, see [Connect via multicloud vendors](connect-sensors.md#connect-via-multicloud-vendors).
+For more information, see [Connect via multicloud vendors](connect-sensors.md#set-up-connectivity-for-multicloud-environments).
 
 ## Next steps
 

@@ -22,7 +22,7 @@ You can also manage workspaces [using the Azure CLI](how-to-manage-workspace-cli
 ## Prerequisites
 
 - An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-- The [Azure PowerShell module](https://www.powershellgallery.com/packages/Az). To make sure you have the latest version, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+- The [Azure PowerShell module](https://www.powershellgallery.com/packages/Az). To make sure you have the latest version, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
   > [!IMPORTANT]
   > While the **Az.MachineLearningServices** PowerShell module is in preview, you must install it

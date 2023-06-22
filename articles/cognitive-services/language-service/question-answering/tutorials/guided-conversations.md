@@ -91,5 +91,3 @@ Using the editor, we add a new QnA pair with a follow-up prompt by clicking on *
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enrich your knowlege base with active learning](active-learning.md)

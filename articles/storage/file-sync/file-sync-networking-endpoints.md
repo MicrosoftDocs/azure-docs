@@ -4,7 +4,7 @@ description: Learn how to configure Azure File Sync network endpoints.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 04/26/2023
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -28,13 +28,13 @@ This article assumes that:
 - You allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#firewall):
 
 Additionally:
-- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Create the private endpoints
-When you are creating a private endpoint for an Azure resource, the following resources are deployed:
+When you create a private endpoint for an Azure resource, the following resources are deployed:
 
-- **A private endpoint**: An Azure resource representing either the private endpoint for the storage account or the Storage Sync Service. You can think of this as a resource that connects your Azure resource and a network interface.
+- **A private endpoint**: An Azure resource representing either the private endpoint for the storage account or the Storage Sync Service. Think of this as a resource that connects your Azure resource and a network interface.
 - **A network interface (NIC)**: The network interface that maintains a private IP address within the specified virtual network/subnet. This is the exact same resource that gets deployed when you deploy a virtual machine, however instead of being assigned to a VM, it's owned by the private endpoint.
 - **A private DNS zone**: If you've never deployed a private endpoint for this virtual network before, a new private DNS zone will be deployed for your virtual network. A DNS A record will also be created for Azure resource in this DNS zone. If you've already deployed a private endpoint in this virtual network, a new A record for Azure resource will be added to the existing DNS zone. Deploying a DNS zone is optional, however highly recommended to simplify the DNS management required.
 
@@ -584,13 +584,21 @@ When you restrict the storage account to specific virtual networks, you are allo
 ---
 
 ### Disable access to the Storage Sync Service public endpoint
-Azure File Sync enables you to restrict access to specific virtual networks through private endpoints only; Azure File Sync does not support service endpoints for restricting access to the public endpoint to specific virtual networks. This means that the two states for the Storage Sync Service's public endpoint are enabled and disabled.
+Azure File Sync enables you to restrict access to specific virtual networks through private endpoints only; Azure File Sync doesn't support service endpoints for restricting access to the public endpoint to specific virtual networks. This means that the two states for the Storage Sync Service's public endpoint are **enabled** and **disabled**.
+
+> [!IMPORTANT]  
+> You must create a private endpoint before disabling access to the public endpoint. If the public endpoint is disabled and there's no private endpoint configured, sync can't work.
 
 # [Portal](#tab/azure-portal)
-This is not possible through the Azure portal. Please select the Azure PowerShell tab to get instructions on how to disable the Storage Sync Service public endpoint. 
+To disable access to the Storage Sync Service's public endpoint, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. Navigate to the Storage Sync Service and select **Settings** > **Network** from the left navigation.
+1. Under **Allow access from**, select **Private endpoints only**.
+1. Select a private endpoint from the **Private endpoint connections** list.
 
 # [PowerShell](#tab/azure-powershell)
-To disable access to the Storage Sync Service's public endpoint, we will set the `incomingTrafficPolicy` property on the Storage Sync Service to `AllowVirtualNetworksOnly`. If you would like to enable access to the Storage Sync Service's public endpoint, set `incomingTrafficPolicy` to `AllowAllTraffic` instead. Remember to replace `<storage-sync-service-resource-group>` and `<storage-sync-service>`.
+To disable access to the Storage Sync Service's public endpoint, set the `incomingTrafficPolicy` property on the Storage Sync Service to `AllowVirtualNetworksOnly`. If you want to enable access to the Storage Sync Service's public endpoint, set `incomingTrafficPolicy` to `AllowAllTraffic` instead. Remember to replace `<storage-sync-service-resource-group>` and `<storage-sync-service>` with your own values.
 
 ```powershell
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"

@@ -84,8 +84,12 @@ items:
     href: iot-dps-ha-dr.md
   - name: Understanding DPS IP addresses
     href: iot-dps-understand-ip-address.md
-  - name: TLS support
-    href: tls-support.md
+  - name: Protocols
+    items: 
+    - name: MQTT support
+      href: ../iot/iot-mqtt-connect-to-iot-dps.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
+    - name: TLS support
+      href: tls-support.md
   - name: Security practices for device manufacturers
     href: concepts-device-oem-security-practices.md
 - name: How-to guides
@@ -98,8 +102,6 @@ items:
       href: quick-enroll-device-x509.md
     - name: Create a TPM individual enrollment with DPS service SDK
       href: quick-enroll-device-tpm.md
-    - name: Communicate with your DPS using MQTT protocol
-      href: iot-dps-mqtt-support.md
     - name: Provision devices using HTTPS protocol
       items:
       - name: Use HTTPS protocol with symmetric keys

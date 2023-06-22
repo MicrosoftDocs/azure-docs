@@ -18,7 +18,7 @@ In this article, you'll learn how to access Azure Health Data Services with cURL
 ### PowerShell
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, install [PowerShell](/powershell/module/powershellget/) and [Azure Az PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the code locally, install [PowerShell](/powershell/module/powershellget/) and [Azure Az PowerShell](/powershell/azure/install-azure-powershell).
 * Optionally, you can run the scripts in Visual Studio Code with the REST Client extension. For more information, see [Make a link to the REST Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
@@ -77,6 +77,8 @@ token=$(az account get-access-token --resource=$dicomtokenurl --query accessToke
 ```
 
 ---
+> [!NOTE] 
+> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
 
 ## Access data in the FHIR service
 

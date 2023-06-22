@@ -11,7 +11,6 @@ ms.date: 01/09/2023
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
 ---
 
 # Train models with the sample-labeling tool

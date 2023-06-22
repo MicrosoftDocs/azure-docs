@@ -10,6 +10,7 @@ ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 05/27/2022
+ms.custom: enterprise-apps
 ---
 
 # Debug SAML-based single sign-on to applications
@@ -24,6 +25,8 @@ To download and install the My Apps Secure Sign-in Extension, use one of the fol
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
 - [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl)
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Test SAML-based single sign-on
 

@@ -1,5 +1,5 @@
 ---
-title: Get quality checks and insights for a Virtual Instance for SAP solutions (preview)
+title: Get quality checks and insights for a Virtual Instance for SAP solutions
 description: Learn how to get quality checks and insights for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -10,13 +10,13 @@ ms.author: ladolan
 #Customer intent: As a developer, I want to use the quality checks feature so that I can learn more insights about virtual machines within my Virtual Instance for SAP resource.
 ---
 
-# Get quality checks and insights for a Virtual Instance for SAP solutions (preview)
+# Get quality checks and insights for a Virtual Instance for SAP solutions
 
-[!INCLUDE [Preview content notice](./includes/preview.md)]
 
-The *Quality Insights* Azure workbook in *Azure Center for SAP solutions* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
 
-In this how-to guide, you'll learn how to use quality checks and insights to get more information about virtual machine (VM) configurations within your SAP system.
+The *Quality Insights* Azure workbook in *Azure Center for SAP solutions* provides insights about the SAP system resources as a result of running *more than 100 quality checks on the VIS*. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
+
+In this how-to guide, you'll learn how to use quality checks and insights to get more information about various configurations within your SAP system.
 
 ## Prerequisites
 
@@ -44,7 +44,16 @@ There are multiple sections in the workbook:
 
 ## Get Advisor Recommendations
 
-The **Quality checks** feature in Azure Center for SAP solutions runs validation checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended by SAP and Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
+The **Quality checks** feature in Azure Center for SAP solutions runs validation checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended for SAP on Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
+Azure Center for SAP solutions runs more than 100 quality checks on all VIS resources. These checks span across the following categories: 
+
+- Azure Infrastructure checks
+- OS parameter checks.
+- High availability (HA) Load Balancer checks
+- HANA DB file system checks.
+- OS parameter checks for ANF file system.
+- Pacemaker configuration checks for HANA DB and ASCS Instance for SUSE and Redhat 
+- OS Configuration checks for Application Instances
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
@@ -54,19 +63,16 @@ Select an instance name to see all recommendations, including which action to ta
 
 :::image type="content" source="media/get-quality-checks-insights/recommendation-detail.png" lightbox="media/get-quality-checks-insights/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
 
-The following checks are run for each VIS:
-
-- Checks that the VMs used for different instances in the VIS are certified by SAP. For better performance and support, make sure that a VM is certified for SAP on Azure. For more details, see [SAP note 1928533] (https://launchpad.support.sap.com/#/notes/1928533).
-- Checks that accelerated networking is enabled for the NICs attached to the different VMs. Network latency between Application VMs and Database VMs for SAP workloads must be 0.7 ms or less. If accelerated networking isn't enabled, network latency can increase beyond the threshold of 0.7 ms. For more details, see the [planning and deployment checklist for SAP workloads on Azure](../workloads/deployment-checklist.md).
-- Checks that the network configuration is optimized for HANA and the OS. Makes sure that as many client ports as possible are available for HANA internal communication. You must explicitly exclude the ports used by processes and applications which bind to specific ports by adjusting the parameter `net.ipv4.ip_local_reserved_ports` to a range of 9000-64999. For more details, see [SAP note 2382421](https://launchpad.support.sap.com/#/notes/2382421).
-- Checks that swap space is set to 2 GB in HANA systems. For SLES and RHEL, configure a small swap space of 2 GB to avoid performance regressions at times of high memory utilization in the OS. Typically, it's recommended that activities terminate with "out of memory" errors. This setting makes sure that the overall system is still usable and only certain requests are terminated. For more details, see [SAP note 1999997](https://launchpad.support.sap.com/#/notes/1999997).
-- Checks that **fstrim** is disabled in SAP systems that run on SUSE OS. **fstrim** scans the filesystem and sends `UNMAP` commands for each unused block found. This setting is useful in a thin-provisioned system, if the system is over-provisioned. It's not recommended to run SAP HANA on an over-provisioned storage array. Active **fstrim** can cause XFS metadata corruption. For more information, see [SAP note 2205917](https://launchpad.support.sap.com/#/notes/2205917) and [Disabling fstrim - under which conditions?](https://www.suse.com/support/kb/doc/?id=000019447).
-
+### Set Alerts for Quality check recommendations
+As the Quality checks recommendations in Azure Center for SAP solutions are integrated with *Azure Advisor*, you can set alerts for the recommendations. See how to [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal)
 
 > [!NOTE]
-> These quality checks run on all VIS instances at a regular frequency of 12 hours. The corresponding recommendations in Azure Advisor also refresh at the same 12-hour frequency.
+> These quality checks run on all VIS instances at a regular frequency of once every 1 hour. The corresponding recommendations in Azure Advisor also refresh at the same 1-hour frequency.If you take action on one or more recommendations from Azure Center for SAP solutions, wait for the next refresh to see any new recommendations from Azure Advisor.
 
-If you take action on one or more recommendations from Azure Center for SAP solutions, wait for the next refresh to see any new recommendations from Azure Advisor.
+> [!IMPORTANT]
+> Azure Advisor filters out recommendations for Deleted Azure resources for 7 days. Therefore, if you delete a VIS and then re-register it, you will be able to see Advisor recommendations after 7 days of re-registration. 
+
+
 
 ## Get VM information
 

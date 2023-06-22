@@ -22,7 +22,7 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 > [!IMPORTANT]
 > * Migration is a long-running operation. Your instance will experience downtime during the last 10-15 minutes of migration. Plan your migration accordingly.
-> * The VIP address(es) of your API Management will change.
+> * The VIP address(es) of your API Management will change if you're using scenario 2 mentioned below (service injected in a VNET). For scenario 1 (not injected in a VNET), the VIP will temporarily change during migration for up to 15 minutes, but the original VIP of the service will be restored at the end of the migration operation. 
 > * Migration to `stv2` is not reversible.
 
 > [!IMPORTANT]
@@ -67,7 +67,7 @@ az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2022-08
 
 ## Scenario 2: Migrate a network-injected API Management instance
 
-Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration (see the following section). You can also cause migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md).
+Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration (see the following section). You can also migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md).
 
 ### Update VNet configuration
 
@@ -78,6 +78,9 @@ Update the configuration of the VNet in each location (region) where the API Man
 * A new subnet in the current virtual network. (Alternatively, set up a subnet in a different virtual network in the same region and subscription as your API Management instance). A network security group must be attached to the subnet.
 
 * A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
+
+> [!IMPORTANT]
+> When you update the VNet configuration for migration to the `stv2` platform, you must provide a public IP address address resource, or migration won't succeed. In an internal VNet, this public IP address is used only for management operations.
 
 For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 

@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 04/25/2023
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: enterprise-apps
 # Customer intent: As an IT admin, I need to know how to implement password-based single sign-on in Azure Active Directory.
 ---
 
@@ -25,6 +26,8 @@ Choose password-based SSO when:
 - An application authenticates with a username and password instead of access tokens and headers.
 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the application uses. This string must be the page that includes the username input field.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

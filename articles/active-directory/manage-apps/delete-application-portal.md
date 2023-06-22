@@ -12,6 +12,7 @@ ms.date: 07/28/2022
 ms.author: jomondi
 ms.reviewer: sureshja
 zone_pivot_groups: enterprise-apps-all
+ms.custom: enterprise-apps
 
 #Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
@@ -30,6 +31,8 @@ To delete an enterprise application, you need:
 - An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - An [enterprise application added to your tenant](add-application-portal.md)
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Delete an enterprise application
 
