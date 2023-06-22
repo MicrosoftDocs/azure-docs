@@ -55,7 +55,8 @@ To provision a custom domain, you need to:
 
     :::image type="content" source="./media/email-domains-custom-add.png" alt-text="Screenshot that shows where to enter the custom domain value.":::
 6. Ensure that domain name isn't misspelled or click edit to correct the domain name and confirm.
-7. Click **Add**
+1. 
+1. Click **Add**
 
     :::image type="content" source="./media/email-domains-custom-add-confirm.png" alt-text="Screenshot that shows how to add a custom domain of your choice.":::
 
