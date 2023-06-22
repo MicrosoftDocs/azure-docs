@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/05/2022
 ms.author: shaas
-ms.subservice: blobs
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---

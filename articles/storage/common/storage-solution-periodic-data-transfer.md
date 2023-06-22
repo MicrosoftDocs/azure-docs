@@ -5,7 +5,6 @@ services: storage
 author: stevenmatthew
 
 ms.service: storage
-ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 07/21/2021
 ms.author: shaas
