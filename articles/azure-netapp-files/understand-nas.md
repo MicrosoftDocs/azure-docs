@@ -1,6 +1,6 @@
 ---
 title: Understand NAS concepts in Azure NetApp Files 
-description: This article covers a wimportant information about NAS volumes when using Azure NetApp Files.  
+description: This article covers a important information about NAS volumes when using Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -19,9 +19,9 @@ ms.author: anfdocs
 
 Network Attached Storage (NAS) is a way for a centralized storage system to present data to multiple networked clients across a WAN or LAN.  
 
-    :::image type="content" source="../media/azure-netapp-files/nas-diagram.png" alt-text="Diagram of NAS protocols with Azure NetApp Files." lightbox="../media/azure-netapp-files/nas-diagram.png":::
+:::image type="content" source="../media/azure-netapp-files/nas-diagram.png" alt-text="Diagram of NAS protocols with Azure NetApp Files." lightbox="../media/azure-netapp-files/nas-diagram.png":::
 
-Datasets in a NAS environment can be structured (data in a well-defined format, such as databases) or unstructured (data not stored in a structured database format, such as images, media files, logs, home directories, etc.). The way this happens is through a standard conversation between a NAS client and the Azure NetApp Files NAS services. 
+Datasets in a NAS environment can be structured (data in a well-defined format, such as databases) or unstructured (data not stored in a structured database format, such as images, media files, logs, home directories, etc.). This happens through a standard conversation between a NAS client and the Azure NetApp Files NAS services. 
 
 The conversation between the NAS client and the Azure NetApp Files NAS service happens following these basic steps: 
 
@@ -29,13 +29,13 @@ The conversation between the NAS client and the Azure NetApp Files NAS service h
 1. Access controls can be as basic as a client hostname/IP address or more complex, such as username authentication and share-level permissions.
 1. Azure NetApp Files receives this request and checks the access controls to verify if the client is allowed to access the NAS share.
 1. Once the share-level access has been verified successfully, the client attempts to populate the NAS share’s contents via a basic read/listing.
-1. Azure NetApp Files then checks file-level permissions. If the user attempting access to the share does not have the proper permissions, then access will be denied--even if the share-level permissions allowed access. 
+1. Azure NetApp Files then checks file-level permissions. If the user attempting access to the share does not have the proper permissions, then access is denied--even if the share-level permissions allowed access. 
 1. Once this process is complete, file and folder access controls take over in the same way you’d expect for any Linux or Windows client. 
-1. Share permission controls are handled by the Azure NetApp Files configuration. File and folder permissions are always controlled from the NAS clients accessing the shares by the NAS administrator. 
+1. Azure NetApp Files configuration handles share permission controls. File and folder permissions are always controlled from the NAS clients accessing the shares by the NAS administrator. 
 
 ## NAS use cases 
 
-NAS is a very common protocol across many industries, including oil & gas, high performance computing, media and entertainment, EDA, financial services, healthcare, genomics, manufacturing, higher education, and many others. Workloads can vary from simple file shares and home directories to applications with thousands of cores pushing operations to a single share, as well as more modernized application stacks, such as Kubernetes and container deployments. 
+NAS is a common protocol across many industries, including oil & gas, high performance computing, media and entertainment, EDA, financial services, healthcare, genomics, manufacturing, higher education, and many others. Workloads can vary from simple file shares and home directories to applications with thousands of cores pushing operations to a single share, as well as more modernized application stacks, such as Kubernetes and container deployments. 
 
 ## NAS protocol details 
 
@@ -66,18 +66,18 @@ NFSv3 is a basic offering of the protocol and has the following key attributes:
 * Locking is handled outside of the NFS protocol, using Network Lock Manager (NLM). Because locks are integrated into the protocol, stale locks can sometimes occur. 
 * Since NFSv3 is stateless, performance with NFSv3 can be substantially better in some workloads (particularly workloads with high metadata operations such as OPEN, CLOSE, SETATTR, GETATTR), as there is less general work that needs to be done to process requests on the server and client. 
 * NFSv3 uses a basic file permission model where only the owner of the file, a group and everyone else can be assigned a combination of read/write/execute permissions.  
-* NFSv3 can use NFSv4.x ACLs, but an NFSv4.x management client would be required to configure and manage the ACLs. Azure NetApp Files does not support the use of non-standard POSIX draft ACLs. 
-* NFSv3 also requires use of other ancillary protocols for regular operations such as port discovery, mounting, locking, status monitoring and quotas. Each ancillary protocol uses a unique network port, which means NFSv3 operations will require more exposure through firewalls with well-known port numbers. 
-* Azure NetApp Files uses the following port numbers for NFSv3 operations. It is not possible to change these port numbers:  
+* NFSv3 can use NFSv4.x ACLs, but an NFSv4.x management client would be required to configure and manage the ACLs. Azure NetApp Files does not support the use of nonstandard POSIX draft ACLs. 
+* NFSv3 also requires use of other ancillary protocols for regular operations such as port discovery, mounting, locking, status monitoring and quotas. Each ancillary protocol uses a unique network port, which means NFSv3 operations require more exposure through firewalls with well-known port numbers. 
+* Azure NetApp Files uses the following port numbers for NFSv3 operations. It's not possible to change these port numbers:  
     * Portmapper (111) 
     * Mount (635) 
     * NFS (2049) 
     * NLM (4045) 
     * NSM (4046) 
     * Rquota (4049) 
-* NFSv3 can use security enhancements such as Kerberos, but Kerberos will only impact the NFS portion of the packets; ancillary protocols (such as NLM, portmapper, mount) are not included in the Kerberos conversation. 
-* NFSv3 uses numeric IDs for its user and group authentication. Usernames and group names are not required for communication or permissions, which can make spoofing a user easier, but configuration and management is simpler. 
-* NFSv3 can leverage LDAP for user and group lookups. 
+* NFSv3 can use security enhancements such as Kerberos, but Kerberos only affects the NFS portion of the packets; ancillary protocols (such as NLM, portmapper, mount) are not included in the Kerberos conversation. 
+* NFSv3 uses numeric IDs for its user and group authentication. Usernames and group names are not required for communication or permissions, which can make spoofing a user easier, but configuration and management are simpler. 
+* NFSv3 can use LDAP for user and group lookups. 
 
 ### NFSv4.x 
 
@@ -85,18 +85,18 @@ NFSv4.x refers to all NFS versions/minor versions that are under NFSv4. This inc
 
 NFSv4.x has the following characteristics: 
 
-* NFSv4.x is a stateful protocol, which means that the client and server will keep track of the states of the NFS connections, including lock states. The NFS mount leverages a concept known as a “state ID” to keep track of the connections. 
+* NFSv4.x is a stateful protocol, which means that the client and server keep track of the states of the NFS connections, including lock states. The NFS mount leverages a concept known as a “state ID” to keep track of the connections. 
 * Locking is integrated into the NFS protocol and does not require ancillary locking protocols to keep track of NFS locks. Instead, locks are granted on a lease basis and will expire after a certain period of time if a client/server connection is lost, thus returning the lock back to the system for use with other NFS clients. 
-* The statefulness of NFSv4.x does contain some drawbacks, such as potential disruptions during network outages or storage failovers, as well as performance overhead in certain workload types (such as high metadata workloads). 
-* NFSv4.x provides a number of significant advantages over NFSv3, including:  
+* The statefulness of NFSv4.x does contain some drawbacks, such as potential disruptions during network outages or storage failovers, and performance overhead in certain workload types (such as high metadata workloads). 
+* NFSv4.x provides many significant advantages over NFSv3, including:  
     * Better locking concepts (lease-based locking) 
     * Better security (fewer firewall ports needed, standard integration with Kerberos, granular access controls) 
     * More features  
     * Compound NFS operations (multiple commands in a single packet request to reduce network chatter) 
     * TCP-only 
-* NFSv4.x can use a much more robust file permission model that is very similar to Windows NTFS permissions. These granular ACLs can be applied to users or groups and allow for permissions to be set on a much wider range of operations than basic read/write/execute, but it can also use the standard POSIX mode bits that NFSv3 leverages. 
-* Since NFSv4.x does not use ancillary protocols, Kerberos will be applied to the entire NFS conversation when in use. 
-* NFSv4.x uses a combination of user/group names and domain strings to verify user and group information. The client and server must agree on the domain strings for proper user and group authentication to occur. If the domain strings do not match, then the NFS user or group will get squashed to the specified user in the /etc/idmapd.conf file on the NFS client (for example, nobody). 
+* NFSv4.x can use a more robust file permission model that is similar to Windows NTFS permissions. These granular ACLs can be applied to users or groups and allow for permissions to be set on a wider range of operations than basic read/write/execute operations. NFSv4.x can also use the standard POSIX mode bits that NFSv3 leverages. 
+* Since NFSv4.x does not use ancillary protocols, Kerberos is applied to the entire NFS conversation when in use. 
+* NFSv4.x uses a combination of user/group names and domain strings to verify user and group information. The client and server must agree on the domain strings for proper user and group authentication to occur. If the domain strings do not match, then the NFS user or group gets squashed to the specified user in the /etc/idmapd.conf file on the NFS client (for example, nobody). 
 * While NFSv4.x does default to using domain strings, it is possible to configure the client and server to fall back on the classic numeric IDs seen in NFSv3 when AUTH_SYS is in use. 
 * Because NFSv4.x has such deep integration with user and group name strings and because the server and clients must agree on these users/groups, using a name service server for user authentication such as LDAP is highly recommended on NFS clients and servers. 
 
@@ -104,7 +104,7 @@ For frequently asked questions regarding NFS in Azure NetApp Files, see the [Azu
 
 ## Server Message Block 
 
-SMB is primarily used with Windows clients for NAS functionality. However, it can also be used on Linux-based operating systems such as AppleOS, RedHat, etc. This is generally done using an application called Samba. Azure NetApp Files has official support for SMB using Windows and Mac OS. SMB/Samba on Linux operating systems can work with Azure NetApp Files, but there is no official support. 
+SMB is primarily used with Windows clients for NAS functionality. However, it can also be used on Linux-based operating systems such as AppleOS, RedHat, etc. This is generally done using an application called Samba. Azure NetApp Files has official support for SMB using Windows and macOS. SMB/Samba on Linux operating systems can work with Azure NetApp Files, but there is no official support. 
 
 SMB does not have an official RFC standard, but NetApp partners closely with Microsoft to ensure the best possible SMB experience. Azure NetApp Files supports only SMB 2.x and SMB 3.1 versions. 
 
