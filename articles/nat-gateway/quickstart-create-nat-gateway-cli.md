@@ -33,7 +33,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ## Create the NAT gateway
 
-In this section we create the NAT gateway and supporting resources.
+In this section, create the NAT gateway and supporting resources.
 
 ### Create public IP address
 
@@ -50,10 +50,10 @@ To access the Internet, you need one or more public IP addresses for the NAT gat
 
 ### Create NAT gateway resource
 
-Create a Azure NAT gateway with [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The result of this command will create a gateway resource that uses the public IP address defined in the previous step. The idle timeout is set to 10 minutes.  
+Create an Azure NAT gateway with [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The result of this command creates a gateway resource that uses the public IP address defined in the previous step. The idle timeout is set to 10 minutes.  
 
     ```azurecli-interactive
-  az network nat gateway create \
+    az network nat gateway create \
         --resource-group test-rg \
         --name nat-gateway \
         --public-ip-addresses public-ip-nat \
@@ -117,7 +117,7 @@ Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-cr
 
 ### Configure NAT service for source subnet
 
-Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). This command will activate the NAT service on the specified subnet.
+Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). This command activates the NAT service on the specified subnet.
 
     ```azurecli-interactive
     az network vnet subnet update \
