@@ -4,7 +4,7 @@ description: Use environment variables and create options to enable module acces
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/14/2020
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
