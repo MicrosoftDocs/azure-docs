@@ -59,7 +59,7 @@ Azure Network Policy Manager doesn't support IPv6. Otherwise, Azure Network Poli
 
 ## Scale:
 
-With the current limits set on Azure Network Policy Manager for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us on [aks-acn-github] if you'd like to increase your memory limit.
+With the current limits set on Azure Network Policy Manager for Linux, it can scale up to 250 Nodes and 20k Pods. You may see OOM kills beyond this scale. Please reach out to us on [aks-acn-github] if you'd like to increase your memory limit.
 
 ## Create an AKS cluster and enable Network Policy
 
