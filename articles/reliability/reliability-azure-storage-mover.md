@@ -5,7 +5,7 @@ author: johnmic
 ms.author: johnmic
 ms.topic: conceptual
 ms.custom: subject-reliability, references_regions
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.date: 03/21/2023
 ---
 
