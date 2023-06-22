@@ -21,9 +21,28 @@ The Microsoft Sentinel content hub enables discovery and on-demand installation 
 
 ## Content hub changes
 
-To centralize all OOTB content, we're planning to retire the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content stays up to date. The content hub also provides update workflows for solutions and automatic updates for standalone content.
+To centralize all OOTB content, we've retired the gallery-only content templates. The legacy gallery content templates are no longer being updated consistently, and the content hub is where OOTB content stays up to date. The content hub also provides updated workflows for solutions and automatic updates for standalone content.
 
-To facilitate this transition, we're publishing a central tool to reinstate **IN USE** retired templates from corresponding content hub solutions.
+To facilitate this transition, we've published a central tool to reinstate **IN USE** retired templates from corresponding content hub solutions.
+
+## Reinstate IN USE retired templates with central tool
+
+Now that the content hub centralization changes are complete, here's an overview of how to complete the central tool reinstate process.
+
+1. Select the link in the warning banner to reinstate **IN USE** retired, gallery-only content templates.
+
+    This screenshot shows an example of the warning banner found in the **Workbooks** gallery.
+    :::image type="content" source="media/sentinel-content-centralize/warning-banner-with-tool-link.png" alt-text="Screenshot showing orange warning banner with link to initiate central tool." lightbox="media/sentinel-content-centralize/warning-banner-with-tool-link.png"::: 
+
+1. Select the link and read the page carefully.
+
+    :::image type="content" source="media/sentinel-content-centralize/central-tool-reinstate-templates.png" alt-text="Screenshot shows central tool page including details on how to use it." lightbox="media/sentinel-content-centralize/central-tool-reinstate-templates.png" :::
+
+1. Select **Continue** and the list of content the tool generates is ready to install.
+
+    :::image type="content" source="media/sentinel-content-centralize/central-tool-select-all-content.png" alt-text="Screenshot shows the list of content the tool generates.":::
+
+1. Select **Complete Centralization** to start the installation. The selection is fixed and can't be changed.
 
 ## Data connector page change
 
@@ -49,9 +68,9 @@ These changes to the content hub and the Microsoft Sentinel GitHub repo will com
 ## When is this change coming?
 
 > [!IMPORTANT]
-> The following timeline is tentative and subject to change.
+> The centralization change has been rolled out to tenants June 22, 2023.
 
-The centralization change in the Microsoft Sentinel portal is expected to go live in all Microsoft Sentinel workspaces in Q2 2023. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.
+The centralization change in the Microsoft Sentinel portal was expected to go live in all Microsoft Sentinel workspaces in Q2 2023 and has now been deployed. The Microsoft Sentinel GitHub changes have already happened. Standalone content is available in existing GitHub folders, and solution content has been moved to the *Solutions* folder.
 
 The change to the **Next Steps** tab has already been completed. 
 
@@ -82,11 +101,11 @@ This change also doesn't affect any OOTB content templates installed from the co
 
 ### What's changing?
 
-All template galleries will display an in-product warning banner. This banner will contain a link to a tool that will run within the Microsoft Sentinel portal. Activating the tool will start a guided experience to reinstate the content templates for the **IN USE** retired templates from the content hub.
+All template galleries now display an in-product warning banner. This banner contains a link to a tool that will run within the Microsoft Sentinel portal. Activating the tool starts a guided experience to reinstate the content templates for the **IN USE** retired templates from the content hub.
 
 This tool needs to run only once per workspace, so be sure to plan with your organization. After the tool runs successfully, the warning banner will disappear from the template galleries of that workspace.
 
-The following table lists specific impacts to the content templates for each of these galleries. Expect these changes when the OOTB content centralization goes live.
+The following table lists specific impacts to the content templates for each of these galleries. Expect these changes now the OOTB content centralization is live.
 
 | Content type | Impact |
 | ------- | ------- |
@@ -112,10 +131,10 @@ Here's an example of an analytics rule before and after the centralization chang
 
 ## Action needed
 
-- Starting now, install new OOTB content from the content hub and update solutions as needed to have the latest versions of templates.
+- Install new OOTB content from the content hub and update solutions as needed to have the latest versions of templates.
 - For existing gallery content templates in use, get future updates by installing the solutions or standalone content items from the content hub. The gallery content in the feature galleries might be out of date.
 - If you have applications or processes that directly get OOTB content from the Microsoft Sentinel GitHub repository, update the locations to include getting OOTB content from the *Solutions* folder in addition to existing content folders.  
-- Plan with your organization who will run the tool, and when, after you see the warning banner and the change goes live in Q2 2023. The tool needs to run once in a workspace to reinstate all **IN USE** retired templates from the content hub.
+- Plan with your organization who will run the tool, and when, now that the warning banner and the change is live. The tool needs to run once in a workspace to reinstate all **IN USE** retired templates from the content hub.
 - Review the following FAQs to learn more details that might apply to your environment.
 
 ## Content centralization FAQs
