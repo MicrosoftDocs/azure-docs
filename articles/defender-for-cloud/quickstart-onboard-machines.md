@@ -159,6 +159,6 @@ There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 
-- [Protect all of your resources with Defender for Cloud](tutorial-enable-all-plans.md)
+- [Protect all of your resources with Defender for Cloud](enable-all-plans.md)
 
 - Set up your [AWS account](quickstart-onboard-aws.md), [GCP projects](quickstart-onboard-gcp.md).

@@ -80,6 +80,11 @@
     - name: Connect your GCP projects
       displayName: hybrid, multicloud, multicloud, google, gcp
       href: quickstart-onboard-gcp.md
+  - name: Enable all plans
+    displayName: enable, plans, security, protect
+    href: enable-all-plans.md
+
+
 
 - name: Tutorials
   items:
