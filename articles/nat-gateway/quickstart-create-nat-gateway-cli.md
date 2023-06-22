@@ -115,6 +115,8 @@ az network bastion create \
     --location eastus2
 ```
 
+The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
+
 ### Configure NAT service for source subnet
 
 Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). This command activates the NAT service on the specified subnet.
@@ -139,11 +141,12 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).
 az vm create \
     --resource-group test-rg \
     --name vm-1 \
-    --image Canonical:0001-com-ubuntu-server-jammy:jammy:latest \
+    --image Ubuntu2204 \
     --public-ip-address "" \
     --vnet-name vnet-1 \
     --subnet subnet-1 \
-    --admin-username azureuser
+    --admin-username azureuser \
+    --authentication-type password
 ```
 
 Wait for the virtual machine creation to complete before moving on to the next section.
