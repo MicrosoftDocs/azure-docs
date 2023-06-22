@@ -197,14 +197,14 @@ You can have one parameter reference another and compute a certain value with a 
 [[parameter MachineImage]]
     Label = Image
     DefaultValue = image-1000
-    Description = CentOS 5.10
+    Description = Ubuntu 22.04
     Config.Plugin = pico.control.AutoCompleteDropdown
     [[[list Config.Entries]]]
         Name = image-1000
-        Label = CentOS 5.10
+        Label = Ubuntu 20.04
     [[[list Config.Entries]]]
         Name = image-2000
-            Label = CentOS 6.5
+            Label = Ubuntu 22.04
 ```
 
 You can also get the OS version of the chosen image and use it for other configuration by making e a parameter whose value is a lookup table of values:
@@ -213,8 +213,8 @@ You can also get the OS version of the chosen image and use it for other configu
 [[parameter AmiLookup]]
   ParameterType = hidden
   [[[record DefaultValue]]]
-      image-1000 = CentOS_5.10
-      image-2000 = CentOS_6.5
+      image-1000 = Ubuntu 20.04
+      image-2000 = Ubuntu 22.04
 ```
 
 Note that this is hidden, so that it does not appear in the UI.
