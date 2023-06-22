@@ -40,9 +40,9 @@ highlightedContent:
     - title: Understand and work with scopes
       itemType: concept
       url: costs/understand-work-scopes.md
-    - title: Cost Management best practices
+    - title: What is FinOps?
       itemType: concept
-      url: costs/cost-mgt-best-practices.md
+      url: finops/overview-finops.md
 
 productDirectory:
   title: Cost Management
