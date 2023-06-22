@@ -28,8 +28,6 @@ Deploying Azure Cloud Shell in a private VNET offers several benefits:
 ## Things to consider before deploying Azure Cloud Shell in a VNET
 
 - Starting Cloud Shell in a virtual network is typically slower than a standard Cloud Shell session.
-- You can only deploy Cloud Shell to supported primary regions, except Central India.
-  <!-- TODO get link to region doc -->
 - VNET isolation requires you to use [Azure Relay][01], which is a paid service. In the Cloud Shell
   scenario, one hybrid connection is used for each administrator while they're using Cloud Shell.
   The connection is automatically closed when the Cloud Shell session ends.
@@ -39,8 +37,6 @@ Deploying Azure Cloud Shell in a private VNET offers several benefits:
 The following diagram shows the resource architecture that you must build to enable this scenario.
 
 ![Illustrates Cloud Shell isolated VNET architecture.][03]
-
-<!-- describe the blobs in the diagram -->
 
 - **Customer Client Network** - Client users can be located anywhere on the Internet to securely
   access and authenticate to the Azure portal and use Cloud Shell to manage resources contained in
