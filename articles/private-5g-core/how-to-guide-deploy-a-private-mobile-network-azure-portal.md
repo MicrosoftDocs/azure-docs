@@ -91,7 +91,7 @@ You can change the public land mobile network (PLMN) identifier, comprising a Mo
 
 1. Update the MCC and/or MNC as required.
 1. Select **Modify**.
-1. [Reinstall the packet core](reinstall-packet-core.md) to apply the change.
+1. [Reinstall the packet core](reinstall-packet-core.md) to apply the change. If you have multiple packet cores in this mobile network, you will need to reinstall all of them.
 
 ## Next steps
 
