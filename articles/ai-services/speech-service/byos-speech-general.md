@@ -206,14 +206,17 @@ To check BYOS configuration of a Speech resource with Azure portal, you will nee
 
 If *Storage* menu item is missing in the *Resource Management* group, the selected Speech resource is not BYOS-enabled.
 
-# [PowerShell/Azure CLI/REST](#tab/cogsvcapi)
+# [PowerShell](#tab/powershell)
 
-Use the following commands / requests for the Cognitive Services API:
-- PowerShell: [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount).
-- Azure CLI: [az cognitiveservices account show](/cli/azure/cognitiveservices/account).
-- REST request: [Accounts - Get](/rest/api/cognitiveservices/accountmanagement/accounts/get).
+Use the [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount) command. In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
 
-In the command / request output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az cognitiveservices account show](/cli/azure/cognitiveservices/account) command. In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
+
+# [REST](#tab/rest)
+
+Use the [Accounts - Get](/rest/api/cognitiveservices/accountmanagement/accounts/get) request. In the request output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
 
 ***
 
