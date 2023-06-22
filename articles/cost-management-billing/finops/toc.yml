@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is FinOps?
-    href: finops-overview.md
+    href: overview-finops.md
   - name: What's new
     href: https://azure.microsoft.com/blog/tag/finops/
 - name: Tutorials
