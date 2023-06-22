@@ -81,12 +81,22 @@ The following example shows how to configure a webhook and email notification.
 ```powershell
 # Assumining you have already created a profile object and have a vmssName, resourceGroup, and subscriptionId
 
- $webhook=New-AzAutoscaleWebhookNotificationObject  -Property @{"method"='GET'; "headers"= '"Authorization", "tokenvalue-12345678abcdef"'} -ServiceUri "http://myservice.com/webhook-listerner-123"
+ $webhook=New-AzAutoscaleWebhookNotificationObject  `
+-Property @{"method"='GET'; "headers"= '"Authorization", "tokenvalue-12345678abcdef"'} `
+-ServiceUri "http://myservice.com/webhook-listerner-123"
 
-$notification=New-AzAutoscaleNotificationObject -EmailCustomEmail "pdavis@contoso.com" -EmailSendToSubscriptionAdministrator $true -EmailSendToSubscriptionCoAdministrator $true -Webhook $webhook
+$notification=New-AzAutoscaleNotificationObject `
+-EmailCustomEmail "pdavis@contoso.com" `
+-EmailSendToSubscriptionAdministrator $true ` -EmailSendToSubscriptionCoAdministrator $true `
+-Webhook $webhook
 
 
-New-AzAutoscaleSetting -Name autoscalesetting2 -ResourceGroupName $resourceGroup -Location eastus -Profile $profile -Enabled -Notification $notification  -PropertiesName "autoscalesetting" 
+New-AzAutoscaleSetting -Name autoscalesetting2 `
+-ResourceGroupName $resourceGroup `
+-Location eastus `
+-Profile $profile `
+-Enabled -Notification $notification `
+-PropertiesName "autoscalesetting" `
 -TargetResourceUri "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssName"
 ```
 
