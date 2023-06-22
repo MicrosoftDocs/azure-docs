@@ -294,13 +294,13 @@ Before using these settings to help you secure this data, review these considera
 
 1. Based on your logic app resource type, follow these steps on the trigger or action where you want to secure sensitive data:
 
-   **Consumption**
+   **Consumption workflows**
 
    In the trigger or action's upper right corner, select the ellipses (**...**) button, and select **Settings**.
 
    ![Screenshot shows Azure portal, Consumption workflow designer, and trigger or action with opened settings.](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings-consumption.png)
 
-   **Standard**
+   **Standard workflows**
 
    On the designer, select the trigger or action to open the information pane. On the **Settings** tab, expand **Security**.
 
@@ -308,7 +308,7 @@ Before using these settings to help you secure this data, review these considera
 
 1. Turn on either **Secure Inputs**, **Secure Outputs**, or both. For Consumption workflows, make sure to select **Done**.
 
-   **Consumption**
+   **Consumption workflows**
 
    ![Screenshot shows Consumption workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-consumption.png)
 
@@ -316,23 +316,23 @@ Before using these settings to help you secure this data, review these considera
 
    ![Screenshot shows Consumption workflow and an action's title bar with lock icon.](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar-consumption.png)
 
-   **Standard**
+   **Standard workflows**
 
    ![Screenshot shows Standard workflow with an action's Secure Inputs or Secure Outputs settings enabled.](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs-standard.png)
 
    Tokens that represent secured outputs from previous actions also show lock icons. For example, in a subsequent action, after you select a token for a secured output from the dynamic content list, that token shows a lock icon.
 
-   **Consumption**
+   **Consumption workflows**
 
    ![Screenshot shows Consumption workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-consumption.png)
 
-   **Standard**
+   **Standard workflows**
 
    ![Screenshot shows Standard workflow with a subsequent action's dynamic content list open, and the previous action's token for secured output with lock icon.](./media/logic-apps-securing-a-logic-app/select-secured-token-standard.png)
 
 1. After the workflow runs, you can view the history for that run.
 
-   **Consumption**
+   **Consumption workflows**
 
    1. On the logic app menu, select **Overview**. Under **Runs history**, select the run that you want to view.
 
@@ -342,7 +342,7 @@ Before using these settings to help you secure this data, review these considera
 
       ![Screenshot shows Consumption workflow run history view with hidden inputs and outputs.](./media/logic-apps-securing-a-logic-app/hidden-data-run-history-consumption.png)
 
-   **Standard**
+   **Standard workflows**
 
    1. On the workflow menu, select **Overview**. Under **Run History**, select the run that you want to view.
 
