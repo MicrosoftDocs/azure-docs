@@ -39,6 +39,9 @@ landingContent:
       links:
       - text: Data analysis and showback
         url: capabilities-analysis-showback.md
+      - text: Cost allocation
+        url: capabilities-allocation.md
+
 
 # Card (optional)
 

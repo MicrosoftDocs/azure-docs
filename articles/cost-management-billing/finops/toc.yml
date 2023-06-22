@@ -11,6 +11,13 @@
   items:
   - name: Conduct a FinOps iteration
     href: conduct-finops-iteration.md
+- name: Concepts
+  items:
+  - name: Capabilities
+    - name: Data analysis and showback
+      href: capabilities-analysis-showback.md
+    - name: Cost allocation
+      href: capabilities-allocation.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book
