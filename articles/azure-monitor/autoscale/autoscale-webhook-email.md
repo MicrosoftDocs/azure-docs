@@ -23,6 +23,8 @@ Use the Azure portal, CLI, PowerShell, or Resource Manager templates to configur
 
 ### [Portal](#tab/portal)
 
+### Set up notifications using the Azure portal.
+
 Select the **Notify** tab on the autoscale settings page to configure notifications.
 
 Select the check boxes to send an email to the subscription administrator or co-administrators.   You can also enter a list of email addresses to send notifications to.
@@ -34,9 +36,11 @@ Enter a webhook URI to send a notification to a web service. You can also add cu
 
 ### [CLI](#tab/cli)
 
+### Use CLI to configure notifications.
+
 Use the `az monitor autoscale update` or the `az monitor autoscale create` command to configure notifications using Azure CLI.  
 
-The follwoing parameters are used to configure notifications:
+The following parameters are used to configure notifications:
 
 + `--add-action` - The action to take when the autoscale rule is triggered. The value must be `email` or `webhook`.
 + `--email-administrator {false, true}` - Send email to the subscription administrator.
@@ -56,7 +60,7 @@ For example, the following command adds an email notification and a webhook noti
 ```
 
 > [!NOTE]
-> YOu can add mote than one email or webhook notification by using the `--add-action` parameter multiple times. While multiple webhook notifications are supported and can be seen in the JSON, the portal only shows the first webhook.
+> You can add mote than one email or webhook notification by using the `--add-action` parameter multiple times. While multiple webhook notifications are supported and can be seen in the JSON, the portal only shows the first webhook.
 
 
 For more information, see [az monitor autoscale](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest).
@@ -65,13 +69,14 @@ For more information, see [az monitor autoscale](https://learn.microsoft.com/cli
 
 ### [PowerShell](#tab/powershell)
 
-Use powershell to configure notifications.  The following example shows how to configure a webhook and email notification.
+### Use PowerShell to configure notifications. 
+
+The following example shows how to configure a webhook and email notification.
 
 1. Create the webhook object.
 
 1. Create the notification object.
 1. Add the notification object to the autoscale setting using `New-AzAutoscaleSetting` or `Update-AzAutoscaleSetting` cmdlets.
-
 
 ```powershell
 # Assumining you have already created a profile object and have a vmssName, resourceGroup, and subscriptionId
@@ -129,7 +134,7 @@ When you use the Resource Manager templates or REST API, include the `notificati
 ---
 
 ## Authentication in webhooks
-The webhook can authenticate by using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example `https:\//mysamplealert/webcallback?tokenid=123-abc-hij-890&myparameter2="value123"`.
+The webhook can authenticate by using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example,  *https[]()://mysamplealert/webcallback?tokenid=123-abc456-7890&myparameter2=value123*.
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:
