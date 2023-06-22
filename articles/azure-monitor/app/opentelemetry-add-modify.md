@@ -39,7 +39,7 @@ For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/ex
 
 #### [.NET](#tab/net)
 
-The Azure Monitor Exporter does not include any instrumentation libraries.
+The Azure Monitor Exporter doesn't include any instrumentation libraries.
 
 #### [Java](#tab/java)
 
@@ -182,13 +182,13 @@ Examples of using the Python logging library can be found on [GitHub](https://gi
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of *unhandled/uncaught* exceptions
 - <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
 - <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected at INFO level or higher. To change this setting, see the [configuration options](./java-standalone-config.md#autocollected-logging).
-- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected at WARNING level or higher..
+- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected at WARNING level or higher.
 
 > [!NOTE]
 > The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
 
 > [!TIP]
-> The OpenTelemetry-based offerings currently emit all OpenTelemetry metrics as [Custom Metrics](opentelemetry-enable.md#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
+> The OpenTelemetry-based offerings currently emit all OpenTelemetry metrics as [Custom Metrics](opentelemetry-add-modify.md#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
 
 ### Add a community instrumentation library
 
@@ -204,7 +204,7 @@ You can collect more data automatically when you include instrumentation librari
 
 To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
 
-The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect additional metrics.
+The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -219,7 +219,7 @@ app.Run();
 
 ### [.NET](#tab/net)
 
-The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect additional metrics.
+The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
 
 ```csharp
 var metricsProvider = Sdk.CreateMeterProviderBuilder()
@@ -228,7 +228,7 @@ var metricsProvider = Sdk.CreateMeterProviderBuilder()
 ```
 
 ### [Java](#tab/java)
-You cannot extend the Java Distro with community instrumentation libraries. To request that we include another instrumentation library, please open an issue on our GitHub page. You can find a link to our GitHub page in [Next Steps](#next-steps).
+You can't extend the Java Distro with community instrumentation libraries. To request that we include another instrumentation library, open an issue on our GitHub page. You can find a link to our GitHub page in [Next Steps](#next-steps).
 
 ### [Node.js](#tab/nodejs)
 
@@ -880,7 +880,7 @@ app.MapGet("/", () =>
 app.Run();
 ```
 
-When calling `StartActivity` it will default to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+When calling `StartActivity`, it defaults to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
 `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
 `ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
@@ -903,7 +903,7 @@ using (var activity = activitySource.StartActivity("CustomActivity"))
 }
 ```
 
-When calling `StartActivity` it will default to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
+When calling `StartActivity`, it defaults to `ActivityKind.Internal` but you can provide any other `ActivityKind`.
 `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal` are mapped to Application Insights `dependencies`.
 `ActivityKind.Server` and `ActivityKind.Consumer` are mapped to Application Insights `requests`.
 
@@ -1085,11 +1085,11 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there may be 
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-This isn't available in .NET.
+Not available in .NET.
 
 #### [.NET](#tab/net)
 
-This isn't available in .NET.
+Not available in .NET.
 
 #### [Java](#tab/java)
 
@@ -1224,7 +1224,7 @@ Any [attributes](#add-span-attributes) you add to spans are exported as custom p
 
 To add span attributes, use either of the following two ways:
 
-* Use options provided by [instrumentation libraries](#install-the-client-library).
+* Use options provided by [instrumentation libraries](opentelemetry-enable.md#install-the-client-library).
 * Add a custom span processor.
 
 > [!TIP]
@@ -1540,7 +1540,7 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 
 #### [Node.js](#tab/nodejs)
   
-Attributes could be added only when calling manual track APIs only, log attributes for console, bunyan and winston are currently not supported.
+Attributes could be added only when calling manual track APIs only. Log attributes for console, bunyan and winston are currently not supported.
 
 ```javascript
 const config = new ApplicationInsightsConfig();
@@ -1649,7 +1649,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     }
     ```
 
-1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
+1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source are exported.
 
 
 #### [Java](#tab/java)
