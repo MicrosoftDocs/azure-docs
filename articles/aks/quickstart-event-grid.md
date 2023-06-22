@@ -56,7 +56,7 @@ az eventhubs eventhub create --name MyEventGridHub --namespace-name MyNamespace 
 > [!NOTE]
 > The *name* of your namespace must be unique.
 
-Subscribe to the AKS events using [az eventgrid event-subscription create][az-eventgrid-event-subscription-create]:
+Subscribe to the AKS events using [`az eventgrid event-subscription create`][az-eventgrid-event-subscription-create]:
 
 ```azurecli-interactive
 SOURCE_RESOURCE_ID=$(az aks show -g MyResourceGroup -n MyAKS --query id --output tsv)
