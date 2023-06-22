@@ -3,7 +3,7 @@ title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
 ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 06/22/2023
 ---
 
 # Deployment technologies in Azure Functions
@@ -221,12 +221,13 @@ The following table shows the operating systems and languages that support porta
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
-| Python | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|✔<sup>1</sup>|
+| Python<sup>2</sup> | | | |✔ |✔<sup>1</sup> |✔<sup>1</sup> |
 | PowerShell |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
+<sup>1</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
+<sup>2</sup> Portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).
 
 ## Deployment behaviors
 
