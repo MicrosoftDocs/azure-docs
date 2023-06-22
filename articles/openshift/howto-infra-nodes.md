@@ -33,7 +33,7 @@ The following infrastructure workloads don't incur OpenShift Container Platform 
 - Cluster-aggregated logging
 
 > [!IMPORTANT]
-> If workloads other than the allowable types are discovered on the infrastructure nodes, the Service Level Agreement (SLA) will be invalidated and the stability of the cluster may be compromised. 
+> If workloads other than the allowable types are discovered on the infrastructure nodes, the Service Level Agreement (SLA) may be invalidated and the stability of the cluster may be compromised. 
 
 ## Before you begin
 
