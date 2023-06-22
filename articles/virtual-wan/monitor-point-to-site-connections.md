@@ -100,9 +100,9 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
     3. Under **Access policies**, select **+ Create**.
 
    :::image type="content" source="./media/monitor-point-to-site-connections/create-access-policy-screen-1.png" alt-text="Screenshot shows first screen in creating access policy." lightbox="./media/monitor-point-to-site-connections/create-access-policy-screen-1.png" :::
-    1. Select **Next** to go to the **Principal** tab. Type the name of your function app and select it.
-    1. Select **Next** twice to get to the fourth tab: **Review + create** and select **Create** at the bottom.
-    1. You should now see the newly created access policy under the **Access policies** section. Modifying the default values under the **Networking** tab is optional, so select **Review + create** in the bottom left corner.
+    4. Select **Next** to go to the **Principal** tab. Type the name of your function app and select it.
+    5. Select **Next** twice to get to the fourth tab: **Review + create** and select **Create** at the bottom.
+    6. You should now see the newly created access policy under the **Access policies** section. Modifying the default values under the **Networking** tab is optional, so select **Review + create** in the bottom left corner.
 1. Go to **Secrets** under **Objects** under the left panel of the key vault resource. Select **+ Generate/Import** and add secret as follows:
 
    * **Name**: sasuri
