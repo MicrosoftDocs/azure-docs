@@ -26,7 +26,7 @@ The following infrastructure workloads don't incur OpenShift Container Platform 
 
 - The integrated container image registry
 
-- The HAProxy-based Ingress Container
+- The HAProxy-based Ingress Controller
 
 - The cluster metrics collection, or monitoring service, including components for monitoring user-defined projects
 
