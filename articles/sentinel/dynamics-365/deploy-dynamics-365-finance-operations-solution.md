@@ -117,7 +117,7 @@ If you're planning to use the analytics rules provided in this solution, enable 
 
 This screenshot shows the **System** and **Bank accounts** tables under **logging database changes**. 
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables-new.png" alt-text="Screenshot of the selected Finance and Operations database tables to enable auditing." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables-new.png":::
+:::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables-new.png" alt-text="Screenshot of the selected Finance and Operations database tables to enable auditing." lightbox="media/deploy-dynamics-365-finance-operations-solution/finance-and-operations-logging-database-tables-new.png":::
 
 To enable auditing on Finance and Operations tables you want to monitor: 
 
@@ -135,7 +135,7 @@ To enable auditing on Finance and Operations tables you want to monitor:
 
 To verify that log ingestion is working: 
 
-1. Run activities (create, update, delete) on any of the tables you enabled for monitoring in the [previous step](#enable-auditing). 
+1. Run activities (create, update, delete) on any of the tables you enabled for monitoring in the [previous step](#enable-auditing-on-the-relevant-dynamics-365-finance-and-operations-data-tables). 
 1. Wait up to 15 minutes for Microsoft Sentinel to ingest the logs to the logs table in the workspace.
 1. Query the `FinanceOperationsActivity_CL` table in the Microsoft Sentinel workspace under **Logs**. 
 1. Check that the table shows new logs that reflect the activities you executed in step 1 of this procedure. 
