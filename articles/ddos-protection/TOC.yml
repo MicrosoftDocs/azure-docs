@@ -69,7 +69,7 @@
     href: manage-permissions.md   
 - name: How-to guides
   items:
-    - name: Migrate DDoS Protection tiers
+    - name: Switch SKUs
       href: ddos-switch-ddos-protection-sku.md
     - name: Configure Monitoring and Logging
       items:
