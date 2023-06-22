@@ -335,4 +335,4 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 ## Next steps
 
-- [Protect all of your resources with Defender for Cloud](tutorial-enable-all-plans.md)
+- [Protect all of your resources with Defender for Cloud](enable-all-plans.md)

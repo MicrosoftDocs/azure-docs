@@ -84,7 +84,7 @@ Each plan has its own requirements for the native connector.
 
 ### Defender for Servers plan
     
-- Microsoft Defender for Servers enabled on your subscription. Learn how to enable plans in [Enable enhanced security features](tutorial-enable-enhanced-security.md).
+- Microsoft Defender for Servers enabled on your subscription. Learn how to [enable plans](enable-all-plans.md).
     
 - An active AWS account, with EC2 instances.
     
@@ -182,4 +182,4 @@ You can check out the following blogs:
 
 Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud.
 
-- [Protect all of your resources with Defender for Cloud](tutorial-enable-all-plans.md)
+- [Protect all of your resources with Defender for Cloud](enable-all-plans.md)

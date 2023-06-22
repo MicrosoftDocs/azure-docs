@@ -10,7 +10,7 @@ ms.date: 06/22/2023
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Amazon Web Services (AWS), but you'll need to set up the connection between them to your Azure subscription.
 
 > [!NOTE]
-> If you are connecting an AWS account that was previously connected with the classic connector, you must [remove them](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account that is connected by both the classic and native connectors can produce duplicate recommendations.
+> If you are connecting an AWS account that was previously connected with the classic connector, you must [remove them](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account that is connected by both the classic and native connector can produce duplicate recommendations.
 
 This screenshot shows AWS accounts displayed in Defender for Cloud's [overview dashboard](overview-page.md).
 
@@ -34,11 +34,11 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 > [!NOTE]
 > The AWS connector is not available on the national government clouds (Azure Government, Azure China 21Vianet).
 
-- **To enable the Defender for Containers plan**, you'll need:
+- **To enable the Defender for Containers plan**, you need:
   - At least one Amazon EKS cluster with permission to access to the EKS K8s API server. If you need to create a new EKS cluster, follow the instructions in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
   - The resource capacity to create a new SQS queue, Kinesis Fire Hose delivery stream, and S3 bucket in the cluster's region.
 
-- **To enable the Defender for SQL plan**, you'll need:
+- **To enable the Defender for SQL plan**, you need:
 
   - Microsoft Defender for SQL enabled on your subscription. Learn how to [enable protection on all of your databases](quickstart-enable-database-protections.md).
 
@@ -63,7 +63,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
-- **To enable the Defender for Servers plan**, you'll need:
+- **To enable the Defender for Servers plan**, you need:
 
   - Microsoft Defender for Servers enabled on your subscription. Learn how to enable plans in [Enable enhanced security features](enable-enhanced-security.md).
 
@@ -78,7 +78,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
             Ensure that your SSM agent has the managed policy ["AmazonSSMManagedInstanceCore"](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html) that enables AWS Systems Manager service core functionality.
 
         > [!NOTE]
-        > To enable the Azure Arc auto-provisioning, you'll need an **Owner** permission on the relevant Azure subscription.
+        > To enable the Azure Arc auto-provisioning, you need an **Owner** permission on the relevant Azure subscription.
 
         - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
 
@@ -95,9 +95,9 @@ For a reference list of all the recommendations Defender for Cloud can provide f
         > Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage your resources:
         **AccountId**, **Cloud**, **InstanceId**, **MDFCSecurityConnector**
 
-## Connect your AWS account using the native connector
+## Connect your AWS account
 
-**To connect your AWS account to Defender for Cloud with a native connector**:
+**To connect your AWS account to Defender for Cloud**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -213,7 +213,7 @@ There's no need to clean up any resources for this tutorial.
 
 Connecting your AWS account is part of the multicloud experience available in Microsoft Defender for Cloud.
 
-- [Protect all of your resources with Defender for Cloud](tutorial-enable-all-plans.md)
+- [Protect all of your resources with Defender for Cloud](enable-all-plans.md)
 
 - Set up your [on-premises machines](quickstart-onboard-machines.md), [GCP projects](quickstart-onboard-gcp.md).
 - Check out [common questions](faq-general.yml) about onboarding your AWS account.
