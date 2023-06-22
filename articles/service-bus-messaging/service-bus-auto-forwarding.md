@@ -43,7 +43,7 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 - To create a subscription that is chained to another queue or topic, the creator of the subscription must have **Manage** permissions on both the source and the destination entity. Sending messages to the source topic only requires **Send** permissions on the source topic.
 - Don't create a chain that exceeds four hops. Messages that exceed four hops are dead-lettered.
 - Autoforwarding isn't supported for session-enabled queues or subscriptions. 
-- Source queue tries to forward messages to the destination queue or topic in the same order it got, but the destination could be a topic that doesn't support ordering. If either the source or destination entity is a partitioned entity, order isn't guaranteed.
+- Source queue tries to forward messages to the destination entity in the same order it got, but the destination could be a topic that doesn't support ordering. If either the source or destination entity is a partitioned entity, order isn't guaranteed.
 
 ## Next steps
 To learn how to enable or disable auto forwarding in different ways (Azure portal, PowerShell, CLI, Azure Resource Management template, etc.), see [Enable auto forwarding for queues and subscriptions](enable-auto-forward.md).
