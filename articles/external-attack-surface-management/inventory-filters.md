@@ -43,7 +43,7 @@ To save a query:
 
 4. To view your saved filters, select the "Saved queries" tab at the top of the inventory list page. Any saved queries will be visible from the top section, and selecting "Open query" will filter your inventory by the designated parameters. From this page, you can also edit or delete saved queries. 
 
-    ![Screenshot of saved query tab on inventory with save confirmation banner displayed.](media/saved-filters-3.png)
+    ![Screenshot of saved query tab on inventory with save confirmation banner displayed.](media/saved-filters-3.png) 
 
 
 ## Operators
