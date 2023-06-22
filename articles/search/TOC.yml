@@ -142,7 +142,13 @@
       - name: Semantic search
         href: semantic-search-overview.md
       - name: Semantic ranking
-        href: semantic-ranking.md
+        href: semantic-ranking.md 
+    - name: Vectors
+      items:
+      - name: Vector search
+        href: vector-search-overview.md
+      - name: Vector index size
+        href: vector-search-index-size.md
   - name: Indexing
     items:
     - name: Search indexes
