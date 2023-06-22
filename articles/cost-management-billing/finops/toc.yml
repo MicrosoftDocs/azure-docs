@@ -14,6 +14,7 @@
 - name: Concepts
   items:
   - name: Capabilities
+    items:
     - name: Data analysis and showback
       href: capabilities-analysis-showback.md
     - name: Cost allocation
