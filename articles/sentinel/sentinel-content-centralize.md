@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article describes upcoming centralization changes for out-of-the-box content in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 06/22/2023
 ms.author: austinmc
 #Customer intent: As a SIEM decision maker or implementer, I want to know about changes to out-of-the-box content, and how to centralize the management, discovery, and inventory of content in Microsoft Sentinel.
 ---
@@ -29,7 +29,7 @@ To facilitate this transition, we're publishing a central tool to reinstate **IN
 
 All data connectors are now part of a solution. Previously, in order to promote dashboard visualizations (now called workbooks) and provide sample KQL queries, we included a few of these items on a **Next Steps** tab of the data connector page. We have deprecated the **Next Steps** portion of the data connector page in favor of the new *solution* content behavior where all the solution components are managed alongside the data connector. 
 
-The key to experiencing the updated behavior is to start in **Content hub (Preview)**. For a comparison of the previous behavior with the new experience, examine the **Azure Activity** data connector. After installing the solution from content hub and selecting **Manage**, the entire solution is available for inspection. If you want a visualization of the Azure Activity data connector, view the template for the workbook. If you want to see KQL queries, start with the data table. For advanced queries, look to the analytics rules and hunting queries.
+The key to experiencing the updated behavior is to start in **Content hub**. For a comparison of the previous behavior with the new experience, examine the **Azure Activity** data connector. After installing the solution from content hub and selecting **Manage**, the entire solution is available for inspection. If you want a visualization of the Azure Activity data connector, view the template for the workbook. If you want to see KQL queries, start with the data table. For advanced queries, look to the analytics rules and hunting queries.
 
 For more information on the new solution content behavior, see [Discover and deploy OOTB content](sentinel-solutions-deploy.md#enable-content-items-in-a-solution).
 
