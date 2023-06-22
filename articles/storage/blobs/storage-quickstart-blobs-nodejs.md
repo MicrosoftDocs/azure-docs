@@ -5,7 +5,6 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/28/2022
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js

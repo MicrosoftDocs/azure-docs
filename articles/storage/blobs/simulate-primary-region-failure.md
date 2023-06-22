@@ -5,7 +5,6 @@ description: Simulate an error in reading data from the primary region when the 
 author: pauljewellmsft
 
 ms.service: storage
-ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 09/06/2022
 ms.author: pauljewell
