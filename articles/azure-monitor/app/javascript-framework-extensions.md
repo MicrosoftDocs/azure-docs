@@ -361,13 +361,13 @@ extensionConfig: {
 
 ### [React](#tab/react)
 
-### Configuration
+### React router configuration
 
-| Name    | Default | Description                                                                                                    |
-|---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). |
+| Name    | Type   | Required? | Default | Type Description |
+|---------|--------|-----------|---------|------------------|
+| history | object | Optional  | null    | Track detailed router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>Most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration), which collects basic details about page views, to track route history. For advanaced users want more detailed router history, the `history` object collects every piece of information for the router change history to provide more details and accuracy. If both configurations are declared, the `enableAutoRouteTracking` field overrides the `history` object.<br><br>***Note***: If you’re using `react-router v6` or later, the `history` object is not available. |
 
-#### React components usage tracking
+### React components usage tracking
 
 To instrument various React components usage tracking, apply the `withAITracking` higher-order component function.
 
