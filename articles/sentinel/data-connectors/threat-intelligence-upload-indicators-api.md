@@ -50,20 +50,22 @@ Follow These Steps to Connect to your Threat Intelligence:
 
 You can send indicators by calling our Upload Indicators API. For more information about the API, click [here](/azure/sentinel/upload-indicators-api). 
 
->HTTP method: POST 
+```http
 
->Endpoint: https://sentinelus.azure-api.net/workspaces/[WorkspaceID]/threatintelligenceindicators:upload?api-version=2022-07-01  
+HTTP method: POST 
 
->WorkspaceID: the workspace that the indicators are uploaded to.  
+Endpoint: https://sentinelus.azure-api.net/workspaces/[WorkspaceID]/threatintelligenceindicators:upload?api-version=2022-07-01  
+
+WorkspaceID: the workspace that the indicators are uploaded to.  
 
 
->Header Value 1: "Authorization" = "Bearer [AAD Access Token from step 1]" 
+Header Value 1: "Authorization" = "Bearer [AAD Access Token from step 1]" 
 
 
-> Header Value 2: "Content-Type" = "application/json"  
+Header Value 2: "Content-Type" = "application/json"  
  
->Body: The body is a JSON object containing an array of indicators in STIX format.'title : 2. Send indicators to Sentinel'
-
+Body: The body is a JSON object containing an array of indicators in STIX format.'title : 2. Send indicators to Sentinel'
+```
 
 
 ## Next steps
