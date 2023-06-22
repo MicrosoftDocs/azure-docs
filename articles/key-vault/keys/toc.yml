@@ -52,7 +52,7 @@ items:
     - name: Get Started
       href: javascript-developer-guide-get-started.md
     - name: Create, rotate, import key
-      href: javascript-developer-guide-add-rotate-key.md
+      href: javascript-developer-guide-create-rotate-import.md
     - name: Encrypt, decrypt key
       href: javascript-developer-guide-encrypt-decrypt-key.md
     - name: Sign, verify with key

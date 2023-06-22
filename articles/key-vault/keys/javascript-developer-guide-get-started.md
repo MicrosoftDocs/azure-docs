@@ -19,7 +19,7 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
   
 ## Prerequisites  
   
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free).
 - [Azure Key Vault](../general/quick-create-cli.md) instance. Review [the access policies](../general/assign-access-policy.md) on your Key Vault to include the permissions necessary for the specific tasks performed in code.
 - [Node.js version LTS](https://nodejs.org/)  
 
@@ -82,38 +82,37 @@ If you need the value of the KeyVaultKey, use methods that return the [KeyVaultK
 
 * [getKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-getkey)
 
+## Create a KeyClient object
 
-## Create a SecretClient object
+The KeyClient object is the top object in the SDK. This client allows you to manipulate the keys.
 
-The SecretClient object is the top object in the SDK. This client allows you to manipulate the secrets.
-
-Once your Azure Key Vault access roles and your local environment are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) object.
+Once your Azure Key Vault access roles and your local environment are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keyss/keyclient) object.
 
 ```javascript
 // Include required dependencies
 import { DefaultAzureCredential } from '@azure/identity';  
-import { SecretClient } from '@azure/keyvault-secrets';  
+import { KeyClient } from '@azure/keyvault-keys';  
 
 // Authenticate to Azure
 const credential = new DefaultAzureCredential(); 
 
-// Create SecretClient
+// Create KeyClient
 const vaultName = '<your-vault-name>';  
 const url = `https://${vaultName}.vault.azure.net`;  
-const client = new SecretClient(url, credential);  
+const client = new KeyClient(url, credential);  
 
-// Get secret
-const secret = await client.getSecret("MySecretName");
+// Get key
+const key = await client.getKey("MyKeyName");
 ```
 
 ## See also
 
-- [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
-- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.7.0/sdk/keyvault/keyvault-secrets/samples)
-- [API reference](/javascript/api/overview/azure/keyvault-secrets-readme)
-- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.7.0/sdk/keyvault/keyvault-secrets)
+- [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-keys)
+- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys/samples/v4)
+- [API reference](/javascript/api/overview/azure/keyvault-keys-readme)
+- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Next steps
 
-* [Add a secret](javascript-developer-guide-set-update-rotate-secret.md)
+* [Create a key](javascript-developer-guide-create-rotate-import-key.md)

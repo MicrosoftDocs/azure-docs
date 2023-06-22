@@ -16,111 +16,119 @@ ms.author: mbaldwin
 
 Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to set, update, and rotate a key in Azure Key Vault.
 
-## Set a key
 
-To set a key in Azure Key Vault, use the [setKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-setkey) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. 
+## Create a key with a rotation policy
 
-The key value type is a string. The initial value can be anything that can be serialized to a string such as JSON or BASE64 encoded data. You need to provide the serialization before setting the key in the Key Vault and deserialization after getting the key from the Key Vault.
-
-```javascript
-const name = 'myKey';
-const value = 'myKeyValue'; // or JSON.stringify({'key':'value'})
-
-const { name, value, properties } = await client.setKey(
-    keyName,
-    keyValue
-); 
-```
-
-When you create the key, the [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) response includes a [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object that includes the key's metadata such as:
-
-* `createdOn`: UTC date and time the key was created. 
-* `id`: Key's full URL.
-* `recoverableDays`: Number of days the key can be recovered after deletion.
-* `recoveryLevel`: Values include: 'Purgeable', 'Recoverable+Purgeable', 'Recoverable', 'Recoverable+ProtectedSubscription'. 
-* `updatedOn`: UTC date and time the key was last updated.
-* `version`: Key's version. 
-
-## Set a key with properties
-
-Use the [setKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-setkey) method of the KeyClient class with the [SetKeyOptions](/javascript/api/@azure/keyvault-keys/setkeyoptions) to include optional parameters that live with the key such as: 
-
-* `contentType`: Your representation and understanding of the key's content type. Suggestions for use include a native type, your own custom TypeScript type, or a MIME type. This value is visible in the Azure portal.
-* `enabled`: Defaults to true.
-* `expiresOn`: UTC date and time the key expires.
-* `notBefore`: UTC date and time before which the key can't be used.
-* `tags`: Custom name/value pairs that you can use to associate with the key.
+To create a key in Azure Key Vault, use the [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. After the key is created, update the key with a rotation policy. 
 
 ```javascript
-const name = 'myKey';
-const value = JSON.stringify({
-    'mykey':'myvalue', 
-    'myEndpoint':'https://myendpoint.com'
-});
-const keyOptions = {
-    // example options
-    contentType: 'application/json',
-    tags: { 
-        project: 'test-cluster', 
-        owner: 'jmclane',
-        team: 'devops'
-    }
+// Azure client libraries
+import { DefaultAzureCredential } from '@azure/identity';
+import {
+  CreateKeyOptions,
+  KeyClient,
+  KeyRotationPolicyProperties,
+  KnownKeyOperations,
+  KnownKeyTypes
+} from '@azure/keyvault-keys';
+
+// Day/time manipulation
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+dayjs.extend(duration);
+
+
+// Authenticate to Azure Key Vault
+const credential = new DefaultAzureCredential();
+const client = new KeyClient(
+`https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+credential
+);
+
+// Name of key
+const timestamp: string = Date.now().toString();
+const keyName = `mykey-${timestamp}`;
+
+// Set key options
+const keyOptions: CreateKeyOptions = {
+enabled: true,
+expiresOn: dayjs().add(1, 'year').toDate(),
+exportable: false,
+tags: {
+    project: 'test-project'
+},
+keySize: 2048,
+keyOps: [
+    KnownKeyOperations.Encrypt,
+    KnownKeyOperations.Decrypt
+    // KnownKeyOperations.Verify,
+    // KnownKeyOperations.Sign,
+    // KnownKeyOperations.Import,
+    // KnownKeyOperations.WrapKey,
+    // KnownKeyOperations.UnwrapKey
+]
 };
 
-const { name, value, properties } = await client.setKey(
-    keyName,
-    keyValue, 
-    keyOptions
-);
+// Set key type
+const keyType = KnownKeyTypes.RSA; //  'EC', 'EC-HSM', 'RSA', 'RSA-HSM', 'oct', 'oct-HSM'
+
+// Create key
+const key = await client.createKey(keyName, keyType, keyOptions);
+if (key) {
+    // Set rotation policy properties: KeyRotationPolicyProperties
+    const rotationPolicyProperties: KeyRotationPolicyProperties = {
+        expiresIn: 'P90D',
+        lifetimeActions: [
+        {
+            action: 'Rotate',
+            timeAfterCreate: 'P30D'
+        },
+        {
+            action: 'Notify',
+            timeBeforeExpiry: dayjs.duration({ days: 7 }).toISOString()
+        }
+        ]
+    };
+    
+    // Set rotation policy: KeyRotationPolicy
+    const keyRotationPolicy = await client.updateKeyRotationPolicy(
+        key.name,
+        rotationPolicyProperties
+    );
+    console.log(keyRotationPolicy);
+}
 ```
 
-This method returns the [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) object. 
+## Manually rotate key
 
-## Update key value
-
-To update a **key value**, use the [setKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-setkey) method shown in the [previous section](#set-a-key-with-properties). Make sure to pass the new value as a string and _all_ the properties you want to keep from the current version of the key. Any current properties not set in additional calls to setKey will be lost. 
-
-This generates a new version of a key. The returned [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object includes the new version Id.
-
-## Update key properties
-
-To update a key's properties, use the [updateKeyProperties](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-updatekeyproperties) method of the KeyClient class. Properties that aren't specified in the request are left unchanged. The value of a key itself can't be changed. This operation requires the keys/set permission.
+To rotate a key means to create a new version of the key. The previous version isn't deleted, but it's no longer the active version.
 
 ```javascript
-const name = 'myKey';
+// Azure client libraries
+import { DefaultAzureCredential } from '@azure/identity';
+import {
+  KeyClient
+} from '@azure/keyvault-keys';
 
-// Update tags
-const updatedTagName = 'existingTag';
-const updatedTagValue = key.properties.version.tags[updatedTagName] + ' additional information';
-
-// Use version from existing key
-const version = key.properties.version;
-
-// Options to update
-const keyOptions = {
-    tags: {
-        'newTag': 'newTagValue', // Set new tag
-        'updatedTag': updatedTagValue // Update existing tag
-    },
-    enabled: false
-}
-
-// Update key's properties - doesn't change key name or value
-const properties = await client.updateKeyProperties(
-    keyName,
-    keyVersion,
-    keyOptions,
+// Authenticate to Azure Key Vault
+const credential = new DefaultAzureCredential();
+const client = new KeyClient(
+`https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+credential
 );
+
+const keyName = `MyKey`
+
+// Get key
+let key = await client.getKey(keyName);
+console.log(key);
+
+if(key?.name){
+
+key = await client.rotateKey(key.name);
+console.log(key);
+}
 ```
-
-This method returns the [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object. 
-
-## Rotate a key
-
-To rotate a key, you need to create an Event Grid event subscription for KeyNearExpiry event and provide the rotation functionality that should be called with the event triggers. Use one of the following tutorials **Automate the rotation of a key for resources** that use:
-
-* [One set of authentication credentials](tutorial-rotation.md)
-* [Two sets of authentication credentials](tutorial-rotation-dual.md)
 
 ## Next steps
 

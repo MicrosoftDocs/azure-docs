@@ -36,7 +36,7 @@ const myAlgorithm = KnownEncryptionAlgorithms.RSAOaep256
 
 ## Get encryption key
 
-[Create]() or [get]() your [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) encryption key from the Key Vault to use with encryption and decription.
+[Create]() or [get]() your [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) encryption key from the Key Vault to use with encryption and decryption.
 
 ## Encrypt and decrypt with a key
 
@@ -46,7 +46,7 @@ Encryption requires one of the following parameter objects:
 * [AesGcmEncryptParameters](/javascript/api/@azure/keyvault-keys/aesgcmdecryptparameters)
 * [AesCbcEncryptParameters](/javascript/api/@azure/keyvault-keys/aescbcencryptparameters)
 
-All three parameter objects require the `algorithm` and the `plaintext` used to encrypt. An examample of RSA encryption parameters is shown below.
+All three parameter objects require the `algorithm` and the `plaintext` used to encrypt. An example of RSA encryption parameters is shown below.
 
 ```javascript
 import { DefaultAzureCredential } from '@azure/identity';
