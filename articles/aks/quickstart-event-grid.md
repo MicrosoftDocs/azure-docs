@@ -33,7 +33,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus  --node-count 1 --ge
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
+Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] command. The following example creates a resource group *MyResourceGroup* and a cluster named *MyAKS* with one node in the *MyResourceGroup* resource group:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyResourceGroup -Location eastus
