@@ -95,7 +95,7 @@ sections:
       - question: |
           What are the various vaults supported for backup and restore?
         answer: |
-          [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) and [Backup vault](backup/backup-vault-overview.md) are both supported in Azure Backup, and target the backup and restore of different datasources. You need to create the appropriate vault based on the datasource type that you want to protect.
+          [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) and [Backup vault](backup-vault-overview.md) are both supported in Azure Backup, and target the backup and restore of different datasources. You need to create the appropriate vault based on the datasource type that you want to protect.
 
           The following table lists the various datasources that each vault supports:
 
