@@ -20,7 +20,7 @@ Use Vector Search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate y
 
 ## What is vector search?
 
-Vector search is a method that helps you find similar items based on their data characteristics rather than exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It works by taking the vector representations (lists of numbers) of your data that you have created by using a machine learning model or an embeddings API. Examples of embeddings APIs are [Azure OpenAI Embeddings](../../../cognitive-services/openai/how-to/embeddings.md) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). It then measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
+Vector search is a method that helps you find similar items based on their data characteristics rather than by exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It works by taking the vector representations (lists of numbers) of your data that you created by using a machine learning model by using or an embeddings API. Examples of embeddings APIs are [Azure OpenAI Embeddings](/azure/cognitive-services/openai/how-to/embeddings) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). It then measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
 
 By integrating vector search capabilities natively, you can unlock the full potential of your data in applications that are built on top of the OpenAI API. You can also create custom-built solutions that use vector embeddings.
 
@@ -89,7 +89,7 @@ This command creates a `vector-ivf` index against the `vectorContent` property i
 
 ### Add vectors to your database
 
-To add vectors to your database's collection, you first need to create the embeddings by using your own model, [Azure OpenAI Embeddings](https://github.com/cognitive-services/openai/tutorials/embeddings.md), or another API (such as [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/)). In this example, new documents are added via sample embeddings:
+To add vectors to your database's collection, you first need to create the embeddings by using your own model, [Azure OpenAI Embeddings](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/cognitive-services/openai/tutorials/embeddings.md), or another API (such as [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/)). In this example, new documents are added through sample embeddings:
 
 ```javascript
 db.exampleCollection.insertMany([
