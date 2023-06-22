@@ -124,9 +124,7 @@ The following links provide additional information on how to add a CNAME record 
 
 Click **Next** once you've completed this step. 
     :::image type="content" source="./media/email-domains-custom-spf.png" alt-text="Screenshot that shows the D N S records that you need to add for S P F validation for your verified domains.":::
-
     :::image type="content" source="./media/email-domains-custom-dkim-1.png" alt-text="Screenshot that shows the D N S records that you need to add for D K I M.":::
-
     :::image type="content" source="./media/email-domains-custom-dkim-2.png" alt-text="Screenshot that shows the D N S records that you need to add for additional D K I M records.":::
 
 3. Verify that TXT and CNAME records are created successfully in your DNS and Click **Done**
