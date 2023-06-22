@@ -89,7 +89,7 @@ See our [documentation on vector index size](./vector-search-index-size.md) for 
 
 ### Services created after July 1st, 2023 in supported regions
 
-Azure Cognitive Search is rolling out increased vector index size limits worldwide for **new search services**, but we're building out infrastructure capacity in certain regions. Unfortunately, we don't offer migration of existing services to the new limits.
+Azure Cognitive Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services cannot be migrated to the new limits.
 
 The following regions **do not** support increased limits:
 
