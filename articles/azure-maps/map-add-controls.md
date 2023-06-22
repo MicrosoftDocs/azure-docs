@@ -145,7 +145,7 @@ See the following articles for full code:
 [PitchControl]: /javascript/api/azure-maps-control/atlas.control.pitchcontrol
 [CompassControl]: /javascript/api/azure-maps-control/atlas.control.compasscontrol
 [StyleControl]: /javascript/api/azure-maps-control/atlas.control.stylecontrol
-[Navigation Control Options]: https://samples.azuremaps.com/?search=Map%20Navigation%20Control%20Options&sample=map-navigation-control-options
+[Navigation Control Options]: https://samples.azuremaps.com/controls/map-navigation-control-options
 [choose a map style]: choose-map-style.md
 [Add a pin]: map-add-pin.md
 [Add a popup]: map-add-popup.md

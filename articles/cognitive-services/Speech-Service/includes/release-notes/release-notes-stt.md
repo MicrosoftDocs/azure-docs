@@ -211,7 +211,7 @@ Speech to text released 26 new locales in August: 2 European languages `cs-CZ` a
 | Locale  | Language                          |
 |---------|-----------------------------------|
 | `cs-CZ` | Czech (Czech Republic)            |
-| `en-HK` | English (Hong Kong)               |
+| `en-HK` | English (Hong Kong Special Administrative Region)               |
 | `en-IE` | English (Ireland)                 |
 | `en-PH` | English (Philippines)             |
 | `en-SG` | English (Singapore)               |

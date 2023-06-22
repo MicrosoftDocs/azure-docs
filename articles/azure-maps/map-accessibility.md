@@ -178,6 +178,6 @@ Take a look at these useful accessibility tools:
 > [!div class="nextstepaction"]
 > [No Coffee Vision Simulator](https://uxpro.cc/toolbox/nocoffee/)
 
-[Accessible popups]: https://samples.azuremaps.com/?search=keyboard&sample=accessible-popups
+[Accessible popups]: https://samples.azuremaps.com/popups/accessible-popups
 [Accessibility Conformance Reports]: https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/
 [Accessible Rich Internet Applications (ARIA)]: https://www.w3.org/WAI/standards-guidelines/aria/
