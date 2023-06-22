@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Sensor partner integration flow
 
-The below section of this document talks about the onboarding steps needed to integrate with Data Manager for Agriculture, the APIs used to create models & sensors, telemetry format to push the data and finally the IOTHub based data ingestion.
+This document talks about the onboarding steps that a partner needs to take to  integrate with Data Manager for Agriculture. It presents an overview of the APIs used to create models & list sensor,  telemetry format to push the data and finally the IOTHub based data ingestion.
 
 ## Onboarding
 
@@ -84,7 +84,7 @@ The customer has made Data Manager for Agriculture aware that they need to get s
     * API endpoint (can be extracted from the first part of the integration link)
     * IntegrationId (is returned as part of the response to GET call)
     
-    After validating and storing these data points, partners can start allowing customers to add sensors for which they want the data to be pushed into Data Manager for Agriculture.
+    Once partner validates and stores these data points, they can enable customers to add sensors for which the customers wants data to be pushed into Data Manager for Agriculture.
 
 2. **Add sensors/devices** – Now, the partner knows for which customer (API endpoint) do they need to integrate with, however, they still don’t know for which all sensors do they need to push the data. Hence, partners will collect the sensor/device information for which the data needs to be pushed. This data can be collected either manually or through portal UI.
 
@@ -209,7 +209,7 @@ Get IoTHub connection string to push sensor telemetry to the platform for the Se
 API Documentation: [Sensors - Get Connection String](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensors/get-connection-string)
 
 #### Push Data using IoT Hub SDK
-Use [IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks) to push the telemetry using the connection string.
+Use [IoT Hub Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks) to push the telemetry using the connection string.
 
 For all sensor telemetry events, "timestamp" is a mandatory property and has to be in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
 
