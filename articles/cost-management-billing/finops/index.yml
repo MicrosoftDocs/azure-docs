@@ -43,6 +43,8 @@ landingContent:
         url: capabilities-allocation.md
       - text: Managing shared cost
         url: capabilities-shared-cost.md
+      - text: Data ingestion and normalization
+        url: capabilities-ingestion-normalization.md
 
 
 # Card (optional)

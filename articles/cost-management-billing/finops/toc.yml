@@ -13,12 +13,16 @@
     href: conduct-finops-iteration.md
 - name: Concepts
   items:
-  - name: Data analysis and showback
-    href: capabilities-analysis-showback.md
-  - name: Cost allocation
-    href: capabilities-allocation.md
-  - name: Managing shared cost
-    href: capabilities-shared-cost.md
+  - name: Understanding cloud usage + cost
+    items:
+    - name: Data analysis and showback
+      href: capabilities-analysis-showback.md
+    - name: Cost allocation
+      href: capabilities-allocation.md
+    - name: Managing shared cost
+      href: capabilities-shared-cost.md
+    - name: Data ingestion and normalization
+      href: capabilities-ingestion-normalization.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book
