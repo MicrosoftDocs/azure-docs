@@ -190,7 +190,7 @@ To use this plugin, you need to construct the plugin and add it as an `extension
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-
+***Tagging as the Line 193 referenced in this comment: https://github.com/MicrosoftDocs/azure-docs-pr/pull/242592#discussion_r1238825427 ***
 var RNPlugin = new ReactNativePlugin();
 // Add the Click Analytics plug-in.
 /* var clickPluginInstance = new ClickAnalyticsPlugin();
@@ -272,6 +272,7 @@ Set up an instance of Application Insights in the entry component in your app:
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+***Tagging as the Line 274 referenced in this comment: https://github.com/MicrosoftDocs/azure-docs-pr/pull/242592#discussion_r1238825427 ***
 import { Router } from '@angular/router';
 
 @Component({
