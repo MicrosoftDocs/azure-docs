@@ -149,7 +149,7 @@
   - name: Partner Solutions
     items:
     - name: Overview
-      href: partner-pages/partner-pages-index.yml
+      href: partner-pages/partner-pages-index.md
     - name: Anjuna
       href: partner-pages/anjuna.md
     - name: BeeKeeperAI
@@ -168,7 +168,7 @@
         href: how-to-fortanix-confidential-computing-manager-node-agent.md
     - name: Habu
       href: partner-pages/habu.md
-    - name: Mithril Secuerity
+    - name: Mithril Security
       href: partner-pages/mithril.md
     - name: Opaque
       href: partner-pages/opaque.md
