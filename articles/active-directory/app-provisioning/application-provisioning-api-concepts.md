@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/08/2023
+ms.date: 06/22/2023
 ms.author: jfields
 ms.reviewer: chmutali
 ---
@@ -48,7 +48,7 @@ Partners who specialize in reading data from HR systems can build an integration
 3. Developer builds API client to send HR data to Azure AD.
 4. The API client reads HR data from CSV/SQL or any HR system.
 5. The API client sends a POST request to the Azure AD Provisioning Service. The data is a SCIM Bulk Request.
-6. If successful, an ``Accepted 202 Status`` is returned. 
+6. If successful, an ```Accepted 202 Status``` is returned. 
 7. The Azure AD Provisioning Service then waits for the next sync cycle to apply attribute mappings and process data.
 8. The user is provisioned into AD or Azure AD.
 9. The API Client then queries the provisioning logs API endpoint for the status of each record sent.
@@ -85,23 +85,22 @@ How this issue impacts your testing: If you need to upload 100 users using the A
 <td>None.</td>
 </tr>
 <tr>
-<td><!-- platform-navigation --> <strong>2.</td>
+<td><strong>2.</td>
 <td>The sync cycle that processes incoming requests runs every 40 minutes. 
 How this issue impacts your testing: After you send a SCIM bulk request to the API endpoint, at maximum it could take 40 minutes before you can start the verification process. </td>
 <td>While testing, if you want to process a request payload faster, you can stop and start the provisioning job from the portal. In a future release, we anticipate provision-on-demand capability.</td>
 </tr>
 <tr>
-<td><!-- platform-navigation --> <strong>3.</td>
+<td><strong>3.</td>
 <td>On-premises AD as target directory isn't yet supported.</td>
 <td> None. We plan to support on-premises AD as target directory in the next iteration. The API usage model remains the same. So, you can still proceed with the testing using Azure AD to get familiar with the APIs. </td>
 </tr>
 <tr>
 <td><strong>4.</td>
-<td>The provisioning service doesn't check for duplication ``userPrincipalName`` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. </td>
-<td>Update the sync rule to use the [RandomString](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data#randomstring) function. Example:
+<td>The provisioning service doesn't check for duplication ```userPrincipalName``` (UPN) and handle conflicts. If the default sync rule for UPN attribute generates an existing UPN value, then the user create operation fails. </td>
+<td>Update the sync rule to use the [RandomString](functions-for-customizing-application-data.md) function. Example:
 
 ```
-csharp
 {Join ("", Replace([userName],
 "(?<Suffix>@(.)*)", "Suffix", 
 "", , ), RandomString(3, 3, 0, 0, 0, )",
@@ -118,8 +117,8 @@ How this issue impacts your testing: Application Administrator is a broad role a
 <td>None. In a future release, we intend to provide a more granular application scope to invoke this API.</td></tr>
 <tr>
 <td><strong>6.</td>
-<td>Certain attributes like mail or ``extensionAttributes`` mastered by Exchange Online can't be updated using inbound provisioning. 
-How this issue impacts your testing: If you include the mail attribute in the mapping, it's ignored. Trying to update ``extensionAttributes`` mastered by Exchange Online causes an error.</td>
+<td>Certain attributes like mail or ```extensionAttributes``` mastered by Exchange Online can't be updated using inbound provisioning. 
+How this issue impacts your testing: If you include the mail attribute in the mapping, it's ignored. Trying to update ```extensionAttributes``` mastered by Exchange Online causes an error.</td>
 <td>None. This behavior is by design.</td>
 </tr>
 </tbody>

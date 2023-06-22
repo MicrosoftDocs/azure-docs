@@ -40,6 +40,8 @@ items:
   - name: Concepts
     expanded: true
     items: 
+     - name: Inbound User Provisioning API concepts
+       href: application-provisioning-api-concepts.md
      - name: How application provisioning works
        href: how-provisioning-works.md
      - name: Plan an application provisioning deployment
@@ -141,6 +143,8 @@ items:
       href: on-premises-ldap-connector-prepare-directory.md
   - name: Resources
     items:
+    - name: Frequently asked questions (FAQs) about the Inbound Provisioning API 
+      href: faqs.md
     - name: Support and help options for developers
       href: ../develop/developer-support-help-options.md
     - name: Azure feedback forum
