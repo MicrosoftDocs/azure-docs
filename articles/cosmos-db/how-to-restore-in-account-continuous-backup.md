@@ -39,13 +39,13 @@ Use the Azure portal to restore a deleted container or database. Child container
 1. Go to your Azure Cosmos DB account and open the **Point In Time Restore** page.
 
     > [!NOTE]
-    > The restore page in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about this permission, see [backup and restore permissions](continuous-backup-restore-permissions.md).
+    > The restore page in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about this permission, see [Backup and restore permissions](continuous-backup-restore-permissions.md).
 
-1. Switch to the **Restore to same account** tab.
+1. Select the **Restore to same account** tab.
 
     :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" lightbox="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" alt-text="Screenshot of the options to restore a database or container to the same account.":::
 
-1. In the **Database** field, enter a search query to filter the event feed to relevant deletion events for either a container or database.
+1. For **Database**, enter a search query to filter the event feed for relevant deletion events for either a container or a database.
 
     :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" alt-text="Screenshot of the event filter showing deletion events for containers and databases.":::
 
@@ -58,17 +58,17 @@ Use the Azure portal to restore a deleted container or database. Child container
 
 1. Select **Refresh** to update the list of events on different resource types with your filters applied.
 
-1. Verify the time and select **Restore** to start restoration of the selected resource that was previously deleted.
+1. Verify the time, and then select **Restore** to start restoration of the selected resource that was previously deleted.
 
     :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" alt-text="Screenshot of the confirmation dialog prior to a restore operation.":::
 
     > [!IMPORTANT]
-    > No more than three restore operations can be active at any given time on the same account. Deleting the source account while a restore operation is in-progress could result in the failure of the restore operation.
+    > No more than three restore operations can be active at any given time on the same account. Deleting the source account while a restore operation is in progress might result in the failure of the restore operation.
 
     > [!NOTE]
     > The event feed displays resources as **Not restorable**. The feed provides more information about why the resource can't be restored. In most cases, you must restore the parent database before you can restore any of the database's child containers.
 
-1. After you initiate a restore operation, track the operation using the notifications area of the Azure portal. The notification provides the status of the resource being restored. While restore is in progress, the status of the container is **Creating**. After the restore operation completes, the status will change to **Online**.
+1. After you initiate a restore operation, track the operation by using the notifications area of the Azure portal. The notification provides the status of the resource that's being restored. While restore is in progress, the status of the container is **Creating**. After the restore operation completes, the status changes to **Online**.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -79,7 +79,9 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 
 :::zone pivot="api-nosql"
 
-1. Retrieve a list of all live and deleted restorable database accounts using [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list).
+1. Retrieve a list of all live and deleted restorable database accounts by using [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb restorable-database-account list \
@@ -110,6 +112,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 
 1. Use [az cosmosdb sql restorable-database list](/cli/azure/cosmosdb/sql/restorable-database#az-cosmosdb-sql-restorable-database-list) to list all restorable versions of databases for live accounts.
 
+    Here's an example:
+
     ```azurecli
     az cosmosdb sql restorable-database list \
         --instance-id <instance-id-of-account> \
@@ -117,9 +121,11 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
     ```
 
     > [!NOTE]
-    > Listing all the restorable database deletion events allows you to choose the right database in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted database and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
+    > Listing all the restorable database deletion events allows you to choose the right database in a scenario in which the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted database, and it can be restored within the same account. The restore time stamp can be set to any time stamp before the deletion time stamp and within the retention window.
 
 1. Use [az cosmosdb sql restorable-container list](/cli/azure/cosmosdb/sql/restorable-container#az-cosmosdb-sql-restorable-container-list) to list all the versions of restorable containers within a specific database.
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb sql restorable-container list \
@@ -129,9 +135,11 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
     ```
 
     > [!NOTE]
-    > Listing all the restorable database deletion events allows you allows you to choose the right container in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
+    > Listing all the restorable database deletion events allows you to choose the right container in a scenario in which the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container, and it can be restored within the same account. The restore time stamp can be set to any time stamp before the deletion time stamp and within the retention window.
 
-1. Trigger a restore operation for a deleted database using [az cosmosdb sql database restore](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-restore).
+1. Start a restore operation for a deleted database by using [az cosmosdb sql database restore](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-restore).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb sql database restore \
@@ -141,7 +149,9 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
          --restore-timestamp <timestamp>
     ```
 
-1. Trigger a restore operation for a deleted container by using [az cosmosdb sql container restore](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-restore).
+1. Start a restore operation for a deleted container by using [az cosmosdb sql container restore](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-restore).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb sql container restore \
@@ -157,6 +167,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 :::zone pivot="api-mongodb"
 
 1. Retrieve a list of all live and deleted restorable database accounts by using [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb restorable-database-account list \
@@ -187,13 +199,17 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 
 1. Use [az cosmosdb mongodb restorable-database list](/cli/azure/cosmosdb/mongodb/restorable-database#az-cosmosdb-mongodb-restorable-database-list) to list all restorable versions of databases for live accounts.
 
+    Here's an example:
+
     ```azurecli
     az cosmosdb mongodb restorable-database list \
         --instance-id <instance-id-of-account> \
         --location <location>
     ```
 
-1. Use [az cosmosdb mongodb restorable-collection list](/cli/azure/cosmosdb/mongodb/restorable-collection#az-cosmosdb-mongodb-restorable-collection-list) to list all the versions of restorable collections within a specific database.
+1. Use [az cosmosdb mongodb restorable-collection list](/cli/azure/cosmosdb/mongodb/restorable-collection#az-cosmosdb-mongodb-restorable-collection-list) to list all the versions of restorable collections within a specific database. 
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb mongodb restorable-collection list \
@@ -202,7 +218,9 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --location <location>
     ```
 
-1. Trigger a restore operation for a deleted database by using [az cosmosdb mongodb database restore](/cli/azure/cosmosdb/mongodb/database#az-cosmosdb-mongodb-database-restore).
+1. Start a restore operation for a deleted database by using [az cosmosdb mongodb database restore](/cli/azure/cosmosdb/mongodb/database#az-cosmosdb-mongodb-database-restore).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb mongodb database restore \
@@ -228,6 +246,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 :::zone pivot="api-gremlin"
 
 1. Retrieve a list of all live and deleted restorable database accounts by using [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb restorable-database-account list \
@@ -258,6 +278,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 
 1. Use [az cosmosdb gremlin restorable-database list](/cli/azure/cosmosdb/gremlin/restorable-database#az-cosmosdb-gremlin-restorable-database-list) to list all restorable versions of databases for live accounts.
 
+    Here's an example:
+
     ```azurecli
     az cosmosdb gremlin restorable-database list \
         --instance-id <instance-id-of-account> \
@@ -266,6 +288,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 
 1. Use [az cosmosdb gremlin restorable-graph list](/cli/azure/cosmosdb/gremlin/restorable-graph#az-cosmosdb-gremlin-restorable-graph-list) to list all the versions of restorable graphs within a specific database.
 
+    Here's an example:
+
     ```azurecli
     az cosmosdb gremlin restorable-graph list \
         --instance-id <instance-id-of-account> \
@@ -273,7 +297,9 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --location <location>
     ```
 
-1. Trigger a restore operation for a deleted database by using [az cosmosdb gremlin database restore](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-restore).
+1. Start a restore operation for a deleted database by using [az cosmosdb gremlin database restore](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-restore).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb gremlin database restore \
@@ -283,7 +309,9 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --restore-timestamp <timestamp>
     ```
 
-1. Trigger a restore operation for a deleted graph by using [az cosmosdb gremlin graph restore](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-restore).
+1. Start a restore operation for a deleted graph by using [az cosmosdb gremlin graph restore](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-restore).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb gremlin database restore \
@@ -299,6 +327,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 :::zone pivot="api-table"
 
 1. Retrieve a list of all live and deleted restorable database accounts by using [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb restorable-database-account list \
@@ -329,13 +359,17 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
 
 1. Use [az cosmosdb table restorable-table list](/cli/azure/cosmosdb/table/restorable-table#az-cosmosdb-table-restorable-table-list) to list all restorable versions of tables for live accounts.
 
+    Here's an example:
+
     ```azurecli
     az cosmosdb table restorable-table list \
         --instance-id <instance-id-of-account> \
         --location <location>
     ```
 
-1. Trigger a restore operation for a deleted table by using [az cosmosdb table restore](/cli/azure/cosmosdb/table#az-cosmosdb-table-restore).
+1. Start a restore operation for a deleted table by using [az cosmosdb table restore](/cli/azure/cosmosdb/table#az-cosmosdb-table-restore).
+
+    Here's an example:
 
     ```azurecli
     az cosmosdb table restore \
@@ -358,6 +392,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 1. Retrieve a list of all live and deleted restorable database accounts by using [Get-AzCosmosDBRestorableDatabaseAccount](/powershell/module/az.cosmosdb/get-azcosmosdbrestorabledatabaseaccount).
 
+    Here's an example:
+
     ```azurepowershell
     Get-AzCosmosDBRestorableDatabaseAccount
     ```
@@ -374,9 +410,11 @@ Use Azure PowerShell to restore a deleted container or database (including child
     ```
 
     > [!NOTE]
-    > There are `CreationTime` or `DeletionTime` fields for the account. These fields also exist for regions. These times allow you to choose the right region and a valid time range to use when restoring a resource.
+    > There are `CreationTime` or `DeletionTime` fields for the account. These fields also exist for regions. These times allow you to choose the right region and a valid time range to use when you restore a resource.
 
 1. Use [Get-AzCosmosDBSqlRestorableDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbsqlrestorabledatabase) to list all restorable versions of databases for live accounts.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -390,6 +428,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
     > Listing all the restorable database deletion events allows you to choose the right database in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted database and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
 
 1. Use [Get-AzCosmosDBSqlRestorableContainer](/powershell/module/az.cosmosdb/get-azcosmosdbsqlrestorablecontainer) list all the versions of restorable containers within a specific database.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -405,6 +445,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 1. Trigger a restore operation for a deleted database with `Restore-AzCosmosDBSqlDatabase`.
 
+    Here's an example:
+
     ```azurepowershell
     $parameters = @{
         ResourceGroupName = "<resource-group-name>"
@@ -416,6 +458,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
     ```
 
 1. Trigger a restore operation for a deleted container with `Restore-AzCosmosDBSqlContainer`.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -433,6 +477,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 :::zone pivot="api-mongodb"
 
 1. Retrieve a list of all live and deleted restorable database accounts by using [Get-AzCosmosDBRestorableDatabaseAccount](/powershell/module/az.cosmosdb/get-azcosmosdbrestorabledatabaseaccount).
+
+    Here's an example:
 
     ```azurepowershell
     Get-AzCosmosDBRestorableDatabaseAccount
@@ -454,6 +500,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 1. Use [Get-AzCosmosdbMongoDBRestorableDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbrestorabledatabase) to list all restorable versions of databases for live accounts.
 
+    Here's an example:
+
     ```azurepowershell
     $parameters = @{
         DatabaseAccountInstanceId = "<instance-id-of-account>"
@@ -463,6 +511,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
     ```
 
 1. Use [Get-AzCosmosDBMongoDBRestorableCollection](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbrestorablecollection) to list all the versions of restorable collections within a specific database.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -475,6 +525,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 1. Trigger a restore operation for a deleted database with `Restore-AzCosmosDBMongoDBDatabase`.
 
+    Here's an example:
+
     ```azurepowershell
     $parameters = @{
         ResourceGroupName = "<resource-group-name>"
@@ -486,6 +538,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
     ```
 
 1. Trigger a restore operation for a deleted collection with `Restore-AzCosmosDBMongoDBCollection`.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -503,6 +557,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 :::zone pivot="api-gremlin"
 
 1. Retrieve a list of all live and deleted restorable database accounts by using [Get-AzCosmosDBRestorableDatabaseAccount](/powershell/module/az.cosmosdb/get-azcosmosdbrestorabledatabaseaccount).
+
+    Here's an example:
 
     ```azurepowershell
     Get-AzCosmosDBRestorableDatabaseAccount
@@ -524,6 +580,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 1. Use [Get-AzCosmosdbGremlinRestorableDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbgremlinrestorabledatabase) to list all restorable versions of databases for live accounts.
 
+    Here's an example:
+
     ```azurepowershell
     $parameters = @{
         DatabaseAccountInstanceId = "<instance-id-of-account>"
@@ -532,7 +590,9 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosdbGremlinRestorableDatabase @parameters
     ```
 
-1. Use the [Get-AzCosmosdbGremlinRestorableGraph](/powershell/module/az.cosmosdb/get-azcosmosdbgremlinrestorablegraph) cmdlet to list all versions of restorable graphs that are in a specific database:
+1. Use the [Get-AzCosmosdbGremlinRestorableGraph](/powershell/module/az.cosmosdb/get-azcosmosdbgremlinrestorablegraph) cmdlet to list all versions of restorable graphs that are in a specific database.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -543,7 +603,9 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosdbGremlinRestorableGraph @parameters      
     ```
 
-1. Trigger a restore operation for a deleted database by using the Restore-AzCosmosDBGremlinDatabase cmdlet:
+1. Trigger a restore operation for a deleted database by using the Restore-AzCosmosDBGremlinDatabase cmdlet.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -555,7 +617,9 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Restore-AzCosmosDBGremlinDatabase @parameters
     ```
 
-1. Trigger a restore operation for a deleted graph by using the Restore-AzCosmosDBGremlinGraph cmdlet:
+1. Trigger a restore operation for a deleted graph by using the Restore-AzCosmosDBGremlinGraph cmdlet.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{
@@ -573,6 +637,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 :::zone pivot="api-table"
 
 1. Retrieve a list of all live and deleted restorable database accounts by using [Get-AzCosmosDBRestorableDatabaseAccount](/powershell/module/az.cosmosdb/get-azcosmosdbrestorabledatabaseaccount).
+
+    Here's an example:
 
     ```azurepowershell
     Get-AzCosmosDBRestorableDatabaseAccount
@@ -594,6 +660,8 @@ Use Azure PowerShell to restore a deleted container or database (including child
 
 1. Use [Get-AzCosmosdbTableRestorableTable](/powershell/module/az.cosmosdb/get-azcosmosdbtablerestorabletable) to list all restorable versions of tables for live accounts.
 
+    Here's an example:
+
     ```azurepowershell
     $parameters = @{
         DatabaseAccountInstanceId = "<instance-id-of-account>"
@@ -602,7 +670,9 @@ Use Azure PowerShell to restore a deleted container or database (including child
     Get-AzCosmosdbTableRestorableTable @parameters
     ```
 
-1. Trigger a restore operation for a deleted table with `Restore-AzCosmosDBTable`.
+1. Trigger a restore operation for a deleted table by using the Restore-AzCosmosDBTable cmdlet.
+
+    Here's an example:
 
     ```azurepowershell
     $parameters = @{

@@ -135,8 +135,9 @@ Currently, container copy is supported in the following regions:
 
 * Error - Owner resource doesn't exist.
 
-    If the job creation fails with the error *"Owner resource doesn't exist"*, it means that the target container wasn't created or was mis-spelt.
-    Make sure the target container is created before running the job as specified in the [overview section.](#how-to-do-container-copy)
+    If the job creation fails and displays the error *Owner resource doesn't exist* (error code 404), either the target container hasn't been created yet or the container name that's used to create the job doesn't match an actual container name.
+
+    Make sure that the target container is created before you run the job as specified in the [overview](#how-to-do-container-copy), and ensure that the container name in the job matches an actual container name.
 
     ```output
     "code": "404",
@@ -145,7 +146,9 @@ Currently, container copy is supported in the following regions:
 
 * Error - Request is unauthorized.
 
-    If the request fails with error Unauthorized (401), this could happen because Local Authorization is disabled, see [disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates). Container copy jobs use primary key to authenticate and if local authorization is disabled, the job creation fails. You need to enable local authorization for container copy jobs to work.
+    If the request fails and displays the error *Unauthorized* (error code 401), local authorization might be disabled. Learn how to [enable local authorization](how-to-setup-rbac.md#use-azure-resource-manager-templates).
+
+    Container copy jobs use primary keys to authenticate. If local authorization is disabled, the job creation fails. Local authorization must be enabled for container copy jobs to work.
 
     ```output
     "code": "401",
@@ -154,7 +157,7 @@ Currently, container copy is supported in the following regions:
 
 * Error - Error while getting resources for job.
 
-    This error can occur due to internal server issues. To resolve this issue, contact Microsoft Support by opening a **New Support Request** in the Azure portal. For **Problem Type**, select **Data Migration**. For **Problem subtype**, select **Intra-account container copy**.
+    This error might occur due to internal server issues. To resolve this issue, contact Microsoft Support by opening a **New Support Request** in the Azure portal. For **Problem Type**, select **Data Migration**. For **Problem subtype**, select **Intra-account container copy**.
 
     ```output
     "code": "500"
