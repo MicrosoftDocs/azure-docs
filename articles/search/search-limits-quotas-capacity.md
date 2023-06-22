@@ -70,9 +70,9 @@ When estimating document size, remember to consider only those fields that can b
 
 When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the memory reserved for vector search for your service's tier (or SKU).
 
-We enforce a vector index size quota **for every partition** in your search service. Each additional partition will increase the available vector index size quota. This is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded will fail. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
+The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table below describes the vector index size quota per partition across our tiers (or SKU).
+The table below describes the vector index size quota per partition across the service tiers (or SKU). Please use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota.
 
 Please see our [documentation on vector index size](./vector-search-index-size.md) for more details.
 
@@ -88,6 +88,14 @@ Please see our [documentation on vector index size](./vector-search-index-size.m
 | L2    | 2,000              | 36                                         | 8,400 million                |
 
 ### Services created after 2023-07-01 in supported regions
+
+Azure Cognitive Search is rolling out increased vector index size limits worldwide for **new search services**, but we are building out infrastructure capacity in certain regions. Unfortunately, we do not offer migration of existing services to the new limits.
+
+The following regions **do not** support increased limits:
+
+- Germany West Central
+- Jio India West
+- Qatar Central
 
 | Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
