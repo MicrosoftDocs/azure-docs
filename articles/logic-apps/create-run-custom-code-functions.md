@@ -24,7 +24,7 @@ For integration solutions where you have to author and run .NET Framework code f
 - Deploy code alongside your workflows. No other service plans are necessary.
 - Support BizTalk Server migration scenarios so you can lift-and shift custom .NET Framework investments from on premises to the cloud.
 
-With the capability to write your own code, you can accomplish the following scenarios:
+With the capability to write your own code, you can accomplish scenarios such as the following:
 
 - Custom business logic implementation
 - Custom parsing to extract information from an inbound message
@@ -32,12 +32,14 @@ With the capability to write your own code, you can accomplish the following sce
 - Message shaping for outbound messages to another system, such as an API
 - Calculations
 
-Conversely, custom code isn't suitable for the following use cases:
+However, custom code isn't suitable for scenarios such as the following:
 
-- BizTalk Server pipeline components that implement streaming
-- Complex batching and debatching scenarios
 - Processes that take more than 10 minutes to run
 - Large message and data transformations
+- Complex batching and debatching scenarios
+- BizTalk Server pipeline components that implement streaming
+
+For more information about limitations in Azure Logic Apps, see [Limits and configuration - Azure Logic Apps](logic-apps-limits-and-config.md).
 
 ## Prerequisites
 
