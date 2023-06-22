@@ -735,6 +735,8 @@ items:
         href: concepts/analytics/logs/voice-and-video-logs.md
       - name: Call Automation logs
         href: concepts/analytics/logs/call-automation-logs.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Recording logs
         href: concepts/analytics/logs/recording-logs.md
       - name: Metrics overview
@@ -811,6 +813,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
     - name: Call Automation (Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
+    - name: Call Automation (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/callautomation.html
+    - name: Call Automation (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-callautomation
   - name: Chat 
     items:
     - name: Chat (JavaScript)
