@@ -7,8 +7,7 @@ services: storage
 ms.author: tamram
 ms.date: 05/12/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: security-recommendations
 ---
 
