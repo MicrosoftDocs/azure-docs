@@ -1,6 +1,6 @@
 ---
-title: How to uninstall Azure Container Storage
-description: Uninstall the Azure Container Storage extension instance for Azure Kubernetes Service (AKS). Optionally delete the AKS cluster or entire resource group to clean up resources.
+title: How to remove Azure Container Storage
+description: Remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). Optionally delete the AKS cluster or entire resource group to clean up resources.
 author: khdownie
 ms.service: storage
 ms.date: 06/22/2023
@@ -9,13 +9,13 @@ ms.subservice: container-storage
 ms.topic: how-to
 ---
 
-# Uninstall Azure Container Storage
+# Remove Azure Container Storage
 
-This article shows you how to uninstall the Azure Container Storage extension instance for Azure Kubernetes Service (AKS). Optionally, you can also delete the AKS cluster or entire resource group to clean up resources.
+This article shows you how to remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). Optionally, you can also delete the AKS cluster or entire resource group to clean up resources.
 
 ## Delete extension instance
 
-To uninstall Azure Container Storage from your AKS cluster, delete the `k8s-extension` by running the following Azure CLI command. Be sure to replace `<cluster-name>`, `<resource-group>`, and `<name>` with your own values (`<name>` should be the value you specified for the `--name` parameter when you installed Azure Container Storage). Persistent volumes won't be deleted.
+To remove Azure Container Storage from your AKS cluster, delete the `k8s-extension` by running the following Azure CLI command. Be sure to replace `<cluster-name>`, `<resource-group>`, and `<name>` with your own values (`<name>` should be the value you specified for the `--name` parameter when you installed Azure Container Storage). Persistent volumes won't be deleted.
   
 ```azurecli-interactive
 az k8s-extension delete --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name <extension-name>
