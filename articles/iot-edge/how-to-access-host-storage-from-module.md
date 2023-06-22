@@ -30,55 +30,44 @@ To set up system modules to use persistent storage:
 
    :::image type="content" source="./media/how-to-access-host-storage-from-module/offline-storage-1-4.png" alt-text="Screenshot that shows how to add create options and environment variables for local storage.":::
 
-Or, you can configure the local storage directly in the deployment manifest. For example:
+    Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path. Both values must be an absolute path and `<HostStoragePath>` must exist. 
+
+You can configure the local storage directly in the deployment manifest. For example, if you want to map the following storage paths:
+
+| Module | Host storage path | Module storage path |
+|--------|-------------------|---------------------|
+| edgeAgent | /srv/edgeAgent | /tmp/edgeAgent |
+| edgeHub | /srv/edgeHub | /tmp/edgeHub |
+
+Your deployment manifest would be similar to the following:
 
 ```json
 "systemModules": {
     "edgeAgent": {
+        "env": {
+            "storageFolder": {
+                "value": "/tmp/edgeAgent"
+            }
+        },
         "settings": {
             "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
-                }
-            }
+            "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeAgent:/tmp/edgeAgent\"]}}"
         },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        }
+        "type": "docker"
     },
     "edgeHub": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
-                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
-        },
-        "type": "docker",
         "env": {
             "storageFolder": {
-                "value": "<ModuleStoragePath>"
+                "value": "/tmp/edgeHub"
             }
         },
+        "restartPolicy": "always",
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeHub:/tmp/edgeHub\"],\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+        },
         "status": "running",
-        "restartPolicy": "always"
-    }
-}
-```
-
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path. Both values must be an absolute path and `<HostStoragePath>` must exist. For example, you can map both *edgeAgent* and *edgeHub* storage paths like the following:
-
-```json
-"createOptions": {
-    "HostConfig": {
-        "Binds":[
-            "/srv/edgeHub:/tmp/edgeHub",
-            "/srv/edgeAgent:/tmp/edgeAgent"
-            ]
+        "type": "docker"
     }
 }
 ```
