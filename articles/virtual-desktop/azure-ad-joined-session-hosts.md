@@ -17,12 +17,12 @@ This article will walk you through the process of deploying and accessing Azure 
 
 ## Known limitations
 
-The following known limitations may affect access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment.
+The following known limitations may affect access to your on-premises or Active Directory domain-joined resources and you should consider them when deciding whether Azure AD-joined VMs are right for your environment.
 
 - Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs.
 - Azure AD-joined VMs don't currently support external identities, such as Azure AD Business-to-Business (B2B) and Azure AD Business-to-Consumer (B2C).
 - Azure AD-joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.md) for hybrid users using Azure AD Kerberos for FSLogix user profiles.
-- The [Remote Desktop client for Windows](users/connect-microsoft-store.md) doesn't support Azure AD-joined VMs.
+- The [Remote Desktop app for Windows](users/connect-microsoft-store.md) doesn't support Azure AD-joined VMs.
 
 ## Deploy Azure AD-joined VMs
 
