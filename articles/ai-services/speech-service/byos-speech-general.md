@@ -18,7 +18,7 @@ Bring your own storage (BYOS) is an Azure AI technology for customers, who have 
 
 In BYOS scenario, all traffic between the Speech resource and the Storage account is maintained using [Azure global network](https://azure.microsoft.com/explore/global-infrastructure/global-network), in other words all communication is performed using private network, completely bypassing public internet. Speech resource in BYOS scenario is using [Azure Trusted services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) mechanism to access the Storage account, relying on [System-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md) as a method of authentication, and [Role-based access control (RBAC)](../../role-based-access-control/overview.md) as a method of authorization.
 
-BYOS can be used with several Cognitive Services. For Speech, it can be used in the following scenarios:
+BYOS can be used with several Azure AI services. For Speech, it can be used in the following scenarios:
 
 1. [Batch transcription](batch-transcription.md)
 1. Real-time transcription with [audio and transcription result logging](logging-audio-transcription.md) enabled
