@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: landing-page
 ms.date: 06/19/2023
-ms.author: ananyagarg
+ms.author: angarg05
 ---
 
 
