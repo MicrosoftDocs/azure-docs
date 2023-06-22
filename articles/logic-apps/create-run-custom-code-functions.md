@@ -22,7 +22,22 @@ For integration solutions where you have to author and run .NET Framework code f
 - Create code that has the flexibility and control to solve your most challenging integration problems.
 - Debug code locally in Visual Studio Code. Step through your code and workflows in the same debugging session.
 - Deploy code alongside your workflows. No other service plans are necessary.
-- Support BizTalk Server migration scenarios Lift and shift your custom .NET Framework investments from on-premises to the cloud with 
+- Support BizTalk Server migration scenarios so you can lift-and shift custom .NET Framework investments from on premises to the cloud.
+
+With the capability to write your own code, you can accomplish the following scenarios:
+
+- Custom business logic implementation
+- Custom parsing to extract information from an inbound message
+- Data validation and simple transformations
+- Message shaping for outbound messages to another system, such as an API
+- Calculations
+
+Conversely, custom code isn't suitable for the following use cases:
+
+- BizTalk Server pipeline components that implement streaming
+- Complex batching and debatching scenarios
+- Processes that take more than 10 minutes to run
+- Large message and data transformations
 
 ## Prerequisites
 
