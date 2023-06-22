@@ -71,13 +71,15 @@ To control access to the inputs and outputs in your logic app's run history, you
 
 You can limit access to the inputs and outputs in the run history for your logic app workflows so that only requests from specific IP address ranges can view that data.
 
-For example, to block anyone from accessing inputs and outputs, specify an IP address range such as `0.0.0.0-0.0.0.0`. Only a person with administrator permissions can remove this restriction, which provides the possibility for "just-in-time" access to data in your logic app workflows.
+For example, to block anyone from accessing inputs and outputs, specify an IP address range such as `0.0.0.0-0.0.0.0`. Only a person with administrator permissions can remove this restriction, which provides the possibility for "just-in-time" access to data in your logic app workflows. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
 To specify the allowed IP ranges, follow these steps for either the Azure portal or your Azure Resource Manager template:
 
 #### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the workflow designer.
+##### Consumption workflows
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. On your logic app's menu, under **Settings**, select **Workflow settings**.
 
@@ -85,9 +87,21 @@ To specify the allowed IP ranges, follow these steps for either the Azure portal
 
 1. Under **IP ranges for contents**, specify the IP address ranges that can access content from inputs and outputs.
 
-   A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
+##### Standard workflows
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. On the logic app menu, under **Settings**, select **Networking**.
+
+1. In the **Inbound Traffic** section, select **Access restriction**.
+
+1. Create one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings.
+
+   For more information, see [Blocking inbound IP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
 
 #### [Resource Manager Template](#tab/azure-resource-manager)
+
+#### Consumption workflows
 
 In your ARM template, specify the IP ranges by using the `accessControl` section with the `contents` section in your logic app's resource definition, for example:
 
@@ -128,6 +142,108 @@ In your ARM template, specify the IP ranges by using the `accessControl` section
 }
 ```
 
+##### Standard workflows
+
+In your ARM template, specify the allowed inbound IP address ranges in your logic app's resource definition by using the `Microsoft.Web/sites/config` section. In this section, under `properties`, add the `ipSecurityRestrictions` section, and use the `ipAddress`, `action="Deny" | "Allow"`, `tag=Default`, `priority`, and `name="Ports"` sections to define a rule and set the `ipAddress` to the allowed IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format, for example:
+
+```json
+{
+   "type": "Microsoft.Web/sites/config",
+   "apiVersion": "2022-09-01",
+   "name": "[concat(parameters('sites_My_Standard_Logic_App_name'), '/web')]",
+   "location": "West US",
+   "dependsOn": [
+      "[resourceId('Microsoft.Web/sites', parameters('sites_My_Standard_Logic_App_name'))]"
+   ],
+   "tags": {
+      "hidden-link: /app-insights-resource-id": "/subscriptions/{subscriptionID}/resourceGroups/Standard-RG/providers/Microsoft.Insights/components/My-Standard-Logic-App"
+   },
+   "properties": {
+      "numberOfWorkers": 1,
+      "defaultDocuments": [
+         "Default.htm",
+         "Default.html",
+         "Default.asp",
+         "index.htm",
+         "index.html",
+         "iisstart.htm",
+         "default.aspx",
+         "index.php"
+      ],
+      "netFrameworkVersion": "v6.0",
+      "requestTracingEnabled": false,
+      "remoteDebuggingEnabled": false,
+      "httpLoggingEnabled": false,
+      "acrUseManagedIdentityCreds": false,
+      "logsDirectorySizeLimit": 35,
+      "detailedErrorLoggingEnabled": false,
+      "publishingUsername": "$My-Standard-Logic-App",
+      "scmType": "None",
+      "use32BitWorkerProcess": false,
+      "webSocketsEnabled": false,
+      "alwaysOn": false,
+      "managedPipelineMode": "Integrated",
+      "virtualApplications": [
+         {
+            "virtualPath": "/",
+            "physicalPath": "site\\wwwroot",
+            "preloadEnabled": false
+         }
+      ],
+      "loadBalancing": "LeastRequests",
+      "experiments": {
+         "rampUpRules": []
+      },
+      "autoHealEnabled": false,
+      "vnetRouteAllEnabled": false,
+      "vnetPrivatePortsCount": 0,
+      "publicNetworkAccess": "Enabled",
+      "cors": {
+         "supportCredentials": false
+      },
+      "localMySqlEnabled": false,
+      "managedServiceIdentityId": 3065,
+      "ipSecurityRestrictions": [
+         {
+            "ipAddress": "208.130.0.0/16",
+            "action": "Deny",
+            "tag": "Default",
+            "priority": 100,
+            "name": "Ports"
+         },
+         {
+            "ipAddress": "Any",
+            "action": "Deny",
+            "priority": 2147483647,
+            "name": "Deny all",
+            "description": "Deny all access"
+         }
+      ],
+      "ipSecurityRestrictionsDefaultAction": "Deny",
+      "scmIpSecurityRestrictions": [
+         {
+            "ipAddress": "Any",
+            "action": "Allow",
+            "priority": 2147483647,
+            "name": "Allow all",
+            "description": "Allow all access"
+         }
+      ],
+      "scmIpSecurityRestrictionsDefaultAction": "Allow",
+      "scmIpSecurityRestrictionsUseMain": false,
+      "http20Enabled": false,
+      "minTlsVersion": "1.2",
+      "scmMinTlsVersion": "1.2",
+      "ftpsState": "FtpsOnly",
+      "preWarmedInstanceCount": 1,
+      "functionAppScaleLimit": 0,
+      "functionsRuntimeScaleMonitoringEnabled": true,
+      "minimumElasticInstanceCount": 1,
+      "azureStorageAccounts": {}
+   }
+},
+```
+
 ---
 
 <a name="obfuscate"></a>
@@ -139,7 +255,6 @@ Many triggers and actions have settings to secure inputs, outputs, or both from 
 | Secure Inputs - Unsupported | Secure Outputs - Unsupported |
 |-----------------------------|------------------------------|
 | Append to array variable <br>Append to string variable <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Recurrence <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until | Append to array variable <br>Append to string variable <br>Compose <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Parse JSON <br>Recurrence <br>Response <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until <br>Wait |
-|||
 
 #### Considerations for securing inputs and outputs
 
@@ -818,7 +933,7 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 
 Regardless of any IP addresses that you specify, you can still run a logic app workflow that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
-To restrict the inbound IP addresses for your logic app workflow, follow the corresponding steps for either the Azure portal or your Azure Resource Manager template. 
+To restrict the inbound IP addresses for your logic app workflow, follow the corresponding steps for either the Azure portal or your Azure Resource Manager template. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
 <a name="restrict-inbound-ip-portal"></a>
 
@@ -838,13 +953,13 @@ In the Azure portal, IP address restriction affects both triggers *and* actions,
 
      This option writes an empty array to your logic app resource and requires that only calls from parent workflows that use the built-in **Azure Logic Apps** action can trigger the nested workflow.
 
-   * To make your workflow callable using the HTTP action, but only as a nested workflow, select **Specific IP ranges**. When the **IP ranges for triggers** box appears, enter the parent workflow's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound). A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
+   * To make your workflow callable using the HTTP action, but only as a nested workflow, select **Specific IP ranges**. When the **IP ranges for triggers** box appears, enter the parent workflow's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound). A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
      > [!NOTE]
      > If you use the **Only other Logic Apps** option and the HTTP action to call your nested workflow, 
      > the call is blocked, and you get a "401 Unauthorized" error.
 
-   * For scenarios where you want to restrict inbound calls from other IPs, when the **IP ranges for triggers** box appears, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*.
+   * For scenarios where you want to restrict inbound calls from other IPs, when the **IP ranges for triggers** box appears, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
 1. Optionally, under **Restrict calls to get input and output messages from run history to the provided IP addresses**, you can specify the IP address ranges for inbound calls that can access input and output messages in run history.
 
@@ -856,7 +971,7 @@ In the Azure portal, IP address restriction affects both triggers *and* actions,
 
 1. In the **Inbound Traffic** section, select **Access restriction**.
 
-1. Create one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings.
+1. Create one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
    For more information, see [Blocking inbound IP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
 
