@@ -57,7 +57,9 @@ For example, in the following image, the **Cisco Umbrella** solution lists one o
 
 Standalone content and solutions can be installed individually or all together in bulk. For more information on bulk operations, see [Bulk install and update content](#bulk-install-and-update-content) in the next section. Here's an example showing the install of an individual solution.
 
-1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**. 
+1. In the content hub, to view more information about a solution switch to **Card view**. 
+
+1. Then select **View details** to initiate steps for installation. 
 
 1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the **Basics** tab, enter the subscription, resource group, and workspace to deploy the solution. For example:
 
