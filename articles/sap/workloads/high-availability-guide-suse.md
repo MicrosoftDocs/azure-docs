@@ -902,7 +902,6 @@ The following tests are a copy of the test cases in the best practices guides of
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-
    Run the following command as root on the node where the ASCS instance is running
 
    ```bash
