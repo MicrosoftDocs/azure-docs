@@ -135,7 +135,7 @@ When you use the Resource Manager templates or REST API, include the `notificati
 ---
 
 ## Authentication in webhooks
-The webhook can authenticate by using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example,  *https[]()://mysamplealert/webcallback?tokenid=123-abc456-7890&myparameter2=value123*.
+The webhook can authenticate by using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example,  `https://mysamplealert/webcallback?tokenid=123-abc456-7890&myparameter2=value123`.
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:
