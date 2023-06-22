@@ -68,17 +68,17 @@ When estimating document size, remember to consider only those fields that can b
 
 ## Vector index size limits
 
-When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the memory reserved for vector search for your service's SKU.
+When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes are restricted by the memory reserved for vector search for your service's tier (or SKU).
 
 We enforce a vector index size quota **for every partition** in your search service. Each additional partition will increase the available vector index size quota. This is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded will fail. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table below describes the vector index size quota per partition across our SKUs.
+The table below describes the vector index size quota per partition across our tiers (or SKU).
 
 Please see our [documentation on vector index size](./vector-search-index-size.md) for more details.
 
 ### Services created prior to 2023-07-01
 
-| SKU   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
 | Basic | 2                  | 0.5                                        | 115 million                  |
 | S1    | 25                 | 1                                          | 235 million                  |
@@ -89,7 +89,7 @@ Please see our [documentation on vector index size](./vector-search-index-size.m
 
 ### Services created after 2023-07-01 in supported regions
 
-| SKU   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
+| Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
 | Basic | 2                  | 1                                          | 235 million                  |
 | S1    | 25                 | 3                                          | 700 million                  |
