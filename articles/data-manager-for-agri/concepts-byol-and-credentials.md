@@ -50,8 +50,9 @@ As a customer you have to enable system identity for your Data Manager for Agric
 
 2. Via Azure Resource Manager client
 
-    ```armasm armclient patch /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2023-04-01-preview "{identity: { type: 'systemAssigned' }}``` 
-
+    ```cmd
+    armclient patch /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2023-04-01-preview "{identity: { type: 'systemAssigned' }}
+    ``` 
 
 ### Step 4: Access policy
 Add an access policy in key vault for your Data Manager for Agriculture instance.

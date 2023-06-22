@@ -127,11 +127,11 @@ As part of the sensor creation API, the partners provide the sensor ID, once the
 
 ### Push data
 
-#### Create Sensor Partner Integration
+#### Create sensor partner integration
 Create sensor partner integration to connect a particular party with a specific provider. The integrationId is later used in sensor creation.
 API documentation: [Sensor Partner Integrations - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensor-partner-integrations/create-or-update?tabs=HTTP)
 
-#### Create Sensor Data Model
+#### Create sensor data model
 Use sensor data model to define the model of telemetry being sent. All the telemetry sent by the sensor is validated as per this data model.
 
 API documentation: [Sensor Data Models - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensor-data-models/create-or-update?tabs=HTTP)
@@ -198,12 +198,12 @@ Corresponding sensor data model
 }
 ```
 
-#### Create Sensor
+#### Create sensor
 Create sensor using the corresponding integration ID and sensor data model ID. DeviceId and HardwareId are optional parameters, if needed, you can use the [Devices - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/devices/create-or-update?tabs=HTTP) to create the device.
 
 API documentation: [Sensors - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensors/create-or-update?tabs=HTTP)
 
-#### Get IoTHub Connection String
+#### Get IoTHub connection string
 Get IoTHub connection string to push sensor telemetry to the platform for the Sensor created. 
 
 API Documentation: [Sensors - Get Connection String](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensors/get-connection-string)

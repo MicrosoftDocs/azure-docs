@@ -51,13 +51,13 @@ Sample output:
 }
 ```
 
-2. The above job might take a few minutes to complete. To know the status of job, the following armclient command should be run
+2. The above job might take a few minutes to complete. To know the status of job, the following armclient command should be run:
 
 ```armclient 
 armclient get /subscriptions/<subscription-id>/resourceGroups/<resource-group-name> /providers/Microsoft.AgFoodPlatform/farmBeats/<datamanager-instance-name>?api-version=2023-04-01-preview
 ```
 
-3. To verify whether it's completed, look at the highlighted attribute. It should be updated as “Succeeded” from “Creating” in the earlier step. The attribute that indicates that the sensor integration is enabled in indicated by **provisioningState inside the sensorIntegration object**. 
+3. To verify whether it's completed, look at the highlighted attribute. It should be updated as “Succeeded” from “Creating” in the earlier step. The attribute that indicates that the sensor integration is enabled is indicated by **provisioningState inside the sensorIntegration object**. 
 
 Sample output: 
 ```json
@@ -96,6 +96,7 @@ Once the provisioning status for sensor integration is completed, sensor integra
 ## Step 2: Create sensor partner integration
 Create sensor partner integration step should be executed to connect customer with provider. 
 The integrationId is later used in sensor creation.
+
 API documentation: [Sensor Partner Integrations - Create Or Update](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensor-partner-integrations/create-or-update)
 
 ## Step 3: Create sensor data model
