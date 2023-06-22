@@ -35,14 +35,13 @@ Now that the content hub centralization changes are complete, here's an overview
     :::image type="content" source="media/sentinel-content-centralize/warning-banner-with-tool-link.png" alt-text="Screenshot showing orange warning banner with link to initiate central tool." lightbox="media/sentinel-content-centralize/warning-banner-with-tool-link.png"::: 
 
 1. Select the link and read the page carefully.
+1. Select **Continue** and review the list of content the tool generates.
 
-    :::image type="content" source="media/sentinel-content-centralize/central-tool-reinstate-templates.png" alt-text="Screenshot shows central tool page including details on how to use it." lightbox="media/sentinel-content-centralize/central-tool-reinstate-templates.png" :::
-
-1. Select **Continue** and the list of content the tool generates is ready to install.
-
-    :::image type="content" source="media/sentinel-content-centralize/central-tool-select-all-content.png" alt-text="Screenshot shows the list of content the tool generates.":::
+    :::image type="content" source="media/sentinel-content-centralize/central-tool-reinstate-templates-resized.png" alt-text="Screenshot shows central tool page including details on how to use it." lightbox="media/sentinel-content-centralize/central-tool-reinstate-templates-resized.png" :::
 
 1. Select **Complete Centralization** to start the installation. The selection is fixed and can't be changed.
+
+    :::image type="content" source="media/sentinel-content-centralize/central-tool-select-all-content-resized.png" alt-text="Screenshot shows the list of content the tool generates.":::
 
 ## Data connector page change
 
