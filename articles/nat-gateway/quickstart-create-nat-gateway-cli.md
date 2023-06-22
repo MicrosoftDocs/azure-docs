@@ -25,11 +25,11 @@ In this quickstart, learn how to create a NAT gateway by using the Azure CLI. Th
 
 Create a resource group with [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-    ```azurecli-interactive
-    az group create \
-        --name test-rg \
-        --location eastus2
-    ```
+```azurecli-interactive
+az group create \
+    --name test-rg \
+    --location eastus2
+```
 
 ## Create the NAT gateway
 
@@ -39,39 +39,39 @@ In this section, create the NAT gateway and supporting resources.
 
 To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address resource.
 
-    ```azurecli-interactive
-    az network public-ip create \
-        --resource-group test-rg \
-        --name public-ip-nat \
-        --sku Standard \
-        --location eastus2 \
-        --zone 1 2 3
-    ```
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip-nat \
+    --sku Standard \
+    --location eastus2 \
+    --zone 1 2 3
+```
 
 ### Create NAT gateway resource
 
 Create an Azure NAT gateway with [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The result of this command creates a gateway resource that uses the public IP address defined in the previous step. The idle timeout is set to 10 minutes.  
 
-    ```azurecli-interactive
-    az network nat gateway create \
-        --resource-group test-rg \
-        --name nat-gateway \
-        --public-ip-addresses public-ip-nat \
-        --idle-timeout 10
-    ```
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --public-ip-addresses public-ip-nat \
+    --idle-timeout 10
+```
 
 ### Create virtual network
 
 Create a virtual network with a subnet with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.
 
-    ```azurecli-interactive
-    az network vnet create \
-        --name vnet-1 \
-        --resource-group test-rg \
-        --address-prefix 10.0.0.0/16 \
-        --subnet-name subnet-1 \
-        --subnet-prefixes 10.0.0.0/24
-    ```
+```azurecli-interactive
+az network vnet create \
+    --name vnet-1 \
+    --resource-group test-rg \
+    --address-prefix 10.0.0.0/16 \
+    --subnet-name subnet-1 \
+    --subnet-prefixes 10.0.0.0/24
+```
 
 ### Create bastion host subnet
 
@@ -79,26 +79,26 @@ Create an Azure Bastion host to access the virtual machine.
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create an Azure Bastion subnet.
 
-    ```azurecli-interactive
-    az network vnet subnet create \
-        --name AzureBastionSubnet \
-        --resource-group test-rg \
-        --vnet-name vnet-1 \
-        --address-prefix 10.0.1.0/26
-    ```
+```azurecli-interactive
+az network vnet subnet create \
+    --name AzureBastionSubnet \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --address-prefix 10.0.1.0/26
+```
 
 ### Create public IP address for the bastion host
 
 Create a public IP address for the bastion host with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
-    ```azurecli-interactive
-    az network public-ip create \
-        --resource-group test-rg \
-        --name public-ip \
-        --sku Standard \
-        --location eastus2 \
-        --zone 1 2 3
-    ```
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip \
+    --sku Standard \
+    --location eastus2 \
+    --zone 1 2 3
+```
 
 ### Create the bastion host
 
@@ -106,26 +106,26 @@ Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-cr
 
 [!INCLUDE [Pricing](../../includes/bastion-pricing.md)] For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion/bastion-overview.md).
 
-    ```azurecli-interactive
-    az network bastion create \
-        --name bastion \
-        --public-ip-address public-ip \
-        --resource-group test-rg \
-        --vnet-name vnet-1 \
-        --location eastus2
-    ```
+```azurecli-interactive
+az network bastion create \
+    --name bastion \
+    --public-ip-address public-ip \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --location eastus2
+```
 
 ### Configure NAT service for source subnet
 
 Configure the source subnet in virtual network to use a specific NAT gateway resource with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). This command activates the NAT service on the specified subnet.
 
-    ```azurecli-interactive
-    az network vnet subnet update \
-        --name subnet-1 \
-        --resource-group test-rg \
-        --vnet-name vnet-1 \
-        --nat-gateway nat-gateway
-    ```
+```azurecli-interactive
+az network vnet subnet update \
+    --name subnet-1 \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --nat-gateway nat-gateway
+```
 
 All outbound traffic to Internet destinations is now using the NAT gateway.  It's not necessary to configure a UDR.
 
@@ -135,16 +135,16 @@ Create a virtual machine to test the NAT gateway to verify the public IP address
 
 Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).
 
-    ```azurecli-interactive
-    az vm create \
-        --resource-group test-rg \
-        --name vm-1 \
-        --image Canonical:0001-com-ubuntu-server-jammy:jammy:latest \
-        --public-ip-address "" \
-        --vnet-name vnet-1 \
-        --subnet subnet-1 \
-        --admin-username azureuser
-    ```
+```azurecli-interactive
+az vm create \
+    --resource-group test-rg \
+    --name vm-1 \
+    --image Canonical:0001-com-ubuntu-server-jammy:jammy:latest \
+    --public-ip-address "" \
+    --vnet-name vnet-1 \
+    --subnet subnet-1 \
+    --admin-username azureuser
+```
 
 Wait for the virtual machine creation to complete before moving on to the next section.
 
