@@ -99,9 +99,9 @@ To collect the managed identity application ID from Azure Active Directory:
 
 1. In the Finance and Operations portal, navigate to **System administration > Setup > Azure Active Directory** applications.
 1. Create a new entry in the table: 
-    1. For the **Client Id**, type the application ID of the managed identity.
-    1. For the **Name**, type a name for the application. 
-    1. For the **User ID**, type the user ID created in the [previous step](#create-a-user-for-data-collection-in-finance-and-operations). 
+    - For the **Client Id**, type the application ID of the managed identity.
+    - For the **Name**, type a name for the application. 
+    - For the **User ID**, type the user ID created in the [previous step](#create-a-user-for-data-collection-in-finance-and-operations). 
 
 ### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables 
 
@@ -121,7 +121,7 @@ This screenshot shows the **System** and **Bank accounts** tables under **loggin
 
 To enable auditing on Finance and Operations tables you want to monitor: 
 
-1. In Finance and Operations, Select **Modules > System Administration > Database log > Database log setup**.
+1. In the Finance and Operations portal, Select **Modules > System Administration > Database log > Database log setup**.
 1. Select **New** > **Next**, and select the tables you want to monitor. 
 1. Select **Next**.  
 1. To enable auditing on all fields of the selected tables, mark all four check marks to the right of the table names with empty field labels. To see the tables with empty field labels at the top, sort the table list by the field table in ascending order (A to Z):
@@ -145,6 +145,6 @@ To verify that log ingestion is working:
 ## Next steps
 
 In this article, you learned how to deploy the Microsoft Sentinel solution for D365 F&O.
-> 
-> - [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
-> - [Review the solution's security content](dynamics-365-finance-operations-security-content.md)
+ 
+- [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
+- [Review the solution's security content](dynamics-365-finance-operations-security-content.md)

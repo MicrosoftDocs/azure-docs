@@ -14,7 +14,8 @@ This article introduces the Microsoft Sentinel Solution for D365 F&O. The soluti
 [Dynamics 365 for Finance and Operations](/dynamics365/finance) is a comprehensive Enterprise Resource Planning (ERP) solution that combines financial and operational capabilities to help businesses manage their day-to-day operations. It offers a range of features that enable businesses to streamline workflows, automate tasks, and gain insights into operational performance.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel Solution for D365 F&O is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The Microsoft Sentinel Solution for D365 F&O is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
 
 ### Why it's important to monitor Dynamics 365 for Finance and Operations activity
 
