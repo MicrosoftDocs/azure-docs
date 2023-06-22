@@ -690,6 +690,9 @@
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: image-builder-reliability.md
+      - name: Image Optimization
+        displayName: Image builder, images, building, boot, optimization, prefetch
+        href: image-builder-prefetch.md
     - name: Build image with Packer
       items:
       - name: Linux
