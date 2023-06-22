@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 06/21/2023
 ms.author: ryanwi
 ms.custom: identityplatformtop40, contperf-fy21q2, engagement-fy23
 ms.reviewer: ludwignick
 ---
 # Configure token lifetime policies (preview)
 
-In the following steps, you'll implement a common policy scenario that imposes new rules for token lifetime. It's possible to specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. This can be set for all apps in your organization or for a specific service principal. They can also be set for multi-organizations (multi-tenant application). 
+In the following steps, you'll implement a common policy scenario that imposes new rules for token lifetime. It's possible to specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. This can be set for all apps in your organization or for a specific app or service principal. They can also be set for multi-organizations (multi-tenant application).
 
 For more information, see [configurable token lifetimes](configurable-token-lifetimes.md).
 
@@ -24,9 +24,9 @@ For more information, see [configurable token lifetimes](configurable-token-life
 
 To get started, download the latest [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation).
 
-## Create a policy for web sign-in
+## Create a policy and assign it to an app
 
-In the following steps, you'll create a policy that requires users to authenticate less frequently in your web app. This policy sets the lifetime of the access/ID tokens for your web app.
+In the following steps, you'll create a policy that requires users to authenticate less frequently in your web app. Assign the policy to an app, which sets the lifetime of the access/ID tokens for your web app.
 
 ```powershell
 Install-Module Microsoft.Graph
@@ -61,6 +61,48 @@ Remove-MgApplicationTokenLifetimePolicyByRef -ApplicationId $applicationObjectId
 
 # Delete the policy
 Remove-MgPolicyTokenLifetimePolicy -TokenLifetimePolicyId $tokenLifetimePolicyId
+```
+
+## Create a policy and assign it to a service principal
+
+In the following steps, you'll create a policy that requires users to authenticate less frequently in your web app. Assign the policy to service principal, which sets the lifetime of the access/ID tokens for your web app.
+
+Create a token lifetime policy.
+
+```http
+POST https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies
+Content-Type: application/json
+
+{
+    "definition": [
+        "{\"TokenLifetimePolicy\":{\"Version\":1,\"AccessTokenLifetime\":\"8:00:00\"}}"
+    ],
+    "displayName": "Contoso token lifetime policy",
+    "isOrganizationDefault": false
+}
+```
+
+Assign the policy to a service principal.
+
+```http
+POST https://graph.microsoft.com/v1.0/servicePrincipals/11111111-1111-1111-1111-111111111111/tokenLifetimePolicies/$ref
+Content-Type: application/json
+
+{
+  "@odata.id":"https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies/22222222-2222-2222-2222-222222222222"
+}
+```
+
+List the policies on the service principal.
+
+```http
+GET https://graph.microsoft.com/v1.0/servicePrincipals/11111111-1111-1111-1111-111111111111/tokenLifetimePolicies
+```
+
+Remove the policy from the service principal.
+
+```http
+DELETE https://graph.microsoft.com/v1.0/servicePrincipals/11111111-1111-1111-1111-111111111111/tokenLifetimePolicies/22222222-2222-2222-2222-222222222222/$ref
 ```
 
 ## View existing policies in a tenant
