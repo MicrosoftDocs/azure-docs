@@ -70,7 +70,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path and `<HostStoragePath>` must exist. For example, you can map both *edgeAgent* and *edgeHub* paths similarly to the following:
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path. Both values must be an absolute path and `<HostStoragePath>` must exist. For example, you can map both *edgeAgent* and *edgeHub* storage paths like the following:
 
 ```json
 "createOptions": {
@@ -88,7 +88,7 @@ Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module 
 On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `storageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
 
 > [!NOTE]
-> Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container is not running as `root` user. 
+> Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container isn't running as `root` user. 
 
 
 
