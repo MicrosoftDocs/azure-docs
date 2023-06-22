@@ -79,4 +79,4 @@ You can easily [export your rule to an Azure Resource Manager (ARM) template](im
 
 - To learn how to automate your responses to threats, [Set up automated threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
 
-- To learn how to find more rule templates, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
+- To learn how to find more rule templates, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
