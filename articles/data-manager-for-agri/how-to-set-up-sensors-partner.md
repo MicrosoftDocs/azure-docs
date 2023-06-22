@@ -206,10 +206,10 @@ API documentation: [Sensors - Create Or Update](/rest/api/data-manager-for-agri/
 #### Get IoTHub Connection String
 Get IoTHub connection string to push sensor telemetry to the platform for the Sensor created. 
 
-API Documentation: [Sensors - Get Connection String](/rest/api/data-manager-for-agri/dataplane-version2022-11-01-preview/sensors/get-connection-string?tabs=HTTP)
+API Documentation: [Sensors - Get Connection String](/rest/api/data-manager-for-agri/dataplane-version2023-04-01-preview/sensors/get-connection-string)
 
 #### Push Data using IoT Hub SDK
-Use [IoT Hub Device SDKs](https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) to push the telemetry using the connection string.
+Use [IoT Hub Device SDKs](/articles/iot-hub/iot-hub-devguide-sdks) to push the telemetry using the connection string.
 
 For all sensor telemtry events, "timestamp" is a mandatory property and has to be in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
 
