@@ -19,6 +19,17 @@ Azure Cosmos DB distributes your data across logical and physical partitions bas
 
 If you use synthetic keys today or have scenarios where partition keys can exceed 20 GB of data, subpartitioning can help. With this feature, logical partition key prefixes can exceed 20 GB and 10,000 RU/s, and queries by prefix are efficiently routed to the subset of partitions with the data.
 
+## Guidance on choosing hierarchical partition keys
+
+Hierarchical partition keys are highly recommended to users that may have multi-tenant applications. This recommendation exists because hierarchical partitions allow users to scale beyond the logical partition key limit of 20 GB. If your current partition key or a single partition key is frequently hitting 20 GB, hierarchical partitions are a great choice for your workload. When choosing your hierarchical partition keys, it's important to keep the following general partitioning concepts in mind depending on your workload:
+
+For all containers, **each level** of the full path (starting with the very **first level**) of your hierarchical partition key should:
+
+- Have a high cardinality. In other words, the first, second, and third (if applicable) keys of the hierarchical partition should all have a wide range of possible values.
+- Spread request unit (RU) consumption and data storage evenly across all logical partitions. This spread ensures even RU consumption and storage distribution across your physical partitions.
+
+For large read-heavy workloads, we recommend choosing hierarchical partition keys that appear frequently in your queries. For example, a workload that frequently runs queries to filter out specific user sessions in a multi-tenant application can benefit from hierarchical partition keys of TenantId, UserId, and SessionId in that order. Queries can be efficiently routed to only the relevant physical partitions by including the partition key in the filter predicate. For more information on partition keys for read-heavy workloads, see the [partitioning overview](partitioning-overview.md).
+
 ## Example use case
 
 Suppose you have a multi-tenant scenario where you store event information for users in each tenant. This event information could include event occurrences including, but not limited to, as sign-in, clickstream, or payment events.
@@ -31,21 +42,11 @@ With hierarchical partition keys, we can partition first on **TenantId**, and th
 
 Queries that specify either the **TenantId**, or both **TenantId** and **UserId** is efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1000 physical partitions, but a particular **TenantId** was only on five of them, the query would only be routed to the smaller number of relevant physical partitions.
 
-## Guidance on choosing hierarchical partition keys
+## Use item ID in hierarchy
 
-Hierarchical partition keys are highly recommended to users that may have multi-tenant applications. This is because hierarchical partitions allows users to scale beyond the logical partition key limit of 20 GB. If your current partition key or a single partition key is frequently hitting 20 GB, hierarchical partitions are a great choice for your workload. When choosing your hierarchical partition keys, it is important to keep the following general partitioning concepts in mind depending on your workload:
-For all containers, the full path of your hierarchical partition key should:
+If your container has a property that has a large range of possible values, it's likely a great partition key choice for the last level of your hierarchy. One possible example of this type of property is the **item ID**. The system property item ID exists in every item in your container. Adding item ID as another level guarantees that you can scale beyond the logical partition key limit of 20 GB. You can scale beyond this limit for the first or first and second level of keys.
 
--	Have a high cardinality. In other words, the full path of the hierarchical partition should have a wide range of possible values.
--	Spread request unit (RU) consumption and data storage evenly across all logical partitions. This spread ensures even RU consumption and storage distribution across your physical partitions.
-
-For large read-heavy workloads, we recommend choosing hierarchical partition keys that appear frequently in your queries. For example, a workload that frequently runs queries to filter out specific user sessions in a multi-tenant application can benefit from hierarchical partition keys of TenantId, UserId, and SessionId in that order. Queries can be efficiently routed to only the relevant physical partitions by including the partition key in the filter predicate. For more guidance on partition keys for read-heavy workloads, visit the [relevant section in our partition documentation.](partitioning-overview.md).
-
-## Using item ID in hierarchy 
-
-If your container has a property that has a large range of possible values, it is likely a great partition key choice for the last level of your hierarchy. One possible example of this is the **item ID**. The system property item ID exists in every item in your container. If you are unsure whether you need to add a second or third hierarchical partition key, adding item ID as another level will guarantee that you can scale beyond the logical partition key limit of 20 GB for the first or first and second level of keys. 
-
-For example, suppose we have a container for a multi-tenant workload partitioned by TenantId and UserId. If it is possible for a single combination of TenantId and UserId to exceed 20 GB, then partitioning with three levels of keys, where the 3rd level key has high cardinality - e.g. a GUID is recommended. It is unlikely that the combination of TenantId, UserId, and a GUID will exceed 20 GB, so the combination of TenantId and UserId can effectively scale beyond 20 GB.
+For example, suppose we have a container for a multi-tenant workload partitioned by `TenantId` and `UserId`. If it's possible for a single combination of `TenantId` and `UserId` to exceed 20 GB, then partitioning with three levels of keys, where the third level key has high cardinality is recommended. An example of this scenario is if the third level key is a GUID with naturally high cardinality. It's unlikely that the combination of TenantId, UserId, and a GUID exceeds 20 GB, so the combination of TenantId and UserId can effectively scale beyond 20 GB.
 
 For more information on choosing item ID as a partition key, visit our [partitioning documentation.](partitioning-overview.md).
 
@@ -464,14 +465,14 @@ pagedResponse.byPage().flatMap(fluxResponse -> {
 
 ## Limitations and known issues
 
-* Working with containers that use hierarchical partition keys is supported only in .NET v3, Java v4 SDKs, and the preview version of the JavaScript SDK. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDKs, like Python, are not yet available.
-* There are limitations with various Azure Cosmos DB connectors (ex. Azure Data Factory).
-* You can only specify hierarchical partition keys up to three layers in depth.
-* Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. To use hierarchical partitions on existing containers, you should create a new container with the hierarchical partition keys set and move the data using [container copy jobs](intra-account-container-copy.md).
-* Hierarchical partition keys are currently supported only for API for NoSQL accounts (API for MongoDB and Cassandra aren't currently supported).
+- Working with containers that use hierarchical partition keys is supported only in .NET v3, Java v4 SDKs, and the preview version of the JavaScript SDK. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDKs, like Python, isn't yet available.
+- There are limitations with various Azure Cosmos DB connectors (ex. Azure Data Factory).
+- You can only specify hierarchical partition keys up to three layers in depth.
+- Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. To use hierarchical partitions on existing containers, you should create a new container with the hierarchical partition keys set and move the data using [container copy jobs](intra-account-container-copy.md).
+- Hierarchical partition keys are currently supported only for API for NoSQL accounts (API for MongoDB and Cassandra aren't currently supported).
 
 ## Next steps
 
-* See the FAQ on [hierarchical partition keys.](hierarchical-partition-keys-faq.yml)
-* Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
-* Learn more about [using Azure Resource Manager templates with Azure Cosmos DB.](/azure/templates/microsoft.documentdb/databaseaccounts)
+- See the FAQ on [hierarchical partition keys.](hierarchical-partition-keys-faq.yml)
+- Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)
+- Learn more about [using Azure Resource Manager templates with Azure Cosmos DB.](/azure/templates/microsoft.documentdb/databaseaccounts)
