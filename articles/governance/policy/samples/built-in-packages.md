@@ -1,5 +1,5 @@
 ---
-title: List of built-in built-in packages for guest configuration
+title: List of built-in packages for guest configuration
 description: List of all built-in packages for guest configuration mapped to each policy definition and the PowerShell modules that are used by each package.
 ms.date: 08/04/2021
 ms.topic: sample
