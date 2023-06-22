@@ -82,7 +82,7 @@ For more information about resource providers, see Azure resource providers and 
 
 ### ALI in the Azure portal 
 
-When you submit an Azure Large Instance deployment request, specify the Azure subscription you're connecting to the ALI instance.
+When you submit an ALI deployment request, specify the Azure subscription you're connecting to the ALI instance.
 Use the same subscription you use to deploy the application layer that works against the ALI.
 
  During the deployment of your ALI, a new [Azure resource group](../azure-resource-manager/management/manage-resources-portal.md) is created in the Azure subscription you used in the deployment request.
