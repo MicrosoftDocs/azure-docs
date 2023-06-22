@@ -140,15 +140,13 @@ To see details of an ALI instance, run the [az baremetalinstance show](/cli/azur
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
 ```
 
-If you're uncertain of the instance name, run the az baremetalinstance list command as previously described.
+If you're uncertain of the instance name, run the **az baremetalinstance list** command as previously described.
 
-## Check activities of a single instance 
+## Check activities of a single instance
 
- 
-
-You can check the activities of a single ALI instance. 
-One of the main activities recorded are restarts of the instance. 
-The data listed includes: 
+You can check the activities of a single ALI instance.
+One of the main activities recorded are restarts of the instance.
+The data listed includes:
 
 * Activity status
 * Time the activity triggered
@@ -157,16 +155,18 @@ The data listed includes:
 
  :::image type="content" source="../baremetal-infrastrucure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
 
-Changes to the instance's metadata in Azure also get recorded in the Activity log. 
-Besides the restart, you can see the activity of Write BareMetalInstancesALI. 
-This activity makes no changes on the ALIl instance itself, but documents the changes to the unit's metadata in Azure.
+Changes to an instance's metadata in Azure also get recorded in the Activity log.
+Besides the restart, you can see the activity of **Write BareMetalInstances**. 
+This activity makes no changes on the ALI instance itself, but documents the changes to the unit's metadata in Azure.
 
-## Add or delete an Azure tag to an instance
+Another activity that gets recorded is adding a tag to or deleting a tag from an instance.
+
+## Add an Azure tag to or delete an Azure tag from an instance
 
 Adding or deleting a [tag](../azure-resource-manager/management/tag-resources.md) to an instance is recorded.
 
  
-You can add Azure tags to a BareMetal instanceAzure Large Instance or delete them through Portal or Azure CLI.  
+You can add Azure tags to an ALI instance or delete them using either the Portal or Azure CLI.  
 
 ### [Portal](#tab/azure-portal)
  
