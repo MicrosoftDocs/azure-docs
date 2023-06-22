@@ -10,13 +10,9 @@ ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-# Vector search in Azure Cognitive Search
+<!-- Janusz, here's your doc from the repo.  I think it needs a simpler intro, similar to semantic search overivew, with sections for "how it works", scnearios, availability and pricing, but I don't want to lose content so if we can't think of how to offload anything, all content should stay here. -->
 
-Under construction.
-
-<!-- Janusz, here's your doc from the repo.  I think it needs a simpler intro, similar to semantic search overivew, with sections for "how it works", scnearios, availability and pricing, but I don't want to lose content so if we can't think of how to offload anything, all content should stay here.
-
-# Vector search in Azure Cognitive Search
+# Vector search within Azure Cognitive Search
 
 Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By understanding the intent of the query, vector search can return more relevant results that match the user's needs, even if the exact terms are not present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text.
 
@@ -76,17 +72,17 @@ You can now index those embeddings alongside other types of content in Azure Cog
 
 ## Reciprocal Rank Fusion
 
-For hybrid search scoring, we use Reciprocal Rank Fusion. Reciprocal Rank Fusion (RRF) is a technique used in information retrieval, specifically for combining the results of different search systems to produce a single, more accurate and relevant result. It is based on the concept of reciprocal rank, which is the inverse of the rank of the first relevant document in a list of search results. 
+For hybrid search scoring, we use Reciprocal Rank Fusion. Reciprocal Rank Fusion (RRF) is a technique used in information retrieval, specifically for combining the results of different search systems to produce a single, more accurate and relevant result. It is based on the concept of reciprocal rank, which is the inverse of the rank of the first relevant document in a list of search results. 
 
-At a basic level, RRF works by taking the search results from multiple systems, assigning a reciprocal rank score to each document in the results, and then combining these scores to create a new ranking. The main idea behind this method is that documents appearing in the top positions across multiple search systems are likely to be more relevant and should be ranked higher in the combined result. 
+At a basic level, RRF works by taking the search results from multiple systems, assigning a reciprocal rank score to each document in the results, and then combining these scores to create a new ranking. The main idea behind this method is that documents appearing in the top positions across multiple search systems are likely to be more relevant and should be ranked higher in the combined result. 
 
-Here's a simple explanation of the RRF process: 
+Here's a simple explanation of the RRF process: 
 
-1. Obtain search results from multiple systems: Let's say we have two search systems, A and B. We search for a specific query on both systems and get ranked lists of documents as results. 
+1. Obtain search results from multiple systems: Let's say we have two search systems, A and B. We search for a specific query on both systems and get ranked lists of documents as results. 
 
 2. Assign reciprocal rank scores: For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as 1/(rank + k), where rank is the position of the document in the list, and k is a constant, usually set to a small value like 60.
 
-3. Combine scores: For each document, we sum the reciprocal rank scores obtained from each search system. This gives us a combined score for each document. 
+3. Combine scores: For each document, we sum the reciprocal rank scores obtained from each search system. This gives us a combined score for each document. 
 
 4. Rank documents based on combined scores: Finally, we sort the documents based on their combined scores, and the resulting list is the fused ranking.
 
@@ -96,4 +92,4 @@ Here's a simple explanation of the RRF process:
 
 + [Try the quickstart](vector-search-quickstart.md) to learn the REST APIs and field definitions used in vector search
 + [Try the Python](../demo-python/) or [JavaScript](../demo-javascript/) demos to generate embeddings from Azure OpenAI
-+ [Learn more about embeddings](vector-search-how-to.md) and how to use them in Cognitive Search -->
++ [Learn more about embeddings](vector-search-how-to.md) and how to use them in Cognitive Search 
