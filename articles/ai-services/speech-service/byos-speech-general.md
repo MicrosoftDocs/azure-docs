@@ -34,10 +34,10 @@ This article describes how to create and maintain BYOS-enabled Speech resource a
 Please bear in mind the following rules when planning BYOS-enabled Speech resource configuration:
 
 1. Speech resource can be BYOS-enabled only during creation. Existing Speech resource cannot be converted to BYOS-enabled. BYOS-enabled Speech resource cannot be converted to the “conventional” (non-BYOS) one.
-1. Storage account association with the Speech resource is declared during the Speech resource creation. It cannot be changed later. That is, you cannot change what Storage account is associated with the existing BYOS-enabled Speech resource. 
+1. Storage account association with the Speech resource is declared during the Speech resource creation. It cannot be changed later. That is, you cannot change what Storage account is associated with the existing BYOS-enabled Speech resource. To use another Storage account you will have to create another BYOS-enabled Speech resource.
 1. When creating a BYOS-enabled Speech resource you can use an existing Storage account or create one automatically during Speech resource provisioning (the latter is valid only when using Azure portal).
 1. One Storage account can be associated with many Speech resources. We recommend to use one Storage account per one Speech resource.
-1. Storage account and the related BYOS-enabled Speech resource can be located in either the same or different Azure regions. We recommend to use the same region to minimize latency. For the same reason we don't recommend selecting too remote regions for multi-region configuration. (For example we don’t recommend placing Storage account in East US and the associated Speech resource in West Europe).
+1. Storage account and the related BYOS-enabled Speech resource can be located in either the same or different Azure regions. We recommend to use the same region to minimize latency. For the same reason we don't recommend selecting too remote regions for multi-region configuration. (For example, we don’t recommend placing Storage account in East US and the associated Speech resource in West Europe).
 
 ## Create and configure BYOS-enabled Speech resource
 
@@ -79,7 +79,15 @@ To use any of the methods above you need an Azure account, that is assigned a ro
 
 # [Azure portal](#tab/portal)
 
-!!!
+> [!NOTE]
+> If you use Azure portal to create a BYOS-enabled Speech resource, we recommend to select the option of creating a new Storage account. 
+
+To create a BYOS-enabled Speech resource with Azure portal, you will need to access some portal preview features. Perform the following steps:
+
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Note the *Storage account* section at the bottom of the page.
+1. Select *Yes* for *Bring your own storage* option.
+1. Configure the required Storage account settings and proceed with the Speech resource creation.
 
 # [PowerShell](#tab/powershell)
 
@@ -177,9 +185,37 @@ The following will be the body of the request:
   }
 }
 ```
-
 ***
 
+### (Optional) Verify Speech resource BYOS configuration
+
+You may always check, whether any given Speech resource is BYOS enabled, and what is the associated Storage account. You can do it either via Azure portal, or via Cognitive Services API.
+
+# [Azure portal](#tab/portal)
+
+To check BYOS configuration of a Speech resource with Azure portal, you will need to access some portal preview features. Perform the following steps:
+
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Close *Create Speech* screen by pressing *X* in the right upper corner.
+1. If asked agree to discard unsaved changes.
+1. Navigate to the Speech resource you want to check.
+1. Select *Storage* menu in the *Resource Management* group.
+1. Check that:
+  1. *Attached storage* field contains the Azure resource Id of the BYOS-associated Storage account.
+  1. *Identity type* has *System Assigned* selected.
+
+If *Storage* menu item is missing in the *Resource Management* group, the selected Speech resource is not BYOS-enabled.
+
+# [PowerShell/Azure CLI/REST](#tab/cogsvcapi)
+
+Use the following commands / requests for the Cognitive Services API:
+- PowerShell: [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount).
+- Azure CLI: [az cognitiveservices account show](/cli/azure/cognitiveservices/account).
+- REST request: [Accounts - Get](/rest/api/cognitiveservices/accountmanagement/accounts/get).
+
+In the command / request output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group will have Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource is not BYOS-enabled.
+
+***
 
 ## Next steps
 
