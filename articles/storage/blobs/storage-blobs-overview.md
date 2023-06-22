@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
-ms.subservice: blobs
 ---
 
 # What is Azure Blob storage?

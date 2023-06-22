@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: blobs 
 ms.custom: devx-track-azurecli
 ---
 
