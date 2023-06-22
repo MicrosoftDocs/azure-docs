@@ -32,6 +32,8 @@ The data underlying any dashboard chart can be exported to a CSV file.  This is 
 
 Selecting an individual chart segment will open a drillldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. If you are exporting a small number of assets, this action will directly download the CSV file to your machine. If you are exporting a large number of assets, this action will create a task manager notification where you can track the status of your export. 
 
+Please note that Microsoft Excel enforces a character limit of 32,767 characters per cell. Some fields, like the "Last banner" column, may be improperly displayed due to this limitation. If you encounter an issue, try opening the file in another program that supports CSV files. 
+
 ![Screenshot of dashboard chart drilldown view with export button visible.](media/export-1.png)
 
 
