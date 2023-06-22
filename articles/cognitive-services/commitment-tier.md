@@ -29,13 +29,13 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 
 ## Create a new resource
 
-> [!NOTE]
-> To purchase and use a commitment plan, your resource must have the Standard pricing tier. You cannot purchase a commitment plan (or see the option) for a resource that is on the free tier.
-
 1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Cognitive Services or Applied AI services listed above. 
 
-2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier.
+2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier. 
 
+    > [!NOTE]
+    > If you intend to purchase a commitment tier for disconnected container usage, you will need to select a different pricing tier. See the [disconnected containers](./containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments) article for more information
+    
     :::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
 
 3. Once your resource is created, you will be able to change your pricing from pay-as-you-go, to a commitment plan.  
@@ -44,10 +44,6 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure subscription. 
 2. In your Azure resource for one of the applicable features listed above, select **Commitment tier pricing**.
-
-    > [!NOTE]
-    > You will only see the option to purchase a commitment plan if the resource is using the standard pricing tier.
- 
 3. Select **Change** to view the available commitments for hosted API and container usage. Choose a commitment plan for one or more of the following offerings:
     * **Web**: web-based APIs, where you send data to Azure for processing.
     * **Connected container**: Docker containers that enable you to [deploy Cognitive services on premises](cognitive-services-container-support.md), and maintain an internet connection for billing and metering.
