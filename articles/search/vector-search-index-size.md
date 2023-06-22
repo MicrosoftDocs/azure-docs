@@ -48,7 +48,7 @@ We refer to this as the "deleted documents ratio". Since the deleted documents r
 
 This is another factor impacting the size of your vector index.
 
-### Estimating the total size for your data
+## Estimating the total size for your data
 
 To estimate the total size of your vector index, use the following calculation:
 
