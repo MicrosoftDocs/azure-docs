@@ -5,7 +5,6 @@ description: In this quickstart, you use the Azure portal in object (Blob) stora
 services: storage
 author: stevenmatthew
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 01/13/2023
 ms.author: shaas

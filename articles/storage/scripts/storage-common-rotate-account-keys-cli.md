@@ -4,7 +4,6 @@ description: Create an Azure Storage account, then retrieve and rotate its accou
 services: storage
 author: stevenmatthew
 ms.service: storage
-ms.subservice: blobs
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/02/2022
