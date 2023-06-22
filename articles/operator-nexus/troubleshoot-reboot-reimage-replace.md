@@ -18,8 +18,9 @@ The time required to complete each of these actions is similar. Rebooting is the
 ## Prerequisites
 
 - Familiarize yourself with the capabilities referenced in this article by reviewing the [BMM actions](howto-baremetal-functions.md).
-- Get the name of the resource group for the BMM.
-- Get the name of the BMM that requires a lifecycle management operation.
+- Gather the following information:
+  - Name of the resource group for the BMM
+  - Name of the BMM that requires a lifecycle management operation
 
 ## Identify the corrective action
 

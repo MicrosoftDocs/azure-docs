@@ -22,7 +22,7 @@ For more information, see [Manage an AKS hybrid cluster](./howto-hybrid-aks.md#h
 ## Prerequisites
 
 * Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md).
+  [appropriate Azure CLI extensions](./howto-install-cli-extensions.md).
 * Gather this information:
   * Tenant ID
   * Subscription ID
@@ -55,13 +55,13 @@ An unhealthy cluster might show:
 
 ## Troubleshoot basic network requirements
 
-At a minimum, every AKS hybrid cluster needs a default CNI network and a cloud services network. Starting from the bottom up, consider managed network fabric resources, network cloud resources, and AKS hybrid resources.
+At a minimum, every AKS hybrid cluster needs a default Container Network Interface (CNI) network and a cloud services network. Starting from the bottom up, consider managed network fabric resources, network cloud resources, and AKS hybrid resources.
 
 ### Network fabric resources
 
 * Each network cloud cluster can support up to 200 cloud services networks.
-* The fabric must be configured with a Layer 3 (L3) isolation domain and L3 internal network for use with the default CNI network.
-* The VLAN range can be greater than 1,000 for default CNI network.
+* The fabric must be configured with a Layer 3 (L3) isolation domain and an L3 internal network for use with the default CNI network.
+* The VLAN range can be greater than 1,000 for the default CNI network.
 * The L3 isolation domain must be successfully enabled.
 
 ### Network cloud resources
@@ -76,7 +76,7 @@ At a minimum, every AKS hybrid cluster needs a default CNI network and a cloud s
 
 ### AKS hybrid resources
 
-To be used by a AKS hybrid cluster, each network cloud network must be "wrapped" in a AKS hybrid virtual network. [Learn how to configure an AKS hybrid virtual network by using the Azure CLI](/cli/azure/hybridaks/vnet).
+To be used by an AKS hybrid cluster, each network cloud network must be "wrapped" in an AKS hybrid virtual network. [Learn how to configure an AKS hybrid virtual network by using the Azure CLI](/cli/azure/hybridaks/vnet).
 
 ## Troubleshoot common problems
 
@@ -84,17 +84,19 @@ Any of the following problems can cause the AKS hybrid cluster to fail to be ful
 
 ### AKS hybrid clusters might fail or time out when they're created concurrently
 
-The Azure Arc appliance can handle creating only one AKS hybrid cluster at a time within an instance. After you create a single AKS hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to show as **Connected** or **Online** in the Azure portal.
+The Azure Arc appliance can handle creating only one AKS hybrid cluster at a time within an instance. After you create a single AKS hybrid cluster, you must wait for its provisioning status to be `Succeeded` and for the cluster status to appear as **Connected** or **Online** in the Azure portal.
 
-If you tried to create several at once and have them in a `Failed` state, delete all failed clusters and any partially succeeded clusters. Anything that isn't a fully successful cluster should be deleted. After all clusters and artifacts are deleted, wait a few minutes for the Azure Arc appliance and cluster operators to reconcile. Then try to create a single new AKS hybrid cluster. Wait for that to come up successfully and report as **Connected** or **Online**. You should now be able to continue creating AKS hybrid clusters, one at a time.
+If you tried to create several at once and have them in a `Failed` state, delete all failed clusters and any partially succeeded clusters. Anything that isn't a fully successful cluster should be deleted. 
+
+After all clusters and artifacts are deleted, wait a few minutes for the Azure Arc appliance and cluster operators to reconcile. Then try to create a single new AKS hybrid cluster. Wait for that to come up successfully and report as **Connected** or **Online**. You should now be able to continue creating AKS hybrid clusters, one at a time.
 
 ### Case mismatch between an AKS hybrid virtual network and a network cloud network
 
 For you to configure an AKS hybrid virtual network, the resource IDs for the network cloud network must precisely match the Azure Resource Manager resource IDs. To ensure that the IDs have identical uppercase and lowercase letters, ensure that you use the correct casing when you're setting up the network.
 
-If you're using the Azure CLI, use the `--aods-vnet-id*` parameter. If you're using Azure Resource Manager, Bicep, or a manual `az rest` API call, use the value of `.properties.infraVnetProfile.networkCloud.networkId`.
+If you're using the Azure CLI, use the `--aods-vnet-id*` parameter. If you're using Azure Resource Manager, Bicep, or a manual Azure REST API call, use the value of `.properties.infraVnetProfile.networkCloud.networkId`.
 
-The most reliable way to obtain the correct value to use when creating the virtual network is to query the object for its ID. For example:
+The most reliable way to obtain the correct value for creating the virtual network is to query the object for its ID. For example:
 
 ~~~bash
 az networkcloud cloudservices show -g "example-rg" -n "csn-name" -o tsv --query id
@@ -109,7 +111,7 @@ At a high level, the steps to create isolation domains are:
 1. Create the L3 isolation domain.
 1. Add one or more internal networks.
 1. Add one external network (optional, if northbound connectivity is required).
-1. Enable the L3 isolation domain by using the following commands:
+1. Enable the L3 isolation domain by using the following command:
 
    ~~~bash
    az nf l3domain update-admin-state --resource-group "RESOURCE_GROUP_NAME" --resource-name "L3ISOLATIONDOMAIN_NAME" --state "Enable"
@@ -122,7 +124,7 @@ az nf l3domain show -g "example-rg" --resource-name "l2domainname" -o table
 az nf l2domain show -g "example-rg" --resource-name "l3domainname" -o table
 ~~~
 
-### Network Cloud network status is failed
+### Network cloud network status is Failed
 
 When you create networks, ensure that they come up successfully. In particular, pay attention to the following constraints when you're creating default CNI networks:
 
@@ -162,7 +164,7 @@ Here's the result:
 
 ~~~
 
-### Memory saturation on AKS hybrid node
+### Memory saturation on an AKS hybrid node
 
 There have been incidents where workloads for cloud-native network functions (CNFs) can't start because of resource constraints on the AKS hybrid node that the CNF workload is scheduled on. It has happened on nodes that have Azure Arc pods that are consuming many compute resources. To reduce memory saturation, use effective monitoring tools and apply best practices.
 
