@@ -48,11 +48,11 @@ In this tutorial, you learn how to:
     [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions.
     * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
-To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine:
+* To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine:
 
-* [Python](https://www.python.org/downloads/)
-* [Git](https://git-scm.com/downloads)
-* [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+    * [Python](https://www.python.org/downloads/)
+    * [Git](https://git-scm.com/downloads)
+    * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## Build an image classifier with Custom Vision
 
