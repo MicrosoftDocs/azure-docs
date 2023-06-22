@@ -33,6 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An administrator account with Moqups.
+* SCIM-based user provisioning is available to Moqups customers on our [Unlimited Plan](https://moqups.com/pricing).
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -40,7 +41,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Moqups](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Moqups to support provisioning with Azure AD
-Contact Moqups support to configure Moqups to support provisioning with Azure AD.
+To set up **SCIM** for **Azure**, you will first need to generate an **API Token** in Moqups, and then configure **Automatic Provisioning** in Azure itself.
+
+Generate an API Token:
+
+1. Go to the **Integrations** tab on your Moqups **Dashboard's Account** page.
+1. In the **SCIM Provisioning** section of your **Integration tab**, click the **Generate token** button.
+	![Screenshot of generate token.](media/moqups-provisioning-tutorial/generate-token.png)
+1. Copy the **API Token** to your clipboard. You'll need this to complete the process in **Azure**.
+	![Screenshot of api token.](media/moqups-provisioning-tutorial/api-token.png)
 
 ## Step 3. Add Moqups from the Azure AD application gallery
 
@@ -77,7 +86,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Moqups Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Moqups. If the connection fails, ensure your Moqups account has Admin permissions and try again.
+1. In the **Admin Credentials** section, input your Moqups Tenant URL and Secret Token.
+	1. Use `https://api.moqups.com/scim/v2` as the **Tenant URL**. 
+	1. Use the **API Token** generated in Step 2.1 as the **Secret Token**.
+	1. Click **Test Connection** so that Azure AD can confirm that the supplied credentials can be used for provisioning. If the connection fails, double-check the **Tenant URL**,  as well make sure the **API Token** is correct. 
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
