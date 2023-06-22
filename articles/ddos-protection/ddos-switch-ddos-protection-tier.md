@@ -46,7 +46,7 @@ You can switch from Network Protection to IP Protection using the Azure portal. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **public IP Addresses**. Select **public IP Address**.
-1. Select your Public IP address. In this example, select **myStandardPublicIP**.
+1. Select your Public IP address.
 1. In the **Overview** pane, select the **Properties** tab, then select **DDoS protection**. 
 
     :::image type="content" source="./media/ddos-switch-ddos-protection/ddos-protection-view-status.png" alt-text="Screenshot showing view of Public IP Properties." lightbox="./media/ddos-switch-ddos-protection/ddos-protection-view-status.png":::
