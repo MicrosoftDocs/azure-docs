@@ -108,7 +108,7 @@ Tabular fields are also useful when extracting repeating information within a do
 * Train a custom model:
 
   > [!div class="nextstepaction"]
-  > [How to train a model](how-to-guides/build-custom-model-v3.md)
+  > [How to train a model](how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true)
 
 * Learn more about custom template models:
 

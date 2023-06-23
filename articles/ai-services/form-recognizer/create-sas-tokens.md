@@ -80,7 +80,7 @@ To get started, you need:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
    > [!NOTE]
-   > By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](./build-training-data-set.md#organize-your-data-in-subfolders-optional).
+   > By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](./build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional).
 
 ## Use the Azure portal
 
@@ -178,4 +178,4 @@ That's it! You've learned how to create SAS tokens to authorize how clients acce
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Build a training data set](build-training-data-set.md)
+> [Build a training data set](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)

@@ -89,7 +89,7 @@ Custom (template) models  are generally available with the [v2.1 API](https://we
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom model (template) | [Form Recognizer 2.1 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Form Recognizer SDK](quickstarts/get-started-v2-1-sdk-rest-api.md?pivots=programming-language-python)| [Form Recognizer Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom model (template) | [Form Recognizer 2.1 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true?pivots=programming-language-python)| [Form Recognizer Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
 
 ::: moniker-end
 
