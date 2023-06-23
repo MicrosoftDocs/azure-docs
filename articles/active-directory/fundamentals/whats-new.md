@@ -872,19 +872,6 @@ Cross-tenant synchronization allows you to set up a scalable and automated solut
 
 ---
 
-### General Availability - Apple Watch companion app removed from Authenticator for iOS
-
-
-
-**Type:**  Deprecated      
-**Service category:** Identity Protection                
-**Product capability:** Identity Security & Protection          
-
-In the January 2023 release of Authenticator for iOS, there's no companion app for watchOS due to it being incompatible with Authenticator security features, meaning you aren't able to install or use Authenticator on Apple Watch. This change only impacts Apple Watch, so you can still use Authenticator on your other devices. For more information, see: [Common questions about the Microsoft Authenticator app](https://support.microsoft.com/account-billing/common-questions-about-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd).
-
-
----
-
 ### General Availability - New Federated Apps available in Azure AD Application gallery - January 2023
 
 
