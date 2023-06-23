@@ -407,7 +407,7 @@ az containerapp revision label add \
 
 ```azurecli
 # set the new commitId
-export BLUE_COMMIT_ID=sha10d1436b
+export BLUE_COMMIT_ID=0d1436b
 
 # deploy new version of the app to blue revision
 az deployment group create \
