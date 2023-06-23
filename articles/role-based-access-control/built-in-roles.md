@@ -62,7 +62,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Data Box Contributor](#data-box-contributor) | Lets you manage everything under Data Box Service except giving access to others. | add466c9-e687-43fc-8d98-dfcf8d720be5 |
 > | [Data Box Reader](#data-box-reader) | Lets you manage Data Box Service except creating order or editing order details and giving access to others. | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | [Data Lake Analytics Developer](#data-lake-analytics-developer) | Lets you submit, monitor, and manage your own jobs but not create or delete Data Lake Analytics accounts. | 47b7735b-770e-4598-a7da-8b91488b4c88 |
-> | [Elastic SAN Network Admin](#elastic-san-network-admin) | Allows for full control of all networking configuration operations for Azure Elastic SAN and volume groups, including changing network security policies to unblock data path access | <new GUID here> |
+> | [Elastic SAN Network Admin](#elastic-san-network-admin) | Allows for full control of all networking configuration operations for Azure Elastic SAN and volume groups, including changing network security policies to unblock data path access | new GUID here |
 > | [Elastic SAN Owner](#elastic-san-owner) | Allows for full access to all resources under Azure Elastic SAN including changing network security policies to unblock data path access | 80dcbedb-47ef-405d-95bd-188a1b4ac406 |
 > | [Elastic SAN Reader](#elastic-san-reader) | Allows for control path read access to Azure Elastic SAN | af6a70f8-3c9f-4105-acf1-d719e9fca4ca |
 > | [Elastic SAN Volume Group Owner](#elastic-san-volume-group-owner) | Allows for full access to a volume group in Azure Elastic SAN including changing network security policies to unblock data path access | a8281131-f312-4f34-8d98-ae12be9f0d23 |
@@ -2669,7 +2669,7 @@ Allows for full control of all networking configuration operations for Azure Ela
     "/"
   ],
   "description": "Allows for full control of all networking configuration operations for Azure Elastic SAN and volume groups, including changing network security policies to unblock data path access",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/<new GUID>",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/new GUID",
   "name": "<new GUID>",
   "permissions": [
     {
