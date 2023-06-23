@@ -190,25 +190,22 @@ Use the same command to remove a tag:
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
-``
+```
 
-### Check properties of an instance 
+---
 
-When you acquire the instances, you can go to the Properties section to view the data collected about the instances. Data collected includes: 
+### Check properties of an instance
 
- 
+When you acquire the instances, you can go to the Properties section to view the data collected about the instances. 
+Data collected includes:
 
-Azure connectivity 
+* Azure connectivity
+* Storage backend
+* ExpressRoute circuit ID
+* Unique resource ID
+* Subscription ID
 
-Storage backend 
-
-ExpressRoute circuit ID 
-
-Unique resource ID 
-
-Subscription ID. 
-
-You'll use this information in support requests or when setting up storage snapshot configuration. 
+This information is important in support requests and when setting up a storage snapshot configuration.
 
  
 
