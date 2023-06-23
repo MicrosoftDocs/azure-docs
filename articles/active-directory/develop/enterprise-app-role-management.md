@@ -37,7 +37,7 @@ Use the following steps to locate the enterprise application:
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. After the application is selected, copy the object ID from the overview pane.
 
-    :::image type="content" source="media/active-directory-enterprise-app-role-management/record-objectid.png" alt-text="Screenshot that shows how to locate and record the object identifier for the application.":::
+    :::image type="content" source="media/enterprise-app-role-management/record-objectid.png" alt-text="Screenshot that shows how to locate and record the object identifier for the application.":::
 
 ## Add roles
 
@@ -119,7 +119,7 @@ Update the attributes to define the role claim that is included in the token.
 1. From the **Source attribute** list, select **user.assignedroles**.
 1. Select **Save**. The new **Role Name** attribute should now appear in the **Attributes & Claims** section. The claim should now be included in the access token when signing into the application.
 
-    :::image type="content" source="media/active-directory-enterprise-app-role-management/attributes-summary.png" alt-text="Screenshot that shows a display of the list of attributes and claims defined for the application.":::
+    :::image type="content" source="media/enterprise-app-role-management/attributes-summary.png" alt-text="Screenshot that shows a display of the list of attributes and claims defined for the application.":::
 
 ## Assign roles
 
@@ -131,7 +131,7 @@ After the service principal is patched with more roles, you can assign users to 
 1. Select **None Selected**, select the role from the list, and then select **Select**.
 1. Select **Assign** to assign the role to the user.
 
-    :::image type="content" source="media/active-directory-enterprise-app-role-management/assign-role.png" alt-text="Screenshot that shows how to assign a role to a user of an application.":::
+    :::image type="content" source="media/enterprise-app-role-management/assign-role.png" alt-text="Screenshot that shows how to assign a role to a user of an application.":::
 
 ## Update roles
 

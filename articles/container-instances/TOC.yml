@@ -133,6 +133,8 @@
       href: container-instances-gpu.md
     - name: Enable SSL endpoint in sidecar
       href: container-instances-container-group-ssl.md
+    - name: Enable automatic HTTPS with Caddy as reverse proxy
+      href: container-instances-container-group-automatic-ssl.md
     - name: Expose static IP with App Gateway
       href: container-instances-application-gateway.md  
     - name: Use Azure Firewall for ingress and egress

@@ -21,7 +21,7 @@ For more advanced load testing scenarios, you can [create a load test by reusing
 
 If your application is hosted on Azure, Azure Load Testing collects detailed resource metrics to help you [identify performance bottlenecks](#identify-performance-bottlenecks-by-using-high-scale-load-tests) across your Azure application components.
 
-To capture application performance regressions early, add your load test in your [continuous integration and continuous deployment (CI/CD) workflow](#enable-automated-load-testing). Leverage test fail criteria to define and validate your application quality requirements.
+To capture application performance regressions early, add your load test in your [continuous integration and continuous deployment (CI/CD) workflow](./quickstart-add-load-test-cicd.md). Leverage test fail criteria to define and validate your application quality requirements.
 
 Azure Load Testing enables you to test private application endpoints or applications that you host on-premises. For more information, see the [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
 
@@ -61,7 +61,7 @@ You might also [download the test results](./how-to-export-test-results.md) for 
 
 You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
 
-Get started with [adding load testing to your CI/CD workflow](./tutorial-identify-performance-regression-with-cicd.md) to quickly identify performance degradation of your application under load.
+Get started with [adding load testing to your CI/CD workflow](./quickstart-add-load-test-cicd.md) to quickly identify performance degradation of your application under load.
 
 In the test configuration, [specify test fail criteria](./how-to-define-test-criteria.md) to catch application performance or stability regressions early in the development cycle. For example, get alerted when the average response time or the number of errors exceed a specific threshold.
 
@@ -71,7 +71,7 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 
 ## How does Azure Load Testing work?
 
-Azure Load Testing uses Apache JMeter version 5.5 for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, to load test a database connection or message queue.
+Azure Load Testing uses Apache JMeter for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, to load test a database connection or message queue. Learn more about the [supported Apache JMeter functionality](./resource-jmeter-support.md).
 
 The Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). Each test engine instance runs your JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL (*quick test*), Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
 
@@ -95,6 +95,6 @@ Azure Load Testing doesn't store or process customer data outside the region you
 
 Start using Azure Load Testing:
 - [Quickstart: Load test an existing web application](./quickstart-create-and-run-load-test.md).
+- [Quickstart: Automate load tests with CI/CD](./quickstart-add-load-test-cicd.md).
 - [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
-- [Tutorial: Set up automated load testing](./tutorial-identify-performance-regression-with-cicd.md).
 - Learn about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).

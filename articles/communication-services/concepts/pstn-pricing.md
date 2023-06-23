@@ -307,7 +307,7 @@ All prices shown below are in USD.
 
 ***
 
-Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
+Note: Pricing for all countries/regions is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
 
 ***
 ## Direct routing pricing

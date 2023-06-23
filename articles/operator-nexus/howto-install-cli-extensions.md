@@ -142,9 +142,9 @@ monitor-control-service  0.3.1
 connectedmachine         0.5.1
 connectedk8s             1.3.19
 k8s-extension            1.4.1
-networkcloud             0.3.0.post299
+networkcloud             0.3.0.post311
 k8s-configuration        1.7.0
-managednetworkfabric     0.1.0.post36
+managednetworkfabric     0.1.0.post45
 customlocation           0.1.3
 hybridaks                0.2.1
 ssh                      1.1.6

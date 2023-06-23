@@ -180,7 +180,7 @@ This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by 
     distributedTracingMode: DistributedTracingModes.W3C
   ```
 
-- **[SDK Loader Script-based setup](./javascript-sdk.md?tabs=sdkloaderscript#get-started)**
+- **[JavaScript (Web) SDK Loader Script-based setup](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started)**
 
    Add the following configuration:
   ```

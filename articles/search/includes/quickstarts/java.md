@@ -116,9 +116,9 @@ We used the following tools to create this quickstart.
 
     ```java
     public static void main(String[] args) {
-        var searchServiceEndpoint = "https://<your-service>.search.windows.net";
-        var adminKey = new AzureKeyCredential("<your-admin-key>");
-        String indexName = "<index-name>";
+        var searchServiceEndpoint = "<YOUR-SEARCH-SERVICE-URL>";
+        var adminKey = new AzureKeyCredential("<YOUR-SEARCH-SERVICE-ADMIN-KEY>");
+        String indexName = "<YOUR-SEARCH-INDEX-NAME>";
 
         SearchIndexClient searchIndexClient = new SearchIndexClientBuilder()
             .endpoint(searchServiceEndpoint)

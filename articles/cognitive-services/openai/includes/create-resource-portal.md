@@ -43,11 +43,11 @@ This guide walks you through the Azure portal creation experience.
 
 ## Deploy a model
 
-Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure AI Studio.
+Before you can generate text or inference, you need to deploy a model. You can select from one of several available models in Azure OpenAI Studio.
 
 To deploy a model, follow these steps:
 
-1. Sign in to [Azure AI Studio](https://oai.azure.com).
+1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 2. Select the subscription and Azure OpenAI resource to work with.
 3. Under **Management** select **Deployments**.
 4. Select **Create new deployment**.

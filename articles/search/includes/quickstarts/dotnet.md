@@ -34,6 +34,8 @@ Build a console application using the [**Azure.Search.Documents**](/dotnet/api/o
 
 1. Create two clients: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/dotnet/api/azure.search.documents.searchclient) loads and queries an existing index. Both need the service endpoint and an admin API key for authentication with create/delete rights.
 
+   Because the code builds out the URI for you, specify just the search service name in the "serviceName" property.
+
    ```csharp
     static void Main(string[] args)
     {

@@ -25,7 +25,7 @@ Another approach is to use Azure Active Directory (Azure AD) groups and group cl
 
 ## Declare roles for an application
 
-You define app roles by using the [Azure portal](https://portal.azure.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+You define app roles by using the [Azure portal](https://portal.azure.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted. This can be used to implement [claim-based authorization](./claims-validation.md). App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
 
 Currently, if you add a service principal to a group, and then assign an app role to that group, Azure AD doesn't add the `roles` claim to tokens it issues.
 
@@ -43,11 +43,11 @@ To create an app role by using the Azure portal's user interface:
 1. Under **Manage**, select **App registrations**, and then select the application you want to define app roles in.
 1. Select **App roles**, and then select **Create app role**.
 
-   :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="An app registration's app roles pane in the Azure portal":::
+   :::image type="content" source="media/howto-add-app-roles-in-apps/app-roles-overview-pane.png" alt-text="An app registration's app roles pane in the Azure portal":::
 
 1. In the **Create app role** pane, enter the settings for the role. The table following the image describes each setting and their parameters.
 
-   :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-create-context-pane.png" alt-text="An app registration's app roles create context pane in the Azure portal":::
+   :::image type="content" source="media/howto-add-app-roles-in-apps/app-roles-create-context-pane.png" alt-text="An app registration's app roles create context pane in the Azure portal":::
 
    | Field                                    | Description                                                                                                                                                                                                                                                                                                       | Example                       |
    | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |

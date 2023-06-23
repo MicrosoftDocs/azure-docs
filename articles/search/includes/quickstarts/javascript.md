@@ -74,8 +74,8 @@ We used the following tools to create this quickstart.
 1. Create a file **.env** to hold your search service parameters:
 
     ```
-    SEARCH_API_KEY=<search-admin-key>
-    SEARCH_API_ENDPOINT=https://<search-service-name>.search.windows.net
+    SEARCH_API_KEY=<YOUR-SEARCH-ADMIN-API-KEY>
+    SEARCH_API_ENDPOINT=<YOUR-SEARCH-SERVICE-URL>
     ```
 
 Replace the `<search-service-name>` value with the name of your search service. Replace `<search-admin-key>` with the key value you recorded earlier. 
