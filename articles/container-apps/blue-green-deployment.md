@@ -314,12 +314,12 @@ The traffic section of the container app looks as in the following example. The 
 { 
   "traffic": [
     {
-      "revisionName": "<APP_NAME>--sha1c6f1515",
+      "revisionName": "<APP_NAME>--c6f1515",
       "weight": 0,
       "label": "blue"
     },
     {
-      "revisionName": "<APP_NAME>--sha10b699ef",
+      "revisionName": "<APP_NAME>--0b699ef",
       "weight": 100,
       "label": "green"
     }
