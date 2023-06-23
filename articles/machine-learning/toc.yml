@@ -357,6 +357,8 @@
       href: concept-what-is-managed-feature-store.md
     - name: Feature store entities
       href: concept-top-level-entities-in-managed-feature-store.md
+    - name: Manage access to managed feature store
+      href: how-to-setup-access-control-feature-store.md
     - name: Develop and register a feature set
       href: tutorial-get-started-with-feature-store.md
     - name: Enable materialization and backfill feature data
@@ -365,6 +367,8 @@
       href: tutorial-experiment-train-models-using-features.md
     - name: Enable recurrent materialization
       href: tutorial-enable-recurrent-materialization-run-batch-inference.md
+    - name: Troubleshoot managed feature store errors
+      href: troubleshooting-managed-feature-store.md
   - name: Compliance
     items:
       - name: Export and delete data
@@ -695,10 +699,10 @@
   # end v1
 - name: Deploy for inferencing
   items:
+    - name: Endpoints for inferencing
+      href: concept-endpoints.md
     - name: Online endpoints (real-time)
       items:
-        - name: Endpoints
-          href: concept-endpoints.md
         - name: Online endpoints
           href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
