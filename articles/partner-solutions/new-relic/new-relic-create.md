@@ -65,7 +65,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
    :::image type="content" source="media/new-relic-create/new-relic-change-plan.png" alt-text="Screenshot of the panel for changing a plan.":::
 
 1. If you select **Associate with existing** to associate the New Relic resource with an existing organization, the corresponding billing information is the same as when you created the organization.
-   
+
 1. If New Relic is currently managing billing for the organization you selected, it remains so.
 
     :::image type="content" source="media/new-relic-create/new-relic-existing.png" alt-text="Screenshot showing Associate with existing was selected in the organization section of the working pane.":::
@@ -78,7 +78,7 @@ Your next step is to configure metrics and logs on the **Metrics and Logs** tab.
 
 1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs are sent to New Relic.
 
-   These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). These logs also include updates on service-health events. 
+   These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). These logs also include updates on service-health events.
 
    Use the activity log to determine what, who, and when for any write operations (`PUT`, `POST`, `DELETE`). There's a single activity log for each Azure subscription.
 
@@ -93,7 +93,7 @@ Your next step is to configure metrics and logs on the **Metrics and Logs** tab.
    - All Azure resources with tags defined in include rules send logs to New Relic.
    - All Azure resources with tags defined in exclude rules don't send logs to New Relic.
    - If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
-    
+
    Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
    > [!NOTE]
@@ -103,7 +103,7 @@ Your next step is to configure metrics and logs on the **Metrics and Logs** tab.
 
 ## Set up resource tags
 
-On the **Tags** tab, you can choose to set up tags for the New Relic resource. 
+On the **Tags** tab, you can choose to set up tags for the New Relic resource.
 
 :::image type="content" source="media/new-relic-create/new-relic-tags.png" alt-text="Screenshot of Tags tab of the New Relic resource.":::
 
@@ -111,11 +111,11 @@ You can also skip this step and go directly to the **Review and Create** tab.
 
 ## Review and create the resource
 
-1. On the **Review and Create** tab, review the resource setup information. 
+1. On the **Review and Create** tab, review the resource setup information.
 
    :::image type="content" source="media/new-relic-create/new-relic-review.png" alt-text="Screenshot of the tab for reviewing and creating a New Relic resource.":::
 
-1. Ensure that you've passed validation, and then select **Create** to begin the resource deployment. 
+1. Ensure that you've passed validation, and then select **Create** to begin the resource deployment.
 
 1. After creating resource, you must set up your account config to monitor other resources with Azure Native New Relic Service. For more information, see [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic).
 
