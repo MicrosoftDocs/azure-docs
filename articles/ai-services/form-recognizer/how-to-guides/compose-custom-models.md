@@ -101,7 +101,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Form Recognizer Studio: labeling as tables](../quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables)
+See [Form Recognizer Studio: labeling as tables](../quickstarts/try-form-recognizer-studio.md#labeling-as-tables)
 
 ### [REST API](#tab/rest)
 
@@ -253,7 +253,7 @@ Great! You've learned the steps to create custom and composed models and use the
 Try one of our Form Recognizer quickstarts:
 
 > [!div class="nextstepaction"]
-> [Form Recognizer Studio](../quickstarts/try-v3-form-recognizer-studio.md)
+> [Form Recognizer Studio](../quickstarts/try-form-recognizer-studio.md)
 
 > [!div class="nextstepaction"]
 > [REST API](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
