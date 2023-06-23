@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 06/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell
@@ -44,7 +44,7 @@ The process for enabling each type of endpoint follows:
 
 ### Configure Azure Storage service endpoint
 
-To configure an Azure Storage service endpoint, enable it from the virtual network subnet. To configure it, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
+To configure an Azure Storage service endpoint, enable it from the virtual network subnet. To configure it, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
 
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
@@ -91,7 +91,7 @@ az network vnet subnet update --resource-group $resourceGroupName --vnet-name $v
 
 ### Configure private endpoint
 
-To configure a private endpoint, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) Microsoft.ElasticSan/elasticSans/volumeGroups/PrivateEndpointConnectionsApproval/action. Permission for this action is included in the Elastic SAN Network Admin role, but can also be granted via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+To configure a private endpoint, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action` operation. Permission for this action is included in the Elastic SAN Network Admin role, but can also be granted via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 When you create a private endpoint, you must specify the Elastic SAN and the volume group to which it connects. You can configure a private endpoint using the Azure portal, PowerShell, or the Azure CLI.
 
