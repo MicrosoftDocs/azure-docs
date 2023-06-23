@@ -27,7 +27,7 @@ Flow diagram showing creation and sharing of credentials.
 
 The steps to use Azure Key Vault in Data Manager for Agriculture are as follows: 
 
-### Step 1: Create Key Vault 
+## Step 1: Create Key Vault 
 Customers can create a key vault or use an existing key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer creates (or reuse existing one) Azure Key Vault with following properties (Optional):
 
 :::image type="content" source="./media/concepts-byol-and-credentials/create-key-vault.png" alt-text="Screenshot showing key vault properties.":::
@@ -36,12 +36,12 @@ It's recommended that customer keeps key vault accessible over internet so that 
 
 :::image type="content" source="./media/concepts-byol-and-credentials/provide-access-to-keys.png" alt-text="Screenshot showing key vault access.":::
 
-### Step 2: Store secret in Azure Key Vault
+## Step 2: Store secret in Azure Key Vault
 For sharing your satellite or weather service credentials, customer stores client secrets in a key vault. Customers are in control of secret name and rotation.
 
 :::image type="content" source="./media/concepts-byol-and-credentials/store-your-credential-keys.png" alt-text="Screenshot showing storage of key values.":::
 
-### Step 3: Enable system identity 
+## Step 3: Enable system identity 
 As a customer you have to enable system identity for your Data Manager for Agriculture instance. There are two options:
     
 1. Via UI
@@ -54,7 +54,7 @@ As a customer you have to enable system identity for your Data Manager for Agric
     armclient patch /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2023-04-01-preview "{identity: { type: 'systemAssigned' }}
     ``` 
 
-### Step 4: Access policy
+## Step 4: Access policy
 Add an access policy in key vault for your Data Manager for Agriculture instance.
     
 1. Go to access policies tab in the created key vault.
@@ -69,7 +69,7 @@ Add an access policy in key vault for your Data Manager for Agriculture instance
 
     :::image type="content" source="./media/concepts-byol-and-credentials/access-policy-creation.png" alt-text="Screenshot showing selection create and review tab.":::
 
-### Step 5: Invoke control plane API call
+## Step 5: Invoke control plane API call
 Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2021-09-01-preview/farm-beats-models/create-or-update?tabs=HTTP) to specify credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the following figure.
 
 :::image type="content" source="./media/concepts-byol-and-credentials/details-key-vault.png" alt-text="Screenshot showing where key name and key version is available.":::
