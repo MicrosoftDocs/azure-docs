@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Part 3 (Optional) Embedding Your Calling Experience
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 Finally in this optional section of the tutorial we'll talk about making an embedded version of the Calling surface. We'll continue from where we left off in the last section and make some modifications to our existing screens. 
 
 To start, let's take a look at the props for the `ClickToCallComponent.tsx` props, these will need to be updated to have the widget hold the Calling surface. We'll make two changes.

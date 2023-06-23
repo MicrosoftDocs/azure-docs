@@ -14,6 +14,8 @@ ms.subservice: calling
 ---
 # Part 2 Creating a New Window Calling Experience
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 Now that we have a running application with our widget on the home page, we'll talk about starting the calling experience for your users with a new window. This scenario allows you to give your customer the ability to browse while still seeing your call in a new window. This can be useful in situations similar to when your users use video and screen sharing.
 
 To start, we'll create a new view in the `src/views` folder called `NewWindowCallScreen.tsx`. This new screen will be used by the `App.tsx` file to go into a new call with the arguments provided to it using our `CallComposite`. The `CallComposite` can be swapped with a stateful client and UI component experience if desired as well, but that won't be covered in this tutorial. For more information see our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-statefulcallclient--page) about the stateful client.
