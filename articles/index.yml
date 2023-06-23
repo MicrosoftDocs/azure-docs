@@ -1638,6 +1638,14 @@ productDirectory:
       azureCategories:
        - iot
       url: /windows/iot/   
+    # Card
+    - title: Azure Kubernetes Service Edge Essentials
+      summary:  An on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale.
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - hybrid
+      url: /azure/aks/hybrid/aks-edge-overview  
+      
 tools:
   title: Languages and tools
   items:
