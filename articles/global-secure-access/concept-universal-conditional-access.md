@@ -1,11 +1,11 @@
 ---
-title: Universal Conditional Access through Global Secure Access
-description: How to use a traffic profile in a Conditional Access policy.
+title: Learn about Universal Conditional Access through Global Secure Access
+description: Conditional Access concepts.
 
 ms.service: network-access
 ms.subservice: 
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 06/21/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -28,33 +28,18 @@ This functionality allows administrators to consistently enforce Conditional Acc
 * A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running.
 * You must be routing your Microsoft 365 and private network traffic through the **Global Secure Access preview**.
 
-## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
+## Conditional Access policies
 
-The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, or hybrid Azure AD join when accessing Microsoft 365 traffic.
+With Conditional Access, you can enable access controls and security policies for the network traffic acquired by Microsoft Entra Internet Access and Microsoft Entra Private Access. 
 
-:::image type="content" source="media/how-to-target-resource/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
+- Select the [Microsoft 365 traffic profile as the Target resource](how-to-target-resource-microsoft-365-profile.md) in a policy to apply the policy to all Microsoft 365 traffic.
+- Apply Conditional Access policies to your [Private Access apps](how-to-target-resource-private-access-apps.md), such as Quick Access.
+- Enable [Global Secure Access signaling in Conditional Access](how-to-source-ip-restoration.md) so the source IP address is visible in the appropriate logs and reports.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Identity** > **Protection** > **Conditional Access**.
-1. Select **Create new policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**.
-   1. Under **Exclude**:
-      1. Select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-      1. Select **Guest or external users** and select all checkboxes.
-1. Under **Target resources** > **Network Access (Preview)***.
-   1. Choose **Microsoft 365 traffic**.
-1. Under **Access controls** > **Grant**.
-   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
-   1. **For multiple controls** select **Require one of the selected controls**.
-   1. Select **Select**.
-
-After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## User experience
 
-When users sign in to a machine with the Global Secure Access Client installed, configured, and running for the first time they are prompted to sign in. When users attempt to access a resource protected by a policy like the example above the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access Client you see a red circle indicating it's signed out or not running.
+When users sign in to a machine with the Global Secure Access Client installed, configured, and running for the first time they're prompted to sign in. When users attempt to access a resource protected by a policy. like the example above, the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access Client you see a red circle indicating it's signed out or not running.
 
 :::image type="content" source="media/how-to-target-resource/windows-client-pick-an-account.png" alt-text="Screenshot showing the pick an account window for the Global Secure Access Client.":::
 
@@ -62,9 +47,8 @@ When a user signs in the Global Secure Access Client has a green circle that you
 
 :::image type="content" source="media/how-to-target-resource/global-secure-access-client-signed-in.png" alt-text="Screenshot showing the Global Secure Access Client is signed in and running.":::
 
-[!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
-
 ## Next steps
 
-- [Manage the Microsoft 365 traffic profile](how-to-manage-microsoft-365-profile.md)
-- [Manage the private access traffic profile](how-to-manage-private-access-profile.md)
+- [Enable source IP restoration](how-to-source-ip-restoration.md)
+- [Create a Conditional Access policy for Microsoft 365 traffic](how-to-target-resource-microsoft-365-profile.md)
+- [Create a Conditional Access policy for Private Access apps](how-to-target-resource-private-access-apps.md)

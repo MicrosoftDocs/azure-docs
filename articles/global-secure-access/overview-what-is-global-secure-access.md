@@ -47,7 +47,7 @@ The following new capabilities are available in the private preview of Microsoft
 
 Microsoft Entra Private Access provides your users - whether in an office or working remotely - secured access to your private, corporate resources. Microsoft Entra Private Access builds on the capabilities of Microsoft Entra ID App Proxy and extends access to any private resource, port, and protocol.
 
-Remote users can connect to private apps across hybrid and multicloud environments, private networks, and data centers from any device and network without. The service offers per-app adaptive access based on Conditional Access policies, for more granular security than a VPN. 
+Remote users can connect to private apps across hybrid and multicloud environments, private networks, and data centers from any device and network without requiring a VPN. The service offers per-app adaptive access based on Conditional Access policies, for more granular security than a VPN. 
 
 ### Key features
 

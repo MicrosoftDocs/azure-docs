@@ -33,7 +33,7 @@ To enable the required setting to allow source IP restoration, an administrator 
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator.
 1. Browse to **Global Secure Access** > **Session management** > **Adaptive Access**.
-1. Select the toggle to **Enable Network Access signaling in Conditional Access**.
+1. Select the toggle to **Enable Global Secure Access signaling in Conditional Access**.
 
 This functionality allows services like Microsoft Graph, Microsoft Entra ID, SharePoint Online, and Exchange Online to see the actual source IP address.
 
