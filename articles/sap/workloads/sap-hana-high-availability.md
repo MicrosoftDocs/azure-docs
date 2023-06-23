@@ -5,13 +5,11 @@ services: virtual-machines-linux
 documentationcenter: 
 author: rdeltcheva
 manager: juergent
-editor:
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/07/2022
+ms.date: 06/23/2023
 ms.author: radeltch
 
 ---
@@ -36,8 +34,6 @@ ms.author: radeltch
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
-[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
 To establish high availability in an on-premises SAP HANA deployment, you can use either SAP HANA system replication or shared storage.
 
@@ -89,127 +85,58 @@ The preceding figure shows an *example* load balancer that has these configurati
 
 ## Deploy for Linux
 
-The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
+The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications. An image for SUSE Linux Enterprise Server for SAP Applications 12 or 15 is available in Azure Marketplace. You can use the image to deploy new VMs.
 
-An image for SUSE Linux Enterprise Server for SAP Applications 12 or 15 is available in Azure Marketplace. You can use the image to deploy new VMs.
+### Deploy Linux VMs manually via Azure portal
 
-### Deploy by using a template
+This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
 
-You can use one of the quickstart templates that are on GitHub to deploy the SAP HANA solution. The templates install all the required resources, including the VMs, the load balancer, and the availability set.
-
-To deploy the template:
-
-1. In the Azure portal, open the [database template][template-multisid-db] or the [converged template][template-converged].
-
-   The *database template* creates the load-balancing rules only for a database. The *converged template* creates load-balancing rules for a database, and also for an SAP ASCS/SCS instance and an SAP ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
-
-1. Enter the following parameters in the template you choose:
-
-   - **Sap System ID**: Enter the SAP system ID (SAP SID) of the SAP system you want to install. The ID is used as a prefix for the resources that are deployed.
-   - **Stack Type** (*converged template only*): Select the SAP NetWeaver stack type.
-   - **Os Type**: Select one of the Linux distributions. For this example, select **SLES 12**.
-   - **Db Type**: Select **HANA**.
-   - **Sap System Size**: Enter the number of SAP Application Performance Standard units (SAPS) the new system will provide. If you're not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
-   - **System Availability**: Select **HA**.
-   - **Admin Username and Admin Password**: Create a new user and password that you can use to sign in to the machine.
-   - **New Or Existing Subnet**: If you already have a virtual network that's connected to your on-premises network, select **Existing**. Otherwise, select **New** and create a new virtual network and subnet.
-   - **Subnet ID**: If you want to deploy the VM to an existing virtual network that has a defined subnet, the VM should be assigned to the name the ID of that specific subnet. The ID usually is in this format:
-
-     /subscriptions/\<subscription ID\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/virtualNetworks/\<virtual network name\>/subnets/\<subnet name\>
-
-### Manual deployment
+Deploy virtual machines for SAP HANA. Choose a suitable SLES image that is supported for HANA system. You can deploy VM in any one of the availability options - scale set, availability zone or availability set.
 
 > [!IMPORTANT]
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
-To manually deploy SAP HANA system replication:
-
-1. Create a resource group.
-
-1. Create a virtual network.
-
-1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a virtual machine scale set with flexible orchestration.
-
-1. Create a load balancer (internal).
-
-   - We recommend that you use the [standard load balancer](../../load-balancer/load-balancer-overview.md).
-   - Select the virtual network you created in step 2.
-
-1. Create virtual machine 1.
-
-   - Use an SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
-   - Select the scale set, availability zone or availability set created in step 3.
-
-1. Create virtual machine 2.
-
-   - Use an SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
-   - Select the scale set, availability zone or availability set created in step 3.
-
-1. Add data disks.
-
-   > [!IMPORTANT]
-   > A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
-
-   > [!NOTE]
-   > When VMs that don't have public IP addresses are placed in the back-end pool of an internal (no public IP address) standard instance of Azure Load Balancer, the default configuration is no outbound internet connectivity. You can take extra steps to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+During VM configuration, you have an option to create or select exiting load balancer in networking section. If you are creating a new load balancer, follow below steps -
 
 1. Set up a standard load balancer.
-
    1. Create a front-end IP pool:
-
       1. Open the load balancer, select **frontend IP pool**, and then select **Add**.
+      2. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+      3. Set **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
+      4. Select **OK**.
+      5. After the new front-end IP pool is created, note the pool IP address.
 
-      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-
-      1. Set **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-
-      1. Select **OK**.
-
-      1. After the new front-end IP pool is created, note the pool IP address.
-
-   1. Create a single back-end pool:
-
+   2. Create a single back-end pool:
       1. In the load balancer, select **Backend pools**, and then select **Add**.
+      2. Enter the name of the new back-end pool (for example, **hana-backend**).
+      3. For **Backend Pool Configuration**, select **NIC**.
+      4. Select **Add a virtual machine**.
+      5. Select the VMs that are in the HANA cluster.
+      6. Select **Add**.
+      7. Select **Save**.
 
-      1. Enter the name of the new back-end pool (for example, **hana-backend**).
-
-      1. For **Backend Pool Configuration**, select **NIC**.
-
-      1. Select **Add a virtual machine**.
-
-      1. Select the VMs that are in the HANA cluster.
-
-      1. Select **Add**.
-
-      1. Select **Save**.
-
-   1. Create a health probe:
-
+   3. Create a health probe:
       1. In the load balancer, select **health probes**, and then select **Add**.
+      2. Enter the name of the new health probe (for example, **hana-hp**).
+      3. For **Protocol**, select **TCP** and select port **625\<instance number\>**. Keep **Interval** set to **5**.
+      4. Select **OK**.
 
-      1. Enter the name of the new health probe (for example, **hana-hp**).
-
-      1. For **Protocol**, select **TCP** and select port **625\<instance number\>**. Keep **Interval** set to **5**.
-
-      1. Select **OK**.
-
-   1. Create the load-balancing rules:
-
+   4. Create the load-balancing rules:
       1. In the load balancer, select **load balancing rules**, and then select **Add**.
+      2. Enter the name of the new load balancer rule (for example, **hana-lb**).
+      3. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend**, and **hana-hp**).
+      4. Increase the idle timeout to 30 minutes.
+      5. Select **HA Ports**.
+      6. Enable **Floating IP**.
+      7. Select **OK**.
 
-      1. Enter the name of the new load balancer rule (for example, **hana-lb**).
+For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend**, and **hana-hp**).
+> [!IMPORTANT]
+> A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
-      1. Increase the idle timeout to 30 minutes.
-
-      1. Select **HA Ports**.
-
-      1. Enable **Floating IP**.
-
-      1. Select **OK**.
-
-   For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
+> [!NOTE]
+> When VMs that don't have public IP addresses are placed in the back-end pool of an internal (no public IP address) standard instance of Azure Load Balancer, the default configuration is no outbound internet connectivity. You can take extra steps to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
 > Don't enable TCP timestamps on Azure VMs that are placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to `0`. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) or SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
@@ -759,47 +686,29 @@ Before you proceed, make sure that you have fully configured the SUSE high avail
 
 ### Set up the load balancer for active/read-enabled system replication
 
-To proceed with extra steps to provision the second virtual IP, make sure that you configured Azure Load Balancer as described in [Manual deployment](#manual-deployment).
+To proceed with extra steps to provision the second virtual IP, make sure that you configured Azure Load Balancer as described in [Deploy Linux VMs manually via Azure portal](#deploy-linux-vms-manually-via-azure-portal).
 
 For the *standard* load balancer, complete these extra steps on the same load balancer that you created earlier.
 
 1. Create a second front-end IP pool:
-
    1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-
-   1. Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
-
-   1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.14**).
-
-   1. Select **OK**.
-
-   1. After the new front-end IP pool is created, note the front-end IP address.
-
-1. Create a health probe:
-
+   2. Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
+   3. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.14**).
+   4. Select **OK**.
+   5. After the new front-end IP pool is created, note the front-end IP address.
+2. Create a health probe:
    1. In the load balancer, select **health probes**, and select **Add**.
-
-   1. Enter the name of the new health probe (for example, **hana-secondaryhp**).
-
-   1. Select **TCP** as the protocol and port **626\<instance number\>**. Keep the **Interval** value set to **5**, and the **Unhealthy threshold** value set to **2**.
-
-   1. Select **OK**.
-
-1. Create the load-balancing rules:
-
+   2. Enter the name of the new health probe (for example, **hana-secondaryhp**).
+   3. Select **TCP** as the protocol and port **626\<instance number\>**. Keep the **Interval** value set to **5**, and the **Unhealthy threshold** value set to **2**.
+   4. Select **OK**.
+3. Create the load-balancing rules:
    1. In the load balancer, select **load balancing rules**, and select **Add**.
-
-   1. Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
-
-   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend**, and **hana-secondaryhp**).
-
-   1. Select **HA Ports**.
-
-   1. Increase idle timeout to 30 minutes.
-
-   1. Make sure that you **enable floating IP**.
-
-   1. Select **OK**.
+   2. Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
+   3. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend**, and **hana-secondaryhp**).
+   4. Select **HA Ports**.
+   5. Increase idle timeout to 30 minutes.
+   6. Make sure that you **enable floating IP**.
+   7. Select **OK**.
 
 ### Set up HANA active/read-enabled system replication
 
