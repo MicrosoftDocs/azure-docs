@@ -32,10 +32,10 @@ Can the service be stopped (and if so, stop billing)?
 - Pay close attention to noncompute charges that may continue to be billed when a resource is stopped so you're not surprised. Storage is a common example of a cost that continues to be charged even if a compute resource that was using the storage is no longer running.
 
 Does the service support serverless compute?
-- Serverless compute tiers can reduce costs when not active. Some examples: [Azure SQL Database](/azure/azure-sql/database/serverless-tier-overview), [Azure SignalR Service](/azure/azure-signalr/concept-service-mode), [Cosmos DB](../..cosmos-db/serverless.md), [Synapse Analytics](../../synapse-analytics/sql/on-demand-workspace-overview.md), [Azure Databricks](/azure/databricks/serverless-compute/).
+- Serverless compute tiers can reduce costs when not active. Some examples: [Azure SQL Database](/azure/azure-sql/database/serverless-tier-overview), [Azure SignalR Service](/azure/azure-signalr/concept-service-mode), [Cosmos DB](../../cosmos-db/serverless.md), [Synapse Analytics](../../synapse-analytics/sql/on-demand-workspace-overview.md), [Azure Databricks](/azure/databricks/serverless-compute/).
 
 Does the service support autostop or autoshutdown functionality?
-- Some services support autostop natively, like [Microsoft Dev Box](../../dev-box/how-to-configure-stop-schedule.md), [Azure DevTest Labs](../../devtest-labs/devtest-lab-auto-shutdown.md), [Azure Lab Services](../../azure/lab-services/how-to-configure-auto-shutdown-lab-plans.md), and [Azure Load Testing](../../load-testing/how-to-define-test-criteria.md#auto-stop-configuration).
+- Some services support autostop natively, like [Microsoft Dev Box](../../dev-box/how-to-configure-stop-schedule.md), [Azure DevTest Labs](../../devtest-labs/devtest-lab-auto-shutdown.md), [Azure Lab Services](../../lab-services/how-to-configure-auto-shutdown-lab-plans.md), and [Azure Load Testing](../../load-testing/how-to-define-test-criteria.md#auto-stop-configuration).
 - If you use a service that supports being stopped, but not autostopping, consider using a lightweight flow in [Power Automate](/power-automate/getting-started) or [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 Does the service support autoscaling?
