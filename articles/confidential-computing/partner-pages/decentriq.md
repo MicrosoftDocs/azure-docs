@@ -16,23 +16,27 @@ ms.author: ananyagarg
 
 ## Overview
 
-Decentriq is an enterprise SaaS platform providing data clean rooms powered by [Azure Confidential Computing](../index.yml).
+Decentriq is an enterprise SaaS platform for confidential data collaboration, powered by  [Azure Confidential Computing](../index.yml).
 
-Decentriq Data Clean Rooms enable organizations to collaborate with external partners in a secure and compliant way without the need to share any data. Decentriq uniquely combines technologies such as confidential computing, synthetic data and differential privacy to guarantee trust and privacy in data collaboration. 
+With Decentriq, organizations can join and analyze data with external partners in  Data Clean Rooms — ultra-secure spaces where data is not accessible and not shared. A unique combination of advanced privacy technologies such as confidential computing, synthetic data and differential privacy work together to enforce compliance, security, control, unlocking the use of even the most sensitive data.
 
 You can learn more about Decentriq in [our partner webinar here](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Decentriq).
 
 ## Decentriq Data Clean Rooms for Healthcare
 
-Decentriq's data clean rooms (DCRs) offer a data privacy-compliant and secure way for members of the health care ecosystem to collaborate without ever sharing their sensitive data or algorithms. Users can now combine sensitive inputs to uncover novel insights at unprecedented speeds, reducing inefficiencies for both data custodians and data analysts.
+In the healthcare ecosystem, Decentriq’s Data Clean Rooms offer a data privacy-compliant and secure way for partners to securely analyze data — without sharing the sensitive data itself, or proprietary algorithms. By enforcing compliance and control with strongest-in-market privacy technologies, it unlocks real-world data for innovations in diagnostics, treatment, and patient care.
 
-The Decentriq Data Clean Rooms for Healthcare is a solution for Hospitals, Researchers, Real World Evidence teams, Insurers, and others - who can't afford to compromise security and privacy for analytical flexibility and ability to easily scale. Our low-code/no-code SaaS environment is designed for both data scientists and data custodians alike, with effortless set-up in just 5 minutes
+In a straightforward SaaS environment designed to plug into existing research processes and data pipelines, organizations can initiate compliant data partnerships twice as fast and uncover novel insights at unprecedented speeds. Data scientists have full analytical flexibility while powerful privacy technologies keep the data completely encrypted and verifiably confidential, even while in use. 
 
-Get started today with the Azure Marketplace solution, [you can check it out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dqtechnologiesag1586942031480.decentriq_healthcare_cleanroom?tab=Overview).
+Decentriq Data Clean Rooms for Healthcare is a solution for life sciences companies, hospitals, researchers, real world evidence teams, insurers, and others, who cannot afford to compromise security and privacy for analytical flexibility and ability to easily scale. Get started today with the Azure Marketplace solution —  [you can check it out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dqtechnologiesag1586942031480.decentriq_healthcare_cleanroom?tab=Overview) and get started today.
 
-## Decentriq Media Data Clean Rooms
+## Decentriq Data Clean Rooms for Media & Advertising
 
-Decentriq Media Clean Rooms is a data clean room solution for brands, publishers and retailers who don’t want to sacrifice privacy and control for usability. In Decentriq Media Clean Rooms, first-party data is verifiably never accessible to any party, not even to Decentriq. It enables advanced matching and lookalike audiences, immediately actionable from within a no-code SaaS environment. Setup takes only five minutes—no support needed from an engineering team.
+Especially for privacy-conscious and highly regulated companies, Decentriq’s Data Clean Rooms enable brands to join their first-party customer data with publishers’ data to find and activate their ideal audiences. In the clean rooms, data and targeting models remain verifiably confidential and inaccessible, even to Decentriq. Control and compliance are enforced by Confidential Computing and other advanced privacy technologies, making it possible to use even the most sensitive data and easing approvals with data protection and legal departments.
+
+With privacy-preserving lookalikes, brands can use their first-party data to extend the reach of their target audiences while maintaining precision and quality, leading to more effective media buys. 
+
+Audiences are, immediately actionable from within a no-code SaaS environment. Setup takes only five minutes — no support needed from an engineering team.
 
 Get started today with the Azure Marketplace solution, [you can check it out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dqtechnologiesag1586942031480.decentriq_media_cleanroom?tab=Overview).
 
