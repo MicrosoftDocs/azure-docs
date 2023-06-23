@@ -3,7 +3,7 @@ title: The Global Secure Access Client for Windows (preview)
 description: Install the Global Secure Access Client for Windows to enable client connectivity.
 ms.service: network-access
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 06/23/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -24,13 +24,14 @@ The Global Secure Access Client allows organizations control over network traffi
 
 ### Known limitations
 
-- Tunneling IPv6 traffic isn't currently supported.
-- To tunnel network traffic based on rules of FQDNs (in the forwarding profile), DNS over HTTPS (Secure DNS) needs to be disabled. 
+- Tunneling [IPv6 traffic isn't currently supported](#disable-ipv6-and-secure-dns).
+- To tunnel network traffic based on rules of FQDNs (in the forwarding profile), [DNS over HTTPS (Secure DNS) needs to be disabled](#disable-ipv6-and-secure-dns). 
 - If the end-user device is configured to use a proxy server, locations that you wish to tunnel using the Global Secure Access Client must be excluded from that configuration. For examples, see [Proxy configuration example](#proxy-configuration-example).
 - Multiple user sessions on the same device, like those from a Remote Desktop Server (RDP) aren't supported.
-- Connecting to networks that use a captive portal, like some guest wireless solutions, might fail. As a workaround [pause the Global Secure Access Client](#troubleshooting).
-- Single label domains, like `https://contosohome` aren't supported, instead use a fully qualified domain name (FQDN), like `https://contosohome.contoso.com`. Administrators can also choose to append DNS suffixes via Windows.
+- Connecting to networks that use a captive portal, like some guest wireless network solutions, might fail. As a workaround [pause the Global Secure Access Client](#troubleshooting).
+- Single label domains, like `https://contosohome` for private apps aren't supported, instead use a fully qualified domain name (FQDN), like `https://contosohome.contoso.com`. Administrators can also choose to append DNS suffixes via Windows.
 - The Global Secure Access Client currently only supports TCP traffic.
+   - Exchange Online uses the QUIC protocol for some traffic over UDP port 443 force this traffic to use HTTPS (443 TCP) by [blocking the QUIC traffic with a local firewall rule](#block-quic-when-tunneling-exchange-online-traffic). 
 - Virtual machines where both the host and guest Operating Systems have the Global Secure Access Client installed aren't supported. Individual virtual machines with the client installed are supported.
 
 ## Download the client
@@ -103,6 +104,39 @@ To troubleshoot the Global Secure Access Client, right-click the client icon in 
 
 Event logs related to the Global Secure Access Client can be found in the Event Viewer under `Applications and Services/Microsoft/Windows/Global Secure Access Client/Operational`. These events provide useful detail regarding the state, policies, and connections made by the client.
 
+### Disable IPv6 and secure DNS
+
+If you need assistance disabling IPv6 or secure DNS on Windows devices you're trying the preview with, the following script provides assistance.
+
+```powershell
+function CreateIfNotExists
+{
+    param($Path)
+    if (-NOT (Test-Path $Path))
+    {
+        New-Item -Path $Path -Force | Out-Null
+    }
+}
+
+# Prefer IPv4 over IPv6 with 0x20, disable with 0xff, default 0x00. 
+# Takes effect after reboot. 
+$setIpv6Value = 0x20
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters" -Name "DisabledComponents" -Type DWord -Value $setIpv6Value
+
+# This section disables browser based secure DNS lookup.
+CreateIfNotExists "HKLM:\SOFTWARE\Policies\Google"
+CreateIfNotExists "HKLM:\SOFTWARE\Policies\Google\Chrome"
+CreateIfNotExists "HKLM:\SOFTWARE\Policies\Microsoft"
+CreateIfNotExists "HKLM:\SOFTWARE\Policies\Microsoft\Edge"
+
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "DnsOverHttpsMode" -Value "off"
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "DnsOverHttpsMode" -Value "off"
+
+$disableBuiltInDNS = 0x00
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge" -Name "BuiltInDnsClientEnabled" -Type DWord -Value $disableBuiltInDNS
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Google\Chrome" -Name "BuiltInDnsClientEnabled" -Type DWord -Value $disableBuiltInDNS
+```
+
 ### Proxy configuration example
 
 Example proxy PAC file containing exclusions:  
@@ -118,9 +152,17 @@ function FindProxyForURL(url, host) {  // basic function; do not change
 }  
 ```
 
-Organizations must then create a system variable on end-user machines to allow the Global Secure Access Client services to use the proxy by configuring the following.
+Organizations must then create a system variable named `grpc_proxy` with a value like `http://10.1.0.10:8080` that matches your proxy server's configuration on end-user machines to allow the Global Secure Access Client services to use the proxy by configuring the following.
 
-Create an Environmental Variable named `grpc_proxy` with a value like `http://10.1.0.10:8080` that matches your proxy server's configuration.
+### Block QUIC when tunneling Exchange Online traffic 
+
+Since UDP traffic is not supported in the current preview, organizations that plan to tunnel their Exchange Online traffic should disable the QUIC protocol (443 UDP). Administrators can disable this protocol triggering clients to fall back to HTTPS (443 TCP) with the following Windows Firewall rule:
+
+```powershell
+@New-NetFirewallRule -DisplayName "Block QUIC for Exchange Online" -Direction Outbound -Action Block -Protocol UDP -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32,6.6.0.0/16 -RemotePort 443 
+```
+
+This list of IPv4 addresses is based on the [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges#exchange-online) and the IPv4 block used by the Global Secure Access Client.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 

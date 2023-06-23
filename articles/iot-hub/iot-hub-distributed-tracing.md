@@ -33,7 +33,7 @@ In this article, you use the [Azure IoT device SDK for C](https://github.com/Azu
   - Southeast Asia
   - West US 2
 
-- This article assumes that you're familiar with sending telemetry messages to your IoT hub. Make sure you've completed the [quickstart for sending telemetry in C](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
+- This article assumes that you're familiar with sending telemetry messages to your IoT hub. 
 
 - Register a device with your IoT hub and save the connection string. Registration steps are available in the quickstart. 
 

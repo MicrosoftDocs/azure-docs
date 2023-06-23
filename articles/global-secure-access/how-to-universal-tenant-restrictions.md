@@ -99,7 +99,7 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
 Outlook uses the QUIC protocol for some communications, we don't currently support the QUIC protocol. Organizations can use a firewall policy to block QUIC and fallback to non-QUIC protocol. The following PowerShell command creates a firewall rule to block this protocol.
 
 ```PowerShell
-New-NetFirewallRule -DisplayName "Block QUIC for Exchange" -Direction Outbound -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32 -Protocol UDP -RemotePort 443 -Action Block 
+@New-NetFirewallRule -DisplayName "Block QUIC for Exchange Online" -Direction Outbound -Action Block -Protocol UDP -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32,6.6.0.0/16 -RemotePort 443 
 ```
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
