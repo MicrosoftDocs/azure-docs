@@ -78,7 +78,7 @@ To create a backup policy, follow these steps:
 
 1. On the **Confirmation** page, review the information, and then select **Finish**.
 
-    [ ![Screenshot shows how to confirm the backup type.](./media/backup-azure-manage-mars/confirm-backup-type.png) ]./media/backup-azure-manage-mars/confirm-backup-type.png#lightbox)
+    [ ![Screenshot shows how to confirm the backup type.](./media/backup-azure-manage-mars/confirm-backup-type.png) ](./media/backup-azure-manage-mars/confirm-backup-type.png#lightbox)
 
 1. After the wizard finishes creating the backup schedule, select **Close**.
 
