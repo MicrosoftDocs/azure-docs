@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 05/02/2023
+ms.date: 06/23/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -201,7 +201,7 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 
 ## Cold tier (preview)
 
-The cold tier is currently in PREVIEW and is available in the following regions: Canada Central, Canada East, France Central, France South and Korea Central.
+The cold tier is currently in PREVIEW and is available in all public regions.
 
 ### Enrolling in the preview 
 
