@@ -16,25 +16,23 @@ ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
 
-NFSv4 introduces the concept of an authentication domain. Azure NetApp Files currently supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
+NFSv4 introduces the concept of an authentication domain. Azure NetApp Files supports root-only user mapping from the service to the NFS client. To use the NFSv4.1 functionality with Azure NetApp Files, you need to update the NFS client.
 
 ## Default behavior of user/group mapping
 
-Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you'll see file permissions as follows:  
+Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as `root`, you'll see file permissions as follows:  
 
 ![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default. This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to `defaultv4iddomain.com`.  
+As the above example shows, the user for `file1` should be `root`, but it maps to `nobody` by default. This article shows you how to set the `file1` user to `root` by changing the `idmap Domain` setting to the default domain `defaultv4iddomain.com`.  
 
 ## Configure NFSv4.1 domain for server
 
-Using the Azure portal, you can update the account settings to set or modify the NFSv4.1 ID domain on all non-LDAP volumes. Modifying the value will update all volumes in that subscription and region. 
-
-ustomer can resolve users and groups for non ldap volumes only, but for ldap enabled volumes and on a separate VM, LDAP client can also be configured in the same subscription as SVM for LDAP and non LDAP volumes are different and hence communication route will also be different.  
+To prepare for a future implementation of LDAP across all NFS clients or achieve a consistent configuration across all NFS clients, you can specify a desired NFSv4.1 ID domain for all non-LDAP volumes in Azure NetApp Files using the Azure portal. This setting will apply to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It will not affect LDAP-enabled volumes, and non-LDAP and LDAP-enabled volumes can co-exist in the same subscription.
 
 ### Register the feature
 
-Azure NetApp Files now supports the ability to set the NFSv4.1 domain for all non-LDAP volumes in a subscription using the Azure portal. This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background.
+Azure NetApp Files supports the ability to set the NFSv4.1 ID domain for all non-LDAP volumes in a subscription using the Azure portal. This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background.
 
 1.  Register the feature
 
@@ -54,9 +52,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ### Steps
 
-1. Under the Azure NetApp Files subscription, select **NFSv4 ID Domain**.
-1. Select **Configure.**
-1. To use the default domain, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
+1. Under the Azure NetApp Files subscription, select **NFSv4.1 ID Domain**.
+1. Select **Configure**.
+1. To use the default domain `defaultv4iddomain.com`, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
   :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
 
 1. Select **Add**.
@@ -77,7 +75,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
 
-    * If the volume isn’t enabled for LDAP, set `Domain = defaultv4iddomain.com`.
+    * If the volume not enabled for LDAP, either use the default domain `defaultv4iddomain.com` by specifying `Domain = defaultv4iddomain.com`, or specify the NFSv4.1 ID domain as configured in Azure NetApp Files above. 
     * If the volume is [enabled for LDAP](configure-ldap-extended-groups.md), set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
         For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
@@ -95,7 +93,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     Nobody-Group = nogroup 
     ```
 
-    The following example shows updated configuration of *non-LDAP* NFSv4.1 volumes:
+    The following example shows updated configuration of *non-LDAP* NFSv4.1 volumes for default domain `defaultv4iddomain.com`:
 
     ```
     [General]
@@ -136,15 +134,15 @@ The following example shows the resulting user/group change:
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
 
-## Behavior of other (nonroot) users and groups
+## Behavior of other (non-root) users and groups
 
-Azure NetApp Files supports local users (users created locally on a host) who have permissions associated with files or folders in NFSv4.1 volumes. However, the service doesn't currently support mapping the users/groups across multiple nodes. Therefore, users created on one host don't map by default to users created on another host. 
+Azure NetApp Files supports local users and groups (created locally on the NFS client and represented by user and group IDs) and corresponding ownership and permissions associated with files or folders in NFSv4.1 volumes. However, the service doesn't automatically solve for mapping local users and groups across NFS clients. Users and groups created on one host may or may not exists on another NFS client (or exist with different user and group IDs), and will therefore not map correctly as outlined in the example below.
 
-In the following example, `Host1` has three existing test user accounts (`testuser01`, `testuser02`, `testuser03`): 
+In the following example, `Host1` has three user accounts (`testuser01`, `testuser02`, `testuser03`): 
 
 ![Screenshot that shows that Host1 has three existing test user accounts.](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
-On `Host2`, the test user accounts haven't been created, but the same volume is mounted on both hosts:
+On `Host2`, no corresponding user accounts exist, but the same volume is mounted on both hosts:
 
 ![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host2-users.png)
 
@@ -152,4 +150,3 @@ On `Host2`, the test user accounts haven't been created, but the same volume is 
 
 * [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
-
