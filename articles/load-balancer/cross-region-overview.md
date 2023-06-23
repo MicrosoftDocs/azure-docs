@@ -153,7 +153,7 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * UDP traffic isn't supported on Cross-region Load Balancer.
 
-* Outbound rules aren't support on Cross-region Load Balancer. For outbound connections please utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](https://learn.microsoft.com/azure/nat-gateway/nat-overview).
+* Outbound rules aren't supported on Cross-region Load Balancer. For outbound connections utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](https://learn.microsoft.com/azure/nat-gateway/nat-overview).
 
 
 
