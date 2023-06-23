@@ -298,53 +298,29 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    When you're prompted, enter the following values:
 
    1. Choose installation: Enter **1**.
-
    1. Select additional components for installation: Enter **1**.
-
    1. Enter installation path: Enter **/hana/shared** and select Enter.
-
    1. Enter local host name: Enter **..** and select Enter.
-
    1. Do you want to add additional hosts to the system? (y/n): Enter **n** and select Enter.
-
    1. Enter the SAP HANA system ID: Enter your HANA SID.
-
    1. Enter the instance number: Enter the HANA instance number. If you deployed by using the Azure template or if you followed the manual deployment section of this article, enter **03**.
-
    1. Select the database mode / Enter the index: Enter or select **1** and select Enter.
-
    1. Select the system usage / Enter the index: Select the system usage value **4**.
-
    1. Enter the location of the data volumes: Enter **/hana/data/\<HANA SID\>** and select Enter.
-
    1. Enter the location of the log volumes: Enter **/hana/log/\<HANA SID\>** and select Enter.
-
    1. Restrict maximum memory allocation?: Enter **n** and select Enter.
-
    1. Enter the certificate host name for the host: Enter **...** and select Enter.
-
    1. Enter the SAP host agent user (sapadm) password: Enter the host agent user password, and then select Enter.
-
    1. Confirm the SAP host agent user (sapadm) password: Enter the host agent user password again, and then select Enter.
-
    1. Enter the system administrator (hdbadm) password: Enter the system administrator password, and then select Enter.
-
    1. Confirm the system administrator (hdbadm) password: Enter the system administrator password again, and then select Enter.
-
    1. Enter the system administrator home directory: Enter **/usr/sap/\<HANA SID\>/home** and select Enter.
-
    1. Enter the system administrator login shell: Enter **/bin/sh** and select Enter.
-
    1. Enter the system administrator user ID: Enter **1001** and select Enter.
-
    1. Enter ID of the user group (sapsys): Enter **79** and select Enter.
-
    1. Enter the database user (SYSTEM) password: Enter the database user password, and then select Enter.
-
    1. Confirm the database user (SYSTEM) password: Enter the database user password again, and then select Enter.
-
    1. Restart the system after machine reboot? (y/n): Enter **n** and select Enter.
-
    1. Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
 
 1. **[A]** Upgrade the SAP host agent.
@@ -790,7 +766,7 @@ This section describes how you can test your setup. Every test assumes that you'
 Before you start the test, make sure that Pacemaker doesn't have any failed action (run `crm_mon -r`), that there are no unexpected location constraints (for example, leftovers of a migration test), and that HANA is in sync state, for example, by running `SAPHanaSR-showAttr`.
 
 ```bash
-   hn1-db-0:~ # SAPHanaSR-showAttr
+hn1-db-0:~ # SAPHanaSR-showAttr
 Sites    srHook
 ----------------
 SITE2    SOK
@@ -806,7 +782,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 You can migrate the SAP HANA master node by running the following command:
 
 ```bash
-   crm resource move msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1 force
+crm resource move msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1 force
 ```
 
 If you set `AUTOMATED_REGISTER="false"`, this sequence of commands migrates the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
@@ -814,7 +790,7 @@ If you set `AUTOMATED_REGISTER="false"`, this sequence of commands migrates the 
 When the migration is finished, the `crm_mon -r` output looks like this example:
 
 ```bash
-   Online: [ hn1-db-0 hn1-db-1 ]
+Online: [ hn1-db-0 hn1-db-1 ]
 
 Full list of resources:
 stonith-sbd     (stonith:external/sbd): Started hn1-db-1
@@ -834,7 +810,7 @@ Failed Actions:
 The SAP HANA resource on `hn1-db-0` fails to start as secondary. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
-   su - <hana sid>adm
+su - <hana sid>adm
 
 # Stop the HANA instance, just in case it is running
 hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> sapcontrol -nr <instance number> -function StopWait 600 10
@@ -844,7 +820,7 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1
 The migration creates location constraints that need to be deleted again:
 
 ```bash
-   # Switch back to root and clean up the failed state
+# Switch back to root and clean up the failed state
 exit
 hn1-db-0:~ # crm resource clear msl_SAPHana_<HANA SID>_HDB<instance number>
 ```
@@ -852,13 +828,13 @@ hn1-db-0:~ # crm resource clear msl_SAPHana_<HANA SID>_HDB<instance number>
 You also need to clean up the state of the secondary node resource:
 
 ```bash
-   hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
+hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
 ```
 
 Monitor the state of the HANA resource by using `crm_mon -r`. When HANA is started on `hn1-db-0`, the output looks like this example:
 
 ```bash
-   Online: [ hn1-db-0 hn1-db-1 ]
+Online: [ hn1-db-0 hn1-db-1 ]
 
 Full list of resources:
 stonith-sbd     (stonith:external/sbd): Started hn1-db-1
@@ -903,7 +879,7 @@ crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
 You can test the setup of SBD by killing the inquisitor process:
 
 ```bash
-   hn1-db-0:~ # ps aux | grep sbd
+hn1-db-0:~ # ps aux | grep sbd
 root       1912  0.0  0.0  85420 11740 ?        SL   12:25   0:00 sbd: inquisitor
 root       1929  0.0  0.0  85456 11776 ?        SL   12:25   0:00 sbd: watcher: /dev/disk/by-id/scsi-360014056f268462316e4681b704a9f73 - slot: 0 - uuid: 7b862dba-e7f7-4800-92ed-f76a4e3978c8
 root       1930  0.0  0.0  85456 11776 ?        SL   12:25   0:00 sbd: watcher: /dev/disk/by-id/scsi-360014059bc9ea4e4bac4b18808299aaf - slot: 0 - uuid: 5813ee04-b75c-482e-805e-3b1e22ba16cd
@@ -922,7 +898,7 @@ The `<HANA SID>-db-<database 1>` cluster node reboots. The Pacemaker service mig
 You can test a manual failover by stopping the Pacemaker service on the `hn1-db-0` node:
 
 ```bash
-   service pacemaker stop
+service pacemaker stop
 ```
 
 After the failover, you can start the service again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the `hn1-db-0` node fails to start as secondary.
@@ -930,7 +906,7 @@ After the failover, you can start the service again. If you set `AUTOMATED_REGIS
 In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
-   service pacemaker start
+service pacemaker start
 su - <hana sid>adm
 
 # Stop the HANA instance, just in case it is running

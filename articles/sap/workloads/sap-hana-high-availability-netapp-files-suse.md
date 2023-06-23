@@ -161,7 +161,7 @@ To meet the SAP minimum throughput requirements for /hana/data and /hana/log, an
 | :----------: | :--------------------------: | :------------------------: | :--------------------: |
 |  /hana/log   |            4 TiB             |           2 TiB            |          v4.1          |
 |  /hana/data  |           6.3 TiB            |          3.2 TiB           |          v4.1          |
-| /hana/shared |           1 x RAM            |          1 x RAM           |          v3 or v4.1    |
+| /hana/shared |           1 x RAM            |          1 x RAM           |       v3 or v4.1       |
 
 > [!NOTE]
 > The Azure NetApp Files sizing recommendations stated here are targeted to meet the minimum requirements that SAP recommends for their infrastructure providers. In real customer deployments and workload scenarios, these sizes may not be sufficient. Use these recommendations as a starting point and adapt, based on the requirements of your specific workload.
@@ -407,31 +407,31 @@ For more information about the required ports for SAP HANA, read the chapter [Co
       ```
 
    2. At the prompt, enter the following values:
-      1. For Choose installation: Enter **1** (for install)
-      2. For Select additional components for installation: Enter **1**.
-      3. For Enter Installation Path [/hana/shared]: press Enter to accept the default
-      4. For Enter Local Host Name [..]: Press Enter to accept the default
-      5. Under, Do you want to add additional hosts to the system? (y/n) [n]: **n**
-      6. For Enter SAP HANA System ID: Enter **HN1**.
-      7. For Enter Instance Number [00]: Enter **03**
-      8. For Select Database Mode / Enter Index [1]: press **Enter** to accept the default
-      9. For Select System Usage / Enter Index [4]: enter **4** (for custom)
-      10. For Enter Location of Data Volumes [/hana/data]: press **Enter** to accept the default
-      11. For Enter Location of Log Volumes [/hana/log]: press **Enter** to accept the default
-      12. For Restrict maximum memory allocation? [n]: press **Enter** to accept the default
-      13. For Enter Certificate Host Name For Host '...' [...]: press **Enter** to accept the default
-      14. For Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password
-      15. For Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm
-      16. For Enter System Administrator (hn1adm) Password: Enter the system administrator password
-      17. For Confirm System Administrator (hn1adm) Password: Enter the system administrator password again to confirm
-      18. For Enter System Administrator Home Directory [/usr/sap/HN1/home]: press Enter to accept the default
-      19. For Enter System Administrator Login Shell [/bin/sh]: press Enter to accept the default
-      20. For Enter System Administrator User ID [1001]: press Enter to accept the default
-      21. For Enter ID of User Group (sapsys) [79]: press Enter to accept the default
-      22. For Enter Database User (SYSTEM) Password: Enter the database user password
-      23. For Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm
-      24. For Restart system after machine reboot? [n]: press Enter to accept the default
-      25. For Do you want to continue? (y/n): Validate the summary. Enter **y** to continue  
+      - For Choose installation: Enter **1** (for install)
+      - For Select additional components for installation: Enter **1**.
+      - For Enter Installation Path [/hana/shared]: press Enter to accept the default
+      - For Enter Local Host Name [..]: Press Enter to accept the default
+      - Under, Do you want to add additional hosts to the system? (y/n) [n]: **n**
+      - For Enter SAP HANA System ID: Enter **HN1**.
+      - For Enter Instance Number [00]: Enter **03**
+      - For Select Database Mode / Enter Index [1]: press **Enter** to accept the default
+      - For Select System Usage / Enter Index [4]: enter **4** (for custom)
+      - For Enter Location of Data Volumes [/hana/data]: press **Enter** to accept the default
+      - For Enter Location of Log Volumes [/hana/log]: press **Enter** to accept the default
+      - For Restrict maximum memory allocation? [n]: press **Enter** to accept the default
+      - For Enter Certificate Host Name For Host '...' [...]: press **Enter** to accept the default
+      - For Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password
+      - For Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm
+      - For Enter System Administrator (hn1adm) Password: Enter the system administrator password
+      - For Confirm System Administrator (hn1adm) Password: Enter the system administrator password again to confirm
+      - For Enter System Administrator Home Directory [/usr/sap/HN1/home]: press Enter to accept the default
+      - For Enter System Administrator Login Shell [/bin/sh]: press Enter to accept the default
+      - For Enter System Administrator User ID [1001]: press Enter to accept the default
+      - For Enter ID of User Group (sapsys) [79]: press Enter to accept the default
+      - For Enter Database User (SYSTEM) Password: Enter the database user password
+      - For Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm
+      - For Restart system after machine reboot? [n]: press Enter to accept the default
+      - For Do you want to continue? (y/n): Validate the summary. Enter **y** to continue  
 
 7. **[A]** Upgrade SAP Host Agent
 
