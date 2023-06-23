@@ -203,9 +203,9 @@ You can use FTP to directly transfer files to Azure Functions.
 
 In the portal-based editor, you can directly edit the files that are in your function app (essentially deploying every time you save your changes).
 
->__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](./functions-get-started.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package).
+>__How to use it:__ To be able to edit your functions in the [Azure portal](https://portal.azure.com), you must have [created your functions in the portal](./functions-get-started.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package).
 
->__When to use it:__ The portal is a good way to get started with Azure Functions. For more intense development work, we recommend that you use one of the following client tools:
+>__When to use it:__ The portal is a good way to get started with Azure Functions. For more advanced development work, we recommend that you use one of the following client tools:
 >
 >+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >+ [Azure Functions Core Tools (command line)](functions-run-local.md)
@@ -213,7 +213,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
-The following table shows the operating systems and languages that support portal editing:
+The following table shows the operating systems and languages that support in-portal editing:
 
 | Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
@@ -226,8 +226,8 @@ The following table shows the operating systems and languages that support porta
 | PowerShell |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>1</sup> Portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.
-<sup>2</sup> Portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).
+<sup>1</sup> In-portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.  
+<sup>2</sup> In-portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).  
 
 ## Deployment behaviors
 
