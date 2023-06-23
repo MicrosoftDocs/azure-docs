@@ -111,6 +111,8 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 1. Add users and groups as needed.
     - For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
+> [!NOTE]
+> Users must be directly assigned to the app or to the group assigned to the app. Nested groups are not supported.
 
 ## Update Quick Access application segments
 
