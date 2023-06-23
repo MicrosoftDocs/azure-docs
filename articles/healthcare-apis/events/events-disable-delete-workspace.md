@@ -46,7 +46,9 @@ To avoid errors and successfully delete workspaces, follow these steps and in th
 
 ## Next steps
 
-For more information about troubleshooting Events, see the Events troubleshooting guide:
+In this article, you learned how to disable Events and delete workspaces.
+
+For more information about troubleshooting Events, see
 
 > [!div class="nextstepaction"]
 > [Troubleshoot Events](events-troubleshooting-guide.md)

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 06/23/2023
 ms.author: jasteppe
 ---
 
@@ -18,10 +18,10 @@ ms.author: jasteppe
 In this article, learn how to use Events metrics in the Azure portal. 
 
 > [!TIP]
-> To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md)]
+> To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
 
 > [!NOTE]
-> For the purposes of this article, an Azure Event Hubs event hub was used as the Events message endpoint. 
+> For the purposes of this article, an [Azure Event Hubs](../../event-hubs/event-hubs-about.md) was used as the Events message endpoint. 
 
 ## Use metrics
 

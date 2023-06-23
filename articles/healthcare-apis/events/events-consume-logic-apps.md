@@ -342,14 +342,14 @@ Here's an example of a workflow trigger success operation:
 
 ## Next steps
 
-In this tutorial, you learned about how to use Logic Apps to process FHIR events.
+In this tutorial, you learned how to use Logic Apps to process FHIR events.
 
 To learn about Events, see
 
 > [!div class="nextstepaction"]
 > [What are Events?](events-overview.md)
 
-To learn about the frequently asked questions (FAQs) about Events, see
+To learn about the Events frequently asked questions (FAQs), see
 
 > [!div class="nextstepaction"]
 > [Frequently asked questions about Events](events-faqs.md)
