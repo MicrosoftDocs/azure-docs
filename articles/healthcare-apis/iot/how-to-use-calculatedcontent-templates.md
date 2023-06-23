@@ -208,7 +208,7 @@ To learn how to use the MedTech service custom functions, see:
 > [!div class="nextstepaction"]
 > [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
 
-For and overview of the MedTech service FHIR destination mapping, see
+For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
 > [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)

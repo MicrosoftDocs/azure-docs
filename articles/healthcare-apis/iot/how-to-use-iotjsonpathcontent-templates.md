@@ -18,9 +18,9 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 ## IotJsonPathContent template basics
 
-IotJsonPathContent templates are similar to the JsonPathContent templates except the `DeviceIdExpression` and `TimestampExpression` aren't required.
+IotJsonPathContent templates are similar to the JsonPathContent templates except the DeviceIdExpression and TimestampExpression aren't required.
 
-The assumption, when using IotJsonPathContent templates, is the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or  [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
+It is recommended that IotJsonPathContent templates are used when the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
 
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
@@ -30,7 +30,7 @@ When you're using these SDKs, the device identity and the timestamp of the messa
 If you're using Azure IoT Hub Device SDKs, you can still use JsonPathContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
 
 > [!IMPORTANT]
-> JMESPath not supported by IotJsonPathContent templates.
+> JMESPath is not supported by IotJsonPathContent templates.
 
 The IotJsonPathContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
@@ -45,9 +45,9 @@ The IotJsonPathContent templates allow matching on and extracting values from a 
 > [!TIP]
 > For more information on JSONPath, see [JSONPath - XPath for JSON](https://goessner.net/articles/JsonPath/). IotJsonPathContent templates use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 
-### Example
+## Example
 
-When the MedTech service is processing a device message, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath.
+When the MedTech service is processing a device message, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `valueExpression` value is used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath.
 
 > [!TIP]
 > [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT hub for testing and troubleshooting.
@@ -63,13 +63,13 @@ In this example, we're using a device message that is capturing `heartRate` data
 > [!IMPORTANT]
 > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties). 
 >
-> You do not want to send this example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enriched by the IoT hub. 
+> You do not want to send the following example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. The following example demonstrates how your device messages are enriched by the IoT hub. Example:
 >
 > Example:
 >
 > :::image type="content" source="media\how-to-use-iotjsonpathcontent-templates\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\how-to-use-iotjsonpathcontent-templates\iot-hub-enriched-device-message.png":::
 >
-> `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-new-config.md#destination-properties).
+> `patientIdExpression` is only required for MedTech services in the **Create** mode; however, if **Lookup** is being used, a device resource with a matching device identifier must exist in the destination FHIR service. These examples assume your MedTech service is in the **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-new-config.md#destination-properties).
 
 The IoT hub enriches and routes the device message to the event hub before the MedTech service reads the device message from the event hub:
 
@@ -88,7 +88,7 @@ The IoT hub enriches and routes the device message to the event hub before the M
 ```
 
 > [!NOTE]
-> When using `IotJsonPathContent`, the `TypeMatchExpression` should resolve to the entire device message as a token.
+> When using `IotJsonPathContent`, the `typeMatchExpression` should resolve to the entire device message as a token.
 
 We're using this device mapping for the normalization stage:
 
@@ -162,12 +162,12 @@ The resulting normalized message will look like this after the normalization sta
 
 In this article, you learned how to use IotJsonPathContent templates with the MedTech service device mapping.
 
-To deploy the MedTech service with device message routing through an Azure IoT Hub see:
+To deploy the MedTech service with device message routing through an Azure IoT Hub, see:
 
 > [!div class="nextstepaction"]
 > [Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md) 
 
-For and overview of the MedTech service FHIR destination mapping, see
+For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
 > [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
