@@ -8,7 +8,7 @@ ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 06/23/2023
-ms.author: jenniferf-skc
+ms.author: kenwith
 ms.reviewer: chmutali
 ---
 

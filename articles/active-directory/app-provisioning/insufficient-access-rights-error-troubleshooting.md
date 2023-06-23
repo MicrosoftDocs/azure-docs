@@ -8,7 +8,7 @@ ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 06/23/2023
-ms.author: jenniferf-skc
+ms.author: kenwith
 ms.reviewer: chmutali
 ---
 
@@ -77,7 +77,7 @@ Reference articles that explain the reason in detail:
 
 **Option 2: Modify the default permissions of the AdminSDHolder container**
 
-If option 1 is not feasible and doesn't work as expected, then ask Cx to check with their AD admin and security administrators, if they are allowed to modify the default permissions of the ```AdminSDHolder``` container. This [article](https://learn.microsoft.com/previous-versions/technet-magazine/ee361593(v=msdn.10)?redirectedfrom=MSDN) that explains the importance of the ```AdminSDHolder``` container. Once Cx gets internal approval to update the ```AdminSDHolder``` container permissions, there are two ways to update the permissions.
+If option 1 is not feasible and doesn't work as expected, then ask Cx to check with their AD admin and security administrators, if they are allowed to modify the default permissions of the ```AdminSDHolder``` container. This [article](https://go.microsoft.com/fwlink/?linkid=2240198) that explains the importance of the ```AdminSDHolder``` container. Once Cx gets internal approval to update the ```AdminSDHolder``` container permissions, there are two ways to update the permissions.
 
 •	Using ```ADSIEdit``` as described in this [article](https://petri.com/active-directory-security-understanding-adminsdholder-object ).
 •	Using ```DSACLS``` command-line script. Here is an example script that could be used as a starting point and Cx can tweak it as per their requirements.
@@ -102,14 +102,14 @@ Assign **Full Control** permissions to the ```provAgentGMSA``` account. We recom
 In this scenario, ask Cx to complete the following steps and re-test the move operation.
 1.	Login to AD domain controller as admin.
 2.	Open PowerShell command-line with run-as admin
-3.	At the PowerShell prompt, run the following [DSACLS](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771151(v=ws.11)) command that grants **Generic All/Full Control** to the provisioning agent GMSA account.
+3.	At the PowerShell prompt, run the following [DSACLS](https://go.microsoft.com/fwlink/?linkid=2240600) command that grants **Generic All/Full Control** to the provisioning agent GMSA account.
 ```dsacls "dc=contoso,dc=com" /I:T /G "CN=provAgentgMSA,CN=Managed Service Accounts,DC=contoso,DC=com:GA"```
 
 Customer should replace the ```dc=contoso,dc=com``` with their root node or appropriate OU container. If Cx is using a custom GMSA, update the DN value for ```provAgentgMSA```.
 
 **Option 4: Skip GMSA account and use manually created service account**
 This option should only be used as a temporary workaround to unblock the customer till GMSA permission issue is investigated and resolved. Our recommended best practice is to use the GMSA account.
-The customer can set the registry option to [skip GMSA configuration](https://learn.microsoft.com/azure/active-directory/hybrid/cloud-sync/how-to-manage-registry-options#skip-gmsa-configuration) and reconfigure the Azure AD Connect provisioning agent to use a manually created service account with the right permissions.
+The customer can set the registry option to [skip GMSA configuration](https://go.microsoft.com/fwlink/?linkid=2239993) and reconfigure the Azure AD Connect provisioning agent to use a manually created service account with the right permissions.
 
 ## Next steps
 
