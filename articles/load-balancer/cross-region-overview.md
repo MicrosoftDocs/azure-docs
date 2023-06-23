@@ -74,18 +74,23 @@ When you expose the global endpoint of a cross-region load balancer to customers
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### Static anycast global IP address
+
 Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
 
 ### Client IP Preservation
+
 Cross-region load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet.  The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.
 
 ### Floating IP
+
 Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
 
 ### Health Probes
+
 Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 20 seconds, given that a user has set up health probes on their regional load balancer.  
 
 ## Build cross region solution on existing Azure Load Balancer
+
 The backend pool of cross-region load balancer contains one or more regional load balancers. 
 
 Add your existing load balancer deployments to a cross-region load balancer for a highly available, cross-region deployment.
