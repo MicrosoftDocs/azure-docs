@@ -58,7 +58,7 @@ The [change feed pull model](change-feed-pull-model.md) allows you to consume th
 Using the change feed pull model, you get more low level control of the change feed. When reading the change feed with the pull model, you have three options:
 
 - Read changes for an entire container
-- Read changes for a specific [FeedRange](change-feed-pull-model.md#using-feedrange-for-parallelization)
+- Read changes for a specific [FeedRange](change-feed-pull-model.md#use-feedrange-for-parallelization)
 - Read changes for a specific partition key value
 
 You can parallelize the processing of changes across multiple clients, just as you can with the change feed processor. However, the pull model doesn't automatically handle load-balancing across clients. When you use the pull model to parallelize processing of the change feed, you'll first obtain a list of FeedRanges. A FeedRange spans a range of partition key values. You'll need to have an orchestrator process that obtains FeedRanges and distributes them among your machines. You can then use these FeedRanges to have multiple machines read the change feed in parallel.
