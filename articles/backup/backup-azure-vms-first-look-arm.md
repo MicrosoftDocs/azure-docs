@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/24/2023
 author: jyothisuri
 ms.author: jsuri
+ms.custom: engagement-fy23
 ---
 # Back up an Azure VM from the VM settings
 
