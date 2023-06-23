@@ -432,8 +432,40 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`.
+The following example shows a trigger binding and a Python function that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md). 
 
+# [v2](#tab/python-v2)
+
+Here's the function in the function_app.py file:
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+@app.function_name(name="eventgrid_output")
+@app.route(route="eventgrid_output")
+@app.event_grid_output(
+    arg_name="outputEvent",
+    topic_endpoint_uri="MyEventGridTopicUriSetting",
+    topic_key_setting="MyEventGridTopicKeySetting")
+def eventgrid_output(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+
+```
+
+# [v1](#tab/python-v1)
 Here's the binding data in the *function.json* file:
 
 ```json
