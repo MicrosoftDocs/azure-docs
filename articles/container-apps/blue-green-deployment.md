@@ -385,7 +385,7 @@ The following commands demonstrate how to prepare for the next deployment cycle.
 
 ```azurecli
 # set the new commitId
-export BLUE_COMMIT_ID=sha10d1436b
+export BLUE_COMMIT_ID=0d1436b
 
 # create a third revision for blue commitId
 az containerapp update --name $APP_NAME \
