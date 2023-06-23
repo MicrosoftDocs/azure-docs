@@ -19,7 +19,7 @@ Limitations:
 
 Steps:
 
-1. Sign in to your Azure account using `az login`. If you have more than one subscription, you can view them using `az account list` and select the subscription subscription containing your Bastion resource using `az account set --subscription "<subscription ID>"`.
+1. Sign in to your Azure account using `az login`. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using `az account set --subscription "<subscription ID>"`.
 
 1. Open the tunnel to your target VM.
 
