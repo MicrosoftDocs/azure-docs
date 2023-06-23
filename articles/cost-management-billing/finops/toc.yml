@@ -31,6 +31,10 @@
       href: capabilities-budgets.md
     - name: Measuring unit costs
       href: capabilities-unit-costs.md
+  - name: Real-time descision making
+    items:
+    - name: Managing anomalies
+      href: capabilities-anomalies.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

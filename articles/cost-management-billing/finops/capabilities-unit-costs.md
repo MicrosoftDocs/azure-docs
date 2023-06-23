@@ -41,7 +41,7 @@ Use [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics
 - If you don't see the data you need in metrics, also check [logs and traces in Azure Monitor](../../azure-monitor/overview.md#data-platform). It may not be a direct correlation to usage but might be able to give you some indication of usage.
 
 Use service-specific APIs to get detailed usage telemetry.
-- Every service uses Azure Monitor for a core set of logs and metrics. Some services also provide more detailed monitoring and utilization APIs to get more details than are available in Azure Monitor. Explore [Azure service documentation](https://learn.microsoft.com/azure/) to find the right API for the services you use.
+- Every service uses Azure Monitor for a core set of logs and metrics. Some services also provide more detailed monitoring and utilization APIs to get more details than are available in Azure Monitor. Explore [Azure service documentation](../../azure/index.yml) to find the right API for the services you use.
 
 Using the data you've collected, quantify the percentage of usage coming from each unit.
 - Use pricing and usage data to facilitate this effort. It's typically best done after [Data ingestion and normalization](capabilities-ingestion-normalization.md) due to the high amount of data required to calculate accurate unit costs.
@@ -59,5 +59,5 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 ## Next steps
 
-- [Data analysis and showback](capabilities-data-analysis-showback.md)
+- [Data analysis and showback](capabilities-analysis-showback.md)
 - [Managing shared costs](capabilities-shared-costs.md)

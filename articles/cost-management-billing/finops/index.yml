@@ -57,6 +57,14 @@ landingContent:
       - text: Measuring unit costs
         url: capabilities-unit-costs.md
 
+  - title: Real-time decision making
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Managing anomalies
+        url: capabilities-anomalies.md
+
+
 
 # Card (optional)
 
