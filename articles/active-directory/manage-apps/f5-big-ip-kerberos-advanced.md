@@ -151,7 +151,7 @@ The BIG-IP does not support group Managed Service Accounts (gMSA), therefore cre
 
 1. Enter the following PowerShell command. Replace the **UserPrincipalName** and **SamAccountName** values with your environment values. For better security, use a dedicated SPN that matches the host header of the application.
 
-        ```New-ADUser -Name "F5 BIG-IP Delegation Account" UserPrincipalName $HOST_SPN SamAccountName "f5-big-ip" -PasswordNeverExpires $true Enabled $true -AccountPassword (Read-Host -AsSecureString "Account Password") ```
+    ```New-ADUser -Name "F5 BIG-IP Delegation Account" UserPrincipalName $HOST_SPN SamAccountName "f5-big-ip" -PasswordNeverExpires $true Enabled $true -AccountPassword (Read-Host -AsSecureString "Account Password") ```
 
         HOST_SPN = host/f5-big-ip.contoso.com@contoso.com
 
@@ -160,9 +160,9 @@ The BIG-IP does not support group Managed Service Accounts (gMSA), therefore cre
 
 2. Create a **Service Principal Name (SPN)** for the APM service account to use during delegation to the web application service account:
 
-        ```Set-AdUser -Identity f5-big-ip -ServicePrincipalNames @Add="host/f5-big-ip.contoso.com"} ```
+    ```Set-AdUser -Identity f5-big-ip -ServicePrincipalNames @Add="host/f5-big-ip.contoso.com"} ```
 
-     >[!NOTE]
+    >[!NOTE]
      >It is mandatory to include the host/ part in the format of UserPrincipleName (host/name.domain@domain) or ServicePrincipleName (host/name.domain).
 
 3. Before you specify the target SPN, view its SPN configuration. Ensure the SPN shows against the APM service account. The APM service account delegates for the web application:
@@ -170,21 +170,21 @@ The BIG-IP does not support group Managed Service Accounts (gMSA), therefore cre
     * Confirm your web application is running in the computer context or a dedicated service account.
     * For the Computer context, use the following command to query the account object in the Active Directory to see its defined SPNs. Replace <name_of_account> with the account for your environment.
 
-            ```Get-ADComputer -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
+        ```Get-ADComputer -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
 
             For example:
             Get-ADUser -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames
     
     * For the dedicated service account, use the following command to query the account object in Active Directory to see its defined SPNs. Replace <name_of_account> with the account for your environment.
       
-            ```Get-ADUser -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
+        ```Get-ADUser -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
 
             For example:
             Get-ADComputer -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames
 
  4. If the application ran in the machine context, add the SPN to the object of the computer account in Active Directory:
 
-        ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
+    ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
 
 With SPNs defined, establish trust for the APM service account delegate to that service. The configuration varies depending on the topology of your BIG-IP instance and application server.
 
@@ -192,11 +192,11 @@ With SPNs defined, establish trust for the APM service account delegate to that 
 
 1. Set trust for the APM service account to delegate authentication:
 
-        ```Get-ADUser -Identity f5-big-ip | Set-ADAccountControl -TrustedToAuthForDelegation $true ```
+    ```Get-ADUser -Identity f5-big-ip | Set-ADAccountControl -TrustedToAuthForDelegation $true ```
 
 2. The APM service account needs to know the target SPN it's trusted to delegate to. Set the target SPN to the service account running your web application:
 
-        ```Set-ADUser -Identity f5-big-ip -Add @{'msDS-AllowedToDelegateTo'=@('HTTP/myexpenses.contoso.com')} ```
+    ```Set-ADUser -Identity f5-big-ip -Add @{'msDS-AllowedToDelegateTo'=@('HTTP/myexpenses.contoso.com')} ```
 
     >[!NOTE]
     >You can complete these tasks with the Active Directory Users and Computers, Microsoft Management Console (MMC) snap-in, on a domain controller.
@@ -209,21 +209,21 @@ You can use the PrincipalsAllowedToDelegateToAccount property of the application
 
 Use an SPN defined against a web application service account. For better security, use a dedicated SPN that matches the host header of the application. For example, because the web application host header in this example is myexpenses.contoso.com, add HTTP/myexpenses.contoso.com to the application service account object in Active Directory (AD):
 
-    ```Set-AdUser -Identity web_svc_account -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
+```Set-AdUser -Identity web_svc_account -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
 
 For the following commands, note the context. 
 
 If the web_svc_account service runs in the context of a user account, use these commands:
 
-    ```$big-ip= Get-ADComputer -Identity f5-big-ip -server dc.contoso.com ```
-    ```Set-ADUser -Identity web_svc_account -PrincipalsAllowedToDelegateToAccount ```
-    ```$big-ip Get-ADUser web_svc_account -Properties PrincipalsAllowedToDelegateToAccount ```
+```$big-ip= Get-ADComputer -Identity f5-big-ip -server dc.contoso.com ```
+```Set-ADUser -Identity web_svc_account -PrincipalsAllowedToDelegateToAccount ```
+```$big-ip Get-ADUser web_svc_account -Properties PrincipalsAllowedToDelegateToAccount ```
 
 If the web_svc_account service runs in the context of a computer account, use these commands:
 
-    ```$big-ip= Get-ADComputer -Identity f5-big-ip -server dc.contoso.com ```
-    ```Set-ADComputer -Identity web_svc_account -PrincipalsAllowedToDelegateToAccount ```
-    ```$big-ip Get-ADComputer web_svc_account -Properties PrincipalsAllowedToDelegateToAccount ```
+```$big-ip= Get-ADComputer -Identity f5-big-ip -server dc.contoso.com ```
+```Set-ADComputer -Identity web_svc_account -PrincipalsAllowedToDelegateToAccount ```
+```$big-ip Get-ADComputer web_svc_account -Properties PrincipalsAllowedToDelegateToAccount ```
 
 For more information, see [Kerberos Constrained Delegation across domains](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 
