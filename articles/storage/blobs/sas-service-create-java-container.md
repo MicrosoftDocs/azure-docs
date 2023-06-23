@@ -24,7 +24,7 @@ This article shows how to use the storage account key to create a service SAS fo
 
 A service SAS is signed with the account access key. You can use the [StorageSharedKeyCredential](/java/api/com.azure.storage.common.storagesharedkeycredential) class to create the credential that is used to sign the service SAS.
 
-You can also use a stored access policy to define the permissions and duration of the SAS. If the name of an existing stored access policy is provided, that policy is associated with the SAS. To learn more about stored access policies, see [Define a stored access policy](#define-a-stored-access-policy). If no stored access policy is provided, the code examples in this article show how to define permissions and duration for the SAS.
+You can also use a stored access policy to define the permissions and duration of the SAS. If the name of an existing stored access policy is provided, that policy is associated with the SAS. To learn more about stored access policies, see [Define a stored access policy](/rest/api/storageservices/define-stored-access-policy). If no stored access policy is provided, the code examples in this article show how to define permissions and duration for the SAS.
 
 ## Create a service SAS for a container
 
