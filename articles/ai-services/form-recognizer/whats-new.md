@@ -612,7 +612,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## July 2021
 
-* System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
+* System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identities.md) to learn more.
 
 ---
 
