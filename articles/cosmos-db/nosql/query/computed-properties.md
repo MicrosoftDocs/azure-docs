@@ -11,18 +11,20 @@ ms.author: jucocchi
 ms.reviewer: jucocchi
 ---
 # Computed properties in Azure Cosmos DB (preview)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-Computed properties in Azure Cosmos DB have values derived from existing item properties but aren't persisted in items themselves. These properties are scoped to a single item and can be referenced in queries as if they were persisted properties. Computed properties make it easier to write complex query logic once and reference it many times. You can add a single index on these properties or use them as part of a composite index for increased performance.
+Computed properties in Azure Cosmos DB have values that are derived from existing item properties, but the properties aren't persisted in items themselves. Computed properties are scoped to a single item and can be referenced in queries as if they were persisted properties. Computed properties make it easier to write complex query logic once and reference it many times. You can add a single index on these properties or use them as part of a composite index for increased performance.
 
-> [!Note]
-> Do you have any feedback about computed properties? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team: cosmoscomputedprops@microsoft.com
+> [!NOTE]
+> Do you have any feedback about computed properties? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team: [cosmoscomputedprops@microsoft.com](mailto:cosmoscomputedprops@microsoft.com).
 
 ## Computed property definition
 
 Computed properties must be at the top level in the item and can't have a nested path. Each computed property definition has two components: a name and a query. The name is the computed property name, and the query defines logic to calculate the property value for each item. Computed properties are scoped to an individual item and therefore can't use values from multiple items or rely on other computed properties. Every container can have a maximum of 20 computed properties.
 
 Example computed property definition:
+
 ```json
 { 
     "computedProperties": [ 
@@ -36,23 +38,20 @@ Example computed property definition:
 
 ### Name constraints
 
-It's strongly recommended that computed properties are named in such a way that there's no collision with a persisted property name. To avoid overlapping property names, you can add a prefix or suffix to all computed property names. This article uses the prefix `cp_` in all name definitions.
+We strongly recommend that you name computed properties so that there's no collision with a persisted property name. To avoid overlapping property names, you can add a prefix or suffix to all computed property names. This article uses the prefix `cp_` in all name definitions.
 
 > [!IMPORTANT]
-> Defining a computed property with the same name as a persisted property won't give an error, but it may lead to unexpected behavior. 
-> Regardless of whether the computed property is indexed, values from persisted properties that share a name with a computed property won't be included in the index. 
-> Queries will always use the computed property instead of the persisted property, with the exception of the persisted property being returned instead of the computed property if there is a wildcard projection in the SELECT clause. 
-> This is because wildcard projection does not automatically include computed properties.
+> Defining a computed property by using the same name as a persisted property doesn't result in an error, but it might lead to unexpected behavior. Regardless of whether the computed property is indexed, values from persisted properties that share a name with a computed property won't be included in the index. Queries will always use the computed property instead of the persisted property, with the exception of the persisted property being returned instead of the computed property if there is a wildcard projection in the SELECT clause. Wildcard projection does not automatically include computed properties.
 
 The constraints on computed property names are:
 
-- All computed properties must have unique names. 
+- All computed properties must have unique names.
 
-- The value of name property represents the top-level property name that can be used to reference the computed property.
+- The value of the `name` property represents the top-level property name that can be used to reference the computed property.
 
-- Reserved system property names such as `id`, `_rid`, `_ts` etc. can't be used as computed property names.
+- Reserved system property names such as `id`, `_rid`, and `_ts` can't be used as computed property names.
 
-- A computed property name can't match a property path that is already indexed. This applies to all indexing paths specified including included paths, excluded paths, spatial indexes and composite indexes.
+- A computed property name can't match a property path that is already indexed. This constraint applies to all indexing paths that are specified, including included paths, excluded paths, spatial indexes, and composite indexes.
 
 ### Query constraints
 
@@ -60,7 +59,7 @@ Queries in the computed property definition must be valid syntactically and sema
 
 The constraints on computed property query definitions are:
 
-- Queries must specify a FROM clause representing the root item reference. Examples of supported FROM clauses are `FROM c`, `FROM root c` AND `FROM MyContainer c`.
+- Queries must specify a FROM clause that represents the root item reference. Examples of supported FROM clauses are `FROM c`, `FROM root c`, and `FROM MyContainer c`.
 
 - Queries must use a VALUE clause in the projection.
 
@@ -68,20 +67,20 @@ The constraints on computed property query definitions are:
 
 - Queries can't include a scalar subquery.
 
-- Aggregate functions, spatial functions, non-deterministic functions and user defined functions aren't supported.
+- Aggregate functions, spatial functions, non-deterministic functions, and user defined functions aren't supported.
 
-## Creating computed properties 
+## Creating computed properties
 
-During the preview, computed properties must be created using the .NET v3 or Java v4 SDK. Once the computed properties have been created, you can execute queries that reference them using any method including all SDKs and Data Explorer in the Azure portal.
+During the preview, computed properties must be created using the .NET v3 or Java v4 SDK. After the computed properties are created, you can execute queries that reference the properties by using any method, including all SDKs and Azure Data Explorer in the Azure portal.
 
-|**SDK** |**Supported version** |**Notes** |
+| SDK | Supported version | Notes |
 |--------|----------------------|----------|
-|.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently only available in preview package versions. |
+|.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently available only in preview package versions. |
 |Java SDK v4 |>= [4.46.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.46.0) |Computed properties are currently under preview version. |
 
-### Create computed properties using the SDK
+### Create computed properties by using the SDK
 
-You can either create a new container with computed properties defined, or add them to an existing container. 
+You can either create a new container that has computed properties defined, or you can add computed properties to an existing container.
 
 Here's an example of how to create computed properties in a new container:
 
