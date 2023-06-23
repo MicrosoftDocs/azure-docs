@@ -89,7 +89,7 @@ If you disable and then re-enable system identity, then you have to delete the a
 ## Conclusion 
 You can use your license keys safely by storing your secrets in the Azure Key Vault, enabling system identity and providing read access to our Data Manager. ISV solutions available with our Data Manager also use these credentials.
 
-You can use our data plan APIs that reference your license keys in your key vault. You can also choose to override default license credentials dynamically in our data-plane API calls. Our Data Manager does basic validations including checking if it can access the secret specified in credentials object or not.
+You can use our data plane APIs and reference license keys in your key vault. You can also choose to override default license credentials dynamically in our data plane API calls. Our Data Manager does basic validations including checking if it can access the secret specified in credentials object or not.
 
 ## Next steps
 
