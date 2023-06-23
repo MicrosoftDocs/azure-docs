@@ -43,8 +43,6 @@ items:
         href: how-to-target-resource-microsoft-365-profile.md
       - name: Source IP restoration
         href: how-to-source-ip-restoration.md
-      - name: Conditional Access for private access apps
-        href: how-to-source-ip-restoration.md
       - name: Compliant network check
         href: how-to-compliant-network.md
       - name: Enable universal tenant restrictions
