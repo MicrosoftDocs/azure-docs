@@ -58,7 +58,30 @@ To get all versions of a key in Azure Key Vault, use the []() method of the KeyC
 |[listPropertiesOfKeyVersions](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeyversions)|No|Yes|
 
 ```javascript
+// Azure client libraries
+import { DefaultAzureCredential } from '@azure/identity';
+import {
+    KeyClient,
+} from '@azure/keyvault-keys';
 
+// Authenticate to Azure Key Vault
+const credential = new DefaultAzureCredential();
+const client = new KeyClient(
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
+);
+
+const name = `myRsaKey`;
+
+for await (const keyProperties of client.listPropertiesOfKeyVersions(name)) {
+    const thisVersion = keyProperties.version;
+    
+    const { key } = await client.getKey(name, {
+        version: thisVersion
+    });
+
+    // do something with version's key
+}
 ```
 
 ## Get disabled key
