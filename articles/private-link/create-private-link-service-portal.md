@@ -49,22 +49,18 @@ Create a virtual network and subnet to host the load balancer that accesses your
 
 5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
-6. In the **IP Addresses** tab, enter this information:
+6. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.0.0.0/16**.
 
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.0.0.0/16** |
+7. Select **+ Add subnet**.
 
-7. Under **Subnet name**, select the word **default**.
-
-8. In **Edit subnet**, enter this information:
+8. In **Add subnet**, enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **subnet-1** |
     | Subnet address range | Enter **10.0.0.0/24** |
 
-9. Select **Save**.
+9. Select **Add**.
 
 10. Select the **Review + create** tab or select the **Review + create** button.
 
@@ -144,13 +140,13 @@ During the creation of the load balancer, you configure:
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **health-probe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **health-probe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **Save**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
-    | TCP reset | Select **Enabled**. |
-    | Floating IP | Select **Disabled**. |
+    | Enable TCP Reset | Select the box. |
+    | Enable Floating IP | Leave the box unchecked. |
 
-15. Select **Add**.
+15. Select **Save**.
 
 16. Select the blue **Review + create** button.
 
@@ -223,15 +219,11 @@ In this section, you map the private link service to a private endpoint. A virtu
 
 4. Select **Next: IP Addresses** or the **IP Addresses** tab.
 
-5. In the **IP Addresses** tab, enter the following information:
+5. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.1.0.0/16**.
 
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
+6. Select **+ Add subnet**.
 
-6. Select **+Add subnet**.
-
-7. In **Add subnet**, enter this information:
+7. In **Add subnet**, enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
@@ -280,29 +272,29 @@ In this section, you map the private link service to a private endpoint. A virtu
     | Setting | Value |
     | ------- | ----- |
     | **Networking** |  |
-    | Virtual network | Select **vnet-pe**. |
-    | Subnet | Select **vnet-1/subnet-pe (10.1.0.0/24)**. |
-    | Network policy for private endpoints | Select **edit** to apply Network security groups and/or Route tables to the subnet that contains the private endpoint. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
+    | Virtual network | Select **vnet-pe (test-rg)**. |
+    | Subnet | Select **subnet-pe**. |
+    | Network policy for private endpoints | Select **edit** to apply Network policy for private endpoints. </br> In **Edit subnet network policy**, in **Network policies setting for all private endpoints in this subnet**, select **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
-# [**Dynamic IP**](#tab/dynamic-ip)
+    # [**Dynamic IP**](#tab/dynamic-ip)
 
-| Setting | Value |
-| ------- | ----- |
-| **Private IP configuration** | Select **Dynamically allocate IP address**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Dynamically allocate IP address**. |
 
-:::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
 
-# [**Static IP**](#tab/static-ip)
+    # [**Static IP**](#tab/static-ip)
 
-| Setting | Value |
-| ------- | ----- |
-| **Private IP configuration** | Select **Statically allocate IP address**. |
-| Name | Enter **ipconfig-1**. |
-| Private IP | Enter **10.1.0.10**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **Private IP configuration** | Select **Statically allocate IP address**. |
+    | Name | Enter **ipconfig-1**. |
+    | Private IP | Enter **10.1.0.10**. |
 
-:::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
 
----
+    ---
 
 8. Select **Next: DNS**.
 
