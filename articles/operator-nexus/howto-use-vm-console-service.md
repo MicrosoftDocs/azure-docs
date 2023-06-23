@@ -22,9 +22,9 @@ This document provides guided instructions of how to use the VM Console service 
 
 This guide helps you to:
 
-1. Establish a secure private network connectivity between your network and the Operator Nexus Cluster Manager's private network
+1. Establish a secure private network connectivity between your network and the Cluster Manager's private network
 1. Create a Console resource with `az networkcloud virtualmachine console` CLI command
-1. Initiate an SSH session with a Virtual Machine of an Undercloud cluster
+1. Initiate an SSH session with a Virtual Machine
 
 > [!NOTE]
 > In order to avoid passing the `--subscription` parameter to each Azure CLI command, execute the following command:
@@ -67,18 +67,18 @@ To help set up the environment for SSHing to Virtual Machines, define these envi
 
 ## Establishing Private Network Connectivity
 
-In order to establish a secure SSH session with a Virtual Machine of an Undercloud cluster, you need to establish a private network connectivity between your network and the Operator Nexus Cluster Manager's private network.
+In order to establish a secure SSH session with a Virtual Machine, you need to establish a private network connectivity between your network and the Cluster Manager's private network.
 
-This private network relies on the Azure Private Link Endpoint (PLE) and the Azure Private Link Service (PLS) to establish a private network connection between your network and the Operator Nexus Cluster Manager's private network.
+This private network relies on the Azure Private Link Endpoint (PLE) and the Azure Private Link Service (PLS).
 
-The Operator Nexus Cluster Manager automatically creates a PLS so that you can establish a private network connection between your network and the Operator Nexus Cluster Manager's private network.
+The Cluster Manager automatically creates a PLS so that you can establish a private network connection between your network and the Cluster Manager's private network.
 
-This section provides a step-by-step guide to help you to establish a private network connectivity between your network and the Operator Nexus Cluster Manager's private network.
+This section provides a step-by-step guide to help you to establish a private network connectivity.
 
 <!--- IMG ![Private link networking overview](articles/operator-nexus/media/vm-console-private-link.png) IMG --->
 :::image type="content" source="media/vm-console-private-link.png" alt-text="Private link networking overview.":::
 
-1. You need to retrieve the resource identifier for the PLS associated to the VM Console service running in the Nexus Operator Cluster Manager.
+1. You need to retrieve the resource identifier for the PLS associated to the VM Console service running in the Cluster Manager.
 
     ```bash
         # retrieve the infrastructure resource group of the AKS cluster
@@ -92,7 +92,7 @@ This section provides a step-by-step guide to help you to establish a private ne
             --output tsv)
     ```
 
-1. Create the PLE for establishing a private and secure connection between your network and the Operator Nexus Cluster Manager's private network. You need the PLS resource ID obtained in [Creating Console Resource](#creating-console-resource).
+1. Create the PLE for establishing a private and secure connection between your network and the Cluster Manager's private network. You need the PLS resource ID obtained in [Creating Console Resource](#creating-console-resource).
 
     ```bash
         az network private-endpoint create \
@@ -117,14 +117,14 @@ This section provides a step-by-step guide to help you to establish a private ne
 
 ## Creating Console Resource
 
-The Console resource provides the information about the Virtual Machine(VM) such as VM name, public SSH key, expiration date for the SSH session, etc.
+The Console resource provides the information about the VM such as VM name, public SSH key, expiration date for the SSH session, etc.
 
 This section provides step-by-step guide to help you to create a Console resource using Azure CLI commands.
 
 <!--- IMG ![VM Console Resource](articles/operator-nexus/media/vm-console-resource.png) IMG --->
 :::image type="content" source="media/vm-console-resource.png" alt-text="VM Console Resource.":::
 
-1. The first thing before you can establish an SSH session with a Virtual Machine(VM) of an Undercloud cluster is to create a ***Console*** resource in the Operator Nexus Cluster Manager cluster.
+1. The first thing before you can establish an SSH session with a VM is to create a ***Console*** resource in the Cluster Manager.
 
     ```bash
         az networkcloud virtualmachine console create \
@@ -136,12 +136,12 @@ This section provides step-by-step guide to help you to create a Console resourc
            [--expiration "${CONSOLE_EXPIRATION_TIME}"]
     ```
 
-If you omit the `--expiration` parameter, the Nexus Operator Cluster Manager will automatically set the expiration to one day after the creation of the Console resource. Also note that the `expiration` date & time format MUST comply with RFC3339 otherwise the creation of the Console resource fails.
+If you omit the `--expiration` parameter, the Cluster Manager will automatically set the expiration to one day after the creation of the Console resource. Also note that the `expiration` date & time format **must** comply with RFC3339 otherwise the creation of the Console resource fails.
 
 > [!NOTE]
 > For a complete synopsis for this command, invoke `az networkcloud console create --help`.
 
-1. Upon successful creation of the Console resource, retrieve the Virtual MachineAccess ID. You must use this unique identifier as `user` of the `ssh` session.
+1. Upon successful creation of the Console resource, retrieve the VM Access ID. You must use this unique identifier as `user` of the `ssh` session.
 
     ```bash
         virtual_machine_access_id=$(az networkcloud virtualmachine console show \
@@ -153,11 +153,11 @@ If you omit the `--expiration` parameter, the Nexus Operator Cluster Manager wil
 > [!NOTE]
 > For a complete synopsis for this command, invoke `az networkcloud virtualmachine console show --help`.
 
-## Establishing an SSH session with an Undercloud Virtual Machine
+## Establishing an SSH session with Virtual Machine
 
-At this point, you have all the info needed for establishing a `ssh` session to the Virtual Machine, that is, `virtual_machine_access_id` and `sshmux_ple_ip`.
+At this point, you have all the info needed for establishing a `ssh` session to the VM, that is, `virtual_machine_access_id` and `sshmux_ple_ip`.
 
-The VM Console service is a `ssh` server that "relays" the session to the designated Virtual Machine. The `sshmux_ple_ip` indirectly references the VM Console service and the `virtual_machine_access_id` the identifier for the Virtual Machine.
+The VM Console service is a `ssh` server that "relays" the session to the designated VM. The `sshmux_ple_ip` indirectly references the VM Console service and the `virtual_machine_access_id` the identifier for the VM.
 
 > [!IMPORTANT]
 > The VM Console service listens to port `2222`, therefore you **must** specify this port number in the `ssh` command.
