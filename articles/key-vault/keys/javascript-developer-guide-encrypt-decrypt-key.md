@@ -36,7 +36,7 @@ const myAlgorithm = KnownEncryptionAlgorithms.RSAOaep256
 
 ## Get encryption key
 
-[Create]() or [get]() your [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) encryption key from the Key Vault to use with encryption and decryption.
+[Create](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey) or [get](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-getkey) your [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) encryption key from the Key Vault to use with encryption and decryption.
 
 ## Encrypt and decrypt with a key
 
@@ -52,10 +52,8 @@ All three parameter objects require the `algorithm` and the `plaintext` used to 
 import { DefaultAzureCredential } from '@azure/identity';
 import {
   CryptographyClient,
-  DecryptParameters,
   KeyClient,
-  KnownEncryptionAlgorithms,
-  RsaEncryptParameters
+  KnownEncryptionAlgorithms
 } from '@azure/keyvault-keys';
 
 // get service client using AZURE_KEYVAULT_NAME environment variable
@@ -66,8 +64,7 @@ credential
 );
 
 // get existing key
-const keyName = 'myRsaKey';
-const keyVaultKey = await serviceClient.getKey(keyName);
+const keyVaultKey = await serviceClient.getKey('myRsaKey');
 
 if (keyVaultKey?.name) {
 
@@ -81,7 +78,7 @@ if (keyVaultKey?.name) {
     const algorithm = KnownEncryptionAlgorithms.RSAOaep256;
     
     // encrypt settings: RsaEncryptParameters | AesGcmEncryptParameters | AesCbcEncryptParameters
-    const encryptParams: RsaEncryptParameters = {
+    const encryptParams = {
         algorithm,
         plaintext: Buffer.from(originalInfo)
     };
@@ -89,8 +86,11 @@ if (keyVaultKey?.name) {
     // encrypt
     const encryptResult = await encryptClient.encrypt(encryptParams);
     
+    // ... hand off encrypted result to another process
+    // ... other process needs to decrypt data
+
     // decrypt settings: DecryptParameters
-    const decryptParams: DecryptParameters = {
+    const decryptParams = {
         algorithm,
         ciphertext: encryptResult.result
     };
@@ -101,7 +101,17 @@ if (keyVaultKey?.name) {
 }
 ```
 
-The `encryptParams` object example above sets the required parameters. Depending on the encryption algorithm, you may set optional properties as well. 
+The **encryptParams** object sets the parameters for encryption. Use the following encrypt parameter objects to set properties.
+
+* [RsaEncryptParameters](/javascript/api/@azure/keyvault-keys/rsaencryptparameters)
+* [AesGcmEncryptParameters](/javascript/api/@azure/keyvault-keys/aesgcmencryptparameters)
+* [AesCbcEncryptParameters](/javascript/api/@azure/keyvault-keys/aescbcencryptparameters)
+
+The **decryptParams** object sets the parameters for decryption. Use the following decrypt parmater objects to set properties.
+
+* [RsaDecryptParameters](/javascript/api/@azure/keyvault-keys/rsadecryptparameters)
+* [AesGcmDecryptParameters](/javascript/api/@azure/keyvault-keys/aesgcmdecryptparameters)
+* [AesCbcDecryptParameters](/javascript/api/@azure/keyvault-keys/aescbcdecryptparameters)
 
 ## Next steps
 

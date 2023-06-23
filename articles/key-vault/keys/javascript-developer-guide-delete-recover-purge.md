@@ -12,9 +12,13 @@ ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to encrypt and decrypt data using a key to the Key Vault with the SDK.
 ---
 
-# Backup and export keys in Azure Key Vault with JavaScript
+# Backup and restore keys in Azure Key Vault with JavaScript
 
-Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then create a [CryptographyClient]() use the client to set, update, and rotate a key in Azure Key Vault.
+Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then create a [CryptographyClient](/javascript/api/@azure/keyvault-keys/cryptographyclient) use the client to set, update, and rotate a key in Azure Key Vault.
+
+## Backup key
+
+## Restore key
 
 ## Next steps
 

@@ -51,15 +51,23 @@ items:
     items: 
     - name: Get Started
       href: javascript-developer-guide-get-started.md
-    - name: Create, rotate, import key
-      href: javascript-developer-guide-create-rotate-import.md
-    - name: Encrypt, decrypt key
+    - name: Create, update, rotate key
+      href: javascript-developer-guide-create-update-rotate.md
+    - name: Get key
+      href: javascript-developer-get-key.md
+    - name: Enable and disable key
+      href: javascript-developer-enable-disable-key.md
+    - name: Encrypt and decrypt key
       href: javascript-developer-guide-encrypt-decrypt-key.md
-    - name: Sign, verify with key
+    - name: Sign and verify with key
       href: javascript-developer-guide-sign-verify-key.md
-    - name: List, find key
-      href: javascript-developer-guide-list-find-key.md
-    - name: Backup, export, delete key
+    - name: Delete, recover, purge key
+      href: javascript-developer-guide-delete-recover-purge-key.md
+    - name: List keys
+      href: javascript-developer-guide-list-key-version.md
+    - name: Import key
+      href: javascript-developer-guide-import-key.md
+    - name: Backup and restore key
       href: javascript-developer-guide-backup-export-delete-key.md
 
 - name: Samples
