@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure Azure AD role settings in Privileged Identity Management
 
-In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define role assignment properties. These properties include multifactor authentication and approval requirements for activation, assignment maximum duration, and notification settings. This article shows how to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), which is part of Microsoft Entra, role settings define role assignment properties. These properties include multifactor authentication and approval requirements for activation, assignment maximum duration, and notification settings. This article shows you how to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
 You must have the Global Administrator or Privileged Role Administrator role to manage PIM role settings for an Azure AD role. Role settings are defined per role. All assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role.
 
@@ -56,21 +56,22 @@ You can require users who are eligible for a role to prove who they are by using
 
 Users might not be prompted for multifactor authentication if they authenticated with strong credentials or provided multifactor authentication earlier in the session.
 
-If your goal is to ensure that users must provide authentication during activation, you can use [On activation, require Azure AD Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md). These options require users to authenticate during activation by using methods different from the one they used to sign in to the machine.
+If your goal is to ensure that users must provide authentication during activation, you can use [On activation, require Azure AD conditional access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md). These options require users to authenticate during activation by using methods different from the one they used to sign in to the machine.
 
-For example, if users sign in to the machine by using Windows Hello for Business, you can use **On activation, require Azure AD Conditional Access authentication context** and **Authentication Strengths**. This option requires users to do passwordless sign-in with Microsoft Authenticator when they activate the role.
+For example, if users sign in to the machine by using Windows Hello for Business, you can use **On activation, require Azure AD conditional access authentication context** and **Authentication Strengths**. This option requires users to do passwordless sign-in with Microsoft Authenticator when they activate the role.
 
 After the user provides passwordless sign-in with Microsoft Authenticator once in this example, they can do their next activation in this session without another authentication. Passwordless sign-in with Microsoft Authenticator is already part of their token.
 
 We recommend that you enable the multifactor authentication feature of Azure AD for all users. For more information, see [Plan an Azure AD multifactor authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-### On activation, require Azure AD Conditional Access authentication context
+### On activation, require Azure AD conditional access authentication context
 
 You can require users who are eligible for a role to satisfy conditional access policy requirements. For example, you can require users to use a specific authentication method enforced through Authentication Strengths, elevate the role from an Intune-compliant device, and comply with terms of use.
 
 To enforce this requirement, you create the conditional access authentication context.
 
 1. Configure a conditional access policy that enforces requirements for this authentication context.
+
     > [!NOTE]
     > The scope of the conditional access policy should include all or eligible users for a role. Don't create a conditional access policy scoped to authentication context and a directory role at the same time. During activation, the user doesn't have a role yet, so the conditional access policy wouldn't apply.
     >
@@ -80,19 +81,19 @@ To enforce this requirement, you create the conditional access authentication co
    :::image type="content" source="media/pim-how-to-change-default-settings/role-settings-page.png" alt-text="Screenshot that shows the Edit role setting - Attribute Definition Administrator page." lightbox="media/pim-how-to-change-default-settings/role-settings-page.png":::
 
 > [!NOTE]
-> If PIM settings have **On activation, require Azure AD Conditional Access authentication context** configured, the conditional access policies define conditions a user must meet to satisfy the access requirements.
+> If PIM settings have **On activation, require Azure AD conditional access authentication context** configured, the conditional access policies define conditions a user must meet to satisfy the access requirements.
 >
-> This means that security principals with permissions to manage conditional access policies, such as conditional access administrators or security administrators, might change requirements, remove them, or block eligible users from activating the role. Security principals that can manage the conditional access policies should be considered highly privileged and protected accordingly.
+> This means that security principals with permissions to manage conditional access policies, such as conditional access administrators or security administrators, can change requirements, remove them, or block eligible users from activating the role. Security principals that can manage the conditional access policies should be considered highly privileged and protected accordingly.
 
-We recommend that you create and enable a conditional access policy for the authentication context before the authentication context is configured in PIM settings. As a backup protection mechanism, if there are no conditional access policies in the tenant that target authentication context configured in PIM settings, during PIM role activation, the multifactor authentication feature in Azure AD is required as the [On activation, require multi-factor authentication](pim-how-to-change-default-settings.md#on-activation-require-multi-factor-authentication) setting would be set.
+We recommend that you create and enable a conditional access policy for the authentication context before the authentication context is configured in PIM settings. As a backup protection mechanism, if there are no conditional access policies in the tenant that target authentication context configured in PIM settings, during PIM role activation, the multifactor authentication feature in Azure AD is required as the [On activation, require multifactor authentication](pim-how-to-change-default-settings.md#on-activation-require-multifactor-authentication) setting would be set.
 
-This backup protection mechanism is designed to solely protect from a scenario when PIM settings were updated before the conditional access policy is created because of a configuration mistake. This backup protection mechanism isn't triggered if the conditional access policy is turned off, is in report-only mode, or has an eligible user excluded from the policy.
+This backup protection mechanism is designed to solely protect from a scenario when PIM settings were updated before the conditional access policy was created because of a configuration mistake. This backup protection mechanism isn't triggered if the conditional access policy is turned off, is in report-only mode, or has an eligible user excluded from the policy.
 
-The **On activation, require Azure AD Conditional Access authentication context** setting defines the authentication context requirements that users must satisfy when they activate the role. After the role is activated, users aren't prevented from using another browsing session, device, or location to use permissions.
+The **On activation, require Azure AD conditional access authentication context** setting defines the authentication context requirements that users must satisfy when they activate the role. After the role is activated, users aren't prevented from using another browsing session, device, or location to use permissions.
 
-For example, users might use an Intune-compliant device to activate the role. After the role is activated, they can sign in to the same user account from another device that's not Intune compliant and use the previously activated role from there.
+For example, users might use an Intune-compliant device to activate the role. Then after the role is activated, they might sign in to the same user account from another device that isn't Intune compliant and use the previously activated role from there.
 
-To protect from this situation, create two conditional access policies:
+To prevent this situation, create two conditional access policies:
 1. The first conditional access policy targets authentication context. It should have all users or eligible users in its scope. This policy specifies the requirements that users must meet to activate the role.
 1. The second conditional access policy targets directory roles. This policy specifies the requirements that users must meet to sign in with the directory role activated.
 
@@ -124,14 +125,14 @@ You can choose one of these eligible assignment duration options.
 
 | Setting | Description |
 | --- | --- |
-| Allow permanent eligible assignment | Resource administrators can assign permanent eligible assignment. |
+| Allow permanent eligible assignment | Resource administrators can assign permanent eligible assignments. |
 | Expire eligible assignment after | Resource administrators can require that all eligible assignments have a specified start and end date. |
 
 You can also choose one of these active assignment duration options.
 
 | Setting | Description |
 | --- | --- |
-| Allow permanent active assignment | Resource administrators can assign permanent active assignment. |
+| Allow permanent active assignment | Resource administrators can assign permanent active assignments. |
 | Expire active assignment after | Resource administrators can require that all active assignments have a specified start and end date. |
 
 > [!NOTE]
@@ -147,12 +148,12 @@ An administrator might not be prompted for multifactor authentication if they au
 
 You can require that users enter a business justification when they create an active (as opposed to eligible) assignment.
 
-On the **Notifications** tab on the **Role settings** page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
+On the **Notifications** tab on the **Role settings** page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive. You have the following options:
 
 - **Turning off an email**: You can turn off specific emails by clearing the default recipient checkbox and deleting any other recipients.
 - **Limit emails to specified email addresses**: You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add other email addresses as recipients. If you want to add more than one email address, separate them by using a semicolon (;).
-- **Send emails to both default recipients and more recipients**: You can send emails to both the default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
-- **Critical emails only**: For each type of email, you can select the checkbox to receive critical emails only. With this option, Privileged Identity Management continues to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment aren't triggered. Emails that require admins to approve an extension request are triggered.
+- **Send emails to both default recipients and more recipients**: You can send emails to both the default recipient and another recipient. Select the default recipient checkbox and add email addresses for other recipients.
+- **Critical emails only**: For each type of email, you can select the checkbox to receive critical emails only. With this option, Privileged Identity Management continues to send emails to the specified recipients only when the email requires immediate action. For example, emails that ask users to extend their role assignment aren't triggered. Emails that require admins to approve an extension request are triggered.
 
 ## Manage role settings by using Microsoft Graph
 
@@ -164,7 +165,7 @@ In Microsoft Graph, role settings are referred to as rules. They're assigned to 
 GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicies?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole'&$expand=rules
 ```
 
-For more information about managing role settings through PIM APIs in Microsoft Graph, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of updating rules, see [Update rules in PIM by using Microsoft Graph](/graph/how-to-pim-update-rules).
+For more information about how to manage role settings through PIM APIs in Microsoft Graph, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of how to update rules, see [Update rules in PIM by using Microsoft Graph](/graph/how-to-pim-update-rules).
 
 ## Next steps
 
