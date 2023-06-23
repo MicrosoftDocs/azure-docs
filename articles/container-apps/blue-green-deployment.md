@@ -6,37 +6,48 @@ author: ruslany
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.date: 06/23/2023
 ms.author: ruslany
 zone_pivot_groups: azure-cli-bicep
 ---
 
 # Blue/Green Deployment in Azure Container Apps
 
-[Blue/Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue/green deployment, two identical environments, referred to as "blue" and "green," are set up. One environment (blue) is running the current application version and one environment (green) is running the new application version. Once testing has been completed in the green environment, the live application traffic is directed to the green environment and the blue environment can be used to deploy new application version during next deployment cycle.
+[Blue/Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue/green deployment, two identical environments, referred to as "blue" and "green," are set up. One environment (blue) is running the current application version and one environment (green) is running the new application version. 
 
-In the context of Azure Container Apps, the blue/green deployment release approach is enabled by using [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels). 
+Once testing complete in the green environment, the live traffic is directed to the environment, and the blue environment is used to deploy a new application version during next deployment cycle.
 
-1. `Blue` revision: The revision labeled as `blue` represents the currently running and stable version of the application. It handles the production traffic, and users interact with it.
+You can enable blue/green deployment in Azure Container Apps by combining [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels). 
 
-1. `Green` revision: The revision labeled as `green` is a copy of the `blue` revision except it uses a newer version of the app code and possibly new set of environment variables. It doesn't receive any production traffic initially but can be accessed by using the label specific fully qualified domain name (FQDN).
+You use revisions to create instances of the blue and green versions of the application.
 
-1. Testing and verification: The `green` revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing can involve various activities, including functional tests, performance tests, and compatibility checks.
+| Revision | Description |
+|---|---|
+| *Blue* revision | The revision labeled as *blue* is the currently running and stable version of the application. This is the instance users interact with, and is the target of production traffic. |
+| *Green* revision | The revision labeled as *green* is a copy of the *blue* revision except it uses a newer version of the app code and possibly new set of environment variables. It doesn't receive any production traffic initially but is accessible via a labeled fully qualified domain name (FQDN). |
 
-1. Traffic switch: Once the `green` revision passes all the necessary tests, a traffic switch is performed so that the `green` revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition.
+After you test and verify the new revision, you can then point production traffic to the new revision. If you encounter issues, you can easily rollback to the previous version.
 
-1. Rollback: If problems occur in the `green` revision, you can revert the traffic switch, routing traffic back to the stable `blue` revision. This rollback ensures minimal impact on users if there are issues in the new version. The `green` revision can still be used for the next deployment.
+| Actions | Description |
+| Testing and verification | The *green* revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing may involve various tasks, including functional tests, performance tests, and compatibility checks. |
+| Traffic switch | Once the *green* revision passes all the necessary tests, a traffic switch is performed so that the *green* revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition. |
+| Rollback | If problems occur in the *green* revision, you can revert the traffic switch, routing traffic back to the stable *blue* revision. This rollback ensures minimal impact on users if there are issues in the new version. The *green* revision is still available for the next deployment. |
+| Role change | The roles of the blue/green revisions change after a successful deployment to the *green* revision. During the next release cycle, the *green* revision represents the stable production environment while the new version of the application code is deployed and tested in the *blue* revision.
 
-1. Role change: The roles of the blue/green revisions change after a successful deployment to the `green` revision. During the next release cycle, the `green` revision represents the stable production environment while the new version of the application code is deployed and tested in the `blue` revision.
-
-This article shows you how to implement blue/green deployment in a container app. To run the following examples, you need a container app environment in which you can create a new app.
+This article shows you how to implement blue/green deployment in a container app. To run the following examples, you need a container app environment where you can create a new app.
 
 > [!NOTE]
-> Refer to [containerapps-blue-green repository](https://github.com/Azure-Samples/containerapps-blue-green) for a complete example of a github workflow that implements blue/green deployment for container apps.
+> Refer to [containerapps-blue-green repository](https://github.com/Azure-Samples/containerapps-blue-green) for a complete example of a github workflow that implements blue/green deployment for Container Apps.
 
 ## Create a container app with multiple active revisions enabled
 
-The container app must have the `configuration.activeRevisionsMode` property set to `multiple` to enable traffic splitting. To get deterministic revision names, the `template.revisionSuffix` configuration setting can be set to some string value that uniquely identifies a release, for example a build number or a git commit short hash. For the following commands, some random commit hashes were generated.
+Begin by enabling traffic splitting.
+
+The container app must have the `configuration.activeRevisionsMode` property set to `multiple` to enable traffic splitting. To get deterministic revision names, you can set the `template.revisionSuffix` configuration setting to a string value that uniquely identifies a release.
+
+You may want to use a build number, or a git commit short hash.
+
+For the following commands use a set of randomly generated commit hashes.
 
 ::: zone pivot="azure-cli"
 
@@ -184,7 +195,7 @@ output fqdn string = blueGreenDeploymentApp.properties.configuration.ingress.fqd
 output latestRevisionName string = blueGreenDeploymentApp.properties.latestRevisionName
 ```
 
-Deploy the app with the bicep template using this command:
+Deploy the app with the Bicep template using this command:
 
 ```azurecli
 export APP_NAME=<APP_NAME>
@@ -244,7 +255,7 @@ az deployment group create \
 
 ::: zone-end
 
-The traffic section of the container app looks as follows. The revision with the `blue` commitId is taking 100% of production traffic while the newly deployed revision with `green` commitId doesn't take any production traffic.
+The following example shows how the traffic section is configured. The revision with the *blue* `commitId` is taking 100% of production traffic while the newly deployed revision with *green* `commitId` doesn't take any production traffic.
 
 ```json
 { 
@@ -281,7 +292,7 @@ curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 
 ## Send production traffic to the green revision
 
-After confirming that the app code in the `green` revision works as expected, we send 100% of production traffic to it. We also designate the `green` revision as the production revision.
+After confirming that the app code in the *green* revision works as expected, 100% of production traffic is sent to the revision. The *green* revision now becomes the production revision.
 
 ::: zone pivot="azure-cli"
 
@@ -308,7 +319,7 @@ az deployment group create \
 
 ::: zone-end
 
-The traffic section of the container app looks as in the following example. The `green` revision with the new application code takes all the user traffic while `blue` revision with the old application version doesn't serve any user requests.
+The following example shows how to configure the `traffic` section. The *green* revision with the new application code takes all the user traffic while *blue* revision with the old application version doesn't accept user requests.
 
 ```json
 { 
@@ -329,7 +340,7 @@ The traffic section of the container app looks as in the following example. The 
 
 ## Roll back the deployment if there were problems
 
-If after running in production, the new revision is found to have bugs then the app can be rolled back to the previous good state by sending 100% of traffic to the old version in the `blue` revision and designating the `blue` revision as the production revision again:
+If after running in production, the new revision is found to have bugs, you can roll back to the previous good state. Rollbacks sending 100% of traffic to the old version in the *blue* revision and designating the *blue* revision as the production revision again.
 
 ::: zone pivot="azure-cli"
 
@@ -357,11 +368,15 @@ az deployment group create \
 
 ::: zone-end
 
-After the bugs have been fixed, the new version of the application is deployed as a `green` revision again, and eventually becomes a production revision.
+After the bugs are fixed, the new version of the application is deployed as a *green* revision again. The *green* version eventually becomes the production revision.
 
 ## Next deployment cycle
 
-Now the `green` label marks the revision that is currently running the stable production code. So for the next deployment cycle the `blue` label will mark the revision with the new application version that is being rolled out to production. Example commands would look as follows:
+Now the *green* label marks the revision currently running the stable production code.
+
+During the next deployment cycle, the *blue* identifies the revision with the new application version being rolled out to production.
+
+The following commands demonstrate how to prepare for the next deployment cycle.
 
 ::: zone pivot="azure-cli"
 
