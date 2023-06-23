@@ -27,7 +27,7 @@ In this section, you test if RDP connections are allowed to your VM from a remot
 
 1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** from the search results.
 
-// Add a screenshot here.
+    :::image type="content" source="./media/network-security-group-test/virtual-machines-portal-search.png" alt-text="Screenshot of searching for virtual machines in the Azure portal." lightbox="./media/network-security-group-test/virtual-machines-portal-search.png":::
 
 1. Select the VM that you want to test.
 
@@ -74,7 +74,7 @@ In this section, you test your VM can have connect to the internet.
 
 1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** from the search results.
 
-// Add a screenshot here.
+    :::image type="content" source="./media/network-security-group-test/virtual-machines-portal-search.png" alt-text="Screenshot of searching for virtual machines in the Azure portal." lightbox="./media/network-security-group-test/virtual-machines-portal-search.png":::
 
 1. Select the VM you want to test.
 
