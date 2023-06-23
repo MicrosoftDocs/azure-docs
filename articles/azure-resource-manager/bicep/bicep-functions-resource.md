@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/20/2023
+ms.date: 06/22/2023
 ---
 
 # Resource functions for Bicep
@@ -509,7 +509,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 The Bicep files provide access to the reference function, although it is typically unnecessary. Instead, it is recommended to use the symbolic name of the resource. The reference function can only be used within the `properties` object of a resource and cannot be employed for top-level properties like `name` or `location`. The same generally applies to references using the symbolic name. However, for properties such as `name`, it is possible to generate a template without utilizing the reference function. Sufficient information about the resource name is known to directly emit the name. It is referred to as compile-time properties. Bicep validation can identify any incorrect usage of the symbolic name.
 
-The following example deploys a storage account. The two outputs show the usage of both the reference function and the symbolic name.
+The following example deploys a storage account. The first two outputs give you the same results.
 
 ```bicep
 param storageAccountName string = uniqueString(resourceGroup().id)
@@ -524,8 +524,10 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
 }
 
-output storageEndpointReference object = reference(storageAccountName).primaryEndpoints
-output storageEndpointSymbolic object = storageAccount.properties.primaryEndpoints
+output storageObjectSymbolic object = storageAccount.properties
+output storageObjectReference object = reference('storageAccount')
+output storageName string = storageAccount.name
+output storageLocation string = storageAccount.location
 ```
 
 To get a property from an existing resource that isn't deployed in the template, use the `existing` keyword:
