@@ -35,16 +35,21 @@ If you want to modify a packet core instance's local access configuration, follo
 The following changes will trigger components of the packet core software to restart, during which your service will be unavailable for approximately 8-12 minutes:
 
 - Attaching a new or existing data network to the packet core instance.
-- Modifying an attached data network's configuration.
+- Changing the following configuration on an attached data network:
+  - Dynamic UE IP pool prefixes
+  - Static UE IP pool prefixes
+  - Network address and port translation parameters
+  - DNS addresses
 
 The following changes will trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
 
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
+- Changing the N2, N3 or N6 interface configuration on an attached data network.
 
 The following changes require you to manually perform a reinstall, during which your service will be unavailable for up to two hours, before they take effect:
 
-- Modifying access network configuration.
+- Changing access network configuration.
 
 If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. Changes not listed here should not trigger a service interruption, but we recommend using a maintenance window in case of misconfiguration.
 
