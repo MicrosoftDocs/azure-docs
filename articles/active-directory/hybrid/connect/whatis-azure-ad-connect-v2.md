@@ -17,19 +17,19 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 Azure AD Connect was released several years ago.  Since this time, several of the components that Azure AD Connect uses have been scheduled for deprecation and updated to newer versions.  Attempting to update all of these components individually would take time and planning. 
 
-To address this, we've bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components. 
+To address this issue, we've bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components. 
 
  >[!NOTE]
  >Azure AD Connect V1 has been retired as of August 31, 2022 and is no longer supported. Azure AD Connect V1 installations may **stop working unexpectedly**. If you are still using a Azure AD Connect V1 you need to upgrade to Azure AD Connect V2 immediately.
 
 ## Consider moving to Azure AD Connect cloud sync
-Azure AD Connect cloud sync is the future of synchronization for Microsoft.  It will replace Azure AD Connect.  
+Azure AD Connect cloud sync is the future of synchronization for Microsoft.  It replaces Azure AD Connect.  
 
 > [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
 
 Before moving the Azure AD Connect V2.0, you should consider moving to cloud sync.  You can see if cloud sync is right for you, by accessing the [Check sync tool](https://aka.ms/M365Wizard) from the portal or via the link provided.
 
-For more information see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.md)
+For more information, see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.md)
 
 
 
@@ -45,11 +45,11 @@ The previous versions of Azure AD Connect shipped with the ADAL authentication l
 
 ### Visual C++ Redist 14 
 
-SQL Server 2019 requires the Visual C++ Redist 14 runtime, so we're updating the C++ runtime library to use this version. This Redistributable will be installed with the Azure AD Connect V2 package, so you don't have to take any action for the C++ runtime update. 
+SQL Server 2019 requires the Visual C++ Redist 14 runtime, so we're updating the C++ runtime library to use this version. This Redistributable is installed with the Azure AD Connect V2 package, so you don't have to take any action for the C++ runtime update. 
 
 ### TLS 1.2 
 
-TLS1.0 and TLS 1.1 are protocols that are deemed unsafe and are being deprecated by Microsoft. This release of Azure AD Connect will only support TLS 1.2. 
+TLS1.0 and TLS 1.1 are protocols that are deemed unsafe. Microsoft is deprecating them. This release of Azure AD Connect only supports TLS 1.2. 
 All versions of Windows Server that are supported for Azure AD Connect V2 already default to TLS 1.2. If your server doesn't support TLS 1.2 you will need to enable this before you can deploy Azure AD Connect V2. For more information, see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
 
 ### All binaries signed with SHA2 
@@ -78,7 +78,7 @@ More details about PowerShell prerequisites can be found [here](/powershell/scri
 ## What else do I need to know? 
 
 **Why is this upgrade important for me?** </br>
-Next year several of the components in your current Azure AD Connect server installations will go out of support. If you are using unsupported products, it will be harder for our support team to provide you with the support experience your organization requires. So we recommend all customers to upgrade to this newer version as soon as they can. 
+Next year several of the components in your current Azure AD Connect server installations will no longer be supported. If you are using unsupported products, it will be harder for our support team to provide you with the support experience your organization requires. So we recommend all customers to upgrade to this newer version as soon as they can. 
 
 This upgrade is especially important since we've had to update our prerequisites for Azure AD Connect and you may need additional time to plan and update your servers to the newer versions of these prerequisites 
 
