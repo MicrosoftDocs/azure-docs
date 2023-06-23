@@ -17,12 +17,13 @@ This article compares the following Microsoft cloud services:
 
 All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences. 
 
-> If you're looking for a more general comparison between Azure Functions and other Azure compute options:
-> + [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) 
-> + [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
-
-> For a summary and comparison of automation service options in Azure:
-> + [Choose the Automation services in Azure](../automation/automation-services.md)
+>[!NOTE]  
+>If you're looking for a more general comparison between Azure Functions and other Azure compute options:
+>+ [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) 
+>+ [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
+>
+>For a summary and comparison of automation service options in Azure:
+>+ [Choose the Automation services in Azure](../automation/automation-services.md)
 
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
