@@ -109,6 +109,8 @@ sections:
       - question: |
           How does vector search work in Azure Cognitive Search?
         answer: |
+          With standalone vector search, you first use a DNN, such as a large language model (LLM), to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
+          
           In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)". Vector fields can be populated using an Indexer or by the Push API. 
           
           Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
