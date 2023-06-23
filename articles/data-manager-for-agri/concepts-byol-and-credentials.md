@@ -18,9 +18,14 @@ Azure Data Manager for Agriculture supports a range of data ingress connectors t
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
+## Prerequisites
+
+To access Azure Key Vault, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+
 ## Overview
 
-In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you store credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This process is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret.
+In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you store your credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This process is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret.
 
 Flow diagram showing creation and sharing of credentials.
 :::image type="content" source="./media/concepts-byol-and-credentials/flow-to-use-vault.png" alt-text="Screenshot showing credential sharing flow.":::
@@ -28,16 +33,18 @@ Flow diagram showing creation and sharing of credentials.
 The steps to use Azure Key Vault in Data Manager for Agriculture are as follows: 
 
 ## Step 1: Create Key Vault 
-Customers can create a key vault or use an existing key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer creates (or reuse existing one) Azure Key Vault with following properties (Optional):
+Customers can create a key vault or use an existing key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer [creates Azure Key Vault](/azure/key-vault/general/quick-create-portal) or reuses existing an existing key vault. The following properties are recommended:
 
 :::image type="content" source="./media/concepts-byol-and-credentials/create-key-vault.png" alt-text="Screenshot showing key vault properties.":::
 
-It's recommended that customer keeps key vault accessible over internet so that Data Manager for Agriculture can access the key vault. In next Data Manager for Agriculture release, we'll support private networked key vaults in addition to publicly available key vault.
+Data Manager for Agriculture is a Microsoft trusted service and supports private network key vaults in addition to publicly available key vaults. If you put your key vault behind a VNET, then you need to select the `“Allow trusted Microsoft services to bypass this firewall."`
 
-:::image type="content" source="./media/concepts-byol-and-credentials/provide-access-to-keys.png" alt-text="Screenshot showing key vault access.":::
+:::image type="content" source="./media/concepts-byol-and-credentials/enable-access-to-keys.png" alt-text="Screenshot showing key vault access.":::
 
 ## Step 2: Store secret in Azure Key Vault
-For sharing your satellite or weather service credentials, customer stores client secrets in a key vault. Customers are in control of secret name and rotation.
+For sharing your satellite or weather service credentials, store client secrets in a key vault, for example `ClientSecret` for `SatelliteSentinelHub` and `APIKey` for `WeatherIBM`. Customers are in control of secret name and rotation. 
+
+Refer to [this guidance](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) to store and retrieve your secret from the vault.
 
 :::image type="content" source="./media/concepts-byol-and-credentials/store-your-credential-keys.png" alt-text="Screenshot showing storage of key values.":::
 
@@ -74,10 +81,15 @@ Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2021-09-0
 
 :::image type="content" source="./media/concepts-byol-and-credentials/details-key-vault.png" alt-text="Screenshot showing where key name and key version is available.":::
 
-In summary, you can use your license keys for satellite imagery and weather forecasts. You can do use your license keys safely via the Azure Key vault by storing your secrets, enabling system identity, providing read access to our Data Manger. Then you can use our data plan APIs that reference your license keys in your key vault. Our Data Manager does basic validations including checking if it can access the secret specified in credentials object or not.
-
 Flow showing how Azure Data Manager for Agriculture accesses secret.
 :::image type="content" source="./media/concepts-byol-and-credentials/key-access.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
+
+If you disable and then re-enable system identity, then you have to delete the access policy in key vault and add it again. 
+
+## Conclusion 
+You can use your license keys safely by storing your secrets in the Azure Key Vault, enabling system identity and providing read access to our Data Manager. ISV solutions available with our Data Manager also use these credentials.
+
+You can use our data plan APIs that reference your license keys in your key vault. You can also choose to override default license credentials dynamically in our data-plane API calls. Our Data Manager does basic validations including checking if it can access the secret specified in credentials object or not.
 
 ## Next steps
 
