@@ -87,6 +87,6 @@ If you have trouble accessing your IoT hub, your network configuration could be 
 
 When trying to access your IoT hub with other tools, such as the Azure CLI, the error message may include `{"errorCode": 401002, "message": "Unauthorized"}` in the case where the request is not routed correctly to your IoT hub.
 
-To get access to the IoT hub, request permission from your IT administrator to add your IP address in the IP address range or to enable public network access to all networks. If that fails to resolve the issue, check your local network settings or contact your local network administrator to fix connectivity to the IoT Hub. For example, sometimes a proxy in the local network can interfere with access to IoT Hub.
+To get access to the IoT hub, request permission from your IT administrator to add your IP address in the IP address range or to enable public network access to all networks. If that fails to resolve the issue, check your local network settings or contact your local network administrator to fix connectivity to the IoT hub. For example, sometimes a proxy in the local network can interfere with access to IoT Hub.
 
 If the preceding commands do not work or you cannot turn on all network ranges, contact Microsoft support.
