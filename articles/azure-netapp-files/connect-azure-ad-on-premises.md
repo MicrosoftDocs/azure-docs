@@ -54,9 +54,8 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 1. Provide values for: 
     * `$servicePrincipalName`: The SPN details from mounting the Azure NetApp Files volume. Use the CIFS/FQDN format. 
     * `$targetApplicationID`: Application ID of the Azure AD application 
-    * `$domainCred`: On-premises Active Directory administrator credentials 
-    * `$cloudCred`: Azure AD credentials with global administrator privilege from a fully qualified domain name.
-    For example: 
+    * `$domainCred`: use `Get-Credential`
+    * `$cloudCred`: use `Get-Credential`
 
     ```powershell
     $servicePrincipalName = "CIFS/NETBIOS-1234.CONTOSO.COM
@@ -73,18 +72,23 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 
 ### Create an Azure AD joined machine and mount to ANF Volume 
 
-1. Create two VMs in Azure NetApp Files: one registered to Azure AD and the other Azure AD-joined. 
+1. Create two VMs in Azure NetApp Files: one Azure AD-registered and the other Azure AD-joined. 
     1. The **Azure AD-registered VM** facilitates access to the Azure AD-joined machine. Sign into the AD-registered VM using the credentials created during machine creation in the Azure portal:
-        In **Settings** under **Work and school account**, select **Connect to Azure > Use global Azure AD cloud account user name and password**. 
+        In **Settings** under **Work and school account**, select **Connect to Azure > Use global Azure AD cloud account username and password**. 
 
     1. The **Azure AD-joined VM**:
-        Sign into the Azure-joined VM then launch a remote desktop to the Azure AD-joined VM.
+        Sign into the Azure AD-registered VM then launch a remote desktop to the Azure AD-joined VM.
         In **Settings** under **Work and school account**, select **Join this device to Azure Active Directory** then **Use hybrid user credentials**. Reboot the VM.
 
 1. Sign into the Azure AD-joined VM again using your hybrid credentials (for example: AZUREAD\user@anfdev.onmicrosoft.com).
 
     >[!NOTE]
     > If you run into issues signing on, select more choices, then provide credentials. 
+
+1. Configure the VM:  
+    1. Navigate to **Group Policy > Computer Configuration > Administrative Templates > System > Kerberos**. Enable **Allow retrieving the cloud Keberos ticket during the logon**. 
+
+    1. Select **Define host name-to-Kerberos realm mappings**. Provide a name and vaule using the fully qualified domain name from the mount instructions (for example, name: KERBEROS.MICROSOFTONLINE.COM and value: NETBIOS-1234.contoso.com).  
 
 1. Manually add DNS mapping in the hosts. 
     Open `C:\Windows\System32\drivers\etc\hosts` and add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the hybrid credentials retrieved during the machine creation. Cloud user credentials do not have the correct permission to modify the `/etc/hosts/` file. 
