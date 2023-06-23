@@ -1,19 +1,21 @@
 ---
-title: Traffic Splitting in Azure Static Web Apps
-description: Learn to divert traffic from production to a staging branch.
+title: Traffic Splitting in Azure Static Web Apps (preview)
+description: Learn to divert traffic from one branch to another.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 05/15/2023
+ms.date: 06/22/2023
 ms.author: cshoe
 ---
 
-# Traffic Splitting in Azure Static Web Apps
+# Traffic Splitting in Azure Static Web Apps (preview)
 
 Traffic splitting allows you to divert a percentage of traffic to different [branch environments](./branch-environments.md).
 
 ## Split traffic
+
+Before you can split traffic between branches, you first need to have open pull requests to create separate environments.
 
 To split traffic among different environments, use the following steps:
 
@@ -21,16 +23,22 @@ To split traffic among different environments, use the following steps:
 
 1. From the *Settings* section, select **Environments**.
 
-1. TODO
+1. Select the **Traffic splitting** tab.
 
-a. Accessing the feature
-b. Selecting environments
-c. Setting traffic percentages
-Disabling Traffic Splitting
+1. Select the **Add** button to create a new row in the traffic mapping table.
 
-## Monitoring and Adjusting Traffic
+1. From the dropdown, select name of the pull request you want to target.
 
-## Next steps
+1. Enter the percentage amount of traffic you want to allocate among the different environments.
 
-> [!div class="nextstepaction"]
-> [Add code header or body code snippets](./code-snippets.md)
+    Adjust the values in each of the input boxes in the *Traffic* column so the total equals 100%.
+
+1. Select **Save** to commit your changes.
+
+## Disable traffic splitting
+
+To disable traffic splitting, select the **Traffic splitting** to open the settings window.
+
+Remove all nonproduction environments from the list and save your changes.
+
+## Monitoring and adjusting Traffic
