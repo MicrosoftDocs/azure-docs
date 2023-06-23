@@ -91,7 +91,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 > [!NOTE]
 > When an Azure AD B2C directory is created, an application called `b2c-extensions-app`  is automatically created inside the new directory. Do not modify or delete it. The application is used by Azure AD B2C for storing user data. Learn more about [Azure AD B2C: Extensions app](extensions-app.md).
 
-## Activate Go-Local add-on
+## Activate Azure AD B2C Go-Local add-on
 
 Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt-in to Go-Local add-on, use the following steps:
 
