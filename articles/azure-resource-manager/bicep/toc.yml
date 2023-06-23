@@ -25,6 +25,10 @@
     href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
+  - name: Create deployment stacks
+    href: quickstart-create-deployment-stacks.md
+  - name: Create deployment stacks from template specs
+    href: quickstart-create-deployment-stacks-template-specs.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
@@ -47,6 +51,8 @@
     href: learn-bicep.md
   - name: Learn live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
+  - name: Use deployment stacks
+    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning
@@ -367,6 +373,8 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Deployment stacks
+      href: deployment-stacks.md
     - name: Bicep extensibility
       items:
       - name: Kubernetes provider
