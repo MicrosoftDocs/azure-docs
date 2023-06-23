@@ -217,7 +217,7 @@ The output shows two managed resources - one storage account and one virtual net
 Get-AzResourceGroupDeploymentStack -ResourceGroupName demoRg -Name demoStack
 ```
 
-The output shows four managed resource - two resource groups and two public IPs:
+The output shows two managed resource - one virtual network, and one storage account:
 
 ```output
 Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack

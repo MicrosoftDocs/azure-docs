@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep .
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 06/23/2023
 ---
 
 # Deployment stacks (Preview)
@@ -302,22 +302,26 @@ To instruct Azure to delete unmanaged resources, update the stack with the creat
 - `-DeleteResources`: Flag to indicate delete rather than detach for managed resources only.
 - `-DeleteResourceGroups`: Flag to indicate delete rather than detach for managed resource groups only.
 
+`DeleteResourceGroups` must be used together with `DeleteResources`. It is invalid to use `DeleteResourceGroups` by itself.
+
 For example:
 
 ```azurepowershell
 New-AzSubscriptionDeploymentStack `
   -Name '<deployment-stack-name' `
   -TemplateFile '<bicep-file-name>' `
-  -DeleteAll
+  -DenySettingsMode none`
+  -DeleteResourceGroups `
+  -DeleteResources
 ```
-
-jgao: include -DenySettingsMode none here? - Yes
 
 # [CLI](#tab/azure-cli)
 
 - `--delete-all`: Flag to indicate delete rather than detach for managed resources and resource groups.
 - `--delete-resources`: Flag to indicate delete rather than detach for managed resources only.
 - `--delete-resource-groups`: Flag to indicate delete rather than detach for managed resource groups only.
+
+`delete-resource-groups` must be used together with `delete-resources`. It is invalid to use `delete-resource-groups` by itself.
 
 For example:
 
@@ -326,6 +330,8 @@ az stack sub create `
   --name <deployment-stack-name> `
   --location <location> `
   --template-file <bicep-file-name> `
+  --deny-settings-mode none `
+  --delete-resource-groups `
   --delete-resources
 ```
 
@@ -543,14 +549,14 @@ By default, deployment stacks detach and don't delete unmanaged resources when t
 
 ## Export templates from deployment stacks
 
-You can export the resources from a deployment stack to a JSON output. You can pipe the output to a file. 
+You can export the resources from a deployment stack to a JSON output. You can pipe the output to a file.
 
 To export a deployment stack at the resource group scope:
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Export-AzResourceGroupDeploymentStack `
+Save-AzResourceGroupDeploymentStack `
    -Name '<deployment-stack-name>' `
    -ResourceGroupName '<resource-group-name>' `
 ```
@@ -558,7 +564,7 @@ Export-AzResourceGroupDeploymentStack `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group export \
+az stack group save \
   --name <deployment-stack-name> \
   --resource-group <resource-group-name>
 ```
@@ -570,7 +576,7 @@ To export a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Export-AzManagmentGroupDeploymentStack `
+Save-AzManagmentGroupDeploymentStack `
   -Name '<deployment-stack-name>' `
   -ManagementGroupId '<management-group-id>'
 ```
@@ -578,7 +584,7 @@ Export-AzManagmentGroupDeploymentStack `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack mg export \
+az stack mg save \
   --name <deployment-stack-name> \
   --management-group-id <management-group-id>
 ```
@@ -590,14 +596,14 @@ To export a deployment stack at the subscription scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Export-AzSubscriptionDeploymentStack `
+Save-AzSubscriptionDeploymentStack `
   -name '<deployment-stack-name>'
 ```
 
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack sub export \
+az stack sub save \
   --name <deployment-stack-name>
 ```
 
