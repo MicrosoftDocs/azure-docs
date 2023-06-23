@@ -1,5 +1,5 @@
 ---
-title: How to apply Conditional Access policies to Private Access apps
+title: How to apply Conditional Access policies to Microsoft Entra Private Access apps
 description: How to apply Conditional Access policies to Microsoft Entra Private Access apps.
 
 ms.service: network-access
