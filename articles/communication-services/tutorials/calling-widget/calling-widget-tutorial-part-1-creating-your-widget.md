@@ -1,7 +1,7 @@
 ---
 title: Part 1 Creating Your Widget
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to construct your own custom widget for your click to call experience - Part 1.
+description: Learn how to construct your own custom widget for your calling Widget experience - Part 1.
 author: dmceachern
 manager: alkwa
 services: azure-communication-services
@@ -23,9 +23,9 @@ While we will be using our own widget setup in this tutorial, you can adapt the 
 - Allow the user to select whether or not to include video in the call.
 - Have the user consent to the call possible being recorded.
 
-Our first step will be to create a new directory called `src/components`. Within this directory, we're going to create a new file named `ClickToCallComponent.tsx`. We'll then proceed to set up the widget component with the following imports:
+Our first step will be to create a new directory called `src/components`. Within this directory, we're going to create a new file named `CallingWidgetComponent.tsx`. We'll then proceed to set up the widget component with the following imports:
 
-`ClickToCallComponent.tsx`
+`CallingWidgetComponent.tsx`
 ```ts
 // imports needed
 import { IconButton, PrimaryButton, Stack, TextField, useTheme, Checkbox, Icon } from '@fluentui/react';
@@ -34,7 +34,7 @@ import React, { useEffect, useState } from 'react';
 
 Now let's introduce an interface containing the props that the component uses.
 
-`ClickToCallComponent.tsx`
+`CallingWidgetComponent.tsx`
 ```ts
 export interface clickToCallComponentProps {
   /**
@@ -68,13 +68,13 @@ Each callback controls different behaviors for the calling experience.
 
 Finally, we add the body of the component.
 
-`src/views/ClickToCallComponent.tsx`
+`src/views/CallingWidgetComponent.tsx`
 ```ts
 /**
- * Widget for Click to Call
+ * Widget for Calling Widget
  * @param props
  */
-export const ClickToCallComponent = (
+export const CallingWidgetComponent = (
   props: clickToCallComponentProps
 ): JSX.Element => {
   const { onRenderStartCall, onRenderLogo, onSetDisplayName, onSetUseVideo } =
@@ -180,15 +180,15 @@ export const ClickToCallComponent = (
 
 ### Time For Some Styles
 
-After creating the component, we'll need to add some styles to give it a visually appealing look. To do this, we'll create a new folder named `src/styles`. Within this folder we'll create a new file called `ClickToCallComponent.styles.ts` and add the following styles.
+After creating the component, we'll need to add some styles to give it a visually appealing look. To do this, we'll create a new folder named `src/styles`. Within this folder we'll create a new file called `CallingWidgetComponent.styles.ts` and add the following styles.
 
-`src/styles/ClickToCallComponent.styles.ts`
+`src/styles/CallingWidgetComponent.styles.ts`
 
 ```ts
 // needed imports
 import { IButtonStyles, ICheckboxStyles, IIconStyles, IStackStyles, Theme } from '@fluentui/react';
 ```
-`ClickToCallComponent.styles.ts`
+`CallingWidgetComponent.styles.ts`
 ```ts
 export const checkboxStyles = (theme: Theme): ICheckboxStyles => {
   return {
@@ -279,9 +279,9 @@ export const collapseButtonStyles: IButtonStyles = {
 };
 ```
 
-Provided the required styles have been added to the widget as seen in the snippet earlier, importing them into the `ClickToCallComponent.tsx` file is the next.
+Provided the required styles have been added to the widget as seen in the snippet earlier, importing them into the `CallingWidgetComponent.tsx` file is the next.
 
-`ClickToCallComponent.tsx`
+`CallingWidgetComponent.tsx`
 ```ts
 
 // add to other imports
@@ -293,20 +293,20 @@ import {
     callIconStyles,
     logoContainerStyles,
     collapseButtonStyles
-} from '../styles/ClickToCallComponent.styles';
+} from '../styles/CallingWidgetComponent.styles';
 
 ```
 
 ### Adding The Widget To The App
 
-Now we create a new folder `src/views` and add a new file for one of our pages `ClickToCallScreen.tsx`. This screen acts as our home page for the app where the user can start a new call.
+Now we create a new folder `src/views` and add a new file for one of our pages `CallingWidgetScreen.tsx`. This screen acts as our home page for the app where the user can start a new call.
 
 We want to add the following props to the page:
 
-`ClickToCallScreen.tsx`
+`CallingWidgetScreen.tsx`
 
 ```ts
-export interface ClickToCallPageProps {
+export interface CallingWidgetPageProps {
   token: string;
   userId:
     | CommunicationUserIdentifier
@@ -320,18 +320,18 @@ These properties are fed by the values that we set in `App.tsx`. We'll use these
 
 Next lets add the page content:
 
-`ClickToCallScreen.tsx`
+`CallingWidgetScreen.tsx`
 ```ts
 // imports needed
 import { CommunicationUserIdentifier, MicrosoftTeamsUserIdentifier } from '@azure/communication-common';
 import { Stack, Text } from '@fluentui/react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ClickToCallComponent } from '../components/ClickToCallComponent';
+import { CallingWidgetComponent } from '../components/CallingWidgetComponent';
 import { CallAdapterLocator } from '@azure/communication-react';
 import hero from '../hero.svg';
 ```
 ```ts
-export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
+export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element => {
   const { token, userId, callLocator, alternateCallerId } = props;
 
   const [userDisplayName, setUserDisplayName] = useState<string>();
@@ -360,7 +360,7 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
           tokens={{ childrenGap: "2rem" }}
         >
           <Text style={{ marginTop: "auto" }} variant="xLarge">
-            Welcome to a Click to Call sample
+            Welcome to a Calling Widget sample
           </Text>
           <img
             style={{ width: "7rem", height: "auto" }}
@@ -370,7 +370,7 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
         </Stack>
 
         <Text>
-          Welcome to a Click to Call sample for the Azure Communications UI
+          Welcome to a Calling Widget sample for the Azure Communications UI
           Library. Sample has the ability to:
         </Text>
         <ul>
@@ -379,7 +379,7 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
             calls
           </li>
           <li>Joining Teams interop meetings as a Azure Communications user</li>
-          <li>Make a click to call PSTN call to a help phone line</li>
+          <li>Make a calling Widget PSTN call to a help phone line</li>
           <li>Join a Azure Communications group call</li>
         </ul>
         <Text>
@@ -393,7 +393,7 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
         tokens={{ childrenGap: "1.5rem" }}
         style={{ overflow: "hidden", margin: "auto" }}
       >
-        <ClickToCallComponent
+        <CallingWidgetComponent
         onRenderStartCall={() => {}}
           onRenderLogo={() => {
             return (
@@ -414,19 +414,19 @@ export const ClickToCallScreen = (props: ClickToCallPageProps): JSX.Element => {
 ```
 This page has some general information on it for what our calling experiences can currently do. We can also see that it's adding the widget component that we created earlier.
 
-To integrate the widget screen, we simply update the existing `'click-to-call'` case in the root of the app `App.tsx`, by adding the new view.
+To integrate the widget screen, we simply update the existing `'calling-widget'` case in the root of the app `App.tsx`, by adding the new view.
 
 `App.tsx`
 ```ts
 // add this with the other imports
 
-import { ClickToCallScreen } from './views/ClickToCallScreen';
+import { CallingWidgetScreen } from './views/CallingWidgetScreen';
 
 ```
 
 ```ts
     
-    case 'click-to-call': {
+    case 'calling-widget': {
         if (!token || !userId || !locator) {
         return (
         <Stack verticalAlign='center' style={{height: '100%', width: '100%'}}>
@@ -434,20 +434,20 @@ import { ClickToCallScreen } from './views/ClickToCallScreen';
         </Stack>
         )
     }
-    return <ClickToCallScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
+    return <CallingWidgetScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
 }
     
 ```
 
 Once you have set the arguments defined in `App.tsx`, run the app with `npm run start` to see the changes:
 
-<img src='../media/click-to-call/Sample-app-splash.png' width='800' alt='click to call sample app home page widget closed'>
+<img src='../media/calling-widget/Sample-app-splash.png' width='800' alt='calling Widget sample app home page widget closed'>
 
 Then when you action the widget button, you should see:
 
-<img src='../media/click-to-call/Sample-app-widget-open.png' width='800' alt='click to call sample app home page widget open'>
+<img src='../media/calling-widget/Sample-app-widget-open.png' width='800' alt='calling Widget sample app home page widget open'>
 
 Yay! We have made the control surface for the widget! Next, we'll discuss what we need to add to make this widget start a call in a new window.
 
 > [!div class="nextstepaction"]
-> [Part 2: Creating a new window calling experience](./click-to-call-tutorial-part-2-creating-new-window-experience.md)
+> [Part 2: Creating a new window calling experience](./calling-widget-tutorial-part-2-creating-new-window-experience.md)

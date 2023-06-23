@@ -121,17 +121,17 @@ export const SameOriginCallScreen = (props: {
 };
 ```
 
-To configure Click to Call in our `CallComposite`, we need to make some changes. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. In addition to these configurations on the `CallComposite`, we use the `afterCreate` function defined in the snippet to automatically join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
+To configure Calling Widget in our `CallComposite`, we need to make some changes. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. In addition to these configurations on the `CallComposite`, we use the `afterCreate` function defined in the snippet to automatically join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
 
 To make sure we are passing around data correctly, let's create some handlers to send post messages between the parent window and child window to signal that we want some information. See diagram:
 
-<img src='../media/click-to-call/mermaid-charts-window-messaging.png' width='400' alt='disagram illustrating the flow of data between windows'>
+<img src='../media/calling-widget/mermaid-charts-window-messaging.png' width='400' alt='disagram illustrating the flow of data between windows'>
 
 This flow illustrates that if the child window has spawned it needs to ask for the arguments. This behavior has to do with React and that if the parent window just sends a message right after creation, the call adapter arguments needed are lost when the application mounts. The adapter arguments are lost because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
 
 Now we want to update the splash screen we created earlier. First we add a reference to the new child window that we create.
 
-`ClickToCallScreen.tsx`
+`CallingWidgetScreen.tsx`
 
 ```ts
     
@@ -143,7 +143,7 @@ Now we want to update the splash screen we created earlier. First we add a refer
 
 Next we create a handler that we pass to our widget that creates a new window that starts the process of sending the post messages.
 
-`ClickToCallScreen.tsx`
+`CallingWidgetScreen.tsx`
 ```ts
     
     const startNewWindow = useCallback(() => {
@@ -161,7 +161,7 @@ This handler starts a new window position and place a new query arg in the windo
 
 Next we add a `useEffect` hook that is creating an event handler listening for new post messages from the child window.
 
-`ClickToCallScreen.tsx`
+`CallingWidgetScreen.tsx`
 ```ts
     
     useEffect(() => {
@@ -190,11 +190,11 @@ This handler listens for events from the child window. (**NOTE: make sure that i
 
 Finally on this screen, let's add the `startNewWindow` handler to the widget so that it knows to create the new window.
 
-`ClickToCallScreen.tsx`
+`CallingWidgetScreen.tsx`
 ```ts
     
     <Stack horizontal tokens={{ childrenGap: '1.5rem' }} style={{ overflow: 'hidden', margin: 'auto' }}>
-        <ClickToCallComponent
+        <CallingWidgetComponent
             onRenderStartCall={startNewWindow}
             onRenderLogo={() => {
                 return (
@@ -272,7 +272,7 @@ Following this, we want to add some state to make sure that we're tracking the n
 ```ts
 /**
    * Properties needed to start an Azure Communications Call Adapter. When these are set the app will go to the Call screen for the
-   * Click to Call scenario. Call screen should create the credential that will be used in the call for the user.
+   * Calling Widget scenario. Call screen should create the credential that will be used in the call for the user.
    */
   const [adapterArgs, setAdapterArgs] = useState<AdapterArgs | undefined>();
   const [useVideo, setUseVideo] = useState<boolean>(false);
@@ -332,7 +332,7 @@ Next, we want to add two more `useEffect` hooks to `App.tsx`. These two hooks wi
   }, [adapterArgs]);
 
 ```
-Finally, once we have done that, we want to add the new screen that we made earlier to the template as well. We also want to make sure that we do not show the Click to call screen if the `startSession` parameter is found. Using this parameter this way avoids a flash for the user.
+Finally, once we have done that, we want to add the new screen that we made earlier to the template as well. We also want to make sure that we do not show the Calling widget screen if the `startSession` parameter is found. Using this parameter this way avoids a flash for the user.
 
 `App.tsx`
 ```ts
@@ -345,7 +345,7 @@ import { SameOriginCallScreen } from './views/NewWindowCallScreen';
 ```ts
 
   switch (page) {
-    case 'click-to-call': {
+    case 'calling-widget': {
       if (!token || !userId || !locator || startSession !== false) {
         return (
           <Stack verticalAlign='center' style={{height: '100%', width: '100%'}}>
@@ -354,7 +354,7 @@ import { SameOriginCallScreen } from './views/NewWindowCallScreen';
         )
         
       }
-      return <ClickToCallScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
+      return <CallingWidgetScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
     }
     case 'same-origin-call': {
       if (!adapterArgs) {
@@ -386,7 +386,7 @@ Now, when the application runs in a new window, it sees that it's supposed to st
 
 Now when you pass in the arguments, set your `displayName`, and click `Start Call` you should see the following screens:
 
-<img src='../media/click-to-call/Calling-screen.png' width='800' alt='click to call sample app home page with calling experience in new window'>
+<img src='../media/calling-widget/Calling-screen.png' width='800' alt='click to call sample app home page with calling experience in new window'>
 
 With this new window experience, your users are able to:
 - continue using other tabs in their browser or other applications and still be able to see your call
@@ -397,4 +397,4 @@ This concludes the tutorial for click to call with a new window experience. Next
 If you would like to learn more about the Azure Communication Services UI library, check out our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/story/overview--page).
 
 > [!div class="nextstepaction"]
-> [Part 3: Embedding your calling experience](./click-to-call-tutorial-part-3-embedding-your-calling-experience.md)
+> [Part 3: Embedding your calling experience](./calling-widget-tutorial-part-3-embedding-your-calling-experience.md)

@@ -1,7 +1,7 @@
 ---
-title: Creating a Click to Call Experience with Azure Communication Services
+title: Creating a Calling Widget Experience with Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a Click to Call widget experience with the Azure Communication Services CallComposite.
+description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite.
 author: dmceachern
 manager: alkwa
 services: azure-communication-services
@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Creating a Click to Call Experience with Azure Communication Services 
+# Creating a Calling Widget Experience with Azure Communication Services 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-<img src='../media/click-to-call/Sample-app-splash.png' width='1000' alt='Home page of click to call sample app'>
+<img src='../media/calling-widget/Sample-app-splash.png' width='1000' alt='Home page of Calling Widget sample app'>
 
-This project aims to guide developers on creating a seamless Click to Call experience using the Azure Communication UI Library.
+This project aims to guide developers on creating a seamless Calling Widget experience using the Azure Communication UI Library.
 
 As per your requirements, you may need to offer your customers an easy way to reach out to you without any complex setup.
 
-Click to call is a simple yet effective concept that facilitates instant interaction with, customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in making interactions with your customers just a click away.
+Calling Widget is a simple yet effective concept that facilitates instant interaction with, customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in making interactions with your customers just a click away.
 
-If you wish to try it out, you can download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-click-to-call).
+If you wish to try it out, you can download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-calling-widget).
 
 Following this tutorial will:
 
@@ -54,10 +54,10 @@ Azure Communication Services packages that we need to run the sample as well.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
-npx create-react-app ui-library-click-to-call-app --template communication-react
+npx create-react-app ui-library-calling-widget-app --template communication-react
 
 # Change to the directory of the newly created App.
-cd ui-library-click-to-call-app
+cd ui-library-calling-widget-app
 ```
 
 ### Get your dependencies
@@ -95,14 +95,14 @@ import { CallAdd20Regular, Dismiss20Regular } from '@fluentui/react-icons';
 ```
 
 ```ts
-type AppPages = "click-to-call" | "same-origin-call";
+type AppPages = "calling-widget" | "same-origin-call";
 
 registerIcons({
   icons: { dismiss: <Dismiss20Regular />, callAdd: <CallAdd20Regular /> },
 });
 initializeIcons();
 function App() {
-  const [page, setPage] = useState<AppPages>("click-to-call");
+  const [page, setPage] = useState<AppPages>("calling-widget");
 
   /**
    * Token for local user.
@@ -141,7 +141,7 @@ function App() {
   const alternateCallerId = "<Enter your alternate CallerId here>";
 
   switch (page) {
-    case "click-to-call": {
+    case "calling-widget": {
       return (
         <Stack verticalAlign='center' style={{ height: "100%", width: "100%" }}>
           <Spinner
@@ -192,4 +192,4 @@ a test message.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Part 1: Creating your widget](./click-to-call-tutorial-part-1-creating-your-widget.md)
+> [Part 1: Creating your widget](./calling-widget-tutorial-part-1-creating-your-widget.md)
