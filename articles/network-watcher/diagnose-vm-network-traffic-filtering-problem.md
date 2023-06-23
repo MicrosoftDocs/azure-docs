@@ -130,7 +130,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
 
 ## View details of a security rule
 
-To determine why the rules in steps 3-5 of **Use IP flow verify** allow or deny communication, review the effective security rules for the network interface in the VM.
+To determine why the rules in the previous section allow or deny communication, review the effective security rules for the network interface in **myVm** virtual machine.
 
 1. Under **Network diagnostic tools** in **Network Watcher**, select **Effective security rules**.
 
