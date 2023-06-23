@@ -32,7 +32,7 @@ You can create a service SAS to delegate limited access to a container resource 
 
 - [generateSas](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details)
 
-The storage account access key used to sign the SAS is passed to the method along with specified values for [BlobServiceSasSignatureValues](/java/api/com.azure.storage.blob.sas.blobservicesassignaturevalues). Permissions are specified as a [BlobContainerSasPermission](/java/api/com.azure.storage.blob.sas.blobcontainersaspermission) instance.
+SAS signature values, such as expiry time and signed permissions, are passed to the method as part of a [BlobServiceSasSignatureValues](/java/api/com.azure.storage.blob.sas.blobservicesassignaturevalues) instance. Permissions are specified as a [BlobContainerSasPermission](/java/api/com.azure.storage.blob.sas.blobcontainersaspermission) instance.
 
 The following code example shows how to create service SAS for a container resource with read permissions:
 
