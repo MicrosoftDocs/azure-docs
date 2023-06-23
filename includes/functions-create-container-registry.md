@@ -284,7 +284,7 @@ After you see the `HttpExample` endpoint written to the output, navigate to that
 After you see the `HttpExample` endpoint written to the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 ::: zone-end
 
-Press **Ctrl**+**C** (**Command**+**C** on MacOs) to stop the host.
+Press **Ctrl**+**C** (**Command**+**C** on macOS) to stop the host.
 
 ## Build the container image and verify locally
 
@@ -332,7 +332,7 @@ After the image starts in the local container, browse to `http://localhost:8080/
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
 
-After verifying the function app in the container, press **Ctrl**+**C** (**Command**+**C** on MacOS) to stop execution.
+After verifying the function app in the container, press **Ctrl**+**C** (**Command**+**C** on macOS) to stop execution.
 
 ## Publish the container image to a registry 
 
