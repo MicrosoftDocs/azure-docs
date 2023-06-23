@@ -1,6 +1,6 @@
 ---
 title: Define Storage Task conditions & operations
-description: Description of conditions how to goes here.
+description: Learn how to define the conditions and operations of a storage task by using a visual editor.
 author: normesta
 ms.service: storage-tasks
 ms.topic: how-to
@@ -10,9 +10,11 @@ ms.date: 05/10/2023
 
 # Define storage task conditions and operations
 
-Description goes here.
+You can use a visual editor to define the conditions and operations of a storage task.
 
-To learn more about storage task conditions, see [Storage task conditions and operations](storage-task-conditions-operations.md)
+An _operation_ is an that is action taken on each object that meets the conditions defined in the task. A _condition_ defines the relationship between a property and a value. To execute an operation defined in the storage task, the terms of that relationship must be met by each object. 
+
+To learn more, see [Storage task conditions and operations](storage-task-conditions-operations.md).
 
 ## Open the conditions editor
 
@@ -91,34 +93,40 @@ To ungroup conditions, select the ungroup icon (:::image type="icon" source="./m
 
 ## Define operations
 
-Define an operation. Maybe explain the anatomy of an operation.
+An operation is an that is action taken on each object that meets the conditions defined in the task.  
 
 ### Add and remove operations
 
-Use the add new operation button
-Use the delete operation.
+To add a operation, select **Add new operation**, and to remove an operation, select the delete icon(:::image type="icon" source="./media/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
 
-### Edit an operation
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the Add new operation button and three operations that were added to the list of operations.](./media/storage-task-conditions-operations-edit/storage-task-add-operations.png)
 
-Choosing operations and parameters.
-Show screenshot typical operations.
+#### Choose an operation
+
+In the **Operation** drop-down list, choose an operation. See [Supported operations](storage-task-conditions-operations.md#operations).
+
+The following example selects the **Set blob tags** property.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the Operation drop-down list of an operation.](./media/storage-task-conditions-operations-edit/storage-task-condition-choose-operation.png)
+
+#### Choose a parameter
+
+Enter or select the parameters that are appropriate for the operation.
+
+The following example sets the `Archive-Status` tag to the value `Archived`.  
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of an example condition.](./media/storage-task-conditions-operations-edit/storage-task-blob-set-tag-operation.png)
 
 ### Change the order of operations
 
-Using up and down buttons.
-Explain the impact of reordering.
-Show screenshot of reordering
+You can arrange operations in any order.
 
-### Grouping and ungrouping operations
+In this example, the existing order makes sense. Blobs are first archived and the tags are set. It wouldn't make sense to set the tag before changing the tier just in case the attempt to change the tier of a blob didn't succeed. If the set blob tag operation appeared first in the list, you might consider moving that operation beneath the set blob tier operation.
 
-Explain the impact of grouping and ungrouping. Why would you do this and what would happen.
-Show use of grouping button and impact of doing that
-Show screenshot of grouping
-Explain some constraints.
-
-### Deleting sections
-
-What does this involve
+To move an operation, select the checkbox that appears beside it. Then, select **Move operation up** or **Move operation down** to change its position in the list.
 
 ## Use the Code view
 
