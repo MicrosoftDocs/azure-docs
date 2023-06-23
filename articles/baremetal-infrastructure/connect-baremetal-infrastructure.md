@@ -180,9 +180,7 @@ When you acquire the instances, you can go to the Properties section to view the
 
 You'll use this information in support requests or when setting up storage snapshot configuration.
  
-Another critical piece of information you'll see is the storage NFS IP address. It isolates your storage to your **tenant** in the BareMetal instance stack. You'll use this IP address when you edit the [Configure Azure Application Consistent Snapshot tool](../azure-netapp-files/azacsnap-cmd-ref-configure.md).
- 
-:::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-properties.png" alt-text="Screenshot showing the BareMetal instance property settings." lightbox="media/connect-baremetal-infrastructure/baremetal-instance-properties.png":::
+Image TBD in next couple of weeks - IW
  
 ## Restart a BareMetal instance through the Azure portal
 
