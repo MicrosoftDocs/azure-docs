@@ -705,6 +705,8 @@ items:
             items:
             - name: Create a user delegation SAS for a container
               href: storage-blob-container-user-delegation-sas-create-java.md
+            - name: Create a service SAS for a container
+              href: sas-service-create-java-container.md
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -733,6 +735,8 @@ items:
             items:
             - name: Create a user delegation SAS for a blob
               href: storage-blob-user-delegation-sas-create-java.md
+            - name: Create a service SAS for a blob
+              href: sas-service-create-java.md
       - name: JavaScript
         items:
         - name: Get started
