@@ -26,7 +26,6 @@ This article describes how to apply Conditional Access policies to your Quick Ac
 * You must be routing your private network traffic through the **Global Secure Access preview**.
 * You need to have configured Quick Access or Per-app Access.
 
-
 ## Conditional Access and Private Access apps
 
 You can create a Conditional Access policy for your Quick Access or Private Access apps from Global Secure Access. Starting the process from Global Secure Access automatically adds the selected app as the **Target resource** for the policy. All you need to do is configure the policy settings.
@@ -46,6 +45,8 @@ You can create a Conditional Access policy for your Quick Access or Private Acce
     ![Screenshot of the Conditional Access policy with the Quick Access app selected.](media/how-to-target-resource-private-access-apps/quick-access-target-resource.png)
 
 1. Configure the conditions, access controls, and assign users and groups as needed.
+
+You can also apply Conditional Access policies to a group of applications based on custom attributes. To learn more, go to [Filter for applications in Conditional Access policy (Preview)](../active-directory/conditional-access/concept-filter-for-applications.md).
 
 ## Create a Conditional Access policy targeting a Private Access application
 

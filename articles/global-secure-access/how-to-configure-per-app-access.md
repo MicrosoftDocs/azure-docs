@@ -29,7 +29,7 @@ To manage App Proxy connector groups, which is required for per-app access, you 
 
 ### Known limitations
 
-- Avoid overlapping app segments between Quick Access and per-app access.
+- Avoid overlapping app segments between Quick Access and enterprise apps.
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet.
 - At this time, Private access traffic can only be acquired with the Global Secure Access Client. Remote networks can't be assigned to the Private access traffic forwarding profile.
 

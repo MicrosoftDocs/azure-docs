@@ -19,7 +19,7 @@ With Global Secure Access, you can define specific fully qualified domain names 
 
 To configure Quick Access, you must have:
 
-- A **Global Administrator** role in Microsoft Entra ID
+- The **Global Secure Access Administrator** and **Application Administrator** roles in Microsoft Entra ID
 
 To manage App Proxy connector groups, which is required for Quick Access, you must have:
 
@@ -60,7 +60,7 @@ On the Quick Access page, you provide a name for the Quick Access app, select a 
 
 ### Name and connector group
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator. 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** with the appropriate roles. 
 1. Go to **Global Secure Access (preview)** > **Applications** > **Quick access**.
 1. Enter a name. *We recommend using the name Quick Access*. 
 1. Select a Connector group from the dropdown menu.
@@ -111,7 +111,6 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 1. Add users and groups as needed.
     - For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
-Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#link-conditional-access-policies).
 
 ## Update Quick Access application segments
 
