@@ -97,12 +97,14 @@ sections:
       - question: |
           How does vector search work?
         answer: |
-          Imagine you have a large collection of documents, which can be articles, text, images, etc. Using the latest machine learning models, these can be summarized into a vector representation, which is essentially a series of numbers that describe its features or characteristics. This is an abstract representation and not human-readable. Vector search is a technique that allows you to find the most similar documents by comparing their vector representations. Since the goal of a vector representation is to distill the _meaning_ of a document, it can capture abstract concepts and surface them as search results, even if there are no explicit matches based on keywords or tags. When a user performs a search, the query is summarized into a vector representation and the vector search engine identifies the most similar documents. For more details, please see [Vector search overview](./vector-search-overview.md).
+          Imagine you have a large collection of documents, which can be articles, text, images, etc. Using the latest machine learning models, these can be summarized into a vector representation, which is essentially a series of numbers that describe its features or characteristics. (These vectors are very abstract and not understandable for humans.) Vector search is a technique that finds the most similar documents by comparing their vector representations. Since the goal of a vector representation is to capture the essential characteristics of an item in a numerical format, it can capture abstract concepts and identify matches even if there are no explicit matches based on keywords or tags. When a user performs a search, the query is summarized into a vector representation and the vector search engine identifies the most similar documents. To improve efficiency on large databases, vector search often provides the approximate nearest neighbors for a query vector. For more details, please see [Vector search overview](./vector-search-overview.md).
 
       - question: |
           Does Azure Cognitive Search support vector search?
         answer: |
-          Support for vector search is in public preview and available through the 2023-07-01-Preview REST APIs. Support consists of search fields that contain embeddings that you provide.
+          Azure Cognitive Search supports vector indexing and retrieval. Please note, the service does not currently support generating vector embeddings from input content. 
+          
+          Support for vector search is in public preview and available through the 2023-07-01-Preview REST APIs. Support consists of a new field type called "vector field", which your documents can provide embeddings for. When you issue a search request with a query vector, the service will identify the similar vectors and return the corresponding documents.
 
       - question: |
           How does vector search work in Azure Cognitive Search?
