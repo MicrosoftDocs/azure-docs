@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 06/23/2023
 
 ms.author: justinha
 author: justinha
@@ -44,7 +44,7 @@ If users don't want their mobile phone number to be visible in the directory but
 Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 
 > [!NOTE]
-> Tenants with Premium licenses can control whether an SMS message or voice call is used for verification. Tenants with a trial subscription may receive an SMS message or voice call depending on the region.
+> Starting July 2023, we apply delivery method optimization such that tenants with a free or trial subscription may receive an SMS message or voice call.
 
 ### SMS message verification
 
