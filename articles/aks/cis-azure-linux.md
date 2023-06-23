@@ -12,7 +12,7 @@ ms.date: 06/23/2023
 
 Azure Kubernetes Service (AKS) and the Microsoft Azure Linux image alignment with Center for Internet Security (CIS) benchmark
 
-The security OS configuration applied to the Azure Linux Container Host for AKS image is based on the Azure Linux security baseline, which aligns with the CIS benchmark. As a secure service, AKS complies with SOC, ISO, PCI DSS, and HIPAA standards. For more information about the Azure Linux Container Host security, please refer to [Security concepts for clusters in AKS][security-concepts-aks]. To learn more about the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
+The security OS configuration applied to the Azure Linux Container Host for AKS image is based on the Azure Linux security baseline, which aligns with the CIS benchmark. As a secure service, AKS complies with SOC, ISO, PCI DSS, and HIPAA standards. For more information about the Azure Linux Container Host security, refer to [Security concepts for clusters in AKS][security-concepts-aks]. To learn more about the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
 
 ## Azure Linux 2.0
 
@@ -172,11 +172,11 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v2.1.0][ci
 |6.2.6|Ensure no duplicate group names exist|Pass||
 |6.2.7|Ensure root PATH Integrity|Pass||
 |6.2.8|Ensure root is the only UID 0 account|Pass||
-|6.2.9|Ensure all users' home directories exist|Pass||
+|6.2.9|Ensure all users home directories exist|Pass||
 |6.2.10|Ensure users own their home directories|Pass||
-|6.2.11|Ensure users' home directories permissions are 750 or more restrictive|Pass||
-|6.2.12|Ensure users' dot files are not group or world writable|Pass||
-|6.2.13|Ensure users' .netrc Files are not group or world accessible|Pass||
+|6.2.11|Ensure users home directories permissions are 750 or more restrictive|Pass||
+|6.2.12|Ensure users dot files are not group or world writable|Pass||
+|6.2.13|Ensure users .netrc Files are not group or world accessible|Pass||
 |6.2.14|Ensure no users have .forward files|Pass||
 |6.2.15|Ensure no users have .netrc files|Pass||
 |6.2.16|Ensure no users have .rhosts files|Pass||
