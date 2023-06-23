@@ -31,6 +31,9 @@ In the context of Azure Container Apps, the blue/green deployment release approa
 
 This article shows you how to implement blue/green deployment in a container app. To run the following examples, you need a container app environment in which you can create a new app.
 
+> [!NOTE]
+> Refer to [containerapps-blue-green repository](https://github.com/Azure-Samples/containerapps-blue-green) for a complete example of a github workflow that implements blue/green deployment for container apps.
+
 ## Create a container app with multiple active revisions enabled
 
 The container app must have the `configuration.activeRevisionsMode` property set to `multiple` to enable traffic splitting. To get deterministic revision names, the `template.revisionSuffix` configuration setting can be set to some string value that uniquely identifies a release, for example a build number or a git commit short hash. For the following commands, some random commit hashes were generated.
@@ -42,17 +45,16 @@ export APP_NAME=<APP_NAME>
 export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
-# A random commitId that is assumed to belong to the app code currently in production
-export BLUE_COMMIT_ID=sha10b699ef
-# A random commitId that is assumed to belong to the new version of the code to be deployed
-export GREEN_COMMIT_ID=sha1c6f1515
-# Note: 'sha1' prefix added to the commit hash as the revision suffix cannot start with number
+# A random commitId that is assumed to correspond to the app code currently in production
+export BLUE_COMMIT_ID=0b699ef
+# A random commitId that is assumed to correspond to the new version of the code to be deployed
+export GREEN_COMMIT_ID=c6f1515
 
 # create a new app with a new revision
 az containerapp create --name $APP_NAME \
   --environment $APP_ENVIRONMENT_NAME \
   --resource-group $RESOURCE_GROUP \
-  --image k8seteste2e.azurecr.io/e2e-apps/test-app:latest \
+  --image k8seteste2e.azurecr.io/e2e-apps/test-app:$BLUE_COMMIT_ID \
   --revision-suffix $BLUE_COMMIT_ID \
   --env-vars REVISION_COMMIT_ID=$BLUE_COMMIT_ID \
   --ingress external \
@@ -113,11 +115,6 @@ param latestCommitId string = ''
 @description('Name of the label that gets 100% of the traffic')
 param productionLabel string = 'blue'
 
-@minValue(0)
-@maxValue(100)
-@description('Percentage of traffic that goes to the production label')
-param productionTrafficWeight int = 100
-
 var currentCommitId = !empty(latestCommitId) ? latestCommitId : blueCommitId
 
 resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' existing = {
@@ -126,11 +123,17 @@ resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01'
 
 resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview' = {
   name: appName
-  location: location  
+  location: location
+  tags: {
+    blueCommitId: blueCommitId
+    greenCommitId: greenCommitId
+    latestCommitId: currentCommitId
+    productionLabel: productionLabel
+  }
   properties: {
     environmentId: containerAppsEnvironment.id
-    workloadProfileName: 'Consumption'
     configuration: {
+      maxInactiveRevisions: 10 // Remove old inactive revisions
       activeRevisionsMode: 'multiple' // Multiple active revisions mode is required when using traffic weights
       ingress: {
         external: true
@@ -139,12 +142,12 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
           {
             revisionName: '${appName}--${blueCommitId}'
             label: 'blue'
-            weight: productionLabel == 'blue' ? productionTrafficWeight : 100 - productionTrafficWeight
+            weight: productionLabel == 'blue' ? 100 : 0
           }
           {
             revisionName: '${appName}--${greenCommitId}'
             label: 'green'
-            weight: productionLabel == 'green' ? productionTrafficWeight : 100 - productionTrafficWeight
+            weight: productionLabel == 'green' ? 100 : 0
           }
         ] : [
           {
@@ -159,7 +162,7 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
       revisionSuffix: currentCommitId
       containers:[
         {
-          image: 'k8seteste2e.azurecr.io/e2e-apps/test-app:latest'
+          image: 'k8seteste2e.azurecr.io/e2e-apps/test-app:${currentCommitId}'
           name: appName
           resources: {
             cpu: json('0.5')
@@ -189,10 +192,9 @@ export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
 # A random commitId that is assumed to belong to the app code currently in production
-export BLUE_COMMIT_ID=sha10b699ef
+export BLUE_COMMIT_ID=0b699ef
 # A random commitId that is assumed to belong to the new version of the code to be deployed
-export GREEN_COMMIT_ID=sha1c6f1515
-# Note: 'sha1' prefix added to the commit hash as the revision suffix cannot start with number
+export GREEN_COMMIT_ID=c6f1515
 
 # create a new app with a blue revision
 az deployment group create \
@@ -248,12 +250,12 @@ The traffic section of the container app looks as follows. The revision with the
 { 
   "traffic": [
     {
-      "revisionName": "<APP_NAME>--sha10b699ef",
+      "revisionName": "<APP_NAME>--0b699ef",
       "weight": 100,
       "label": "blue"
     },
     {
-      "revisionName": "<APP_NAME>--sha1c6f1515",
+      "revisionName": "<APP_NAME>--c6f1515",
       "weight": 0,
       "label": "green"
     }
@@ -277,56 +279,7 @@ curl https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq | grep COMMIT
 curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 ```
 
-## Send a percentage of production traffic to the green revision
-
-After you've completed the tests of the newly deployed revision via label-specific FQDN, the next step is to send some percentage of production traffic to that revision.
-
-::: zone pivot="azure-cli"
-
-```azurecli
-# send 20% of prod traffic to the green revision
-az containerapp ingress traffic set \
-  --name $APP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --label-weight blue=80 green=20
-```
-
-::: zone-end
-
-::: zone pivot="bicep"
-
-```azurecli
-# send 20% of prod traffic to the green revision
-az deployment group create \
-    --name send-some-traffic-to-green-$GREEN_COMMIT_ID \
-    -g $RESOURCE_GROUP \
-    --template-file main.bicep \
-    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=blue productionTrafficWeight=80 containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
-    --query properties.outputs.fqdn
-```
-
-::: zone-end
-
-The traffic section of the app looks as follows.
-
-```json
-{ 
-  "traffic": [
-    {
-      "revisionName": "<APP_NAME>--sha10b699ef",
-      "weight": 80,
-      "label": "blue"
-    },
-    {
-      "revisionName": "<APP_NAME>--sha1c6f1515",
-      "weight": 20,
-      "label": "green"
-    }
-  ]
-}
-```
-
-## Send all production traffic to the green revision
+## Send production traffic to the green revision
 
 After confirming that the app code in the `green` revision works as expected, we send 100% of production traffic to it. We also designate the `green` revision as the production revision.
 
