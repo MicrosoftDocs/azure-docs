@@ -148,6 +148,6 @@ For more code examples to add to your maps, see the following articles:
 > [!div class="nextstepaction"]
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
-[Simple Heat Map Layer]: https://samples.azuremaps.com/?search=heat%20map%20layer&sample=simple-heat-map-layer
-[Heat Map Layer Options]: https://samples.azuremaps.com/?search=heat%20map%20layer&sample=heat-map-layer-options
-[Consistent zoomable Heat Map]: https://samples.azuremaps.com/?search=zoom&sample=consistent-zoomable-heat-map
+[Simple Heat Map Layer]: https://samples.azuremaps.com/heat-map-layer/simple-heat-map-layer
+[Heat Map Layer Options]: https://samples.azuremaps.com/heat-map-layer/heat-map-layer-options
+[Consistent zoomable Heat Map]: https://samples.azuremaps.com/heat-map-layer/consistent-zoomable-heat-map

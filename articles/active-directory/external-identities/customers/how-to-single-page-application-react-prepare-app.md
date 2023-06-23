@@ -16,7 +16,7 @@ ms.author: godonnell
 
 In the [previous article](./how-to-single-page-application-react-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This tutorial demonstrates how to create a React single-page app using `npm` and create files needed for authentication and authorization.
 
-In this tutorial you'll;
+In this tutorial;
 
 > [!div class="checklist"]
 > * Create a React project in Visual Studio Code
@@ -40,13 +40,33 @@ In this tutorial you'll;
     cd reactspalocal
     npm start
     ```
+1. Create additional folders and files to achieve the following folder structure:
 
-## Install identity and bootstrap packages
+    ```text
+    reactspalocal
+    ├─── public
+    │   └─── index.html
+    └───src
+        ├─── components
+        │   └─── DataDisplay.jsx
+        │   └─── NavigationBar.jsx
+        │   └─── PageLayout.jsx
+        └───styles
+        │   └─── App.css
+        │   └─── index.css
+        └─── utils
+        │    └─── claimUtils.js
+        └── App.jsx
+        └── authConfig.js
+        └── index.js
+    ```
 
-Identity related **npm** packages must be installed in the project to enable user authentication. For project styling, we'll use **Bootstrap**.
+## Install app dependencies
+
+Identity related **npm** packages must be installed in the project to enable user authentication. For project styling, **Bootstrap** is used.
 
 1. In the **Terminal** bar, select the **+** icon to create a new terminal. A new terminal window will open enabling the other terminal to continue running in the background.
-1. If necessary, navigate to the *reactspalocal* again and enter the following commands into the terminal to install the relevant `msal` and `bootstrap` packages.
+1. If necessary, navigate to *reactspalocal* and enter the following commands into the terminal to install the `msal` and `bootstrap` packages.
 
     ```powershell
     npm install @azure/msal-browser @azure/msal-react
@@ -55,8 +75,7 @@ Identity related **npm** packages must be installed in the project to enable use
 
 ## Create the authentication configuration file, *authConfig.js*
 
-1. Navigate to the *src* folder, and create a new file called *authConfig.js*.
-1. Open *authConfig.js* and add the following code snippet:
+1. In the *src* folder, open *authConfig.js* and add the following code snippet:
 
     ```javascript
     /*
@@ -131,7 +150,7 @@ Identity related **npm** packages must be installed in the project to enable use
     // };
     ```
 
-1. Replace the following values with the values from the Azure portal:
+1. Replace the following values with the values from the Azure admin center:
     - Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the **Overview** page of the registered application.
     - In **Authority**, find `Enter_the_Tenant_Subdomain_Here` and replace it with the subdomain of your tenant. For example, if your tenant primary domain is *caseyjensen@onmicrosoft.com*, the value you should enter is *casyjensen*.
 
@@ -180,4 +199,4 @@ All parts of the app that require authentication must be wrapped in the [`MsalPr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out of the React SPA](./how-to-single-page-application-react-sign-in-out.md)
+> [Configure SPA for authentication](./how-to-single-page-application-react-configure-authentication.md)

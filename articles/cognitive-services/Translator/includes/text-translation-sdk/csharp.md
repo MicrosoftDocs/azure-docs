@@ -62,7 +62,7 @@ To interact with the Translator service using the client library, you need to cr
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and enter the following code sample into your application's Program.cs file:
+1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`, and enter the following code sample into your application's Program.cs file:
 
 ## Code sample
 

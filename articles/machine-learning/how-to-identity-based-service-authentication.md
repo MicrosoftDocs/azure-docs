@@ -17,9 +17,6 @@ ms.custom: has-adal-ref, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, even
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/how-to-use-managed-identities.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](./how-to-identity-based-service-authentication.md)
 
 Azure Machine Learning is composed of multiple Azure services. There are multiple ways that authentication can happen between Azure Machine Learning and the services it relies on.
 

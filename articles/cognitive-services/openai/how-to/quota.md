@@ -53,7 +53,6 @@ Different model deployments, also called model classes have unique max TPM value
 
 - GPT-4
 - GPT-4-32K
-- GPT-35-Turbo
 - Text-Davinci-003
 
 All other model classes have a common max TPM value.

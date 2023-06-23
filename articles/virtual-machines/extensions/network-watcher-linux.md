@@ -7,20 +7,18 @@ ms.subservice: extensions
 ms.author: halkazwini
 author: halkazwini
 ms.collection: linux
-ms.date: 06/08/2023
+ms.date: 06/09/2023
 ms.custom: template-concept, engagement-fy23, devx-track-azurecli
 ---
 
 # Network Watcher Agent virtual machine extension for Linux
 
-## Overview
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine extension is a requirement for some of the Network Watcher features on Azure virtual machines (VMs), such as capturing network traffic on demand, and other advanced functionality.
 
-[Azure Network Watcher](../../network-watcher/index.yml) is a network performance monitoring, diagnostic, and analytics service that allows monitoring for Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for some of the Network Watcher features on Azure VMs, such as capturing network traffic on demand, and other advanced functionality.
-
-This article details the supported platforms and deployment options for the Network Watcher Agent VM extension for Linux. Installation of the agent doesn't disrupt, or require a reboot, of the VM. You can deploy the extension into virtual machines that you deploy. If the virtual machine is deployed by an Azure service, check the documentation for the service to determine whether or not it permits installing extensions in the virtual machine.
+This article details the supported platforms and deployment options for the Network Watcher Agent VM extension for Linux. Installation of the agent doesn't disrupt, or require a reboot of the virtual machine. You can install the extension on virtual machines that you deploy. If the virtual machine is deployed by an Azure service, check the documentation for the service to determine whether or not it permits installing extensions in the virtual machine.
 
 > [!NOTE]
-> - Network Watcher Agent extension is not supported on AKS clusters.
+> Network Watcher Agent extension is not supported on AKS clusters.
 
 ## Prerequisites
 

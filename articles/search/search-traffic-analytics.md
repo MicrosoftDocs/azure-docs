@@ -82,7 +82,7 @@ public HomeController(TelemetryClient telemetry)
 
 **Use JavaScript**
 
-To create an object that sends events to Application Insights by using the SDK Loader Script, see [Microsoft Azure Monitor Application Insights JavaScript SDK](../azure-monitor/app/javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
+To create an object that sends events to Application Insights by using the JavaScript (Web) SDK Loader Script, see [Microsoft Azure Monitor Application Insights JavaScript SDK](../azure-monitor/app/javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started).
 
 
 ### Step 2: Request a Search ID for correlation
