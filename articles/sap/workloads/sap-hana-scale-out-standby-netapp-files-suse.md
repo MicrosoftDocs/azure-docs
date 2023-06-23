@@ -78,7 +78,7 @@ One method for achieving HANA high availability is by configuring host auto fail
 > [!IMPORTANT]
 > To build the supported configuration, you must deploy the HANA data and log volumes as NFSv4.1 volumes and mount them by using the NFSv4.1 protocol. The HANA host auto-failover configuration with standby node is not supported with NFSv3.
 
-![![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png#lightbox)
+[![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png#lightbox)
 
 In the preceding diagram, which follows SAP HANA network recommendations, three subnets are represented within one Azure virtual network:
 

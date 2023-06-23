@@ -556,7 +556,7 @@ To create a service principal, do the following:
 2. Select **App registrations**.
 3. Select **New registration**.
 4. Enter a name for the registration, and then select **Accounts in this organization directory only**.
-5. For **Application type**, select **Web**, enter a sign-on URL (for example, *<http://localhost>*), and then select **Add**.  
+5. For **Application type**, select **Web**, enter a sign-on URL (for example, *http://localhost*), and then select **Add**.  
    The sign-on URL is not used and can be any valid URL.
 6. Select **Certificates and secrets**, and then select **New client secret**.
 7. Enter a description for a new key, select **Never expires**, and then select **Add**.
@@ -966,6 +966,13 @@ Azure offers [scheduled events]((../../virtual-machines/linux/scheduled-events.m
    sudo zypper info resource-agents
    ```
 
+   Minimum version requirements:
+   - SLES 12 SP5: `resource-agents-4.3.018.a7fb5035-3.98.1`
+   - SLES 15 SP1: `resource-agents-4.3.0184.6ee15eb2-150100.4.72.1`
+   - SLES 15 SP2: `resource-agents-4.4.0+git57.70549516-150200.3.56.1`
+   - SLES 15 SP3: `resource-agents-4.8.0+git30.d0077df0-150300.8.31.1`
+   - SLES 15 SP4 and newer: `resource-agents-4.10.0+git40.0f4de473-150400.3.19.1`
+
 2. **[1]** Configure the resources in Pacemaker.
 
    ```bash
@@ -974,7 +981,7 @@ Azure offers [scheduled events]((../../virtual-machines/linux/scheduled-events.m
 
 3. **[1]** Set the pacemaker cluster health node strategy and constraint
 
-   ```
+   ```bash
    sudo crm configure property node-health-strategy=custom
    sudo crm configure location loc_azure_health \
    /'!health-.*'/ rule '#health-azure': defined '#uname'
@@ -1013,7 +1020,7 @@ Azure offers [scheduled events]((../../virtual-machines/linux/scheduled-events.m
    sudo crm resource cleanup
    ```
 
-   First time query execution for scheduled events [can take up to 2 minutes](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events) documentation.
+   First time query execution for scheduled events [can take up to 2 minutes](../../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](../../virtual-machines/linux/scheduled-events.md) documentation.
 
    > [!NOTE]
    >
