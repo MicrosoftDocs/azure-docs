@@ -1,12 +1,12 @@
 ---
-title: Create a function app in a local container | Azure Functions
+title: Create Azure Functions in a local Linux container
 description: Get started with Azure Functions by creating a containerized function app on your local computer and publishing the image to a container registry.
-ms.date: 06/07/2023
+ms.date: 06/23/2023
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Create a function app in a local container 
+# Create a function app in a local Linux container 
 
 This article shows you how to use Azure Functions Core tools to create your first function in a Linux container on your local computer, verify the function locally, and then publish the containerized function to a container registry. From a container registry, you can easily deploy your containerized functions to Azure. 
 
