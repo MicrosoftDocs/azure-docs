@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
 ---
 
@@ -115,7 +115,7 @@ Once you have your label files, you can include them with by calling the trainin
 
 ### [Client libraries](#tab/sdks)
 
-Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. Once you've them, you can call the training method with the *useTrainingLabels* parameter set to `true`.
+Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. Once you have them, you can call the training method with the *useTrainingLabels* parameter set to `true`.
 
 |Language |Method|
 |--|--|

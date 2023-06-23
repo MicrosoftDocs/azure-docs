@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
 ---
 
@@ -447,7 +447,7 @@ See here for a [sample document file](https://github.com/Azure-Samples/cognitive
 The JSON output has two parts:
 
 * `readResults` node contains all of the recognized text and selection mark. The text presentation hierarchy is page, then line, then individual words.
-* `pageResults` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
+* `pageResults` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults" field.
 
 ## Example Output
 
