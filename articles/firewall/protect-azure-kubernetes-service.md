@@ -176,7 +176,9 @@ Below are three network rules you can use to configure on your firewall, you may
 
 Finally, we'll add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options.
 
-After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers all needed FQDNs accessible through TCP port 443 and port 80.
+After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers the needed FQDNs accessible through TCP port 443 and port 80. In addition, you may need to configure additional network and application rules based on your deployment. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters).
+
+```azurecli
 
 ```
 # Add FW Network Rules
