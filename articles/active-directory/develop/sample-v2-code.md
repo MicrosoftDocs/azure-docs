@@ -85,11 +85,11 @@ The following samples show public client desktop applications that access the Mi
 > | .NET | [Invoke protected API with integrated Windows authentication](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) | [MSAL.NET](/entra/msal/dotnet) | Integrated Windows authentication |
 > | Java | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/2.%20Client-Side%20Scenarios/Integrated-Windows-Auth-Flow) | [MSAL Java](/java/api/com.microsoft.aad.msal4j) | Integrated Windows authentication |
 > | Node.js | [Sign in users](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop) | [MSAL Node](/javascript/api/@azure/msal-node) | Authorization code with PKCE |
-> | PowerShell | [Call Microsoft Graph by signing in users using username/password](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) | [MSAL.NET](/entra/msal/dotnet) | Resource owner password credentials |
+> | .NET Core | [Call Microsoft Graph by signing in users using username/password](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) | [MSAL.NET](/entra/msal/dotnet) | Resource owner password credentials |
 > | Python | [Sign in users](https://github.com/Azure-Samples/ms-identity-python-desktop) | [MSAL Python](/python/api/msal/overview-msal) | Resource owner password credentials |
 > | Universal Window Platform (UWP) | [Call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker) | [MSAL.NET](/entra/msal/dotnet) | Web account manager |
 > | Windows Presentation Foundation (WPF) | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
-> | XAML | &#8226; [Sign in users and call ASP.NET Core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
+> | Windows Presentation Foundation (WPF) | &#8226; [Sign in users and call ASP.NET Core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [MSAL.NET](/entra/msal/dotnet) | Authorization code with PKCE |
 
 ### Mobile
 
@@ -129,7 +129,7 @@ The following samples show how to protect an Azure Function using HttpTrigger an
 > | Node.js | [Call Microsoft Graph API on behalf of a user](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) | [MSAL Node](/javascript/api/@azure/msal-node) | On-Behalf-Of (OBO)|
 > | Python | [Python Azure function web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) | [MSAL Python](/python/api/msal/overview-msal) | Authorization code |
 
-### Headless
+### Browserless (Headless)
 
 The following sample shows a public client application running on a device without a web browser. The app can be a command-line tool, an app running on Linux or Mac, or an IoT application. The sample features an app accessing the Microsoft Graph API, in the name of a user who signs-in interactively on another device (such as a mobile phone). This client application uses the Microsoft Authentication Library (MSAL).
 
