@@ -39,13 +39,13 @@ For further instructions, see [Change the administrative state of an L3 isolatio
 
 ## Reserved range for VLAN IDs (Option A)
 
-When you're creating an isolation domain, VLAN IDs below 500 are reserved for infrastructure purposes and shouldn't be used. Instead, an external network with a VLAN ID higher than 500 should be established on the partner end (PE) side to enable peering between the customer end (CE) and the PE (Option A peering).
+When you're creating an isolation domain, VLAN IDs below 500 are reserved for infrastructure purposes and shouldn't be used. Instead, establish an external network with a VLAN ID higher than 500 on the partner end (PE) side to enable peering between the customer end (CE) and the PE (Option A peering).
 
 For further instructions, see [Create external networks](./howto-configure-isolation-domain.md#create-an-external-network-by-using-option-a).
 
 ## Isolation domain stuck in a disabled state (Option A)
 
-If you're using Option A, your isolation domain might get stuck in a disabled state when you try to create an external network. If you make any modifications to the IPv6 subnet payload, it's necessary to disable and enable the isolation domain to ensure successful provisioning.
+If you're using Option A, your isolation domain might get stuck in a disabled state when you try to create an external network. If you make any modifications to the IPv6 subnet payload, you must disable and enable the isolation domain to ensure successful provisioning.
 
 ## Inability to ping an IP address
 
@@ -57,7 +57,7 @@ If you get a terminal state provisioning error, the reason might be a failure in
 
 ## Isolation domain stuck in a deleting state
 
-If your isolation domain is stuck in a deleting state for longer than normal, make sure that you first deleted one or two observed dependent consuming resources. That's a requirement before you attempt to delete an isolation domain.
+If your isolation domain is stuck in a deleting state for longer than normal, make sure that you first deleted one or two observed dependent consuming resources. That's a requirement before you try to delete an isolation domain.
 
 ## Terminal provisioning state of Failed after a resource operation
 

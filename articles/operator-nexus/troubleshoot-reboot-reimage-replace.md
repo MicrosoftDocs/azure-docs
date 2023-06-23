@@ -13,7 +13,7 @@ ms.author: jacobsmith
 
 This article describes how to troubleshoot server problems by using restart, reimage, and replace (three Rs) actions on Azure Operator Nexus bare-metal machines (BMMs). You might need to take these actions on your server for maintenance reasons, which causes a brief disruption to specific BMMs.
 
-The time required to complete each of these actions is similar. Rebooting is the fastest, whereas replacing takes slightly longer. All three actions are simple and efficient methods for troubleshooting.
+The time required to complete each of these actions is similar. Restarting is the fastest, whereas replacing takes slightly longer. All three actions are simple and efficient methods for troubleshooting.
 
 ## Prerequisites
 
@@ -24,21 +24,21 @@ The time required to complete each of these actions is similar. Rebooting is the
 
 ## Identify the corrective action
 
-When you're troubleshooting a BMM for failures and determining the best corrective action, it's important to understand the available options. Rebooting or reimaging a BMM can be an efficient and effective way to fix problems or simply restore the software to a known-good place. This article provides direction on the best practices for each of the three Rs.
+When you're troubleshooting a BMM for failures and determining the best corrective action, it's important to understand the available options. Restarting or reimaging a BMM can be an efficient and effective way to fix problems or simply restore the software to a known-good place. This article provides direction on the best practices for each of the three Rs.
 
 Troubleshooting technical problems requires a systematic approach. One effective method is to start with the simplest and least invasive solution and work your way up to more complex and drastic measures, if necessary.
 
-The first step in troubleshooting is often to try rebooting the device or system. Rebooting can help to clear any temporary glitches or errors that might be causing the problem. If rebooting doesn't solve the problem, the next step might be to try reimaging the device or system.
+The first step in troubleshooting is often to try restarting the device or system. Restarting can help to clear any temporary glitches or errors that might be causing the problem. If restarting doesn't solve the problem, the next step might be to try reimaging the device or system.
 
 If reimaging doesn't solve the problem, the final step might be to replace the faulty hardware component. Replacement can be a more drastic measure, but it might be necessary if the problem is related to a hardware malfunction.
 
 Keep in mind that these troubleshooting methods might not always be effective, and other factors in play might require a different approach.
 
-## Troubleshoot with a reboot action
+## Troubleshoot with a restart action
 
-Rebooting a BMM is a process of restarting the server through a simple API call. This action can be useful for troubleshooting problems when tenant virtual machines on the host aren't responsive or are otherwise stuck.
+Restarting a BMM is a process of restarting the server through a simple API call. This action can be useful for troubleshooting problems when tenant virtual machines on the host aren't responsive or are otherwise stuck.
 
-The reboot typically is the starting point for mitigating a problem.
+The restart typically is the starting point for mitigating a problem.
 
 ## Troubleshoot with a reimage action
 
@@ -78,6 +78,6 @@ When you're performing the following physical repairs, a replace action is requi
 
 ## Summary
 
-Rebooting, reimaging, and replacing are effective troubleshooting methods that you can use to address technical problems. However, it's important to have a systematic approach and to consider other factors before you attempt any drastic measures.
+Restarting, reimaging, and replacing are effective troubleshooting methods that you can use to address technical problems. However, it's important to have a systematic approach and to consider other factors before you try any drastic measures.
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
