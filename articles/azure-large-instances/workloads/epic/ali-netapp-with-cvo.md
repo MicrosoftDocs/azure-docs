@@ -91,9 +91,9 @@ async mirroring between two volumes.
 3. Initialize the data transfer and async mirroring on source and target volume.
 
 > [!Note]
->You can use default policy or create custom policy which will include the network bandwidth throttling for the snap-mirror traffic to co-exist with other network traffic with minimum impact.
-Similarly, you can define the schedule of snap-mirror operation to take place in the off-peak period where
-higher network bandwidth between ALI and Azure CVO can be available for large baseline transfer.
+> You can use the default policy (though it’s not recommended) or create a custom policy (recommended) that includes the network bandwidth throttling for the snap-mirror traffic to co-exist with other network traffic with minimum impact. Similarly, you can define the schedule of the snap-mirror operation to take place in the off-peak period where higher network bandwidth between ALI and Azure CVO are available for large baseline transfer.
+Avoid taking manual snapshots – always use an automation to take snapshots and y clean them up on a regular basis. 
+Remember, you must turn off policies when you are performing data-intensive migration work (such as Endian Conversions) to disable snapshots for Snap Mirror.
 
 ## Next steps
 
