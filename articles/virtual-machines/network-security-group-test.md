@@ -19,7 +19,7 @@ In this article, you learn how to use **Network security group test** to check i
 
 - An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure virtual machine (VM). [create a virtual machine](../virtual-machines/quick-create-portal.md).
+- An Azure virtual machine (VM). [create a virtual machine](quick-create-portal.md).
 
 ## Test inbound connections
 
@@ -111,7 +111,7 @@ In this section, you test your VM can have connect to the internet.
     -    If connections to the internet are allowed from the VM, you see **Traffic status: Allowed**.
     -    If connections to the internet are blocked, you see **Traffic status: Denied**. In the Summary section, you see the security rules that are blocking the traffic.
 
-    :::image type="content" source="./media/network-security-group-test/outbound-test-result.png" alt-text="Screenshot of inbound network security group test result." lightbox="./media/network-security-group-test/outbound-test-result.png":::
+    :::image type="content" source="./media/network-security-group-test/outbound-test-result.png" alt-text="Screenshot of outbound network security group test result." lightbox="./media/network-security-group-test/outbound-test-result.png":::
 
     To allow internet connections from the VM, add a security rule to the network security group that allows connections to the internet service tag. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
 
