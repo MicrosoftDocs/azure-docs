@@ -30,7 +30,7 @@ This article describes how to apply Conditional Access policies to your Microsof
 
 The following example policy targets all users except for your break-glass accounts requiring multifactor authentication, device compliance, and Microsoft Entra ID hybrid join when accessing Microsoft 365 traffic.
 
-:::image type="content" source="media/how-to-target-resource/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
+:::image type="content" source="media/how-to-target-resource-microsoft-365-profile/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Identity** > **Protection** > **Conditional Access**.
