@@ -25,7 +25,7 @@ It is recommended that IotJsonPathContent templates are used when the device mes
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
 > [!IMPORTANT]
-> Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
+> Make sure that you're using a device identifier from Azure IoT Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
 
 If you're using Azure IoT Hub Device SDKs, you can still use CalculatedContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
 
