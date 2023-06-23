@@ -52,7 +52,7 @@ items:
     - name: Get Started
       href: javascript-developer-guide-get-started.md
     - name: Create, update, rotate key
-      href: javascript-developer-guide-create-update-rotate.md
+      href: javascript-developer-guide-create-update-rotate-key.md
     - name: Get key
       href: javascript-developer-get-key.md
     - name: Enable and disable key

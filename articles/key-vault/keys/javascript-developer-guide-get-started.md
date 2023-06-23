@@ -82,6 +82,13 @@ If you need the value of the KeyVaultKey, use methods that return the [KeyVaultK
 
 * [getKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-getkey)
 
+## Understand the clients
+
+The Azure Key Vault keys client library for JavaScript includes the following clients:
+
+* [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) allows you to create, rotate, backup, list and delete keys and their versions.
+* [CryptographyClient](/javascript/api/@azure/keyvault-keys/cryptographyclient) allows you to encrypt, decrypt, sign, verify, wrap and unwrap keys. 
+
 ## Create a KeyClient object
 
 The KeyClient object is the top object in the SDK. This client allows you to manipulate the keys.
@@ -103,6 +110,47 @@ const client = new KeyClient(url, credential);
 
 // Get key
 const key = await client.getKey("MyKeyName");
+```
+
+## Create a CryptographyClient object
+
+The CryptographyClient object is the operational object in the SDK, using your key to perform actions. 
+
+Once your Azure Key Vault access roles and your local environment are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keyss/keyclient) object. Get a key from the vault using the KeyClient, then create a CryptographyClient to perform operations.
+
+```javascript
+// Include required dependencies
+import { DefaultAzureCredential } from '@azure/identity';  
+import {
+  CryptographyClient,
+  KeyClient,
+  KnownEncryptionAlgorithms,
+  RsaEncryptParameters
+} from '@azure/keyvault-keys'; 
+
+// Authenticate to Azure
+const credential = new DefaultAzureCredential(); 
+
+// Create KeyClient
+const vaultName = '<your-vault-name>';  
+const url = `https://${vaultName}.vault.azure.net`;  
+const client = new KeyClient(url, credential);  
+
+// Get key
+const key = await client.getKey("MyKeyName");
+
+if (key?.name) {
+
+    // get encryption client
+    const encryptClient = new CryptographyClient(key, credential);
+
+    // encrypt data
+    const encryptParams = { 
+        algorithm: KnownEncryptionAlgorithms.RSAOaep256,
+        plaintext: Buffer.from("Hello world!")
+    }
+    const encryptResult = await encryptClient.encrypt(encryptParams);
+}
 ```
 
 ## See also
