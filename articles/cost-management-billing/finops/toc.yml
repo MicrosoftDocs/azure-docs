@@ -35,6 +35,8 @@
     items:
     - name: Managing anomalies
       href: capabilities-anomalies.md
+    - name: Establishing a decision and accountability structure
+      href: capabilities-structure.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

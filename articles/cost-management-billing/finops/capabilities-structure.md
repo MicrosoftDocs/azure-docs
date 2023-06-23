@@ -1,6 +1,6 @@
 ---
-title: Managing shared cost
-description: This article helps you understand the managing shared cost capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
+title: Establishing a FinOps decision and accountability structure
+description: This article helps you understand the establishing a FinOps decision and accountability structure capability within the FinOps Framework and how to implement that in the Microsoft Cloud.
 keywords:
 author: bandersmsft
 ms.author: banders

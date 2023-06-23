@@ -63,7 +63,8 @@ landingContent:
       links:
       - text: Managing anomalies
         url: capabilities-anomalies.md
-
+      - text: Establishing a decision and accountability structure
+        url: capabilities-structure.md
 
 
 # Card (optional)
