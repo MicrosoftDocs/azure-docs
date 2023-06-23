@@ -703,7 +703,7 @@
           href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
-        - name: Safely rollout online endpoints
+        - name: Roll out models with safe deployment strategies
           href: how-to-safely-rollout-online-endpoints.md
         - name: Autoscale online endpoints
           href: how-to-autoscale-endpoints.md
@@ -934,56 +934,6 @@
     - name: Perform continuous monitoring
       displayName: model monitoring, data drift, data quality, model quality
       href: how-to-monitor-model-performance.md
-- name: Work with MLflow
-  items:
-    - name: Configure MLflow for Azure Machine Learning
-      href: how-to-use-mlflow-configure-tracking.md
-    - name: Train & track
-      items:
-        - name: Track experiments with MLflow
-          displayName: log, monitor, metrics, model registry, register
-          href: how-to-use-mlflow-cli-runs.md
-        - name: Track Azure Databricks runs with MLflow
-          displayName: log, monitor, deploy, metrics, databricks
-          href: how-to-use-mlflow-azure-databricks.md
-        - name: Track Azure Synapse Analytics runs with MLflow
-          displayName: log, monitor, deploy, metrics, synapse, analytics
-          href: how-to-use-mlflow-azure-synapse.md
-        - name: Train with MLflow Projects
-          displayName: log, monitor, metrics, model registry, register
-          href: how-to-train-mlflow-projects.md
-        - name: Log metrics, parameters and files
-          displayName: troubleshoot, log, files, tracing, metrics
-          href: how-to-log-view-metrics.md
-        - name: Log MLflow models
-          href: how-to-log-mlflow-models.md
-        - name: Query & compare experiments and runs with MLflow
-          href: how-to-track-experiments-mlflow.md
-    - name: Manage
-      items:
-        - name: Manage models with MLflow
-          href: how-to-manage-models-mlflow.md
-        - name: Manage experiments and runs with MLflow
-          href: how-to-track-experiments-mlflow.md
-    - name: Deploy & consume models
-      items:
-        - name: Guidelines for deploying MLflow models
-          displayName: mlflow models deployment plugin
-          href: how-to-deploy-mlflow-models.md
-        - name: Using MLflow models for no-code deployment
-          href: how-to-log-mlflow-models.md
-        - name: Online inference
-          items:
-            - name: Deploy MLflow models to online endpoints
-              href: how-to-deploy-mlflow-models-online-endpoints.md
-            - name: Progressive rollout of MLflow models to Online Endpoints
-              href: how-to-deploy-mlflow-models-online-progressive.md
-        - name: Batch inference
-          items:
-            - name: Deploy MLflow models to Batch Endpoints
-              href: how-to-mlflow-batch.md
-            - name: Deploy and run MLflow models in Spark jobs
-              href: how-to-deploy-mlflow-model-spark-jobs.md
 - name: Infrastructure & security
   items:
     - name: Tutorials & templates
