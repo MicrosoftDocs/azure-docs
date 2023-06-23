@@ -23,6 +23,10 @@
       href: capabilities-shared-cost.md
     - name: Data ingestion and normalization
       href: capabilities-ingestion-normalization.md
+  - name: Performance tracking + benchmarking
+    items:
+    - name: Forecasting
+      href: capabilities-forecasting.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

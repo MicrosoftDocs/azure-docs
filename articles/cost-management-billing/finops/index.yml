@@ -46,6 +46,13 @@ landingContent:
       - text: Data ingestion and normalization
         url: capabilities-ingestion-normalization.md
 
+  - title: Performance tracking + benchmarking
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Forecasting
+        url: capabilities-forecasting.md
+
 
 # Card (optional)
 

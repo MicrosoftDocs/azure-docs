@@ -4,7 +4,7 @@ description: This article helps you understand the managing shared cost capabili
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/23/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: common
