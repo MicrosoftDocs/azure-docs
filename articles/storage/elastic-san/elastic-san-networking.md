@@ -16,7 +16,7 @@ Azure Elastic storage area network (SAN) Preview allows you to secure and contro
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
-You can configure your Elastic SAN, and the volume groups that belong to it, to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
+You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets may belong to virtual networks in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
 
 To configure network access to your Elastic SAN:
 
@@ -33,18 +33,18 @@ You can allow access to your Elastic SAN volume groups from two types of Azure v
 - [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Private endpoints](../../private-link/private-endpoint-overview.md)
 
-Each volume group can only be configured to allow access from public storage service endpoints or private endpoints, but not both at the same time.
-
 To decide which type of endpoint works best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-The process for enabling each type of endpoint follows:
+Each volume group can be configured to allow access from either public storage service endpoints or private endpoints, but not both at the same time.
+
+The process for enabling each type of endpoint:
 
 - [Configure Azure Storage service endpoint](#configure-azure-storage-service-endpoint)
 - [Configure private endpoint](#configure-private-endpoint)
 
 ### Configure Azure Storage service endpoint
 
-To configure an Azure Storage service endpoint, enable it from the virtual network subnet. To configure it, you must have the appropriate permissions for the virtual network. This operation can be performed by a user that has permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
+You can configure an Azure Storage service endpoint from the virtual network where access is required. You must have permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role to configure a service endpoint.
 
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
@@ -55,7 +55,7 @@ To configure an Azure Storage service endpoint, enable it from the virtual netwo
 1. Select **+ Add**.
 1. On the **Add service endpoints** screen:
     1. For **Service** select **Microsoft.Storage.Global** to add a [cross-region service endpoint](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints). (You might see **Microsoft.Storage** listed as an available storage service endpoint. That option is for intra-region endpoints which exist for backward compatibility only. Always use cross-region endpoints unless you have a specific reason for using intra-region ones).
-    1. For **Subnet** select the subnet from which you want to allow access. 
+    1. For **Subnets** select all the subnets where you want to allow access.
     1. Select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
@@ -68,7 +68,7 @@ $resourceGroupName = "yourResourceGroupName"
 $vnetName = "yourVirtualNetworkName"
 $subnetName = "yourSubnetName"
 
-# Get the vurtual network and subnet
+# Get the virtual network and subnet
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
 
@@ -87,13 +87,14 @@ subnetName="yourSubnetName"
 # Enable the storage service endpoint
 az network vnet subnet update --resource-group $resourceGroupName --vnet-name $vnetName --name $subnetName --service-endpoints "Microsoft.Storage.Global"
 ```
+
 ---
 
 ### Configure private endpoint
 
-To configure a private endpoint, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action` operation. Permission for this action is included in the Elastic SAN Network Admin role, but can also be granted via a custom Azure role. An Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
+To configure a private endpoint, you must have permission to the [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftelasticsan) `Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action`. Permission for this operation is included in the [Elastic SAN Network Admin](../../role-based-access-control/built-in-roles.md#elastic-san-owner) role, but can also be granted via a custom Azure role. The Elastic SAN and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
-When you create a private endpoint, you must specify the Elastic SAN and the volume group to which it connects. You can configure a private endpoint using the Azure portal, PowerShell, or the Azure CLI.
+You can configure a private endpoint using the Azure portal, PowerShell, or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -102,7 +103,7 @@ To create your private endpoint from the volume group page:
 1. Navigate to your Elastic SAN/volume group and select **Networking**.
 1. Change **Network access** from **Enable public access from select virtual networks** to **Disable public access and use private access**.
 1. Under **Private endpoint connections** select **Create a private endpoint**.
-1. In the **Create private endpoint dialog**, specify the appropriate values for the new endpoint, then select **OK**:
+1. In the **Create private endpoint dialog**, specify the appropriate values for the new endpoint:
     - **Subscription**: Select your subscription.
     - **Resource group**: Select the resource group where the private endpoint will be created.
     - **Name**: Specify the name of the private endpoint.
@@ -111,6 +112,7 @@ To create your private endpoint from the volume group page:
     - **Subnet**: The virtual network subnet to which the endpoint will be connected.
     - **Integrate with private DNS zone**: Select this box. Elastic SAN private endpoints require integration with your private DNS zone. Integrating it with a custom DNS deployment is not supported.
     - **Private DNS zone**: The FQDN of the private DNS zone for the private link.
+1. Select **OK**
 1. Back on the **Networking** page, select ***Save**.
 
 :::image type="content" source="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png" alt-text="Screenshot of the Elastic SAN private endpoint creation page." lightbox="media/elastic-san-private-endpoint/elastic-san-private-endpoint-create.png":::
