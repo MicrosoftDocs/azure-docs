@@ -17,7 +17,7 @@ This tutorial describes how to use Defender for IoT's **Firmware analysis** page
 ## Prerequisites
 
 > [!NOTE]
-> The Defender for IoT **Firmware Analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the SecurityReader role or want to use Firmware Analysis as a standalone feature, then your Admin must give the FirmwareAnalysisAdmin role. For additional information, please see [Azure User Roles and Permissions.][def]
+> The Defender for IoT **Firmware Analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the SecurityReader role or want to use Firmware Analysis as a standalone feature, then your Admin must give the FirmwareAnalysisAdmin role. For additional information, please see [Azure User Roles and Permissions](/azure/role-based-access-control/built-in-roles).
 >
 
 To use the **Firmware analysis** page to analyze your firmware security, your firmware image must have the following prerequisites:
@@ -64,7 +64,7 @@ If this is your first interaction with **Firmware analysis,** then you'll need t
     
 ## View firmware analysis results
 
-The analysis time will vary based on the size of the firmware image and the number of files discovered in the image. While the analysis is taking place, the status will say "Extracting" and then "Analysis".  When the status is "Ready", you can see the firmware analysis results.
+The analysis time will vary based on the size of the firmware image and the number of files discovered in the image. While the analysis is taking place, the status will say *Extracting* and then *Analysis*.  When the status is *Ready*, you can see the firmware analysis results.
 
 1. Sign into the Azure portal and go to Microsoft Defender for IoT > **Firmware analysis**.
 
@@ -104,4 +104,3 @@ After you delete an image, there's no way to retrieve the image or the associate
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md)
 
-[def]: https://learn.microsoft.com/azure/defender-for-iot/organizations/roles-azure
