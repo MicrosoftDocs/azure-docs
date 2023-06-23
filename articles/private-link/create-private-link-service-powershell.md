@@ -42,7 +42,7 @@ New-AzResourceGroup -Name 'test-rg' -Location 'eastus2'
 
 ## Create an internal load balancer
 
-In this section, you'll create a virtual network and an internal Azure Load Balancer.
+In this section, you create a virtual network and an internal Azure Load Balancer.
 
 ### Virtual network
 
@@ -205,7 +205,7 @@ Your private link service is created and can receive traffic. If you want to see
 
 ## Create private endpoint
 
-In this section, you'll map the private link service to a private endpoint. A virtual network contains the private endpoint for the private link service. This virtual network contains the resources that will access your private link service.
+In this section, you map the private link service to a private endpoint. A virtual network contains the private endpoint for the private link service. This virtual network contains the resources that access your private link service.
 
 ### Create private endpoint virtual network
 
@@ -274,7 +274,7 @@ New-AzPrivateEndpoint @par4 -ByManualRequest
 
 ### Approve the private endpoint connection
 
-In this section, you'll approve the connection you created in the previous steps.
+In this section, you approve the connection you created in the previous steps.
 
 * Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) to approve the connection.
 
@@ -299,7 +299,7 @@ Approve-AzPrivateEndpointConnection @par2
 
 ### IP address of private endpoint
 
-In this section, you'll find the IP address of the private endpoint that corresponds with the load balancer and private link service.
+In this section, you find the IP address of the private endpoint that corresponds with the load balancer and private link service.
 
 * Use [Get-AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint) to retrieve the IP address.
 
