@@ -77,6 +77,14 @@ This section outlines variations and considerations when using Azure Container A
 |---------|--------|------------|
 | Azure Monitor| The Azure Monitor integration is not supported in Azure China |
 
+### Microsoft Cost Management + Billing
+
+This section outlines variations and considerations when using Microsoft Cost Management + Billing features and APIs.
+
+#### Azure Retail Rates API for China
+
+The [Azure Retail Prices API for China](/rest/api/cost-management/retail-prices/azure-retail-prices-china) article is applicable only to Azure China. The preview API is available only in Azure China and isn't available in Azure Global.
+
 ## Azure in China Account Sign in
 
 The table below lists ways to connect to your Azure account in Azure Global vs. Azure in China.
