@@ -53,14 +53,12 @@ WinRM may already be enabled on your machine, as you only need to do it once. En
 
 1. At the prompt, enter your Azure Stack Edge password. Ignore the following message:
 
-    ```powershell
-   WARNING: The Windows PowerShell interface of your device is intended to
+    `WARNING: The Windows PowerShell interface of your device is intended to
    be used only for the initial network configuration. Please
    engage Microsoft Support if you need to access this interface
    to troubleshoot any potential issues you may be experiencing.
    Changes made through this interface without involving Microsoft
-   Support could result in an unsupported configuration.
-    ```
+   Support could result in an unsupported configuration.`
 
 You now have a minishell session set up ready to enable your Azure Kubernetes Service in the next step.
 
