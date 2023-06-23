@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 06/23/2023
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,7 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 ## IotJsonPathContent template basics
 
-IotJsonPathContent templates are similar to the JsonPathContent templates except the DeviceIdExpression and TimestampExpression aren't required.
+IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression aren't required.
 
 It is recommended that IotJsonPathContent templates are used when the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
 
@@ -27,7 +27,7 @@ When you're using these SDKs, the device identity and the timestamp of the messa
 > [!IMPORTANT]
 > Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
 
-If you're using Azure IoT Hub Device SDKs, you can still use JsonPathContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
+If you're using Azure IoT Hub Device SDKs, you can still use CalculatedContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
 
 > [!IMPORTANT]
 > JMESPath is not supported by IotJsonPathContent templates.
@@ -162,7 +162,7 @@ The resulting normalized message will look like this after the normalization sta
 
 In this article, you learned how to use IotJsonPathContent templates with the MedTech service device mapping.
 
-To deploy the MedTech service with device message routing through an Azure IoT Hub, see:
+To deploy the MedTech service with device message routing through an Azure IoT Hub, see
 
 > [!div class="nextstepaction"]
 > [Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md) 
