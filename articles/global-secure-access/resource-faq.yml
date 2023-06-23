@@ -7,7 +7,7 @@ metadata:
   manager: amycolannino
   ms.service: network-access
   ms.topic: faq
-  ms.date: 06/20/2023
+  ms.date: 06/23/2023
   ms.custom: references_regions
 title: Global Secure Access Frequently Asked Questions (FAQ).
 summary: |
@@ -17,19 +17,14 @@ sections:
   - name: Common platform questions
     questions:
       - question: | 
-          What features are part of Microsoft Entra Private Access and Microsoft Entra Internet Access?
-        answer: |
-          Global Secure Access (preview) includes Microsoft Entra Private Access and Microsoft Entra Internet Access.
-          To learn more about specific features in each product, see the [Global Secure Access overview](overview-what-is-global-secure-access.md).
-      - question: | 
           Does Global Secure Access allow B2B logins?
         answer: |
           At this time, B2B logins are not supported.
       - question: | 
           Does Global Secure Access support IPv6?
         answer: |
-          At this time, only IPv4 is supported.
-  - name: Applications
+          At this time, IPv4 is preferred over IPv6. If you encounter issues, disable IPv6. For information, see [Use registry key to configure IPv6](https://learn.microsoft.com/troubleshoot/windows-server/networking/configure-ipv6-in-windows#use-registry-key-to-configure-ipv6)
+  - name: Private Access
     questions:
         - question: |
             I was prompted for admin consent when trying to access private resources using Private Access. What should I do?
@@ -43,8 +38,3 @@ sections:
             My Quick Access app isn't working as expected.  
           answer: |
             Delete and reinstall the Quick Access app. If the issue persists, submit a support request.
-
-additionalContent: |
-    ## Next steps
-
-    To learn more, see [What is Global Secure Access?](overview-what-is-global-secure-access.md).
