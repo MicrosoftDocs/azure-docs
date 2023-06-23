@@ -1,16 +1,15 @@
 ---
 title: Azure Elastic SAN Preview performance
-description: An overview of Azure Elastic SAN Preview, a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
+description: Performance article example data.
 author: roygara
 ms.service: storage
 ms.topic: overview
 ms.date: 06/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: ignite-2022
 ---
 
-# What is Azure Elastic SAN? Preview
+# Elastic SAN Preview performance
 
 This article helps clarify the performance of an Elastic SAN volume and how they work when used with Azure Virtual Machines (VM).
 
