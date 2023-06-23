@@ -32,11 +32,11 @@ Create a virtual network and subnet to host the load balancer that accesses your
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **+ Create**. 
+1. Select **+ Create**. 
 
-4. In **Create virtual network**, enter or select this information in the **Basics** tab:
+1. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -47,24 +47,24 @@ Create a virtual network and subnet to host the load balancer that accesses your
     | Name             | Enter **vnet-1**                                    |
     | Region           | Select **East US 2** |
 
-5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+1. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
-6. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.0.0.0/16**.
+1. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.0.0.0/16**.
 
-7. Select **+ Add subnet**.
+1. Select **+ Add subnet**.
 
-8. In **Add subnet**, enter the following information:
+1. In **Add subnet**, enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **subnet-1** |
     | Subnet address range | Enter **10.0.0.0/24** |
 
-9. Select **Add**.
+1. Select **Add**.
 
-10. Select the **Review + create** tab or select the **Review + create** button.
+1. Select the **Review + create** tab or select the **Review + create** button.
 
-11. Select **Create**.
+1. Select **Create**.
 
 ### Create load balancer
 
@@ -82,7 +82,7 @@ During the creation of the load balancer, you configure:
 
 1. In the **Load balancer** page, select **+ Create**.
 
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+1. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting              | Value                                |
     |----------------------|--------------------------------------|
@@ -96,11 +96,11 @@ During the creation of the load balancer, you configure:
     | Type                 | Select **Internal**.                 |
     | Tier                 | Select **Regional**.                 |
     
-3. Select **Next: Frontend IP configuration**.
+1. Select **Next: Frontend IP configuration**.
 
-4. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
+1. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
-5. Enter or select the following information in **Add frontend IP configuration**.
+1. Enter or select the following information in **Add frontend IP configuration**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -113,23 +113,23 @@ During the creation of the load balancer, you configure:
     > [!NOTE]
     > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
-6. Select **Add**.
+1. Select **Add**.
 
-7. Select **Next: Backend pools**.
+1. Select **Next: Backend pools**.
 
-8. In **Backend pools**, select **+ Add a backend pool**.
+1. In **Backend pools**, select **+ Add a backend pool**.
 
-9. Enter **backend-pool** for **Name**.
+1. Enter **backend-pool** for **Name**.
 
-10. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
-11. Select **Save**.
+1. Select **Save**.
 
-12. Select **Next: Inbound rules**.
+1. Select **Next: Inbound rules**.
 
-13. In **Load balancing rule**, select **+ Add a load balancing rule**.
+1. In **Load balancing rule**, select **+ Add a load balancing rule**.
 
-14. In **Add load balancing rule**, enter or select the following information:
+1. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -146,11 +146,11 @@ During the creation of the load balancer, you configure:
     | Enable TCP Reset | Select the box. |
     | Enable Floating IP | Leave the box unchecked. |
 
-15. Select **Save**.
+1. Select **Save**.
 
-16. Select the blue **Review + create** button.
+1. Select the blue **Review + create** button.
 
-17. Select **Create**.
+1. Select **Create**.
 
 ## Create a private link service
 
@@ -158,9 +158,9 @@ Create a Private Link service behind the load balancer you created in the previo
 
 1. In the search box at the top of the portal, enter **Private link**. Select **Private link services** in the search results.
 
-2. Select **+ Create**.
+1. Select **+ Create**.
 
-3. In the **Basics** tab, enter or select the following information:
+1. In the **Basics** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -171,9 +171,9 @@ Create a Private Link service behind the load balancer you created in the previo
     | Name | Enter **private-link-service**. |
     | Region | Select **East US 2**. |
 
-4. Select **Next: Outbound settings**.
+1. Select **Next: Outbound settings**.
 
-5. In the **Outbound settings** tab, enter or select the following information:
+1. In the **Outbound settings** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -184,15 +184,15 @@ Create a Private Link service behind the load balancer you created in the previo
     | **Private IP address settings** |  |
     | Leave the default settings |  |
 
-6. Select **Next: Access security**.
+1. Select **Next: Access security**.
 
-7. Leave the default of **Role-based access control only** in the **Access security** tab.
+1. Leave the default of **Role-based access control only** in the **Access security** tab.
 
-8. Select **Next: Tags**.
+1. Select **Next: Tags**.
 
-9. Select **Next: Review + create**.
+1. Select **Next: Review + create**.
 
-10. Select **Create**.
+1. Select **Create**.
 
 Your private link service is created and can receive traffic. If you want to see traffic flows, configure your application behind your standard load balancer.
 
@@ -204,9 +204,9 @@ In this section, you map the private link service to a private endpoint. A virtu
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-2. Select **+ Create**. 
+1. Select **+ Create**. 
 
-3. In the **Basics** tab, enter or select the following information:
+1. In the **Basics** tab, enter or select the following information:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -217,32 +217,32 @@ In this section, you map the private link service to a private endpoint. A virtu
     | Name             | Enter **vnet-pe**                                    |
     | Region           | Select **East US 2** |
 
-4. Select **Next: IP Addresses** or the **IP Addresses** tab.
+1. Select **Next: IP Addresses** or the **IP Addresses** tab.
 
-5. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.1.0.0/16**.
+1. In the **IP Addresses** tab, under **IPv4 address space**, select the garbage deletion icon to remove any address space that already appears, and then enter **10.1.0.0/16**.
 
-6. Select **+ Add subnet**.
+1. Select **+ Add subnet**.
 
-7. In **Add subnet**, enter the following information:
+1. In **Add subnet**, enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **subnet-pe** |
     | Subnet address range | Enter **10.1.0.0/24** |
 
-8. Select **Add**.
+1. Select **Add**.
 
-9. Select **Review + create**.
+1. Select **Review + create**.
 
-10. Select **Create**.
+1. Select **Create**.
 
 ### Create private endpoint
 
 1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints** in the search results.
 
-2. Select **+ Create**. 
+1. Select **+ Create**. 
 
-3. In the **Basics** tab, enter or select the following information:
+1. In the **Basics** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -254,9 +254,9 @@ In this section, you map the private link service to a private endpoint. A virtu
     | Network Interface Name | Leave the default of **private-endpoint-nic**. |
     | Region | Select **East US 2**. |
 
-4. Select **Next: Resource**.
+1. Select **Next: Resource**.
     
-5. In the **Resource** tab, enter or select the following information:
+1. In the **Resource** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -265,9 +265,9 @@ In this section, you map the private link service to a private endpoint. A virtu
     | Resource type | Select **Microsoft.Network/privateLinkServices**. |
     | Resource | Select **private-link-service**. |
 
-6. Select **Next: Virtual Network**.
+1. Select **Next: Virtual Network**.
 
-7. In **Virtual Network**, enter or select the following information.
+1. In **Virtual Network**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -296,27 +296,25 @@ In this section, you map the private link service to a private endpoint. A virtu
 
     ---
 
-8. Select **Next: DNS**.
+1. Select **Next: DNS**.
 
-9. Select **Next: Tags**.
+1. Select **Next: Tags**.
 
-10. Select **Next: Review + create**.
+1. Select **Next: Review + create**.
 
-11. Select **Create**.
+1. Select **Create**.
 
 ### IP address of private endpoint
 
-In this section, you find the IP address of the private endpoint that corresponds with the load balancer and private link service.
+In this section, you find the IP address of the private endpoint that corresponds with the load balancer and private link service. The following steps are only necessary if you selected **Dynamically allocate IP address** in the previous section.
 
 1. Enter **test-rg** in the search box at the top of the portal. Select **test-rg** in the search results in **Resource Groups**.
 
-2. In the **test-rg** resource group, select **private-endpoint**.
+1. In the **test-rg** resource group, select **private-endpoint**.
 
-4. In the **Overview** page of **private-endpoint**, select the name of the network interface associated with the private endpoint. The network interface name begins with **private-endpoint.nic**.
+1. In the **Overview** page of **private-endpoint**, select the name of the network interface associated with the private endpoint. The network interface name begins with **private-endpoint.nic**.
 
-5. In the **Overview** page of the private endpoint nic, the IP address of the endpoint is displayed in **Private IP address**.
-
-4. Select **Delete**.
+1. In the **Overview** page of the private endpoint nic, the IP address of the endpoint is displayed in **Private IP address**.
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
