@@ -117,7 +117,7 @@ The Privileged Identity Management (PIM) integration with Conditional Access aut
 - Not have certain level of sign-in risk identified with Identity Protection
 - Meet other requirements defined in Conditional Access policies
 
-The integration is available for all providers: PIM for Azure AD roles, PIM for Azure resources, PIM for groups.For more information, see:
+The integration is available for all providers: PIM for Azure AD roles, PIM for Azure resources, PIM for groups. For more information, see:
 - [Configure Azure AD role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Configure Azure resource role settings in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-role-settings.md)
 - [Configure PIM for Groups settings](../privileged-identity-management/groups-role-settings.md)
