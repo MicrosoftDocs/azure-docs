@@ -9,7 +9,7 @@ ms.author: shermanouko
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
+ms.topic: sample
 ms.date: 06/23/2023
 
 #Customer intent: As a dev, devops, I want to configure a sample dotnet daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
