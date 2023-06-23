@@ -34,7 +34,7 @@ deployment. All resources must be in the same Azure region and contained in the 
 - **Resource Group** - The name of the resource group used for the Azure Cloud Shell VNET deployment
 - **Region** - The location of the resource group
 - **Virtual Network** - The name of the virtual network created for Azure Cloud Shell VNET
-- **Azure Container Instance Id** - The Id of the Azure Container Instance for your resource group
+- **Azure Container Instance ID** - The ID of the Azure Container Instance for your resource group
 - **Azure Relay Namespace** - The name that you want to assign to the Relay resource created by the
   template
 
@@ -96,7 +96,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance
 ### Azure Container Instance Id
 
 To configure the VNET for Cloud Shell using the quickstarts, retrieve the `Azure Container Instance`
-id for your organization.
+ID for your organization.
 
 ```powershell
 Get-AzADServicePrincipal -DisplayNameBeginsWith 'Azure Container Instance'
@@ -213,7 +213,7 @@ user settings.
 Resetting the user settings triggers the first-time user experience the next time you start Cloud
 Shell.
 
-![Cloud Shell storage dialog box.](media/quickstart-deploy-vnet/setup-cloud-shell-storage.png)
+[ ![Screenshot of Cloud Shell storage dialog box.](media/quickstart-deploy-vnet/setup-cloud-shell-storage.png) ](media/quickstart-deploy-vnet/setup-cloud-shell-storage.png#lightbox)
 
 1. Choose your preferred shell experience (Bash or PowerShell)
 1. Select **Show advanced settings**

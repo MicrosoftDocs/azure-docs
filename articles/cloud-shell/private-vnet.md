@@ -36,7 +36,7 @@ Deploying Azure Cloud Shell in a private VNET offers several benefits:
 
 The following diagram shows the resource architecture that you must build to enable this scenario.
 
-![Illustrates Cloud Shell isolated VNET architecture.][03]
+![Illustration of Cloud Shell isolated VNET architecture.][03]
 
 - **Customer Client Network** - Client users can be located anywhere on the Internet to securely
   access and authenticate to the Azure portal and use Cloud Shell to manage resources contained in
