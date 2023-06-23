@@ -254,7 +254,7 @@ and then at the beginning of each request, call:
 Span.current().setAttribute("mycustomer", "xyz");
 ```
 
-Also see: [Add a custom property to a Span](./opentelemetry-enable.md?tabs=java#add-a-custom-property-to-a-span).
+Also see: [Add a custom property to a Span](./opentelemetry-add-modify.md?tabs=java#add-a-custom-property-to-a-span).
 
 ## Connection string overrides (preview)
 
