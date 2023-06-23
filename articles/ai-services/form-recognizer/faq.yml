@@ -77,8 +77,6 @@ sections:
 
           Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide more structure and information to the text extraction.
 
-          Learn more about [Form Recognizer and Applied AI Services](../what-are-applied-ai-services.md).
-
       - question: |
           How long is my custom model available for use?
         answer: |
@@ -306,7 +304,7 @@ sections:
 
             - If your images are low quality, use a larger data set (more than five training documents).
 
-            Learn more about [building a training data set](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
+            Learn more about [building a training data set](how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true)
 
       - question: |
           What are best practices for training a highly accurate custom model?
