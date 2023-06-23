@@ -2,7 +2,7 @@
 title: "Azure Operator Nexus: VM Console Service"
 description: Learn how to use the VM Console service.
 author: sshiba
-ms.author: sidneyshiba
+ms.author: sidneyshiba@microsoft.com
 ms.service: azure 
 ms.topic: how-to
 ms.date: 06/16/2023
@@ -46,15 +46,15 @@ To help set up the environment for SSHing to Virtual Machines, define these envi
 
 ```bash
     # Cluster Manager environment variables
-    export CLUSTER_MANAGER_CLUSTER_NAME="contorso-cluster-manager-1234"
-    export CLUSTER_MANAGER_RG="contorso-cluster-manager-1234-rg"
+    export CM_CLUSTER_NAME="contorso-cluster-manager-1234"
+    export CM_MANAGED_RESOURCE_GROUP="contorso-cluster-manager-1234-rg"
+    export CM_EXTENDED_LOCATION="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName"
+    export CM_HOSTED_RESOURCES_RESOURCE_GROUP="my-contorso-console-rg"
 
     # Your Console resource enviroment variables
-    export VM_CONSOLE_RG="my-contorso-console-rg"
-    export VM_CONSOLE_VM_NAME="my-undercloud-vm"
-    export VM_CONSOLE_PUBLIC_KEY="xxxx-xxxx-xxxxxx-xxxx"
-    export VM_CONSOLE_EXTENDED_LOCATION_NAME="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName"
-    export VM_CONSOLE_EXPIRATION_TIME="2023-06-01T01:27:03.008Z"
+    export VIRTUAL_MACHINE_NAME="my-undercloud-vm"
+    export CONSOLE_PUBLIC_KEY="xxxx-xxxx-xxxxxx-xxxx"
+    export CONSOLE_EXPIRATION_TIME="2023-06-01T01:27:03.008Z"
 
     # your environment variables
     export PRIVATE_ENDPOINT_RG="my-work-env-rg"
@@ -82,7 +82,7 @@ This section provides a step-by-step guide to help you to establish a private ne
 
     ```bash
         # retrieve the infrastructure resource group of the AKS cluster
-        export pls_resource_group=$(az aks show --name ${CLUSTER_MANAGER_CLUSTER_NAME} -g ${CLUSTER_MANAGER_RG} --query "nodeResourceGroup" -o tsv)
+        export pls_resource_group=$(az aks show --name ${CM_CLUSTER_NAME} -g ${CM_MANAGED_RESOURCE_GROUP} --query "nodeResourceGroup" -o tsv)
     
         # retrieve the Private Link Service resource id
         export pls_resourceid=$(az network private-link-service show \
@@ -128,12 +128,12 @@ This section provides step-by-step guide to help you to create a Console resourc
 
     ```bash
         az networkcloud virtualmachine console create \
-            --virtual-machine-name "${VM_CONSOLE_VM_NAME}" \
-            --resource-group "${VM_CONSOLE_RG}" \
-            --extended-location name="${VM_CONSOLE_EXTENDED_LOCATION_NAME}" type="CustomLocation" \
+            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
+            --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
+            --extended-location name="${CM_EXTENDED_LOCATION}" type="CustomLocation" \
             --enabled True \
-            --key-data "${VM_CONSOLE_PUBLIC_KEY}" \
-           [--expiration "${VM_CONSOLE_EXPIRATION_TIME}"]
+            --key-data "${CONSOLE_PUBLIC_KEY}" \
+           [--expiration "${CONSOLE_EXPIRATION_TIME}"]
     ```
 
 If you omit the `--expiration` parameter, the Nexus Operator Cluster Manager will automatically set the expiration to one day after the creation of the Console resource. Also note that the `expiration` date & time format MUST comply with RFC3339 otherwise the creation of the Console resource fails.
@@ -145,8 +145,8 @@ If you omit the `--expiration` parameter, the Nexus Operator Cluster Manager wil
 
     ```bash
         virtual_machine_access_id=$(az networkcloud virtualmachine console show \
-            --virtual-machine-name "${VM_CONSOLE_VM_NAME}" \
-            --resource-group "${VM_CONSOLE_RG}" \
+            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
+            --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
             --query "virtualMachineAccessId")
     ```
 
@@ -180,11 +180,11 @@ You can disable `ssh` session to a given Virtual Machine by updating the expirat
 
 ```bash
     az networkcloud virtualmachine console update \
-        --virtual-machine-name "${VM_CONSOLE_VM_NAME}" \
-        --resource-group "${VM_CONSOLE_RG}" \
+        --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
+        --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
         [--enabled True | False] \
-        [--key-data "${VM_CONSOLE_PUBLIC_KEY}"] \
-        [--expiration "${VM_CONSOLE_EXPIRATION_TIME}"]
+        [--key-data "${CONSOLE_PUBLIC_KEY}"] \
+        [--expiration "${CONSOLE_EXPIRATION_TIME}"]
 ```
 
 If you want to disable `ssh` access to a Virtual Machine, you need to update the Console resource with the parameter `enabled False`. This update closes any `ssh` session and restricts any subsequent sessions.
@@ -203,9 +203,9 @@ To clean up your VM Console environment setup, you need to delete the Console re
 1. Deleting your Console resource
 
     ```bash
-        az networkcloud console delete \
-            --virtual-machine-name "${VM_CONSOLE_VM_NAME}" \
-            --resource-group "${VM_CONSOLE_RG}"
+        az networkcloud virtualmachine console delete \
+            --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
+            --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}"
     ```
 
 1. Deleting the Private Link Endpoint
