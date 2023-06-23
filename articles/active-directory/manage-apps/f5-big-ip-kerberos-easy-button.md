@@ -310,7 +310,7 @@ The BIG-IP does not support group Managed Service Accounts (gMSA), therefore cre
 
     ```New-ADUser -Name "F5 BIG-IP Delegation Account" UserPrincipalName $HOST_SPN SamAccountName "f5-big-ip" -PasswordNeverExpires $true Enabled $true -AccountPassword (Read-Host -AsSecureString "Account Password") ```
 
-        HOST_SPN = host/f5-big-ip.contoso.com@contoso.com
+    HOST_SPN = host/f5-big-ip.contoso.com@contoso.com
 
     >[!NOTE]
     >When the Host is used, any application running on the host will delegate the account whereas when HTTPS is used, it will allow only HTTP protocol-related operations.
@@ -329,15 +329,15 @@ The BIG-IP does not support group Managed Service Accounts (gMSA), therefore cre
 
         ```Get-ADComputer -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
 
-            For example:
-            Get-ADUser -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames
+        For example:
+        Get-ADUser -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames
 
     * For the dedicated service account, use the following command to query the account object in Active Directory to see its defined SPNs. Replace <name_of_account> with the account for your environment.
 
         ```Get-ADUser -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
 
-            For example:
-             Get-ADComputer -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames
+        For example:
+        Get-ADComputer -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames
 
 4. If the application ran in the machine context, add the SPN to the object of the computer account in Active Directory:
 
