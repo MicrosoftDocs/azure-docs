@@ -38,7 +38,7 @@ Workbook capabilities:
 
 You should measure events that represent significant business activities to get the most useful retention analysis.
 
-For additional information and example code, see [Custom business events](usage-overview.md#custom-business-events).
+For more information and example code, see [Custom business events](usage-overview.md#custom-business-events).
 
 To learn more, see [writing custom events](./api-custom-events-metrics.md#trackevent).
 
