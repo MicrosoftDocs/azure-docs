@@ -8,8 +8,8 @@ ms.author: godonnell
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 05/23/2023
+ms.topic: sample
+ms.date: 06/23/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Angular Single Page Application to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
