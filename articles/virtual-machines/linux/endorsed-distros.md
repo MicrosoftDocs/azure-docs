@@ -60,12 +60,9 @@ SUSE Linux Enterprise Server on Azure is a proven platform that provides superio
 
 ### Canonical
 
-[https://www.ubuntu.com/cloud/azure](https://www.ubuntu.com/cloud/azure)
+[https://ubuntu.com/azure](https://ubuntu.com/azure)
 
-Canonical engineering and open community governance drive Ubuntu's success in client, server, and cloud computing, which includes personal cloud services for consumers. Canonical's vision of a unified, free platform in Ubuntu, from phone to cloud, provides a family of coherent interfaces for the phone, tablet, TV, and desktop. This vision makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics and a favorite among individual technologists.
-
-With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers, and software developers to bring Ubuntu solutions to market for PCs, servers, and handheld devices.
-
+Canonical produces official Ubuntu images for Microsoft Azure and continuously tracks and delivers updates to these, ensuring security and stability are built from the moment your virtual machines launch. Canonical works closely with Microsoft to optimize Ubuntu images on Azure and ensure Ubuntu supports the latest cloud features as they are released. Ubuntu powers more mission-critical workloads on Azure than any other operating system.
 
 ## Image update cadence
 
@@ -82,4 +79,5 @@ In most cases, you will find these kernels pre-installed on the default images i
 - [SLES Azure-Tuned Kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
 - [Ubuntu Azure-Tuned Kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 - [Flatcar Container Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
+
 

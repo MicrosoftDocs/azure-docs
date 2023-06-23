@@ -4,8 +4,7 @@ description: Learn how to deploy your code to Azure App Service from a CI/CD pip
 ms.topic: article
 ms.date: 12/14/2021
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-
+ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
 # Deploy to App Service using GitHub Actions

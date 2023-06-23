@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: benmansheim
 ms.reviewer: ozgun
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
 ---
 
 # Enable and configure Microsoft Defender for Storage
@@ -39,13 +39,6 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 \* Azure DNS Zone is not supported for Malware Scanning and sensitive data threat detection.
 
 ## Prerequisites for Malware Scanning
-
-### Networking configuration
-
-Malware Scanning supports storage accounts with “Networking” > “Public network access” enabled, either from all networks or from selected virtual networks. 
-Malware Scanning is not supported for storage accounts with “Public network access” set to disabled.
-
-:::image type="content" source="../../defender-for-cloud/media/azure-defender-storage-configure/networking.png" alt-text="Screenshot showing where to configure Public network access.":::
 
 ### Permissions
 
@@ -348,7 +341,7 @@ To enable and configure Microsoft Defender for Storage at the storage account le
 
 ```http
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/providers/Microsoft.Security/defenderForStorageSettings/current?api-version=2022-12-01-preview
 ```
 
 And add the following request body:

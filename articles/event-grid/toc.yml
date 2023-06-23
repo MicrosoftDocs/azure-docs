@@ -77,13 +77,13 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/event-grid
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
       - name: Java
-        href: /java/api/overview/azure/event-grid
+        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
       - name: Python
-        href: /python/api/overview/azure/event-grid
+        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
       - name: Node.js
-        href: /javascript/api/overview/azure/event-grid
+        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
       - name: Quotas and limits
         href: quotas-limits.md
       - name: Monitoring data reference (MQTT delivery)
@@ -133,13 +133,13 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/event-grid
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
       - name: Java
-        href: /java/api/overview/azure/event-grid
+        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
       - name: Python
-        href: /python/api/overview/azure/event-grid
+        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
       - name: Node.js
-        href: /javascript/api/overview/azure/event-grid
+        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
       - name: Quotas and limits
         href: quotas-limits.md        
       - name: Monitoring data reference (pull delivery)
@@ -529,13 +529,13 @@ items:
       - name: REST
         href: /rest/api/eventgrid
       - name: .NET
-        href: /dotnet/api/overview/azure/event-grid
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
       - name: Java
-        href: /java/api/overview/azure/event-grid
+        href: /java/api/overview/azure/event-grid?view=azure-java-preview&preserve-view=true
       - name: Python
-        href: /python/api/overview/azure/event-grid
+        href: /python/api/overview/azure/event-grid?view=azure-python-preview&preserve-view=true
       - name: Node.js
-        href: /javascript/api/overview/azure/event-grid
+        href: /javascript/api/overview/azure/event-grid?view=azure-node-preview&preserve-view=true
       - name: Quotas and limits
         href: quotas-limits.md
       - name: Monitoring data reference (push delivery)

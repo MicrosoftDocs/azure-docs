@@ -18,9 +18,6 @@ ms.custom: UpdateFrequency5, cliv1, sdkv1, event-tier1-build-2022, devx-track-az
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](how-to-use-managed-identities.md)
-> * [v2 (current version)](../how-to-identity-based-service-authentication.md?view=azureml-api-2&preserve-view=true)
 
 [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 

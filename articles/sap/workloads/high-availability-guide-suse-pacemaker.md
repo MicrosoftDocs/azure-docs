@@ -65,7 +65,7 @@ You can configure the SBD device by using either of two options:
    - An Azure shared disk with Premium SSD is supported as an SBD device.
    - SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
    - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
-   - Depending on the type of your deployment (availability set or availability zones), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
+   - Depending on the [type of your deployment](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
      - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
      - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
    - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../virtual-machines/disks-redundancy.md#limitations).
@@ -492,7 +492,7 @@ To create a service principal, do the following:
 
 ### **[1]** Create a custom role for the fence agent
 
-By default, neither managed identity norservice principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
+By default, neither managed identity nor service principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
 
 Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
@@ -543,7 +543,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    </code></pre>
 
    > [!NOTE]
-   > On SLES 15 SP04 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
+   > On SLES 15 SP4 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
    > - crmsh-4.4.0+20221028.3e41444-150400.3.9.1 or later
    > - pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1 or later
 
@@ -789,7 +789,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ### Create a fencing device on the Pacemaker cluster
 
-1. **[1]** If you're using an SDB device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
+1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 
    <pre><code>sudo crm configure property stonith-timeout=144
    sudo crm configure property stonith-enabled=true
@@ -819,7 +819,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params <b>msi=true</b> subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" \
-   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
    op monitor interval=3600 timeout=120
    
    sudo crm configure property stonith-timeout=900
@@ -847,25 +847,67 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events as VM shutdown, VM redeployment, and so on. Resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, the azure-events agent will place the target cluster node in standby mode to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../virtual-machines/linux/scheduled-events.md). To achieve that, you must configure additional Pacemaker resources. 
+Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events-az.in) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn’t start with “health-“ are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart. 
 
-1. **[A]** Make sure that the package for the azure-events agent is already installed and up to date. 
+> [!IMPORTANT]
+> Previously, this document described the use of resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events.in). New resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events-az.in) fully supports Azure environments deployed in different availability zones.  
+> It is recommended to utilize the newer azure-events-az agent for all SAP highly available systems with Pacemaker.
+
+The following items are prefixed with either **[A]** - applicable to all nodes, including majority maker VM for HANA scale-out, **[1]** - only applicable to cluster node 1.  
+
+1. **[A]** Make sure that the package for the azure-events-az agent is already installed and up to date. 
    
    <pre><code>sudo zypper info resource-agents
    </code></pre>
 
+   Minimum version requirements:  
+   SLES 12 SP5: `resource-agents-4.3.018.a7fb5035-3.98.1`  
+   SLES 15 SP1: `resource-agents-4.3.0184.6ee15eb2-150100.4.72.1`  
+   SLES 15 SP2: `resource-agents-4.4.0+git57.70549516-150200.3.56.1`  
+   SLES 15 SP3: `resource-agents-4.8.0+git30.d0077df0-150300.8.31.1`  
+   SLES 15 SP4 and newer: `resource-agents-4.10.0+git40.0f4de473-150400.3.19.1`
+
 1. **[1]** Configure the resources in Pacemaker.
    
-   <pre><code>#Place the cluster in maintenance mode
-   sudo crm configure property maintenance-mode=true
-   
-   #Create Pacemaker resources for the Azure agent
-   sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
-   sudo crm configure clone cln_azure-events rsc_azure-events
-   
-   #Take the cluster out of maintenance mode
-   sudo crm configure property maintenance-mode=false
+   <pre><code>sudo crm configure property maintenance-mode=true
    </code></pre>
+
+1. **[1]** Set the Pacemaker cluster health node strategy and constraint
+   
+   <pre><code>sudo crm configure property node-health-strategy=custom
+   sudo crm configure location loc_azure_health \
+   /'!health-.*'/ rule '#health-azure': defined '#uname'
+   </code></pre>
+
+   > [!IMPORTANT]
+   > Don't define any other resources in the cluster starting with “health-”, besides the resources described in the next steps of the documentation.
+
+1. **[1]** Set initial value of the cluster attributes.  
+   Run for each cluster node. For scale-out environments including majority maker VM.  
+
+   <pre><code>sudo crm_attribute --node <b>prod-cl1-0</b> --name '#health-azure' --update 0
+   sudo crm_attribute --node <b>prod-cl1-1</b> --name '#health-azure' --update 0
+   </code></pre>
+
+1. **[1]** Configure the resources in Pacemaker.  
+   Important: The resources must start with ‘health-azure’.
+
+   <pre><code>sudo crm configure primitive health-azure-events \
+   ocf:heartbeat:azure-events-az op monitor interval=10s
+   sudo crm configure clone health-azure-events-cln health-azure-events
+   </code></pre>
+
+1. Take the Pacemaker cluster out of maintenance mode
+
+   <pre><code>sudo crm configure property maintenance-mode=false
+   </code></pre>
+
+1. Clear any errors during enablement and verify that the health-azure-events resources have started successfully on all cluster nodes.  
+   
+   <pre><code>sudo crm resource cleanup
+   </code></pre>
+
+   First time query execution for scheduled events [can take up to 2 minutes](../../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](../../virtual-machines/linux/scheduled-events.md) documentation.
 
    > [!NOTE]
    > After you've configured the Pacemaker resources for the azure-events agent, if you place the cluster in or out of maintenance mode, you might get warning messages such as:  

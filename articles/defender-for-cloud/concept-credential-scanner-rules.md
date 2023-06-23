@@ -451,7 +451,7 @@ Client Secret / API Key
 
 **Sample**: `client_secret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `ida:password=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `ida:...issuer...Api...abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `Namespace...ACS...Issuer...abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `IssuerName...IssuerSecret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDE=` <br> `App_Secret=abcdefghijklmnopqrstuvwxyz0123456789/+ABCDEabcdefghijklmnopqrstuvwxyz0123456789/+ABCDE==`
 
-Learn more about [The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) and [How and why applications are added to Azure AD](../active-directory/develop/active-directory-how-applications-are-added.md).
+Learn more about [The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) and [How and why applications are added to Azure AD](../active-directory/develop/how-applications-are-added.md).
 
 ### CSCAN-GENERAL0140
 

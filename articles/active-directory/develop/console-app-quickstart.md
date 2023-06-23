@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/06/2022
 ms.author: dmwendia
-ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-started", "languages:Python", mode-other
+ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-started", "languages:Python", mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-js
 zone_pivot_groups: console-app-quickstart
 #Customer intent: As an app developer, I want to learn how my console app can get an access token and call an API that's protected by the Microsoft identity platform by using the client credentials flow.
 ---

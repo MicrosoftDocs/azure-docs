@@ -327,6 +327,8 @@
       href: bicep-functions-numeric.md
     - name: Object functions
       href: bicep-functions-object.md
+    - name: Parameters file functions
+      href: bicep-functions-parameters-file.md
     - name: Resource functions
       href: bicep-functions-resource.md
     - name: Scope functions
@@ -391,7 +393,7 @@
         href: scenarios-virtual-networks.md
   - name: Provide parameters
     items:
-    - name: Parameter file
+    - name: Parameters file
       displayName: comments,metadata,
       href: parameter-files.md
     - name: Sensitive values

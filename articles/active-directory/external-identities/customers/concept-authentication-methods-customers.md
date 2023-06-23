@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 04/28/2023
+ms.date: 05/31/2023
 ms.author: mimart
 ms.custom: it-pro
 ---
@@ -70,6 +70,12 @@ The following screenshots show the sign-in with Facebook experience. In the sign
    :::image type="content" source="media/concept-authentication-methods-customers/facebook-sign-in.png" alt-text="Screenshots of Facebook sign-in screens." border="false":::
 
 Learn how to [add Facebook as an identity provider](how-to-facebook-federation-customers.md).
+
+### Updating sign-in methods
+
+At any time, you can update the sign-in options you've selected for an app. For example, you can add social identity providers or change the local account sign-in method.
+
+Be aware that when you change sign-in methods, the change affects only new users. Existing users will continue to sign in using their original method. For example, suppose you start out with the email and password sign-in method, and then change to email with one-time passcode. New users will sign in using a one-time passcode, but any users who have already signed up with an email and password will continue to be prompted for their email and password.  
 
 ## Next steps
 

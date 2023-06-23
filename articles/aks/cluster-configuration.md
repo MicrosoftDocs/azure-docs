@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli, build-2023
-ms.date: 02/16/2023
+ms.date: 06/20/2023
 ---
 
 # Configure an AKS cluster
@@ -71,31 +71,64 @@ Gen2 VMs are supported on Linux. Gen2 VMs on Windows are supported for WS2022 on
   * If your Kubernetes version is greater than 1.25, you only need to set the `vm_size` to get the generation 2 node pool. You can still use WS2019 generation 1 if you define that in the `os_sku`.
   * If your Kubernetes version less than 1.25, you can set the `os_sku` to WS2022 and set the `vm_size` to generation 2 to get the generation 2 node pool.
 
-Follow the Azure CLI commands to use generation 2 VMs on Windows:
+#### Install the aks-preview Azure CLI extension
 
-```azurecli
-# Sample command
+* Install or update the aks-preview Azure CLI extension using the [`az extension add`][az-extension-add] or the [`az extension update`][az-extension-update] command.
 
-az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np 
---kubernetes-version 1.23.5 --node-vm-size Standard_D32_v4 --os-type Windows --os_sku Windows2022 
+    ```azurecli
+    # Install the aks-preview extension
+    az extension add --name aks-preview
 
-# Default command
+    # Update to the latest version of the aks-preview extension
+    az extension update --name aks-preview
+    ```
 
-az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --os-type Windows --kubernetes-version 1.23.5
+#### Register the AKSWindows2022Gen2Preview feature flag
 
-```
+1. Register the AKSWindows2022Gen2Preview feature flag using the [`az feature register`][az-feature-register] command.
 
-To determine if you're on generation 1 or generation 2, run the following command from the nodepool level and check that the `nodeImageVersion` contains `gen2`:
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
+    ```
 
-```azurecli
-az aks nodepool show
-```
+    It takes a few minutes for the status to show *Registered*.
 
-To determine available generation 2 VM sizes, run the following command:
+2. Verify the registration using the [`az feature show`][az-feature-show] command.
 
-```azurecli
-az vm list -skus -l $region
-```
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "AKSWindows2022Gen2Preview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace "Microsoft.ContainerService"
+    ```
+
+#### Add a Windows node pool with a generation 2 VM
+
+* Add a node pool with generation 2 VMs on Windows using the [`az aks nodepool add`][az-aks-nodepool-add] command.
+
+    ```azurecli
+    # Sample command
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np 
+    --kubernetes-version 1.23.5 --node-vm-size Standard_D32_v4 --os-type Windows --os-sku Windows2022
+
+    # Default command
+    az aks nodepool add --resource-group myResourceGroup --cluster-name myAKSCluster --name gen2np --os-type Windows --kubernetes-version 1.23.5
+    ```
+
+* Determine whether you're on generation 1 or generation 2 using the [`az aks nodepool show`][az-aks-nodepool-show] command, and check that the `nodeImageVersion` contains `gen2`.
+
+    ```azurecli
+    az aks nodepool show
+    ```
+
+* Check available generation 2 VM sizes using the [`az vm list`][az-vm-list] command.
+
+    ```azurecli
+    az vm list -skus -l $region
+    ```
 
 For more information, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
@@ -113,47 +146,19 @@ When you create a new cluster or add a new node pool to an existing cluster, by 
 > [!IMPORTANT]
 > Default OS disk sizing is only used on new clusters or node pools when ephemeral OS disks are not supported and a default OS disk size isn't specified. The default OS disk size may impact the performance or cost of your cluster, and you cannot change the OS disk size after cluster or node pool creation. This default disk sizing affects clusters or node pools created on July 2022 or later.
 
-## Ephemeral OS
+## Use Ephemeral OS on new clusters
 
-By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss when the VM is relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks. These drawbacks include, but aren't limited to, slower node provisioning and higher read/write latency.
-
-By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This configuration provides lower read/write latency, along with faster node scaling and cluster upgrades.
-
-Like the temporary disk, included in the price of the VM is an ephemeral OS disk.
-
-> [!IMPORTANT]
-> When you don't explicitly request managed disks for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
-
-If you chose to use an ephemeral OS, the OS disk must fit in the VM cache. Size requirements and recommendations for VM cache are available in the [Azure VM documentation](../virtual-machines/ephemeral-os-disks.md).
-
-If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB. The default VM size supports ephemeral OS, but only has 86 GiB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you receive a validation error.
-
-If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60 GiB OS disk, this configuration would default to ephemeral OS. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
-
-If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100 GB OS disk, this VM size supports ephemeral OS and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
-
-The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. Let's assume to use the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB as an example. This VM size supports ephemeral OS disks, but only has 75 GB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you receive a validation error.
-
-If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
-
-If you chose to use [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100 GiB OS disk, this VM size supports ephemeral OS
-and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
-
-Ephemeral OS requires at least version 2.15.0 of the Azure CLI.
-
-### Use Ephemeral OS on new clusters
-
-Configure the cluster to use ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` flag to set Ephemeral OS as the OS disk type for the new cluster.
+Configure the cluster to use ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` argument to set Ephemeral OS as the OS disk type for the new cluster.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=Managed`. You can also choose to add other ephemeral OS node pools as described below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying the `--node-osdisk-type=Managed` argument. You can also choose to add other ephemeral OS node pools as described below.
 
-### Use Ephemeral OS on existing clusters
+## Use Ephemeral OS on existing clusters
 
-Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` flag to set as the OS disk type as the OS disk type for that node pool.
+Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` argument to set as the OS disk type as the OS disk type for that node pool.
 
 ```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
@@ -526,3 +531,7 @@ az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestric
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [whatis-nrg]: ./concepts-clusters-workloads.md#node-resource-group
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-nodepool-show]: /cli/azure/aks/nodepool#az_aks_nodepool_show
+[az-vm-list]: /cli/azure/vm#az_vm_list

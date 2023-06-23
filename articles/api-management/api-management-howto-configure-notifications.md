@@ -7,8 +7,9 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 06/02/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # How to configure notifications and notification templates in Azure API Management
@@ -66,6 +67,9 @@ API Management provides notification templates for the administrative email mess
 -   Subscription request received
 
 Each email template has a subject in plain text, and a body definition in HTML format. Each item can be customized as desired.
+
+> [!NOTE]
+> HTML content in a template must be well-formed and adhere to the [XML specification](https://www.w3.org/XML/). The `&nbsp;` character isn't allowed.
 
 To view and configure a notification template in the portal:
 

@@ -127,15 +127,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ADP SSO
 
-1. To automate the configuration within ADP, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up ADP** will direct you to the ADP application. From there, provide the admin credentials to sign in to ADP. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to set up ADP manually, open a new web browser window and sign in to your ADP company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your up ADP company site as an administrator
 
 1. Click **Federation Setup** and go to **Identity Provider** then, select the **Microsoft Azure**.
 

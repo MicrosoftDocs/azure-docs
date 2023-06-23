@@ -2,21 +2,23 @@
 title: Plan CIAM deployment
 description: Learn how to plan your CIAM deployment.
 services: active-directory
-author: csmulligan
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/24/2023
-ms.author: cmulligan
+ms.date: 05/31/2023
+ms.author: mimart
 ms.custom: it-pro
 
 ---
 
-# Planning for customer identity and access management
+# Planning for customer identity and access management (preview)
 
-Azure Active Directory (Azure AD) for customers is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Azure AD platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
+Microsoft Entra External ID for customers, also known as Azure Active Directory (Azure AD) for customers, is a customizable, extensible solution for adding customer identity and access management (CIAM) to your app. Because it's built on the Azure AD platform, you benefit from consistency in app integration, tenant management, and operations across your workforce and customer scenarios. When designing your configuration, it's important to understand the components of a customer tenant and the Azure AD features that are available for your customer scenarios.
+
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 This article provides a general framework for integrating your app and configuring Azure AD for customers. It describes the capabilities available in a customer tenant and outlines the important planning considerations for each step in your integration.
 
@@ -62,6 +64,8 @@ Customer accounts have a [default set of permissions](reference-user-permissions
 
 Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Azure AD performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
 
+Then, to complete the trust relationship between Azure AD and your app, you update your application source code with the values assigned during app registration, such as the application (client) ID, directory (tenant) subdomain, and client secret.
+
 We provide code sample guides and in-depth integration guides for several app types and languages. Depending on the type of app you want to register, you can find guidance on our [Samples by app type and language page](samples-ciam-all.md).
 
 ### How to register your application
@@ -90,9 +94,9 @@ When sign-up is complete, Azure AD generates a token and redirects the customer 
 
 When planning your sign-up and sign-in experience, determine your requirements:
 
-- **Number of user flows**. Each application can have just one sign-up and sign-in user flow. If you have several applications, you can use a single user flow for all of them. Or, if you want a different experience for each application, you can create multiple user flows.
+- **Number of user flows**. Each application can have just one sign-up and sign-in user flow. If you have several applications, you can use a single user flow for all of them. Or, if you want a different experience for each application, you can create multiple user flows. The maximum is 10 user flows per customer tenant.
 
-- **Company branding and language customizations**. Although we describe configuring company branding and language customizations later in Step 4, you can configure them anytime, either before or after you integrate an app with a user flow. If you configure company branding before you create the user flow, the sign in pages reflect that branding. Otherwise, the sign in pages reflect the default, neutral branding.
+- **Company branding and language customizations**. Although we describe configuring company branding and language customizations later in Step 4, you can configure them anytime, either before or after you integrate an app with a user flow. If you configure company branding before you create the user flow, the sign-in pages reflect that branding. Otherwise, the sign-in pages reflect the default, neutral branding.
 
 - **Attributes to collect**. In the user flow settings, you can select from a set of built-in user attributes you want to collect from customers. The customer enters the information on the sign-up page, and it's stored with their profile in your directory. If you want to collect more information, you can [define custom attributes](how-to-define-custom-attributes.md) and add them to your user flow.
 

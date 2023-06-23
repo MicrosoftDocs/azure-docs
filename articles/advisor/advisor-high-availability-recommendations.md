@@ -2,8 +2,8 @@
 title: Improve reliability of your application with Advisor
 description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.date: 10/26/2021
-
 ---
 
 # Improve the reliability of your application by using Azure Advisor

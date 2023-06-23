@@ -19,6 +19,53 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## June 2023
+#### Azure Health Data Services
+
+#### FHIR Service 
+
+**Feature Enhancement: Incremental Import**
+$Import operation now supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
+
+With Incremental Load mode, customers can:
+1.	Perform concurrent ingestion of data while simultaneously executing API CRUD operations on the FHIR server.
+1.	Ingest versioned FHIR resources.
+1.	Maintain the lastUpdated field value in FHIR resources during ingestion.
+
+> [!IMPORTANT]
+> Incremental import mode is currently in public preview
+> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
+> 
+> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
+
+**Feature Enhancement: Reindex operation provides job status at resource level**
+
+Reindex operation supports determining the status of the reindex operation with help of API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`.
+Details per resource, on the number of completed reindexed resources can be obtained with help of the new field, added in the response- "resourceReindexProgressByResource". For details, visit [3286](https://github.com/microsoft/fhir-server/pull/3286).
+
+**Bug Fix: FHIR Search Query optimization of complex queries**
+
+We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
+
+**Bug Fix: Metadata endpoint URL in capability statement is relative URL**
+
+Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. For details on the FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
+
+
+#### DICOM Service
+
+**Retrieve rendered image is GA**
+
+[Rendered images](dicom/dicom-services-conformance-statement.md#retrieve-rendered-image-for-instance-or-frame) can now be retrieved from the DICOM service by using the new rendered endpoint.  This API allows a DICOM instance or frame to be accessed in a consumer format (`jpeg` or `png`), a capability that can simplify scenarios such as a client application displaying an image preview.  
+
+
+**Fixed issue where DICOM events and Change Feed may miss changes**
+
+The DICOM Change Feed API could previously return results that incorrectly skipped pending changes when the DICOM server was under load. Identical calls to the Change Feed resource could have resulted in new change events appearing in the middle of the result set. For example, if the first call returned sequence numbers `1`, `2`, `3`, and `5`, then the second identical call could have incorrectly returned `1`, `2`, `3`, `4`, and `5`. This behavior also impacted the DICOM events sent to Azure Event Grid System Topics, and could have resulted in missing events in downstream event handlers. For more details, see [#2611](https://github.com/microsoft/dicom-server/pull/2611).
+
+
 ## May 2023
 #### Azure Health Data Services
 
@@ -31,7 +78,7 @@ For more details, visit [#3250](https://github.com/microsoft/fhir-server/pull/32
 
 **Addresses duplicate key error when passed in request parameters and body**
 
-This bug fix handles the issue, when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns 415 Unsupported Media Type. This is due to repeating a query parameter in the URL query string and the request body. This fix considers all the query parameters from request and body as input. For more details, visit [#3232](https://github.com/microsoft/fhir-server/pull/3232)
+This bug fix handles the issue, when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns 415 Unsupported Media Type. This issue is due to repeating a query parameter in the URL query string and the request body. This fix considers all the query parameters from request and body as input. For more details, visit [#3232](https://github.com/microsoft/fhir-server/pull/3232)
 
 ## April 2023
 #### Azure Health Data Services

@@ -1,12 +1,12 @@
 ---
 title: Frequently asked questions about Events - Azure Health Data Services
-description: This article provides answers to the frequently asked questions about Events.
+description: Learn about the frequently asked questions about Events.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/04/2022
+ms.date: 06/16/2022
 ms.author: jasteppe
 ---
 
@@ -17,11 +17,11 @@ ms.author: jasteppe
 
 ## Events: The basics
 
-### Can I use Events with a different FHIR/DICOM service other than the Azure Health Data Services FHIR/DICOM service?
+## Can I use Events with a different FHIR/DICOM service other than the Azure Health Data Services FHIR/DICOM service?
 
 No. The Azure Health Data Services Events feature only currently supports the Azure Health Data Services FHIR and DICOM services.
 
-### What FHIR resource events does Events support?
+## What FHIR resource events does Events support?
 
 Events are generated from the following FHIR service types:
 
@@ -33,7 +33,7 @@ Events are generated from the following FHIR service types:
 
 For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
 
-### Does Events support FHIR bundles?
+## Does Events support FHIR bundles?
 
 Yes. The Events feature is designed to emit notifications of data changes at the FHIR resource level. 
 
@@ -46,7 +46,7 @@ Events support these [FHIR bundle types](http://hl7.org/fhir/R4/valueset-bundle-
 > [!NOTE]
 > Events are not sent in the sequence of the data operations in the FHIR bundle.
 
-### What DICOM image events does Events support?
+## What DICOM image events does Events support?
 
 Events are generated from the following DICOM service types:
 
@@ -54,43 +54,45 @@ Events are generated from the following DICOM service types:
 
 - **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
 
-### What is the payload of an Events message? 
+- **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
+
+## What is the payload of an Events message? 
 
 For a detailed description of the Events message structure and both required and nonrequired elements, see [Events troubleshooting guide](events-troubleshooting-guide.md). 
 
-### What is the throughput for the Events messages?
+## What is the throughput for the Events messages?
 
 The throughput of the FHIR or DICOM service and the Event Grid govern the throughput of FHIR and DICOM events. When a request made to the FHIR service is successful, it returns a 2xx HTTP status code. It also generates a FHIR resource or DICOM image changing event. The current limitation is 5,000 events/second per a workspace for all FHIR or DICOM service instances in it. 
 
-### How am I charged for using Events?
+## How am I charged for using Events?
 
 There are no extra charges for using [Azure Health Data Services Events](https://azure.microsoft.com/pricing/details/health-data-services/). However, applicable charges for the [Event Grid](https://azure.microsoft.com/pricing/details/event-grid/) are assessed against your Azure subscription.
 
-### How do I subscribe to multiple FHIR and/or DICOM services in the same workspace separately?
+## How do I subscribe to multiple FHIR and/or DICOM services in the same workspace separately?
 
 You can use the Event Grid filtering feature. There are unique identifiers in the event message payload to differentiate different accounts and workspaces. You can find a global unique identifier for workspace in the `source` field, which is the Azure Resource ID. You can locate the unique FHIR account name in that workspace in the `data.resourceFhirAccount` field. You can locate the unique DICOM account name in that workspace in the `data.serviceHostName` field. When you create a subscription, you can use the filtering operators to select the events you want to get in that subscription.
 
 :::image type="content" source="media\event-grid\event-grid-filters.png" alt-text="Screenshot of the Event Grid filters tab." lightbox="media\event-grid\event-grid-filters.png":::
 
-### Can I use the same subscriber for multiple workspaces, FHIR accounts, or DICOM accounts?
+## Can I use the same subscriber for multiple workspaces, FHIR accounts, or DICOM accounts?
 
 Yes. We recommend that you use different subscribers for each individual FHIR or DICOM account to process in isolated scopes.
 
-### Is Event Grid compatible with HIPAA and HITRUST compliance obligations?
+## Is Event Grid compatible with HIPAA and HITRUST compliance obligations?
 
 Yes. Event Grid supports customer's Health Insurance Portability and Accountability Act (HIPAA) and Health Information Trust Alliance (HITRUST) obligations. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
-### What is the expected time to receive an Events message?
+## What is the expected time to receive an Events message?
 
 On average, you should receive your event message within one second after a successful HTTP request. 99.99% of the event messages should be delivered within five seconds unless the limitation of either the FHIR service, DICOM service, or [Event Grid](../../event-grid/quotas-limits.md) has been met.
 
-### Is it possible to receive duplicate Events messages?
+## Is it possible to receive duplicate Events messages?
 
 Yes. The Event Grid guarantees at least one Events message delivery with its push mode. There may be chances that the event delivery request returns with a transient failure status code for random reasons. In this situation, the Event Grid considers that as a delivery failure and resends the Events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
 
 Generally, we recommend that developers ensure idempotency for the event subscriber. The event ID or the combination of all fields in the `data` property of the message content are unique per each event. The developer can rely on them to deduplicate. 
    
-### More frequently asked questions
+## More frequently asked questions
 
 [FAQs about the Azure Health Data Services](../healthcare-apis-faqs.md)
 

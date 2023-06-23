@@ -3,7 +3,7 @@ title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 author: EdB-MSFT
 ms.topic: reference
-ms.date: 05/28/2023
+ms.date: 06/04/2023
 ms.author: edbaynash
 ms.reviewer: lualderm
 
@@ -1593,4 +1593,4 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
 
 
-<!--Gen Date:  Sun May 28 2023 17:43:46 GMT+0300 (Israel Daylight Time)-->
+<!--Gen Date:  Sun Jun 04 2023 10:14:09 GMT+0300 (Israel Daylight Time)-->

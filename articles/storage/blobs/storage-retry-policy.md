@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/14/2022
 ms.subservice: blobs
+ms.custom: devx-track-dotnet
 ---
 
 # Implement a retry policy with the Azure Storage client library for .NET

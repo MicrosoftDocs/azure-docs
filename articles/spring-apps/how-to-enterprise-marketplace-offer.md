@@ -6,7 +6,7 @@ ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/24/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
+ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23, references_regions
 ---
 
 # Enterprise plan in Azure Marketplace
@@ -24,7 +24,7 @@ The Azure Spring Apps Enterprise plan is optimized for the needs of enterprise S
 
 Because the Enterprise plan provides feature parity with the Standard plan, it provides a rich set of features that include app lifecycle management, monitoring, and troubleshooting.
 
-the Enterprise plan provides the following managed VMware Tanzu components that empower enterprises to ship faster:
+The Enterprise plan provides the following managed [VMware Tanzu components](./vmware-tanzu-components.md) that empower enterprises to ship faster:
 
 - Tanzu Build Service
 - Application Configuration Service for Tanzu

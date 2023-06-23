@@ -4,7 +4,7 @@ description: In this tutorial, you create an Azure Data Factory pipeline with a 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
-ms.custom: vs-azure, devx-track-azurepowershell
+ms.custom: vs-azure
 ms.topic: tutorial
 ms.date: 04/12/2023
 ms.author: jianleishen
