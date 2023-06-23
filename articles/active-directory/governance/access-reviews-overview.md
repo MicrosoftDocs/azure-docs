@@ -65,6 +65,9 @@ Depending on what you want to review, you'll either create your access review in
 
 [!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
 
+>[!NOTE]
+>Creating a review on inactive users and user to group recomendations require a Microsoft Entra ID Governance license.
+
 ## Next steps
 
 - [Prepare for an access review of users' access to an application](access-reviews-application-preparation.md)
