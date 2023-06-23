@@ -32,16 +32,16 @@ To create a backup policy, follow these steps:
 
 1. Under **Actions**, select **Schedule Backup**.
 
-    ![Screenshot shows how to schedule a Windows Server backup.](./media/backup-configure-vault/schedule-first-backup.png)
+    [ ![Screenshot shows how to schedule a Windows Server backup.](./media/backup-configure-vault/schedule-first-backup.png) ](./media/backup-configure-vault/schedule-first-backup.png#lightbox)
 
 1. In the Schedule Backup Wizard, select  **Getting started** > **Next**.
 1. Under **Select Items to Back up**, select **Add Items**.
 
-    ![Screenshot shows how to add items for back up.](./media/backup-azure-manage-mars/select-item-to-backup.png)
+    [ ![Screenshot shows how to add items for back up.](./media/backup-azure-manage-mars/select-item-to-backup.png) ](./media/backup-azure-manage-mars/select-item-to-backup.png#lightbox)
 
 1. In the **Select Items** box, select items to back up, and then select **OK**.
 
-    ![Screenshot shows how to select items to back up.](./media/backup-azure-manage-mars/selected-items-to-backup.png)
+    [ ![Screenshot shows how to select items to back up.](./media/backup-azure-manage-mars/selected-items-to-backup.png) ](./media/backup-azure-manage-mars/selected-items-to-backup.png#lightbox)
 
 1. On the **Select Items to Back Up** page, select **Next**.
 1. On the **Specify Backup Schedule** page, specify when to take daily or weekly backups. Then select **Next**.
@@ -50,11 +50,11 @@ To create a backup policy, follow these steps:
     * The number of recovery points created in your environment depends on your backup schedule.
     * You can schedule up to three daily backups per day. In the following example, two daily backups occur, one at midnight and one at 6:00 PM.
 
-        ![Screenshot shows how to set up a daily backup schedule.](./media/backup-configure-vault/day-schedule.png)
+        [ ![Screenshot shows how to set up a daily backup schedule.](./media/backup-configure-vault/day-schedule.png) ](./media/backup-configure-vault/day-schedule.png#lightbox)
 
     * You can run weekly backups too. In the following example, backups are taken every alternate Sunday and Wednesday at 9:30 AM and 1:00 AM.
 
-        ![Screenshot shows how to set up a weekly backup schedule.](./media/backup-configure-vault/week-schedule.png)
+        [ ![Screenshot shows how to set up a weekly backup schedule.](./media/backup-configure-vault/week-schedule.png) ](./media/backup-configure-vault/week-schedule.png#lightbox)
 
 1. On the **Select Retention Policy** page, specify how to store historical copies of your data. Then select **Next**.
 
@@ -68,21 +68,21 @@ To create a backup policy, follow these steps:
         * Backups taken on the last Saturday of the month at midnight and 6:00 PM are kept for 12 months.
         * Backups taken on the last Saturday in March are kept for 10 years.
 
-        ![Screenshot shows the example of a retention policy.](./media/backup-configure-vault/retention-example.png)
+        [ ![Screenshot shows the example of a retention policy.](./media/backup-configure-vault/retention-example.png) ](./media/backup-configure-vault/retention-example.png#lightbox)
 
 1. On the **Choose Initial Backup Type** page, decide if you want to take the initial backup over the network or use offline backup. To take the initial backup over the network, select **Automatically over the network** > **Next**.
 
     For more information about offline backup, see [Use Azure Data Box for offline backup](offline-backup-azure-data-box.md).
 
-    ![Screenshot shows how to choose an initial backup type.](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
+    [ ![Screenshot shows how to choose an initial backup type.](./media/backup-azure-manage-mars/choose-initial-backup-type.png) ](./media/backup-azure-manage-mars/choose-initial-backup-type.png#lightbox)
 
 1. On the **Confirmation** page, review the information, and then select **Finish**.
 
-    ![Screenshot shows how to confirm the backup type.](./media/backup-azure-manage-mars/confirm-backup-type.png)
+    [ ![Screenshot shows how to confirm the backup type.](./media/backup-azure-manage-mars/confirm-backup-type.png) ]./media/backup-azure-manage-mars/confirm-backup-type.png#lightbox)
 
 1. After the wizard finishes creating the backup schedule, select **Close**.
 
-    ![Screenshot shows how to view the backup schedule progress.](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
+    [ ![Screenshot shows how to view the backup schedule progress.](./media/backup-azure-manage-mars/confirm-modify-backup-process.png) ](./media/backup-azure-manage-mars/confirm-modify-backup-process.png#lightbox)
 
 Create a policy on each machine where the agent is installed.
 
@@ -115,7 +115,7 @@ To enable network throttling:
 1. In the MARS agent, select **Change Properties**.
 1. On the **Throttling** tab, select **Enable internet bandwidth usage throttling for backup operations**.
 
-    ![Screenshot shows how to set up network throttling for backup operations.](./media/backup-configure-vault/throttling-dialog.png)
+    [ ![Screenshot shows how to set up network throttling for backup operations.](./media/backup-configure-vault/throttling-dialog.png) ](./media/backup-configure-vault/throttling-dialog.png#lightbox)
 1. Specify the allowed bandwidth during work hours and nonwork hours. Bandwidth values begin at 512 Kbps and go up to 1,023 Mbps. Then select **OK**.
 
 ## Run an on-demand backup
@@ -124,11 +124,11 @@ To run an on-demand backup, follow these steps:
 
 1. In the MARS agent, select **Back Up Now**.
 
-    ![Screenshot shows the Back up now option in Windows Server.](./media/backup-configure-vault/backup-now.png)
+    [ ![Screenshot shows the Back up now option in Windows Server.](./media/backup-configure-vault/backup-now.png) ](./media/backup-configure-vault/backup-now.png#lightbox)
 
 1. If the MARS agent version is 2.0.9169.0 or newer, then you can set a custom retention date. In the **Retain Backup Till** section, choose a date from the calendar.
 
-   ![Screenshot shows how to use the calendar to customize a retention date.](./media/backup-configure-vault/mars-ondemand.png)
+   [ ![Screenshot shows how to use the calendar to customize a retention date.](./media/backup-configure-vault/mars-ondemand.png) ](./media/backup-configure-vault/mars-ondemand.png#lightbox)
 
 1. On the **Confirmation** page, review the settings, and select **Back Up**.
 1. Select **Close** to close the wizard. If you close the wizard before the backup finishes, the wizard continues to run in the background.
