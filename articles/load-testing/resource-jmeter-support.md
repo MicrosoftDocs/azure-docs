@@ -26,7 +26,7 @@ The following table lists the Apache JMeter features and their support in Azure 
 
 | Feature | Details | More information |
 | ------- | ------- | ---------------- |
-| Test plan elements | - Thread groups<br/>- Variables<br/>- Functions<br/>- Samplers<br/>- Logic controllers<br/>- Timers<br/>- Assertions<br/>- Pre processors<br/>- Post processors | [Create a load test by using a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) |
+| Test plan elements | - Thread groups<br/>- Variables<br/>- Functions<br/>- Samplers<br/>- Logic controllers<br/>- Timers<br/>- Assertions<br/>- Preprocessors<br/>- Postprocessors | [Create a load test by using a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) |
 | Samplers | All samplers and protocols are supported. | [Create a load test with a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) |
 | Controllers | All logic controllers are supported, except for [Include controller](https://jmeter.apache.org/usermanual/component_reference.html#Include_Controller), [Module controller](https://jmeter.apache.org/usermanual/component_reference.html#Module_Controller), and [Recording controller](https://jmeter.apache.org/usermanual/component_reference.html#Recording_Controller). | [Create a load test with a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) |
 | Scripting | - BeanShell<br/>- JSR223 script | |
