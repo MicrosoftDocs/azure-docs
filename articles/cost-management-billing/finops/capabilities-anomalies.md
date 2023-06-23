@@ -68,4 +68,4 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 ## Next steps
 
-- [Budget management](capabilities-budget-management.md)
+- [Budget management](capabilities-budgets.md)
