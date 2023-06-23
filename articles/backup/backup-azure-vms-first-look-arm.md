@@ -48,7 +48,7 @@ Follow these steps:
    - Select an existing backup policy if you have one.
    - Create a new policy, and define the policy settings.  
 
-      ![Screenshot shows howSelect backup policy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+      ![Screenshot shows how to select a backup policy.](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Select **Enable Backup**. This associates the backup policy with the VM.
 
