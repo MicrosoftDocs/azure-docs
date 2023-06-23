@@ -29,6 +29,7 @@ You use revisions to create instances of the blue and green versions of the appl
 After you test and verify the new revision, you can then point production traffic to the new revision. If you encounter issues, you can easily rollback to the previous version.
 
 | Actions | Description |
+|---|---|
 | Testing and verification | The *green* revision is thoroughly tested and verified to ensure that the new version of the application functions as expected. This testing may involve various tasks, including functional tests, performance tests, and compatibility checks. |
 | Traffic switch | Once the *green* revision passes all the necessary tests, a traffic switch is performed so that the *green* revision starts serving production load. This switch is done in a controlled manner, ensuring a smooth transition. |
 | Rollback | If problems occur in the *green* revision, you can revert the traffic switch, routing traffic back to the stable *blue* revision. This rollback ensures minimal impact on users if there are issues in the new version. The *green* revision is still available for the next deployment. |
@@ -220,7 +221,7 @@ az deployment group create \
 
 ## Deploy a new revision and assign labels
 
-The `blue` label currently refers to a revision that takes the production traffic arriving on the app's FQDN. The `green` label refers to a new version of an app that is about to be rolled out into production. A new commit hash identifies the new version of the app code. The following command deploys a new revision for that commit hash and marks it with `green` label.
+The *blue* label currently refers to a revision that takes the production traffic arriving on the app's FQDN. The *green* label refers to a new version of an app that is about to be rolled out into production. A new commit hash identifies the new version of the app code. The following command deploys a new revision for that commit hash and marks it with *green* label.
 
 ::: zone pivot="azure-cli"
 
