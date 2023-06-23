@@ -130,6 +130,8 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Split traffic
+      href: traffic-splitting.md
     - name: Enable monitoring
       href: monitor.md
       displayName: Application Insights
