@@ -240,6 +240,8 @@ items:
           href: app/opentelemetry-enable.md
         - name: OpenTelemetry configuration
           href: app/opentelemetry-configuration.md
+        - name: Add and modify OpenTelemetry
+          href: app/opentelemetry-add-modify.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
