@@ -8,7 +8,7 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ---
 
-# Manage multiple machines with update management center (Preview)
+# Manage multiple machines with update management center
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
