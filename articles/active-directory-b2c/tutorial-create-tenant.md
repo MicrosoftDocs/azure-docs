@@ -109,7 +109,7 @@ Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as lon
 
     :::image type="content" source="media/tutorial-create-tenant/opt-in-go-local-add-on.png" alt-text="Screenshot of opt in to Azure AD B2C Go-Local add-on in Azure portal."::: 
 
-1. On the **Data residency** pane that appears, select the **Store my directory and Azure AD data in <Counrty>** checkbox, then select **Save** button.
+1. On the **Data residency** pane that appears, select the **Store my directory and Azure AD data in \<Country\>** checkbox, then select **Save** button.
 
 1. Close the **Data residency** pane. 
 

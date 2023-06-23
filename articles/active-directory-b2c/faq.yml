@@ -190,7 +190,7 @@ sections:
       - question: | 
           I've an existing Azure AD B2C tenant in a in Japan or Australia that doesn't have Go-Local add-on enabled. How do I activate this add-on? 
         answer: |
-          Follow the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-go-local-add-on) to activate Azure AD B2C Go-Local add-on.
+          Follow the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on) to activate Azure AD B2C Go-Local add-on.
       - question: |
           Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
         answer: |

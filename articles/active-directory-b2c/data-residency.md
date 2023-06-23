@@ -80,7 +80,7 @@ At the moment, the following countries/regions have the local data residence opt
 
 |Tenant status  | What to do  |
 |-------------|---------|
-| I've an existing tenant | You need to opt in to start using Go-Local add-on by using the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-go-local-add-on). |
+| I've an existing tenant | You need to opt in to start using Go-Local add-on by using the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on). |
 | I'm creating a new tenant | You enable Go-Local add-on when you create your new Azure AD B2C tenant. Learn how to [create your Azure AD B2C](tutorial-create-tenant.md) tenant.|
 
 ## EU Data Boundary
