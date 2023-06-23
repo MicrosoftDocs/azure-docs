@@ -17,13 +17,15 @@ zone_pivot_groups: azure-cli-bicep
 
 Once green environment is tested, the live traffic is directed to it, and the blue environment is used to deploy a new application version during next deployment cycle.
 
-You can enable blue/green deployment in Azure Container Apps by combining [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels). 
+You can enable blue/green deployment in Azure Container Apps by combining [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels).
+
+:::image type="content" source="media/blue-green-deployment/azure-container-apps-blue-green-deployment.png" alt-text="Azure Container Apps: Blue/Green deployment":::
 
 You use revisions to create instances of the blue and green versions of the application.
 
 | Revision | Description |
 |---|---|
-| *Blue* revision | The revision labeled as *blue* is the currently running and stable version of the application. This revision is the one that users interact with, and it is the target of production traffic. |
+| *Blue* revision | The revision labeled as *blue* is the currently running and stable version of the application. This revision is the one that users interact with, and it's the target of production traffic. |
 | *Green* revision | The revision labeled as *green* is a copy of the *blue* revision except it uses a newer version of the app code and possibly new set of environment variables. It doesn't receive any production traffic initially but is accessible via a labeled fully qualified domain name (FQDN). |
 
 After you test and verify the new revision, you can then point production traffic to the new revision. If you encounter issues, you can easily roll back to the previous version.
