@@ -38,35 +38,35 @@ Use the Azure portal to restore a deleted container or database. Child container
 
 1. Go to your Azure Cosmos DB account, and then go to the **Point In Time Restore** page.
 
-    > [!NOTE]
-    > The restore page in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about this permission, see [Backup and restore permissions](continuous-backup-restore-permissions.md).
+   > [!NOTE]
+   > The restore page in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about this permission, see [Backup and restore permissions](continuous-backup-restore-permissions.md).
 
 1. Select the **Restore to same account** tab.
 
-    :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" lightbox="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" alt-text="Screenshot of the options to restore a database or container to the same account.":::
+   :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" lightbox="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" alt-text="Screenshot of the options to restore a database or container to the same account.":::
 
 1. For **Database**, enter a search query to filter the event feed for relevant deletion events for either a container or a database.
 
-    :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" alt-text="Screenshot of the event filter showing deletion events for containers and databases.":::
+   :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" alt-text="Screenshot of the event filter showing deletion events for containers and databases.":::
 
 1. Next, specify **Start** and **End** values to create a time window to use to filter deletion events.
 
-    :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/date-filter.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/date-filter.png" alt-text="Screenshot of the start and end date filters further filtering down deletion events.":::
+   :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/date-filter.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/date-filter.png" alt-text="Screenshot of the start and end date filters further filtering down deletion events.":::
 
-    > [!NOTE]
-    > The **Start** filter is limited to at most 30 days before the present date.
+   > [!NOTE]
+   > The **Start** filter is limited to at most 30 days before the present date.
 
 1. Select **Refresh** to update the list of events on different resource types with your filters applied.
 
 1. Verify the time, and then select **Restore** to start restoration of the selected resource that was previously deleted.
 
-    :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" alt-text="Screenshot of the confirmation dialog prior to a restore operation.":::
+   :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" alt-text="Screenshot of the confirmation dialog prior to a restore operation.":::
 
-    > [!IMPORTANT]
-    > No more than three restore operations can be active at any given time on the same account. Deleting the source account while a restore operation is in progress might result in the failure of the restore operation.
+   > [!IMPORTANT]
+   > No more than three restore operations can be active at any given time on the same account. Deleting the source account while a restore operation is in progress might result in the failure of the restore operation.
 
-    > [!NOTE]
-    > The event feed displays resources as **Not restorable**. The feed provides more information about why the resource can't be restored. In most cases, you must restore the parent database before you can restore any of the database's child containers.
+   > [!NOTE]
+   > The event feed displays resources as **Not restorable**. The feed provides more information about why the resource can't be restored. In most cases, you must restore the parent database before you can restore any of the database's child containers.
 
 1. After you initiate a restore operation, track the operation by using the notifications area of the Azure portal. The notification provides the status of the resource that's being restored. While restore is in progress, the status of the container is **Creating**. After the restore operation completes, the status changes to **Online**.
 
@@ -116,8 +116,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --location <location>
     ```
 
-    > [!NOTE]
-    > Listing all the restorable database deletion events allows you to choose the right database in a scenario in which the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted database, and it can be restored within the same account. The restore time stamp can be set to any time stamp before the deletion time stamp and within the retention window.
+   > [!NOTE]
+   > Listing all the restorable database deletion events allows you to choose the right database in a scenario in which the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted database, and it can be restored within the same account. The restore time stamp can be set to any time stamp before the deletion time stamp and within the retention window.
 
 1. Use [az cosmosdb sql restorable-container list](/cli/azure/cosmosdb/sql/restorable-container#az-cosmosdb-sql-restorable-container-list) to list all the versions of restorable containers within a specific database:
 
@@ -128,8 +128,8 @@ Use the Azure CLI to restore a deleted container or database. Child containers a
         --location <location>
     ```
 
-    > [!NOTE]
-    > Listing all the restorable database deletion events allows you to choose the right container in a scenario in which the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container, and it can be restored within the same account. The restore time stamp can be set to any time stamp before the deletion time stamp and within the retention window.
+   > [!NOTE]
+   > Listing all the restorable database deletion events allows you to choose the right container in a scenario in which the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container, and it can be restored within the same account. The restore time stamp can be set to any time stamp before the deletion time stamp and within the retention window.
 
 1. Initiate a restore operation for a deleted database by using [az cosmosdb sql database restore](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-restore):
 
@@ -373,8 +373,8 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     RestorableLocations       : {West US, East US}
     ```
 
-    > [!NOTE]
-    > There are `CreationTime` or `DeletionTime` fields for the account. These fields also exist for regions. These times allow you to choose the right region and a valid time range to use when you restore a resource.
+   > [!NOTE]
+   > The account has `CreationTime` or `DeletionTime` fields. These fields also exist for regions. These times allow you to choose the correct region and a valid time range to use when you restore a resource.
 
 1. Use the [Get-AzCosmosDBSqlRestorableDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbsqlrestorabledatabase) cmdlet to list all restorable versions of databases for live accounts:
 
@@ -386,8 +386,8 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     Get-AzCosmosDBSqlRestorableDatabase @parameters
     ```
 
-    > [!NOTE]
-    > Listing all the restorable database deletion events allows you to choose the right database in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted database and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
+   > [!NOTE]
+   > Listing all the restorable database deletion events allows you to choose the right database in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted database and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
 
 1. Use the [Get-AzCosmosDBSqlRestorableContainer](/powershell/module/az.cosmosdb/get-azcosmosdbsqlrestorablecontainer) cmdlet to list all the versions of restorable containers within a specific database:
 
@@ -400,8 +400,8 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     Get-AzCosmosDBSqlRestorableContainer @parameters    
     ```
 
-    > [!NOTE]
-    > Listing all the restorable database deletion events allows you allows you to choose the right container in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
+   > [!NOTE]
+   > Listing all the restorable database deletion events allows you allows you to choose the right container in a scenario where the actual time of existence is unknown. If the event feed contains the **Delete** operation type in its response, then it’s a deleted container and it can be restored within the same account. The restore timestamp can be set to any timestamp before the deletion timestamp and within the retention window.
 
 1. Initiate a restore operation for a deleted database by using the Restore-AzCosmosDBSqlDatabase cmdlet:
 
@@ -449,8 +449,8 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     RestorableLocations       : {West US, East US}
     ```
 
-    > [!NOTE]
-    > There are `CreationTime` or `DeletionTime` fields for the account. These fields also exist for regions. These times allow you to choose the right region and a valid time range to use when restoring a resource.
+   > [!NOTE]
+   > The account has `CreationTime` or `DeletionTime` fields. These fields also exist for regions. These times allow you to choose the correct region and a valid time range to use when you restore a resource.
 
 1. Use [Get-AzCosmosdbMongoDBRestorableDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbrestorabledatabase) to list all restorable versions of databases for live accounts:
 
@@ -519,8 +519,8 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     RestorableLocations       : {West US, East US}
     ```
 
-    > [!NOTE]
-    > There are `CreationTime` or `DeletionTime` fields for the account. These fields also exist for regions. These times allow you to choose the right region and a valid time range to use when restoring a resource.
+   > [!NOTE]
+   > The account has `CreationTime` or `DeletionTime` fields. These fields also exist for regions. These times allow you to choose the correct region and a valid time range to use when you restore a resource.
 
 1. Use the [Get-AzCosmosdbGremlinRestorableDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbgremlinrestorabledatabase) cmdlet to list all restorable versions of databases for live accounts:
 
@@ -589,8 +589,8 @@ Use Azure PowerShell to restore a deleted container or database. Child container
     RestorableLocations       : {West US, East US}
     ```
 
-    > [!NOTE]
-    > There are `CreationTime` or `DeletionTime` fields for the account. These fields also exist for regions. These times allow you to choose the right region and a valid time range to use when you restore a resource.
+   > [!NOTE]
+   > The account has `CreationTime` or `DeletionTime` fields. These fields also exist for regions. These times allow you to choose the correct region and a valid time range to use when you restore a resource.
 
 1. Use the [Get-AzCosmosdbTableRestorableTable](/powershell/module/az.cosmosdb/get-azcosmosdbtablerestorabletable) cmdlet to list all restorable versions of tables for live accounts:
 
@@ -620,7 +620,7 @@ Use Azure PowerShell to restore a deleted container or database. Child container
 
 You can restore deleted containers and databases by using an Azure Resource Manager template.
 
-1. Create or locate an Azure Cosmos DB resource in your template. Here's a generic example of a resource.
+1. Create or locate an Azure Cosmos DB resource in your template. Here's a generic example of a resource:
 
     ```json
     {
@@ -723,8 +723,8 @@ You can restore deleted containers and databases by using an Azure Resource Mana
 
     :::zone-end
 
-    > [!NOTE]
-    > Use [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list) to retrieve a list of instance identifiers for all live and deleted restorable database accounts.
+   > [!NOTE]
+   > Use [az cosmosdb restorable-database-account list](/cli/azure/cosmosdb/restorable-database-account#az-cosmosdb-restorable-database-account-list) to retrieve a list of instance identifiers for all live and deleted restorable database accounts.
 
 1. Deploy the template by using [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 

@@ -142,7 +142,7 @@ An example of a delegate implementation when reading the change feed in [latest 
 >
 > [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
 
-The delegate implementation for reading the change feed in [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview) is similar, but instead of calling `.handleChanges()`, call `.handleAllVersionsAndDeletesChanges()`. All versions and deletes mode is in preview and is available in Java SDK version >= `4.42.0`. 
+The delegate implementation for reading the change feed in [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview) is similar, but instead of calling `.handleChanges()`, call `.handleAllVersionsAndDeletesChanges()`. All versions and deletes mode is in preview and is available in Java SDK version >= `4.42.0`.
 
 Here's an example:
 

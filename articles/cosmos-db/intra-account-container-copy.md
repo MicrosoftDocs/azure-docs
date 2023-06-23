@@ -38,7 +38,9 @@ To get started with intra-account offline container copy for NoSQL and Cassandra
 
 To get started with intra-account offline container copy for Azure Cosmos DB for MongoDB accounts, register for the **Intra-account offline container copy (MongoDB)** preview feature flag in [Preview Features](access-previews.md) in the Azure portal. Once the registration is complete, the preview is effective for all API for MongoDB accounts in the subscription.
 
-## How to copy a container
+<a name="how-to-do-container-copy"></a>
+
+## Copy a container
 
 1. Create the target Azure Cosmos DB container by using the settings that you want to use (partition key, throughput granularity, request units, unique key, and so on).
 1. Stop the operations on the source container by pausing the application instances or any clients that connect to it.
@@ -55,7 +57,7 @@ Intra-account container copy jobs perform offline data copy by using the source 
 * The container copy jobs run on these instances.
 * A single job is executed across all instances at any time.
 * The instances are shared by all the container copy jobs that are running within the same account.
-* The platform might deallocate the instances if they're idle for for longer than 15 minutes.
+* The platform might deallocate the instances if they're idle for longer than 15 minutes.
 
 > [!NOTE]
 > We currently support only offline container copy jobs. We strongly recommend to stop performing any operations on the source container prior to beginning the container copy. Item deletions and updates done on the source container after beginning the copy job may not be captured. Hence, continuing to perform operations on the source container while the container job is in progress may result in additional or missing data on the target container.
@@ -82,12 +84,12 @@ The rate of container copy job progress is determined by these factors:
 
 Container copy jobs don't work with accounts that the following capabilities enabled. Disable these features before you run the container copy jobs:
 
-- [Disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates)
-- [Merge partition](merge.md)
+* [Disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates)
+* [Merge partition](merge.md)
 
 ### Account configurations
 
-The time-to-live (TTL) setting is not adjusted in the destination container. As a result, if a document has not expired in the source container, it will start its countdown anew in the destination container.
+The Time to Live (TTL) setting isn't adjusted in the destination container. As a result, if a document hasn't expired in the source container, it starts its countdown anew in the destination container.
 
 ## FAQs
 

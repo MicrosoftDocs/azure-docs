@@ -495,7 +495,7 @@ To this query:
 
 `find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
-The first part of the modified query uses the index to restrict the search to documents that begin with `^abc`. The second part of the query matches the exact entries. The bar operator `|` acts as an "or" function - the query `find({x:{$regex: /^abc |^def/})` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
+The first part of the modified query uses the index to restrict the search to documents that begin with `^abc`. The second part of the query matches the exact entries. The bar operator (`|`) acts as an "or" function. The query `find({x:{$regex: /^abc |^def/})` matches the documents in which field 'x' has values that begin with `abc` or `def`. To use the index, we recommend that you break the query into two different queries joined by the `$or` operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
 
 ### Array operators
 
@@ -628,9 +628,9 @@ Azure Cosmos DB supports automatic, server-side sharding. It automatically manag
 
 Azure Cosmos DB doesn't yet support server-side sessions commands.
 
-## Time-to-live
+## Time to Live
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the time stamp of the document. You can enable TTL for a collections in the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a Time to Live (TTL) that's based on the time stamp of the document. You can enable TTL for a collection in the [Azure portal](https://portal.azure.com).
 
 ### Custom TTL
 
@@ -638,7 +638,7 @@ This feature provides the ability to set a custom TTL on any one field in a coll
 
 On a collection that has TTL enabled on a field:
 
-- Acceptable types are the BSON date type and numeric types (integer, long, or double) which will be interpreted as a Unix millisecond time stamp to determine expiration.
+- Acceptable types are the BSON data type and numeric types (integer, long, or double) which will be interpreted as a Unix millisecond time stamp to determine expiration.
 
 - If the TTL field is an array, then the smallest element of the array that is of an acceptable type is considered for document expiry.
 
@@ -670,7 +670,7 @@ Multi-document transactions are supported within an unsharded collection. Multi-
 
 Azure Cosmos DB doesn't yet support users and roles. However, Azure Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords and keys that can be obtained through the [Azure portal](https://portal.azure.com) (on the **Connection Strings** page).
 
-## Write concern
+## Write concerns
 
 Some applications rely on a [write concern](https://docs.mongodb.com/manual/reference/write-concern/), which specifies the number of responses that are required during a write operation. Due to how Azure Cosmos DB handles replication in the background, all writes are automatically Quorum by default. Any write concern that's specified by the client code is ignored. Learn how to [use consistency levels to maximize availability and performance](../consistency-levels.md).
 

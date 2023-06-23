@@ -70,8 +70,8 @@ Use the Azure CLI to enable the materialized views feature either by using a nat
     az login
     ```
 
-    > [!NOTE]
-    > If you need to first install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+   > [!NOTE]
+   > If you need to first install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Define the variables for the resource group and account name for your existing API for NoSQL account.
 
@@ -127,8 +127,8 @@ Create a materialized view builder to automatically transform data and write to 
 
 1. On the **Materialized Views Builder** page, configure the SKU and the number of instances for the builder.
 
-    > [!NOTE]
-    > This resource menu option and page appear only when the materialized views feature is enabled for the account.
+   > [!NOTE]
+   > This resource menu option and page appear only when the materialized views feature is enabled for the account.
 
 1. Select **Save**.
 
@@ -169,7 +169,7 @@ Azure Cosmos DB For NoSQL uses a materialized view builder compute layer to main
 
 You have the flexibility of configuring the view builder's compute instances based on your latency and lag requirements to hydrate the views. From a technical standpoint, this compute layer helps you manage connections between partitions in a more efficient manner, even when the data size is large and the number of partitions is high.
 
-The compute containers are shared among all materialized views within an Azure Cosmos DB account. Each provisioned compute container initiate multiple tasks that read the change feed from the base container partitions and write data to the target materialized view or views. The compute container transforms the data per the materialized view definition for each materialized view in the account.
+The compute containers are shared among all materialized views within an Azure Cosmos DB account. Each provisioned compute container initiates multiple tasks that read the change feed from the base container partitions and write data to the target materialized view or views. The compute container transforms the data per the materialized view definition for each materialized view in the account.
 
 ## Create a materialized view
 
@@ -179,8 +179,8 @@ After your account and the materialized view builder is set up, you should be ab
 
 1. Use the Azure portal, the Azure SDK, the Azure CLI, or the REST API to create a source container that has `/accountId` as the partition key path. Name this source container `mv-src.
 
-    > [!NOTE]
-    > The `/accountId` field is used only as an example in this article. For your own containers, select a partition key that works for your solution.
+   > [!NOTE]
+   > The `/accountId` field is used only as an example in this article. For your own containers, select a partition key that works for your solution.
 
 1. Insert a few items in the source container. To follow the examples that are shown in this article, make sure that the items have `accountId`, `fullName`, and `emailAddress` fields. A sample item might look like this example:
 
@@ -195,8 +195,8 @@ After your account and the materialized view builder is set up, you should be ab
     }
     ```
 
-    > [!NOTE]
-    > In this example, you populate the source container with sample data. You can also create a materialized view from an empty source container.
+   > [!NOTE]
+   > In this example, you populate the source container with sample data. You can also create a materialized view from an empty source container.
 
 1. Now, create a materialized view named `mv-target` with a partition key path that is different from the source container. For this example, specify `/emailAddress` as the partition key path for the `mv-target` container.
 
@@ -227,8 +227,8 @@ After your account and the materialized view builder is set up, you should be ab
         }        
         ```
 
-    > [!NOTE]
-    > In the template, notice that the partitionKey path is set as `/emailAddress`. We also have more parameters to specify the source collection and the definition to populate the materialized view.
+   > [!NOTE]
+   > In the template, notice that the partitionKey path is set as `/emailAddress`. We also have more parameters to specify the source collection and the definition to populate the materialized view.
 
 1. Now, make a REST API call to create the materialized view as defined in the *mv_definition.json* file. Use the Azure CLI to make the REST API call.
 

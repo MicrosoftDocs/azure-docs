@@ -40,7 +40,7 @@ Using a synthetic partition key that combines `TenantId` and `UserId` adds compl
 
 With hierarchical partition keys, we can partition first on `TenantId`, and then on `UserId`. If you expect the `TenantId` and `UserId` combination to produce partitions that exceed 20 GB, you can even partition further down to another level, such as on `SessionId`. The overall depth can't exceed three levels. When a physical partition exceeds 50 GB of storage, Azure Cosmos DB automatically splits the physical partition so that roughly half of the data is on one physical partition, and half is on the other. Effectively, subpartitioning means that a single `TenantId` can exceed 20 GB of data, and it's possible for a TenantId's data to span multiple physical partitions.
 
-Queries that specify either `TenantId`, or both `TenantId` and `UserId`, is efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1,000 physical partitions, but a specific `TenantId` value was only on five of them, the query would be routed routed to the smaller number of relevant physical partitions.
+Queries that specify either `TenantId`, or both `TenantId` and `UserId`, are efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1,000 physical partitions, but a specific `TenantId` value was only on five of them, the query would be routed to the smaller number of relevant physical partitions.
 
 ## Use item ID in hierarchy
 
@@ -85,7 +85,7 @@ The simplest way to create a container and specify hierarchical partition keys i
 
 1. On the left menu, select **Data Explorer**.
 
-    :::image type="content" source="media/hierarchical-partition-keys/data-explorer-menu-option.png" lightbox="media/hierarchical-partition-keys/data-explorer-menu-option.png" alt-text="Screenshot of the page for a new Azure Cosmos DB for NoSQL account with the Data Explorer menu option highlighted.":::
+    :::image type="content" source="media/hierarchical-partition-keys/data-explorer-menu-option.png" lightbox="media/hierarchical-partition-keys/data-explorer-menu-option.png" alt-text="Screenshot that shows the page for a new Azure Cosmos DB for NoSQL account with the Data Explorer menu option highlighted.":::
 
 1. On **Data Explorer**, select the **New Container** option.
 
@@ -214,6 +214,8 @@ You can test the subpartitioning feature by using the latest version of the loca
 ```
 
 For more information, see [Azure Cosmos DB emulator](./local-emulator.md).
+
+<a name="use-the-sdks-to-work-with-containers-with-hierarchical-partition-keys"></a>
 
 ## Use the SDKs to work with containers that have hierarchical partition keys
 

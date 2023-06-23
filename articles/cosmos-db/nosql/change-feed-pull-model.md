@@ -1,5 +1,5 @@
 ---
-title: Change feed pull model
+title: Change feed pull model in Azure Cosmos DB
 description: Learn how to use the Azure Cosmos DB change feed pull model to read the change feed. Understand the differences between the change feed pull model and the change feed processor.
 author: seesharprun
 ms.author: sidandrews
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, build-2023
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. Similar to the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
+You can use the change feed pull model to consume the Azure Cosmos DB change feed at your own pace. Similar to the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
 
 ## Compared to the change feed processor
 
@@ -71,7 +71,7 @@ FeedIterator<dynamic> InteratorWithDynamic = container.GetChangeFeedIterator<dyn
 ```
 
 > [!NOTE]
-> In latest version mode, you receive objects that represent the item that changed, with some [extra metadata](change-feed-modes.md#parsing-the-response-object). All versions and deletes mode returns a different data model. For more information, see [Parse the response object](change-feed-modes.md#parsing-the-response-object-1).
+> In latest version mode, you receive objects that represent the item that changed, with some [extra metadata](change-feed-modes.md#parse-the-response-object). All versions and deletes mode returns a different data model. For more information, see [Parse the response object](change-feed-modes.md#parse-the-response-object-1).
 
 ### Consume the change feed via streams
 
@@ -205,7 +205,7 @@ while (iteratorB.HasMoreResults)
 }
 ```
 
-### Saving continuation tokens
+### Save continuation tokens
 
 You can save the position of your `FeedIterator` by obtaining the continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes and allows the `FeedIterator` to resume at this point later. The continuation token, if specified, takes precedence over the start time and start from beginning values. The following code reads through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
 

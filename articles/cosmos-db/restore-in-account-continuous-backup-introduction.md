@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/08/2023
 ---
 
-# Restore deleted databases or containers in the same account by using continuous backup (preview)
+# Restore a deleted database or container in the same account by using continuous backup (preview)
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
@@ -76,6 +76,5 @@ Here's a list of the current behavior characteristics of the point-in-time in-ac
 
 ## Next steps
 
-- [Trigger an in-account restore operation](how-to-restore-in-account-continuous-backup.md) for a continuous backup account.
-- [Resource model of in-account continuous backup mode](restore-in-account-continuous-backup-resource-model.md)
-- [In-account restore introduction](restore-in-account-continuous-backup-introduction.md)
+- [Initiate an in-account restore operation](how-to-restore-in-account-continuous-backup.md) for a continuous backup account.
+- Learn about the [resource model of in-account continuous backup mode](restore-in-account-continuous-backup-resource-model.md).

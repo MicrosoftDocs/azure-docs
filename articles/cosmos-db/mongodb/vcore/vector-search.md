@@ -193,7 +193,7 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 
 ## Next steps
 
-This guide demonstrated how to create a vector index, add documents that have vector data, perform a similarity search, and retrieve the index definition. By using vector search, you can efficiently store, index, and query high-dimensional vector data directly in Azure Cosmos DB for MongoDB vCore. Vector search enables you to unlock the full potential of your data via vector embeddings, and it empowers you to build more accurate, efficient, and powerful applications.
+This guide demonstrates how to create a vector index, add documents that have vector data, perform a similarity search, and retrieve the index definition. By using vector search, you can efficiently store, index, and query high-dimensional vector data directly in Azure Cosmos DB for MongoDB vCore. Vector search enables you to unlock the full potential of your data via vector embeddings, and it empowers you to build more accurate, efficient, and powerful applications.
 
 > [!div class="nextstepaction"]
 > [Introduction to Azure Cosmos DB for MongoDB vCore](introduction.md)

@@ -32,7 +32,7 @@ The Azure Cosmos DB serverless option best fits scenarios in which you expect *i
 - You're getting started with Azure Cosmos DB.
 - You're running applications that have one of the following patterns:
   - Bursting, intermittent traffic that is hard to forecast.
-  - Low (<10%) average-to-peak traffic ratio.
+  - Low (less than 10 percent) average-to-peak traffic ratio.
 - You're developing, testing, prototyping, or offering your users a new application, and you don't yet know the traffic pattern.
 - You're integrating with a serverless compute service, like [Azure Functions](../azure-functions/functions-overview.md).
 
@@ -60,7 +60,7 @@ If you've used the Azure Cosmos DB provisioned throughput model before, you migh
 
 You can monitor consumption by viewing a chart in your Azure Cosmos DB account in the Azure portal. For your Azure Cosmos DB account, go to the **Metrics** pane. On the **Overview** tab, view the chart that's named **Request Units consumed**. The chart shows how many RUs your account has consumed for different periods of time.
 
-:::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Chart showing the consumed Request Units." border="false":::
+:::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Screenshot that shows a chart of the consumed request units.":::
 
 You can use the same [chart in Azure Monitor](monitor-request-unit-usage.md). When you use Azure Monitor, you can set up [alerts](../azure-monitor/alerts/alerts-metric-overview.md) so that you're notified when your RU consumption passes a threshold that you set.
 

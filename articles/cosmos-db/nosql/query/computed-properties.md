@@ -67,7 +67,7 @@ The constraints on computed property query definitions are:
 
 - Queries can't include a scalar subquery.
 
-- Aggregate functions, spatial functions, non-deterministic functions, and user defined functions aren't supported.
+- Aggregate functions, spatial functions, nondeterministic functions, and user defined functions aren't supported.
 
 ## Create computed properties
 
@@ -345,7 +345,7 @@ To add a composite index on two properties in which one is computed as `cp_myCom
 
 ## Understand request unit consumption
 
-Adding computed properties to a container does not consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. While in preview, RU charges that are related to computed properties are subject to change.
+Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. While in preview, RU charges that are related to computed properties are subject to change.
 
 ## Next steps
 

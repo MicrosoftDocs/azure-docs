@@ -24,7 +24,7 @@ Latest version mode is a persistent record of changes made to items from creates
 
 ## All versions and deletes change feed mode (preview)
 
-All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts. Learn more about how to [sign up for the preview](#getting-started).
+All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts. Learn more about how to [sign up for the preview](#get-started).
 
 ## Change feed use cases
 
@@ -92,7 +92,7 @@ In addition to the [common features across all change feed modes](../change-feed
 
 ---
 
-## Working with the change feed
+## Work with the change feed
 
 Each mode is compatible with different methods to read the change feed for each language.
 
@@ -169,7 +169,7 @@ The response object is an array of items that represent each change. The array l
 
 * Reading changes on a container that existed before continuous backups were enabled on the account isn't supported.
 
-* The ability to start reading the change feed from the beginning or to select a start time based on a past time stamp isn't currently supported. You can either start from "now" or from a previous [lease](change-feed-processor.md#components-of-the-change-feed-processor) or [continuation token](change-feed-pull-model.md#saving-continuation-tokens).
+* The ability to start reading the change feed from the beginning or to select a start time based on a past time stamp isn't currently supported. You can either start from "now" or from a previous [lease](change-feed-processor.md#components-of-the-change-feed-processor) or [continuation token](change-feed-pull-model.md#save-continuation-tokens).
 
 * Receiving the previous version of items that have been updated isn't currently available.
 
