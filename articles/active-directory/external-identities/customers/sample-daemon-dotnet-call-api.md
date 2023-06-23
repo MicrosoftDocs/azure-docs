@@ -7,7 +7,6 @@ manager: mwongerapk
 
 ms.author: shermanouko
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
