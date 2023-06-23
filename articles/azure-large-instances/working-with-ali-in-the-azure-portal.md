@@ -156,34 +156,31 @@ The data listed includes:
  :::image type="content" source="../baremetal-infrastrucure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
 
 Changes to an instance's metadata in Azure also get recorded in the Activity log.
-Besides the restart, you can see the activity of **Write BareMetalInstances**. 
+Besides the restart, you can see the activity of **WriteBareMetalInstances**. 
 This activity makes no changes on the ALI instance itself, but documents the changes to the unit's metadata in Azure.
 
 Another activity that gets recorded is adding a tag to or deleting a tag from an instance.
 
 ## Add an Azure tag to or delete an Azure tag from an instance
 
-Adding or deleting a [tag](../azure-resource-manager/management/tag-resources.md) to an instance is recorded.
-
- 
 You can add Azure tags to an ALI instance or delete them using either the Portal or Azure CLI.  
 
 ### [Portal](#tab/azure-portal)
  
-You can add Azure tags to a BareMetal instance or delete them.
 Tags get assigned just as they do when assigning tags to VMs.
 As with VMs, the tags exist in the Azure metadata.
-Tags have the same restrictions for BareMetal instances as for VMs.
+Tags have the same restrictions for ALI instances as for VMs.
  
-Deleting tags also works the same way as for VMs. Both applying and deleting a tag is listed in the ALI instance's Activity log.
+Deleting tags also works the same way as for VMs. 
+Both applying and deleting a tag is listed in the ALI instance's Activity log.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Assigning tags to ALI instances works the same as assigning tags for virtual machines.
+Assigning tags to ALI instances works the same as assigning tags for VMs.
 As with VMs, the tags exist in the Azure metadata.
 Tags have the same restrictions for ALI instances as for VMs.
 
-To add tags to a BareMetal instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az-baremetalinstance-update) command:
+To add tags to an ALI instance, run the [az baremetalinstance update](/cli/azure/baremetalinstance#az-baremetalinstance-update) command:
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
@@ -193,31 +190,9 @@ Use the same command to remove a tag:
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
-```
+``
 
----
-
-Assigning tags to ALI instances works the same as assigning tags for virtual machines. As with VMs, the tags exist in the Azure metadata. Tags have the same restrictions for ALI as for VMs. 
-
- 
-
-To add tags to a Azure Large Instance, run the az baremetalinstance update command: 
-
- 
-
-az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal 
-
- 
-
-Use the same command to remove a tag: 
-
- 
-
-az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept 
-
- 
-
-Check properties of an instance 
+### Check properties of an instance 
 
 When you acquire the instances, you can go to the Properties section to view the data collected about the instances. Data collected includes: 
 
