@@ -121,8 +121,8 @@ To confirm the connector installed and registered correctly:
     - *Microsoft Azure AD Application Proxy Connector Updater* is an automated update service.
     - The updater checks for new versions of the connector and updates the connector as needed.
 
-    ![Screenshot of the Ap proxy connector and connector updater services in Windows Services Manager.](media/how-to-configure-connectors/app_proxy_services.png)
-    
+    ![Screenshot of the Ap proxy connector and connector updater services in Windows Services Manager.](media/how-to-configure-connectors/app-proxy-services.png)
+
 1. If the status for the services isn't **Running**, right-click to select each service and choose **Start**.
 
 ## Create connector groups
