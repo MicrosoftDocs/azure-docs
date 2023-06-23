@@ -371,7 +371,7 @@ sections:
       - question: |
             I'm building a custom model, what does the signature-detection label return?
         answer: |
-            [Signature detection](quickstarts/try-v3-form-recognizer-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
+            [Signature detection](quickstarts/try-form-recognizer-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
 
             If the model returns "unsigned" for signature detection, the model didn’t find a signature in the defined field.
 
@@ -386,7 +386,7 @@ sections:
 
              - Do your tables span across multiple pages? If so, to avoid having to label all of the pages, split the PDF into pages prior to sending it to Form Recognizer. Following the analysis, post-process the pages to a single table.
 
-             - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
+             - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-form-recognizer-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
 
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?

@@ -33,7 +33,7 @@ This article contains both a quick reference and detailed description of Azure F
 >
 > * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md)
 > * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md)
-> * [**Form Recognizer Studio v3.0**](quickstarts/try-v3-form-recognizer-studio.md)
+> * [**Form Recognizer Studio v3.0**](quickstarts/try-form-recognizer-studio.md)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
