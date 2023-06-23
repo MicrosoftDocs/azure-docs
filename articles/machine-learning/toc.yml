@@ -699,10 +699,10 @@
   # end v1
 - name: Deploy for inferencing
   items:
-    - name: Endpoints for inferencing
-      href: concept-endpoints.md
     - name: Online endpoints (real-time)
       items:
+        - name: Endpoints
+          href: concept-endpoints.md
         - name: Online endpoints
           href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
