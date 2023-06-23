@@ -133,15 +133,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create IDrive360 test user
 
-1. To automate the configuration within IDrive360, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up IDrive360** will direct you to the IDrive360 application. From there, provide the admin credentials to sign into IDrive360. The browser extension will automatically configure the application for you and automate steps 3-10.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup IDrive360 manually, in a different web browser window, sign in to your IDrive360 company site as an administrator.
+1. In a different web browser window, sign in to your IDrive360 company site as an administrator
 
 2. Navigate to the **Users** tab and click **Add User**.
 

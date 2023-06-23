@@ -34,7 +34,7 @@ The synchronization process is one-way by design. There's no reverse synchroniza
 
 ## Scoped synchronization and group filter
 
-You can scope synchronization to only user accounts that originated in the cloud. Within that synchronization scope, you can filter for specific groups os users. You can choose between cloud only groups, on-premises groups, or both. For more information about how to configure scoped synchronization, see [Configure scoped synchronization](scoped-synchronization.md).
+You can scope synchronization to only user accounts that originated in the cloud. Within that synchronization scope, you can filter for specific groups or users. You can choose between cloud only groups, on-premises groups, or both. For more information about how to configure scoped synchronization, see [Configure scoped synchronization](scoped-synchronization.md).
 
 :::image type="content" border="true" source="./media/scoped-synchronization/filter.png" alt-text="Screenshot of group filter option.":::
 

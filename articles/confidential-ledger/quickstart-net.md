@@ -7,7 +7,7 @@ ms.date: 07/15/2022
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Azure confidential ledger client library for .NET

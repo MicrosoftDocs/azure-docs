@@ -470,6 +470,21 @@ If you're not going to continue to use this application, delete the cluster that
 
 :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes HDInsight cluster" border="true":::
 
+## Errors and solution
+
+Unmark the src folder as **Sources** if you get build failed errors as below:
+
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/build-failed.png" alt-text="Screenshot showing the build failed." border="true":::
+
+Unmark the src folder as **Sources** to solution this issue:
+
+1. Navigate to **File** and select the **Project Structure**.
+2. Select the **Modules** under the Project Settings.
+3. Select the **src** file and unmark as **Sources**.
+4. Click on Apply button and then click on OK button to close the dialog.
+
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/unmark-src-as-sources.png" alt-text="Screenshot showing the unmark the src as sources." border="true":::
+
 ## Next steps
 
 In this article, you learned how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications written in [Scala](https://www.scala-lang.org/). Then submitted them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI.

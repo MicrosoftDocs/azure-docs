@@ -51,7 +51,7 @@ If the required controls of a policy weren't previously satisfied, the policy is
 - Role membership
 - Sign-in risk
 - User risk
-- Country location (resolving new IP or GPS coordinates)
+- Country/region location (resolving new IP or GPS coordinates)
 - Authentication strengths
 
 When active, the Backup Authentication Service doesn't evaluate authentication methods required by [authentication strengths](../authentication/concept-authentication-strengths.md). If you used a non-phishing-resistant authentication method before an outage, during an outage you aren't prompted for multifactor authentication even if accessing a resource protected by a Conditional Access policy with a phishing-resistant authentication strength.

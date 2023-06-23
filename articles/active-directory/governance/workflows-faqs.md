@@ -1,6 +1,6 @@
 ---
-title: 'Lifecycle workflows FAQs (preview)'
-description: Frequently asked questions about Lifecycle workflows (preview).
+title: 'Lifecycle workflows FAQs'
+description: Frequently asked questions about Lifecycle workflows.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 05/26/2023
-ms.author: amsliu
+ms.date: 05/31/2023
+ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
-# Lifecycle workflows - FAQs (preview)
+# Lifecycle workflows - FAQs
 
 In this article, you'll find questions to commonly asked questions about [Lifecycle Workflows](what-are-lifecycle-workflows.md). Check back to this page frequently as changes happen often, and answers are continually being added.
 
@@ -40,8 +40,8 @@ Some tasks do update existing attributes; however, we don’t currently share th
 
 ### Is it possible for me to create new tasks and how? For example, triggering other graph APIs/web hooks?
 
-We currently don’t support the ability to create new tasks outside of the set of tasks supported in the task templates. As an alternative, you may accomplish this by setting up a logic app and then creating a logic apps task in Lifecycle Workflows with the URL. For more information, see [Trigger Logic Apps based on custom task extensions (preview)](trigger-custom-task.md)
+We currently don’t support the ability to create new tasks outside of the set of tasks supported in the task templates. As an alternative, you may accomplish this by setting up a logic app and then creating a logic apps task in Lifecycle Workflows with the URL. For more information, see [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md)
 
 ## Next steps
 
-- [What are Lifecycle workflows? (Preview)](what-are-lifecycle-workflows.md)
+- [What are Lifecycle workflows?](what-are-lifecycle-workflows.md)

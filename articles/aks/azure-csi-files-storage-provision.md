@@ -161,7 +161,7 @@ The following YAML creates a pod that uses the persistent volume claim *my-azure
     metadata:
       name: mypod
     spec:
-      containers:
+     containers:
      - name: mypod
         image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
         resources:

@@ -7,7 +7,7 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Create a data source
@@ -288,5 +288,5 @@ See the following articles for more code samples to add to your maps:
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
 
-[Vector tile line layer]: https://samples.azuremaps.com/?search=Vector%20tile&sample=vector-tile-line-layer
+[Vector tile line layer]: https://samples.azuremaps.com/vector-tiles/vector-tile-line-layer
 [Azure Maps Samples]: https://samples.azuremaps.com

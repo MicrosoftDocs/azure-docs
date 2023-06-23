@@ -2,7 +2,7 @@
 title: Use PowerShell to create a VM with Accelerated Networking
 description: Use Azure PowerShell to create and manage Windows virtual machines that have Accelerated Networking enabled for improved network performance.
 services: virtual-network
-author: asudbring
+author: steveesp
 manager: gedegrac
 ms.service: virtual-network
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-windows
 ms.custom: devx-track-azurepowershell
 ms.workload: infrastructure
 ms.date: 03/20/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # Use Azure PowerShell to create a VM with Accelerated Networking

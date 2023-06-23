@@ -7,7 +7,7 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Clustering point data in the Web SDK
@@ -220,8 +220,8 @@ See code examples to add functionality to your app:
 
 [aggregate expression]: data-driven-style-expressions-web-sdk.md#aggregate-expression
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/?search=bubble%20layer&sample=point-clusters-in-bubble-layer
-[Display clusters with a Symbol Layer]: https://samples.azuremaps.com/?search=symbol%20layer&sample=display-clusters-with-a-symbol-layer
-[Cluster weighted Heat Map]: https://samples.azuremaps.com/?search=heat%20maps&sample=cluster-weighted-heat-map
-[Display cluster area with Convex Hull]: https://samples.azuremaps.com/?search=cluster%20area&sample=display-cluster-area-with-convex-hull
-[Cluster aggregates]: https://samples.azuremaps.com/?search=clusters&sample=cluster-aggregates
+[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/bubble-layer/point-clusters-in-bubble-layer
+[Display clusters with a Symbol Layer]: https://samples.azuremaps.com/symbol-layer/display-clusters-with-a-symbol-layer
+[Cluster weighted Heat Map]: https://samples.azuremaps.com/heat-map-layer/cluster-weighted-heat-map
+[Display cluster area with Convex Hull]: https://samples.azuremaps.com/spatial-math/display-cluster-area-with-convex-hull
+[Cluster aggregates]: https://samples.azuremaps.com/bubble-layer/cluster-aggregates

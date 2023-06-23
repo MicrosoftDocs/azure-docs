@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Platform Functions for Bare Metal Machines"
 description: Learn how to manage Bare Metal Machines (BMM).
 author: harish6724
 ms.author: harishrao
-ms.service: azure-operator-nexus 
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/26/2023
 ms.custom: template-how-to
@@ -17,27 +17,29 @@ This article describes how to perform lifecycle management operations on Bare Me
 - Start the BMM
 - Restart the BMM
 - Make the BMM unschedulable or schedulable
-- Reimage the BMM 
+- Reimage the BMM
 - Replace the BMM
 
 ## Prerequisites
 
 1. Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md)
+   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Get the name of the resource group for the BMM
-1. Get the name of the bare metal machine  that requires a lifecycle management operation
+1. Get the name of the bare metal machine that requires a lifecycle management operation
 1. Ensure that the target bare metal machine `poweredState` set to `On` and `readyState` set to `True`
-    1. This prerequisite is not applicable for the `start` command
+   1. This prerequisite is not applicable for the `start` command
 
+> [!CAUTION]
+> Actions against management servers should not be run without consultation with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
 
 ## Power off the BMM
 
 This command will `power-off` the specified `bareMetalMachineName`.
 
 ```azurecli
-  az networkcloud baremetalmachine power-off \
-    --name "bareMetalMachineName"  \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine power-off \
+  --name "bareMetalMachineName"  \
+  --resource-group "resourceGroupName"
 ```
 
 ## Start the BMM
@@ -45,9 +47,9 @@ This command will `power-off` the specified `bareMetalMachineName`.
 This command will `start` the specified `bareMetalMachineName`.
 
 ```azurecli
- az networkcloud baremetalmachine start \
-   --name "bareMetalMachineName" \
-   --resource-group "resourceGroupName"
+az networkcloud baremetalmachine start \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 ## Restart the BMM
@@ -55,9 +57,9 @@ This command will `start` the specified `bareMetalMachineName`.
 This command will `restart` the specified `bareMetalMachineName`.
 
 ```azurecli
- az networkcloud baremetalmachine restart \
-    --name "bareMetalMachineName" \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine restart \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 ## Make a BMM unschedulable (cordon)
@@ -71,10 +73,10 @@ On executing the `cordon` command, with the value `True` for the `evacuate`
 parameter, the workloads that are running on the BMM are `stopped` and the BMM is set to `pending` state.
 
 ```azurecli
-  az networkcloud baremetalmachine cordon \
-    --evacuate "True" \
-    --name "bareMetalMachineName" \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine cordon \
+  --evacuate "True" \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 The `evacuate "True"` removes workloads from that node while `evacuate "False"` only prevents the scheduling of new workloads.
@@ -85,9 +87,9 @@ You can make a BMM `schedulable` (usable) by executing the [`uncordon`](#make-a-
 state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ```azurecli
-  az networkcloud baremetalmachine uncordon \
-    --name "bareMetalMachineName" \
-    --resource-group "resourceGroupName"
+az networkcloud baremetalmachine uncordon \
+  --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName"
 ```
 
 ## Reimage a BMM

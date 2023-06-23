@@ -115,7 +115,7 @@ ms.author: eur
 | `mr-IN` | Marathi (India) | Plain text |
 | `ms-MY` | Malay (Malaysia) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `mt-MT` | Maltese (Malta) | Plain text |
-| `my-MM` | Burmese (Myanmar) | Not supported |
+| `my-MM` | Burmese (Myanmar) | Plain text |
 | `nb-NO` | Norwegian Bokmål (Norway) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ne-NP` | Nepali (Nepal) | Plain text |
 | `nl-BE` | Dutch (Belgium) | Plain text |

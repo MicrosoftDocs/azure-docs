@@ -5,7 +5,7 @@ author: juliakm
 ms.topic: conceptual
 ms.date: 05/15/2023
 ms.author: jukullam
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devops-pipelines-deploy"
+ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
 zone_pivot_groups: functions-task-versions
 ---
@@ -700,4 +700,3 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
 - Review the [Azure Functions overview](functions-overview.md).
 - Review the [Azure DevOps overview](/azure/devops/pipelines/).
-

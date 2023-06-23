@@ -25,7 +25,7 @@ In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD)
 
 Learn more: 
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md).
 
 ## Scenario description

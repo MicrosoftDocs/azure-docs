@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 02/27/2023
 ms.author: duau
-ms.custom: "has-adal-ref, devx-track-csharp"
+ms.custom: has-adal-ref, devx-track-csharp, devx-track-dotnet
 ---
 
 # Get started with the Azure CDN Library for .NET

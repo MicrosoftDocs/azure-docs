@@ -3,7 +3,7 @@ title: Use Azure Key Vault when deploying Managed Applications
 description: Shows how to access secrets in Azure Key Vault when deploying Managed Applications.
 ms.custom: subject-rbac-steps
 ms.topic: conceptual
-ms.date: 04/14/2023
+ms.date: 06/06/2023
 ---
 
 # Access Key Vault secret when deploying Azure Managed Applications
@@ -29,7 +29,7 @@ This article describes how to configure the Key Vault to work with Managed Appli
 
 ## Add service as contributor
 
-Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope. For detailed steps, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope. The **Contributor** role is a _privileged administrator role_ for the role assignment. For detailed steps, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 The **Appliance Resource Provider** is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can verify if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 

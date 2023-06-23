@@ -94,7 +94,9 @@ The Discovery page defaults to a list view of Discovery Groups, but users can al
 
 ### Seeds
 
-The seed list view displays seed values with three columns: type, source name, and discovery group. The “type" field displays the category of the seed asset; the most common seeds are domains, hosts and IP blocks, but you can also use email contacts, ASNs, certificate common names or WhoIs organizations. The source name is simply the value that was inputted in the appropriate type box when creating the discovery group. The final column shows a list of discovery groups that use the seed; each value is clickable, taking you to the details page for that discovery group.
+The seed list view displays seed values with three columns: type, source name, and discovery group. The “type" field displays the category of the seed asset; the most common seeds are domains, hosts and IP blocks, but you can also use email contacts, ASNs, certificate common names or WhoIs organizations. The source name is simply the value that was inputted in the appropriate type box when creating the discovery group. The final column shows a list of discovery groups that use the seed; each value is clickable, taking you to the details page for that discovery group. 
+
+When inputting seeds, remember to validate the appropriate format for each entry. When saving the Discovery Group, the platform will run a series of validation checks and alert you of any misconfigured seeds.  For example, IP Blocks should be inputted by network address (i.e. the start of the IP range). 
 
 :::image type="content" source="media/Discovery_11.png" alt-text="Screenshot of seeds view of discovery page."::: 
 

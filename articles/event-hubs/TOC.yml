@@ -204,8 +204,6 @@
           href: add-custom-data-event.md
         - name: Dynamically add partitions
           href: dynamically-add-partitions.md
-        - name: Use Blob Storage as checkpoint store on Azure Stack Hub
-          href: use-blob-storage-checkpoint-store-azure-stack-hub.md
         - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
           href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
         - name: Exchange events between applications using different protocols
@@ -285,12 +283,12 @@
             href: event-hubs-kafka-mirror-maker-tutorial.md
         - name: Kafka Connect with Event Hubs
           items:
+          - name: Integrate Apache Kafka Connect 
+            href: event-hubs-kafka-connect-tutorial.md
           - name: Connect Apache Spark to an event hub
             href: event-hubs-kafka-spark-tutorial.md
           - name: Connect Apache Flink to an event hub
             href: event-hubs-kafka-flink-tutorial.md
-          - name: Integrate Apache Kafka Connect 
-            href: event-hubs-kafka-connect-tutorial.md
           - name: Integrate Apache Kafka Connect with Debezium
             href: event-hubs-kafka-connect-debezium.md
           - name: Connect Akka Streams to an event hub
@@ -299,6 +297,8 @@
           href: apache-kafka-frequently-asked-questions.yml
     - name: Manage and monitor
       items:
+        - name: Configure properties for an event hub
+          href: configure-event-hub-properties.md
         - name: Monitor Azure Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
@@ -323,12 +323,16 @@
           href: transport-layer-security-audit-minimum-version.md
         - name: Configure TLS version for client
           href: transport-layer-security-configure-client-version.md
+        - name: Migrate to passwordless connections
+          href: passwordless-migration-event-hubs.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot connectivity issues
           href: troubleshooting-guide.md
         - name: Troubleshoot authentication and authorization issues
           href: troubleshoot-authentication-authorization.md
+        - name: Troubleshoot checkpoint store issues
+          href: troubleshoot-checkpoint-store-issues.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
         - name: EventHubsException 

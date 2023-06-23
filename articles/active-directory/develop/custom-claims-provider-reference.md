@@ -50,7 +50,9 @@ To develop your own REST API for the token issuance start event, use the followi
 
 Your custom extension in Azure AD makes an HTTP call to your REST API with a JSON payload. The JSON payload contains user profile data, authentication context attributes, and information about the application the user wants to sign-in. The JSON attributes can be used to perform extra logic by your API. The request to your API is in the following format:
 
-```json
+```http
+POST https://your-api.com/endpoint
+
 {
     "type": "microsoft.graph.authenticationEvent.tokenIssuanceStart",
     "source": "/tenants/<Your tenant GUID>/applications/<Your Test Application App Id>",

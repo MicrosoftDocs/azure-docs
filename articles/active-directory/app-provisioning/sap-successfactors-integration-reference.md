@@ -124,6 +124,28 @@ https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filt
 &$expand=employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/userNav/manager/empInfo,employmentNav/jobInfoNav/companyNav,employmentNav/jobInfoNav/departmentNav,employmentNav/jobInfoNav/locationNav,employmentNav/jobInfoNav/locationNav/addressNavDEFLT,employmentNav/jobInfoNav/locationNav/addressNavDEFLT/stateNav&customPageSize=100
 ```
 
+## How pre-hire processing works
+
+This section explains how the SAP SuccessFactors connector processes pre-hire records (workers with hire date / start date in future). 
+Let's say there is a pre-hire with employeeId "1234" in SuccessFactors Employee Central with start date on 1-June-2023. Let's further assume that this pre-hire record was first created either in Employee Central or in the Onboarding module on 15-May-2023. When the provisioning service first observes this record on 15-May-2023 (either as part of full sync or incremental sync), this record is still in pre-hire state. Due to this, SuccessFactors does not send the provisioning service all attributes (example: userNav/username) associated with the user. Only bare minimum data about the user such as `personIdExternal`, `firstname`, `lastname` and `startDate` is available. To process pre-hires successfully, the following pre-requisites must be met: 
+
+1) The `personIdExternal` attribute must be set as the primary matching identifier (joining property). If you configure a different attribute (example: userName) as the joining property then the provisioning service will not be able to retrieve the pre-hire information. 
+2) The `startDate` attribute must be available and it's JSONPath must be set to either `$.employmentNav.results[0].startDate` or `$.employmentNav.results[-1:].startDate`.
+3) The pre-hire record must be in one of the following states in Employee Central: 'active' (t), 'inactive' (f), or 'active_external_suite' (e). For details about these states refer to the [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
+
+> [!NOTE] 
+> For a  pre-hire who has no history with the organization, both the [0] and [-1:] index will work for `startDate`. For a pre-hire who is a re-hire or conversion, we cannot deterministically tell the order and this may cause certain rehire/converted workers to get processed on their actual start date. This is a known limitation in the connector.
+
+During full sync or incremental sync or on-demand provisioning, when the provisioning service encounters a pre-hire record, it sends the following OData query to SuccessFactors with "asOfDate" filter set to the startDate of the user (e.g., asOfDate=2023-06-01). 
+
+``` 
+https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson?$format=json&$
+filter=(personIdExternal in '1234' and employmentNav/userNav/status in 't','f','e')&asOfDate=2023-06-01&$
+expand=employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,phoneNav,emailNav,employmentNav/userNav/manager/empInfo,employmentNav/jobInfoNav/companyNav,employmentNav/jobInfoNav/costCenterNav,employmentNav/jobInfoNav/divisionNav,employmentNav/jobInfoNav/departmentNav,employmentNav/
+```
+
+If you are observing issues with pre-hire processing, you can use the above OData request format to query your SuccessFactors instance replacing the API endpoint, `personIdExternal` and `asOfDate` filter with values corresponding to your test scenario. 
+
 ## Reading attribute data
 
 When Azure AD provisioning service queries SuccessFactors, it retrieves a JSON result set. The JSON result set includes many attributes stored in Employee Central. By default, the provisioning schema is configured to retrieve only a subset of those attributes. 
@@ -241,8 +263,8 @@ Use the steps to update your mapping to retrieve these codes.
 
     | Provisioning Job                                     | Account status attribute | Mapping expression       |
     | ---------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------ |
-    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False")` |
-    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")`   |
+    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch([emplStatus], "True", "A", "False", "U", "False", "P", "False")` |
+    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save the changes.
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
@@ -301,9 +323,9 @@ This section describes how you can update the JSONPath settings to definitely re
 
     | **String to find** | **String to use for replace** | **Purpose**  |
     | ------------------ | ----------------------------- | ------------ |
-    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus` | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode` | With this find-replace, we're adding the ability to expand emplStatusNav OData object.    |
-    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]`            | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
-    | `$.employmentNav.results\[0\]`                                    | `$.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
+    | `$.employmentNav.results[0].<br>jobInfoNav.results[0].emplStatus` | `$.employmentNav..jobInfoNav..results[?(@.emplStatusNav.externalCode == 'A' || @.emplStatusNav.externalCode == 'U' || @.emplStatusNav.externalCode == 'P' )].emplStatusNav.externalCode` | With this find-replace, we're adding the ability to expand emplStatusNav OData object.    |
+    | `$.employmentNav.results[0].<br>jobInfoNav.results[0]`            | `$.employmentNav..jobInfoNav..results[?(@.emplStatusNav.externalCode == 'A' || @.emplStatusNav.externalCode == 'U' || @.emplStatusNav.externalCode == 'P')]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
+    | `$.employmentNav.results[0]`                                    | `$.employmentNav..results[?(@.jobInfoNav..results[?(@.emplStatusNav.externalCode == 'A' || @.emplStatusNav.externalCode == 'U' || @.emplStatusNav.externalCode == 'P')])]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
 
 1. Save the schema.
 1. The above process updates all JSONPath expressions. 
@@ -313,8 +335,8 @@ This section describes how you can update the JSONPath settings to definitely re
  
     | Provisioning Job | Account status attribute | Expression to use if account status is based on "activeEmploymentsCount" | Expression to use if account status is based on "emplStatus" value |
     | ----------------- | ------------------------ | ----------------------------- | ------------------------------------- |
-    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch(\[activeEmploymentsCount\], "False", "0", "True")`                 | `Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False")` |
-    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch(\[activeEmploymentsCount\], "True", "0", "False")`                 | `Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")`   |
+    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch([activeEmploymentsCount], "False", "0", "True")`                 | `Switch([emplStatus], "True", "A", "False", "U", "False", "P", "False")` |
+    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch([activeEmploymentsCount], "True", "0", "False")`                 | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save your changes. 1. 
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
