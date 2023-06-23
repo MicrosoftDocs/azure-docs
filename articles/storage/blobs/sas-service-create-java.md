@@ -34,7 +34,7 @@ You can create a service SAS to delegate limited access to a blob resource using
 
 SAS signature values, such as expiry time and signed permissions, are passed to the method as part of a [BlobServiceSasSignatureValues](/java/api/com.azure.storage.blob.sas.blobservicesassignaturevalues) instance. Permissions are specified as a [BlobSasPermission](/java/api/com.azure.storage.blob.sas.blobsaspermission) instance.
 
-The following code example shows how to create service SAS for a blob resource with read permissions:
+The following code example shows how to create a service SAS with read permissions for a blob resource:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobSAS.java" id="Snippet_CreateServiceSASBlob":::
 
@@ -59,11 +59,9 @@ Then, generate the service SAS as shown in the earlier example and use the SAS t
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobSAS.java" id="Snippet_UseServiceSASBlob":::
 
-[!INCLUDE [storage-dev-guide-stored-access-policy](../../../includes/storage-dev-guides/storage-dev-guide-stored-access-policy.md)]
-
 ## Resources
 
-To learn more about creating a service SAS using the Azure Blob Storage client library for Java, see the following resources.
+To learn more about using the Azure Blob Storage client library for Java, see the following resources.
 
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
 
