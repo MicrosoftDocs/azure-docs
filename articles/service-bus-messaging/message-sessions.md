@@ -76,7 +76,7 @@ Multiple applications can send their requests to a single request queue, with a 
 > The application that sends the initial requests should know about the session ID and use it to accept the session so that the session on which it is expecting the response is locked. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or a timeout specified on the session receiver for the queue to ensure that responses are available to be locked and processed by specific receivers.
 
 ## Sequencing vs. sessions
-[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extractor order of messages, but not the processing order, which requires sessions. 
+[Sequence number](message-sequencing.md) on its own guarantees the queuing order and the extraction order of messages, but not the processing order, which requires sessions. 
  
 Say, there are three messages in the queue and two consumers. 
 1. Consumer 1 picks up message 1.
