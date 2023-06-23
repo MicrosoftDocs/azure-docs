@@ -15,7 +15,7 @@ zone_pivot_groups: azure-cli-bicep
 
 [Blue/Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue/green deployment, two identical environments, referred to as "blue" and "green," are set up. One environment (blue) is running the current application version and one environment (green) is running the new application version. 
 
-Once green environment is completely tested, the live traffic is directed to it, and the blue environment is used to deploy a new application version during next deployment cycle.
+Once green environment is tested, the live traffic is directed to it, and the blue environment is used to deploy a new application version during next deployment cycle.
 
 You can enable blue/green deployment in Azure Container Apps by combining [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels). 
 
@@ -23,7 +23,7 @@ You use revisions to create instances of the blue and green versions of the appl
 
 | Revision | Description |
 |---|---|
-| *Blue* revision | The revision labeled as *blue* is the currently running and stable version of the application. This revosion is the one that users interact with, and it is the target of production traffic. |
+| *Blue* revision | The revision labeled as *blue* is the currently running and stable version of the application. This revision is the one that users interact with, and it is the target of production traffic. |
 | *Green* revision | The revision labeled as *green* is a copy of the *blue* revision except it uses a newer version of the app code and possibly new set of environment variables. It doesn't receive any production traffic initially but is accessible via a labeled fully qualified domain name (FQDN). |
 
 After you test and verify the new revision, you can then point production traffic to the new revision. If you encounter issues, you can easily roll back to the previous version.
@@ -341,7 +341,7 @@ The following example shows how to configure the `traffic` section. The *green* 
 
 ## Roll back the deployment if there were problems
 
-If after running in production, the new revision is found to have bugs, you can roll back to the previous good state. All traffic will be sent to the old version in the *blue* revision and that revision will be designated as the production revision again.
+If after running in production, the new revision is found to have bugs, you can roll back to the previous good state. After the rollback, 100% of the traffic is sent to the old version in the *blue* revision and that revision is designated as the production revision again.
 
 ::: zone pivot="azure-cli"
 
