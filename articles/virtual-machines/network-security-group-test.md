@@ -41,9 +41,9 @@ In this section, you test if RDP connections are allowed to your VM from a remot
     | Setting | Value |
     | --- | --- |
     | Source type | - **My IP address**: your public IP address that you're using to access the Azure portal. <br> - **Any IP address**: any source IP address. <br> - **Other IP address/CIDR**: Source IP address or address prefix. <br> - **Service tag**: Source [service tag](../virtual-network/service-tags-overview.md). |
-    | IP address/CIDR | The IP address or address prefix that you want to use as the source . <br><br> **Note**: You see this option if you select **Other IP address/CIDR** for **Source type**. |
+    | IP address/CIDR | The IP address or address prefix that you want to use as the source. <br><br> **Note**: You see this option if you select **Other IP address/CIDR** for **Source type**. |
     | Service tag | The service tag that you want to use as the source. <br><br> **Note**: You see this option if you select **Service tag** for **Source type**. |
-    | Service type | List of predefined services available for the test. <br><br> **Notes**:<br> - If you select a predefined service, the service port number and protocol will automatically populate. <br> - If you don't see the port and protocol information that you want, select **Custom**, and then enter the port number and select the protocol that you want. |
+    | Service type | List of predefined services available for the test. <br><br> **Notes**:<br> - If you select a predefined service, the service port number and protocol are automatically selected. <br> - If you don't see the port and protocol information that you want, select **Custom**, and then enter the port number and select the protocol that you want. |
     | Port | VM port number. <br><br> **Note**: If you select one of the predefined services, the correct port number is automatically selected. <br>Manually enter the port number when you select **Custom** for **Service type**. |
     | Protocol | Connection protocol. Available options are: **Any**, **TCP**, and **UDP**. <br><br> **Note**:  If you select one of the predefined services, the correct protocol used by the service is automatically selected. <br>Manually select the protocol when you select **Custom** for **Service type**. |
 
@@ -87,11 +87,11 @@ In this section, you test your VM can have connect to the internet.
 
     | Setting | Value |
     | --- | --- |
-    | Service type | List of predefined services available for the test. <br><br> **Notes**:<br> - If you select a predefined service, the service port number and protocol will automatically populate. <br> - If you don't see the port and protocol information that you want, select **Custom**, and then enter the port number and select the protocol that you want. |
+    | Service type | List of predefined services available for the test. <br><br> **Notes**:<br> - If you select a predefined service, the service port number and protocol are automatically selected. <br> - If you don't see the port and protocol information that you want, select **Custom**, and then enter the port number and select the protocol that you want. |
     | Port | VM port number. <br><br> **Note**: If you select one of the predefined services, the correct port number is automatically selected. <br>Manually enter the port number when you select **Custom** for **Service type**. |
     | Protocol | Connection protocol. Available options are: **Any**, **TCP**, and **UDP**. <br><br> **Note**:  If you select one of the predefined services, the correct protocol used by the service is automatically selected. <br>Manually select the protocol when you select **Custom** for **Service type**. |
     | Destination type | - **My IP address**: your public IP address that you're using to access the Azure portal. <br> - **Any IP address**: any source IP address. <br> - **Other IP address/CIDR**: Source IP address or address prefix. <br> - **Service tag**: Source [service tag](../virtual-network/service-tags-overview.md). |
-    | IP address/CIDR | The IP address or address prefix that you want to use as the destination . <br><br> **Note**: You see this option if you select **Other IP address/CIDR** for **Source type**. |
+    | IP address/CIDR | The IP address or address prefix that you want to use as the destination. <br><br> **Note**: You see this option if you select **Other IP address/CIDR** for **Source type**. |
     | Service tag | The service tag that you want to use as the destination. <br><br> **Note**: You see this option if you select **Service tag** for **Source type**. |
 
 1. To test if the VM can connect to the internet, select the following values:
