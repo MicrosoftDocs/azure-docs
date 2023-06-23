@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions (FAQs) about the Inbound Provisioning API 
+title: Questions (FAQs) about the Inbound Provisioning API 
 description: Frequently asked questions (FAQs) about the Inbound Provisioning API.
 services: active-directory
 author: jenniferf-skc
@@ -194,7 +194,7 @@ No. Currently the provisioning service only supports enabling or disabling an ac
 
 ## How can we prevent accidental disabling/deletion of users?
 
-You can enable accidental deletion prevention. See [Enable accidental deletions prevention in the Azure AD provisioning service](accidental-delertions.md)
+You can enable accidental deletion prevention. See [Enable accidental deletions prevention in the Azure AD provisioning service](accidental-deletions.md)
 
 ## Do we need to send all users from the HR system in every request?
 
@@ -257,7 +257,7 @@ Once fully onboarded with data collection setup, customers can access permission
 </thead>
 </table>
 
-In all scenarios, the authenticating entity, at a minimum, must have the [*Application Admin*](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#application-administrator) role.
+In all scenarios, the authenticating entity, at a minimum, must have the [*Application Admin*](https://go.microsoft.com/fwlink/?linkid=2240195) role.
 
 ## How is writeback be supported?
 
@@ -273,7 +273,7 @@ The current API only supports inbound data. Here are some options that could be 
   - Depending on the customer requirement, explore if one of the ECMA connectors could be used (PowerShell / SQL / Web Services).
 
 - **Option 3 – Use Lifecycle Workflows custom extension task in a Joiner workflow** 
-  - In Lifecycle Workflows define a Joiner workflow and define a [custom extension task that invokes a Logic Apps process](https://learn.microsoft.com/en-us/azure/active-directory/governance/trigger-custom-task) which updates the HR system or generates a CSV file that is consumed by the HR system.
+  - In Lifecycle Workflows define a Joiner workflow and define a [custom extension task that invokes a Logic Apps process](https://go.microsoft.com/fwlink/?linkid=2239990) which updates the HR system or generates a CSV file that is consumed by the HR system.
 
 
 ## Next steps
