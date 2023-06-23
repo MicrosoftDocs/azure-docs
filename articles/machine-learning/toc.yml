@@ -695,7 +695,7 @@
   # end v1
 - name: Deploy for inferencing
   items:
-    - name: Endpoints
+    - name: Endpoints for inferencing
       href: concept-endpoints.md
     - name: Online endpoints (real-time)
       items:
@@ -979,7 +979,7 @@
             - name: Progressive rollout of MLflow models to Online Endpoints
               href: how-to-deploy-mlflow-models-online-progressive.md
         - name: Batch inference
-        - items:
+          items:
             - name: Deploy MLflow models to Batch Endpoints
               href: how-to-mlflow-batch.md
             - name: Deploy and run MLflow models in Spark jobs
