@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
@@ -280,7 +280,7 @@ With Model Compose, you can compose up to 200 models to a single model ID. When 
 
 ## Analyze a form
 
-Select the Analyze icon from the navigation bar to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
+Select the Analyze icon from the navigation bar to test your model. Select source *Local file*. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot: analyze-a-custom-form window":::
 
