@@ -83,7 +83,7 @@ The analysis time will vary based on the size of the firmware image and the numb
     |**Overview**     |   View an overview of all of the analysis results.|
     |**Software Components**     |   View a software bill of materials with the following details: <br><Br> - A list of open source components used to create firmware image <br>- Component version information <br>- Component license <br>- Executable path of the binary      |
     |**Weaknesses**     |  View a listing of common vulnerabilities and exposures (CVEs). <br><br>Select a specific CVE to view more details. |
-    |**Binary Hardening**     |   View whether the executables are compiled with any of the following flags: <br><br>- NX <br>- PIE<br>- RELRO<br>- CANARY<br>- STRIPPED<br><br> Select a specific binary to view more details.|
+    |**Binary Hardening**     |   View if executables compiled using recommended security settings: <br><br>- NX <br>- PIE<br>- RELRO<br>- CANARY<br>- STRIPPED<br><br> Select a specific binary to view more details.|
     |**Password Hashes**     |   View embedded accounts and their associated password hashes.<br><br>Select a specific user account to view more details.|
     |**Certificates**     |   View a list of TLS/SSL certificates found in the firmware.<br><br>Select a specific certificate to view more details.|
     |**Keys**     |   View a list of public and private crypto keys in the firmware.<br><br>Select a specific key to view more details.|
@@ -94,7 +94,7 @@ The analysis time will vary based on the size of the firmware image and the numb
 
 Delete a firmware image from Defender for IoT when you no longer need it analyzed.
 
-Once the image is deleted, there's no way to retrieve the image or the associated analysis results. If you need the results, you'll need to upload the firmware image again for analysis.
+After you delete an image, there's no way to retrieve the image or the associated analysis results. If you need the results, you'll need to upload the firmware image again for analysis.
 
 **To delete a firmware image**:
 

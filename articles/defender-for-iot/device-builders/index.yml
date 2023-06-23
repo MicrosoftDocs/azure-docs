@@ -25,6 +25,8 @@ landingContent:
             url: overview.md
           - text: Agent-based solution for device builders architecture
             url: architecture-agent-based.md
+          - text: What is Defender for IoT Firmware analysis? (preview)
+            url: overview-firmware-analysis.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -59,3 +61,5 @@ landingContent:
         links:
           - text: What's new for device builders?
             url: release-notes.md
+          - text: What's new in Firmware analysis (preview)?
+            url: release-notes-firmware-analysis.md

@@ -10,6 +10,12 @@
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
+  - text: What is Defender for IoT Firmware analysis? (preview)
+    displayName: IoT, OT, firmware, analysis
+    url: overview-firmware-analysis.md
+  - text: What's new in Firmware analysis (preview)?
+    displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
+    url: release-notes-firmware-analysis.md
 - name: Quickstarts
   expanded: true
   items:
@@ -51,8 +57,6 @@
   - name: Micro agent linux dependencies
     displayName: linux, micro agent, agent
     href: concept-micro-agent-linux-dependencies.md
-  - name: Firmware security analysis
-    href: overview-firmware-analysis.md
   - name: Security alerts
     items:
     - name: Micro agent security alerts 
