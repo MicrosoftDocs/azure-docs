@@ -31,7 +31,7 @@
         - name: Use spot nodes
           href: howto-spot-nodes.md
         - name: Deploy infrastructure nodes
-          href: howto-infra-nodes.md
+          href: howto-infrastructure-nodes.md
         - name: Use GPU workloads
           href: howto-gpu-workloads.md
         - name: Segregate worker nodes into subnets
