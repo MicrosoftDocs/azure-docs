@@ -11,7 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
-          "ai-services/form-recognizer/**",
+          "ai-services/document-intelligence/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
@@ -36,8 +36,8 @@
       },
       {
         "group": "grp-form-recognizer",
-        "src": "articles/ai-services/form-recognizer",
-        "dest": "./ai-services/form-recognizer/",
+        "src": "articles/ai-services/document-intelligence",
+        "dest": "./ai-services/document-intelligence/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -133,7 +133,7 @@
         ],
         "exclude": [
           "iot-edge/**",
-          "ai-services/form-recognizer/**",
+          "ai-services/document-intelligence/**",
           "**/_themes/**",
           "**/obj/**",
           "healthcare-apis/**",
@@ -158,8 +158,8 @@
       },
       {
         "group": "grp-form-recognizer",
-        "src": "articles/ai-services/form-recognizer",
-        "dest": "./ai-services/form-recognizer/",
+        "src": "articles/ai-services/document-intelligence",
+        "dest": "./ai-services/document-intelligence/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -441,7 +441,7 @@
         "articles/cognitive-services/Content-Moderator/**/*.md": "PatrickFarley",
         "articles/cognitive-services/Custom-Vision-Service/**/*.md": "PatrickFarley",
         "articles/cognitive-services/Face/**/*.md": "PatrickFarley",
-        "articles/ai-services/form-recognizer/**/*.md": "laujan",
+        "articles/ai-services/document-intelligence/**/*.md": "laujan",
         "articles/cognitive-services/LUIS/**/*.md": "aahill",
         "articles/ai-services/metrics-advisor/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/personalizer/**/*.md": "jcodella",
@@ -581,7 +581,7 @@
         "articles/cognitive-services/Content-Moderator/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858",
         "articles/cognitive-services/Custom-Vision-Service/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858",
         "articles/cognitive-services/Face/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858",
-        "articles/ai-services/form-recognizer/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858",
+        "articles/ai-services/document-intelligence/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858",
         "articles/cognitive-services/Immersive-Reader/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858",
         "articles/cognitive-services/LUIS/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858",
         "articles/ai-services/metrics-advisor/**/*.md": "https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858",
@@ -830,7 +830,7 @@
         "articles/cognitive-services/Content-Moderator/**/*.md": "pafarley",
         "articles/cognitive-services/Custom-Vision-Service/**/*.md": "pafarley",
         "articles/cognitive-services/Face/**/*.md": "pafarley",
-        "articles/ai-services/form-recognizer/**/*.md": "lajanuar",
+        "articles/ai-services/document-intelligence/**/*.md": "lajanuar",
         "articles/cognitive-services/LUIS/**/*.md": "aahi",
         "articles/ai-services/metrics-advisor/**/*.md": "mbullwin",
         "articles/cognitive-services/personalizer/**/*.md": "jacodel",
@@ -1063,7 +1063,7 @@
         "articles/cognitive-services/Content-Moderator/**/*.md": "content-moderator",
         "articles/cognitive-services/Custom-Vision-Service/**/*.md": "custom-vision",
         "articles/cognitive-services/Face/**/*.md": "face-api",
-        "articles/ai-services/form-recognizer/**/*.md": "forms-recognizer",
+        "articles/ai-services/document-intelligence/**/*.md": "forms-recognizer",
         "articles/cognitive-services/immersive-reader/**/*.md": "immersive-reader",
         "articles/cognitive-services/Ink-Recognizer/**/*.md": "ink-recognizer",
         "articles/cognitive-services/LUIS/**/*.md": "language-understanding",
@@ -1091,7 +1091,7 @@
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
-        "articles/ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0",
+        "articles/ai-services/document-intelligence/**/*.md": ">=form-recog-2.1.0",
         "articles/machine-learning/**/*.md": "azureml-api-2",
         "articles/machine-learning/v1/**/*.md": "azureml-api-1"
       },
