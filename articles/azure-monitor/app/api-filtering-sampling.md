@@ -2,7 +2,7 @@
 title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 06/23/2023
 ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: cithomas
@@ -323,13 +323,13 @@ For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers)
 
 Insert a JavaScript telemetry initializer, if needed. For more information on the telemetry initializers for the Application Insights JavaScript SDK, see [Telemetry initializers](https://github.com/microsoft/ApplicationInsights-JS#telemetry-initializers).
 
-#### [SDK Loader Script](#tab/sdkloaderscript)
+#### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-Insert a telemetry initializer by adding the onInit callback function in the [SDK Loader Script configuration](./javascript-sdk.md?tabs=sdkloaderscript#sdk-loader-script-configuration):
+Insert a telemetry initializer by adding the onInit callback function in the [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration):
 
 ```html
 <script type="text/javascript">
-!function(v,y,T){<!-- Removed the SDK Loader Script code for brevity -->}(window,document,{
+!function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
 crossOrigin: "anonymous",
 onInit: function (sdk) {

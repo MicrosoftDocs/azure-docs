@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: Common questions - Defender for APIs troubleshooting guide
-  description: Common Questions - Defender for APIs Troubleshooting Guide FAQ
+  title: Microsoft Defender for Cloud common questions - Defender for APIs
+  description: Common Questions about Defender for APIs 
   author: alizabernstein
   ms.author: alizabernstein
   ms.service: 
   ms.topic: faq
   ms.date: 06/08/2023
-title: Common questions - Defender for APIs
+title: Common questions about Defender for APIs
 
 ## Common questions for Defender for APIs
 
@@ -58,3 +58,10 @@ sections:
       - question: How soon can we receive alerts on anomalous APIs? 
         answer: APIs are assessed against their behavior studying traffic for the past 30 days. The alerts on anomalous APIs may be generated sooner if the API receives significant traffic for the ML models to learn traffic behavior. 
 
+
+additionalContent: |
+
+  ## Next steps
+  
+  [Learn about Defender for APIs](defender-for-apis-introduction.md)
+  

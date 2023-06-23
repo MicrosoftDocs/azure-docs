@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 06/16/2023
 ms.author: banders
 ---
 
@@ -61,7 +61,7 @@ If you're a billing administrator, use following steps to view and manage all sa
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 1. In the left menu, select **Products + services** > **Savings plans**.
     The complete list of savings plans for your EA enrollment or billing profile is shown.
-1. Billing administrators can take ownership of a savings plan by selecting one or multiple savings plans, selecting **Grant access** and selecting **Grant access** in the window that appears.
+1. Billing administrators can take ownership of a savings plan with the [Savings Plan Order - Elevate REST API](/rest/api/billingbenefits/savings-plan-order/elevate) to give themselves Azure RBAC roles.
 
 ### Adding billing administrators
 

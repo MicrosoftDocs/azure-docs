@@ -169,5 +169,5 @@ See the following articles for more code samples to add to your maps:
 [Add map controls]: map-add-controls.md
 [Add a symbol layer]: map-add-pin.md
 [Add a bubble layer]: map-add-bubble-layer.md
-[Map style options]: https://samples.azuremaps.com/?search=style%20option&sample=map-style-options
+[Map style options]: https://samples.azuremaps.com/map/map-style-options
 [Azure Maps Samples]: https://samples.azuremaps.com

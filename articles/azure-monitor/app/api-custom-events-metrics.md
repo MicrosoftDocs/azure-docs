@@ -2,7 +2,7 @@
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service to track usage and diagnose issues.
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 06/23/2023
 ms.devlang: csharp, java, javascript, vb
 ms.custom: devx-track-csharp
 ms.reviewer: mmcc
@@ -428,7 +428,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call `
 
 * **ASP.NET**: [Write code to catch exceptions](./asp-net-exceptions.md).
 * **Java EE**: [Exceptions are caught automatically](./opentelemetry-enable.md?tabs=java).
-* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the SDK Loader Script that you insert in your webpages:
+* **JavaScript**: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the JavaScript (Web) SDK Loader Script that you insert in your webpages:
 
 ```javascript
 ({

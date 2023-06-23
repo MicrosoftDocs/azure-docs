@@ -522,6 +522,7 @@ Errors regarding to identity and authentication:
 * [GetAADTokenFailed](#error-getaadtokenfailed)
 * [ACRAuthenticationChallengeFailed](#error-acrauthenticationchallengefailed)
 * [ACRTokenExchangeFailed](#error-acrtokenexchangefailed)
+* [KubernetesUnaccessible](#error-kubernetesunaccessible)
 
 Errors regarding to crashloopbackoff:
 * [ImagePullLoopBackOff](#error-imagepullloopbackoff)
@@ -552,6 +553,7 @@ This is a list of reasons you might run into this error when creating/updating t
 * The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate.
   * If you are using a private AKS cluster, it is necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
+* Make sure your Azure machine learning extension version is greater than v1.1.25.
 
 ### ERROR: TokenRefreshFailed
 
@@ -581,6 +583,20 @@ You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtok
 This is because the Kubernetes cluster exchange ACR token failed because AAD token is unauthorized yet, since the role assignment takes some time, so you can wait a moment then try again.
 
 This failure may also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
+
+### ERROR: KubernetesUnaccessible
+
+You might get the following error during the Kubernetes model deployments:
+
+```
+{"code":"BadRequest","statusCode":400,"message":"The request is invalid.","details":[{"code":"KubernetesUnaccessible","message":"Kubernetes error: AuthenticationException. Reason: InvalidCertificate"}],...}
+```
+
+To mitigate this error, you can:
+
+* Rotate AKS certificate for the cluster. More gudiance you can refer to [Certificate Rotation in Azure Kubernetes Service (AKS)](../aks/certificate-rotation.md).
+* The new certificate should be updated to after 5 hours, so you can wait for 5 hours and redeploy it.
+
 
 ### ERROR: ImagePullLoopBackOff
 

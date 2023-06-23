@@ -16,9 +16,11 @@ ms.custom: it-pro
 ---
 # Quickstart: Get started with Azure AD for customers (preview)
 
-Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer tenant features, Azure AD for customers can serve as the identity provider and access management service for your customers. 
+Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer configuration features, Azure AD for customers can serve as the identity provider and access management service for your customers. 
 
-Your free trial of a customer tenant provides you with the opportunity to try new features and build applications and processes during the free trial period. Organization (tenant) admins can invite other users. Each user account can only have one active free trial tenant at a time. The free trial isn't designed for scale testing. Trial tenant will support up to 10K resources, learn more about Azure AD service limits [here](/azure/active-directory/enterprise-users/directory-service-limits-restrictions). During your free trial, you'll have the option to unlock the full set of features by upgrading to [Azure free account](https://azure.microsoft.com/free/).
+In this quickstart, you'll learn how to set up a customer tenant free trial. If you already have an Azure subscription, you can create a tenant with customer configurations in the Microsoft Entra admin center. For more information about how to create a tenant see [Set up a tenant](quickstart-tenant-setup.md). 
+
+Your free trial of a tenant with customer configurations provides you with the opportunity to try new features and build applications and processes during the free trial period. Organization (tenant) admins can invite other users. Each user account can only have one active free trial tenant at a time. The free trial isn't designed for scale testing. Trial tenant will support up to 10K resources, learn more about Azure AD service limits [here](/azure/active-directory/enterprise-users/directory-service-limits-restrictions). During your free trial, you'll have the option to unlock the full set of features by upgrading to [Azure free account](https://azure.microsoft.com/free/).
 
    > [!NOTE]
    > At the end of the free trial period, your free trial tenant will be disabled and deleted.
@@ -53,15 +55,15 @@ During the free trial period, you'll have access to all product features with fe
 
 You can customize your customer's sign-in and sign-up experience in the Azure AD for customers tenant. Follow the guide that will help you set up the tenant in three easy steps. First you must specify how would you like your customer to sign in. At this step you can choose between two options: **Email and password** or **Email and one-time passcode**. You can configure social accounts later, which would allow your customers to sign in using their [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) account. You can also [define custom attributes](how-to-define-custom-attributes.md) to collect from the user during sign-up.
 
-If you prefer, you can add your company logo, change the background color or adjust the sign-in layout. These optional changes will apply to the look and feel of all your apps in this customer tenant. After you have the created customer tenant, additional branding options are available. You can [customize the default branding](how-to-customize-branding-customers.md) and [add languages](how-to-customize-languages-customers.md). Once you're finished with the customization, select **Continue**.
+If you prefer, you can add your company logo, change the background color or adjust the sign-in layout. These optional changes will apply to the look and feel of all your apps in this tenant with customer configurations. After you have the created tenant, additional branding options are available. You can [customize the default branding](how-to-customize-branding-customers.md) and [add languages](how-to-customize-languages-customers.md). Once you're finished with the customization, select **Continue**.
 
 :::image type="content" source="media/quickstart-trial-setup/customize-branding-in-trial-wizard.png" alt-text="Screenshot of customizing the sign-in experience in the guide.":::
 
 ## Try out the sign-up experience and create your first user
 
 1. The guide will configure your tenant with the options you have selected. Once the configuration is complete, the button will change its text from **Setting up...** to **Run it now**.
-1. Select  the **Run it now** button. A new browser tab will open with the sign-in page for your customer tenant that can be used to create and sign in users. 
-1. Select **No account? Create one** to create a new user in the customer tenant.
+1. Select  the **Run it now** button. A new browser tab will open with the sign-in page for your tenant that can be used to create and sign in users. 
+1. Select **No account? Create one** to create a new user in the tenant.
 1. Add your new user's email address and select **Next**. Don't use the same email you used to create your trial.
 1. Complete the sign-up steps on the screen. Typically, once the user has signed in, they're redirected back to your app. However, since you haven’t set up an app at this step, you'll be redirected to JWT.ms instead, where you can view the contents of the token issued during the sign-in process.
 1. Go back to the guide tab. At this stage, you can either exit the guide and go to the admin center to explore the full range of configuration options for your tenant. Or you can **Continue** and set up a sample app. We recommend setting up the sample app, so that you can use it to test any further configuration changes you make

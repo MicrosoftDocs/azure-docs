@@ -3,6 +3,7 @@ title: Azure Communication Services - Email events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for Email Events.
 ms.topic: conceptual
 ms.date: 09/30/2022
+author: anmolbohra97
 ms.author: anmolbohra
 ---
 
