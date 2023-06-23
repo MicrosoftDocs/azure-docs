@@ -140,18 +140,3 @@ landingContent:
         links:
          - text: Solution design
            url: workloads/nc2-on-azure/solution-design.md
-# card 4
-  - title: Epic for Azure Large Instances
-    linkLists: 
-      - linkListType: overview
-        links:
-         - text: Overview
-           url: workloads/epic/overview.md
-      - linkListType: architecture
-        links:
-         - text: Architecture
-           url: workloads/nc2-on-azure/architecture.md 
-      - linkListType: concept
-        links:
-         - text: Solution design
-           url: workloads/epic/solution-design.md

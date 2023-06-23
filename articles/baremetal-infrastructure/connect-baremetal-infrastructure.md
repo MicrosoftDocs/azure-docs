@@ -78,7 +78,7 @@ During the deployment of your BareMetal instances, a new [Azure resource group](
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see all your ALI instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
+To see all your BareMetal instances, run the [az baremetalinstance list](/cli/azure/baremetalinstance#az-baremetalinstance-list) command for your resource group:
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -87,8 +87,7 @@ az baremetalinstance list --resource-group DSM05A-T550 –output table
 > [!TIP]
 > The `--output` parameter is a global parameter, available for all commands. The **table** value presents output in a friendly format. For more information, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
 
-> [!Note]
-> If you deploy several Ali tenants under the same Azure subscription, you will see multiple Azure resource groups. 
+---
 
 ## View the attributes of a single instance
 
@@ -180,7 +179,9 @@ When you acquire the instances, you can go to the Properties section to view the
 
 You'll use this information in support requests or when setting up storage snapshot configuration.
  
-Image TBD in next couple of weeks - IW
+Another critical piece of information you'll see is the storage NFS IP address. It isolates your storage to your **tenant** in the BareMetal instance stack. You'll use this IP address when you edit the [Configure Azure Application Consistent Snapshot tool](../azure-netapp-files/azacsnap-cmd-ref-configure.md).
+ 
+:::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-properties.png" alt-text="Screenshot showing the BareMetal instance property settings." lightbox="media/connect-baremetal-infrastructure/baremetal-instance-properties.png":::
  
 ## Restart a BareMetal instance through the Azure portal
 
