@@ -285,7 +285,7 @@ The following table represents the currently supported custom telemetry types:
 > [!NOTE]
 > Application Insights Java 3.x listens for telemetry that's sent to the Application Insights [Classic API](api-custom-events-metrics.md). Similarly, Application Insights Node.js 3.x collects events created with the Application Insights [Classic API](api-custom-events-metrics.md). This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
 
-### Add Custom Metrics
+### Add custom metrics
 
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
@@ -314,7 +314,7 @@ describes the instruments and provides examples of when you might use each one.
 > [!TIP]
 > The histogram is the most versatile and most closely equivalent to the Application Insights GetMetric [Classic API](api-custom-events-metrics.md). Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
 
-#### Histogram Example
+#### Histogram example
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -429,7 +429,7 @@ input()
 
 ---
 
-#### Counter Example
+#### Counter example
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -687,7 +687,7 @@ input()
 
 ---
 
-### Add Custom Exceptions
+### Add custom exceptions
 
 Select instrumentation libraries automatically report exceptions to Application Insights.
 However, you may want to manually report exceptions beyond what instrumentation libraries report.
@@ -847,7 +847,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ---
 
-### Add Custom Spans
+### Add custom spans
 
 You may want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
   
@@ -1159,15 +1159,15 @@ Not available in .NET.
 #### [Node.js](#tab/nodejs)
 
 
-1. Get `LogHandler`:
+First, get the `LogHandler`:
 
-```javascript
-const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-const logHandler = appInsights.getLogHandler();
-```
+    ```javascript
+    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
+    const logHandler = appInsights.getLogHandler();
+    ```
 
-1. Use the `LogHandler` to send custom telemetry:
+Then use the `LogHandler` to send custom telemetry:
 
     ##### Events
     
@@ -1518,7 +1518,7 @@ span._attributes["enduser.id"] = "<User ID>"
 
 ---
 
-### Add Log Attributes
+### Add log attributes
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
