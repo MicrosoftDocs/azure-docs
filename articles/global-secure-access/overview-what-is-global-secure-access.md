@@ -5,7 +5,7 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 06/08/2023
+ms.date: 06/23/2023
 ms.service: network-access
 ms.custom: references_regions
 ---
@@ -30,7 +30,7 @@ Microsoft Entra Internet Access secures access to Microsoft 365, SaaS, and publi
 
 - Prevent stolen tokens from being replayed with the compliant network check in Conditional Access.
 - Apply universal tenant restrictions to prevent data exfiltration to other tenants or personal accounts including anonymous access.
-- Enriched logs with network and device signals currently supported for SharePoint Online traffic
+- Enriched logs with network and device signals currently supported for SharePoint Online traffic.
 - Improve the precision of risk assessments on users, locations, and devices. 
 - Deploy side-by-side with third party SSE solutions.
 - Acquire network traffic from the desktop client or from a remote network, such as a branch location.
@@ -38,8 +38,8 @@ Microsoft Entra Internet Access secures access to Microsoft 365, SaaS, and publi
 #### Private preview features
 The following new capabilities are available in the private preview of Microsoft Entra Internet Access. To request access to the private preview, complete [the private preview interest form](https://aka.ms/entra-ia-preview).
 
-- Dedicated public internet traffic forwarding profile
-- Protect user access to the public internet while leveraging Microsoft's cloud-delivered, identity-aware SWG solution 
+- Dedicated public internet traffic forwarding profile.
+- Protect user access to the public internet while leveraging Microsoft's cloud-delivered, identity-aware SWG solution.
 - Enable web content filtering to regulate access to websites based on their content categories through secure web gateway.
 - Apply universal Conditional Access policies for all internet destinations, even if not federated with Microsoft Entra ID.
 
@@ -52,7 +52,7 @@ Remote users can connect to private apps across hybrid and multicloud environmen
 ### Key features
 
 - Quick Access: Zero Trust based access to a range of IP addresses and/or FQDNs without requiring a legacy VPN.
-- Per-app access for TCP apps (UDP support in development)
+- Per-app access for TCP apps (UDP support in development).
 - Modernize legacy app authentication with deep Conditional Access integration.
 - Provide a seamless end-user experience by acquiring network traffic from the desktop client and deploying side-by-side with your existing third-party SSE solutions.
 

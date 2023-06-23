@@ -78,6 +78,8 @@ To use Private Access, install a connector on each Windows server you're using f
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
 1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**.
 1. Select **Download connector service**.
+
+    ![Screenshot of the Download connector service button in the App proxy page.](media/how-to-configure-connectors/application-proxy-download-connector-service.png)
 1. Read the Terms of Service. When you're ready, select **Accept terms & Download**.
 1. At the bottom of the window, select **Run** to install the connector. An install wizard opens.
 1. Follow the instructions in the wizard to install the service. When you're prompted to register the connector with the Application Proxy for your Microsoft Entra ID tenant, provide your Global Administrator credentials.
@@ -105,6 +107,9 @@ To confirm the connector installed and registered correctly:
 1. View a connector to verify its details. 
     - Expand the connector to view the details if it's not already expanded.
     - An active green label indicates that your connector can connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages.
+
+    ![Screenshot of the connector groups and connector group details.](media/how-to-configure-connectors/app-proxy-connectors.png)
+
 For more help with installing a connector, see [Problem installing the Application Proxy Connector](../active-directory/app-proxy/application-proxy-connector-installation-problem.md).
 
 ### Verify the installation through your Windows server
@@ -115,6 +120,9 @@ To confirm the connector installed and registered correctly:
     - *Microsoft Azure AD Application Proxy Connector* enables connectivity.
     - *Microsoft Azure AD Application Proxy Connector Updater* is an automated update service.
     - The updater checks for new versions of the connector and updates the connector as needed.
+
+    ![Screenshot of the Ap proxy connector and connector updater services in Windows Services Manager.](media/how-to-configure-connectors/app_proxy_services.png)
+    
 1. If the status for the services isn't **Running**, right-click to select each service and choose **Start**.
 
 ## Create connector groups
