@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/23/2023
+ms.date: 06/01/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -177,19 +177,11 @@ Azure service: [Azure Elastic SAN](../../../storage/elastic-san/index.yml)
 > | Microsoft.ElasticSan/elasticSans/delete | Delete ElasticSan |
 > | Microsoft.ElasticSan/elasticSans/read | Get Elastic San |
 > | Microsoft.ElasticSan/elasticSans/write | Create/Update Elastic San |
+> | Microsoft.ElasticSan/elasticSans/volumeGroups/PrivateEndpointConnectionsApproval/action |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/read | List VolumeGroups by ElasticSan |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/delete | Delete Volume Group |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/read | Get Volume Group |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/write | Create/Update Volume Group |
-> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionsApproval/action |  |
-> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/validate/action |  |
-> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/read |  |
-> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/delete |  |
-> | Microsoft.ElasticSan/elasticSans/privateEndpointConnectionProxies/write |  |
-> | Microsoft.ElasticSan/elasticSans/privateEndpointConnections/delete |  |
-> | Microsoft.ElasticSan/elasticSans/privateEndpointConnections/write |  |
-> | Microsoft.ElasticSan/elasticSans/privateLinkResources/read |  |
-> | Microsoft.ElasticSan/elasticSans/volumeGroups/PrivateEndpointConnectionsApproval/action |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/validate/action |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/read |  |
 > | Microsoft.ElasticSan/elasticSans/volumeGroups/privateEndpointConnectionProxies/delete |  |
