@@ -108,6 +108,7 @@ Verify the deployment by using the following command to list the extensions that
 ```azurecli-interactive
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
+
 ---
 
 ## Manage the offer lifecycle
@@ -145,6 +146,10 @@ az k8s-extension show --name <extension-name> --cluster-name <clusterName> --res
 
 
 
+
+
+
+
 ---
 
 ## Monitor billing and usage information
@@ -162,6 +167,7 @@ To monitor billing and usage information for the offer that you deployed:
 You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster.
 
 
+
 ### [Portal](#tab/azure-portal)
 
 Select an application, then select the uninstall button to remove the extension from your cluster:
@@ -173,6 +179,7 @@ Select an application, then select the uninstall button to remove the extension 
 ```azurecli-interactive
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
+
 
 ---
 
@@ -194,6 +201,10 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
 
 
+
+
+
+- Learn more about [deploying a Kubernetes application programmatically using Azure CLI](/azure/aks/deploy-application-az-cli)
 
 
 
