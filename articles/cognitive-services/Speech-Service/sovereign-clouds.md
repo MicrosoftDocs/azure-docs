@@ -13,7 +13,7 @@ ms.date: 05/10/2022
 ms.author: alexeyo
 ---
 
-# Speech Services in sovereign clouds
+# Speech service in sovereign clouds
 
 ## Azure Government (United States)
 
@@ -42,11 +42,11 @@ Available to US government entities and their partners only. See more informatio
 
 ### Endpoint information
 
-This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), and [Text to speech REST API](rest-text-to-speech.md).
+This section contains Speech service endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), and [Text to speech REST API](rest-text-to-speech.md).
 
-#### Speech Services REST API
+#### Speech service REST API
 
-Speech Services REST API endpoints in Azure Government have the following format:
+Speech service REST API endpoints in Azure Government have the following format:
 
 |  REST API type / operation | Endpoint format |
 |--|--|
@@ -136,11 +136,11 @@ Available to organizations with a business presence in China. See more informati
 
 ### Endpoint information
 
-This section contains Speech Services endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), and [Text to speech REST API](rest-text-to-speech.md).
+This section contains Speech service endpoint information for the usage with [Speech SDK](speech-sdk.md), [Speech to text REST API](rest-speech-to-text.md), and [Text to speech REST API](rest-text-to-speech.md).
 
-#### Speech Services REST API
+#### Speech service REST API
 
-Speech Services REST API endpoints in Azure China have the following format:
+Speech service REST API endpoints in Azure China have the following format:
 
 |  REST API type / operation | Endpoint format |
 |--|--|

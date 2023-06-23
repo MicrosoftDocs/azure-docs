@@ -189,13 +189,13 @@ items:
         - name: JavaScript
           items:
           - name: Get started
-            displayName: browser, client-side, SDK Loader Script
+            displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
-          - name: JavaScript SDK advanced topics
-            href: app/javascript-sdk-advanced.md
-          - name: Framework extensions
+          - name: JavaScript SDK configuration
+            href: app/javascript-sdk-configuration.md
+          - name: React, React Native, Angular
             href: app/javascript-framework-extensions.md
-          - name: Feature extensions (Click Analytics)
+          - name: Click Analytics Auto-Collection
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
@@ -652,6 +652,8 @@ items:
     href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
+  - name: Stream monitoring data
+    href: essentials/stream-monitoring-data-event-hubs.md
 - name: Data collection
   items: 
   - name: Overview
@@ -883,6 +885,9 @@ items:
       - name: Configure with ARM templates
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-api.md
+      - name: Configure with PowerShell
+        displayName: logs ingestion
+        href: logs/set-up-logs-ingestion-api-prerequisites.md
       - name: Sample code
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
@@ -1108,8 +1113,6 @@ items:
             href: logs/logs-data-export.md
           - name: Export with Logic Apps
             href: logs/logs-export-logic-app.md
-          - name: Query data with Azure Data Explorer
-            href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs
