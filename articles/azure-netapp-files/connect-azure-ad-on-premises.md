@@ -25,7 +25,7 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 ### Create the Azure AD Kerberos application
 
 1. In the Azure portal, navigate to Azure AD then **App Registrations**.
-1. Assign a **Name** and select the **Supported account type**. Select **Register**.
+1. Assign a **Name**. Under select the **Supported account type**, choose **Accounts in this organizational directory only (Single tenant)**. Select **Register**.
 1. Configure the permissions for the application. Under **App Registrations**, select **API Permissions** then **Add a Permission**. 
 1. Select **Microsoft Graph** then **Delegated Permissions**. Under **Select Permissions**, search for "open ID" and select it. Then search for "profile" and add it. 
 1. Grant **Admin Consent** on your application. 
@@ -34,11 +34,10 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 
 1. Sign on to your on-premises environment.
 1. Create a local user and assign it administrator privileges. This user serves to connect to Azure AD. 
-1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) using the Azure AD global administrator account.
+1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) using the Azure AD global administrator account. Select a single 
 
     1. Configure SCP and synchronize. 
-    1. In the Azure portal, verify the domain local user is synced with Azure AD users. 
-    <!-- how to ? -->
+    1. In the Azure portal under Azure Active Directory, navigate to **Users**. Verify the domain local user is synced with Azure AD users. 
     >[!NOTE]
     >After the initial configuration, when you add a new local user, you must run the `Start-ADSyncSyncCycle` command in the Administrator PowerShell to synchronize the new user to Azure AD.
     
