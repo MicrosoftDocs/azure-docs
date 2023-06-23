@@ -33,12 +33,12 @@ The below table has four sections:
 * **Level:** L1, or Level 1, recommends essential basic security requirements that can be configured on any system and should cause little or no interruption of service or reduced functionality.
 * **Status:**
     * *Pass* - The recommendation has been applied.
-    * *Fail* - The recommendation has not been applied.
+    * *Fail* - The recommendation hasn't been applied.
     * *N/A* - The recommendation relates to manifest file permission requirements that are not relevant to AKS.
-    * *Depends on Environment* - The recommendation is applied in the user's specific environment and is not controlled by AKS.
+    * *Depends on Environment* - The recommendation is applied in the user's specific environment and isn't controlled by AKS.
     * *Equivalent Control* - The recommendation has been implemented in a different equivalent manner.
 * **Reason:**
-    * *Potential Operation Impact* - The recommendation was not applied because it would have a negative effect on the service.
+    * *Potential Operation Impact* - The recommendation wasn't applied because it would have a negative effect on the service.
     * *Covered Elsewhere* - The recommendation is covered by another control in Azure cloud compute.
 
 The following are the results from the [CIS Azure Linux 2.0 Benchmark v2.1.0][cis-benchmark-azure-linux] recommendations based on the CIS rules:
