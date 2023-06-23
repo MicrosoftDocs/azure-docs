@@ -89,7 +89,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
        --name <azure_cosmos_db_account_name>
    ```
 
-   You should see a capability section similar to this output:
+   You should see a capability section that's similar to this example output:
 
    ```json
    "capabilities": [
@@ -104,7 +104,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 
    Observe each of these capabilities. In this example, we have `EnableMongo` and `DisableRateLimitingResponses`.
 
-1. Remove the capability from your database account. The list of capabilities should include the list of previously enabled capabilities you want to keep, since only the explicitly named capabilities will be set on your account. For example, if you want to remove the capability `DisableRateLimitingResponses`, you would use the `az cosmosdb update` command:
+1. Remove the capability from your database account. The list of capabilities should include the list of previously enabled capabilities you want to keep because only the explicitly named capabilities will be set on your account. For example, if you want to remove the capability `DisableRateLimitingResponses`, you would use the `az cosmosdb update` command:
 
    ```azurecli-interactive
    az cosmosdb update \
