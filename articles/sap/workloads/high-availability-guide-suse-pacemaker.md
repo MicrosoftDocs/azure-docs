@@ -71,7 +71,7 @@ You can configure the SBD device by using either of two options:
 
 ### Use an Azure fence agent
 
-You can set up fencing by using an Azure fence agent. Azure fence agent require managed identities for the cluster VMs or a service principal, that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
+You can set up fencing by using an Azure fence agent. Azure fence agent requires managed identities for the cluster VMs or a service principal that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
 
 ## SBD with an iSCSI target server
 
@@ -546,7 +546,7 @@ This section applies only if you're using a fencing device that's based on an Az
 
 #### Using managed identity
 
-To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
+To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
 
 #### Using service principal
 
@@ -557,7 +557,7 @@ To create a service principal, do the following:
 3. Select **New registration**.
 4. Enter a name for the registration, and then select **Accounts in this organization directory only**.
 5. For **Application type**, select **Web**, enter a sign-on URL (for example, *http://localhost*), and then select **Add**.  
-   The sign-on URL is not used and can be any valid URL.
+   The sign-on URL isn't used and can be any valid URL.
 6. Select **Certificates and secrets**, and then select **New client secret**.
 7. Enter a description for a new key, select **Never expires**, and then select **Add**.
 8. Write down the value, which you'll use as the password for the service principal.
@@ -565,7 +565,7 @@ To create a service principal, do the following:
 
 ### **[1]** Create a custom role for the fence agent
 
-By default, neither managed identity nor service principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
+By default, neither managed identity nor service principal has permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
 
 Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
@@ -623,13 +623,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > - crmsh-4.4.0+20221028.3e41444-150400.3.9.1 or later
    > - pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1 or later
 
-2. **[A]** Install the component, which you'll need for the cluster resources.
+2. **[A]** Install the component, which you need for the cluster resources.
 
    ```bash
    sudo zypper in socat
    ```
 
-3. **[A]** Install the azure-lb component, which you'll need for the cluster resources.
+3. **[A]** Install the azure-lb component, which you need for the cluster resources.
 
    ```bash
    sudo zypper in resource-agents
@@ -774,7 +774,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     > - On SLES 12 SP4 or SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
     > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
 
-11. **[A]** Set up the hostname resolution.
+11. **[A]** Setup the hostname resolution.
 
     You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
@@ -849,7 +849,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     sudo vi /etc/corosync/corosync.conf
     ```
 
-    a. Add the following bold-formatted content to the file if the values are not there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
+    a. Add the following bold-formatted content to the file if the values aren't there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
     ```text
     [...]
@@ -944,7 +944,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm configure property stonith-timeout=900
    ```
 
-   If you are using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
+   If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
    > [!IMPORTANT]
    > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.

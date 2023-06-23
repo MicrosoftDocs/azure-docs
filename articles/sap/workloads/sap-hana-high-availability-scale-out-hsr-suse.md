@@ -70,7 +70,7 @@ Before you begin, refer to the following SAP notes and papers:
 One method to achieve HANA high availability for HANA scale-out installations, is to configure HANA system replication and protect the solution with Pacemaker cluster to allow automatic failover. When an active node fails, the cluster fails over the HANA resources to the other site.  
 The presented configuration shows three HANA nodes on each site, plus majority maker node to prevent split-brain scenario. The instructions can be adapted, to include more VMs as HANA DB nodes.  
 
-The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode.
+The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and aren't shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode.
 
 > [!WARNING]
 > Deploying `/hana/data` and `/hana/log` on NFS on Azure Files is not supported.  
@@ -84,9 +84,9 @@ In the preceding diagram, three subnets are represented within one Azure virtual
 * for internal HANA inter-node communication - `inter` 10.23.1.128/26  
 * for HANA system replication - `hsr` 10.23.1.192/26  
 
-As `/hana/data` and `/hana/log` are deployed on local disks, it is not necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
+As `/hana/data` and `/hana/log` are deployed on local disks, it isn't necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
 
-If you are using Azure NetApp Files, the NFS volumes for `/hana/shared`, are deployed in a separate subnet, [delegated to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.
+If you're using Azure NetApp Files, the NFS volumes for `/hana/shared`, are deployed in a separate subnet, [delegated to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.
 
 ## Set up the infrastructure
 
@@ -203,7 +203,7 @@ In the instructions that follow, we assume that you've already created the resou
 
 ### Deploy NFS
 
-There are two options for deploying Azure native NFS for `/hana/shared`. You can deploy NFS volume on [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md). Azure files supports NFSv4.1 protocol, NFS on Azure NetApp files supports both NFSv4.1 and NFSv3.
+There are two options for deploying Azure native NFS for `/hana/shared`. You can deploy NFS volume on [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md). Azure files support NFSv4.1 protocol, NFS on Azure NetApp files supports both NFSv4.1 and NFSv3.
 
 The next sections describe the steps to deploy NFS - you'll need to select only *one* of the options.
 
@@ -212,7 +212,7 @@ The next sections describe the steps to deploy NFS - you'll need to select only 
 
 #### Deploy the Azure NetApp Files infrastructure
 
-Deploy ANF volumes for the `/hana/shared` file system. You will need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
+Deploy ANF volumes for the `/hana/shared` file system. You'll need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
 
 In this example, the following Azure NetApp Files volumes were used:
 
@@ -221,7 +221,7 @@ In this example, the following Azure NetApp Files volumes were used:
 
 #### Deploy the NFS on Azure Files infrastructure
 
-Deploy Azure Files NFS shares for the `/hana/shared` file system. You will need a separate `/hana/shared` Azure Files NFS share for each HANA system replication site. For more information, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+Deploy Azure Files NFS shares for the `/hana/shared` file system. You'll need a separate `/hana/shared` Azure Files NFS share for each HANA system replication site. For more information, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 In this example, the following Azure Files NFS shares were used:
 
@@ -285,7 +285,7 @@ Configure and prepare your OS by doing the following steps:
     ```
 
     > [!TIP]
-    > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+    > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 3. **[A]** SUSE delivers special resource agents for SAP HANA and by default agents for SAP HANA scale-up are installed. Uninstall the packages for scale-up, if installed and install the packages for scenario SAP HANA scale-out. The step needs to be performed on all cluster VMs, including the majority maker.
 
@@ -310,7 +310,7 @@ You chose to deploy the SAP shared directories on [NFS share on Azure Files](../
 
 ### Mount the shared file systems (Azure NetApp Files NFS)
 
-In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.1. Follow the steps in this section, only if you are using NFS on Azure NetApp Files.
+In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.1. Follow the steps in this section, only if you're using NFS on Azure NetApp Files.
 
 1. **[AH]** Prepare the OS for running SAP HANA on NetApp Systems with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
@@ -411,7 +411,7 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
 
 ### Mount the shared file systems (Azure Files NFS)
 
-In this example, the shared HANA file systems are deployed on NFS on Azure Files. Follow the steps in this section, only if you are using NFS on Azure Files.  
+In this example, the shared HANA file systems are deployed on NFS on Azure Files. Follow the steps in this section, only if you're using NFS on Azure Files.  
 
 1. **[AH]** Create mount points for the HANA database volumes.  
 
@@ -454,7 +454,7 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
 ### Prepare the data and log local file systems
 
 In the presented configuration, file systems `/hana/data` and `/hana/log` are deployed on managed disk and are locally attached to each HANA DB VM.
-You will need to execute the steps to create the local data and log volumes on each HANA DB virtual machine.
+You'll need to execute the steps to create the local data and log volumes on each HANA DB virtual machine.
 
 Set up the disk layout with  **Logical Volume Manager (LVM)**. The following example assumes that each HANA virtual machine has three data disks attached, that are used to create two volumes.
 
@@ -551,7 +551,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
     chmod 775 /hana/shared
     ```
 
-3. **[1]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s1-db2** and **hana-s1-db3**, without being prompted for a password. If that is not the case, exchange  ssh keys as described in [Enable SSH Access via Public Key](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-scaleOut-PerfOpt-12/index.html#_enable_ssh_access_via_public_key_optional).
+3. **[1]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s1-db2** and **hana-s1-db3**, without being prompted for a password. If that isn't the case, exchange  ssh keys as described in [Enable SSH Access via Public Key](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-scaleOut-PerfOpt-12/index.html#_enable_ssh_access_via_public_key_optional).
 
     ```bash
     ssh root@hana-s1-db2
@@ -559,7 +559,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
     ```
 
 4. **[2]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s2-db2** and **hana-s2-db3**, without being prompted for a password.  
-   If that is not the case, exchange  ssh keys.
+   If that isn't the case, exchange  ssh keys.
 
     ```bash
     ssh root@hana-s2-db2
@@ -784,7 +784,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 
 ## Create file system resources
 
-Create a dummy file system cluster resource, which will monitor and report failures, in case there is a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there is a problem accessing `/hana/shared`. For more details see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904)
+Create a dummy file system cluster resource, which will monitor and report failures, in case there's a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there's a problem accessing `/hana/shared`. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904)
 
 1. **[1]** Place pacemaker in maintenance mode, in preparation for the creation of the HANA cluster resources.
 
@@ -828,13 +828,13 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 ## Implement HANA HA hooks SAPHanaSrMultiTarget and susChkSrv
 
-This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It is highly recommended to configure SAPHanaSrMultiTarget Python hook. For HANA 2.0 SP5 and higher, implementing both SAPHanaSrMultiTarget and susChkSrv hooks is recommended.
+This important step is to optimize the integration with the cluster and detection when a cluster failover is possible. It's highly recommended to configure SAPHanaSrMultiTarget Python hook. For HANA 2.0 SP5 and higher, implementing both SAPHanaSrMultiTarget and susChkSrv hooks is recommended.
 
 > [!NOTE]
 > SAPHanaSrMultiTarget HA provider replaces SAPHanaSR for HANA scale-out. SAPHanaSR was described in earlier version of this document.  
 > See [SUSE blog post](https://www.suse.com/c/sap-hana-scale-out-multi-target-upgrade/) about changes with the new HANA HA hook.  
 
-Provided steps for SAPHanaSrMultiTarget hook are for a new installation. Upgrading an existing environment from SAPHanaSR to SAPHanaSrMultiTarget provider requires several changes and are *NOT* described in this document. If the existing environment uses no third site for disaster recovery and [HANA multi-target system replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/ba457510958241889a459e606bbcf3d3.html) is not used, SAPHanaSR HA provider can remain in use.
+Provided steps for SAPHanaSrMultiTarget hook are for a new installation. Upgrading an existing environment from SAPHanaSR to SAPHanaSrMultiTarget provider requires several changes and are *NOT* described in this document. If the existing environment uses no third site for disaster recovery and [HANA multi-target system replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/ba457510958241889a459e606bbcf3d3.html) isn't used, SAPHanaSR HA provider can remain in use.
 
 SusChkSrv extends the functionality of the main SAPHanaSrMultiTarget HA provider. It acts in the situation when HANA process hdbindexserver crashes. If a single process crashes typically HANA tries to restart it. Restarting the indexserver process can take a long time, during which the HANA database isn't responsive. With susChkSrv implemented, an immediate and configurable action is executed, instead of waiting on hdbindexserver process to restart on the same node. In HANA scale-out susChkSrv acts for every HANA VM independently. The configured action will kill HANA or fence the affected VM, which triggers a failover in the configured timeout period.
 
@@ -873,7 +873,7 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
     ha_dr_saphanasrmultitarget = info
     ```
 
-   Default location of the HA hooks as dalivered by SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
+   Default location of the HA hooks as delivered by SUSE is /usr/share/SAPHanaSR-ScaleOut. Using the standard location brings a benefit, that the python hook code is automatically updated through OS or package updates and gets used by HANA at next restart. With an optional own path, such as /hana/shared/myHooks you can decouple OS updates from the used hook version.
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root` adapt the values of hn1 with correct lowercase SID.  
 
@@ -1122,15 +1122,15 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 
    Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS file system by executing the following command on one of the primary HANA system replication site VMs.
 
-   In this example the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
+   In this example, the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
 
      ```bash
      iptables -A INPUT -s 10.23.1.7 -j DROP; iptables -A OUTPUT -d 10.23.1.7 -j DROP
      ```
 
-   The cluster resources will be  migrated to the other HANA system replication site.
+   The cluster resources will be migrated to the other HANA system replication site.
 
-   If you set AUTOMATED_REGISTER="false", you will need to configure SAP HANA system replication on secondary site. In this case, you can execute these commands to reconfigure SAP HANA as secondary.
+   If you set AUTOMATED_REGISTER="false", you'll need to configure SAP HANA system replication on secondary site. In this case, you can execute these commands to reconfigure SAP HANA as secondary.
 
      ```bash
      # Execute on the secondary 
