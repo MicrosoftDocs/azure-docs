@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: article
-ms.date: 06/19/2023
+ms.date: 06/23/2023
 ---
 
 # Center for Internet Security (CIS) Azure Linux benchmark
@@ -41,7 +41,7 @@ The below table has four sections:
     * *Potential Operation Impact* - The recommendation was not applied because it would have a negative effect on the service.
     * *Covered Elsewhere* - The recommendation is covered by another control in Azure cloud compute.
 
-The following are the results from the [CIS Azure Linux 2.0 Benchmark v2.1.0](insert link here) recommendations based on the CIS rules:
+The following are the results from the [CIS Azure Linux 2.0 Benchmark v2.1.0][cis-benchmark-azure-linux] recommendations based on the CIS rules:
 
 | CIS ID | Recommendation description | Status | Reason |
 |---|---|---|---|---|
@@ -193,5 +193,6 @@ For more information about Azure Linux Container Host security, see the followin
 <!-- LINKS - internal -->
 [security-concepts-aks]: concepts-security.md
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
+[cis-benchmark-azure-linux]: https://www.cisecurity.org/benchmark/azure/
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
 [linux-container-host-aks]: ../azure-linux/intro-azure-linux.md
