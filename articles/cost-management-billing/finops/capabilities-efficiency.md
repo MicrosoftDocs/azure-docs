@@ -29,15 +29,15 @@ Resource utilization and efficiency maximize the business value of cloud costs b
 
 When you first start managing cost in the cloud, you use the native tools to drive efficiency and optimize costs in the portal.
 
-Review and implement [Azure Advisor cost recommendations](../../azure/advisor/advisor-reference-cost-recommendations.md).
+Review and implement [Azure Advisor cost recommendations](../../advisor/advisor-reference-cost-recommendations.md).
 - Azure Advisor gives you high-confidence recommendations based on your usage. Azure Advisor is always the best place to start when looking to optimize any workload.
 - Consider [subscribing to Azure Advisor alerts](../../advisor/advisor-alerts-portal.md) to get notified when there are new cost recommendations.
 
 Review your usage and purchase [commitment-based discounts](capabilities-commitment-discounts.md) when it makes sense.
 
-Take advantage of Azure Hybrid Benefit for [Windows](/windows-server/get-started/azure-hybrid-benefit), [Linux](../../virtual-machines/linux/azure-hybrid-benefit-linux.md), and [SQL Server](/azure-sql/azure-hybrid-benefit).
+Take advantage of Azure Hybrid Benefit for [Windows](/windows-server/get-started/azure-hybrid-benefit), [Linux](../../virtual-machines/linux/azure-hybrid-benefit-linux.md), and [SQL Server](/azure/azure-sql/azure-hybrid-benefit).
 
-Review and implement [Cloud Adoption Framework costing best practices](/cloud-adoption-framework/govern/cost-management/best-practices).
+Review and implement [Cloud Adoption Framework costing best practices](/azure/cloud-adoption-framework/govern/cost-management/best-practices).
 
 Review and implement [Azure Well-Architected Framework cost optimization guidance](/azure/well-architected/cost/overview).
 
@@ -52,7 +52,7 @@ Familiarize yourself with the services you use, how you're charged, and what ser
 
 At this point, you've implemented all the basic cost optimization recommendations and tuned applications to meet the most fundamental best practices. As you move beyond the basics, consider the following points:
 
-- Automate cost recommendations using [Azure Resource Graph](../../azure/advisor/resource-graph-samples.md).
+- Automate cost recommendations using [Azure Resource Graph](../../advisor/resource-graph-samples.md).
 - Implement the [Workload management and automation capability](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-workloads.docx) for more optimizations.
 
 - Stay abreast of emerging technologies, tools, and industry best practices to further optimize resource utilization.
@@ -65,4 +65,4 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 - [Managing commitment-based discounts](capabilities-commitment-discounts.md)
 - Workload management and automation
-- [Measuring unit cost](capabilities-unit-cost.md)
+- [Measuring unit cost](capabilities-unit-costs.md)

@@ -79,7 +79,8 @@ landingContent:
       links:
       - text: Resource utilization and efficiency
         url: capabilities-efficiency.md
-
+      - text: Workload management and automation
+        url: capabilities-workloads.md
 
 # Card (optional)
 
