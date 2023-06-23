@@ -100,6 +100,6 @@ Remember, you must turn off policies when you are performing data-intensive migr
 Learn how to identify and interact with ALI instances through the Azure portal.
 
 > [!div class="nextstepaction"]
-> [What is Azure for Large Instances?](../../what-is-azure-for-large-instances.md)
+> [What is Azure for Large Instances?](../../what-is-azure-large-instances.mdwhat-is-azure-large-instances.md)
 
 

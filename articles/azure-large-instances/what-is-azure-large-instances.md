@@ -158,7 +158,7 @@ The architecture of Azure network services is a key component for a successful d
 
 Azure Large Instances is provisioned within your Azure VNet server IP address range. 
 
-:::image type="content" source="media/what-is-azure-for-large-instances/ali-networking.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/what-is-azure-for-large-instances/ali-networking.png" border="false":::
+:::image type="content" source="media/what-is-azure-large-instances/ali-networking.png" alt-text="Networking diagram of ALI for Epic diagram." lightbox="media/what-is-azure-large-instances/ali-networking.png" border="false":::
 
 The architecture shown is divided into three sections: 
 
