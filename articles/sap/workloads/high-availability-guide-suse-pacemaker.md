@@ -954,7 +954,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events as VM shutdown, VM redeployment, and so on. Resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, the azure-events agent will place the target cluster node in standby mode to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../virtual-machines/linux/scheduled-events.md). To achieve that, you must configure additional Pacemaker resources.
+Azure offers [scheduled events]((../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn’t start with “health-“ are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
+
+> [!IMPORTANT]
+> Previously, this document described the use of resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events.in). New resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events-az.in) fully supports Azure environments deployed in different availability zones.
+> It is recommended to utilize the newer azure-events-az agent for all SAP highly available systems with Pacemaker.
 
 1. **[A]** Make sure that the package for the azure-events agent is already installed and up to date.
 
@@ -962,26 +966,62 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    sudo zypper info resource-agents
    ```
 
-1. **[1]** Configure the resources in Pacemaker.
+2. **[1]** Configure the resources in Pacemaker.
 
    ```bash
    #Place the cluster in maintenance mode
    sudo crm configure property maintenance-mode=true
-   
-   #Create Pacemaker resources for the Azure agent
-   sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
-   sudo crm configure clone cln_azure-events rsc_azure-events
-   
-   #Take the cluster out of maintenance mode
+
+3. **[1]** Set the pacemaker cluster health node strategy and constraint
+
+   ```
+   sudo crm configure property node-health-strategy=custom
+   sudo crm configure location loc_azure_health \
+   /'!health-.*'/ rule '#health-azure': defined '#uname'
+   ```
+
+   > [!IMPORTANT]
+   >
+   > Don't define any other resources in the cluster starting with “health-”, besides the resources described in the next steps of the documentation.
+
+4. **[1]** Set initial value of the cluster attributes.
+   Run for each cluster node. For scale-out environments including majority maker VM.
+
+   ```bash
+   sudo crm_attribute --node prod-cl1-0 --name '#health-azure' --update 0
+   sudo crm_attribute --node prod-cl1-1 --name '#health-azure' --update 0
+   ```
+
+5. **[1]** Configure the resources in Pacemaker.
+   Important: The resources must start with ‘health-azure’.
+
+   ```bash
+   sudo crm configure primitive health-azure-events \
+   ocf:heartbeat:azure-events-az op monitor interval=10s
+   sudo crm configure clone health-azure-events-cln health-azure-events
+   ```
+
+6. Take the Pacemaker cluster out of maintenance mode
+
+   ```bash
    sudo crm configure property maintenance-mode=false
    ```
 
+7. Clear any errors during enablement and verify that the health-azure-events resources have started successfully on all cluster nodes.
+
+   ```bash
+   sudo crm resource cleanup
+   ```
+
+   First time query execution for scheduled events [can take up to 2 minutes](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events) documentation.
+
    > [!NOTE]
-   > After you've configured the Pacemaker resources for the azure-events agent, if you place the cluster in or out of maintenance mode, you might get warning messages such as:  
    >
-   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_**hostname**'
+   > After you've configured the Pacemaker resources for the azure-events agent, if you place the cluster in or out of maintenance mode, you might get warning messages such as:
+   >
+   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'
    > WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'
-   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_**hostname**'
+   > WARNING: cib-bootstrap-options: unknown attribute 'hostName_ **hostname**'
    > These warning messages can be ignored.
 
 ## Next steps
