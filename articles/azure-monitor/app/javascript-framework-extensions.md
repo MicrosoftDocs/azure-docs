@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript framework extensions for th
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 06/23/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
