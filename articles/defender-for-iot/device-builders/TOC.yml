@@ -10,10 +10,10 @@
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - text: What is Defender for IoT Firmware analysis? (preview)
+  - name: What is Defender for IoT Firmware analysis? (preview)
     displayName: IoT, OT, firmware, analysis
     url: overview-firmware-analysis.md
-  - text: What's new in Firmware analysis (preview)?
+  - name: What's new in Firmware analysis (preview)?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     url: release-notes-firmware-analysis.md
 - name: Quickstarts
