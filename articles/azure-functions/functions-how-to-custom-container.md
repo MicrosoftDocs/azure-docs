@@ -140,7 +140,7 @@ When you create a function app in the [Azure portal](https://portal.azure.com), 
 :::zone pivot="azure-functions"
 4. In **[Hosting options and plans](functions-scale.md)**, choose **Functions Premium**. 
 
-   :::image type="content" source="media/functions-how-to-custom-container/function-app-create-container-functions-premium.png" alt-text="Portal create Basics tab for a containerized function app hosted in a Functions Premium plan.":::
+   :::image type="content" source="media/functions-how-to-custom-container/function-app-create-container-functions-premium.png" alt-text="Screenshot of the Basics tab in the Azure portal when creating a function app for hosting a container in a Functions Premium plan.":::
    
     This creates a function app hosted by Azure Functions in the [Premium plan](functions-premium-plan.md), which supports dynamic scaling. You can also choose to run in an **App Service plan**, but in this kind of dedicated plan you must manage the [scaling of your function app](functions-scale.md).  
 ::: zone-end  
