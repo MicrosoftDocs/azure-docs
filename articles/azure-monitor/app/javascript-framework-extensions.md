@@ -366,9 +366,11 @@ extensionConfig: {
 
 ### React router configuration
 
-| Name    | Type   | Required? | Default | Type Description |
+| Name    | Type   | Required? | Default | Description |
 |---------|--------|-----------|---------|------------------|
-| history | object | Optional  | null    | Track detailed router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects basic details about page views. Advanced users who want more detailed router history can use the `history` object, which collects every piece of information for the router change history. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
+| history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>
+
+To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object. Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
 
 ### React components usage tracking
 
