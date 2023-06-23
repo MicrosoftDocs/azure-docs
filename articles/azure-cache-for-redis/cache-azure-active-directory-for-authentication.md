@@ -110,13 +110,13 @@ The following table includes links to code samples, which demonstrate how to con
 
 | **Client library**  | **Language**   | **Link to sample code**|
 |----|----|----|
-| StackExchange.Redis | C#/.NET        | [.NET code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
-| Python              | Python         | [Python code Sample](https://aka.ms/redis/aad/sample-code/python)        |
+| StackExchange.Redis | .NET           | [StackExhange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
+| redis-py            | Python         | [redis-py code sample](https://aka.ms/redis/aad/sample-code/python)        |
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
 | Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
 | ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
-| Node-redis          | Node.js        | [noredis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
+| node-redis          | Node.js        | [node-redis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
 
 ### Best practices for Azure AD authentication
 
