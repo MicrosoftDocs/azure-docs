@@ -29,6 +29,8 @@
       href: capabilities-forecasting.md
     - name: Budget management
       href: capabilities-budgets.md
+    - name: Measuring unit costs
+      href: capabilities-unit-costs.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

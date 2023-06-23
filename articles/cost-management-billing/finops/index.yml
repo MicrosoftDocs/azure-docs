@@ -54,6 +54,9 @@ landingContent:
         url: capabilities-forecasting.md
       - text: Budget management
         url: capabilities-budgets.md
+      - text: Measuring unit costs
+        url: capabilities-unit-costs.md
+
 
 # Card (optional)
 
