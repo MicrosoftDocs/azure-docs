@@ -54,7 +54,7 @@ Azure Communication Services packages that we need to run the sample as well.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
-npx create-react-app ui-library-calling-widget-app --template communication-react
+npx create-react-app ui-library-calling-widget-app --template typescript
 
 # Change to the directory of the newly created App.
 cd ui-library-calling-widget-app
@@ -69,6 +69,7 @@ Then you need to update the dependency array in the `package.json` to include so
 "@azure/communication-react": "1.6.1-beta.1",
 "@azure/communication-calling-effects": "1.0.1",
 "@fluentui/react-icons": "~2.0.203",
+"@fluentui/react": "~8.98.3",
 ```
 
 Once you have run these commands, you are in your new project ready to get started. For this tutorial, we are modifying the files in the
