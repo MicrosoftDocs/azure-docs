@@ -45,7 +45,7 @@ To implement a custom handler, you need the following aspects to your applicatio
 - A *function.json* file for each function (inside a folder that matches the function name)
 - A command, script, or executable, which runs a web server
 
-The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and an custom handler executable named *handler.exe*.
+The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and a custom handler executable named *handler.exe*.
 
 ```bash
 | /MyQueueFunction
@@ -514,7 +514,7 @@ The route for the order function here is `/api/hello`, same as the original requ
 
 A custom handler can be deployed to every Azure Functions hosting option. If your handler requires operating system or platform dependencies (such as a language runtime), you may need to use a [custom container](./functions-how-to-custom-container.md).
 
-When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack. A "Custom" stack for custom handlers will be added in the future.
+When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack. 
 
 To deploy a custom handler app using Azure Functions Core Tools, run the following command.
 
