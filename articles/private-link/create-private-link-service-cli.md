@@ -16,6 +16,8 @@ ms.custom: mode-api, devx-track-azurecli, template-quickstart
 
 Get started creating a Private Link service that refers to your service.  Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer.  Users of your service have private access from their virtual network.
 
+:::image type="content" source="./media/create-private-link-service-portal/private-link-service-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
@@ -28,12 +30,12 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
-* Named **CreatePrivLinkService-rg**. 
-* In the **eastus** location.
+* Named **test-rg**. 
+* In the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
-    --name CreatePrivLinkService-rg \
+    --name test-rg \
     --location eastus2
 
 ```
@@ -48,22 +50,22 @@ In this section, you create a virtual network and subnet to host the load balanc
 
 Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
 
-* Named **myVNet**.
-* Address prefix of **10.1.0.0/16**.
-* Subnet named **mySubnet**.
-* Subnet prefix of **10.1.0.0/24**.
-* In the **CreatePrivLinkService-rg** resource group.
+* Named **vnet-1**.
+* Address prefix of **10.0.0.0/16**.
+* Subnet named **subnet-1**.
+* Subnet prefix of **10.0.0.0/24**.
+* In the **test-rg** resource group.
 * Location of **eastus2**.
 * Disable the network policy for private link service on the subnet.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group CreatePrivLinkService-rg \
+    --resource-group test-rg \
     --location eastus2 \
-    --name myVNet \
-    --address-prefixes 10.1.0.0/16 \
-    --subnet-name mySubnet \
-    --subnet-prefixes 10.1.0.0/24
+    --name vnet-1 \
+    --address-prefixes 10.0.0.0/16 \
+    --subnet-name subnet-1 \
+    --subnet-prefixes 10.0.0.0/24
 ```
 
 ### Create standard load balancer
@@ -79,21 +81,21 @@ This section details how you can create and configure the following components o
 
 Create a public load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create):
 
-* Named **myLoadBalancer**.
-* A frontend pool named **myFrontEnd**.
-* A backend pool named **myBackEndPool**.
-* Associated with the virtual network **myVNet**.
-* Associated with the backend subnet **mySubnet**.
+* Named **load-balancer**.
+* A frontend pool named **frontend**.
+* A backend pool named **backend-pool**.
+* Associated with the virtual network **vnet-1**.
+* Associated with the backend subnet **subnet-1**.
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group CreatePrivLinkService-rg \
-    --name myLoadBalancer \
+    --resource-group test-rg \
+    --name load-balancer \
     --sku Standard \
-    --vnet-name myVnet \
-    --subnet mySubnet \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool
+    --vnet-name vnet-1 \
+    --subnet subnet-1 \
+    --frontend-ip-name frontend \
+    --backend-pool-name backend-pool
 ```
 
 ### Create the health probe
@@ -105,15 +107,15 @@ A virtual machine with a failed probe check is removed from the load balancer. T
 Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
 
 * Monitors the health of the virtual machines.
-* Named **myHealthProbe**.
+* Named **health-probe**.
 * Protocol **TCP**.
 * Monitoring **Port 80**.
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group CreatePrivLinkService-rg \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
+    --resource-group test-rg \
+    --lb-name load-balancer \
+    --name health-probe \
     --protocol tcp \
     --port 80
 ```
@@ -128,41 +130,27 @@ A load balancer rule defines:
 
 Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
 
-* Named **myHTTPRule**
-* Listening on **Port 80** in the frontend pool **myFrontEnd**.
-* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
-* Using health probe **myHealthProbe**.
+* Named **http-rule**
+* Listening on **Port 80** in the frontend pool **frontend**.
+* Sending load-balanced network traffic to the backend address pool **backend-pool** using **Port 80**. 
+* Using health probe **health-probe**.
 * Protocol **TCP**.
 * Idle timeout of **15 minutes**.
 * Enable TCP reset.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group CreatePrivLinkService-rg \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
+    --resource-group test-rg \
+    --lb-name load-balancer \
+    --name http-rule \
     --protocol tcp \
     --frontend-port 80 \
     --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe \
+    --frontend-ip-name frontend \
+    --backend-pool-name backend-pool \
+    --probe-name health-probe \
     --idle-timeout 15 \
     --enable-tcp-reset true
-```
-
-## Disable network policy
-
-Before a private link service can be created in the virtual network, the setting `privateLinkServiceNetworkPolicies` must be disabled.
-
-* Disable the network policy with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
-
-```azurecli-interactive
-az network vnet subnet update \
-    --name mySubnet \
-    --vnet-name MyVnet \
-    --resource-group CreatePrivLinkService-rg \
-    --disable-private-link-service-network-policies yes
 ```
 
 ## Create a private link service
@@ -171,19 +159,19 @@ In this section, create a private link service that uses the Azure Load Balancer
 
 Create a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
 
-* Named **myPrivateLinkService**.
-* In virtual network **myVNet**.
-* Associated with standard load balancer **myLoadBalancer** and frontend configuration **myFrontEnd**.
+* Named **private-link-service**.
+* In virtual network **vnet-1**.
+* Associated with standard load balancer **load-balancer** and frontend configuration **frontend**.
 * In the **eastus2** location.
  
 ```azurecli-interactive
 az network private-link-service create \
-    --resource-group CreatePrivLinkService-rg \
-    --name myPrivateLinkService \
-    --vnet-name myVNet \
-    --subnet mySubnet \
-    --lb-name myLoadBalancer \
-    --lb-frontend-ip-configs myFrontEnd \
+    --resource-group test-rg \
+    --name private-link-service \
+    --vnet-name vnet-1 \
+    --subnet subnet-1 \
+    --lb-name load-balancer \
+    --lb-frontend-ip-configs frontend \
     --location eastus2
 ```
 
@@ -197,21 +185,21 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
 Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
 
-* Named **myVNetPE**.
-* Address prefix of **11.1.0.0/16**.
-* Subnet named **mySubnetPE**.
-* Subnet prefix of **11.1.0.0/24**.
-* In the **CreatePrivLinkService-rg** resource group.
+* Named **vnet-pe**.
+* Address prefix of **10.1.0.0/16**.
+* Subnet named **subnet-pe**.
+* Subnet prefix of **10.1.0.0/24**.
+* In the **test-rg** resource group.
 * Location of **eastus2**.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group CreatePrivLinkService-rg \
+    --resource-group test-rg \
     --location eastus2 \
-    --name myVNetPE \
-    --address-prefixes 11.1.0.0/16 \
-    --subnet-name mySubnetPE \
-    --subnet-prefixes 11.1.0.0/24
+    --name vnet-pe \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name subnet-pe \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### Create endpoint and connection
@@ -220,27 +208,27 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 
 * Use [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create the private endpoint in the virtual network you created previously.
 
-* Named **MyPrivateEndpoint**.
-* In the **CreatePrivLinkService-rg** resource group.
-* Connection name **myPEconnectiontoPLS**.
+* Named **private-endpoint**.
+* In the **test-rg** resource group.
+* Connection name **connection-1**.
 * Location of **eastus2**.
-* In virtual network **myVNetPE** and subnet **mySubnetPE**.
+* In virtual network **vnet-pe** and subnet **subnet-pe**.
 
 ```azurecli-interactive
   export resourceid=$(az network private-link-service show \
-    --name myPrivateLinkService \
-    --resource-group CreatePrivLinkService-rg \
+    --name private-link-service \
+    --resource-group test-rg \
     --query id \
     --output tsv)
 
   az network private-endpoint create \
-    --connection-name myPEconnectiontoPLS \
-    --name myPrivateEndpoint \
+    --connection-name connection-1 \
+    --name private-endpoint \
     --private-connection-resource-id $resourceid \
-    --resource-group CreatePrivLinkService-rg \
-    --subnet mySubnetPE \
+    --resource-group test-rg \
+    --subnet subnet-pe \
     --manual-request false \
-    --vnet-name myVNetPE 
+    --vnet-name vnet-pe 
 
 ```
 
@@ -250,7 +238,7 @@ When no longer needed, use the [az group delete](/cli/azure/group#az-group-delet
 
 ```azurecli-interactive
   az group delete \
-    --name CreatePrivLinkService-rg 
+    --name test-rg 
 ```
 
 ## Next steps
