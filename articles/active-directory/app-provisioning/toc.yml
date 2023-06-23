@@ -105,6 +105,8 @@ items:
         href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      - name: Troubleshoot Active Directory InsufficientAccessRights error
+        href: insufficient-access-rights-error-troubleshooting.md
     - name: Troubleshoot HR provisioning
       items:
       - name: Attribute retrieval issues
@@ -117,6 +119,10 @@ items:
         href: hr-manager-update-issues.md
       - name: HR writeback issues
         href: hr-writeback-issues.md
+    - name: Troubleshooting Inbound Provisioning Application
+      items: 
+      - name: Inbound Provisioning API issues
+        href: inbound-provisioning-api-issues.md
     - name: Enable accidental deletions prevention
       href: accidental-deletions.md
     - name: Automate configuration using MS Graph

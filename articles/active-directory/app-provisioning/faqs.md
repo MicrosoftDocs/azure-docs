@@ -1,5 +1,5 @@
 ---
-title: Questions (FAQs) about the Inbound Provisioning API 
+title: Frequently asked questions (FAQs) about the Inbound Provisioning API 
 description: Frequently asked questions (FAQs) about the Inbound Provisioning API.
 services: active-directory
 author: jenniferf-skc
@@ -13,7 +13,7 @@ ms.author: jfields
 ms.reviewer: chmutali
 ---
 
-# Frequently asked questions (FAQs)
+# Frequently asked questions about the Inbound Provisioning API
 
 This article answers frequently asked questions (FAQs) about the Inbound Provisioning API.
 
