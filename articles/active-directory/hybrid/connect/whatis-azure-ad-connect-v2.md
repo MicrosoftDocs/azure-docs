@@ -17,12 +17,21 @@ ms.collection: M365-identity-device-management, has-adal-ref
 
 Azure AD Connect was released several years ago.  Since this time, several of the components that Azure AD Connect uses have been scheduled for deprecation and updated to newer versions.  Attempting to update all of these components individually would take time and planning. 
 
-[!INCLUDE [Choose cloud sync](../../../../includes/choose-cloud-sync.md)]
-
 To address this, we've bundled as many of these newer components into a new, single release, so you only have to update once. This release is Azure AD Connect V2.  This release is a new version of the same software used to accomplish your hybrid identity goals, built using the latest foundational components. 
 
  >[!NOTE]
  >Azure AD Connect V1 has been retired as of August 31, 2022 and is no longer supported. Azure AD Connect V1 installations may **stop working unexpectedly**. If you are still using a Azure AD Connect V1 you need to upgrade to Azure AD Connect V2 immediately.
+
+## Consider moving to Azure AD Connect cloud sync
+Azure AD Connect cloud sync is the future of synchronization for Microsoft.  It will replace Azure AD Connect.  
+
+> [!VIDEO https://www.youtube.com/embed/9T6lKEloq0Q]
+
+Before moving the Azure AD Connect V2.0, you should consider moving to cloud sync.  You can see if cloud sync is right for you, by accessing the [Check sync tool](https://aka.ms/M365Wizard) from the portal or via the link provided.
+
+For more information see [What is cloud sync?](../cloud-sync/what-is-cloud-sync.md)
+
+
 
 ## What are the major changes? 
 
