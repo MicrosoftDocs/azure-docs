@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 06/23/2023
 ms.custom: template-concept
 ---
 
@@ -23,7 +23,7 @@ Azure Data Manager for Agriculture supports a range of data ingress connectors t
 In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you store credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This process is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret.
 
 Flow diagram showing creation and sharing of credentials.
-:::image type="content" source="./media/concepts-byol-and-credentials/flow-creating-sharing.png" alt-text="Screenshot showing credential sharing flow.":::
+:::image type="content" source="./media/concepts-byol-and-credentials/flow-to-use-vault.png" alt-text="Screenshot showing credential sharing flow.":::
 
 The steps to use Azure Key Vault in Data Manager for Agriculture are as follows: 
 
@@ -67,7 +67,7 @@ Add an access policy in key vault for your Data Manager for Agriculture instance
 
 3. Select the next tab, and then select Data Manager for Agriculture instance name and then select the review + create tab to create the access policy.
 
-    :::image type="content" source="./media/concepts-byol-and-credentials/create-access-policy.png" alt-text="Screenshot showing selection create and review tab.":::
+    :::image type="content" source="./media/concepts-byol-and-credentials/access-policy-creation.png" alt-text="Screenshot showing selection create and review tab.":::
 
 ### Step 5: Invoke control plane API call
 Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2021-09-01-preview/farm-beats-models/create-or-update?tabs=HTTP) to specify credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the following figure.
@@ -77,7 +77,7 @@ Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2021-09-0
 In summary, you can use your license keys for satellite imagery and weather forecasts. You can do use your license keys safely via the Azure Key vault by storing your secrets, enabling system identity, providing read access to our Data Manger. Then you can use our data plan APIs that reference your license keys in your key vault. Our Data Manager does basic validations including checking if it can access the secret specified in credentials object or not.
 
 Flow showing how Azure Data Manager for Agriculture accesses secret.
-:::image type="content" source="./media/concepts-byol-and-credentials/access-to-keys.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
+:::image type="content" source="./media/concepts-byol-and-credentials/key-access.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
 
 ## Next steps
 
