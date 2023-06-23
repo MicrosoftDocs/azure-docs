@@ -28,6 +28,7 @@ Limitations:
 
 * A policy fragment can't include a policy section identifier (`<inbound>`, `<outbound>`, etc.) or the `<base/>` element.
 * Currently, a policy fragment can't nest another policy fragment. 
+* The maximum size of a policy fragment is 32 KB.
 
 ## Prerequisites
 

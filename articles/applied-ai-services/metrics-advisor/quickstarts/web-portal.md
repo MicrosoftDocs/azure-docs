@@ -78,7 +78,7 @@ After the data is loaded by running the query, select the appropriate fields.
 |---------|---------|---------|
 |**Timestamp**     | The timestamp of a data point. If the timestamp is omitted, Metrics Advisor uses the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column.       |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures, but at least one column should be selected as measure.        | Should be specified with at least one column.        |
-|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series. Examples include country, language, and tenant. You can select none, or an arbitrary number of columns as dimensions. If you're selecting a non-string column as dimension, be cautious with dimension explosion. | Optional.        |
+|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series. Examples include country/region, language, and tenant. You can select none, or an arbitrary number of columns as dimensions. If you're selecting a non-string column as dimension, be cautious with dimension explosion. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. For data sources that support using a query to get data, there's no ignore option.       |
 
 

@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) |
+| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) <br> [Security recommendations for OT networks for insecure passwords and critical CVEs](#security-recommendations-for-ot-networks-for-insecure-passwords-and-critical-cves) |
 
 ### OT plans billed by site-based licenses
 
@@ -44,6 +44,20 @@ For more information, see:
 - [Start a Microsoft Defender for IoT trial](getting-started.md)
 - [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
+
+### Security recommendations for OT networks for insecure passwords and critical CVEs
+
+Defender for IoT now provides security recommendations for insecure passwords and for critical CVEs to help customers manage their OT/IoT network security posture.
+
+You can see the following new security recommendations from the Azure portal for detected devices across your networks:
+
+- **Secure your vulnerable devices**: Devices with this recommendation are found with one or more vulnerabilities with a critical severity. We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency).
+
+- **Set a secure password for devices with missing authentication**: Devices with this recommendation are found without authentication based on successful sign-ins. We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity.
+
+- **Set a stronger password with minimum length and complexity**: Devices with this recommendation are found with weak passwords based on successful sign-ins. We recommend that you change the device password to a stronger password with minimum length and complexity.
+
+For more information, see [Supported security recommendations](recommendations.md#supported-security-recommendations).
 
 ## May 2023
 
@@ -747,7 +761,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Quickstart: Get started with Defender for IoT](getting-started.md)
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
 - [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
 
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!

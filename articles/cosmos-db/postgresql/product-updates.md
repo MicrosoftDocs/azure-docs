@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 06/08/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -23,6 +23,8 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### June  2023
+* General availability: Customer defined database name is now available in [all regions](./resources-regions.md) at [cluster provisioning](./quickstart-create-portal.md) time.
+    * If the database name is not specified, the default `citus` name is used.
 * General availability: [Managed PgBouncer settings](./reference-parameters.md#managed-pgbouncer-parameters) are now configurable on all clusters.
     * Learn more about [connection pooling](./concepts-connection-pool.md).
 * General availability: Preferred availability zone (AZ) selection is now enabled in [all Azure Cosmos DB for PostgreSQL regions](./resources-regions.md) that support AZs.
@@ -99,11 +101,11 @@ might have constrained capabilities.  For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-* Data encryption at rest using customer managed keys.
+* [Data encryption at rest using customer managed keys](./concepts-customer-managed-keys.md).
 
 ## Contact us
 
-Let us know about your experience using preview features, by emailing [Ask
+Let us know about your experience using preview features or if you have other product feedback, by emailing [Ask
 Azure Cosmos DB for PostgreSQL](mailto:AskCosmosDB4Postgres@microsoft.com).
 (This email address isn't a technical support channel. For technical problems,
 open a [support

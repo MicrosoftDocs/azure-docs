@@ -21,6 +21,8 @@ In this quickstart, you use the Azure portal to create a user account in your Az
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To create a user account and assign it to an enterprise application, you need:

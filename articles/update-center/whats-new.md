@@ -5,7 +5,7 @@ ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/05/2023
+ms.date: 06/12/2023
 ---
 
 # What's new in Update management center (Preview)
@@ -18,6 +18,10 @@ ms.date: 05/05/2023
 
 Update management center (preview) now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images.See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
+### Multi-subscription support
+
+The limit on the number of subscriptions that you can manage using the Update management center (preview) portal has now been removed. You can now manage all your subscriptions using the update management center (preview) portal.
+
 ## April 2023
 
 ### New prerequisite for scheduled patching
@@ -25,7 +29,7 @@ Update management center (preview) now supports [generalized](../virtual-machine
 A new patch orchestration - **Customer Managed Schedules (Preview)** is introduced as a prerequisite to enable scheduled patching on Azure VMs. The new patch enables the *Azure-orchestrated* and *BypassPlatformSafteyChecksOnUserSchedule* VM properties on your behalf after receiving the consent. [Learn more](prerequsite-for-schedule-patching.md).
 
 > [!IMPORTANT]
-> For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
+> For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by **30th June 2023**. If you fail to update the patch orchestration by **30th June 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
 
 
 ## November 2022

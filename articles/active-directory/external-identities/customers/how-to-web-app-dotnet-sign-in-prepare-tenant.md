@@ -1,35 +1,49 @@
 ---
-title: Prepare your tenant - Sign in users to an ASP.NET web app
-description: Learn about how to prepare your Azure Active Directory (AD) for customers tenant for customers to sign in users in your own ASP.NET web application by using Azure AD for customers tenant.
+title: Tutorial - Prepare your customer tenant to authenticate users in an ASP.NET web app
+description: Learn how to configure your Azure Active Directory (Azure AD) for customers tenant for authentication with an ASP.NET web application
 services: active-directory
 author: cilwerner
 manager: celestedg
 
 ms.author: cwerner
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/23/2023
-ms.custom: developer
+
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Prepare your tenant: Sign in users to an ASP.NET web app using an Azure Active Directory (AD) for customers tenant
+# Tutorial: Prepare your customer tenant to authenticate users in an ASP.NET web app
 
-This how-to guide demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You'll register a web application in the Microsoft Entra admin center, and record its identifiers. You'll then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your web application with the user flow.
+This tutorial series demonstrates how to build an ASP.NET web application from scratch and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for .NET](/entra/msal/dotnet) and [Microsoft Identity Web](/dotnet/api/microsoft-authentication-library-dotnet/confidentialclient) libraries to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
+
+In this tutorial, you'll;
+
+> [!div class="checklist"]
+> * Register a web application in the Microsoft Entra admin center, and record its identifiers
+> * Create a client secret for the web application
+> * Define the platform and URLs
+> * Grant permissions to the web application to access the Microsoft Graph API
+> * Create a sign in and sign out user flow in the Microsoft Entra admin center
+> * Associate your web application with the user flow
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md).
+- This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
+    * Application administrator
+    * Application developer
+    * Cloud application administrator
 
-## Register the web app
+- An Azure AD for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
+
+## Register the web app and record identifiers
 
 [!INCLUDE [ciam-register-app](./includes/register-app/register-client-app-common.md)]
 
-## Define the platform and URLs
+## Add a platform redirect URL
 
 [!INCLUDE [ciam-register-app](./includes/register-app/add-platform-redirect-url-dotnet.md)]
 
@@ -52,4 +66,4 @@ If you have already registered a web application in the Microsoft Entra admin ce
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md)
+> [Prepare ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md)

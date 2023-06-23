@@ -165,6 +165,11 @@ The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of
 
 For better security, it is a good practice to periodically rotate your admin password and database user passwords. It is recommended to use strong passwords using upper and lower cases, numbers and special characters.
 
+## Using SCRAM 
+The [Salted Challenge Response Authentication Mechanism (SCRAM)](https://datatracker.ietf.org/doc/html/rfc5802) greatly improves the security of password-based user authentication by adding several key security features that prevent rainbow-table attacks, man-in-the-middle attacks, and stored password attacks, while also adding support for multiple hashing algorithms and passwords that contain non-ASCII characters. 
+If your [client driver supports SCRAM](https://wiki.postgresql.org/wiki/List_of_drivers) , you can **[setup access to Azure Database for PostgreSQL - Flexible Server using SCRAM](./how-to-connect-scram.md)** as `scram-sha-256` vs. default `md5`.
+
+
 ### Reset administrator password
 
 Follow the [how to guide](./how-to-manage-server-portal.md#reset-admin-password) to reset the admin password.

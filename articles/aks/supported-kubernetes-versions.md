@@ -3,8 +3,8 @@ title: Supported Kubernetes versions in Azure Kubernetes Service (AKS).
 description: Learn the Kubernetes version support policy and lifecycle of clusters in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.date: 11/21/2022
-author: palma21
-ms.author: jpalma
+author: nickomang
+ms.author: nickoman
 ms.custom: event-tier1-build-2022
 ---
 
@@ -41,7 +41,7 @@ View the upcoming version releases on the AKS Kubernetes release calendar. To se
 > [!NOTE]
 > AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](./supported-kubernetes-versions.md#faq).
 
-For the past release history, see [Kubernetes history](https://en.wikipedia.org/wiki/Kubernetes#History).
+For the past release history, see [Kubernetes history](https://github.com/kubernetes/kubernetes/releases).
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
@@ -52,14 +52,14 @@ For the past release history, see [Kubernetes history](https://en.wikipedia.org/
 
 ## AKS Components Breaking Changes by Version
 
-Note important changes to make, before you upgrade to any of the available minor versions per below. 
+Note important changes to make, before you upgrade to any of the available minor versions per below.
 
-|AKS Component/Add on | v1.24  | v1.25 | v1.26 |
-|--------------|-------------------|-----------------------------------------------------------|---------------------------------------------------------------------------|
-| Overlay VPA | 0.11.0, no breaking changes |0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)|0.12.0</br><b>Breaking Changes:</b></br>Switch to using policy [v1 API](https://github.com/kubernetes/autoscaler/pull/4895) and Switch to using [CronJobs v1 API](https://github.com/kubernetes/autoscaler/pull/4887)
-|OS Images (Ubuntu)| Ubuntu 18.04 by default with cgroupv1 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br> If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2 | Ubuntu 22.04 by default with cgroupv2.</br><b>Breaking Changes:</b></br>If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
-
-
+|Kubernetes Version | AKS Managed Addons  | AKS Components | OS components | Breaking Changes | Notes
+|--------------|------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------|----------------|---------------------------|
+| 1.24 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload Identity V1.1.1<br>ASC Defender 1.0.56<br>AAD Pod Identity 1.8.13.6<br>Gitops 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 18.04 Cgroups V1 <br>ContainerD 1.7<br>| No Breaking Changes | None
+| 1.25 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload Identity V1.1.1<br>ASC Defender 1.0.56<br>AAD Pod Identity 1.8.13.6<br>Gitops 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 18.04 Cgroups V1 <br>ContainerD 1.7<br>| Ubuntu 22.04 by default with cgroupv2 and Overlay VPA 0.13.0  |CgroupsV2 - If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
+| 1.26 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload Identity V1.1.1<br>ASC Defender 1.0.56<br>AAD Pod Identity 1.8.13.6<br>Gitops 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>|No Breaking Changes  |None
+| 1.27 Preview | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.10.0<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Ingress AppGateway 1.2.1<br>Eraser v1.1.1<br>Azure Workload Identity V1.1.1<br>ASC Defender 1.0.56<br>AAD Pod Identity 1.8.13.6<br>Gitops 1.7.0<br>KMS 0.5.0|Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V1 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>|Keda 2.10.0  |Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 preview onwards.
 ## Alias minor version
 
 > [!NOTE]
