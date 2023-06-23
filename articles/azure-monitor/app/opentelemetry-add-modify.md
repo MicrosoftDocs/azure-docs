@@ -1161,46 +1161,46 @@ Not available in .NET.
 
 First, get the `LogHandler`:
 
-    ```javascript
-    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
-    const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
-    const logHandler = appInsights.getLogHandler();
-    ```
+```javascript
+const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
+const logHandler = appInsights.getLogHandler();
+```
 
 Then use the `LogHandler` to send custom telemetry:
 
-    ##### Events
+##### Events
+
+```javascript
+let eventTelemetry = {
+    name: "testEvent"
+};
+logHandler.trackEvent(eventTelemetry);
+```
+
+##### Logs
+
+```javascript
+let traceTelemetry = {
+    message: "testMessage",
+    severity: "Information"
+};
+logHandler.trackTrace(traceTelemetry);
+```
     
-    ```javascript
-    let eventTelemetry = {
-        name: "testEvent"
+##### Exceptions
+
+```javascript
+try {
+    ...
+} catch (error) {
+    let exceptionTelemetry = {
+        exception: error,
+        severity: "Critical"
     };
-    logHandler.trackEvent(eventTelemetry);
-    ```
-    
-    ##### Logs
-    
-    ```javascript
-    let traceTelemetry = {
-        message: "testMessage",
-        severity: "Information"
-    };
-    logHandler.trackTrace(traceTelemetry);
-    ```
-    
-    ##### Exceptions
-    
-    ```javascript
-    try {
-        ...
-    } catch (error) {
-        let exceptionTelemetry = {
-            exception: error,
-            severity: "Critical"
-        };
-        logHandler.trackException(exceptionTelemetry);
-    }
-    ```
+    logHandler.trackException(exceptionTelemetry);
+}
+```
 
 #### [Python](#tab/python)
   
