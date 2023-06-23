@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: VM Console Service"
-description: Learn how to use the VM Console service.
+description: Learn how to use the VM console service.
 author: sshiba
 ms.author: sidneyshiba@microsoft.com
 ms.service: azure 
@@ -9,16 +9,16 @@ ms.date: 06/16/2023
 ms.custom: template-how-to
 ---
 
-# Introduction to the Virtual MachineConsole Service
+# Introduction to the Virtual Machine console service
 
-The Virtual Machine (VM) Console service provides managed SSH access to a VM hosted in an Azure for Operators Cluster. It relies on the Azure Private Link Service (PLS) to establish a private network connection between the user's network and the Azure Operator Nexus Cluster Manager's private network.
+The Virtual Machine (VM) console service provides managed SSH access to a VM hosted in an Operator Nexus Instance. It relies on the Azure Private Link Service (PLS) to establish a private network connection between the user's network and the Azure Operator Nexus Cluster Manager's private network.
 
 <!--- IMG ![VM Console service overview](articles/operator-nexus/media/vm-console-service.png) IMG --->
 :::image type="content" source="media/vm-console-service.png" alt-text="VM Console service overview.":::
 
-For more information about networking resources that enables private connectivity to an Azure Operator Nexus Cluster, see [Introduction to Azure Private Link](https://learn.microsoft.com/en-us/training/modules/introduction-azure-private-link/).
+For more information about networking resources that enables private connectivity to an Operator Nexus Instance, see [Introduction to Azure Private Link](https://learn.microsoft.com/training/modules/introduction-azure-private-link/).
 
-This document provides guided instructions of how to use the VM Console service to establish an SSH session with a Virtual Machine in an Azure for Operators Nexus Cluster.
+This document provides guided instructions of how to use the VM Console service to establish an SSH session with a Virtual Machine in an Operator Nexus Instance.
 
 This guide helps you to:
 
@@ -39,7 +39,7 @@ This guide helps you to:
 
 ## Setting variables
 
-To help set up the environment for SSHing to Virtual Machines, define these environment variables that to be used throughout this guide.
+To help set up the environment for SSHing to Virtual Machines, define these environment variables that are used throughout this guide.
 
 > [!NOTE]
 > These environment variable values do not reflect a real deployment and users MUST change them to match their environments.
@@ -160,7 +160,7 @@ At this point, you have all the info needed for establishing a `ssh` session to 
 The VM Console service is a `ssh` server that "relays" the session to the designated Virtual Machine. The `sshmux_ple_ip` indirectly references the VM Console service and the `virtual_machine_access_id` the identifier for the Virtual Machine.
 
 > [!IMPORTANT]
-> The VM Console service listens to port `2222`, therefore you MUST specify this port number in the `ssh` command.
+> The VM Console service listens to port `2222`, therefore you **must** specify this port number in the `ssh` command.
 >
 > ```bash
 >    SSH [-i path-to-private-SSH-key] -p 2222 $virtual_machine_access_id@$sshmux_ple_ip
@@ -169,14 +169,14 @@ The VM Console service is a `ssh` server that "relays" the session to the design
 <!--- IMG ![VM Console SSH Session](articles/operator-nexus/media/vm-console-ssh-session.png) IMG --->
 :::image type="content" source="media/vm-console-ssh-session.png" alt-text="VM Console SSH Session.":::
 
-The VM Console service was designed to allow ONLY one `ssh` session per Virtual Machine. Anyone establishing a successful `ssh` session to a Virtual Machine closes an existing session, if any.
+The VM Console service was designed to allow **only** one `ssh` session per Virtual Machine. Anyone establishing a successful `ssh` session to a VM closes an existing session, if any.
 
 > [!IMPORTANT]
 > The private SSH key used for authenticating the `ssh` session (default: `$HOME/.ssh/id_rsa`) MUST match the public SSH key passed as parameter when creating the Console resource.
 
 ## Updating Console Resource
 
-You can disable `ssh` session to a given Virtual Machine by updating the expiration date/time and/or update the public SSH key.
+You can disable `ssh` session to a given VM by updating the expiration date/time and/or update the public SSH key.
 
 ```bash
     az networkcloud virtualmachine console update \
@@ -187,10 +187,10 @@ You can disable `ssh` session to a given Virtual Machine by updating the expirat
         [--expiration "${CONSOLE_EXPIRATION_TIME}"]
 ```
 
-If you want to disable `ssh` access to a Virtual Machine, you need to update the Console resource with the parameter `enabled False`. This update closes any `ssh` session and restricts any subsequent sessions.
+If you want to disable `ssh` access to a VM, you need to update the Console resource with the parameter `enabled False`. This update closes any `ssh` session and restricts any subsequent sessions.
 
 > [!NOTE]
-> Before anyone can create a `ssh` session to a Virtual Machine, the corresponding Console resource MUST be set to `--enabled True`.
+> Before anyone can create a `ssh` session to a VM, the corresponding Console resource **must** be set to `--enabled True`.
 
 When a Console `--expiration` time expires, it closes any `ssh` session corresponding the Console resource. You'll need to update the expiration time with a future value so that you can establish a new session.
 
