@@ -189,7 +189,7 @@ An ignored environment definition error occurs if you add two or more environmen
 
 An invalid environment definition error might occur for various reasons:
 
-- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](./configure-environment-definition.md#add-a-environment-definition).
+- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](./configure-environment-definition.md#add-an-environment-definition).
 
 - **Validation errors**. Check the following items to resolve validation errors:
 
