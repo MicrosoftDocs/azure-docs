@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 # Import and export IoT Hub device identities in bulk
 
-Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when migrating an IoT hub to a different region, see [How to migrate an IoT Hub using Azure Resource Manager templates](migrate-hub-arm.md).
+Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when migrating an IoT hub to a different region, see [How to manually migrate an Azure IoT hub using an Azure Resource Manager template](migrate-hub-arm.md).
 
 > [!NOTE]
 > IoT Hub has recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication.  Initially, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).

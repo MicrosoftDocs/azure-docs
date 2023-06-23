@@ -240,6 +240,8 @@ items:
           href: app/opentelemetry-enable.md
         - name: OpenTelemetry configuration
           href: app/opentelemetry-configuration.md
+        - name: Add and modify OpenTelemetry
+          href: app/opentelemetry-add-modify.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -652,6 +654,8 @@ items:
     href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
+  - name: Stream monitoring data
+    href: essentials/stream-monitoring-data-event-hubs.md
 - name: Data collection
   items: 
   - name: Overview
