@@ -27,6 +27,8 @@
     items:
     - name: Forecasting
       href: capabilities-forecasting.md
+    - name: Budget management
+      href: capabilities-budgets.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

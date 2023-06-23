@@ -52,7 +52,8 @@ landingContent:
       links:
       - text: Forecasting
         url: capabilities-forecasting.md
-
+      - text: Budget management
+        url: capabilities-budgets.md
 
 # Card (optional)
 
