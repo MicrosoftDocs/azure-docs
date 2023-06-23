@@ -33,7 +33,7 @@ The following infrastructure workloads don't incur OpenShift Container Platform 
 - Cluster-aggregated logging
 
 > [!IMPORTANT]
-> If workloads other than the allowable types are discovered on the infrastructure nodes, the Service Level Agreement (SLA) may be invalidated and the stability of the cluster may be compromised. 
+> Running workloads other than the designated kinds on the infrastructure nodes may affect the Service Level Agreement (SLA) and the stability of the cluster. 
 
 ## Before you begin
 
@@ -48,7 +48,7 @@ In order for Azure VMs added to an ARO cluster to be recognized as infrastructur
 
 - The nodes must have an Azure tag of **node_role: infra**
 
-- Only workloads designated for infrastructure nodes are allowed. All other workloads would deem these worker nodes and thus subject to the fee. This may also invalidate the Service Level Agreement and compromise the stability of the cluster.
+- Only workloads designated for infrastructure nodes are allowed. All other workloads would deem these worker nodes and thus subject to the fee. This may also invalidate the SLA and compromise the stability of the cluster.
 
 
 ## Creating infrastructure machine sets
