@@ -707,6 +707,8 @@ items:
               href: storage-blob-container-user-delegation-sas-create-java.md
             - name: Create a service SAS for a container
               href: sas-service-create-java-container.md
+            - name: Create an account SAS
+              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -737,6 +739,8 @@ items:
               href: storage-blob-user-delegation-sas-create-java.md
             - name: Create a service SAS for a blob
               href: sas-service-create-java.md
+            - name: Create an account SAS
+              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: JavaScript
         items:
         - name: Get started
