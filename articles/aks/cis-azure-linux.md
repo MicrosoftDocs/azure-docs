@@ -172,11 +172,11 @@ The following are the results from the [CIS Azure Linux 2.0 Benchmark v2.1.0][ci
 |6.2.6|Ensure no duplicate group names exist|Pass||
 |6.2.7|Ensure root PATH Integrity|Pass||
 |6.2.8|Ensure root is the only UID 0 account|Pass||
-|6.2.9|Ensure all users home directories exist|Pass||
-|6.2.10|Ensure users own their home directories|Pass||
-|6.2.11|Ensure users home directories permissions are 750 or more restrictive|Pass||
-|6.2.12|Ensure users dot files are not group or world writable|Pass||
-|6.2.13|Ensure users .netrc Files are not group or world accessible|Pass||
+|6.2.9|Ensure all users' home directories exist|Pass||
+|6.2.10|Ensure users' own their home directories|Pass||
+|6.2.11|Ensure users' home directories permissions are 750 or more restrictive|Pass||
+|6.2.12|Ensure users' dot files are not group or world writable|Pass||
+|6.2.13|Ensure users' .netrc Files are not group or world accessible|Pass||
 |6.2.14|Ensure no users have .forward files|Pass||
 |6.2.15|Ensure no users have .netrc files|Pass||
 |6.2.16|Ensure no users have .rhosts files|Pass||
