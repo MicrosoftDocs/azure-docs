@@ -24,7 +24,7 @@ Get started creating a Private Link service that refers to your service. Give Pr
 
 ## Create an internal load balancer
 
-In this section, you'll create a virtual network and an internal Azure Load Balancer.
+In this section, you create a virtual network and an internal Azure Load Balancer.
 
 ### Load balancer virtual network
 
@@ -74,7 +74,7 @@ Create a virtual network and subnet to host the load balancer that accesses your
 
 Create an internal load balancer that load balances virtual machines.
 
-During the creation of the load balancer, you'll configure:
+During the creation of the load balancer, you configure:
 
 * Frontend IP address
 
@@ -202,7 +202,7 @@ Your private link service is created and can receive traffic. If you want to see
 
 ## Create private endpoint
 
-In this section, you'll map the private link service to a private endpoint. A virtual network contains the private endpoint for the private link service. This virtual network contains the resources that will access your private link service.
+In this section, you map the private link service to a private endpoint. A virtual network contains the private endpoint for the private link service. This virtual network contains the resources that access your private link service.
 
 ### Create private endpoint virtual network
 
@@ -314,7 +314,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
 ### IP address of private endpoint
 
-In this section, you'll find the IP address of the private endpoint that corresponds with the load balancer and private link service.
+In this section, you find the IP address of the private endpoint that corresponds with the load balancer and private link service.
 
 1. Enter **test-rg** in the search box at the top of the portal. Select **test-rg** in the search results in **Resource Groups**.
 
