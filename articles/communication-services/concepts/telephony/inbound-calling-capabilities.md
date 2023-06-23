@@ -20,11 +20,11 @@ Inbound PSTN calling is currently supported in GA for Dynamics Omnichannel. You 
 
 Supported in General Availability, to set up inbound calling in Omnichannel for Customer Service with direct routing or Voice Calling (PSTN) follow [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
 
-**Inbound calling with ACS Call Automation SDK**
+**Inbound calling with Azure Communication Services Call Automation SDK**
 
 Call Automation enables you to build custom calling workflows within your applications to optimize business processes and boost customer satisfaction. The library supports managing incoming calls to the phone numbers acquired from Communication Services and incoming calls via Direct Routing. You can also use Call Automation to place outbound calls from the phone numbers owned by your resource, among other capabilities.   
 
-Learn more about [Call Automation](../voice-video-calling/call-automation.md), currently available in public preview.
+Learn more about [Call Automation](../voice-video-calling/call-automation.md), supported in General Availability.
 
 **Inbound calling with Power Virtual Agents**
 
