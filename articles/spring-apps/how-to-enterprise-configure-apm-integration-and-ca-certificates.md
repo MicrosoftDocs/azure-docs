@@ -7,7 +7,7 @@ ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/25/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
 ---
 
 # How to configure APM integration and CA certificates
@@ -42,12 +42,12 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 
 | Buildpack         | ApplicationInsights | New Relic | AppDynamics | Dynatrace | ElasticAPM |
 |-------------------|---------------------|-----------|-------------|-----------|------------|
-| Java              | ✔                   | ✔         | ✔           | ✔         | ✔          |
-| Dotnet            |                     |           |             | ✔         |            |
-| Go                |                     |           |             | ✔         |            |
+| Java              | ✔                  | ✔         | ✔          | ✔         | ✔         |
+| Dotnet            |                     |           |             | ✔        |            |
+| Go                |                     |           |             | ✔        |            |
 | Python            |                     |           |             |           |            |
-| NodeJS            |                     | ✔         | ✔           | ✔         | ✔          |
-| Web servers       |                     |           |             | ✔         |            |
+| NodeJS            |                     | ✔        | ✔           | ✔        | ✔          |
+| Web servers       |                     |           |             | ✔        |            |
 | Java Native Image |                     |           |             |           |            |
 
 For information about using Web servers, see [Deploy web static files](how-to-enterprise-deploy-static-file.md).
@@ -150,7 +150,7 @@ You can create an APM configuration and bind to app builds and deployments, as e
 You can manage APM integration by configuring properties or secrets in the APM configuration.
 
 > [!NOTE]
-> When configuring properties or secrets for APM, use key names without a prefix. For example, don't use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+> When configuring properties or secrets for APM, use key names without a prefix. For example, don't use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix.
 
 The following list shows you the Azure CLI commands you can use to manage APM configuration:
 
@@ -396,7 +396,7 @@ You can configure the CA certificates on the **Edit binding** page. The `succeed
 This section applies only to an Azure Spring Apps Enterprise service instance with the build service enabled. With the build service enabled, one buildpack binding means either credential configuration against one APM type, or CA certificates configuration against the CA certificates type. For APM integration, follow the earlier instructions to configure the necessary environment variables or secrets for your APM.
 
 > [!NOTE]
-> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding or `APPLICATIONINSIGHTS_` for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix.
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
 

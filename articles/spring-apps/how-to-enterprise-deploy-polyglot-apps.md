@@ -6,7 +6,7 @@ ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/25/2023
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, devx-track-extended-java
 ---
 
 # How to deploy polyglot apps in the Azure Spring Apps Enterprise plan
@@ -47,7 +47,7 @@ All the builders configured in an Azure Spring Apps service instance are listed 
 
 :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png" alt-text="Screenshot of the Azure portal showing the Build Service page with the Builders list highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png":::
 
-Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Tiny`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. See below [OS Stack Recommendations](#os-stack-recommendations) section to learn more about it.
+Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Tiny`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see the [OS stack recommendations](#os-stack-recommendations) section.
 
 We recommend using `Jammy OS Stack` to create your builder because VMware is deprecating `Bionic OS Stack`.
 
@@ -66,23 +66,15 @@ You can't delete a builder when existing active deployments are being built with
 1. Migrate the deployments under the previous builder to the new builder.
 1. Delete the original builder.
 
-#### OS Stack Recommendations
+#### OS stack recommendations
 
-In Azure Spring Apps, using `Jammy OS Stack` is strongly recommended to create your builder because `Bioinic OS Stack` is in line for deprecation by VMware.
+In Azure Spring Apps, we recommend using `Jammy OS Stack` to create your builder because `Bioinic OS Stack` is in line for deprecation by VMware. The following list describes the options available:
 
-- Jammy Tiny
+- Jammy Tiny - suitable for building a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make the final container image smaller. The integrated libraries are limited. For example, you can't [connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md) because there's no `shell` library.
 
-  It is suitable to build a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make final container image smaller.
+- Jammy Base - suitable for most apps without native extensions.
 
-  But there are some limitations because of the integrated libraries are limit. E.g. It doesn't allow to [connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md) because there is no `shell` library.
-
-- Jammy Base
-  
-  It is suitable for most apps without native extensions.
-
-- Jammy Full
-
-  It includes the most libraries, and it is suitable for apps with native extensions. For example, it includes a more complete library of fonts. If your app rely on the native extension, then use the `Full` stack.
+- Jammy Full - includes the most libraries, and is suitable for apps with native extensions. For example, it includes a more complete library of fonts. If your app relies on the native extension, then use the `Full` stack.
 
 For more information, see [Ubuntu Stacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html#ubuntu-stacks) in the VMware documentation.
 
@@ -94,12 +86,12 @@ After you enable a user container registry with the build service, you can show 
 
 #### [Azure portal](#tab/Portal)
 
-Use the following steps to show, add, edit and delete the container registry:
+Use the following steps to show, add, edit, and delete the container registry:
 
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Container registry** in the navigation pane.
 1. Select **Add** to create a container registry.
-   
+
    :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/add-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Add container registry button." lightbox="media/how-to-enterprise-deploy-polyglot-apps/add-container-registry.png":::
 
 1. For a container registry, select the ellipsis (**...**) button, then select **Edit** to view the registry configuration.
@@ -111,7 +103,7 @@ Use the following steps to show, add, edit and delete the container registry:
    :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png" alt-text="Screenshot of the Azure portal showing the Container registry page with Edit container registry pane open for the current container registry in the list." lightbox="media/how-to-enterprise-deploy-polyglot-apps/edit-container-registry.png":::
 
 1. To delete a container registry, select the ellipsis (**...**) button, then select **Delete** to delete the registry. If the container registry is used by build service, it can't be deleted.
-   
+
    :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png" alt-text="Screenshot of Azure portal showing the Container registry page with Delete container registry pane open for the current container registry in the list." lightbox="media/how-to-enterprise-deploy-polyglot-apps/delete-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
@@ -154,12 +146,11 @@ az spring container-registry delete \
     --name <your-container-registry-name> 
 ```
 
-If the container registry is used by build service, then it can't be deleted.
+If the container registry is used by the build service, then you can't delete it.
 
 ---
 
-A container registry can be used by Build Service, the Build Service can also change the referred container registry. 
-If so, all the builder and build resources under the Build Service will be rebuilt and then push the final container images to the new container registry. It a time-costing operation.
+A container registry can be used by Build Service, the Build Service can also change the referred container registry. If so, all the builder and build resources under the Build Service will be rebuilt and then push the final container images to the new container registry. It a time-costing operation.
 
 #### [Azure portal](#tab/Portal)
 
