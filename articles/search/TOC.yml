@@ -95,10 +95,6 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
-  - name: Vector tutorials
-    items:
-    - name: Chunk large documents
-      href: vector-search-tutorial.md
   - name: Skills tutorials
     items:
     - name: C#
@@ -424,7 +420,7 @@
       href: vector-search-how-to-generate-embeddings.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
-    - name: Create a vector query
+    - name: Query vector fields
       href: vector-search-how-to-query.md
   - name: Queries
     items:

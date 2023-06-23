@@ -95,19 +95,14 @@ sections:
           Vector search is a technique used in information retrieval to find similar items in a dataset based on their vector representations.
 
       - question: |
-          How does vector search work?
-        answer: |
-          Imagine you have a large collection of documents, which can be articles, text, images, etc. Using the latest machine learning models, these can be summarized into a vector representation, which is essentially a series of numbers that describe its features or characteristics. This is an abstract representation and not human-readable. Vector search is a technique that allows you to find the most similar documents by comparing their vector representations. Since the goal of a vector representation is to distill the _meaning_ of a document, it can capture abstract concepts and surface them as search results, even if there are no explicit matches based on keywords or tags. When a user performs a search, the query is summarized into a vector representation and the vector search engine identifies the most similar documents. For more details, please see [Vector search overview](./vector-search-overview.md).
-
-      - question: |
           Does Azure Cognitive Search support vector search?
         answer: |
-          Support for vector search is in public preview and available through the 2023-07-01-Preview REST APIs. Support consists of search fields that contain embeddings that you provide.
+          Yes. Support for vector search is in public preview and available through the 2023-07-01-Preview REST APIs. Support consists of search fields that contain embeddings that you provide.
 
       - question: |
           How does vector search work in Azure Cognitive Search?
         answer: |
-          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)". Vector fields can be populated using an Indexer or by the Push API. 
+          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)". Vector fields can be populated using an indexer or by the Push API. 
           
           Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
 

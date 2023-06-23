@@ -15,7 +15,7 @@ ms.date: 06/29/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through Azure portal, preview REST APIs, and alpha SDKs.
 
-Get started with vector search in Azure Cognitive Search using the **2023-07-01-Preview** REST APIs that create, load, and query a search index. Queries can be vector-only, or combined with text fields for hybrid search scenarios. Hybrid search refers to queries that target vector fields *and* textual fields that have been configured for filter, sort, facets, and semantic ranking.
+Get started with vector search in Azure Cognitive Search using the **2023-07-01-Preview** REST APIs that create, load, and query a search index. Search indexes now support vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Get started with vector search in Azure Cognitive Search using the **2023-07-01-
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, created after 2019. The service can be in any region and any tier except free. However, to run the last two queries, S1 or higher is required, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
++ Azure Cognitive Search. The service can be in any region and any tier except free. However, to run the last two queries, S1 or higher is required, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search). The majority of existing services will support vector search. For a small subset of services created prior to January 2019, an index containing vector fields might fail on creation. In this situation, a new service must be created.
 
 + [Sample Postman collection](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection), with requests targeting the **2023-07-01-preview** API version of Azure Cognitive Search.
 
@@ -37,7 +37,7 @@ Sample data consists of text and vector descriptions of 108 Azure services, gene
 
 + Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
 
-  For documents, we generated vector data using demo code that calls Azure Open for the embeddings. Demo code is cirrently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+  For documents, we generated vector data using demo code that calls Azure Open for the embeddings. Demo code is currently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
 
   For queries, we used the "Create Query Embeddings" request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data of 108 Azure services, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, that embedding model is **text-embedding-ada-002**, API version **2023-05-15**.
 
@@ -166,7 +166,7 @@ You should get a status HTTP 201 success.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchConfiguration"` properties. See [this article](/rest/api/searchservice/preview-api/create-or-update-index) for property descriptions.
 
-+ The "vectorSearch" configuration is an array of algorithms, but only the "hnsw" algorithm is supported in this preview. Hierarchical Navigable Small World (HNSW) is part of the infrastructure that powers Azure Cognitive Search. It works well with [embedding models](/azure/cognitive-services/openai/concepts/models#embeddings-models) provided in Azure OpenAI.
++ The "vectorSearch" configuration is an array of algorithms, but only the "hnsw" algorithm is supported in this preview. Hierarchical Navigable Small World (HNSW) is part of the infrastructure that powers d. It works well with [embedding models](/azure/cognitive-services/openai/concepts/models#embeddings-models) provided in Azure OpenAI.
 
 + The "semanticSearch" configuration enables semantic reranking of search results. You can semantically rerank results in queries of type "semantic" for string fields that are specified in the configuration.
 
