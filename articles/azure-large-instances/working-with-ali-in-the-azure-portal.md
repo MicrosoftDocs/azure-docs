@@ -207,128 +207,66 @@ Data collected includes:
 
 This information is important in support requests and when setting up a storage snapshot configuration.
 
- 
+Image TBD in next couple of weeks - IW 
 
- 
+### Restart an ALI instance through the Azure portal
 
-Text BoxA screenshot of a computer
+There are various situations where the OS won't finish a restart, which requires a power restart of the ALI instance.
 
-Description automatically generated with medium confidence 
+You can do a power restart of the instance directly from the Azure portal or through Azure CLI.
 
- 
-
- 
-
-Restart a Azure Large Instance through the Azure portal 
-
- 
-
-There are various situations where the OS won't finish a restart, which requires a power restart of the Azure Large Instance. 
-
- 
-
-You can do a power restart of the instance directly from the Azure portal or through Azure CLI: 
-
- 
-
-Portal 
+### [Portal](#tab/azure-portal)
 
 Select Restart and then Yes to confirm the restart. 
 
- 
+ :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Screenshot showing how to restart the ALI instance.":::
 
-A screenshot of a computer
+When you restart an AKI instance, you'll experience a delay. 
+During this delay, the power state moves from **Starting** to **Started**, which means the OS has started up completely. 
+As a result, after a restart, you can only log into the unit once the state switches to **Started**. 
 
-Description automatically generated 
 
-When you restart a BareMetal instanceAzure Large Instance, you'll experience a delay. During this delay, the power state moves from Starting to Started, which means the OS has started up completely. As a result, after a restart, you can only log into the unit once the state switches to Started. 
+### [Azure CLI](#tab/azure-cli)
 
- 
+### [Azure CLI](#tab/azure-cli)
 
-Azure CLI 
+To restart an ALI instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az-baremetalinstance-restart) command:
 
-To restart a Azure Large Instance, use the az baremetalinstance restart command as shown below: 
+```azurecli
+az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
+```
 
- 
-
-az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01 
-
- 
-
-Important: 
+---
 
  
 
-Depending on the amount of memory in your Azure Large Instance, a restart and a reboot of the hardware and operating system can take up to one hour. 
+> [!Important]
+> Depending on the amount of memory in your Azure Large Instance, a restart and a reboot of the hardware and operating system can take up to one hour.
 
+### Open a support request for ALI  
  
-
+You can submit support requests specifically for BareMetal instances.
+1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
  
+* **Issue type:** Select an issue type.
+* **Subscription:** Select your subscription.
+* **Service:** BareMetal Infrastructure
+* **Resource:** Provide the name of the instance.
+* **Summary:** Provide a summary of your request.
+* **Problem type:** Select a problem type.
+* **Problem subtype:** Select a subtype for the problem.
 
-Open a support request for ALI  
+1. Select the **Solutions** tab to find a solution to your problem. If you can't find a solution, go to the next step.
 
-You can submit support requests specifically for ALI. 
+1. Select the **Details** tab and select whether the issue is with VMs or BareMetal instances. This information helps direct the support request to the correct specialists.
 
+1. Indicate when the problem began and select the instance region.
+
+1. Provide more details about the request and upload a file if needed.
+
+1. Select **Review + Create** to submit the request.
  
-
-In Azure portal, under Help + Support, create a New support request and provide the following information for the ticket: 
-
- 
-
-Issue type: Select an issue type. 
-
- 
-
-Subscription: Select your subscription. 
-
- 
-
-Service: Epic on Azure  
-
- 
-
-Category:  ALI (ALI) 
-
- 
-
-Resource: Provide the name of the instance. 
-
- 
-
-Summary: Provide a summary of your request. 
-
- 
-
-Problem type: Select a problem type. 
-
- 
-
-Problem subtype: Select a subtype for the problem. 
-
- 
-
-Select the Solutions tab to find a solution to your problem. If you can't find a solution, go to the next step. 
-
- 
-
-Select the Details tab and select whether the issue is with VMs or ALI(ALI)  
-
-. This information helps direct the support request to the correct specialists. 
-
- 
-
-Indicate when the problem began and select the instance region. 
-
- 
-
-Provide more details about the request and upload a file if needed. 
-
- 
-
-Select Review + Create to submit the request. 
-
- 
-
-It takes up to five business days for a support representative to confirm your request. 
+Support response depends on the support plan chosen by the customer.
+For more information, see [Support scope and responsiveness](https://azure.microsoft.com/en-us/support/plans/response/).
 
  
