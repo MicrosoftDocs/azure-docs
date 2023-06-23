@@ -81,6 +81,8 @@ landingContent:
         url: capabilities-efficiency.md
       - text: Workload management and automation
         url: capabilities-workloads.md
+      - text: Onboarding workloads
+        url: capabilities-onboarding.md
 
 # Card (optional)
 

@@ -47,6 +47,8 @@
       href: capabilities-efficiency.md
     - name: Workload management and automation
       href: capabilities-workloads.md
+    - name: Onboarding workloads
+      href: capabilities-onboarding.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book
