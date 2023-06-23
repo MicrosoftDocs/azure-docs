@@ -39,7 +39,7 @@ sections:
         answer: |
           Standard Cognitive Services containers can be used in the Sovereign clouds. The containers can be run and can connect to the billing endpoint in these clouds once authorized, but container images need to be pulled from the Public cloud container registry. Containers that rely on language models downloaded at runtime, such as Translator or Custom Speech to text, also are configured to pull models from Public endpoints. 
           
-          Purchasing disconnected containers is not currently supported in Sovereign clouds, but disconnected containers purchased in Public cloud along with all dependencies can be transferred to Soeveign clouds and run on Sovereign cloud infrastructure.
+          Purchasing disconnected containers is not currently supported in Sovereign clouds, but disconnected containers purchased in Public cloud along with all dependencies can be transferred to Sovereign clouds and run on Sovereign cloud infrastructure.
   - name: Versioning
     questions:
       - question: How are containers updated to the latest version?
