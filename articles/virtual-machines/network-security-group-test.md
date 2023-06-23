@@ -17,7 +17,9 @@ In this article, you learn how to use **Network security group test** to check i
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
 
 - An Azure virtual machine (VM). [create a virtual machine](quick-create-portal.md).
 
@@ -36,7 +38,7 @@ In this section, you test if RDP connections are allowed to your VM from a remot
     > [!NOTE]
     > The virtual machine must be in running state.
 
-    The following options are available for **Inbound** tests:
+1. Select **Inbound connections**. The following options are available for **Inbound** tests:
 
     | Setting | Value |
     | --- | --- |
@@ -83,7 +85,7 @@ In this section, you test your VM can have connect to the internet.
     > [!NOTE]
     > The virtual machine must be in running state.
 
-    The following options are available for **Outbound** tests:
+1. Select **Outbound connections**. The following options are available for **Outbound** tests:
 
     | Setting | Value |
     | --- | --- |
@@ -118,5 +120,4 @@ In this section, you test your VM can have connect to the internet.
 ## Next steps
 
 - To learn how to troubleshoot VM connections, see [Troubleshoot connections with Azure Network Watcher](../network-watcher/network-watcher-connectivity-portal.md).
-- To learn more about network security groups, see [network security groups](../virtual-network/network-security-groups-overview.md).
-
+- To learn more about network security groups, see [Network security groups overview](../virtual-network/network-security-groups-overview.md).
