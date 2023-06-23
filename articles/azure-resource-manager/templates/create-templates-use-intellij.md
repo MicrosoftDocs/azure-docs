@@ -42,7 +42,7 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. After you click OK, the deployment is started. Until the deployment complete, you can find the progress from IntelliJ IDEA's **status bar** on the bottom.
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-status.png" alt-text="Resource Manager template deployment status":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-status.png" alt-text="Resource Manager template deployment status.":::
 
 ## Browse an existing deployment
 
@@ -62,7 +62,7 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. You can edit the two files on this page and deploy the changes to Azure. Here we modify the value of **storageAccountType** in parameter files, from `Standard_LRS` to `Standard_GRS`. Then, click **Update Deployment** on the bottom and confirm the update.
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png" alt-text="Screenshot shows the Resource Manager template with the Update Deployment prompt displayed":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png" alt-text="Screenshot shows the Resource Manager template with the Update Deployment prompt displayed.":::
 
 1. After update deployment completed, you can verify on the portal that the created storage account is changed to `Standard_GRS`.
 
