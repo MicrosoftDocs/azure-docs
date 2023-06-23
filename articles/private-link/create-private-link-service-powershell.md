@@ -263,7 +263,7 @@ $vnetpe = Get-AzVirtualNetwork @par3
 
 ## Create private endpoint ##
 $par4 = @{
-    Name = 'prviate-endpoint'
+    Name = 'private-endpoint'
     ResourceGroupName = 'test-rg'
     Location = 'eastus2'
     Subnet = $vnetpe.subnets[0]
