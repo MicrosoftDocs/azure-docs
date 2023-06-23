@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 04/23/2023
+ms.date: 06/15/2023
 author: dcurwin
 ms.author: dacurwin
 zone_pivot_groups: connect-aws-accounts
@@ -371,7 +371,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
     Defender for Cloud discovers the EC2 instances in the connected AWS account and uses SSM to onboard them to Azure Arc.
 
     > [!TIP]
-    > For the list of supported operating systems, see [What operating systems for my EC2 instances are supported?](#what-operating-systems-for-my-ec2-instances-are-supported) in the FAQ.
+    > For the list of supported operating systems, see [What operating systems for my EC2 instances are supported?](faq-general.yml) in the common questions.
 
     1. Select the **Resource Group** and **Azure Region** that the discovered AWS EC2s will be onboarded to in the selected subscription.
     1. Enter the **Service Principal ID** and **Service Principal Client Secret** for Azure Arc as described here [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
@@ -405,62 +405,6 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="screenshot of the asset inventory page's resource type filter showing the AWS options.":::
 
-## FAQ - AWS in Defender for Cloud
-
-### What operating systems for my EC2 instances are supported?
-
-For a list of the AMIs with the SSM Agent preinstalled see [this page in the AWS docs](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent).
-
-For other operating systems, the SSM Agent should be installed manually using the following instructions:
-
-- [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
-- [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
-
-### For the CSPM plan, what IAM permissions are needed to discover AWS resources?
-
-The following IAM permissions are needed to discover AWS resources:
-
-| DataCollector | AWS Permissions  |
-|--|--|
-| API Gateway | `apigateway:GET` |
-| Application Auto Scaling | `application-autoscaling:Describe*` |
-| Auto scaling | `autoscaling-plans:Describe*` <br> `autoscaling:Describe*` |
-| Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe*` <br> `acm:List*` |
-| CloudFormation | `cloudformation:Describe*` <br> `cloudformation:List*` |
-| CloudFront | `cloudfront:DescribeFunction` <br> `cloudfront:GetDistribution` <br> `cloudfront:GetDistributionConfig` <br> `cloudfront:List*` |
-| CloudTrail | `cloudtrail:Describe*` <br> `cloudtrail:GetEventSelectors` <br> `cloudtrail:List*` <br> `cloudtrail:LookupEvents` |
-| CloudWatch | `cloudwatch:Describe*` <br> `cloudwatch:List*` |
-| CloudWatch logs | `logs:DescribeLogGroups` <br> `logs:DescribeMetricFilters` |
-| CodeBuild | `codebuild:DescribeCodeCoverages` <br> `codebuild:DescribeTestCases` <br> `codebuild:List*` |
-| Config Service | `config:Describe*` <br> `config:List*` |
-| DMS – database migration service | `dms:Describe*` <br> `dms:List*` |
-| DAX | `dax:Describe*` |
-| DynamoDB | `dynamodb:Describe*` <br> `dynamodb:List*` |
-| Ec2 | `ec2:Describe*` <br> `ec2:GetEbsEncryptionByDefault` |
-| ECR | `ecr:Describe*` <br> `ecr:List*` |
-| ECS | `ecs:Describe*` <br> `ecs:List*` |
-| EFS | `elasticfilesystem:Describe*` |
-| EKS | `eks:Describe*` <br> `eks:List*` |
-| Elastic Beanstalk | `elasticbeanstalk:Describe*` <br> `elasticbeanstalk:List*` |
-| ELB – elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
-| Elastic search | `es:Describe*` <br> `es:List*` |
-| EMR – elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
-| GuardDuty | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
-| IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
-| KMS | `kms:Describe*` <br> `kms:List*` |
-| Lambda | `lambda:GetPolicy` <br> `lambda:List*` |
-| Network firewall | `network-firewall:DescribeFirewall` <br> `network-firewall:DescribeFirewallPolicy` <br> `network-firewall:DescribeLoggingConfiguration` <br> `network-firewall:DescribeResourcePolicy` <br> `network-firewall:DescribeRuleGroup` <br> `network-firewall:DescribeRuleGroupMetadata` <br> `network-firewall:ListFirewallPolicies` <br> `network-firewall:ListFirewalls` <br> `network-firewall:ListRuleGroups` <br> `network-firewall:ListTagsForResource` |
-| RDS | `rds:Describe*` <br> `rds:List*` |
-| RedShift | `redshift:Describe*` |
-| S3 and S3Control | `s3:DescribeJob` <br> `s3:GetEncryptionConfiguration` <br> `s3:GetBucketPublicAccessBlock` <br> `s3:GetBucketTagging` <br> `s3:GetBucketLogging` <br> `s3:GetBucketAcl` <br> `s3:GetBucketLocation` <br> `s3:GetBucketPolicy` <br> `s3:GetReplicationConfiguration` <br> `s3:GetAccountPublicAccessBlock` <br> `s3:GetObjectAcl` <br> `s3:GetObjectTagging` <br> `s3:List*` |
-| SageMaker | `sagemaker:Describe*` <br> `sagemaker:GetSearchSuggestions` <br> `sagemaker:List*` <br> `sagemaker:Search` |
-| Secret manager | `secretsmanager:Describe*` <br> `secretsmanager:List*` |
-| Simple notification service – SNS | `sns:Check*` <br> `sns:List*` |
-| SSM | `ssm:Describe*` <br> `ssm:List*` |
-| SQS | `sqs:List*` <br> `sqs:Receive*` |
-| STS | `sts:GetCallerIdentity` |
-| WAF | `waf-regional:Get*` <br> `waf-regional:List*` <br> `waf:List*` <br> `wafv2:CheckCapacity` <br> `wafv2:Describe*` <br> `wafv2:List*` |
-
 ## Learn more
 
 You can check out the following blogs:
@@ -475,3 +419,4 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 - [Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)
+- Check out [common questions](faq-general.yml) about onboarding your AWS account.

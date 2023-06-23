@@ -19,8 +19,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png":::
 
-> [!NOTE]
-> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to employ [**Azure Front Door**](../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../frontdoor/front-door-ddos.md).
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Why use Azure Front Door?
 
@@ -80,9 +79,9 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Secure applications with built-in layer 3-4 DDoS protection, seamlessly attached [Web Application Firewall (WAF)](../web-application-firewall/afds/afds-overview.md), and [Azure DNS to protect your domains](how-to-configure-endpoints.md).
 
-* Protect your applications against L7 layer DDoS protection using WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+* Protect your applications against layer 7 DDoS attacks using WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
 
-* Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
+* Protect your applications from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
 
 * Privately connect to your backend behind Azure Front Door with [Private Link](private-link.md) and embrace a zero-trust access model.
 
