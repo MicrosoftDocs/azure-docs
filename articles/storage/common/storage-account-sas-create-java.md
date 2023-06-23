@@ -46,7 +46,7 @@ import com.azure.storage.common.sas.AccountSasSignatureValues;
 
 ## Create an account SAS
 
-You can create an account SAS to delegate limited access to a storage account resource using the following method:
+You can create an account SAS to delegate limited access to storage account resources using the following method:
 
 - [generateAccountSas](/java/api/com.azure.storage.blob.blobserviceclient#method-summary)
 
