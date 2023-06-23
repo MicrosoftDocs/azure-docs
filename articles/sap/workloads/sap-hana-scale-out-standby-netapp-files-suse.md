@@ -581,7 +581,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
       * For **Restart system after machine reboot?** [n]: enter **n**
       * For **Do you want to continue (y/n)**: validate the summary and if everything looks good, enter **y**
 
-2. **[1]** Verify global.ini  
+2. **[1]** Verify global.ini.
 
    Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the **communication** section. It should have the address space for the `hana` subnet, and `listeninterface` should be set to `.internal`. Verify the **internal_hostname_resolution** section. It should have the IP addresses for the HANA virtual machines that belong to the `hana` subnet.  
 
