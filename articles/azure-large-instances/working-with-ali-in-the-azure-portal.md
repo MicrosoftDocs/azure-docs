@@ -70,7 +70,7 @@ You can use the az provider list command to see all available providers.
 
 For more information about resource providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-### ALI in the Azure portal
+## ALI instances in the Azure portal
 
 When you submit an ALI deployment request, specify the Azure subscription you're connecting to the ALI instance.
 Use the same subscription you use to deploy the application layer that works against the ALI.
@@ -187,8 +187,6 @@ Use the same command to remove a tag:
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
 ```
 
----
-
 ### Check properties of an instance
 
 When you acquire the instances, you can go to the Properties section to view the data collected about the instances. 
@@ -228,14 +226,10 @@ To restart an ALI instance, use the [az baremetalinstance restart](/cli/azure/ba
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
 ```
 
----
-
- 
-
 > [!Important]
-> Depending on the amount of memory in your Azure Large Instance, a restart and a reboot of the hardware and operating system can take up to one hour.
+> Depending on the amount of memory in your ALI instance, a restart and a reboot of the hardware and operating system can take up to one hour.
 
-### Open a support request for ALI  
+### Open a support request for ALI instances
  
 You can submit support requests specifically for BareMetal instances.
 1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
@@ -257,7 +251,7 @@ You can submit support requests specifically for BareMetal instances.
 1. Provide more details about the request and upload a file if needed.
 
 1. Select **Review + Create** to submit the request.
- 
+
 Support response depends on the support plan chosen by the customer.
 For more information, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
