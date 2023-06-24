@@ -178,4 +178,4 @@ If you're not going to continue to use the OpenShift cluster, navigate back to y
 Learn more about deploying IBM WebSphere family on Azure by following these links:
 
 > [!div class="nextstepaction"]
-> [What are solutions to run the IBM WebSphere family of products on Azure?](websphere-family.md)
+> [What are solutions to run the IBM WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family?toc=/azure/openshift/toc.json&bc=/azure/openshift/breadcrumb/toc.json)
