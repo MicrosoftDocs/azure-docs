@@ -91,14 +91,14 @@ For more information, go to the  [Fortinet Document Library](https://aka.ms/asi-
 
 [Learn more >](https://aka.ms/CEF-Fortinet)
 
-   Set up the connection using the CLI to run the following commands:
+Set up the connection using the CLI to run the following commands:
 
-   config log syslogd setting
-    set status enable
-set format cef
-set port 514
-set server <ip_address_of_Receiver>
-end
+`config log syslogd setting`<br />
+`set status enable`<br />
+`set format cef`<br />
+`set port 514`<br />
+`set server <ip_address_of_receiver>`<br />
+`end`<br />
 
 3. Validate connection
 
@@ -125,7 +125,46 @@ Make sure to configure the machine's security according to your organization's s
 
 [Learn more >](https://aka.ms/SecureCEF)
 
+## Setting up your Fortigate or Fortigate via Fortianalyzer to send CEF formatted logs over TLS Port 6514 (syslog-ng)
 
+Your organization may require that you set up your syslog forwarder to use solely TLS encrypted traffic. In this case, you should look to build your solution using guidance from [RFC 5425](https://datatracker.ietf.org/doc/html/rfc5425) which states that TCP port 6514 is designated for syslog messages over TLS.
+
+Use the Fortigate CLI and the following commands:
+
+`config log syslogd setting`<br />
+`set status enable`<br />
+`set format cef`<br />
+`set port 6514`<br /> 
+`set server <ip_address_of_receiver>`<br />
+`set enc-algorithm high`<br />
+`set mode reliable`<br />
+`end`<br />
+
+### Setting up your PKI infrastructure for sending over TLS
+
+In order to send logs securely over TLS, you need to have a certificate and key pair signed by a Public CA. If you are testing a solution that is not yet intended to go into production, you can use a self-signed certificate or a Private CA to test your solution first. You can generate or import a certificate in a secrets management tool such as Azure Key Vault which will manage the lifecycle of your keys for you.
+
+Download your certificate in PEM format. If you used Azure Key Vault, you will need to split your PEM file into a certificate and a key respectively and save them into a directory within your syslog-ng directories on your Linux machine. For example:
+
+`/etc/syslog-ng/cert.d/cert.crt`<br />
+`/etc/syslog-ng/key.d/cert.key`<br />
+
+### Create source and destination filters for Fortigate in a modular file
+
+Your file can be named whatever you require, you reference the contents of this file in an @include statement in the main syslog-ng config file. For example, you can create another directory (like you did with your keys and certificate) for any additional config files.
+
+`/etc/syslog-ng/conf.d/forticonfig.conf`
+
+Create the file and add these filters and declarations:
+
+`filter f_oms_filter {match("CEF\|ASA");};`<br />
+`destination d_oms { tcp("127.0.0.1" port (25226)); };`<br />
+
+Between the f_oms_filter and your source and log declarations, add all of the filters beginning with f_ (such as f_auth_oms) that you require and their corresponding source and log destinations. If you are looking for syslog only, it will probably just be the syslog filter i.e.:
+`#OMS_facility = syslog`<br />
+`filter f_syslog_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(syslog); };`<br />
+`source src { syslog ( ip-protocol(4) port(6514) transport("tls") tls ( cert-file("/etc/syslog-ng/cert.d/syslog.crt") key-file("/etc/syslog-ng/key.d/syslog.key") peer-verify(optional-untrusted)))};`<br />
+`log { source(src); filter(f_oms_filter); destination(d_oms); };`<br />
 
 ## Next steps
 
