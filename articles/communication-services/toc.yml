@@ -690,7 +690,7 @@ items:
       - name: Overview
         href: concepts/telephony/telephony-concept.md
       - name: Trial Phone numbers
-        href: concepts/telephony/trial-phone-numbers-concept.md
+        href: concepts/telephony/trial-phone-numbers-faq.md
       - name: Pricing
         href: concepts/pstn-pricing.md
       - name: Phone number types

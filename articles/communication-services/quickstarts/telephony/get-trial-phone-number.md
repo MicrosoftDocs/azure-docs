@@ -14,7 +14,7 @@ ms.custom: template-quickstart
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!NOTE]
-> Trial Phone Numbers are currently only supported by Azure subscriptions with billing addresses based in the United States. To those outside the US, you can visit the [Subscription eligibility](../concepts/numbers/sub-eligibility-number-capability.md) documentation to determine where you purchase a phone number. 
+> Trial Phone Numbers are currently only supported by Azure subscriptions with billing addresses based in the United States. To those outside the US, you can visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation to determine where you purchase a phone number. 
 
 Azure Communication Services provides powerful communication capabilities for developers to integrate voice, video, and SMS functionalities into their applications. One of the key features is the ability to acquire phone numbers for making and receiving calls. This quickstart guide walks you through the process of obtaining a trial phone number for Azure Communication Services. 
 
@@ -44,7 +44,7 @@ When using a trial phone number in Azure Communication Services for PSTN Calling
 
 1. Once your trial phone number is provisioned, select on the number in the Phone Numbers page and navigate to the “Trial details” tab: 
 :::image type="content" source="./media/trial-phone-numbers/trial-details.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with a side panel open with the trial details tab":::
-This tab shows the current limitations on the number, including the days left to use the number, the total calling minutes, and how many verified phone numbers are attached to the trial phone number. You can find more information on the trial phone number limitations [here](../../concepts/telephony/trial-phone-numbers-concept.md).
+This tab shows the current limitations on the number, including the days left to use the number, the total calling minutes, and how many verified phone numbers are attached to the trial phone number. You can find more information on the trial phone number limitations [here](../../concepts/telephony/trial-phone-numbers-faq.md).
 
 2. Select on “Manage verified phone numbers” to start adding verified phone numbers. 
 :::image type="content" source="./media/trial-phone-numbers/verified-empty.png" alt-text="Screenshot showing a side panel with an empty list of verified phone numbers":::
