@@ -18,7 +18,7 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 
 To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
-## Release date: May 08, 2023
+## Release date: Jun DD, 2023
 
 This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2306200912**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
@@ -40,7 +40,7 @@ For workload specific versions, see
 * The Spark 3.3.1 (HDI 5.1) cluster comes with Hive Warehouse Connector (HWC) 2.1, which works well together with the Interactive Query (HDI 5.1) cluster. 
 * Hadoop version is 3.3.4 in HDInsight 5.1 
 
-## ![Icon showing coming soon.](media/hdinsight-release-notes/clock-icon.svg) Updated Coming soon
+## ![Icon showing coming soon.](media/hdinsight-release-notes/clock-icon.svg) Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters.
 * Cluster permissions for secure storage  
