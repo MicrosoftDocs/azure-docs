@@ -14,13 +14,13 @@ ms.author: mbaldwin
 
 # Import and export keys in Azure Key Vault with JavaScript
 
-Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then create a [CryptographyClient]() use the client to set, update, and rotate a key in Azure Key Vault.
+Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault).
 
 ## Import a key
 
 A best practice is to allow Key Vault to generate your keys. If you need to migrate a key to Key Vault, the key needs to be in the JWK format with any Base64 values converted to UInt8Array values.
 
-The JSON Web Key (JWK) is a JSON object that contains a well-known public key which can be be used to validate the signature of a signed JWT.
+The JSON Web Key (JWK), represented in the SDK as a [JsonWebKey](/javascript/api/@azure/keyvault-keys/jsonwebkey) object, contains a well-known public key, which can be be used to validate the signature of a signed JWT.
 
 ```javascript
 // Azure client libraries
@@ -32,8 +32,8 @@ import {
 // Authenticate to Azure Key Vault
 const credential = new DefaultAzureCredential();
 const client = new KeyClient(
-`https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
-credential
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
 );
 
 const keyName = `MyImportedKey`;

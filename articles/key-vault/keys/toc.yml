@@ -59,14 +59,12 @@ items:
         href: javascript-developer-guide-get-key.md
       - name: Enable and disable key
         href: javascript-developer-enable-disable-key.md
-      - name: Delete, recover, purge key
-        href: javascript-developer-guide-delete-recover-purge-key.md
       - name: List keys
         href: javascript-developer-guide-list-key-version.md
       - name: Import key
         href: javascript-developer-guide-import-key.md
-      - name: Backup and restore key
-        href: javascript-developer-guide-backup-export-delete-key.md
+      - name: Backup, delete, and restore key
+        href: javascript-developer-guide-backup-delete-restore-key.md
     - name: Use keys
       items:    
       - name: Encrypt and decrypt key

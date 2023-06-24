@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # Encrypt and decrypt data using a key in Azure Key Vault with JavaScript
 
-Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then create a [CryptographyClient]() use the client to set, update, and rotate a key in Azure Key Vault.
+Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then create a [CryptographyClient](/javascript/api/@azure/keyvault-keys/cryptographyclient) use the client to set, update, and rotate a key in Azure Key Vault.
 
 ## Select an encryption algorithm
 
@@ -107,7 +107,7 @@ The **encryptParams** object sets the parameters for encryption. Use the followi
 * [AesGcmEncryptParameters](/javascript/api/@azure/keyvault-keys/aesgcmencryptparameters)
 * [AesCbcEncryptParameters](/javascript/api/@azure/keyvault-keys/aescbcencryptparameters)
 
-The **decryptParams** object sets the parameters for decryption. Use the following decrypt parmater objects to set properties.
+The **decryptParams** object sets the parameters for decryption. Use the following decrypt parameter objects to set properties.
 
 * [RsaDecryptParameters](/javascript/api/@azure/keyvault-keys/rsadecryptparameters)
 * [AesGcmDecryptParameters](/javascript/api/@azure/keyvault-keys/aesgcmdecryptparameters)

@@ -22,9 +22,9 @@ To rotate a key means to create a new version of the key and set that version as
 
 To create a key in Azure Key Vault, use the [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. Set any properties with the optional [createKeyOptions](/javascript/api/%40azure/keyvault-keys/createkeyoptions) object. After the key is created, update the key with a rotation policy. 
 
-A [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) is returned. Update the key using [updateKeyRotationPolicy](/javascript/api/@azure/keyvault-keys/keyclient) with a policy which includes notification.
+A [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) is returned. Update the key using [updateKeyRotationPolicy](/javascript/api/@azure/keyvault-keys/keyclient) with a policy, which includes notification.
 
-Convenience create methods are available for the following key types which set properties associated with that key type:
+Convenience create methods are available for the following key types, which set properties associated with that key type:
 
 * [createEcKey](/javascript/api/@azure/keyvault-keys/keyclient#createeckey)
 * [createOctKey](/javascript/api/@azure/keyvault-keys/keyclient#createoctkey)
@@ -192,7 +192,7 @@ if (key) {
 
 To update a key value, use the [rotateKey](#manually-rotate-key) method. Make sure to pass the new value with all the properties you want to keep from the current version of the key. Any current properties not set in additional calls to rotateKey will be lost.
 
-This generates a new version of a key. The returned [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) object includes the new version Id.
+This generates a new version of a key. The returned [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) object includes the new version ID.
 
 ## Next steps
 
