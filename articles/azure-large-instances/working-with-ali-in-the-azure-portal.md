@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: baremetal-infrastructure
+ms.custom: devx-track-azurecli
 ms.date: 06/01/2023
 ---
 
@@ -12,7 +13,7 @@ ms.date: 06/01/2023
 
 In this article, we'll show what you can do in the Azure portal with your deployed Azure Large Instances (ALI). 
 
-> [!Note] 
+> [!Note]
 > For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure Portal. This will be replaced with Azure Large Instances soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered as synonyms to Azure Large Instances.
 
 ## Register the resource provider 
@@ -224,9 +225,6 @@ Select Restart and then Yes to confirm the restart.
 When you restart an AKI instance, you'll experience a delay. 
 During this delay, the power state moves from **Starting** to **Started**, which means the OS has started up completely. 
 As a result, after a restart, you can only log into the unit once the state switches to **Started**. 
-
-
-### [Azure CLI](#tab/azure-cli)
 
 ### [Azure CLI](#tab/azure-cli)
 
