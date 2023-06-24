@@ -34,13 +34,13 @@ For workload specific versions, see
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
 * [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
-## Updated
+## ![Icon showing update.](media/hdinsight-release-notes/update-icon.svg) Updated
 * HDInsight 5.1 is supported with ESP cluster.  
 * Upgraded version of Ranger 2.3.0 and Ozzie 5.2.1 are now prat of HDI 5.1
 * The Spark 3.3.1 (HDI 5.1) cluster comes with Hive Warehouse Connector (HWC) 2.1, which works well together with the Interactive Query (HDI 5.1) cluster. 
 * Hadoop version is 3.3.4 in HDInsight 5.1 
 
-## Coming soon
+## ![Icon showing coming soon.](media/hdinsight-release-notes/clock-icon.svg) Updated Coming soon
 
 * The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters.
 * Cluster permissions for secure storage  
