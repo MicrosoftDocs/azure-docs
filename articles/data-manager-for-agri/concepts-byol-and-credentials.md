@@ -28,7 +28,7 @@ To access Azure Key Vault, you need an Azure subscription. If you don't already 
 In BYOL model, you're  responsible for providing your own licenses for satellite imagery and weather connector. In the vault reference model, you store your credentials as secret in a customer managed Azure Key Vault. The URI of the secret must be shared and read permissions granted to Azure Data Manager for Agriculture so that the APIs can work seamlessly. This process is a one-time setup for each connector. Our Data Manager then refers to and reads the secret from the customers’ key vault as part of the API call with no exposure of the secret.
 
 Flow diagram showing creation and sharing of credentials.
-:::image type="content" source="./media/concepts-byol-and-credentials/flow-to-use-vault.png" alt-text="Screenshot showing credential sharing flow.":::
+:::image type="content" source="./media/concepts-byol-and-credentials/vault-usage-flow.png" alt-text="Screenshot showing credential sharing flow.":::
 
 The steps to use Azure Key Vault in Data Manager for Agriculture are as follows: 
 
@@ -82,7 +82,7 @@ Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2021-09-0
 :::image type="content" source="./media/concepts-byol-and-credentials/details-key-vault.png" alt-text="Screenshot showing where key name and key version is available.":::
 
 Flow showing how Azure Data Manager for Agriculture accesses secret.
-:::image type="content" source="./media/concepts-byol-and-credentials/key-access.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
+:::image type="content" source="./media/concepts-byol-and-credentials/key-access-flow.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
 
 If you disable and then re-enable system identity, then you have to delete the access policy in key vault and add it again. 
 
