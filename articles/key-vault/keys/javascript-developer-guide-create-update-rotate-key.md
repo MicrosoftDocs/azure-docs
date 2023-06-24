@@ -50,8 +50,8 @@ dayjs.extend(duration);
 // Authenticate to Azure Key Vault
 const credential = new DefaultAzureCredential();
 const client = new KeyClient(
-`https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
-credential
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
 );
 
 // Name of key
@@ -120,8 +120,8 @@ import {
 // Authenticate to Azure Key Vault
 const credential = new DefaultAzureCredential();
 const client = new KeyClient(
-`https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
-credential
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
 );
 
 // Get existing key
@@ -150,8 +150,8 @@ import {
 // Authenticate to Azure Key Vault
 const credential = new DefaultAzureCredential();
 const client = new KeyClient(
-`https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
-credential
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
 );
 
 // Get existing key

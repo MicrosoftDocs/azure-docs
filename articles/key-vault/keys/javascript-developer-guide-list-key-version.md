@@ -14,42 +14,46 @@ ms.author: mbaldwin
 
 # List keys and versions in Azure Key Vault with JavaScript
 
-Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then create a [CryptographyClient]() use the client to set, update, and rotate a key in Azure Key Vault.
+Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault).
 
 ## List all keys
 
-List current version of all keys that are not deleted. 
-
-
+List current version of all keys with the iterable [listPropertiesOfKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeys). 
 
 ```javascript
 import { KeyClient, CreateKeyOptions, KeyVaultKey } from '@azure/keyvault-keys';
 import { DefaultAzureCredential } from '@azure/identity';
 
 const credential = new DefaultAzureCredential();
-const vaultName = process.env.AZURE_KEYVAULT_NAME;
-const url = `https://${vaultName}.vault.azure.net`;
-const client = new KeyClient(url, credential);
+const client = new KeyClient(
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
+);
 
-// Get latest version of not-deleted keys 
+// Get latest version of (not soft-deleted) keys 
 for await (const keyProperties of client.listPropertiesOfKeys()) {
-    console.log(keyProperties);
+    console.log(keyProperties.version);
 }
 ```
 
-## List all keys with paging
+The returned [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object includes the key version. 
+
+## List all keys by page
+
+To list all keys in Azure Key Vault, use the [listPropertiesOfKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeys) method to get secret properties a page at a time by setting the [PageSettings](/javascript/api/@azure/core-paging/pagesettings) object.
 
 ```javascript
 import { KeyClient } from '@azure/keyvault-keys';
 import { DefaultAzureCredential } from '@azure/identity';
 
 const credential = new DefaultAzureCredential();
-const vaultName = process.env.AZURE_KEYVAULT_NAME;
-const url = `https://${vaultName}.vault.azure.net`;
-const client = new KeyClient(url, credential);
+const client = new KeyClient(
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
+);
 
-let page=1;
-const maxPageSize=5;
+let page = 1;
+const maxPageSize = 5;
 
 // Get latest version of not-deleted keys 
 for await (const keyProperties of client.listPropertiesOfKeys().byPage({maxPageSize})) {
@@ -61,43 +65,47 @@ for await (const keyProperties of client.listPropertiesOfKeys().byPage({maxPageS
 }
 ```
 
-## List all versions of all keys
+The returned [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object includes the key version. 
+
+## List all versions of a key
+
+To list all versions of a key in Azure Key Vault, use the [listPropertiesOfKeyVersions](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeyversions) method.
 
 ```javascript
 import { KeyClient } from '@azure/keyvault-keys';
 import { DefaultAzureCredential } from '@azure/identity';
 
 const credential = new DefaultAzureCredential();
-const vaultName = process.env.AZURE_KEYVAULT_NAME;
-const url = `https://${vaultName}.vault.azure.net`;
-const client = new KeyClient(url, credential);
+const client = new KeyClient(
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
+);
 
-// Get latest version of not-deleted keys 
-for await (const keyProperties of client.listPropertiesOfKeys()) {
-
-    console.log(keyProperties.name);
-
-    // Get all versions of key
-    for await (const versionProperties of client.listPropertiesOfKeyVersions(
-        keyProperties.name
-    )) {
-        console.log(`\tversion: ${versionProperties.version} created on ${versionProperties.createdOn}`);
-    }
+// Get all versions of key
+for await (const versionProperties of client.listPropertiesOfKeyVersions(
+    keyName
+)) {
+    console.log(`\tversion: ${versionProperties.version} created on ${versionProperties.createdOn}`);
 }
 ```
 
-Refer to the [List all keys with paging](#list-all-keys-with-paging) example to see how to page through the results.
+The returned [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object includes the key version. 
 
-## List all deleted but not yet purged keys
+Refer to the [List all keys by page](#list-all-keys-by-page) example to see how to page through the results.
+
+## List deleted keys
+
+To list all deleted keyss in Azure Key Vault, use the [listDeletedKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listdeletedkeys) method.
 
 ```javascript
 import { KeyClient } from '@azure/keyvault-keys';
 import { DefaultAzureCredential } from '@azure/identity';
 
 const credential = new DefaultAzureCredential();
-const vaultName = process.env.AZURE_KEYVAULT_NAME;
-const url = `https://${vaultName}.vault.azure.net`;
-const client = new KeyClient(url, credential);
+const client = new KeyClient(
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
+);
 
 for await (const deletedKey of client.listDeletedKeys()) {
     console.log(
@@ -105,6 +113,10 @@ for await (const deletedKey of client.listDeletedKeys()) {
     );
 }
 ```
+The deletedKey object is a [DeletedKey](/javascript/api/@azure/keyvault-keys/deletedkey) object which includes the KeyProperties object with additional properties such as: 
+
+* `deletedOn` - The time when the key was deleted.
+* `scheduledPurgeDate` - The date when the key is scheduled to be purged. After a key is purged, it cannot be [recovered](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-beginrecoverdeletedkey). If you [backed up the key](javascript-developer-guide-backup-delete-restore-key.md), you can restore it with the same name and all its versions.
 
 Refer to the [List all keys with paging](#list-all-keys-with-paging) example to see how to page through the results.
 
