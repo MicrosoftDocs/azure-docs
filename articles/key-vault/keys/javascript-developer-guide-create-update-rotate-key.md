@@ -20,7 +20,7 @@ To rotate a key means to create a new version of the key and set that version as
 
 ## Create a key with a rotation policy
 
-To create a key in Azure Key Vault, use the [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. After the key is created, update the key with a rotation policy. 
+To create a key in Azure Key Vault, use the [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. Set any properties with the optional [createKeyOptions](/javascript/api/%40azure/keyvault-keys/createkeyoptions) object. After the key is created, update the key with a rotation policy. 
 
 A [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) is returned. Update the key using [updateKeyRotationPolicy](/javascript/api/@azure/keyvault-keys/keyclient) with a policy which includes notification.
 
