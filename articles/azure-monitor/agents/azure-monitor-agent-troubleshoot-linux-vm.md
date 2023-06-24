@@ -98,5 +98,7 @@ For more information on how to troubleshoot syslog issues with Azure Monitor Age
 	> Ensure to remove trace flag setting **-T 0x2002** after the debugging session, since it generates many trace statements that could fill up the disk more quickly or make visually parsing the log file difficult.
 6. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'AMA fails to collect syslog events' and **Problem type** as 'I need help with Azure Monitor Linux Agent'. 
 
+## Troubleshooting issues on Arc-enabled server
+If after checking basic troubleshooting steps you do not see the Azure Monitor Agent emitting logs or find  **'Failed to get MSI token from IMDS endpoint'**  errors in `mdsd.err` log file, it is likely `syslog` user is not a member of the group `himds`. Please add `syslog` user to `himds` user group if needed. For more information check out Azure Arc authentication requirements [here](../../azure-arc/servers/managed-identity-authentication.md).
 
 [!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
