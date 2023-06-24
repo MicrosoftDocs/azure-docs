@@ -45,7 +45,7 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-<The following sections duplicates the content provided by the INCLUDE above>
+[comment]: <> (The following sections duplicates the content provided by the INCLUDE above)
 
 Use the Bash environment in Azure Cloud Shell. For more information, see Quickstart for Bash in Azure Cloud Shell. 
 
@@ -57,14 +57,16 @@ When you're prompted, install the Azure CLI extension on first use. For more inf
 
 Run az version to find the version and dependent libraries that are installed. To upgrade to the latest version, run az upgrade. 
 
-<end INCLUDE content>
+[comment]: <> (This is a comment, it will not be included)
 
-Sign in to the Azure subscription you use for the ALI deployment through the Azure CLI. 
-Register the BareMetalInfrastructure Azure Large Instance resource provider with the az provider register command: 
+Sign in to the Azure subscription you use for the ALI deployment through the Azure CLI.
+Register the BareMetalInfrastructure Azure Large Instance resource provider with the az provider register command:
 
+```azurecli
 az provider register --namespace Microsoft.BareMetalInfrastructure  
+```
 
-You can use the az provider list command to see all available providers. 
+You can use the az provider list command to see all available providers.
 
 For more information about resource providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
