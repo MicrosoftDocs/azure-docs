@@ -97,7 +97,7 @@ For this example configuration, the subnets are:
 
 ## Set up the Azure NetApp Files infrastructure
 
-Before you proceed with the setup for Azure NetApp Files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc].
+Before you proceed with the set up for Azure NetApp Files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc].
 
 Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.  
 

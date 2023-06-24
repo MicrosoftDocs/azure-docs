@@ -92,9 +92,9 @@ SAP high availability HANA System Replication configuration uses a dedicated vir
 - Front-end configuration IP address: 10.3.0.50 for hn1-db
 - Probe Port: 62503
 
-## Set up the Azure NetApp File infrastructure
+## Setup the Azure NetApp File infrastructure
 
-Before you continue with the setup for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../azure-netapp-files/index.yml).
+Before you continue with the set up for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../azure-netapp-files/index.yml).
 
 Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.
 
@@ -319,7 +319,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 ## SAP HANA Installation
 
-1. **[A]** Setup host name resolution for all hosts.
+1. **[A]** Set up host name resolution for all hosts.
 
    You can either use a DNS server or modify the /etc/hosts file on all nodes. This example shows you how to use the /etc/hosts file. Replace the IP address and the hostname in the following commands:
 
@@ -443,7 +443,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 ## Configure SAP HANA system replication
 
-Follow the steps in setup [SAP HANA System Replication](./sap-hana-high-availability.md#configure-sap-hana-20-system-replication) to configure SAP HANA System Replication.
+Follow the steps in set up [SAP HANA System Replication](./sap-hana-high-availability.md#configure-sap-hana-20-system-replication) to configure SAP HANA System Replication.
 
 ## Cluster configuration
 
@@ -557,7 +557,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 ## Test the cluster setup
 
-This section describes how you can test your setup.
+This section describes how you can test your set up.
 
 1. Before you start a test, make sure that Pacemaker doesn't have any failed action (via crm status), no unexpected location constraints (for example leftovers of a migration test) and that HANA system replication is sync state, for example with systemReplicationStatus:
 

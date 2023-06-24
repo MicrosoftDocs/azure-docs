@@ -774,7 +774,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     > - On SLES 12 SP4 or SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
     > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
 
-11. **[A]** Setup the hostname resolution.
+11. **[A]** Set up the hostname resolution.
 
     You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
