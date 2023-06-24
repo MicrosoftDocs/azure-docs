@@ -107,10 +107,10 @@ A unified high-speed network fabric interconnects computing, storage, and LAN co
 ### Storage
 An infrastructure accessed through a unified network fabric. 
 
-Within the multi-tenant infrastructure of the Azure Large instance stamp, customers are deployed in isolated tenants. 
+Within the multi-tenant infrastructure of the Azure Large instance stamp, customers are deployed in isolated tenants.
 When deploying a tenant, you name an Azure subscription within your Azure enrollment. This Azure subscription is the one billed for your implementation of Azure Large Instances. 
 
-> [!Note] 
+> [!Note]
 >A customer implementing Azure Large Instances is isolated into a tenant. 
 A tenant is isolated in the networking, storage, and compute layer from other tenants. 
 Storage and compute units assigned to different tenants cannot see each other or communicate with each other on their Azure Large Instances. 
