@@ -20,4 +20,4 @@ ms.devlang:
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to discover, finetune and deploy Azure Open AI models at scale, using Azure Machine Learning.
+In this article, you learn how to discover, finetune and deploy Azure Open AI models at scale, using Azure Machine Learning. The model catalog in Azure Machine learning Studio is your starting point to explore various collections of foundation models. The Azure Open AI models collection is a collection of models, exclusively available on Azure, that enables customers to access prompt engineering, finetuning, evaluation, and deployment capabilities for large language models available in Azure OpenAI Service.  
