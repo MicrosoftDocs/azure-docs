@@ -64,6 +64,8 @@ If you would like to customize the finetuning parameters, you can click on the C
 
 :::image type="content" source="./media/how-to-use-openai-models-in-azureml/aoaiFinetuneParameters.png" alt-text="Screenshot showing the finetune parameters in the finetune wizard.":::
 
+**Deploying finetuned models:**
+
 ### Finetuning using code based samples
 
 
