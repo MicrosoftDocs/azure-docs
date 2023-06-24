@@ -16,12 +16,20 @@ ms.author: mbaldwin
 
 Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault), then use the client to set, update, and rotate a key in Azure Key Vault.
 
+To rotate a key means to create a new version of the key and set that version as the latest version. The previous version isn't deleted, but it's no longer the active version.
 
 ## Create a key with a rotation policy
 
 To create a key in Azure Key Vault, use the [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. After the key is created, update the key with a rotation policy. 
 
-A [KeyVaultkey](/javascript/api/@azure/keyvault-keys/keyvaultkey) is returned. Update the key using [updateKeyRotationPolicy](/javascript/api/@azure/keyvault-keys/keyclient) with a policy which includes notification.
+A [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) is returned. Update the key using [updateKeyRotationPolicy](/javascript/api/@azure/keyvault-keys/keyclient) with a policy which includes notification.
+
+Convenience create methods are available for the following key types which set properties associated with that key type:
+
+* [createEcKey](/javascript/api/@azure/keyvault-keys/keyclient#createeckey)
+* [createOctKey](/javascript/api/@azure/keyvault-keys/keyclient#createoctkey)
+* [createRsaKey](/javascript/api/@azure/keyvault-keys/keyclient#creatersakey)
+
 
 ```javascript
 // Azure client libraries
@@ -100,7 +108,7 @@ if (key) {
 
 ## Manually rotate key
 
-To rotate a key means to create a new version of the key and set that version as the latest version. The previous version isn't deleted, but it's no longer the active version.
+When you need to rotate the key, use the [rotateKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-rotatekey) method. This creates a new version of the key and sets that version as the active version. 
 
 ```javascript
 // Azure client libraries
@@ -116,14 +124,13 @@ const client = new KeyClient(
 credential
 );
 
-const keyName = `MyKey`
-
-// Get key
-let key = await client.getKey(keyName);
+// Get existing key
+let key = await client.getKey(`MyKey`);
 console.log(key);
 
 if(key?.name){
 
+    // rotate key
     key = await client.rotateKey(key.name);
     console.log(key);
 }
@@ -131,7 +138,7 @@ if(key?.name){
 
 ## Update key properties
 
-Update properties of a key. Any properties not specified are left unchanged. This doesn't change the key value.
+Update properties of the latest version of the key with the [updateKeyProperties](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-updatekeyproperties-1) or update a specific version of a key with [updateKeyProperties](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-updatekeyproperties). Any [UpdateKeyPropertiesOptions](/javascript/api/@azure/keyvault-keys/updatekeypropertiesoptions) properties not specified are left unchanged. This doesn't change the key value.
 
 ```javascript
 // Azure client libraries
@@ -152,6 +159,7 @@ const key = await client.getKey('MyKey');
 
 if (key) {
 
+    // 
     const updateKeyPropertiesOptions = {
         enabled: false,
         // expiresOn,
@@ -163,7 +171,7 @@ if (key) {
         }
     }
     
-    // update properties of current version
+    // update properties of latest version
     await client.updateKeyProperties(
         key.name,
         updateKeyPropertiesOptions
@@ -179,6 +187,12 @@ if (key) {
     );
 }
 ```
+
+## Update key value
+
+To update a key value, use the [rotateKey](#manually-rotate-key) method. Make sure to pass the new value with all the properties you want to keep from the current version of the key. Any current properties not set in additional calls to rotateKey will be lost.
+
+This generates a new version of a key. The returned [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) object includes the new version Id.
 
 ## Next steps
 

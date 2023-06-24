@@ -86,14 +86,14 @@ If you need the value of the KeyVaultKey, use methods that return the [KeyVaultK
 
 The Azure Key Vault keys client library for JavaScript includes the following clients:
 
-* [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) allows you to create, rotate, backup, list and delete keys and their versions.
+* [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) allows you to create, rotate, back up, list and delete keys and their versions.
 * [CryptographyClient](/javascript/api/@azure/keyvault-keys/cryptographyclient) allows you to encrypt, decrypt, sign, verify, wrap and unwrap keys. 
 
 ## Create a KeyClient object
 
-The KeyClient object is the top object in the SDK. This client allows you to manipulate the keys.
+The KeyClient object is the top object in the SDK. This client allows you to perform key management tasks such as create, rotate, delete, and list the keys.
 
-Once your Azure Key Vault access roles and your local environment are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keyss/keyclient) object.
+Once your local environment and Key Vault authorization are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) and the [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) packages. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keyss/keyclient) object.
 
 ```javascript
 // Include required dependencies
@@ -101,12 +101,12 @@ import { DefaultAzureCredential } from '@azure/identity';
 import { KeyClient } from '@azure/keyvault-keys';  
 
 // Authenticate to Azure
-const credential = new DefaultAzureCredential(); 
-
 // Create KeyClient
-const vaultName = '<your-vault-name>';  
-const url = `https://${vaultName}.vault.azure.net`;  
-const client = new KeyClient(url, credential);  
+const credential = new DefaultAzureCredential(); 
+const client = new KeyClient(
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
+  );
 
 // Get key
 const key = await client.getKey("MyKeyName");
@@ -114,9 +114,9 @@ const key = await client.getKey("MyKeyName");
 
 ## Create a CryptographyClient object
 
-The CryptographyClient object is the operational object in the SDK, using your key to perform actions. 
+The CryptographyClient object is the operational object in the SDK, using your key to perform actions such as encrypt, decrypt, sign and verify, wrapping and unwrapping. 
 
-Once your Azure Key Vault access roles and your local environment are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keyss/keyclient) object. Get a key from the vault using the KeyClient, then create a CryptographyClient to perform operations.
+Use your Identity credential from your KeyClient, along with the key name, to create a [CryptographyClient](/javascript/api/@azure/keyvault-keys/cryptographyclient?) to perform operations.
 
 ```javascript
 // Include required dependencies
@@ -129,12 +129,12 @@ import {
 } from '@azure/keyvault-keys'; 
 
 // Authenticate to Azure
-const credential = new DefaultAzureCredential(); 
-
 // Create KeyClient
-const vaultName = '<your-vault-name>';  
-const url = `https://${vaultName}.vault.azure.net`;  
-const client = new KeyClient(url, credential);  
+const credential = new DefaultAzureCredential(); 
+const client = new KeyClient(
+    `https://${process.env.AZURE_KEYVAULT_NAME}.vault.azure.net`,
+    credential
+  ); 
 
 // Get key
 const key = await client.getKey("MyKeyName");

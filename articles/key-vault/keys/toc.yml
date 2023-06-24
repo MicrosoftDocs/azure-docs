@@ -54,7 +54,7 @@ items:
     - name: Create, update, rotate key
       href: javascript-developer-guide-create-update-rotate-key.md
     - name: Get key
-      href: javascript-developer-get-key.md
+      href: javascript-developer-guide-get-key.md
     - name: Enable and disable key
       href: javascript-developer-enable-disable-key.md
     - name: Encrypt and decrypt key

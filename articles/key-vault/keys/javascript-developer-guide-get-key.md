@@ -18,7 +18,10 @@ Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the 
 
 ## Get key
 
-You can get the latest version of a key or a specific version of a key. The version is within the [properties](/javascript/api/@azure/keyvault-keys/keyproperties) of the [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) object.
+You can get the latest version of a key or a specific version of a key with the [getKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-getkey) method. The version is within the [properties](/javascript/api/@azure/keyvault-keys/keyproperties) of the [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) object.
+
+* Get latest version: `await client.getKey(name);`
+* Get specific version: `await client.getKey(name, { version });`
 
 ```javascript
 // Azure client libraries
@@ -50,7 +53,8 @@ console.log(`Previous key version is ${keyByVersion.properties.version}`);
 
 ## Get all versions of a key
 
-To get all versions of a key in Azure Key Vault, use the []() method of the KeyClient Class to get an iterable list of key's version's properties. This returns a KeyProperties object, which doesn't include the version's value. If you want the version's value, use the version returned in the property to get the key's value with the getKey method.
+To get all versions of a key in Azure Key Vault, use the [
+listPropertiesOfKeyVersions](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeyversions) method of the KeyClient Class to get an iterable list of key's version's properties. This returns a [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object, which doesn't include the version's value. If you want the version's value, use the version returned in the property to get the key's value with the getKey method.
 
 |Method|Returns value| Returns properties|
 |--|--|--|
@@ -80,7 +84,7 @@ for await (const keyProperties of client.listPropertiesOfKeyVersions(name)) {
         version: thisVersion
     });
 
-    // do something with version's key
+    // do something with version's key value
 }
 ```
 
@@ -95,4 +99,4 @@ Use the following table to understand what you can do with a disabled key.
 
 ## Next steps
 
-* [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)
+* [Encrypt or decrypt using key from JavaScript SDK](javascript-developer-guide-encrypt-decrypt-key.md)
