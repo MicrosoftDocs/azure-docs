@@ -4,14 +4,12 @@
     href: architecture.md
   - name: Onboarding requirements  
     href: onboarding-requirements.md
-  - name: Enable Accelerated Networking on VMs  
-    href: enable-accelerated-networking-on-vms.md
   - name: Quality checks   
     href: quality-checks.md
   - name: Configure Azure Service Health alerts  
     href: configure-azure-service-health-alerts.md
   - name: Azure Large Instances NETAPP storage data protection with Azure CVO   
-    href: ali-netapp-cvo.md
+    href: ali-netapp-with-vo.md
   - name: Find your subscription ID   
     href: find-your-subscription-id.md
   - name: Create a volume group  
@@ -20,8 +18,8 @@
     href: lun-and-wwid-mapping.md
   - name: Register the Azure Large instance resource provider via the Azure portal or the Azure CLI  
     href: register-the-ali-resource-provider.md    
-  - name: Common issues and their resolutions  
-    href: common-issues-and-their-resolutions.md
+  - name: Frequently asked questions  
+    href: faq.md
  
 
   
