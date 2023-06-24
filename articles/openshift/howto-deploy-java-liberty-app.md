@@ -3,14 +3,16 @@ title: "IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift"
 description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift.
 author: KarlErickson
 ms.author: haiche
-ms.topic: quickstart
-ms.date: 01/24/2023
+ms.topic: how-to
+ms.date: 06/24/2023
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-extended-java
 ---
 
-# Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift using the Azure portal
+# Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
 
 This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
+
+For step-by-step guidance in setting up Liberty and Open Liberty on Azure Red Hat OpenShift, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an ARO cluster](/azure/developer/java/ee/liberty-on-aro).
 
 ## Prerequisites
 
