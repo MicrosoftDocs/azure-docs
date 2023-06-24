@@ -153,7 +153,7 @@ The data listed includes:
 * Subscription ID
 * Azure user who triggered the activity
 
- :::image type="content" source="../baremetal-infrastrucure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
+ :::image type="content" source="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Screenshot showing the BareMetal instance activities." lightbox="../baremetal-infrastructure/media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
 
 Changes to an instance's metadata in Azure also get recorded in the Activity log.
 Besides the restart, you can see the activity of **WriteBareMetalInstances**. 
@@ -267,6 +267,6 @@ You can submit support requests specifically for BareMetal instances.
 1. Select **Review + Create** to submit the request.
  
 Support response depends on the support plan chosen by the customer.
-For more information, see [Support scope and responsiveness](https://azure.microsoft.com/en-us/support/plans/response/).
+For more information, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
  

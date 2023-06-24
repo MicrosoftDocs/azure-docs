@@ -177,7 +177,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name "Virtual Gateway connection nam
 
 To take advantage of low latency access on VMs network stack, enable accelerated networking (AN), also known as SR-IOV, on supported VMs.
 Ffor more details on supported VM sizes, OS and how to enable AN for existing VMs, see
-[Use Azure CLI to create a Windows or Linux VM with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli).
+[Use Azure CLI to create a Windows or Linux VM with Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md).
+
+
 
 ## Next steps
 
