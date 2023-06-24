@@ -1,5 +1,5 @@
 ---
-title: Quickstart - get and manager trial phone numbers in Azure Communication Services
+title: Quickstart - get and manage trial phone numbers in Azure Communication Services
 description: learn how to get manage and use trial phone numbers in Azure Communication Services
 author: jadacampbell
 ms.author: jadacampbell

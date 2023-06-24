@@ -1,5 +1,5 @@
 ---
-title: Trial Phone Numbers and Verified phone numbers - FAQ
+title: Trial phone numbers and Verified phone numbers - FAQ
 description: A conceptual overview plus FAQ for trial phone numbers and verified phone numbers
 author: jadacampbell
 ms.author: jadacampbell

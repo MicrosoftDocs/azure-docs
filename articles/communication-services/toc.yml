@@ -689,7 +689,7 @@ items:
       items:
       - name: Overview
         href: concepts/telephony/telephony-concept.md
-      - name: Trial Phone numbers
+      - name: Trial phone numbers
         href: concepts/telephony/trial-phone-numbers-faq.md
       - name: Pricing
         href: concepts/pstn-pricing.md
