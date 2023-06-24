@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to call the Segment API to isolate and remove the background from images.
 services: cognitive-services
 manager: nitinme
-
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to

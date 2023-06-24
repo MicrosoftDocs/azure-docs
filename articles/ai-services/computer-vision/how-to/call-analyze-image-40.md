@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to call the Image Analysis 4.0 API and configure its behavior.
 services: cognitive-services
 manager: nitinme
-
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
