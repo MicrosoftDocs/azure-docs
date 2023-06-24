@@ -67,7 +67,7 @@ items:
         href: javascript-developer-guide-import-key.md
       - name: Backup and restore key
         href: javascript-developer-guide-backup-export-delete-key.md
-    - name: Perform operations with key
+    - name: Use keys
       items:    
       - name: Encrypt and decrypt key
         href: javascript-developer-guide-encrypt-decrypt-key.md
