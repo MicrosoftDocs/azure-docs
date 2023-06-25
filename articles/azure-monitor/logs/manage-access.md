@@ -298,12 +298,12 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 
 ## Set table-level read access
 
-Table-level access allows you to let specific people read data only from a specific set of tables or to read all data except a specific set of tables. It applies both for workspace-context and resource-context. There are two methods to define table-level permissions:
+Table-level access allows you to let specific people read data only from a specific set of tables. It applies both for workspace-context and resource-context. There are two methods to define table-level permissions:
 * By assigning permissions to the table sub-resource under the workspace resource - this is the recommended method that is described in this section. This method is currently in **preview**.
 * By assigning special actions that contain table name to the workspace resource - this is the legacy method that is described in the next section. It has some limitations around custom log tables.
 
 > [!NOTE]
-> The recommended table-level access method described here does not apply during preview to Azure Monitor alert rules or to Microsoft Sentinel Detection Rules. These rules might have access to more tables than intended.
+> The recommended table-level access method described here does not apply during preview to Microsoft Sentinel Detection Rules. These rules might have access to more tables than intended.
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
