@@ -221,6 +221,7 @@ az spring application-configuration-service git repo add \
     --label <git-branch-name> \
     --ca-cert-name <ca-certificate-name>
 ```
+---
 
 ## Use Application Configuration Service for Tanzu with applications using the portal
 
