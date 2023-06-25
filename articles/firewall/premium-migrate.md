@@ -16,6 +16,9 @@ You can migrate Azure Firewall Standard to Azure Firewall Premium to take advant
 
 This article guides you with the required steps to manually migrate your Standard firewall and policy to Premium.
 
+> [!TIP]
+> The easiest way to change your Azure Firewall SKU with no downtime is to use the **Change SKU** feature. For more information, see [Azure Firewall easy upgrade/downgrade](easy-upgrade.md).
+
 Before you start the migration, understand the [performance considerations](#performance-considerations) and plan ahead for the required maintenance window. Typical down time of 20-30 minutes is expected.
 
 The following general steps are required for a successful migration:
@@ -69,7 +72,7 @@ Usage example:
 > [!IMPORTANT]
 > The script doesn't migrate Threat Intelligence and SNAT private ranges settings. You'll need to note those settings before proceeding and migrate them manually. Otherwise, you might encounter inconsistent traffic filtering with your new upgraded firewall.
 
-This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This script requires the latest Azure PowerShell. Run `Get-Module -ListAvailable Az` to see which versions are installed. If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 ```azurepowershell
 <#

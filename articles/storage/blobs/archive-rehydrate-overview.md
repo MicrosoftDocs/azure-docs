@@ -111,7 +111,7 @@ For more information on handling events in Blob Storage, see [Reacting to Azure 
 
 ## Pricing and billing
 
-A rehydration operation with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is billed for data read transactions and data retrieval size. A high-priority rehydration has higher operation and data retrieval costs compared to standard priority. High-priority rehydration shows up as a separate line item on your bill. If a high-priority request to return an archived blob of a few gigabytes takes more than five hours, you won't be charged the high-priority retrieval rate. However, standard retrieval rates still apply.
+A rehydration operation with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is billed for data read transactions and data retrieval size. A high-priority rehydration has higher operation and data retrieval costs compared to standard priority. High-priority rehydration shows up as a separate line item on your bill. If a high-priority request to return an archived blob that is less than 10 GB in size takes more than five hours, you won't be charged the high-priority retrieval rate. However, standard retrieval rates still apply.
 
 Copying an archived blob to an online tier with [Copy Blob](/rest/api/storageservices/copy-blob) is billed for data read transactions and data retrieval size. Creating the destination blob in an online tier is billed for data write transactions. Early deletion fees don't apply when you copy to an online blob because the source blob remains unmodified in the Archive tier. High-priority retrieval charges do apply if selected.
 

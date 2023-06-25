@@ -10,7 +10,7 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * An Azure Machine Learning workspace. [Create workspace resources](../quickstart-create-resources.md).
 
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 

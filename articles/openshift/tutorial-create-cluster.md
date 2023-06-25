@@ -5,7 +5,8 @@ author: joharder
 ms.author: joharder
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
-ms.date: 10/26/2020
+ms.custom: devx-track-azurecli
+ms.date: 02/23/2022
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -76,7 +77,7 @@ You'll also need sufficient Azure Active Directory permissions (either a member 
    > [!NOTE] 
    > ARO pull secret doesn't change the cost of the RH OpenShift license for ARO.
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with other content. This step is optional but recommended. The field `cloud.openshift.com` is removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature, which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html . 
+A Red Hat pull secret enables your cluster to access Red Hat container registries, along with other content such as operators from [OperatorHub](https://operatorhub.io/). This step is optional but recommended. If you decide to add the pull secret later, follow [this guidance](howto-add-update-pull-secret.md). The field `cloud.openshift.com` is removed from your secret even if your pull-secret contains that field. This field enables an extra monitoring feature, which sends data to RedHat and is thus disabled by default. To enable this feature, see https://docs.openshift.com/container-platform/4.11/support/remote_health_monitoring/enabling-remote-health-reporting.html .
 
 1. [Navigate to your Red Hat OpenShift cluster manager portal](https://console.redhat.com/openshift/install/azure/aro-provisioned) and sign-in.
 
@@ -222,6 +223,24 @@ az aro create \
 ```
 
 After executing the `az aro create` command, it normally takes about 35 minutes to create a cluster.
+
+#### Selecting a different ARO version
+
+You can select to use a specific version of ARO when creating your cluster. First, use the CLI to query for available ARO versions:
+
+`az aro get-versions --location <region>`
+
+Once you've chosen the version, specify it using the `--version` parameter in the `az aro create` command:
+
+```azurecli-interactive
+az aro create \
+  --resource-group $RESOURCEGROUP \
+  --name $CLUSTER \
+  --vnet aro-vnet \
+  --master-subnet master-subnet \
+  --worker-subnet worker-subnet \
+  --version <x.y.z>
+```
 
 ## Next steps
 

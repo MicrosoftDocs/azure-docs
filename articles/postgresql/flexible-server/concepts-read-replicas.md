@@ -9,14 +9,11 @@ author: AwdotiaRomanowna
 ms.date: 10/21/2022
 ---
 
-# Read replicas in Azure Database for PostgreSQL - Flexible Server Preview
+# Read replicas in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-> [!NOTE]
-> Read replicas for PostgreSQL Flexible Server is currently in preview.
-
-The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
+The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, file-based log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
 
 Replicas are new servers that you manage similar to regular Azure Database for PostgreSQL servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
@@ -53,8 +50,19 @@ You can have a primary server in any [Azure Database for PostgreSQL region](http
 [//]: # (If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.)
 
 ## Create a replica
+A primary server for Azure Database for PostgreSQL - Flexible Server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL - Flexible Server is available. However, it is important to note that replicas cannot be created in [special Azure regions](../../virtual-machines/regions.md#special-azure-regions), regardless of whether they are in-region or cross-region.
 
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the primary server. For creation of replicas in the same region snapshot approach is used, therefore the time of creation doesn't depend on the size of data. Geo-replicas are created using base backup of the primary instance, which is then transmitted over the network therefore time of creation might range from minutes to several hours depending on the primary size. 
+
+In Azure Database for PostgreSQL - Flexible Server, the create operation of replicas is considered successful only when the entire backup of the primary instance has been copied to the replica destination along with the transaction logs have been synchronized up to the threshold of maximum 1GB lag.
+
+To ensure the success of the create operation, it's recommended to avoid creating replicas during periods of high transactional load. For example, it's best to avoid creating replicas during migrations from other sources to Azure Database for PostgreSQL - Flexible Server, or during excessive bulk load operations. If you are currently in the process of performing a migration or bulk load operation, it's recommended that you wait until the operation has completed before proceeding with the creation of replicas. Once the migration or bulk load operation has finished, check whether the transaction log size has returned to its normal size. Typically, the transaction log size should be close to the value defined in the max_wal_size server parameter for your instance. You can track the transaction log storage footprint using the [Transaction Log Storage Used](concepts-monitoring.md#list-of-metrics) metric, which provides insights into the amount of storage used by the transaction log. By monitoring this metric, you can ensure that the transaction log size is within the expected range and that the replica creation process might be started. 
+
+> [!IMPORTANT]
+> Read Replicas are currently supported for the General Purpose and Memory Optimized server compute tiers, Burstable server compute tier is not supported.
+
+> [!IMPORTANT]
+> When performing replica creation, deletion, and promotion operations, the primary server will enter an updating state. During this time, server management operations such as modifying server parameters, changing high availability options, or adding or removing firewalls will be unavailable. It's important to note that the updating state only affects server management operations and does not impact [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. This means that your database server will remain fully functional and able to accept connections, as well as serve read and write traffic.
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
 
@@ -75,10 +83,14 @@ psql -h myreplica.postgres.database.azure.com -U myadmin postgres
 At the prompt, enter the password for the user account.
 
 ## Monitor replication
+Read replica feature in Azure Database for PostgreSQL - Flexible Server relies on replication slots mechanism. The main advantage of replication slots is the ability to automatically adjust the number of transaction logs (WAL segments) needed by all replica servers and therefore avoid situations when one or more replicas going out of sync because WAL segments that were not yet sent to the replicas are being removed on the primary. The disadvantage of the approach is the risk of going out of space on the primary in case replication slot remains inactive for a long period of time. In such situations primary will accumulate WAL files causing incremental growth of the storage usage. When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to read-only mode to avoid errors associated with disk-full situations. 
+Therefore, monitoring the replication lag and replication slots status is crucial for read replicas.
+
+We recommend setting alert rules for storage used or storage percentage, as well as for replication lags, when they exceed certain thresholds so that you can proactively act, increase the storage size and delete lagging read replicas. For example, you can set an alert if the storage percentage exceeds 80% usage, as well on the replica lag being higher than 1h. The [Transaction Log Storage Used](concepts-monitoring.md#list-of-metrics) metric will show you if the WAL files accumulation is the main reason of the excessive storage usage. 
 
 Azure Database for PostgreSQL - Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
 
-The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replicas is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary, during replica creation, or when replication becomes inactive. The lag information will not be available in case replication switches from using streaming replication to the archive recovery mode using archived files from primary.
+The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replicas is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary, during replica creation, or when replication becomes inactive.
 
 The **Read Replica Lag** metric shows the time since the last replayed transaction. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay. This metric is applicable and available on replicas only. 
 
@@ -103,9 +115,6 @@ You can stop the replication between a primary and a replica by promoting one or
 - The promoted replica server cannot be made into a replica again.
 - If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
-- During the create, delete and promote operations of replica, primary server will be in upgrading state.
-- **Power operations**: Power operations (start/stop) are currently not supported for any node, either replica or primary, in the replication cluster.
-- If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
 
@@ -140,7 +149,11 @@ When there is a major disaster event such as availability zone-level or regional
 
 ## Considerations
 
-This section summarizes considerations about the read replica feature.
+This section summarizes considerations about the read replica feature. The following considerations do apply.
+
+- **Power operations**: [Power operations](how-to-stop-start-server-portal.md), including start and stop actions, can be applied to both the primary server and its replica servers. However, to preserve system integrity, a specific sequence should be followed. Prior to stopping the read replicas, ensure the primary server is stopped first. When commencing operations, initiate the start action on the replica servers before starting the primary server.
+- If server has read replicas then read replicas should be deleted first before deleting the primary server.
+- [In-place major version upgrade](concepts-major-version-upgrade.md) in Azure Database for PostgreSQL requires removing any read replicas that are currently enabled on the server. Once the replicas have been deleted, the primary server can be upgraded to the desired major version. After the upgrade is complete, you can recreate the replicas to resume the replication process.
 
 ### New replicas
 
@@ -150,12 +163,41 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 
 During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
 
+### Resource move
+Moving replica(s) to another resource group or subscription, as well as the primary that has read replica(s) is not currently supported.
+
+### Replication slot issues mitigation
+
+In rare cases, high lag caused by replication slots can lead to an increase in storage usage on the primary server due to the accumulation of WAL files. If the storage usage reaches 95% or the available capacity falls below 5 GiB, the server automatically switches to read-only mode to prevent disk-full errors.
+
+Since maintaining the primary server's health and functionality is a priority, in such edge cases, the replication slot may be dropped to ensure the primary server remains operational for read and write traffic. Consequently, replication will switch to file-based log shipping mode, which could result in a higher replication lag.
+
+It is essential to monitor storage usage and replication lag closely, and take necessary actions to mitigate potential issues before they escalate.
+
+### Server parameters
+
+You are free to change server parameters on your read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes. Please ensure these parameters are always [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the replica does not run out of shared memory during recovery.
+
 ### Scaling
 
-Scaling vCores or between General Purpose and Memory Optimized:
-* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
-* **Scaling up**: First scale up a replica's compute, then scale up the primary. 
+You are free to scale up and down compute (vCores), changing the service tier from General Purpose to Memory Optimized (or vice versa) as well as scaling up the storage, but the following caveats do apply.
+
+For compute scaling: 
+
+* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the replica does not run out of shared memory during recovery. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+
+* **Scaling up**: First scale up a replica's compute, then scale up the primary.
+
 * **Scaling down**: First scale down the primary's compute, then scale down the replica.
+
+* Compute on the primary must always be equal or smaller than the compute on the smallest replica.
+
+ 
+For storage scaling:
+
+* **Scaling up**: First scale up a replica's storage, then scale up the primary.
+
+* Storage size on the primary must be always equal or smaller than the storage size on the smallest replica.
 
 ## Next steps
 

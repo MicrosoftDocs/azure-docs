@@ -22,9 +22,9 @@ You can also browse available images and offers using the [Azure Marketplace](ht
 
 A Marketplace image in Azure has the following attributes:
 
-* **Publisher**: The organization that created the image. Examples: Canonical, MicrosoftWindowsServer
-* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, WindowsServer
-* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
+* **Publisher**: The organization that created the image. Examples: Canonical, RedHat, SUSE.
+* **Offer**: The name of a group of related images created by a publisher. Examples: 0001-com-ubuntu-server-jammy, RHEL, sles-15-sp3.
+* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 22_04-lts-gen2, 8-lvm-gen2,  gen2.
 * **Version**: The version number of an image SKU. 
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image.
@@ -41,26 +41,40 @@ You can run the [az vm image list --all](/cli/azure/vm/image) to see all of the 
 az vm image list --output table
 ```
 
-The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *UbuntuLTS*.
+The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *Ubuntu2204*.
+The Linux image alias names and their details outputted by this command are:
 
 ```output
 Architecture    Offer                         Publisher               Sku                                 Urn                                                                             UrnAlias                 Version
 --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
 x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                     CentOS                   latest
+x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                                CentOS85Gen2             latest
 x64             debian-10                     Debian                  10                                  Debian:debian-10:10:latest                                                      Debian                   latest
+x64             Debian11                      Debian                  11-backports-gen2                   Debian:debian-11:11-backports-gen2:latest                                       Debian-11                latest
 x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                              Flatcar                  latest
+x64             flatcar-container-linux-free  kinvolk                 stable-gen2                         kinvolk:flatcar-container-linux-free:stable-gen2:latest                         FlatcarLinuxFreeGen2     latest
 x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                             openSUSE-Leap            latest
+x64             opensuse-leap-15-4            SUSE                    gen2                                SUSE:opensuse-leap-15-4:gen2:latest                                             OpenSuseLeap154Gen2      latest
 x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                        RHEL                     latest
+x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                   RHELRaw8LVMGen2          latest
 x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
 x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
-x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                     Win2022Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest  Win2022AzureEditionCore  latest
-x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                     Win2019Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                     Win2016Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                  Win2012R2Datacenter      latest
-x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                     Win2012Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2008-R2-SP1                         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest                         Win2008R2SP1             latest
+x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest                    Ubuntu2204               latest
 ```
+
+The Windows image alias names and their details outputted by this command are:
+
+```output
+Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Alias                    Version
+--------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ -----------------------  ---------
+x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                    Win2022Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest Win2022AzureEditionCore   latest
+x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                    Win2019Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                    Win2016Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                 Win2012R2Datacenter       latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                    Win2012Datacenter         latest
+```
+
 
 ## Find specific images
 
@@ -68,7 +82,7 @@ You can filter the list of images by `--publisher` or another parameter to limit
 
 For example, the following command displays all Debian offers:
 
-```azurecli
+```azurecli-interactive
 az vm image list --offer Debian --all --output table 
 ```
 
@@ -79,18 +93,18 @@ Another way to find an image in a location is to run the [az vm image list-publi
 
 1. List the image publishers for a location. In this example, we're looking at the *West US* region.
     
-    ```azurecli
+    ```azurecli-interactive
     az vm image list-publishers --location westus --output table
     ```
 
 1. For a given publisher, list their offers. In this example, we add *RedHat* as the publisher.
     
-    ```azurecli
+    ```azurecli-interactive
     az vm image list-offers --location westus --publisher RedHat --output table
     ```
 
 1. For a given offer, list their SKUs. In this example, we add *RHEL* as the offer.
-    ```azurecli
+    ```azurecli-interactive
     az vm image list-skus --location westus --publisher RedHat --offer RHEL --output table
     ```
 
@@ -100,7 +114,7 @@ Another way to find an image in a location is to run the [az vm image list-publi
 
 1. For a given publisher, offer, and SKU, show all of the versions of the image. In this example, we add *9_1* as the SKU.
 
-    ```azurecli
+    ```azurecli-interactive
     az vm image list \
         --location westus \
         --publisher RedHat \
@@ -124,7 +138,7 @@ To view an image's purchase plan information, run the [az vm image show](/cli/az
 
 For example, the Canonical Ubuntu Server 18.04 LTS image doesn't have extra terms, because the `plan` information is `null`:
 
-```azurecli
+```azurecli-interactive
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
@@ -146,7 +160,7 @@ Output:
 
 Running a similar command for the RabbitMQ Certified by Bitnami image shows the following `plan` properties: `name`, `product`, and `publisher`. (Some images also have a `promotion code` property.) 
 
-```azurecli
+```azurecli-interactive
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 Output:
@@ -175,7 +189,7 @@ To deploy this image, you need to accept the terms and provide the purchase plan
 
 To view and accept the license terms, use the [az vm image terms](/cli/azure/vm/image/terms) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
 
-```azurecli
+```azurecli-interactive
 az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
@@ -200,7 +214,7 @@ The output includes a `licenseTextLink` to the license terms, and indicates that
 
 To accept the terms, type:
 
-```azurecli
+```azurecli-interactive
 az vm image terms accept --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
@@ -223,7 +237,7 @@ az vm create \
 
 For an image with purchase plan parameters, like the RabbitMQ Certified by Bitnami image, you pass the URN for `--image` and also provide the purchase plan parameters:
 
-```azurecli
+```azurecli-interactive
 az group create --name myPurchasePlanRG --location westus
 
 az vm create \

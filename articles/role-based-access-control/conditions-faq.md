@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/24/2022
+ms.date: 05/09/2023
 ms.author: rolyon
 
 #Customer intent: 
@@ -18,9 +18,13 @@ ms.author: rolyon
 
 ## Frequently asked questions
 
-**Can you pick the storage container names or blob path in the condition builder in the Azure portal?**
+**Can you pick the storage container names or blob path in the visual ABAC condition builder in the Azure portal?**
 
 You must write the storage container name, blob path, tag name, or values in the condition. There is no picking experience for the attribute values.
+
+**Can you check for the existence of an attribute from a condition?**
+
+You can use the `Exists` operator with any ABAC attribute, but it is only supported in the visual ABAC condition builder for a few of them. You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-rest.md), and the condition code editor in the Azure portal. For a list of attributes for which it is supported in the visual condition builder, see [the *Exists* function operator](conditions-format.md#exists). To add the exists operator to an attribute when building an expression in a condition, select the supported source and attribute, then select the box next to **Exists** under it. See [Build expressions in the portal](conditions-role-assignments-portal.md#step-5-build-expressions) for more details.
 
 **Can you group expressions?**
 
@@ -59,7 +63,7 @@ A condition is only applied to the specific targeted actions.
 
 **What are the limits for a condition?**
 
-A condition can be up to to 8 KB long.
+A condition can be up to 8 KB long.
 
 **What are the limits for a description?**
 

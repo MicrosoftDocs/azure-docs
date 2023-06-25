@@ -4,13 +4,15 @@
   items:
   - name: About Azure Arc-enabled Kubernetes
     href: overview.md
+  - name: What's new with Arc-enabled Kubernetes
+    href: release-notes.md
   - name: Azure Arc validated partners
     displayName: distributions, validation
     href: validation-program.md
 - name: Quickstarts
   items:
   - name: Connect a cluster to Azure Arc
-    displayName: enable, Arc-enable
+    displayName: enable, Arc-enable, deploy
     href: quickstart-connect-cluster.md
 - name: Tutorials
   items:
@@ -20,9 +22,6 @@
   - name: Implement CI/CD with GitOps
     displayName: flux
     href: tutorial-gitops-flux2-ci-cd.md
-  - name: Multi-cluster workload management with GitOps  
-    displayName: flux
-    href: tutorial-workload-management.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -31,6 +30,10 @@
   items:
   - name: Agent overview
     href: conceptual-agent-overview.md
+  - name: System requirements
+    href: system-requirements.md
+  - name: Network requirements
+    href: network-requirements.md
   - name: Connectivity modes
     href: conceptual-connectivity-modes.md
   - name: Data exchange between cluster and Azure
@@ -38,29 +41,34 @@
   - name: Identity and access management
     items:
       - name: Identity and access overview
+        displayName: connect, rbac
         href: identity-access-overview.md
       - name: Cluster connect access
-        displayName: connect
+        displayName: identity
         href: conceptual-cluster-connect.md
       - name: Azure RBAC integration
-        displayName: rbac, azure ad, azure active directory
+        displayName: azure ad, azure active directory, identity, access
         href: conceptual-azure-rbac.md
   - name: Extend Azure capabilities to clusters anywhere
     items:
       - name: Cluster extensions
         href: conceptual-extensions.md
       - name: Available extensions
+        displayName: gitops, flux, version
         href: extensions-release.md
       - name: Custom locations
         href: conceptual-custom-locations.md
   - name: Deploy applications to cluster
     items:
       - name: Configurations and GitOps
-        displayName: flux
+        displayName: flux, deploy, applications
         href: conceptual-gitops-flux2.md
       - name: CI/CD workflow using GitOps
         displayName: flux
         href: conceptual-gitops-flux2-ci-cd.md
+      - name: Multi-cluster workload management with GitOps
+        displayName: multicluster
+        href: conceptual-workload-management.md
       - name: Inner loop developer experience
         href: conceptual-inner-loop-gitops.md
       - name: GitOps with Flux v1
@@ -92,13 +100,16 @@
   - name: Azure portal Kubernetes resource view
     href: kubernetes-resource-view.md
   - name: Deploy applications consistently
-    displayName: GitOps, flux, configuration
+    displayName: GitOps, flux, configuration, policy
     href: use-azure-policy-flux-2.md
+  - name: Explore multi-cluster workload management
+    href: workload-management.md
   - name: Manage identity and access
     items:
     - name: Securely connect to cluster from anywhere
       href: cluster-connect.md
-    - name: Use Azure AD RBAC for authorization checks
+    - name: Use Azure RBAC for authorization checks
+      displayName: azure active directory, identity, access
       href: azure-rbac.md
   - name: Manage your cluster
     items:
@@ -142,7 +153,5 @@
   items:
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
-    - name: Plan for deployment
-      href: plan-at-scale-deployment.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io

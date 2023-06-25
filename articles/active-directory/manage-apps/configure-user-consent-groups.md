@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko, ergreenl
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, enterprise-apps
 
 #customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Azure AD
 ---
@@ -19,6 +19,8 @@ ms.custom: contperf-fy21q2
 # Configure group owner consent to applications
 
 Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

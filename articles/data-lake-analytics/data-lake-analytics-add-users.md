@@ -2,6 +2,7 @@
 title: Add users to an Azure Data Lake Analytics account
 description: Learn how to correctly add users to your Data Lake Analytics account using the Add User Wizard and Azure PowerShell.
 ms.service: data-lake-analytics
+ms.custom: devx-track-azurepowershell
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/20/2023
@@ -42,7 +43,7 @@ Grant "R-X" or "RWX", as needed, on folders containing input data and output dat
 
 The sample command to give user access to submit jobs, view new job metadata, and view old metadata is:
 
-`Add-AdlaJobUser.ps1 -Account myadlsaccount -EntityToAdd 546e153e-0ecf-417b-ab7f-aa01ce4a7bff -EntityType User -FullReplication`
+`.\Add-AdlaJobUser.ps1 -Account myadlsaccount -EntityIdToAdd 546e153e-0ecf-417b-ab7f-aa01ce4a7bff -EntityType User -FullReplication`
 
 ## Next steps
 

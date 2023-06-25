@@ -2,8 +2,8 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 09/09/2022
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.date: 05/22/2023
+ms.custom: ignite-2022, devx-track-arm-template
 ---
 
 # Resource functions for ARM templates
@@ -173,9 +173,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-connection-strings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-keys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2022-05-15/notebook-workspaces/list-connection-info) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2022-11-15/database-accounts/list-connection-strings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2022-11-15/database-accounts/list-keys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2022-11-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/domains/list-shared-access-keys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/topics/list-shared-access-keys) |
@@ -201,9 +201,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2022-10-01/compute/list-keys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2022-10-01/compute/list-nodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2022-10-01/workspaces/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2023-04-01/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2023-04-01/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2023-04-01/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -416,7 +416,7 @@ The [providers operation](/rest/api/resources/providers) is still available thro
 
 Returns an object representing a resource's runtime state.
 
-In Bicep, use the [reference](../bicep/bicep-functions-resource.md#reference) function.
+Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
 
 ### Parameters
 
@@ -568,7 +568,7 @@ The full object is in the following format:
 
 ```json
 {
-  "apiVersion":"2021-04-01",
+  "apiVersion":"2022-09-01",
   "location":"southcentralus",
   "sku": {
     "name":"Standard_LRS",
@@ -577,7 +577,7 @@ The full object is in the following format:
   "tags":{},
   "kind":"Storage",
   "properties": {
-    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "creationTime":"2021-10-09T18:55:40.5863736Z",
     "primaryEndpoints": {
       "blob":"https://examplestorage.blob.core.windows.net/",
       "file":"https://examplestorage.file.core.windows.net/",
@@ -807,7 +807,6 @@ The following template creates and assigns a policy definition. It uses the `man
       }
     }
   },
-  "functions": [],
   "variables": {
     "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
     "policyDefinitionName": "LocationRestriction"
@@ -815,7 +814,7 @@ The following template creates and assigns a policy definition. It uses the `man
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2021-06-01",
       "name": "[variables('policyDefinitionName')]",
       "properties": {
         "policyType": "Custom",
@@ -834,9 +833,9 @@ The following template creates and assigns a policy definition. It uses the `man
         }
       }
     },
-    {
+    "location_lock": {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-03-01",
+      "apiVersion": "2022-06-01",
       "name": "location-lock",
       "properties": {
         "scope": "[variables('mgScope')]",

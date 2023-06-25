@@ -149,7 +149,7 @@ After you've acquired the necessary authorization for your application, proceed 
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
@@ -167,7 +167,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --------------- | --------- | ----------- |
 |     `tenant`    |  Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 |    `client_id`  |  Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
-|     `scope`     |  Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br/>This value tells the Microsoft identity platform that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
+|     `scope`     |  Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. All scopes included must be for a single resource. Including scopes for multiple resources will result in an error. <br/>For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value tells the Microsoft identity platform that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
 | `client_secret` |  Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
 |  `grant_type`   |  Required | Must be set to `client_credentials`. |
 
@@ -175,7 +175,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
@@ -189,7 +189,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | ----------------------- | --------- | ----------- |
 |         `tenant`        |  Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 |       `client_id`       |  Required | The application (client) ID that's assigned to your app. |
-|         `scope`         |  Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br/>This value informs the Microsoft identity platform that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
+|         `scope`         |  Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. All scopes included must be for a single resource. Including scopes for multiple resources will result in an error. <br/>For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value tells the Microsoft identity platform that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
 | `client_assertion_type` |  Required | The value must be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 |    `client_assertion`   |  Required | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 |      `grant_type`       |  Required | Must be set to `client_credentials`. |
@@ -200,7 +200,7 @@ The parameters for the certificate-based request differ in only one way from the
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
@@ -267,14 +267,14 @@ An error response (400 Bad Request) looks like this:
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
 
 ```HTTP
-GET /v1.0/me/messages
-Host: https://graph.microsoft.com
+GET /v1.0/users HTTP/1.1
+Host: graph.microsoft.com:443
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 Try the following command in your terminal, ensuring to replace the token with your own.
 
 ```bash
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/users'
 ```
 
 ## Code samples and other documentation

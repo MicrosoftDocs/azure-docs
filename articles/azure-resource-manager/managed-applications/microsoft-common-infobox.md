@@ -1,12 +1,8 @@
 ---
 title: InfoBox UI element
 description: Describes the Microsoft.Common.InfoBox UI element for Azure portal. Use to add text or warnings when deploying managed application.
-author: davidsmatlak
-
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: davidsmatlak
-
 ---
 
 # Microsoft.Common.InfoBox UI element

@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/02/2023
 ms.author: jomondi
 ms.reviewer: sreyanth, ludwignick
+ms.custom: enterprise-apps
 
 ---
 # Home Realm Discovery for an application

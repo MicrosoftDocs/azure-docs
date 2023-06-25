@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Metatask | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Metatask'
 description: Learn how to configure single sign-on between Azure Active Directory and Metatask.
 services: active-directory
 author: jeevansd

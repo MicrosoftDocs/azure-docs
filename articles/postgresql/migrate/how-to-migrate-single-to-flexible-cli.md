@@ -7,7 +7,7 @@ ms.author: hariramt
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 02/02/2023
-ms.custom: seo-lt-2023
+ms.custom: seo-lt-2023, devx-track-azurecli
 ---
 
 # Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server by using the Azure CLI
@@ -15,9 +15,6 @@ ms.custom: seo-lt-2023
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure Command Line Interface (CLI). In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure CLI.
-
->[!NOTE]
-> The migration tool is in public preview.
 
 In this tutorial, you learn about:
 
@@ -34,13 +31,19 @@ In this tutorial, you learn about:
 
 To complete this tutorial, you need to:
 
-* Use an existing instance of Azure Database for PostgreSQL – Single Server (the source server)
-* All extensions used on the Single Server (source) must be [allow-listed on the Flexible Server (target)](./concepts-single-to-flexible.md#allow-list-required-extensions)
+1. Use an existing instance of Azure Database for PostgreSQL – Single Server (the source server)
+2. All extensions used on the Single Server (source) must be [allow-listed on the Flexible Server (target)](./concepts-single-to-flexible.md#allow-list-required-extensions)
+
+>[!NOTE]
+> If TIMESCALEDB, PG_PARTMAN, POSTGRES_FDW or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
+
+3. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../flexible-server/quickstart-create-server-cli.md)
 
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable instance of Flexible server is not supported. Please use a general purpose or a memory optimized instance (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale back to a burstable instance if necessary.
 
-* Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../flexible-server/quickstart-create-server-cli.md)
+4. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it is skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+
 
 ## Getting started
 
@@ -147,7 +150,7 @@ The `create` parameters that go into the json file format are as shown below:
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
 | `SourceDBServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
-| `SecretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target, along with the Azure Active Directory app credentials. These passwords help to authenticate against the source and target servers. They also help in checking proper authorization access to the resources.
+| `SecretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
 | `DBsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
 | `OverwriteDBsinTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
 | `SetupLogicalReplicationOnSourceDBIfNeeded` | Optional | You can enable logical replication on the source server automatically by setting this property to `true`. This change in the server settings requires a server restart with a downtime of two to three minutes. |

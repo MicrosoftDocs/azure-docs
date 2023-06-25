@@ -1,10 +1,9 @@
 ---
 title: Bicep numeric operators
 description: Describes Bicep numeric operators that calculate values.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Bicep numeric operators

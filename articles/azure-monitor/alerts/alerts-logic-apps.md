@@ -106,7 +106,7 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
     }
     ```
 
-    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="Screenshot that shows the Parameters tab for the When a HTTP request is received pane.":::
+    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="Screenshot that shows the Parameters tab for the When an HTTP request is received pane.":::
 
 1. (Optional). You can customize the alert notification by extracting information about the affected resource on which the alert fired, for example, the resource's tags. You can then include those resource tags in the alert payload and use the information in your logical expressions for sending the notifications. To do this step, we will:
     - Create a variable for the affected resource IDs.
@@ -116,7 +116,7 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
 
     1. Select **+** > **Add an action** to insert a new step.
     1. In the **Search** field, search for and select **Initialize variable**.
-    1. In the **Name** field, enter the name of the variable, such as **AffectedResources**.
+    1. In the **Name** field, enter the name of the variable, such as **AffectedResource**.
     1. In the **Type** field, select **Array**.
     1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab and enter the string `split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')`.
 
@@ -124,22 +124,25 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
 
     1. Select **+** > **Add an action** to insert another step.
     1. In the **Search** field, search for and select **Azure Resource Manager** > **Read a resource**.
-    1. Populate the fields of the **Read a resource** action with the array values from the `AffectedResources` variable. In each of the fields, select the field and scroll down to **Enter a custom value**. Select **Add dynamic content**, and then select the **Expression** tab. Enter the strings from this table:
+    1. Populate the fields of the **Read a resource** action with the array values from the `AffectedResource` variable. In each of the fields, select the field and scroll down to **Enter a custom value**. Select **Add dynamic content**, and then select the **Expression** tab. Enter the strings from this table:
 
         |Field|String value|
         |---------|---------|
         |Subscription|`variables('AffectedResource')[2]`|
         |Resource Group|`variables('AffectedResource')[4]`|
         |Resource Provider|`variables('AffectedResource')[6]`|
-        |Short Resource Id|`concat(variables('AffectedResource')[7], '/', variables('AffectedResource')[8]`)|
-        |Client Api Version|2021-06-01|
+        |Short Resource ID|`concat(variables('AffectedResource')[7], '/', variables('AffectedResource')[8]`)|
+        |Client Api Version|Resource type's api version|
+    
+        To find your resource type's api version, select the **JSON view** link on the top right-hand side of the resource overview page.
+        The **Resource JSON** page is displayed with the **ResourceID** and **API version** at the top of the page.
 
     The dynamic content now includes tags from the affected resource. You can use those tags when you configure your notifications as described in the following steps.
 
 1. Send an email or post a Teams message.
 1. Select **+** > **Add an action** to insert a new step.
 
-    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="Screenshot that shows the parameters for When a HTTP request is received.":::
+    :::image type="content" source="./media/alerts-logic-apps/configure-http-request-received.png" alt-text="Screenshot that shows the parameters for When an HTTP request is received.":::
 
 ## [Send an email](#tab/send-email)
 

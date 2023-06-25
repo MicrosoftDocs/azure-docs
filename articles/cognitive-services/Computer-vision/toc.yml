@@ -16,7 +16,7 @@ items:
     href: whats-new.md
   - name: Computer Vision FAQ
     href: FAQ.yml
-- name: Use cases
+- name: Scenario deep-dives
   items:
   - name: Generate alt text for images
     href: use-case-alt-text.md
@@ -102,84 +102,164 @@ items:
   items:
   - name: Image Analysis overview
     href: overview-image-analysis.md
-  - name: Image Analysis quickstart
-    href: quickstarts-sdk/image-analysis-client-library.md
-  - name: Samples  
-    href: /samples/browse/?products=azure&terms=analyze-image
+  - name: Quickstarts
+    items:
+    - name: Version 4.0 quickstart (preview)
+      href: quickstarts-sdk/image-analysis-client-library-40.md
+    - name: Version 3.2 quickstart
+      href: quickstarts-sdk/image-analysis-client-library.md
+  - name: Samples
+    items:
+    - name: Version 4.0 (preview)
+      items:
+      - name: Azure Image Analysis samples
+        href: https://github.com/Azure-Samples/azure-ai-vision-sdk
+    - name: Version 3.2
+      items:
+      - name: Cognitive Services .NET SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples
+      - name: Cognitive Services Java SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples
+      - name: Cognitive Services Node.js SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
+      - name: JavaScript Static Web app
+        href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
+      - name: Cognitive Services Python SDK samples
+        href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
+      - name: Cognitive Services Go SDK Samples
+        href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
     - name: Transparency note
       href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/computer-vision/imageanalysis-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Integration and responsible use 
-      href: /legal/cognitive-services/computer-vision/imageanalysis-guidance-for-integration?context=/azure/cognitive-services/computer-vision/context/context
     - name: Data, privacy, and security 
       href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
     - name: Limited Access features
       href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
-    - name: Call the Image Analysis API
-      href: how-to/call-analyze-image.md
-    - name: Analyze videos in real time
-      href: how-to/analyze-video.md
-    - name: Generate a smart-cropped thumbnail
-      href: how-to/generate-thumbnail.md
+    - name: Version 4.0 (preview)
+      items:
+      - name: Call the Analyze API
+        href: how-to/call-analyze-image-40.md
+      - name: Model customization
+        items:
+        - name: Create a custom model
+          href: how-to/model-customization.md
+        - name: Migrate a Custom Vision project to Image Analysis
+          href: how-to/migrate-from-custom-vision.md
+        - name: Verify a custom model COCO file
+          href: how-to/coco-verification.md
+      - name: Product Recognition
+        items:
+        - name: Prepare images for Product Recognition
+          href: how-to/shelf-modify-images.md
+        - name: Product Recognition with prebuilt model
+          href: how-to/shelf-analyze.md
+        - name: Product Recognition with custom model
+          href: how-to/shelf-model-customization.md
+        - name: Check planogram compliance
+          href: how-to/shelf-planogram.md
+      - name: Call the Image retrieval APIs
+        href: how-to/image-retrieval.md
+      - name: Call the Background removal API
+        href: how-to/background-removal.md
+      - name: Configure a storage account
+        href: how-to/blob-storage-search.md
+    - name: Version 3.2
+      items:
+      - name: Call the Analyze API
+        href: how-to/call-analyze-image.md
+      - name: Analyze videos in real time
+        href: how-to/analyze-video.md
+      - name: Generate a smart-cropped thumbnail
+        href: how-to/generate-thumbnail.md
   - name: Concepts
     items:
-    - name: Object detection
-      href: concept-object-detection.md
-    - name: Brand detection
-      href: concept-brand-detection.md
-    - name: Content tags
-      href: concept-tagging-images.md
-    - name: Image categorization
-      href: concept-categorizing-images.md
-    - name: Category taxonomy
-      href: Category-Taxonomy.md
-    - name: Image descriptions
-      href: concept-describing-images.md
-    - name: Face detection
-      href: concept-detecting-faces.md
-    - name: Image type detection
-      href: concept-detecting-image-types.md
-    - name: Domain-specific content
-      href: concept-detecting-domain-content.md
-    - name: Color scheme detection
-      href: concept-detecting-color-schemes.md
-    - name: Smart-cropped thumbnails
-      href: concept-generating-thumbnails.md
-    - name: Adult content detection
-      href: concept-detecting-adult-content.md
-    - name: Reading text (preview)
-      href: concept-ocr.md
-    - name: People detection (preview)
-      href: concept-people-detection.md
+    - name: Version 4.0 (preview)
+      items:
+      - name: Image tagging
+        href: concept-tag-images-40.md
+      - name: Image captions
+        href: concept-describe-images-40.md
+      - name: Object detection
+        href: concept-object-detection-40.md
+      - name: Optical Character Recognition
+        href: concept-ocr.md
+      - name: Smart-cropped thumbnails
+        href: concept-generate-thumbnails-40.md
+      - name: People detection
+        href: concept-people-detection.md
+      - name: Model customization
+        href: concept-model-customization.md
+      - name: Product Recognition
+        href: concept-shelf-analysis.md
+      - name: Image retrieval
+        href: concept-image-retrieval.md
+      - name: Background removal
+        href: concept-background-removal.md
+    - name: Version 3.2
+      items:   
+      - name: Image tagging
+        href: concept-tagging-images.md
+      - name: Image categorization
+        href: concept-categorizing-images.md
+      - name: Category taxonomy
+        href: Category-Taxonomy.md
+      - name: Image descriptions
+        href: concept-describing-images.md
+      - name: Object detection
+        href: concept-object-detection.md
+      - name: Brand detection
+        href: concept-brand-detection.md
+      - name: Face detection
+        href: concept-detecting-faces.md
+      - name: Image type detection
+        href: concept-detecting-image-types.md
+      - name: Domain-specific content
+        href: concept-detecting-domain-content.md
+      - name: Color scheme detection
+        href: concept-detecting-color-schemes.md
+      - name: Adult content detection
+        href: concept-detecting-adult-content.md
+      - name: Smart-cropped thumbnails
+        href: concept-generating-thumbnails.md
   - name: Tutorials
     items:
     - name: Generate metadata for images
       href: Tutorials/storage-lab-tutorial.md
   - name: Reference
-    items: 
-    - name: Image Analysis REST API v4.0 (preview)
-      href: https://aka.ms/vision-4-0-ref
-    - name: Image Analysis REST API v3.2
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
-    - name: Image Analysis REST API v3.1
-      href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-    - name: Image Analysis REST API v2.1
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-    - name: .NET
-      href: /dotnet/api/overview/azure/computer-vision
-    - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-computervision
-    - name: Python
-      href: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
-    - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/computervision
+    items:
+    - name: Version 4.0 (preview)
+      items:
+      - name: Image Analysis REST API v4.0
+        href: https://aka.ms/vision-4-0-ref
+      - name: .NET
+        href: /dotnet/api/azure.ai.vision.imageanalysis
+      - name: Python
+        href: /python/api/azure-ai-vision
+      - name: C++
+        href: /cpp/cognitive-services/vision
+    - name: Version 3.2
+      items:
+      - name: Image Analysis REST API v3.2
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+      - name: .NET
+        href: /dotnet/api/overview/azure/computer-vision
+      - name: Node.js
+        href: /javascript/api/@azure/cognitiveservices-computervision
+      - name: Python
+        href: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
+      - name: Go
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
+      - name: Java
+        href: /java/api/overview/azure/cognitiveservices/client/computervision
+    - name: Older versions
+      items: 
+      - name: Image Analysis REST API v3.1
+        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+      - name: Image Analysis REST API v2.1
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
     - name: Azure CLI
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
@@ -224,7 +304,7 @@ items:
         href: how-to/find-similar-faces.md
       - name: Specify a face recognition model version
         href: how-to/specify-recognition-model.md
-      - name: Add faces to a group
+      - name: Add faces to a PersonGroup
         href: how-to/add-faces.md
       - name: Use the large-scale feature
         href: how-to/use-large-scale.md
@@ -234,6 +314,8 @@ items:
         href: how-to/mitigate-latency.md
       - name: Migrate face data
         href: how-to/migrate-face-data.md
+      - name: Use limited access tokens
+        href: how-to/identity-access-token.md
       - name: Use customer-managed keys
         href: identity-encrypt-data-at-rest.md
   - name: Concepts
@@ -255,7 +337,7 @@ items:
     - name: Face REST API
       href: identity-api-reference.md
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/face-readme
+      href: /dotnet/api/overview/azure/cognitiveservices/face
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/faceapi
     - name: Node.js

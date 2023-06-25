@@ -44,50 +44,58 @@ uname -r
 * <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**  
     The cifs-utils package can be installed using the package manager on the Linux distribution of your choice. 
 
-    On **Ubuntu** and **Debian**, use the `apt` package manager:
 
-    ```bash
-    sudo apt update
-    sudo apt install cifs-utils
-    ```
+# [Ubuntu](#tab/Ubuntu)
 
-    On **Red Hat Enterprise Linux 8+** use the `dnf` package manager:
+On Ubuntu and Debian, use the `apt` package manager:
 
-    ```bash
-    sudo dnf install cifs-utils
-    ```
+```bash
+sudo apt update
+sudo apt install cifs-utils
+```
+# [RHEL](#tab/RHEL)
 
-    On older versions of **Red Hat Enterprise Linux** use the `yum` package manager:
+Same applies for CentOS or Oracle Linux
 
-    ```bash
-    sudo yum install cifs-utils 
-    ```
+On Red Hat Enterprise Linux 8+ use the `dnf` package manager:
 
-    On **SUSE Linux Enterprise Server**, use the `zypper` package manager:
+```bash
+sudo dnf install cifs-utils
+```
 
-    ```bash
-    sudo zypper install cifs-utils
-    ```
+On older versions of Red Hat Enterprise Linux use the `yum` package manager:
 
-    On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
+```bash
+sudo yum install cifs-utils 
+```
+# [SLES](#tab/SLES)
+
+On SUSE Linux Enterprise Server, use the `zypper` package manager:
+
+```bash
+sudo zypper install cifs-utils
+```
+---
+
+On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may; however, the instructions in this article are for the Azure CLI.
 
 * **Ensure port 445 is open**: SMB communicates over TCP port 445 - make sure your firewall or ISP isn't blocking TCP port 445 from the client machine.  Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
 
     ```bash
-    resourceGroupName="<your-resource-group>"
-    storageAccountName="<your-storage-account>"
+    RESOURCE_GROUP_NAME="<your-resource-group>"
+    STORAGE_ACCOUNT_NAME="<your-storage-account>"
     
     # This command assumes you have logged in with az login
-    httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroupName \
-        --name $storageAccountName \
+    HTTP_ENDPOINT=$(az storage account show \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $STORAGE_ACCOUNT_NAME \
         --query "primaryEndpoints.file" --output tsv | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})
-    fileHost=$(echo $smbPath | tr -d "/")
+    SMBPATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})
+    FILE_HOST=$(echo $SMBPATH | tr -d "/")
 
-    nc -zvw3 $fileHost 445
+    nc -zvw3 $FILE_HOST 445
     ```
 
     If the connection was successful, you should see something similar to the following output:
@@ -99,22 +107,22 @@ uname -r
     If you're unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
 ## Mount the Azure file share on-demand with mount
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$MNT_ROOT` variable.
 
 Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with the appropriate information for your environment:
 
 ```bash
-resourceGroupName="<resource-group-name>"
-storageAccountName="<storage-account-name>"
-fileShareName="<file-share-name>"
+RESOURCE_GROUP_NAME="<resource-group-name>"
+STORAGE_ACCOUNT_NAME="<storage-account-name>"
+FILE_SHARE_NAME="<file-share-name>"
 
-mntRoot="/mount"
-mntPath="$mntRoot/$storageAccountName/$fileShareName"
+MNT_ROOT="/mount"
+MNT_PATH="$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME"
 
-sudo mkdir -p $mntPath
+sudo mkdir -p $MNT_PATH
 ```
 
-Next, mount the file share using the `mount` command. In the following example, the `$smbPath` command is populated using the fully qualified domain name for the storage account's file endpoint and `$storageAccountKey` is populated with the storage account key. 
+Next, mount the file share using the `mount` command. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint and `$STORAGE_ACCOUNT_KEY` is populated with the storage account key. 
 
 # [SMB 3.1.1](#tab/smb311)
 > [!Note]  
@@ -122,52 +130,52 @@ Next, mount the file share using the `mount` command. In the following example, 
 
 ```azurecli
 # This command assumes you have logged in with az login
-httpEndpoint=$(az storage account show \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
+HTTP_ENDPOINT=$(az storage account show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $STORAGE_ACCOUNT_NAME \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
+SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})$FILE_SHARE_NAME
 
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
+sudo mount -t cifs $SMB_PATH $MNT_PATH -o username=$STORAGE_ACCOUNT_NAME,password=$STORAGE_ACCOUNT_KEY,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 3.0](#tab/smb30)
 ```azurecli
 # This command assumes you have logged in with az login
-httpEndpoint=$(az storage account show \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
+HTTP_ENDPOINT=$(az storage account show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $STORAGE_ACCOUNT_NAME \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
+SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})$FILE_SHARE_NAME
 
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
+sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=3.0,username=$STORAGE_ACCOUNT_NAME,password=$STORAGE_ACCOUNT_KEY,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 # [SMB 2.1](#tab/smb21)
 ```azurecli
 # This command assumes you have logged in with az login
-httpEndpoint=$(az storage account show \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
+HTTP_ENDPOINT=$(az storage account show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $STORAGE_ACCOUNT_NAME \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
+SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})$FILE_SHARE_NAME
 
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --query "[0].value" --output tsv | tr -d '"')
 
-sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino,nosharesock,actimeo=30,mfsymlinks
+sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,username=$STORAGE_ACCOUNT_NAME,password=$STORAGE_ACCOUNT_KEY,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
 ---
@@ -177,11 +185,11 @@ You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for t
 You can also mount the same Azure file share to multiple mount points if desired. When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
 ## Automatically mount file shares
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$mntRoot` variable.
+When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/mount` path. You can change this to your preferred path you want by modifying the `$MNT_ROOT` variable.
 
 ```bash
-mntRoot="/mount"
-sudo mkdir -p $mntRoot
+MNT_ROOT="/mount"
+sudo mkdir -p $MNT_ROOT
 ```
 
 To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials may change over time, you should store the credentials for the storage account separately from the mount configuration. 
@@ -189,33 +197,33 @@ To mount an Azure file share on Linux, use the storage account name as the usern
 The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
 ```bash
-resourceGroupName="<resource-group-name>"
-storageAccountName="<storage-account-name>"
+RESOURCE_GROUP_NAME="<resource-group-name>"
+STORAGE_ACCOUNT_NAME="<storage-account-name>"
 
 # Create a folder to store the credentials for this storage account and
 # any other that you might set up.
-credentialRoot="/etc/smbcredentials"
+CREDENTIAL_ROOT="/etc/smbcredentials"
 sudo mkdir -p "/etc/smbcredentials"
 
 # Get the storage account key for the indicated storage account.
 # You must be logged in with az login and your user identity must have 
 # permissions to list the storage account keys for this command to work.
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
+STORAGE_ACCOUNT_KEY=$(az storage account keys list \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
     --query "[0].value" --output tsv | tr -d '"')
 
 # Create the credential file for this individual storage account
-smbCredentialFile="$credentialRoot/$storageAccountName.cred"
-if [ ! -f $smbCredentialFile ]; then
-    echo "username=$storageAccountName" | sudo tee $smbCredentialFile > /dev/null
-    echo "password=$storageAccountKey" | sudo tee -a $smbCredentialFile > /dev/null
+SMB_CREDENTIAL_FILE="$CREDENTIAL_ROOT/$STORAGE_ACCOUNT_NAME.cred"
+if [ ! -f $SMB_CREDENTIAL_FILE ]; then
+    echo "username=$STORAGE_ACCOUNT_NAME" | sudo tee $SMB_CREDENTIAL_FILE > /dev/null
+    echo "password=$STORAGE_ACCOUNT_KEY" | sudo tee -a $SMB_CREDENTIAL_FILE > /dev/null
 else 
-    echo "The credential file $smbCredentialFile already exists, and was not modified."
+    echo "The credential file $SMB_CREDENTIAL_FILE already exists, and was not modified."
 fi
 
 # Change permissions on the credential file so only root can read or modify the password file.
-sudo chmod 600 $smbCredentialFile
+sudo chmod 600 $SMB_CREDENTIAL_FILE
 ```
 
 To automatically mount a file share, you have a choice between using a static mount via the `/etc/fstab` utility or using a dynamic mount via the `autofs` utility. 
@@ -224,10 +232,10 @@ To automatically mount a file share, you have a choice between using a static mo
 Using the earlier environment, create a folder for your storage account/file share under your mount folder. Replace `<file-share-name>` with the appropriate name of your Azure file share.
 
 ```bash
-fileShareName="<file-share-name>"
+FILE_SHARE_NAME="<file-share-name>"
 
-mntPath="$mntRoot/$storageAccountName/$fileShareName"
-sudo mkdir -p $mntPath
+MNT_PATH="$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME"
+sudo mkdir -p $MNT_PATH
 ```
 
 Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You may wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
@@ -236,14 +244,14 @@ Finally, create a record in the `/etc/fstab` file for your Azure file share. In 
 > If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the SMB mount options to avoid sending byte range lock requests to the server.
 
 ```bash
-httpEndpoint=$(az storage account show \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
+HTTP_ENDPOINT=$(az storage account show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $STORAGE_ACCOUNT_NAME \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-${#httpEndpoint})$fileShareName
+SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})$FILE_SHARE_NAME
 
-if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
-    echo "$smbPath $mntPath cifs nofail,credentials=$smbCredentialFile,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null
+if [ -z "$(grep $SMB_PATH\ $MNT_PATH /etc/fstab)" ]; then
+    echo "$SMB_PATH $MNT_PATH cifs nofail,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null
 else
     echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
 fi
@@ -257,41 +265,49 @@ sudo mount -a
 ### Dynamically mount with autofs
 To dynamically mount a file share with the `autofs` utility, install it using the package manager on the Linux distribution of your choice.  
 
-On **Ubuntu** and **Debian** distributions, use the `apt` package manager:
+# [Ubuntu](#tab/Ubuntu) 
+
+On Ubuntu and Debian distributions, use the `apt` package manager:
 
 ```bash
 sudo apt update
 sudo apt install autofs
 ```
+# [RHEL](#tab/RHEL) 
 
-On **Red Hat Enterprise Linux 8+**,  use the `dnf` package manager:
+Same applies for CentOS or Oracle Linux
+
+On Red Hat Enterprise Linux 8+,  use the `dnf` package manager:
 ```bash
 sudo dnf install autofs
 ```
 
-On older versions of **Red Hat Enterprise Linux**, use the `yum` package manager:
+On older versions of Red Hat Enterprise Linux, use the `yum` package manager:
 
 ```bash
 sudo yum install autofs 
 ```
 
-On **SUSE Linux Enterprise Server**, use the `zypper` package manager:
+# [SLES](#tab/SLES)
+ 
+On SUSE Linux Enterprise Server, use the `zypper` package manager:
 ```bash
 sudo zypper install autofs
 ```
+---
 
 Next, update the `autofs` configuration files. 
 
 ```bash
-fileShareName="<file-share-name>"
+FILE_SHARE_NAME="<file-share-name>"
 
-httpEndpoint=$(az storage account show \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
+HTTP_ENDPOINT=$(az storage account show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $STORAGE_ACCOUNT_NAME \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
-smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
+SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-$(expr length $HTTP_ENDPOINT))$FILE_SHARE_NAME
 
-echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath" > /etc/auto.fileshares
+echo "$FILE_SHARE_NAME -fstype=cifs,credentials=$SMB_CREDENTIAL_FILE :$SMB_PATH" > /etc/auto.fileshares
 
 echo "/fileshares /etc/auto.fileshares --timeout=60" > /etc/auto.master
 ```

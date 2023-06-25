@@ -3,7 +3,7 @@ title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/19/2023
+ms.date: 06/14/2023
 ms.author: helohr
 manager: femila
 ---
@@ -19,13 +19,13 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Remote Desktop client](./users/connect-windows.md) on a Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later device that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
-- Connect to an Azure Virtual Desktop session host running Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise.
-- The latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+- Connect to an Azure Virtual Desktop session host running Windows 10 or 11 multi-session or Windows 10 or 11 Enterprise.
+- For Windows, you'll also need to install the latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on your client device. The C++ Redistributable is required to use media optimization for Teams on Azure Virtual Desktop.
 
 Media optimization for Microsoft Teams is only available for the following two clients:
 
-- Windows Desktop client for Windows 10 or 11 machines, version 1.2.1026.0 or later.
-- macOS Remote Desktop client, version 10.7.7 or later.
+- [Remote Desktop client for Windows](users/connect-windows.md) or the [Azure Virtual Desktop app](users/connect-windows-azure-virtual-desktop-app.md), version 1.2.1026.0 or later.
+- [Remote Desktop client for macOS](users/connect-macos.md), version 10.7.7 or later.
 
 For more information about which features Teams on Azure Virtual Desktop supports and minimum required client versions, see [Supported features for Teams on Azure Virtual Desktop](teams-supported-features.md).
 

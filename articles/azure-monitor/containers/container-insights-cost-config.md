@@ -2,6 +2,7 @@
 title: Configure Container insights cost optimization data collection rules | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 02/23/2023
 ms.reviewer: aul
 ---
@@ -76,7 +77,7 @@ Reference the [Limitations](./container-insights-cost-config.md#limitations) sec
 ## Pre-requisites
 
 - AKS Cluster MUST be using either System or User Assigned Managed Identity
-    - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#update-an-aks-cluster-to-use-a-managed-identity)
+    - If the AKS Cluster is using Service Principal, you must upgrade to [Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster)
 
 - Azure CLI: Minimum version required for Azure CLI is 2.45.0. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]
     - For AKS clusters, aks-preview version 0.5.125 or higher
@@ -90,6 +91,8 @@ Cost presets and collection settings are available for selection in the Azure po
 | Standard | 1 m | None | Not enabled |
 | Cost-optimized | 5 m | Excludes kube-system, gatekeeper-system, azure-arc | Not enabled |
 | Syslog | 1 m | None | Enabled by default |
+
+[![Screenshot that shows the cost presets.](media/container-insights-cost-config/cost-profiles-options.png)](media/container-insights-cost-config/cost-profiles-options.png#lightbox)
 
 ## Configuring AKS data collection settings using Azure CLI
 
@@ -156,7 +159,9 @@ az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <clusterR
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
 4. If you are configuring Container Insights for the first time or have not migrated to using [managed identity authentication (preview)](../containers/container-insights-onboard.md#authentication), select the "Use managed identity (preview)" checkbox
-5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit profile settings"
+[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
+5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
 6. Click the blue "Configure" button to finish
 
 
@@ -211,9 +216,12 @@ The collection settings can be modified through the input of the `dataCollection
 ## [Azure portal](#tab/create-portal)
 1. In the Azure portal, select the AKS hybrid cluster that you wish to monitor
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
-3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
-4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
+3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar
+[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
+4. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit collection settings"
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
 5. Click the blue "Configure" button to finish
+
 
 
 ## [ARM](#tab/create-arm)
@@ -270,7 +278,9 @@ The collection settings can be modified through the input of the `dataCollection
 2. From the resource pane on the left, select the 'Insights' item under the 'Monitoring' section.
 3. If you have not previously configured Container Insights, select the 'Configure Azure Monitor' button. For clusters already onboarded to Insights, select the "Monitoring Settings" button in the toolbar    
 4. If you are configuring Container Insights for the first time, select the "Use managed identity (preview)" checkbox
+[![Screenshot that shows the onboarding options.](media/container-insights-cost-config/cost-settings-onboarding.png)](media/container-insights-cost-config/cost-settings-onboarding.png#lightbox)
 5. Using the dropdown, choose one of the "Cost presets", for more configuration, you may select the "Edit advanced collection settings"
+[![Screenshot that shows the collection settings.](media/container-insights-cost-config/advanced-collection-settings.png)](media/container-insights-cost-config/advanced-collection-settings.png#lightbox)
 6. Click the blue "Configure" button to finish
 
 

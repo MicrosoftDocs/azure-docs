@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/18/2023
 ms.author: dmwendia
-ms.custom: aaddev, scenarios:getting-started, devx-track-js
+ms.custom: aaddev, "scenarios:getting-started", devx-track-js, devx-track-extended-java, devx-track-python
 zone_pivot_groups: web-app-quickstart
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my web app can sign in users of personal accounts, work accounts, and school accounts.
 ---
@@ -27,11 +27,7 @@ zone_pivot_groups: web-app-quickstart
 ::: zone-end
 
 ::: zone pivot="devlang-nodejs-msal"
-[!INCLUDE [node.js-msal](./includes/web-app/quickstart-nodejs-msal.md)]
-::: zone-end
-
-::: zone pivot="devlang-nodejs-passport"
-[!INCLUDE [node.js-passport](./includes/web-app/quickstart-nodejs.md)]
+[!INCLUDE [node.js](./includes/web-app/quickstart-nodejs-msal.md)]
 ::: zone-end
 
 ::: zone pivot="devlang-java"

@@ -2,6 +2,7 @@
 title: Azure Functions HTTP output bindings
 description: Learn how to return HTTP responses in Azure Functions.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -72,15 +73,18 @@ The response type depends on the C# mode:
 
 # [In-process](#tab/in-process)
 
-The HTTP triggered function returns a type of [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) or `Task<IActionResult>`.
+The HTTP triggered function returns a type of [IActionResult] or `Task<IActionResult>`.
 
 # [Isolated process](#tab/isolated-process)
 
-The HTTP triggered function returns an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object.
+The HTTP triggered function returns an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object or a `Task<HttpResponseData>`. If the app uses [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview), it could also use [IActionResult], `Task<IActionResult>`, [HttpResponse], or `Task<HttpResponse>`.
 
 # [C# Script](#tab/csharp-script)
 
-The HTTP triggered function returns a type of [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) or `Task<IActionResult>`.
+The HTTP triggered function returns a type of [IActionResult] or `Task<IActionResult>`.
+
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+[HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
 
 ---
 

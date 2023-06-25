@@ -1,9 +1,9 @@
 ---
-author: timwarner-msft
+author: davidsmatlak
 ms.service: resource-graph
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: timwarner
+ms.author: davidsmatlak
 ms.custom: generated
 ---
 
@@ -126,12 +126,13 @@ Provides a list of all resources types that are in a `NonCompliant` state.
 PolicyResources
 | where type == 'microsoft.policyinsights/policystates'
 | where properties.complianceState == 'NonCompliant'
+| extend NonCompliantResourceId = properties.resourceId, PolicyAssignmentName = properties.policyAssignmentName
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "PolicyResources | where type == 'microsoft.policyinsights/policystates' | where properties.complianceState == 'NonCompliant'"
+az graph query -q "PolicyResources | where type == 'microsoft.policyinsights/policystates' | where properties.complianceState == 'NonCompliant' | extend NonCompliantResourceId = properties.resourceId, PolicyAssignmentName = properties.policyAssignmentName"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

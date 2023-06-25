@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 03/03/2023
 ms.author: vikurpad
 monikerRange: '>=form-recog-2.1.0'
-recommendations: false
 ---
 
 # Configure secure access with managed identities and private endpoints
@@ -35,7 +34,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
+* A [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. Create containers to store and organize your blob data within your storage account.
 
@@ -255,7 +254,7 @@ That's it! You can now configure secure access for your Form Recognizer resource
 
    :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Screenshot of error message when CORS config is required":::
 
-  **Resolution**: [Configure CORS](quickstarts/try-v3-form-recognizer-studio.md#prerequisites-for-new-users).
+  **Resolution**: [Configure CORS](quickstarts/try-form-recognizer-studio.md#prerequisites-for-new-users).
 
 * **AuthorizationFailure**:
 

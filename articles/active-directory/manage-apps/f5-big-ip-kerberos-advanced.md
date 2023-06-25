@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
@@ -22,7 +23,7 @@ In this tutorial, you'll learn to implement secure hybrid access (SHA) with sing
 * Full SSO between Azure AD and BIG-IP published services
 * Identity management and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
-To learn more about benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md).
+To learn more about benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-integration.md).
 
 ## Scenario description
 
@@ -87,7 +88,7 @@ This article covers the advanced configuration, a flexible SHA implementing that
 
 Before BIG-IP can hand off pre-authentication to Azure AD, register it in your tenant. This process initiates SSO between both entities. The app you create from the F5 BIG-IP gallery template is the relying party that represents the SAML SP for the BIG-IP published application.
 
-1. Sign in to the [Azure AD portal](https://portal.azure.com) with Application Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrator permissions.
 2. From the left pane, select the **Azure Active Directory** service.
 3. On the left menu, select **Enterprise applications**. The **All applications** pane appears with a list of the applications in your Azure AD tenant.
 4. On the **Enterprise applications** pane, select **New application**.
@@ -150,30 +151,30 @@ Because BIG-IP doesn't support group-managed service accounts, create a standard
 
 1. Enter the following PowerShell command. Replace the `UserPrincipalName` and `SamAccountName` with your environment values.
 
-   ```New-ADUser -Name "F5 BIG-IP Delegation Account" UserPrincipalName host/f5-big-ip.contoso.com@contoso.com SamAccountName "f5-big-ip" -PasswordNeverExpires $true Enabled $true -AccountPassword (Read-Host -AsSecureString "Account Password") ```
+   ```New-ADUser -Name "F5 BIG-IP Delegation Account" UserPrincipalName host/f5-big-ip.contoso.com@contoso.com SamAccountName "f5-big-ip" -PasswordNeverExpires $true Enabled $true -AccountPassword (Read-Host -AsSecureString "Account Password")```
 
 2. Create a service principal name (SPN) for the APM service account to use during delegation to the web application service account:
 
-   ```Set-AdUser -Identity f5-big-ip -ServicePrincipalNames @Add="host/f5-big-ip.contoso.com"} ```
+   ```Set-AdUser -Identity f5-big-ip -ServicePrincipalNames @Add="host/f5-big-ip.contoso.com"}```
 
 3. Ensure the SPN shows against the APM service account:
 
-   ```Get-ADUser -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
+   ```Get-ADUser -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames```
 
 4. Before you specify the target SPN, view its SPN configuration. The APM service account delegates for the web application:
  
     1. Confirm your web application is running in the computer context, or a dedicated service account. 
     2. Use the following command to query the account object in Active Directory to see its defined SPNs. Replace `<name_of_account>` with the account for your environment. 
 
-    ```Get-ADUser -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
+    ```Get-ADUser -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames```
 
 5. Use an SPN defined against a web application service account. For better security, use a dedicated SPN that matches the host header of the application. For example, because the web application host header in this example is myexpenses.contoso.com, add `HTTP/myexpenses.contoso.com` to the application service account object in Active Directory:
 
-   ```Set-AdUser -Identity web_svc_account -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
+   ```Set-AdUser -Identity web_svc_account -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"}```
 
 Or if the app ran in the machine context, add the SPN to the object of the computer account in Active Directory:
 
-   ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
+   ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"}```
 
 With SPNs defined, establish trust for the APM service account delegate to that service. The configuration varies depending on the topology of your BIG-IP instance and application server.
 
@@ -181,11 +182,11 @@ With SPNs defined, establish trust for the APM service account delegate to that 
 
 1. Set trust for the APM service account to delegate authentication:
 
-   ```Get-ADUser -Identity f5-big-ip | Set-ADAccountControl -TrustedToAuthForDelegation $true ```
+   ```Get-ADUser -Identity f5-big-ip | Set-ADAccountControl -TrustedToAuthForDelegation $true```
 
 2. The APM service account needs to know the target SPN it's trusted to delegate to. Set the target SPN to the service account running your web application:
 
-   ```Set-ADUser -Identity f5-big-ip -Add @{'msDS-AllowedToDelegateTo'=@('HTTP/myexpenses.contoso.com')} ```
+   ```Set-ADUser -Identity f5-big-ip -Add @{'msDS-AllowedToDelegateTo'=@('HTTP/myexpenses.contoso.com')}```
 
 > [!NOTE]
 > You can complete these tasks with the Active Directory Users and Computers, Microsoft Management Console (MMC) snap-in, on a domain controller.
@@ -454,7 +455,7 @@ BIG-IP logs are a reliable source of information. To increase the log verbosity 
 4. Select **Debug** from the SSO list.
 5. Select **OK**. 
 
-Reproduce your problem before you look at the logs. Then revert this feature, when finished. Otherwise the verbosity is signficant. 
+Reproduce your problem before you look at the logs. Then revert this feature, when finished. Otherwise the verbosity is significant. 
 
 **BIG-IP error**
 

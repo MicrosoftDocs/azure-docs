@@ -7,7 +7,7 @@
         "relativeLinkPrefix": "/azure/active-directory/develop"
     },
     "inclusionCriteria": {
-        "omitPullRequestTitles" : true,
+        "omitPullRequestTitles" : false,
         "minAdditionsToFile" : 20,
         "maxFilesChanged": 50,
         "labels": [

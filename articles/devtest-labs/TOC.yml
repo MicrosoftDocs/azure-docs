@@ -253,6 +253,8 @@
       href: troubleshoot-vm-environment-creation-failures.md
     - name: Troubleshoot issues when applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Troubleshoot VM deployment failures
+      href: troubleshoot-vm-deployment-failures.md  
   - name: Monitor
     items:
     - name: View activity logs
@@ -283,5 +285,3 @@
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: DevTest Labs Developer Community
     href: https://aka.ms/dtl/communityforum  
-  - name: Frequently asked questions
-    href: devtest-lab-faq.yml

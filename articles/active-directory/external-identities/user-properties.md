@@ -1,17 +1,19 @@
 ---
-title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
+title: Properties of a B2B guest user
+description: Azure Active Directory B2B collaboration guest user properties and states before and after invitation redemption. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 05/18/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
 ms.collection: M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption. 
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
@@ -75,7 +77,7 @@ This property indicates the relationship of the user to the host tenancy. This p
 
 ### Identities
 
-This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `onPremisesSyncEnabled` property via the Microsoft Graph API.
+This property indicates the user’s primary identity provider. A user can have several identity providers, which can be viewed by selecting the link next to **Identities** in the user’s profile or by querying the `identities` property via the Microsoft Graph API.
 
 > [!NOTE]
 > Identities and UserType are independent properties. A value of Identities does not imply a particular value for UserType
@@ -131,6 +133,6 @@ If a guest user accepts your invitation and they subsequently change their email
 
 ## Next steps
 
-* [What is Azure AD B2B collaboration?](what-is-b2b.md)
+* [B2B user claims mapping](claims-mapping.md)
 * [B2B collaboration user tokens](user-token.md)
-* [B2B collaboration user claims mapping](claims-mapping.md)
+* [B2B collaboration for hybrid organizations](hybrid-organizations.md)

@@ -2,8 +2,8 @@
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 05/16/2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
+ms.date: 03/11/2023
 ---
 
 # Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -36,7 +36,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 ## Create an AKS cluster
 
 > [!IMPORTANT]
-> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
+> If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool. If one node goes down, you lose control plane resources and redundancy is compromised. You can mitigate this risk by having more control plane nodes.
 
 To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [`az aks create`][az-aks-create] command.
 
@@ -130,7 +130,7 @@ The ARM64 processor provides low power compute for your Kubernetes workloads. To
 
 Use `az aks nodepool add` command to add an ARM64 node pool.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -139,34 +139,34 @@ az aks nodepool add \
     --node-vm-size Standard_D2pds_v5
 ```
 
-### Add a Mariner node pool
+### Add an Azure Linux node pool
 
-Mariner is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. Mariner only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
+The Azure Linux container host for AKS is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. It only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
 
-You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku CBLMariner`.
+You can add an Azure Linux node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku AzureLinux`.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
-    --name marinerpool \
-    --os-sku CBLMariner
+    --name azurelinuxpool \
+    --os-sku AzureLinux
 ```
 
-### Migrate Ubuntu nodes to Mariner
+### Migrate Ubuntu nodes to Azure Linux
 
-Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
+Use the following instructions to migrate your Ubuntu nodes to Azure Linux nodes.
 
-1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku CBLMariner`.
+1. Add a Azure Linux node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku AzureLinux`.
 
 > [!NOTE]
-> When adding a new Mariner node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
+> When adding a new Azure Linux node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
 
 2. [Cordon the existing Ubuntu nodes][cordon-and-drain].
 3. [Drain the existing Ubuntu nodes][drain-nodes].
 4. Remove the existing Ubuntu nodes using the `az aks delete` command.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool delete \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -317,7 +317,7 @@ az aks nodepool scale \
 
 List the status of your node pools again using the [`az aks node pool list`][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -369,7 +369,7 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 
 The following example output from the [`az aks node pool list`][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -406,19 +406,53 @@ It takes a few minutes to delete the nodes and the node pool.
 
 ## Associate capacity reservation groups to node pools (preview)
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-As your application workloads demands, you may associate node pools to capacity reservation groups created prior. This ensures guaranteed capacity is allocated for your node pools.  
+As your application workloads demands, you may associate node pools to capacity reservation groups already created. This ensures guaranteed capacity is allocated for your node pools.  
 
 For more information on the capacity reservation groups, please refer to [Capacity Reservation Groups][capacity-reservation-groups].
 
-Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag" The capacity reservation group should already exist, otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated. 
+### Register preview feature
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli-interactive
+az extension update --name aks-preview
+```
+
+Register the `CapacityReservationGroupPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "CapacityReservationGroupPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Manage capacity reservations
+
+Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag". The capacity reservation group should already exist, otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated.
 
 ```azurecli-interactive
 az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
 ```
 
-Associating a system node pool with an existing capacity reservation group can be done using [`az aks create`][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association. 
+Associating a system node pool with an existing capacity reservation group can be done using [`az aks create`][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association.
 
 ```azurecli-interactive
 az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
@@ -456,7 +490,7 @@ az aks nodepool add \
 
 The following example output from the [`az aks node pool list`][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -514,7 +548,7 @@ az aks nodepool add \
 
 The following example output from the [`az aks nodepool list`][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -574,13 +608,13 @@ spec:
 
 Schedule the pod using the `kubectl apply -f nginx-toleration.yaml` command:
 
-```console
+```bash
 kubectl apply -f nginx-toleration.yaml
 ```
 
 It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-taintnp-28993262-vmss000000* node:
 
-```console
+```bash
 kubectl describe pod mypod
 ```
 

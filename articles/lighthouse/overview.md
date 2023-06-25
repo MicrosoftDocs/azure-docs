@@ -1,7 +1,7 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-ms.date: 06/20/2022
+ms.date: 05/10/2023
 ms.topic: overview
 ---
 
@@ -41,7 +41,7 @@ There are no additional costs associated with using Azure Lighthouse to manage A
 
 ## Cross-region and cloud considerations
 
-Azure Lighthouse is a non-regional service. You can manage delegated resources that are located in different [regions](../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
+Azure Lighthouse is a non-regional service. You can manage delegated resources that are located in different [regions](../availability-zones/az-overview.md#regions). However, you can't delegate resources across a [national cloud](../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds.
 
 ## Support for Azure Lighthouse
 

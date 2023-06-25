@@ -21,7 +21,7 @@ Use this quickstart to send key phrase extraction requests using the REST API. I
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [cURL](https://curl.haxx.se/).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -41,8 +41,7 @@ To call the API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Key-phrase-extraction&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 
 ## Key phrase extraction
@@ -73,8 +72,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 '
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Key-phrase-extraction&Page=quickstart&Section=Key-phrase-extraction" target="_target">I ran into an issue</a>
+
 
 ### JSON response
 

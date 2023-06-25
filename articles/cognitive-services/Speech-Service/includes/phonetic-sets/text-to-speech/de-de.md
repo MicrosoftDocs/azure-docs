@@ -1,11 +1,19 @@
-#### German suprasegmentals
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+#### Suprasegmentals for German
 
 | Example&nbsp;1 (Onset for consonant, word-initial for vowel) | Example&nbsp;2 (Intervocalic for consonant, word-medial nucleus for vowel) | Example&nbsp;3 (Coda for consonant, word-final for vowel) | Comments |
 |--|--|--|--|
 | anders /a **1** n - d ax r s/ | Multiplikationszeichen /m uh l - t iy - p l iy - k a - ts y ow **1** n s - ts ay - c n/ | Biologie /b iy - ow - l ow - g iy **1**/ | Speech service phone set put stress after the vowel of the stressed  syllable |
 | Allgemeinwissen /a **2** l - g ax - m ay 1 n - v ih - s n/ | Abfallentsorgungsfirma /a 1 p - f a l - ^ eh n t - z oh **2** ax r - g uh ng s - f ih ax r - m  a/ | Computertomographie /k oh m - p y uw 1 - t ax r - t ow - m ow - g r a - f iy **2**/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable |
 
-#### German vowels
+#### Vowels for German
 
 | `sapi` | `ipa`     | VisemeID | Example&nbsp;1                             | Example&nbsp;2     | Example&nbsp;3                          |
 |--------|-----------|----------|---------------------------------------|---------------|------------------------------------|
@@ -31,7 +39,7 @@
 <a id="de-v-2"></a>
 **2** *Word-initial only in words of foreign origin, such as **A**ppointment. Syllable-initial in 'v**e**rstauen*.
 
-#### German diphthong
+#### Diphthong for German
 
 | `sapi` | `ipa`       | VisemeID | Example&nbsp;1    | Example&nbsp;2          | Example&nbsp;3 |
 |--------|-------------|----------|--------------|--------------------|-----------|
@@ -39,13 +47,13 @@
 | aw     | `au`        | 2,7      | **au**ßen    | abb**au**st        | St**au**  |
 | oy     | `ɔy`, `ɔʏ̯` | 3,4      | **Eu**phorie | tr**äu**mt         | sch**eu** |
 
-#### German semivowels
+#### Semivowels for German
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1 | Example&nbsp;2    | Example&nbsp;3  |
 |--------|-------|----------|-----------|--------------|------------|
 | ax r   | `ɐ`   | 4        |           | abänd**er**n | lock**er** |
 
-#### German consonants
+#### Consonants for German
 
 | `sapi` | `ipa` | VisemeID | Example&nbsp;1 | Example&nbsp;2 | Example&nbsp;3 |
 |--|--|----------|--|--|--|
@@ -97,7 +105,7 @@
 <a id="de-c-11"></a>
 **11** *Word-initial only in words of foreign origin, such as **J**uan. Syllable-initial also in words such as Ba**ch**erach*.<br>
 
-#### German oral consonants
+#### Oral consonants for German
 
 | `sapi` | `ipa` | VisemeID | Example                                  |
 |--------|-------|----------|------------------------------------------|

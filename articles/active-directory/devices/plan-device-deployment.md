@@ -55,7 +55,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders,](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood. 
+When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders,](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood. 
 
 For this plan, add the following stakeholders to your list:
 
@@ -72,7 +72,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 ### Plan a pilot
 
-We recommend that the initial configuration of your integration method is in a test environment, or with a small group of test devices. See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+We recommend that the initial configuration of your integration method is in a test environment, or with a small group of test devices. See [Best practices for a pilot](../fundamentals/deployment-plans.md).
 
 You may want to do a [targeted deployment of hybrid Azure AD join](hybrid-azuread-join-control.md) before enabling it across the entire organization.
 
@@ -227,8 +227,8 @@ Review supported and unsupported platforms for integrated devices:
 
 | Device management tools | Azure AD registered | Azure AD joined | Hybrid Azure AD joined |
 | --- | :---: | :---: | :---: |
-| [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
-| [Co-management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 or newer) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
+| [Mobile Device Management (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
+| [Co-management with Microsoft Intune and Microsoft Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 or newer) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 
 We recommend that you consider [Microsoft Intune Mobile Application management (MAM)](/mem/intune/apps/app-management) with or without device management for registered iOS or Android devices.

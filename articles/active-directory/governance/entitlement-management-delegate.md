@@ -1,5 +1,5 @@
 ---
-title: Delegation and roles in entitlement management - Azure AD
+title: Delegation and roles in entitlement management
 description: Learn how to delegate access governance from IT administrators to department managers and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -43,11 +43,11 @@ To understand how you might delegate access governance in entitlement management
 
 ![Delegate from IT administrator to managers](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-As the IT administrator, Hana has contacts in each department-- Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
+As the IT administrator, Hana has contacts in each department--Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
 
 With entitlement management, you can delegate access governance to these non-administrators because they're the ones who know which users need access, for how long, and to which resources. Delegating to non-administrators ensures the right people are managing access for their departments.
 
-Here is one way that Hana could delegate access governance to the marketing, finance, and legal departments.
+Here's one way that Hana could delegate access governance to the marketing, finance, and legal departments.
 
 1. Hana creates a new Azure AD security group, and adds Mamta, Mark, and Joe as members of the group.
 
@@ -78,7 +78,7 @@ After delegation, the marketing department might have roles similar to the follo
 
 ## Entitlement management roles
 
-Entitlement management has the following roles, with permissions for administering entitlement management itself, that apply across all catalogs.
+Entitlement management has the following roles, with permissions for administering entitlement management itself, that applies across all catalogs.
 
 | Entitlement management role | Role definition ID | Description |
 | --- | --- | -- |
@@ -159,7 +159,7 @@ For example, to view the entitlement management-specific roles that a particular
 GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAssignments?$filter=principalId eq '10850a21-5283-41a6-9df3-3d90051dd111'&$expand=roleDefinition&$select=id,appScopeId,roleDefinition
 ```
 
-For a role that is specific to a catalog, the `appScopeId` in the response indicates the catalog in which the user is assigned a role.  Note that this response only retrieves explicit assignments of that principal to role in entitlement management, it does not return results for a user who has access rights via a directory role, or through membership in a group assigned to a role.
+For a role that is specific to a catalog, the `appScopeId` in the response indicates the catalog in which the user is assigned a role.  This response only retrieves explicit assignments of that principal to role in entitlement management, it doesn't return results for a user who has access rights via a directory role, or through membership in a group assigned to a role.
 
 
 ## Next steps

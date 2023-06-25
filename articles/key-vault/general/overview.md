@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 02/28/2023
 ms.author: mbaldwin
 ms.collection:
-  - zerotrust-services
+  - zerotrust-extra
 
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 

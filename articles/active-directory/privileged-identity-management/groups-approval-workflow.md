@@ -1,6 +1,6 @@
 ---
-title: Approve activation requests for group members and owners (preview) - Azure Active Directory
-description: Learn how to approve activation requests for group members and owners (preview) in Azure AD Privileged Identity Management (PIM).
+title: Approve activation requests for group members and owners
+description: Learn how to approve activation requests for group members and owners in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: amsliu
 manager: amycolannino
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/12/2023
+ms.date: 6/7/2023
 ms.author: amsliu
 ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Approve activation requests for group members and owners (preview)
+# Approve activation requests for group members and owners 
 
 With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, you can configure activation of group membership and ownership to require approval, and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each group. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 
@@ -26,9 +26,9 @@ Follow the steps in this article to approve or deny requests for group membershi
 
 As a delegated approver, you'll receive an email notification when an Azure resource role request is pending your approval. You can view pending requests in Privileged Identity Management.
 
-1. [Sign in to Azure AD portal](https://aad.portal.azure.com).
+1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> Approve requests -> Groups (Preview)**. 
+1. Select **Azure AD Privileged Identity Management -> Approve requests -> Groups**. 
 
 1.  In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
@@ -74,5 +74,5 @@ When you activate a role in Privileged Identity Management, the activation may n
 
 ## Next steps
 
-- [Configure PIM for Groups settings (preview)](groups-role-settings.md)
+- [Configure PIM for Groups settings](groups-role-settings.md)
 

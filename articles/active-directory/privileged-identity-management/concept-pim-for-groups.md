@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management (PIM) for Groups (preview) - Azure Active Directory
+title: Privileged Identity Management (PIM) for Groups
 description: How to manage Azure AD Privileged Identity Management (PIM) for Groups.
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.subservice: pim
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2023
+ms.date: 6/7/2023
 ms.author: amsliu
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a dev or IT admin, I want to manage group assignments in PIM, so that I can grant eligibility for elevation to a role assigned via group membership
 ---
 
-# Privileged Identity Management (PIM) for Groups (preview)
+# Privileged Identity Management (PIM) for Groups
 
 With Azure Active Directory (Azure AD), part of Microsoft Entra, you can provide users just-in-time membership in the group and just-in-time ownership of the group using the Azure AD Privileged Identity Management for Groups feature. These groups can be used to govern access to various scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and third party applications.
 
@@ -52,7 +52,7 @@ Azure AD role-assignable group feature is not part of Azure AD Privileged Identi
 
 Groups can be role-assignable or non-role-assignable. The group can be enabled in PIM for Groups or not enabled in PIM for Groups. These are independent properties of the group. Any Azure AD security group and any Microsoft 365 group (except dynamic groups and groups synchronized from on-premises environment) can be enabled in PIM for Groups. The group does not have to be role-assignable group to be enabled in PIM for Groups.
 
-If you want to assign Azure AD role to a group, it has to be role-assignable. Even if you do not intend to assign Azure AD role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see “What are Azure AD role-assignable groups?” in the section above.
+If you want to assign Azure AD role to a group, it has to be role-assignable. Even if you do not intend to assign Azure AD role to the group but the group provides access to sensitive resources, it is still recommended to consider creating the group as role-assignable. This is because of extra protections role-assignable groups have – see [“What are Azure AD role-assignable groups?”](#what-are-azure-ad-role-assignable-groups) in the section above.
 
 Up until January 2023, it was required that every Privileged Access Group (former name for this PIM for Groups feature) had to be role-assignable group. This restriction is currently removed. Because of that, it is now possible to enable more than 500 groups per tenant in PIM, but only up to 500 groups can be role-assignable.
 
@@ -74,7 +74,7 @@ If a user is an active member of Group A, and Group A is an eligible member of G
 
 ## Next steps
 
-- [Bring groups into Privileged Identity Management (preview)](groups-discover-groups.md)
-- [Assign eligibility for a group (preview) in Privileged Identity Management](groups-assign-member-owner.md)
+- [Bring groups into Privileged Identity Management](groups-discover-groups.md)
+- [Assign eligibility for a group in Privileged Identity Management](groups-assign-member-owner.md)
 - [Activate your group membership or ownership in Privileged Identity Management](groups-activate-roles.md)
-- [Approve activation requests for group members and owners (preview)](groups-approval-workflow.md)
+- [Approve activation requests for group members and owners](groups-approval-workflow.md)

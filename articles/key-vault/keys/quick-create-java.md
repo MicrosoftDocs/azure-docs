@@ -2,7 +2,7 @@
 title: Quickstart - Azure Key Vault Key client library for Java
 description: Provides a quickstart for the Azure Key Vault Keys client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
 ms.date: 01/04/2023
 ms.service: key-vault

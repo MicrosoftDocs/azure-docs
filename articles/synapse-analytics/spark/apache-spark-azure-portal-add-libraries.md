@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/20/2023
 ms.author: shuaijunye
 ms.subservice: spark
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, devx-track-azurepowershell
 ---
 
 # Manage libraries for Apache Spark in Azure Synapse Analytics
@@ -37,13 +37,17 @@ There are three levels of packages installed on Azure Synapse Analytics:
 
 > [!NOTE]
 >
-> - Pool-level library management can take time, depending on the size of the packages and the complexity of required dependencies. We recommend the session-level installation for experimental and quick iterative scenarios.
+> - Pool-level library management can take time, depending on the size of the packages and the complexity of required dependencies, the maximum updating time is set as 50 minutes. Your pool-level library management job will be canceled automatically if it exceeds the upper limit of 50 minutes. We recommend the session-level installation for experimental and quick iterative scenarios.
 > - The pool-level library management will produce a stable dependency for running your Notebooks and Spark job definitions. Installing the library to your Spark pool is highly recommended for the pipeline runs.
 > - Session level library management can help you with fast iteration or dealing with the frequent changes of library. However, the stability of session level installation is not promised. Also, in-line commands like %pip and %conda are disabled in pipeline run. Managing library in Notebook session is recommended during the developing phase.
 
 ## Manage workspace packages
 
-When your team develops custom applications or models, you might develop various code artifacts like *.whl*, *.jar*, or *tar.gz* files to package your code.
+When your team develops custom applications or models, you might develop various code artifacts like *.whl*, *.jar*, or *.tar.gz* files to package your code.
+
+> [!IMPORTANT]
+>
+> - *tar.gz* is only supported for R language. Please use *.whl* as Python custom package.
 
 In Azure Synapse, workspace packages can be custom or private *.whl* or *.jar* files. You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. After you assign these workspace packages, they're installed automatically on all Spark pool sessions.
 

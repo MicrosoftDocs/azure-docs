@@ -4,10 +4,11 @@ description: Overview of the Control Plan deployment process within the SAP on A
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 05/19/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-azurecli
 ---
 
 # Deploy the control plane
@@ -43,7 +44,7 @@ az role assignment create --assignee <appId> --role "User Access Administrator" 
 
 
 ## Prepare the webapp
-This step is optional. If you would like a browser-based UX to assist in the configuration of SAP workload zones and systems, run the following commands before deploying the control plane.
+This step is optional. If you would like a browser-based UX to help the configuration of SAP workload zones and systems, run the following commands before deploying the control plane.
 
 # [Linux](#tab/linux)
 
@@ -77,8 +78,6 @@ $region_code="WEEU"
 
 $env:TF_VAR_app_registration_app_id = (az ad app create `
     --display-name $region_code-webapp-registration     `
-    --enable-id-token-issuance true                     `
-    --sign-in-audience AzureADMyOrg                     `
     --required-resource-accesses ./manifest.json        `
     --query "appId").Replace('"',"")
 
@@ -94,29 +93,22 @@ del manifest.json
 
 # [Azure DevOps](#tab/devops)
 
-It is currently not possible to perform this action from Azure DevOps.
+It's currently not possible to perform this action from Azure DevOps.
 
 ---
 
 
 ## Deploy the control plane
    
-The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
+The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
 
-The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
+The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
-Running the command below will create the Deployer, the SAP Library and add the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
+Running the following command creates the Deployer, the SAP Library and adds the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
 
 # [Linux](#tab/linux)
 
 You can copy the sample configuration files to start testing the deployment automation framework.
-
-```bash
-cd ~/Azure_SAP_Automated_Deployment
-
-cp -Rp sap-automation/samples/WORKSPACES WORKSPACES
-
-```
 
 Run the following command to deploy the control plane:
 
@@ -124,59 +116,34 @@ Run the following command to deploy the control plane:
 
 az logout
 az login
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+cd ~/Azure_SAP_Automated_Deployment/samples/WORKSPACES
 
     export subscriptionId="<subscriptionId>"
     export         spn_id="<appId>"
     export     spn_secret="<password>"
     export      tenant_id="<tenantId>"
     export       env_code="MGMT"
-    export    region_code="<region_code>"
+    export    region_code="WEEU"
 
     export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
     export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+    export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES"
+    export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                                       \
-        --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars                      \
-        --subscription "${subscriptionId}"                                                                                                         \
-        --spn_id "${spn_id}"                                                                                                                       \
-        --spn_secret "${spn_secret}"                                                                                                               \
-        --tenant_id "${tenant_id}"                                                                                                                 \
+
+    ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                             \
+        --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
+        --library_parameter_file "LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"                   \
+        --subscription "${subscriptionId}"                                                                                                        \
+        --spn_id "${spn_id}"                                                                                                                      \
+        --spn_secret "${spn_secret}"                                                                                                              \
+        --tenant_id "${tenant_id}"                                                                                                                \
         --auto-approve
 ```
 
 # [Windows](#tab/windows)
 
-You can copy the sample configuration files to start testing the deployment automation framework.
-
-```powershell
-
-cd C:\Azure_SAP_Automated_Deployment
-
-xcopy /E sap-automation\samples\WORKSPACES WORKSPACES
-
-```
-
-
-```powershell
-
-
-$subscription="<subscriptionID>"
-$appId="<appID>"
-$spn_secret="<password>"
-$tenant_id="<tenant>"
-
-cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
-
-New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRASTRUCTURE\MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
-```
-
-
-> [!NOTE]
-> Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-
+You can't perform this action from Windows
 # [Azure DevOps](#tab/devops)
 
 Open (https://dev.azure.com) and go to your Azure DevOps project.
@@ -184,7 +151,7 @@ Open (https://dev.azure.com) and go to your Azure DevOps project.
 > [!NOTE]
 > Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
 
-The deployment will use the configuration defined in the Terraform variable files located in the 'samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
+The deployment uses the configuration defined in the Terraform variable files located in the 'WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
 
 Run the pipeline by selecting the _Deploy control plane_ pipeline from the Pipelines section. Enter the configuration names for the deployer and the SAP library. Use 'MGMT-WEEU-DEP00-INFRASTRUCTURE' as the Deployer configuration name and 'MGMT-WEEU-SAP_LIBRARY' as the SAP Library configuration name.
 
@@ -221,18 +188,21 @@ Connect to the deployer by following these steps:
 Run the following script to configure the deployer.
 
 ```bash
-mkdir -p ~/Azure_SAP_Automated_Deployment
 
-cd ~/Azure_SAP_Automated_Deployment
+mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 
-git clone https://github.com/Azure/sap-automation.git
+git clone https://github.com/Azure/sap-automation-bootstrap.git config
+
+git clone https://github.com/Azure/sap-automation.git sap-automation
+
+git clone https://github.com/Azure/sap-automation-samples.git samples
 
 cd sap-automation/deploy/scripts
 
 ./configure_deployer.sh
 ```
 
-The script will install Terraform and Ansible and configure the deployer.
+The script installs Terraform and Ansible and configure the deployer.
 
 ### Manually configure the deployer
 
@@ -259,7 +229,7 @@ Connect to the deployer by following these steps:
  
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
-1. Connect to the deployer VM through any SSH client such as VSCode. Use the private IP address of the deployer, and the SSH key you downloaded. For instructions on how to connect to the Deployer using VSCode see [Connecting to Deployer using VSCode](tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first using PuTTYGen.
+1. Connect to the deployer VM through any SSH client such as Visual Studio Code. Use the private IP address of the deployer, and the SSH key you downloaded. For instructions on how to connect to the Deployer using Visual Studio Code see [Connecting to Deployer using Visual Studio Code](tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first using PuTTYGen.
 
 > [!NOTE] 
 >The default username is *azureadm*
@@ -268,91 +238,21 @@ Configure the deployer using the following script:
 
 
 ```bash
-mkdir -p ~/Azure_SAP_Automated_Deployment
+mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 
-cd ~/Azure_SAP_Automated_Deployment
+git clone https://github.com/Azure/sap-automation-bootstrap.git config
 
-git clone https://github.com/Azure/sap-automation.git
+git clone https://github.com/Azure/sap-automation.git sap-automation
+
+git clone https://github.com/Azure/sap-automation-samples.git samples
 
 cd sap-automation/deploy/scripts
 
 ./configure_deployer.sh
 ```
 
-The script will install Terraform and Ansible and configure the deployer.
+The script installs Terraform and Ansible and configure the deployer.
 
-
-## Deploy the Control Plane Web Application
-
-> [!IMPORTANT]
-> Control Plane Web Application is currently in PREVIEW and not yet available in the main branch.
-   
-If you would like to use the web app, follow the steps below. If not, ignore this section.
-
-The web app resource can be found in the deployer resource group. In the Azure portal, select resource groups in your subscription. The deployer resource group will be named something like MGMT-[region]-DEP00-INFRASTRUCTURE. Inside the deployer resource group, locate the app service, named something like mgmt-[region]-dep00-sapdeployment123. Open the app service and copy the URL listed. It should be in the format of https://mgmt-[region]-dep00-sapdeployment123.azurewebsites.net. This will be the value for webapp_url below.
-
-The following commands will configure the application urls, generate a zip file of the web app code, deploy the software to the app service, and configure the application settings.
-
-# [Linux](#tab/linux)
-
-```bash
-
-webapp_url=<webapp_url>
-az ad app update \
-    --id $TF_VAR_app_registration_app_id \
-    --web-home-page-url ${webapp_url} \
-    --web-redirect-uris ${webapp_url}/ ${webapp_url}/.auth/login/aad/callback
-
-```
-# [Windows](#tab/windows)
-
-```powershell
-
-$webapp_url="<webapp_url>"
-az ad app update `
-    --id $TF_VAR_app_registration_app_id `
-    --web-home-page-url $webapp_url `
-    --web-redirect-uris $webapp_url/ $webapp_url/.auth/login/aad/callback
-
-```
-# [Azure DevOps](#tab/devops)
-
-It is currently not possible to perform this action from Azure DevOps.
-
----
-
-> [!TIP]
-> Perform the following task from the deployer.
-```bash
-
-cd ~/Azure_SAP_Automated_Deployment/sap-automation/Webapp/AutomationForm
-
-dotnet build
-dotnet publish --configuration Release
-
-cd bin/Release/netcoreapp3.1/publish/
-
-sudo apt install zip
-zip -r deploymentfile.zip .
-
-az webapp deploy --resource-group <group-name> --name <app-name> --src-path deploymentfile.zip
-
-```
-```bash
-
-az webapp config appsettings set -g <group-name> -n <app-name> --settings \
-IS_PIPELINE_DEPLOYMENT=false
-
-```
-
-
-## Accessing the web app
-
-By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](../../app-service/app-service-ip-restrictions.md).
-
-You will also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality will not work.
-
-You can log in and visit the web app by following the URL from earlier or clicking browse inside the app service resource. With the web app, you are able to configure SAP workload zones and system infrastructure. Click download to obtain a parameter file of the workload zone or system you specified, for use in the later deployment steps. 
 
 
 ## Next step

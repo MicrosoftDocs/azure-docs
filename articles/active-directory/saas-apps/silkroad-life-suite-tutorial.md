@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SilkRoad Life Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SilkRoad Life Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and SilkRoad Life Suite.
 services: active-directory
 author: jeevansd

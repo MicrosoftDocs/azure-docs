@@ -48,21 +48,21 @@ items:
   - name: Install the Speech SDK
     href: quickstarts/setup-platform.md
     displayName: get started, install, download, get sdk, get the sdk
-- name: Speech-to-text
+- name: Speech to text
   items:
-    - name: Speech-to-text documentation
+    - name: Speech to text documentation
       href: index-speech-to-text.yml
-    - name: Speech-to-text overview
+    - name: Speech to text overview
       href: speech-to-text.md
       displayName: stt
-    - name: Speech-to-text quickstart
+    - name: Speech to text quickstart
       href: get-started-speech-to-text.md
-    - name: How to recognize speech
-      href: how-to-recognize-speech.md
-    - name: Get speech recognition results
-      href: get-speech-recognition-results.md
-    - name: Display text formatting
-      href: display-text-format.md
+    - name: Real-time speech to text
+      items:
+      - name: How to recognize speech
+        href: how-to-recognize-speech.md
+      - name: Get speech recognition results
+        href: get-speech-recognition-results.md
     - name: Batch transcription
       items:
       - name: What is batch transcription?
@@ -107,17 +107,19 @@ items:
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
-    - name: Speech-to-text FAQ
-      displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
+    - name: Display text formatting
+      href: display-text-format.md
+    - name: Speech to text FAQ
+      displayName: FAQ,STT,frequently asked questions
       href: faq-stt.yml
-- name: Text-to-speech
+- name: Text to speech
   items:
-    - name: Text-to-speech documentation
+    - name: Text to speech documentation
       href: index-text-to-speech.yml
-    - name: Text-to-speech overview
+    - name: Text to speech overview
       href: text-to-speech.md
       displayName: tts
-    - name: Text-to-speech quickstart
+    - name: Text to speech quickstart
       href: get-started-text-to-speech.md
     - name: How to synthesize speech
       href: how-to-speech-synthesis.md
@@ -169,6 +171,9 @@ items:
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
+    - name: Text to speech FAQ
+      displayName: FAQ,TTS,frequently asked questions
+      href: faq-tts.yml
 - name: Speech translation
   items:
     - name: Speech translation overview
@@ -179,8 +184,6 @@ items:
       href: how-to-translate-speech.md
 - name: Intent recognition
   items:
-    - name: Intent recognition documentation
-      href: index-intent-recognition.yml
     - name: Intent recognition overview
       href: intent-recognition.md
     - name: Pattern matching concepts
@@ -230,14 +233,18 @@ items:
       href: gaming-concepts.md
     - name: Language learning
       items:
-        - name: Pronunciation Assessment with speech to text
-          items:
-            - name: Pronunciation Assessment in Speech Studio
-              href: pronunciation-assessment-tool.md
-              displayName: pronounce, learn language, assess pron
-            - name: How to use Pronunciation Assessment
-              href: how-to-pronunciation-assessment.md
-              displayName: pronounce, learn language, assess pron
+      - name: Overview
+        href: language-learning-overview.md
+      - name: Pronunciation Assessment with speech to text
+        items:
+        - name: Pronunciation Assessment in Speech Studio
+          href: pronunciation-assessment-tool.md
+          displayName: pronounce, learn language, assess pron
+        - name: How to use Pronunciation Assessment
+          href: how-to-pronunciation-assessment.md
+          displayName: pronounce, learn language, assess pron
+    - name: Azure OpenAI speech to speech chat
+      href: openai-speech.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -254,8 +261,6 @@ items:
           href: quickstarts/multi-device-conversation.md
     - name: Voice assistants
       items:
-        - name: Voice assistants documentation
-          href: index-voice-assistants.yml
         - name: Voice assistants overview
           href: voice-assistants.md
         - name: Voice assistants FAQ
@@ -365,10 +370,12 @@ items:
       items:
         - name: Enable logs in SDK
           href: how-to-use-logging.md
+        - name: Log audio and transcriptions
+          href: logging-audio-transcription.md
         - name: Troubleshoot the Speech SDK
           href: troubleshooting.md
           displayName: help, faq, tsg, error
-        - name: Get Speech-to-text Session ID
+        - name: Get Speech to text Session ID
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
           href: how-to-track-speech-sdk-memory-usage.md
@@ -380,13 +387,25 @@ items:
       displayName: rest, swagger
     - name: Embedded Speech
       href: embedded-speech.md
-    - name: Speech containers
+    - name: Power automate batch transcription
+      href: power-automate-batch-transcription.md
+    - name: Containers
       items:
-        - name: Cognitive Services containers documentation
-          href: ../containers/index.yml?context=/azure/cognitive-services/speech-service/context/context
-        - name: Install and run Speech containers
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
+        - name: Speech containers overview
+          href: speech-container-overview.md
+        - name: Get started with speech containers
+          items:
+          - name: Install and run speech containers
+            displayName: 'containers,install container,run container'
+            href: speech-container-howto.md
+          - name: Speech to text containers
+            href: speech-container-stt.md
+          - name: Custom speech to text containers
+            href: speech-container-cstt.md
+          - name: Text to speech containers
+            href: speech-container-ntts.md
+          - name: Language identification containers
+            href: speech-container-lid.md
         - name: Configure speech containers
           displayName: 'containers,configure containers,container config,configuration'
           href: speech-container-configuration.md
@@ -396,10 +415,8 @@ items:
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
-          href: ../containers/azure-container-instance-recipe.md
+          href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/speech-service/context/context
           displayName: 'ACI,azure container instances,container instances,containers'
-        - name: Use containers in disconnected environments
-          href: ../containers/disconnected-containers.md
         - name: Containers FAQ
           href: speech-container-faq.yml
     - name: Migration
@@ -412,12 +429,12 @@ items:
               href: how-to-migrate-to-custom-neural-voice.md  
             - name: Migrate to prebuilt neural voice
               href: how-to-migrate-to-prebuilt-neural-voice.md 
-        - name: Speech-to-text REST API migration
+        - name: Speech to text REST API migration
           items:
-          - name: From Speech-to-text v3.0 to v3.1
+          - name: From Speech to text v3.0 to v3.1
             href: migrate-v3-0-to-v3-1.md
             displayName: migrate,migration,deprecate,retire,sunset
-          - name: From Speech-to-text v2.0 to v3.0
+          - name: From Speech to text v2.0 to v3.0
             href: migrate-v2-to-v3.md
             displayName: migrate,migration,deprecate,retire,sunset
         - name: From Long Audio API to Batch synthesis API
@@ -461,13 +478,13 @@ items:
           href: /python/api/azure-cognitiveservices-speech/
     - name: REST API reference
       items: 
-        - name: Speech-to-text REST API
+        - name: Speech to text REST API
           href: rest-speech-to-text.md
           displayName: reference 
-        - name: Speech-to-text REST API for short audio
+        - name: Speech to text REST API for short audio
           href: rest-speech-to-text-short.md    
           displayName: reference       
-        - name: Text-to-speech REST API
+        - name: Text to speech REST API
           href: rest-text-to-speech.md
           displayName: reference, tts output, output format
         - name: Speaker Recognition REST API
@@ -478,11 +495,11 @@ items:
           displayName: reference
 - name: Responsible use of AI
   items:
-    - name: Speech-to-text
+    - name: Speech to text
       items:
       - name: Transparency note
         items:
-        - name: Use cases for Speech-to-text
+        - name: Use cases for Speech to text
           href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
         - name: Characteristics and limitations
           href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
@@ -544,6 +561,8 @@ items:
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cognitive-services&terms=speech
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
     - name: Azure products by region

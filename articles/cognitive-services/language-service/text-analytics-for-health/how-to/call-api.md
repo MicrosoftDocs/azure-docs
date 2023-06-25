@@ -35,14 +35,26 @@ There are two ways to call the service:
 
 ## Specify the Text Analytics for health model
 
-By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform operations provided by the Text Analytics for health. Extraction of social determinants of health entities is supported with the new preview model version "2023-01-01-preview".
+By default, Text Analytics for health will use the ("2022-03-01") model version on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform operations provided by the Text Analytics for health. Extraction of social determinants of health entities along with their assertions and relationships (**only in English**) is supported with the latest preview model version "2023-04-15-preview".
 
-| Supported Versions | latest version |
+| Supported Versions | Status |
 |--|--|
-| `2023-01-01-preview` | `2023-01-01-preview`   |
-| `2022-08-15-preview` | `2022-08-15-preview`   |
-| `2022-03-01` | `2022-03-01`   |
+| `2023-04-15-preview` | Preview   |
+| `2023-04-01` | Generally available   |
+| `2023-01-01-preview` | Preview   |
+| `2022-08-15-preview` | Preview   |
+| `2022-03-01` | Generally available   |
 
+## Specify the Text Analytics for health API version
+
+When making a Text Analytics for health API call, you must specify an API version. The latest generally available API version is "2023-04-01" which supports relationship confidence scores in the results. The latest preview API version is "2023-04-15-preview", offering the latest feature which is support for [temporal assertions](../concepts/assertion-detection.md).
+
+| Supported Versions | Status |
+|--|--|
+| `2023-04-15-preview`| Preview  |
+| `2023-04-01`| Generally available  |
+| `2022-10-01-preview` | Preview   |
+| `2022-05-01` | Generally available  |
 
 
 ### Text Analytics for health container

@@ -111,5 +111,3 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create projects in multiple languages](multiple-languages.md)

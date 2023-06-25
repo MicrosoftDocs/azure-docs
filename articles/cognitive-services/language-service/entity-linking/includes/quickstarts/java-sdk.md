@@ -22,13 +22,12 @@ Use this quickstart to create an entity linking application with the client libr
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue" target="_target">I ran into an issue</a>
+
 
 ## Setting up
 
@@ -46,8 +45,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 </dependencies>
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue" target="_target">I ran into an issue</a>
+
 
 ## Code example
 
@@ -108,8 +106,7 @@ public class Example {
 
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Code-example" target="_target">I ran into an issue" target="_target">I ran into an issue</a>
+
 
 ### Output
 
@@ -141,8 +138,7 @@ Text: Altair 8800, Score: 0.88, Offset: 116, Length: 11
 
 [!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resource" target="_target">I ran into an issue</a>
+
 
 ## Next steps
 

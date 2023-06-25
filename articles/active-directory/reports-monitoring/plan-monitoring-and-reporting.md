@@ -1,6 +1,6 @@
 ---
 
-title: Plan reports & monitoring deployment - Azure AD
+title: Plan reports & monitoring deployment
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
 author: gargi-sinha
@@ -60,7 +60,7 @@ Reporting and monitoring are used to meet your business requirements, gain insig
 
 ## Stakeholders, communications, and documentation
 
-When technology projects fail, they typically do so due to mismatched expectations on effect, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md). Also ensure that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and responsibilities.
+When technology projects fail, they typically do so due to mismatched expectations on effect, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/deployment-plans.md). Also ensure that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and responsibilities.
 
 Stakeholders need to access Azure AD logs to gain operational insights. Likely users include security team members, internal or external auditors, and the identity and access management operations team.
 
@@ -77,7 +77,7 @@ Learn More About [Azure AD Administrative Roles](../roles/permissions-reference.
 
 ### Engage stakeholders
 
-Successful projects align expectations, outcomes, and responsibilities. See, [Azure Active Directory deployment plans](../fundamentals/active-directory-deployment-plans.md). Document and communicate stakeholder roles that require input and accountability.
+Successful projects align expectations, outcomes, and responsibilities. See, [Azure Active Directory deployment plans](../fundamentals/deployment-plans.md). Document and communicate stakeholder roles that require input and accountability.
 
 ### Communications plan
 

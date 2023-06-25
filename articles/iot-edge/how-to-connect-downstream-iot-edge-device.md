@@ -1,6 +1,6 @@
 ---
 title: How to create nested Azure IoT Edge device hierarchies
-description: Step by step adaptable manual instructions on how to create a hierarchy of IoT Edge devices. 
+description: How to create a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 author: PatAltimore
 
 ms.author: patricka
@@ -11,11 +11,11 @@ services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
 
-# Connect Azure IoT Edge devices together to create a hierarchy (nested edge)
+# Connect Azure IoT Edge devices to create a hierarchy
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This setup is also known as "nested edge".
+This article provides steps for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This configuration is also known as *nested edge*.
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (child) devices can authenticate and send or receive messages through their gateway (parent) device.
 
@@ -225,9 +225,9 @@ To enable secure connections, every IoT Edge parent device in a gateway scenario
     ```bash
     # Update the certificate store
 
-    # For Ubuntu and Debian, use update-ca-certificates command
+    # For Ubuntu or Debian - use update-ca-certificates
     sudo update-ca-certificates
-    # For EFLOW, use update-ca-trust
+    # For EFLOW or RHEL - use update-ca-trust
     sudo update-ca-trust
     ```
 
@@ -447,9 +447,9 @@ To enable secure connections, every IoT Edge downstream device in a gateway scen
     ```bash
     # Update the certificate store
 
-    # For Ubuntu and Debian, use update-ca-certificates command
+    # For Ubuntu or Debian - use update-ca-certificates
     sudo update-ca-certificates
-    # For EFLOW, use update-ca-trust
+    # For EFLOW or RHEL - use update-ca-trust
     sudo update-ca-trust
     ```
 

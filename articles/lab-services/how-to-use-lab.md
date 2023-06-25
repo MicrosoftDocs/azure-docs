@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/01/2023
 ---
 
 # Access a lab in Azure Lab Services
@@ -86,7 +86,7 @@ Depending on the lab VM operating system configuration, you can use remote deskt
 
 ## View quota hours
 
-On the lab VM tile in the [Azure Lab Services website](https://labs.azure.com), you can view your consumption of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) in the progress bar. Quota hours are the extra time allotted to you outside of the [scheduled time](./classroom-labs-concepts.md#schedules) for the lab. For example, the time outside of classroom time, to complete homework.
+On the lab VM tile in the [Azure Lab Services website](https://labs.azure.com), you can view your consumption of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) in the progress bar. Quota hours are the extra time allotted to you outside of the [scheduled time](./classroom-labs-concepts.md#schedule) for the lab. For example, the time outside of classroom time, to complete homework.
 
 The color of the progress bar and the text under the progress bar changes depending on the scenario:
 

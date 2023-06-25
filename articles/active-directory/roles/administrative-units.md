@@ -1,5 +1,5 @@
 ---
-title: Administrative units in Azure Active Directory | Microsoft Docs
+title: Administrative units in Azure Active Directory
 description: Use administrative units for more granular delegation of permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 01/31/2023
+ms.date: 03/07/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -41,7 +41,6 @@ A central administrator could:
 Here are some of the constraints for administrative units.
 
 - Administrative units can't be nested.
-- Administrative unit-scoped user account administrators can't create or delete users.
 - Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
 
 ## Groups
@@ -62,7 +61,7 @@ In order for the [User Administrator](permissions-reference.md#user-administrato
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and an Azure AD Free license for each administrative unit member. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator who is assigned directory roles over the scope of the administrative unit, and an Azure AD Free license for each administrative unit member. Creating administrative units is available with an Azure AD Free license. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 
@@ -145,6 +144,5 @@ Managing devices in Intune is *not* supported at this time.
 ## Next steps
 
 - [Create or delete administrative units](admin-units-manage.md)
-- [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Restricted management administrative units](admin-units-restricted-management.md)
 - [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context)

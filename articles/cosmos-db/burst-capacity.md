@@ -1,22 +1,23 @@
 ---
-title: Burst capacity in Azure Cosmos DB (preview)
-description: Learn more about burst capacity in Azure Cosmos DB
+title: Burst capacity
+titleSuffix: Azure Cosmos DB
+description: Use your database or container's idle throughput capacity to handle spikes of traffic with burst capacity in Azure Cosmos DB.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
 ms.reviewer: dech
-ms.date: 10/26/2022
+ms.date: 05/23/2023
 ---
 
-# Burst capacity in Azure Cosmos DB (preview)
+# Burst capacity in Azure Cosmos DB
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Azure Cosmos DB burst capacity (preview) allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. With burst capacity, each physical partition can accumulate up to 5 minutes of idle capacity, which can be consumed at a rate up to 3000 RU/s. With burst capacity, requests that would have otherwise been rate limited can now be served with burst capacity while it's available.
+Azure Cosmos DB burst capacity allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. With burst capacity, each physical partition can accumulate up to 5 minutes of idle capacity, which can be consumed at a rate up to 3000 RU/s. With burst capacity, requests that would have otherwise been rate limited can now be served with burst capacity while it's available.
 
-Burst capacity applies only to Azure Cosmos DB accounts using provisioned throughput (manual and autoscale) and doesn't apply to serverless containers. The feature is configured at the Azure Cosmos DB account level and will automatically apply to all databases and containers in the account that have physical partitions with less than 3000 RU/s of provisioned throughput. Resources that have greater than or equal to 3000 RU/s per physical partition won't benefit from or be able to use burst capacity.
+Burst capacity applies only to Azure Cosmos DB accounts using provisioned throughput (manual and autoscale) and doesn't apply to serverless containers. The feature is configured at the Azure Cosmos DB account level and automatically applies to all databases and containers in the account that have physical partitions with less than 3000 RU/s of provisioned throughput. Resources that have greater than or equal to 3000 RU/s per physical partition can't benefit from or use burst capacity.
 
 ## How burst capacity works
 
@@ -29,26 +30,15 @@ After the 10 seconds is over, the burst capacity has been used up. If the worklo
 
 ## Getting started
 
-To get started using burst capacity, enroll in the preview by submitting a request for the **Azure Cosmos DB Burst Capacity** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. You can also select the **Register for preview** button in the eligibility check page to open the **Preview Features** page.
+To get started using burst capacity, navigate to the **Features** page in your Azure Cosmos DB account. Select and enable the **Burst Capacity** feature.
 
-:::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in Preview Features page in Subscriptions overview in Azure Portal.":::
+Once you've enabled the feature, it takes 15-20 minutes to take effect.
 
-Before submitting your request:
+:::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in the Features page in an Azure Cosmos DB account.":::
 
-- Ensure that you have at least one Azure Cosmos DB account in the subscription. This account may be an existing account or a new one you've created to try out the preview feature. If you have no accounts in the subscription when the Azure Cosmos DB team receives your request, it will be declined, as there are no accounts to apply the feature to.
-- Verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#limitations-preview-eligibility-criteria).
+## Requirements
 
-The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
-
-To check whether an Azure Cosmos DB account is eligible for the preview, you can use the built-in eligibility checker in the Azure portal. From your Azure Cosmos DB account overview page in the Azure portal, navigate to **Diagnose and solve problems** -> **Throughput and Scaling** ->  **Burst Capacity**. Run the **Check eligibility for burst capacity preview** diagnostic.
-
-:::image type="content" source="media/burst-capacity/throughput-and-scaling-category.png" alt-text="Throughput and Scaling topic in Diagnose and solve issues page":::
-
-:::image type="content" source="media/burst-capacity/burst-capacity-eligibility-check.png" alt-text="Burst capacity eligibility check with table of all preview eligibility criteria":::
-
-## Limitations (preview eligibility criteria)
-
-To enroll in the preview, your Azure Cosmos DB account must meet all the following criteria:
+To enable burst capacity, your Azure Cosmos DB account must meet all the following criteria:
 
 - Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Burst capacity doesn't apply to serverless accounts.
 - Your Azure Cosmos DB account is using API for NoSQL, Cassandra, Gremlin, MongoDB, or Table.
@@ -58,5 +48,3 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
 - See the FAQ on [burst capacity.](burst-capacity-faq.yml)
 - Learn more about [provisioned throughput.](set-throughput.md)
 - Learn more about [request units.](request-units.md)
-- Trying to decide between provisioned throughput and serverless? See [choose between provisioned throughput and serverless.](throughput-serverless.md)
-- Want to learn the best practices? See [best practices for scaling provisioned throughput.](scaling-provisioned-throughput-best-practices.md)

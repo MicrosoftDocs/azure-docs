@@ -3,7 +3,7 @@ title: Managed disk bursting
 description: Learn about disk bursting for Azure disks and Azure virtual machines.
 author: roygara
 ms.author: rogarana
-ms.date: 09/10/2022
+ms.date: 05/02/2023
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
@@ -19,7 +19,7 @@ Bursting for Azure VMs and disk resources aren't dependent on each other. You do
 
 ## Common scenarios
 The following scenarios can benefit greatly from bursting:
-- **Improve startup times**  – With bursting, your instance will startup at a faster rate. For example, the default OS disk for premium enabled VMs is the P4 disk, which is a provisioned performance of up to 120 IOPS and 25 MB/s. With bursting, the P4 can go up to 3500 IOPS and 170 MB/s allowing for startup to accelerate by up to 6X.
+- **Improve startup times**  – With bursting, your instance will start up at a faster rate. For example, the default OS disk for premium enabled VMs is the P4 disk, which is a provisioned performance of up to 120 IOPS and 25 MB/s. With bursting, the P4 can go up to 3500 IOPS and 170 MB/s allowing for startup to accelerate by up to 6X.
 - **Handle batch jobs** – Some application workloads are cyclical in nature. They require a baseline performance most of the time, and higher performance for short periods of time. An example of this is an accounting program that processes daily transactions that require a small amount of disk traffic. At the end of the month this program would complete reconciling reports that need a much higher amount of disk traffic.
 - **Traffic spikes** – Web servers and their applications can experience traffic surges at any time. If your web server is backed by VMs or disks that use bursting, the servers would be better equipped to handle traffic spikes. 
 

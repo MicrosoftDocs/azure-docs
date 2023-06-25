@@ -14,6 +14,7 @@ This article discusses the transaction capabilities of Microsoft Azure Service B
 > [!NOTE]
 > - The basic tier of Service Bus doesn't support transactions. The standard and premium tiers support transactions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 > - Mixing management and messaging operations in a transaction isn't supported. 
+> - JavaScript SDK doesn't support transactions. 
 
 ## Transactions in Service Bus
 
@@ -40,6 +41,10 @@ The disposition of the message (complete, abandon, dead-letter, defer) then occu
 
 > [!IMPORTANT]
 > Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
+
+## Operations that do not enlist in transaction scopes
+
+Be aware that message processing code that calls into databases and other services like Cosmos DB does not automatically enlist those downstream resources into the same transactional scope. For more information on how to handle these scenarios, look into the [guidelines on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 ## Transfers and "send via"
 

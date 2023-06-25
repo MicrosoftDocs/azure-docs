@@ -4,7 +4,7 @@ description: In this article, learn about which Azure services support Private L
 author: asudbring
 ms.author: allensu
 ms.service: private-link
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 10/28/2022
 ms.custom: template-concept, references_regions, ignite-2022
 ---
@@ -14,7 +14,7 @@ ms.custom: template-concept, references_regions, ignite-2022
 Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](private-endpoint-overview.md) in your virtual network.
 
 > [!IMPORTANT]
-> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations).
+> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations).
 
 ## Service availability
 
@@ -74,7 +74,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn how to create a private endpoint for Azure Event Grid.](../event-grid/network-security.md) |
 |Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Select for tiers](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Learn how to create a private endpoint for Azure Service Bus.](../service-bus-messaging/private-link-service.md)  |
-| Azure API Management | All public regions  |  | Preview   <br/> [Connect privately to API Management using a private endpoint.](../api-management/private-endpoint.md) |
+| Azure API Management | All public regions  |  | GA   <br/> [Connect privately to API Management using a private endpoint.](../api-management/private-endpoint.md) |
 | Azure Logic Apps | All public regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Logic Apps.](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md) |
 
 ### Internet of Things (IoT)
@@ -116,7 +116,7 @@ The following tables list the Private Link services and the regions where they'r
 | Azure SignalR | All Public Regions<br/> All China regions<br/> All Government Regions      | Supported on Standard Tier or above | GA   <br/> [Learn how to create a private endpoint for Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
 |Azure App Service | All public regions<br/> China North 2 & East 2    | Supported with Basic, Standard, Premium v2, Premium v3, Isolated v2 App Service Plans and Function Apps Premium plan  | GA   <br/> [Learn how to create a private endpoint for Azure App Service.](../app-service/networking/private-endpoint.md)   |
 |Azure Search | All public regions <br/> All Government regions | Supported with service in Private Mode | GA   <br/> [Learn how to create a private endpoint for Azure Search.](../search/service-create-private-endpoint.md)    |
-|Azure Relay | All public regions      |  | Preview <br/> [Learn how to create a private endpoint for Azure Relay.](../azure-relay/private-link-service.md)  |
+|Azure Relay | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Relay.](../azure-relay/private-link-service.md)  |
 |Azure Static Web Apps | All public regions      |  | Preview <br/> [Configure private endpoint in Azure Static Web Apps](../static-web-apps/private-endpoint.md)  |
 
 ### Private Link service with a standard load balancer

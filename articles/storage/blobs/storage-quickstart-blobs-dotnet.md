@@ -8,7 +8,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET

@@ -6,11 +6,11 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.date: 02/28/2023
+ms.date: 05/23/2023
 ms.custom: "seodec18, mvc"
 ---
 
-# Confidential containers on Azure Container Instances (preview)
+# Confidential containers on Azure Container Instances
 This article introduces how confidential containers on Azure Container Instances can enable you to secure your workloads running in the cloud. This article provides background about the feature set, scenarios, limitations, and resources.
 
 Confidential containers on Azure Container Instances enable customers to run Linux containers within a hardware-based and attested Trusted Execution Environment (TEE). Customers can lift and shift their containerized Linux applications or build new confidential computing applications without needing to adopt any specialized programming models to achieve the benefits of confidentiality in a TEE. Confidential containers on Azure Container Instances protect data-in-use and encrypts data being used in memory. Azure Container Instances extends this capability through verifiable execution policies, and verifiable hardware root of trust assurances through guest attestation.
@@ -55,7 +55,7 @@ Business transactions and project collaborations often require sharing confident
    ![Screenshot of a ML training model on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-ml-training.png)
 
 ### Confidential inference
-ACI provides fast and easy deployments, flexible resource allocation, and pay per use pricing, which positions it as a great platform for confidential inference workloads. With confidential containers on Azure Container Instances, model developers and data owners can collaborate while protecting the intellectual property of the model developer and keeping the data used for inferencing secure and private. Check out a sample deployment of confidential inference using confidential containers on Azure Container Instances.  
+ACI provides fast and easy deployments, flexible resource allocation, and pay per use pricing, which positions it as a great platform for confidential inference workloads. With confidential containers on Azure Container Instances, model developers and data owners can collaborate while protecting the intellectual property of the model developer and keeping the data used for inferencing secure and private. Check out a [sample](https://aka.ms/ccaciinference) deployment of confidential inference using confidential containers on Azure Container Instances.  
 
    ![Screenshot of a ML inference model on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-ml-inference.png)
 

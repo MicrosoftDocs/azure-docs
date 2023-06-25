@@ -1,15 +1,12 @@
 ---
-title: What is Azure Database Migration Service? 
+title: What is Azure Database Migration Service?
 description: Overview of Azure Database Migration Service, which provides seamless migrations from many database sources to Azure Data platforms.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: craigg
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.topic: overview
 ms.date: 02/08/2023
+ms.service: dms
+ms.topic: overview
 ---
 # What is Azure Database Migration Service?
 
@@ -22,7 +19,9 @@ With Azure Database Migration Service currently we offer two options:
 
 **Azure SQL Migration extension for Azure Data Studio** is powered by the latest version of Database Migration Service and provides more features. Currently, it supports SQL Database modernization to Azure. For improved functionality and supportability, consider migrating to Azure SQL Database by using the Azure SQL migration extension for Azure Data Studio.
 
-**Database Migration Service (classic)** via Azure portal, PowerShell and Azure CLI is an older version of the Azure Database Migration Service. It offers database modernization to Azure and support scenarios like – SQL Server, PostgreSQL, MySQL, and MongoDB. 
+**Database Migration Service (classic)** via Azure portal, PowerShell and Azure CLI is an older version of the Azure Database Migration Service. It offers database modernization to Azure and support scenarios like – SQL Server, PostgreSQL, MySQL, and MongoDB.
+
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
 
 [!INCLUDE [database-migration-service-ads](../../includes/database-migration-service-ads.md)]
 
