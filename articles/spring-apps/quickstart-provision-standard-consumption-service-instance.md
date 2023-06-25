@@ -124,7 +124,7 @@ You can create the Azure Container Apps environment in one of two ways:
    AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
    ```
 
-1. Use the following command to create a resrouce group:
+1. Use the following command to create a resource group:
 
    ```azurecli
    az group create \
