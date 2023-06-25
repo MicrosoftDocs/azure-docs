@@ -61,6 +61,6 @@
   - name: Resources
     items:
     - name: Region availability
-      href: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=agri-data-services&regions=all
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=agri-data-services&regions=all
     - name: Sample events
       href: sample-events.md
