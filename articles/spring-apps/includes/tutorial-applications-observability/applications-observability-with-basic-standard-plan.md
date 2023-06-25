@@ -192,8 +192,6 @@ You can pin some blades to the dashboard as needed, it will be convenient to jum
 
 1. Select **Performance** in the left navigational menu, select **Pin** to pin the quickstart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/dashboard-page.png" alt-text="Screenshot of the Azure portal with dashboard." lightbox="../../media/tutorial-applications-observability/dashboard-page.png":::
-
 #### Monitor the dashboard
 
 Go to your private `PetClinic` dashboard page, edit your tiles with dashboard, edit the size of the tiles in your dashboard as needed to match the monitoring.
