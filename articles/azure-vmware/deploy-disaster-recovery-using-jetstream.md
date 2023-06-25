@@ -21,8 +21,6 @@ To learn more about JetStream DR, see:
 
 - [JetStream DR on Azure Marketplace](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/jetstreamsoftware1596597632545.jsdravs-111721)
 
-- [JetStream knowledge base articles](https://www.jetstreamsoft.com/resources/knowledge-base/)
-
 ## Core components of the JetStream DR solution
 
 | Items | Description |
