@@ -27,7 +27,7 @@ impact on your secure score.
 
 ### Data plane recommendations
 
-All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections) are supported under GCP after [enabling the Azure policy add-on](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections#enable-kubernetes-data-plane-hardening). 
+All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections) are supported under GCP after [enabling the Azure policy extension](<link to the relevant section you are currently creating here>). . 
 
 
 ## <a name='recs-gcp-data'></a> GCP Data recommendations
