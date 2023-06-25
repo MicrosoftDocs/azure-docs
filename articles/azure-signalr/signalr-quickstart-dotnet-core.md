@@ -50,7 +50,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/co
 2. In the new folder, run the following command to create the project:
 
     ```dotnetcli
-    dotnet new mvc
+    dotnet new web
     ```
 
 ## Add Secret Manager to the project
@@ -91,9 +91,10 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
     builder.Services.AddSignalR().AddAzureSignalR();
     var app = builder.Build();
     
+    app.UseDefaultFiles();
     app.UseRouting();
     app.UseStaticFiles();
-    app.MapHub<ChatHub>("/chat");
+    app.MapHub<ChatSampleHub>("/chat");
     app.Run();
     ```
 
@@ -103,19 +104,19 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
 
 In SignalR, a *hub* is a core component that exposes a set of methods that can be called by the client. In this section, you define a hub class with two methods:
 
-* `Broadcast`: This method broadcasts a message to all clients.
+* `BroadcastMessage`: This method broadcasts a message to all clients.
 * `Echo`: This method sends a message back to the caller.
 
 Both methods use the `Clients` interface that the ASP.NET Core SignalR SDK provides. This interface gives you access to all connected clients, so you can push content to your clients.
 
 1. In your project directory, add a new folder named *Hub*. Add a new hub code file named *ChatHub.cs* to the new folder.
 
-2. Add the following code to *ChatHub.cs* to define your hub class and save the file.
+2. Add the following code to *ChatSampleHub.cs* to define your hub class and save the file.
 
     ```csharp
     using Microsoft.AspNetCore.SignalR;
 
-    public class ChatHub : Hub
+    public class ChatSampleHub : Hub
     {
         public Task BroadcastMessage(string name, string message) =>
             Clients.All.SendAsync("broadcastMessage", name, message);
@@ -293,14 +294,14 @@ If the connection is successful, that connection is passed to `bindConnectionMes
     ```output
     Building...
     info: Microsoft.Hosting.Lifetime[14]
-          Now listening on: http://localhost:5106
+          Now listening on: http://localhost:5000
     info: Microsoft.Hosting.Lifetime[0]
           Application started. Press Ctrl+C to shut down.
     info: Microsoft.Hosting.Lifetime[0]
           Hosting environment: Development
     ```
 
-1. Open two browser windows. In each browser, go to the localhost URL shown in the output window, for example, `http://localhost:5106/index.html` as the above output window shows. You're prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients by using the **Send** button.
+1. Open two browser windows. In each browser, go to the localhost URL shown in the output window, for example, http://localhost:5000/ as the above output window shows. You're prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients by using the **Send** button.
 
     ![Example of an Azure SignalR group chat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
