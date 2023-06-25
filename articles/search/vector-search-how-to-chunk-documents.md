@@ -1,7 +1,7 @@
 ---
 title: Chunk documents in vector search
 titleSuffix: Azure Cognitive Search
-description: Learn strategies for chunking PDFs, HTML files, and other large documents for vectors and search indexing and query workloads..
+description: Learn strategies for chunking PDFs, HTML files, and other large documents for vectors and search indexing and query workloads.
 
 author: arv100kri
 ms.author: arjagann
@@ -10,55 +10,50 @@ ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-# Chunk large documents for vector search
+# Chunking large documents for vector search solutions in Cognitive Search
 
-Under construction.
+This article describes several approaches for chunking large documents so that you can generate embeddings for vector search.
 
-<!-- Arvind - if you can make this a task-oriented how-to doc that interleaves concepts with tasks, that would be ideal. The following content is from Gia's doc in the repo.
+## Why is chunking important?
 
-# General guidelines for data chunking to generate embedding vectors
+The models used to generate embedding vectors have maximum limits on the text fragments provided as input. For example, the maximum length of input text for the [Azure OpenAI](/azure/cognitive-services/openai/how-to/embeddings) embedding models is 2048 tokens (equivalent to around 2-3 pages of text). If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries. 
 
-When using Natural Language Processing (NLP), the client libraries and REST APIs used to generate embedding vectors for text fragments have maximum input limits. For example, the maximum length of input text for the [Azure OpenAI](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/embeddings) embedding models is 2048 tokens (equivalent to around 2-3 pages of text). If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the Large Language Models (LLM) used for indexing and queries.
+## How chunking fits into the workflow
 
-There isn't native chunking capability in neither Cognitive Search or Azure OpenAI, so if you have large documents, you'll need to insert a chunking step into indexing and query workflows that breaks up large text. On the development side, we are working with these libraries:
+Because there isn't a native chunking capability in either Cognitive Search or Azure OpenAI, if you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. Some libraries that provide chunking include:
 
 + [LangChain](https://python.langchain.com/en/latest/index.html)
 + [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
 
-NOTE: It's on the roadmap to document chunking patterns and provide a sample, but that content isn't available at this time.
+Both libraries support common chunking techniques for fixed size, variable size, or a combination. You can also specify an overlap percentage that duplicates a small amount of content in each chunk for context preservation.
 
-## Factors to consider when chunking data
-
-When it comes to chunking data, think about these factors:
-
-1. Shape and density of your documents. If you need intact text or passages, larger chunks and variable chunking that preserves sentence structure can produce better results.
-
-1. User queries: Larger chunks and overlapping strategies help preserve context and semantic richness for queries that target specific information.
-
-1. Large Language Models (LLM) have performance guidelines for chunk size. you'll need to set a chunk size that works best for all of the models you're using. For instance, if you use models for summarization and embeddings, choose an optimal chunk size that works for both.
-
-## Common chunking techniques
+### Common chunking techniques
 
 Here are some common chunking techniques, starting with the most widely used method:
 
-1. Fixed-size chunks: Define a fixed size that's sufficient for semantically meaningful paragraphs (for example, 200 words) and allows for some overlap (for example, 10-15% of the content) can produce good chunks as input for embedding vector generators.
++ Fixed-size chunks: Define a fixed size that's sufficient for semantically meaningful paragraphs (for example, 200 words) and allows for some overlap (for example, 10-15% of the content) can produce good chunks as input for embedding vector generators.
 
-1. Variable-sized chunks based on content: Partition your data based on content characteristics, such as end-of-sentence punctuation marks, end-of-line markers, or using features in the Natural Language Processing (NLP) libraries. Markdown language structure can also be used to split the data.
++ Variable-sized chunks based on content: Partition your data based on content characteristics, such as end-of-sentence punctuation marks, end-of-line markers, or using features in the Natural Language Processing (NLP) libraries. Markdown language structure can also be used to split the data.
 
-1. Customize or iterate over one of the above techniques. For example, when dealing with large documents, you might use variable-sized chunks, but also append the document title to chunks from the middle of the document to prevent context loss.
++ Customize or iterate over one of the above techniques. For example, when dealing with large documents, you might use variable-sized chunks, but also append the document title to chunks from the middle of the document to prevent context loss.
 
-## Content overlap considerations
+### Content overlap considerations
 
 When chunking data, overlapping a small amount of text between chunks can help preserve context. We recommend starting with an overlap of approximately 10%. For example, given a fixed chunk size of 256 tokens, you would begin testing with an overlap of 25 tokens. The actual amount of overlap varies depending on the type of data and the specific use case, but we have found that 10-15% works for many scenarios.
 
-## Chunking and vector embedding generation sample
+### Factors for chunking data
 
-A [Cognitive Search custom skill](https://learn.microsoft.com/azure/search/cognitive-search-custom-skill-web-api) has been added to the [Power skill repo](https://github.com/Azure-Samples/azure-search-power-skills/tree/main#readme) with a [fixed-sized chunking and embedding generation sample](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Vector/EmbeddingGenerator/README.md) to demonstrate both chunking and vector embedding generation using [Azure OpenAI](https://learn.microsoft.com/azure/cognitive-services/openai/) Embedding model.
+When it comes to chunking data, think about these factors:
 
++ Shape and density of your documents. If you need intact text or passages, larger chunks and variable chunking that preserves sentence structure can produce better results.
 
-## Simple approach of how to create chunks with sentences
++ User queries: Larger chunks and overlapping strategies help preserve context and semantic richness for queries that target specific information.
 
-This section demonstrates the logic of creating chunks out of sentences. For this example, assume the following:
++ Large Language Models (LLM) have performance guidelines for chunk size. you need to set a chunk size that works best for all of the models you're using. For instance, if you use models for summarization and embeddings, choose an optimal chunk size that works for both.
+
+## Simple example of how to create chunks with sentences
+
+This section uses an example to demonstrate the logic of creating chunks out of sentences. For this example, assume the following:
 
 + Tokens are equal to words.
 + Input = `text_to_chunk(string)`
@@ -74,9 +69,10 @@ This section demonstrates the logic of creating chunks out of sentences. For thi
 
 ### Approach 1: Sentence chunking with "no overlap"
 
-Given a maximum number of tokens, iterate through the sentences and concatenate sentences until the maximum token length is reached. If a sentence is bigger than the maximum number of chunks, truncate to a maximimum amount of tokens, and put the rest in the next chunk.
+Given a maximum number of tokens, iterate through the sentences and concatenate sentences until the maximum token length is reached. If a sentence is bigger than the maximum number of chunks, truncate to a maximum number of tokens, and put the rest in the next chunk.
 
-NOTE: The examples ignore the newline `/n` character because it's not a token, but if the package or library detects new lines, then you'd see those line breaks here.
+> [!NOTE]
+> The examples ignore the newline `/n` character because it's not a token, but if the package or library detects new lines, then you'd see those line breaks here.
 
 **Example: maximum tokens = 10**
 
@@ -116,9 +112,14 @@ Spain. It is close to the sea /n and the mountains. /n
 mountains. /n You can both ski in winter and swim in summer.
 ```
 
-## Learn more about embedding models in Azure OpenAI
+## Try it out: Chunking and vector embedding generation sample
 
-+ [Understanding embeddings in Azure OpenAI Service](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/understand-embeddings)
-+ [Learn how to generate embeddings](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/embeddings?tabs=console)
-+ [Tutorial: Explore Azure OpenAI Service embeddings and document search](https://learn.microsoft.com/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line)
- -->
+A [fixed-sized chunking and embedding generation sample](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Vector/EmbeddingGenerator/README.md) demonstrates both chunking and vector embedding generation using [Azure OpenAI](/azure/cognitive-services/openai/) embedding models. This sample uses a [Cognitive Search custom skill](cognitive-search-custom-skill-web-api.md) in the [Power Skills repo](https://github.com/Azure-Samples/azure-search-power-skills/tree/main#readme) to wrap the chunking step.
+
+This sample is built on Langchain, Azure OpenAI, and Azure Cognitive Search.
+
+## See also
+
++ [Understanding embeddings in Azure OpenAI Service](/azure/cognitive-services/openai/concepts/understand-embeddings)
++ [Learn how to generate embeddings](/azure/cognitive-services/openai/how-to/embeddings?tabs=console)
++ [Tutorial: Explore Azure OpenAI Service embeddings and document search](/azure/cognitive-services/openai/tutorials/embeddings?tabs=command-line)
