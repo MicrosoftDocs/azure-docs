@@ -45,7 +45,7 @@ Private Endpoint support for is now available as part of the Malware Scanning pu
 
 Private endpoints provide secure connectivity to your Azure Storage services, effectively eliminating public internet exposure, and are considered a security best practice.
 
-For storage accounts with private endpoints that already enabled Malware Scanning, you will need to disable and enable [the plan](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
+For storage accounts with private endpoints that have Malware Scanning already enabled, you will need to disable and enable [the plan](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) with Malware Scanning for this to work.
 
 Learn more about using [private endpoints](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) in [Defender for Storage](defender-for-storage-introduction.md) and how to secure your storage services further.
 
