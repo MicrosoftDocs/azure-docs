@@ -4,6 +4,8 @@ description: Moving a custom question answering project requires exporting a pro
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
+author: jboback
+ms.author: jboback
 ms.date: 1/11/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs
 services: cognitive-services
 manager: nitinme
+author: jboback
+ms.author: jboback
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: language-service

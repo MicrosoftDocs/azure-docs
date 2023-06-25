@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: When a user query is matched against a knowledge base, question answering returns relevant answers, along with a confidence score.
 services: cognitive-services
 manager: nitinme
+author: jboback
+ms.author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
