@@ -29,6 +29,7 @@ ms.custom: passwordless-java, service-connector
 * [Maven](https://maven.apache.org)
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.46.0 or higher.
 * [Azure CLI serviceconnector-passwordless extension](/cli/azure/azure-cli-extensions-list) version 0.2.2 or higher.
+* [jq](https://jqlang.github.io/jq/)
 
 ## Clone the sample app and prepare the repo
 
