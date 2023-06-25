@@ -3,14 +3,14 @@ title: How-to test the attack path and security explorer using a vulnerable cont
 description: Learn how to test the attack path and security explorer using a vulnerable container image
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 06/25/2023
 ---
 
 # Testing the Attack Path and Security Explorer using a vulnerable container image
 
 ## Observing potential Attack Paths in the Attack Path experience
 
-Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers may use to breach your environment.
+Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach.
 
 Explore and investigate [attack paths](how-to-manage-attack-path.md) by sorting them based on name, environment, path count, and risk categories. Explore cloud security graph Insights on the resource. Examples of Insight types are:
 
@@ -30,13 +30,14 @@ If there are no entries in the list of attack paths, you can still test this fea
     1.	Run the following command in Cloud Shell: 
 
         ```az acr import --name $MYACR --source DCSPMtesting.azurecr.io/mdc-mock-0001 --image mdc-mock-0001```
-    1. if your AKS isn't attached to your ACR)
--	Use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
-        ```az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>```
+    1. if your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
+        ```
+        ```az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>````
 
 1. Allow work on a cluster:
     
-    1. Run the command: ```az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>```
+    1. Run the command: HTTP:
+  ```HTTP```az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>```
     
 1. Verify success by doing the following steps:
 
@@ -44,12 +45,10 @@ If there are no entries in the list of attack paths, you can still test this fea
    - In the **Workloads-> Deployments** tab, verify “pod” created 3/3 and **dcspmcharts-ingress-nginx-controller** 1/1.
    - In services and ingresses look for-> services **service**, **dcspmcharts-ingress-nginx-controller and dcspmcharts-ingress-nginx-controller-admission**. In the ingress tab, verify one **ingress** is created with an IP address and nginx class.
 
-1. Deploy the mock vulnerable image to expose the vulnerable container to the internet:
-
-    1. Run the command: ```helm install dcspmcharts oci://dcspmtesting.azurecr.io/dcspmcharts --version 1.0.0  --namespace mdc-dcspm-demo --create-namespace --set registry=<your-registry>```
+1. Deploy the mock vulnerable image to expose the vulnerable container to the internet by running the folloiwng command: ```helm install dcspmcharts oci://dcspmtesting.azurecr.io/dcspmcharts --version 1.0.0  --namespace mdc-dcspm-demo --create-namespace --set registry=<your-registry>```
 
     > [!NOTE]
-    > The system’s architecture is based on a snapshot mechanism with an interval of every 6 hours, which is typically the time to observe inventory. For insights and attack paths it can take up to 24 hours. 
+    > After completing the above flow, it can take up to 24 hours to see results in the Security Explorer and Attack Path.
 
 1. Query the Security Explorer for containers images that are vulnerable.
 1. Find this security issue under attack paths:
@@ -57,10 +56,6 @@ If there are no entries in the list of attack paths, you can still test this fea
     1.	Go to **Recommendations** in the Defender for Cloud menu.
     1.	Select on the **Attack Path** link to open the Attack Paths view.
     1.	Locate the entry that details this security issue under “Internet exposed Kubernetes pod is running a container with high severity vulnerabilities”. Depending on the way you connected the container to the internet, the issue can be alternatively be found under “Try triggering another attack path: an AKS pod with host network access is running a container with a vulnerability that can be exploited remotely." 
-
-    > [!NOTE]
-    > After completing the above flow, it can take up to 24 hours to see results in the Security Explorer and Attack Path.
-
 
 ## Next Steps 
 
