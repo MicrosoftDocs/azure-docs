@@ -83,8 +83,8 @@ items:
       href: quickstart-automate-deployments-github-actions-enterprise.md
   - name: "Production-ready"
     items:
-      - name: Diagnosis and investigate issues
-        href: tutorial-diagnosis-and-investigate-issues.md
+      - name: Applications observability
+        href: tutorial-applications-observability.md
 - name: Concepts
   items:
   - name: App and deployment

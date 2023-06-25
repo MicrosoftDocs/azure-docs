@@ -8,10 +8,10 @@ ms.date: 06/20/2022
 
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal.
-[!INCLUDE [clean-up-resources-portal](includes/tutorial-diagnosis-and-investigate-issues/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources-portal](includes/tutorial-applications-observability/clean-up-resources.md)]
 -->
 
-## 8. Clean up resources
+## 6. Clean up resources
 
 You can delete the Azure resource group, which includes all the resources in the resource group. To delete the entire resource group, including the newly created service:
 
