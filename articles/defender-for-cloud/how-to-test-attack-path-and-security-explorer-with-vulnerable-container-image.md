@@ -60,18 +60,18 @@ If there are no entries in the list of attack paths, you can still test this fea
 
 1. Query the Cloud Security Explorer for containers images that are vulnerable.
 
-    :::image type="content" source="media/how-to-test-attack-path/query-images-with-vulnerabilities.png" alt-text="Screenshot of building a query in Cloud Security Explorer." lightbox="media/concept-cloud-map/cloud-security-explorer-main-page.png":::
+    :::image type="content" source="media/how-to-test-attack-path/query-images-with-vulnerabilities.png" alt-text="Screenshot of building a query in Cloud Security Explorer." lightbox="media/how-to-test-attack-path/query-images-with-vulnerabilities.png":::
 
 1. Find this security issue under attack paths:
 
     1.	Go to **Recommendations** in the Defender for Cloud menu.
     1.	Select on the **Attack Path** link to open the Attack Paths view.
 
-        :::image type="content" source="media/how-to-test-attack-path/attack-path.png" alt-text="Screenshot of showing where to select Attack Path." lightbox="media/concept-cloud-map/attack-path.png":::
+        :::image type="content" source="media/how-to-test-attack-path/attack-path.png" alt-text="Screenshot of showing where to select Attack Path." lightbox="media/how-to-test-attack-path/attack-path.png":::
 
     1.	Locate the entry that details this security issue under “Internet exposed Kubernetes pod is running a container with high severity vulnerabilities”.
 
-        :::image type="content" source="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png" alt-text="Screenshot showing the security issue details." lightbox="media/concept-cloud-map/attack-path-kubernetes-pods-vulnerabilities.png"::: 
+        :::image type="content" source="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png" alt-text="Screenshot showing the security issue details." lightbox="media/how-to-test-attack-path/attack-path-kubernetes-pods-vulnerabilities.png"::: 
 
  Depending on the way you connected the container to the internet, the issue can be alternatively be found under “Try triggering another attack path: an AKS pod with host network access is running a container with a vulnerability that can be exploited remotely." 
 
