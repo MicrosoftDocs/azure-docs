@@ -63,7 +63,17 @@ The **Insights** panel currently shows four kinds of insights. Each insight is f
 
 ## Rerun analytics rules
 
+There are several scenarios that might lead you to rerun a rule.
 
+- A rule failed to run due to a temporary condition that reverted to normal, or due to a misconfiguration. After you correct the misconfiguration or repair the condition, you'll want to then rerun the rule on the same time window (that is, on the same data) as the run that failed, to mitigate the gaps in coverage.
+
+- A rule succeeded in running, but didn't provide enough information in the alerts it generated. In this case you might want to edit the rule to provide more information, whether by changing the query or the enrichment settings. You'll want to then rerun the rule on the same time window (that is, on the same data) as the run that you want more information for.
+
+- You might be experimenting with writing or editing a rule and want to see how different settings would affect the alerts the rule generates. For a valid comparison, you want to rerun the rule on the same time window.
+
+Here's how to rerun a rule:
+
+1. 
 
 ## Next steps
 
