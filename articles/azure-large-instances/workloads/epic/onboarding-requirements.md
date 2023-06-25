@@ -91,11 +91,12 @@ If you don't see your deployed Azure Large Instances under your subscription, re
 Before you begin, install the latest version of the Azure resource manager power shell cmdlets, at least 4.0 or later.
 For more information about installing the power shell cmdlets, see [How to install Azure Powershell](https://learn.microsoft.com/powershell/azure/install-azure-powershell?view=azps-10.0.0).
 
-For more information, see these resources: 
+For more information, see these resources:
 
 * [Azure ExpressRoute overview](https://azure.microsoft.com/products/expressroute/)
 
 * [How to create a connection between your VPN Gateway and ExpressRoute circuit](https://learn.microsoft.com/shows/azure/expressroute-how-to-create-connection-between-your-vpn-gateway-expressroute-circuit) 
+
 
 * [How to set up Microsoft peering for your ExpressRoute circuit](https://learn.microsoft.com/shows/azure/expressroute-how-to-set-up-microsoft-peering-your-expressroute-circuit)
 
