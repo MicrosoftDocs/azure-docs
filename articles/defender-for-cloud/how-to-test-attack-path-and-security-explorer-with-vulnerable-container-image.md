@@ -30,17 +30,18 @@ If there are no entries in the list of attack paths, you can still test this fea
     1.	Run the following command in Cloud Shell: 
 
         ```
-        ```az acr import --name $MYACR --source DCSPMtesting.azurecr.io/mdc-mock-0001 --image mdc-mock-0001```
-    
+        az acr import --name $MYACR --source DCSPMtesting.azurecr.io/mdc-mock-0001 --image mdc-mock-0001
+        ```
+
     1. If your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
 
         ```
-        ```az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>````
+        az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 
 1. Allow work on a cluster:
     
     ```
-    ```az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>```
+    az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>
     
 1. Verify success by doing the following steps:
 
@@ -51,10 +52,11 @@ If there are no entries in the list of attack paths, you can still test this fea
 1. Deploy the mock vulnerable image to expose the vulnerable container to the internet by running the following command:
 
  ```
- ```helm install dcspmcharts oci://dcspmtesting.azurecr.io/dcspmcharts --version 1.0.0  --namespace mdc-dcspm-demo --create-namespace --set registry=<your-registry>```
+ helm install dcspmcharts oci://dcspmtesting.azurecr.io/dcspmcharts --version 1.0.0  --namespace mdc-dcspm-demo --create-namespace --set registry=<your-registry>
+```
 
-    > [!NOTE]
-    > After completing the above flow, it can take up to 24 hours to see results in the Security Explorer and Attack Path.
+> [!NOTE]
+> After completing the above flow, it can take up to 24 hours to see results in the Security Explorer and Attack Path.
 
 1. Query the Cloud Security Explorer for containers images that are vulnerable.
 
