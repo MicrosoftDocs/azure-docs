@@ -105,7 +105,7 @@ public class AzureSpringAppsContext {
     }
 }
 ```
-
+While for any other polyglot apps, you may need read and access corresponding properties by leveraging corresponding file read/write libraries in your apps.
 ## Restrictions
 
 * **An App must have one production Deployment**: Deleting a production Deployment is blocked by the API. It should be swapped to staging before deleting.
