@@ -23,7 +23,7 @@ This article shows you how to use Application Configuration Service for VMware T
 
 With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in Basic/Standard, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
 
-There are two generations of Application Configuration Service. Generation 2 uses [flux](https://fluxcd.io/) as backend to communicate with git repository. It has better performance. You are allowed to choose the generation of Application Configuration Service when you create the Azure Spring Apps Enterprise instance. The default is generation 1. You can also upgrade the generation of Application Configuration Service after the instance is created. However, downgrade is not supported. The upgrade is zero downtime but we still recommend you to test in staging environment before moving to production environment.
+Application Configuration Service is offered in two versions: Gen1 and Gen2. Gen1 version mainly serves for existing customers for back compatibility purpose and is not suggested for new service instances to use and is going to be end of support on April 30, 2024. While Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with git repositories and provides much better performance comparing with Gen1. You are allowed to choose the version of Application Configuration Service when you create the Azure Spring Apps Enterprise service instance (the default is Gen1). You can also choose to upgrade to Gen2 after the instance has been created. However, downgrade is not supported. The upgrade is zero downtime but we still recommend you to test in staging environment before moving to production environment.
 
 ## Prerequisites
 
@@ -88,23 +88,30 @@ The following image shows the three types of repository authentication supported
    | Property                   | Required? | Description                                                                                                                                                                                                                         |
    |----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `Private key`              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
-   | `Host key`                 | No for generation 1 <br> Yes for generation 2 | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
-   | `Host key algorithm`       | No for generation 1 <br> Yes for generation 2 | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
+   | `Host key`                 | No for Gen1 <br> Yes for Gen2 | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+   | `Host key algorithm`       | No for Gen1 <br> Yes for Gen2 | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
    | `Strict host key checking` | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
 
-## Upgrade Application Configuration Service for Tanzu settings to generation 2
+## Upgrade from Gen1 to Gen2
 
-Application Configuration Service for Tanzu generation 2 has better performance when you have a large number of configuration files. However, downgrade is not supported. The upgrade is zero downtime but we still recommend you to test in staging environment before moving to production environment.
+Application Configuration Service Gen2 has much better performance comparing with Gen1, especially when you have a large number of configuration files, so it's the recommended version to use while Gen1 is finally going to get retired. The upgrade from Gen1 to Gen2 is zero downtime but we still recommend you to test in staging environment before moving to production environment.
+
+Please pay attention that Gen2 requires additional of configuration properties comparing with Gen1 when using SSH authentication, so you need to update the configuration properties in your application to make it work with Gen2. The following table shows the required properties for Gen2 when using SSH authentication.
+
+   | Property       |  Description |
+   |----------------|--------------|
+   | `Host key`                 | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+   | `Host key algorithm`       | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. |
 
 1. select **Settings** section, and select  **Gen 2** in the **Generation** dropdown.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png" alt-text="Screenshot of the Application Configuration Service page upgrade to generation 2." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png" alt-text="Screenshot of the Application Configuration Service page upgrade to Gen2." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2.png":::
 
 2. Select Validate to validate access to the target URI. After validation completes successfully, select Apply to update the configuration settings.
 
-:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Application Configuration Service page upgrade to generation 2 settings." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png":::
+:::image type="content" source="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png" alt-text="Screenshot of the Application Configuration Service page upgrade to Gen2 settings." lightbox="media/how-to-enterprise-application-configuration-service/config-server-upgrade-gen2-settings.png":::
 
 ## Polyglot support
 
@@ -186,6 +193,33 @@ az spring application-configuration-service git repo add \
     --patterns <patterns> \
     --uri <git-backend-uri> \
     --label <git-branch-name>
+```
+
+## Configure TLS certificate to access Git backend with self-signed certificate for Gen2
+
+This is an optional step. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
+You will need to upload the certificate to Azure Spring Apps first. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to configure TLS certificate:
+
+1. Navigate to your service resource, and then select **Application Configuration Service**.
+1. Select **Settings** and add or update a new entry in the **Repositories** section with the Git backend information.
+
+   :::image type="content" source="media/how-to-enterprise-application-configuration-service/ca-certificate.png" alt-text="Screenshot of the CA certificate in Application Configuration Service page showing the Settings tab." lightbox="media/how-to-enterprise-application-configuration-service/ca-certificate.png":::
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to to configure TLS certificate:
+
+```azurecli
+az spring application-configuration-service git repo add \
+    --name <entry-name> \
+    --patterns <patterns> \
+    --uri <git-backend-uri> \
+    --label <git-branch-name> \
+    --ca-cert-name <ca-certificate-name>
 ```
 
 ## Use Application Configuration Service for Tanzu with applications using the portal
