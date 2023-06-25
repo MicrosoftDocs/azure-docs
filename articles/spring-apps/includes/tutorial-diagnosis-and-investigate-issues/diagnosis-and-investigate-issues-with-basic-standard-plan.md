@@ -28,13 +28,13 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
    :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/create-dashboard-options.png" alt-text="Screenshot of the New dashboard options." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/create-dashboard-options.png":::
 
    > [!NOTE]
-   > You can also choose a template based on Application Insights here to quickly create a usable dashboard.
+   > You can also choose a template based on Application Insights here to quickly create an usable dashboard.
 
 1. Enter a name for the dashboard, and then select **Save**.
    This action opens the **Tile Gallery** page, from which you can select tiles, and an empty grid where you'll arrange the tiles.
 
 > [!NOTE]
-> You can allow others to view your dashboard, see more from [Share a Azure dashboard](../../../azure-portal/azure-portal-dashboard-share-access.md).
+> You can allow others to view your dashboard, see more from [Share an Azure dashboard](../../../azure-portal/azure-portal-dashboard-share-access.md).
 
 ## 3. Configure availability monitoring
 
@@ -210,33 +210,33 @@ This section provides the steps to customize your production application dashboa
 
 #### Add Server exceptions and Dependency failures chart
 
-1. Repeat with the previous section steps for the **Server exception** and Dependency failures metrics under the **Application Insights standard metrics** namespace, pin the **Server exceptions and Dependency failures** chart to the dashboard.
+Repeat with the previous section steps for the **Server exception** and Dependency failures metrics under the **Application Insights standard metrics** namespace, pin the **Server exceptions and Dependency failures** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal with pin exceptions and failures to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-exceptions-and-failures.png":::
+:::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal with pin exceptions and failures to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-exceptions-and-failures.png":::
 
 #### Add Failed request chart
 
-1. Repeat with the previous section steps for the **Failed requests** metric under the **Application Insights standard metrics** namespace, pin the **Failed request** chart to the dashboard.
+Repeat with the previous section steps for the **Failed requests** metric under the **Application Insights standard metrics** namespace, pin the **Failed request** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-failed-requests.png" alt-text="Screenshot of the Azure portal with pin failed requests to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-failed-requests.png":::
+:::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-failed-requests.png" alt-text="Screenshot of the Azure portal with pin failed requests to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-failed-requests.png":::
 
 #### Add Request count chart
 
-1. Repeat with the previous section steps for the **Server requests** metric under the **Application Insights standard metrics** namespace, pin the **Request count** chart to the dashboard.
+Repeat with the previous section steps for the **Server requests** metric under the **Application Insights standard metrics** namespace, pin the **Request count** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-server-requests.png" alt-text="Screenshot of the Azure portal with pin server requests to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-server-requests.png":::
+:::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-server-requests.png" alt-text="Screenshot of the Azure portal with pin server requests to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-server-requests.png":::
 
 #### Add Response time chart
 
-1. Repeat with the previous section steps for the **Server response time** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway**, pin the **Response time** chart to the dashboard.
+Repeat with the previous section steps for the **Server response time** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway**, pin the **Response time** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-response-time.png" alt-text="Screenshot of the Azure portal with pin response time to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-response-time.png":::
+:::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-response-time.png" alt-text="Screenshot of the Azure portal with pin response time to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-response-time.png":::
 
 #### Add Active MySQL connections chart
 
-1. Repeat with the previous section steps for the **hikaricp_connection_active** metric under the **Log-based metrics** namespace, pin the **Active MySQL connections** chart to the dashboard.
+Repeat with the previous section steps for the **hikaricp_connection_active** metric under the **Log-based metrics** namespace, pin the **Active MySQL connections** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-connection-active.png" alt-text="Screenshot of the Azure portal with pin active connection to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-connection-active.png":::
+:::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-connection-active.png" alt-text="Screenshot of the Azure portal with pin active connection to dashboard." lightbox="../../media/tutorial-diagnosis-and-investigate-issues/pin-chart-connection-active.png":::
 
 ### 5.3 View dashboard
 

@@ -18,7 +18,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-This article shows you how to diagnosis your production services and investigate production issues on Azure Spring Apps, we use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program, the following is a further explanation in conjunction with [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md).
+This article shows you how to custom your application monitor dashboard, diagnosis, and investigate production issues for the applications running in Azure Spring Apps, we use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program, the following is a further explanation in conjunction with [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md).
 [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) and [Application Insights](../azure-monitor/insights/insights-overview.md) are deeply integrated with Azure Spring Apps, 
 you can use Log Analytics diagnosis your application with variously log queries, and use Application Insights investigate production issues.
 
@@ -29,17 +29,17 @@ you can use Log Analytics diagnosis your application with variously log queries,
 
   1. Make sure that both the `Enable logs of Diagnostic settings` and `Application Insights` functions are enabled on the Azure Spring Apps instance.
 
-  1. Make sure that the applications that need to link to the database have activated the mysql profile through the environment variable:
-     - On the **Configuration** page, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, then select **Save**
+  1. Make sure that applications `customers-service`, `vets-service` and `visits-service` are all configured with a validated service connector linking to an Azure Database for MySQL instance.
 
-     :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="media/tutorial-diagnosis-and-investigate-issues/app-config-env.png":::
+  1. Make sure that the applications that need to link to the database have activated the mysql profile through the environment variable:
+     - On the **Configuration** page of app **customers-service**, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, then select **Save**
+
+       :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="media/tutorial-diagnosis-and-investigate-issues/app-config-env.png":::
 
      - Repeat the configuration steps of `customers-service` above to configure the following applications:
      
          - `vets-service`
          - `visits-service`
-
-  1. Make sure that applications `customers-service`, `vets-service` and `visits-service` are all configured with a validated service connector linking to a Azure Database for MySQL instance.
 
 [!INCLUDE [diagnosis-and-investigate-issues-with-basic-standard-plan](includes/tutorial-diagnosis-and-investigate-issues/diagnosis-and-investigate-issues-with-basic-standard-plan.md)]
 
@@ -111,6 +111,9 @@ This section demonstrates how to investigate specific request failures and perfo
 
 > [!div class="nextstepaction"]
 > [Set up a staging environment](../spring-apps/how-to-staging-environment.md)
+
+> [!div class="nextstepaction"]
+> [Custom DNS name](./tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Use TLS/SSL certificates](./how-to-use-tls-certificate.md)
