@@ -41,7 +41,6 @@ You must turn on System Logs and send to your Log Analytics before query logs fo
 1. In the **Logs** section, check "System Logs" category.
 1. In the **Destination details** section, check "Send to Log Analytics workspace", and choose yours accordingly.
 1. Select **Save** to update the setting.
-1. Restart the Gateway to take effect. See [Restart Gateway](#restart-gateway) section for restart steps.
 
 ### Check logs in Log Analytics
 
@@ -89,10 +88,7 @@ This section describe how to adjust log levels of VMware Spring Cloud Gateway an
 
 ## Restart Gateway
 
-In the case of some errors, a restart might help solve the issue. To restart using the Azure portal, use the following steps:
-1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** in the navigation pane.
-1. Select **Restart** in the top bar, and select **OK** to restart the Gateway.
+In the case of some errors, a restart might help solve the issue. See [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway#restart-spring-cloud-gateway) for detailed steps.
 
 ## Next steps
 
