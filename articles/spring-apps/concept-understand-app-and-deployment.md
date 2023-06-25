@@ -53,7 +53,7 @@ The following features/properties are defined on Deployment level, and will be e
 | Runtime</br>Version | Java 8/Java 11|
 
 ## Environment
-Azure Spring Apps mounts some readonly yaml files in the runtime environment that contain the Azure context of the deployment. The paths of these yaml files are:
+Azure Spring Apps mounts some readonly yaml files that contain the Azure context of a deployment to your deployed apps. The paths and contents of these yaml files are:
 
 `/etc/azure-spring-cloud/context/azure-spring-apps.yml`
 ```yaml
