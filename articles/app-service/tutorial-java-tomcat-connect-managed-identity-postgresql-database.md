@@ -215,17 +215,26 @@ AZURE_POSTGRESQL_CONNECTIONSTRING=$(az webapp config appsettings list --resource
 az webapp config appsettings set --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --settings 'CATALINA_OPTS=-DdbUrl="'"${AZURE_POSTGRESQL_CONNECTIONSTRING}"'&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"'
 ```
 
-## View sample web app
+## Test sample web app
 
-Run the following command to open the deployed web app in your browser.
+Run the following command to test the application.
+```bash
+WEBAPP_URL=$(az webapp show --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --query defaultHostName -o tsv)
+    
+# Create a list
+curl -X POST -H "Content-Type: application/json" -d '{"name": "list1","date": "2022-03-21T00:00:00","description": "Sample checklist"}' https://${WEBAPP_URL}/checklist
 
-```azurecli-interactive
-az webapp browse \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME
+# Create few items on the list 1
+curl -X POST -H "Content-Type: application/json" -d '{"description": "item 1"}' https://${WEBAPP_URL}/checklist/1/item
+curl -X POST -H "Content-Type: application/json" -d '{"description": "item 2"}' https://${WEBAPP_URL}/checklist/1/item
+curl -X POST -H "Content-Type: application/json" -d '{"description": "item 3"}' https://${WEBAPP_URL}/checklist/1/item
+
+# Get all lists
+curl https://${WEBAPP_URL}/checklist
+
+# Get list 1
+curl https://${WEBAPP_URL}/checklist/1
 ```
-
-Then go to the `/checklist` page to see the app response.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
