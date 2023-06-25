@@ -47,11 +47,11 @@ For example, when you restart your app, you can find the affected instances from
 
 When your app is restarted because of unplanned events, your Azure Spring Apps instance shows a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a potential loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
 
+From the Azure Home page, Select **Service Health** and then select **Resource Health**.
+
 :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the resource health pane.":::
 
-You can find the latest status, the root cause, and affected instances in the health history page.
-
-:::image type="content" source="media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png" lightbox="media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png" alt-text="Screenshot of Azure portal example logs for unplanned app lifecycle events.":::
+In **Health history**, you can find the latest status, the root cause, and affected instances.
 
 ### Monitor planned app lifecycle events
 
