@@ -28,16 +28,17 @@ If there are no entries in the list of attack paths, you can still test this fea
 1.	Import a mock vulnerable image to your Azure Container Registry:
 
     1.	Run the following command in Cloud Shell: 
-
+        ```
         ```az acr import --name $MYACR --source DCSPMtesting.azurecr.io/mdc-mock-0001 --image mdc-mock-0001```
-    1. if your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
+    
+    1. If your AKS isn't attached to your ACR, use the following Cloud Shell command line to point your AKS instance to pull images from the selected ACR:
         ```
         ```az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>````
 
 1. Allow work on a cluster:
     
-    1. Run the command: HTTP:
-  ```HTTP```az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>```
+    ```
+    ```az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>```
     
 1. Verify success by doing the following steps:
 
