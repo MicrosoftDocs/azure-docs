@@ -238,6 +238,6 @@ This section provides the steps to customize your production application dashboa
 
 ### 5.3 View dashboard
 
-1. Go to your private `PetClinic` dashboard page, edit your tiles with dashboard, edit the size of the tiles in your dashboard as needed to match the monitoring.
+Go to your private `PetClinic` dashboard page, edit your tiles with dashboard, edit the size of the tiles in your dashboard as needed to match the monitoring.
 
 :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/dashboard-page.png" alt-text="Screenshot of the Azure portal with dashboard.":::

@@ -79,15 +79,15 @@ This section demonstrates how to investigate specific request failures and perfo
 
 1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page, and select **Failures** in the left navigational menu.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-failures.png" alt-text="Screenshot of the Azure portal with failures.":::
+   :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/ai-failures.png" alt-text="Screenshot of the Azure portal with failures.":::
 
 1. Select the `PUT` request with the most failed requests, select **1 Samples** to drill into the details, and then select the suggested sample in the right panel.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal with failure suggested sample.":::
+   :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/ai-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal with failure suggested sample.":::
 
 1. On the **End-to-end transaction details** page, then you can view the full call stack strace in the right panel.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-e2e-exception.png" alt-text="Screenshot of the Azure portal with failure exception.":::
+   :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/ai-e2e-exception.png" alt-text="Screenshot of the Azure portal with failure exception.":::
 
 ### 7.2. Investigate request performance issues
 
@@ -95,15 +95,15 @@ This section demonstrates how to investigate specific request failures and perfo
 
 1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page, and select **Performance** in the left navigational menu.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-performance.png" alt-text="Screenshot of the Azure portal with performance.":::
+   :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/ai-performance.png" alt-text="Screenshot of the Azure portal with performance.":::
 
 1. Select the slowest `GET /api/gateway/owners/{ownerId}` request, select **3 Samples** to drill into the details, and then select the suggested sample in the right panel.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal with performance suggested sample.":::
+   :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/ai-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal with performance suggested sample.":::
 
 1. On the **End-to-end transaction details** page, then you can view the full call stack strace in the right panel, and you can see the processing logic that takes the longest.
 
-   :::image type="content" source="../../media/tutorial-diagnosis-and-investigate-issues/ai-e2e-performance.png" alt-text="Screenshot of the Azure portal with failure exception.":::
+   :::image type="content" source="media/tutorial-diagnosis-and-investigate-issues/ai-e2e-performance.png" alt-text="Screenshot of the Azure portal with failure exception.":::
 
 [!INCLUDE [clean-up-resources-portal](includes/tutorial-diagnosis-and-investigate-issues/clean-up-resources.md)]
 
