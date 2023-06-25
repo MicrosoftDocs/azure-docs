@@ -39,13 +39,13 @@ Updates in June include:
 
 June 25, 2023
 
-Private Endpoint support for is now available as part of the Malware Scanning public preview in Defender for Storage. This capability allows enabling Malware Scanning on storage accounts that are using private endpoints. No additional configuration is needed.
+Private Endpoint support is now available as part of the Malware Scanning public preview in Defender for Storage. This capability allows enabling Malware Scanning on storage accounts that are using private endpoints. No additional configuration is needed.
 
 [Malware Scanning (Preview)](defender-for-storage-malware-scan.md) in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real-time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. It is an agentless SaaS solution that allows simple setup at scale, with zero maintenance, and supports automating response at scale.
 
 Private endpoints provide secure connectivity to your Azure Storage services, effectively eliminating public internet exposure, and are considered a security best practice.
 
-For storage accounts with private endpoints that have Malware Scanning already enabled, you will need to disable and enable [the plan](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) with Malware Scanning for this to work.
+For storage accounts with private endpoints that have Malware Scanning already enabled, you will need to disable and [enable the plan with Malware Scanning](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
 
 Learn more about using [private endpoints](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) in [Defender for Storage](defender-for-storage-introduction.md) and how to secure your storage services further.
 
