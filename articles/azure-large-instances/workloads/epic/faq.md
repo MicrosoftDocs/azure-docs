@@ -79,7 +79,7 @@ In the dropdown menu you can look for the Epic key word and then "Azure Large In
 
 ## What resources are available to learn more?
 
-Customers and partners can find more information at Microsoft Learn: <Publishing Team to put Epic on ALI landing page link> 
+See [What is Azure for Large Instances?](../../what-is-azure-large-instances.md).
 
 ## Next steps
 
