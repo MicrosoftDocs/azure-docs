@@ -154,40 +154,66 @@ sections:
       - question: |
           What are the recommended resources, CPU and RAM; for 50 concurrent requests?
         answer: |
-          How many concurrent requests will a 4-core, 4-GB RAM handle? If we have to serve for example, 50 concurrent requests, how many Core and RAM is recommended?
+          How many concurrent requests will a 4-core, 8-GB RAM handle? If we have to serve for example, 50 concurrent requests, how many Core and RAM is recommended?
           
           At real-time, 8 with our latest `en-US`, so we recommend using more docker containers beyond six concurrent requests. Beyond 16 cores it becomes nonuniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
 
-          # [Speech to text](#tab/stt)
-         
-          | Container      | Minimum             | Recommended         |
-          |----------------|---------------------|---------------------|
-          | Speech to text | 2-core, 2-GB memory | 4-core, 4-GB memory |
-         
-          # [Custom Speech to text](#tab/cstt)
-         
-          | Container             | Minimum             | Recommended         |
-          |-----------------------|---------------------|---------------------|
-          | Custom Speech to text | 2-core, 2-GB memory | 4-core, 4-GB memory |
-         
-          # [Text to speech](#tab/tts)
-         
-          | Container      | Minimum             | Recommended         |
-          |----------------|---------------------|---------------------|
-          | Text to speech | 1-core, 2-GB memory | 2-core, 3-GB memory |
-         
-          # [Custom Text to speech](#tab/ctts)
-         
-          | Container             | Minimum             | Recommended         |
-          |-----------------------|---------------------|---------------------|
-          | Custom Text to speech | 1-core, 2-GB memory | 2-core, 3-GB memory |
-         
+          # [Speech-to-text](#tab/stt)
+
+          The following table describes the minimum and recommended allocation of resources
+          
+          | Container | Minimum | Recommended | Speech Model |
+          |-----------|---------|-------------|--------------|
+          | Speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory | +4 to 8 GB memory |
+          
+          > [!NOTE]
+          > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
+          > For example, speech to text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see above table).
+          > Also, the first run of either container might take longer because models are being paged into memory.
+          
+          # [Custom Speech-to-text](#tab/cstt)
+
+          The following table describes the minimum and recommended allocation of resources
+          
+          | Container | Minimum | Recommended | Speech Model |
+          |-----------|---------|-------------|--------------|
+          | Custom speech to text | 4 core, 4-GB memory | 8 core, 8-GB memory | +4 to 8 GB memory |
+          
+          > [!NOTE]
+          > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
+          > For example, speech to text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech models (see above table).
+          > Also, the first run of either container might take longer because models are being paged into memory.
+          
+          # [Neural Text-to-speech](#tab/tts)
+
+          The following table describes the minimum and recommended allocation of resources
+          
+          | Container | Minimum | Recommended |
+          |-----------|---------|-------------|
+          | Neural text to speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
+          
+          > [!NOTE]
+          > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
+          > Also, the first run of either container might take longer because models are being paged into memory.
+          
+          # [Speech language identification](#tab/lid)
+
+          The following table describes the minimum and recommended allocation of resources
+          
+          | Container | Minimum | Recommended |
+          |-----------|---------|-------------|
+          | Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |
+          
+          > [!NOTE]
+          > The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
+          > Also, the first run of either container might take longer because models are being paged into memory.
+
           ***
 
           - Each core must be at least 2.6 GHz or faster.
-          - For files, the throttling is in the Speech SDK, at 2x. The first 5 seconds of audio aren't throttled.
-          - The decoder is capable of doing about 2-3x real-time. For this, the overall CPU usage is close to two cores for a single recognition. That's why we don't recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real-time in an eight-core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `DECODER_MAX_COUNT=20`.
-          - For microphone, it is at 1x real-time. The overall usage should be at about one core for a single recognition.
+          - For files, the throttling will be in the Speech SDK, at 2x. The first 5 seconds of audio are not throttled.
+          - The decoder is capable of doing about 2-3x real-time. For this, the overall CPU usage will be close to two cores for a single recognition. That's why we do not recommend keeping more than two active connections, per container instance. The extreme side would be to put about 10 decoders at 2x real-time in an eight-core machine like `DS13_V2`. For the container version 1.3 and later, there's a param you could try setting `-e DECODER_MAX_COUNT=20`.
+          - For microphone, it will be at 1x real-time. The overall usage should be at about one core for a single recognition.
          
           Consider the total number of hours of audio you have. If the number is large, to improve reliability and availability, we suggest running more instances of containers, either on a single box or on multiple boxes, behind a load balancer. Orchestration could be done using Kubernetes (K8S) and Helm, or with Docker compose.
          
