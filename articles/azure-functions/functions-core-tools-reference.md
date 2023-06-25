@@ -135,7 +135,7 @@ func start
 | **`--cors-credentials`** | Allow cross-origin authenticated requests using cookies and the Authentication header. |
 | **`--dotnet-isolated-debug`** | When set to `true`, pauses the .NET worker process until a debugger is attached from the .NET isolated project being debugged. |
 | **`--enable-json-output`** | Emits console logs as JSON, when possible. |
-| **`--enableAuth`** | Enable full authentication handling pipeline. |
+| **`--enableAuth`** | Enable full authentication handling pipeline, with authorization requirements. |
 | **`--functions`** | A space-separated list of functions to load. |
 | **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). |
 | **`--no-build`** | Don't build the current project before running. For .NET class projects only. The default is `false`.  |
@@ -437,7 +437,7 @@ Installs Functions extensions in a non-C# class library project.
 
 When possible, you should instead use extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles).
 
-For C# class library and .NET isolated projects, instead use standard NuGet package installation methods, such as `dotnet add package`.
+For compiled C# projects (both in-process and isolated worker process), instead use standard NuGet package installation methods, such as `dotnet add package`.
 
 The `install` action supports the following options:
 
@@ -451,7 +451,7 @@ The `install` action supports the following options:
 | **`--source`** |  NuGet feed source when not using NuGet.org.|
 | **`--version`** |  Extension package version. |
 
-No action is taken when an extension bundle is defined in your host.json file.
+No action is taken when an extension bundle is defined in your host.json file. When you need to manually install extensions, you must first remove the bundle definition. For more information, see [Install extensions](functions-run-local.md#install-extensions).
 
 ## func extensions sync
 

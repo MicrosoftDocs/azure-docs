@@ -10,10 +10,12 @@ ms.workload: infrastructure-services
 ms.custom: template-quickstart, ignite-2022, devx-track-azurepowershell
 ---
 
-# Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell
+# QuickStart: Create and configure Azure DDoS IP Protection using Azure PowerShell
 
 Get started with Azure DDoS IP Protection by using Azure PowerShell.
-In this quickstart, you'll enable DDoS IP protection and link it to a public IP address utilizing PowerShell.
+In this QuickStart, you'll enable DDoS IP protection and link it to a public IP address utilizing PowerShell.
+
+:::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address.":::
 
 ## Prerequisites
 
