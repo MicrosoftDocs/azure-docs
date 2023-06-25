@@ -9,8 +9,8 @@ ms.author: dmwendia
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 05/09/2023
+ms.topic: sample
+ms.date: 06/23/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
