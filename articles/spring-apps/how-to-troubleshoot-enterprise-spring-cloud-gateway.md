@@ -88,7 +88,7 @@ This section describe how to adjust log levels of VMware Spring Cloud Gateway an
 
 ## Restart Gateway
 
-In the case of some errors, a restart might help solve the issue. See [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway#restart-spring-cloud-gateway) for detailed steps.
+In the case of some errors, a restart might help solve the issue. See [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-spring-cloud-gateway) for detailed steps.
 
 ## Next steps
 
