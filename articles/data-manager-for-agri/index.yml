@@ -59,6 +59,8 @@ landingContent:
             url: concepts-ingest-sensor-data.md
       - linkListType: how-to-guide
         links:
+          - text: Push and consume sensor data
+            url: how-to-set-up-sensor-as-customer-and-partner.md
           - text: Set up sensors as a partner
             url: how-to-set-up-sensors-partner.md
           - text: Set up sensors as a customer
@@ -69,6 +71,10 @@ landingContent:
         links:
           - text: Set up private links
             url: how-to-set-up-private-links.md
+      - linkListType: concept
+        links:
+          - text: Using your license keys
+            url: concepts-byol-and-credentials.md 
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
