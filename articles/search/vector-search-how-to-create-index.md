@@ -12,6 +12,9 @@ ms.date: 06/29/2023
 
 # Add vector fields to a search index
 
+> [!IMPORTANT]
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+
 In Azure Cognitive Search, vector data is represented in fields in a [search index](search-what-is-an-index.md). You can add vector fields to an existing index. You can use the push API to push content to the index.
 
 ## Prerequisites

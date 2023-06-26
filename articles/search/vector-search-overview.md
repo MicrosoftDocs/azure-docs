@@ -10,9 +10,10 @@ ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-<!-- Janusz, here's your doc from the repo.  I think it needs a simpler intro, similar to semantic search overivew, with sections for "how it works", scnearios, availability and pricing, but I don't want to lose content so if we can't think of how to offload anything, all content should stay here. -->
-
 # Vector search within Azure Cognitive Search
+
+> [!IMPORTANT]
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By understanding the intent of the query, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text.
 
@@ -86,10 +87,3 @@ Here's a simple explanation of the RRF process: 
 
 4. Rank documents based on combined scores: Finally, we sort the documents based on their combined scores, and the resulting list is the fused ranking.
 
-
-
-<!-- ## Next steps
-
-+ [Try the quickstart](search-get-started-vector.md) to learn the REST APIs and field definitions used in vector search
-+ [Try the Python](../demo-python/) or [JavaScript](../demo-javascript/) demos to generate embeddings from Azure OpenAI
-+ [Learn more about embeddings](vector-search-how-to.md) and how to use them in Cognitive Search  -->

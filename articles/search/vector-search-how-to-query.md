@@ -12,6 +12,9 @@ ms.date: 06/29/2023
 
 # Query vector data in a search index
 
+> [!IMPORTANT]
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+
 In Azure Cognitive Search, vector data is represented in fields in a [search index](search-what-is-an-index.md). If you added vector fields to a search index, this article explains how to query those fields, plus how to combine vector queries with full text search and semantic search for hybrid scenarios.
 
 ## Prerequisites

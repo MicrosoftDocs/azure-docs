@@ -12,6 +12,9 @@ ms.date: 06/29/2023
 
 # Chunking large documents for vector search solutions in Cognitive Search
 
+> [!IMPORTANT]
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+
 This article describes several approaches for chunking large documents so that you can generate embeddings for vector search.
 
 ## Why is chunking important?
