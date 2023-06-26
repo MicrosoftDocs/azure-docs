@@ -1,5 +1,5 @@
 ---
-title: Remediate anonymous public read access to blob data (classic deployments)
+title: Remediate anonymous read access to blob data (classic deployments)
 titleSuffix: Azure Storage
 description: Learn how to prevent anonymous requests against a classic storage account by disabling anonymous public access to containers.
 author: tamram
@@ -14,13 +14,13 @@ ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
-# Remediate anonymous public read access to blob data (classic deployments)
+# Remediate anonymous read access to blob data (classic deployments)
 
-Azure Blob Storage supports optional anonymous public read access to containers and blobs. However, anonymous access may present a security risk. We recommend that you disable anonymous access for optimal security. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
+Azure Blob Storage supports optional anonymous read access to containers and blobs. However, anonymous access may present a security risk. We recommend that you disable anonymous access for optimal security. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
 
 By default, public access to your blob data is always prohibited. However, the default configuration for a classic storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. To prevent public access to a classic storage account, you must configure each container in the account to block public access.
 
-If your storage account is using the classic deployment model, we recommend that you [migrate](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) to the Azure Resource Manager deployment model as soon as possible. After you migrate your account, you can configure it to disallow anonymous public access at the account level. For information about how to disallow anonymous public access for an Azure Resource Manager account, see [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
+If your storage account is using the classic deployment model, we recommend that you [migrate](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) to the Azure Resource Manager deployment model as soon as possible. After you migrate your account, you can configure it to disallow anonymous public access at the account level. For information about how to disallow anonymous public access for an Azure Resource Manager account, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
 If you cannot migrate your classic storage accounts at this time, then you should remediate public access to those accounts now by setting all containers to be private. This article describes how to remediate access to the containers in a classic storage account.
 
@@ -232,5 +232,5 @@ write-host "Script complete"
 
 ## See also
 
-- [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md)
-- [Remediate anonymous public read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
+- [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md)
+- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
