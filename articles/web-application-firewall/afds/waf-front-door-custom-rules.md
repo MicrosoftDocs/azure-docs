@@ -102,6 +102,7 @@ You can control access with a custom WAf rule that defines a priority number, a 
      - COPY
      - MOVE
      - PATCH
+     - CONNECT
 
 ## Examples
 
@@ -169,7 +170,7 @@ Here's an example JSON description of the custom rule:
 
 ### Size constraint
 
-Front Door's WAF enables you to build custom rules that apply a length or size constraint on a part of an incoming request.
+Front Door's WAF enables you to build custom rules that apply a length or size constraint on a part of an incoming request. This size constraint is measured in bytes.
 
 Suppose you need to block requests where the URL is longer than 100 characters.
 

@@ -3,7 +3,7 @@ title: Monitoring Azure Functions with Azure Monitor Logs
 description: Learn how to use Azure Monitor Logs with Azure Functions to monitor function executions.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 

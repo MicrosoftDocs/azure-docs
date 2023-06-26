@@ -19,7 +19,7 @@ Use this article to learn which natural languages are supported by document and 
 
 # [Document summarization](#tab/document-summarization)
 
-## Languages supported by extractive document summarization
+## Languages supported by extractive and abstractive document summarization
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
@@ -31,18 +31,11 @@ Use this article to learn which natural languages are supported by document and 
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
 | Spanish               | `es`          |                     |
-| Portuguese (Brazil)   | `pt-BR`       |                     |
-| Portuguese (Portugal) | `pt-PT`       |  `pt` also accepted |
+| Portuguese            | `pt`          |                     |
 
-## Languages supported by abstractive document summarization (preview)
+# [Conversation summarization](#tab/conversation-summarization)
 
-| Language              | Language code |      Notes          |
-|-----------------------|---------------|---------------------|
-| English               | `en`          |                     |
-
-# [Conversation summarization (preview)](#tab/conversation-summarization)
-
-## Languages supported by conversation summarization (preview)
+## Languages supported by conversation summarization
 
 Conversation summarization supports the following languages:
 
@@ -51,6 +44,14 @@ Conversation summarization supports the following languages:
 | English               | `en`          |                     |
 
 ---
+
+## Languages supported by custom summarization
+
+Custom summarization supports the following languages:
+
+| Language              | Language code |      Notes          |
+|-----------------------|---------------|---------------------|
+| English               | `en`          |                     |
 
 ## Next steps
 

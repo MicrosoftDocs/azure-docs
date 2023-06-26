@@ -263,7 +263,7 @@ The IPsec policy requires all HTTP connections on the destination port 8080 to u
 
    [![49]][49]
 2. To assign the security group policy to the OU **IPSecOU**, right-click the security policy and chose **Assign**.
-   Every computer tht belongs to the OU will have the security group policy assigned.
+   Every computer that belongs to the OU will have the security group policy assigned.
 
    [![50]][50]
 

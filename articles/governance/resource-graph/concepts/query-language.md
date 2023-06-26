@@ -3,8 +3,8 @@ title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
 ms.date: 06/15/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -244,9 +244,11 @@ Example: Get all policy assignments at the **myMG** management group and Tenant 
 
   ```json
   {
-      "authorizationScopeFilter": "AtScopeAndAbove",
-      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
-      "managementGroups": ["myMG"]
+    "options": {
+      "authorizationScopeFilter": "AtScopeAndAbove"
+    },
+    "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+    "managementGroups": ["myMG"]
   }
   ```
 
@@ -261,9 +263,11 @@ Example: Get all policy assignments at the **mySubscriptionId** subscription, ma
 
   ```json
   {
-      "authorizationScopeFilter": "AtScopeAndAbove",
-      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
-      "subscriptions": ["mySubscriptionId"]
+    "options": {
+      "authorizationScopeFilter": "AtScopeAndAbove"
+    },
+    "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+    "subscriptions": ["mySubscriptionId"]
   }
   ```
 

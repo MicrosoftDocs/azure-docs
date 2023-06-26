@@ -49,7 +49,7 @@ Microsoft will send a notification if there's an outage for the Azure Image Buil
 
 Customers are responsible for setting up disaster recovery for their Azure Image Builder (AIB) environment, as there isn't a region failover at the AIB service side. Both the control plane (service side) and data plane will need to configure by the customer.
 
-The high level guidelines include creating a AIB resource in another region close by and replicating your resources. For more information, see the [supported regions](./image-builder-overview.md#regions) and what resources are involved in [AIB]( /azure/virtual-machines/image-builder-overviewl#how-it-works) creation.
+The high level guidelines include creating a AIB resource in another region close by and replicating your resources. For more information, see the [supported regions](./image-builder-overview.md#regions) and what resources are involved in [AIB]( /azure/virtual-machines/image-builder-overview#how-it-works) creation.
 
 ### Single-region geography disaster recovery
 

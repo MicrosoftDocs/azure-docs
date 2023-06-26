@@ -21,7 +21,7 @@ Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential conta
 
 An [open sourced GitHub project "confidential side-cars"](https://github.com/microsoft/confidential-sidecar-containers) details how to build this container and what parameters/environment variables are required for you to prepare and run this side-car container. The current side car implementation provides various HTTP REST APIs that your primary application container can use to fetch the key from AKV. The integration through Microsoft Azure Attestation(MAA) is already built in. The preparation steps to run the side-car SKR container can be found in details [here](https://github.com/microsoft/confidential-sidecar-containers/tree/main/examples/skr).
 
-Your main application container application can call the side-car WEB API end points as defined in the example blow. Side-cars runs within the same container group and is a local endpoint to your application container. Full details of the API can be found [here](https://github.com/microsoft/confidential-sidecar-containers/blob/main/cmd/skr/README.md)
+Your main application container application can call the side-car WEB API end points as defined in the example below. Side-cars runs within the same container group and is a local endpoint to your application container. Full details of the API can be found [here](https://github.com/microsoft/confidential-sidecar-containers/blob/main/cmd/skr/README.md)
  
 The `key/release` POST method expects a JSON of the following format:
 
@@ -52,7 +52,7 @@ Upon error, the `key/release` POST method response carries a `StatusForbidden` h
 
 ## Custom implementation with your container application
 
-To perform a custom container application that extends the capability of Azure Key Vault (AKV) - Secure Key Release and Microsoft Azure Attestation (MAA), use the below as a high level reference flow. An easy approach is to review the current side-car implementation code in this [side-car Github project](https://github.com/microsoft/confidential-sidecar-containers/tree/d933d0f4e3d5498f7ed9137189ab6a23ade15466/pkg/common).
+To perform a custom container application that extends the capability of Azure Key Vault (AKV) - Secure Key Release and Microsoft Azure Attestation (MAA), use the below as a high level reference flow. An easy approach is to review the current side-car implementation code in this [side-car GitHub project](https://github.com/microsoft/confidential-sidecar-containers/tree/d933d0f4e3d5498f7ed9137189ab6a23ade15466/pkg/common).
 
 ![Image of the aforementioned operations, which you should be performing.](media/skr-flow-azure-container-instance-sev-snp-attestation/skr-flow-custom-container.png)
 

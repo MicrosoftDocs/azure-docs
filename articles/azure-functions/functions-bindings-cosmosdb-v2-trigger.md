@@ -2,9 +2,9 @@
 title: Azure Cosmos DB trigger for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 ms.topic: reference
-ms.date: 03/03/2023
+ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -13,6 +13,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 The Azure Cosmos DB Trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes new and updated items, not including updates from deletions.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
+
+Cosmos DB scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
@@ -135,11 +137,15 @@ namespace CosmosDBSamplesV2
 
 The following code defines a `MyDocument` type:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="40-49":::
 
-This document type is the type of the [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) used as the Azure Cosmos DB trigger binding parameter in the following example:
+An [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) is used as the Azure Cosmos DB trigger binding parameter in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example":::
+
+This example requires the following `using` statements:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-7":::
 
 
 # [Extension 4.x+](#tab/extensionv4/isolated-process)
@@ -372,7 +378,7 @@ For Python v2 functions defined using a decorator, the following properties on t
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
 |`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure CosmosDB collection being monitored. |
+|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
 |`connection` | The connection string of the Azure Cosmos DB being monitored. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.

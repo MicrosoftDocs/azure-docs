@@ -14,21 +14,14 @@ ms.service: azure-asm
 Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). ARM provides a management layer that enables you to create, update, and delete resources in your Azure account. You can use management features like access control, locks, and tags to secure and organize your resources after deployment.
 
 ## Benefits of migrating to ARM 
-Migrating from the classic resource model to ARM offers several benefits, including:  
+Migrating from the classic resource model to ARM offers several benefits, including: 
 
-- Manage your infrastructure through declarative templates rather than scripts. 
+- **Simplified management**: ARM provides a [unified platform](https://learn.microsoft.com/azure/azure-resource-manager/management/overview) for managing and deploying resources, allowing for easier provisioning, monitoring, and updating of infrastructure components.
+- **Improved security**: ARM incorporates robust security features, such as [role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview) and [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), to help protect resources and provide automatic credential management
+- **High Availability and Resiliency**: [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview) allow customers to run mission-critical applications with higher availability and fault tolerance to datacenter failures
+- **High Scalability**: ARM enables [automatic scaling](https://learn.microsoft.com/azure/well-architected/scalability/design-scale) of resources based on demand, ensuring applications can handle increased workloads efficiently.
+- **Cost optimization**: ARM provides features like [cost management](https://learn.microsoft.com/azure/cost-management-billing/) and [resource tagging](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources), enabling better visibility and control over resource usage, leading to cost optimization and efficient resource allocation.
 
-- Deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually. 
-
-- Redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state. 
-
-- Define the dependencies between resources so they're deployed in the correct order. 
-
-- Apply access control to all services because Azure role-based access control (Azure RBAC) is natively integrated into the management platform. 
-
-- Apply tags to resources to logically organize all the resources in your subscription. 
-
-- Clarify your organization's billing by viewing costs for a group of resources sharing the same tag. 
 
 There are many service-related benefits which can be found in the migration guides. 
 
@@ -50,7 +43,7 @@ Below is a list of classic resources being retired, their retirement dates, and 
 |[Integration Services Environment](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/) | Aug 24 |[Migrate Integration Services Environment to ARM](/azure/logic-apps/export-from-ise-to-standard-logic-app?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |[Microsoft HPC Pack](/powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |Aug 24| [Migrate Microsoft HPC Pack to ARM](/powershell/high-performance-computing/burst-to-cloud-services-retirement-guide)|
 |[Virtual WAN](/azure/virtual-wan/virtual-wan-faq#update-router?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) | Aug 24 | [Migrate Virtual WAN to ARM](/azure/virtual-wan/virtual-wan-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#update-router) |
-|[Classic Storage](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/) | Aug 24 | [Migrate Classic Storage to ARM](/azure/storage/common/storage-account-migrate-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|[Classic Storage](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/) | Aug 24 | [Migrate Classic Storage to ARM](/azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |[Classic Virtual Network](https://azure.microsoft.com/updates/five-azure-classic-networking-services-will-be-retired-on-31-august-2024/) | Aug 24 | [Migrate Classic Virtual Network to ARM]( /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |[Classic Application Gateway](https://azure.microsoft.com/updates/five-azure-classic-networking-services-will-be-retired-on-31-august-2024/) | Aug 24 | [Migrate Classic Application Gateway to ARM](/azure/application-gateway/classic-to-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |[Classic Reserved IP addresses](https://azure.microsoft.com/updates/five-azure-classic-networking-services-will-be-retired-on-31-august-2024/) |Aug 24| [Migrate Classic Reserved IP addresses to ARM](/azure/virtual-network/ip-services/public-ip-upgrade-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|

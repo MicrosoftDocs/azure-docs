@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 04/19/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
-ms.custom: contperf-fy21q2, contperf-fy22q2
+ms.custom: contperf-fy21q2, contperf-fy22q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
 
 
@@ -26,12 +26,14 @@ Before an application can access your organization's data, a user must grant the
 
 To reduce the risk of malicious applications attempting to trick users into granting them access to your organization's data, we recommend that you allow user consent only for applications that have been published by a [verified publisher](../develop/publisher-verification-overview.md).
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure user consent, you need:
 
 - A user account. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Global Administrator or Privileged Administrator role.
+- A Global Administrator role.
 
 ## Configure user consent settings
 

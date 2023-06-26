@@ -66,7 +66,7 @@ az container show \
 
 Example output:
 
-```bash
+```output
 "Terminated"
 ```
 
@@ -78,7 +78,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 Output:
 
-```bash
+```output
 [('the', 990),
  ('and', 702),
  ('of', 628),

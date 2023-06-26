@@ -100,7 +100,7 @@ kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"
 
 The following example output shows the three nodes distributed across the specified region and availability zones, such as *eastus2-1* for the first availability zone and *eastus2-2* for the second availability zone:
 
-```console
+```output
 Name:       aks-nodepool1-28993262-vmss000000
             topology.kubernetes.io/zone=eastus2-1
 Name:       aks-nodepool1-28993262-vmss000001
@@ -113,13 +113,13 @@ As you add more nodes to an agent pool, the Azure platform automatically distrib
 
 With Kubernetes versions 1.17.0 and later, AKS uses the newer label `topology.kubernetes.io/zone` and the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result from running the `kubelet describe nodes` command in the previous step, by running the following script:
 
- ```console
+ ```bash
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
 ```
 
 The following example resembles the output with more verbose details:
 
-```console
+```output
 NAME                                REGION   ZONE
 aks-nodepool1-34917322-vmss000000   eastus   eastus-1
 aks-nodepool1-34917322-vmss000001   eastus   eastus-2
@@ -139,7 +139,7 @@ az aks scale \
 
 When the scale operation completes after a few minutes, run the command `kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"` in a Bash shell. The following output resembles the results:
 
-```console
+```output
 Name:       aks-nodepool1-28993262-vmss000000
             topology.kubernetes.io/zone=eastus2-1
 Name:       aks-nodepool1-28993262-vmss000001
@@ -161,7 +161,7 @@ kubectl scale deployment nginx --replicas=3
 
 By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in a Bash shell, you see the following example output:
 
-```console
+```output
 Name:         nginx-6db489d4b7-ktdwg
 Node:         aks-nodepool1-28993262-vmss000000/10.240.0.4
 Name:         nginx-6db489d4b7-v7zvj

@@ -7,10 +7,9 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 03/03/2023
+  ms.date: 06/23/2023
   ms.author: lajanuar
   monikerRange: '>=form-recog-2.1.0'
-  recommendations: false
 
 title: Form Recognizer frequently asked questions
 summary: |
@@ -34,7 +33,7 @@ sections:
 
           Give careful consideration to document processing projects that encompass financial, protected health, personal identity, or highly sensitive data.
 
-          Make certain to comply with all [national, regional, and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+          Make certain to comply with all [national/regional and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
           Learn more about [use case considerations](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#considerations-when-choosing-other-use-cases).
 
@@ -86,7 +85,7 @@ sections:
 
           Models have the same lifecycle as the API version used to train the model. Custom models trained with a generally available (GA) version of the API have the same lifecycle as the API version. When the API version is deprecated, the model is no longer available for inference. Models trained with a preview version of the API also have the same lifecycle as the preview API. 
           
-          Expect that preview APIs will be deprecated within three months of an updated preview API version or newer generally available API version.
+          Expect preview API deprecation within three months of an updated preview API version or newer generally available API version.
           
       - question: |
            What is the accuracy score and how is it calculated?
@@ -168,7 +167,7 @@ sections:
 
           - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
-          - [Java](https://oss.sonatype.org/#nexus-search;quick-azure-ai-formrecognizer)
+          - [Java](https://oss.sonatype.org/#nexus-search; quick-azure-ai-formrecognizer)
 
           - [JavaScript/TypeScript](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 
@@ -187,7 +186,7 @@ sections:
             | JavaScript | [4.0.0](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)|[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
             | Python | [3.2.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) |[**v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [**v2.1**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[**v2.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |
 
-           For more information, *see* [**Supported clients**](sdk-overview.md#supported-clients)
+           For more information, *see* [Supported clients](sdk-overview.md#supported-clients)
 
 
       - question: |
@@ -372,7 +371,7 @@ sections:
       - question: |
             I'm building a custom model, what does the signature-detection label return?
         answer: |
-            [Signature detection](quickstarts/try-v3-form-recognizer-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
+            [Signature detection](quickstarts/try-form-recognizer-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
 
             If the model returns "unsigned" for signature detection, the model didn’t find a signature in the defined field.
 
@@ -387,7 +386,7 @@ sections:
 
              - Do your tables span across multiple pages? If so, to avoid having to label all of the pages, split the PDF into pages prior to sending it to Form Recognizer. Following the analysis, post-process the pages to a single table.
 
-             - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
+             - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-form-recognizer-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
 
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?
@@ -465,7 +464,7 @@ sections:
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
       - question: |
-           I received an "OutOfQuota" error message: "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota'. API key is out of quota".
+           I received an "OutOfQuota" error message: *Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota' API key is out of quota*.
         answer: |
 
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You could get this message if the containers can't communicate with the billing endpoint.

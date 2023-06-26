@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -58,7 +57,7 @@ You need an Azure subscription ([create one for free](https://azure.microsoft.co
 
 > [!NOTE]
 >
-> If your storage data is behind a VNet or firewall, you must deploy the **Form Recognizer Sample Labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identity-byos.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
+> If your storage data is behind a VNet or firewall, you must deploy the **Form Recognizer Sample Labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identities.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
 
 You use the Docker engine to run the Sample Labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
@@ -281,7 +280,7 @@ With Model Compose, you can compose up to 200 models to a single model ID. When 
 
 ## Analyze a form
 
-Select the Analyze icon from the navigation bar to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
+Select the Analyze icon from the navigation bar to test your model. Select source *Local file*. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot: analyze-a-custom-form window":::
 

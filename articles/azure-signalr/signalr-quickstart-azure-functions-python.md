@@ -84,7 +84,7 @@ You can use this sample function as a template for your own functions.
       {
         "type": "http",
         "direction": "out",
-        "name": "$result"
+        "name": "$return"
       }
     ]
   }
@@ -92,7 +92,7 @@ You can use this sample function as a template for your own functions.
 
 1. Edit *index/\__init\__.py* and replace the contents with the following code:
 
-  ```javascript
+  ```python
   import os
 
   import azure.functions as func
@@ -100,7 +100,7 @@ You can use this sample function as a template for your own functions.
   def main(req: func.HttpRequest) -> func.HttpResponse:
       f = open(os.path.dirname(os.path.realpath(__file__)) + '/../content/index.html')
       return func.HttpResponse(f.read(), mimetype='text/html')
-        ```
+  ```
 
 ### Create the negotiate function
 

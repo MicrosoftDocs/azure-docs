@@ -1,9 +1,9 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed by users in your tenant.
-ms.date: 11/28/2022
+ms.date: 05/04/2023
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -347,7 +347,7 @@ If you are unable to successfully onboard your customer, or if your users have t
 - The `managedbyTenantId` value must not be the same as the tenant ID for the subscription being onboarded.
 - You can't have multiple assignments at the same scope with the same `mspOfferName`.
 - The **Microsoft.ManagedServices** resource provider must be registered for the delegated subscription. This should happen automatically during the deployment but if not, you can [register it manually](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
-- Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in role or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
+- Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) role, any roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions), or any roles that include [restricted actions](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
 - Groups must be created with [**Group type**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) set to **Security** and not **Microsoft 365**.
 - If access was granted to a group, check to make sure the user is a member of that group. If they aren't, you can [add them to the group using Azure AD](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md), without having to perform another deployment. Note that [group owners](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) are not necessarily members of the groups they manage, and may need to be added in order to have access.
 - There may be an additional delay before access is enabled for [nested groups](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).

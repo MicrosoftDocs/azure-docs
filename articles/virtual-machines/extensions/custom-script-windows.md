@@ -54,6 +54,7 @@ If your script is on a local server, you might still need to open other firewall
 
 ### Tips
 
+- Output is limited to the last 4,096 bytes.
 - The highest failure rate for this extension is due to syntax errors in the script. Verify that the script runs without errors. Put more logging into the script to make it easier to find failures.
 - Write scripts that are idempotent, so that running them more than once accidentally doesn't cause system changes.
 - Ensure that the scripts don't require user input when they run.
@@ -265,7 +266,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### Running a custom script more than once by using the CLI
 
-The Custom Script Extension handler prevents rerunning a script if the *exact* same settings have been passed. This behavior prevents accidental rerunning, which might cause unexpected behaviors if the script isn't idempotent. To confirm whether the handler blocked the rerunning, look at *C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log*. Searching for a warning like this one:
+The Custom Script Extension handler prevents rerunning a script if the *exact* same settings have been passed. This behavior prevents accidental rerunning, which might cause unexpected behaviors if the script isn't idempotent. To confirm whether the handler blocked the rerunning, look at ```C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log*```. Searching for a warning like this one:
 
 ```output
 Current sequence number, <SequenceNumber>, is not greater than the sequence number

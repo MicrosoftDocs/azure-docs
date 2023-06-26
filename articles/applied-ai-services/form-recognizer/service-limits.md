@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Form Recognizer service quotas and limits
@@ -34,7 +33,7 @@ This article contains both a quick reference and detailed description of Azure F
 >
 > * [**Form Recognizer SDKs**](quickstarts/get-started-sdks-rest-api.md)
 > * [**Form Recognizer REST API**](quickstarts/get-started-sdks-rest-api.md)
-> * [**Form Recognizer Studio v3.0**](quickstarts/try-v3-form-recognizer-studio.md)
+> * [**Form Recognizer Studio v3.0**](quickstarts/try-form-recognizer-studio.md)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
@@ -87,7 +86,7 @@ This article contains both a quick reference and detailed description of Azure F
 | Adjustable | No | No |
 | **Max number of pages (Training) * Neural** | 50,000 | 50,000 (default value) |
 | Adjustable | No | No |
-| **Custom neural model train** | 10 per month | 10 per month |
+| **Custom neural model train** | 10 per month | 20 per month |
 | Adjustable | No |Yes <sup>3</sup>|
 | **Max number of pages (Training) * Classifier** | 10,000 | 10,000 (default value) |
 | Adjustable | No | No |
@@ -120,7 +119,7 @@ This article contains both a quick reference and detailed description of Azure F
 
 > <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 > <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
-> <sup>3</sup> Open a support request to increase the monthly training limit.
+> <sup>3</sup> Neural models training count is reset every calendar month. Open a support request to increase the monthly training limit.
 ::: moniker-end
 ::: moniker range="form-recog-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
@@ -174,7 +173,7 @@ Initiate the increase of transactions per second(TPS) limit for your resource by
 * Go to [Azure portal](https://portal.azure.com/)
 * Select the Form Recognizer Resource for which you would like to increase the TPS limit
 * Select *New support request* (*Support + troubleshooting* group)
-* A new window appears with auto-populated information about your Azure Subscription and Azure Resource
+* A new window appears with autopopulated information about your Azure Subscription and Azure Resource
 * Enter *Summary* (like "Increase Form Recognizer TPS limit")
 * In Problem type,* select "Quota or usage validation"
 * Select *Next: Solutions*
@@ -188,7 +187,7 @@ Initiate the increase of transactions per second(TPS) limit for your resource by
 
 ## Example of a workload pattern best practice
 
-This example presents the approach we recommend following to mitigate possible request throttling due to [Autoscaling being in progress](#detailed-description-quota-adjustment-and-best-practices). It isn't an "exact recipe", but merely a template we invite to follow and adjust as necessary.
+This example presents the approach we recommend following to mitigate possible request throttling due to [Autoscaling being in progress](#detailed-description-quota-adjustment-and-best-practices). It isn't an *exact recipe*, but merely a template we invite to follow and adjust as necessary.
 
  Let us suppose that a Form Recognizer resource has the default limit set. Start the workload to submit your analyze requests. If you find that you're seeing frequent throttling with response code 429, start by implementing an exponential backoff on the GET analyze response request. By using a progressively longer wait time between retries for consecutive error responses, for example a  2-5-13-34 pattern of delays between requests. In general, it's recommended to not call the get analyze response more than once every 2 seconds for a corresponding POST request.
 

@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/07/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
 ms.devlang: azurecli
 ---
 
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
 
 This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Apps.
 
@@ -181,7 +181,7 @@ You can find **Backtrace** from **Databases/Details/Backtrace**:
 
 ## View Dynatrace OneAgent logs
 
-By default, Azure Spring Apps will print the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs will be mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the Dynatrace agent from the following locations:
 
@@ -189,17 +189,17 @@ You can also get the logs of the Dynatrace agent from the following locations:
 * Azure Spring Apps Application Insights
 * Azure Spring Apps LogStream
 
-You can apply some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs.
+You can apply some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs. The default value for `DT_LOGLEVELCON` is `info`. You can disable the logs of the agent by setting `DT_LOGLEVELCON` to `off`. If logging is disabled, Dynatrace support requests that you first enable logging to diagnose any agent issues effectively. You must then restart the app, which is necessary for the change to take effect. For other log levels, consult the Dynatrace support team.
 
 > [!CAUTION]
-> We strongly recommend that you do not override the default logging behavior provided by Azure Spring Apps for Dynatrace. If you do, the logging scenarios above will be blocked, and the log file(s) may be lost. For example, you should not output the `DT_LOGLEVELFILE` environment variable to your applications.
+> We strongly recommend that you don't override the default logging behavior provided by Azure Spring Apps for Dynatrace. If you do, the logging scenarios previously described are blocked, and the log file(s) may be lost. For example, you shouldn't output the `DT_LOGLEVELFILE` environment variable to your applications.
 
 ## Dynatrace OneAgent upgrade
 
-The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
+The Dynatrace OneAgent auto-upgrade is disabled and is upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
 
-* Existing applications using Dynatrace OneAgent before upgrade will be unchanged, but will require restart or redeploy to engage the new version of Dynatrace OneAgent.
-* Applications created after upgrade will use the new version of Dynatrace OneAgent.
+* Existing applications using Dynatrace OneAgent before upgrade are unchanged, but require restart or redeploy to engage the new version of Dynatrace OneAgent.
+* Applications created after upgrade use the new version of Dynatrace OneAgent.
 
 ## Virtual network injection instance outbound traffic configuration
 
@@ -211,4 +211,4 @@ For information about limitations when deploying Dynatrace OneAgent in applicati
 
 ## Next steps
 
-* [Use distributed tracing with Azure Spring Apps](how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)

@@ -48,4 +48,10 @@ Platform and Tenant updates acknowledged by Service Fabric are performed by the 
 All Tenant update operations in a Service Fabric cluster are approved only if determined to be safe by Service Fabric. Updates are blocked when Service Fabric can't ensure if the operations are safe. While this generally removes the need for customers to worry about if a given operation is safe or not, it's advised performing operations after understanding their impact. 
 
 ### I want to bypass Infrastructure Service and perform operations on my cluster. How do I do that?
-Bypassing Infrastructure Service for any infrastructure updates is a risky operation and isn't recommended. Engage [Service Fabric support](service-fabric-support.md) experts before deciding to perform these steps.
+Bypassing Infrastructure Service for any infrastructure updates is a risky operation and can result in stuck updates if the safety checks block the repairs from getting approved.
+In certain scenarios, if the default throttling is blocking other updates due to the existing ones not making progress, customers can opt to manually allow more updates. This can be done via the following command, after connecting to the SF cluster:
+```powershell
+   Invoke-ServiceFabricInfrastructureCommand -ServiceName "fabric:/System/InfrastructureService/<nodetype name>" -Command AllowAction:<MR_Jobid_Guid>:*:Prepare
+```
+MR_Jobid_Guid used above can be found under the "Infrastructure Jobs" tab at the root of the Service Fabric Explorer, as the JobId of the pending update.
+Engage [Service Fabric support](service-fabric-support.md) experts if the above doesn't help.

@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 08/20/2022
 ---
 
@@ -54,7 +55,7 @@ These samples show how to create and deploy logic apps by using Azure Resource M
 
 ### Install PowerShell modules
 
-1. If you haven't already, install [Azure PowerShell](/powershell/azure/install-az-ps).
+1. If you haven't already, install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 1. For the easiest way to install the LogicAppTemplate module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate), run this command:
 

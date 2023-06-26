@@ -11,9 +11,9 @@ ms.custom: devx-track-java
 
 # Enable redundancy and disaster recovery for Azure Spring Apps
 
-**Zone redundancy applies to:** ✔️ Standard tier ✔️ Enterprise tier
+**Zone redundancy applies to:** ✔️ Standard ✔️ Enterprise
 
-**Customer-managed disaster recovery applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**Customer-managed disaster recovery applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes the resiliency strategy for Azure Spring Apps and explains how to configure zone redundancy and customer-managed geo-disaster recovery.
 
@@ -53,7 +53,7 @@ Azure Spring Apps currently supports availability zones in the following regions
 
 The following limitations apply when you create an Azure Spring Apps Service instance with zone redundancy enabled:
 
-- Zone redundancy isn't available in basic tier.
+- Zone redundancy isn't available in the Basic plan.
 - You can enable zone redundancy only when you create a new Azure Spring Apps Service instance.
 - If you enable your own resource in Azure Spring Apps, such as your own persistent storage, make sure to enable zone redundancy for the resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
 - Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but doesn't guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app on a node in another availability zone.
@@ -110,7 +110,7 @@ To verify the zone redundancy property of an Azure Spring Apps instance using th
 
 ## Pricing
 
-There's no extra cost associated with enabling zone redundancy. You only need to pay for Standard or Enterprise tier, which is required to enable zone redundancy.
+There's no extra cost associated with enabling zone redundancy. You only need to pay for the Standard or Enterprise plan, which is required to enable zone redundancy.
 
 ## Customer-managed geo-disaster recovery
 

@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 11/07/2022
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Use the client libraries or REST APIs to customize your solution

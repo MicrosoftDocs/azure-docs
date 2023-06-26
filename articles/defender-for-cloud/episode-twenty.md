@@ -3,12 +3,12 @@ title: Cloud security explorer and attack path analysis | Defender for Cloud in 
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about cloud security explorer and attack path analysis.
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # Cloud security explorer and attack path analysis | Defender for Cloud in the Field
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Tal Rosler joins Yuri Diogenes to talk about cloud security explorer and attack path analysis, two new capabilities in Defender for CSPM that were released at Ignite. The talk explains the rationale behind creating these features and how to use these features to prioritize what is more important to keep your environment more secure. Tal also demonstrates how to use these capabilities to quickly identify vulnerabilities and misconfigurations in cloud workloads.
+**Episode description**: In this episode of Defender for Cloud in the Field, Tal Rosler joins Yuri Diogenes to talk about cloud security explorer and attack path analysis, two new capabilities in Defender CSPM that were released at Ignite. The talk explains the rationale behind creating these features and how to use these features to prioritize what is more important to keep your environment more secure. Tal also demonstrates how to use these capabilities to quickly identify vulnerabilities and misconfigurations in cloud workloads.
 <br>
 <br>
 <iframe src="https://aka.ms/docs/player?id=ce442350-7fab-40c0-b934-d93027b00853" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>

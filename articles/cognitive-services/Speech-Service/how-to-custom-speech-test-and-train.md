@@ -71,7 +71,7 @@ To help determine which dataset to use to address your problems, refer to the fo
 You can use audio + human-labeled transcript data for both [training](how-to-custom-speech-train-model.md) and [testing](how-to-custom-speech-evaluate-data.md) purposes. You must provide human-labeled transcriptions (word by word) for comparison:
 
 - To improve the acoustic aspects like slight accents, speaking styles, and background noises.
-- To measure the accuracy of Microsoft's speech-to-text accuracy when it's processing your audio files. 
+- To measure the accuracy of Microsoft's speech to text accuracy when it's processing your audio files. 
 
 For a list of base models that support training with audio data, see [Language support](language-support.md?tabs=stt). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
 
@@ -236,7 +236,7 @@ Refer to the following table to ensure that your pronunciation dataset files are
 
 ### Audio data for training or testing
 
-Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind that audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
+Audio data is optimal for testing the accuracy of Microsoft's baseline speech to text model or a custom model. Keep in mind that audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).
 
 > [!NOTE]
 > Audio only data for training is available in preview for the `en-US` locale. For other locales, to train with audio data you must also provide [human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing).

@@ -10,6 +10,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/08/2023
 ms.custom: data4ml, ignite-fall-2021
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Set up a text labeling project and export labels
@@ -230,6 +231,21 @@ View and change details of your project. On this tab, you can:
 * Edit instructions you give to your labels.
 * Change settings for ML-assisted labeling and kick off a labeling task.
 
+### Language Studio tab
+
+If your project was created from [Language Studio](../cognitive-services/language-service/custom/azure-machine-learning-labeling.md), you'll also see a **Language Studio** tab.  
+
+* If labeling is active in Language Studio, you can't also label in Azure Machine Learning.  In that case, Language Studio is the only tab available.  Select **View in Language Studio** to go to the active labeling project in Language Studio.  From there, you can switch to labeling in Azure Machine Learning if you wish.
+
+If labeling is active in Azure Machine Learning, you have two choices:
+
+* Select **Switch to Language Studio** to switch your labeling activity back to Language Studio.  When you switch, all your currently labeled data is imported into Language Studio.  Your ability to label data in Azure Machine Learning is disabled, and you can label data in Language Studio. You can switch back to labeling in Azure Machine Learning at any time through Language Studio.
+
+    > [!NOTE] 
+    > Only users with the [correct roles](how-to-add-users.md) in Azure Machine Learning have the ability to switch labeling. 
+
+* Select **Disconnect from Language Studio** to sever the relationship with Language Studio.  Once you disconnect, the project will lose its association with Language Studio, and will no longer have the Language Studio tab. Disconnecting your project from Language Studio is a permanent, irreversible process and can't be undone. You will no longer be able to access your labels for this project in Language Studio.  The labels are available only in Azure Machine Learning from this point onward.
+
 ### Access for labelers
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
@@ -248,17 +264,31 @@ To export the labels, on the **Project details** page of your labeling project, 
 
 For all project types except **Text Named Entity Recognition**, you can export label data as:
 
-* A CSV file. The Azure Machine Learning workspace creates the CSV file in a folder inside *Labeling/export/csv*.
+:::moniker range="azureml-api-1"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
 * An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
+:::moniker-end
+:::moniker range="azureml-api-2"
+* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
+* An [Azure MLTable data asset](./how-to-mltable.md). 
+:::moniker-end
 
 For **Text Named Entity Recognition** projects, you can export label data as:
 
+:::moniker range="azureml-api-1"
 * An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification is shown in the Azure Machine Learning studio global controls. Select that notification to see a link to the file.
+* A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
+:::moniker-end
+:::moniker range="azureml-api-2"
+* An [Azure MLTable data asset](./how-to-mltable.md).
+* A CoNLL file.  For this export, you'll also have to assign a compute resource. The export process runs offline and generates the file as part of an experiment run. Azure Machine Learning creates the CoNLL file in a folder inside*Labeling/export/conll*. 
+:::moniker-end
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
+When you export a CSV or CoNLL file, a notification appears briefly when the file is ready to download.  You'll also find the notification in the **Notification** section on the top bar:
 
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
+:::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
+
+Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
 
 :::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
 

@@ -4,10 +4,11 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to install the Azure CLI and the Microsoft Dev Box CLI extension so you can create Dev Box resources from the command line.
 services: dev-box
 ms.service: dev-box
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/19/2023
+ms.date: 04/25/2023
 Customer intent: As a dev infra admin, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.
 ---
 

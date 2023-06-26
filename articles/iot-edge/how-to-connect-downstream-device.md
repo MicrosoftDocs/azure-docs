@@ -8,7 +8,7 @@ ms.date: 01/09/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:  [amqp, mqtt, devx-track-js]
+ms.custom: amqp, mqtt
 ---
 
 # Connect a downstream device to an Azure IoT Edge gateway

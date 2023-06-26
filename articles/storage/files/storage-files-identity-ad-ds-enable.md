@@ -34,7 +34,7 @@ The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuri
 ### Prerequisites
 
 - If you don't have [.NET Framework 4.7.2 or higher](https://dotnet.microsoft.com/download/dotnet-framework/) installed, install it now. It's required for the AzFilesHybrid module to import successfully.
-- Make sure you have [Azure PowerShell](/powershell/azure/install-az-ps) (Az module) and [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) installed. You must have at least Az.PowerShell 2.8.0+ and Az.Storage 4.3.0+ to use AzFilesHybrid.
+- Make sure you have [Azure PowerShell](/powershell/azure/install-azure-powershell) (Az module) and [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) installed. You must have at least Az.PowerShell 2.8.0+ and Az.Storage 4.3.0+ to use AzFilesHybrid.
 - Install the [Active Directory PowerShell](/powershell/module/activedirectory/) module.
 
 ### Download AzFilesHybrid module
@@ -154,7 +154,7 @@ New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
 ```
 
-The cmdlets above should return the key value. Once you have the kerb1 key, create either a service account or computer account in AD under your OU, and use the key as the password for the AD identity.
+The cmdlets should return the key value. Once you have the kerb1 key, create either a [computer account](/powershell/module/activedirectory/new-adcomputer) or [service account](/powershell/module/activedirectory/new-adserviceaccount) in AD under your OU, and use the key as the password for the AD identity.
 
 1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the AD GUI or by running the `Setspn` command from the Windows command line as administrator (remember to replace the example text with your storage account name and `<ADAccountName>` with your AD account name):
 
@@ -162,7 +162,7 @@ The cmdlets above should return the key value. Once you have the kerb1 key, crea
    Setspn -S cifs/your-storage-account-name-here.file.core.windows.net <ADAccountName>
    ```
 
-2. Use PowerShell to set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges):
+2. Set the AD account password to the value of the kerb1 key (you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges):
 
    ```powershell
    Set-ADAccountPassword -Identity servername$ -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "kerb1_key_value_here" -Force)
@@ -179,17 +179,17 @@ Modify the following command to include configuration details for the domain pro
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information
 Set-AzStorageAccount `
-        -ResourceGroupName "<your-resource-group-name-here>" `
-        -Name "<your-storage-account-name-here>" `
+        -ResourceGroupName "<your-resource-group-name>" `
+        -Name "<your-storage-account-name>" `
         -EnableActiveDirectoryDomainServicesForFile $true `
-        -ActiveDirectoryDomainName "<your-domain-dns-root-here>" `
-        -ActiveDirectoryNetBiosDomainName "<your-domain-dns-root-here>" `
-        -ActiveDirectoryForestName "<your-forest-name-here>" `
-        -ActiveDirectoryDomainGuid "<your-guid-here>" `
-        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
+        -ActiveDirectoryDomainName "<your-domain-dns-root>" `
+        -ActiveDirectoryNetBiosDomainName "<your-domain-dns-root>" `
+        -ActiveDirectoryForestName "<your-forest-name>" `
+        -ActiveDirectoryDomainGuid "<your-guid>" `
+        -ActiveDirectoryDomainsid "<your-domain-sid>" `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>" `
         -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name>" `
-        -ActiveDirectoryAccountType "<you-domain-object-account-type, the value could be 'Computer' or 'User', for AES256 must be 'Computer'>"
+        -ActiveDirectoryAccountType "<your-domain-object-account-type, the value could be 'Computer' or 'User'>"
 ```
 
 #### Enable AES-256 encryption (recommended)
@@ -223,6 +223,9 @@ $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```
+
+> [!IMPORTANT]
+> If you were previously using RC4 encryption and update the storage account to use AES-256, you should run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
 ### Debugging
 

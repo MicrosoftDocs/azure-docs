@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/29/2023
+ms.date: 04/13/2023
 
 ---
 
@@ -90,7 +90,7 @@ The reclaim policy on both storage classes ensures that the underlying Azure Blo
 
 Use the [kubectl get sc][kubectl-get] command to see the storage classes. The following example shows the `azureblob-fuse-premium` and `azureblob-nfs-premium` storage classes available within an AKS cluster:
 
-```bash
+```output
 NAME                                  PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION     AGE
 azureblob-fuse-premium               blob.csi.azure.com   Delete          Immediate              true                   23h
 azureblob-nfs-premium                blob.csi.azure.com   Delete          Immediate              true                   23h
@@ -141,9 +141,8 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
       volumeClaimTemplates:
         - metadata:
             name: persistent-storage
-            annotations:
-              volume.beta.kubernetes.io/storage-class: azureblob-nfs-premium
           spec:
+            storageClassName: azureblob-nfs-premium
             accessModes: ["ReadWriteMany"]
             resources:
               requests:
@@ -191,9 +190,8 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
       volumeClaimTemplates:
         - metadata:
             name: persistent-storage
-            annotations:
-              volume.beta.kubernetes.io/storage-class: azureblob-fuse-premium
           spec:
+            storageClassName: azureblob-fuse-premium
             accessModes: ["ReadWriteMany"]
             resources:
               requests:

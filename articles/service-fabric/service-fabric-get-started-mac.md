@@ -5,12 +5,11 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-dotnet
 services: service-fabric
 ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
-# service-fabric-get-started-linux.md
-# service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
 ---
 
@@ -55,13 +54,16 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. Start the cluster.<br/>
-    <b>Ubuntu 20.04 LTS:</b>
+2. Start the cluster.
+
+   **Latest:**
+   
     ```bash
-    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u20
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:latest
     ```
 
-    <b>Ubuntu 18.04 LTS:</b>
+   **Ubuntu 18.04 LTS:**
+   
     ```bash
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
@@ -89,7 +91,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
 
-    To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directly holding your `Dockerfile` then run:
+    To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directory holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .

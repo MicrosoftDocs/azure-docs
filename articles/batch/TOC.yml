@@ -8,24 +8,26 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run a Batch job - CLI
+  - name: Create a Batch account and run a job - Azure CLI
     displayName: quickstart, first, create
     href: quick-create-cli.md
-  - name: Run a Batch job - Portal
+  - name: Create a Batch account and run a job - Azure portal
     displayName: quickstart, first, create
     href: quick-create-portal.md
-  - name: Run a Batch job - .NET
-    displayName: quickstart, first, create, c#, csharp
-    href: quick-run-dotnet.md
-  - name: Run a Batch job - Python
-    displayName: quickstart, first, create
-    href: quick-run-python.md
   - name: Create a Batch account - Bicep
     href: quick-create-bicep.md
     displayName: Resource Manager, ARM, Template
   - name: Create a Batch account - ARM template
     href: quick-create-template.md
     displayName: Resource Manager
+  - name: Create a Batch account - Terraform
+    href: quick-create-terraform.md
+  - name: Create a Batch pool and run a job - .NET
+    displayName: quickstart, first, create, c#, csharp
+    href: quick-run-dotnet.md
+  - name: Create a Batch pool and run a job - Python
+    displayName: quickstart, first, create
+    href: quick-run-python.md
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
@@ -175,7 +177,7 @@
     - name: Configure access to compute nodes
       displayName: rdp, ssh, network, remote
       href: pool-endpoint-configuration.md
-    - name: Create a pool with the Shared Image Gallery
+    - name: Create a pool with Azure Compute Gallery
       displayName: managed image, sig
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource

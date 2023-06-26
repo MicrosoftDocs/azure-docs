@@ -23,7 +23,7 @@ Get started with the Azure Key Vault client library for Python. Follow these ste
 - [Python 3.7+](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) in a Linux terminal window.
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) in a Linux terminal window.
 
 ## Set up your local environment
 

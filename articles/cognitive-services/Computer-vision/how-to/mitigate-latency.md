@@ -45,6 +45,8 @@ To mitigate this situation, consider [storing the image in Azure Premium Blob St
 var faces = await client.Face.DetectWithUrlAsync("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/Family1-Daughter1.jpg");
 ```
 
+Be sure to use a storage account in the same region as the Face resource. This will reduce the latency of the connection between the Face service and the storage account.
+
 ### Large upload size
 
 Some Azure services provide methods that obtain data from a file that you upload. For example, when you call the [DetectWithStreamAsync method](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) of the Face service, you can upload an image in which the service tries to detect faces.

@@ -43,7 +43,7 @@ items:
     href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
-  - name: Enable Multi-Region Replication on Managed HSM (Preview)
+  - name: Enable Multi-Region Replication on Managed HSM
     href: multi-region-replication.md 
   - name: Integrate Managed HSM with Azure Policy
     href: azure-policy.md

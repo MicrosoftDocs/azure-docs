@@ -14,7 +14,7 @@ ms.author: eur
 
 # SSML document structure and events
 
-The Speech Synthesis Markup Language (SSML) with input text determines the structure, content, and other characteristics of the text-to-speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
+The Speech Synthesis Markup Language (SSML) with input text determines the structure, content, and other characteristics of the text to speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
 
 Refer to the sections below for details about how to structure elements in the SSML document. 
 
@@ -30,7 +30,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="string">
     <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
     <voice name="string" effect="string">
-        <audio src="string"/></audio>
+        <audio src="string"></audio>
         <bookmark mark="string"/>
         <break strength="string" time="string" />
         <emphasis level="value"></emphasis>
@@ -155,9 +155,9 @@ The supported values for attributes of the `break` element were [described previ
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        Welcome <break /> to text-to-speech.
-        Welcome <break strength="medium" /> to text-to-speech.
-        Welcome <break time="750ms" /> to text-to-speech.
+        Welcome <break /> to text to speech.
+        Welcome <break strength="medium" /> to text to speech.
+        Welcome <break time="750ms" /> to text to speech.
     </voice>
 </speak>
 ```

@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to designate a compute resource or environment to train or deploy your model with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: conceptual
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
 ms.date: 10/19/2022
-ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2
+ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
@@ -59,6 +59,8 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 
+[!INCLUDE [serverless compute](./includes/serverless-compute.md)]
+
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
 
@@ -72,13 +74,13 @@ When created, these compute resources are automatically part of your workspace, 
 
 > [!NOTE]
 > To avoid charges when the compute is idle:
-> * For compute *cluster* make sure the minimum number of nodes is set to 0.
+> * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md) (preview).
 > * For a compute *instance*, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown).
 
 ### Supported VM series and sizes
 
-> [!NOTE] 
-> H-series virtual machine series will be retired on August 31, 2022. Create compute instance and compute clusters with alternate VM sizes. Existing compute instances and clusters with H-series virtual machines will not work after August 31, 2022.
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 
 When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](../virtual-machines/sizes.md).
 

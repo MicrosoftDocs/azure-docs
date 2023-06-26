@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to build and deploy a machine learning model by using code in a Jupyter Notebook. Also create a scoring script that defines input and output for easy integration into Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: tutorial
 ms.author: samkemp
 author: samuel100
-ms.reviewer: sdgilley
+ms.reviewer: sgilley
 ms.date: 12/22/2021
 ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---

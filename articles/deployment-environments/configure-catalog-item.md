@@ -7,14 +7,13 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.topic: how-to
-ms.date: 10/12/2022
-ms.custom: devdivchpfy22, ignite-2022
-
+ms.date: 04/25/2023
+ms.custom: devdivchpfy22, ignite-2022, build-2023
 ---
 
 # Add and configure a catalog item in Azure Deployment Environments
 
-In Azure Deployment Environments Preview, you can use a [catalog](concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of predefined [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) templates called [*catalog items*](concept-environments-key-concepts.md#catalog-items).
+In Azure Deployment Environments, you can use a [catalog](concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of predefined [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) templates called [*catalog items*](concept-environments-key-concepts.md#catalog-items).
 
 A catalog item is combined of least two files:
 
@@ -22,7 +21,7 @@ A catalog item is combined of least two files:
 - A manifest YAML file (*manifest.yaml*).
 
 >[!NOTE]
-> Azure Deployment Environments Preview currently supports only ARM templates.
+> Azure Deployment Environments currently supports only ARM templates.
 
 The IaC template contains the environment definition (template), and the manifest file provides metadata about the template. Your development teams use the catalog items that you provide in the catalog to deploy environments in Azure.
 
@@ -37,9 +36,6 @@ In this article, you learn how to:
 > - Add a catalog item
 > - Update a catalog item
 > - Delete a catalog item
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise are not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 <a name="add-a-new-catalog-item"></a>
 

@@ -106,5 +106,4 @@ AzureDiagnostics
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Choose capactiy](../../../qnamaker/how-to/improve-knowledge-base.md)
+

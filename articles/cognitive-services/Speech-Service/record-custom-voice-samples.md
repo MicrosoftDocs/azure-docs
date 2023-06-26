@@ -92,7 +92,7 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
    Best practices include:
     - Balanced coverage for Parts of Speech, like verbs, nouns, adjectives, and so on.  
-    - Balanced coverage for pronunciations. Include all letters from A to Z so the Text-to-Speech engine learns how to pronounce each letter in your style.
+    - Balanced coverage for pronunciations. Include all letters from A to Z so the Text to speech engine learns how to pronounce each letter in your style.
     - Readable, understandable, common-sense scripts for the speaker to read.
     - Avoid too many similar patterns for words/phrases, like "easy" and "easier".
     - Include different formats of numbers: address, unit, phone, quantity, date, and so on, in all sentence types.  

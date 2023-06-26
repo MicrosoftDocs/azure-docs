@@ -1,11 +1,11 @@
 ---
 title: Enable data-aware security posture for Azure datastores - Microsoft Defender for Cloud
 description: Learn how to enable data-aware security posture in Defender for Cloud
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 04/13/2023
 ms.custom: template-how-to-pattern
 ---
 
@@ -26,15 +26,15 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
 1. Select the relevant Azure subscription.
-1. For the Defender for CSPM plan, select the **On** status.
+1. For the Defender CSPM plan, select the **On** status.
 
-    If Defender for CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Sensitive data discovery** component is set to **On** status.
+    If Defender CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Sensitive data discovery** component is set to **On** status.
 
 ## Enable in Defender CSPM (AWS)
 
 ### Before you start
 
-- Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#discovering-aws-storage) for AWS discovery, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
+- Don't forget to: [review the requirements](concept-data-security-posture-prepare.md#discovering-aws-s3-buckets) for AWS discovery, and [required permissions](concept-data-security-posture-prepare.md#whats-supported).
 - Check that there's no policy that blocks the connection to your Amazon S3 buckets.
 
 ### Enable for AWS resources

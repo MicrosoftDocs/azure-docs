@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 05/23/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -116,16 +116,16 @@ Enable Saviynt to perform user delete operations in Azure AD B2C.
 
 Learn more: [Application and service principal objects in Azure AD](../active-directory/develop/app-objects-and-service-principals.md)
 
-1. Install the latest version of MSOnline PowerShell Module on a Windows workstation or server.
+1. Install the latest version of Microsoft Graph PowerShell Module on a Windows workstation or server.
 
-For more information, see [Azure Active Directory V2 PowerShell Module](https://www.powershellgallery.com/packages/AzureAD/2.0.2.140)
+For more information, see [Microsoft Graph PowerShell documentation](/powershell/microsoftgraph).
 
-2. Connect to the AzureAD PowerShell module and execute the following commands:
+2. Connect to the PowerShell module and execute the following commands:
 
 ```powershell
-Connect-msolservice #Enter Admin credentials of the Azure portal
-$webApp = Get-MsolServicePrincipal –AppPrincipalId “<ClientId of Azure AD Application>”
-Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType ServicePrincipal -RoleMemberObjectId $webApp.ObjectId
+Connect-MgGraph #Enter Admin credentials of the Azure portal
+$webApp = Get-MgServicePrincipal –AppPrincipalId “<ClientId of Azure AD Application>”
+New-MgDirectoryRoleMemberByRef -RoleName "Company Administrator" -RoleMemberType ServicePrincipal -RoleMemberObjectId $webApp.ObjectId
 ```
 
 ## Test the solution

@@ -23,8 +23,8 @@ Counts the number of data and management operations requests.
 | ---------- | ---------- | ----- | --- | --- | --- | 
 | Incoming Requests| Yes | Count | Total | The number of requests made to the Service Bus service over a specified period. | EntityName | 
 |Successful Requests| No | Count | Total | The number of successful requests made to the Service Bus service over a specified period. | Entity name<br/>OperationResult|
-|Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/>OperationResult|
-|User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name|
+|[Server Errors](service-bus-messaging-exceptions.md#exception-categories)| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/>OperationResult|
+|[User Errors](service-bus-messaging-exceptions.md#exception-categories) | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name|
 |Throttled Requests| No | Count | Total | <p>The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |  Entity name<br/>MessagingErrorSubCode |
 | Pending Checkpoint Operations Count | No | count | Average | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. | MessagingErrorSubCode | 
 | Server Send Latency | No | milliseconds | Average | The time taken by the Service Bus service to complete the request. | Entity name |
@@ -52,6 +52,9 @@ The following two types of errors are classified as **user errors**:
 
 > [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
+
+> [!NOTE]
+> When a client tries to get the info about a queue or topic, the Service Bus service returns some static information like name, last updated time, created time, requires session or not etc., and some dynamic information like message counts. If the request gets throttled, the service returns the static information and empty dynamic information. That's why message counts are shown as 0 when the namespace is being throttled. This behavior is by design. 
 
 ### Connection metrics
 
@@ -87,7 +90,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
 |Dimension name|Description|
 | ------------------- | ----------------- |
-|Entity Name| Service Bus supports messaging entities under the namespace. With the 'Incoming Requests' metric, the Entity Name dimension will see a value of '-NamespaceOnlyMetric-' in addition to all your queues and topics. This represents request which were made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities which failed authentication or authorization.|
+|Entity Name| Service Bus supports messaging entities under the namespace. With the 'Incoming Requests' metric, the Entity Name dimension will have a value of '-NamespaceOnlyMetric-' in addition to all your queues and topics. This represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.|
 
 ## Resource logs
 This section lists the types of resource logs you can collect for Azure Service Bus.

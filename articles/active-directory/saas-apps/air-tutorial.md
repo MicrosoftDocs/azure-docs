@@ -124,7 +124,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Settings** -> **SECURITY &IDENTITY** tab and perform the perform the following steps:
 
-    ![Screenshot for Air configiration](./media/air-tutorial/integration.png)
+    ![Screenshot for Air configuration](./media/air-tutorial/integration.png)
 
     a. In the **Manage approved email domains** text box, add your organizations email domains to the approved domains list to allow users with these domains to authenticate using SAML SSO. 
     

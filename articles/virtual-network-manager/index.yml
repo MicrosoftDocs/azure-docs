@@ -36,7 +36,7 @@ landingContent:
       - linkListType: training
         links:
           - text: Create a hub-spoke network topology with Azure Virtual Network Manager
-            url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-managerr
+            url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-manager
   # Card
   - title: Get started
     linkLists:
@@ -46,7 +46,7 @@ landingContent:
             url: concept-network-manager-scope.md
           - text: Network groups
             url: concept-network-groups.md
-          - text: Deployment
+          - text: Configuration deployment
             url: concept-deployments.md
       - linkListType: quickstart
         links:
@@ -94,3 +94,25 @@ landingContent:
         links:
         - text: Hub-spoke network topology in Azure
           url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+
+  # Card
+  - title: Infrastructure as Code
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Create a mesh network topology with Azure Virtual Network Manager using Terraform
+            url: create-virtual-network-manager-terraform.md
+          - text: Hub-and-Spoke Deployment with Connected Groups - ARM Template
+            url: /samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/
+        
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Event log options for Azure Virtual Network Manager
+            url: concept-event-logs.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure event logs for Azure Virtual Network Manager
+            url: how-to-configure-event-logs.md

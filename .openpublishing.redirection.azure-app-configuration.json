@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/azure-app-configuration/howto-backup-config-store.md",
+      "redirect_url": "/articles/azure-app-configuration/concept-geo-replication.md",
+      "redirect_document_id": false
+    }
+  ]
+}

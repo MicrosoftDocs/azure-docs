@@ -12,7 +12,7 @@ ms.date: 03/29/2023
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2303 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, please review the information contained in these release notes.
 
-This article applies to the AP5GC 2303 release (PMN-2303-0). This release is compatible with the ASE Pro 1 GPU and ASE Pro 2 running the ASE 2301 release, and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
+This article applies to the AP5GC 2303 release (PMN-2303-0). This release is compatible with the ASE Pro 1 GPU and ASE Pro 2 running the ASE 2301 and ASE 2303 releases, and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
 
 ## Support
 
@@ -48,6 +48,7 @@ The following table provides a summary of known issues carried over from the pre
   | 3 | Install/upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using upgrade or site delete and add is not supported. | Please contact support for the required steps to change the technology type. |
   | 4 | Packet forwarding | In scenarios of sustained high load (for example, continuous setup of 100s of TCP flows per second) combined with NAT pinhole exhaustion, AP5GC can encounter a memory leak, leading to a short period of service disruption resulting in some call failures. | In most cases, the system will recover automatically and be ready to handle new requests after a few seconds' disruption. UEs will need to re-establish any dropped connections. |
   | 5 | Install/Upgrade | In some cases, the packet core reports successful installation even when the underlying platform or networking is misconfigured. | Not applicable. |
+  | 6 | Azure AD and web proxy | Where Azure Active Directory is used to authenticate access to Grafana/SAS, this traffic does not transmit via the web proxy when enabled on the Azure Stack Edge appliance that the packet core is running on. |
 
 ## Next steps
 

@@ -20,7 +20,7 @@ NFSv4 introduces the concept of an authentication domain. Azure NetApp Files sup
 
 ## Default behavior of user/group mapping
 
-Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as `root`, you'll see file permissions as follows:  
+Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as `root`, you see file permissions as follows:  
 
 ![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
@@ -28,7 +28,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 
 ## Configure NFSv4.1 domain for server
 
-To prepare for a future implementation of LDAP across all NFS clients or achieve a consistent configuration across all NFS clients, you can specify a desired NFSv4.1 ID domain for all non-LDAP volumes in Azure NetApp Files using the Azure portal. This setting will apply to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It will not affect LDAP-enabled volumes, and non-LDAP and LDAP-enabled volumes can co-exist in the same subscription.
+To prepare for a future implementation of LDAP across all NFS clients or achieve a consistent configuration across all NFS clients, you can specify a desired NFSv4.1 ID domain for all non-LDAP volumes in Azure NetApp Files using the Azure portal. This setting applies to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It does not affect LDAP-enabled volumes. Non-LDAP and LDAP-enabled volumes can coexist in the same subscription.
 
 ### Register the feature
 
@@ -75,7 +75,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
 
-    * If the volume isn't enabled for LDAP, either use the default domain `defaultv4iddomain.com` by specifying `Domain = defaultv4iddomain.com`, or specify the NFSv4.1 ID domain as [configured in Azure NetApp Files above](#steps). 
+    * If the volume isn't enabled for LDAP, either use the default domain `defaultv4iddomain.com` by specifying `Domain = defaultv4iddomain.com`, or specify the NFSv4.1 ID domain as [configured in Azure NetApp Files](#steps). 
     * If the volume is [enabled for LDAP](configure-ldap-extended-groups.md), set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
         For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
@@ -134,9 +134,9 @@ The following example shows the resulting user/group change:
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
 
-## Behavior of other (non-root) users and groups
+## Behavior of other (nonroot) users and groups
 
-Azure NetApp Files supports local users and groups (created locally on the NFS client and represented by user and group IDs) and corresponding ownership and permissions associated with files or folders in NFSv4.1 volumes. However, the service doesn't automatically solve for mapping local users and groups across NFS clients. Users and groups created on one host may or may not exists on another NFS client (or exist with different user and group IDs), and will therefore not map correctly as outlined in the example below.
+Azure NetApp Files supports local users and groups (created locally on the NFS client and represented by user and group IDs) and corresponding ownership and permissions associated with files or folders in NFSv4.1 volumes. However, the service doesn't automatically solve for mapping local users and groups across NFS clients. Users and groups created on one host may or may not exist on another NFS client (or exist with different user and group IDs), and will therefore not map correctly as outlined in the example below.
 
 In the following example, `Host1` has three user accounts (`testuser01`, `testuser02`, `testuser03`): 
 

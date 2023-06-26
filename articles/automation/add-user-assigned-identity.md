@@ -4,7 +4,7 @@ description: This article describes how to set up a user-assigned managed identi
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 10/26/2021
+ms.date: 05/01/2022
 ms.topic: conceptual 
 ---
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 > [!NOTE]
-> **User-assigned managed identities (UAMI) are in general supported for Azure jobs only.** One other scenario in which user-assigned managed identities (UAMI) run successfully in Hybrid Workers is, when only the Hybrid Worker VM has a UAMI assigned (i.e., the Automation Account can't have any UAMI assigned, otherwise the VM UAMI will fail authenticating). 
+> It is not possible to use a User Assigned Managed Identity on a Hybrid Runbook Worker when a Managed Identity (either System or User assigned) has been created for the Automation Account. If Managed Identity has not been assigned to the Automation Account, then it is possible to use the VM’s System or User Assigned Managed Identity on a Hybrid Runbook Worker that is an Azure VM with the assigned managed identities. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
