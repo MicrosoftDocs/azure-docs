@@ -1,12 +1,12 @@
 ---
 title: How to troubleshoot VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan
 description: Shows you how to troubleshoot VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
-author: jiec
+author: karlerickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 06/09/2023
-ms.custom: jiec
+ms.date: 06/26/2023
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Troubleshoot VMware Spring Cloud Gateway
@@ -16,7 +16,7 @@ ms.custom: jiec
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan. See [Manage Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) to learn more about VMware Spring Cloud Gateway.
+This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan. To learn more about VMware Spring Cloud Gateway, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## Prerequisites
 
@@ -29,66 +29,70 @@ This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu
 
 ## Check Gateway logs
 
-There are two components make up the Spring Cloud Gateway for VMware Tanzu: the Gateway itself and the Gateway operator. You can infer from the name that the Gateway operator is for managing the Gateway, while Gateway itself fullfils the features. The logs of both components are available, and you can check them in the following steps.
+There are two components that make up the Spring Cloud Gateway for VMware Tanzu: the Gateway itself and the Gateway operator. You can infer from the name that the Gateway operator is for managing the Gateway, while the Gateway itself fulfills the features. The logs of both components are available. The following sections describe how to check these logs.
 
-### Diagnostic Settings of Log Analytics
+### Diagnostic settings for Log Analytics
 
-You must turn on System Logs and send to your Log Analytics before query logs for VMware Spring Cloud Gateway. To enable System Logs in the Azure Portal, use the following steps:
+You must turn on System Logs and send to your Log Analytics before you query the logs for VMware Spring Cloud Gateway. To enable System Logs in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
 1. Select **Diagnostics settings** in the navigation pane.
-1. Select **Add diagnostic setting** or select "Edit setting" for an existed one.
-1. In the **Logs** section, check "System Logs" category.
-1. In the **Destination details** section, check "Send to Log Analytics workspace", and choose yours accordingly.
+1. Select **Add diagnostic setting** or select **Edit setting** for an existing setting.
+1. In the **Logs** section, select the **System Logs** category.
+1. In the **Destination details** section, select **Send to Log Analytics workspace** and then select your workspace.
 1. Select **Save** to update the setting.
 
 ### Check logs in Log Analytics
 
-To check logs in the Azure portal, use the following steps:
+To check the logs by using the Azure portal, use the following steps:
 
-1. Make sure you turned on System Logs. See [Diagnostic Settings of Log Analytics](#diagnostic-settings-of-log-analytics) section in this document.
+1. Make sure you turned on System Logs. For more information, see the [Diagnostic settings for Log Analytics](#diagnostic-settings-for-log-analytics) section.
 1. Open your Azure Spring Apps instance.
 1. Select **Logs** in the navigation pane, and then select **Overview**.
-1. Use below sample query in the query edit, adjust Time range, then click **Run** to search for logs.
+1. Use one of the following sample queries in the query edit pane. Adjust the time range, then select **Run** to search for logs.
 
-##### [Query logs for Gateway](#tab/Gateway)
+   - Query logs for Gateway
 
-```Kusto
-AppPlatformSystemLogs 
-| where LogType in ("SpringCloudGateway")
-| project TimeGenerated , ServiceName , LogType, Log , _ResourceId 
-| limit 100
-```
+     ```Kusto
+     AppPlatformSystemLogs 
+     | where LogType in ("SpringCloudGateway")
+     | project TimeGenerated , ServiceName , LogType, Log , _ResourceId 
+     | limit 100
+     ```
 
-##### [Query logs for Gateway Operator](#tab/GatewayOperator)
+   - Query logs for Gateway Operator
 
-```Kusto
-AppPlatformSystemLogs
-| where LogType in ("SpringCloudGatewayOperator")
-| project TimeGenerated , ServiceName , LogType, Log , _ResourceId
-| limit 100
-```
+     ```Kusto
+     AppPlatformSystemLogs
+     | where LogType in ("SpringCloudGatewayOperator")
+     | project TimeGenerated , ServiceName , LogType, Log , _ResourceId
+     | limit 100
+     ```
 
----
+The following screenshot shows an example of the query results\:
 
-Take below screenshot as an example:
-:::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal showing the query and result of logs of VMware Spring Cloud Gateway" lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png":::
+:::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal showing the query and result of logs for VMware Spring Cloud Gateway" lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png":::
 
-  > [!NOTE]
-  > There might be 3~5 minutes delay for the logs to be available in Log Analytics.
+> [!NOTE]
+> There might be a 3-5 minutes delay before the logs are available in Log Analytics.
 
 ### Adjust log levels
 
-This section describe how to adjust log levels of VMware Spring Cloud Gateway and offer one logger as an example. **Please make sure you READ** [Configure log levels](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-log-levels) to understand details and impacts before getting started.
+This section describes how to adjust the log levels for VMware Spring Cloud Gateway and offers one logger as an example.
+
+> [!IMPORTANT]
+> Before you get started, be sure to understand the details and impacts of adjusting the log levels by reading the [Configure log levels](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-log-levels) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-log-levels).
+
+Use the following steps to adjust the log levels:
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
-1. In the **Properties** sections, fill in the key vault pair `logging.level.org.springframework.cloud.gateway=DEBUG`.
+1. In the **Properties** sections, fill in the key/value pair `logging.level.org.springframework.cloud.gateway=DEBUG`.
 1. Select **Save** to save your changes.
-1. After succeeded, you can find more detailed logs for troubleshooting like how requets are routed.
+1. After the change is successful, you can find more detailed logs for troubleshooting, such as information about how requests are routed.
 
 ## Restart Gateway
 
-In the case of some errors, a restart might help solve the issue. See [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-spring-cloud-gateway) for detailed steps.
+For some errors, a restart might help solve the issue. For more information, see the [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-spring-cloud-gateway) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## Next steps
 
