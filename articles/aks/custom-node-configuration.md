@@ -267,6 +267,9 @@ The settings below can be used to tune the operation of the virtual memory (VM) 
 
 > [!IMPORTANT]
 > For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
+>
+> eg. if you plan to modify the 'vm.max_map_count' setting, then you should use 'vmMaxMapCount' in the configuration json file.
+> 
 
 ## Next steps
 
