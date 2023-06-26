@@ -59,6 +59,8 @@
       href: capabilities-education.md
     - name: Establishing a FinOps culture
       href: capabilities-culture.md
+    - name: FinOps and intersecting frameworks
+      href: capabilities-frameworks.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

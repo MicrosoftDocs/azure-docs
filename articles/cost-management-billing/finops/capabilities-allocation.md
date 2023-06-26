@@ -53,10 +53,10 @@ Cost allocation is usually an afterthought and requires some level of cleanup wh
   - Consider a top-down approach that prioritizes getting departmental costs in place before optimizing at the lowest project and environment level. You may want to implement it in phases, depending on how broad and deep your organization is.
   - Enable [tag inheritance in Cost Management](../costs/enable-tag-inheritance.md) to copy subscription and resource group tags in cost data only. It doesn't change tags on your resources.
   - Use Azure Policy to [enforce your tagging strategy](../../azure-resource-manager/management/tag-policies.md), automate the application of tags at scale, and track compliance status. Use compliance as a KPI for your tagging strategy.
-  - If you need to move costs between subscriptions, resource groups, or add or change tags, [configure allocation rules in Cost Management](../costs/allocate-costs.md). Cost allocation is covered in detail at [Managing shared costs](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-shared-cost.docx).
+  - If you need to move costs between subscriptions, resource groups, or add or change tags, [configure allocation rules in Cost Management](../costs/allocate-costs.md). Cost allocation is covered in detail at [Managing shared costs](capabilities-shared-cost.md).
   - Consider [grouping related resources together with the “cm-resource-parent” tag](../costs/enable-preview-features-cost-management-labs.md#group-related-resources-in-the-cost-analysis-preview) to view costs together in Cost analysis.
   - Distribute responsibility for any remaining change to scale out and drive efficiencies.
--  Make note of any unallocated costs or costs that should be split but couldn't be. You cover it as part of [Managing shared costs](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-shared-cost.docx).
+-  Make note of any unallocated costs or costs that should be split but couldn't be. You cover it as part of [Managing shared costs](capabilities-shared-cost.md).
 
 Once all resources are tagged and/or organized into the appropriate resource groups and subscriptions, you can report against that data as part of [Data analysis and showback](capabilities-analysis-showback.md).
 
@@ -68,9 +68,9 @@ At this point, you have a cost allocation strategy with detailed cloud managemen
 
 - Fill any gaps unmet by native tools.
   - At a minimum, this gap requires reporting outside the portal, where tagging gaps can be merged with other data.
-  - If tagging gaps need to be resolved directly in the data, you need to implement [Data ingestion and normalization](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-ingestion-normalization.docx).
+  - If tagging gaps need to be resolved directly in the data, you need to implement [Data ingestion and normalization](capabilities-ingestion-normalization.md).
 - Consider other costs that aren't yet covered or might be tracked separately.
-  - Strive to drive consistency across data sources to align tagging implementations. When not feasible, implement cleanup as part of [Data ingestion and normalization](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-ingestion-normalization.docx) or reallocate costs as part of your overarching cost allocation strategy.
+  - Strive to drive consistency across data sources to align tagging implementations. When not feasible, implement cleanup as part of [Data ingestion and normalization](capabilities-ingestion-normalization.md) or reallocate costs as part of your overarching cost allocation strategy.
 - Regularly review and refine your cost allocation strategy.
   - Consider this process as part of your reporting feedback loop. If your cost allocation strategy is falling short, the feedback you get may not be directly associated with cost allocation or metadata. It may instead be related to reporting. Watch out for this feedback and ensure the feedback is addressed at the most appropriate layer.
   - Ensure naming, metadata, and hierarchy requirements are being used consistently and effectively throughout your environment.
@@ -83,4 +83,4 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 ## Next steps
 
 - [Data analysis and showback](capabilities-analysis-showback.md)
-- [Managing shared costs](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-shared-cost.docx)
+- [Managing shared costs](capabilities-shared-cost.md)

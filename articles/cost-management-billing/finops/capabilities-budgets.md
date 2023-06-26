@@ -58,5 +58,5 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 ## Next steps
 
 - [Forecasting](capabilities-forecasting.md)
-- Onboarding workloads
-- Chargeback and finance integration
+- [Onboarding workloads](capabilities-workloads.md)
+- [Chargeback and finance integration](capabilities-chargeback.md)

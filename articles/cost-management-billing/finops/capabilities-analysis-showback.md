@@ -116,6 +116,6 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 ## Next steps
 
-- Forecasting
-- Managing anomalies
-- Budget management
+- [Forecasting](capabilities-forecasting.md)
+- [Managing anomalies](capabilities-anomalies.md)
+- [Budget management](capabilities-budgets.md)

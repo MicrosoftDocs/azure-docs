@@ -27,13 +27,13 @@ Effectively managing shared costs reduces overhead, increases transparency and a
 
 Before you start, it's important to have a clear understanding of your organization's goals and priorities when it comes to managing shared costs. Keep in mind that not all shared costs may need to be redistributed, and some are more effectively managed with other means. Carefully evaluate each shared cost to determine the most appropriate approach for your organization.
 
-This guide doesn't cover commitment-based discounts, like reservations and savings plans. For details about how to handle showback and chargeback, refer to [Managing commitment-based discounts](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-commitment-discounts.docx).
+This guide doesn't cover commitment-based discounts, like reservations and savings plans. For details about how to handle showback and chargeback, refer to [Managing commitment-based discounts](capabilities-commitment-discounts.md).
 
 ## Getting started
 
 When you first start managing cost in the cloud, you use the native allocation tools to manage shared costs. Start by identifying shared costs and how they should be handled.
 
-- If your organization previously implemented the [Cost allocation capability](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-allocation.docx), refer back to any notes about unallocated or shared costs.
+- If your organization previously implemented the [Cost allocation capability](capabilities-allocation.md), refer back to any notes about unallocated or shared costs.
 - Notify stakeholders that you're evaluating shared costs and request details about any known scenarios. Self-identification can save you significant time and effort.
 - Review the services that have been purchased and are being used with the [Services view in Cost analysis](../costs/cost-analysis-built-in-views.md#break-down-product-and-service-costs).
 - Familiarize yourself with each service to determine if they're designed for and/or could be used for shared resources. A few examples of commonly shared services are:
@@ -53,7 +53,7 @@ At this point, your simple cost allocation scenarios may be addressed. You're le
 
 - Establish and track common KPIs, like the percentage of unallocated shared costs.
 - Use utilization data from [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md) where possible to understand service usage.
-- Consider using application telemetry to quantify the distribution of shared costs. It's discussed more in [Measuring unit costs](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-unit-costs.docx).
+- Consider using application telemetry to quantify the distribution of shared costs. It's discussed more in [Measuring unit costs](capabilities-unit-costs.md).
 - Automate the process of identifying the percentage breakdown of shared costs and consider using allocation rules in Cost Management to redistribute the costs.
 - Automate cost allocation rules to update their respective percentages based on changing usage patterns.
 - Consider sharing targeted reporting about the distribution of shared costs with relevant stakeholders.
@@ -66,6 +66,6 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 ## Next steps
 
-- Data analysis and showback
-- Chargeback and finance integration
-- Measuring unit costs
+- [Data analysis and showback](capabilities-analysis)
+- [Chargeback and finance integration](capabilities-chargeback.md)
+- [Measuring unit costs](capabilities-unit-costs.md)

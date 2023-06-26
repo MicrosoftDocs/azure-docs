@@ -65,4 +65,4 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 ## Next steps
 
 - [Data analysis and showback](capabilities-analysis-showback.md)
-- Cloud policy and governance
+- [Cloud policy and governance](capabilities-policy.md)

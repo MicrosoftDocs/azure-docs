@@ -51,4 +51,4 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 ## Next steps
 
-- Onboarding workloads
+- [Onboarding workloads](capability-workloads.md)

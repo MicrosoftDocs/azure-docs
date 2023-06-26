@@ -32,7 +32,7 @@ When you first start managing cost in the cloud, you use the native compliance t
 - Review your existing FinOps processes to identify opportunities for policy to automate enforcement. Some examples:
   - [Enforce your tagging strategy](../../governance/policy/tutorials/govern-tags.md) to support different capabilities, like:
     - Organizational reporting hierarchy tags for [cost allocation](capabilities-allocation.md).
-    - Financial reporting tags for [chargeback](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-chargeback.docx).
+    - Financial reporting tags for [chargeback](capabilities-chargeback.md).
     - Environment and application tags for [workload management](capabilities-workloads.md).
     - Business and application owners for [anomalies](capabilities-anomalies.md).
   - Monitor required and suggested alerting for [anomalies](capabilities-anomalies.md) and [budgets](capabilities-budgets.md).
@@ -62,5 +62,5 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 
 ## Next steps
 
-- Establishing a FinOps culture
+- [Establishing a FinOps culture](capabilities-culture.md)
 - [Workload management and automation](capabilities-workloads.md)

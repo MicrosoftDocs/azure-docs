@@ -48,7 +48,7 @@ When you first start managing cost in the cloud, you use the native tools to dri
 At this point, you've implemented all the basic cost optimization recommendations and tuned applications to meet the most fundamental best practices. As you move beyond the basics, consider the following points:
 
 - Automate cost recommendations using [Azure Resource Graph](../../advisor/resource-graph-samples.md).
-- Implement the [Workload management and automation capability](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-workloads.docx) for more optimizations.
+- Implement the [Workload management and automation capability](capabilities-workloads.md) for more optimizations.
 - Stay abreast of emerging technologies, tools, and industry best practices to further optimize resource utilization.
 
 ## Learn more at the FinOps Foundation
@@ -58,5 +58,5 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 ## Next steps
 
 - [Managing commitment-based discounts](capabilities-commitment-discounts.md)
-- Workload management and automation
+- [Workload management and automation](capabilities-workloads.md)
 - [Measuring unit cost](capabilities-unit-costs.md)

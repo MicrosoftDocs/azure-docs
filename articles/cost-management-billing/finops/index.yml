@@ -96,7 +96,8 @@ landingContent:
         url: capabilities-education.md
       - text: Establishing a FinOps culture
         url: capabilities-culture.md
-
+      - text: FinOps and intersecting frameworks
+        url: capabilities-frameworks.md
 
 # Card (optional)
 

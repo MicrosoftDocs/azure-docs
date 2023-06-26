@@ -87,7 +87,7 @@ At this point, you have a manual process for generating a forecast. As you move 
   - Implement automated processes to identify and address cost variances in real-time.
   - Establish workflows or mechanisms to investigate and mitigate the variances promptly, ensuring cost control and alignment with forecasted budgets.
 - Build custom forecast and budget reporting against actuals that's available to all stakeholders.
-- If you're [measuring unit costs](https://microsoft.sharepoint.com/teams/CostMgmt/Shared%20Documents/Documenation/finops/capabilities-unit-costs.docx), consider establishing a forecast for your unit costs to better understand whether you're trending towards higher or lower cost vs. revenue.
+- If you're [measuring unit costs](capabilities-unit-costs.md), consider establishing a forecast for your unit costs to better understand whether you're trending towards higher or lower cost vs. revenue.
 - Establish and automate KPIs, such as:
   - Cost vs. forecast to measure the accuracy of the forecast algorithm.
     - It can only be performed when there are expected usage patterns and no anomalies.
