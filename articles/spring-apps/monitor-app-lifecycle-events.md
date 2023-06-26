@@ -49,6 +49,8 @@ When your app is restarted because of unplanned events, your Azure Spring Apps i
 
 On the Azure Home page, select **Service Health** and then select **Resource Health**.
 
+In **Health history**, you can find the latest status, the root cause, and affected instances.
+
 :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the Azure portal showing the Resource Health page with the information and health history for degraded resource." lightbox="media/monitor-app-lifecycle-events/resource-health-detail.png" :::
 
 ### Monitor planned app lifecycle events
