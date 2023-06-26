@@ -1,21 +1,24 @@
 ---
-title: Events troubleshooting guides - Azure Health Data Services
-description: This article helps Events users troubleshoot error messages, conditions, and provides fixes.
+title: Troubleshoot Events - Azure Health Data Services
+description: Learn how to troubleshoot Events.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: troubleshooting
-ms.date: 07/06/2022
+ms.date: 06/23/2023
 ms.author: jasteppe
 ---
 # Troubleshoot Events
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article provides guides and resources to troubleshoot Events.
 
 > [!IMPORTANT]
 >
-> Fast Healthcare Interoperability Resources (FHIR&#174;) resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource or DICOM image changes or when the feature is turned off.
+> FHIR resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource or DICOM image changes or when the feature is turned off.
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
 
@@ -40,7 +43,7 @@ This article provides guides and resources to troubleshoot Events.
 
 ### Events message structure
 
-Use this resource to learn about the Events message structure, required and non-required elements, and sample messages: 
+Use this resource to learn about the Events message structure, required and nonrequired elements, and sample messages: 
 * [Events message structure](./events-message-structure.md)
 
 ### How to
@@ -65,6 +68,6 @@ If you have a technical question about Events or if you have a support related i
 To learn about frequently asked questions (FAQs) about Events, see
 
 >[!div class="nextstepaction"]
->[Frequently asked questions about Events](./events-faqs.md)
+>[Frequently asked questions about Events](events-faqs.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
