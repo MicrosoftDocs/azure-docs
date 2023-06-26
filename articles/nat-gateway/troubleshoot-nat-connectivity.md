@@ -142,20 +142,19 @@ What else to check for:
 
 ### Active FTP and NAT gateway 
 
-FTP uses two separate channels between a client and server, the command and data channels. Each of these channels communicate on separate TCP connections, one for sending the commands and the other for transferring data.  
+FTP uses two separate channels between a client and server, the command and data channels. Each channel communicates on separate TCP connections, one for sending the commands and the other for transferring data.  
 
 In active FTP mode, the client establishes the command channel and the server establishes the data channel.  
 
-NAT gateway does not work with active FTP mode when connecting to an FTP server over the internet. Active FTP uses a PORT command from the FTP client that tells the FTP server what IP address and port for the server to use on the data channel to connect back to the client. The PORT command uses the private address of the client, which cannot be changed. Client side traffic is SNATed by NAT gateway for internet-based communication so the PORT command is seen as invalid by the FTP server.  
+NAT gateway doesn't work with active FTP mode when connecting to an FTP server over the internet. Active FTP uses a PORT command from the FTP client that tells the FTP server what IP address and port for the server to use on the data channel to connect back to the client. The PORT command uses the private address of the client, which can't be changed. Client side traffic is SNATed by NAT gateway for internet-based communication so the PORT command is seen as invalid by the FTP server.  
 
-An alternative solution to active FTP mode when using NAT gateway to connect to an FTP server is to use passive FTP mode instead. However, in order to use NAT gateway in passive FTP mode, a couple [additional considerations](#passive-ftp-and-nat-gateway) must be made. 
+An alternative solution to active FTP mode when using NAT gateway to connect to an FTP server is to use passive FTP mode instead. However, in order to use NAT gateway in passive FTP mode, [some considerations](#passive-ftp-and-nat-gateway) must be made. 
 
 ### Passive FTP and NAT gateway
 
 In passive FTP mode, the client establishes connections on both the command and data channels. The client requests that the server start listening on a port rather than try to establish a connection back to the client.  
-Outbound Passive FTP may not work for NAT gateway with multiple public IP addresses, depending on your FTP server configuration.
 
-When a NAT gateway with multiple public IP addresses sends traffic outbound, it randomly selects one of its public IP addresses for the source IP address. FTP may fail when data and control channels use different source IP addresses, depending on your FTP server configuration.
+Outbound Passive FTP may not work for NAT gateway with multiple public IP addresses, depending on your FTP server configuration. When a NAT gateway with multiple public IP addresses sends traffic outbound, it randomly selects one of its public IP addresses for the source IP address. FTP may fail when data and control channels use different source IP addresses, depending on your FTP server configuration.
 
 To prevent possible passive FTP connection failures, do the following steps:
 
