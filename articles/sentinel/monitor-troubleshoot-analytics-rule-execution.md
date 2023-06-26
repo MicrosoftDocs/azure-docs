@@ -95,7 +95,7 @@ Here's how to rerun a rule:
 
 1. Select **Refresh** to view the updated status of the rule's runs. You'll see that your requests are displayed among them, with a status of **In progress** (it will eventually show as **Success**) and a type of **User-triggered** as opposed to **System-triggered**.
 
-    :::image type="content" source="media/monitor-troubleshoot-analytics-rule-execution/in-progress.png" alt-text="Screenshot of rule runs panel.":::
+    :::image type="content" source="media/monitor-troubleshoot-analytics-rule-execution/in-progress.png" alt-text="Screenshot of progress of rule reruns.":::
 
     You'll also notice that the execution time of your requested reruns is the same as the original system-triggered run's execution, and *not* the execution time of your rerun. This is to show you which time window your rerun is referencing.
 
