@@ -188,7 +188,7 @@ sections:
           No. 50,000 free [MAUs](billing.md#mau-overview) per month doesn't apply when you enable Go-Local add-on. 
           You'll incur a charge on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
       - question: | 
-          I've an existing Azure AD B2C tenant in a in Japan or Australia that doesn't have Go-Local add-on enabled. How do I activate this add-on? 
+          I've an existing Azure AD B2C tenant in Japan or Australia that doesn't have Go-Local add-on enabled. How do I activate this add-on? 
         answer: |
           Follow the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on) to activate Azure AD B2C Go-Local add-on.
       - question: |
