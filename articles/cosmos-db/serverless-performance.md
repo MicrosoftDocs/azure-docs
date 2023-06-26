@@ -25,7 +25,7 @@ The following table lists RU growth with increased storage size:
 
 | Maximum storage | Minimum physical partitions | RU/s per container | RU/s per physical partition  
 |:---:|:---:|:---:|:---:|
-|<=50 GB | 1 | 5,000 | 5000 |
+|<=50 GB | 1 | 5,000 | 5,000 |
 |<=100 GB | 2 | 5,000 | 2,500 |
 |<=150 GB | 3 | 5,000 | 1,666 |
 |<=200 GB | 4 | 5,000 | 1,250 |

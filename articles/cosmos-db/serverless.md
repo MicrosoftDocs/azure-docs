@@ -52,7 +52,7 @@ Any container that's created in a serverless account is a serverless container. 
   - You can't read or update the throughput on a serverless container or an error is returned.
   - You can't create a shared throughput database in a serverless account or an error is returned.
 - A serverless container can store a maximum of 1 TB of data and indexes.
-- A serverless container offers a maximum throughput that ranges from 5000 RU/s to 20,000 RU/s. The maximum throughput depends on the number of partitions that are available in the container. In the ideal scenario, a 1-TB dataset would require 20,000 RU/s, but the available throughput can exceed this amount. For more information, see [Azure Cosmos DB serverless performance](serverless-performance.md).
+- A serverless container offers a maximum throughput that ranges from 5,000 RU/s to 20,000 RU/s. The maximum throughput depends on the number of partitions that are available in the container. In the ideal scenario, a 1-TB dataset would require 20,000 RU/s, but the available throughput can exceed this amount. For more information, see [Azure Cosmos DB serverless performance](serverless-performance.md).
 
 ## Monitor your consumption
 
