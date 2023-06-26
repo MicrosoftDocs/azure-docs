@@ -68,26 +68,30 @@ Follow the steps below to create your GCP cloud connector.
 
    (Optional) If you select **Organization**, a management project and an organization custom role will be created on your GCP project for the onboarding process. Auto-provisioning will be enabled for the onboarding of new projects.
 
+    > [!NOTE]
+    > Defender for Cloud can be connected to each GCP project or organization only once.
+
 1. Select the **Next: Select Plans**.
 
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
 
     1. (**Containers only**) Ensure you've fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
 
-1. Select the **Next: Configure access**.
+1. Select **Next: Configure access**.
 
-1. Select **Copy**.
+    a. Choose deployment type, **Default access** or **Least privilege access**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
+    - Default access - Allows Defender for Cloud to scan your resources and automatically include future capabilities.
+    - Least privileged access - Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality on the connector health section.
+
+    b. Choose deployment method: **GCP Cloud Shell** or **Terraform**.
+
+1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on GCP.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/gcp-configure-access.png" alt-text="Screenshot showing the configure access and its deployment options and instructions.":::
 
    > [!NOTE]
    > To discover GCP resources and for the authentication process, the following APIs must be enabled: `iam.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`, `iamcredentials.googleapis.com`, `compute.googleapis.com`. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
-
-1. Select the **GCP Cloud Shell >**.
-
-1. The GCP Cloud Shell will open.
-
-1. Paste the script into the Cloud Shell terminal and run it.
 
 1. Ensure that the following resources were created:
 

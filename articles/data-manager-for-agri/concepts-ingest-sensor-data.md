@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/19/2023
 ms.custom: template-concept
 ---
 
@@ -44,6 +44,8 @@ The following diagram depicts the topology of a sensor in Azure Data Manager for
 
 ## Next steps
 
-How to [get started as a customer](./how-to-set-up-sensors-customer.md) to consume sensor data from the supported sensor partners.
+How to [get started when you push and consume sensor data](./how-to-set-up-sensor-as-customer-and-partner.md).
+
+How to [get started as a customer](./how-to-set-up-sensors-customer.md) to consume sensor data from a supported sensor partner like Davis Instruments.
 
 How to [get started as a sensor partner](./how-to-set-up-sensors-partner.md) to push sensor data into Data Manager for Agriculture Service.
