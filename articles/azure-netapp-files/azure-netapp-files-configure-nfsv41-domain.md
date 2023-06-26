@@ -75,7 +75,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Edit the `/etc/idmapd.conf` file on the NFS client.   
     Uncomment the line `#Domain` (that is, remove the `#` from the line), and change the value `localdomain` as follows:
 
-    * If the volume not enabled for LDAP, either use the default domain `defaultv4iddomain.com` by specifying `Domain = defaultv4iddomain.com`, or specify the NFSv4.1 ID domain as configured in Azure NetApp Files above. 
+    * If the volume isn't enabled for LDAP, either use the default domain `defaultv4iddomain.com` by specifying `Domain = defaultv4iddomain.com`, or specify the NFSv4.1 ID domain as [configured in Azure NetApp Files above](#steps). 
     * If the volume is [enabled for LDAP](configure-ldap-extended-groups.md), set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
         For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
