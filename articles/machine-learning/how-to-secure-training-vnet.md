@@ -118,8 +118,16 @@ Regardless of the method selected, you must also create the VNet; Azure Machine 
     > [!TIP]
     > Wait until the VNet Peering status is **Connected** before continuing.
 
-1. Modify the `privatelink.api.azureml.ms` DNS zone. This zone is created by your Azure Machine Learning workspace when it uses a private endpoint to participate in a VNet.
-1. 
+1. Modify the `privatelink.api.azureml.ms` DNS zone to add a link to the VNet for the compute cluster. This zone is created by your Azure Machine Learning workspace when it uses a private endpoint to participate in a VNet.
+
+    1. Add a new __virtual network link__ to the DNS zone. You can do this multiple ways:
+    
+        * From the Azure portal, navigate to the DNS zone and select **Virtual network links**. Then select **+ Add** and select the VNet that you created for your compute clusters.
+        * From the Azure CLI, use the `az network private-dns link vnet create` command. For more information, see [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#az-network-private-dns-link-vnet-create).
+        * From Azure PowerShell, use the `New-AzPrivateDnsVirtualNetworkLink` command. For more information, see [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.network/new-azprivatednsvirtualnetworklink).
+
+1. Repeat the previous step and sub-steps for the `privatelink.notebooks.azure.net` DNS zone.
+
 1. Configure the following Azure resources to allow access from both VNets.
 
     * The default storage account for the workspace.
