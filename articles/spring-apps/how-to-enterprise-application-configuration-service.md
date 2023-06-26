@@ -23,7 +23,16 @@ This article shows you how to use Application Configuration Service for VMware T
 
 With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in Basic/Standard, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
 
-Application Configuration Service is offered in two versions: Gen1 and Gen2. Gen1 version mainly serves for existing customers for back compatibility purpose and is not suggested for new service instances to use and is going to be end of support on April 30, 2024. While Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with git repositories and provides much better performance comparing with Gen1. You are allowed to choose the version of Application Configuration Service when you create the Azure Spring Apps Enterprise service instance (the default is Gen1). You can also choose to upgrade to Gen2 after the instance has been created. However, downgrade is not supported. The upgrade is zero downtime but we still recommend you to test in staging environment before moving to production environment.
+Application Configuration Service is offered in two versions: Gen1 and Gen2. Gen1 version mainly serves for existing customers for back compatibility purpose and is not suggested for new service instances to use and is going to be end of support on April 30, 2024. While Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with git repositories and provides much better performance comparing with Gen1. We have some benchmark data for your reference. However, the performance data will be impacted a lot due to git repo as a key factor. It is recommend you only store the necessary configuration files in git repo to keep the whole repo a small size.
+
+| Application Configuration Service Generation  | Duration to refresh under 100 patterns |  Duration to refresh under 250 patterns  | Duration to refresh under 500 patterns |
+|------|---------|----------|--------|
+| Gen1 |  330s   |   840s   |  1500s |
+| Gen2 |   13s   |   100s   |   378s |
+
+Besides, Gen2 also provides more security verification when connect to remote Git repo. It requires the secure connection if you are using HTTPS connection. In other hand, it requires to verify correct host key and host algorithm when using SSH connection.
+
+You are allowed to choose the version of Application Configuration Service when you create the Azure Spring Apps Enterprise service instance (the default is Gen1). You can also choose to upgrade to Gen2 after the instance has been created. However, downgrade is not supported. The upgrade is zero downtime but we still recommend you to test in staging environment before moving to production environment.
 
 ## Prerequisites
 
