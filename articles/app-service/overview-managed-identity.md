@@ -364,7 +364,7 @@ When you remove a system-assigned identity, it's deleted from Azure Active Direc
 1. Select **Identity**. Then follow the steps based on the identity type:
 
     - **System-assigned identity**: Within the **System assigned** tab, switch **Status** to **Off**. Click **Save**.
-    - **User-assigned identity**: Click the **User assigned** tab, select the checkbox for the identity, and click **Remove**. Click **Yes** to confirm.
+    - **User-assigned identity**: Select the **User assigned** tab, select the checkbox for the identity, and select **Remove**. Select **Yes** to confirm.
 
 # [Azure CLI](#tab/cli)
 
