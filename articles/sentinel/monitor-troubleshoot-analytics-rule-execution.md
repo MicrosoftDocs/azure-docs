@@ -35,6 +35,10 @@ Here are some scenarios that can benefit from replaying specific runs of analyti
 
 **Compliance and auditing:** Some regulatory requirements or internal policies may necessitate rerunning analytics rules periodically or on-demand to demonstrate continuous monitoring and compliance. Manual rerunning provides the ability to meet such obligations by ensuring that rules are consistently applied and generate appropriate alerts. 
 
+## Prerequisites
+
+To use these monitoring and troubleshooting tools, you must have Microsoft Sentinel's health and audit feature enabled. [Learn how to enable health and audit](enable-monitoring.md).
+
 ## View analytics rule insights
 
 To take advantage of these tools, start by examining the insights on a given rule.
@@ -73,12 +77,35 @@ There are several scenarios that might lead you to rerun a rule.
 
 Here's how to rerun a rule:
 
-1. 
+1. From the **Analytics** page, select **Rule runs (Preview)** from the toolbar at the top. The **Rule runs** panel will open.
+
+    :::image type="content" source="media/monitor-troubleshoot-analytics-rule-execution/rerun-rules.png" alt-text="Screenshot of how to access rule runs panel.":::
+
+    You can also get to the **Rule runs** panel by selecting **Rerun rules** from the **Failed executions** display on the **Insights** tab (see above).
+
+    :::image type="content" source="media/monitor-troubleshoot-analytics-rule-execution/rule-runs-pane.png" alt-text="Screenshot of rule runs panel.":::
+
+1. Select the rule runs you want to replay, according to the time window in which they originally ran, as displayed in the **Execution time** column. You can choose more than one rule run.
+
+    :::image type="content" source="media/monitor-troubleshoot-analytics-rule-execution/choose-rule-runs.png" alt-text="Screenshot of choosing rule runs to run again.":::
+
+1. Select **Replay run**. Notifications will be displayed that show the progress of the requests and that the rules were queued for execution.
+
+    :::image type="content" source="media/monitor-troubleshoot-analytics-rule-execution/notifications.png" alt-text="Screenshot of rule runs notifications.":::
+
+1. Select **Refresh** to view the updated status of the rule's runs. You'll see that your requests are displayed among them, with a status of **In progress** (it will eventually show as **Success**) and a type of **User-triggered** as opposed to **System-triggered**.
+
+    :::image type="content" source="media/monitor-troubleshoot-analytics-rule-execution/in-progress.png" alt-text="Screenshot of rule runs panel.":::
+
+    You'll also notice that the execution time of your requested reruns is the same as the original system-triggered run's execution, and *not* the execution time of your rerun. This is to show you which time window your rerun is referencing.
+
+    You can only replay system-triggered rule runs, not user-triggered ones.
+
+Select **View full details** at the end of the line of any rule run to view its full, raw details in the **Logs** screen.
 
 ## Next steps
 
+- [Monitor the health and audit the integrity of your analytics rules](monitor-analytics-rule-integrity.md).
 - Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
 - [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
-- [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).
-- [Monitor the health of your data connectors](monitor-data-connector-health.md).
 - See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.
