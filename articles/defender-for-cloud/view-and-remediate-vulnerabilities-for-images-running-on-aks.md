@@ -1,4 +1,4 @@
--
+---
 title: How-to view and remediate runtime threat findings 
 description: Learn how to view and remediate runtime threat findings
 ms.service: defender-for-cloud
