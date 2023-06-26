@@ -20,6 +20,7 @@ The [NXLog BSM](https://docs.nxlog.co/refman/current/im/bsm.html) macOS data con
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [NXLog](https://nxlog.co/support-tickets/add/support-ticket) |
 
+
 ## Query samples
 
 **Most frequent event types**

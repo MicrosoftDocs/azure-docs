@@ -67,18 +67,3 @@ And you can manage your existing dev boxes and environments, too. Select the **m
 - To learn how to configure Microsoft Dev Box, see [Quickstart: Configure the Microsoft Dev Box service](../../articles/dev-box/quickstart-configure-dev-box-service.md).
 
 - To learn how to configure Azure Deployment Environments, see [Quickstart: Create and configure a dev center](../../articles/deployment-environments/quickstart-create-and-configure-devcenter.md).
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 
-- 

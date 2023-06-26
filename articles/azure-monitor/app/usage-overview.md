@@ -2,7 +2,7 @@
 title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/23/2023
 ms.reviewer: mmcc
 ---
 
@@ -40,8 +40,8 @@ The **Users** and **Sessions** reports filter your data by pages or custom event
 
 Insights on the right point out interesting patterns in the set of data.
 
-* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, they'll be counted more than once.
-* The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user. It's terminated by a period of inactivity of more than half an hour.
+* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, they're counted more than once.
+* The **Sessions** report tabulates the number of user sessions that access your site. A session represents a period of activity initiated by a user and concludes with a period of inactivity exceeding half an hour.
 
 For more information about the Users, Sessions, and Events tools, see [Users, sessions, and events analysis in Application Insights](usage-segmentation.md).
 
@@ -61,9 +61,9 @@ For more information about the Retention workbook, see [User retention analysis 
 
 ## Custom business events
 
-To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions, such as selecting specific buttons, to more significant business events, such as making a purchase or winning a game.
+To understand user interactions in your app, insert code lines to log custom events. These events track various user actions, like button selections, or important business events, such as purchases or game victories.
 
-You can also use the [Click Analytics Auto-collection plug-in](javascript-feature-extensions.md) to collect custom events.
+You can also use the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md) to collect custom events.
 
 In some cases, page views can represent useful events, but it isn't true in general. A user can open a product page without buying the product.
 
@@ -96,7 +96,7 @@ In the Users, Sessions, and Events tools, you can slice and dice custom events b
 
 :::image type="content" source="./media/usage-overview/events.png" alt-text="Screenshot that shows the Events tab filtered by AnalyticsItemsOperation and split by AppID." lightbox="./media/usage-overview/events.png":::
 
-Whenever you’re in any usage experience, click the **Open the last run query** icon to take you back to the underlying query.
+Whenever you’re in any usage experience, select the **Open the last run query** icon to take you back to the underlying query.
 
 :::image type="content" source="./media/usage-overview/open-last-run-query-icon.png" alt-text="Screenshot of the Application Insights Session pane in the Azure portal. The Open the last run query icon is highlighted." lightbox="./media/usage-overview/open-last-run-query-icon.png":::
 
@@ -125,9 +125,9 @@ When you design each feature of your app, consider how you're going to measure i
 
 ## A | B testing
 
-If you don't know which variant of a feature will be more successful, release both and make each variant accessible to different users. Measure the success of each variant, and then move to a unified version.
+If you're unsure which feature variant is more successful, release both and let different users access each variant. Measure the success of each variant, and then transition to a unified version.
 
-For this technique, you attach distinct property values to all the telemetry that's sent by each version of your app. You can do that step by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends. That means the properties are added to your custom messages and the standard telemetry.
+In this technique, you attach unique property values to all the telemetry sent by each version of your app. You can do it by defining properties in the active TelemetryContext. These default properties get included in every telemetry message sent by the application. It includes both custom messages and standard telemetry.
 
 In the Application Insights portal, filter and split your data on the property values so that you can compare the different versions.
 
