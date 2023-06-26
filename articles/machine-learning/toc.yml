@@ -40,7 +40,7 @@
 - name: Quickstart
   expanded: true
   items:
-    - name: Get started with Azure ML
+    - name: Get started with Azure Machine Learning
       href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
   expanded: true
@@ -903,7 +903,7 @@
         - name: Intro to Azure Pipelines for CI/CD
           displayName: continuous, integration, delivery
           href: how-to-devops-machine-learning.md
-        - name: Intro to Github Actions for CI/CD
+        - name: Intro to GitHub Actions for CI/CD
           href: how-to-github-actions-machine-learning.md
         - name: Custom CI/CD and Event-driven workflows
           displayName: event grid
@@ -912,7 +912,7 @@
       items:
       - name: Set up MLOps with Azure DevOps
         href: how-to-setup-mlops-azureml.md
-      - name: Set up MLOps with Github Actions
+      - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
 - name: Monitor your models
   items:
