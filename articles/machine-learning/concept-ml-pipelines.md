@@ -51,6 +51,7 @@ Once the teams get familiar with pipelines and want to do more machine learning 
 
 Once a team has built a collection of machine learnings pipelines and reusable components, they could start to build the machine learning pipeline from cloning previous pipeline or tie existing reusable component together. At this stage, the team's overall productivity will be improved significantly.  
 
+:::moniker range="azureml-api-2"
 Azure Machine Learning offers different methods to build a pipeline. For users who are familiar with DevOps practices, we recommend using [CLI](how-to-create-component-pipelines-cli.md). For data scientists who are familiar with python, we recommend writing pipeline using the [Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md). For users who prefer to use UI, they could use the [designer to build pipeline by using registered components](how-to-create-component-pipelines-ui.md).
 
 
