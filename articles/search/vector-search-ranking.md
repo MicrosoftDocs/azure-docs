@@ -1,7 +1,7 @@
 ---
-title: Vector search
+title: Vector search ranking
 titleSuffix: Azure Cognitive Search
-description: Describes concepts, scenarios, and availability of the vector search feature in Cognitive Search.
+description: Explains the concepts behind vector query execution, including how matches are found in vector space and ranked in search results.
 
 author: yahnoosh
 ms.author: jlembicz
@@ -10,10 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-# Vector search within Azure Cognitive Search
+# Relevance and ranking for vector queries in Azure Cognitive Search
 
+This article explains the concepts behind vector query execution, including how matches are found in vector space and ranked in search results.
 
-## What is vector search?
+## What's a vector query?
+
 Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By understanding the intent of the query, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text.
 
 ## Embeddings and vectorization
@@ -28,17 +30,25 @@ These machine learning models map individual words, phrases, or documents (for n
 
 For example, documents that talk about different species of dogs would be clustered close together in the embedding space. Documents about cats would be close together, but farther from the dogs cluster while still being in the neighborhood for animals. Dissimilar concepts such as cloud computing would be much farther away. In practice, these embedding spaces are very abstract and don't have well-defined, human-interpretable meanings, but the core idea stays the same.
 
-### How does this fit into search? 
+### How does this fit into query execution? 
 
-The input data within a search request would be fed into the same machine learning model that generated the embedding space for the vector index. This model would output a vector in the same embedding space. Since similar data are clustered close together, finding matches is equivalent to finding the nearest vectors -- the "nearest neighbors" -- and returning the associated documents as the search result.
+The input data within a query request would be fed into the same machine learning model that generated the embedding space for the vector index. This model would output a vector in the same embedding space. Since similar data are clustered close together, finding matches is equivalent to finding the nearest vectors and returning the associated documents as the search result.
 
-Using the previous example, if a search request is about dogs, the model would map the query into a vector that exists somewhere in the cluster of vectors representing documents about dogs. Finding the nearest vectors -- the most "similar" based on a similarity metric -- would return those relevant documents.
+Using the previous example, if a query request is about dogs, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about dogs. Finding the nearest vectors, or the most "similar" vector based on a similarity metric, would return those relevant documents.
 
-Commonly used similarity metrics include 'cosine', 'euclidean' (also known as 'l2 norm'), and 'dot product', which are summarized here. Cosine calculates the angle between two vectors. Euclidean calculates the Euclidean distance between two vectors, which is the l2-norm of the difference of the two vectors. Dot product is affected by both vectors' magnitudes and the angle between them. For normalized embedding spaces, dot product is equivalent to the cosine similarity, but is more efficient.
+Commonly used similarity metrics include 'cosine', 'euclidean' (also known as 'l2 norm'), and 'dot product', which are summarized here. 
+
++ Cosine calculates the angle between two vectors. 
+
++ Euclidean calculates the Euclidean distance between two vectors, which is the l2-norm of the difference of the two vectors. 
+
++ Dot product is affected by both vectors' magnitudes and the angle between them. 
+
+For normalized embedding spaces, dot product is equivalent to the cosine similarity, but is more efficient.
 
 ## Approximate Nearest Neighbors
 
-Finding the true set of 'k' nearest neighbors requires comparing the input vector exhaustively against all vectors in the dataset. While each vector similarity calculation is relatively fast, performing these exhaustive comparisons across large datasets is computationally expensive and slow because of the sheer number of comparisons that are required. For example, if a dataset contains 10 million 1,000-dimensional vectors, computing the distance between the query vector and all vectors in the dataset would require scanning 37 GB of data (assuming single-precision floating point vectors) and a high number of similarity calculations.
+Finding the true set of ['k' nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) requires comparing the input vector exhaustively against all vectors in the dataset. While each vector similarity calculation is relatively fast, performing these exhaustive comparisons across large datasets is computationally expensive and slow because of the sheer number of comparisons that are required. For example, if a dataset contains 10 million 1,000-dimensional vectors, computing the distance between the query vector and all vectors in the dataset would require scanning 37 GB of data (assuming single-precision floating point vectors) and a high number of similarity calculations.
 
 To address this challenge, approximate nearest neighbor (ANN) search methods are used to trade off recall for speed. These methods can efficiently find a small set of candidate vectors that are most likely to be similar to the query vector, reducing the total number of vectors comparisons.
 
@@ -52,7 +62,7 @@ In Azure Cognitive Search, embeddings are indexed alongside textual and numerica
 
 Hybrid search combines results from both term and vector queries, which use different ranking functions such as BM25 and cosine similarity. To present these results in a single ranked list, a method of merging the ranked result lists is needed. Azure Cognitive Search uses Reciprocal Rank Fusion, a non-parametric, rank-based method for this purpose.
 
-## What can you do with vectors in Cognitive Search?
+<!-- ## What can you do with vectors in Cognitive Search?
 
 We'll assume you created embeddings for your content like text, images, or audio. Embeddings might be trained on a single type of data (such as sentence embeddings), while others map multiple types of data into the same vector space (for example, sentences and images).
 
@@ -68,9 +78,9 @@ You can now index those embeddings alongside other types of content in Azure Cog
 
 + **Hybrid search**. For text data, you can combine the best of vector retrieval and keyword retrieval to obtain the best results. Use with semantic search (preview) for even more accuracy with L2 reranking using the same language models that power Bing.  
 
-+ **Vector storage or vector database**. A common scenario is to vectorize all of your data into a vector database, and then when the application needs to find an item, you use a query vector to retrieve similar items. Because Cognitive Search can store vectors, you could use it purely as a vector store.
++ **Vector storage or vector database**. A common scenario is to vectorize all of your data into a vector database, and then when the application needs to find an item, you use a query vector to retrieve similar items. Because Cognitive Search can store vectors, you could use it purely as a vector store. -->
 
-<!-- ## Reciprocal Rank Fusion
+## Reciprocal Rank Fusion
 
 For hybrid search scoring, we use Reciprocal Rank Fusion. Reciprocal Rank Fusion (RRF) is a technique used in information retrieval, specifically for combining the results of different search systems to produce a single, more accurate and relevant result. It's based on the concept of reciprocal rank, which is the inverse of the rank of the first relevant document in a list of search results. 
 
@@ -84,7 +94,7 @@ Here's a simple explanation of the RRF process: 
 
 3. Combine scores: For each document, we sum the reciprocal rank scores obtained from each search system. This gives us a combined score for each document. 
 
-4. Rank documents based on combined scores: Finally, we sort the documents based on their combined scores, and the resulting list is the fused ranking. -->
+4. Rank documents based on combined scores: Finally, we sort the documents based on their combined scores, and the resulting list is the fused ranking.
 
 
 
