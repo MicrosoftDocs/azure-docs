@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 06/26/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: 
@@ -39,6 +39,9 @@ After configuring endpoints, you can configure network rules to further control 
 ## Private endpoints
 
 Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network. Private endpoints use a separate set of IP addresses from the virtual network address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
+
+> [!NOTE]
+> The maximum number of IP addresses used from the private address space for an Elastic SAN private endpoint is 20.
 
 Private endpoints have several advantages over service endpoints, including:
 
