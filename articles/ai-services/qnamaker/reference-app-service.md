@@ -2,6 +2,9 @@
 title: Service configuration - QnA Maker
 description: Understand how and where to configure resources.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/02/2021

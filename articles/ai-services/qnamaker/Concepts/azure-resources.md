@@ -2,6 +2,9 @@
 title: Azure resources - QnA Maker
 description: QnA Maker uses several Azure sources, each with a different purpose. Understanding how they are used individually allows you to plan for and select the correct pricing tier or know when to change your pricing tier. Understanding how they are used in combination allows you to find and fix problems when they occur.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/02/2022

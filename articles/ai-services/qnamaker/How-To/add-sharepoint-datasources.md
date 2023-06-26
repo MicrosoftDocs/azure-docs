@@ -2,6 +2,9 @@
 title: SharePoint files - QnA Maker
 description: Add secured SharePoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 01/25/2022

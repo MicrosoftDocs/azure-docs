@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Use the Prebuilt API to get answers over text
 services: cognitive-services
 manager: nitinme
+ms.author: jboback
+author: jboback
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to

@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Understand the TSV format for batch testing
 services: cognitive-services
 manager: nitinme
+ms.author: jboback
+author: jboback
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference

@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score.
 services: cognitive-services
 manager: nitinme
+ms.author: jboback
+author: jboback
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual

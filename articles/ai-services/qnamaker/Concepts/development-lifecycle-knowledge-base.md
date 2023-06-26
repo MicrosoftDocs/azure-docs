@@ -2,6 +2,9 @@
 title: Lifecycle of knowledge base - QnA Maker
 description: QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020

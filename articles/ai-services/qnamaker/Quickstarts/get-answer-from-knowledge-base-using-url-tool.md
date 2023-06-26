@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
 services: cognitive-services
 manager: nitinme
+ms.author: jboback
+author: jboback
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface

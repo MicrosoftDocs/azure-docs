@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: This article contains news about QnA Maker.
 services: cognitive-services
 manager: nitinme
+ms.author: jboback
+author: jboback
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview

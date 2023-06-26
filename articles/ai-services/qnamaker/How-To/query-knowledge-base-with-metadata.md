@@ -4,6 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker filters QnA pairs by metadata.
 services: cognitive-services
 manager: nitinme
+ms.author: jboback
+author: jboback
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to

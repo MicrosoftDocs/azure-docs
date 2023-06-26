@@ -4,6 +4,9 @@ description: Learn how to collaborate with other authors and editors using Azure
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.date: 05/15/2020
 ---
 

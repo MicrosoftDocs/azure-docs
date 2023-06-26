@@ -4,6 +4,9 @@ description: Learn how to design a knowledge base - QnA Maker.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.date: 01/27/2020
 ---
 

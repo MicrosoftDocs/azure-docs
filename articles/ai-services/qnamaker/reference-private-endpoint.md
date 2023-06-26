@@ -2,6 +2,9 @@
 title: How to set up a Private Endpoint - QnA Maker
 description: Understand Private Endpoint creation available in QnA Maker managed.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/12/2021

@@ -2,6 +2,9 @@
 title: Manage knowledge bases - QnA Maker
 description: QnA Maker allows you to manage your knowledge bases by providing access to the knowledge base settings and content.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 03/18/2020

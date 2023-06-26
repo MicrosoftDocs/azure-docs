@@ -2,6 +2,9 @@
 title: Get default answer - QnA Maker
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
