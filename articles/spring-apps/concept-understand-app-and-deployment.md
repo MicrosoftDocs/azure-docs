@@ -1,6 +1,6 @@
 ---
 title:  "App and deployment in Azure Spring Apps"
-description: This topic explains the distinction between application and deployment in Azure Spring Apps.
+description: Explains the distinction between application and deployment in Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -28,29 +28,29 @@ The Azure Spring Apps Standard plan allows one App to have one production deploy
 
 ## App
 
-The following features/properties are defined on App level.
+The following features/properties are defined on app level.
 
-| Features               | Description                                                                                                                            |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| Public</br>Endpoint    | The URL to access the app                                                                                                              |
-| Custom</br>Domain      | CNAME record that secures the custom domain                                                                                            |
-| Service</br>Binding    | Out of box connection with other Azure services                                                                                        |
-| Managed</br>Identity   | Managed identity by Azure Active Directory allows your app to easily access other Azure AD-protected resources such as Azure Key Vault |
-| Persistent</br>Storage | Setting that enables data to persist beyond app restart                                                                                |
+| Features               | Description                                                                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
+| Public</br>Endpoint    | The URL to access the app.                                                                                                                  |
+| Custom</br>Domain      | The `CNAME` record that secures the custom domain.                                                                                          |
+| Service</br>Binding    | The out-of-box connection with other Azure services.                                                                                        |
+| Managed</br>Identity   | The managed identity by Azure Active Directory allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. |
+| Persistent</br>Storage | The setting that enables data to persist beyond app restart.                                                                                |
 
 ## Deployment
 
-The following features/properties are defined on Deployment level, and will be exchanged when swapping production/staging deployment.
+The following features/properties are defined on the deployment level, and are exchanged when swapping the production and staging deployment.
 
-| Features                  | Description                                                                |
-|:--------------------------|:---------------------------------------------------------------------------|
-| CPU                       | Number of vcores per App instance                                          |
-| Memory                    | Gb of memory per App instance                                              |
-| Instance</br>Count        | The number of app instances, set manually or automatically                 |
-| Auto-Scale                | Scale instance count automatically based on predefined rules and schedules |
-| JVM</br>Options           | Setting JVM options                                                        |
-| Environment</br>Variables | Setting environment variables                                              |
-| Runtime</br>Version       | Java 8/Java 11                                                             |
+| Features                  | Description                                                                     |
+|:--------------------------|:--------------------------------------------------------------------------------|
+| CPU                       | The number of vcores per app instance.                                          |
+| Memory                    | The GB of memory per app instance.                                              |
+| Instance</br>Count        | The number of app instances, set manually or automatically.                     |
+| Auto-Scale                | The scale instance count automatically based on predefined rules and schedules. |
+| JVM</br>Options           | The JVM options to set.                                                         |
+| Environment</br>Variables | The environment variables to set.                                               |
+| Runtime</br>Version       | Either *Java 8* or *Java 11*.                                                   |
 
 ## Environment
 
@@ -108,13 +108,13 @@ public class AzureSpringAppsContext {
 }
 ```
 
-For any other polyglot apps, you may need to read and access corresponding properties by leveraging the corresponding file read/write libraries in your apps.
+For any other polyglot apps, you may need to read and access corresponding properties by using the corresponding file read/write libraries in your apps.
 
 ## Restrictions
 
-- An app must have one production deployment. Deleting a production deployment is blocked by the API. You should swap a deployment to staging before deleting it.
-- An app can have at most two deployments. Creating more than two deployments is blocked by the API. Deploy your new binary to either the existing production or staging deployment.
-- Deployment management is not available in the Basic plan. Use the Standard or Enterprise plan for blue-green deployment capability.
+- An app must have one production deployment. The API blocks the deletion of a production deployment. You should swap a deployment to staging before deleting it.
+- An app can have at most two deployments. The API blocks the creation of more than two deployments. Deploy your new binary to either the existing production or staging deployment.
+- Deployment management isn't available in the Basic plan. Use the Standard or Enterprise plan for blue-green deployment capability.
 
 ## Next steps
 
