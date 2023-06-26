@@ -238,10 +238,15 @@
       href: overview-local-cache.md
 - name: Authentication
   items:
-    - name: Authentication overview
-      href: overview-authentication-authorization.md
-    - name: Enable authentication quickstart
+    - name: Enable built-in authentication quickstart
       href: scenario-secure-app-authentication-app-service.md
+    - name: Built-in authentication overview
+      href: overview-authentication-authorization.md
+    - name: Identity scenarios
+      href: identity-scenarios.md
+    - name: Identity fundamentals
+      href: ../active-directory/fundamentals/identity-fundamental-concepts.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+        
     - name: Configure identity providers
       items:
         - name: Use Azure AD

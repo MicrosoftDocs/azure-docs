@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 04/23/2023
+ms.date: 06/15/2023
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -68,26 +68,30 @@ Follow the steps below to create your GCP cloud connector.
 
    (Optional) If you select **Organization**, a management project and an organization custom role will be created on your GCP project for the onboarding process. Auto-provisioning will be enabled for the onboarding of new projects.
 
+    > [!NOTE]
+    > Defender for Cloud can be connected to each GCP project or organization only once.
+
 1. Select the **Next: Select Plans**.
 
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
 
     1. (**Containers only**) Ensure you've fulfilled the [network requirements](defender-for-containers-enable.md?tabs=defender-for-container-gcp#network-requirements) for the Defender for Containers plan.
 
-1. Select the **Next: Configure access**.
+1. Select **Next: Configure access**.
 
-1. Select **Copy**.
+    a. Choose deployment type, **Default access** or **Least privilege access**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
+    - Default access - Allows Defender for Cloud to scan your resources and automatically include future capabilities.
+    - Least privileged access - Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality on the connector health section.
+
+    b. Choose deployment method: **GCP Cloud Shell** or **Terraform**.
+
+1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on GCP.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/gcp-configure-access.png" alt-text="Screenshot showing the configure access and its deployment options and instructions.":::
 
    > [!NOTE]
    > To discover GCP resources and for the authentication process, the following APIs must be enabled: `iam.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`, `iamcredentials.googleapis.com`, `compute.googleapis.com`. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
-
-1. Select the **GCP Cloud Shell >**.
-
-1. The GCP Cloud Shell will open.
-
-1. Paste the script into the Cloud Shell terminal and run it.
 
 1. Ensure that the following resources were created:
 
@@ -354,16 +358,6 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options" lightbox="media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png":::
 
-## FAQ - Connecting GCP projects to Microsoft Defender for Cloud
-
-### Is there an API for connecting my GCP resources to Defender for Cloud?
-
-Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/defenderforcloud/security-connectors).
-
-### What GCP regions are supported by Defender for Cloud?
-
-Defender for Cloud supports and scans all available regions on GCP public cloud.
-
 ## Next steps
 
 Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:
@@ -371,3 +365,4 @@ Connecting your GCP project is part of the multicloud experience available in Mi
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 - [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) - Learn about the Google Cloud resource hierarchy in Google's online docs
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)
+- Check out [common questions](faq-general.yml) about connecting your GCP project.
