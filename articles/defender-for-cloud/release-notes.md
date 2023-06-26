@@ -38,25 +38,29 @@ Updates in June include:
 
 June 13, 2023
 
-Defender for Cloud has added an onboarding wizard that allows you to onboard AWS and GCP environments while providing access to advanced onboarding features.
+Defender for Cloud has added an onboarding experience to include a new streamlined user interface and instructions in addition to new capabilities that allow you to onboard your AWS and GCP environments while providing access to advanced onboarding features.
 
-When you onboard new cloud accounts, you can customize the role names that are required to create the integration. You can also select between:
+For organizations that have adopted Hashicorp Terraform for automation, Defender for Cloud now includes the ability to use Terraform as the deployment method alongside AWS CloudFormation or GCP Cloud Shell. You can now customize the required role names when creating the integration. You can also select between:
+
 - **Default access** - Allows Defender for Cloud to scan your resources and automatically include future capabilities. 
+
 - **Least privileged access** -Grants Defender for Cloud access only to the current permissions needed for the selected plans. 
 
 If you select the least privileged permissions, you'll only receive notifications on any new roles and permissions that are required to get full functionality on the connector health.
+
+Defender for Cloud allows you to distinguish between your cloud accounts by their native names from the cloud vendors. For example, AWS account aliases and GCP project names.
 
 ### Private Endpoint support for Malware Scanning in Defender for Storage 
 
 June 25, 2023
 
-Private Endpoint support is now available as part of the Malware Scanning public preview in Defender for Storage. This capability allows enabling Malware Scanning on storage accounts that are using private endpoints. No additional configuration is needed.
+Private Endpoint support is now available as part of the Malware Scanning public preview in Defender for Storage. This capability allows enabling Malware Scanning on storage accounts that are using private endpoints. No other configuration is needed.
 
-[Malware Scanning (Preview)](defender-for-storage-malware-scan.md) in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real-time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. It is an agentless SaaS solution that allows simple setup at scale, with zero maintenance, and supports automating response at scale.
+[Malware Scanning (Preview)](defender-for-storage-malware-scan.md) in Defender for Storage helps protect your storage accounts from malicious content by performing a full malware scan on uploaded content in near real-time, using Microsoft Defender Antivirus capabilities. It's designed to help fulfill security and compliance requirements for handling untrusted content. It's an agentless SaaS solution that allows simple setup at scale, with zero maintenance, and supports automating response at scale.
 
 Private endpoints provide secure connectivity to your Azure Storage services, effectively eliminating public internet exposure, and are considered a security best practice.
 
-For storage accounts with private endpoints that have Malware Scanning already enabled, you will need to disable and [enable the plan with Malware Scanning](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
+For storage accounts with private endpoints that have Malware Scanning already enabled, you'll need to disable and [enable the plan with Malware Scanning](https://learn.microsoft.com/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription) for this to work.
 
 Learn more about using [private endpoints](https://learn.microsoft.com/azure/private-link/private-endpoint-overview) in [Defender for Storage](defender-for-storage-introduction.md) and how to secure your storage services further.
 
