@@ -174,7 +174,7 @@ The native cloud connector requires:
 
     b. Choose deployment method: **AWS CloudFormation** or **Terraform**.
 
-    :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot showing the configure access and its deployment options and instructions..":::
+    :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot showing the configure access and its deployment options and instructions.":::
 
 1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
 
