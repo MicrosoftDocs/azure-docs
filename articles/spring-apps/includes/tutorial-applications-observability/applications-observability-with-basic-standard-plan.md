@@ -149,7 +149,7 @@ Repeat with the previous section steps for the **Server exception** and **Depend
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal with exceptions and failures to dashboard." lightbox="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png":::
 
-#### Add Failed request chart
+#### Add Failed requests chart
 
 Repeat with the previous section steps for the **Failed requests** metric under the **Application Insights standard metrics** namespace, save the **Failed requests** chart to the dashboard.
 
@@ -196,7 +196,7 @@ You can pin some blades to the dashboard as needed, it will be convenient to jum
 
 #### Monitor the dashboard
 
-Go to your private `PetClinic` dashboard page, edit your tiles with dashboard, edit the size of the tiles in your dashboard as needed to match the monitoring.
+Go to your private `PetClinic` dashboard page and edit the tiles in the dashboard as needed for easy monitoring.
 
 :::image type="content" source="../../media/tutorial-applications-observability/dashboard-page.png" alt-text="Screenshot of the Azure portal with dashboard." lightbox="../../media/tutorial-applications-observability/dashboard-page.png":::
 

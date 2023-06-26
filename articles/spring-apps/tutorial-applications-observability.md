@@ -39,7 +39,7 @@ and use Application Insights to investigate production issues.
   1. Make sure that the applications that need to link to the database have activated the mysql profile through the environment variable:
      - On the **Configuration** page of app **customers-service**, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, then select **Save**
 
-       :::image type="content" source="media/tutorial-applications-observability/app-config-env.png" alt-text="Screenshot of Azure portal showing config env for Azure Spring Apps instance" lightbox="media/tutorial-applications-observability/app-config-env.png":::
+       :::image type="content" source="media/tutorial-applications-observability/app-customers-service-config-env.png" alt-text="Screenshot of Azure portal showing config env for customers-service app" lightbox="media/tutorial-applications-observability/app-customers-service-config-env.png":::
 
      - Repeat the configuration steps of `customers-service` above to configure the following applications:
      
@@ -50,7 +50,7 @@ and use Application Insights to investigate production issues.
 
 ## 4. Query logs to diagnose an application problem
 
-This section provides samples of querying your application logs, and special error can be queried through the custom [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
+This section provides samples of querying your application logs and special error logs, see more from [Kusto Query Language](/azure/data-explorer/kusto/query/).
 
 ### Log queries
 
@@ -65,7 +65,7 @@ AppPlatformLogsforSpring
 :::image type="content" source="media/tutorial-applications-observability/show-application-logs.png" alt-text="Screenshot of Azure portal showing application logs for Azure Spring Apps instance" lightbox="media/tutorial-applications-observability/show-application-logs.png":::
 
 
-To review a list of error logs from Azure Spring Apps, replace the keyword and which you are looking for, run the following query:
+To review a list of error logs from Azure Spring Apps, replace the keyword which you are looking for, run the following query:
 
 ```sql
 AppPlatformLogsforSpring
