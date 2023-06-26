@@ -44,32 +44,78 @@ To establish direct interconnect for Communication Services, follow these requir
 
 To establish a direct interconnect with Microsoft using Internet peering, follow the following steps:
 
-1. **Associate Peer public ASN to the Azure Subscription:** [Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md). If the Peer has already associated a public ASN to Azure subscription, go to the next step.
+### 1. Associate your public ASN with your Azure subscription
 
-2. **Create Direct peering connection for Peering Service:** [Create a Direct peering using the portal](./howto-direct-portal.md), and make sure you meet high-availability.requirement. In the **Configuration** tab of **Create a Peering**, select the following options:
+Follow the instructions here: [Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md). If the ASN has already been associated, proceed to the next step.
 
-    | Setting | Value |
-    | --- | --- |
-    | Peering type | Select **Direct**. |
-    | Microsoft network | Select **8075 (with Voice)**. |
-    | SKU | Select **Premium Free**. |
+### 2. Create a Communications Services peering
 
-    In **Direct Peering Connection**, select following options:
+To create a peering resource for Communications Services, search for **Peerings** in the Azure portal, and click on it:
 
-    | Setting | Value |
-    | --- | --- |
-    | Session Address provider | Select **Microsoft**. |
-    | Use for Peering Services | Select **Enabled**. |
+:::image type="content" source="./media/create-maps-peering-search" alt-text=Azure portal search for Peering resources" :::
 
-    > [!NOTE] 
-    > When activating Peering Service, ignore the following message: *Do not enable unless you have contacted peering@microsoft.com about becoming a MAPS provider.*
+Click Create in the page that opens:
 
-1. **Register your prefixes for Optimized Routing:** For optimized routing for your Communication services infrastructure prefixes, register all your prefixes with your peering interconnects.
+:::image type="content" source="./media/create-maps-peering-create" alt-text="Click create in the Peering resources page" :::
 
-    Ensure that the registered prefixes are announced over the direct interconnects established in that location. If the same prefix is announced in multiple peering locations, it's sufficient to register them with just one of the peerings in order to retrieve the unique prefix keys after validation.
+Enter the subscription, resource group, name, and ASN of the peering:
 
-    > [!NOTE] 
-    > The Connection State of your peering connections must be **Active** before registering any prefixes.
+:::image type="content" source="./media/create-maps-peering-basics" alt-text="Specify the subscription, resource group, name, and peer ASN of the peering" :::
+
+> [!NOTE] 
+> These details CANNOT be changed after the peering is created. Please confirm they are correct before creating the peering.
+
+In the Configuration form, you MUST choose:
+
+* **Direct** as the Peering type 
+* **AS8075 (with Voice)** as the Microsoft network
+* **Premium Free** as the SKU
+
+These are mandatory configurations when creating a peering for Communications Services.
+
+:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-config.png" alt-text="Configure the peering for Communications Services" :::
+
+In the peering connections section, click Create new to add a connection to your peering.
+
+:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-bgp-session.png" alt-text="Configure a peering connection" :::
+
+Peerings configured for Communications Services MUST have **Microsoft** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically. Microsoft must be the IP provider for Communications Services, you cannot provide your own IPs.
+
+Before finalizing your Peering, make sure the peering has at least two connections. Local redundancy is a requirement for Peering Service, and creating a Peering with two sessions will achieve this.
+
+When you have finished configuring your peering, move on to Review + create. If you have configured it correctly, the resource will pass validation. Click Create to deploy the resource.
+
+:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-review.png" alt-text="Review and create the peering" :::
+
+Allow time for the resource to finish deploying. When deployment is successful, your peering is created and provisioning will begin.
+
+:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-deploy.png" alt-text="Successfully deployed peering resource" :::
+
+### 3. Register your prefixes for Optimized Routing
+
+For optimized routing for your Communication services infrastructure prefixes, register all your prefixes with your peering interconnects.
+
+> [!NOTE] 
+> The Connection State of your peering connections must be **Active** before registering any prefixes.
+
+Ensure that the registered prefixes are announced over the direct interconnects established with your peering. If the same prefix is announced in multiple peering locations, you do NOT have to register the prefix in every single location. A prefix can only be registered with a single peering. When you receive the unique prefix key after validation, this key will be used for the prefix even in locations other than the location of the peering it was registered under.
+
+To begin registration, open your Communications Services peering in the Azure portal and click on **Registered prefixes** in the left pane:
+
+:::image type="content" source="./media/walkthrough-communications-services-partner/register-prefix-peering-page.png" alt-text="Peering resource page with Registered Prefixes option highlighted" :::
+
+Then click **Add registered prefix**
+
+> [!NOTE] 
+> If the Add registered prefix buttin is disabled, that means your peering doesn't have at least one connection that is **Active**. Please wait until this occurs to register your prefix.
+
+:::image type="content" source="./media/walkthrough-communications-services-partner/register-prefix-add-prefix.png" alt-text="Registered prefix page with Add button highlighted" :::
+
+Configure your prefix by giving it a name, and the IPv4 prefix string and click **Save**.
+
+:::image type="content" source="./media/walkthrough-communications-services-partner/register-prefix-configure.png" alt-text="Registered prefix configuration page" :::
+
+
 
 ## Register the prefix
 

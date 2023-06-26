@@ -127,3 +127,6 @@ Ensure the [connectivity provider](location-partners.md) is partnered with Micro
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
 - To find a service provider partner, see [Peering Service partners and locations](location-partners.md).
 - To register Peering Service, see [Create, change, or delete a Peering Service connection using the Azure portal](azure-portal.md).
+- To establish a Direct interconnect for Microsoft Azure Peering Service, see [Internet peering for Microsoft Azure Peering Services walkthrough](../../articles/internet-peering/walkthrough-direct-all.md)
+- To establish a Direct interconnect for Communications Services, see [Internet peering for Communications Services walkthrough](../../articles/internet-peering/walkthrough-communications-services-partner.md)
+- To establish a Direct interconnect for Exchange Router Server, see [Internet peering for Exchange Route Server walkthrough](../../articles/internet-peering/walkthrough-exchange-route-server-partner.md)
