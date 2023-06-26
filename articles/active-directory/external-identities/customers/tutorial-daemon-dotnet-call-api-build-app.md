@@ -5,7 +5,7 @@ services: active-directory
 author: SHERMANOUKO
 manager: mwongerapk
 
-ms.author: shermaouko
+ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: how-to
