@@ -25,8 +25,14 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 
 1. In the Azure portal, navigate to Azure AD then **App Registrations**.
 1. Assign a **Name**. Under select the **Supported account type**, choose **Accounts in this organizational directory only (Single tenant)**. Select **Register**.
+
+:::image type="content" source="../media/azure-netapp-files/register-application-active-directory.png" alt-text="Screenshot to register application." lightbox="../media/azure-netapp-files/register-application-active-directory.png":::
+
 1. Configure the permissions for the application. Under **App Registrations**, select **API Permissions** then **Add a Permission**. 
 1. Select **Microsoft Graph** then **Delegated Permissions**. Under **Select Permissions**, search for "open ID" and select it. Then search for "profile" and add it. 
+
+:::image type="content" source="../media/azure-netapp-files/api-permissions.png" alt-text="Screenshot to register API permissions." lightbox="../media/azure-netapp-files/api-permissions.png":::
+
 1. Grant **Admin Consent** on your application. 
 
 ### Install Azure AD Connect in your on-premises environment 
@@ -88,6 +94,9 @@ Before you can connect your on-premises environment to Azure AD, you must have:
     1. Navigate to **Group Policy > Computer Configuration > Administrative Templates > System > Kerberos**. Enable **Allow retrieving the cloud Keberos ticket during the logon**. 
 
     1. Select **Define host name-to-Kerberos realm mappings**. Provide a name and vaule using the fully qualified domain name from the mount instructions (for example, name: KERBEROS.MICROSOFTONLINE.COM and value: NETBIOS-1234.contoso.com).  
+
+:::image type="content" source="../media/azure-netapp-files/define-host-name-to-kerberos.png
+" alt-text="Screenshot to define how-name-to-Kerberos real mappings." lightbox="../media/azure-netapp-files/define-host-name-to-kerberos.png":::
 
 1. Manually add DNS mapping in the hosts. 
     Open `C:\Windows\System32\drivers\etc\hosts` and add an entry based on the mount point and LIF, for example `10.5.1.4 NETBIOS-1234.contoso.com`. Use the hybrid credentials retrieved during the machine creation. Cloud user credentials do not have the correct permission to modify the `/etc/hosts/` file. 
