@@ -1,7 +1,7 @@
 ---
-title: Metric definitions for Azure Communication Service
+title: Call automation metric definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
-description: This document covers definitions of metrics available in the Azure portal.
+description: This document covers definitions of call automation metrics available in the Azure portal.
 author: mkhribech
 manager: timmitchell
 services: azure-communication-services
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
-# Metrics overview
+# Call automation metrics overview
 
 Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
