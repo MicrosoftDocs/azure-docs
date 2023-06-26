@@ -402,6 +402,7 @@ Stay up to date on Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
+
 [3.0.0-preview.9]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.9
 [3.0.0-preview.8]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.8
 [3.0.0-preview.7]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.7
