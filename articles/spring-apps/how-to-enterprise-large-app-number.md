@@ -12,7 +12,7 @@ ms.date: 06/17/2023
 
 This article applies to ❌ Basic/Standard ✔️ Enterprise
 
-The Enterprise plan is designed for running large-scale production workloads. It supports up to 1000 application instances per service instance. This article shows how to deploy large number of applications in the Enterprise plan for Azure Spring Apps and what kind of restrictions are there under preview stage.
+The Enterprise plan is designed for running large-scale production workloads. It supports up to 1000 application instances per service instance. This article shows how to deploy large number of applications in the Enterprise plan for Azure Spring Apps and what kind of restrictions are there under preview stage. For your production environment, 500 is still the recommended maximum application instance count. 
 
 ## Definition
 
