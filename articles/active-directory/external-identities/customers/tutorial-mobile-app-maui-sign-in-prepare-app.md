@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create a .NET MAUI shell app, add MSALClient, and include an image resource"
+title: "Tutorial: Create a .NET MAUI shell app, add MSAL, and include an image resource"
 description: This tutorial demonstrates how to create a .NET MAUI shell app, add MSALClient, and include an image resource.
 author: henrymbuguakiarie
 manager: mwongerapk
@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > - Create a .NET MAUI shell app.
-> - Add MSALClient.
+> - Add MSAL SDK support via MSAL helper classes.
 > - Install required packages.
 > - Add image resource.
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Wait for the project to be created and its dependencies to be restored.
 
-## Add MSALClient
+## Add MSAL SDK support via MSAL helper classes
 
 MSAL client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 

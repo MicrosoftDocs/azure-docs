@@ -15,6 +15,8 @@ ms.date: 06/05/2023
 
 This three-part tutorial series demonstrates how to build a .NET Multi-platform App UI (MAUI) mobile app that authenticates using Azure Active Directory (Azure AD) for customers tenant.
 
+The tutorial aims to demonstrate how to create a .NET MAUI app that uses cross-platform code while enhancing the default application class with Android platform-specific code.
+
 Part one involves the registration of the .NET MAUI mobile app within the customer's tenant. In part two, you create the .NET MAUI mobile app, while in part three, you implement the sign-in and sign-out code to enable secure authentication.
 
 In this tutorial, you learn how to:
