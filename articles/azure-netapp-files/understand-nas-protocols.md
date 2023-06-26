@@ -75,19 +75,19 @@ NFSv4.x has the following characteristics:
 * Since NFSv4.x does not use ancillary protocols, Kerberos is applied to the entire NFS conversation when in use. 
 * NFSv4.x uses a combination of user/group names and domain strings to verify user and group information. The client and server must agree on the domain strings for proper user and group authentication to occur. If the domain strings do not match, then the NFS user or group gets squashed to the specified user in the /etc/idmapd.conf file on the NFS client (for example, nobody). 
 * While NFSv4.x does default to using domain strings, it is possible to configure the client and server to fall back on the classic numeric IDs seen in NFSv3 when AUTH_SYS is in use. 
-* Because NFSv4.x has such deep integration with user and group name strings and because the server and clients must agree on these users/groups, using a name service server for user authentication such as LDAP is highly recommended on NFS clients and servers. 
+* Because NFSv4.x has such deep integration with user and group name strings and because the server and clients must agree on these users/groups, using a name service server for user authentication such as LDAP is recommended on NFS clients and servers. 
 
 For frequently asked questions regarding NFS in Azure NetApp Files, see the [Azure NetApp Files NFS FAQ](faq-nfs.md). 
 
 ## Server Message Block 
 
-SMB is primarily used with Windows clients for NAS functionality. However, it can also be used on Linux-based operating systems such as AppleOS, RedHat, etc. This is generally done using an application called Samba. Azure NetApp Files has official support for SMB using Windows and macOS. SMB/Samba on Linux operating systems can work with Azure NetApp Files, but there is no official support. 
+SMB is primarily used with Windows clients for NAS functionality. However, it can also be used on Linux-based operating systems such as AppleOS, RedHat, etc. This deployment is generally accomplished using an application called Samba. Azure NetApp Files has official support for SMB using Windows and macOS. SMB/Samba on Linux operating systems can work with Azure NetApp Files, but there is no official support. 
 
 SMB does not have an official RFC standard, but NetApp partners closely with Microsoft to ensure the best possible SMB experience. Azure NetApp Files supports only SMB 2.1 and SMB 3.1 versions. 
 
 SMB has the following characteristics: 
 
-* SMB is a stateful protocol. This means that the clients and server maintain a “state” for SMB share connections for better security and locking. 
+* SMB is a stateful protocol: the clients and server maintain a “state” for SMB share connections for better security and locking. 
 * Locking in SMB is considered mandatory. Once a file is locked, no other client can write to that file until the lock is released. 
 * SMBv2.x and later leverage compound calls to perform operations.  
 * SMB supports full Kerberos integration. With the way Windows clients are configured, Kerberos is often in use without end users ever knowing. 
