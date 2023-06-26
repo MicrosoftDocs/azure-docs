@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/13/2023
+ms.date: 6/26/2023
 ms.author: gunnarc
 ms.custom: compute-evergreen
 ---
@@ -27,17 +27,24 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 23-06 |  [5027219]  |  Latest Cumulative Update(LCU) | 5.82 | Jun 13, 2023 |
+|  Rel 23-06 OOB |  [5028623]  |  Latest Cumulative Update(LCU) | 5.82 | Jun 23, 2023 |
 |  Rel 23-06 |  [5027225]  |  Latest Cumulative Update(LCU) | 7.26 | Jun 13, 2023 |
 |  Rel 23-06 |  [5027222]  |  Latest Cumulative Update(LCU) | 6.58 | Jun 13, 2023 |
 |  Rel 23-06 |  [5027140]  |  .NET Framework 3.5 Security and Quality Rollup | 2.138 | Jun 13, 2023 |
 |  Rel 23-06 |  [5027134]  |  .NET Framework 4.6.2 Security and Quality Rollup  | 2.138 | Jun 13, 2023 |
+|  Rel 23-06 OOB |  [5028591]  |  .NET Framework Rollup 4.6 – 4.7.2/ .NET standalone update   | 2.138 | Jun 22, 2023 |
 |  Rel 23-06 |  [5027141]  |  .NET Framework 3.5 Security and Quality Rollup  | 4.118 | Jun 13, 2023 |
 |  Rel 23-06 |  [5027133]  |  .NET Framework 4.6.2 Security and Quality Rollup  | 4.118 | Jun 13, 2023 |
+|  Rel 23-06 OOB |  [5028590]  |  .NET Framework Rollup 4.6 – 4.7.2/ .NET standalone update  | 4.118 | Jun 22, 2023 |
 |  Rel 23-06 |  [5027138]  |  .NET Framework 3.5 Security       and Quality Rollup  | 3.126 | Jun 13, 2023 |
 |  Rel 23-06 |  [5027132]  |  .NET Framework 4.6.2 Security and Quality Rollup  | 3.126 | Jun 13, 2023 |
+|  Rel 23-06 OOB |  [5028589]  |  .NET Framework Rollup 4.6 – 4.7.2/ .NET standalone update  | 3.126 | Jun 22, 2023 |
+|  Rel 23-06 |  [5027123]  |  .NET Framework 4.8 Security and Quality Rollup  | 5.82 | Jun 13, 2023 |
+|  Rel 23-06 OOB |  [5028580]  |  .NET Framework Rollup 4.8 /.NET Standalone Update  | 5.82 | Jun 22, 2023 |
 |  Rel 23-06 |  [5027131]  |  . NET Framework 4.7.2 Cumulative Update | 6.58 | Jun 13, 2023 |
+|  Rel 23-06 OOB |  [5028588]  |  .NET Framework Rollup - 4.6-4.7.2 / .NET Standalone Update  | 6.58 | Jun 22, 2023 |
 |  Rel 23-06 |  [5027127]  |  .NET Framework 4.8 Security and Quality Rollup  | 7.26 | Jun 13, 2023 |
+|  Rel 23-06 OOB |  [5028584]  |  .NET Framework Rollup - 4.8 / .NET Standalone Update  | 7.26 | Jun 22, 2023 |
 |  Rel 23-06 |  [5027275]  |  Monthly Rollup | 2.138 | Jun 13, 2023 |
 |  Rel 23-06 |  [5027283]  |  Monthly Rollup | 3.126 | Jun 13, 2023 |
 |  Rel 23-06 |  [5027271]  |  Monthly Rollup | 4.118 | Jun 13, 2023 |
@@ -48,20 +55,27 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 23-06 |  [5017397]  |  Servicing Stack Update LKG | 2.138 | Sep 13, 2022 |
 |  Rel 23-06 |  [4494175]  |  Microcode | 5.82 | Sep 1, 2020 |
 |  Rel 23-06 |  [4494174]  |  Microcode | 6.58 | Sep 1, 2020 |
-|  Rel 23-06 |  5027396  |  Servicing Stack Update | 7.26 |  |
-|  Rel 23-06 |  5023789  |  Servicing Stack Update | 6.58 |  |
+|  Rel 23-06 |  [5027396]  |  Servicing Stack Update | 7.26 |  |
+|  Rel 23-06 |  [5023789]  |  Servicing Stack Update | 6.58 |  |
 
-[5027219]: https://support.microsoft.com/kb/5027219
+[5028623]: https://support.microsoft.com/kb/5028623
 [5027225]: https://support.microsoft.com/kb/5027225
 [5027222]: https://support.microsoft.com/kb/5027222
 [5027140]: https://support.microsoft.com/kb/5027140
 [5027134]: https://support.microsoft.com/kb/5027134
+[5028591]: https://support.microsoft.com/kb/5028591
 [5027141]: https://support.microsoft.com/kb/5027141
 [5027133]: https://support.microsoft.com/kb/5027133
+[5028590]: https://support.microsoft.com/kb/5028590
 [5027138]: https://support.microsoft.com/kb/5027138
 [5027132]: https://support.microsoft.com/kb/5027132
+[5028589]: https://support.microsoft.com/kb/5028589
+[5027123]: https://support.microsoft.com/kb/5027123
+[5028580]: https://support.microsoft.com/kb/5028580
 [5027131]: https://support.microsoft.com/kb/5027131
+[5028588]: https://support.microsoft.com/kb/5028588
 [5027127]: https://support.microsoft.com/kb/5027127
+[5028584]: https://support.microsoft.com/kb/5028584
 [5027275]: https://support.microsoft.com/kb/5027275
 [5027283]: https://support.microsoft.com/kb/5027283
 [5027271]: https://support.microsoft.com/kb/5027271
