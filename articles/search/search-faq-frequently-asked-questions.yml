@@ -118,11 +118,7 @@ sections:
       - question: |
           Cognitive Search has features named "vector search" and "semantic search". Are they related?
         answer: |
-          Both "vector search" and "semantic search" are used to improve the relevance of your search results. However, they're orthogonal features, meaning you can use them independently or together. They both use deep neural networks (DNNs) to improve relevance, but the models and infrastructure are different for each feature. Note for vector search, you need to create vector embeddings using a DNN and send the resulting vectors to us for indexing and querying.
-
-          * Vector search adds vectors as a new type of data and allows you to store and retrieve them efficiently. With standalone vector search, you first use a DNN, such as a large language model (LLM), to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents. This opens a whole new set of scenarios that Cognitive Search can enable including multi-modal content retrieval, vector store for applications using Large Language Models (LLMs), recommendation systems, hybrid search scenarios, and more.
-
-          * Semantic search works on the results retrieved by the search engine. Cognitive Search uses deep neural network models from Bing to rerank to results retrieved by the search engine, increasing the relevance of results that are a closer semantic match to the query. Additionally, Semantic search has features such as answers, captions, and highlights.
+          Both [vector search](vector-search-overview.md) and [semantic search](semantic-search-overview.md) are used to improve the relevance of your search results. However, they're orthogonal features, meaning you can use them independently or together. They both use deep neural networks (DNNs) to improve relevance, but the models and infrastructure are different for each feature.
 
           You can use vector search and semantic search together if the search request contains a text query - hybrid search. The search engine uses Reciprocal Rank Fusion to merge results from both vector and term queries before semantic search reranking is applied.
 
