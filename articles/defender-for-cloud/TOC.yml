@@ -83,7 +83,48 @@
   - name: Enable all plans
     displayName: enable, plans, security, protect
     href: enable-all-plans.md
-
+  - name: Protect individual resources
+    expanded: false
+    items:
+    - name: Protect CSPM
+      displayName: CSPM, cloud security posture management, enable
+      href: tutorial-enable-cspm-plan.md
+    - name: Protect servers
+      displayName: servers, server, enable
+      href: tutorial-enable-servers-plan.md
+    - name: Protect apps
+      displayName: App, service, enable, app service
+      href: tutorial-enable-app-service-plan.md
+    - name: Protect databases
+      displayName: Databases, Cosmos, DB, SQL servers, Azure SQL, SQL, Open-source relational databases
+      href: tutorial-enable-databases-plan.md
+    - name: Protect storage
+      displayName: storage, enable
+      href: tutorial-enable-storage-plan.md
+    - name: Protect containers
+      items:
+      - name: Protect containers on Azure (AKS)
+        href: tutorial-enable-containers-azure.md
+      - name: Protect containers on On-premises and IaaS (ARC)
+        href: tutorial-enable-containers-arc.md
+      - name: Protect containers on AWS
+        href: tutorial-enable-container-aws.md
+      - name: Protect containers on GCP
+        href: tutorial-enable-container-gcp.md
+    - name: Protect Azure Key Vault
+      displayName: enable, key, vault, key vault
+      href: tutorial-enable-key-vault-plan.md
+    - name: Protect Azure Resource Manager
+      displayName: resource manager, resource, manager, enable
+      href: tutorial-enable-resource-manager-plan.md
+    - name: Protect DevOps environments
+      items: 
+      - name: Configure the Microsoft Security DevOps GitHub action
+        displayName: GitHuB, DevOps, enable defender for devops
+        href: github-action.md
+      - name: Configure the Microsoft Security DevOps Azure DevOps extension
+        displayName: DevOps extension, Security, DevOps, enable defender for devops
+        href: azure-devops-extension.md
 
 
 - name: Tutorials
