@@ -50,11 +50,13 @@ and use Application Insights to investigate production issues.
 
 ## 4. Query logs to diagnose an application problem
 
+This section illustrates how to query the application logs and investigate request failures.
+
 This section provides samples of querying your application logs and special error logs, see more from [Kusto Query Language](/azure/data-explorer/kusto/query/).
 
 ### Log queries
 
-To review a list of application logs from Azure Spring Apps, sorted by time with the most recent logs shown first, run the following query:
+Run the following query to review a list of application logs from Azure Spring Apps, sorted by time with the most recent logs shown first.
 
 ```sql
 AppPlatformLogsforSpring
@@ -65,7 +67,7 @@ AppPlatformLogsforSpring
 :::image type="content" source="media/tutorial-applications-observability/show-application-logs.png" alt-text="Screenshot of Azure portal showing application logs for Azure Spring Apps instance" lightbox="media/tutorial-applications-observability/show-application-logs.png":::
 
 
-To review a list of error logs from Azure Spring Apps, replace the keyword which you are looking for, run the following query:
+Run the following query to review a list of error logs from Azure Spring Apps, custom your query script with the keyword which you are looking for, see more from [Kusto Query Language](/azure/data-explorer/kusto/query/).
 
 ```sql
 AppPlatformLogsforSpring
