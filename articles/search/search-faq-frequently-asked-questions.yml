@@ -68,7 +68,7 @@ sections:
       - question: |
           What does "indexing" mean in Cognitive Search?
         answer: |
-          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indices and other physical data structures that support information retrieval.
+          It refers to the ingestion, parsing, and storing of textual content and tokens that populate a search index. Indexing creates inverted indexes and other physical data structures that support information retrieval.
 
       - question: |
           Can I move, backup, and restore indexes?
@@ -153,7 +153,7 @@ sections:
       - question: |
           Where does query execution occur?
         answer: |
-          Queries execute over a single search index that's hosted on your search service. You can't join multiple indices to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/multiple-search-services).
+          Queries execute over a single search index that's hosted on your search service. You can't join multiple indexes to search content in two or more indexes, but you can [query same-name indexes in multiple search services](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/multiple-search-services).
               
       - question: |
           Why are there zero matches on terms I know to be valid?
