@@ -77,11 +77,11 @@ To see the learned routes from ALI, one of the options is looking at the Effecti
 
 3. Set up ALI for Epic solution based on your system requirements and take a system backup.  
 4. Take an OS backup.  
-5. Set up volume groups. (See [Create a volume group](create-a-volume-group.md))  
+5. Set up volume groups. (See [Create a volume group](create-a-volume-group.md).)  
 6. Set up a storage snapshot, backup, and data offload. (For detailed steps, see [Azure Large Instances NETAPP storage data protection with Azure CVO](ali-netapp-with-cvo.md)).
 
 > [!Note]
-> A storage snapshot should only be set up after all data intensive work (for example, Endian conversions) are complete in order to avoid creating unnecessary snapshots while build work is in progress
+> A storage snapshot should only be set up after all data-intensive work (for example, Endian conversions) are complete in order to avoid creating unnecessary snapshots while build work is in progress
 
 The Azure subscription you use for ALI deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
 If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see [Register the ALI resource provider](register-the-ali-resource-provider.md).
