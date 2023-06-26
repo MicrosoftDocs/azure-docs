@@ -106,13 +106,13 @@ az postgres flexible-server migration create [--subscription]
 |`resource-group` | Resource group of the Flexible Server target. |
 |`name` | Name of the Flexible Server target. |
 |`migration-name` | Unique identifier to migrations attempted to Flexible Server. This field accepts only alphanumeric characters and does not accept any special characters, except a hyphen (`-`). The name can't start with `-`, and no two migrations to a Flexible Server target can have the same name. |
-|`migration-mode` | Default value: Offline. Offline migration involves copying of your source databases at a point in time, to your target server. |
+|`migration-mode` | This is an optional parameter. Default value: Offline. Offline migration involves copying of your source databases at a point in time, to your target server. |
 |`properties` | Absolute path to a JSON file that has the information about the Single Server source. |
 
 For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
+az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --migration-mode  offline --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
 ```
 
 The `migration-name` argument used in the `create` command will be used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it uniquely identifies the migration attempt in the corresponding actions.
