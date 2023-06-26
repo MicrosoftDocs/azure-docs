@@ -15,7 +15,7 @@ ms.custom: ignite-2022, build-2023
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Azure Cosmos DB is the Microsoft globally distributed multi-model database service. It offers [multiple database APIs](../choose-api.md). You can communicate with Azure Cosmos DB for MongoDB by using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). Azure Cosmos DB for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is the Microsoft globally distributed multi-model database service. Azure Cosmos DB offers [multiple database APIs](../choose-api.md). You can communicate with Azure Cosmos DB for MongoDB by using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). Azure Cosmos DB for MongoDB supports the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using Azure Cosmos DB for MongoDB, you can enjoy the benefits of MongoDB that you're used to, with all of the enterprise capabilities that Azure Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
@@ -24,7 +24,7 @@ By using Azure Cosmos DB for MongoDB, you can enjoy the benefits of MongoDB that
 The supported operators and any limitations or exceptions are listed in this article. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for MongoDB. When you create Azure Cosmos DB for MongoDB accounts, the 3.6+ version of accounts have an endpoint in the format `*.mongo.cosmos.azure.com`. The 3.2 version of accounts have an endpoint in the format `*.documents.azure.com`.
 
 > [!NOTE]
-> This article lists only the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with Azure Cosmos DB for MongoDB.
+> This article lists only the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally use the `delete()` and `update()` server commands. Functions that use supported server commands are compatible with Azure Cosmos DB for MongoDB.
 
 ## Query language support
 
@@ -118,7 +118,7 @@ Azure Cosmos DB for MongoDB supports the following database commands.
 
 ## Aggregation pipeline
 
-Azure Cosmos DB for MongoDB supports the following aggregation pipeline commands.
+Azure Cosmos DB for MongoDB supports the following aggregation commands.
 
 ### Aggregation commands
 
@@ -169,7 +169,7 @@ Azure Cosmos DB for MongoDB supports the following aggregation pipeline commands
 | `unwind`            | Yes       |
 
 > [!NOTE]
-> The `$lookup` aggregation does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature that's introduced in server version 3.6. If you attempt to use the `$lookup` operator with the `let` and `pipeline` fields, an error message that indicates that *let is not supported* appears.
+> The `$lookup` aggregation does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature that's introduced in server version 3.6. If you attempt to use the `$lookup` operator with the `let` and `pipeline` fields, an error message that indicates that *`let` is not supported* appears.
 
 ### Boolean expressions
 
@@ -401,7 +401,7 @@ In an [upgrade scenario](upgrade-version.md), documents that were written prior 
 
 To enable 16-MB document support, change the setting on the **Features** tab for the resource in the Azure portal or programmatically [add the `EnableMongo16MBDocumentSupport` capability](how-to-configure-capabilities.md).
 
-We recommend that you enable Server Side Retry and avoid using wildcard indexes to ensure that requests in larger documents succeed. Raising your database or collection resource units might also help performance.
+We recommend that you enable Server Side Retry and avoid using wildcard indexes to ensure that requests in larger documents succeed. Raising your database or collection request units might also help performance.
 
 | Command                   | Supported |
 | ------------------------- | --------- |
@@ -495,7 +495,7 @@ To this query:
 
 `find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
-The first part of the modified query uses the index to restrict the search to documents that begin with `^abc`. The second part of the query matches the exact entries. The bar operator (`|`) acts as an "or" function. The query `find({x:{$regex: /^abc |^def/})` matches the documents in which field 'x' has values that begin with `abc` or `def`. To use the index, we recommend that you break the query into two different queries joined by the `$or` operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
+The first part of the modified query uses the index to restrict the search to documents that begin with `^abc`. The second part of the query matches the exact entries. The bar operator (`|`) acts as an "or" function. The query `find({x:{$regex: /^abc |^def/})` matches the documents in which field `x` has values that begin with `abc` or `def`. To use the index, we recommend that you break the query into two different queries that are joined by the `$or` operator: `find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })`.
 
 ### Array operators
 
@@ -610,15 +610,15 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 
 The retryable writes feature enables MongoDB drivers to automatically retry certain write operations. The feature results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections require the shard key to be included in the query filter or update statement.
 
-For example, with a sharded collection that's sharded on the "country" key, to delete all the documents with the field `"city" = "NYC"`, the application needs to execute the operation for all shard key (country) values if the retryable writes feature is enabled.
+For example, with a sharded collection that's sharded on the `"country"` key, to delete all the documents that have the field `"city" = "NYC"`, the application needs to execute the operation for all shard key (`"country"`) values if the retryable writes feature is enabled.
 
 - `db.coll.deleteMany({"country": "USA", "city": "NYC"})` - **Success**
 - `db.coll.deleteMany({"city": "NYC"})` - Fails with error **ShardKeyNotFound(61)**
 
 > [!NOTE]
-> Retryable writes does not support bulk unordered writes at this time. If you would like to perform bulk writes with retryable writes enabled, perform bulk ordered writes.
+> Retryable writes does not support bulk unordered writes at this time. If you want to perform bulk writes with retryable writes enabled, perform bulk ordered writes.
 
-To enable the feature, [add the `EnableMongoRetryableWrites` capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure portal.
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled on the **Features** tab in the Azure portal.
 
 ## Sharding
 
@@ -638,7 +638,7 @@ This feature provides the ability to set a custom TTL on any one field in a coll
 
 On a collection that has TTL enabled on a field:
 
-- Acceptable types are the BSON data type and numeric types (integer, long, or double) which will be interpreted as a Unix millisecond time stamp to determine expiration.
+- Acceptable types are the BSON data type and numeric types (integer, long, or double), which will be interpreted as a Unix millisecond time stamp to determine expiration.
 
 - If the TTL field is an array, then the smallest element of the array that is of an acceptable type is considered for document expiry.
 

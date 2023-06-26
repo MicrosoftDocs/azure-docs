@@ -30,6 +30,8 @@ Intra-account container copy jobs can be [created and managed by using Azure CLI
 
 ## Get started
 
+To get started, register for the relevant preview feature in the Azure portal.
+
 ### NoSQL and Cassandra API
 
 To get started with intra-account offline container copy for NoSQL and Cassandra API accounts, register for the **Intra-account offline container copy (Cassandra & NoSQL)** preview feature flag in [Preview Features](access-previews.md) in the Azure portal. When the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
@@ -52,15 +54,15 @@ To get started with intra-account offline container copy for Azure Cosmos DB for
 
 Intra-account container copy jobs perform offline data copy by using the source container's incremental change feed log.
 
-* The platform allocates server-side compute instances for the Azure Cosmos DB account.
-* These instances are allocated when one or more container copy jobs are created within the account.
-* The container copy jobs run on these instances.
-* A single job is executed across all instances at any time.
-* The instances are shared by all the container copy jobs that are running within the same account.
-* The platform might deallocate the instances if they're idle for longer than 15 minutes.
+1. The platform allocates server-side compute instances for the Azure Cosmos DB account.
+1. These instances are allocated when one or more container copy jobs are created within the account.
+1. The container copy jobs run on these instances.
+1. A single job is executed across all instances at any time.
+1. The instances are shared by all the container copy jobs that are running within the same account.
+1. The platform might deallocate the instances if they're idle for longer than 15 minutes.
 
 > [!NOTE]
-> We currently support only offline container copy jobs. We strongly recommend to stop performing any operations on the source container prior to beginning the container copy. Item deletions and updates done on the source container after beginning the copy job may not be captured. Hence, continuing to perform operations on the source container while the container job is in progress may result in additional or missing data on the target container.
+> We currently support only offline container copy jobs. We strongly recommend that you stop performing any operations on the source container before you begin the container copy. Item deletions and updates that are done on the source container after you start the copy job might not be captured. If you continue to perform operations on the source container while the container job is in progress, you might have duplicate or missing data on the target container.
 
 ## Factors that affect the rate of a container copy job
 
@@ -73,7 +75,7 @@ The rate of container copy job progress is determined by these factors:
    > [!TIP]
    > Set the target container throughput to at least two times the source container's throughput.
 
-* Server-side compute instances allocated to the Azure Cosmos DB account for performing the data transfer.
+* Server-side compute instances that are allocated to the Azure Cosmos DB account for performing the data transfer.
 
    > [!IMPORTANT]
    > The default SKU offers two 4-vCPU 16-GB server-side instances per account.
@@ -82,7 +84,7 @@ The rate of container copy job progress is determined by these factors:
 
 ### Preview eligibility criteria
 
-Container copy jobs don't work with accounts that the following capabilities enabled. Disable these features before you run the container copy jobs:
+Container copy jobs don't work with accounts that have the following capabilities enabled. Disable these features before you run container copy jobs:
 
 * [Disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates)
 * [Merge partition](merge.md)
@@ -93,13 +95,13 @@ The Time to Live (TTL) setting isn't adjusted in the destination container. As a
 
 ## FAQs
 
-### Is there a service-level agreement for the container copy jobs?
+### Is there a service-level agreement for container copy jobs?
 
 Container copy jobs are currently supported on a best-effort basis. We don't provide any service-level agreement (SLA) guarantees for the time it takes for the jobs to finish.
 
 ### Can I create multiple container copy jobs within an account?
 
-Yes, you can create multiple jobs within the same account. The jobs run consecutively. You can [list all the jobs](how-to-container-copy.md#list-all-the-container-copy-jobs-created-in-an-account) that are created within an account and monitor their progress.
+Yes, you can create multiple jobs within the same account. The jobs run consecutively. You can [list all the jobs](how-to-container-copy.md#list-all-the-container-copy-jobs-created-in-an-account) that are created within an account, and monitor their progress.
 
 ### Can I copy an entire database within the Azure Cosmos DB account?
 
@@ -107,11 +109,11 @@ You must create a job for each container in the database.
 
 ### I have an Azure Cosmos DB account with multiple regions. In which region will the container copy job run?
 
-The container copy job runs in the write region. If there are accounts configured with multi-region writes, the job runs in one of the regions from the list.
+The container copy job runs in the write region. In an account that's configured with multi-region writes, the job runs in one of the regions in the list of write regions.
 
 ### What happens to the container copy jobs when the account's write region changes?
 
-The account's write region might change in the rare scenario of a region outage or due to manual failover. In such a scenario, incomplete container copy jobs that were created within the account fail. You would need to re-create these failed jobs. Re-created jobs then run in the new (current) write region.
+The account's write region might change in the rare scenario of a region outage or due to manual failover. In this scenario, incomplete container copy jobs that were created within the account fail. You would need to re-create these failed jobs. Re-created jobs then run in the new (current) write region.
 
 ## Supported regions
 

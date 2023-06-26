@@ -16,7 +16,7 @@ zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-gremlin-table
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-The Azure Cosmos DB point-in-time same-account restore feature helps you recover from an accidental deletion of a container or database. This feature restores the deleted  database or container to the same, existing account in any region where backups exist. Continuous backup mode allows you to restore to any point of time within the last 30 days.
+The Azure Cosmos DB point-in-time same-account restore feature helps you recover from an accidental deletion of a container or database. This feature restores the deleted  database or container to the same, existing account in any region in which backups exist. Continuous backup mode allows you to restore to any point of time within the last 30 days.
 
 ## Prerequisites
 
@@ -39,13 +39,13 @@ Use the Azure portal to restore a deleted container or database. Child container
 1. Go to your Azure Cosmos DB account, and then go to the **Point In Time Restore** page.
 
    > [!NOTE]
-   > The restore page in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about this permission, see [Backup and restore permissions](continuous-backup-restore-permissions.md).
+   > The restore page in Azure portal is populated only if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about this permission, see [Backup and restore permissions](continuous-backup-restore-permissions.md).
 
 1. Select the **Restore to same account** tab.
 
    :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" lightbox="media/how-to-restore-in-account-continuous-backup.md\in-account-switch.png" alt-text="Screenshot of the options to restore a database or container to the same account.":::
 
-1. For **Database**, enter a search query to filter the event feed for relevant deletion events for either a container or a database.
+1. For **Database**, enter a search query to filter the event feed for relevant deletion events for a container or a database.
 
    :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/event-filter.png" alt-text="Screenshot of the event filter showing deletion events for containers and databases.":::
 
@@ -56,14 +56,14 @@ Use the Azure portal to restore a deleted container or database. Child container
    > [!NOTE]
    > The **Start** filter is limited to at most 30 days before the present date.
 
-1. Select **Refresh** to update the list of events on different resource types with your filters applied.
+1. Select **Refresh** to update the list of events for different resource types with your filters applied.
 
 1. Verify the time, and then select **Restore** to start restoration of the selected resource that was previously deleted.
 
    :::image type="content" source="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" lightbox="media/how-to-restore-in-account-continuous-backup.md/restore-confirmation.png" alt-text="Screenshot of the confirmation dialog prior to a restore operation.":::
 
    > [!IMPORTANT]
-   > No more than three restore operations can be active at any given time on the same account. Deleting the source account while a restore operation is in progress might result in the failure of the restore operation.
+   > No more than three restore operations can be active at any time on the same account. Deleting the source account while a restore operation is in progress might result in the failure of the restore operation.
 
    > [!NOTE]
    > The event feed displays resources as **Not restorable**. The feed provides more information about why the resource can't be restored. In most cases, you must restore the parent database before you can restore any of the database's child containers.
@@ -742,7 +742,7 @@ When a point-in-time restore is initiated for a deleted container or database, t
 
 ### [Azure portal](#tab/azure-portal)
 
-To get a list of restore operations for a specific resource, filter the activity log of the account by using the **InAccount Restore Deleted** search filter and a time filter. The list that's returns includes the **UserPrincipalName** field, which identifies the user who initiated the restore operation. For more information on how to access activity logs, see [Audit point-in-time restore actions](audit-restore-continuous.md#audit-the-restores-that-were-triggered-on-a-live-database-account).
+To get a list of restore operations for a specific resource, filter the activity log of the account by using the **InAccount Restore Deleted** search filter and a time filter. The list that's returns includes the **UserPrincipalName** field, which identifies the user who initiated the restore operation. For more information about how to access activity logs, see [Audit point-in-time restore actions](audit-restore-continuous.md#audit-the-restores-that-were-triggered-on-a-live-database-account).
 
 ### [Azure CLI](#tab/azure-cli)
 

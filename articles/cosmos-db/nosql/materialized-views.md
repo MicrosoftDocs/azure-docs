@@ -284,7 +284,7 @@ There are a few limitations with the Azure Cosmos DB for NoSQL API materialized 
 - Point-in-time restore, hierarchical partitioning, and end-to-end encryption aren't supported on source containers that have materialized views associated with them.
 - Role-based access control is currently not supported for materialized views.
 - Cross-tenant customer-managed key (CMK) encryption isn't supported on materialized views.
-- Materialized views can't be enabled if the partition merge feature or the analytical store feature are enabled.
+- Currently, this feature can't be enabled if any of the following features are enabled: partition merge, analytical store, or continuous backup.
 
 Note the additional following limitations:
 

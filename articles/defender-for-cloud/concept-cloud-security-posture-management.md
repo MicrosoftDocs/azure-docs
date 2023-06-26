@@ -28,9 +28,9 @@ The optional Defender CSPM plan, provides advanced posture management capabiliti
 ### Plan pricing
 
 > [!NOTE]
-> The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on August 1 2023. Billing will apply for compute, database, and storage resources. Billable workloads will be VMs, Storage Accounts, OSS DBs, and SQL PaaS & Servers on Machines.​
+> The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on August 1 2023. Billing will apply for Servers, Database, and Storage resources. Billable workloads will be VMs, Storage accounts, OSS DBs, SQL PaaS, & SQL servers on machines.​
 
- Microsoft Defender CSPM protects across all your multicloud workloads, but billing only applies for Servers, Databases and Storage accounts at $5/billable resource/month. The underlying compute services for AKS are regarded as servers for billing purposes.
+Microsoft Defender CSPM protects across all your multicloud workloads, but billing only applies for Servers, Database, and Storage accounts at $5/billable resource/month. The underlying compute services for AKS are regarded as servers for billing purposes.
 
 ## Plan availability
 
