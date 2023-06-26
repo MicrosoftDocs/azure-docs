@@ -116,7 +116,7 @@ To deploy the job, you must first build a container image for the job and push i
         --resource-group "$RESOURCE_GROUP" \
         --environment "$ENVIRONMENT" \
         --trigger-type "Event" \
-        --replica-timeout "60" \
+        --replica-timeout "1800" \
         --replica-retry-limit "1" \
         --replica-completion-count "1" \
         --parallelism "1" \
