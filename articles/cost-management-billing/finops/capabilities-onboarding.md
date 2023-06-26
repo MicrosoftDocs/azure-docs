@@ -29,22 +29,21 @@ A streamlined onboarding process ensures teams have a smooth transition into the
 
 Onboarding projects is an internal process that depends solely on your technical, financial, and business governance policies.
 
-Start by familiarizing yourself with existing governance policies and onboarding processes within the organization.
-- Should FinOps be added to an existing onboarding process?
-- Are there working processes you can use or copy?
-- Are there any stakeholders who can help you get your process stood up?
-- Who has access to provision new workloads in the cloud? How are you notified that they're created?
-- What governance measures exist to structure and tag new cloud resources? For example, Azure Policy enforcing tagging requirements.
-
-In the beginning, keep it simple and focus on the basics.
-- Introduce new stakeholders to the FinOps Framework by having them review [What is FinOps](overview-finops.md).
-- Help them learn your culture and processes.
-- Determine if you have the budget.
-  - Ensure the team runs through the [Forecasting capability](capabilities-forecasting.md) to estimate costs.
-  - Evaluate whether the budget has capacity for the estimated cost.
-  - Request department heads reprioritize existing projects to find capacity either by using capacity from under-utilized projects or by deprioritizing existing projects.
-  - Escalate through leadership as needed until budget capacity is established.
-  - Consider updating forecasts within the scope of the budget changes to ensure feasibility.
+- Start by familiarizing yourself with existing governance policies and onboarding processes within the organization.
+  - Should FinOps be added to an existing onboarding process?
+  - Are there working processes you can use or copy?
+  - Are there any stakeholders who can help you get your process stood up?
+  - Who has access to provision new workloads in the cloud? How are you notified that they're created?
+  - What governance measures exist to structure and tag new cloud resources? For example, Azure Policy enforcing tagging requirements.
+- In the beginning, keep it simple and focus on the basics.
+  - Introduce new stakeholders to the FinOps Framework by having them review [What is FinOps](overview-finops.md).
+  - Help them learn your culture and processes.
+  - Determine if you have the budget.
+    - Ensure the team runs through the [Forecasting capability](capabilities-forecasting.md) to estimate costs.
+    - Evaluate whether the budget has capacity for the estimated cost.
+    - Request department heads reprioritize existing projects to find capacity either by using capacity from under-utilized projects or by deprioritizing existing projects.
+    - Escalate through leadership as needed until budget capacity is established.
+    - Consider updating forecasts within the scope of the budget changes to ensure feasibility.
 
 ## Building on the basics
 

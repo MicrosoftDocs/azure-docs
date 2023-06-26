@@ -66,13 +66,6 @@ landingContent:
       - text: Establishing a decision and accountability structure
         url: capabilities-structure.md
 
-  - title: Cloud rate optimization
-    linkLists:
-    - linkListType: concept
-      links:
-      - text: Establishing commitment-based discounts
-        url: capabilities-commitment-discounts.md
-
   - title: Cloud usage optimization
     linkLists:
     - linkListType: concept
@@ -83,6 +76,21 @@ landingContent:
         url: capabilities-workloads.md
       - text: Onboarding workloads
         url: capabilities-onboarding.md
+
+  - title: Cloud rate optimization
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Establishing commitment-based discounts
+        url: capabilities-commitment-discounts.md
+
+  - title: Organizational alignment
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Cloud policy and governance
+        url: capabilities-policy.md
+
 
 # Card (optional)
 

@@ -36,24 +36,20 @@ While data ingestion and normalization are critical to long-term efficiency and 
 
 When you first start managing cost in the cloud, you use the native tools available in the portal or through Power BI. If you need more, you may download the data for local analysis, or possibly build a small report or merge it with another dataset. Eventually, you need to automate this process, which is where "data ingestion" comes in. As a starting point, we focus on ingesting cost data into a common data store.
 
-Before you ingest cost data, think about your reporting needs.
-- Talk to your stakeholders to ensure you have a firm understanding of what they need. Try to understand their motivations and goals to ensure the data or reporting helps them.
-- Identify the data you need, where you can get the data from, and who can give you access. Make note of any common datasets that may require normalization.
-- Determine the level of granularity required and how often the data needs to be refreshed. Daily cost data can be a challenge to manage for a large account. Consider monthly aggregates to reduce costs and increase query performance and reliability if that meets your reporting needs.
-
-Consider using a third-party FinOps platform.
-- Review the available [third-party solutions in the Azure Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/searchQuery/cost).
-
-Select the [cost details solution](../automate/usage-details-best-practices.md) that is right for you. We recommend scheduled exports, which push cost data to a storage account on a daily or monthly basis.
+- Before you ingest cost data, think about your reporting needs.
+  - Talk to your stakeholders to ensure you have a firm understanding of what they need. Try to understand their motivations and goals to ensure the data or reporting helps them.
+  - Identify the data you need, where you can get the data from, and who can give you access. Make note of any common datasets that may require normalization.
+  - Determine the level of granularity required and how often the data needs to be refreshed. Daily cost data can be a challenge to manage for a large account. Consider monthly aggregates to reduce costs and increase query performance and reliability if that meets your reporting needs.
+- Consider using a third-party FinOps platform.
+  - Review the available [third-party solutions in the Azure Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/searchQuery/cost).
+- Select the [cost details solution](../automate/usage-details-best-practices.md) that is right for you. We recommend scheduled exports, which push cost data to a storage account on a daily or monthly basis.
   - If you use daily exports, notice that data is pushed into a new file each day. Ensure that you only select the latest day when reporting on costs.
-
-Determine if you need a data integration or workflow technology to process data.
-- In an early phase, you may be able to keep data in the exported storage account without other processing. We recommend that you keep the data there for small accounts with lightweight requirements and minimal customization.
-- If you need to ingest data into a more advanced data store or perform data cleanup or normalization, you may need to implement a data pipeline. [Choose a data pipeline orchestration technology](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement).
-
-Determine what your data storage requirements are.
-- In an early phase, we recommend using the exported storage account for simplicity and lower cost.
-- If you need an advanced query engine or expect to hit data size limitations within your reporting tools, you should consider ingesting data into an analytical data store. [Choose an analytical data store](/azure/architecture/data-guide/technology-choices/analytical-data-stores).
+- Determine if you need a data integration or workflow technology to process data.
+  - In an early phase, you may be able to keep data in the exported storage account without other processing. We recommend that you keep the data there for small accounts with lightweight requirements and minimal customization.
+  - If you need to ingest data into a more advanced data store or perform data cleanup or normalization, you may need to implement a data pipeline. [Choose a data pipeline orchestration technology](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement).
+- Determine what your data storage requirements are.
+  - In an early phase, we recommend using the exported storage account for simplicity and lower cost.
+  - If you need an advanced query engine or expect to hit data size limitations within your reporting tools, you should consider ingesting data into an analytical data store. [Choose an analytical data store](/azure/architecture/data-guide/technology-choices/analytical-data-stores).
 
 ## Building on the basics
 
