@@ -20,7 +20,7 @@ This article describes the information in the logs and how to export them.
 
 To use the enriched logs, you need the following roles, subscriptions, and resources:
 
-* Global Secure Access is dependent upon some features that require a Microsoft Entra ID Premium P1 or P2 license.
+* Global Secure Access is dependent upon some features that require a Microsoft Entra ID P1 or P2 license.
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
     * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
     * A **Global Administrator** or **Security Administrator** role is required to export logs.

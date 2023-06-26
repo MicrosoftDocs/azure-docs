@@ -19,7 +19,7 @@ With Global Secure Access, you can define specific fully qualified domain names 
 
 To configure Quick Access, you must have:
 
-- A **Global Administrator** role in Microsoft Entra ID
+- The **Global Secure Access Administrator** and **Application Administrator** roles in Microsoft Entra ID
 
 To manage App Proxy connector groups, which is required for Quick Access, you must have:
 
@@ -60,15 +60,14 @@ On the Quick Access page, you provide a name for the Quick Access app, select a 
 
 ### Name and connector group
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator. 
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** with the appropriate roles. 
 1. Go to **Global Secure Access (preview)** > **Applications** > **Quick access**.
 1. Enter a name. *We recommend using the name Quick Access*. 
 1. Select a Connector group from the dropdown menu.
 
     ![Screenshot of the Quick Access app name.](media/how-to-configure-quick-access/new-quick-access-name.png)
     
-    - Before you can set up Quick Access, you must have a connector group with at least one active App Proxy connector configured.
-    - Your connector groups appear in the dropdown menu.
+    - Existing connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your "Quick Access" app without FQDNs and IP addresses.
 
 ### Add Quick Access application segment
@@ -79,7 +78,10 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
-1. Select **Add quick access range**.
+1. Select **Add Quick Access application segment**.
+
+    ![Screenshot of the Add Quick Access application segment button.](media/how-to-configure-quick-access/add-quick-access-application-segment.png)
+
 1. In the **Create application segment** panel that opens, select a **Destination type**. Choose from one of the following options. Depending on what you select, the subsequent fields change accordingly.
     - IP address
     - Fully qualified domain name
@@ -88,8 +90,6 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 1. Enter the appropriate detail for what you selected.
 1. Enter the port. 
 1. Select the **Save** button when you're finished.
-
-![Screenshot of the create quick access ranges fields.](media/how-to-configure-quick-access/create-new-quick-access-range.png)
 
 > [!NOTE]
 > You can add up to 500 application segments to your Quick Access app.
@@ -111,7 +111,8 @@ You can view the properties from **Quick Access** or navigate to **Enterprise ap
 1. Add users and groups as needed.
     - For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
-Alternatively, you can assign users and groups when you create the Conditional Access policy for Quick Access. For more information, see [Quick access Conditional Access policies](how-to-configure-quick-access.md#link-conditional-access-policies).
+> [!NOTE]
+> Users must be directly assigned to the app or to the group assigned to the app. Nested groups are not supported.
 
 ## Update Quick Access application segments
 
@@ -119,7 +120,7 @@ You can add or update the FQDNs and IP addresses included in your Quick Access a
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Applications** > **Quick Access**.
-    - To add an FQDN or IP address, select **Add quick access range**.
+    - To add an FQDN or IP address, select **Add Quick Access application segment**.
     - To edit an FQDN or IP address, select it from the **Destination type** column.
 
 ## Link Conditional Access policies

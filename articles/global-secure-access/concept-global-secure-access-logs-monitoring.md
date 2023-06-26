@@ -27,7 +27,7 @@ As an IT administrator, you need to monitor the performance, experience, and ava
 
 ## Network traffic dashboard
 
-The Global Secure Access network traffic dashboard provides you with visualizations of the traffic flowing through the Microsoft Entra Private Access and Microsoft Entra Internet Access services. The dashboard provides a summary of the data related to product deployment and insights. Within these categories you can see the number of users, devices, and applications seen in the last 24 hours. You can also see device activity and cross-tenant access.
+The Global Secure Access network traffic dashboard provides you with visualizations of the traffic flowing through the Microsoft Entra Private Access and Microsoft Entra Internet Access services, which include Microsoft 365 and Private Access traffic. The dashboard provides a summary of the data related to product deployment and insights. Within these categories you can see the number of users, devices, and applications seen in the last 24 hours. You can also see device activity and cross-tenant access.
 
 For more information, see [Global Secure Access network traffic dashboard](concept-traffic-dashboard.md).
 
