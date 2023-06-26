@@ -83,16 +83,6 @@ In this article you learn how to secure the following training compute resources
 
 ## Limitations
 
-<!-- * __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
-
-    * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
-    * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
-
-    Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
-
-    > [!WARNING]
-    > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__. -->
-
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
 
 * __Port 445__ must be open for _private_ network communications between your compute instances and the default storage account during training. For example, if your computes are in one VNet and the storage account is in another, don't block port 445 to the storage account VNet.
@@ -107,7 +97,10 @@ To create a compute cluster in a different Azure Virtual Network than your works
 * Use [VNet Peering](/azure/virtual-network/virtual-network-peering-overview).
 * Add a private endpoint for your workspace in the virtual network that will contain the compute cluster.
 
-Regardless of the method selected, you must also create the VNet; Azure Machine Learning will not create it for you.
+> [!IMPORTANT]
+> Regardless of the method selected, you must also create the VNet for the compute cluster; Azure Machine Learning will not create it for you.
+>
+> You must also allow the default storage account, Azure Container Registry, and Azure Key Vault to access the VNet for the compute cluster. There are multiple ways to accomplish this. For example, you can create a private endpoint for each resource in the VNet for the compute cluster, or you can use VNet peering to allow the workspace VNet to access the compute cluster VNet.
 
 ### Scenario: VNet peering
 
@@ -137,11 +130,26 @@ Regardless of the method selected, you must also create the VNet; Azure Machine 
     > [!TIP]
     > There are multiple ways that you might configure these services to allow access to the VNets. For example, you might create a private endpoint for each resource in both VNets. Or you might configure the resources to allow access from both VNets.
 
-1. Create a compute cluster as normal, but select the VNet that you created for the compute cluster. If the VNet is in a different region, select that region when creating the compute cluster.
+1. Create a compute cluster as you normally would when using a VNet, but select the VNet that you created for the compute cluster. If the VNet is in a different region, select that region when creating the compute cluster.
 
 ### Scenario: Private endpoint
 
+1. Configure your workspace to use an Azure Virtual Network. For more information, see [Secure your workspace resources](how-to-secure-workspace-vnet.md).
+1. Create a second Azure Virtual Network that will be used for your compute clusters. It can be in a different Azure region than the one used for your workspace.
+1. Create a new private endpoint for your workspace in the VNet that will contain the compute cluster. 
 
+    * To add a new private endpoint using the __Azure portal__, select your workspace and then select __Networking__. Select __Private endpoint connections__, __+ Private endpoint__ and use the fields to create a new private endpoint.
+
+        * When selecting the __Region__, select the same region as your virtual network. 
+        * When selecting __Resource type__, use __Microsoft.MachineLearningServices/workspaces__. 
+        * Set the __Resource__ to your workspace name.
+        * Set the __Virtual network__ and __Subnet__ to the VNet and subnet that you created for your compute clusters. 
+
+        Finally, select __Create__ to create the private endpoint.
+
+    * To add a new private endpoint using the Azure CLI, use the `az network private-endpoint create`. For an example of using this command, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md#add-a-private-endpoint-to-a-workspace).
+
+1. Create a compute cluster as you normally would when using a VNet, but select the VNet that you created for the compute cluster. If the VNet is in a different region, select that region when creating the compute cluster.
 
 ## Compute instance/cluster with no public IP
 
