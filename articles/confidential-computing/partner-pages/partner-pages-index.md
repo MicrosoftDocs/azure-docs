@@ -1,16 +1,17 @@
 ---
-title: Azure confidential computing
+title: Azure confidential computing partners
 description: Learn about how Azure confidential computing partners build on the Azure infrastructure to solve customer problems
+author: ananyagarg
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.topic: landing-page
+ms.workload: infrastructure
+ms.topic: conceptual
+ms.date: 03/29/2023
 ms.author: ananyagarg
-ms.date: 06/19/2023
-
 ---
 
 
-# Azure confidential computing Parters
+# Azure confidential computing Partners
 
 Azure confidential computing enables an ecosystem of partners that build on our privacy preserving infrastructure to provide additional capabilities for  customers. Learn more about our partners, their unique solutions to your use cases and links to get started with their Azure Marketplace solutions.
 
