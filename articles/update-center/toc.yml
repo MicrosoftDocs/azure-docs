@@ -18,6 +18,8 @@
     href: quickstart-dynamic-scoping.md
 - name: Tutorials
   items:
+  - name: Enable periodic assessment and schedule patching using Policy
+    href: tutorial-assessment-deployment-using-policy.md
   - name: Apply updates at scale using dynamic scoping (preview)
     href: tutorial-dynamic-scoping-for-scheduled-patching.md
 - name: Concepts
