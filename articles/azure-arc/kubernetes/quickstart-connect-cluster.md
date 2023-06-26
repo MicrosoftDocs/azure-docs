@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 03/13/2023
+ms.date: 06/27/2023
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -222,7 +222,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Set the environment variables needed for Azure CLI to use the outbound proxy server:
+1. On the deployment machine, set the environment variables needed for Azure CLI to use the outbound proxy server:
 
     ```bash
     export HTTP_PROXY=<proxy-server-ip-address>:<port>
@@ -230,7 +230,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
     export NO_PROXY=<cluster-apiserver-ip-address>:<port>
     ```
 
-2. Run the connect command with the `proxy-https` and `proxy-http` parameters specified. If your proxy server is set up with both HTTP and HTTPS, be sure to use `--proxy-http` for the HTTP proxy and `--proxy-https` for the HTTPS proxy. If your proxy server only uses HTTP, you can use that value for both parameters.
+2. On the Kubernetes cluster, run the connect command with the `proxy-https` and `proxy-http` parameters specified. If your proxy server is set up with both HTTP and HTTPS, be sure to use `--proxy-http` for the HTTP proxy and `--proxy-https` for the HTTPS proxy. If your proxy server only uses HTTP, you can use that value for both parameters.
 
     ```azurecli
     az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
@@ -244,7 +244,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
+1. On the deployment machine, set the environment variables needed for Azure PowerShell to use the outbound proxy server:
 
     ```powershell
     $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
@@ -252,7 +252,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
     $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
     ```
 
-2. Run the connect command with the proxy parameter specified:
+2. On the Kubernetes cluster, run the connect command with the proxy parameter specified:
 
     ```azurepowershell
     New-AzConnectedKubernetes -ClusterName <cluster-name> -ResourceGroupName <resource-group> -Location eastus -Proxy 'https://<proxy-server-ip-address>:<port>'
