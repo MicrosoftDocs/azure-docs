@@ -1,5 +1,5 @@
 ---
-title: Vector search scoring and ranking
+title: Vector query execution and scoring
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts behind vector query execution, including how matches are found in vector space and ranked in search results.
 
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-# Scoring and ranking for vector queries in Azure Cognitive Search
+# Vector query execution and scoring in Azure Cognitive Search
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).

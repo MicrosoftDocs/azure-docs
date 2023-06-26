@@ -19,9 +19,9 @@ Currently in Azure Cognitive Search, "vector search" is indexing and information
 
 We recommend this article for background, but if you'd rather get started, follow these steps:
 
-+ Use Azure portal or the 2023-07-10-Preview REST API to add vector fields to an index schema
-+ Import vector data from source documents to the search index. Vectors must be generated in advance.
-+ Query vector data using Azure portal or the preview REST APIs.
++ [Add vector fields to an index](vector-search-how-to-create-index.md) using Azure portal or the [**2023-07-10-Preview REST APIs**](/rest/api/searchservice/index-preview).
++ [Import vector data](search-what-is-data-import.md) using push or pull methodologies. Vectors must be generated in advance.
++ [Query vector data](vector-search-how-to-query.md) using Azure portal or the preview REST APIs.
 
 ## What's vector search in Cognitive Search?
 
@@ -81,7 +81,7 @@ Scenarios for vector search include the following items:
 
 + Several Azure data platforms now have vector search features in preview, including those listed as a supported data source for indexers. Unless it's mentioned otherwise, you should assume that the vector search previews in other Azure products are independent of Azure Cognitive Search. Having said that, if you want to use the vector capabilities in Azure Cognitive Search with vector data from those data platforms, you can set up an indexer in your search service and pull in vector data using the same workflow as you would for nonvector content.
 
-For example, Azure Storage can store vector data in JSON and other file formats. You can set up a blob indexer, table indexer, or file indexer on a search service to pull in vector content into a vector field defined in your index. Likewise, Azure SQL and Azure Cosoms DB both have vector search features in preview and support vector data. As with storage, you can set up an Azure SQL indexer or Cosmos DB indexer and map source vector data to vector fields in your index.
+  Currently, just two indexer data sources have been tested and are confirmed to work: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index](vector-search-how-to-create-index.md)
 
 ## Other vector initiatives at Microsoft
 

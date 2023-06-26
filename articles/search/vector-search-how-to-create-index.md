@@ -90,7 +90,9 @@ api-key: {{admin-api-key}}
 
 Content that you provide for indexing must conform to the index schema and include a unique string value for the document key. Vector data is loaded into one or more vector fields, which can coexist with other fields containing alphanumeric text.
 
-You can use the push APIs (Add, Update, or Delete Documents) or indexers for data ingestion. The following example shows the push API.
+You can use the push APIs (Add, Update, or Delete Documents) or indexers for data ingestion.
+
+### [**Push APIs (REST)**](#tab/push)
 
 ```http
 POST https://my-search-service.search.windows.net/indexes/my-index/docs/index?api-version=2023-07-01-Preview
@@ -132,6 +134,24 @@ api-key: {{admin-api-key}}
     ]
 }
 ```
+
+### [**Pull (indexers)**](#tab/pull)
+
+Indexers can retrieve and index vector data, assuming an index schema that meets vector field requirements and the preview REST API.
+
+Data sources provide the vectors in whatever format the data source supports (such as strings in JSON). The indexer assumes that fields typed as `Collection(Edm.Single)` contain vectors and will index that content as vector indexes.
+
++ No changes to field mapping behavior or change detection for vectors. The behaviors for text indexing also apply to vectors.
+
++ If vector data is sourced in files, we recommend a nondefault `parsingMode` such as `json`, `jsonLines`, or `csv` based on the shape of the data. 
+
++ For data sources, [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md) with one of the above mention parsingModes have been tested and confirmed to work. 
+
+  Azure SQL doesn't provide a way to store a collection natively as a single SQL column. A workaround hasn't been identified at this time.
+
++ Its worth noting that the dimensions of all vectors from the data source must be the same and match their index definition for the field they're mapping to. The indexer will error on any documents that don’t match.
+
+---
 
 ## Check your index for vector content
 

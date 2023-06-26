@@ -145,7 +145,7 @@
         href: vector-search-overview.md
       - name: Vector index size
         href: vector-search-index-size.md
-      - name: Vector ranking
+      - name: Vectors at run time
         href: vector-search-ranking.md
   - name: Indexing
     items:
