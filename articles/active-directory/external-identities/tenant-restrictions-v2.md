@@ -116,6 +116,8 @@ You can use TRv2 policy to config specific users and/or groups with externally i
 
 Currently Teams has a known issue where without Teams federation, it also blocks home identity authenticated session to join externally hosted Teams meetings. However, when the bug is fixed on Teams, TRv2 will block only unauthenticated or foreign identities join to externally hosted Team meetings.
 
+| Auth Identity | Authenticated session  | Result |
+|----------------------|---------|---------|
 |Anonymous == No Authenticated session <br></br> For ex: If a user tries to use an unauthenticated session (say in an InPrivate window on browser) then this is pure anonymous. | Not authenticated |  TRv2 will block access to teams meeting|
 |Foreign identity == Authenticated session (Using external foreign identity) <br></br> For ex:  Using any identity other than home identity like user@externalforeigntenant.com | Authenticated as foreign identity |  Allow/ Block access to teams meeting as per TRv2 policy. If TRv2 policy allows, then user can join the meeting else it will be blocked. <br></br> Note: Teams has a known bug where when Teams has no explicit federation with the external tenant, Teams + Trv2 blocks users using home identity to join an externally hosted meeting.|
 
