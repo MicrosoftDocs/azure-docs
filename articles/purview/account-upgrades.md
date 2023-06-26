@@ -38,6 +38,7 @@ To access it, you can either:
 
 - Select the note at the top of the Microsoft Purview accounts page.
 - Select the toggle in the Microsoft Purview governance portal.
+
     :::image type="content" source="./media/account-upgrades/switch.png" alt-text="Screenshot of the toggle to switch to the new experience.":::
 
 #### Your region doesn't map to an available region
