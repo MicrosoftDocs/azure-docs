@@ -18,7 +18,7 @@ monikerRange: 'form-recog-2.1.0'
 
 > [!IMPORTANT]
 >
-> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v2.1 and must be used in conjuction with the [FOTT Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
+> This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v3.0 and forward.
 
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
@@ -95,10 +95,11 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
    * **Subscription**. Select your current subscription.
    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Form Recognizer resource.
-   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Region**. Select your local region.
    * **Enable log analytics**. For this project, select **No**.
+   * **Plan Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
+   * **Zone Redundancy**. Select **disabled**.
 
 1. When you're done, you should have something similar to the image below (Resource group, Logic App name, and Region may be different). After checking these values, select **Review + create** in the bottom-left corner.
 
@@ -140,7 +141,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Next, we're going to add a new step to the workflow. Select the plus button underneath the newly created OneDrive node.
 
-1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze invoice** from the list.
+1. A new node should be added to the Logic App designer view. Search for "Form Recognizer" in the search bar and select **Analyze Document for Prebuilt or Custom (v3.0 API)** from the list.
 
 1. Now, you should see a window where you'll create your connection. Specifically, you're going to connect your Form Recognizer resource to the Logic Apps Designer Studio:
 
@@ -149,7 +150,9 @@ Now that you have the Logic App connector resource set up and configured, the on
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eleven.gif" alt-text="GIF showing how to add second node to workflow.":::
 
-1. You should see the parameters tab for the **Analyze Invoice** connector.
+1. You should see the parameters tab for the **Analyze Document for Prebuilt or Custom Models (v3.0 API)** connector.
+
+1. The Model Identifier allows you to specify which model you want to call, in this case we are calling the invoice prebuilt so we will enter **prebuilt-invoice**.
 
 1. Select the **Document/Image File Content** field. A dynamic content pop-up should appear. If it doesn't, select the **Add dynamic content** button below the field.
 
@@ -167,21 +170,25 @@ Now that you have the Logic App connector resource set up and configured, the on
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-thirteen.gif" alt-text="GIF showing how to add final step to workflow.":::
 
+   In order to access particular fields we will be using the following formula: **items('For_each')?['fields']?['FIELD-NAME']?['content']**
+
+   In order to access a specific field in the follwing steps we are going to select the **add the dynamic content** button and select the **Expression** tab. In **Fx** box we are going to copy and paste the above formula and replace  **FIELD-NAME" with the name of the field you want to extract. For the full list of available fields refer to the concept page for the given API. In this case we are uing the [invoice prebult]([../../logic-apps/logic-apps-overview.md](https://learn.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/concept-invoice?view=form-recog-3.0.0)).
+
 1. We're almost done! Make the following changes to the following fields:
 
     * **To**. Enter your personal or business email address or any other email address you have access to.
 
-    * **Subject**. Enter ***Invoice received from:*** and then append dynamic content **Vendor name field Vendor name**.
+    * **Subject**. Enter ***Invoice received from:*** and then add the following expression **items('For_each')?['fields']?['VendorName']?['content']**.
 
     * **Body**. We're going to add specific information about the invoice:
 
-      1. Type ***Invoice ID:*** and append the dynamic content **Invoice ID field Invoice ID**.
+      1. Type ***Invoice ID:*** and using the same method as before append the following expression **items('For_each')?['fields']?['InvoiceId']?['content']**.
 
-      1. On a new line type ***Invoice due date:*** and append the dynamic content **Invoice date field invoice date (date)**.
+      1. On a new line type ***Invoice due date:*** and append the following expression **items('For_each')?['fields']?['FIELD-NAME']?['content']***.
 
-      1. Type ***Amount due:*** and append the dynamic content **Amount due field Amount due (number)**.
+      1. Type ***Amount due:*** and append the following expression **items('For_each')?['fields']?['AmountDue']?['content']**.
 
-      1. Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the dynamic content **Amount due field confidence of amount due**. When you're done, the window should look similar to the screen below.
+      1. Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email. To do this type ***Amount due (confidence):***  and add the following expression **items('For_each')?['fields']?['AmountDue']?['confidence']**. When you're done, the window should look similar to the screen below.
 
       :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-fifteen.png" alt-text="Image of completed Outlook node.":::
 
