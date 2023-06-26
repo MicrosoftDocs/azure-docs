@@ -12,6 +12,9 @@ ms.date: 06/29/2023
 
 # Query vector data in a search index
 
+> [!IMPORTANT]
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+
 In Azure Cognitive Search, vector data is represented in fields in a [search index](search-what-is-an-index.md). If you added vector fields to a search index, this article explains how to query those fields, plus how to combine vector queries with full text search and semantic search for hybrid scenarios.
 
 ## Prerequisites
@@ -22,7 +25,7 @@ In Azure Cognitive Search, vector data is represented in fields in a [search ind
 
 + Use REST API version 2023-07-01-preview or Azure portal to query vector fields. You can also use alpha versions of the Azure SDKs. For more information, see [this readme](https://github.com/Azure/cognitive-search-vector-pr/blob/main/README.md).
 
-## 1 - Check for vector fields
+## Check your index for vector fields
 
 In the index schema, check for:
 
@@ -32,11 +35,11 @@ In the index schema, check for:
 
 Search documents containing vector data have fields containing many hundreds of floating point values.
 
-## 2 - Convert query input into a vector
+## Convert query input into a vector
 
 To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library that provides this capability.
 
-## 3 - Query syntax for vector-only search
+## Query syntax for vector-only search
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input. The "fields" property specifies which vector fields are searched. The "k" property specifies the number of nearest neighbors to return as top hits.
 
@@ -64,7 +67,7 @@ api-key: {{admin-api-key}}
 
 The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, although the search score is low if the similarity is weak.
 
-## 4 - Query syntax for hybrid search
+## Query syntax for hybrid search
 
 A hybrid query combines full text search, semantic search (reranking), and vector search. The search engine runs full text and vector queries in parallel. Semantic ranking is applied to the results from the text search. A single result set is returned in the response.
 
@@ -96,7 +99,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## 5 - Query syntax for multiple vector fields
+## Query syntax for multiple vector fields
 
 You can query multiple vectors using the `vectors` query parameter:
 
@@ -116,7 +119,7 @@ vectors: [
 ]
 ```
 
-## 6 - Query syntax for multi-model vectors
+## Query syntax for multi-model vectors
 
 You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named TitleVector and ContentVector. Your query can include both TitleVector and ContentVector.
 
