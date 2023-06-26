@@ -879,22 +879,21 @@
           href: concept-ml-pipelines.md
         - name: Work with Assets
           href: concept-component.md
-        - name: System and Community Registry
         - name: How to manage models
           href: how-to-manage-models.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+    - name: How to share assets across workspaces using registries
+      items:
+        - name: Share models, components, and environments
+          displayName: collaborate share
+          href: how-to-share-models-pipelines-across-workspaces-with-registries.md
+        - name: Share data assets
+          displayName: collaborate share
+          href: how-to-share-data-across-workspaces-with-registries.md
     - name: Model Deployment
       items:
-        - name: How to share assets across workspaces using registries
-          items:
-            - name: Share models, components, and environments
-              displayName: collaborate share
-              href: how-to-share-models-pipelines-across-workspaces-with-registries.md
-            - name: Share data assets
-              displayName: collaborate share
-              href: how-to-share-data-across-workspaces-with-registries.md
         - name: Endpoints
           href: concept-endpoints.md
     - name: Automation
