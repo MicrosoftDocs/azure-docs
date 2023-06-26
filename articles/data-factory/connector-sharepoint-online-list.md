@@ -137,7 +137,7 @@ For a full list of sections and properties that are available for defining datas
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **SharePointOnlineLResource**. | Yes |
-| listName | The name of the SharePoint Online List. Note that the apostrophe(') is not allowed in file names. | Yes |
+| listName | The name of the SharePoint Online List. Note that the apostrophe (') is not allowed in file names. | Yes |
 
 **Example**
 
