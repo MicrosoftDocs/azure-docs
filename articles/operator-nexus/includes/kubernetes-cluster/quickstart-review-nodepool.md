@@ -1,3 +1,11 @@
+---
+author: dramasamy
+ms.author: dramasamy
+ms.date: 06/26/2023
+ms.topic: include
+ms.service: azure-operator-nexus
+---
+
 > [!NOTE]
 > You can add multiple agent pools during the initial creation of your cluster itself by using the initial agent pool configurations. However, if you want to add agent pools after the initial creation, you can utilize the above command to create additional agent pools for your Nexus Kubernetes cluster.
 

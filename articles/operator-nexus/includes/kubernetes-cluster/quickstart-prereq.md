@@ -1,3 +1,11 @@
+---
+author: dramasamy
+ms.author: dramasamy
+ms.date: 06/26/2023
+ms.topic: include
+ms.service: azure-operator-nexus
+---
+
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]

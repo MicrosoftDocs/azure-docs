@@ -65,7 +65,7 @@ Once you have reviewed and saved the template file named ```kubernetes-add-agent
 
 :::code language="json" source="includes/kubernetes-cluster/quickstart-add-node-pool-params.json":::
 
-3. Deploy the template.
+2. Deploy the template.
 
 ```azurecli
     az deployment group create \
