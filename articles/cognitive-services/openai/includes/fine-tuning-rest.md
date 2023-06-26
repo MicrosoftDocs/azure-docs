@@ -132,7 +132,7 @@ api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE"
 api_type = 'azure'
 # The API version may change in the future.
-api_version = '2022-12-01'
+api_version = '2023-05-15'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'

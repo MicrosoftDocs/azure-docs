@@ -90,6 +90,9 @@ To share the gallery:
    :::image type="content" source="media/create-gallery/direct-share-add.png" alt-text="Screenshot showing the option to share with a subscription or tenant.":::
 
 1. If you would like to share with someone within your organization, for **Type** select *Subscription* or *Tenant* and choose the appropriate item from the **Tenants and subscriptions** drop-down. If you want to share with someone outside of your organization, select either *Subscription outside of my organization* or *Tenant outside of my organization* and then paste or type the ID into the text box.
+
+	**When a gallery is shared with the tenant, all subscriptions within the tenant will get access to the image and don't have to share it with individual subscription(s) in the tenant**
+
 1. When you are done adding items, select **Save**.
 
 

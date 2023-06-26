@@ -81,6 +81,11 @@
         "redirect_document_id": true
       },
       {
+        "source_path_from_root": "/articles/purview/troubleshoot-policy-distribution.md",
+        "redirect_url": "/rest/api/purview/pdsdataplane/policy-elements",
+        "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
         "redirect_url": "/azure/purview/catalog-permissions",
         "redirect_document_id": true

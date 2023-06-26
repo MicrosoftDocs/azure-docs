@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 10/12/2022
+ms.date: 06/22/2023
 ms.custom: template-quickstart, ignite-2022
 ---
 
@@ -16,6 +16,8 @@ Get started with Azure DDoS Network Protection by using the Azure portal.
 A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions under a single Azure AD tenant to the same plan.
 
 In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
+
+:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection.":::
 
 ## Prerequisites
 
@@ -93,6 +95,13 @@ Azure Firewall Manager is a platform to manage and protect your network resource
 
 This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) will detect any virtual networks in a defined scope that don't have DDoS Network Protection enabled. This policy will then optionally create a remediation task that will create the association to protect the Virtual Network. See [Azure Policy built-in definitions for Azure DDoS Network Protection](policy-reference.md) for full list of built-in policies.
 
+### Disable for a virtual network:
+
+To disable DDoS protection for a virtual network proceed with the following steps.
+
+1. Enter the name of the virtual network you want to disable DDoS Network Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
+1. Under **DDoS Network Protection**, select **Disable**.
+
 ## Validate and test
 
 First, check the details of your DDoS protection plan:
@@ -122,11 +131,6 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 1. Select the resource group, then select **Delete resource group**.
 
 1. Type the resource group name to verify, and then select **Delete**.
-
-To disable DDoS protection for a virtual network:
-
-1. Enter the name of the virtual network you want to disable DDoS Network Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
-1. Under **DDoS Network Protection**, select **Disable**.
 
 > [!NOTE]
 > If you want to delete a DDoS protection plan, you must first dissociate all virtual networks from it.

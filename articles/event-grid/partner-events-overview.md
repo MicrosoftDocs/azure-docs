@@ -55,7 +55,7 @@ A partner must go through an [onboarding process](onboard-partner.md) before a c
 Through Microsoft Graph API, you can get events from a diverse set of Microsoft services such as [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), **SharePoint**, and so on. For a complete list of event sources, see [Microsoft Graph API's change notifications documentation](/graph/webhooks#supported-resources).
 
 ### Auth0
-[Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auto0](auth0-how-to.md).
+[Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auth0](auth0-how-to.md).
 
 ### SAP
 You can configure your SAP system to send events to Azure Event Grid. For more information, see [Subscribe to SAP events](subscribe-to-sap-events.md).

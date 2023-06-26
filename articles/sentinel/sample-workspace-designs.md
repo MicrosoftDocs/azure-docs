@@ -176,13 +176,13 @@ The suggested solution includes:
 
 ## Sample 3: Multiple tenants and regions and centralized security
 
-Adventure Works is a multinational company with headquarters in Tokyo. Adventure Works has 10 different sub-entities ,based in different countries around the world.
+Adventure Works is a multinational company with headquarters in Tokyo. Adventure Works has 10 different sub-entities ,based in different countries/regions around the world.
 
 Adventure Works is Microsoft 365 E5 customer, and already has workloads in Azure.
 
 ### Adventure Works tenancy requirements
 
-Adventure Works has three different Azure AD tenants, one for each of the continents where they have sub-entities: Asia, Europe, and Africa. The different sub-entities' countries have their identities in the tenant of the continent they belong to. For example, Japanese users are in the *Asia* tenant, German users are in the *Europe* tenant and Egyptian users are in the *Africa* tenant.
+Adventure Works has three different Azure AD tenants, one for each of the continents where they have sub-entities: Asia, Europe, and Africa. The different sub-entities' countries/regions have their identities in the tenant of the continent they belong to. For example, Japanese users are in the *Asia* tenant, German users are in the *Europe* tenant and Egyptian users are in the *Africa* tenant.
 
 ### Adventure Works compliance and regional requirements
 

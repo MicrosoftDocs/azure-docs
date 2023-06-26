@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics - Writing to Delta Lake table 
+title: Azure Stream Analytics - Writing to Delta Lake table (Public Preview)
 
 description: This article describes how to write data to a delta lake table stored in Azure Data Lake Storage Gen2.
 author: an-emma    
@@ -7,10 +7,10 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/12/2022
-ms.custom: seodec18, ignite-2022
+ms.custom: seodec18, ignite-2022, build-2023
 ---
 
-# Azure Stream Analytics - write to Delta Lake table (Public Preview)
+# Azure Stream Analytics - write to Delta Lake table 
 
 
 Delta Lake is an open format that brings reliability, quality and performance to data lakes. Azure Stream Analytics allows you to directly write streaming data to your delta lake tables without writing a single line of code.

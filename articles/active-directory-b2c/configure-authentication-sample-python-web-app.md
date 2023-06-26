@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 02/28/2023
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.custom: b2c-support, devx-track-python
 ---
 
 # Configure authentication in a sample Python web app by using Azure AD B2C
@@ -71,7 +71,7 @@ To create the web app registration, follow these steps:
 
 ## Step 3: Get the web app sample
 
-[Download the zip file](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip), or clone the sample web application from GitHub. 
+[Download the zip file](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/main.zip), or clone the sample web application from GitHub. 
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git

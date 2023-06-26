@@ -6,7 +6,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: shseth
 ms.date: 4/3/2023 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
 # Customer intent: As an IT manager, I want to understand how I should move from using legacy agents to Azure Monitor Agent.
 ---
 
@@ -46,7 +46,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
 1. Use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert your legacy agent configuration into [data collection rules](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule) automatically.<sup>1</sup> 
 
-    Review the generated rules before you create them, to leverage benefits like [filtering](../essentials/data-collection-transformations.md), granular targeting (per machine), and other optimizations.  
+    Review the generated rules before you create them, to leverage benefits like [filtering](../essentials/data-collection-transformations.md), granular targeting (per machine), and other optimizations. There are special steps needed to[ migrate MMA custom logs to AMA custom logs](./azure-monitor-agent-custom-text-log-migration.md)
 
 1. Test the new agent and data collection rules on a few nonproduction machines: 
 
@@ -70,7 +70,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
         | project TimeGenerated, Computer, Category, EventID, sourceHealthServiceId, ParameterXml, EventData
         ```
     
-1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale small-scale testing. Using policy also ensures automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
+1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale. Using policy also ensures automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
     
     Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
     
@@ -99,7 +99,7 @@ The following features and services now use Azure Monitor Agent in preview. This
 |	[VM insights](../vm/vminsights-overview.md)	|	Public preview with Azure Monitor Agent 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
 |	[Container insights](../containers/container-insights-overview.md)	|	Public preview with Azure Monitor Agent 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview with Azure Monitor Agent	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
-| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview with Azure Monitor Agent](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview with Azure Monitor Agent](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview with Azure Monitor Agent](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. |  See [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  |
+| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [GA](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [GA](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview with Azure Monitor Agent](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview with Azure Monitor Agent](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. |  See [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  |
 |	 [Change Tracking and Inventory Management](../../automation/change-tracking/overview.md) |	 Public preview with Azure Monitor Agent 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview with Azure Monitor Agent	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
 |	Azure Stack HCI Insights	|	Private preview	|	No other extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|

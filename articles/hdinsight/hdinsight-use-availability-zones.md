@@ -4,7 +4,7 @@ description: Learn how to create an Azure HDInsight cluster that uses Availabili
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 01/16/2023
+ms.date: 05/11/2023
 ---
 
 # Create an HDInsight cluster that uses Availability Zones
@@ -39,7 +39,6 @@ HDInsight clusters can currently be created using availability zones in the foll
  - Japan East
  - Korea Central
  - North Europe
- - Qatar Central
  - Southeast Asia
  - South Central US
  - UK South

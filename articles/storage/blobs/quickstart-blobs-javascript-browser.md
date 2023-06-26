@@ -108,6 +108,9 @@ Follow these steps to get the Blob service SAS URL:
 1. Select the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.
 1. Save the copied URL somewhere for use in an upcoming step.
 
+> [!NOTE]
+> The SAS token returned by the portal does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
+
 ## Create the JavaScript project
 
 Create a JavaScript application named *blob-quickstart-v12*.

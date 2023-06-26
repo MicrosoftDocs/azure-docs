@@ -9,7 +9,7 @@ ms.subservice: apache-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.devlang: java
-ms.custom: seodec18, devx-track-java, ignite-2022
+ms.custom: seodec18, devx-track-java, ignite-2022, devx-track-extended-java
 #Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-region writes, and other capabilities offered by Azure Cosmos DB.
 ---
 

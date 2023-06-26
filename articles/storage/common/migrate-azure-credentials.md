@@ -9,12 +9,12 @@ ms.date: 05/09/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Migrate an application to use passwordless connections with Azure Blob Storage
 
-[!INCLUDE [storage-passwordless-intro](../../../includes/passwordless/migration-guide/storage-passwordless-intro.md)]
+[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure roles and users for local development authentication
 
@@ -43,12 +43,43 @@ Next, update your code to use passwordless connections.
 1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Blob Storage. Update your code to match the following example:
 
    ```csharp
-   var credential = new DefaultAzureCredential();
+   DefaultAzureCredential credential = new();
 
-   var blobServiceClient = new BlobServiceClient(
+   BlobServiceClient blobServiceClient = new(
        new Uri($"https://{storageAccountName}.blob.core.windows.net"),
        credential);
    ```
+
+## [Go](#tab/go)
+
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `Client` instance to connect to Azure Blob Storage. Update your code to match the following example:
+
+    ```go
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        // handle error
+    }
+
+    serviceURL := fmt.Sprintf("https://%s.blob.core.windows.net", storageAccountName)
+    client, err := azblob.NewClient(serviceURL, cred, nil)
+    if err != nil {
+        // handle error
+    }
+    ```
 
 ## [Java](#tab/java)
 
@@ -115,7 +146,7 @@ Next, update your code to use passwordless connections.
     from azure.identity import DefaultAzureCredential
     ```
 
-1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Blob Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Blob Storage. Update your code to match the following example:
 
     ```python
     credential = DefaultAzureCredential()
@@ -225,7 +256,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/storage-passwordless-user-assigned-managed-identity.md)]
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 

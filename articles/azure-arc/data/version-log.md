@@ -17,6 +17,32 @@ ms.topic: conceptual
 
 This article identifies the component versions with each release of Azure Arc-enabled data services.
 
+## June 13, 2023
+
+|Component|Value|
+|-----------|-----------|
+|Container images tag |`v1.20.0_2023-06-13`|
+|**CRD names and version:**| |
+|`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
+|`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
+|`exporttasks.tasks.arcdata.microsoft.com`| v1beta1, v1, v2|
+|`failovergroups.sql.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
+|`kafkas.arcdata.microsoft.com`| v1beta1 through v1beta4|
+|`monitors.arcdata.microsoft.com`| v1beta1, v1, v3|
+|`postgresqls.arcdata.microsoft.com`| v1beta1 through v1beta6|
+|`postgresqlrestoretasks.tasks.postgresql.arcdata.microsoft.com`| v1beta1|
+|`sqlmanagedinstances.sql.arcdata.microsoft.com`| v1beta1, v1 through v13|
+|`sqlmanagedinstancemonitoringprofiles.arcdata.microsoft.com`| v1beta1, v1beta2|
+|`sqlmanagedinstancereprovisionreplicatasks.tasks.sql.arcdata.microsoft.com`| v1beta1|
+|`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
+|`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|Azure Resource Manager (ARM) API version|2023-01-15-preview|
+|`arcdata` Azure CLI extension version|1.5.2 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.20.0|
+|Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+|SQL Database version | 957 |
+
 ## May 9, 2023
 
 |Component|Value|
@@ -41,6 +67,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |`arcdata` Azure CLI extension version|1.5.0 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.19.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
+| SQL Database version | 931 |
 
 ## April 11, 2023
 
@@ -323,4 +350,5 @@ This release introduces general availability for Azure Arc-enabled SQL Managed I
 |`arcdata` Azure CLI extension version                   | 1.0 |
 |Arc enabled Kubernetes helm chart extension version     | 1.0.16701001, release train: stable |
 |Arc Data extension for Azure Data Studio                | 0.9.5 |
+
 

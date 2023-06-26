@@ -1,7 +1,7 @@
 ---
 title: Ingestion Client - Speech service
 titleSuffix: Azure Cognitive Services
-description: In this article we describe a tool released on GitHub that enables customers push audio files to Speech Service easily and quickly 
+description: In this article we describe a tool released on GitHub that enables customers push audio files to Speech service easily and quickly 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -43,7 +43,7 @@ Internally, the tool uses Speech and Language services, and follows best practic
 
 The following Speech service feature is used by the Ingestion Client:
 
-- [Batch speech-to-text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
+- [Batch speech to text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
 
 Here are some Language service features that are used by the Ingestion Client:
 

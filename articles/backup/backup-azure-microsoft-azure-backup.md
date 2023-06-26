@@ -184,9 +184,9 @@ Once the extraction process completes, check the box to launch the freshly extra
 
    When you use your own instance of SQL, make sure you add builtin\Administrators to sysadmin role to master DB.
 
-    **SSRS Configuration with SQL 2017**
+    **SSRS Configuration with SQL**
 
-    When you're using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
+    When you're using your own instance of SQL 2019 or 2022 with MABS V4, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
     Use the following values for SSRS configuration:
     * Service Account: ‘Use built-in account’ should be Network Service

@@ -22,6 +22,8 @@ items:
     href: onboarding.md
   - name: Interoperability with Microsoft Teams
     href: interoperability.md
+  - name: Mobile Control Point
+    href: mobile-control-point.md
   - name: Emergency calling
     href: emergency-calling.md
   - name: Reliability
@@ -56,3 +58,4 @@ items:
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect
   - name: Overview of Teams Phone Mobile
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
+

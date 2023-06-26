@@ -8,12 +8,12 @@ ms.date: 05/09/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Migrate an application to use passwordless connections with Azure Queue Storage
 
-[!INCLUDE [storage-passwordless-intro](../../../includes/passwordless/migration-guide/storage-passwordless-intro.md)]
+[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure your local development environment
 
@@ -53,15 +53,46 @@ The Azure Identity client library, for each of the following ecosystems, provide
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `QueueClient` to connect to Azure Queue Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `QueueClient` object to connect to Azure Queue Storage. Update your code to match the following example:
 
    ```csharp
-   var credential = new DefaultAzureCredential();
+   DefaultAzureCredential credential = new();
 
-   var queueClient = new QueueClient(
+   QueueClient queueClient = new(
         new Uri($"https://{storageAccountName}.queue.core.windows.net/{queueName}"),
         new DefaultAzureCredential());
    ```
+
+## [Go](#tab/go)
+
+1. To use `DefaultAzureCredential` in a Go application, install the `azidentity` module:
+
+    ```bash
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
+
+1. At the top of your file, add the following code:
+
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+    ```
+
+1. Identify the locations in your code that create a `QueueClient` instance to connect to Azure Queue Storage. Update your code to match the following example:
+
+    ```go
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        // handle error
+    }
+
+    serviceURL := fmt.Sprintf("https://%s.queue.core.windows.net/", storageAccountName)
+    client, err := azqueue.NewQueueClient(serviceURL, cred, nil)
+    if err != nil {
+        // handle error
+    }
+    ```
 
 ## [Java](#tab/java)
 
@@ -129,7 +160,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
     from azure.identity import DefaultAzureCredential
     ```
 
-1. Identify the locations in your code that create a `QueueClient` to connect to Azure Queue Storage. Update your code to match the following example:
+1. Identify the locations in your code that create a `QueueClient` object to connect to Azure Queue Storage. Update your code to match the following example:
 
     ```python
     credential = DefaultAzureCredential()
@@ -243,7 +274,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/storage-passwordless-user-assigned-managed-identity.md)]
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 

@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 05/09/2023
+ms.date: 05/16/2023
 ---
 
 # Bicep operators
@@ -33,8 +33,8 @@ The operators below are listed in descending order of precedence (the higher the
 | `==` `!=` `=~` `!~` | Equality | Left to right |
 | `&&` | Logical AND | Left to right |
 | `||` | Logical OR | Left to right |
-| `?` `:` | Conditional expression (ternary) | Right to left
 | `??` | Coalesce | Left to right
+| `?` `:` | Conditional expression (ternary) | Right to left
 
 ## Parentheses
 

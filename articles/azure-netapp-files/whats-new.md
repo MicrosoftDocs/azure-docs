@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 05/04/2023
+ms.date: 06/26/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -23,7 +23,43 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The Azure NetApp Files file access logs feature provides Azure NetApp Files customers with access logs for their files accessed (data plane logging) on SMB, NFSv4.1, and dual-protocol (SMB/NFSv4.1) volumes. With this feature administrators can enable logging, and view and report on file access operations sent to a variety of logging destinations. Standard file system operations will be captured in the logs. This feature supports SMB and NFSv4.1 enabled volumes.
 
+## June 2023
+
+* [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) (Preview)
+
+    We are excited to announce the addition of double encryption at rest for Azure NetApp Files volumes. This new feature provides an extra layer of protection for your critical data, ensuring maximum confidentiality and mitigating potential liabilities. Double encryption at rest is ideal for industries such as finance, military, healthcare, and government, where breaches of confidentiality can have catastrophic consequences. By combining hardware-based encryption with encrypted SSD drives and software-based encryption at the volume level, your data remains secure throughout its lifecycle. You can select **double** as the encryption type during capacity pool creation to easily enable this advanced security layer.      
+
+* Availability zone volume placement enhancement - [Populate existing volumes](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) (preview)
+
+    The Azure NetApp Files [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy *new volumes* in the availability zone of your choice, in alignment with Azure compute and other services in the same zone. With this "Populate existing volume" enhancement, you can now obtain and, if desired, populate *previously deployed, existing volumes* with the logical availability zone information. This capability automatically maps the physical zone the volumes was deployed in and maps it to the logical zone for your subscription. This feature doesn't move any volumes between zones.
+
+* [Customer-managed keys](configure-customer-managed-keys.md) for Azure NetApp Files now supports the option to Disable public access on the key vault that contains your encryption key. Selecting this option enhances network security by denying public configurations and allowing only connections through private endpoints. 
+
 ## May 2023 
+
+* Azure NetApp Files now supports [customer-managed keys](configure-customer-managed-keys.md) on both source and data replication volumes with [cross-region replication](cross-region-replication-requirements-considerations.md)  or [cross-zone replication](cross-zone-replication-requirements-considerations.md) relationships. 
+
+* [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
+
+    Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Azure Virtual Network (VNet) experience through various security and connectivity features that are available on Azure VNets to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to): 
+    * Increased number of client IPs in a virtual network (including immediately peered VNets) accessing Azure NetApp Files volumes - the [same as Azure VMs](azure-netapp-files-resource-limits.md#resource-limits)
+    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on Azure NetApp Files delegated subnets
+    * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to and from Azure NetApp Files delegated subnets
+    * Connectivity over Active/Active VPN gateway setup
+    * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files   
+
+    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#regions-edit-network-features). It will roll out to other regions. Stay tuned for further information as more regions become available.
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 8 (GA)](azacsnap-introduction.md)
+
+    Version 8 of the AzAcSnap tool is now generally available. [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases in Linux environments. AzAcSnap 8 introduces the following new capabilities and improvements: 
+
+    * Restore change -  ability to revert volume for Azure NetApp Files 
+    * New global settings file (`.azacsnaprc`) to control behavior of `azacsnap` 
+    * Logging enhancements for failure cases and new "mainlog" for summarized monitoring 
+    * Backup (`-c backup`) and Details (`-c details`) fixes  
+
+    Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller). 
 
 * [Single-file snapshot restore](snapshots-restore-file-single.md) is now generally available (GA)
 

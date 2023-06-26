@@ -16,19 +16,20 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
 This article shows you how to configure a managed Spring Cloud Config Server in Azure Spring Apps service.
 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
 
 > [!NOTE]
-> The Config Server feature for the Standard consumption plan is currently under private preview. To sign up for this feature, fill in the form at [Azure Spring Apps Consumption - Fully Managed Spring Eureka & Config - Private Preview](https://aka.ms/asa-consumption-middleware-signup).
+> To use config server in the Standard consumption and dedicated plan, you must enable it first. For more information, see [Enable and disable Spring Cloud Config Server in Azure Spring Apps](quickstart-standard-consumption-config-server.md).
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An already provisioned and running Azure Spring Apps service of basic or standard tier. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md). Spring Cloud Config Server isn't applicable to enterprise tier.
+- An already provisioned and running Azure Spring Apps service instance using the Basic or Standard plan. To set up and launch an Azure Spring Apps service, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md). Spring Cloud Config Server isn't applicable to the Enterprise plan.
+- [Git](https://git-scm.com/downloads).
 
 ## Restriction
 
@@ -144,7 +145,7 @@ The following table shows some examples of patterns for configuring your service
 | *test-config-server-app-1/dev*  | The pattern and repository URI matches a Spring boot application named `test-config-server-app-1` with a dev profile.  |
 | *test-config-server-app-2/prod* | The pattern and repository URI matches a Spring boot application named `test-config-server-app-2` with a prod profile. |
 
-:::image type="content" source="media/how-to-config-server/additional-repositories.png" lightbox="media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the 'Additional repositories' table highlighted.":::
+:::image type="content" source="media/how-to-config-server/additional-repositories.png" lightbox="media/how-to-config-server/additional-repositories.png" alt-text="Screenshot of Azure portal showing the Config Server page with the Patterns column of the Additional repositories table highlighted.":::
 
 ## Attach your Config Server repository to Azure Spring Apps
 
@@ -300,7 +301,7 @@ Instead, you can automatically refresh values from Config Server by letting the 
    }
    ```
 
-1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for config changes every 60 seconds, which is the minimum value you can set for a refresh interval.
+1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for configuration changes every 60 seconds, which is the minimum value you can set for a refresh interval.
 
    By default, autorefresh is set to *false* and the refresh-interval is set to *60 seconds*.
 
@@ -329,7 +330,7 @@ Instead, you can automatically refresh values from Config Server by letting the 
    }
    ```
 
-For more information, see the [config-client-polling sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling).
+For more information, see the [config-client-polling](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling) sample.
 
 ## Next steps
 

@@ -40,7 +40,7 @@ The following table lists how long PCAP data is stored in each Defender for IoT 
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data](how-to-manage-cloud-alerts.md#access-alert-pcap-data). |
-| **OT network sensor** | Dependent on the sensor's storage capacity allocated for PCAP files, which is determined by its [hardware profile](ot-appliance-sizing.md): <br><br>- **C5600**:   130 GB  <br>- **E1800**:   130 GB  <br>-  **E1000** :   78 GB<br>- **E500**:    78 GB <br>- **L500**: 7 GB   <br>- **L100**:    2.5 GB<br>- **L60**:   2.5 GB    <br><br> If a sensor exceeds its maximum storage capacity, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Access alert PCAP data](how-to-view-alerts.md#access-alert-pcap-data) and [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md). |
+| **OT network sensor** | Dependent on the sensor's storage capacity allocated for PCAP files, which is determined by its [hardware profile](ot-appliance-sizing.md): <br><br>- **C5600**:   130 GB  <br>- **E1800**:   130 GB  <br>-  **E1000** :   78 GB<br>- **E500**:    78 GB <br>- **L500**: 7 GB   <br>- **L100**:    2.5 GB<br>- **L60** [*](ot-appliance-sizing.md#l60):    2.5 GB    <br><br> If a sensor exceeds its maximum storage capacity, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Access alert PCAP data](how-to-view-alerts.md#access-alert-pcap-data) and [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md). |
 | **On-premises management console** | PCAP files aren't stored on the on-premises management console and are only accessed from the on-premises management console via a direct link to the OT sensor. |
 
 The usage of available PCAP storage space depends on factors such as the number of alerts, the type of the alert, and the network bandwidth, all of which affect the size of the PCAP file.
@@ -72,7 +72,7 @@ The following table lists the maximum number of events that can be stored for ea
 | **E500** | 6M events |
 | **L500** | 3M events |
 | **L100** | 500-K events |
-| **L60** | 500-K events |
+| **L60** [*](ot-appliance-sizing.md#l60) | 500-K events |
 
 For more information, see [Track sensor activity](how-to-track-sensor-activity.md) and [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
 
@@ -105,7 +105,7 @@ The retention of backup files depends on the sensor's architecture, as each hard
 
 | Hardware profile  | Allocated hard disk space  |
 |---------|---------|
-| **L60**     |  Backups are not supported       |
+| **L60** [*](ot-appliance-sizing.md#l60)    |  Backups are not supported       |
 | **L100**     |  Backups are not supported       |
 | **L500**     |  20 GB   |
 | **E1000** |   60 GB  |

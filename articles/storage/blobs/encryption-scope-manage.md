@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/10/2023
+ms.date: 05/10/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -26,6 +26,8 @@ This article shows how to create an encryption scope. It also shows how to speci
 You can create an encryption scope that is protected with a Microsoft-managed key or with a customer-managed key that is stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM). To create an encryption scope with a customer-managed key, you must first create a key vault or managed HSM and add the key you intend to use for the scope. The key vault or managed HSM must have purge protection enabled. The storage account and key vault can be in different regions.
 
 An encryption scope is automatically enabled when you create it. After you create the encryption scope, you can specify it when you create a blob. You can also specify a default encryption scope when you create a container, which automatically applies to all blobs in the container.
+
+When you configure an encryption scope, you are billed for a minimum of one month (30 days). After the first month, charges for an encryption scope are prorated on an hourly basis. For more information, see [Billing for encryption scopes](encryption-scope-overview.md#billing-for-encryption-scopes).
 
 # [Portal](#tab/portal)
 
@@ -390,7 +392,7 @@ az storage account encryption-scope update \
 
 ## Disable an encryption scope
 
-When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges. For more information, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
+Disable any encryption scopes that are not needed to avoid unnecessary charges. For more information, see [Billing for encryption scopes](encryption-scope-overview.md#billing-for-encryption-scopes).
 
 # [Portal](#tab/portal)
 

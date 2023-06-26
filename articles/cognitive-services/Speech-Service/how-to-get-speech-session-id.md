@@ -1,7 +1,7 @@
 ---
-title: How to get Speech-to-text Session ID and Transcription ID
+title: How to get Speech to text Session ID and Transcription ID
 titleSuffix: Azure Cognitive Services
-description: Learn how to get Speech service Speech-to-text Session ID and Transcription ID
+description: Learn how to get Speech service Speech to text Session ID and Transcription ID
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 11/29/2022
 ms.author: alexeyo 
 ---
 
-# How to get Speech-to-text Session ID and Transcription ID
+# How to get Speech to text Session ID and Transcription ID
 
-If you use [Speech-to-text](speech-to-text.md) and need to open a support case, you are often asked to provide a *Session ID* or *Transcription ID* of the problematic transcriptions to debug the issue. This article explains how to get these IDs. 
+If you use [Speech to text](speech-to-text.md) and need to open a support case, you are often asked to provide a *Session ID* or *Transcription ID* of the problematic transcriptions to debug the issue. This article explains how to get these IDs. 
 
 > [!NOTE]
 > * *Session ID* is used in [real-time speech to text](get-started-speech-to-text.md) and [speech translation](speech-translation.md).
@@ -33,7 +33,7 @@ If you use Speech SDK for JavaScript, get the Session ID as described in [this s
 
 If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details in [this section](#get-session-id-using-speech-cli).
 
-In case of [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) you need to "inject" the session information in the requests. See details in [this section](#provide-session-id-using-rest-api-for-short-audio).
+In case of [Speech to text REST API for short audio](rest-speech-to-text-short.md) you need to "inject" the session information in the requests. See details in [this section](#provide-session-id-using-rest-api-for-short-audio).
 
 ### Enable logging in the Speech SDK
 
@@ -68,7 +68,7 @@ spx help translate log
 
 ### Provide Session ID using REST API for short audio
 
-Unlike Speech SDK, [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) does not automatically generate a Session ID. You need to generate it yourself and provide it within the REST request.
+Unlike Speech SDK, [Speech to text REST API for short audio](rest-speech-to-text-short.md) does not automatically generate a Session ID. You need to generate it yourself and provide it within the REST request.
 
 Generate a GUID inside your code or using any standard tool. Use the GUID value *without dashes or other dividers*. As an example we will use `9f4ffa5113a846eba289aa98b28e766f`.
 
@@ -80,7 +80,7 @@ https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cogn
 
 ## Getting Transcription ID for Batch transcription
 
-[Batch transcription API](batch-transcription.md) is a subset of the [Speech-to-text REST API](rest-speech-to-text.md). 
+[Batch transcription API](batch-transcription.md) is a subset of the [Speech to text REST API](rest-speech-to-text.md). 
 
 The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create).
 
