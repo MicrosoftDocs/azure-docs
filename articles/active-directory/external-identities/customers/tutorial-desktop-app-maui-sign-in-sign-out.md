@@ -160,7 +160,7 @@ When the sign-in button is clicked, it calls the `AcquireTokenSilentAsync` metho
 
 ### Add claims view page
 
-The next steps will organize the code so that `claims view` is defined.
+The next steps will organize the code so that `ClaimsView` page is defined. The page will display the user's claims found in the ID token..
 
 1. In the **Solution Explorer** pane of Visual Studio, right-click on the **Views**.
 1. Select **Add** > **New Item...**.
@@ -333,7 +333,7 @@ The `AppShell` class defines an app's visual hierarchy, the XAML markup used in 
 
 ## Add platform-specific code
 
-A .NET MAUI app project contains a Platforms folder, with each child folder representing a platform that .NET MAUI can target. To provide application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`.
+A .NET MAUI app project contains a _Platforms_ folder, with each child folder representing a platform that .NET MAUI can target. To provide application-specific behavior to supplement the default application class, you modify `Platforms/Windows/App.xaml.cs`.
 
 Replace the content of the file with following code:
 
@@ -385,7 +385,7 @@ In the code, you configure the redirect URI for the application and initialized 
 
 ## Add app settings
 
-Settings allow the separation of data that configures the behavior of an app from the code, allowing the behavior to be changed without rebuilding the app. The `MauiAppBuilder` provides `ConfigurationManager` that is built in to configure settings in our .NET MAUI app. Let's add the `appsettings.json` file as an `EmbeddedResource`.
+Settings allow the separation of data that configures the behavior of an app from the code, allowing the behavior to be changed without rebuilding the app. The `MauiAppBuilder` provides `ConfigurationManager` to configure settings in our .NET MAUI app. Let's add the `appsettings.json` file as an `EmbeddedResource`.
 
 To create `appsettings.json`, follow these steps:
 
@@ -418,9 +418,15 @@ To create `appsettings.json`, follow these steps:
 
 ## Run and test .NET MAUI desktop app
 
-Select the Windows platform to work on by setting the startup project in the **Solution Explorer**. Make sure that your platform of choice is marked for build and deploy in the configuration manager.
+.NET MAUI apps are designed to run on multiple operating systems and devices. You'll need to select which target you want to test and debug your app with.
 
-Clean the solution, rebuild the solution, and run it.
+Set the **Debug Target** in the Visual Studio toolbar to the device you want to debug and test with. The following steps demonstrate setting the **Debug Target** to _Windows_:
+
+1. Select **Debug Target** drop-down.
+1. Select **Framework** 
+1. Select **net7.0-windows...**
+
+Run the app by pressing _F5_ or select the _play button_ at the top of Visual Studio.
 
 1. You can now test the sample .NET MAUI desktop application. After you run the application, the desktop application window appears automatically:
 
