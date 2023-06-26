@@ -884,7 +884,7 @@
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
-    - name: How to share assets across workspaces using registries
+    - name: Share assets across workspaces using registries
       items:
         - name: Share models, components, and environments
           displayName: collaborate share
