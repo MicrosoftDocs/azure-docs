@@ -101,12 +101,12 @@ dataConnectorName: WeatherIBM
 
 credentials: ApiKeyAuthCredentials
 
-### Overriding connector details
+## Overriding connector details
 As part of Data plane APIs, customer can choose to override the connector details that need to be used for that request.
 
 Customer can refere to API version `2023-06-01-preview` documentation where the Data plane APIs for satellite and weather take the credentials as part of the request body.
 
-### How Azure Data Manager for Agriculture secret
+## How Azure Data Manager for Agriculture secret
 Following flow shows how Azure Data Manager for Agriculture accesses secret.
 :::image type="content" source="./media/concepts-byol-and-credentials/key-access-flow.png" alt-text="Screenshot showing how the data manager accesses credentials.":::
 
