@@ -15,7 +15,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 ## Prerequisites
 
-In addition to the prerequisites below, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
+In addition to these prerequisites, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -147,7 +147,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Connect an existing Kubernetes cluster
 
-Run the following command to connect your cluster. This command deploys the Azure Arc agents to the cluster and installs Helm v. 3.6.3 to the .azure folder of the deployment machine. This Helm 3 installation is only used for Azure Arc, and it does not remove or change any previously installed versions of Helm on the machine.
+Run the following command to connect your cluster. This command deploys the Azure Arc agents to the cluster and installs Helm v. 3.6.3 to the `.azure` folder of the deployment machine. This Helm 3 installation is only used for Azure Arc, and it doesn't remove or change any previously installed versions of Helm on the machine.
 
 In this example, the cluster's name is AzureArcTest1.
 
@@ -264,7 +264,7 @@ For outbound proxy servers where only a trusted certificate needs to be provided
 
 > [!NOTE]
 >
-> * `--custom-ca-cert` is an alias for `--proxy-cert`. Either parameters can be used interchangeably. Passing both parameters in the same command will honour the one passed last.
+> * `--custom-ca-cert` is an alias for `--proxy-cert`. Either parameters can be used interchangeably. Passing both parameters in the same command will honor the one passed last.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -276,7 +276,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell.
+The ability to pass in the proxy certificate only without the proxy server endpoint details isn't currently supported via PowerShell.
 
 ---
 
