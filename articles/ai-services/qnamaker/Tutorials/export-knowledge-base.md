@@ -2,6 +2,9 @@
 title: Export knowledge bases - QnA Maker
 description: Exporting a knowledge base requires exporting from one knowledge base, then importing into another.
 ms.service: cognitive-services
+manager: nitinme
+ms.author: jboback
+author: jboback
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
