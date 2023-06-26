@@ -369,7 +369,7 @@ Keep in mind the following considerations when running your functions locally:
 
 + You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Non-HTTP triggered functions](#non-http-triggered-functions).
 
-+ When you include your Application Insights connection information in the local.settings.json file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for devlopment and testing.
++ When you include your Application Insights connection information in the local.settings.json file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for development and testing.
 
 ### Passing test data to a function
 
