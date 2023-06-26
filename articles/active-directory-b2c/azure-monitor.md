@@ -358,7 +358,7 @@ To stop collecting logs to your Log Analytics workspace, delete the diagnostic s
    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
 1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
 1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md#azure-portal).
-1. Delete the resource group by clicking the Delete button.
+1. Select the **Delete** button to delete the resource group.
 ## Next steps
 
 - Find more samples in the Azure AD B2C [SIEM gallery](https://aka.ms/b2csiem).
