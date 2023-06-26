@@ -81,7 +81,7 @@ To sign and verify your data, use the following methods:
 
 For data:
 * [signData](/javascript/api/@azure/keyvault-keys/cryptographyclient#@azure-keyvault-keys-cryptographyclient-signdata) to sign a block of data. 
-* [verifyData](/javascript/api/@azure/keyvault-keys/cryptographyclient#@azure-keyvault-keys-cryptographyclient-verifydata)
+* [verifyData](/javascript/api/@azure/keyvault-keys/cryptographyclient#@azure-keyvault-keys-cryptographyclient-verifydata) to verify data.
 
 ```javascript
 import { createHash } from "crypto";
@@ -127,4 +127,4 @@ if (keyVaultKey?.name) {
 
 ## Next steps
 
-* [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)
+* [Key types, algorithms, and operations](about-keys-details.md)

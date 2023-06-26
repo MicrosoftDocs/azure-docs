@@ -115,4 +115,4 @@ The **decryptParams** object sets the parameters for decryption. Use the followi
 
 ## Next steps
 
-* [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)
+* [Sign and verify with key with JavaScript SDK](javascript-developer-guide-sign-verify-key.md)

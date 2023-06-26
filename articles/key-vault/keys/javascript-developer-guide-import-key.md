@@ -66,4 +66,4 @@ Learn more about JWK
 
 ## Next steps
 
-* [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)
+* [Backup, delete, and restore a key](javascript-developer-guide-backup-delete-restore-key.md)

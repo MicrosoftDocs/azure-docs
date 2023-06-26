@@ -54,4 +54,4 @@ Refer to the [update key properties](javascript-developer-guide-create-update-ro
 
 ## Next steps
 
-* [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)
+* [List keys with JavaScript SDK](javascript-developer-guide-list-key-version.md)

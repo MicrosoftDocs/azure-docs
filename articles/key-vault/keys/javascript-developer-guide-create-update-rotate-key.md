@@ -26,6 +26,7 @@ A [KeyVaultKey](/javascript/api/@azure/keyvault-keys/keyvaultkey) is returned. U
 
 Convenience create methods are available for the following key types, which set properties associated with that key type:
 
+* [createKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-createkey)
 * [createEcKey](/javascript/api/@azure/keyvault-keys/keyclient#createeckey)
 * [createOctKey](/javascript/api/@azure/keyvault-keys/keyclient#createoctkey)
 * [createRsaKey](/javascript/api/@azure/keyvault-keys/keyclient#creatersakey)

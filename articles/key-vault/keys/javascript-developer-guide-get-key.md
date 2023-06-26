@@ -99,4 +99,4 @@ Use the following table to understand what you can do with a disabled key.
 
 ## Next steps
 
-* [Encrypt or decrypt using key from JavaScript SDK](javascript-developer-guide-encrypt-decrypt-key.md)
+* [Enabled and disable key from JavaScript SDK](javascript-developer-guide-enable-disable-key.md)

@@ -82,16 +82,16 @@ If you need the value of the KeyVaultKey, use methods that return the [KeyVaultK
 
 * [getKey](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-getkey)
 
-## Understand the clients
+## Object model
 
 The Azure Key Vault keys client library for JavaScript includes the following clients:
 
-* [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) allows you to create, rotate, back up, list and delete keys and their versions.
+* [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient): The KeyClient object is the top object in the SDK. This client allows you to perform key management tasks such as create, rotate, delete, and list the keys.
 * [CryptographyClient](/javascript/api/@azure/keyvault-keys/cryptographyclient) allows you to encrypt, decrypt, sign, verify, wrap and unwrap keys. 
 
-## Create a KeyClient object
+:::image type="content" source="../media/keys/key-vault-keys-object-model.png" alt-text="Conceptual diagram showing the relationship within the client library between the KeyClient and CryptographyClient.":::
 
-The KeyClient object is the top object in the SDK. This client allows you to perform key management tasks such as create, rotate, delete, and list the keys.
+## Create a KeyClient object
 
 Once your local environment and Key Vault authorization are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) and the [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) packages. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) object.
 

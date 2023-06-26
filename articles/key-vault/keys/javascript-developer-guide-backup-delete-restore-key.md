@@ -57,4 +57,4 @@ if (keyBackup) {
 
 ## Next steps
 
-* [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)
+* [Encrypt and descript key with JavaScript SDK](javascript-developer-guide-encrypt-decrypt-key.md)

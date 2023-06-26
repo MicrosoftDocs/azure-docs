@@ -122,4 +122,4 @@ Refer to the [List all keys by page](#list-all-keys-by-page) example to see how 
 
 ## Next steps
 
-* [Get a key with JavaScript SDK](javascript-developer-guide-get-key.md)
+* [Import key with JavaScript SDK](javascript-developer-guide-import-key.md)
