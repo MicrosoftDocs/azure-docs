@@ -72,6 +72,7 @@ You use these items to set up image labeling in Azure Machine Learning:
     * To apply *one or more* labels to an image from a set of labels, select **Image Classification Multi-label**. For example, a photo of a dog might be labeled with both *dog* and *daytime*.
     * To assign a label to each object within an image and add bounding boxes, select **Object Identification (Bounding Box)**.
     * To assign a label to each object within an image and draw a polygon around each object, select **Instance Segmentation (Polygon)**.
+    * To draw masks on an image and assign a label class at the pixel level, select **Semantic Segmentation (Preview)**.
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Screenshot that shows creating a labeling project to manage labeling.":::
 

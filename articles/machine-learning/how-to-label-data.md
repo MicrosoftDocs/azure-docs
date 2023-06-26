@@ -66,7 +66,7 @@ Early in a labeling project, the machine learning model may only have enough acc
 
 When there are no more pre-labeled tasks, you stop confirming or correcting labels, and go back to manual item tagging.
 
-## <a name="image-tasks"></a> Image tasks
+## Image tasks
 
 For image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout.
 
@@ -165,6 +165,23 @@ Use the **Add or remove polygon points** tool ![This is the add or remove polygo
 To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-data/delete-regions-tool.png).
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
+
+## Tag images and draw masks for semantic segmentation
+
+If your project is of type "Semantic segmentation (Polygon)," use the paintbrush to paint a mask over the area you wish to tag.
+
+1. Select a tag for the area you will paint over.
+1. Select the **paintbrush** tool ![Paintbrush tool](./media/how-to-label-data/polygon-tool.png).
+1. Select the width for your paintbrush.
+1. Paint over the area you wish to tag.  The color corresponding to your tag will be applied to the area you paint over.
+    
+    :::image type="content" source="media/how-to-label-data/paintbrush.gif" alt-text="Paint area for cat and dog faces for semantic segmentation.":::
+
+To delete parts of the area, select **Eraser** tool.
+
+To change the tag for an area, select the new tag and re-paint the area.
+
+After you create the areas for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
 ## Label text
 
