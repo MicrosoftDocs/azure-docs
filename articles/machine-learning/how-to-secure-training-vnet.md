@@ -117,7 +117,7 @@ To create a compute cluster in a different Azure Virtual Network than your works
     
         * From the Azure portal, navigate to the DNS zone and select **Virtual network links**. Then select **+ Add** and select the VNet that you created for your compute clusters.
         * From the Azure CLI, use the `az network private-dns link vnet create` command. For more information, see [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#az-network-private-dns-link-vnet-create).
-        * From Azure PowerShell, use the `New-AzPrivateDnsVirtualNetworkLink` command. For more information, see [New-AzPrivateDnsVirtualNetworkLink](powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink).
+        * From Azure PowerShell, use the `New-AzPrivateDnsVirtualNetworkLink` command. For more information, see [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink).
 
 1. Repeat the previous step and sub-steps for the `privatelink.notebooks.azure.net` DNS zone.
 
