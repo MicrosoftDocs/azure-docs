@@ -82,7 +82,7 @@ To find managed identities, you can use:
 2. In the left navigation, select **Enterprise applications**.
 3. In the **Application type** column, under **Value**, select the down-arrow to select **Managed Identities**.
 
-   ![Screenshot of the Managed Identies option under Values, in the Application type column.](./media/securing-service-accounts/service-accounts-managed-identities.png)
+   ![Screenshot of the Managed Identies option under Values, in the Application type column.](./media/govern-service-accounts/service-accounts-managed-identities.png)
 
 ### Microsoft Graph
 
@@ -120,7 +120,7 @@ If you're using a  service principal or an Azure AD user account, evaluate the u
 
 **Service accounts**
 
-* [Securing cloud-based service accounts](service-accounts-introduction-azure.md)
+* [Securing cloud-based service accounts](secure-service-accounts.md)
 * [Securing service principals](service-accounts-principal.md)
-* [Governing Azure AD service accounts](service-accounts-governing-azure.md)
+* [Governing Azure AD service accounts](govern-service-accounts.md)
 * [Securing on-premises service accounts](service-accounts-on-premises.md)

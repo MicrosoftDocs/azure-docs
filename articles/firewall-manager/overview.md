@@ -94,6 +94,8 @@ Azure Firewall Manager has the following known issues:
 
 ## Next steps
 
-- [Learn module: Introduction to Azure Firewall Manager](/training/modules/intro-to-azure-firewall-manager/).
+- [Learn module: Introduction to Azure Firewall Manager](/training/modules/intro-to-azure-firewall-manager/)
 - Review [Azure Firewall Manager deployment overview](deployment-overview.md)
-- Learn about [secured Virtual Hubs](secured-virtual-hub.md).
+- Learn about [secured Virtual Hubs](secured-virtual-hub.md)
+- [Learn more about Azure network security](../networking/security/index.yml)
+

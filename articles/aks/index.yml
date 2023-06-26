@@ -28,8 +28,8 @@ landingContent:
         links:
           - text: Automatically upgrade node images
             url: auto-upgrade-node-image.md
-          - text: Mariner container host for AKS
-            url: use-mariner.md
+          - text: Azure Linux container host for AKS
+            url: use-azure-linux.md
           - text: Vertical Pod Autoscaler (preview)
             url: vertical-pod-autoscaler.md
           - text: Workload identity (preview)
@@ -84,6 +84,8 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-portal.md
           - text: Resource Manager template
             url: ./learn/quick-kubernetes-deploy-rm-template.md
+          - text: Terraform
+            url: ./learn/quick-kubernetes-deploy-terraform.md
 
   # Card
   - title: Develop and debug applications
@@ -100,6 +102,10 @@ landingContent:
             url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
           - text: Use Bridge to Kubernetes with Visual Studio
             url: /visualstudio/containers/bridge-to-kubernetes
+          - text: Run Java Open Liberty
+            url: howto-deploy-java-liberty-app.md
+          - text: Run Java WebLogic Server
+            url: howto-deploy-java-wls-app.md
 
   # Card
   - title: Architecture guidance

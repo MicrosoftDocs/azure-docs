@@ -29,7 +29,7 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
 
 > [!WARNING]
-> If you need to delete a resource, you should first delete its diagnostic settings. Otherwise, if you recreate this resource, the diagnostic settings for the deleted resource could be included with the new resource, depending on the resource configuration for each resource. If the diagnostics settings are included with the new resource, this resumes the collection of resource logs as defined in the diagnostic setting and sends the applicable metric and log data to the previously configured destination. 
+> If you need to delete a resource or migrate it across resource groups or subscriptions, you should first delete its diagnostic settings. Otherwise, if you recreate this resource, the diagnostic settings for the deleted resource could be included with the new resource, depending on the resource configuration for each resource. If the diagnostics settings are included with the new resource, this resumes the collection of resource logs as defined in the diagnostic setting and sends the applicable metric and log data to the previously configured destination. 
 >
 >Also, it’s a good practice to delete the diagnostic settings for a resource you're going to delete and don't plan on using again to keep your environment clean.
 
@@ -72,7 +72,9 @@ When you use category groups, you:
 Currently, there are two category groups:
 
 - **All**: Every resource log offered by the resource.
-- **Audit**: All resource logs that record customer interactions with data or the settings of the service. Note that Audit logs are an attempt by each resource provider to provide the most relevant audit data, but may not be considered sufficient from an auditing standards perspective.
+- **Audit**: All resource logs that record customer interactions with data or the settings of the service. Audit logs are an attempt by each resource provider to provide the most relevant audit data, but may not be considered sufficient from an auditing standards perspective.
+
+The "Audit" category is a subset of "All", but the Azure portal and REST API consider them separate settings. Selecting "All" does collect all audit logs regardless of if the "Audit" category is also selected.    
 
 Note : Enabling *Audit* for Azure SQL Database does not enable auditing for Azure SQL Database. To enable database auditing, you have to enable it from the auditing blade for Azure Database. 
 

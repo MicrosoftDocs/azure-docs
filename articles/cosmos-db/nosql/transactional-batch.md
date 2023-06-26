@@ -5,6 +5,7 @@ author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.topic: conceptual
 ms.date: 10/27/2020
 ---

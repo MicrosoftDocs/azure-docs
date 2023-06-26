@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: cwerner
 ms.reviewer: jmprieur
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 
@@ -173,7 +173,7 @@ public class AuthPageController {
 
 When the user selects the **Sign in** link, which triggers the `/auth/signin` route, the sign-in controller takes over to authenticate the user with Microsoft identity platform. 
 
-:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="27-107, 135-161":::
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="15-77, 195-253":::
 
 # [Python](#tab/python)
 
@@ -355,7 +355,7 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
 
 When the user selects the **Sign out** button, the app triggers the `/signout` route, which destroys the session and redirects the browser to Microsoft identity platform sign-out endpoint.
 
-:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="163-174":::
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="157-175":::
 
 # [Python](#tab/python)
 

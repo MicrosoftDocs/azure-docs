@@ -199,7 +199,7 @@ To send a message to a **queue** or a **topic**, select the **Send messages** bu
 
 ## Re-send a message
 
-After peeking or receiving a message, we can re-send it, which will send a copy of the message to the same entity, while allowing us to update it's content and properties.
+After peeking or receiving a message, we can re-send it, which will send a copy of the message to the same entity, while allowing us to update it's content and properties. The original will remain and is not deleted even when the re-send is from the deadletter queue.
 
 1. In the grid, select the message(s) we want to re-send.
 1. Select the **Re-send selected messages** button.

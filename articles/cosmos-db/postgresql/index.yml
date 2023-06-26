@@ -95,6 +95,8 @@ landingContent:
             url: concepts-firewall-rules.md
           - text: Private access
             url: concepts-private-access.md
+          - text: Node DNS names
+            url: concepts-node-domain-name.md
           - text: Row-level security
             url: concepts-row-level-security.md
           - text: Customer managed keys

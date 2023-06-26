@@ -20,7 +20,7 @@ Computed properties in Azure Cosmos DB have values derived from existing item pr
 
 ## Computed property definition
 
-Computed properties must be at the top level in the item and can't have a nested path. Each computed property definition has two components: a name and a query. The name is the computed property name, and the query defines logic to calculate the property value for each item. Computed properties are scoped to an individual item and therefore can't use values from multiple items or rely on other computed properties.
+Computed properties must be at the top level in the item and can't have a nested path. Each computed property definition has two components: a name and a query. The name is the computed property name, and the query defines logic to calculate the property value for each item. Computed properties are scoped to an individual item and therefore can't use values from multiple items or rely on other computed properties. Every container can have a maximum of 20 computed properties.
 
 Example computed property definition:
 ```json
@@ -56,7 +56,7 @@ The constraints on computed property names are:
 
 ### Query constraints
 
-Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation will fail. Queries should evaluate to a deterministic value for all items in a container. 
+Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation will fail. Queries should evaluate to a deterministic value for all items in a container. Queries may evaluate to undefined or null for some items, and computed properties with undefined or null values behave the same as persisted properties with undefined or null values when used in queries.
 
 The constraints on computed property query definitions are:
 
@@ -66,28 +66,31 @@ The constraints on computed property query definitions are:
 
 - Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, and NONE.
 
-- Aggregate and spatial functions aren't supported.
-
 - Queries can't include a scalar subquery.
+
+- Aggregate functions, spatial functions, non-deterministic functions and user defined functions aren't supported.
 
 ## Creating computed properties 
 
-During the preview, computed properties must be created using the .NET v3 SDK. Once the computed properties have been created, you can execute queries that reference them using any method including all SDKs and Data Explorer in the Azure portal.
+During the preview, computed properties must be created using the .NET v3 or Java v4 SDK. Once the computed properties have been created, you can execute queries that reference them using any method including all SDKs and Data Explorer in the Azure portal.
 
 |**SDK** |**Supported version** |**Notes** |
 |--------|----------------------|----------|
-|.NET SDK v3 |>= 3.34.0-preview |Computed properties are currently only available in preview package versions. |
+|.NET SDK v3 |>= [3.34.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.34.0-preview) |Computed properties are currently only available in preview package versions. |
+|Java SDK v4 |>= [4.46.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.46.0) |Computed properties are currently under preview version. |
 
 ### Create computed properties using the SDK
 
 You can either create a new container with computed properties defined, or add them to an existing container. 
 
-Here's an example of how to create computed properties in a new container using the .NET SDK:
+Here's an example of how to create computed properties in a new container:
+
+### [.NET](#tab/dotnet)
 
 ```csharp
     ContainerProperties containerProperties = new ContainerProperties("myContainer", "/pk")
     {
-        ComputedProperties = new Collection<ComputedProperty
+        ComputedProperties = new Collection<ComputedProperty>
         {
             new ComputedProperty
             {
@@ -97,12 +100,68 @@ Here's an example of how to create computed properties in a new container using 
         }
     };
 
-    ContainerResponse response = await this.database.CreateContainerAsync(containerProperties);
+    Container container = await client.GetDatabase("myDatabase").CreateContainerAsync(containerProperties);
 ```
+
+### [Java](#tab/java)
+
+```java
+CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/pk");
+List<ComputedProperty> computedProperties = new ArrayList<>(List.of(new ComputedProperty("cp_lowerName", "SELECT VALUE LOWER(c.name) FROM c")));
+containerProperties.setComputedProperties(computedProperties);
+client.getDatabase("myDatabase").createContainer(containerProperties);
+```
+---
+
+Here's an example of how to update computed properties on an existing container:
+
+### [.NET](#tab/dotnet)
+
+```csharp
+    var container = client.GetDatabase("myDatabase").GetContainer("myContainer");
+
+    // Read the current container properties
+    var containerProperties = await container.ReadContainerAsync();
+    // Make the necessary updates to the container properties
+    containerProperties.Resource.ComputedProperties = new Collection<ComputedProperty>
+        {
+            new ComputedProperty
+            {
+                Name = "cp_lowerName",
+                Query = "SELECT VALUE LOWER(c.name) FROM c"
+            },
+            new ComputedProperty
+            {
+                Name = "cp_upperName",
+                Query = "SELECT VALUE UPPER(c.name) FROM c"
+            }
+        };
+    // Update container with changes
+    await container.ReplaceContainerAsync(containerProperties);
+```
+
+### [Java](#tab/java)
+
+```java
+CosmosContainer container = client.getDatabase("myDatabase").getContainer("myContainer");
+// Read the current container properties
+CosmosContainerProperties containerProperties = container.read().getProperties();
+// Make the necessary updates to the container properties
+Collection<ComputedProperty> modifiedComputedProperites = containerProperties.getComputedProperties();
+modifiedComputedProperites.add(new ComputedProperty("cp_upperName", "SELECT VALUE UPPER(c.firstName) FROM c"));
+containerProperties.setComputedProperties(modifiedComputedProperites);
+// Update container with changes
+container.replace(containerProperties);
+```
+---
+
+> [!TIP]
+> Every time you update container properties, the old values are overwritten. 
+> If you have existing computed properties and want to add new ones, ensure you add both new and existing computed properties to the collection.
 
 ## Using computed properties in queries
 
-Computed properties can be referenced in queries the same way as persisted properties. Values for computed properties that aren't indexed are evaluated during runtime using the computed property definition. If a computed property is indexed, the index is used in the same way as it is for persisted properties, and the computed property is evaluated on an as needed basis. 
+Computed properties can be referenced in queries the same way as persisted properties. Values for computed properties that aren't indexed are evaluated during runtime using the computed property definition. If a computed property is indexed, the index is used in the same way as it is for persisted properties, and the computed property is evaluated on an as needed basis. It's recommended you [add indexes on your computed properties](#indexing-computed-properties) for the best cost and performance.
 
 These examples use the quickstart products dataset in [Data Explorer](../../data-explorer.md). Launch the quick start to get started and load the dataset in a new container.
 
@@ -154,7 +213,7 @@ SELECT c.cp_lowerName FROM c
 
 ### WHERE clause
 
-Computed properties can be referenced in filter predicates like any persisted properties. 
+Computed properties can be referenced in filter predicates like any persisted properties. It's recommended to add any relevant single or composite indexes when using computed properties in filters.
 
 Let's take an example computed property definition to calculate a 20 percent price discount.
 
@@ -173,7 +232,7 @@ SELECT c.price - c.cp_20PercentDiscount as discountedPrice, c.name FROM c WHERE 
 
 ### GROUP BY clause
 
-As with persisted properties, computed properties can be referenced in the GROUP BY clause and use the index whenever possible. 
+As with persisted properties, computed properties can be referenced in the GROUP BY clause and use the index whenever possible. For the best performance, add any relevant single or composite indexes.
 
 Let's take an example computed property definition that finds the primary category for each item from the `categoryName` property.
 
@@ -274,15 +333,19 @@ Add a composite index on two properties where one is computed, `cp_myComputedPro
     "compositeIndexes": [  
         [  
             {  
-               "path":"/cp_myComputedProperty",
+               "path":"/cp_myComputedProperty"
             },
             {  
-               "path":"/path/to/myPersistedProperty",
+               "path":"/path/to/myPersistedProperty"
             }
         ]
     ]
 }
 ```
+
+## RU consumption
+
+Adding computed properties to a container does not consume RUs. Write operations on containers that have computed properties defined may see a slight RU increase. If a computed property is indexed, RUs on write operations will increase to reflect the costs for indexing and evaluation of computed property. While in preview, RU charges related to computed properties are subject to change.
 
 ## Next steps
 

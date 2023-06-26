@@ -2,21 +2,23 @@
 title: 'Overview of the MQTT Support in Azure Event Grid'
 description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
-ms.custom: build-2023, build-2023-dataai
 ms.date: 05/23/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
 # Overview of the MQTT Support in Azure Event Grid (Preview)
+
 Azure Event Grid enables your MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions. Event Grid’s MQTT support enables you to accomplish the following scenarios:
 - Ingest telemetry using a many-to-one messaging pattern. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 - Control your MQTT clients using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
 - Broadcast alerts to a fleet of clients using the one-to-many messaging pattern. This pattern enables the application to publish only one message that the service replicates for every interested client.
 - Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the HTTP Push delivery functionality. This integration with Azure services enables you to build data pipelines that start with data ingestion from your IoT devices.
 
-You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)
+You can find code samples that demonstrate these scenarios in [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples)
 
-:::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png":::
+The MQTT support in Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
+
+:::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
 
 > [!NOTE]
 > This feature is currently in preview. It's provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -75,13 +77,15 @@ Access control is critical for IoT scenarios considering the enormous scale of I
 
 Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. After creating client groups and topic spaces, you’re able to configure a permission binding to grant access to a client group to either publish or subscribe to a topic space.
 
+:::image type="content" source="media/mqtt-overview/access-control-high-res.png" alt-text="Diagram of the access control model." border="false":::
+
 Topic spaces also provide granular access control by allowing you to control the authorization of each client within a client group to publish or subscribe to its own topic. This granular access control is achieved by using variables in topic templates. [Learn more about access control.](mqtt-access-control.md) 
 
 ### Routing
 
 Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid custom topic](custom-topics.md), and configuring [Event Grid event subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). For example, this functionality enables you to use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry. [Learn more about routing.](mqtt-routing.md)
 
-:::image type="content" source="media/overview/integrate-data.png" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data-high-res.png" :::
+:::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
 ## Next steps
 

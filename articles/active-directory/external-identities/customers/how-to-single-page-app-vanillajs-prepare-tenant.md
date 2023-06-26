@@ -1,33 +1,49 @@
 ---
-title: Prepare your tenant to use a vanilla JavaScript single-page app for authentication. 
-description: Learn how to configure your Azure Active Directory (AD) for customers tenant for authentication with a vanilla JavaScript single-page app (SPA).
+title: Tutorial - Prepare your customer tenant to authenticate users in a Vanilla JavaScript single-page application
+description: Learn how to configure your Azure Active Directory (AD) for customers tenant for authentication with a Vanilla JavaScript single-page app (SPA).
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
+
 ms.author: owenrichards
 ms.service: active-directory
-ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 05/23/2023
-ms.custom: developer
+ms.topic: tutorial
+ms.date: 06/09/2023
 
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure a vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Sign in users to a vanilla JS single-page application - Prepare your tenant
+# Tutorial: Prepare your customer tenant to authenticate a vanilla JavaScript single-page app
 
-This how-to guide demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You'll register a single-page application (SPA) in the Microsoft Entra admin center, and record its identifiers. You'll then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your SPA with the user flow.
+This tutorial series demonstrates how to build a vanilla JavaScript single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
+
+In this tutorial, you'll;
+
+> [!div class="checklist"]
+> * Register a SPA in the Microsoft Entra admin center, and record its identifiers
+> * Define the platform and URLs
+> * Grant permissions to the SPA to access the Microsoft Graph API
+> * Create a sign in and sign out user flow in the Microsoft Entra admin center
+> * Associate your SPA with the user flow
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
 
-- If you have already registered a SPA in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare a vanilla JavaScript single-page app for authentication](how-to-single-page-app-vanillajs-prepare-app.md).
+    * Application administrator
+    * Application developer
+    * Cloud application administrator
 
-## Register the SPA
+- An Azure AD for customers tenant. If you haven't already, [create one now](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl). You can use an existing customer tenant if you have one.
+
+## Register the SPA and record identifiers
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
+
+## Add a platform redirect URL
+
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-vanilla-js.md)]
 
 ## Grant API permissions

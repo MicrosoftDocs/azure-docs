@@ -25,6 +25,8 @@ Three permission classifications are supported: "Low", "Medium" (preview), and "
 
 The minimum permissions needed to do basic sign-in are `openid`, `profile`, `email`, and `offline_access`, which are all delegated permissions on the Microsoft Graph. With these permissions an app can read details of the signed-in user's profile, and can maintain this access even when the user is no longer using the app.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To configure permission classifications, you need:

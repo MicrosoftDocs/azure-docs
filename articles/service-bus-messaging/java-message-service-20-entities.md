@@ -2,6 +2,7 @@
 title: Azure Service Bus messaging - Java message service entities
 description: This article provides an overview of Azure Service Bus messaging entities accessible through the Java message service API.
 ms.topic: article
+ms.custom: devx-track-extended-java
 ms.date: 09/27/2021
 ---
 
@@ -196,6 +197,3 @@ For more information and examples of using Service Bus messaging, see the follow
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Use Java Message Service 2.0 API with Azure Service Bus Premium](how-to-use-java-message-service-20.md)
-
-
-

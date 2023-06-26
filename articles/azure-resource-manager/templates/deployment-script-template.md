@@ -6,7 +6,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 05/11/2023
+ms.date: 05/22/2023
 ms.author: jgao
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: Overview the MedTech service device mapping - Azure Health Data Services
+title: Overview of the MedTech service device mapping - Azure Health Data Services
 description: Learn about the MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/24/2023
+ms.date: 06/02/2023
 ms.author: jasteppe
 ---
 
@@ -142,12 +142,12 @@ In this article, you've been provided an overview of the MedTech service device 
 To learn how to use CalculatedContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use CalculatedContent with the MedTech service device mapping](how-to-use-calculatedcontent-mappings.md)
+> [How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-templates.md)
 
 To learn how to use IotJsonPathContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontent-mappings.md)
+> [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontent-templates.md)
 
 To learn how to use custom functions with the MedTech service device mapping, see
 
