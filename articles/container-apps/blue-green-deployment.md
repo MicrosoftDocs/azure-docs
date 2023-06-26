@@ -322,7 +322,7 @@ az deployment group create \
 
 ::: zone-end
 
-The following example shows how to configure the `traffic` section. The *green* revision with the new application code takes all the user traffic while *blue* revision with the old application version doesn't accept user requests.
+The following example shows how the `traffic` section is configured after this step. The *green* revision with the new application code takes all the user traffic while *blue* revision with the old application version doesn't accept user requests.
 
 ```json
 { 
