@@ -23,7 +23,7 @@ Due to asymmetric routing, connectivity issues can occur when Azure VMware Solut
 For AS-Path Prepend, consider the following:
 
 > [!div class="checklist"]
-> * The key point is that you must prepend **Public** ASN numbers to influence how Azure VMware Solution route's traffic back to on-premises. If you prepend using _Private_ ASN, Azure VMware Solution will ignore the prepend, and the ECMP behavior above will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilize a Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
+> * The key point is that you must prepend **Public** ASN numbers to influence how Azure VMware Solution routes traffic back to on-premises. If you prepend using _Private_ ASN, Azure VMware Solution will ignore the prepend, and the ECMP behavior above will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilize a Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
 > * Both or all circuits are connected to Azure VMware Solution through ExpressRoute Global Reach.
 > * The same netblocks are being advertised from two or more circuits.
 > * You wish to use AS-Path Prepend to force Azure VMware solution to prefer one circuit over another.
