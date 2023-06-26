@@ -140,6 +140,9 @@ az aks create \
 
 ## Configure networking - portal
 
+> [!NOTE]
+> The Docker Bridge address field is no longer in use.
+
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
 :::image type="content" source="../aks/media/networking-overview/portal-01-networking-advanced.png" alt-text="Screenshot from the Azure portal showing an example of configuring these settings during AKS cluster creation.":::
