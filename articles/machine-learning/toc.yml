@@ -1143,6 +1143,12 @@
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
+    - name: Manage resource quotas
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md
     - name: Monitor Azure Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure coding
