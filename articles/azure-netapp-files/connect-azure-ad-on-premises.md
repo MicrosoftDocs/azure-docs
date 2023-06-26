@@ -19,8 +19,7 @@ You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Man
 Before you can connect your on-premises environment to Azure AD, you must have:
 
 * [created an Azure NetApp Files volume](azure-netapp-files-create-volumes-smb.md).
-    * The Azure NetApp Files should be mounted <!-- -->
-    * Add the CIFS service provider name to the computer account created as part of the Azure NetApp Files volume. 
+    * Add the CIFS service provider name to the computer account created as part of the Azure NetApp Files volume in on-premises Active Directory. 
 
 ### Create the Azure AD Kerberos application
 
@@ -32,9 +31,9 @@ Before you can connect your on-premises environment to Azure AD, you must have:
 
 ### Install Azure AD Connect in your on-premises environment 
 
-1. Sign on to your on-premises environment.
+1. Sign on to your on-premises Active Directory account.
 1. Create a local user and assign it administrator privileges. This user serves to connect to Azure AD. 
-1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) using the Azure AD global administrator account. Select a single 
+1. Install [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) using the Azure AD global administrator account. For more information, see [Get started with Azure AD Connect by using express settings](../active-directory/hybrid/connect/how-to-connect-install-express.md).
 
     1. Configure SCP and synchronize. 
     1. In the Azure portal under Azure Active Directory, navigate to **Users**. Verify the domain local user is synced with Azure AD users. 
