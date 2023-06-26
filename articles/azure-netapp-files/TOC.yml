@@ -52,7 +52,9 @@
   - name: NAS volumes as a service 
     items: 
       - name: Understand NAS
-        href: understand-nas.md 
+        href: understand-nas-concept.md 
+      - name: Understand NAS protocols
+        href: understand-nas-protocols.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
