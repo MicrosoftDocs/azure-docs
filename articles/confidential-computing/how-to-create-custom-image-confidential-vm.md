@@ -17,6 +17,8 @@ ms.custom: devx-track-azurecli
 
 This "how to" shows you how to use the Azure Command-Line Interface (Azure CLI) to create a custom image for your confidential virtual machine (confidential VM) in Azure. The Azure CLI is used to create and manage Azure resources via either the command line or scripts.
 
+Creating a custom image allows you to preconfigure your confidential VM with specific software, settings, and security measures that meet your requirements. If you want to bring an Ubuntu image that is not [confidential VM compatible](/azure/confidential-computing/confidential-vm-overview#os-support), you can follow the steps below to see what the minimum requirements are for your image.
+
 ## Prerequisites
 
 If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

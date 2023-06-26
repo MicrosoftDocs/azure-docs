@@ -64,6 +64,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- Jun 23, 2023: Updated Azure scheduled events for SLES in [Pacemaker set up guide](./high-availability-guide-suse-pacemaker.md#configure-pacemaker-for-azure-scheduled-events).
 - June 1, 2023: Included virtual machine scale set with flexible orchestration guidelines in SAP workload [planning guide](./planning-guide.md).
 - June 1, 2023: Updated high availability guidelines in [HA architecture and scenarios](./sap-high-availability-architecture-scenarios.md), and added additional deployment option in [configuring optimal network latency with SAP applications](./proximity-placement-scenarios.md).
 - June 1, 2023: Release of [virtual machine scale set with flexible orchestration support for SAP workload](./virtual-machine-scale-set-sap-deployment-guide.md).

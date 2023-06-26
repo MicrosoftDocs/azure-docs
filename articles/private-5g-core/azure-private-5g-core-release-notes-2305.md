@@ -10,9 +10,9 @@ ms.date: 05/31/2023
 
 # Azure Private 5G Core 2305 release notes
 
-The following release notes identify the new features, critical open issues, and resolved issues for the 2303 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, please review the information contained in these release notes.
+The following release notes identify the new features, critical open issues, and resolved issues for the 2305 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, please review the information contained in these release notes.
 
-This article applies to the AP5GC 2305 release (PMN-2305-0). This release is compatible with the ASE Pro 1 GPU and ASE Pro 2 running the ASE 2305 release, and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
+This article applies to the AP5GC 2305 release (PMN-2305-0). This release is compatible with the ASE Pro 1 GPU and ASE Pro 2 running the ASE 2303 release, and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
 
 ## Support
 

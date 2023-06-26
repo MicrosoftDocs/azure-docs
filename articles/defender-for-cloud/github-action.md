@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
 description: Learn how to configure the Microsoft Security DevOps GitHub action.
-ms.date: 05/01/2023
+ms.date: 06/18/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
@@ -77,13 +77,6 @@ Security DevOps uses the following Open Source tools:
 
           # Checkout your code repository to scan
         - uses: actions/checkout@v3
-
-          # Install dotnet, used by MSDO
-        - uses: actions/setup-dotnet@v3
-          with:
-            dotnet-version: |
-              5.0.x
-              6.0.x
 
           # Run analyzers
         - name: Run Microsoft Security DevOps Analysis
