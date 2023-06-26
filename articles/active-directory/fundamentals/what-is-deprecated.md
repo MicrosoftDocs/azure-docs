@@ -31,7 +31,7 @@ Use the following table to learn about changes including deprecations, retiremen
 |---|---|---:|
 |[System-preferred authentication methods](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Sometime after GA|
 |[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Jun 30, 2023|
-|[Azure AD Graph API](https://aka.ms/aadgraphupdate)|Retirement|Jun 30, 2023|
+|[Azure AD Graph API](https://aka.ms/aadgraphupdate)|Start of phased retirement|Jul 2023|
 |[My Apps improvements](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Jun 30, 2023|
 |[Terms of Use experience](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Jul 2023|
 |[Azure AD PowerShell and MSOnline PowerShell](https://aka.ms/aadgraphupdate)|Deprecation|Mar 30, 2024|
