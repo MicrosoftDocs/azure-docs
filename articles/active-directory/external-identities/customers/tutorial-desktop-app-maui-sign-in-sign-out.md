@@ -160,7 +160,7 @@ When the sign-in button is clicked, it calls the `AcquireTokenSilentAsync` metho
 
 ### Add claims view page
 
-The next steps will organize the code so that `ClaimsView` page is defined. The page will display the user's claims found in the ID token..
+The next steps will organize the code so that `ClaimsView` page is defined. The page will display the user's claims found in the ID token.
 
 1. In the **Solution Explorer** pane of Visual Studio, right-click on the **Views**.
 1. Select **Add** > **New Item...**.
