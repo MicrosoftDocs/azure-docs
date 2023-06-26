@@ -21,7 +21,8 @@ Operations run on an Azure Service Bus namespace are of two kinds
    * **Data operations** - Send to and receive messages from queues, topics, and subscriptions.
 
 > [!IMPORTANT]
-> Service Bus Explorer doesn't support **management operations**. 
+> Service Bus Explorer doesn't support **management operations** and **sessions**. 
+
 
 ## Prerequisites
 
@@ -212,7 +213,8 @@ After peeking or receiving a message, we can re-send it, which will send a copy 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the re-send messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::
     
     > [!NOTE]
-    > If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
+    > - The resend operation sends a copy of the original message. It doesn't remove the original message that you resubmit. 
+    > - If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
 
 ## Switch authentication type
 
