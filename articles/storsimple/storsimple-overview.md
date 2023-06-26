@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 series solution overview | Microsoft Docs
-description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management, and introduces key terms used in StorSimple.
+description: Describes StorSimple data copy resources, data migration, device decommission operations, end of support, tiering, virtual device, and storage management.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -119,9 +119,45 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 **Step 3.3** - You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
 
-## Create a support ticket
+## Create a support request
 
-yep...
+Use the following steps to create a support ticket for StorSimple data copy, data migration, and device decommission operations.
+
+1. In Azure Portal, type **help** in the search bar and then select **Help + Support**.
+
+    ![Screenshot of the Help and support page in Azure portal.](./media/storsimple-overview/storsimple-help-and-support-1.png)
+
+1. On the **Help + Support** page, select **Create a support request.**
+
+    ![Screenshot of the Create a support request page in Azure portal.](./media/storsimple-overview/storsimple-create-a-support-request-2.png)
+
+1. On the **New support request** page, fill out the required information. For each page, do the following steps:
+   -	Provide a brief **Summary** of the issue.
+   -	Specify **Technical** as the **Issue type**.
+   -	Specify the affected **Subscription**.
+   -	Specify **All services**. You must specify **All services** because **StorSimple Manager Service** is no longer available.
+   -	Specify **Azure StorSimple 8000 Series** for **Service type**.
+   -	Specify **StorSimple Migration Utility** for **Problem type**.
+   - To continue, select **Next**.
+
+    ![Screenshot of the Help and Support page in Azure portal.](./media/storsimple-overview/storsimple-new-support-request-3.png)   
+  
+1. If the **Solutions** page appears, select **Return to sport request** and then select **Next**.
+
+1. On the **New support request** page, provide additional details and contact information:
+
+   - Specify the time when the problem started, a description, and  upload relevant files, if applicable.
+   -	Specify **Yes** or **No** to **Advanced diagnostic information** collection.
+   -	Your support plan will be generated based on your subscription. Select severity, your preferred contact method and language. 
+   -	Specify **Contact information**: First name, Last name, Email, Phone, and Country/region.
+   -	To continue, specify **Next**.
+
+    ![Screenshot of Support details in Azure portal.](./media/storsimple-overview/storsimple-support-details-5.png)
+
+1.    
+
+![Screenshot of the New support request page in Azure portal.](./media/storsimple-overview/storsimple-help-and-support-1.png)
+
 ## Next steps
 
 - [StorSimple 8000 series copy utility documentation](https://aka.ms/storsimple-copy-utility-docs).
