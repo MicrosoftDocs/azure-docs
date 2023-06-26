@@ -411,6 +411,7 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.1]: https://www.npmjs.com/package/azure-maps-control/v/2.3.1
 [2.3.0]: https://www.npmjs.com/package/azure-maps-control/v/2.3.0
 [2.2.7]: https://www.npmjs.com/package/azure-maps-control/v/2.2.7
 [2.2.6]: https://www.npmjs.com/package/azure-maps-control/v/2.2.6
