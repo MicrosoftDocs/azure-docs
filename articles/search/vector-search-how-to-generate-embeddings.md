@@ -23,7 +23,7 @@ Dimension attributes have a minimum of 2 and a maximum of 2048 dimensions per ve
 
 + Query inputs require that you submit user-provided input to an embedding model that quickly converts human readable text into a vector. Optimizing for speed is the objective. 
 
-  + We used **text-embedding-ada-002** to generate text embeddings and **Florence Vision API** for image embeddings.
+  + We used **text-embedding-ada-002** to generate text embeddings and [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for image embeddings.
 
   + To increase the success rate of generation, we slowed the rate at which calls to the model are made. For the Python demo, we used [tenacity](https://pypi.org/project/tenacity/).
 

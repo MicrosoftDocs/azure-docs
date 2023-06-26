@@ -15,7 +15,49 @@ ms.date: 06/29/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-## What can you do with vectors in Cognitive Search?
+Currently in Azure Cognitive Search, "vector search" is indexing and information retrieval of vector fields in a search index. This article is a high-level introduction to the vector search feature. It also explains integration with other vector capabilities across Azure, and support for other vector data initiatives at Microsoft.
+
+We recommend this article for background, but if you'd rather get started, follow these steps:
+
++ Use Azure portal or the 2023-07-10-Preview REST API to add vector fields to an index schema
++ Import vector data from source documents to the search index. Vectors must be generated in advance.
++ Query vector data using Azure portal or the preview REST APIs.
+
+## What's vector search in Cognitive Search?
+
+In Cognitive Search, similarity search matches the query input to the most similar items in the vector space. Cognitive Search uses the HNSW algorithm to find the approximate nearest neighbors, and K-items are returned in results.
+
+Queries in Cognitive Search are always scoped to a search index that's hosted on your search service, and that doesn't change with vector search.
+Vector space is composed of internal-only vector indexes consisting solely of the vector data that you load into it.
+
+Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). Support consists of a *vector field*, which your documents can provide embeddings for. When you issue a search request with a query vector, the service identifies similar vectors and returns the corresponding documents.
+
+### How does vector search work in Azure Cognitive Search?
+
+With standalone vector search, you first use a deep neural network (DNN), such as a large language model (LLM), to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
+
+In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is `Collection(Edm.Single)`.
+
+Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
+
+### Limitations
+
+There's no built-in support for vector generation at this time:
+
++ For indexing, vectors must be created and inserted into the source documents. 
++ For queries, inputs from the user must be converted to a vector
++ Use the same embedding model for queries and indexes.
++ We recommend Azure OpenAI text-ada-002 and image retrieval REST API for vector generation.
+
+### Availability and pricing
+
++ No extra charge for the feature. You're charged for just the search service itself.
++ Available in all tiers, in all regions.
+
+> [!NOTE]
+> Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's possible the reason is outdated clusters. In this situation, you must create a new search service to try out the vector feature.
+
+### What can you do with vectors in Cognitive Search?
 
 Scenarios for vector search include the following items:
 
@@ -30,6 +72,20 @@ Scenarios for vector search include the following items:
 + **Hybrid search**. For text data, you can combine the best of vector retrieval and keyword retrieval to obtain the best results. Use with semantic search (preview) for even more accuracy with L2 reranking using the same language models that power Bing.  
 
 + **Vector storage or vector database**. A common scenario is to vectorize all of your data into a vector database, and then when the application needs to find an item, you use a query vector to retrieve similar items. Because Cognitive Search can store vectors, you could use it purely as a vector store.
+
+## Vector integration across Azure
+
++ Azure OpenAI provides embedding models. Demos and samples target the **text-embedding-ada-002** and other models. We recommend Azure OpenAI for generating embeddings for text.
+
++ [Image Retrieval REST API (Preview)](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) supports vectorization of image content. We recommend this API for image vector data in Azure Cognitive Search.
+
++ Several Azure data platforms now have vector search features in preview, including those listed as a supported data source for indexers. Unless it's mentioned otherwise, you should assume that the vector search previews in other Azure products are independent of Azure Cognitive Search. Having said that, if you want to use the vector capabilities in Azure Cognitive Search with vector data from those data platforms, you can set up an indexer in your search service and pull in vector data using the same workflow as you would for nonvector content.
+
+For example, Azure Storage can store vector data in JSON and other file formats. You can set up a blob indexer, table indexer, or file indexer on a search service to pull in vector content into a vector field defined in your index. Likewise, Azure SQL and Azure Cosoms DB both have vector search features in preview and support vector data. As with storage, you can set up an Azure SQL indexer or Cosmos DB indexer and map source vector data to vector fields in your index.
+
+## Other vector initiatives at Microsoft
+
++ [Semantic kernerl](https://github.com/microsoft/semantic-kernel/blob/main/README.md)
 
 ## Next steps
 
