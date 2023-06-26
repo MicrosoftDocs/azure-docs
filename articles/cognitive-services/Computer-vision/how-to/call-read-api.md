@@ -29,6 +29,9 @@ The **Read** call takes images and documents as its input. They have the followi
 * The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
 * The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
+>[!NOTE]
+> You don't need to crop an image for text lines. Send the whole image to Read API and it will recognize all texts.
+
 ## Determine how to process the data (optional)
 
 ### Specify the OCR model

@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.custom: "amqp, devx-track-csharp"
+ms.custom: amqp, devx-track-csharp, devx-track-dotnet
 ---
 # Get started with IoT Hub module identity and module twin using the Azure portal and a .NET device
 
@@ -32,7 +32,7 @@ In this article, you will learn how to:
 
 * Visual Studio.
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 

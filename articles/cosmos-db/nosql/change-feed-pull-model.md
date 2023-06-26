@@ -15,11 +15,11 @@ ms.custom: devx-track-java, build-2023
 # Change feed pull model in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. As you can also do with the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
+With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. Similar to the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
 
 ## Comparing with change feed processor
 
-Many scenarios can process the change feed using either the [change feed processor](change-feed-processor.md) or the pull model. The pull model's continuation tokens and the change feed processor's lease container are both "bookmarks" for the last processed item (or batch of items) in the change feed.
+Many scenarios can process the change feed using either the [change feed processor](change-feed-processor.md) or the pull model. The pull model's continuation tokens and the change feed processor's lease container are both "bookmarks" for the last processed item, or batch of items, in the change feed.
 
 However, you can't convert continuation tokens to a lease (or vice versa).
 
@@ -50,17 +50,20 @@ Here's some key differences between the change feed processor and pull model:
 
 ### [.NET](#tab/dotnet)
 
-To process the change feed using the pull model, create a `FeedIterator`. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that can be read from the change feed using that specific `FeedIterator`. You must also specify a required `ChangeFeedMode` value for the mode in which you want to process changes: [latest version](change-feed-modes.md#latest-version-change-feed-mode) or [all versions and deletes](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). Use `ChangeFeedMode.Incremental` for reading the change feed in latest version mode or `ChangeFeedMode.LatestVersion` in the preview NuGet package. If you're reading the change feed in all versions and deletes mode, you must select a change feed start from value of either `Now()` or from a specific continuation token.
+To process the change feed using the pull model, create a `FeedIterator`. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that can be read from the change feed using that specific `FeedIterator`. You must also specify a required `ChangeFeedMode` value for the mode in which you want to process changes: [latest version](change-feed-modes.md#latest-version-change-feed-mode) or [all versions and deletes](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). Use either `ChangeFeedMode.LatestVersion` or `ChangeFeedMode.AllVersionsAndDeletes` to indicate which mode you want to read change feed in. When using all versions and deletes mode, you must select a change feed start from value of either `Now()` or from a specific continuation token.
 
 You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. When set, this property sets the maximum number of items received per page. If operations in the monitored collection are performed through stored procedures, transaction scope is preserved when reading items from the change feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch.
 
 Here's an example for obtaining a `FeedIterator` in latest version mode that returns entity objects, in this case a `User` object:
 
 ```csharp
-FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
+FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.LatestVersion);
 ```
 
-All versions and deletes mode is in preview and can be used with .NET SDK version >= `3.32.0-preview`. Here's an example for obtaining a `FeedIterator` in all versions and deletes mode that returns dynamic objects:
+> [!TIP]
+> Prior to version `3.34.0`, latest version mode can be used by setting `ChangeFeedMode.Incremental`. Both `Incremental` and `LatestVersion` refer to latest version mode of the change feed and applications that use either mode will see the same behavior.
+
+All versions and deletes mode is in preview and can be used with preview .NET SDK versions >= `3.32.0-preview`. Here's an example for obtaining a `FeedIterator` in all versions and deletes mode that returns dynamic objects:
 
 ```csharp
 FeedIterator<dynamic> InteratorWithDynamic = container.GetChangeFeedIterator<dynamic>(ChangeFeedStartFrom.Now(), ChangeFeedMode.AllVersionsAndDeletes);
@@ -76,7 +79,7 @@ The `FeedIterator` for both change feed modes comes in two flavors. In addition 
 Here's an example for obtaining a `FeedIterator` in latest version mode that returns a `Stream`:
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.LatestVersion);
 ```
 
 ### Consuming an entire container's changes
@@ -84,7 +87,7 @@ FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator(ChangeF
 If you don't supply a `FeedRange` to a `FeedIterator`, you can process an entire container's change feed at your own pace. Here's an example, which starts reading all changes starting at the current time using latest version mode:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
+FeedIterator<User> iteratorForTheEntireContainer = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.LatestVersion);
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -113,7 +116,7 @@ In some cases, you may only want to process a specific partition key's changes. 
 
 ```csharp
 FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(
-    ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue")), ChangeFeedMode.Incremental));
+    ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue")), ChangeFeedMode.LatestVersion));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -158,7 +161,7 @@ Here's a sample that shows how to read from the beginning of the container's cha
 Machine 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]), ChangeFeedMode.Incremental);
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]), ChangeFeedMode.LatestVersion);
 while (iteratorA.HasMoreResults)
 {
     FeedResponse<User> response = await iteratorA.ReadNextAsync();
@@ -181,7 +184,7 @@ while (iteratorA.HasMoreResults)
 Machine 2:
 
 ```csharp
-FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]), ChangeFeedMode.Incremental);
+FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]), ChangeFeedMode.LatestVersion);
 while (iteratorB.HasMoreResults)
 {
     FeedResponse<User> response = await iteratorA.ReadNextAsync();
@@ -206,7 +209,7 @@ while (iteratorB.HasMoreResults)
 You can save the position of your `FeedIterator` by obtaining the continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes and allows the `FeedIterator` to resume at this point later. The continuation token, if specified, takes precedence over the start time and start from beginning values. The following code reads through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed. 
 
 ```csharp
-FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
+FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.LatestVersion);
 
 string continuation = null;
 
@@ -231,7 +234,7 @@ while (iterator.HasMoreResults)
 }
 
 // Some time later when I want to check changes again
-FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation), ChangeFeedMode.Incremental);
+FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation), ChangeFeedMode.LatestVersion);
 ```
 
 As long as the Azure Cosmos DB container still exists, a FeedIterator's continuation token never expires.

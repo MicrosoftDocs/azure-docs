@@ -12,7 +12,7 @@ ms.date: 11/12/2022
 ms.author: eur
 zone_pivot_groups: acs-js-csharp-python
 ms.devlang: csharp, javascript
-ms.custom: cogserv-non-critical-speech, ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Real-time Conversation Transcription
@@ -43,4 +43,3 @@ You can transcribe meetings and other conversations with the ability to add, rem
 
 > [!div class="nextstepaction"]
 > [Asynchronous Conversation Transcription](how-to-async-conversation-transcription.md)
-

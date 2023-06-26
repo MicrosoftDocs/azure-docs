@@ -1,7 +1,7 @@
 ---
 title: Maintain the on-premises management console from the GUI - Microsoft Defender for IoT
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
-ms.date: 06/02/2022
+ms.date: 05/17/2023
 ms.topic: how-to
 ---
 
@@ -71,11 +71,7 @@ This procedure describes how to add a secondary NIC after [installing your on-pr
 
 You'd activated your on-premises management console as part of your deployment.
 
-You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [committed devices you'd previously defined](how-to-manage-subscriptions.md#onboard-a-defender-for-iot-plan-for-ot-networks).
-
-> [!TIP]
-> If your OT sensors detect more devices than you have defined as committed devices in your OT plan, your on-premises management console will show a warning message, prompting you to update the number of committed devices. Make sure that you update your activation file after updating the OT plan with the new number of committed devices.
->
+You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [devices that you're licensed for](billing.md).
 
 **To upload a new activation file to your on-premises management console**:
 

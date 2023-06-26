@@ -1,10 +1,11 @@
 ---
 title: Enable and configure Microsoft Defender for Storage (classic) - Microsoft Defender for Cloud
 description: Learn about how to enable and configure Microsoft Defender for Storage (classic).
-ms.date: 03/16/2023
+ms.date: 06/15/2023
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Microsoft Defender for Storage (classic)
@@ -380,37 +381,8 @@ When you create a new Databricks workspace, you have the ability to add a tag th
 
 The Microsoft Defender for Storage account inherits the tag of the Databricks workspace, which prevents Defender for Storage from turning on automatically.
 
-## FAQ - Microsoft Defender for Storage pricing
-
-### Can I switch from an existing per-transaction pricing to per-storage account pricing?
-
-Yes, you can migrate to per-storage account pricing in the Azure portal or using any of the other supported enablement methods. To migrate to per-storage account pricing, [enable per-storage account pricing at the subscription level](#set-up-microsoft-defender-for-storage-classic).
-
-### Can I return to per-transaction pricing after switching to per-storage account pricing?
-
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage-classic) to migrate back from per-storage account pricing using all enablement methods except for the Azure portal.
-
-### Will you continue supporting per-transaction pricing?
-
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage-classic) from all the enablement methods, except for the Azure portal.
-
-### Can I exclude specific storage accounts from protections in per-storage account pricing?
-
-No, you can only enable per-storage account pricing for each subscription. All storage accounts in the subscription are protected.
-
-### How long does it take for per-storage account pricing to be enabled?
-
-When you enable Microsoft Defender for Storage at the subscription level for per-storage account or per-transaction pricing, it takes up to 24 hours for the plan to be enabled.
-
-### Is there any difference in the feature set of per-storage account pricing compared to the legacy per-transaction pricing?
-
-No. Both per-storage account and per-transaction pricing include the same features. The only difference is the pricing.
-
-### How can I estimate the cost for each pricing?
-
-To estimate the cost according to each pricing for your environment, we created a [pricing estimation workbook](https://aka.ms/dfstoragecosttool) and a PowerShell script that you can run in your environment.
-
 ## Next steps
 
 - Check out the [alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
 - Learn about the [features and benefits of Defender for Storage](defender-for-storage-introduction.md)
+- Check out [common questions](faq-defender-for-storage-classic.yml) about Defender for Storage classic.

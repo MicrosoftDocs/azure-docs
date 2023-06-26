@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create compute clusters in your Azure Machine Learning workspace. Use the compute cluster as a compute target for training or inference.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022, build-2023
+ms.custom: devx-track-azurecli, cliv2, sdkv2, event-tier1-build-2022, build-2023
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
@@ -17,9 +17,6 @@ ms.date: 10/19/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI or SDK version you are using:"]
-> * [v1](v1/how-to-create-attach-compute-cluster.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -37,7 +34,7 @@ In this article, learn how to:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service (v2)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service (v2)](how-to-configure-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
@@ -213,6 +210,8 @@ For information on how to configure a managed identity with your compute cluster
 ## Troubleshooting
 
 There's a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 ### Stuck at resizing
 

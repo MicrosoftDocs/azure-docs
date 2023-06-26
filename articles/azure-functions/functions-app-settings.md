@@ -2,6 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-python
 ms.date: 12/15/2022
 ---
 
@@ -516,7 +517,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption plan apps on Windows and for Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 

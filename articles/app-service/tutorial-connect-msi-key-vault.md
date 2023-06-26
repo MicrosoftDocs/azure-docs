@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 10/26/2021
 
 ms.reviewer: madsd 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-dotnet
 ---
 
 # Tutorial: Secure Cognitive Service connection from .NET App Service using Key Vault

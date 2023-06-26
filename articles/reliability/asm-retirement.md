@@ -14,21 +14,14 @@ ms.service: azure-asm
 Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). ARM provides a management layer that enables you to create, update, and delete resources in your Azure account. You can use management features like access control, locks, and tags to secure and organize your resources after deployment.
 
 ## Benefits of migrating to ARM 
-Migrating from the classic resource model to ARM offers several benefits, including:  
+Migrating from the classic resource model to ARM offers several benefits, including: 
 
-- Manage your infrastructure through declarative templates rather than scripts. 
+- **Simplified management**: ARM provides a [unified platform](https://learn.microsoft.com/azure/azure-resource-manager/management/overview) for managing and deploying resources, allowing for easier provisioning, monitoring, and updating of infrastructure components.
+- **Improved security**: ARM incorporates robust security features, such as [role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview) and [Managed Identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), to help protect resources and provide automatic credential management
+- **High Availability and Resiliency**: [Availability Zones](https://learn.microsoft.com/azure/reliability/availability-zones-overview) allow customers to run mission-critical applications with higher availability and fault tolerance to datacenter failures
+- **High Scalability**: ARM enables [automatic scaling](https://learn.microsoft.com/azure/well-architected/scalability/design-scale) of resources based on demand, ensuring applications can handle increased workloads efficiently.
+- **Cost optimization**: ARM provides features like [cost management](https://learn.microsoft.com/azure/cost-management-billing/) and [resource tagging](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources), enabling better visibility and control over resource usage, leading to cost optimization and efficient resource allocation.
 
-- Deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually. 
-
-- Redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state. 
-
-- Define the dependencies between resources so they're deployed in the correct order. 
-
-- Apply access control to all services because Azure role-based access control (Azure RBAC) is natively integrated into the management platform. 
-
-- Apply tags to resources to logically organize all the resources in your subscription. 
-
-- Clarify your organization's billing by viewing costs for a group of resources sharing the same tag. 
 
 There are many service-related benefits which can be found in the migration guides. 
 

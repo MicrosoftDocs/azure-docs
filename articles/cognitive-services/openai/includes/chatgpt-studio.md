@@ -21,6 +21,9 @@ keywords:
 
 <sup>1</sup> **GPT-4 models are currently only available by request.** To access these models, existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
+
 ## Go to Azure OpenAI Studio
 
 Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
@@ -101,6 +104,9 @@ response = openai.ChatCompletion.create(
   stop=None)
 ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the playground.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=STUDIO&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
+
 ### Understanding the prompt structure
 
 If you examine the sample from **View code** you'll notice some unique tokens that weren't part of a typical GPT completion call. ChatGPT was trained to use special tokens to delineate different parts of the prompt. Content is provided to the model in between `<|im_start|>` and `<|im_end|>` tokens. The prompt begins with a system message that can be used to prime the model by including context or instructions for the model. After that, the prompt contains a series of messages between the user and the assistant.
@@ -108,6 +114,8 @@ If you examine the sample from **View code** you'll notice some unique tokens th
 The assistant's response to the prompt will then be returned below the `<|im_start|>assistant` token and will end with `<|im_end|>` denoting that the assistant has finished its response. You can also use the **Show raw syntax** toggle button to display these tokens within the chat session panel.
 
 The [ChatGPT how-to guide](../how-to/chatgpt.md) provides an in-depth introduction into the new prompt structure and how to use the `gpt-35-turbo` model effectively.
+
+[!INCLUDE [deploy-web-app](deploy-web-app.md)]
 
 ## Clean up resources
 

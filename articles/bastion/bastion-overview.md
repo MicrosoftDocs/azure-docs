@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 05/04/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
@@ -15,7 +15,7 @@ ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 
 Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH.
 
-:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
+:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
 
 ## <a name="key"></a>Key benefits
 
@@ -46,7 +46,7 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
-:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing the Azure Bastion architecture.":::
+:::image type="content" source="./media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/bastion-overview/architecture.png":::
 
 This figure shows the architecture of an Azure Bastion deployment. In this diagram:
 
@@ -80,3 +80,4 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 * [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md).
 * [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
+* [Learn more about Azure network security](../networking/security/index.yml)

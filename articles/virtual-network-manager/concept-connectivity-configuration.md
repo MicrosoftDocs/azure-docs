@@ -85,6 +85,6 @@ When you deploy a hub and spoke topology from the Azure portal, the **Use hub as
 
 ## Next steps
 
-- Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
+- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.
 - Learn about [configuration deployments](concept-deployments.md) in Azure Virtual Network Manager.
 - Learn how to block network traffic with a [security admin configuration](how-to-block-network-traffic-portal.md).

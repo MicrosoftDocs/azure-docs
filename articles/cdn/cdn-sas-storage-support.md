@@ -22,7 +22,7 @@ If you want to grant limited access to private storage containers, you can use t
 With a SAS, you can define various parameters of access to a blob, such as start and expiry times, permissions (read/write), and IP ranges. This article describes how to use SAS with Azure CDN. For more information about SAS, including how to create it and its parameter options, see [Using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 
 ## Setting up Azure CDN to work with storage SAS
-The following three options are recommended for using SAS with Azure CDN. All options assume that you've already created a working SAS (see prerequisites). 
+The following two options are recommended for using SAS with Azure CDN. All options assume that you've already created a working SAS (see prerequisites). 
  
 ### Prerequisites
 To start, create a storage account and then generate a SAS for your asset. You can generate two types of stored access signatures: a service SAS or an account SAS. For more information, see [Types of shared access signatures](../storage/common/storage-sas-overview.md#types-of-shared-access-signatures).
@@ -61,39 +61,7 @@ This option is the simplest and uses a single SAS token, which is passed from Az
    
 3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin server. Because Azure CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the Azure CDN origin server after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on Azure CDN, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
-### Option 2: Hidden CDN SAS token using a rewrite rule
- 
-This option is available only for **Azure CDN Premium from Verizon** profiles. With this option, you can secure the blob storage at the origin server. You might want to use this option if you don't need specific access restrictions for the file, but want to prevent users from accessing the storage origin directly to improve Azure CDN offload times. The SAS token, which is unknown to the user, is required for anyone accessing files in the specified container of the origin server. However, because of the URL Rewrite rule, the SAS token isn't required on the CDN endpoint.
- 
-1. Use the [rules engine](./cdn-verizon-premium-rules-engine.md) to create a URL Rewrite rule. New rules take up to 4 hours to propagate.
-
-   ![CDN Manage button](./media/cdn-sas-storage-support/cdn-manage-btn.png)
-
-   ![CDN rules engine button](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
-
-   The following sample URL Rewrite rule uses a regular expression pattern with a capturing group and an endpoint named *sasstoragedemo*:
-   
-   Source:   
-   `(container1/.*)`
-
-
-   Destination:   
-   ```
-   $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
-   ```
-   ![CDN URL Rewrite rule - left](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL Rewrite rule - right](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
-
-2. After the new rule becomes active, anyone can access files in the specified container on the CDN endpoint regardless of whether they're using a SAS token in the URL. The format is:
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
- 
-   For example:   
-   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
-       
-
-3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin server. Because Azure CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the Azure CDN endpoint after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on Azure CDN, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
-
-### Option 3: Using CDN security token authentication with a rewrite rule
+### Option 2: Using CDN security token authentication with a rewrite rule
 
 To use Azure CDN security token authentication, you must have an **Azure CDN Premium from Verizon** profile. This option is the most secure and customizable. Client access is based on the security parameters that you set on the security token. Once you've created and set up the security token, it's required on all CDN endpoint URLs. However, because of the URL Rewrite rule, the SAS token isn't required on the CDN endpoint. If the SAS token later becomes invalid, Azure CDN can't revalidate the content from the origin server.
 
@@ -127,7 +95,7 @@ To use Azure CDN security token authentication, you must have an **Azure CDN Pre
 
 ## SAS parameter considerations
 
-Because SAS parameters aren't visible to Azure CDN, Azure CDN can't change its delivery behavior based on them. The defined parameter restrictions apply only on requests that Azure CDN makes to the origin server, not for requests from the client to Azure CDN. This distinction is important to consider when you set SAS parameters. If these advanced capabilities are required and you're using [Option 3](#option-3-using-cdn-security-token-authentication-with-a-rewrite-rule), set the appropriate restrictions on the Azure CDN security token.
+Because SAS parameters aren't visible to Azure CDN, Azure CDN can't change its delivery behavior based on them. The defined parameter restrictions apply only on requests that Azure CDN makes to the origin server, not for requests from the client to Azure CDN. This distinction is important to consider when you set SAS parameters. If these advanced capabilities are required and you're using [Option 2](#option-2-using-cdn-security-token-authentication-with-a-rewrite-rule), set the appropriate restrictions on the Azure CDN security token.
 
 | SAS parameter name | Description |
 | --- | --- |

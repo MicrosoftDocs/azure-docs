@@ -22,6 +22,8 @@ This article shows you how to create and access an [environment](concept-environ
 
 ## Create an environment
 
+Creating an environment automatically creates the required resources and a resource group to store them. The resource group name follows the pattern {projectName}-{environmentName}. You can view the resource group in the Azure portal.
+
 Complete the following steps in the Azure CLI to create an environment and configure resources. You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
 
 > [!NOTE]

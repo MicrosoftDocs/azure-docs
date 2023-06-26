@@ -8,7 +8,7 @@ keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile,
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 06/25/2018
+ms.date: 05/30/2023
 ms.author: mbender
 ms.custom: template-how-to, seodec18, devx-track-azurecli
 ---
@@ -150,7 +150,7 @@ This example creates the following items:
 * A NAT rule to translate all incoming traffic on port 3391 to port 3389 for remote desktop protocol (RDP).\*
 * A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool.
 
-\* NAT rules are associated with a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You cannot assign both protocols to the same port.
+\* NAT rules are associated with a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You can't assign both protocols to the same port.
 
 1. Set up the PowerShell variables:
 

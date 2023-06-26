@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 
 # Revisions in Azure Container Apps
 
-Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version. 
+Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version.
 
 - The first revision is automatically provisioned when you deploy your container app.
 - New revisions are automatically provisioned when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
@@ -24,10 +24,9 @@ Azure Container Apps implements container app versioning by creating revisions. 
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
 
-
 ## Use cases
 
-Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and the external traffic that is routed to each active revision. 
+Container Apps revisions help you manage the release of updates to your container app by creating a new revision each time you make a *revision-scope* change to your app.  You can control which revisions are active, and the external traffic that is routed to each active revision.
 
 You can use revisions to:
 
@@ -48,36 +47,22 @@ Once the revision is verified, _running status_ is set to _running_.  The revisi
 
 _Provisioning status_ values include:
 
-- _Provisioning:_ It's being provisioned.
-
-- _Provisioned:_ The app has been provisioned, which is the final state for provisioning status.
-
-- _Provisioning failed:_ The app failed to provision.  
+- Provisioning
+- Provisioned
+- Provisioning failed
 
 ### Running status
 
-After the revision is provisioned, it is running. Use _running status_ to monitor the status of a revision after a successful provision. 
+Revisions are fully functional after provisioning is complete. Use _running status_ to monitor the status of a revision.
 
 Running status values include:
 
-- _Running:_ The revision is running; no issues have been identified.
-
-- _Unhealthy:_ The revision has encountered a problem. 
-
-    Causes and urgency vary; use the revision running state details to learn more.
-    
-    Common issues include:  
-
-    - Container crashing
-    - Resource quota exceeded
-    - Image access issues, such as [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster).
-
-- _Failed:_ Critical errors cause revisions to fail.  The _running state_ provides details. 
- 
-  Common causes include:
-
-  - Terminated
-  - Exit code 137
+| Status | Description |
+|---|---|
+| Running | The revision is running. There are no issues to report. |
+| Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
+| Failed | The revision isn't operating properly. Use the *revision state details* for more information. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [_ImagePullBackOff_ errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
+| Failed | Critical errors caused revisions to fail. The _running state_ provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
 
 Use running state details to learn more about the current status.
 
@@ -87,9 +72,10 @@ A revision can be set to active or inactive.
 
 Inactive revisions don't have provisioning or running states.
 
-Inactive revisions remain in a list of up to 100 inactive revisions.    
- 
+Inactive revisions remain in a list of up to 100 inactive revisions.
+
 ## Multiple revisions
+
 The following diagram shows a container app with two revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
@@ -108,14 +94,22 @@ Revision names are used to identify a revision, and in the revision's URL.  You 
 The format of a revision name is:
 
 ``` text
-<CONTAINER_APP_NAME>--<REVISION_SUFFIX>
+<CONTAINER_APP_NAME>-<REVISION_SUFFIX>
 ```
 
 By default, Container Apps creates a unique revision name with a suffix consisting of a semi-random string of alphanumeric characters.  You can customize the name by setting a unique custom revision suffix.
 
-For example, for a container app named *album-api*, setting the revision suffix name to *1st-revision* would create a revision with the name *album-api--1st-revision*.
+For example, for a container app named *album-api*, setting the revision suffix name to *first-revision* would create a revision with the name *album-api--first-revision*.
 
-You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
+A revision suffix name must:
+
+- consist of lower case alphanumeric characters or dashes ('-')
+- start with an alphabetic character
+- end with an alphanumeric character
+- not have two consecutive dashes (--)
+- not be more than 64 characters
+
+You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal. 
 
 ## Change types
 
@@ -152,7 +146,6 @@ These parameters include:
   - Labels
 - Credentials for private container registries
 - Dapr settings
-
 
 ## Revision modes
 
