@@ -86,7 +86,7 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 ### Traffic routes
 
-* NAT gateway replaces a subnet’s default route to the internet when configured. All traffic within the 0.0.0.0/0 prefix have a next hop type to NAT gateway before connecting outbound to the internet. 
+* NAT gateway replaces a subnet’s default route to the internet when configured. All traffic within the 0.0.0.0/0 prefix has a next hop type to NAT gateway before connecting outbound to the internet. 
 
 * You can override NAT gateway as a subnet’s next hop to the internet with the creation of a custom user-defined route (UDR). 
 
