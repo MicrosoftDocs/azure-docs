@@ -96,7 +96,7 @@ You can use either [push or pull methodologies](search-what-is-data-import.md) f
 
 ### [**Push APIs**](#tab/push)
 
-Use the [Add, Update, or Delete Documents Preview REST API]((/rest/api/searchservice/preview-api/addupdate-or-delete)) to push documents containing vector data.
+Use the [Add, Update, or Delete Documents Preview REST API](/rest/api/searchservice/preview-api/add-update-delete-documents) to push documents containing vector data.
 
 ```http
 POST https://my-search-service.search.windows.net/indexes/my-index/docs/index?api-version=2023-07-01-Preview
