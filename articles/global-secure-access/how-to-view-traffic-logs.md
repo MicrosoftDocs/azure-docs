@@ -28,14 +28,14 @@ A user accessing a website represents one *session*, and within that session the
 - **Connection**: A connection includes the principal user name and device ID.
 - **Transaction**: A transaction is a single request/response pair.
 
-Within each log instance, you can see the session ID, connection ID, and transaction ID in the details. By using the filters, you can look at all connections and transactions for a single session.
+Within each log instance, you can see the connection ID and transaction ID in the details. By using the filters, you can look at all connections and transactions for a single session.
 
 ## How to view the traffic logs
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** using a Reports Reader role.
 1. **Global Secure Access (Preview)** > **Monitor** > **Traffic logs**.
 
-The top of the page displays a summary of all network connections as well as a breakdown for each traffic forwarding profile. Select the **Microsoft 365** or **Private access** buttons to filter the logs to each traffic forwarding profile.
+The top of the page displays a summary of all transactions as well as a breakdown for each type of traffic. Select the **Microsoft 365** or **Private access** buttons to filter the logs to each traffic type.
 
 ### View the log details
 

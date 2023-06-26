@@ -14,7 +14,7 @@ ms.reviewer: katabish
 ---
 # Apply Conditional Access policies to Private Access apps
 
-Applying Conditional Access policies to your Microsoft Entra Private Access apps is a powerful way to enforce security policies for your internal, private resources. You can apply Conditional Access policies to your Quick Access and Private Access apps.
+Applying Conditional Access policies to your Microsoft Entra Private Access apps is a powerful way to enforce security policies for your internal, private resources. You can apply Conditional Access policies to your Quick Access and Private Access apps from Global Secure Access (preview).
 
 This article describes how to apply Conditional Access policies to your Quick Access and Private Access apps.
 
@@ -26,7 +26,7 @@ This article describes how to apply Conditional Access policies to your Quick Ac
 * You must be routing your private network traffic through the **Global Secure Access preview**.
 * You need to have configured Quick Access or Per-app Access.
 
-## Conditional Access and Private Access apps
+## Conditional Access and Global Secure Access
 
 You can create a Conditional Access policy for your Quick Access or Private Access apps from Global Secure Access. Starting the process from Global Secure Access automatically adds the selected app as the **Target resource** for the policy. All you need to do is configure the policy settings.
 
@@ -48,25 +48,16 @@ You can create a Conditional Access policy for your Quick Access or Private Acce
 
 You can also apply Conditional Access policies to a group of applications based on custom attributes. To learn more, go to [Filter for applications in Conditional Access policy (Preview)](../active-directory/conditional-access/concept-filter-for-applications.md).
 
-## Create a Conditional Access policy targeting a Private Access application
+### Assignments and Access controls example
 
-Your Quick Access and Private Access apps are all listed in the Enterprise applications area of Global Secure Access. The process to apply a Conditional Access policy is the same for Quick Access and Private Access apps.
+Adjust the following policy details to create a Conditional Access policy requiring multifactor authentication for your Quick Access application. The user assignments ensure that your organization's emergency access or break-glass accounts are excluded from the policy.
 
-The following example creates a Conditional Access policy requiring multifactor authentication for your Quick Access application.
-
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Conditional Access Administrator or Security Administrator.
-1. Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications.**
-1. Select your Quick Access application from the list.
-1. Select **Conditional Access** from the side menu.
-1. Select **Create new policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users**:
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
 1. Under **Access controls** > **Grant**:
    1. Select **Grant access** > **Require multifactor authentication** > **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
-1. Select **Create** to create and enable your policy.
    
 After administrators confirm the policy settings using [report-only mode](../active-directory/conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
