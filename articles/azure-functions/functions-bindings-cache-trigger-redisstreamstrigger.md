@@ -12,8 +12,14 @@ ms.date: 06/14/2023
 ---
 
 # RedisStreamTrigger Azure Function
+
+The `RedisStreamsTrigger` pops elements from a stream and surfaces those elements to the function.
+
+The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
+Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 <!--Intro info goes here-->
-Example
+
+## Example
 
 ::: zone pivot="programming-language-csharp"
 
@@ -21,11 +27,39 @@ Example
 [!INCLUDE functions-bindings-csharp-intro]
 
 In-process
+
+```csharp
+[FunctionName(nameof(StreamsTrigger))]
+public static void StreamsTrigger(
+    [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+
 <!--Content and samples from the C# tab in ##Examples go here.-->
 Isolated process
 <!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: -->
 ::: zone-end
 ::: zone pivot="programming-language-java"
+
+```java
+@FunctionName("StreamTrigger")
+    public void StreamTrigger(
+            @RedisStreamTrigger(
+                name = "entry",
+                connectionStringSetting = "redisLocalhost",
+                key = "streamTest",
+                pollingIntervalInMs = 100,
+                messagesPerWorker = 10,
+                count = 1,
+                deleteAfterProcess = true)
+                String entry,
+            final ExecutionContext context) {
+            context.getLogger().info(entry);
+    }
+```
 
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
@@ -39,6 +73,24 @@ Isolated process
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
+```json
+{
+  "bindings": [
+    {
+      "type": "redisStreamTrigger",
+      "deleteAfterProcess": false,
+      "connectionStringSetting": "redisLocalhost",
+      "key": "streamTest",
+      "pollingIntervalInMs": 1000,
+      "messagesPerWorker": 100,
+      "count": 10,
+      "name": "entry",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
+```
 <!--Content and samples from the Python tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
@@ -59,6 +111,14 @@ Annotations
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
+### Return values
+
+All triggers return a `RedisMessageModel` object that has two fields:
+
+- `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
+- `Message`: The pubsub message, list element, or stream element.
+
+
 Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
 
@@ -72,6 +132,18 @@ Usage
 The parameter type supported by the XXX trigger depends on the Functions runtime version and the C# modality used.
 
 In-process
+
+```csharp
+namespace Microsoft.Azure.WebJobs.Extensions.Redis
+{
+  public class RedisMessageModel
+  {
+    public string Trigger { get; set; }
+    public string Message { get; set; }
+  }
+}
+```
+
 <!--Any usage information specific to in-process, including types. -->
 Isolated process
 <!--Any usage information specific to isolated worker process, including types. -->
@@ -79,6 +151,13 @@ Isolated process
 ::: zone-end
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
+
+```java
+public class RedisMessageModel {
+    public String Trigger;
+    public String Message;
+}
+```
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
@@ -94,6 +173,12 @@ Isolated process
 
 ::: zone pivot="programming-language-python"
 
+```python
+class RedisMessageModel:
+    def __init__(self, trigger, message):
+        self.Trigger = trigger
+        self.Message = message
+```
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end
 
@@ -102,4 +187,7 @@ host.json settings
 
 <!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
 Next steps
-<!--At least one next step link.-->
+
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
+- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](cache-tutorial-write-behind.md)

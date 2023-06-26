@@ -12,25 +12,65 @@ ms.date: 06/14/2023
 ---
 
 # RedisPubSubTrigger Azure Function
-<!--Intro info goes here-->
-Example
 
+The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
+
+> [!WARNING]
+> This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
+>
+
+> [!NOTE]
+> Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances.
+> Each instance listens and processes each pubsub message, resulting in duplicate processing.
+
+<!--Intro info goes here-->
+## Example
+
+- `ConnectionString`: connection string to the redis cache (for example, `<cacheName>.redis.cache.windows.net:6380,password=...`).
+- `Channel`: name of the pubsub channel that the trigger should listen to.
+
+This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 ::: zone pivot="programming-language-csharp"
 
 <!--Optional intro text goes here, followed by the C# modes include.-->
 [!INCLUDE functions-bindings-csharp-intro]
 
-In-process
-<!--Content and samples from the C# tab in ##Examples go here.-->
-Isolated process
+## In-process
+
+```csharp
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+
+## Isolated process
+
 <!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: -->
 ::: zone-end
 
+
 ::: zone pivot="programming-language-java"
 
+```java
+@FunctionName("PubSubTrigger")
+    public void PubSubTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "channel")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
+```
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
+
 
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 ::: zone-end
@@ -40,6 +80,20 @@ Isolated process
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisLocalhost",
+      "channel": "channel",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
+```
 <!--Content and samples from the Python tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
@@ -66,20 +120,48 @@ The following table explains the binding configuration properties that you set i
 <!-- this get more complex when you support the Python v2 model. --> <!-- suggestion |function.json property |Description| |---------|---------| | **type** | Required - must be set to `eventGridTrigger`. | | **direction** | Required - must be set to `in`. | | **name** | Required - the variable name used in function code for the parameter that receives the event data. | -->
 ::: zone-end
 
-See the Example section for complete examples.
+## Example 2
+This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
 
-Usage
+::: zone pivot="programming-language-csharp"
+
 ::: zone pivot="programming-language-csharp"
 The parameter type supported by the XXX trigger depends on the Functions runtime version and the C# modality used.
 
-In-process
+### In-process
+
+```csharp
+
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyspace@0__:myKey")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
 <!--Any usage information specific to in-process, including types. -->
-Isolated process
+
+### Isolated process
 <!--Any usage information specific to isolated worker process, including types. -->
 ::: zone-end
 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
+
+
+```java
+@FunctionName("KeyspaceTrigger")
+    public void KeyspaceTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "__keyspace@0__:myKey")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
+```
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
@@ -93,11 +175,104 @@ Isolated process
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisLocalhost",
+      "channel": "__keyspace@0__:myKey",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
+```
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end
 
 <!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. -->
 host.json settings
 <!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
+
+## Example 3
+
+This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyevent@0__:del")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+
+::: zone pivot="programming-language-csharp"
+The parameter type supported by the XXX trigger depends on the Functions runtime version and the C# modality used.
+
+### In-process
+
+<!--Any usage information specific to in-process, including types. -->
+
+### Isolated process
+<!--Any usage information specific to isolated worker process, including types. -->
+::: zone-end
+
+<!--Any of the below pivots can be combined if the usage info is identical.-->
+::: zone pivot="programming-language-java"
+
+```java
+ @FunctionName("KeyeventTrigger")
+    public void KeyeventTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "__keyevent@0__:del")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
+```
+<!--Any usage information from the Java tab in ## Usage. -->
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell"
+
+
+
+<!--Any usage information from the JavaScript tab in ## Usage. -->
+::: zone-end
+::: zone pivot="programming-language-powershell"
+
+<!--Any usage information from the PowerShell tab in ## Usage. -->
+::: zone-end
+::: zone pivot="programming-language-python"
+
+```json
+{
+  "bindings": [
+    {
+      "type": "redisPubSubTrigger",
+      "connectionStringSetting": "redisLocalhost",
+      "channel": "__keyevent@0__:del",
+      "name": "message",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
+```
+<!--Any usage information from the Python tab in ## Usage. -->
+::: zone-end
+
+<!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. -->
+host.json settings
+<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
+
+
 Next steps
 <!--At least one next step link.-->
