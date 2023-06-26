@@ -62,4 +62,4 @@ The next step after this tutorial is to build a daemon app that calls your web A
 In the next tutorial, you configure your daemon and web API applications.
 
 > [!div class="nextstepaction"]
-> [Prepare your daemon application >](tutorial-daemon-dotnet-call-api-prepare-app.md)
+> [Prepare your daemon application >](tutorial-daemon-dotnet-call-api-build-app.md)
