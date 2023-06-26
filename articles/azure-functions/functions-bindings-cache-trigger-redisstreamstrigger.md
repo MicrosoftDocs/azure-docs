@@ -186,9 +186,8 @@ class RedisMessageModel:
 host.json settings
 
 <!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
-Next steps
+## Next steps
 
-- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/cache/cache-tutorial-functions-getting-started.md)
-- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/cache/cache-tutorial-write-behind.md)
-
+- [Introduction to Azure Functions](functions-overview.md)
+- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
+- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)

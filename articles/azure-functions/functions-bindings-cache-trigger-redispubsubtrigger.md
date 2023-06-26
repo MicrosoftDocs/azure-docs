@@ -37,7 +37,7 @@ PUBLISH __keyevent@0__:<affectedCommand> <key>
 Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsubtrigger.md) section for more examples.
 
 > [!IMPORTANT]
-> In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/azure-cache-for-redis/cache-configure.md#keyspace-notifications-advanced-settings).
+> In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/azure-cache-for-redis/cache-configure#keyspace-notifications-advanced-settings).
 
 ### Prerequisites and limitations
 
@@ -192,9 +192,6 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-
-::: zone pivot="programming-language-csharp"
-The parameter type supported by the XXX trigger depends on the Functions runtime version and the C# modality used.
 
 ::: zone-end
 
