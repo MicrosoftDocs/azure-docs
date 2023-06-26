@@ -62,5 +62,5 @@ This capability is a part of the FinOps Framework by the FinOps Foundation, a no
 ## Next steps
 
 - [Establishing a FinOps decision and accountability structure](capabilities-structure.md)
-- [Cloud policy and governance](capabilities-governance.md)
+- [Cloud policy and governance](capabilities-policy.md)
 - [FinOps education and enablement](capabilities-education.md)
