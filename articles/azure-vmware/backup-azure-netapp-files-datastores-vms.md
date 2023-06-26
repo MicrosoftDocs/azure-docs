@@ -33,14 +33,14 @@ Before you back up your Azure NetApp Files datastores, you must add your Azure a
     ```
     For more information on creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
-### Add Azure cloud subscription 
+### Add an Azure cloud subscription 
 
 1.	Sign in to the VMware vSphere client.
 2.	From the left navigation, select **Cloud Backup for Virtual Machines**.
 3.	Select the **Settings** page and then select the **Cloud Subscription** tab.
-4.	Select **Add** then provide then provide the **Subscription ID**, **Tenant ID**, **Client IID**, and **Client secret key** from the app registration you previously created.
+4.	Select **Add**. Provide the **Subscription ID**, **Tenant ID**, **Client IID**, and **Client secret key** from the app registration you previously created.
 
-### Add Azure NetApp Files cloud subscription account
+### Add an Azure NetApp Files cloud subscription account
 
 1.	From the left navigation, select **Cloud Backup for Virtual Machines**.
 2.	Select **Storage Systems**.
@@ -98,7 +98,7 @@ You can add or remove resources from a resource group at any time.
 
     | Field | Action |
     | -- | ----- |
-    | Scope | Select the type of resource you want to protect: <ul><li>Datastores</li><li>Virtual Machines</li></ul> |
+    | Scope | Select the type of resource you want to protect: <br /> -Datastores <br /> -Virtual Machines |
     | Datacenter | Navigate to the VMs or datastores |
     | Available entities | Select the resources you want to protect. Then select **>** to move your selections to the Selected entities list. |
 
@@ -154,7 +154,8 @@ Backup operations are performed on all the resources defined in a resource group
 
     :::image type="content" source="./media/cloud-backup/resource-groups-run-now.png" alt-text="Image of the vSphere Client Resource Group interface. At the top left, a red box highlights a green circular button with a white arrow inside next to text reading Run Now, instructing you to select this button." lightbox="./media/cloud-backup/resource-groups-run-now.png":::
  
-    1.1 If the resource group has multiple policies configured, then in the **Backup Now** dialog box, select the policy you want to use for this backup operation.
+    1. If the resource group has multiple policies configured, then in the **Backup Now** dialog box, select the policy you want to use for this backup operation.
+    
 1. Select **OK** to initiate the backup.
     >[!NOTE]
     >You can't rename a backup once it's created. 
