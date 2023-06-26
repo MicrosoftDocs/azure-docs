@@ -548,6 +548,10 @@
     items:
     - name: Monitor and analyze jobs in studio
       href: how-to-track-monitor-analyze-runs.md
+    - name: Organize & manage jobs (preview)
+      href: how-to-track-monitor-organize-jobs.md
+    - name: Visualize training results (preview)
+      href: how-to-visualize-jobs.md
   - name: Debug jobs
     href: how-to-interactive-jobs.md
   - name: Schedule jobs
@@ -619,7 +623,7 @@
       href: concept-ml-pipelines.md
     - name: What is a component
       href: concept-component.md
-    - name: What is the Azure MaChine Learning Designer (v2)?
+    - name: What is the Azure Machine Learning Designer (v2)?
       href: concept-designer.md
   # v1
   - name: Designer (drag-n-drop ML)
