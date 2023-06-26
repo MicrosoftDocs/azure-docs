@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [OT plans billed by site-based licenses](#ot-plans-billed-by-site-based-licenses) <br> [Security recommendations for OT networks for insecure passwords and critical CVEs](#security-recommendations-for-ot-networks-for-insecure-passwords-and-critical-cves) |
+| **OT networks** | [Migrate to site-based licenses](#migrate-to-site-based-licenses) |
 
 
 ### Migrate to site-based licenses
