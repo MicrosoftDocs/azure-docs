@@ -38,7 +38,7 @@ Updates in June include:
 
 June 26, 2023
 
-Defender for Cloud has added an onboarding experience to include a new streamlined user interface and instructions in addition to new capabilities that allow you to onboard your AWS and GCP environments while providing access to advanced onboarding features.
+Defender for Cloud have improved the onboarding experience to include a new streamlined user interface and instructions in addition to new capabilities that allow you to onboard your AWS and GCP environments while providing access to advanced onboarding features.
 
 For organizations that have adopted Hashicorp Terraform for automation, Defender for Cloud now includes the ability to use Terraform as the deployment method alongside AWS CloudFormation or GCP Cloud Shell. You can now customize the required role names when creating the integration. You can also select between:
 
