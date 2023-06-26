@@ -1,7 +1,7 @@
 ---
-title: Creating a Calling Widget Experience with Azure Communication Services
+title: Creating a click to call Experience with Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite.
+description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate click to call.
 author: dmceachern
 manager: alkwa
 services: azure-communication-services
@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Creating a Calling Widget Experience with Azure Communication Services 
+# Creating a click to call Experience with Azure Communication Services 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 <img src='../media/calling-widget/Sample-app-splash.png' width='1000' alt='Home page of Calling Widget sample app'>
 
-This project aims to guide developers on creating a seamless Calling Widget experience using the Azure Communication UI Library.
+This project aims to guide developers on creating a seamless click to call experience using the Azure Communication UI Library.
 
 As per your requirements, you may need to offer your customers an easy way to reach out to you without any complex setup.
 
-Calling Widget is a simple yet effective concept that facilitates instant interaction with, customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in making interactions with your customers just a click away.
+Click to call is a simple yet effective concept that facilitates instant interaction with, customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in making interactions with your customers just a click away.
 
 If you wish to try it out, you can download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-calling-widget).
 
@@ -54,10 +54,10 @@ Azure Communication Services packages that we need to run the sample as well.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
-npx create-react-app ui-library-calling-widget-app --template typescript
+npx create-react-app ui-library-click-to-call-app --template typescript
 
 # Change to the directory of the newly created App.
-cd ui-library-calling-widget-app
+cd ui-library-click-to-call-app
 ```
 
 ### Get your dependencies

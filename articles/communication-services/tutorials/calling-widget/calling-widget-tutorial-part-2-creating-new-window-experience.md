@@ -121,7 +121,7 @@ export const SameOriginCallScreen = (props: {
 };
 ```
 
-To configure Calling Widget in our `CallComposite`, we need to make some changes. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. In addition to these configurations on the `CallComposite`, we use the `afterCreate` function defined in the snippet to automatically join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
+To configure our `CallComposite` to fit in the Calling Widget, we need to make some changes. Depending on your use case, we have a number of customizations that can change the user experience. This sample chooses to hide the local video tile, camera, and screen sharing controls if the user opts out of video for their call. In addition to these configurations on the `CallComposite`, we use the `afterCreate` function defined in the snippet to automatically join the call. This bypasses the configuration screen and drop the user into the call with their mic live, as well auto close the window when the call ends. Just remove the call to `adapter.join(true);` from the `afterCreate` function and the configuration screen shows as normal. Next let's talk about how to get this screen the information once we have our `CallComposite` configured.
 
 To make sure we are passing around data correctly, let's create some handlers to send post messages between the parent window and child window to signal that we want some information. See diagram:
 
@@ -272,7 +272,7 @@ Following this, we want to add some state to make sure that we're tracking the n
 ```ts
 /**
    * Properties needed to start an Azure Communications Call Adapter. When these are set the app will go to the Call screen for the
-   * Calling Widget scenario. Call screen should create the credential that will be used in the call for the user.
+   * click to call scenario. Call screen should create the credential that will be used in the call for the user.
    */
   const [adapterArgs, setAdapterArgs] = useState<AdapterArgs | undefined>();
   const [useVideo, setUseVideo] = useState<boolean>(false);

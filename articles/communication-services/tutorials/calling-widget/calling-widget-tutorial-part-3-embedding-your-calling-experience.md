@@ -98,7 +98,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 ```
 
-Let's also add a `afterCreate` function like before, to do a few things with our adapter once it's constructed. Since we're now interacting with state in the widget we'll want to use a react `useCallback` just to make sure we're not defining this function every time we do a render pass. In our case, our function will reset the widget to the `'new'` state when the call ends and clear the user's `displayName` so they can start a new session. You can however return it to the `'setup'` state with the old displayName so that the app can easily call again as well.
+Let's also add a `afterCreate` function like before, to do a few things with our adapter once it's constructed. Since we're now interacting with state in the widget we'll want to use a React `useCallback` just to make sure we're not defining this function every time we do a render pass. In our case, our function will reset the widget to the `'new'` state when the call ends and clear the user's `displayName` so they can start a new session. You can however return it to the `'setup'` state with the old displayName so that the app can easily call again as well.
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -305,4 +305,4 @@ Now that we have made these changes we can start our app again if it's shut down
 
 Like before, this is a call starting with the video controls enabled. 
 
-Thanks for following the different tutorials here. This concludes the quickstart guide for Calling Widget in the Azure Communications UI Library.
+Thanks for following the different tutorials here. This concludes the quickstart guide for click to call with the Azure Communications UI Library.

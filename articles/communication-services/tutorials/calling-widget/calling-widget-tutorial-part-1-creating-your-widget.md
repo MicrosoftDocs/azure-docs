@@ -1,7 +1,7 @@
 ---
 title: Part 1 Creating Your Widget
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to construct your own custom widget for your calling Widget experience - Part 1.
+description: Learn how to construct your own custom widget for your click to call experience - Part 1.
 author: dmceachern
 manager: alkwa
 services: azure-communication-services
@@ -16,7 +16,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-To begin, we're going to make a new component. This component will serve as the widget for initiating the calling experience.
+To begin, we're going to make a new component. This component will serve as the widget for initiating the click to call experience.
 
 While we will be using our own widget setup in this tutorial, you can adapt the functionality suit your needs. Our widget will perform the following actions:
 - Display a custom logo. This can be subsituted with an image or branding of your choice. You may download our image from the completed code if desired.
@@ -61,7 +61,7 @@ export interface clickToCallComponentProps {
 
 Each callback controls different behaviors for the calling experience.
 
-- `onRenderStartCall` - This callback is used to trigger any handlers in your app to do things like create a new window for your calling experience.
+- `onRenderStartCall` - This callback is used to trigger any handlers in your app to do things like create a new window for your click to call experience.
 - `onRenderLogo` - This is used as a rendering callback to have a custom logo or image render inside the widget when getting user information.
 - `onSetDisplayName` - We use this callback to set the `displayName` of the participant when they're calling your support center.
 - `onSetUseVideo` - Finally, this callback is used to control for our tutorial whether the user will have camera and screen sharing controls (more on that later).
