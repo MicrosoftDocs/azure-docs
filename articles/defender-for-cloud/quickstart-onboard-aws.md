@@ -259,7 +259,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
     :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
 
-1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+1. For each connector, select the three-dot button **…** at the end of the row, and select **Delete**.
 
 1. On AWS, delete the role ARN, or the credentials created for the integration.
 
