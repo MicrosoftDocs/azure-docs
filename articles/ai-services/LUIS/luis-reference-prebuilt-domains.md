@@ -3,16 +3,14 @@ title: Prebuilt domain reference - LUIS
 titleSuffix: Azure Cognitive Services
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-
+ms.author: aahi
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/18/2022
-
-#source: https://raw.githubusercontent.com/Microsoft/luis-prebuilt-domains/master/README.md
-#acrolinx bug for exception: https://mseng.visualstudio.com/TechnicalContent/_workitems/edit/1518317
 ---
 
 # Prebuilt domain reference for your LUIS app

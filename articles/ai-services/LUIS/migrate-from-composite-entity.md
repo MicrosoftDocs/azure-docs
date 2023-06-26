@@ -3,6 +3,9 @@ title: Upgrade composite entity - LUIS
 description: Upgrade composite entity to machine-learning entity with upgrade process in the LUIS portal.
 ms.service: cognitive-services
 ms.subservice: language-understanding
+ms.author: aahi
+author: aahill
+manager: nitinme
 ms.topic: how-to
 ms.date: 05/04/2020
 ---

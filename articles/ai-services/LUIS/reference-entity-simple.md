@@ -10,8 +10,8 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 01/07/2022
-
 ---
+
 # Simple entity
 
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]

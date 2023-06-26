@@ -3,7 +3,8 @@ title: "How to update your LUIS model using the REST API"
 titleSuffix: Azure Cognitive Services
 description: In this article, add example utterances to change a model and train the app.
 services: cognitive-services
-
+ms.author: aahi
+author: aahill
 manager: nitinme
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp, devx-track-extended-java, devx-track-go
@@ -11,7 +12,6 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/30/2020
-
 zone_pivot_groups: programming-languages-set-one
 #Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---

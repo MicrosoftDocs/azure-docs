@@ -3,14 +3,14 @@ title: Correct misspelled words - LUIS
 titleSuffix: Azure Cognitive Services
 description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
 services: cognitive-services
-
+ms.author: aahi
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/05/2022
-
 ---
 
 # Correct misspelled words with Bing Resource

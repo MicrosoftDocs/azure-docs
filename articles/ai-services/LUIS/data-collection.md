@@ -3,6 +3,9 @@ title: Data collection
 description: Learn what example data to collect while developing your app
 ms.service: cognitive-services
 ms.subservice: language-understanding
+ms.author: aahi
+author: aahill
+manager: nitinme
 ms.topic: conceptual
 ms.date: 05/06/2020
 ---

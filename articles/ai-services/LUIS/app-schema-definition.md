@@ -3,6 +3,9 @@ title: App schema definition
 description: The LUIS app is represented in either the `.json` or `.lu` and includes all intents, entities, example utterances, features, and settings.
 ms.service: cognitive-services
 ms.subservice: language-understanding
+ms.author: aahi
+author: aahill
+manager: nitinme
 ms.topic: reference
 ms.date: 08/22/2020
 ---

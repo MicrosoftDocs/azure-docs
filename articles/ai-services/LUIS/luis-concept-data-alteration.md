@@ -3,6 +3,9 @@ title: Data alteration - LUIS
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
 ms.service: cognitive-services
 ms.subservice: language-understanding
+ms.author: aahi
+author: aahill
+manager: nitinme
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.devlang: csharp
