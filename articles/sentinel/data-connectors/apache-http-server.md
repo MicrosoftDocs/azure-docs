@@ -3,7 +3,7 @@ title: "Apache HTTP Server connector for Microsoft Sentinel"
 description: "Learn how to install the connector Apache HTTP Server to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,8 +16,6 @@ The Apache HTTP Server data connector provides the capability to ingest [Apache 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | ApacheHTTPServer |
-| **Kusto function url** | https://aka.ms/sentinel-apachehttpserver-parser |
 | **Log Analytics table(s)** | ApacheHTTPServer_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -39,7 +37,7 @@ ApacheHTTPServer
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-apachehttpserver-parser) to create the Kusto Functions alias, **ApacheHTTPServer**
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias ApacheHTTPServer and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ApacheHTTPServer/Parsers/ApacheHTTPServer.txt). The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux or Windows
 
