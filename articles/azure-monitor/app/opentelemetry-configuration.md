@@ -2,7 +2,7 @@
 title: Azure Monitor OpenTelemetry configuration for .NET, Java, Node.js, and Python applications
 description: This article provides configuration guidance for .NET, Java, Node.js, and Python applications.
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 06/23/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
