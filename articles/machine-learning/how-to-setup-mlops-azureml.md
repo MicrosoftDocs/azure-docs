@@ -219,7 +219,7 @@ This step deploys the training pipeline to the Azure Machine Learning workspace 
    
 1. Select the repository that you cloned in from the previous section `mlops-v2-ado-demo`
    
-1. Select **Existing Azure Pipeline YAML File**
+1. Select **Existing Azure Pipelines YAML file**
    
    ![Screenshot of Azure DevOps Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
@@ -279,7 +279,7 @@ This training pipeline contains the following steps:
    
 1. Select the repository that you cloned in from the previous section `mlopsv2`
    
-1. Select **Existing Azure Pipeline YAML File**
+1. Select **Existing Azure Pipelines YAML file**
    
    ![Screenshot of ADO Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
@@ -309,7 +309,7 @@ This scenario includes prebuilt workflows for two approaches to deploying a trai
    
 1. Select the repository that you cloned in from the previous section `mlopsv2`
    
-1. Select **Existing Azure Pipeline YAML File**
+1. Select **Existing Azure Pipelines YAML file**
    
    ![Screenshot of Azure DevOps Pipeline page on configure step.](./media/how-to-setup-mlops-azureml/ADO-configure-pipelines.png)
    
