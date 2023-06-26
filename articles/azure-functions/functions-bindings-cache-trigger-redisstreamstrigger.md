@@ -189,5 +189,6 @@ host.json settings
 Next steps
 
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
-- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](cache-tutorial-write-behind.md)
+- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/cache/cache-tutorial-functions-getting-started.md)
+- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/cache/cache-tutorial-write-behind.md)
+- 

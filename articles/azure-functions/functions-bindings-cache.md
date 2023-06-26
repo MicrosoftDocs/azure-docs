@@ -15,9 +15,9 @@ ms.date: 06/26/2023
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)] 
+[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures. 
+This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures.
 
 Azure Cache for Redis can be used as a trigger for Azure Functions, allowing Redis to initiate a serverless workflow. This functionality can be highly useful in data architectures like a write-behind cache, or any event-based architectures.
 
@@ -56,10 +56,10 @@ PUBLISH __keyspace@0__:<affectedKey> <command>
 PUBLISH __keyevent@0__:<affectedCommand> <key>
 ```
 
-Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](#redispubsubtrigger) section for more examples.
+Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsubtrigger.md) section for more examples.
 
 > [!IMPORTANT]
-> In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](cache-configure.md#keyspace-notifications-advanced-settings).
+> In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/cache/cache-configure.md#keyspace-notifications-advanced-settings).
 
 ## Prerequisites and limitations
 
@@ -71,12 +71,6 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 <!-- Do either the [extension bundle] install here or manual func install extension if needed. -->
 
 The extension NuGet package you install depends on the C# mode in-process or isolated worker process you're using in your function app:
-
-## In-process
-Functions execute in the same process as the Functions host. To learn more, see Develop C# class library functions using Azure Functions.
-
-## Isolated process
-Functions execute in an isolated C# worker process. To learn more, see Guide for running C# Azure Functions in an isolated process.
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"

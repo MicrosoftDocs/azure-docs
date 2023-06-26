@@ -43,7 +43,6 @@ Isolated process
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-
 ```java
 @FunctionName("ListTrigger")
     public void ListTrigger(
@@ -95,8 +94,6 @@ Isolated process
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
-
 
 - `ConnectionString`: connection string to the redis cache, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.
 - `Keys`: Keys to read from, space-delimited.
@@ -114,19 +111,16 @@ Both in-process and isolated process C# libraries use the <!--attribute API here
 
 <!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section: The attribute's constructor takes the following parameters: |Parameter | Description| |---------|----------------------| |**Parameter1** |Description 1| |**Parameter2** | Description 2| -->
 
-In-process
-<!--C# attribute information for the trigger from ## Attributes and annotations goes here, with intro sentence.-->
-Isolated process
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16"::: -->
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Annotations
+## Annotations
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
-Configuration
+## Configuration
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 <!-- this get more complex when you support the Python v2 model. --> <!-- suggestion |function.json property |Description| |---------|---------| | **type** | Required - must be set to `eventGridTrigger`. | | **direction** | Required - must be set to `in`. | | **name** | Required - the variable name used in function code for the parameter that receives the event data. | -->
@@ -134,14 +128,11 @@ The following table explains the binding configuration properties that you set i
 
 See the Example section for complete examples.
 
-Usage
+## Usage
+
 ::: zone pivot="programming-language-csharp"
 The parameter type supported by the XXX trigger depends on the Functions runtime version and the C# modality used.
 
-In-process
-<!--Any usage information specific to in-process, including types. -->
-Isolated process
-<!--Any usage information specific to isolated worker process, including types. -->
 ::: zone-end
 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
