@@ -82,7 +82,7 @@
     - name: Dapr
       items:
       - name: What's new in Dapr
-        href: dapr-whats-new.md
+        href: whats-new.md
       - name: Dapr integration
         href: dapr-overview.md
       - name: Scale Dapr apps with KEDA using Bicep
