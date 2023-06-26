@@ -20,19 +20,19 @@ All upgraded cluster shapes are supported as part of HDInsight 5.1.
 
 The following table lists the versions of open-source components that are associated with HDInsight 5.x.
 
-| Component        | HDInsight 5.1 | HDInsight 5.0 |
-|------------------|---------------|---------------|
+| Component        | HDInsight 5.1          |HDInsight 5.0|
+|------------------|------------------------|-------------|
 | Apache Spark     | 3.3.1  **              | 3.1.3       |
 | Apache Hive      | 3.1.2  **              | 3.1.2       |
 | Apache Kafka     | 3.2.0  **              | 2.4.1       |
 | Apache Hadoop    | 3.3.4  **              | 3.1.1       |
 | Apache Tez       | 0.9.1  **              | 0.9.1       |
-| Apache Ranger    | 2.3.0 *                | 1.1.0       |
+| Apache Ranger    | 2.3.0 **               | 1.1.0       |
 | Apache HBase     | 2.4.11 **              | 2.1.6       |
-| Apache Oozie     | 5.2.1  *               | 4.3.1       |
+| Apache Oozie     | 5.2.1  **              | 4.3.1       |
 | Apache ZooKeeper | 3.6.3 **               | 3.4.6       |
 | Apache Livy      | 0.5. **                | 0.5         |
-| Apache Ambari    | 2.7.0  **              | 2.7.0       |
+| Apache Ambari    | 2.7.3  **              | 2.7.3       |
 | Apache Zeppelin  | 0.10.1 **              | 0.8.0       |
 | Apache Phoenix   | 5.1.2 **               | -           |
 
