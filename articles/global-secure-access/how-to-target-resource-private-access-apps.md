@@ -24,7 +24,7 @@ This article describes how to apply Conditional Access policies to your Quick Ac
    * [Global Secure Access Administrator role](../active-directory/roles/permissions-reference.md)
    * [Conditional Access Administrator](../active-directory/roles/permissions-reference.md#conditional-access-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) to create and interact with Conditional Access policies.
 * You must be routing your private network traffic through the **Global Secure Access preview**.
-* You need to have configured Quick Access or Per-app Access.
+* You need to have configured Quick Access or Private Access.
 
 ## Conditional Access and Global Secure Access
 
