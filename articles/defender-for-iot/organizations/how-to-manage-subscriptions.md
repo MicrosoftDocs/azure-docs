@@ -99,35 +99,78 @@ You may need to cancel a Defender for IoT plan from your Azure subscription, for
 
 ## Migrate from a legacy OT plan
 
-If you're an existing customer with a legacy OT plan, migrate your plan to a site-based Microsoft 365 plan. TBD - why would i migrate if i don't have to? Also, what if i have multiple plans - i can only migrate one, right? So how can i otherwise consolidate my plans without losing data?
+If you're an existing customer with a legacy OT plan, we recommend migrating your plan to a site-based Microsoft 365 plan. After you've edited your plan, make sure to update your site details with a site size that matches your Microsoft 365 license.
+
+> [!NOTE]
+> Defender for IoT supports migration for a single subscription only. If you have multiple subscriptions, choose the one you want to migrate, and then move all sensors to that subscription before you update your plan settings. For more information, see 
 
 **To migrate your plan**:
 
 1. Purchase a new, site-based license in the Microsoft 365 Marketplace for the site size that you need. For more information, see [Purchase a Defender for IoT license](#purchase-a-defender-for-iot-license).
+
 1. In Defender for IoT in the Azure portal, go to **Plans and pricing** and locate the subscription for the plan want to migrate.
+
+   Defender for IoT supports migrating a single subscription only.
+
 1. On the subscription row, select the options menu (**...**) at the right > select **Edit plan**.
+
 1. In the **Price plan** field, select **Microsoft 365 (recommended)** > **Next**.
+
 1. Review your plan details and select **Save**.
 
-**To complete the migration by updating your site sizes**:
+**To update your site sizes**:
 
-1. Select **Sites and sensors** and then select the site you want to migrate. If you have multiple sites, the sites linked to the plan you migrated are highlighted as needing changes.
+1. In Defender for IoT in the Azure portal, select **Sites and sensors** and then select the site you want to migrate. 
+
+   If you have multiple sites, all sites linked to the plan you migrated are highlighted as needing changes.
+
 1. In the **Edit site** pane, in the **Size** field, edit your site size to match your licensed sites.
 
+<!--for example TBD-->
 ## Legacy procedures for plan management in the Azure portal
 
 Starting June 1, 2023, Microsoft Defender for IoT licenses for OT monitoring are available for purchase only in the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home), and OT sensors are onboarded to Defender for IoT based on your licensed site sizes. For more information, see [OT plans billed by site-based licenses](whats-new.md#ot-plans-billed-by-site-based-licenses).
 
 Existing customers can continue to use any legacy OT plan, with no changes in functionality. For legacy customers, *committed devices* are the number of devices you're monitoring. For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
-You might need to edit your plan to change your plan commitment or update the number of committed devices or sites. For example, you may have more devices that require monitoring if you're increasing existing site coverage, or there are network changes such as adding switches.
-
 > [!NOTE]
 > If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, you may see a warning message in the Azure portal and on your OT sensor that you have exceeded the maximum number of devices for your subscription.
 >
 > This warning indicates you need to update the number of committed devices on the relevant subscription to the actual number of devices being monitored. Click the link in the warning message to take you to the **Plans and pricing** page, with the **Edit plan** pane already open.
 
-**To edit a legacy plan on the Azure portal:**
+### Move existing sensors to a different subscription
+
+If you have multiple legacy subscriptions and are migrating to an Microsoft 365 plan, you'll first need to consolidate your sensors to a single subscription. To do this, you'll need to register the sensors under the new subscription and remove them from the original subscription.
+
+- Devices are synchronized from the sensor to the new subscription automatically.
+
+- Manual edits made in the portal aren't migrated.
+
+- New alerts created by the sensor are created under the new subscription, and existing alerts in the old subscription can be closed in bulk.
+
+**To move sensors to a different subscription**:
+
+1. In the Azure portal, [onboard the sensor](onboard-sensors.md) from scratch to the new subscription in order to create a new activation file. When onboarding your sensor:
+
+   - Replicate site and sensor hierarchy as is.
+
+   - For sensors monitoring overlapping network segments, create the activation file under the same zone. Identical devices that are detected in more than one sensor in a zone, will be merged into one device.
+
+1. On your sensor, upload the new activation file.
+
+1. Delete the sensor identities from the previous subscription. For more information, see [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
+
+1. If relevant, cancel the Defender for IoT plan from the previous subscription. On the **Plans and pricing** page, in the subscription row, select the options menu (...) at the right and select **Cancel plan**.
+
+   In the cancellation dialog, select I agree to cancel the Defender for IoT plan from the subscription.
+
+   [!IMPORTANT] Canceling a plan removes all Defender for IoT services from the subscription, including both OT and Enterprise IoT services. If you have an Enterprise IoT plan on your subscription, do this with care.
+
+Your changes take effect one hour after confirmation. This change will be reflected in your upcoming monthly statement, and you'll only be charged for the time that the subscription was active.
+
+If the previous subscription was connected to Microsoft Sentinel, you'll need to connect the new subscription to Microsoft Sentinel and remove the old subscription. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
+
+### Edit a legacy plan on the Azure portal
 
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
@@ -135,18 +178,17 @@ You might need to edit your plan to change your plan commitment or update the nu
 
 1. Make any of the following changes as needed:
 
-   - Change your price plan from a trial to a monthly or annual commitment
-   - Update the number of [committed devices](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network)
-   - Update the number of sites (annual commitments only)
+   - Change your price plan from a trial to a monthly, annual, or Microsoft 365 plan
+   - Update the number of [committed devices](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network) (monthly and annual plans only)
+   - Update the number of sites (annual plans only)
 
-1. Select the **I accept the terms and conditions** option, and then select **Purchase**.
+1. Select the **I accept the terms and conditions** option, and then select **Save**.
 
 1. After any changes are made, make sure to reactivate your sensors. For more information, see [Reactivate an OT sensor](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor).
 
 1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 Changes to your plan will take effect one hour after confirming the change. This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
-
 ## Next steps
 
 For more information, see:
