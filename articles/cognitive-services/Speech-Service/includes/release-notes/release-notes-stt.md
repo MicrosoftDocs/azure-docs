@@ -206,12 +206,12 @@ Below is a list of the new locales. See the complete language list [here](../../
 ### August 2020 Release
 
 #### New speech to text locales:
-Speech to text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt).
+Speech to text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries/regions. Below is a list of the new locales. See the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
 | `cs-CZ` | Czech (Czech Republic)            |
-| `en-HK` | English (Hong Kong)               |
+| `en-HK` | English (Hong Kong Special Administrative Region)               |
 | `en-IE` | English (Ireland)                 |
 | `en-PH` | English (Philippines)             |
 | `en-SG` | English (Singapore)               |

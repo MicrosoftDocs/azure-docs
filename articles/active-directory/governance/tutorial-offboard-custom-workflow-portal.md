@@ -1,6 +1,6 @@
 ---
 title: Execute employee termination tasks by using lifecycle workflows
-description: Learn how to remove users from an organization in real time on their last day of work by using lifecycle workflows (preview) in the Azure portal.
+description: Learn how to remove users from an organization in real time on their last day of work by using lifecycle workflows in the Azure portal.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/18/2023
+ms.date: 06/22/2023
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial

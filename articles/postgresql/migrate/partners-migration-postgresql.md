@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Azure Database for PostgreSQL migration partners
 
-[!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
@@ -21,6 +21,8 @@ To broadly support your Azure Database for PostgreSQL solution, you can choose f
 
 | Partner | Description | Links | Videos |
 | --- | --- | --- | --- |
+| ![Improving][11] |**Improving**<br>Improving is a highly esteemed Microsoft Partner specializing in Application Modernization and Data & AI. With an extensive track record, Improving excels in handling intricate database migrations of diverse scales and complexities. For organizations considering migrations, we offer our [PostgreSQL Migration Assessment](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/prosourcesolutionsllc1594761633057.azure_database_for_postgresql_migration?tab=Overview&filters=country-unitedstates), presenting you with a comprehensive roadmap of industry-leading practices and expert recommendations to guide your migration strategy effectively.  When you are ready to begin the migration process, Improving can provide the necessary resources to partner with you to ensure a successful database migration. Whatever your path may be, On-premise to Flex or Single-Server to Flex, we have the expertise to provide the migration.|[Website][improving_website]<br>[Marketplace][improving_marketplace]<br>[LinkedIn][improving_linkedin]<br>[Twitter][improving_twitter]<br>[Contact][improving_contact] | |
+| ![Solliance][10] |**Solliance**<br>Solliance is a consulting and technology solutions company comprised of industry thought leaders and experts specializing in PostgreSQL solutions on Azure. Their services, including cloud architecture, data engineering, and security, are tailored to businesses of all sizes. With a seasoned team and comprehensive training content, Solliance provides impactful PostgreSQL-based solutions that deliver tangible results for your business.|[Website][solliance_website]<br>[LinkedIn][solliance_linkedin]<br>[Twitter][solliance_twitter]<br>[Contact][solliance_contact] | |
 | ![Data Bene][9] |**Data Bene**<br>Databases done right! Data Bene is an open source software service company, expert in PostgreSQL and its ecosystem. Their customer portfolio includes several Fortune 100 companies as well as several famous «Unicorn». They have built over the years a serious reputation in PostgreSQL and Citus Data solutions and they provide support and technical assistance to ensure the smooth operation of your data infrastructure, including demanding projects in health-care and banking industries.|[Website][databene_website]<br>[LinkedIn][databene_linkedin]<br>[Contact][databene_contact] | |
 | ![DatAvail][8] |**DatAvail**<br>DatAvail is one of the largest providers of database, data management, analytics and application modernization services in North America. Offering database & application design, architecture, migration and modernization consulting services for all leading legacy and modern data platforms, along with tech-enabled 24x7 managed services, leveraging 1,000 consultants onshore, near-shore and off-shore.|[Website][datavail_website]<br>[Twitter][datavail_twitter]<br>[Contact][datavail_contact] | |
 | ![Newt Global][7] |**Newt Global**<br> Newt Global is a leading Cloud migration and DevOps implementation company with over a decade of focus on app & DB modernization. Newt Global leverages proprietary platform, DMAP for accelerating Oracle to PostgreSQL migration and can deliver migrations with 50% less time and effort. They have executed large and complex migrations of databases with 5 -50 TB of data and their associated applications. They help accelerate the end-to-end migration right from Discovery/Assessment, migration planning, migration execution and post migration validations. |[Website][newt_website]<br>[Marketplace][newt_marketplace]<br>[Twitter][newt_twitter]<br>[Contact][newt_contact] | |
@@ -44,6 +46,8 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [7]: ./media/partner-migration-postgresql/newt-logo.png
 [8]:./media/partner-migration-postgresql/datavail-logo.png
 [9]:./media/partner-migration-postgresql/data-bene-logo.png
+[10]:./media/partner-migration-postgresql/solliance-logo.png
+[11]:./media/partner-migration-postgresql/improving-logo.png
 
 <!--Website links -->
 [snp_website]:https://www.snp.com//
@@ -54,12 +58,15 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [newt_website]:https://newtglobal.com/database-migration-acceleration-platform-dmap-from-newt-global-db-schema-migration-schema-migration-oracle-to-postgresql-migration/
 [datavail_website]:https://www.datavail.com/technologies/postgresql/?/
 [databene_website]:https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdata-bene.io%2F&data=05%7C01%7Carianap%40microsoft.com%7C9619e9fb8f20426c479d08db4bcedd2c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638187124891347095%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=fEg07O8aMx4zXUFwgzMjuXM8ZvgYq6BuvD3soDpkEoQ%3D&reserved=0
+[solliance_website]:https://solliance.net/practices/ai-data/your-azure-postgresql-experts
+[improving_website]:https://improving.com/
 
 <!--Get Started Links-->
 <!--Datasheet Links-->
 <!--Marketplace Links -->
 [credativ_marketplace]:https://azuremarketplace.microsoft.com/de-de/marketplace/apps?search=credativ&page=1
 [newt_marketplace]:https://azuremarketplace.microsoft.com/en-in/marketplace/apps/newtglobalconsultingllc1581492268566.dmap_db_container_offer?tab=Overview
+[improving_marketplace]:https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/prosourcesolutionsllc1594761633057.azure_database_for_postgresql_migration?tab=Overview&filters=country-unitedstates
 
 <!--Press links-->
 
@@ -70,6 +77,8 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 
 <!--LinkedIn links-->
 [databene_linkedin]:https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fdata-bene%2F&data=05%7C01%7Carianap%40microsoft.com%7C9619e9fb8f20426c479d08db4bcedd2c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638187124891347095%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=PwPDHeQHNYHVa%2FbdfEjbvlnCSFo9iFll1E9UeM3RBQs%3D&reserved=0
+[solliance_linkedin]:https://www.linkedin.com/company/solliancenet/mycompany/
+[improving_linkedin]:https://www.linkedin.com/company/improving-enterprises/
 
 <!--Twitter links-->
 [snp_twitter]:https://twitter.com/snptechnologies
@@ -79,6 +88,8 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [pactera_twitter]:https://twitter.com/Pactera?s=17
 [newt_twitter]:https://twitter.com/newtglobal?lang=en
 [datavail_twitter]:https://twitter.com/datavail
+[solliance_twitter]:https://twitter.com/solliancenet
+[improving_twitter]:https://twitter.com/improving
 
 <!--Contact links-->
 [snp_contact]:mailto:sachin@snp.com
@@ -89,3 +100,5 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [newt_contact]:mailto:dmap@newtglobalcorp.com
 [datavail_contact]:https://www.datavail.com/about/contact-us/
 [databene_contact]:https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.data-bene.io%2Fen%23contact&data=05%7C01%7Carianap%40microsoft.com%7C9619e9fb8f20426c479d08db4bcedd2c%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638187124891347095%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=LAv2lRHmJH0kk2tft7LpRwtefQEdTkzwbB2ptoQpt3w%3D&reserved=0
+[solliance_contact]:https://solliance.net/Contact
+[improving_contact]:mailto:toren.huntley@improving.com

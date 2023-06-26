@@ -16,7 +16,7 @@ ms.date: 06/09/2023
 
 # Tutorial: Handle authentication flows in a vanilla JavaScript single-page app
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. This article shows you how to configure the application to authenticate and authorize users to access protected resources.
+In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. This tutorial demonstrates how to configure the application to authenticate and authorize users to access protected resources.
 
 In this tutorial;
 

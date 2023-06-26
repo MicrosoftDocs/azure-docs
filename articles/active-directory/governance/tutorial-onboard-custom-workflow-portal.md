@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/18/2023
+ms.date: 06/22/2023
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
@@ -99,7 +99,7 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
 
 ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks that are currently available. You may learn more in the how-to guide [Check the status of a workflo](check-status-workflow.md). In the course of this tutorial, we look at the status using the user focused reports.
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks that are currently available. You may learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md). In the course of this tutorial, we look at the status using the user focused reports.
 
  1. To begin, select the **Workflow history** tab to view the user summary and associated workflow tasks and statuses.  
  :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history.png" alt-text="Screenshot of workflow History status." lightbox="media/tutorial-lifecycle-workflows/workflow-history.png":::

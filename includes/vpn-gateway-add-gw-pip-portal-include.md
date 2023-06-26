@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 02/17/2023
+ ms.date: 06/23/2023
  ms.author: cherylmc
 
 # The numbers in this include are correct. They add on to sections in multiple articles that are already numbered.

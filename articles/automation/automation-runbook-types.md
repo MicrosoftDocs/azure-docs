@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/08/2023
+ms.date: 06/18/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -87,7 +87,7 @@ The following are the current limitations and known issues with PowerShell runbo
         if($item) { write-output "File Created" }
         ```
     1. You can also upgrade your runbooks to PowerShell 7.1 or PowerShell 7.2 where the same runbook will work as expected.
-
+* If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 5.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
 
 # [PowerShell 7.1 (preview)](#tab/lps71)
 
@@ -118,11 +118,10 @@ The following are the current limitations and known issues with PowerShell runbo
   ```
 - Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation.
 - You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
-
 - When you import a PowerShell 7.1 module that's dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az PowerShell module.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts were < 2.6.0.
-
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
 - We recommend that you use [ExchangeOnlineManagement](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or lower because version: 3.0.0 or higher may lead to job failures.
+- If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 7.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
 
 
 # [PowerShell 7.2 (preview)](#tab/lps72)
