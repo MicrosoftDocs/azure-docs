@@ -99,7 +99,7 @@ sections:
         answer: |
           Azure Cognitive Search supports vector indexing and retrieval, but doesn't generate vector embeddings from input content. 
           
-          Support for vector search is in public preview and available through the [2023-07-01-Preview REST APIs](/rest/api/searchservice/index-preview). Support consists of "vector field", which your documents can provide embeddings for. When you issue a search request with a query vector, the service identifies similar vectors and return the corresponding documents.
+          Support for vector search is in public preview and available through the [2023-07-01-Preview REST APIs](/rest/api/searchservice/index-preview). Support consists of "vector field", which your documents can provide embeddings for. When you issue a search request with a query vector, the service identifies similar vectors and returns the corresponding documents.
 
       - question: |
           How does vector search work in Azure Cognitive Search?
@@ -134,7 +134,7 @@ sections:
       - question: |
           Can I add vector search to an existing index?
         answer: |
-          If your search service supports vector search, both existing and new indexes support vector search. See "Does my search service support vector search?". **You must create or update indexes with vector fields using the 2023-07-01-Preview REST API. Your queries must also specify the preview REST API.**
+          If your search service supports vector search, both existing and new indexes support vector search using the [2023-07-01-Preview REST API](/rest/api/searchservice/index-preview). You can also add vector fields to an existing index using the [Azure portal](/azure/search/search-howto-manage-index#add-fields-to-an-index).
 
       - question: |
           Why do I see different vector index size limits between my new search services and existing search services?
@@ -146,7 +146,7 @@ sections:
         answer: |
           To enable vector search in an index, you should:
 
-          * Add one or more fields of type `Collection(Edm.Single)``, with a "dimensions" property and an "vectorSearchConfiguration" property.
+          * Add one or more fields of type `Collection(Edm.Single)`, with a "dimensions" property and an "vectorSearchConfiguration" property.
           
           * Add a "vectorSearch" section to the index schema specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
           
