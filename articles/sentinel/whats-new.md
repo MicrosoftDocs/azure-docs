@@ -22,6 +22,16 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## July 2023
+
+- [Monitor and troubleshoot the execution of your scheduled analytics rules (Preview)](#monitor-and-troubleshoot-the-execution-of-your-scheduled-analytics-rules-preview)
+
+### Monitor and troubleshoot the execution of your scheduled analytics rules (Preview)
+
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-troubleshoot-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-troubleshoot-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and/or troubleshooting purposes.
+
+[Learn more about monitoring and troubleshooting analytics rules](monitor-troubleshoot-analytics-rule-execution.md).
+
 ## June 2023
 
 - [Windows Forwarded Events connector is now generally available](#windows-forwarded-events-connector-is-now-generally-available)

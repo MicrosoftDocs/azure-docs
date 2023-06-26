@@ -1,6 +1,6 @@
 ---
 title: Monitor and troubleshoot the execution of your Microsoft Sentinel scheduled analytics rules
-description: Use the SentinelHealth data table to keep track of your scheduled analytics rules' execution and performance.
+description: Use Microsoft Sentinel's execution management tools, rule insights and manual rerun, to test and troubleshoot your scheduled analytics rules' execution.
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
@@ -9,11 +9,11 @@ ms.date: 06/19/2023
 
 # Monitor and troubleshoot the execution of your scheduled analytics rules
 
-To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools use Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md) to show you insights on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, and they also allow you to rerun failed attempts on specific execution windows for testing or troubleshooting purposes.
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of insights on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to manually rerun previous executions of rules on specific time windows, for testing and/or troubleshooting purposes.
 
 > [!IMPORTANT]
 >
-> The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel's analytics rule insights and manual rerun are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Summary
 
