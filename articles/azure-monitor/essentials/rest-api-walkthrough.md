@@ -474,36 +474,160 @@ The following JSON shows an example response body.
 }
 ```
 
-## Querying metrics for muiltiple resources at a time.
+## Querying metrics for multiple resources at a time.
 
-In addition to querying for metrics on an individual resource, some resources types also support querying for multiple resources in a single request. These APIs are what power the [Multi-Resource experience in Azure metrics explorer](/metrics-dynamic-scope).
-To see the set of resources types that supports this mode of querying for multiple metrics, go to the [Metrics blade in Azure monitor)(https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics) and view the resource type drop down in the scope selector context blade on the right. 
+In addition to querying for metrics on an individual resource, some resource types also support querying for multiple resources in a single request. These APIs are what power the [Multi-Resource experience in Azure metrics explorer](/metrics-dynamic-scope).
+To see the set of resources types that supports this mode of querying for multiple metrics, go to the [Metrics blade in Azure monitor](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics) and view the resource type drop down in the scope selector context blade on the right. 
 
-Some important differences between querying metrics for multiple resources vs individual resources.
+Here are some important differences between querying metrics for multiple resources vs individual resources.
 1) Metrics multi-resource APIs operate at the subscription level instead of the resource id level. This means users querying these APIs must have reader access to the entire subscription.
 2) Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
 3) Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
 
-### Querying metrics for muiltiple resources Examples:
+### Querying metrics for multiple resources Examples:
 
 Here is an example of an individual metricdefinitions request:
-```HTTP
+```
 https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01
 ```
 This is the equivalent metricdefinitions request for multiple resources:
-```HTTP
+```
 https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines
 ```
 
 Here is an example of an individual metrics request:
-```HTTP
+```
 https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01
 ```
 This is the equivalent metrics request for multiple resources:
-```HTTP
+```
 https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
 ```
-Notice that for the multi resource metrics requests an additional Microsoft.ResourceId eq '*' filter is added as well. This is so a separate time series is required per virtual machines resources in that subscription and region rather than getting a single timeseriees aggregating the average CPU for all VMs.
+Notice that for the multi resource metrics requests, an additional Microsoft.ResourceId eq '*' filter is added as well. This is so a separate time series is returned per virtual machine resource in that subscription and region rather than getting a single timeseries aggregating the average CPU for all VMs.
+The timeseries for each resource is differentiated by the Microsoft.ResourceId metadata value on each timeseries entry.
+
+```JSON
+{
+    "timespan": "2023-06-25T22:35:00Z/2023-06-26T22:40:00Z",
+    "interval": "PT6H",
+    "value": [
+        {
+            "id": "subscriptions/12345678-abcd-98765432-abcdef012345/providers/Microsoft.Insights/metrics/Percentage CPU",
+            "type": "Microsoft.Insights/metrics",
+            "name": {
+                "value": "Percentage CPU",
+                "localizedValue": "Percentage CPU"
+            },
+            "displayDescription": "The percentage of allocated compute units that are currently in use by the Virtual Machine(s)",
+            "unit": "Percent",
+            "timeseries": [
+                {
+                    "metadatavalues": [
+                        {
+                            "name": {
+                                "value": "Microsoft.ResourceId",
+                                "localizedValue": "Microsoft.ResourceId"
+                            },
+                            "value": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1"
+                        }
+                    ],
+                    "data": [
+                        {
+                            "timeStamp": "2023-06-25T22:35:00Z",
+                            "average": 3.2618888888888886
+                        },
+                        {
+                            "timeStamp": "2023-06-26T04:35:00Z",
+                            "average": 4.696944444444445
+                        },
+                        {
+                            "timeStamp": "2023-06-26T10:35:00Z",
+                            "average": 6.19701388888889
+                        },
+                        {
+                            "timeStamp": "2023-06-26T16:35:00Z",
+                            "average": 2.630347222222222
+                        },
+                        {
+                            "timeStamp": "2023-06-26T22:35:00Z",
+                            "average": 21.288999999999998
+                        }
+                    ]
+                },
+                {
+                    "metadatavalues": [
+                        {
+                            "name": {
+                                "value": "Microsoft.ResourceId",
+                                "localizedValue": "Microsoft.ResourceId"
+                            },
+                            "value": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM2"
+                        }
+                    ],
+                    "data": [
+                        {
+                            "timeStamp": "2023-06-25T22:35:00Z",
+                            "average": 7.567069444444444
+                        },
+                        {
+                            "timeStamp": "2023-06-26T04:35:00Z",
+                            "average": 5.111835883171071
+                        },
+                        {
+                            "timeStamp": "2023-06-26T10:35:00Z",
+                            "average": 10.078277777777778
+                        },
+                        {
+                            "timeStamp": "2023-06-26T16:35:00Z",
+                            "average": 8.399097222222222
+                        },
+                        {
+                            "timeStamp": "2023-06-26T22:35:00Z",
+                            "average": 2.647
+                        }
+                    ]
+                },
+                {
+                    "metadatavalues": [
+                        {
+                            "name": {
+                                "value": "Microsoft.ResourceId",
+                                "localizedValue": "Microsoft.ResourceId"
+                            },
+                            "value": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/Common-TESTING/providers/Microsoft.Compute/virtualMachines/CommonVM1"
+                        }
+                    ],
+                    "data": [
+                        {
+                            "timeStamp": "2023-06-25T22:35:00Z",
+                            "average": 6.892319444444444
+                        },
+                        {
+                            "timeStamp": "2023-06-26T04:35:00Z",
+                            "average": 3.5054305555555554
+                        },
+                        {
+                            "timeStamp": "2023-06-26T10:35:00Z",
+                            "average": 8.398817802503476
+                        },
+                        {
+                            "timeStamp": "2023-06-26T16:35:00Z",
+                            "average": 6.841666666666667
+                        },
+                        {
+                            "timeStamp": "2023-06-26T22:35:00Z",
+                            "average": 3.3850000000000002
+                        }
+                    ]
+                }
+            ],
+            "errorCode": "Success"
+        }
+    ],
+    "namespace": "microsoft.compute/virtualmachines",
+    "resourceregion": "eastus"
+}
+```
 
 ## Retrieve activity log data
 
