@@ -1,14 +1,14 @@
 ---
-title: Manage Office 365 services using Azure Automation
-description: This article tells how to use Azure Automation to manage Office 365 subscription services.
+title: Manage sql server using Azure Automation
+description: This article tells how to use Azure SQL server using a system assinged managed identity
 services: automation
 ms.date: 06/26/2023
 ms.topic: conceptual
 ---
 
-# Connect to Azure SQL server using an identity account
+# Manage Azure SQL server using an identity account
 
-You can access Automation system managed Identity to Azure SQL database. 
+This article describes the process to manage the SQL server using the Azure Automation account.
 
 ## Scenario: Manage SQL server using Azure Automation
 
