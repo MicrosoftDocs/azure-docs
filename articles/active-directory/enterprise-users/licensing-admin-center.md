@@ -15,7 +15,7 @@ ms.date: 06/24/2023
 ms.author: barclayn
 ---
 
-# Assign licenses to users by group membership in Azure Active Directory
+# Assign licenses to users by group membership using the Microsoft 365 admin center
 
 This article shows you how to use the Microsoft 365 license center to assign licenses to a group.
 
@@ -24,21 +24,22 @@ This article shows you how to use the Microsoft 365 license center to assign lic
 >
 > For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your user creation flow in Azure AD. For example, configure Azure AD Connect configuration to set usage location. This recommendation makes sure the result of license assignment is always correct and users do not receive services in locations that are not allowed.
 
-## Step 1: Assign the required licenses
+## Assign a license
 
 1. Sign in to the [Microsoft 365 Admin center](https://admin.microsoft.com/) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
    
-      ![Select products to assign licenses](./media/licensing-admin-center/admin-center.png)
+      ![Microsoft Admin Center landing page](./media/licensing-admin-center/admin-center.png)
 
-1. Browse to **Billing** > **Licenses** to open a page where you can see and manage all licensable products in the organization.
+1. Browse to **Billing** > **Licenses** to open a page where you can see all licenses avaialble in your organization.
 
       ![Select products to assign licenses](./media/licensing-admin-center/choose-licenses.png)
 
 1. Under **Licenses**, select the license that you would like to assign. 
 1. In the License details section, choose **Groups** at the top of the page.
 1. Choose **+ Assign licenses**
+1. From the **+ Assign licenses** page search for the group that you would like to use for license assignment.
 
-   ![Select products to assign licenses](./media/licensing-admin-center/assign-license-group.png)
+   ![Choose the group to use for license assignment](./media/licensing-admin-center/assign-license-group.png)
   
    >[!NOTE]
    >When assigning licenses to a group with service plans that have dependencies on other service plans, they must both be assigned together in the same group, otherwise the service plan with the dependency will be disabled.
@@ -49,18 +50,17 @@ This article shows you how to use the Microsoft 365 license center to assign lic
 
 When assign licenses to a group, Azure AD processes all existing members of that group. This process might take some time depending on the size of the group.
 
-   ![Choose assign after selecting the group](./media/licensing-admin-center/licenses-assignment-message.png)
+   ![Message telling the administrator that they have assigned a license to a group](./media/licensing-admin-center/licenses-assignment-message.png)
 
-## Step 2: Verify that the initial assignment has finished
+## Verify that the initial assignment has finished
 
 1. From the Admin Center, go to **Billing** > **Licenses**. Select the license that you assigned.
 
 1. On the **License details** page, you can view the status of the license assignment operation. 
 
-   ![license status](./media/licensing-groups-assign/in-progress.png)
+   ![license assignment progress](./media/licensing-admin-center/progress.png)
 
    [Read this section](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) to learn more about how audit logs can be used to analyze changes made by group-based licensing.
-
 
 
 ## Next steps
