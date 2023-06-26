@@ -250,7 +250,7 @@ For more code examples to add to your maps, see the following articles:
 [Draggable HTML Marker]: https://samples.azuremaps.com/html-markers/draggable-html-marker
 [HTML Marker events]: https://samples.azuremaps.com/html-markers/html-marker-events
 
-e HTML Marker source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/Simple%20HTML%20Marker/Simple%20HTML%20Marker.html
+[HTML Marker source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/Simple%20HTML%20Marker/Simple%20HTML%20Marker.html
 [HTML Marker with Custom SVG Template source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20Marker%20with%20Custom%20SVG%20Template/HTML%20Marker%20with%20Custom%20SVG%20Template.html
 [CSS Styled HTML Marker source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/CSS%20Styled%20HTML%20Marker/CSS%20Styled%20HTML%20Marker.html
 [Draggable HTML Marker source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/Draggable%20HTML%20Marker/Draggable%20HTML%20Marker.html
