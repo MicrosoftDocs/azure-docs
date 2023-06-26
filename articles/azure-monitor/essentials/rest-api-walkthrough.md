@@ -18,7 +18,7 @@ Retrieve metric definitions, dimension values, and metric values using the Azure
 
 Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Azure Active Directory. One approach to authenticating the client application is to create an Azure Active Directory service principal and retrieve an authentication token. You can create an Azure Active Directory service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md)
 
-## Retrieve a token
+### Retrieve a token
 Once you've created a service principal, retrieve an access token using a REST call. Submit the following request using the `appId` and `password` for your service principal or app:
 
 ```HTTP
@@ -63,6 +63,116 @@ After authenticating and retrieving a token, use the access token in your Azure 
 > [!NOTE]
 > For more information on working with the Azure REST API, see the [Azure REST API reference](/rest/api/azure/).
 >
+
+## Retrieve the resource ID
+
+Using the REST API requires the resource ID of the target Azure resource.
+Resource IDs follow the following pattern:
+
+`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<provider>/<resource name>/`
+
+For example 
+
+* **Azure IoT Hub**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Devices/IotHubs/\<iot-hub-name>
+* **Elastic SQL pool**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Sql/servers/\<pool-db>/elasticpools/\<sql-pool-name>
+* **Azure SQL Database (v12)**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Sql/servers/\<server-name>/databases/\<database-name>
+* **Azure Service Bus**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.ServiceBus/\<namespace>/\<servicebus-name>
+* **Azure Virtual Machine Scale Sets**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachineScaleSets/\<vm-name>
+* **Azure Virtual Machines**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachines/\<vm-name>
+* **Azure Event Hubs**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.EventHub/namespaces/\<eventhub-namespace>
+
+Use the Azure portal, PowerShell or the Azure CLI to find the resource ID.
+
+
+### [Azure portal](#tab/portal)
+
+To find the resourceID in the portal, from the resource's overview page, select **JSON view**
+:::image type="content" source="./media/rest-api-walkthrough/json-view-azure-portal.png" alt-text="A screenshot showing the overview page for a resource with the JSON view link highlighted":::
+
+
+The Resource JSON page is displayed. The resource ID can be copied using the icon on the right of the ID 
+
+:::image type="content" source="./media/rest-api-walkthrough/resourceid-azure-portal.png" alt-text="A screenshot showing the Resource JSON page for a resource":::
+
+
+### [PowerShell](#tab/powershell)
+
+The resource ID can be retrieved by using Azure PowerShell cmdlets too. For example, to obtain the resource ID for an Azure logic app, execute the `Get-AzureLogicApp` cmdlet, as in the following example:
+
+```powershell
+Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+```
+
+The result should be similar to the following example:
+
+```output
+Id             : /subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
+Name           : ContosoTweets
+Type           : Microsoft.Logic/workflows
+Location       : centralus
+ChangedTime    : 8/21/2017 6:58:57 PM
+CreatedTime    : 8/18/2017 7:54:21 PM
+AccessEndpoint : https://prod-08.centralus.logic.azure.com:443/workflows/f3a91b352fcc47e6bff989b85446c5db
+State          : Enabled
+Definition     : {$schema, contentVersion, parameters, triggers...}
+Parameters     : {[$connections, Microsoft.Azure.Management.Logic.Models.WorkflowParameter]}
+SkuName        :
+AppServicePlan :
+PlanType       :
+PlanId         :
+Version        : 08586982649483762729
+```
+
+### [Azure CLI](#tab/cli)
+
+To retrieve the resource ID for an Azure Storage account by using the Azure CLI, execute the `az storage account show` command, as shown in the following example:
+
+```azurecli
+az storage account show -g azmon-rest-api-walkthrough -n azmonstorage001
+```
+
+The result should be similar to the following example:
+
+```json
+{
+  "accessTier": null,
+  "creationTime": "2023-08-18T19:58:41.840552+00:00",
+  "customDomain": null,
+  "enableHttpsTrafficOnly": false,
+  "encryption": null,
+  "id": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/azmonstorage001",
+  "identity": null,
+  "kind": "Storage",
+  "lastGeoFailoverTime": null,
+  "location": "centralus",
+  "name": "azmonstorage001",
+  "networkAcls": null,
+  "primaryEndpoints": {
+    "blob": "https://azmonstorage001.blob.core.windows.net/",
+    "file": "https://azmonstorage001.file.core.windows.net/",
+    "queue": "https://azmonstorage001.queue.core.windows.net/",
+    "table": "https://azmonstorage001.table.core.windows.net/"
+  },
+  "primaryLocation": "centralus",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "azmon-rest-api-walkthrough",
+  "secondaryEndpoints": null,
+  "secondaryLocation": "eastus2",
+  "sku": {
+    "name": "Standard_GRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "available",
+  "statusOfSecondary": "available",
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
+}
+```
+
+> [!NOTE]
+> Azure logic apps aren't yet available via the Azure CLI. For this reason, an Azure Storage account is shown in the preceding example.
+>
+---
 
 ## Retrieve metric definitions
 
@@ -364,115 +474,37 @@ The following JSON shows an example response body.
 }
 ```
 
-### Retrieve the resource ID
+## Querying metrics for muiltiple resources at a time.
 
-Using the REST API requires the resource ID of the target Azure resource.
-Resource IDs follow the following pattern:
+In addition to querying for metrics on an individual resource, some resources types also support querying for multiple resources in a single request. These APIs are what power the [Multi-Resource experience in Azure metrics explorer](/metrics-dynamic-scope).
+To see the set of resources types that supports this mode of querying for multiple metrics, go to the [Metrics blade in Azure monitor)(https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics) and view the resource type drop down in the scope selector context blade on the right. 
 
-`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<provider>/<resource name>/`
+Some important differences between querying metrics for multiple resources vs individual resources.
+1) Metrics multi-resource APIs operate at the subscription level instead of the resource id level. This means users querying these APIs must have reader access to the entire subscription.
+2) Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
+3) Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
 
-For example 
+### Querying metrics for muiltiple resources Examples:
 
-* **Azure IoT Hub**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Devices/IotHubs/\<iot-hub-name>
-* **Elastic SQL pool**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Sql/servers/\<pool-db>/elasticpools/\<sql-pool-name>
-* **Azure SQL Database (v12)**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Sql/servers/\<server-name>/databases/\<database-name>
-* **Azure Service Bus**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.ServiceBus/\<namespace>/\<servicebus-name>
-* **Azure Virtual Machine Scale Sets**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachineScaleSets/\<vm-name>
-* **Azure Virtual Machines**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.Compute/virtualMachines/\<vm-name>
-* **Azure Event Hubs**: /subscriptions/\<subscription-id>/resourceGroups/\<resource-group-name>/providers/Microsoft.EventHub/namespaces/\<eventhub-namespace>
-
-Use the Azure portal, PowerShell or the Azure CLI to find the resource ID.
-
-
-### [Azure portal](#tab/portal)
-
-To find the resourceID in the portal, from the resource's overview page, select **JSON view**
-:::image type="content" source="./media/rest-api-walkthrough/json-view-azure-portal.png" alt-text="A screenshot showing the overview page for a resource with the JSON view link highlighted":::
-
-
-The Resource JSON page is displayed. The resource ID can be copied using the icon on the right of the ID 
-
-:::image type="content" source="./media/rest-api-walkthrough/resourceid-azure-portal.png" alt-text="A screenshot showing the Resource JSON page for a resource":::
-
-
-### [PowerShell](#tab/powershell)
-
-The resource ID can be retrieved by using Azure PowerShell cmdlets too. For example, to obtain the resource ID for an Azure logic app, execute the `Get-AzureLogicApp` cmdlet, as in the following example:
-
-```powershell
-Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+Here is an example of an individual metricdefinitions request:
+```HTTP
+https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01
+```
+This is the equivalent metricdefinitions request for multiple resources:
+```HTTP
+https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines
 ```
 
-The result should be similar to the following example:
-
-```output
-Id             : /subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
-Name           : ContosoTweets
-Type           : Microsoft.Logic/workflows
-Location       : centralus
-ChangedTime    : 8/21/2017 6:58:57 PM
-CreatedTime    : 8/18/2017 7:54:21 PM
-AccessEndpoint : https://prod-08.centralus.logic.azure.com:443/workflows/f3a91b352fcc47e6bff989b85446c5db
-State          : Enabled
-Definition     : {$schema, contentVersion, parameters, triggers...}
-Parameters     : {[$connections, Microsoft.Azure.Management.Logic.Models.WorkflowParameter]}
-SkuName        :
-AppServicePlan :
-PlanType       :
-PlanId         :
-Version        : 08586982649483762729
+Here is an example of an individual metrics request:
+```HTTP
+https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01
 ```
-
-### [Azure CLI](#tab/cli)
-
-To retrieve the resource ID for an Azure Storage account by using the Azure CLI, execute the `az storage account show` command, as shown in the following example:
-
-```azurecli
-az storage account show -g azmon-rest-api-walkthrough -n azmonstorage001
+This is the equivalent metrics request for multiple resources:
+```HTTP
+https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
 ```
+Notice that for the multi resource metrics requests an additional Microsoft.ResourceId eq '*' filter is added as well. This is so a separate time series is required per virtual machines resources in that subscription and region rather than getting a single timeseriees aggregating the average CPU for all VMs.
 
-The result should be similar to the following example:
-
-```json
-{
-  "accessTier": null,
-  "creationTime": "2023-08-18T19:58:41.840552+00:00",
-  "customDomain": null,
-  "enableHttpsTrafficOnly": false,
-  "encryption": null,
-  "id": "/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/azmonstorage001",
-  "identity": null,
-  "kind": "Storage",
-  "lastGeoFailoverTime": null,
-  "location": "centralus",
-  "name": "azmonstorage001",
-  "networkAcls": null,
-  "primaryEndpoints": {
-    "blob": "https://azmonstorage001.blob.core.windows.net/",
-    "file": "https://azmonstorage001.file.core.windows.net/",
-    "queue": "https://azmonstorage001.queue.core.windows.net/",
-    "table": "https://azmonstorage001.table.core.windows.net/"
-  },
-  "primaryLocation": "centralus",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "azmon-rest-api-walkthrough",
-  "secondaryEndpoints": null,
-  "secondaryLocation": "eastus2",
-  "sku": {
-    "name": "Standard_GRS",
-    "tier": "Standard"
-  },
-  "statusOfPrimary": "available",
-  "statusOfSecondary": "available",
-  "tags": {},
-  "type": "Microsoft.Storage/storageAccounts"
-}
-```
-
-> [!NOTE]
-> Azure logic apps aren't yet available via the Azure CLI. For this reason, an Azure Storage account is shown in the preceding example.
->
----
 ## Retrieve activity log data
 
 Use the Azure Monitor REST API to query [activity log](/rest/api/monitor/activitylogs) data. 
@@ -524,8 +556,9 @@ You may receive one of the following HTTP error statuses:
 * 429 Too Many Requests
 * 503 Service Unavailable
 * 504 Gateway Timeout
+* 529 Service Throttling
 
-If one of these statuses is returned, resend the request.
+If one of these statuses is returned, wait for at least 30 seconds and resend the request.
 
 ## Next steps
 
