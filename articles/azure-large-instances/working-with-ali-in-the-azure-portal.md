@@ -26,6 +26,7 @@ You can register the Azure Large Instance resource provider using the Azure port
 
 ### [Portal](#tab/azure-portal)
 
+
 You'll need to list your subscription in the Azure portal and then double-click the subscription used to deploy your ALI instance.
 
 1. Sign in to the Azure portal.
