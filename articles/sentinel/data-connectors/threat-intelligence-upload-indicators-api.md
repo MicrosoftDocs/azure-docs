@@ -36,13 +36,13 @@ ThreatIntelligenceIndicator
 You can connect your threat intelligence data sources to Microsoft Sentinel by either: 
 
 
->Using an integrated Threat Intelligence Platform (TIP), such as Threat Connect, Palo Alto Networks MineMeld, MISP, and others. 
+- Using an integrated Threat Intelligence Platform (TIP), such as Threat Connect, Palo Alto Networks MineMeld, MISP, and others. 
 
->Calling the Microsoft Sentinel data plane API directly from another application. 
+- Calling the Microsoft Sentinel data plane API directly from another application. 
 
 Follow These Steps to Connect to your Threat Intelligence: 
 
-1. Get AAD Access Token
+Get AAD Access Token
 
 To send request to the APIs, you need to acquire Azure Active Directory access token. You can follow instruction in this page: [Get Azure AD tokens for users by using MSAL](/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token). 
   - Notice: Please request AAD access token with appropriate scope value.
