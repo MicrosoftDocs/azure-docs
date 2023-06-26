@@ -57,4 +57,4 @@ The following operations are available on Call Automation API request metrics:
 
 ## Next steps
 
-- Learn more about [Data Platform Metrics](../../../../azure-monitor/essentials/data-platform-metrics).
+- Learn more about [Data Platform Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md).
