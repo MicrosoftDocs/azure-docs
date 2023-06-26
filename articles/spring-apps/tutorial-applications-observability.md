@@ -30,21 +30,6 @@ and use Application Insights to investigate production issues.
 ## 1. Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Complete the previous quickstart in this series: [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md).
-
-  1. Make sure that both the `Enable logs of Diagnostic settings` and `Application Insights` functions are enabled on the Azure Spring Apps instance.
-
-  1. Make sure that applications `customers-service`, `vets-service` and `visits-service` are all configured with a validated service connector linking to an Azure Database for MySQL instance.
-
-  1. Make sure that the applications that need to link to the database have activated the mysql profile through the environment variable:
-     - On the **Configuration** page of app **customers-service**, select **Environment variables** tab page, enter `SPRING_PROFILES_ACTIVE` for **Key**, enter `mysql` for **Value**, then select **Save**
-
-       :::image type="content" source="media/tutorial-applications-observability/app-customers-service-config-env.png" alt-text="Screenshot of Azure portal showing config env for customers-service app" lightbox="media/tutorial-applications-observability/app-customers-service-config-env.png":::
-
-     - Repeat the configuration steps of `customers-service` above to configure the following applications:
-     
-         - `vets-service`
-         - `visits-service`
 
 [!INCLUDE [tutorial-applications-observability-with-basic-standard-plan](includes/tutorial-applications-observability/applications-observability-with-basic-standard-plan.md)]
 
