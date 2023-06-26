@@ -270,8 +270,7 @@ Does cross-tenant synchronization support deprovisioning users?
 Does cross-tenant synchronization support restoring users? 
 
 - If the user in the source tenant is restored, reassigned to the app, meets the scoping condition again within 30 days of soft deletion, it will be restored in the target tenant.
-- IT admins can also manually [restore](/azure/active-directory/fundamentals/active-directory-users-restore)
-../fundamentals/active-directory-users-restore.md) the user directly in the target tenant.
+- IT admins can also manually [restore](/azure/active-directory/fundamentals/active-directory-users-restore) the user directly in the target tenant.
 
 How can I deprovision all the users that are currently in scope of cross-tenant synchronization? 
 
