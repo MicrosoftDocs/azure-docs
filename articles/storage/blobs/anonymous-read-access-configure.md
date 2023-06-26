@@ -51,7 +51,7 @@ Keep in mind that anonymous access to a container is always turned off by defaul
 Disallowing anonymous access for the storage account overrides the access settings for all containers in that storage account, preventing anonymous access to blob data in that account. When anonymous access is disallowed for the account, it is not possible to configure the access setting for a container to permit anonymous access, and any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously. For more information, see [Prevent anonymous read access to containers and blobs](anonymous-read-access-prevent.md).
 
 > [!IMPORTANT]
-> After anonymous access is disallowed for a storage account, clients that use the anonymous bearer challenge will find that Azure Storage returns a 403 error (Forbidden) rather than a 401 error (Unauthorized). We recommend that you make all containers private to mitigate this issue. For more information on modifying the anonymous access setting for containers, see [Set the access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
+> After anonymous access is disallowed for a storage account, clients that use the anonymous bearer challenge will find that Azure Storage returns a 403 error (Forbidden) rather than a 401 error (Unauthorized). We recommend that you make all containers private to mitigate this issue. For more information on modifying the anonymous access setting for containers, see [Set the access level for a container](anonymous-read-access-configure.md#set-the-anonymous-access-level-for-a-container).
 
 Allowing or disallowing anonymous access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
@@ -184,7 +184,7 @@ When a container is configured for anonymous access, requests to read blobs in t
 
 Allowing or disallowing blob anonymous access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
-The examples in this section showed how to read the **AllowBlobPublicAccess** property for the storage account to determine whether anonymous access is currently allowed or disallowed. To learn how to verify that an account's anonymous access setting is configured to prevent anonymous access, see [Remediate anonymous access for the storage account](anonymous-read-access-prevent.md#remediate-anonymous-public-access-for-the-storage-account).
+The examples in this section showed how to read the **AllowBlobPublicAccess** property for the storage account to determine whether anonymous access is currently allowed or disallowed. To learn how to verify that an account's anonymous access setting is configured to prevent anonymous access, see [Remediate anonymous access for the storage account](anonymous-read-access-prevent.md#remediate-anonymous-access-for-the-storage-account).
 
 ## Set the anonymous access level for a container
 

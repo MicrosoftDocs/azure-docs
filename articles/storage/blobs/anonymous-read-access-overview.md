@@ -38,7 +38,7 @@ If your storage account is using the classic deployment model, then you can reme
 
 ### Scenarios requiring anonymous access
 
-If your scenario requires that certain containers need to be available for anonymous access, then you should move those containers and their blobs into separate storage accounts that are reserved only for anonymous access. You can then disallow anonymous access for any other storage accounts using the recommendations provided in [Recommendations for remediating anonymous access](#recommendations-for-remediating-anonymous-public-access).
+If your scenario requires that certain containers need to be available for anonymous access, then you should move those containers and their blobs into separate storage accounts that are reserved only for anonymous access. You can then disallow anonymous access for any other storage accounts using the recommendations provided in [Recommendations for remediating anonymous access](#recommendations-for-remediating-anonymous-access).
 
 For information on how to configure containers for anonymous access, see [Configure anonymous read access for containers and blobs](anonymous-read-access-configure.md).
 
