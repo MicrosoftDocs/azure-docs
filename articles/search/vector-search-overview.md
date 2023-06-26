@@ -85,7 +85,7 @@ For example, Azure Storage can store vector data in JSON and other file formats.
 
 ## Other vector initiatives at Microsoft
 
-+ [Semantic kernerl](https://github.com/microsoft/semantic-kernel/blob/main/README.md)
++ [Semantic kernel](https://github.com/microsoft/semantic-kernel/blob/main/README.md)
 
 ## Next steps
 
