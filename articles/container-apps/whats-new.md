@@ -17,13 +17,13 @@ This article lists significant updates to Dapr and how new features are availabl
 | Feature | Documentation | Description |
 | ------- | ------------- | ----------- |
 | [Stable Configuration API](https://docs.dapr.io/developing-applications/building-blocks/configuration/) | [Dapr integration with Azure Container Apps](./dapr-overview.md) | Dapr's Configuration API is now stable and supported in Azure Container Apps. |
-| [Multi-app Run improved](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run) | [Multi-app Run logs](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-overview/#logs) | You can now write app logs to the console _and_ a local log file with `dapr run -f .` |
+| [Multi-app Run improved](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run) | [Multi-app Run logs](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-overview/#logs) | Use `dapr run -f .` to run multiple Dapr apps and see the app logs written to the console _and_ a local log file. |
 
 ## May 2023
 
 | Feature | Documentation | Description |
 | ------- | ------------- | ----------- |
-| [Easy component creation](./dapr-component-connection.md) | [Connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md) | Service Connector teams up with Dapr to provide an improved component creation feature in the Azure Container Apps portal. |
+| [Easy component creation](./dapr-component-connection.md) | [Connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md) | Service Connector teams up with Dapr to provide an improved component creation feature in the Azure Container Apps portal. | This feature makes it easier to configure and secure dependent Azure services to be used with Dapr APIs in the portal using the Service Connector feature. |
 
 
 ## Next steps
