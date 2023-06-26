@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2023
+ms.date: 06/26/2023
 ms.author: barclayn
 ---
 
@@ -56,7 +56,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. From the Admin Center, go to **Billing** > **Licenses**. Select the license that you assigned.
 
-1. On the **License details** page, you can view the status of the license assignment operation. 
+1. On the **License details** page, you can view the status of the license assignment operation. For example, in the image show below, you can see that **Contoso marketing** shows a status of **All licenses assigned** while **Contoso human resources** shows a status of **In progress**.
 
    ![license assignment progress](./media/licensing-admin-center/progress.png)
 
