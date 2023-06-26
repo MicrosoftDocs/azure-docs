@@ -110,11 +110,11 @@
       items:
       - name: Install sensor software
         href: ot-deploy/install-software-ot-sensor.md
-      - name: Validate after installation
-        href: ot-deploy/post-install-validation-ot-software.md
       - name: Activate and set up an OT sensor
         href: ot-deploy/activate-deploy-sensor.md
         displayName: SSL, TLS, certificate
+      - name: Validate after installation
+        href: ot-deploy/post-install-validation-ot-software.md
       - name: Configure proxy settings
         href: connect-sensors.md
     - name: Calibrate and fine-tune OT monitoring

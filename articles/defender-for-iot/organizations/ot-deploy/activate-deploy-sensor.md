@@ -31,9 +31,9 @@ This step is performed by your deployment teams.
 
 ## Sign in to your OT sensor
 
-If you installed software on a sensor appliance yourself, you'll have received a set of credentials for privileged access during the [software installation process](install-software-ot-sensor.md#credentials). If you purchased pre-configured appliances, your credentials will have been delivered with the appliance.
+If you installed software on a sensor appliance yourself, you'll have defined a new password for the *support* user. If you purchased pre-configured appliances, your credentials will have been delivered with the appliance.
 
-We recommend using the **Support** credentials when signing into the OT sensor for the first time. For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
+We recommend using the *support* user when signing into the OT sensor for the first time. For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
 **To sign in to your OT sensor**:
 

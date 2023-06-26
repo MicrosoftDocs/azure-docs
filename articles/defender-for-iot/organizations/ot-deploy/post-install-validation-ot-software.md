@@ -33,7 +33,7 @@ After installing OT monitoring software, make sure to run the following tests:
 
 - **Version**: Verify that the version is correct.
 
-- **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
+- **ifconfig**: Verify that all the input interfaces configured during the installation process are running. <!--do we still do this? do we still need to do anyhting on this page anymore or is it all in the UI?-->
 
 ## Gateway checks
 

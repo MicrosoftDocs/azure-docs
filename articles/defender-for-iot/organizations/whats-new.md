@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 05/17/2023
+ms.date: 06/26/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,32 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## July 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Version 23.1.x**: [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) |
+
+## OT sensor installation and setup enhancements
+
+In version 23.1.x we've updated the OT sensor installation and setup wizards to be quicker and more user-friendly. Updates include:
+
+- **Installation wizard**: If you're installing software on your own physical or virtual machines, the Linux installation wizard now goes directly through the installation process without requiring any input or details from you. The installation uses default values for your network settings, which you fine-tune only after installation in the sensor user interface. 
+
+    The installation wizard also provides you with a single set of sign-in credentials, which you'll use only the first time you sign into your sensor. 
+
+- **Setup wizard**: After installing software, or if you've ordered pre-configured appliances, the setup wizard also now has a new look. 
+
+    In addition to uploading your sensor activation file and defining SSL/TLS certificate settings as before, define your network settings to ensure that each sensor monitors your network as planned.
+
+- **Post-deployment fine-tune**: After completing the installation and initial setup, return to the sensor settings at any time to review the subnets currently being monitored. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections.
+
+For more information, see:
+
+- [Install OT monitoring software on OT sensors](ot-deploy/install-software-ot-sensor.md)
+- [Activate and set up your OT network sensor](ot-deploy/activate-deploy-sensor.md)
+- [Maintain OT network sensors from the sensor console](how-to-manage-individual-sensors.md)
 
 ## June 2023
 

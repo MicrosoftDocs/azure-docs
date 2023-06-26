@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 1/02/2023
+ms.date: 06/26/2023
 ---
 
 # OT monitoring software versions
@@ -37,6 +37,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
+| **23.1** | | | |
+| 23.1.1 | 07/2023 | Major | 06/2024 |
 | **22.3** | | | |
 | 22.3.9 | 05/2023 | Patch | 04/2024 |
 | 22.3.8 | 04/2023 | Patch | 03/2024 |
@@ -94,6 +96,20 @@ Maintain your sensors and on-premises management consoles, for activities like b
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
+
+## Versions 23.1.x
+
+### Version 23.1.1
+
+**Release date**: 07/2023
+
+**Supported until**: 06/2024
+
+This version includes the following updates and enhancements:
+
+- [Simplified installation process](ot-deploy/install-software-ot-sensor.md)
+- [Enhanced set-up wizard](ot-deploy/activate-deploy-sensor.md)
+- [Analyze sensor connectivity](how-to-manage-individual-sensors.md)
 
 ## Versions 22.3.x
 

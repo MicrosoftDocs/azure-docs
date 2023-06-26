@@ -13,12 +13,9 @@ This article lists the CLI commands available from Defender for IoT OT network s
 
 ## Prerequisites
 
-Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
+Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a *support* user.
 
-Each activity listed in this article is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
-
->[!IMPORTANT]
-> We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
+In software versions before 23.1.x, the sensor and on-premises management console also support the *cyberx* and *cyberx_host* users. Command syntax is listed only for the users supported for a specific activity. The *cyberx* and *cyberx_host* users are not supported in version 23.1.x and higher.
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
@@ -59,6 +56,7 @@ System is UP! (medium)
 
 
 ### Restart and shutdown
+
 #### Restart an appliance
 
 Use the following commands to restart the OT sensor appliance.
