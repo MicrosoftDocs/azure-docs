@@ -6,6 +6,7 @@ ms.author: toabiodu
 ms.service: purview
 ms.topic: how-to
 ms.date: 06/16/2023
+ms.custom: references_regions
 ---
 
 # Get ready for the next enhancement in Microsoft Purview
@@ -54,6 +55,7 @@ To access it, you can either:
 
 >[!TIP]
 >You can switch between the classic and new experiences using the toggle at the top of the portal.
+>
 >:::image type="content" source="./media/account-upgrades/switch.png" alt-text="Screenshot of the toggle to switch between the new and classic experiences after upgrading.":::
 
 ### Multiple Microsoft Purview accounts
@@ -76,9 +78,12 @@ To access it, you can either:
 
 >[!TIP]
 >You can switch between the classic and new experiences using the toggle at the top of the portal.
+>
 > :::image type="content" source="./media/account-upgrades/switch.png" alt-text="Screenshot of the toggle to switch between the new and classic experiences.":::
 
 ## Regions
+
+For information regarding all available Microsoft Purview regions, see [the Azure product by regions page.](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview&regions=all)
 
 These are the regions that are currently available for the new experience:
 
