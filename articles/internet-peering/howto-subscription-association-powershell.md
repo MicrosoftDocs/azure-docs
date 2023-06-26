@@ -95,11 +95,8 @@ Deleting a PeerASN isn't currently supported. If you need to delete PeerASN, con
 
 ## Next steps
 
-* [Create or modify a Direct peering](howto-direct-powershell.md)
-* [Convert a legacy Direct peering to Azure resource](howto-legacy-direct-powershell.md)
-* [Create or modify Exchange peering](howto-exchange-powershell.md)
-* [Convert a legacy Exchange peering to Azure resource](howto-legacy-exchange-powershell.md)
-
-## Additional resources
-
-For more information, visit [Internet peering FAQ](faqs.md)
+- [Create or modify a Direct peering using Azure PowerShell](howto-direct-powershell.md).
+- [Convert a legacy Direct peering to Azure resource using Azure PowerShell](howto-legacy-direct-powershell.md).
+- [Create or modify Exchange peering using Azure PowerShell](howto-exchange-powershell.md).
+- [Convert a legacy Exchange peering to Azure resource using Azure PowerShell](howto-legacy-exchange-powershell.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

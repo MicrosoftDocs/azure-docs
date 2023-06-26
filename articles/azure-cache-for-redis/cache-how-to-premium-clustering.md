@@ -120,7 +120,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I configure clustering for a basic or standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 * [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 * [I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
-* [Does scaling out using clustering help to increase the number of supported client connections?](#Does scaling out using clustering help to increase the number of supported client connections?)
+* [Does scaling out using clustering help to increase the number of supported client connections?](#does-scaling-out-using-clustering-help-to-increase-the-number-of-supported-client-connections)
 
 ### Do I need to make any changes to my client application to use clustering?
 

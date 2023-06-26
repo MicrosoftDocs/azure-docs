@@ -3119,8 +3119,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn |Yes |Bytes In |Count |Total |Total number of Bytes Out |No Dimensions |
-|PEBytesOut |Yes |Bytes Out |Count |Total |Total number of Bytes Out |No Dimensions |
+|PEBytesIn |No |Bytes In |Count |Total |Total number of Bytes Out |No Dimensions |
+|PEBytesOut |No |Bytes Out |Count |Total |Total number of Bytes Out |No Dimensions |
 
 ## Microsoft.Network/privateLinkServices  
 <!-- Data source : arm-->
