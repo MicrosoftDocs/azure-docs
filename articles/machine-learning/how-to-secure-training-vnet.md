@@ -104,36 +104,36 @@ In this article you learn how to secure the following training compute resources
 
 To create a compute cluster in a different Azure Virtual Network than your workspace, need to decide which method you want to use to enable communication between the two VNets.
 
-* Use VNet Peering.
+* Use [VNet Peering](/azure/virtual-network/virtual-network-peering-overview).
 * Add a private endpoint for your workspace in the virtual network that will contain the compute cluster.
 
 Regardless of the method selected, you must also create the VNet; Azure Machine Learning will not create it for you.
 
+### Scenario: VNet peering
+
+1. Configure your workspace to use an Azure Virtual Network. For more information, see [Secure your workspace resources](how-to-secure-workspace-vnet.md).
+1. Create a second Azure Virtual Network that will be used for your compute clusters. It can be in a different Azure region than the one used for your workspace.
+1. Configure [VNet Peering](/azure/virtual-network/virtual-network-peering-overview) between the two VNets.
+
+    > [!TIP]
+    > Wait until the VNet Peering status is **Connected** before continuing.
+
+1. Modify the `privatelink.api.azureml.ms` DNS zone. This zone is created by your Azure Machine Learning workspace when it uses a private endpoint to participate in a VNet.
+1. 
+1. Configure the following Azure resources to allow access from both VNets.
+
+    * The default storage account for the workspace.
+    * The Azure Container registry for the workspace.
+    * The Azure Key Vault for the workspace.
+
+    > [!TIP]
+    > There are multiple ways that you might configure these services to allow access to the VNets. For example, you might create a private endpoint for each resource in both VNets. Or you might configure the resources to allow access from both VNets.
+
+1. Create a compute cluster as normal, but select the VNet that you created for the compute cluster. If the VNet is in a different region, select that region when creating the compute cluster.
+
+### Scenario: Private endpoint
 
 
-# [Azure CLI](#tab/cli)
-
-In the `az ml compute create` command, replace the following values:
-
-* `rg`: The resource group that the compute will be created in.
-* `ws`: The Azure Machine Learning workspace name.
-* `yourvnet`: The Azure Virtual Network to use for the compute.
-* `yoursubnet`: The subnet to use for the compute.
-* `region`: The Azure region to create the compute in.
-* `AmlCompute` or `ComputeInstance`: Specifying `AmlCompute` creates a *compute cluster*. `ComputeInstance` creates a *compute instance*.
-
-```azurecli-interactive
-az ml compute create --name cpu-cluster --resource-group rg --workspace-name ws --vnet-name yourvnet --subnet yoursubnet --location region --type AmlCompute
-```
-
-# [Python SDK](#tab/python)
-
-TBD
-
-
-# [Studio](#tab/azure-studio)
-
----
 
 ## Compute instance/cluster with no public IP
 
