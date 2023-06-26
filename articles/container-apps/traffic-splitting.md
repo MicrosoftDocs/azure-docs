@@ -234,4 +234,4 @@ The following example template applies labels to different revisions.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure ingress](ingress-how-to.md)
+> [Blue-green deployment](blue-green-deployment.md)
