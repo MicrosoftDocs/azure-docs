@@ -110,7 +110,7 @@ The json object is an example HRD policy definition:
     {  
       "AccelerateToFederatedDomain":true,
       "PreferredDomain":"federated.example.edu",
-      "AllowCloudPasswordValidation":false,    
+      "AllowCloudPasswordValidation":false
     }
   }
   ```
