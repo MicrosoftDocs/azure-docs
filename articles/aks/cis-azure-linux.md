@@ -5,7 +5,7 @@ author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
 ms.topic: article
-ms.date: 06/23/2023
+ms.date: 06/26/2023
 ---
 
 # Center for Internet Security (CIS) Azure Linux benchmark
@@ -41,10 +41,10 @@ The below table has four sections:
     * *Potential Operation Impact* - The recommendation wasn't applied because it would have a negative effect on the service.
     * *Covered Elsewhere* - The recommendation is covered by another control in Azure cloud compute.
 
-The following are the results from the [CIS Azure Linux 2.0 Benchmark v2.1.0][cis-benchmark-azure-linux] recommendations based on the CIS rules:
+The following are the results from the [CIS Azure Linux 2.0 Benchmark v1.0][cis-benchmark-azure-linux] recommendations based on the CIS rules:
 
 | CIS ID | Recommendation description | Status | Reason |
-|---|---|---|---|---|
+|---|---|---|---|
 |1.1.4| Disable Automounting|Pass||
 |1.1.1.1|Ensure mounting of cramfs filesystems is disabled|Pass||
 |1.1.2.1|Ensure /tmp is a separate partition|Pass||
