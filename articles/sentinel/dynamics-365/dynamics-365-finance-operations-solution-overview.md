@@ -1,20 +1,20 @@
 ---
-title: Microsoft Sentinel solution for D365 F&O overview
-description: This article introduces the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations (D365 F&O).
+title: Microsoft Sentinel solution for Dynamics 365 Finance and Operations overview
+description: This article introduces the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
 ms.date: 05/14/2023
 ---
 
-# Microsoft Sentinel solution for D365 F&O overview
+# Microsoft Sentinel solution for Dynamics 365 Finance and Operations overview
 
-This article introduces the Microsoft Sentinel Solution for D365 F&O. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more.
+This article introduces the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more.
 
 [Dynamics 365 for Finance and Operations](/dynamics365/finance) is a comprehensive Enterprise Resource Planning (ERP) solution that combines financial and operational capabilities to help businesses manage their day-to-day operations. It offers a range of features that enable businesses to streamline workflows, automate tasks, and gain insights into operational performance.
 
 > [!IMPORTANT]
-> - The Microsoft Sentinel Solution for D365 F&O is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The Microsoft Sentinel Solution for Dynamics 365 Finance and Operations is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
 
 ### Why it's important to monitor Dynamics 365 for Finance and Operations activity
@@ -44,7 +44,7 @@ The solution includes:
   
 ## Next steps
 
-In this article, you learned about the Microsoft Sentinel Solution for D365 F&O.
+In this article, you learned about the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations.
 
 > [!div class="nextstepaction"]
-> [Deploy the Microsoft Sentinel Solution for D365 F&O](deploy-dynamics-365-finance-operations-solution.md)
+> [Deploy the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations](deploy-dynamics-365-finance-operations-solution.md)

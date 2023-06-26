@@ -1,18 +1,18 @@
 ---
-title: Deploy Microsoft Sentinel solution for D365 F&O
-description: This article introduces you to the process of deploying the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations (D365 F&O)ץ
+title: Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
+description: This article introduces you to the process of deploying the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 05/14/2023
 ---
 
-# Deploy Microsoft Sentinel solution for D365 F&O
+# Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
 
-This article describes how to deploy the Microsoft Sentinel solution for D365 F&O. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
+This article describes how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
 
 > [!IMPORTANT]
-> - The Microsoft Sentinel solution for D365 F&O is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The Microsoft Sentinel solution for Dynamics 365 Finance and Operations is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
 
 ## Prerequisites
@@ -34,7 +34,7 @@ Before you begin, verify that:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
 
-1. To collect your environment URL, select **Login to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
+1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
@@ -44,15 +44,11 @@ Before you begin, verify that:
 ## Deploy the solution and enable the data connector
 
 1. Navigate to the **Microsoft Sentinel** service.
-1. Select **Content hub**, and in the search bar, search for *F&O*.
-1. Select **Dynamics 365 F&O**.
+1. Select **Content hub**, and in the search bar, search for *Dynamics 365 Finance and Operations*.
+1. Select **Dynamics 365 Finance and Operations**.
 1. Select **Install**.
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
-
-1. Select **Create**.
-1. Select the resource group and the Sentinel workspace in which you want to deploy the solution. 
-1. Select **Next** until you pass validation and select **Create**.
 
 ## Deploy the data connector 
 
@@ -67,13 +63,13 @@ In the connector page, make sure that you meet the required prerequisites and co
 ## Configure the data connector
 
 > [!NOTE]
-> This connector uses Azure Functions to connect to Dynamics Finance and Operations to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details. 
+> This connector uses Azure Functions to connect to Dynamics Finance and Operations to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details. 
 
 ### Deploy the Azure Resource Manager (ARM) template
 
 1. Select **Deploy to Azure**.
 
-1. Follow the installation wizard to complete deployment. 
+1. Follow the installation wizard to complete deployment. The **Finance Operations API Host** parameter in the deployment wizard refers to the environment URL collected in [this step](#collect-the-environment-url-from-your-finance-and-operations-cloud-environment). 
 
 ### Enable data collection
 
@@ -155,7 +151,7 @@ To verify that log ingestion is working:
 
 ## Next steps
 
-In this article, you learned how to deploy the Microsoft Sentinel solution for D365 F&O.
+In this article, you learned how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations.
  
 - [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
 - [Review the solution's security content](dynamics-365-finance-operations-security-content.md)

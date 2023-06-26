@@ -179,7 +179,7 @@
         href: sap/sap-btp-solution-overview.md
   - name: Integrate Dynamics 365
     items:
-    - name: Finance and operations (F&O) solution overview
+    - name: Dynamics 365 Finance and Operations solution overview
       href: dynamics-365/dynamics-365-finance-operations-solution-overview.md 
 - name: How-tos
   items:
