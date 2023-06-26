@@ -100,18 +100,18 @@ You can configure a private endpoint using the Azure portal, PowerShell, or the 
 
 To create your private endpoint from the volume group page:
 
-1. Navigate to your Elastic SAN/volume group and select **Networking**.
+1. Navigate to your Elastic SAN volume group and select **Networking**.
 1. Change **Network access** from **Enable public access from select virtual networks** to **Disable public access and use private access**.
 1. Under **Private endpoint connections** select **Create a private endpoint**.
 1. In the **Create private endpoint dialog**, specify the appropriate values for the new endpoint:
     - **Subscription**: Select your subscription.
     - **Resource group**: Select the resource group where the private endpoint will be created.
     - **Name**: Specify the name of the private endpoint.
-    - **Elastic SAN sub-resource**: The name of the volume group to which the private endpoint will have access.
-    - **Virtual network**: The virtual network that contains the subnet to which the endpoint will be connected.
+    - **Elastic SAN sub-resource**: Specify the name of the volume group to which the private endpoint will have access.
+    - **Virtual network**: Select the virtual network that contains the subnet to which the endpoint will be connected.
     - **Subnet**: The virtual network subnet to which the endpoint will be connected.
     - **Integrate with private DNS zone**: Select this box. Elastic SAN private endpoints require integration with your private DNS zone. Integrating it with a custom DNS deployment is not supported.
-    - **Private DNS zone**: The FQDN of the private DNS zone for the private link.
+    - **Private DNS zone**: Specify the FQDN of the private DNS zone for the private link.
 1. Select **OK**
 1. Back on the **Networking** page, select ***Save**.
 
@@ -119,35 +119,39 @@ To create your private endpoint from the volume group page:
 
 # [PowerShell](#tab/azure-powershell)
 
+Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell.
+
 ```powershell
 # Get the virtual network and subnet. The subnet is input to creating the private endpoint.
-$VnetRgName = "<virtual network resource group name>"
-$VnetName   = "<virtual network name>"
-$SnetName   = "<subnet name>"
+$VnetRgName = "<VnetResourceGroupName>"
+$VnetName   = "<VnetName>"
+$SnetName   = "<SubnetName>"
 
 $Vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $VnetRgName
 $Subnet = $Vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $SnetName}
 
 # Get the Elastic SAN. The Elastic SAN is input to creating the private endpoint service connection.
-$EsanRgName = "<elastic SAN resource group name>"
-$EsanName   = "<elastic SAN name>"
-$EsanVgName = "<elastic SAN volume group name>"
+$EsanRgName = "<ElasticSanResourceGroupName>"
+$EsanName   = "<ElasticSanName>"
+$EsanVgName = "<ElasticSanVolumeGroupName>"
 
 $Esan = Get-AzElasticSan -Name $EsanName -ResourceGroupName $EsanRgName
 
 # Create the private endpoint service connection which is input to creating the private endpoint.
-$PlSvcConnName = "<private link connection name>"
-$EsanPeSvcConn = New-AzPrivateLinkServiceConnection -Name $PlSvcConnName -PrivateLinkServiceId $Esan.Id -GroupId $EsanVgName
+$PLConnName = "<PrivateLinkConnectionName>"
+$EsanPeSvcConn = New-AzPrivateLinkServiceConnection -Name $PLConnName -PrivateLinkServiceId $Esan.Id -GroupId $EsanVgName
 
 <#
 Create the private endpoint.
 In this sample we are creating it in the same resource group as the virtual network, but you can create it in any resource group that suits your needs.
 #>
+$PEName      = '<PrivateEndpointName>'
+$PELocation  = '<PrivateEndpointLocation>'
 $PeArguments = @{
-    Name = '<private endpoint name>'
-    ResourceGroupName = $VnetRgName
-    Location = '<private endpoint location>'
-    Subnet = $Subnet
+    Name                         = $PEName
+    ResourceGroupName            = $VnetRgName
+    Location                     = $PELocation
+    Subnet                       = $Subnet
     PrivateLinkServiceConnection = $EsanPeSvcConn
 }
 New-AzPrivateEndpoint @PeArguments
@@ -155,30 +159,33 @@ New-AzPrivateEndpoint @PeArguments
 
 # [Azure CLI](#tab/azure-cli)
 
+Use this sample code to create a private endpoint for your Elastic SAN volume group with Azure CLI.
+
 ```azurecli
 # Define some variables
-RgName="<resource name>"
-EsanName="<Elastic SAN name>"
-VgName="<volume group name>"
-VnetName="<virtual network name>"
-SubnetName="<subnet name>"
-PeName="<private endpoint name>"
-PeConnName="<private endpoint connection name>"
+VnetRgName="<VnetResourceGroupName>"
+VnetName="<VnetName>"
+SubnetName="<SubnetName>"
+EsanRgName="<ElasticSanResourceGroupName>"
+EsanName="<ElasticSanName>"
+EsanVgName="<ElasticSanVolumeGroupName>"
+PeName="<PrivateEndpointName>"
+PLConnName="<PrivateLinkConnectionName>"
 
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
-    --resource-group $RgName \
+    --resource-group $EsanRgName \
     --query '[].[id]' \
     --output tsv)
 
 # Create private endpoint
 az network private-endpoint create \
-    --connection-name $PeConnName
+    --connection-name $PLConnName
     --name $PeName \
     --private-connection-resource-id $id \
-    --resource-group $RgName \
+    --resource-group $VnetRgName \
     --subnet $SubnetName \
-    --group-id $VgName \
+    --group-id $EsanVgName \
     --vnet-name $VnetName 
 ```
 ---
