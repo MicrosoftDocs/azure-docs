@@ -166,7 +166,7 @@ You should get a status HTTP 201 success.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchConfiguration"` properties. See [this article](/rest/api/searchservice/preview-api/create-or-update-index) for property descriptions.
 
-+ The "vectorSearch" configuration is an array of algorithms, but only the "hnsw" algorithm is supported in this preview. Hierarchical Navigable Small World (HNSW) is part of the infrastructure that powers d. It works well with [embedding models](/azure/cognitive-services/openai/concepts/models#embeddings-models) provided in Azure OpenAI.
++ The "vectorSearch" configuration is an array of algorithms, but only the "hnsw" algorithm is supported in this preview. Hierarchical Navigable Small World (HNSW) is part of the infrastructure that powers vector search support. It works well with [embedding models](/azure/cognitive-services/openai/concepts/models#embeddings-models) provided in Azure OpenAI.
 
 + The "semanticSearch" configuration enables semantic reranking of search results. You can semantically rerank results in queries of type "semantic" for string fields that are specified in the configuration.
 
