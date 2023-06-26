@@ -1,7 +1,7 @@
 ---
 title: Defender for Cloud glossary
 description: The glossary provides a brief description of important Defender for Cloud platform terms and concepts.
-ms.date: 02/13/2023
+ms.date: 06/26/2023
 ms.topic: article
 ---
 
@@ -13,23 +13,36 @@ This glossary provides a brief description of important terms and concepts for t
 
 ## A
 
-| Term | Description | Learn more |
-|--|--|--|
-|**AAC**|Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. |[Adaptive Application Controls](adaptive-application-controls.md)
-|**AAD**| Azure Active Directory (Azure AD) is a cloud-based identity and access management service.| [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md)
-| **ACR Tasks** | A suite of features within Azure container registry | [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml) |
-|**Adaptive network hardening**|Adaptive network hardening provides recommendations to further harden the [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) rules.|[What is Adaptive Network Hardening?](../defender-for-cloud/adaptive-network-hardening.md#what-is-adaptive-network-hardening) |
-|**ADO**|Azure DevOps provides developer services for allowing teams to plan work, collaborate on code development, and build and deploy applications.|[What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops) |
-|**AKS**| Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications.| [Kubernetes Concepts](/azure-stack/aks-hci/kubernetes-concepts)|
-|**Alerts**| Alerts defend your workloads in real-time so you can react immediately and prevent security events from developing.|[Security alerts and incidents](alerts-overview.md)|
-|**ANH** | Adaptive network hardening| [Improve your network security posture with adaptive network hardening](adaptive-network-hardening.md)
-|**APT** | Advanced Persistent Threats | [Video: Understanding APTs](/events/teched-2012/sia303)|
-| **Arc-enabled Kubernetes**| Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center.|[What is Azure Arc-enabled Logic Apps? (Preview)](../logic-apps/azure-arc-enabled-logic-apps-overview.md)
-|**ARG**| Azure Resource Graph-an Azure service designed to extend Azure Resource Management by providing resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment.| [Azure Resource Graph Overview](../governance/resource-graph/overview.md)|
-|**ARM**| Azure Resource Manager-the deployment and management service for Azure.| [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md)|
-|**ASB**| Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.| [Azure Security Benchmark](/security/benchmark/azure/baselines/security-center-security-baseline) |
-|**Attack Path Analysis**| A graph-based algorithm that scans the cloud security graph, exposes attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach.| [What is attack path analysis?](concept-attack-path.md#what-is-attack-path-analysis) |
-|**Auto-provisioning**| To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can use auto provisioning to quietly deploy the Azure Monitor Agent on your servers.| [Configure auto provision](../iot-dps/quick-setup-auto-provision.md)|
+### **AAC**
+Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines. See [Adaptive Application Controls](adaptive-application-controls.md).
+### **AAD**
+Azure Active Directory (Azure AD) is a cloud-based identity and access management service. See [Adaptive Application Controls](../active-directory/fundamentals/active-directory-whatis.md).
+### **ACR Tasks** 
+A suite of features within Azure container registry.  See [Frequently asked questions - Azure Container Registry](../container-registry/container-registry-faq.yml).
+### **Adaptive network hardening**
+Adaptive network hardening provides recommendations to further harden the [network security groups (NSG)](../virtual-network/network-security-groups-overview.md) rules. See [What is Adaptive Network Hardening?](../defender-for-cloud/adaptive-network-hardening.md#what-is-adaptive-network-hardening).
+### **ADO**
+Azure DevOps provides developer services for allowing teams to plan work, collaborate on code development, and build and deploy applications. See [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
+### **AKS**
+Azure Kubernetes Service, Microsoft's managed service for developing, deploying, and managing containerized applications. See [Kubernetes concepts](/azure-stack/aks-hci/kubernetes-concepts).
+### **Alerts**
+Alerts defend your workloads in real-time so you can react immediately and prevent security events from developing. See [Security alerts and incidents](alerts-overview.md).
+### **ANH** 
+Adaptive network hardening. Learn how to [improve your network security posture with adaptive network hardening](adaptive-network-hardening.md).
+### **APT** 
+Advanced Persistent Threats See the [video: Understanding APTs](/events/teched-2012/sia303).
+### **Arc-enabled Kubernetes**
+Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers or clusters running on your on-premises data center. See [What is Azure Arc-enabled Logic Apps? (Preview)](../logic-apps/azure-arc-enabled-logic-apps-overview.md).
+### **ARG**
+Azure Resource Graph-an Azure service designed to extend Azure Resource Management by providing resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. See [Azure Resource Graph Overview](../governance/resource-graph/overview.md).
+### **ARM**
+Azure Resource Manager-the deployment and management service for Azure. See [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
+### **ASB**
+Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. See [Azure Security Benchmark](/security/benchmark/azure/baselines/security-center-security-baseline).
+### **Attack Path Analysis**
+A graph-based algorithm that scans the cloud security graph, exposes attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach. See [What is attack path analysis?](concept-attack-path.md#what-is-attack-path-analysis).
+### **Auto-provisioning**
+To make sure that your server resources are secure, Microsoft Defender for Cloud uses agents installed on your servers to send information about your servers to Microsoft Defender for Cloud for analysis. You can use auto provisioning to deploy the Azure Monitor Agent on your servers. Learn how to [configure auto provision](../iot-dps/quick-setup-auto-provision.md). 
 
 ## B
 
