@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: The get supported storage sources method returns a list of supported storage sources.
 services: cognitive-services
 manager: nitinme
-
+ms.author: lajanuar
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference

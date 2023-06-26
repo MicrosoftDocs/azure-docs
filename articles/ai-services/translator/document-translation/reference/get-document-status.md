@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: The get document status method returns the status for a specific document.
 services: cognitive-services
 manager: nitinme
-
+ms.author: lajanuar
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference

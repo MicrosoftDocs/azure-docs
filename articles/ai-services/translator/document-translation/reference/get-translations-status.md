@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: The get translations status method returns a list of batch requests submitted and the status for each request.
 services: cognitive-services
 manager: nitinme
-
+ms.author: lajanuar
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference

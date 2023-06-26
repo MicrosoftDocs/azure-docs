@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: The cancel translation method cancels a currently processing or queued operation.
 services: cognitive-services
 manager: nitinme
-
+ms.author: lajanuar
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
