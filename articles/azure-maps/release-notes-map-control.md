@@ -16,6 +16,33 @@ This document contains information about new features and other changes to the M
 
 ## v3 (preview)
 
+### [3.0.0-preview.9] (June 27, 2023)
+
+#### New features (3.0.0-preview.9)
+
+- WebGL2 is used by default.
+
+- Elevation APIs: `atlas.sources.ElevationTileSource`, `map.enableElevation(elevationSource, options)`, `map.disableElevation()`
+
+- ability to customize maxPitch / minPitch in `CameraOptions`
+
+#### Bug fixes (3.0.0-preview.9)
+
+- fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called
+
+#### Installation (3.0.0-preview.9)
+
+The preview is available on [npm][3.0.0-preview.9] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.9][3.0.0-preview.9]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.9/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.9/atlas.min.js"></script>
+    ```
+    
 ### [3.0.0-preview.8] (June 2, 2023)
 
 #### Bug fixes (3.0.0-preview.8)
@@ -259,6 +286,16 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2 (latest)
 
+### [2.3.1] (June 27, 2023)
+
+#### Bug fixes (2.3.1)
+
+- fix `ImageSpriteManager` icon images may get removed during style change 
+
+#### Other changes (2.3.1)
+
+- security: insecure-randomness fix in UUID generation.
+
 ### [2.3.0] (June 2, 2023)
 
 #### New features (2.3.0)
@@ -365,7 +402,7 @@ Stay up to date on Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
-
+[3.0.0-preview.9]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.9
 [3.0.0-preview.8]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.8
 [3.0.0-preview.7]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.7
 [3.0.0-preview.6]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.6
