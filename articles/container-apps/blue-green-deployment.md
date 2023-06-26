@@ -314,9 +314,9 @@ az containerapp ingress traffic set \
 # make green the prod revision
 az deployment group create \
     --name make-green-prod-$GREEN_COMMIT_ID \
-    -g $RESOURCE_GROUP \
+    --resource-group $RESOURCE_GROUP \
     --template-file main.bicep \
-    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=green containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --parameters appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=green containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
@@ -363,9 +363,9 @@ az containerapp ingress traffic set \
 # rollback traffic to blue revision
 az deployment group create \
     --name rollback-to-blue-$GREEN_COMMIT_ID \
-    -g $RESOURCE_GROUP \
+    --resource-group $RESOURCE_GROUP \
     --template-file main.bicep \
-    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=blue containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --parameters appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$GREEN_COMMIT_ID productionLabel=blue containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
@@ -412,9 +412,9 @@ export BLUE_COMMIT_ID=0d1436b
 # deploy new version of the app to blue revision
 az deployment group create \
     --name deploy-to-blue-$BLUE_COMMIT_ID \
-    -g $RESOURCE_GROUP \
+    --resource-group $RESOURCE_GROUP \
     --template-file main.bicep \
-    -p appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$BLUE_COMMIT_ID productionLabel=green containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
+    --parameters appName=$APP_NAME blueCommitId=$BLUE_COMMIT_ID greenCommitId=$GREEN_COMMIT_ID latestCommitId=$BLUE_COMMIT_ID productionLabel=green containerAppsEnvironmentName=$APP_ENVIRONMENT_NAME \
     --query properties.outputs.fqdn
 ```
 
