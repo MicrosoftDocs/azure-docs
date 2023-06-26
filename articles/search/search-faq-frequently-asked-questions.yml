@@ -129,12 +129,12 @@ sections:
       - question: |
           Does my search service support vector search?
         answer: |
-          Most existing services support vector search. If an index containing vector fields fails to be created, the underlying search service doesn't support vector search, and a new service must be created. This may occur for a small subset of services created prior to January 1, 2019. **You must create or update indexes with vector fields using the 2023-07-01-Preview REST API. Your queries must also specify the preview REST API.**
+          Most existing services support vector search. If you're using the 2023-07-01-Preview and index creation fails, the underlying search service doesn't support vector search, and a new service must be created. This may occur for a small subset of services created prior to January 1, 2019.
 
       - question: |
           Can I add vector search to an existing index?
         answer: |
-          If your search service supports vector search, both existing and new indexes support vector search using the [2023-07-01-Preview REST API](/rest/api/searchservice/index-preview). You can also add vector fields to an existing index using the [Azure portal](/azure/search/search-howto-manage-index#add-fields-to-an-index).
+          If your search service supports vector search, both existing and new indexes support vector search using the [2023-07-01-Preview REST API](/rest/api/searchservice/index-preview).
 
       - question: |
           Why do I see different vector index size limits between my new search services and existing search services?
@@ -169,7 +169,7 @@ sections:
       - question: |
           Why are my wildcard searches slow?
         answer: |
-          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, are likely to be rewritten with many terms which can be slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
+          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, are likely to be rewritten with many terms, which can be slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
 
       - question: |
           Can I search across multiple indexes?
