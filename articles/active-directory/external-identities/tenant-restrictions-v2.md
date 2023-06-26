@@ -102,11 +102,22 @@ When your users need access to external organizations and apps, we recommend ena
 
 ### Tenant restrictions and Microsoft Teams
 
-For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions V2 to block anonymous access to Teams meetings. Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
+Teams by default has open federation which means we do not block anyone joining a meeting hosted by an external tenant. For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions V2 to block anonymous access to Teams meetings. To enforce tenant restrictions for Teams, you need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
 
+- Teams currently allows users to join ANY externally hosted meeting using their corporate/home provided identity. You can use XTAP outbound controls to control users with corporate/home provided identity to join externally hosted Teams meetings.
+- Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
+
+**Pure Anonymous Meeting join**
+TRv2 will automatically block all unauthenticated as well as externally issued identity join to all externally hosted Teams meetings .
 For example, suppose Contoso uses Teams Federation Controls to block the Fabrikam tenant. If someone with a Contoso device uses a Fabrikam account to join a Contoso Teams meeting, they're allowed into the meeting as an anonymous user. Now, if Contoso also enables tenant restrictions V2, Teams blocks anonymous access, and the user isn't able to join the meeting.
 
-To enforce tenant restrictions for Teams, you need to configure tenant restrictions V2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
+**Meeting join using an externally issued foreign identity**
+You can use TRv2 policy to config specific users and/or groups with externally issued identity to join to specific externally hosted Teams meetings. In this case, users will login with their externally issued identity into Teams and if TRv2 policy allows, the users will be able to join the specific tenant’s externally hosted Teams meetings.
+
+Currently Teams has a known issue where without Teams federation, it also blocks home identity authenticated session to join externally hosted Teams meetings. However, when the bug is fixed on Teams, TRv2 will block only unauthenticated or foreign identities join to externally hosted Team meetings.
+
+|Anonymous == No Authenticated session <br></br> For ex: If a user tries to use an unauthenticated session (say in an InPrivate window on browser) then this is pure anonymous. | Not authenticated |  TRv2 will block access to teams meeting|
+|Foreign identity == Authenticated session (Using external foreign identity) <br></br> For ex:  Using any identity other than home identity like user@externalforeigntenant.com | Authenticated as foreign identity |  Allow/ Block access to teams meeting as per TRv2 policy. If TRv2 policy allows, then user can join the meeting else it will be blocked. <br></br> Note: Teams has a known bug where when Teams has no explicit federation with the external tenant, Teams + Trv2 blocks users using home identity to join an externally hosted meeting.|
 
 ### Tenant restrictions V2 and SharePoint Online
 
