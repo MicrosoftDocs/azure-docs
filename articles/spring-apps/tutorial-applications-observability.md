@@ -18,9 +18,14 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-This article shows you how to custom your application monitor dashboard, diagnose, and investigate production issues for the applications running in Azure Spring Apps, we use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program, the following is a further explanation in conjunction with [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md).
-[Log Analytics](../azure-monitor/logs/log-analytics-overview.md) and [Application Insights](../azure-monitor/insights/insights-overview.md) are deeply integrated with Azure Spring Apps, 
-you can use Log Analytics to diagnose your application with variously log queries, and use Application Insights investigate production issues.
+This article shows you how to observe your production applications deployed on Azure Spring Apps, 
+as well as diagnose and investigate production environment issues. 
+We use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program, 
+the following is a further explanation in conjunction with [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) 
+and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md).
+[Log Analytics](../azure-monitor/logs/log-analytics-overview.md) and [Application Insights](../azure-monitor/insights/insights-overview.md) 
+are deeply integrated with Azure Spring Apps, you can use Log Analytics to diagnose your application with variously log queries, 
+and use Application Insights to investigate production issues.
 
 ## 1. Prerequisites
 
@@ -75,7 +80,7 @@ AppPlatformLogsforSpring
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page, and select **Failures** in the left navigational menu.
+1. Select **Application Insights** in the left navigation menu, select the **Application Insights** to go to the Application Insights overview page, and select **Failures** in the left navigation menu.
 
    :::image type="content" source="media/tutorial-applications-observability/ai-failures.png" alt-text="Screenshot of the Azure portal with failures." lightbox="media/tutorial-applications-observability/ai-failures.png":::
 
@@ -89,15 +94,15 @@ AppPlatformLogsforSpring
 
 ## 5. Improve the application performance using Application Insights
 
-This section demonstrates how to investigate the performance issues, see more details in [Application Map in Application Insights](../azure-monitor/app/app-map.md).
+This section illustrates how to investigate the performance issues, see more details in [Application Map in Application Insights](../azure-monitor/app/app-map.md).
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page, and select **Performance** in the left navigational menu.
+1. Select **Application Insights** in the left navigation menu, select the **Application Insights** to go to the Application Insights overview page, and select **Performance** in the left navigation menu.
 
    :::image type="content" source="media/tutorial-applications-observability/ai-performance.png" alt-text="Screenshot of the Azure portal with performance." lightbox="media/tutorial-applications-observability/ai-performance.png":::
 
-1. Select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to drill into the details, and then select the suggested sample in the right panel.
+1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to drill into the details, and then select the suggested sample in the right panel.
 
    :::image type="content" source="media/tutorial-applications-observability/ai-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal with performance suggested sample." lightbox="media/tutorial-applications-observability/ai-performance-suggested-sample.png":::
 

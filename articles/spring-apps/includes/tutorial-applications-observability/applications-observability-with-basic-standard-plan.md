@@ -27,9 +27,9 @@ This section provides the steps to use the metrics registered by Spring Boot and
 
     1. Go to the Azure Spring Apps instance overview page.
     
-    1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page.
+    1. Select **Application Insights** in the left navigation menu, select the **Application Insights** to go to the Application Insights overview page.
     
-    1. Select **Metrics** in the left navigational menu, Select the edit icon in the chart title, rename the chart title to `JVM Memory Used`.
+    1. Select **Metrics** in the left navigation menu, Select the edit icon in the chart title, rename the chart title to `JVM Memory Used`.
     
     1. Select **Add metric**, for **Metric**, select the corresponding dropdown list to choose the **jvm_memory_used** metric under the **Log-based metrics** namespace, select `Avg` for **Avg**.
     
@@ -57,9 +57,9 @@ This section provides the steps to check the liveness for each app on Azure Spri
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page.
+1. Select **Application Insights** in the left navigation menu, select the **Application Insights** to go to the Application Insights overview page.
 
-1. Select **Availability** in the left navigational menu, select the **Add Standard test** to add a test.
+1. Select **Availability** in the left navigation menu, select the **Add Standard test** to add a test.
 
 1. On the **Create Standard test** page, for **Test name**, enter `api-gateway` for API gateway app, 
    for **URL**, enter `https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/actuator/health/liveness` for the corresponding URL, 
@@ -84,32 +84,32 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
 
    :::image type="content" source="../../media/tutorial-applications-observability/portal-menu-dashboard.png" alt-text="Screenshot of the Azure portal with Dashboard selected." lightbox="../../media/tutorial-applications-observability/portal-menu-dashboard.png":::
 
-1. Select **Create**, then select **Custom** to create a blank dashboard.
+1. Select **Create**, then select **Custom** to create a custom dashboard.
 
    :::image type="content" source="../../media/tutorial-applications-observability/create-dashboard-options.png" alt-text="Screenshot of the New dashboard options." lightbox="../../media/tutorial-applications-observability/create-dashboard-options.png":::
 
    > [!NOTE]
-   > You can also choose a template based on Application Insights here to quickly create an usable dashboard.
+   > You can also choose a wizard based on Application Insights here to quickly create a default dashboard.
 
 1. Enter a name for the dashboard, and then select **Save**.
    This action opens the **Tile Gallery** page, from which you can select tiles, and an empty grid where you'll arrange the tiles.
 
 > [!NOTE]
-> You can allow others to view your dashboard, see more from [Share an Azure dashboard](../../../azure-portal/azure-portal-dashboard-share-access.md).
+> You can allow other users to view your dashboard via a shared dashboard, see more from [Share an Azure dashboard](../../../azure-portal/azure-portal-dashboard-share-access.md).
 
-### Add metric charts to your dashboard
+### Add metric charts to dashboard
 
 #### Add App CPU Usage chart
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Metrics** in the left navigational menu, Select the edit icon in the chart title, rename the chart title to `App CPU Usage`.
+1. Select **Metrics** in the left navigation menu, select the edit icon in the chart title, rename the chart title to `App CPU Usage`.
 
 1. Select **Add metric**, for **Metric**, select the corresponding dropdown list to choose the **App CPU Usage** metric, select `Avg` for **Aggregation**.
 
-1. Select **Apply splitting**, for **Values**, select the corresponding dropdown list to check the **App** box.
+1. Select **Apply splitting**, for **Values**, select the corresponding dropdown list to check the `App` box.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal with pin app cpu usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-cpu-usage.png":::
+   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal with app cpu usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-cpu-usage.png":::
 
 1. Select **Save to dashboard** to open the dropdown list, then select **Pin to dashboard**, on the **Pin to dashboard** page, select the dashboard you created in previous step, select **Pin** to pin the quickstart chart to the dashboard.
 
@@ -117,80 +117,82 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
 
 #### Add App Memory Usage chart
 
-1. Repeat with the previous section steps for the **App Memory Usage** metric, pin the **App Memory Usage** chart to the dashboard.
+1. Repeat with the previous section steps for the **App Memory Usage** metric, save the **App Memory Usage** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-memory-usage.png" alt-text="Screenshot of the Azure portal with pin app memory usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-memory-usage.png":::
+   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-memory-usage.png" alt-text="Screenshot of the Azure portal with app memory usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-memory-usage.png":::
 
 #### Add App Network In chart
 
 1. Repeat with the previous section steps for the **App Network In** metric, 
-   select **Add filter** for an extra step, for **Property**, select the corresponding dropdown list to choose the **App**, select `=` for **Operator**, select `admin-server` and `api-gateway` for **Values**, 
-   then pin the **App Network In Usage** chart to the dashboard.
+   select **Add filter** for an extra step, for **Property**, select the corresponding dropdown list to choose the `App`, select `=` for **Operator**, select `admin-server` and `api-gateway` for **Values**, 
+   then save the **App Network In Usage** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-network-in-usage.png" alt-text="Screenshot of the Azure portal with pin app network in usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-network-in-usage.png":::
+   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-network-in-usage.png" alt-text="Screenshot of the Azure portal with app network in usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-network-in-usage.png":::
 
 #### Add Availability chart
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page.
+1. Select **Application Insights** in the left navigation menu, select the **Application Insights** to go to the Application Insights overview page.
 
-1. Select **Metrics** in the left navigational menu, Select the edit icon in the chart title, rename the chart title to `Availability`.
+1. Select **Metrics** in the left navigation menu, Select the edit icon in the chart title, rename the chart title to `Availability`.
 
-1. Select **Add metric**, for **Metric**, select the corresponding dropdown list to choose the **Availability** metric under the **Application Insights standard metrics** namespace, select `Avg` for **Aggregation**.
+1. Select **Add metric**, for **Metric**, select the corresponding dropdown list to choose the `Availability` metric under the **Application Insights standard metrics** namespace, select `Avg` for **Aggregation**.
 
-1. Select **Apply splitting**, for **Values**, select the corresponding dropdown list to check the **Test name** box, then pin the **Availability** chart to the dashboard.
+1. Select **Apply splitting**, for **Values**, select the corresponding dropdown list to check the `Test name` box, then save the **Availability** chart to the dashboard.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/chart-availability.png" alt-text="Screenshot of the Azure portal with pin availability to dashboard." lightbox="../../media/tutorial-applications-observability/chart-availability.png":::
+   :::image type="content" source="../../media/tutorial-applications-observability/chart-availability.png" alt-text="Screenshot of the Azure portal with availability to dashboard." lightbox="../../media/tutorial-applications-observability/chart-availability.png":::
 
 #### Add Server exceptions and Dependency call failures chart
 
-Repeat with the previous section steps for the **Server exception** and **Dependency call failures** metrics under the **Application Insights standard metrics** namespace, pin the **Server exceptions and Dependency call failures** chart to the dashboard.
+Repeat with the previous section steps for the **Server exception** and **Dependency call failures** metrics under the **Application Insights standard metrics** namespace, save the **Server exceptions and Dependency call failures** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal with pin exceptions and failures to dashboard." lightbox="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png":::
+:::image type="content" source="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal with exceptions and failures to dashboard." lightbox="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png":::
 
 #### Add Failed request chart
 
-Repeat with the previous section steps for the **Failed requests** metric under the **Application Insights standard metrics** namespace, pin the **Failed requests** chart to the dashboard.
+Repeat with the previous section steps for the **Failed requests** metric under the **Application Insights standard metrics** namespace, save the **Failed requests** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-failed-requests.png" alt-text="Screenshot of the Azure portal with pin failed requests to dashboard." lightbox="../../media/tutorial-applications-observability/chart-failed-requests.png":::
+:::image type="content" source="../../media/tutorial-applications-observability/chart-failed-requests.png" alt-text="Screenshot of the Azure portal with failed requests to dashboard." lightbox="../../media/tutorial-applications-observability/chart-failed-requests.png":::
 
 #### Add Request count chart
 
 Repeat with the previous section steps for the **Server requests** metric under the **Application Insights standard metrics** namespace, 
 add a filter to filter the **Cloud role name** with **api-gateway** and **admin-server**, 
 apply splitting for **Values** with **Cloud role name**,
-pin the **Request count** chart to the dashboard.
+save the **Request count** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-server-requests.png" alt-text="Screenshot of the Azure portal with pin server requests to dashboard." lightbox="../../media/tutorial-applications-observability/chart-server-requests.png":::
+:::image type="content" source="../../media/tutorial-applications-observability/chart-request-count.png" alt-text="Screenshot of the Azure portal with server requests to dashboard." lightbox="../../media/tutorial-applications-observability/chart-request-count.png":::
 
 #### Add Response time chart
 
-Repeat with the previous section steps for the **Server response time** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway**, pin the **Response time** chart to the dashboard.
+Repeat with the previous section steps for the **Server response time** metric under the **Application Insights standard metrics** namespace, 
+add a filter to filter the **Cloud role name** with **api-gateway**, 
+save the **Response time** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-response-time.png" alt-text="Screenshot of the Azure portal with pin response time to dashboard." lightbox="../../media/tutorial-applications-observability/chart-response-time.png":::
+:::image type="content" source="../../media/tutorial-applications-observability/chart-response-time.png" alt-text="Screenshot of the Azure portal with response time to dashboard." lightbox="../../media/tutorial-applications-observability/chart-response-time.png":::
 
 #### Add Active MySQL connections chart
 
-Repeat with the previous section steps for the **hikaricp_connection_active** metric under the **Log-based metrics** namespace, pin the **Active MySQL connections** chart to the dashboard.
+Repeat with the previous section steps for the **hikaricp_connection_active** metric under the **Log-based metrics** namespace, save the **Active MySQL connections** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-connection-active.png" alt-text="Screenshot of the Azure portal with pin active connection to dashboard." lightbox="../../media/tutorial-applications-observability/chart-connection-active.png":::
+:::image type="content" source="../../media/tutorial-applications-observability/chart-connection-active.png" alt-text="Screenshot of the Azure portal with active connection to dashboard." lightbox="../../media/tutorial-applications-observability/chart-connection-active.png":::
 
 #### Pin blades to dashboard
 
-You can pin some blades to the dashboard as needed, it will be convenient to jump to the corresponding page from the dashboard
+You can pin some blades to the dashboard as needed, it will be convenient to jump to the corresponding page from the dashboard.
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Application Insights** in the left navigational menu, select the **Application Insights** to go to the Application Insights overview page.
+1. Select **Application Insights** in the left navigation menu, select the **Application Insights** to go to the Application Insights overview page.
 
-1. Select **Application map** in the left navigational menu, select **Pin** to pin the quickstart to the dashboard.
+1. Select **Application map** in the left navigation menu, and select the **Pin blade to dashboard** icon in each page header.
 
-1. Select **Live metrics** in the left navigational menu, select **Pin** to pin the quickstart to the dashboard.
+1. On the **Pin to dashboard** page, select the dashboard you created in previous step, select **Pin** to pin the quickstart chart to the dashboard.
 
-1. Select **Failures** in the left navigational menu, select **Pin** to pin the quickstart to the dashboard.
+   :::image type="content" source="../../media/tutorial-applications-observability/pin-application-map-blade-to-dashboard.png" alt-text="Screenshot of the Azure portal with pin application map to dashboard." lightbox="../../media/tutorial-applications-observability/pin-application-map-blade-to-dashboard.png":::
 
-1. Select **Performance** in the left navigational menu, select **Pin** to pin the quickstart to the dashboard.
+1. Repeat the previous steps to pin **Live metrics**, **Failures** and **Performance** blades to your dashboard as needed.
 
 #### Monitor the dashboard
 
@@ -198,17 +200,17 @@ Go to your private `PetClinic` dashboard page, edit your tiles with dashboard, e
 
 :::image type="content" source="../../media/tutorial-applications-observability/dashboard-page.png" alt-text="Screenshot of the Azure portal with dashboard." lightbox="../../media/tutorial-applications-observability/dashboard-page.png":::
 
-## 3 Set alerts based on metrics
+## 3. Set alerts based on metrics
 
 This section provides the steps to set up action groups and alert rules to monitor your production application.
 The alert rules bind metric patterns with the action groups on the target resource,
-when the metric pattern matches the condition, the alert rule will be triggered and the action group performed.
+when the metric pattern matches the condition, the alert rule is triggered, and the associated action group is executed.
 
 ### Set up Action Groups
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Alert** in the left navigational menu, select the **Action groups** to go to the Action groups list page, select the **Create** to create action group.
+1. Select **Alert** in the left navigation menu, select the **Action groups** to go to the Action groups list page, select the **Create** to create action group.
 
 1. On the **Create action group** page, select the subscription and resource group you want to cover,
    for **Action group name**, enter `email-notifacation`, for **Short name**, enter `email`, for **Region**, select the region you want to use.
@@ -228,7 +230,7 @@ when the metric pattern matches the condition, the alert rule will be triggered 
 
 1. Go to the Azure Spring Apps instance overview page.
 
-1. Select **Alert** in the left navigational menu, select the **Alert rules** to go to the Alert rules list page, select the **Create** to create alert rule.
+1. Select **Alert** in the left navigation menu, select the **Alert rules** to go to the Alert rules list page, select the **Create** to create alert rule.
 
 1. On the **Create an alert rule** page, for **signal name**, select the dropdown list, select **See all signals**, select `App CPU Usage` in the *Metrics* area and select **Apply**;
    for the alert logic section, select **Static** for threshold type, select **Average** for **Aggregation type**, select `Greater than` for **Operator**, enter `90` for **Threshold value**;
@@ -271,10 +273,4 @@ when the metric pattern matches the condition, the alert rule will be triggered 
 
 ### Pin Alert to dashboard
 
-1. Go to the Azure Spring Apps instance overview page.
-
-1. Select **Alert** in the left navigational menu, on the **Alerts** page, select the pin icon in this page header.
-
-1. On the **Pin to dashboard** page, select the dashboard you created in previous step, select **Pin** to pin the quickstart chart to the dashboard.
-
-   :::image type="content" source="../../media/tutorial-applications-observability/pin-alerts-blade-to-dashboard.png" alt-text="Screenshot of the Azure portal with pin alerts to dashboard." lightbox="../../media/tutorial-applications-observability/pin-alerts-blade-to-dashboard.png":::
+Go to the Azure Spring Apps instance overview page, select **Alert** in the left navigation menu, and select the **Pin blade to dashboard** icon in this page header to pin the quickstart chart to the dashboard.
