@@ -62,11 +62,13 @@ You can configure an Azure Storage service endpoint from the virtual network whe
 
 # [PowerShell](#tab/azure-powershell)
 
+Use this sample code to create a storage service endpoint for your Elastic SAN volume group with PowerShell.
+
 ```powershell
 # Define some variables
-$resourceGroupName = "yourResourceGroupName"
-$vnetName = "yourVirtualNetworkName"
-$subnetName = "yourSubnetName"
+$resourceGroupName = "YourResourceGroupName"
+$vnetName = "YourVirtualNetworkName"
+$subnetName = "YourSubnetName"
 
 # Get the virtual network and subnet
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
@@ -78,11 +80,13 @@ $virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPre
 
 # [Azure CLI](#tab/azure-cli)
 
+Use this sample code to create a storage service endpoint for your Elastic SAN volume group with Azure CLI.
+
 ```azurecli
 # Define some variables
-resourceGroupName="yourResourceGroupName"
-vnetName="yourVirtualNetworkName"
-subnetName="yourSubnetName"
+resourceGroupName="YourResourceGroupName"
+vnetName="YourVirtualNetworkName"
+subnetName="YourSubnetName"
 
 # Enable the storage service endpoint
 az network vnet subnet update --resource-group $resourceGroupName --vnet-name $vnetName --name $subnetName --service-endpoints "Microsoft.Storage.Global"
@@ -98,15 +102,15 @@ You can configure a private endpoint using the Azure portal, PowerShell, or the 
 
 # [Portal](#tab/azure-portal)
 
-To create your private endpoint from the volume group page:
+To create your private endpoint from the volume group page in the Azure portal:
 
-1. Navigate to your Elastic SAN volume group and select **Networking**.
+1. Navigate to your Elastic SAN volume group and select the **Networking** tab.
 1. Change **Network access** from **Enable public access from select virtual networks** to **Disable public access and use private access**.
 1. Under **Private endpoint connections** select **Create a private endpoint**.
 1. In the **Create private endpoint dialog**, specify the appropriate values for the new endpoint:
     - **Subscription**: Select your subscription.
     - **Resource group**: Select the resource group where the private endpoint will be created.
-    - **Name**: Specify the name of the private endpoint.
+    - **Name**: Specify the name for the private endpoint.
     - **Elastic SAN sub-resource**: Specify the name of the volume group to which the private endpoint will have access.
     - **Virtual network**: Select the virtual network that contains the subnet to which the endpoint will be connected.
     - **Subnet**: The virtual network subnet to which the endpoint will be connected.
