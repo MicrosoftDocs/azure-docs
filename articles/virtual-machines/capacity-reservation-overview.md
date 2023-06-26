@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
 
-On-demand Capacity Reservation enables you to reserve Compute capacity in an Azure region or an Availability Zone at any time. Unlike [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/), you don't have to sign up for a 1-year or a 3-year term commitment. You can create and delete Capacity reservations at any time and have complete control over how you want to manage your reservations.  
+On-demand Capacity Reservation enables you to reserve Compute capacity in an Azure region or an Availability Zone at any time. Unlike [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/), you don't have to sign up for a 1-year or a 3-year term commitment. You can request and delete Capacity reservations giving you control over how you want to manage your reservations.  
 
 Once you create the Capacity Reservation, the resources can be used immediately. Capacity is reserved for you until you delete the reservation.  
 
@@ -40,8 +40,8 @@ Please read the Service Level Agreement details in the [SLA for Capacity Reserva
 
 Any claim against the SLA requires calculating the Minutes Not Available for the reserved capacity. Here's an example of how to calculate Minutes Not Available. 
 
-- A On-Demand Capacity Reservation has a total capacity of five Reserved Units. The On-Demand Capacity Reservation starts in the Unused Capacity state with zero Virtual Machines Allocated. 
-- A Supported Deployment of quantity 5 is allocated to the On Demand Capacity Reservation. Three Virtual Machines succeed; two fail with a Virtual Machine capacity error. Result: Two Reserved Units begin to accumulate Minutes Not Available. 
+- A on demand capacity reservation has a total capacity of five Reserved Units. The On-Demand Capacity Reservation starts in the Unused Capacity state with zero Virtual Machines Allocated. 
+- A Supported Deployment of quantity 5 is allocated to the on demand capacity reservation. Three Virtual Machines succeed; two fail with a Virtual Machine capacity error. Result: Two Reserved Units begin to accumulate Minutes Not Available. 
 - No action is taken for 20 minutes. Result: Two Reserved Units each accumulate 15 Minutes Not Available. 
 - At 20 minutes, a Supported Deployment of quantity 2 is attempted. One Virtual Machine succeeds, and the other Virtual Machine fails with a Virtual Machine capacity error. Result: One Reserved Unit stays at 15 accumulated Minutes Not Available. Another Reserved Unit resumes accumulating Minutes Not Available. 
 - Four more Supported Deployments of quantity 1 are made at 10-minute intervals. On the fourth attempt (60 minutes after the first capacity error), the Virtual Machine is deployed. Result: The last Reserved Unit adds 40 minutes of Minutes Not Available (Four attempts x 10 minutes between attempts) for 55 Minutes Not Available. 
@@ -55,7 +55,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
 
 - Creating capacity reservations requires quota in the same manner as creating virtual machines. 
 - Creating capacity reservations is currently limited to specific VM Series and Sizes. The Compute [Resource SKUs list](/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
-- The following VM Series supports creation of capacity reservations: 
+- The following VM Series support creation of capacity reservations: 
     - Av2 
     - B 
     - D series, v2 and newer; AMD and Intel 
@@ -101,7 +101,7 @@ Both used and unused Capacity Reservation and Saving Plan are eligible for Reser
 
 | Differences | On-demand Capacity Reservation | Reserved Instances|
 |---|---|---|
-| Term | No term commitment required. Can be created and deleted as per the customer requirement | Fixed term commitment of either one-year or three years |
+| Term | No term commitment required. Can be requested and deleted as per the customer requirement | Fixed term commitment of either one-year or three years |
 | Billing discount | Charged at pay-as-you-go rates for the underlying VM size* | Significant cost savings over pay-as-you-go rates |
 | Capacity SLA | Provides capacity guarantee in the specified location (region or availability zone) | Doesn't provide a capacity guarantee. Customers can choose “capacity priority” to gain better access, but that option doesn't carry an SLA |
 | Region vs Availability Zones | Can be deployed per region or per availability zone | Only available at regional level |
@@ -193,11 +193,11 @@ In the previous image, the VM Reserved Instance discount is applied to VM 0, whi
 
 - **What’s the price of an on-demand Capacity Reservation?**
 
-    The price of your on-demand Capacity Reservation is the same as the underlying VM size associated with the reservation. When using Capacity Reservation, you'll be charged for the VM size you selected at pay-as-you-go rates, whether the VM has been provisioned.  Visit the [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) VM pricing pages for more details.
+    The price of your on demand capacity reservation is the same as the underlying VM size associated with the reservation. When using Capacity Reservation, you'll be charged for the VM size you selected at pay-as-you-go rates, whether the VM has been provisioned.  Visit the [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) VM pricing pages for more details.
 
 - **Will I get charged twice for the cost of on-demand Capacity Reservation and the actual VM when I finally provision it?**
 
-    No, you only get charged once for on-demand Capacity Reservations.
+    No, you only get charged once for on-demand capacity reservations.
 
 - **Can I apply Reserved Virtual Machine Instance (RI) to on-demand Capacity Reservation to lower my costs?**
 
