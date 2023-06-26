@@ -5,16 +5,15 @@ description: Learn about the different types of storage accounts in Azure Storag
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 06/28/2022
 ms.author: tamram
-ms.subservice: common
 ---
 
 # Storage account overview
 
-An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables.The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
 
 To learn how to create an Azure Storage account, see [Create a storage account](storage-account-create.md).
 
@@ -62,11 +61,12 @@ There are two types of service endpoints available for a storage account:
 
 Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per region per subscription. With a quota increase, you can crate up to 5500 storage accounts per region per subscription.
 
-> [!IMPORTANT]
-> Azure DNS zone endpoints are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 You can configure your storage account to use a custom domain for the Blob Storage endpoint. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
+
+> [!IMPORTANT]
+> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
+>
+> Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
 
 ### Standard endpoints
 
@@ -88,6 +88,10 @@ When your account is created with standard endpoints, you can easily construct t
 `https://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
 ### Azure DNS zone endpoints (preview)
+
+> [!IMPORTANT]
+> Azure DNS zone endpoints are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 When you create an Azure Storage account with  Azure DNS zone endpoints (preview), Azure Storage dynamically selects an Azure DNS zone and assigns it to the storage account when it is created. The new storage account's endpoints are created in the dynamically selected Azure DNS zone. For more information about Azure DNS zones, see [DNS zones](../../dns/dns-zones-records.md#dns-zones).
 
