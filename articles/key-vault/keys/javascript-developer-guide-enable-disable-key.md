@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # Enable and disable a key in Azure Key Vault with JavaScript
 
-To enable a key for use with cryptographic operations in Azure Key Vault, use the [updateKeyProperties](https://learn.microsoft.com/en-us/javascript/api/@azure/keyvault-keys/keyclient?view=azure-node-latest#@azure-keyvault-keys-keyclient-updatekeyproperties) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
+To enable a key for use with cryptographic operations in Azure Key Vault, use the [updateKeyProperties](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-updatekeyproperties) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
 
 ## Enable a key
 

@@ -93,7 +93,7 @@ The Azure Key Vault keys client library for JavaScript includes the following cl
 
 The KeyClient object is the top object in the SDK. This client allows you to perform key management tasks such as create, rotate, delete, and list the keys.
 
-Once your local environment and Key Vault authorization are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) and the [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) packages. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keyss/keyclient) object.
+Once your local environment and Key Vault authorization are set up, create a JavaScript file, which includes the [@azure/identity](https://www.npmjs.com/package/@azure/identity) and the [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) packages. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to your vault. Use that credential to authenticate with a [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) object.
 
 ```javascript
 // Include required dependencies
@@ -163,4 +163,4 @@ if (key?.name) {
 
 ## Next steps
 
-* [Create a key](javascript-developer-guide-create-rotate-import-key.md)
+* [Create a key](javascript-developer-guide-create-update-rotate-key.md)

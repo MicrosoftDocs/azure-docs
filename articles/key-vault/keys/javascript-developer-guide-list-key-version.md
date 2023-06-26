@@ -118,7 +118,7 @@ The deletedKey object is a [DeletedKey](/javascript/api/@azure/keyvault-keys/del
 * `deletedOn` - The time when the key was deleted.
 * `scheduledPurgeDate` - The date when the key is scheduled to be purged. After a key is purged, it cannot be [recovered](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-beginrecoverdeletedkey). If you [backed up the key](javascript-developer-guide-backup-delete-restore-key.md), you can restore it with the same name and all its versions.
 
-Refer to the [List all keys with paging](#list-all-keys-with-paging) example to see how to page through the results.
+Refer to the [List all keys by page](#list-all-keys-by-page) example to see how to page through the results.
 
 ## Next steps
 

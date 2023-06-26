@@ -58,7 +58,7 @@ items:
       - name: Get key
         href: javascript-developer-guide-get-key.md
       - name: Enable and disable key
-        href: javascript-developer-enable-disable-key.md
+        href: javascript-developer-guide-enable-disable-key.md
       - name: List keys
         href: javascript-developer-guide-list-key-version.md
       - name: Import key
