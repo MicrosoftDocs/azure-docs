@@ -152,13 +152,13 @@ Use the following steps to create a support ticket for StorSimple data copy, dat
    -	Specify **Contact information**: First name, Last name, Email, Phone, and Country/region.
    -	To continue, specify **Next**.
 
-      ![Screenshot of Support details in Azure portal.](./media/storsimple-overview/storsimple-support-details-5.png)
+        ![Screenshot of Support details in Azure portal.](./media/storsimple-overview/storsimple-support-details-5.png)
 
 1. On the **Review + create** tab, review the summary of your case. To continue, specify **Create**. 
 
     ![Screenshot of the Review and create support request page in Azure portal.](./media/storsimple-overview/storsimple-support-review-details-6.png)
 
-Microsoft Support will use this information to reach out to you for further information and diagnosis. A Support engineer will contact you as soon as possible to proceed with your request.
+Microsoft Support will use this information to reach out to you for additional details and diagnosis. A Support engineer will contact you as soon as possible to proceed with your request.
 
 ## Next steps
 
