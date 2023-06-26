@@ -1,5 +1,5 @@
 ---
-title: Vector index size documentation
+title: Vector index size limit
 titleSuffix: Azure Cognitive Search
 description: Explanation of the factors affecting the size of a vector index.
 
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-# Vector index size
+# Vector index size limit
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
@@ -47,11 +47,13 @@ Each approximate-nearest-neighbor algorithm creates other data structures in mem
 
 When a document with a vector field is either deleted or updated (updates are internally represented as a delete and insert operation), the underlying document is marked as deleted and skipped during subsequent queries. As new documents are indexed and the internal vector index grows, the system cleans up these deleted documents and reclaims the resources. This means you'll likely observe a lag between deleting documents and the underlying resources being freed.
 
-We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you may observe a higher deleted documents ratio.
+We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter, and there's no API or script that returns the ratio in effect for your service. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you may observe a higher deleted documents ratio.
 
 This is another factor impacting the size of your vector index.
 
 ## Estimating the total size for your data
+
+Disk storage overhead of vector data is roughly three times the size of raw vector data. The following approach takes a closer look at disk storage requirements.
 
 To estimate the total size of your vector index, use the following calculation:
 
