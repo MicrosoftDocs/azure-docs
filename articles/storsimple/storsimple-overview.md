@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.custom: devx-track-azurepowershell
 ms.workload: TBD
-ms.date: 06/20/2023
+ms.date: 06/26/2023
 ms.author: alkohli
 ROBOTS: NOINDEX
 ---
@@ -21,7 +21,7 @@ ROBOTS: NOINDEX
 # StorSimple 8000 series: a hybrid cloud storage solution
 
 > [!CAUTION]
-> **Action Required:** StorSimple Data Manager, StorSimple Device Manager, StorSimple 1200, and StorSimple 8000 have reached their end of support. We're no longer updating this content regularly. Check the Microsoft Product Lifecycle for information about how this product, service, technology, or API is supported. StorSimple management services have been decommissioned and removed from the Azure platform. 
+> **Action Required:** StorSimple Data Manager, StorSimple Device Manager, StorSimple 1200, and StorSimple 8000 have reached their end of support. We're no longer updating this content. Check the Microsoft Product Lifecycle for information about how this product, service, technology, or API is supported. StorSimple management services have been decommissioned and removed from the Azure platform. 
 
 The following resources are available to help you migrate backup files or to copy live data to your own environment, and to provide documentation to decommission a StorSimple appliance. 
 
@@ -119,10 +119,9 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 **Step 3.3** - You must now look at the back plane of the device. After the two controllers are shut down, the status LEDs on both the controllers should be blinking red. To turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position. This turns off the device.
 
-## Create a support ticket with Microsoft Support
+## Create a support ticket
 
-new content...
-
+yep...
 ## Next steps
 
 - [StorSimple 8000 series copy utility documentation](https://aka.ms/storsimple-copy-utility-docs).
