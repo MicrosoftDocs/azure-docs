@@ -14,7 +14,7 @@ ms.date: 06/26/2023
 
 # Tutorial: Call a protected web API from your dotnet daemon application
 
-In this article, you create app projects for both the client daemon app and web API. Later, you enable the client daemon app to acquire an access token using its own identity, then call the web API.
+In this tutorial, you build your client daemon app and call a protected web API. You enable the client daemon app to acquire an access token using its own identity, then call the web API.
 
 ## Prerequisite 
 
