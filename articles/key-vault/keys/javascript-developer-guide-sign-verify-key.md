@@ -1,6 +1,6 @@
 ---
-title: Encrypt and decrypt using Azure Key Vault keys with JavaScript
-description: Encrypt and decrypt data with keys in JavaScript. 
+title: Sign and verify using Azure Key Vault keys with JavaScript
+description: Sign and verify data with keys in JavaScript. 
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.date: 06/21/2023
 ms.author: mbaldwin
-#Customer intent: As a JavaScript developer who is new to Azure, I want to encrypt and decrypt data using a key to the Key Vault with the SDK.
+#Customer intent: As a JavaScript developer who is new to Azure, I want to sign and verify data using a key to the Key Vault with the SDK.
 ---
 
 # Sign and verify data using a key in Azure Key Vault with JavaScript

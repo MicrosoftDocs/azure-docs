@@ -1,6 +1,6 @@
 ---
-title: Encrypt and decrypt using Azure Key Vault keys with JavaScript
-description: Encrypt and decrypt data with keys in JavaScript. 
+title: Import keys using Azure Key Vault keys with JavaScript
+description: Import keys using Azure Key Vault keys with JavaScript. 
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.date: 06/21/2023
 ms.author: mbaldwin
-#Customer intent: As a JavaScript developer who is new to Azure, I want to encrypt and decrypt data using a key to the Key Vault with the SDK.
+#Customer intent: As a JavaScript developer who is new to Azure, I want to import a key to the Key Vault with the SDK.
 ---
 
-# Import and export keys in Azure Key Vault with JavaScript
+# Import keys in Azure Key Vault with JavaScript
 
 Create the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) with the appropriate [programmatic authentication credentials](javascript-developer-guide-get-started.md#authorize-access-and-connect-to-key-vault).
 
