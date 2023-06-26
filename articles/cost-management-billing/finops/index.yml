@@ -90,6 +90,8 @@ landingContent:
       links:
       - text: Cloud policy and governance
         url: capabilities-policy.md
+      - text: Chargeback and finance integration
+        url: capabilities-chargeback.md
 
 
 # Card (optional)
