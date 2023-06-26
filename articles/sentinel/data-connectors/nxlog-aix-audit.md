@@ -3,14 +3,14 @@ title: "NXLog AIX Audit connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog AIX Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # NXLog AIX Audit connector for Microsoft Sentinel
 
-The NXLog [AIX Audit](https://nxlog.co/documentation/nxlog-user-guide/im_aixaudit.html) data connector uses the AIX Audit subsystem to read events directly from the kernel for capturing audit events on the AIX platform. This REST API connector can efficiently export AIX Audit events to Microsoft Sentinel in real time.
+The [NXLog AIX Audit](https://docs.nxlog.co/refman/current/im/aixaudit.html) data connector uses the AIX Audit subsystem to read events directly from the kernel for capturing audit events on the AIX platform. This REST API connector can efficiently export AIX Audit events to Microsoft Sentinel in real time.
 
 ## Connector attributes
 
@@ -18,7 +18,7 @@ The NXLog [AIX Audit](https://nxlog.co/documentation/nxlog-user-guide/im_aixaudi
 | --- | --- |
 | **Log Analytics table(s)** | AIX_Audit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/support-tickets/add/support-ticket) |
 
 ## Query samples
 
@@ -94,7 +94,7 @@ NXLog_parsed_AIX_Audit_view
    >  This data connector depends on a parser based on a Kusto Function to work as expected [**NXLog_parsed_AIX_Audit_view**](https://aka.ms/sentinel-nxlogaixaudit-parser) which is deployed with the Microsoft Sentinel Solution.
 
 
-Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic [Microsoft Microsoft Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) to configure this connector.
+Follow the step-by-step instructions in the *NXLog User Guide* Integration Guide [Microsoft Sentinel](https://docs.nxlog.co/userguide/integrate/microsoft-azure-sentinel.html) to configure this connector.
 
 
 

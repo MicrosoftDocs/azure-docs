@@ -80,7 +80,7 @@ Check the Airflow task logs for `update_status_running_task` or `update_status_f
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
         | where DagName == "Osdu_ingest"
         | where DagTaskName == "update_status_running_task"
         | where LogLevel == "ERROR" // ERROR/DEBUG/INFO/WARNING
@@ -121,7 +121,7 @@ Check the Airflow task logs for `validate_manifest_schema_task` or `process_mani
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
     | where DagName has "Osdu_ingest"
     | where DagTaskName == "validate_manifest_schema_task" or DagTaskName has "process_manifest_task"
     | where LogLevel == "ERROR"
@@ -175,7 +175,7 @@ Check the Airflow task logs for `provide_manifest_integrity_task` or `process_ma
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
         | where DagName has "Osdu_ingest"
         | where DagTaskName == "provide_manifest_integrity_task" or DagTaskName has "process_manifest_task"
         | where Content has 'Search query "'or Content has 'response ids: ['
@@ -217,7 +217,7 @@ Check the Airflow task logs for `process_single_manifest_file_task` or `process_
 Sample Kusto query:
 
 ```kusto
-    AirflowTaskLogs
+    OEPAirFlowTask
     | where DagName has "Osdu_ingest"
     | where DagTaskName == "process_single_manifest_file_task" or DagTaskName has "process_manifest_task"
     | where LogLevel == "ERROR"
