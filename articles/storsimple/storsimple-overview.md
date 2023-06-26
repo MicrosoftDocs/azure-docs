@@ -131,32 +131,34 @@ Use the following steps to create a support ticket for StorSimple data copy, dat
 
     ![Screenshot of the Create a support request page in Azure portal.](./media/storsimple-overview/storsimple-create-a-support-request-2.png)
 
-1. On the **New support request** page, fill out the required information. For each page, do the following steps:
+1. On the **New support request** page, provide the required information:
    -	Provide a brief **Summary** of the issue.
    -	Specify **Technical** as the **Issue type**.
    -	Specify the affected **Subscription**.
    -	Specify **All services**. You must specify **All services** because **StorSimple Manager Service** is no longer available.
-   -	Specify **Azure StorSimple 8000 Series** for **Service type**.
-   -	Specify **StorSimple Migration Utility** for **Problem type**.
+   -	For **Service type**, specify **Azure StorSimple 8000 Series**. 
+   -	For **Problem type**, Specify **StorSimple Migration Utility**.
    - To continue, select **Next**.
 
-    ![Screenshot of the Help and Support page in Azure portal.](./media/storsimple-overview/storsimple-new-support-request-3.png)   
+      ![Screenshot of the Help and Support page in Azure portal.](./media/storsimple-overview/storsimple-new-support-request-3.png)   
   
-1. If the **Solutions** page appears, select **Return to sport request** and then select **Next**.
+1. If the **Solutions** page appears, select **Return to support request** and then select **Next**.
 
-1. On the **New support request** page, provide additional details and contact information:
+1. On the **Additional details** tab, provide additional details and contact information:
 
    - Specify the time when the problem started, a description, and  upload relevant files, if applicable.
-   -	Specify **Yes** or **No** to **Advanced diagnostic information** collection.
-   -	Your support plan will be generated based on your subscription. Select severity, your preferred contact method and language. 
+   -	Specify **Yes** or **No** for **Advanced diagnostic information** collection.
+   -	Your support plan will be generated based on your subscription. Specify severity, your preferred contact method, and language. 
    -	Specify **Contact information**: First name, Last name, Email, Phone, and Country/region.
    -	To continue, specify **Next**.
 
-    ![Screenshot of Support details in Azure portal.](./media/storsimple-overview/storsimple-support-details-5.png)
+      ![Screenshot of Support details in Azure portal.](./media/storsimple-overview/storsimple-support-details-5.png)
 
-1.    
+1. On the **Review + create** tab, review the summary of your case. To continue, specify **Create**. 
 
-![Screenshot of the New support request page in Azure portal.](./media/storsimple-overview/storsimple-help-and-support-1.png)
+    ![Screenshot of the Review and create support request page in Azure portal.](./media/storsimple-overview/storsimple-support-review-details-6.png)
+
+Microsoft Support will use this information to reach out to you for further information and diagnosis. A Support engineer will contact you as soon as possible to proceed with your request.
 
 ## Next steps
 
