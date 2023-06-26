@@ -94,6 +94,8 @@ landingContent:
         url: capabilities-chargeback.md
       - text: FinOps education and enablement
         url: capabilities-education.md
+      - text: Establishing a FinOps culture
+        url: capabilities-culture.md
 
 
 # Card (optional)

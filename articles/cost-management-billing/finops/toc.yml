@@ -57,6 +57,8 @@
       href: capabilities-chargeback.md
     - name: FinOps education and enablement
       href: capabilities-education.md
+    - name: Establishing a FinOps culture
+      href: capabilities-culture.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book
