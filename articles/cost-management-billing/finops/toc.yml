@@ -55,6 +55,8 @@
       href: capabilities-policy.md
     - name: Chargeback and finance integration
       href: capabilities-chargeback.md
+    - name: FinOps education and enablement
+      href: capabilities-education.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

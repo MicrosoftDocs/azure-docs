@@ -92,6 +92,8 @@ landingContent:
         url: capabilities-policy.md
       - text: Chargeback and finance integration
         url: capabilities-chargeback.md
+      - text: FinOps education and enablement
+        url: capabilities-education.md
 
 
 # Card (optional)
