@@ -24,6 +24,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## June 2023
 
+- Announcement: [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
 - [Windows Forwarded Events connector is now generally available](#windows-forwarded-events-connector-is-now-generally-available)
 - [Connect multiple SAP System Identifiers via the UI](#connect-multiple-sap-system-identifiers-via-the-ui-preview)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
@@ -177,6 +178,7 @@ To give you more flexibility in scheduling your analytics rule execution times a
 
 ## Announcements
 
+- [Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting](#changes-to-microsoft-defender-for-office-365-connector-alerts-that-apply-when-disconnecting-and-reconnecting)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation)
 - [When disconnecting and connecting the MDI alerts connector - UniqueExternalId field is not populated (use the AlertName field)](#when-disconnecting-and-connecting-the-mdi-alerts-connector---uniqueexternalid-field-is-not-populated-use-the-alertname-field)
 - [Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties](#microsoft-defender-for-identity-alerts-will-no-longer-refer-to-the-mda-policies-in-the-alert-externallinks-properties)
@@ -186,6 +188,29 @@ To give you more flexibility in scheduling your analytics rule execution times a
 - [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
+
+### Changes to Microsoft Defender for Office 365 connector alerts that apply when disconnecting and reconnecting  
+
+To improve the overall experience for Microsoft Defender for Office 365 alerts, we've improved the sync between alerts and incidents, and increased the number of alerts that flow through the connector. 
+
+To benefit from this change, disconnect and reconnect the Microsoft Defender for Office 365 connector. However, by taking this action, some fields are no longer populated:
+
+- `ExtendedProperties["InvestigationName"]`
+- `ExtendedProperties["Status"]`
+- `ExtendedLinks`
+- `AdditionalActionsAndResults` located inside the `Entities` field
+
+To retrieve the information that was previously retrieved by these fields, in the Microsoft 365 Defender portal, on the left, select **Alerts**, and locate the following information:
+
+- `ExtendedProperties["InvestigationName"]`: Under **Investigation ID**:
+ 
+    :::image type="content" source="media/whats-new/mdo-connector-fields-investigation-id.png" alt-text="Screenshot showing the Microsoft Defender for Office 365 alerts Investigation ID field in the Microsoft 365 Defender portal." lightbox="media/whats-new/mdo-connector-fields-investigation-id.png":::
+
+- `ExtendedProperties["Status"]`: Under **Investigation status**:
+ 
+    :::image type="content" source="media/whats-new/mdo-connector-fields-investigation-status.png" alt-text="Screenshot showing the Microsoft Defender for Office 365 alerts Investigation ID field in the Microsoft 365 Defender portal." lightbox="media/whats-new/mdo-connector-fields-investigation-status.png":::
+
+- `ExtendedLinks`: Select **Investigation ID**, which opens the relevant **Investigation** page. 
 
 ### Classic alert automation due for deprecation
 
