@@ -2,7 +2,7 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 06/26/2023
 
 ---
 
@@ -52,7 +52,7 @@ and has 150 GiB of temporary storage. If you don't specify the OS disk type, by 
 
 ### Customer Managed key
 
-You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Azure ephemeral OS disks Customer Managed key][azure-disk-customer-managed-key].
+You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Use Customer Managed key with Azure disks on AKS][azure-disk-customer-managed-key].
 
 ## Volumes
 
@@ -293,4 +293,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-blob-csi]: azure-blob-csi.md
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
 [azure-files-azure-netapp-comparison]: ../storage/files/storage-files-netapp-comparison.md
-[azure-disk-customer-managed-key]: ../virtual-machines/ephemeral-os-disks.md#customer-managed-key
+[azure-disk-customer-managed-key]: azure-disk-customer-managed-keys.md

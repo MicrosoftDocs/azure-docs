@@ -3,26 +3,67 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/10/2023
+ms.date: 06/26/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters.
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the ephemeral OS and data disks for your AKS clusters.
 
 Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] and [Windows][customer-managed-keys-windows].
-
-## Limitations
-
-* Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
-* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
 
 ## Prerequisites
 
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
 * You need the Azure CLI version 2.11.1 or later.
 * Customer-managed keys are only supported in Kubernetes versions 1.17 and higher.
-* If you choose to rotate (change) your keys periodically, for more information see [Customer-managed keys and encryption of Azure managed disk](../virtual-machines/disk-encryption.md).
+* If you choose to rotate (change) your keys periodically, see [Customer-managed keys and encryption of Azure managed disk](../virtual-machines/disk-encryption.md) for more information.
+
+## Limitations
+
+* Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
+* Encryption of ephemeral OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* When encrypting ephemeral OS disk-enabled node pool with customer-managed keys, if you want to rotate key in Azure Key Vault, you need to:
+
+   * Scale down the node pool count to 0
+   * Rotate the key
+   * Scale up the node pool to the original count.
+
+## Register customer-managed key feature
+
+To enable customer-managed key for ephemeral OS disk feature, you must register *EnableBYOKOnEphemeralOSDiskPreview* feature flag on *Microsoft.ContainerService* over the subscription. To perform the registration, run the following commands.
+
+1. Install the *aks-preview* extension:
+
+   ```azurecli-interactive
+   az extension add --name aks-preview
+   ```
+
+1. Update to the latest version of the extension released:
+
+   ```azurecli-interactive
+   az extension update --name aks-preview
+   ```
+
+1. Register the *EnableBYOKOnEphemeralOSDiskPreview* feature flag:
+
+   ```azurecli-interactive
+   az feature register --namespace "Microsoft.ContainerService" --name "EnableBYOKOnEphemeralOSDiskPreview"
+   ```
+
+   It takes a few minutes for the status to show *Registered*.
+
+1. Verify the registration status:
+
+   ```azurecli-interactive
+   az feature show --namespace "Microsoft.ContainerService" --name "EnableBYOKOnEphemeralOSDiskPreview"
+   ```
+
+1. When the status shows *Registered*, refresh the `Microsoft.ContainerService` resource provider registration:
+
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.ContainerService
+   ```
 
 ## Create an Azure Key Vault instance
 
@@ -75,7 +116,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk.
+Either create a new or select an existing resource group for your AKS cluster, then use your key to encrypt the ephemeral OS disk.
 
 > [!IMPORTANT]
 > Ensure you create a new resource group for your AKS cluster
@@ -123,10 +164,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 # Update cluster
 kubectl apply -f byok-azure-disk.yaml
 ```
-
-## Using Azure tags
-
-For more information on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
