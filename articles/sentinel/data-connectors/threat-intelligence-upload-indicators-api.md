@@ -44,7 +44,7 @@ Follow These Steps to Connect to your Threat Intelligence:
 
 1. Get AAD Access Token
 
-[concat('To send request to the APIs, you need to acquire Azure Active Directory access token. You can follow instruction in this page: https://learn.microsoft.com/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token 
+To send request to the APIs, you need to acquire Azure Active Directory access token. You can follow instruction in this page: [Get Azure AD tokens for users by using MSAL](/azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token). 
   - Notice: Please request AAD access token with scope value: ', variables('management'), '.default')]
 
 
