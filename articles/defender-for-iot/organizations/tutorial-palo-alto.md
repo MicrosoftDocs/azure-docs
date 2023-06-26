@@ -1,11 +1,26 @@
 ---
-title: Integrate Palo Alto with Microsoft Defender for IoT
-description: Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-ms.date: 01/01/2023
-ms.topic: tutorial
+title: Integrate Palo Alto with Microsoft Defender for IoT (legacy)
+description: This article describes how to integrate Palo Alto with Microsoft Defender for IoT using Defender for IoT's legacy integration.
+ms.date: 06/26/2023
+ms.topic: how-to
 ---
 
-# Integrate Palo-Alto with Microsoft Defender for IoT
+# Integrate Palo-Alto with Microsoft Defender for IoT (legacy)
+
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the legacy Palo Alto integration with the upcoming version 23.1.
+>
+> We recommend transitioning your integration connecting to [Microsoft Sentinel](concept-sentinel-integration.md), and installing one or more of the following solutions instead:
+>- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)
+>- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)
+>- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview) 
+>
+> For more information, see our [TechCommunity blog](tbd) and the following Microsoft Sentinel documentation: 
+>- [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)
+>- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)
+>- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)
+>- [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing)
+>
 
 This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT.
 

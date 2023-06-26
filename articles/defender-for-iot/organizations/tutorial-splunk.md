@@ -1,12 +1,22 @@
 ---
-title: Integrate Splunk with Microsoft Defender for IoT
-description: In this tutorial, learn how to integrate Splunk with Microsoft Defender for IoT.
+title: Integrate Splunk with Microsoft Defender for IoT (legacy)
+description: This article describes how to integrate Splunk with Microsoft Defender for IoT  using Defender for IoT's legacy integration.
 ms.topic: tutorial
-ms.date: 02/07/2022
+ms.date: 06/26/2023
 ms.custom: how-to
 ---
 
-# Integrate Splunk with Microsoft Defender for IoT
+# Integrate Splunk with Microsoft Defender for IoT (legacy)
+
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the legacy Splunk integration with the upcoming version 23.1.
+>
+> We recommend transitioning any legacy integrations to the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151) instead. For more information, see:
+>
+>- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)
+>- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)
+>- Our [TechCommunity blog](TBD)  
+>
 
 This article helps you learn how to integrate, and use Splunk with Microsoft Defender for IoT.
 
@@ -18,9 +28,6 @@ The application provides SOC analysts with multidimensional visibility into the 
 
 The Splunk application can be installed locally ('Splunk Enterprise') or run on a cloud ('Splunk Cloud'). The Splunk integration along with Defender for IoT supports 'Splunk Enterprise' only.
 
-> [!NOTE]
-> Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -29,6 +36,8 @@ In this article, you learn how to:
 > - Send Defender for IoT alerts to Splunk
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
 
 ## Prerequisites
 

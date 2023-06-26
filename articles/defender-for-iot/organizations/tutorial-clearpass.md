@@ -1,12 +1,21 @@
 ---
-title: Integrate ClearPass with Microsoft Defender for IoT
-description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass.
-ms.topic: tutorial
-ms.date: 02/07/2022
+title: Integrate ClearPass with Microsoft Defender for IoT (legacy)
+description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass using Defender for IoT's legacy integration.
+ms.topic: how-to
+ms.date: 06/26/2023
 ms.custom: how-to
 ---
 
-# Integrate ClearPass with Microsoft Defender for IoT
+# Integrate ClearPass with Microsoft Defender for IoT (legacy)
+
+
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with the upcoming version 23.1.
+>
+> We recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview) instead.
+>
+> For more information, see [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) and our [TechCommunity blog](TBD).
+>
 
 This article helps you learn how to integrate ClearPass Policy Manager (CPPM) with Microsoft Defender for IoT.
 

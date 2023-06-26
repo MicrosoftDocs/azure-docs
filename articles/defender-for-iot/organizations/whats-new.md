@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 05/17/2023
+ms.date: 06/26/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,28 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## July 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Deprecation notice for legacy Splunk, Aruba ClearPass, and Palo Alto integrations](#deprecation-notice-for-legacy-splunk-aruba-clearpass-and-palo-alto-integrations) |
+
+## Deprecation notice for legacy Splunk, Aruba ClearPass, and Palo Alto integrations
+
+Defender for IoT plans to end support for the legacy Splunk, Aruba ClearPass, and Palo Alto integrations with the upcoming version 23.1. We recommend that you transition to more updated integration methods before you upgrade your Defender for IoT system to version 23.1.
+
+We recommend using the following integration methods instead of the legacy integrations:
+
+|Integration  |Recommended method  | Legacy method
+|---------|---------|---------|
+|**Splunk**     | Use the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151).  <br><br>For more information, see: <br>- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)<br>- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)<br>- Our [TechCommunity blog](TBD)      | [Integrate Splunk with Microsoft Defender for IoT (legacy)](tutorial-splunk.md) |
+|**Palo Alto**     |  Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the one or more of the following solutions: <br><br>- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)<br>- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview) <br>- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview)  <br><br>For more information, see our [TechCommunity blog](tbd) and the following Microsoft Sentinel documentation: <br>- [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)<br>- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl) <br>- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)  | [Integrate Palo-Alto with Microsoft Defender for IoT (legacy)](tutorial-palo-alto.md) |
+|**Aruba ClearPass**     | Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview).  <br><br>For more information, see the [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass) and our [TechCommunity blog](TBD).      | [Integrate ClearPass with Microsoft Defender for IoT (legacy)](tutorial-clearpass.md) |
+
+> [!NOTE]
+> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
+
 
 ## June 2023
 
