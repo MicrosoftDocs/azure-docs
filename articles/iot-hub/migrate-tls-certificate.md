@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 06/20/2023
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -33,7 +33,11 @@ For each IoT hub, you can expect the following:
 
 ### Request an extension
 
-This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by February 15, 2023. If you absolutely can't meet the February 2023 target date, [fill out this form](https://aka.ms/BaltimoreAllow) with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message that indicates you've completed the form, along with your company name. We can flag the specific hubs to be migrated later in the rollout window.
+This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by the migration deadlines.
+
+As of June 2023 the extension request process is closed for IoT Hub customers.
+
+IoT Central applications are scheduled for migration between June 15th and October 15th, 2023. For IoT Central customers who absolutely can't have their devices ready for migration by June 2023, [fill out this form](https://aka.ms/BaltimoreAllowCentral) before August 15, 2023 with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message that indicates you've completed the form, along with your company name. We can flag the specific IoT Central apps to be migrated on the requested extension date.
 
 > [!NOTE]
 > We are collecting this information to help with the Baltimore migration. We will hold onto this information until October 15th, 2023, when this migration is slated to complete. If you would like us to delete this information, please [email us](mailto:iot-ca-updates@microsoft.com) and we can assist you. For any additional questions about the Microsoft privacy policy, see the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
