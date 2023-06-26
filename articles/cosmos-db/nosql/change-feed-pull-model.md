@@ -18,7 +18,7 @@ ms.custom: devx-track-java, build-2023
 
 You can use the change feed pull model to consume the Azure Cosmos DB change feed at your own pace. Similar to the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
 
-## Compared to the change feed processor
+## Compare to the change feed processor
 
 Many scenarios can process the change feed by using either the [change feed processor](change-feed-processor.md) or the change feed pull model. The pull model's continuation tokens and the change feed processor's lease container both work as bookmarks for the last processed item or batch of items in the change feed.
 
@@ -238,7 +238,7 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation), ChangeFeedMode.LatestVersion);
 ```
 
-A `FeedIterator` continuation token never expires as long as the Azure Cosmos DB container still exists.
+When using latest version mode, the `FeedIterator` continuation token never expires as long as the Azure Cosmos DB container still exists. When using all versions and deletes mode, the `FeedIterator` continuation token is valid as long as the changes happened within the retention window for continuous backups.
 
 ### [Java](#tab/java)
 
