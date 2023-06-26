@@ -12,7 +12,7 @@ ms.custom: template-how-to, engagement-fy23
 
 # Enable Azure Peering Service for Voice on a Direct peering by using the Azure portal
 
-This article shows you how to enable [Azure Peering Service](../peering-service/about.md) for voice on a a Direct peering using the Azure portal.
+This article shows you how to enable [Azure Peering Service](../peering-service/about.md) for voice on a Direct peering using the Azure portal.
 
 ## Prerequisites
 
@@ -47,9 +47,9 @@ This article shows you how to enable [Azure Peering Service](../peering-service/
 
 - If the existing peering session has IP addresses assigned by Microsoft, then BGP and BFD must be configured according to the instructions prior to requesting the change to Azure Peering Service Voice. 
 
-    - If the existing peering sessions have IP addresses assigned by the peer, then you'll need to take action during the conversion to change to Microsoft assigned IP addresses once these are assigned. The conversion to Azure Peering Service Voice will be delayed if the peer does not configure BGP and BFD in a timely manner.
+    - If the existing peering sessions have IP addresses assigned by the peer, then you need to take action during the conversion to change to Microsoft assigned IP addresses once they're assigned. The conversion to Azure Peering Service Voice will be delayed if the peer doesn't configure BGP and BFD in a timely manner.
 
-- The peer will receive notifications at each stage of the conversion process, including submission of the request, approval, assignment of new IP addresses, and completion of the conversion.
+- The peer receives notifications at each stage of the conversion process, including submission of the request, approval, assignment of new IP addresses, and completion of the conversion.
 
 ## Next steps
 
