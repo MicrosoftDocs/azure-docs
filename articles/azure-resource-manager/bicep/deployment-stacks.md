@@ -1,13 +1,15 @@
 ---
 title: Create & deploy deployment stacks in Bicep
-description: Describes how to create deployment stacks in Bicep .
+description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 06/26/2023
 ---
 
 # Deployment stacks (Preview)
 
-A deployment stack is an Azure resource type that allows for the management of a group of Azure resources as an atomic unit. When deploying resources with a Bicep or ARM template, this resource type provides management capabilities. As with other Azure resources, access to the deployment stack resource can be limited using Azure role-based access control (Azure RBAC). To create and update a deployment stack, use Azure CLI, Azure PowerShell, or the Portal with Bicep files. These Bicep files are transpiled into ARM JSON templates, which are then deployed as a deployment object by the stack. The deployment stack provides additional capabilities to the familiar deployment resources, making it a superset of those capabilities.
+An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as a atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC).
+
+To create and update a deployment stack, you can utilize Azure CLI, Azure PowerShell, or the Azure Portal along with Bicep files. These Bicep files are transpiled into ARM JSON templates, which are then deployed as a deployment object by the stack. The deployment stack offers additional capabilities beyond the [familiar deployment resources](./deploy-cli.md), serving as a superset of those capabilities.
 
 `Microsoft.Resources/deploymentStacks` is the resource type for deployment stacks. It consists of a main template that can perform 1-to-many updates across scopes to the resources it describes, as well as block any unwanted changes to those resources.
 
@@ -115,7 +117,7 @@ New-AzSubscriptionDeploymentStack `
   -DenySettingsMode none
 ```
 
-The `DeploymentResourceGroupName` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you. For more information about `DenySettingsMode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
+The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources. For more information about `DenySettingsMode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
 
 # [CLI](#tab/azure-cli)
 
@@ -128,7 +130,7 @@ az stack sub create \
   --deny-settings-mode none
 ```
 
-The `deployment-resource-group-name` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you. For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
+The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
 
 ---
 
