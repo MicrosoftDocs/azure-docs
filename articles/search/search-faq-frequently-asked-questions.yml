@@ -99,14 +99,14 @@ sections:
         answer: |
           Azure Cognitive Search supports vector indexing and retrieval, but doesn't generate vector embeddings from input content. 
           
-          Support for vector search is in public preview and available through the [2023-07-01-Preview REST APIs](/rest/api/searchservice/index-preview). Support consists of "vector field", which your documents can provide embeddings for. When you issue a search request with a query vector, the service identifies similar vectors and returns the corresponding documents.
+          Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). Support consists of a *vector field*, which your documents can provide embeddings for. When you issue a search request with a query vector, the service identifies similar vectors and returns the corresponding documents.
 
       - question: |
           How does vector search work in Azure Cognitive Search?
         answer: |
-          With standalone vector search, you first use a DNN, such as a large language model (LLM), to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
+          With standalone vector search, you first use a deep neural network (DNN), such as a large language model (LLM), to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
           
-          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is "Collection(Edm.Single)". Vector fields can be populated using an Indexer or by the Push API.
+          In Cognitive Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is `Collection(Edm.Single)`. 
           
           Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
 
@@ -125,12 +125,12 @@ sections:
       - question: |
           Does my search service support vector search?
         answer: |
-          Most existing services support vector search. If you're using the 2023-07-01-Preview and index creation fails, the underlying search service doesn't support vector search, and a new service must be created. This may occur for a small subset of services created prior to January 1, 2019.
+          Most existing services support vector search. If you're using the **2023-07-01-Preview** and index creation fails, the underlying search service doesn't support vector search, and a new service must be created. This may occur for a small subset of services created prior to January 1, 2019.
 
       - question: |
           Can I add vector search to an existing index?
         answer: |
-          If your search service supports vector search, both existing and new indexes support vector search using the [2023-07-01-Preview REST API](/rest/api/searchservice/index-preview).
+          If your search service supports vector search, both existing and new indexes support vector search using the [**2023-07-01-Preview REST API**](/rest/api/searchservice/index-preview).
 
       - question: |
           Why do I see different vector index size limits between my new search services and existing search services?
@@ -146,7 +146,7 @@ sections:
           
           * Add a "vectorSearch" section to the index schema specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
           
-          * Use the [2023-07-01-Preview API](/rest/api/searchservice/index-preview) to create or update the index, load documents, and issue queries.
+          * Use the [**2023-07-01-Preview API**](/rest/api/searchservice/index-preview) to create or update the index, load documents, and issue queries.
 
   - name: Queries
     questions:
