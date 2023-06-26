@@ -14,6 +14,8 @@ ms.date: 05/23/2023
 
 In this article, learn how to troubleshoot common problems you may encounter with the managed feature store in Azure Machine Learning.
 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Issues found when creating and updating a feature store
 
 When you create or update a feature store, you may encounter the following issues.
@@ -235,10 +237,10 @@ This error can also happen in the FeatureStore materialization job, with the job
 
 Start a notebook session with the new version of SDKS
 
-- If it is using azure-ai-ml, update to azure-ai-ml==1.8.0.
-- If it is using the feature store dataplane SDK, update it to azureml-featurestore== 0.1.0b2
+- If it is using azure-ai-ml, update to `azure-ai-ml==1.8.0`.
+- If it is using the feature store dataplane SDK, update it to `azureml-featurestore== 0.1.0b2`.
  
-In the notebook session, update the feature store entity to set its “stage” property, as shown in this example:
+In the notebook session, update the feature store entity to set its `stage` property, as shown in this example:
 
 ```python
 from azure.ai.ml.entities import DataColumn, DataColumnType
