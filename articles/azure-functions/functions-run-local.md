@@ -475,6 +475,8 @@ The following considerations apply to this kind of deployment:
 
 + Your project is deployed such that it [runs from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the [`--nozip` option][func azure functionapp publish].
 
++ To publish to a specific named slot in your function app, use the [`--slot` option](functions-core-tools-reference.md#func-azure-functionapp-publish). 
+
 + Java uses Maven to publish your local project to Azure. Instead, use the following command to publish to Azure: `mvn azure-functions:deploy`. Azure resources are created during initial deployment.
 
 + You get an error when you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
