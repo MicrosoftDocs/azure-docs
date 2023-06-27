@@ -8,7 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-#  LUN and WWID mappings
+# LUN and WWID mapping
 
 |LUN                     |WWID                    |
 |------------------------|------------------------|

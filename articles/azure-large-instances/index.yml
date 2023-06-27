@@ -16,12 +16,39 @@ metadata:
 
 # card 1
 landingContent:
-  - title: Epic for Azure Large Instances
+  - title: Azure Large Instances for Epic
     linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Large Instances?
+            url: what-is-azure-large-instances.md
+          - text: Working with ALI in the Azure Portal
+            url: working-with-ali-in-the-azure-portal.md
+          - text: Onboarding requirements
+            url: workloads/epic/onboarding-requirements.md
+          - text: Available SKUs
+            url: workloads/epic/available-skus.md
       - linkListType: architecture
         links:
           - text: Architecture
             url: workloads/epic/architecture.md 
+      - linkListType: how-to-guide
+        links:
+          - text: Create a volume group
+            url: workloads/epic/create-a-volume-group.md
+          - text: Configure Azure Service health alerts
+            url: workloads/epic/configure-azure-service-health-alerts.md
+          - text: Find your subscription ID
+            url: workloads/epic/find-your-subscription-id.md
+          - text: LUN and WWID mapping
+            url: workloads/epic/lun-and-wwid-mapping.md
+          - text: Quality checks
+            url: workloads/epic/quality-checks.md
+          - text: Register the ALI resource provider
+            url: workloads/epic/register-the-ali-resource-provider.md
+        - linkListType: reference
+        links:
+          - text: Frequently Asked Questions
+            url: workloads/epic/faq.md
 
 
- 
