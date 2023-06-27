@@ -72,6 +72,8 @@ az provider register --namespace Microsoft.BareMetalInfrastructure
 
 You can use the az provider list command to see all available providers.
 
+---
+
 For more information about resource providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## ALI instances in the Azure portal
@@ -108,6 +110,8 @@ az baremetalinstance list --resource-group DSM05A-T550 –output table
 > [!Note]
 > If you deployed several ALI tenants under the same Azure subscription, you will see multiple Azure resource groups.
 
+---
+
 ## View the attributes of a single instance
 
 You can view the details of a single instance.
@@ -141,6 +145,8 @@ az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabds
 ```
 
 If you're uncertain of the instance name, run the **az baremetalinstance list** command as previously described.
+
+---
 
 ## Check activities of a single instance
 
@@ -192,6 +198,8 @@ Use the same command to remove a tag:
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
 ```
 
+---
+
 ### Check properties of an instance
 
 When you acquire the instances, you can go to the Properties section to view the data collected about the instances. 
@@ -230,6 +238,8 @@ To restart an ALI instance, use the [az baremetalinstance restart](/cli/azure/ba
 ```azurecli
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
 ```
+
+---
 
 > [!Important]
 > Depending on the amount of memory in your ALI instance, a restart and a reboot of the hardware and operating system can take up to one hour.
