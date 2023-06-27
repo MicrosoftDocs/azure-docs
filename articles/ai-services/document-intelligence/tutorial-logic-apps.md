@@ -227,4 +227,4 @@ Congratulations! You've officially completed this tutorial.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
+> [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=/azure/ai-services/form-recognizer/toc.json&bc=/azure/ai-services/form-recognizer/breadcrumb/toc.json)
