@@ -13,7 +13,10 @@ ms.topic: how-to
 ms.custom: prompt
 ---
 
-# Train and Deploy Large Language Models (LLMs) with Azure Machine Learning prompt flow
+# Train and Deploy Large Language Models (LLMs) with Azure Machine Learning prompt flow (preview)
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 This guide walks you through using Azure Machine Learning prompt flow. You learn how to enable prompt flow in your Azure Machine Learning workspace. Then you create and develop your first prompt flow, test and evaluate it, then deploy it to production.
 
@@ -24,6 +27,8 @@ If you'd like video reference you can follow this video tutorial to start your p
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+
+* Access to Azure Open AI. [Follow this link to register](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/limited-access#registration-process)
 
 * Enable prompt flow in your Azure Machine Learning workspace
 
@@ -302,3 +307,7 @@ Copy following sample input data, paste to the input box, and select **Test**, t
 ![test endpoint](./media/how-to-train-promptflow/test-endpoint.png)
 
 ## Next steps
+
+[Get started with RAG using a prompt flow sample (preview)](/how-to-use-pipelines-prompt-flow.md)
+
+[How to create vector index in Azure Machine Learning prompt flow (preview)](how-to-create-vector-index.md)
