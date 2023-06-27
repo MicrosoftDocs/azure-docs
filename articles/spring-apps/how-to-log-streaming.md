@@ -183,9 +183,12 @@ To ensure the security of your applications when you expose a public endpoint fo
 > [!NOTE]
 > If you can't access app logs in the virtual network injection instance from the internet after you've enabled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
 
-The following screenshot shows an example of a basic rule that we recommend. You could use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address.
+The following table shows an example of a basic rule that we recommend. You could use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address of a service.
 
-:::image type="content" source="media/how-to-log-streaming/logstream-nsg.png" alt-text="Screenshot of Inbound Security Rules showing example recommended rules." lightbox="media/how-to-log-streaming/logstream-nsg.png":::
+|Priority|Name|Port|Protocol|Source|Destination|Action|
+|----|----|----|----|----|----|----|
+|100|Rule name|80|TCP|Internet|Service IP address|Allow|
+|110|Rule name|443|TCP|Internet|Service IP address|Allow|
 
 ## Next steps
 
