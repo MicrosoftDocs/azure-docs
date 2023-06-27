@@ -28,7 +28,7 @@ The [Azure Storage services](../../../storage/common/storage-introduction.md) ar
 
 Azure Storage services offer the following benefits:
 
-- **Durable and highly available**. Redundancy helps keep data safe during transient hardware failures. All storage is triple mirrored by default. You can also opt to replicate data across datacenters or geographical regions for additional protection from local catastrophes or natural disasters. Data replicated in this way remains highly available in the event of an unexpected outage.
+- **Durable and highly available**. Redundancy helps keep data safe during transient hardware failures. All storage is triple mirrored by default. You can also opt to replicate data across datacenters or geographical regions for more protection from local catastrophes or natural disasters. Data replicated in this way remains highly available in the event of an unexpected outage.
 
 - **Secure**: Azure Storage encrypts all data written to a storage account. Azure Storage gives you detailed control over who has access to your data.
 
@@ -98,7 +98,7 @@ To ensure network security, the storage account that you use for NFS mounting mu
 
 Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the SMB and NFS protocols. Azure Files doesn't currently support multiple-protocol access, so a share can only be either an NFS share or an SMB share. We recommend determining which protocol best suits your needs before you create Azure file shares.
 
-You can also help protect Azure file shares by using Azure Backup for a Recovery Services vault. This approach provides an additional layer of protection to the Oracle RMAN backups.
+You can also help protect Azure file shares by using Azure Backup for a Recovery Services vault. This approach provides another layer of protection to the Oracle RMAN backups.
 
 #### Azure Files with NFS v4.1
 
@@ -120,7 +120,7 @@ Because Azure Files is a multiuser file-share service, you should tune certain c
 
 The [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) service is a complete storage solution for Oracle Database in Azure VMs. Built on metered file storage, it supports any workload type and is highly available by default. Together with the Oracle Direct NFS driver, Azure NetApp Files provides a highly optimized storage layer for Oracle Database.
 
-Azure NetApp Files provides efficient storage-based snapshots on the underlying storage system that uses a redirect-on-write mechanism. Although snapshots are extremely fast to take and restore, they serve only as a first line of defense. They can account for the vast majority of the required restore operations of any organization, which are often part of recovery from human error.
+Azure NetApp Files provides efficient storage-based snapshots on the underlying storage system that uses a redirect-on-write mechanism. Although snapshots are fast to take and restore, they serve only as a first line of defense. They can account for most of the required restore operations of any organization, which are often part of recovery from human error.
 
 However, snapshots are not a complete backup. To cover all backup and restore requirements, you must create [external snapshot replicas](../../../azure-netapp-files/cross-region-replication-introduction.md) or other [backup vaults](../../../azure-netapp-files/backup-introduction.md) in a remote geography to protect against regional outages. [Read more about how Azure NetApp Files snapshots work](../../../azure-netapp-files/snapshots-introduction.md).
 

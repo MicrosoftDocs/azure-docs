@@ -18,7 +18,7 @@ ms.reviewer: jjaygbay1
 
 This article demonstrates the use of Azure Backup to take disk snapshots of virtual machine (VM) disks, which include the Oracle Database files and the Oracle fast recovery area. By using Azure Backup, you can take full disk snapshots that are suitable as backups and are stored in a [Recovery Services vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  
 
-Azure Backup also provides application-consistent backups, which ensure that additional fixes aren't required to restore the data. Application-consistent backups work with both file system and Oracle Automatic Storage Management (ASM) databases.
+Azure Backup also provides application-consistent backups, which ensure that more fixes aren't required to restore the data. Application-consistent backups work with both file system and Oracle Automatic Storage Management (ASM) databases.
 
 Restoring application-consistent data reduces restoration time, so you can quickly return to a running state. Oracle Database recovery is still necessary after restore. You facilitate the recovery by using Oracle archived redo log files that are captured and stored in a separate Azure file share.
 
@@ -95,7 +95,7 @@ Perform the following steps for each database on the VM:
     . oraenv
     ```
 
-1. Add the Azure file share as an additional destination for database archive log files.
+1. Add the Azure file share as another destination for database archive log files.
 
     This step assumes that you configured and mounted an Azure file share on the Linux VM. For each database installed on the VM, make a subdirectory that's named after your database security identifier (SID).
 
@@ -131,7 +131,7 @@ Perform the following steps for each database on the VM:
     * The size of the online redo log files. As an online log file becomes full, it's switched and archived. The larger the online log file, the longer it takes to fill up. The added time decreases the frequency of archive generation.
     * The setting of the `ARCHIVE_LAG_TARGET` parameter controls the maximum number of seconds permitted before the current online log file must be switched and archived.
 
-    To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo log files generally get sized quite large (for example, 1,024M, 4,096M, or 8,192M). In a busy database environment, logs are still likely to switch and archive every few seconds or minutes. In a less active database, they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency.
+    To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo log files generally have a large size (for example, 1,024M, 4,096M, or 8,192M). In a busy database environment, logs are still likely to switch and archive every few seconds or minutes. In a less active database, they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency.
 
     We recommend that you set `ARCHIVE_LAG_TARGET` to ensure a consistent RPO. A setting of 5 minutes (300 seconds) is a prudent value for `ARCHIVE_LAG_TARGET`. It ensures that any database recovery operation can recover to within 5 minutes of the time of failure.
 
@@ -196,7 +196,7 @@ To use Azure Backup to back up the database, complete these steps:
 
 The Azure Backup service provides a [framework](../../../backup/backup-azure-linux-app-consistent.md) to achieve application consistency during backups of Windows and Linux VMs for various applications. This framework involves invoking a pre-script to quiesce the applications before taking a snapshot of disks. It calls a post-script to unfreeze the applications after the snapshot is completed.
 
-Microsoft has enhanced the framework so that the Azure Backup service provides packaged pre-scripts and post-scripts for selected applications. These pre-scripts and post-scripts are pre-loaded on the Linux image, so there's nothing for you to install. You just name the application, and then Azure Backup automatically invokes the relevant pre-scripts and post-scripts. Microsoft manages the packaged pre-scripts and post-scripts, so you can be assured of the support, ownership, and validity of these scripts.
+Microsoft has enhanced the framework so that the Azure Backup service provides packaged pre-scripts and post-scripts for selected applications. These pre-scripts and post-scripts are already loaded on the Linux image, so there's nothing for you to install. You just name the application, and then Azure Backup automatically invokes the relevant pre-scripts and post-scripts. Microsoft manages the packaged pre-scripts and post-scripts, so you can be assured of the support, ownership, and validity of these scripts.
 
 Currently, the supported applications for the enhanced framework are Oracle 12.x or later and MySQL. For details, see [Support matrix for managed Azure VM backups](../../../backup/backup-support-matrix-iaas.md).
 
@@ -300,7 +300,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
       SQL> GRANT CREATE SESSION, ALTER SESSION, SYSBACKUP TO ops$azbackup;
       ```
 
-1. If you receive the error `ORA-46953: The password file is not in the 12.2 format` when you run the `GRANT` statement, follow these steps to migrate the *orapwd* file to 12.2 format. Note that you need to perform this step for every Oracle Database instance on the VM.
+1. If you receive the error `ORA-46953: The password file is not in the 12.2 format` when you run the `GRANT` statement, follow these steps to migrate the *orapwd* file to 12.2 format. Perform these steps for every Oracle Database instance on the VM.
 
    1. Exit SQL Plus.
    1. Move the password file with the old format to a new name.
@@ -351,7 +351,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
    fi
    ```
 
-1. Check for *workload.conf* within the folder. If it isn't present, create a file in the */etc/azure* directory called *workload.conf* with the following contents. The comments must begin with `[workload]`. If the file is already present, just edit the fields so that they match the following contents. Otherwise, the following command will create the file and populate the contents.
+1. Check for *workload.conf* within the folder. If it isn't present, create a file in the */etc/azure* directory called *workload.conf* with the following contents. The comments must begin with `[workload]`. If the file is already present, just edit the fields so that they match the following contents. Otherwise, the following command creates the file and populates the contents.
 
    ```bash
    echo "[workload]
@@ -372,7 +372,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
      * The second field in each line is the absolute path name for `ORACLE_HOME` for that `ORACLE_SID` instance.
      * All text after the first two fields is ignored.
      * If the line starts with a pound sign (`#`), the entire line is ignored as a comment.
-     * If the first field has the value `+ASM`, denoting an Oracke ASM instance, it's ignored.
+     * If the first field has the value `+ASM`, denoting an Oracle ASM instance, it's ignored.
 
 ### Trigger an application-consistent backup of the VM
 
@@ -398,7 +398,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
 
     ![Screenshot that shows details for a Recovery Services vault.](./media/oracle-backup-recovery/recovery-service-02.png)
 
-1. On the right side of the **Backup Items (Azure Virtual Machine)** pane, select the ellipsis (**...**) button, and then select **Backup now**.
+1. On the **Backup Items (Azure Virtual Machine)** pane, select the ellipsis (**...**) button, and then select **Backup now**.
 
     ![Screenshot that shows the command for backing up Recovery Services vaults now.](./media/oracle-backup-recovery/recovery-service-03.png)
 
@@ -529,7 +529,7 @@ The first steps in this exercise (stopping, deleting, and then recovering the VM
 
     ![Screenshot that shows the pane for virtual machine backup items.](./media/oracle-backup-recovery/recover-vm-02.png)
 
-1. On the **vmoracle19c** pane, choose a restore point that has a consistency type of **Application Consistent**. Select the ellipsis (**...**) on the right, and then select **Restore VM**.
+1. On the **vmoracle19c** pane, choose a restore point that has a consistency type of **Application Consistent**. Select the ellipsis (**...**), and then select **Restore VM**.
 
     ![Screenshot that shows the command for restoring a VM.](./media/oracle-backup-recovery/recover-vm-03.png)
 
@@ -785,7 +785,7 @@ To recover a database after a complete VM restore:
 
    When recovery finishes successfully, the message `Media recovery complete` appears.
 
-   However, when you're using the `BACKUP CONTROLFILE` clause, the recover command ignores online log files. It's possible that changes in the current online redo log are required to complete point-in-time recovery. In this situation, you might see messages similar to these:
+   However, when you're using the `BACKUP CONTROLFILE` clause, the recover command ignores online log files. It's possible that changes in the current online redo log are required to complete point-in-time recovery. In this situation, you might see messages similar to these examples:
 
    ```output
    SQL> recover automatic database until cancel using backup controlfile;
