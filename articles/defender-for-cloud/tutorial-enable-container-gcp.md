@@ -1,14 +1,14 @@
 ---
-title: Deploy the Defender for Containers plan on your Google Cloud Platform (GCP) project - Microsoft Defender for Cloud
+title: Protect your Google Cloud Platform (GCP) project containers with Defender for Containers - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Containers plan on your Google Cloud Platform (GCP) project for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/26/2023
 ---
 
-# Deploy protection to your containers on your Google Cloud Platform (GCP)
+# Protect your Google Cloud Platform (GCP) project containers with Defender for Containers
 
-Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
+Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
 Defender for Containers assists you with the three core aspects of container security:
 
@@ -112,10 +112,6 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 1. Run the generated script on your cluster.
 
 1. Repeat steps *3 through 10* for the second recommendation.
-
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 

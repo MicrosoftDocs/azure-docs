@@ -1,14 +1,14 @@
 ---
-title: Deploy the Defender for Databases plan - Microsoft Defender for Cloud
+title: Protect your databases with Defender for Databases - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Databases plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/26/2023
 ---
 
-# Deploy protection to your databases with Defender for Databases
+# Protect your databases with Defender for Databases
 
-Defender for Cloud's database protections allow you to protect your entire database estate with attack detection and threat response for the most popular database types in Azure. Defender for Cloud provides protection for the database engines and for data types, according to their attack surface and security risks.
+Defender for Databases in Microsoft Defender for Cloud allows you to protect your entire database estate with attack detection and threat response for the most popular database types in Azure. Defender for Cloud provides protection for the database engines and for data types, according to their attack surface and security risks.
 
 Database protection includes:
 
@@ -77,10 +77,6 @@ These plans protect all of the supported databases in your subscription.
 1. Select **Continue**.
 
 You can exclude specific database resource types by toggling them to **Off**.
-
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 

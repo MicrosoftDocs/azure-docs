@@ -1,5 +1,5 @@
 ---
-title: Understanding just-in-time virtual machine access in Microsoft Defender for Cloud
+title: Understand just-in-time virtual machine access in Microsoft Defender for Cloud
 description: This document explains how just-in-time VM access in Microsoft Defender for Cloud helps you control access to your Azure virtual machines
 ms.topic: how-to
 ms.date: 06/12/2023

@@ -1,14 +1,14 @@
 ---
-title: Deploy the Defender for Containers plan on your Azure subscription - Microsoft Defender for Cloud
+title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Containers plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/27/2023
 ---
 
-# Deploy protection to your containers on your Azure subscription
+# Protect your Azure containers with Defender for Containers
 
-Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
+Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
 Defender for Containers assists you with the three core aspects of container security:
 
@@ -74,10 +74,6 @@ You can enable the Defender for Containers plan and deploy all of the relevant c
 1. Select **Fix**.
 
     :::image type="content" source="media/tutorial-enable-containers-azure/affected-fix.png" alt-text="Screenshot of the recommendation with the affected resources selected that shows you how to select the fix button." lightbox="media/tutorial-enable-containers-azure/affected-fix.png":::
-
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 

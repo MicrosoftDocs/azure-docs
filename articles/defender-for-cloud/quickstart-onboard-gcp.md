@@ -82,7 +82,7 @@ When connecting your GCP projects to specific Azure subscriptions, consider the 
 
     | CSPM | Defender for Containers|
     |--|--|
-    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool <br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role <br> Microsoft Defender Data Collector service account role <br> Microsoft Defender for Cloud identity pool |
+    | CSPM service account reader role <br><br> Microsoft Defender for Cloud identity federation <br><br> CSPM identity pool <br><br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br><br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role <br><br> Microsoft Defender Data Collector service account role <br><br> Microsoft Defender for Cloud identity pool |
 
 After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled auto-provisioning, Azure Arc and any enabled extensions install automatically for each new resource detected.
 

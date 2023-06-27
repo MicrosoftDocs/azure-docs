@@ -1,14 +1,14 @@
 ---
-title: Deploy the Defender for Containers plan on your Amazon Web Service (AWS) accounts - Microsoft Defender for Cloud'
+title: Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers  - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Containers plan on your Amazon Web Service (AWS) accounts for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 02/22/2023
+ms.date: 06/27/2023
 ---
 
-# Deploy protection to your containers on your Amazon Web Service (AWS) accounts
+# Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers
 
-Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
+Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
 Defender for Containers assists you with the three core aspects of container security:
 
@@ -95,10 +95,6 @@ Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy exten
 1. Run the generated script on your cluster.
 
     :::image type="content" source="media/tutorial-enable-containers-aws/generate-script-defender-extension-kubernetes.gif" alt-text="Video of how to use the Defender for Cloud recommendation to generate a script for your EKS clusters that enables the Azure Arc extension. ":::
-
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 

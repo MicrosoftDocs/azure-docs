@@ -1,14 +1,14 @@
 ---
-title: Deploy resource protection with Defender CSPM plan on your subscription - Microsoft Defender for Cloud
+title: Protect your resources with Defender CSPM plan on your subscription - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable Defender CSPM on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/27/2023
 ---
 
-# Deploy resource protection with Defender CSPM
+# Protect your resources with Defender CSPM
 
-CLoud Security Posture Management (CSPM) provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
+Defender Cloud Security Posture Management (CSPM) in Microsoft Defender for Cloud provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
 
 Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. Defender for Cloud will show you your security posture with the secure score. The secure score is an aggregated score of the security findings that tells you your current security situation. The higher the score, the lower the identified risk level.
 
@@ -66,10 +66,6 @@ Once the Defender CSPM plan is enabled on your subscription, you'll have the abi
 1. Enter a tag name and tag value for any machines to be excluded from scans.
 
 1. Select **Apply**. 
-
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 

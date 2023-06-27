@@ -1,14 +1,14 @@
 ---
-title: Deploy the Defender for Servers plan - Microsoft Defender for Cloud
+title: Protect your servers - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/26/2023
+ms.date: 06/27/2023
 ---
 
-# Deploy protection to your servers with Defender for Servers
+# Protect your servers
 
-Defender for Servers brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
+Defender for Servers in Microsoft Defender for Cloud brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
 Microsoft Defender for Servers includes an automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md). With this integration enabled, you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**.
 
@@ -19,6 +19,8 @@ Defender for Servers offers two plan options with that offer different levels of
 - You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+
+- Before starting you should review the [Defender for Servers deployment guide](plan-defender-for-servers.md).
 
 ## Enable the Defender for Servers plan
 
@@ -42,26 +44,7 @@ You can enable the Defender for Servers plan on your Azure subscription, AWS acc
 
 When you enable the Defender for Servers plan, you'll then be given the option to select which plan you want to enable. There are two plans you can choose from that offer different levels of protections for your resources. 
 
-The following table summarizes what's included in each plan.
-
-| Feature | Details | Defender for Servers Plan 1 | Defender for Servers Plan 2 |
-|:---|:---|:---:|:---:|
-| **Unified view** | The Defender for Cloud portal displays Defender for Endpoint alerts. You can then drill down into Defender for Endpoint portal, with additional information such as the alert process tree, the incident graph, and a detailed machine timeline showing historical data up to six months.| :::image type="icon" source="./media/icons/yes-icon.png":::  Available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Automatic MDE provisioning** | Automatic provisioning of Defender for Endpoint on Azure, AWS, and GCP resources. | :::image type="icon" source="./media/icons/yes-icon.png":::  Available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Microsoft Defender Vulnerability Management** |  Discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, without other agents or periodic scans. [Learn more](deploy-vulnerability-assessment-defender-vulnerability-management.md). | :::image type="icon" source="./media/icons/yes-icon.png":::  Available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Threat detection for OS-level (Agent-based)** | Defender for Servers and Microsoft Defender for Endpoint (MDE) detect threats at the OS level, including VM behavioral detections and **Fileless attack detection**, which generates detailed security alerts that accelerate alert triage, correlation, and downstream response time.<br>[Learn more](alerts-reference.md#alerts-windows) | :::image type="icon" source="./media/icons/yes-icon.png":::  Available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Threat detection for network-level (Agentless)** | Defender for Servers detects threats directed at the control plane on the network, including network-based detections for Azure virtual machines. | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Microsoft Defender Vulnerability Management Add-on** | See a deeper analysis of the security posture of your protected servers, including risks related to browser extensions, network shares, and digital certificates. [Learn more](deploy-vulnerability-assessment-defender-vulnerability-management.md). | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Security Policy and Regulatory Compliance** | Customize a security policy for your subscription and also compare the configuration of your resources with requirements in industry standards, regulations, and benchmarks. | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Integrated vulnerability assessment powered by Qualys** | Use the Qualys scanner for real-time identification of vulnerabilities in Azure and hybrid VMs. Everything's handled by Defender for Cloud. You don't need a Qualys license or even a Qualys account. [Learn more](deploy-vulnerability-assessment-vm.md). | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available  |
-| **Log Analytics 500 MB free data ingestion** | Defender for Cloud uses Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Adaptive application controls (AAC)** | [AACs](adaptive-application-controls.md) in Defender for Cloud define allowlists of known safe applications for machines.  | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available |:::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **File Integrity Monitoring (FIM)** | [FIM](file-integrity-monitoring-overview.md) (change monitoring) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Just-in-time VM access for management ports** | Defender for Cloud provides [JIT access](just-in-time-access-overview.md), locking down machine ports to reduce the machine's attack surface.| :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Adaptive network hardening** | Filtering traffic to and from resources with network security groups (NSG) improves your network security posture. You can further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-| **Docker host hardening** | Defender for Cloud assesses containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | :::image type="icon" source="media/icons/no-icon.png" border="false"::: <br> Not available | :::image type="icon" source="./media/icons/yes-icon.png":::  Available |
-
-If you would like to learn more about the different plan options for Defender for Servers, you can see [Overview of Microsoft Defender for Servers](defender-for-servers-introduction.md).
+You can compare what's included in [each plan](plan-defender-for-servers-select-plan.md#plan-features).
 
 **To select a Defender for Servers plan**:
 
@@ -89,9 +72,9 @@ There are three components that can be enabled and configured to provide extra p
 
 | Component | Description | Learn more |
 |:--:|:--:|:--:|
-| Log Analytics agent/Azure Monitor agent | Collects security-related configurations and event logs from the machine and stores the |data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
+| [Log Analytics agent/Azure Monitor agent](plan-defender-for-servers-agents.md) | Collects security-related configurations and event logs from the machine and stores the |data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
 | Vulnerability assessment for machines | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
-| Agentless scanning for machines (preview) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
+| [Agentless scanning for machines](concept-agentless-data-collection.md) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
 Toggle the corresponding switch to **On**, to enable any of these options.
 
@@ -149,10 +132,6 @@ Defender for Cloud has the ability to scan your Azure machines for installed sof
 1. Enter a tag name and tag value for any machines to be excluded from scans.
 
 1. Select **Apply**.
-
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
 
 ## Next steps
 

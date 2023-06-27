@@ -40,7 +40,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
 - **To enable the Defender for SQL plan**, you need:
 
-  - Microsoft Defender for SQL enabled on your subscription. Learn how to [enable protection on all of your databases](quickstart-enable-database-protections.md).
+  - Microsoft Defender for SQL enabled on your subscription. Learn how to [protect your databases](tutorial-enable-databases-plan.md).
 
     - An active AWS account, with EC2 instances running SQL server or RDS Custom for SQL Server.
 
@@ -65,7 +65,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
 - **To enable the Defender for Servers plan**, you need:
 
-  - Microsoft Defender for Servers enabled on your subscription. Learn how to enable plans in [Enable enhanced security features](enable-enhanced-security.md).
+  - Microsoft Defender for Servers enabled on your subscription. Learn how to enable [Defender for Servers](tutorial-enable-servers-plan.md).
 
     - An active AWS account, with EC2 instances.
 

@@ -476,91 +476,93 @@
         href: plan-defender-for-servers.md
       - name: Review data residency and workspace design 
         href: plan-defender-for-servers-data-workspace.md
+      - name: Understand just-in-time VM access 
+        displayName: jit, management
+        href: just-in-time-access-overview.md
+      - name: Understand File Integrity Monitoring
+        displayName: fim, change
+        href: file-integrity-monitoring-overview.md
       - name: Determine roles and access
         href: plan-defender-for-servers-roles.md
       - name: Select a plan
         href: plan-defender-for-servers-select-plan.md
       - name: Review agents and extensions
         href: plan-defender-for-servers-agents.md
-      - name: Agentless scanning
+      - name: Learn about agentless scanning
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
       - name: Scale a Defender for Servers deployment
-        href: plan-defender-for-servers-scale.md
-    - name: Protect your servers
+        href: plan-defender-for-servers-scale.md    
+    - name: Deploy server protection
       href: tutorial-enable-servers-plan.md    
-    - name: Apply Azure security baselines
-      displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
-      href: apply-security-baseline.md
-    - name: Vulnerability assessments
+    - name: Configure vulnerability scanning
       items:
-      - name: Find vulnerabilities and software inventory with agentless scanning
+      - name: Enable agentless vulnerability scanning
         displayName: vulnerability, software inventory, agentless scanning
         href: enable-vulnerability-assessment-agentless.md
-      - name: Find vulnerabilities with Microsoft Defender Vulnerability Management
+      - name: Enable vulnerability scanning with Microsoft Defender Vulnerability Management 
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
         href: deploy-vulnerability-assessment-defender-vulnerability-management.md
-      - name: Find vulnerabilities with the integrated Qualys scanner
+      - name: o	Enable vulnerability scanning with the integrated Qualys scanner
         displayName: qualys, va, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
-      - name: Find vulnerabilities with a BYOL VA solution
+      - name: Enable vulnerability scanning with a Bring Your Own License (BYOL) solution        
         displayName: qualys, rapid7, vulnerability
         href: deploy-vulnerability-assessment-byol-vm.md
-      - name: Automatically enable a vulnerability assessment solution
-        displayName: qualys, rapid7, vulnerability, auto provision
-        href: auto-deploy-vulnerability-assessment.md
-      - name: Review and remediate vulnerabilities
-        displayName: qualys, va, rapid7, vulnerability
-        href: remediate-vulnerability-findings-vm.md
-      - name: Disable specific vulnerability findings
-        displayName: qualys, rapid7, va
-        href: remediate-vulnerability-findings-vm.md#disable-specific-findings
-      - name: Common questions about vulnerability assessments
-        displayName: common questions, VA, vulnerability, assessment
-        href: faq-vulnerability-assessments.yml
-    - name: Secure management ports with just-in-time VM access
-      items:
-      - name: Overview
-        displayName: jit, management
-        href: just-in-time-access-overview.md
-      - name: Manage just-in-time access
-        displayName: jit, management, ports
-        href: just-in-time-access-usage.md
-    - name: Use the integrated Microsoft Defender for Endpoint license
-      displayName: ATP, mdatp, wdatp, mde, mdfe
-      href: integration-defender-for-endpoint.md
+    - name: Enable just-in-time access on VMs
+      displayName: jit, management, ports
+      href: just-in-time-access-usage.md
     - name: Define lists of safe applications for machines
       displayName: aac, whitelist, allowlist, reviewgroup, adaptive application controls
       href: adaptive-application-controls.md
     - name: Review applications and software installed on your machines
       displayName: inventory, apps, software inventory, mde, tvm
       href: asset-inventory.md#access-a-software-inventory
-    - name: Track changes to files and registries with file integrity monitoring
+    - name: Configure file integrity monitoring
       items:
-      - name: Overview
-        displayName: fim, change
-        href: file-integrity-monitoring-overview.md
       - name: Enable File Integrity Monitoring (AMA)
         displayName: fim, change, azure monitor agent
         href: file-integrity-monitoring-enable-ama.md
       - name: Enable File Integrity Monitoring (Log Analytics)
         displayName: fim, change, log analytics, mma
         href: file-integrity-monitoring-enable-log-analytics.md
+    - name: Review server protection
+      items:
+      - name: Review hardening recommendations
+        displayName: VM, guest configuration, vulnerabilities, ASB, benchmark
+        href: apply-security-baseline.md
+      - name: Review Docker host hardening recommendations
+        displayName: containers
+        href: harden-docker-hosts.md
+      - name: Review and remediate vulnerabilities
+        displayName: qualys, va, rapid7, vulnerability
+        href: remediate-vulnerability-findings-vm.md
+      - name: Disable specific vulnerability findings
+        displayName: qualys, rapid7, va
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings
       - name: Compare baselines using file integrity monitoring
         displayName: fim, change
         href: file-integrity-monitoring-usage.md
-    - name: Improve your network security posture
-      displayName: anh, adaptive network hardening
-      href: adaptive-network-hardening.md
-    - name: Harden your Docker hosts
-      displayName: containers
-      href: harden-docker-hosts.md
-    - name: Common questions  
-      Items:
+      - name: Improve your network security posture
+        displayName: anh, adaptive network hardening
+        href: adaptive-network-hardening.md
+    - name: Common questions (FAQ)
+      items: 
       - name: Common questions about Defender for Servers
         href: faq-defender-for-servers.yml
       - name: Common questions about Azure Virtual Machines
         href: faq-vms.yml
+      - name: Common questions about vulnerability assessments
+        displayName: common questions, VA, vulnerability, assessment
+        href: faq-vulnerability-assessments.yml
+    - name: Outstanding
+      items:    
+      - name: Automatically enable a vulnerability assessment solution
+        displayName: qualys, rapid7, vulnerability, auto provision
+        href: auto-deploy-vulnerability-assessment.md
+      - name: Use the integrated Microsoft Defender for Endpoint license
+        displayName: ATP, mdatp, wdatp, mde, mdfe
+        href: integration-defender-for-endpoint.md
   - name: Defender for Containers
     items:
     - name: Overview
