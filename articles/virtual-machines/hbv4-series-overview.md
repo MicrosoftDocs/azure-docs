@@ -76,19 +76,19 @@ lstopo-no-graphics --no-io --no-legend --of txt
 <details>
 <summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
   
-![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv4-96-lstopo.png)
+![lstopo output for HBv4-96 VM](./media/hpc/architecture/hbv4/hbv4-96-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
   
-![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv4-48-lstopo.png)
+![lstopo output for HBv4-48 VM](./media/hpc/architecture/hbv4/hbv4-48-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
   
-![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
+![lstopo output for HBv4-24 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
 </details>
 
 ## InfiniBand networking
