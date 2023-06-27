@@ -65,7 +65,7 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
 
 > [!IMPORTANT]
-> Your PKI infrastructure should support RSA-2048 bit keys and EC P-256 keys. For example, your EST servers should support these key sizes.
+> Your PKI infrastructure should support RSA-2048 bit keys and EC P-256 keys. For example, your EST servers should support these key types. You can use other key types, but we only test and support RSA-2048 bit keys and EC P-256 keys.
 >
 
 ## Permission requirements
