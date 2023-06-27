@@ -91,67 +91,44 @@ Click **Next** once you've completed this step.
 ### Configure sender authentication for custom domain
 To configure sender authentication for your domains, additional DNS records need to be added to your domain. Below, we provide steps where Azure Communication Services will offer records that should be added to your DNS. However, depending on whether the domain you are registering is a root domain or a subdomain, you will need to add the records to the respective zone or make appropriate alterations to the records that we generate.
 
-As an example, let's consider adding SPF and DKIM records for the custom domain "sales.us.na.notification.azurecommtest.net." The following are different methods for adding these records to the DNS, depending on the level of the Zone where the records are being added.
+As an example, let's consider adding SPF and DKIM records for the custom domain "sales.us.notification.azurecommtest.net." The following are different methods for adding these records to the DNS, depending on the level of the Zone where the records are being added.
 
 1. Zone: **sales.us.notification.azurecommtest.net**
 
-    - SPF record:
-       - type: TXT
-       - name: sales.us.na.notification.azurecommtest.net
-       - value: v=spf1 include:spf.protection.outlook.com -all
-    - DKIM record:
-        - type: CNAME
-        - name: selector1-azurecomm-prod-net._domainkey
-        - value: selector1-azurecomm-prod-net._domainkey.azurecomm.net
-    - DKIM2 record:
-        - type: CNAME
-        - name: selector2-azurecomm-prod-net._domainkey
-        - value: selector2-azurecomm-prod-net._domainkey.azurecomm.net
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us.notification.azurecommtest.net | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
 
-The records that get generated in our portal assumes that you will be adding these records in DNS in this Zone **sales.us.notification.azurecommtest.net**. 
+The records that get generated in our portal assumes that you will be adding these records in DNS in this Zone **sales.us.notification.azurecommtest.net**.
 
 2. Zone: **us.notification.azurecommtest.net**
 
-    - SPF record:
-       - type: TXT
-       - name: **sales**
-       - value: v=spf1 include:spf.protection.outlook.com -all
-    - DKIM record:
-        - type: CNAME
-        - name: selector1-azurecomm-prod-net._domainkey.**sales**
-        - value: selector1-azurecomm-prod-net._domainkey.azurecomm.net
-    - DKIM2 record:
-        - type: CNAME
-        - name: selector2-azurecomm-prod-net._domainkey.**sales**
-        - value: selector2-azurecomm-prod-net._domainkey.azurecomm.net
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+          
 3. Zone: **notification.azurecommtest.net**
 
-    - SPF record:
-       - type: TXT
-       - name: **sales.us**
-       - value: v=spf1 include:spf.protection.outlook.com -all
-    - DKIM record:
-        - type: CNAME
-        - name: selector1-azurecomm-prod-net._domainkey.**sales.us**
-        - value: selector1-azurecomm-prod-net._domainkey.azurecomm.net
-    - DKIM2 record:
-        - type: CNAME
-        - name: selector2-azurecomm-prod-net._domainkey.**sales.us**
-        - value: selector2-azurecomm-prod-net._domainkey.azurecomm.net
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales.us** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales.us** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+  
+
+          
 4. Zone: **azurecommtest.net**
 
-    - SPF record:
-       - type: TXT
-       - name: **sales.us.notification**
-       - value: v=spf1 include:spf.protection.outlook.com -all
-    - DKIM record:
-        - type: CNAME
-        - name: selector1-azurecomm-prod-net._domainkey.**sales.us.notification**
-        - value: selector1-azurecomm-prod-net._domainkey.azurecomm.net
-    - DKIM2 record:
-        - type: CNAME
-        - name: selector2-azurecomm-prod-net._domainkey.**sales.us.notification**
-        - value: selector2-azurecomm-prod-net._domainkey.azurecomm.net 
+  | Record | Type | Name | Value |
+  | --- | --- | --- | --- |
+  |SPF | TXT | sales.us.notification | v=spf1 include:spf.protection.outlook.com -all |  
+  | DKIM | CNAME | selector1-azurecomm-prod-net._domainkey.**sales.us.notification** | selector1-azurecomm-prod-net._domainkey.azurecomm.net  |  
+  | DKIM2 | CNAME | selector2-azurecomm-prod-net._domainkey.**sales.us.notification** | selector2-azurecomm-prod-net._domainkey.azurecomm.net  |
+  
 
 
 #### Adding SPF and DKIM Records 
