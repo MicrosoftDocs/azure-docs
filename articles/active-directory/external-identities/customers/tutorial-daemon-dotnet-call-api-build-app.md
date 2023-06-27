@@ -16,6 +16,13 @@ ms.date: 06/26/2023
 
 In this tutorial, you build your client daemon app and call a protected web API. You enable the client daemon app to acquire an access token using its own identity, then call the web API.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> - Configure a daemon app to use it's app registration details.
+> - Build a daemon app that acquires a token on its own behalf and calls a protected web API.
+
 ## Prerequisite 
 
 Before continuing with this tutorial, ensure you have all of the following items in place:
