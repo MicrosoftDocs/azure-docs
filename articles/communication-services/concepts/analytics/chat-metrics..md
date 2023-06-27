@@ -52,9 +52,9 @@ The following operations are available on Chat API request metrics:
 | AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
 | RemoveChatThreadParticipant   | Remove a member from a thread. |
 
-:::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
+:::image type="content" source="./concepts/media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
 If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
 ## Next steps
 
-- Learn more about [Data Platform Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md).
+- Learn more about [Data Platform Metrics](../../../../azure-monitor/essentials/data-platform-metrics).
