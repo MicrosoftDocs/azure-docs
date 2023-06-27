@@ -247,7 +247,7 @@ In addition to the BGP tag for each region, Microsoft also tags prefixes based o
 | Azure Active Directory |12076:5060 |
 | Azure Resource Manager |12076:5070 |
 | Other Office 365 Online services** | 12076:5100 |
-| Microsoft Defender for Identity | 12076:5520 |
+| Microsoft Defender for Identity | 12076:5220 |
 
 (1) Azure Global Services includes only Azure DevOps at this time.
 
