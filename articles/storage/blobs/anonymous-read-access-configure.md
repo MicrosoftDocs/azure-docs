@@ -81,13 +81,13 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 
 ### Set the storage account's AllowBlobPublicAccess property
 
-To allow or disallow anonymous access for a storage account, configure the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
+To allow or disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
-The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value (that is, returns a **null** value) until you explicitly set it. The meaning of the **null** value depends on when the storage account was created:
+The value of the **AllowBlobPublicAccess** property for a storage account depends on when you created the account and whether you explicitly set the property at create time:
 
-- For storage accounts created on or after August 1, 2023, anonymous access is disallowed by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, the property returns **null**. The **null** return value indicates that anonymous access is disallowed in this case. You can explicitly set the value to **false** when you create the storage account or after it has been created.
+- For all storage accounts created on or after August 1, 2023, anonymous access is disallowed on the account by default. The  **AllowBlobPublicAccess** property returns **false** by default for new accounts.
 
-- For storage accounts created prior to August 1, 2023, anonymous access is allowed by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, the property returns **null**. In this scenario, the **null** return value indicates that anonymous access is allowed.
+- For storage accounts created prior to August 1, 2023, anonymous access is allowed on the account by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, either at create time or at some later date, the property returns **null**. In this scenario, the **null** return value is equivalent to **true** and indicates that anonymous access is allowed.
 
 To determine when your storage account was created, check the [CreationTime](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount.creationtime#microsoft-azure-commands-management-storage-models-psstorageaccount-creationtime) property of the storage account. You can check this property in the Azure portal, with PowerShell, or with Azure CLI.
 
