@@ -47,7 +47,7 @@ The diagram below shows the basic network interconnectivity established at the t
 > [!NOTE]
 > If connecting more than four Azure VMware Solution private clouds in the same Azure region to the same Azure virtual network is a requirement, use [AVS Interconnect](connect-multiple-private-clouds-same-region.md) to aggregate private cloud connectivity within the Azure region.
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Diagram showing the basic network interconnectivity established at the time of an Azure VMware Solution private cloud deployment." border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Diagram showing the basic network interconnectivity established at the time of an Azure VMware Solution private cloud deployment." border="false" lightbox="media/concepts/adjacency-overview-drawing-single.png":::
 
 ## On-premises interconnectivity
 
@@ -58,7 +58,7 @@ The diagram below shows the on-premises to private cloud interconnectivity, whic
 - Hot/Cold vSphere vMotion between on-premises and Azure VMware Solution.
 - On-premises to Azure VMware Solution private cloud management access.
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Diagram showing the virtual network and on-premises to private cloud interconnectivity." border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Diagram showing the virtual network and on-premises to private cloud interconnectivity." border="false" lightbox="media/concepts/adjacency-overview-drawing-double.png":::
 
 For full interconnectivity to your private cloud, you need to enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud. For more information on the procedures, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md).
 
