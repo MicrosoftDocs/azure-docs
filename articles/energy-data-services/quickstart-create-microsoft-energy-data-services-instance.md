@@ -88,8 +88,6 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. Select **Create** to start the deployment.
 
-    [![Screenshot of the deployment initialization page.](media/quickstart-create-microsoft-energy-data-services-instance/deployment-initiated.png)](media/quickstart-create-microsoft-energy-data-services-instance/deployment-initiated.png#lightbox)
-
 1. Wait while the deployment happens in the background. Review the details of the instance created.
 
     [![Screenshot of the deployment progress page. Options are available to view details of the deployment.](media/quickstart-create-microsoft-energy-data-services-instance/deployment-progress.png)](media/quickstart-create-microsoft-energy-data-services-instance/deployment-progress.png#lightbox)
