@@ -5,7 +5,7 @@ author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 06/26/2023
 ms.custom: template-quickstart
 ---
 
@@ -47,9 +47,9 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. In the search page, select *Create* on the card titled "Azure Data Manager for Energy Preview(Preview)". 
 
-1. A new window appears. Complete the *Basics* tab by choosing the *subscription*, *resource group*, and the *region* in which you want to create your instance of Azure Data Manager for Energy Preview. Enter the *App ID* that you created during the prerequisite steps.
+1. A new window appears. Complete the *Basics* tab by choosing the *subscription*, *resource group*, *tier*, and the *region* in which you want to create your instance of Azure Data Manager for Energy Preview. Enter the *App ID* that you created during the prerequisite steps. Note that the default tier is currently the *Standard* tier. You can use the drop down to change your tier selection.
 
-    [![Screenshot of the basic details page after you select 'create' for Azure Data Manager for Energy Preview. This page allows you to enter both instance and data partition details.](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details.png#lightbox)
+    [![Screenshot of the basic details page after you select 'create' for Azure Data Manager for Energy Preview. This page allows you to enter both instance and data partition details.](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details2.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details2.png#lightbox)
  
 
     Some naming conventions to guide you at this step:
@@ -75,7 +75,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. Once the basic validation tests pass (validation takes a few seconds), review the Terms and Basic Details. 
 
-    [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details.png#lightbox)
+    [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details2.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details2.png#lightbox)
 
 1. This step is optional. You can download an Azure Resource Manager (ARM) template and use it for automated deployments of Azure Data Manager for Energy Preview in future. Select *Download a template for automation* located on the bottom-right of the screen.
 
@@ -89,7 +89,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
     [![Screenshot of the deployment completion page. Options are available to view details of the deployment.](media/quickstart-create-microsoft-energy-data-services-instance/deployment-complete.png)](media/quickstart-create-microsoft-energy-data-services-instance/deployment-complete.png#lightbox)
 
-    [![Screenshot of the overview of Azure Data Manager for Energy Preview instance page. Details as such data partitions, instance URI, and app ID are accessible.](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png)](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services.png#lightbox)
+    [![Screenshot of the overview of Azure Data Manager for Energy Preview instance page. Details as such data partitions, instance URI, and app ID are accessible.](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services2.png)](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services2.png#lightbox)
 
  
 ## Delete an Azure Data Manager for Energy Preview instance
@@ -99,6 +99,8 @@ Deleting a Microsoft Energy Data instance also deletes any data that you've inge
 1. Sign in to the Azure portal and delete the *resource group* in which these components are installed.
 
 2. This step is optional. Go to Azure Active Directory and delete the *app registration* that you linked to your Azure Data Manager for Energy Preview instance.
+
+Note: Any set locks at the resource group (RG) level must be removed before deleting any resource in the RG. Resources not deleted due to locks are considered active until the resource is successfully deleted.
 
 OSDU&trade; is a trademark of The Open Group.
 
