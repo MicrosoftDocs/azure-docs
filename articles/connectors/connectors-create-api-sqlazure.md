@@ -121,6 +121,8 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For this example, in the trigger named **When an item is created**, provide the values for the SQL server name and database name, if you didn't previously provide them. Otherwise, from the **Table name** list, select the table that you want to use. Select the **Frequency** and **Interval** to set the schedule for the trigger to check for new items.
 
+   ![Screenshot shows Consumption workflow designer and managed action named When an item is created.](media/connectors-create-api-sqlazure/when-item-created.png)
+
 1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
    This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or another action that performs the next task that you want in your logic app workflow.
@@ -143,7 +145,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For this example, in the trigger named **When a row is inserted**, from the **Table name** list, select the table that you want to use.
 
-   ![Screenshot showing Standard workflow designer and the built-in action named When a row is inserted.](./media/connectors-create-api-sqlazure/when-row-inserted-standard.png)
+   ![Screenshot shows Standard workflow designer and the built-in action named When a row is inserted.](./media/connectors-create-api-sqlazure/when-row-inserted-standard.png)
 
 1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
