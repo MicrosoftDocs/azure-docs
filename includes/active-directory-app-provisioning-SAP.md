@@ -1,36 +1,8 @@
----
-title: Provisioning users into SAP ECC 7 using the ECMA Connector host
-description: Provisioning users into SAP ECC 7 using the ECMA Connector host
-services: active-directory
-author: billmath
-manager: amycolannino
-ms.service: active-directory
-ms.subservice: app-provisioning
-ms.topic: how-to
-ms.workload: identity
-ms.date: 06/27/2023
-ms.author: billmath
-ms.reviewer: arvinh
----
+This document demonstrates how to create, update, and delete users in SAP ECC 7. It covers the management of users in one connected SAP system for demonstration.
 
-# Provisioning users into SAP ECC 7
-Limitations and assumptions 
-
-This template demonstrates how to manage users. Other object types like Local Activity Groups, Roles, and Profiles are not covered by this guide. Password operations are also out of scope for this guide. 
+Other object types including local activity groups, roles, and profiles are not covered by this guide. Password operations are also out of scope for this guide. 
 
 This guide covers the management of users in one connected SAP system. SAP CUA and complex SAP landscapes are out of scope of this guide as it is intended to demonstrate the approach and not to be used in production systems. 
-
-The provided sapecc7.wsconfig template was authored, targeting an SAP demo lab environment, therefore, it is not expected to work ‘as-is’ in yours. Use it for educational purposes only. 
-
-
-[!INCLUDE [active-directory-app-provisioning-sql.md](../../../includes/active-directory-app-provisioning-sql.md)]
-
-## Next steps
-
-- [App provisioning](user-provisioning.md)
-
-For important details on what this service does, how it works, and frequently asked questions, check out the [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md) articles. 
-
 
 The following video provides an overview of on-premises provisioning.
 
@@ -42,8 +14,10 @@ The following video provides an overview of on-premises provisioning.
 
 The computer that runs the provisioning agent should have:
 
+- Expose the necessary APIs in SAP ECC 7 required to create, update, and delete users. The guide here walks through how you can expose the necessary APIs.
+- Create a web services connector template for the ECMA host. You can use the template provided here as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment.  
 - A Windows Server 2016 or a later version. 
--  Connectivity to SAP ECC 7, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
+- Connectivity to SAP ECC 7, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
 - At least 3 GB of RAM, to host a provisioning agent. 
 - .NET Framework 4.7.2 
 
@@ -379,4 +353,3 @@ For more information, change to the **Troubleshooting & Recommendations** tab.  
 After waiting, check the SQL database to ensure users are being provisioned.
 
 [![Screenshot checking that users are provisioned.](.\media\active-directory-app-provisioning-sql\configure-15.png)](.\media\active-directory-app-provisioning-sql\configure-15.png#lightbox)
-
