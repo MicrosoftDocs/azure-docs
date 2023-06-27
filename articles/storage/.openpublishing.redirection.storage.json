@@ -2073,7 +2073,7 @@
         {
             "source_path_from_root": "/articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md",
             "redirect_url": "/troubleshoot/azure/azure-storage/files-troubleshoot",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/files/storage-troubleshoot-linux-file-connection-problems.md",
