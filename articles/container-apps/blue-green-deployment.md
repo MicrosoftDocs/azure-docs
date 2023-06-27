@@ -19,7 +19,7 @@ Once green environment is tested, the live traffic is directed to it, and the bl
 
 You can enable blue-green deployment in Azure Container Apps by combining [container apps revisions](revisions.md), [traffic weights](traffic-splitting.md), and [revision labels](revisions.md#revision-labels).
 
-:::image type="content" source="media/blue-green-deployment/azure-container-apps-blue-green-deployment.png" alt-text="Azure Container Apps: Blue/Green deployment":::
+:::image type="content" source="media/blue-green-deployment/azure-container-apps-blue-green-deployment.png" alt-text="Screenshot of Azure Container Apps: Blue/Green deployment.":::
 
 You use revisions to create instances of the blue and green versions of the application.
 
