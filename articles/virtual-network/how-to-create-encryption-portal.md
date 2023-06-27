@@ -74,7 +74,6 @@ In this section, you create a virtual network and enable virtual network encrypt
 
     :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties-encryption-enabled.png" alt-text="Screenshot of properties of the virtual network with encryption enabled.":::
 
-
 ## Next steps
 
 - For more information about Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
