@@ -22,9 +22,9 @@ Each function creates a new random GUID to use as its consumer name within the g
 |---------|:---------:|:---------:|:---------:|
 | Streams  | Yes  | Yes   |  Yes  |
 
-+> [!IMPORTANT]
-+> Redis triggers are not currently supported on consumption functions.
-+>
+> [!IMPORTANT]
+> Redis triggers are not currently supported on consumption functions.
+>
 
 ## Example
 
@@ -127,6 +127,7 @@ TBD
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Configuration
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |Property | Description|
@@ -158,6 +159,8 @@ All triggers return a `RedisMessageModel` object that has two fields:
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 
+::: zone pivot="programming-language-csharp"
+
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
 {
@@ -185,18 +188,11 @@ public class RedisMessageModel {
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
+
 TBD
 <!--Any usage information from the JavaScript tab in ## Usage. -->
+
 ::: zone-end
-
-::: zone pivot="programming-language-powershell"
-
-TBD
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-::: zone-end
-
-TBD
-
 ::: zone pivot="programming-language-python"
 
 ```python

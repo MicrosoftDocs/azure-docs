@@ -19,17 +19,17 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 
 |Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
 |---------|:---------:|:---------:|:---------:|
-|Lists | Yes  | Yes   |  Yes  |
+| Lists | Yes  | Yes   |  Yes  |
 
-+> [!IMPORTANT]
-+> Redis triggers are not currently supported on consumption functions.
-+>
-
-The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
+> [!IMPORTANT]
+> Redis triggers are not currently supported on consumption functions.
+>
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"
+
+The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
@@ -43,6 +43,8 @@ public static void ListsTrigger(
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
+
+The following sample polls the key `listTest` at a localhost Redis instance at `redisLocalhost`:
 
 ```java
 @FunctionName("ListTrigger")
@@ -133,6 +135,7 @@ TBD
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |Property | Description|
+|---|---|
 | **type** | |
 | **listPopFromBeginning** | (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
 | **connectionString** | connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
@@ -153,6 +156,8 @@ All triggers return a `RedisMessageModel` object that has two fields:
 
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
+
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis

@@ -7,19 +7,19 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 06/27/2023
 
 ---
 
 # Overview of Azure functions for Azure Cache for Redis
 
-This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures.
+This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures. 
 
-Azure Cache for Redis can be used as a trigger for Azure Functions, allowing Redis to initiate a serverless workflow. This functionality can be highly useful in data architectures like a write-behind cache, or any event-based architectures.
+Azure Functions provide an event-driven programming model where triggers and bindings are key features. With Azure Functions, you can easily build event-driven serverless applications. Azure Cache for Redis provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
-Azure Functions is an event-driven programming where triggers and bindings are key features, with which you can easily build event-driven serverless applications. Azure Cache for Redis provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
+Azure Cache for Redis can be used as a trigger for Azure Functions, allowing you to initiate a serverless workflow. This functionality can be highly useful in data architectures like a write-behind cache, or any event-based architectures.
 
-With the integration between Azure Cache for Redis and Functions, you can build functions that react to events from Azure Cache for Redis or external systems.
+You can integrate Azure Cache for Redis and Azure Functions to build functions that react to events from Azure Cache for Redis or external systems.
 
 | Action  | Direction | Type |
 |---------|-----------|------|
@@ -62,6 +62,9 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
 Presently, the extension has not been added to the Microsoft.Azure.Functions.ExtensionBundle.
 
 Install the Redis Extension manually for now following this procedure.
+
+::: zone-end
+::: zone pivot="programming-language-java"
 
 1. Install the .Net SDK.
 

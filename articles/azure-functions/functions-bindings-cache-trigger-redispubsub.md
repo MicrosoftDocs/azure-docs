@@ -34,7 +34,7 @@ PUBLISH __keyspace@0__:<affectedKey> <command>
 PUBLISH __keyevent@0__:<affectedCommand> <key>
 ```
 
-Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsubtrigger.md) section for more examples.
+Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](functions-bindings-cache-trigger-redispubsub.md) section for more examples.
 
 > [!IMPORTANT]
 > In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](/azure/azure-cache-for-redis/cache-configure#keyspace-notifications-advanced-settings).
@@ -211,13 +211,13 @@ TBD
 |`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-java"
 
 ## Annotations
 
-name = "message",
-connectionStringSetting = "redisLocalhost",
-channel = "__keyevent@0__:del"
+- name = "message",
+- connectionStringSetting = "redisLocalhost",
+- channel = "__keyevent@0__:del"
 
 |Property | Description|
 |---|---|
@@ -234,11 +234,11 @@ channel = "__keyevent@0__:del"
 ## Configuration
 
 <!-- Equivalent values for the annotation parameters in Java.-->
-"type": "redisPubSubTrigger",
-"connectionStringSetting": "redisLocalhost",
-"channel": "__keyevent@0__:del",
-"name": "message",
-"direction": "in"
+- "type": "redisPubSubTrigger",
+- "connectionStringSetting": "redisLocalhost",
+- "channel": "__keyevent@0__:del",
+- "name": "message",
+- "direction": "in"
 
 |Property | Description|
 |---|---|
@@ -249,11 +249,6 @@ channel = "__keyevent@0__:del"
 | `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
 |`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
 | Count ||
-
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
-
-
 
 ::: zone-end
 
@@ -291,16 +286,18 @@ public class RedisMessageModel {
 ```
 
 <!--Any usage information from the Java tab in ## Usage. -->
+
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell"
+
 TBD
 <!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end
 
-::: zone pivot="programming-language-powershell"
+::: zone-end
 
 TBD
 <!--Any usage information from the PowerShell tab in ## Usage. -->
+
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -314,4 +311,4 @@ class RedisMessageModel:
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end
 
-Next steps
+## Next steps
