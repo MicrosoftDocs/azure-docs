@@ -34,7 +34,7 @@ Organizations want to minimize the number of people who have access to secure in
 However, users still need to carry out privileged operations in Azure AD, Azure, Microsoft 365, or SaaS apps. Organizations can give users just-in-time privileged access to Azure and Azure AD resources and can oversee what those users are doing with their privileged access.
 
 ## License requirements
-[!INCLUDE [active-directory-p2-governance-license.md](../../../includes/active-directory-p2-governance-license.md)]
+[!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
 
 
 For information about licenses for users, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
