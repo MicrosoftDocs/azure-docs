@@ -156,6 +156,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | Port | ASE interface | Description|
 |--|--|--|
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
+| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
@@ -174,6 +176,8 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | Port | ASE interface | Description|
 |--|--|--|
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
+| 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hub, AMQP Protocol |
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
