@@ -20,7 +20,7 @@ sections:
       - question: |
           What is Network Watcher?
         answer: |
-          [Network Watcher](./network-watcher-monitoring-overview.md) provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for IaaS (Infrastructure-as-a-Service) resources, which includes virtual machines, virtual networks, application gateways, load balancers, and other resources in an Azure virtual network. It isn't a solution for monitoring PaaS (Platform-as-a-Service) infrastructure or getting web/mobile analytics.
+          [Network Watcher](./network-watcher-monitoring-overview.md) provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for IaaS (Infrastructure-as-a-Service) resources, which include virtual machines, virtual networks, application gateways, load balancers, and other resources in an Azure virtual network. It isn't a solution for monitoring PaaS (Platform-as-a-Service) infrastructure or getting web/mobile analytics.
 
       - question: |
           What tools does Network Watcher provide?
@@ -92,12 +92,12 @@ sections:
       - question: |
           Why does Azure allow only one instance of Network Watcher per region? 
         answer: |
-          Network Watcher just needs to be enabled once per a region in a subscription for its features to work. A Network Watcher instance in a region enables it in that region. This isn't a service limit.
+          Network Watcher just needs to be enabled once per a region per a subscription for its features to work. A Network Watcher is enabled in a region by creating an instance in that region.
 
       - question: |
           How can I manage Network Watcher resource? 
         answer: |
-          The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. You don't need to manage it. Operations like move aren't supported on the resource. However, [Network Watcher resource can be deleted](./network-watcher-create.md#disable-network-watcher-for-your-region) to disable Network Watcher in a particular region. 
+          The Network Watcher resource represents the backend service for Network Watcher, which is fully managed by Azure. You don't need to manage it. Operations like move aren't supported on the resource. However, [Network Watcher resource can be deleted](./network-watcher-create.md#disable-network-watcher-for-your-region) to disable Network Watcher in a particular region. 
           
   - name: Service availability and redundancy 
     questions:
@@ -125,7 +125,7 @@ sections:
           
           1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
           2. Under the **Security + networking** section, select **Networking**, then select **Firewalls and virtual networks**.
-          3. In "Public network access", select **Enabled from selected virtual networks and IP addresses**. Then under **Exceptions**, check the box next to **Allow Azure services on the trusted services list to access this storage account.** 
+          3. In **Public network access**, select **Enabled from selected virtual networks and IP addresses**. Then under **Exceptions**, check the box next to **Allow Azure services on the trusted services list to access this storage account.** 
           4. Enable NSG flow logs by creating a flow log for your target network security group using the above storage account. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
