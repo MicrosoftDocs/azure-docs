@@ -83,6 +83,8 @@ The following attributes are provided to support dual-stack clusters:
     az aks get-credentials -g <resourceGroupName> -n <clusterName>
     ```
 
+---
+
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
 1. Create the ARM template and pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object.
@@ -154,6 +156,8 @@ The following attributes are provided to support dual-stack clusters:
 > [!NOTE]
 > For more information on deploying ARM templates, see the [Azure Resource Manager documentation][deploy-arm-template].
 
+---
+
 # [Bicep](#tab/bicep)
 
 1. Create the Bicep template and pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object.
@@ -201,6 +205,8 @@ The following attributes are provided to support dual-stack clusters:
 > [!NOTE]
 > For more information on deploying Bicep templates, see the [Bicep template documentation][deploy-bicep-template].
 
+---
+
 ## Inspect the nodes to see both IP families
 
 * Once the cluster is provisioned, confirm the nodes are provisioned with dual-stack networking using the `kubectl get nodes` command.
@@ -224,7 +230,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 
 ### Deploy an NGINX web server
 
-# [`kubectl create`](#tab/kubectl)
+# [kubectl](#tab/kubectl)
 
 1. Create an NGINX web server using the `kubectl create deployment nginx` command.
 
@@ -246,6 +252,8 @@ Once the cluster has been created, you can deploy your workloads. This article w
     nginx-55649fd747-p5lr9   10.244.0.7,fd12:3456:789a::7       aks-nodepool1-14508455-vmss000000   True
     nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
     ```
+
+---
 
 # [YAML](#tab/yaml)
 
@@ -298,7 +306,7 @@ Once the cluster has been created, you can deploy your workloads. This article w
 > 1. Azure Load Balancer sends health probes to IPv6 destinations from a link-local address. In Azure Linux node pools, this traffic can't be routed to a pod, so traffic flowing to IPv6 services deployed with `externalTrafficPolicy: Cluster` fail. IPv6 services must be deployed with `externalTrafficPolicy: Local`, which causes `kube-proxy` to respond to the probe on the node.
 > 2. Only the first IP address for a service will be provisioned to the load balancer, so a dual-stack service only receives a public IP for its first-listed IP family. To provide a dual-stack service for a single deployment, please create two services targeting the same selector, one for IPv4 and one for IPv6.
 
-# [`kubectl expose`](#tab/kubectl)
+# [kubectl](#tab/kubectl)
 
 1. Expose the NGINX deployment using the `kubectl expose deployment nginx` command.
 
@@ -340,6 +348,8 @@ Once the cluster has been created, you can deploy your workloads. This article w
     <title>Welcome to nginx!</title>
     <style>
     ```
+
+---
 
 # [YAML](#tab/yaml)
 
