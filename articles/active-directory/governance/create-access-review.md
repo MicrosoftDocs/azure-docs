@@ -31,7 +31,7 @@ This article describes how to create one or more access reviews for group member
 ## Prerequisites
 
 - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses.  
-- Creating a review on [inactive user](review-recommendations-access-reviews.md#inactive-user-recommendations) and with [use-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation-preview) recommendations require a Microsoft Entra ID Governance license.
+- Creating a review on [inactive user](review-recommendations-access-reviews.md#inactive-user-recommendations) and with [use-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations require a Microsoft Entra ID Governance license.
 - Global administrator, User administrator, or Identity Governance administrator to create reviews on groups or applications.
 - Global administrators and Privileged Role administrators can create reviews on role-assignable groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 - Microsoft 365 and Security group owner.

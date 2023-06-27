@@ -22,7 +22,7 @@ Decision makers who review users' access and perform access reviews can use syst
 
 ## Prerequisites
  
-Creating a review on [inactive user](#inactive-user-recommendations) and with [user-to-group affiliation](#user-to-group-affiliation-preview) recommendations require a Microsoft Entra ID Governance license.
+Creating a review on [inactive user](#inactive-user-recommendations) and with [user-to-group affiliation](#user-to-group-affiliation) recommendations require a Microsoft Entra ID Governance license.
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
