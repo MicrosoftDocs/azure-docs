@@ -6,7 +6,7 @@ author: rajeevmv
 ms.author: ravokkar
 ms.service: iot
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 06/27/2023
 ms.custom:  [amqp, mqtt]
 ---
 
