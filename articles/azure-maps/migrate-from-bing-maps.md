@@ -179,4 +179,4 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [Azure Maps Feedback (UserVoice)]: https://aka.ms/AzureMapsFeedback
 [Basic snap to road logic]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=basic-snap-to-road-logic
 [Snap points to logical route path]: https://samples.azuremaps.com/?search=Snap%20to%20road&sample=snap-points-to-logical-route-path
-[Route - Get Route Directions]: https://learn.microsoft.com/en-us/rest/api/maps/route/get-route-directions
+[Route - Get Route Directions]: https://learn.microsoft.com/rest/api/maps/route/get-route-directions
