@@ -5,7 +5,7 @@ author: dominicbetts
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/10/2023
+ms.date: 06/27/2023
 ms.author: dobett
 ---
 
@@ -154,9 +154,9 @@ The following table shows example mitigations to these threats. The values in th
 
 | Component | Threat | Mitigation | Risk | Implementation |
 | --- | --- | --- | --- | --- |
-| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do you know you're talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that can't handle full asymmetric cryptography. Use Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do you know you're talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using preshared key (PSK) on those devices that can't handle full asymmetric cryptography. Use Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf). |
 || TRID |Apply tamperproof mechanisms to the device, for example,  by making it hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are you sure, that device hasn't been tampered with. |The most effective mitigation is a trusted platform module (TPM). A TPM stores keys in special on-chip circuitry from which the keys can't be read, but can only be used for cryptographic operations that use the key. Memory encryption of the device. Key management for the device. Signing the code. |
-|| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device |
+|| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device. |
 | Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (such as cert based, PSK, or Claim based.) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
 || TRID |Protect the Field Gateway against tampering (TPM) |Spoofing attacks that trick the cloud gateway thinking it's talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPMs, authentication. |
 || E |Access control mechanism for Field Gateway | | |
@@ -182,8 +182,8 @@ The following table shows example mitigations to these threats:
 | Component | Threat | Mitigation | Risk | Implementation |
 | --- | --- | --- | --- | --- |
 | Device IoT Hub |TID |(D)TLS (PSK/RSA) to encrypt the traffic |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level. With custom protocols, you need to figure out how to protect them. In most cases, the communication takes place from the device to the IoT Hub (device initiates the connection). |
-| Device to Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, you need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
-| External Entity Device |TID |Strong pairing of the external entity to the device |Eavesdropping the connection to the device. Interfering the communication with the device |Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical) |
+| Device to Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, you need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. After the gateway brokers the peering, there may be a direct connection between the peers. |
+| External Entity Device |TID |Strong pairing of the external entity to the device |Eavesdropping the connection to the device. Interfering the communication with the device |Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical). |
 | Field Gateway Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, you need to figure out how to protect them. |
 | Device Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, you need to figure out how to protect them. |
 
@@ -198,6 +198,10 @@ The following table shows example mitigations to the storage threats:
 | Field Gateway storage (queuing the data) |TRID |Storage encryption, signing the logs |Reading data from the storage, tampering with telemetry data, tampering with queued or cached command control data. Tampering with configuration or firmware update packages (destined for devices or field gateway) while cached or queued locally can lead to OS and/or system components being compromised |BitLocker |
 | Field Gateway OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
 
-## See also
+## Next steps
 
-Read about IoT Hub security in [Control access to IoT Hub](../iot-hub/iot-hub-devguide-security.md) in the IoT Hub developer guide.
+To learn more about IoT security, see:
+
+- [Control access to IoT Hub](../iot-hub/iot-hub-devguide-security.md)
+- [IoT Central security guide](../iot-central/core/overview-iot-central-security.md)
+- [Security in your IoT workload (Azure Well-Architected Framework)](/azure/well-architected/iot/iot-security)
