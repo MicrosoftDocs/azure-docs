@@ -111,7 +111,7 @@ Various Spark libraries are available for working with geospatial data on Azure 
 
 But [other solutions also exist for processing and scaling geospatial workloads with Azure Databricks](https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html).
 
-- Other Python libraries to consider include [PySAL](http://pysal.org/), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), [WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html), [Turf.js](https://turfjs.org/), [Pointpats](https://pointpats.readthedocs.io/en/latest/), [Raster Vision](https://docs.rastervision.io/en/0.13/), [EarthPy](https://earthpy.readthedocs.io/en/latest/index.html), [Planetary Computer](https://planetarycomputer.microsoft.com/), [PDAL](https://pdal.io/), etc.
+- Other Python libraries to consider include [PySAL](http://pysal.org/), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), [WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html), [Turf.js](https://turfjs.org/), [Pointpats](https://pypi.org/project/pointpats/), [Raster Vision](https://docs.rastervision.io/en/0.13/), [EarthPy](https://earthpy.readthedocs.io/en/latest/index.html), [Planetary Computer](https://planetarycomputer.microsoft.com/), [PDAL](https://pdal.io/), etc.
 
 - [Vector tiles](https://github.com/mapbox/vector-tile-spec) provide an efficient way to display GIS data on maps. A solution could use PostGIS to dynamically query vector tiles. This approach works well for simple queries and result sets that contain well under 1 million records. But in the following cases, a different approach may be better:
   - Your queries are computationally expensive.
