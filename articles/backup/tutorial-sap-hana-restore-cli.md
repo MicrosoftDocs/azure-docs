@@ -63,7 +63,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 
 As you can see, the list above contains three recovery points: one each for full, differential, and log backup.
 
-# [HSR database](#tab/hsr-database)
+# [HSR](#tab/hsr)
 
 To view the available recovery points, run the following command:
 
@@ -169,7 +169,7 @@ Name                                  Resource
 
 The response will give you the job name. This job name can be used to track the job status using [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
-# [HSR database](#tab/hsr-database)
+# [HSR](#tab/hsr)
 
 To start the restore operation, run the following command:
 
