@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
+
 ## Where to find metrics
 
 Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource.
