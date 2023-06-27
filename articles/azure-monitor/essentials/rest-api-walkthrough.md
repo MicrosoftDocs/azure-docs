@@ -483,7 +483,7 @@ Here are some important differences between querying metrics for multiple resour
 2) Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
 3) Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
 
-### Querying metrics for multiple resources Examples:
+### Querying metrics for multiple resources examples
 
 Here's an example of an individual metricdefinitions request:
 ```
@@ -629,7 +629,7 @@ Notice that for the multi resource metrics requests, a "Microsoft.ResourceId eq 
     "resourceregion": "eastus"
 }
 ```
-
+---
 ## Retrieve activity log data
 
 Use the Azure Monitor REST API to query [activity log](/rest/api/monitor/activitylogs) data. 
