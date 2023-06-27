@@ -36,7 +36,7 @@ Azure OpenAI on your data uses an [Azure Cognitive Services](/azure/search/searc
 
 ## Ingesting your data into Azure cognitive search
 
-For documents and datasets with long text, you should use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to ingest the data into cognitive search. This scripts chunks the data so that your response with the service will be more accurate. This script also supports scanned PDF file and images and ingests the data using [Form Recognizer](../../../applied-ai-services/form-recognizer/overview.md).
+For documents and datasets with long text, you should use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to ingest the data into cognitive search. The script chunks the data so that your response with the service will be more accurate. This script also supports scanned PDF file and images and ingests the data using [Form Recognizer](../../../applied-ai-services/form-recognizer/overview.md).
 
 
 ## Data formats and file types
