@@ -18,6 +18,24 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 * Bug fixes
 * Deprecated functionality
 
+## June 2023
+
+### Retirement of adaptive bitrate support for new indexing jobs 
+
+Starting December 2023, Azure Video Indexer will no longer support adaptive bitrate for new video processing jobs. Moving forward, only single bitrate videos will be supported, with the option to choose no bitrate adaptation. 
+
+Existing videos that were indexed already with adaptive bitrate will work with no change. 
+
+Any API call with Adaptive Bitrate after that date, will be converted to single bitrate avoiding failures. 
+
+Guidelines to customers: Make the necessary adjustments to your video encoding and ingestion processes to accommodate this update. 
+
+### New ARM experience without AMS
+
+The deprecation of the AMS dependency has led to a breaking change in the account creation form and the create API for new ARM-based accounts, starting December 2023. As part of the updated workflow, the option to associate an AMS account during account creation will be removed, and will be replaced by adding storage entity. 
+
+Guidelines to customers: We are working on a new implementation without AMS and will provide more details in our documentation. Once available, review the updated documentation and modify your account creation process accordingly to avoid any disruptions. 
+
 ## May 2023
 
 ### API breaking change
