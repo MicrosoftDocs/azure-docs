@@ -97,7 +97,7 @@ import { CallAdd20Regular, Dismiss20Regular } from '@fluentui/react-icons';
 ```
 
 ```ts
-type AppPages = "calling-widget" | "same-origin-call";
+type AppPages = "calling-widget" | "new-window-call";
 
 registerIcons({
   icons: { dismiss: <Dismiss20Regular />, callAdd: <CallAdd20Regular /> },
@@ -153,7 +153,7 @@ function App() {
         </Stack>
       );
     }
-    case "same-origin-call": {
+    case "new-window-call": {
       return (
         <Stack verticalAlign='center' style={{ height: "100%", width: "100%" }}>
           <Spinner

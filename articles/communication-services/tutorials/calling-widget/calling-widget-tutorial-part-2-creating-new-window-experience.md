@@ -327,7 +327,7 @@ Next, we want to add two more `useEffect` hooks to `App.tsx`. These two hooks wi
   useEffect(() => {
     if (adapterArgs) {
       console.log('starting session');
-      setPage('same-origin-call');
+      setPage('new-window-call');
     }
   }, [adapterArgs]);
 
@@ -356,7 +356,7 @@ import { NewWindowCallScreen } from './views/NewWindowCallScreen';
       }
       return <CallingWidgetScreen token={token} userId={userId} callLocator={locator} alternateCallerId={alternateCallerId}/>;
     }
-    case 'same-origin-call': {
+    case 'new-window-call': {
       if (!adapterArgs) {
         return (
           <Stack verticalAlign='center' style={{ height: '100%', width: '100%' }}>
