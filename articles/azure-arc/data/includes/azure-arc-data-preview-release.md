@@ -40,5 +40,5 @@ July 2023 test release is now available.
 ### Release notes
 
 - Arc SQL Server | I can see that my SQL Server meta-data automatically being discovered and populated into default purview account soon my SQL Server is Arc-enabled
-- Proxy bypass is now supported for Arc SQL Server Extension. Starting this release, you can also specify services which should not use the specified proxy server. To learn more about setting the proxy bypass, please refer to [Managing the Azure Connected Machine agent - Azure Arc | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent?tabs=windows#proxy-bypass-for-private-endpoints)
+- Proxy bypass is now supported for Arc SQL Server Extension. Starting this release, you can also specify services which should not use the specified proxy server.
 
