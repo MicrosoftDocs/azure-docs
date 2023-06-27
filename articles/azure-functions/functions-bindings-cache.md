@@ -13,8 +13,6 @@ ms.date: 06/26/2023
 
 # Overview of Azure functions for Azure Cache for Redis
 
-::: zone pivot="programming-language-csharp"
-
 <!-- 
 This is how DAPR used includes for support messages
 [!INCLUDE [preview-support](../../includes/functions-cach-support-limitations.md)] 
@@ -27,8 +25,6 @@ Azure Cache for Redis can be used as a trigger for Azure Functions, allowing Red
 Azure Functions is an event-driven programming where triggers and bindings are key features, with which you can easily build event-driven serverless applications. Azure Cache for Redis provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
 With the integration between Azure Cache for Redis and Functions, you can build functions that react to events from Azure Cache for Redis or external systems.
-
-::: zone-end
 
 | Action  | Direction | Type |
 |---------|-----------|------|
@@ -58,12 +54,8 @@ Install these packages by going to the Terminal tab in VS Code and entering the 
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
 ```
 
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"
-
-::: zone-end
-
 <!--## Requirements Include any requirements that apply to using the entire extension. See the [Kafka reference](https://learn.microsoft.com/azure/azure-functions/functions-bindings-kafka#enable-runtime-scaling) for an example. -->
+
 host.json settings
 <!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
 
