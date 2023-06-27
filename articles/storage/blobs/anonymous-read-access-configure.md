@@ -99,7 +99,7 @@ To allow or disallow anonymous access for a storage account in the Azure portal,
 1. Locate the **Configuration** setting under **Settings**.
 1. Set **Blob public access** to **Enabled** or **Disabled**.
 
-    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to allow or disallow blob anonymous access for account":::
+    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to allow or disallow anonymous access for account":::
 
 # [PowerShell](#tab/powershell)
 
@@ -193,7 +193,7 @@ To allow or disallow anonymous access for a storage account with a template, cre
 
 When a container is configured for anonymous access, requests to read blobs in that container do not need to be authorized. However, any firewall rules that are configured for the storage account remain in effect and will block traffic inline with the configured ACLs.
 
-Allowing or disallowing blob anonymous access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
+Allowing or disallowing anonymous access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
 The examples in this section showed how to read the **AllowBlobPublicAccess** property for the storage account to determine whether anonymous access is currently allowed or disallowed. To learn how to verify that an account's anonymous access setting is configured to prevent anonymous access, see [Remediate anonymous access for the storage account](anonymous-read-access-prevent.md#remediate-anonymous-access-for-the-storage-account).
 

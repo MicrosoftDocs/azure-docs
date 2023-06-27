@@ -155,7 +155,7 @@ The anonymous access setting for a storage account overrides the individual sett
 
 If your scenario requires that certain containers need to be available for anonymous access, then you should move those containers and their blobs into separate storage accounts that are reserved for anonymous access. You can then disallow anonymous access for any other storage accounts.
 
-Remediating blob anonymous access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
+Remediating anonymous access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
 ### Permissions for disallowing anonymous access
 
@@ -536,7 +536,7 @@ To view the compliance report in the Azure portal, follow these steps:
 1. Filter the results for the name of the policy assignment that you created in the previous step. The report shows how many resources aren't in compliance with the policy.
 1. You can drill down into the report for additional details, including a list of storage accounts that aren't in compliance.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot showing compliance report for audit policy for blob anonymous access":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot showing compliance report for audit policy for anonymous access":::
 
 ## Use Azure Policy to enforce authorized access
 

@@ -60,10 +60,10 @@ $accountName = "<storage-account>"
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
 $ctx = $storageAccount.Context
 
-# Read the container's public access setting.
+# Read the container's anonymous access setting.
 Get-AzStorageContainerAcl -Container $containerName -Context $ctx
 
-# Update the container's public access setting to Off.
+# Update the container's anonymous access setting to Off.
 Set-AzStorageContainerAcl -Container $containerName -Permission Off -Context $ctx
 ```
 

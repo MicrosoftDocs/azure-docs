@@ -60,15 +60,15 @@ If you set up [redundancy in a secondary region](../common/storage-redundancy.md
 
 ## Impact of setting the access level on the web container
 
-You can modify the public access level of the **$web** container, but making this modification has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
+You can modify the anonymous access level of the **$web** container, but making this modification has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
 
-While the primary static website endpoint isn't affected, a change to the public access level does impact the primary blob service endpoint.
+While the primary static website endpoint isn't affected, a change to the anonymous access level does impact the primary blob service endpoint.
 
-For example, if you change the public access level of the **$web** container from **Private (no anonymous access)** to **Blob (anonymous read access for blobs only)**, then the level of public access to the primary static website endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html` doesn't change.
+For example, if you change the anonymous access level of the **$web** container from **Private (no anonymous access)** to **Blob (anonymous read access for blobs only)**, then the level of anonymous access to the primary static website endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html` doesn't change.
 
-However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
+However, anonymous access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change, enabling users to open that file by using either of these two endpoints.
 
-Disabling public access on a storage account by using the [public access setting](anonymous-read-access-prevent.md#set-the-storage-accounts-allowblobpublicaccess-property-to-false) of the storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
+Disabling anonymous access on a storage account by using the [anonymous access setting](anonymous-read-access-prevent.md#set-the-storage-accounts-allowblobpublicaccess-property-to-false) of the storage account doesn't affect static websites that are hosted in that storage account. For more information, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
 ## Mapping a custom domain to a static website URL
 
