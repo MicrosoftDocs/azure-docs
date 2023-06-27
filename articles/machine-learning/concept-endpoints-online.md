@@ -76,8 +76,6 @@ In turn, Azure Machine Learning ​does the following:
 
 To learn more about no-code deployment for MLflow models, see [Deploy MLflow models to online endpoints](/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints).
 
-### Low-code model deployment
-
 **Low-code model deployment** allows you to provide minimal code along with your ML model for deployment. For low-code deployment, Azure Machine Learning requires that you provide:
 - Model assets or the name and version of registered assets in your workspace. These assets should include:
     - model files
