@@ -149,6 +149,9 @@ Under the **Destination** tab, use these values to enter the destination propert
 
  * For the **Destination mapping** field, accept the default **Destination mapping**. The FHIR destination mapping is addressed in the [Post-deployment](#post-deployment) section of this quickstart.
 
+> [!IMPORTANT]
+> If an encounter id is specified and extracted from the device message, it will be linked to the observation if an encounter exists on the FHIR with that identifier.  If the encounter id is successfully normalized, but no FHIR encounter exists with that identifier, a **FhirResourceNotFound** exception will be thrown.
+
 The **Destination** tab should now look something like this after you've filled it out:
 
 :::image type="content" source="media\deploy-manual-portal\completed-destination-tab.png" alt-text="Screenshot of Destination tab filled out correctly." lightbox="media\deploy-manual-portal\completed-destination-tab.png":::
