@@ -25,7 +25,6 @@ To get richer data for debugging and diagnosing your workflows in Azure Logic Ap
 > Also, transient logging errors must halt the upstream service when unable to confirm log delivery. 
 > Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
 > However, small data losses might still happen due to temporary, non-repeating service issues distributed across Azure, and not all can be caught.
-> Azure, and not all of them can be caught.
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
