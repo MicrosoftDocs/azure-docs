@@ -2,21 +2,14 @@
 title: SAP BusinessObjects BI platform deployment on Azure for Linux | Microsoft Docs
 description: Deploy and configure SAP BusinessObjects BI platform on Azure for Linux
 services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,azure-files,mysql
-documentationcenter: saponazure
 author: dennispadia
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/05/2020
+ms.date: 06/15/2023
 ms.author: depadia
-
 ---
 
 # SAP BusinessObjects BI platform deployment guide for Linux on Azure
@@ -40,6 +33,10 @@ Here's the product version and file system layout for this example:
 | /usr/sap/frsinput  | The mount directory is for the shared files across all BOBI hosts that will be used as the input file repository directory.  | Business need         | bl1adm | sapsys | Azure NetApp Files         |
 | /usr/sap/frsoutput | The mount directory is for the shared files across all BOBI hosts that will be used as the output file repository directory | Business need         | bl1adm | sapsys | Azure NetApp Files         |
 
+> [!IMPORTANT]
+>
+> While the setup of the SAP BusinessObjects platform is explained using Azure NetApp Files, you could use NFS on Azure Files as the input and output file repository.
+
 ## Deploy Linux virtual machine via Azure portal
 
 In this section, you create two virtual machines with the Linux operating system image for the SAP BOBI platform. The high-level steps to create the virtual machines are as follows:
@@ -51,7 +48,7 @@ In this section, you create two virtual machines with the Linux operating system
    - Don't use a single subnet for all Azure services in the SAP BI platform deployment. Based on SAP BI platform architecture, you need to create multiple subnets. In this deployment, you create three subnets: one each for the application, the file repository store, and Application Gateway.
    - In Azure, Application Gateway and Azure NetApp Files must always be on a separate subnet. For more information, see [Azure Application Gateway](../../application-gateway/configuration-overview.md) and [Guidelines for Azure NetApp Files network planning](../../azure-netapp-files/azure-netapp-files-network-topologies.md).
 
-3. Create an availability set. To achieve redundancy for each tier in a multi-instance deployment, place virtual machines for each tier in an availability set. Make sure you separate the availability sets for each tier based on your architecture.
+3. Select the suitable [availability options](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) depending on your preferred system configuration within an Azure region, whether it involves spanning across zones, residing within a single zone, or operating in a zone-less region.
 
 4. Create virtual machine 1, called **(azusbosl1)**.
 
@@ -78,7 +75,7 @@ The following instructions assume that you've already deployed your [Azure virtu
 
 3. [Delegate a subnet to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
-5. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-create-volumes.md).
+4. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
    You can deploy the volumes as NFSv3 and NFSv4.1, because both protocols are supported for the SAP BOBI platform. Deploy the volumes in their respective Azure NetApp Files subnets. The IP addresses of the Azure NetApp Files volumes are assigned automatically.
 
@@ -91,10 +88,11 @@ Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in 
 
 As you're creating your Azure NetApp Files for SAP BOBI platform file repository server, be aware of the following considerations:
 
-- The minimum capacity pool is 4 tebibytes (TiB).
+- The minimum capacity pool is 4 tebibytes (TiB). The capacity pool size can be increased in 1 TiB increments.
 - The minimum volume size is 100 gibibytes (GiB).
 - Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network, or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp Files access over global peering isn't currently supported.
 - The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
+- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.
 - With the Azure NetApp Files [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (for example, read-write or read only).
 - The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 - Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP BI platform applications.
@@ -156,9 +154,9 @@ The steps in this section use the following prefix:
 
     ```bash
     sudo mount -a
-
+    
     sudo df -h
-
+    
     Filesystem                     Size  Used Avail Use% Mounted on
     devtmpfs                       7.9G  8.0K  7.9G   1% /dev
     tmpfs                          7.9G   82M  7.8G   2% /run
@@ -236,9 +234,9 @@ The steps in this section use the following prefix:
 
    ```bash
    sudo mount -a
-
+   
    sudo df -h
-
+   
    Filesystem                     Size  Used Avail Use% Mounted on
    devtmpfs                       7.9G  8.0K  7.9G   1% /dev
    tmpfs                          7.9G   82M  7.8G   2% /run
@@ -295,10 +293,10 @@ In this section, you create a private link that allows SAP BOBI virtual machines
    - Resource: MySQL database created in the previous section
    - Target sub-resource: mysqlServer
 7. In the **Networking** section, select the **Virtual network** and **Subnet** on which the SAP BOBI application is deployed.
-   >[!NOTE]
-   >If you have a network security group (NSG) enabled for the subnet, it will be disabled for private endpoints on this subnet only. Other resources on the subnet will still have NSG enforcement.
+   > [!NOTE]
+   > If you have a network security group (NSG) enabled for the subnet, it will be disabled for private endpoints on this subnet only. Other resources on the subnet will still have NSG enforcement.
 8. For **Integrate with private DNS zone**, accept the **default (yes)**.
-9.  Select your **private DNS zone** from the dropdown list.
+9. Select your **private DNS zone** from the dropdown list.
 10. Select **Review+Create**, and create a private endpoint.
 
 For more information, see [Private Link for Azure Database for MySQL](../../mysql/concepts-data-access-security-private-link.md).
@@ -347,7 +345,7 @@ For more information, see [Private Link for Azure Database for MySQL](../../mysq
    | GRANT USAGE ON *.* TO `cmsadmin`@`%`                                   |
    | GRANT ALL PRIVILEGES ON `cmsbl1`.* TO `cmsadmin`@`%` WITH GRANT OPTION |
    +------------------------------------------------------------------------+
-
+   
    USE sys;
    SHOW GRANTS FOR 'auditadmin'@'%';
    +----------------------------------------------------------------------------+
@@ -391,7 +389,7 @@ For the SAP BOBI application server to access a database, it requires database c
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
    vi /home/bl1adm/.bashrc
-
+   
    export LD_LIBRARY_PATH=/usr/lib64
    ```
 
@@ -619,17 +617,14 @@ The following sections describe how to achieve high availability on each compone
 
 You can achieve high availability for application servers by employing redundancy. To do this, configure multiple instances of BI and web servers in various Azure VMs.
 
-To reduce the impact of downtime due to one or more events, it's a good idea to:
-
-- Use availability zones to protect datacenter failures.
-- Configure multiple VMs in an availability set for redundancy.
-- Use managed disks for VMs in an availability set.
-- Configure each application tier into separate availability sets.
+To reduce the impact of downtime due to [planned and unplanned events](./sap-high-availability-architecture-scenarios.md#planned-and-unplanned-maintenance-of-virtual-machines), it's a good idea to follow the [high availability architecture guidance](./sap-high-availability-architecture-scenarios.md).
 
 For more information, see [Manage the availability of Linux virtual machines](../../virtual-machines/availability.md).
 
->[!Important]
->The concepts of Azure availability zones and Azure availability sets are mutually exclusive. You can deploy a pair or multiple VMs into either a specific availability zone or an availability set, but you can't do both.
+> [!IMPORTANT]
+>
+> - The concepts of Azure availability zones and Azure availability sets are mutually exclusive. You can deploy a pair or multiple VMs into either a specific availability zone or an availability set, but you can't do both.
+> - If you planning to deploy across availability zones, it is advised to use [flexible scale set with FD=1](./virtual-machine-scale-set-sap-deployment-guide.md) over standard availability zone deployment.
 
 ### High availability for a CMS database
 
@@ -643,9 +638,6 @@ Filestore refers to the disk directories where contents like reports, universes,
 
 For SAP BOBI platform running on Linux, you can choose [Azure Premium Files](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for file shares that are designed to be highly available and highly durable in nature. For more information, see [Redundancy](../../storage/files/storage-files-planning.md#redundancy) for Azure Files.
 
-> [!Important]
-> SMB Protocol for Azure Files is generally available, but NFS Protocol support for Azure Files is currently in preview. For more information, see [NFS 4.1 support for Azure Files is now in preview](https://azure.microsoft.com/blog/nfs-41-support-for-azure-files-is-now-in-preview/).
-
 Note that this file share service isn't available in all regions. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) to find up-to-date information. If the service isn't available in your region, you can create an NFS server from which you can share the file system to the SAP BOBI application. But you'll also need to consider its high availability.
 
 ### High availability for Load Balancer
@@ -655,14 +647,14 @@ To distribute traffic across a web server, you can either use Azure Load Balance
 - For Azure Load Balancer, redundancy can be achieved by configuring Standard Load Balancer as zone-redundant. For more information, see [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md).
 
 - For Application Gateway, high availability can be achieved based on the type of tier selected during deployment.
-   -  v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. You achieve redundancy within the zone.
-   -  v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency. For more details, see [Autoscaling and Zone-redundant Application Gateway v2](../../application-gateway/application-gateway-autoscaling-zone-redundant.md).
+  - v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. You achieve redundancy within the zone.
+  - v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency. For more details, see [Autoscaling and Zone-redundant Application Gateway v2](../../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
 ### Reference high availability architecture for SAP BOBI platform
 
-The following diagram shows the setup of SAP BOBI platform when you're using an availability set running on Linux server. The architecture showcases the use of different services, like Azure Application Gateway, Azure NetApp Files, and Azure Database for MySQL. These services offer built-in redundancy, which reduces the complexity of managing different high availability solutions.
+The following diagram shows the setup of SAP BOBI platform running on Linux server. The architecture showcases the use of different services, like Azure Application Gateway, Azure NetApp Files, and Azure Database for MySQL. These services offer built-in redundancy, which reduces the complexity of managing different high availability solutions.
 
-Notice that the incoming traffic (HTTPS - TCP/443) is load-balanced by using Azure Application Gateway v1 SKU, which is highly available when deployed on two or more instances. Multiple instances of the web server, management servers, and processing servers are deployed in separate VMs to achieve redundancy, and each tier is deployed in separate availability sets. Azure NetApp Files has built-in redundancy within the datacenter, so your Azure NetApp Files volumes for the file repository server will be highly available. The CMS database is provisioned on Azure Database for MySQL, which has inherent high availability. For more information, see [High availability in Azure Database for MySQL](../../mysql/concepts-high-availability.md).
+Notice that the incoming traffic (HTTPS) is load-balanced by using Azure Application Gateway v1/v2 SKU, which is highly available when deployed on two or more instances. Multiple instances of the web server, management servers, and processing servers are deployed in separate VMs to achieve redundancy. Azure NetApp Files has built-in redundancy within the datacenter, so your Azure NetApp Files volumes for the file repository server will be highly available. The CMS database is provisioned on Azure Database for MySQL, which has inherent high availability. For more information, see [High availability in Azure Database for MySQL](../../mysql/concepts-high-availability.md).
 
 ![Diagram that shows SAP BusinessObjects BI platform redundancy with availability sets.](media/businessobjects-deployment-guide/businessobjects-deployment-high-availability.png)
 
@@ -679,8 +671,10 @@ This section explains the strategy to provide disaster recovery protection for a
 
 This guide focuses on the second option. It won't cover all possible configuration options for disaster recovery, but does cover a solution that features native Azure services in combination with a SAP BOBI platform configuration.
 
->[!Important]
->The availability of each component in the SAP BOBI platform should be factored in the secondary region, and you must thoroughly test the entire disaster recovery strategy.
+> [!IMPORTANT]
+>
+> - The availability of each component in the SAP BOBI platform should be factored in the secondary region, and you must thoroughly test the entire disaster recovery strategy.
+> - In case where your SAP BI platform is configured with [flexible scale set](./virtual-machine-scale-set-sap-deployment-guide.md) with FD=1, then you need to use [PowerShell](../../site-recovery/azure-to-azure-powershell.md) to set up Azure Site Recovery for disaster recovery. Currently, it's the only method available to configure disaster recovery for VMs deployed in scale set.
 
 ### Reference disaster recovery architecture for SAP BOBI platform
 

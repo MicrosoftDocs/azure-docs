@@ -96,7 +96,10 @@
         displayName: virtual network
       - name: Public Access
         href: flexible-server/concepts-networking-public.md
-        displayName: Public access,
+        displayName: Public access
+      - name: Private Link
+        href: flexible-server/concepts-networking-private-link.md
+        displayName: Private Link
     - name: Service Maintenance
       items:
       - name: Scheduled Maintenance
@@ -217,8 +220,16 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-    - name: Service Maintenance
-      items:
+      - name: Configure Private Link access
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-networking-private-link-portal.md
+        - name: Azure portal - deny access
+          href: flexible-server/how-to-networking-private-link-deny-public-access.md
+        - name: Azure CLI
+          href: flexible-server/how-to-networking-private-link-azure-cli.md
+      - name: Service Maintenance
+        items:
       - name: Configure Scheduled Maintenance using Azure portal
         href: flexible-server/how-to-maintenance-portal.md
     - name: High Availability

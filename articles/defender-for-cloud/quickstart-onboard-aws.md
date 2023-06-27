@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 04/23/2023
+ms.date: 06/26/2023
 author: dcurwin
 ms.author: dacurwin
 zone_pivot_groups: connect-aws-accounts
@@ -138,6 +138,9 @@ The native cloud connector requires:
 
    (Optional) Select **Management account** to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
 
+    > [!NOTE]
+    > Defender for Cloud can be connected to each AWS account or management account only once.
+
 1. Select **Next: Select plans**.<a name="cloudtrail-implications-note"></a>
 
     > [!NOTE]
@@ -152,6 +155,9 @@ The native cloud connector requires:
 
     - (Optional) Select **Configure**, to edit the configuration as required.
 
+    > [!NOTE]
+    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of ["Disconnected" or "Expired"](https://learn.microsoft.com/azure/azure-arc/servers/overview)) will be removed after 7 days. This process removes irrelevant Azure ARC entities, ensuring only Azure Arc servers related to existing instances are displayed.
+
 1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you've fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!Note]
@@ -165,9 +171,16 @@ The native cloud connector requires:
 
 1. Select **Next: Configure access**.
 
-1. Download the CloudFormation template.
+    a. Choose deployment type, **Default access** or **Least privilege access**.
 
-1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
+    - Default access - Allows Defender for Cloud to scan your resources and automatically include future capabilities.
+    - Least privileged access - Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality on the connector health section.
+
+    b. Choose deployment method: **AWS CloudFormation** or **Terraform**.
+
+    :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot showing the configure access and its deployment options and instructions.":::
+
+1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
 
 1. Select **Next: Review and generate**.
 
@@ -250,7 +263,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
     :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
 
-1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+1. For each connector, select the three-dot button **…** at the end of the row, and select **Delete**.
 
 1. On AWS, delete the role ARN, or the credentials created for the integration.
 
@@ -371,7 +384,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
     Defender for Cloud discovers the EC2 instances in the connected AWS account and uses SSM to onboard them to Azure Arc.
 
     > [!TIP]
-    > For the list of supported operating systems, see [What operating systems for my EC2 instances are supported?](#what-operating-systems-for-my-ec2-instances-are-supported) in the FAQ.
+    > For the list of supported operating systems, see [What operating systems for my EC2 instances are supported?](faq-general.yml) in the common questions.
 
     1. Select the **Resource Group** and **Azure Region** that the discovered AWS EC2s will be onboarded to in the selected subscription.
     1. Enter the **Service Principal ID** and **Service Principal Client Secret** for Azure Arc as described here [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
@@ -405,62 +418,6 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="screenshot of the asset inventory page's resource type filter showing the AWS options.":::
 
-## FAQ - AWS in Defender for Cloud
-
-### What operating systems for my EC2 instances are supported?
-
-For a list of the AMIs with the SSM Agent preinstalled see [this page in the AWS docs](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent).
-
-For other operating systems, the SSM Agent should be installed manually using the following instructions:
-
-- [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
-- [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
-
-### For the CSPM plan, what IAM permissions are needed to discover AWS resources?
-
-The following IAM permissions are needed to discover AWS resources:
-
-| DataCollector | AWS Permissions  |
-|--|--|
-| API Gateway | `apigateway:GET` |
-| Application Auto Scaling | `application-autoscaling:Describe*` |
-| Auto scaling | `autoscaling-plans:Describe*` <br> `autoscaling:Describe*` |
-| Certificate manager | `acm-pca:Describe*` <br> `acm-pca:List*` <br> `acm:Describe*` <br> `acm:List*` |
-| CloudFormation | `cloudformation:Describe*` <br> `cloudformation:List*` |
-| CloudFront | `cloudfront:DescribeFunction` <br> `cloudfront:GetDistribution` <br> `cloudfront:GetDistributionConfig` <br> `cloudfront:List*` |
-| CloudTrail | `cloudtrail:Describe*` <br> `cloudtrail:GetEventSelectors` <br> `cloudtrail:List*` <br> `cloudtrail:LookupEvents` |
-| CloudWatch | `cloudwatch:Describe*` <br> `cloudwatch:List*` |
-| CloudWatch logs | `logs:DescribeLogGroups` <br> `logs:DescribeMetricFilters` |
-| CodeBuild | `codebuild:DescribeCodeCoverages` <br> `codebuild:DescribeTestCases` <br> `codebuild:List*` |
-| Config Service | `config:Describe*` <br> `config:List*` |
-| DMS – database migration service | `dms:Describe*` <br> `dms:List*` |
-| DAX | `dax:Describe*` |
-| DynamoDB | `dynamodb:Describe*` <br> `dynamodb:List*` |
-| Ec2 | `ec2:Describe*` <br> `ec2:GetEbsEncryptionByDefault` |
-| ECR | `ecr:Describe*` <br> `ecr:List*` |
-| ECS | `ecs:Describe*` <br> `ecs:List*` |
-| EFS | `elasticfilesystem:Describe*` |
-| EKS | `eks:Describe*` <br> `eks:List*` |
-| Elastic Beanstalk | `elasticbeanstalk:Describe*` <br> `elasticbeanstalk:List*` |
-| ELB – elastic load balancing (v1/2) | `elasticloadbalancing:Describe*` |
-| Elastic search | `es:Describe*` <br> `es:List*` |
-| EMR – elastic map reduce | `elasticmapreduce:Describe*` <br> `elasticmapreduce:GetBlockPublicAccessConfiguration` <br> `elasticmapreduce:List*` <br> `elasticmapreduce:View*` |
-| GuardDuty | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
-| IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
-| KMS | `kms:Describe*` <br> `kms:List*` |
-| Lambda | `lambda:GetPolicy` <br> `lambda:List*` |
-| Network firewall | `network-firewall:DescribeFirewall` <br> `network-firewall:DescribeFirewallPolicy` <br> `network-firewall:DescribeLoggingConfiguration` <br> `network-firewall:DescribeResourcePolicy` <br> `network-firewall:DescribeRuleGroup` <br> `network-firewall:DescribeRuleGroupMetadata` <br> `network-firewall:ListFirewallPolicies` <br> `network-firewall:ListFirewalls` <br> `network-firewall:ListRuleGroups` <br> `network-firewall:ListTagsForResource` |
-| RDS | `rds:Describe*` <br> `rds:List*` |
-| RedShift | `redshift:Describe*` |
-| S3 and S3Control | `s3:DescribeJob` <br> `s3:GetEncryptionConfiguration` <br> `s3:GetBucketPublicAccessBlock` <br> `s3:GetBucketTagging` <br> `s3:GetBucketLogging` <br> `s3:GetBucketAcl` <br> `s3:GetBucketLocation` <br> `s3:GetBucketPolicy` <br> `s3:GetReplicationConfiguration` <br> `s3:GetAccountPublicAccessBlock` <br> `s3:GetObjectAcl` <br> `s3:GetObjectTagging` <br> `s3:List*` |
-| SageMaker | `sagemaker:Describe*` <br> `sagemaker:GetSearchSuggestions` <br> `sagemaker:List*` <br> `sagemaker:Search` |
-| Secret manager | `secretsmanager:Describe*` <br> `secretsmanager:List*` |
-| Simple notification service – SNS | `sns:Check*` <br> `sns:List*` |
-| SSM | `ssm:Describe*` <br> `ssm:List*` |
-| SQS | `sqs:List*` <br> `sqs:Receive*` |
-| STS | `sts:GetCallerIdentity` |
-| WAF | `waf-regional:Get*` <br> `waf-regional:List*` <br> `waf:List*` <br> `wafv2:CheckCapacity` <br> `wafv2:Describe*` <br> `wafv2:List*` |
-
 ## Learn more
 
 You can check out the following blogs:
@@ -475,3 +432,4 @@ Connecting your AWS account is part of the multicloud experience available in Mi
 - [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 - [Connect your GCP projects to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshooting-the-native-multicloud-connector)
+- Check out [common questions](faq-general.yml) about onboarding your AWS account.
