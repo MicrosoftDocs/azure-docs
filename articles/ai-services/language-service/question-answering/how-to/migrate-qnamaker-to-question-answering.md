@@ -37,7 +37,7 @@ In addition to a new set of features, Question Answering provides many technical
 
 |Feature|QnA Maker|Question Answering|Details|
 |-------|---------|------------------|-------|
-|State of the art transformer-based models|➖|✔️|Turing based models that enables search of QnA at web scale.|
+|State of the art transformer-based models|➖|✔️|Turing based models that enable search of QnA at web scale.|
 |Pre-built capability|➖|✔️|Using this capability one can leverage the power of question answering without having to ingest content and manage resources.|
 |Precise answering|➖|✔️|Question Answering supports  precise answering with the help of SOTA models.|
 |Smart URL Refresh|➖|✔️|Question Answering provides a means to refresh ingested content from public sources with a single click.|
