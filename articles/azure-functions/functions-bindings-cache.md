@@ -55,7 +55,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell" 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"
 
 ## Install bundle
 
@@ -67,38 +67,42 @@ Install the Redis Extension manually for now following this procedure.
 
 1. Create a Java function project. You could use Maven:
    `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8`
- 
+
 1. Remove `extensionBundle` from `host.json`
+
 1. Run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.Redis --version <version>`
    - `<version>` should be the lateste version of the extenstion from NuGet
+
 1. Add the Java library for Redis bindings to the `pom.xml` file:
 
-```xml
-<dependency>
-  <groupId>com.microsoft.azure.functions</groupId>
-  <artifactId>azure-functions-java-library-redis</artifactId>
-  <version>[0.0.0,)</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.functions</groupId>
+      <artifactId>azure-functions-java-library-redis</artifactId>
+      <version>[0.0.0,)</version>
+    </dependency>
+    ```
+
 1. Replace the existing `Function.java` file with the following code:
 
-```java
-import com.microsoft.azure.functions.*;
-import com.microsoft.azure.functions.tation.*;
-import com.microsoft.azure.functions.s.annotation.*;
-public class Function {
-  @FunctionName("PubSubTrigger")
-  public void PubSubTrigger(
-    @RedisPubSubTrigger(
-      name = "message",
-      connectionStringSetting = "Redis",
-      channel = "pubsubTest")
-      String message,
-    final ExecutionContext context) {
-    context.getLogger().info("Java tion triggered on pub/sub age '" + message + "' from nel 'pubsubTest'.");
-  }
-}
-```
+    ```java
+    import com.microsoft.azure.functions.*;
+    import com.microsoft.azure.functions.tation.*;
+    import com.microsoft.azure.functions.s.annotation.*;
+    public class Function {
+      @FunctionName("PubSubTrigger")
+      public void PubSubTrigger(
+        @RedisPubSubTrigger(
+          name = "message",
+          connectionStringSetting = "Redis",
+          channel = "pubsubTest")
+          String message,
+        final ExecutionContext context) {
+        context.getLogger().info("Java tion triggered on pub/sub age '" + message + "' from nel 'pubsubTest'.");
+      }
+    }
+    ```
+
 ::: zone-end
 
 ## Next steps
