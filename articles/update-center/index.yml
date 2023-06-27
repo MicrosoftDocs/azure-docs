@@ -27,7 +27,7 @@ landingContent:
          - text: Feature releases
            url: whats-new.md
 
- - title: Common tasks
+  - title: Common tasks
     linkLists:
       - linkListType: tutorial
         links:
