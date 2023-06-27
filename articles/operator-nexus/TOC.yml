@@ -30,7 +30,7 @@
       href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
-    - name: Deploy Nexus Kubernetes cluster
+    - name: Nexus Kubernetes cluster
       expanded: true
       items:
         - name: Understanding agent pools
