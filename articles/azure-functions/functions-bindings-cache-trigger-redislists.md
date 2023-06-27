@@ -7,15 +7,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 06/27/2023
 
 ---
 
 # RedisListTrigger Azure Function
 
 The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
-
-## Inputs for RedisListsTrigger
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
@@ -38,8 +36,6 @@ public static void ListsTrigger(
 }
 ```
 
-Isolated process
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: -->
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
@@ -94,6 +90,21 @@ Isolated process
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
+
+| `ConnectionString`| connection string to the redis cache, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.|
+| `Keys`| Keys to read from, space-delimited.|
+| |- Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/).|
+| -| Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
+|  `PollingIntervalInMs`| How often to poll Redis in milliseconds.|
+| - | |Default: 1000|
+|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to.|
+| - Default: 100|
+| `BatchSize`| (optional) Number of elements to pull from Redis at one time.|
+| - Default: 10|
+| ||- Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
+|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/).|
+||| - Default: true|
+
 
 - `ConnectionString`: connection string to the redis cache, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.
 - `Keys`: Keys to read from, space-delimited.
