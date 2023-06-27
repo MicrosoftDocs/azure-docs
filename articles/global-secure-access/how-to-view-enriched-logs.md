@@ -51,7 +51,7 @@ To enable the Enriched Microsoft 365 logs:
 1. Select the type of Microsoft 365 logs you want to enable.
 1. Select **Save**.
 
-    :::image type="content" source="media/how-to-view-enriched-logs/enriched-logs-sharepoint.png" alt-text="Screenshot of the Private access profile, with the view applications link highlighted." lightbox="media/how-to-view-enriched-logs/enriched-logs-sharepoint-expanded.png":::
+    :::image type="content" source="media/how-to-view-enriched-logs/enriched-logs-sharepoint.png" alt-text="Screenshot of the Logging area of Global Secure Access." lightbox="media/how-to-view-enriched-logs/enriched-logs-sharepoint-expanded.png":::
 
 The enriched logs may take up to 72 hours to fully integrate with the service.
 
@@ -60,7 +60,7 @@ The enriched logs may take up to 72 hours to fully integrate with the service.
 To view the enriched Microsoft 365 logs, you must export or stream the logs to an endpoint, such as a Log Analytics workspace or a SIEM tool. The endpoint must be configured before you can configure Diagnostic settings.
 
 * To integrate logs with Log Analytics, you need a **Log Analytics workspace**.
-    - [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+    - [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
     - [Integrate logs with Log Analytics](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 * To stream logs to a SIEM tool, you need to create an Azure event hub and an event hub namespace.
     - [Set up an Event Hubs namespace and an event hub](../event-hubs/event-hubs-create.md).
@@ -85,7 +85,7 @@ With your endpoint created, you can configure Diagnostic settings.
 
 The following example is sending the enriched logs to a Log Analytics workspace, which requires selecting the Subscription and Log Analytics workspace from the menus that appear.
 
-:::image type="content" source="media/how-to-view-enriched-logs/diagnostic-settings-enriched-logs.png" alt-text="Screenshot of the Private access profile, with the view applications link highlighted." lightbox="media/how-to-view-enriched-logs/diagnostic-settings-enriched-logs-expanded.png":::
+:::image type="content" source="media/how-to-view-enriched-logs/diagnostic-settings-enriched-logs.png" alt-text="Screenshot of the Microsoft Entra ID Diagnostic settings, with the enriched logs and Log Analytics options highlighted." lightbox="media/how-to-view-enriched-logs/diagnostic-settings-enriched-logs-expanded.png":::
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
