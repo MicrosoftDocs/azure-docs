@@ -1,12 +1,14 @@
 This document demonstrates how to create, update, and delete users in SAP ECC 7. It covers the management of users in one connected SAP system for demonstration.
 
-Other object types including local activity groups, roles, and profiles are not covered by this guide. Password operations are also out of scope for this guide. 
-
-This guide covers the management of users in one connected SAP system. SAP CUA and complex SAP landscapes are out of scope of this guide as it is intended to demonstrate the approach and not to be used in production systems. 
-
 The following video provides an overview of on-premises provisioning.
 
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
+
+## Out of scope
+* Other object types including local activity groups, roles, and profiles are not covered by this guide. 
+* Password operations are also out of scope for this guide. 
+* SAP CUA and complex SAP landscapes are out of scope of this guide as it is intended to demonstrate the approach, which you can customize to meet your needs for a production deployment. 
+
 
 ## Prerequisites for provisioning to SAP ECC 7
 
@@ -14,14 +16,14 @@ The following video provides an overview of on-premises provisioning.
 
 The computer that runs the provisioning agent should have:
 
-- Connectivity to SAP ECC 7, and with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
+- Connectivity to SAP ECC 7 with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
 - At least 3 GB of RAM, to host a provisioning agent. 
 - .NET Framework 4.7.2 
+- A Windows Server 2016 or a later version. 
 
 Prior to configuring provisioning, ensure that you:
 - Expose the necessary APIs in SAP ECC 7 to create, update, and delete users. The guide here walks through how you can expose the necessary APIs.
 - Create a web services connector template for the ECMA host. You can use the template provided here as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment.  
-- A Windows Server 2016 or a later version. 
 
 
 Configuration of the connection to SAP ECC 7 is done using a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
@@ -41,17 +43,17 @@ In this section, you will create the connector configuration for SAP ECC 7.
 
 ### 1.1 Configure the SAP ECC connection
 
-To connect the ECMA host with SAP ECC, follow these steps:
+To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
 
-1. Copy your web service connector template sapecc.wsconfig into ‘C:\Program Files\Microsoft ECMA2Host\Service\ECMA’ folder. 
+1. Copy your web service connector template sapecc.wsconfig into `C:\Program Files\Microsoft ECMA2Host\Service\ECMA` folder. 
 1. Generate a secret token that will be used for authenticating Azure AD to the connector. It should be 12 characters minimum and unique for each application.
 1. If you haven't already done so, launch the **Microsoft ECMA2Host Configuration Wizard** from the Windows Start menu.
 
-2. Select **New Connector**.
+1. Select **New Connector**.
 
      ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)
 
-3. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+1. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
      [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-sql\conn-1.png)](.\media\active-directory-app-provisioning-sql\conn-1.png#lightbox)
 
@@ -62,7 +64,7 @@ To connect the ECMA host with SAP ECC, follow these steps:
      |Secret Token|Enter the secret token you generated for this connector. The key should be 12 characters minimum.|
      |Extension DLL|For the web services connector, select **Microsoft.IdentityManagement.MA.WebServices.dll**.|
 
-4. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+1. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
      [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sql\conn-2.png)](.\media\active-directory-app-provisioning-sql\conn-2.png#lightbox)
      
@@ -72,9 +74,8 @@ To connect the ECMA host with SAP ECC, follow these steps:
      |Host|SAP ECC SOAP endpoint host name, e.g. vhcalnplci.dummy.nodomain|
      |Port|SAP ECC SOAP endpoint port, e.g. 8000|
 
-### 1.2 Configure the capabilities
 
-5. On the **Capabilities** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+1. On the **Capabilities** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
     | Property | Value |
     | --- | --- |
@@ -93,7 +94,8 @@ To connect the ECMA host with SAP ECC, follow these steps:
 
 Note: if your web services connector template sapecc.wsconfig is opened for editing in the Web Service Configuration Tool, you will get an error message:
 
-6. On the **Global** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+
+8. On the **Global** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
 
     | Property | Value |
@@ -103,13 +105,13 @@ Note: if your web services connector template sapecc.wsconfig is opened for edit
     | Password | The password of the username provided. |
     | Test Connection | Unchecked, if you have no Test Connection workflow implemented in your template |
 
-7. On the **Partitions** page, select **Next**.
+1. On the **Partitions** page, select **Next**.
 
 
 Next, you'll configure the **Export** and **Full import** run profiles.  The **Export** run profile will be used when the ECMA Connector host needs to send changes from Azure AD to SAP ECC 7, to insert, update and delete records.  The **Full Import** run profile will be used when the ECMA Connector host service starts, to read in the current content of SAP ECC 7.  
 
 
-11. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
+10. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
 
      [![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sql\conn-9.png)](.\media\active-directory-app-provisioning-sql\conn-9.png#lightbox)
      
@@ -119,9 +121,7 @@ Next, you'll configure the **Export** and **Full import** run profiles.  The **E
     | Full import | Run profile that will import all data from SAP ECC instance specified earlier. |
     | Delta import | Run profile that will import only changes from SAP ECC instance since the last full or delta import. |
 
-Configure how attributes are surfaced in Azure AD:
-
-14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.   
+1. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.   
 
     - **Anchor** : The values of this attribute should be unique for each object in the target system. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. This value is defined in the web services connector template.
     - **DN** : The Autogenerated option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType. For more information on anchors and the DN, see [About anchor attributes and distinguished names](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/on-premises-application-provisioning-architecture#about-anchor-attributes-and-distinguished-names).
@@ -135,9 +135,7 @@ Configure how attributes are surfaced in Azure AD:
     | Autogenerated | Checked |
    
 
- 15. The ECMA connector host discovers the attributes supported by SAP ECC 7. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time.
-
- The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC 7 and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
+ 15. The ECMA connector host discovers the attributes supported by SAP ECC 7. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time. The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC 7 and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  
    :::image type="content" source="media/active-directory-app-provisioning-sql/attribute-1.png" alt-text="Screenshot of attribute dropdown list." lightbox="media/active-directory-app-provisioning-sql/attribute-1.png":::
