@@ -43,8 +43,6 @@ To complete this tutorial, make sure you have:
 
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
 
-- Filled the [Logic App prerequisites](/logic-apps/logic-apps-create-variables-store-values#prerequisites). 
-
 ## Create a playbook with an incident trigger
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
@@ -54,14 +52,14 @@ To complete this tutorial, make sure you have:
 
     Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible.
 
-    :::image type="content" source="media/tutorial-extract-incident-entities/create-playbook.png" alt-text="Screenshot of creating a new playbook with an incident trigger." lightbox="media/tutorial-extract-incident-entities/create-playbook.png":::
+    :::image type="content" source="media/tutorial-extract-incident-entities/create-playbook.png" alt-text="Screenshot of creating a new playbook with an incident trigger.":::
 
 1. Select **Next: Review and create >**.
 1. Under **Review and create**, select **Create and continue to designer**.
 
     The Logic app designer opens a logic app with the name of your playbook.
 
-    :::image type="content" source="media/tutorial-extract-incident-entities/logic-app-designer.png" alt-text="Screenshot of viewing the playbook in the Logic app designer." lightbox="media/tutorial-extract-incident-entities/logic-app-designer.png":::
+    :::image type="content" source="media/tutorial-extract-incident-entities/logic-app-designer.png" alt-text="Screenshot of viewing the playbook in the Logic app designer.":::
 
 ## Initialize an Array variable
 
@@ -73,7 +71,7 @@ To complete this tutorial, make sure you have:
     - For the type, select **Array**. 
     - For the value, start typing *entities* and select **Entities** under **Dynamic content**.
 
-    :::image type="content" source="media/tutorial-extract-incident-entities/initialize-variable.png" alt-text="Screenshot of initializing an Array variable.":::  
+        :::image type="content" source="media/tutorial-extract-incident-entities/initialize-variable.png" alt-text="Screenshot of initializing an Array variable.":::  
 
 ## Select an existing incident
 
@@ -148,7 +146,7 @@ To complete this tutorial, make sure you have:
 
 You can now use the values you created as dynamic content for further actions. For example, if you want to send an email with process data, you can find the **Parse JSON** action under **Dynamic content**, if you didn't change the action name. 
 
-:::image type="content" source="media/tutorial-extract-incident-entities/utilize-dynamic-content.png" alt-text="Screenshot of sending an email with process data.":::
+:::image type="content" source="media/tutorial-extract-incident-entities/utilize-dynamic-content-new.png" alt-text="Screenshot of sending an email with process data.":::
 
 ## Ensure that your playbook is saved
 
@@ -158,4 +156,4 @@ Ensure that the playbook is saved, and you can now use your playbook for SOC ope
 
 Advance to the next article to learn how to create and perform incident tasks in Microsoft Sentinel using playbooks.
 > [!div class="nextstepaction"]
-> [Next steps button](create-tasks-playbook.md)
+> [Create and perform incident tasks in Microsoft Sentinel using playbooks](create-tasks-playbook.md)
