@@ -30,14 +30,14 @@ In BYOL model, you're  responsible for providing your own licenses for satellite
 Flow diagram showing creation and sharing of credentials.
 :::image type="content" source="./media/concepts-byol-and-credentials/vault-usage-flow.png" alt-text="Screenshot showing credential sharing flow.":::
 
-In addition to this, Customer can also override credentials to be used for a connector as part of data plane APIs.
+Customer can optionally override credentials to be used for a data plane request by providing them as part of the data plane API request.
 
 ## Sequence of steps for setting up connectors 
 
 ### Step 1: Create or use existing Key Vault 
 Customers can create a key vault or use an existing key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer [creates Azure Key Vault](/azure/key-vault/general/quick-create-portal) or reuses existing an existing key vault. 
 
-The following properties are recommended to be enabled:
+Please enable following properties:
 
 :::image type="content" source="./media/concepts-byol-and-credentials/create-key-vault.png" alt-text="Screenshot showing key vault properties.":::
 
@@ -55,7 +55,7 @@ Refer to [this guidance](/azure/key-vault/secrets/quick-create-portal#add-a-secr
 ### Step 3: Enable system identity 
 As a customer you have to enable system identity for your Data Manager for Agriculture instance. This identity is used while given secret read permissions for Azure Data Manager for Agriculture instance.
 
-It can be enabled by two options:
+Please follow one of the following methods to enable:
     
 1. Via Azure portal UI
 
