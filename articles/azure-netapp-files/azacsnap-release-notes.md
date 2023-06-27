@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/18/2023
+ms.date: 06/27/2023
 ms.author: phjensen
 ---
 
@@ -30,14 +30,13 @@ For specific information on Preview features, refer to the [AzAcSnap Preview](az
 
 AzAcSnap 8b is being released with the following fixes and improvements:
 
-- - Fixes and Improvements:
+- Fixes and Improvements:
    - General improvement to `azacsnap` command exit codes.
       - Any failure in `--runbefore` will exit before any backup activity and return the `--runbefore` exit code.
       - Any failure in `--runafter` will return the `--runafter` exit code.
--    - Backup (`-c backup`) changes:
-      - Change in the Db2 workflow to move the protected-paths query outside the WRITE SUSPEND, Storage Snapshot, WRITE RESUME workflow to improve resilience. (*Preview*)
-
-- Fix for missing snapshot name (`azSnapshotName`)  in `--runafter` command environment.
+   - Backup (`-c backup`) changes:
+      - Change in the Db2 workflow to move the protected-paths query outside the WRITE SUSPEND, Storage Snapshot, WRITE RESUME workflow to improve resilience. (Preview)
+      - Fix for missing snapshot name (`azSnapshotName`)  in `--runafter` command environment.
 
 Download the [AzAcSnap 8b](https://aka.ms/azacsnap-8b) installer.
 
@@ -58,7 +57,15 @@ Download the [AzAcSnap 8a](https://aka.ms/azacsnap-8a) installer.
 
 AzAcSnap 8 is being released with the following fixes and improvements:
 
-- Fixes and Improvements:
+- - Fixes and Improvements:
+  - Restore (`-c restore`) changes:
+    - New ability to use `-c restore` to revertvolume for Azure NetApp Files.
+  - Restore (`-c restore`) changes:
+    - New ability to use `-c restore` to revertvolume for Azure NetApp Files.
+  - Backup (`-c backup`) changes:
+    - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
+    - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
+    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap will immediately exit with an error.
   - Restore (`-c restore`) changes:
     - New ability to use `-c restore` to revertvolume for Azure NetApp Files.
   - Backup (`-c backup`) changes:
@@ -67,10 +74,12 @@ AzAcSnap 8 is being released with the following fixes and improvements:
     - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap will immediately exit with an error.
   - Details (`-c details`) changes:
     - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
-  - Logging enhancements:
-    - Extra logging output to syslog (e.g., /var/log/messages) on failure.
-    - New “mainlog” (azacsnap.log) to provide a more parse-able high-level log of commands run with success or failure result.
-  - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
+-   - Logging enhancements:
+      - Extra logging output to syslog (for example, /var/log/messages) on failure.
+
+         - New “mainlog” (`azacsnap.log`) to provide a more parse-able high-level log of commands run with success or failure result.
+
+- New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
 
 Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
 
