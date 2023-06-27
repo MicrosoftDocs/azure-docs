@@ -25,7 +25,7 @@ If you haven't already installed Azure CLI: [Install Azure CLI][installation-ins
     ```azurecli
     az extension remove --name networkcloud
     ```
----
+
 
 - Install and test the `networkcloud` CLI extension
 
