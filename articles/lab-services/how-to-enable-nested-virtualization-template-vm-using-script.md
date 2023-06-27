@@ -16,11 +16,6 @@ Nested virtualization enables you to create a multi-VM environment inside a lab'
 
 For concepts, considerations, and recommendations about nested virtualization, see [nested virtualization in Azure Lab Services](./concept-nested-virtualization-template-vm.md).
 
-To enable nested virtualization on the template VM, you first connect to the VM by using a remote desktop (RDP) client. Then you can apply the configuration changes in either of two ways:
-
-- [Enable nested virtualization by using a script](#enable-nested-virtualization-by-using-a-script).
-- [Enable nested virtualization by using Windows tools](#enable-nested-virtualization-by-using-windows-tools).
-
 > [!NOTE]
 > Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
 
@@ -34,6 +29,8 @@ To enable nested virtualization on the template VM, you first connect to the VM 
 [!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Enable nested virtualization
+
+To enable nested virtualization on the template VM, you first connect to the VM by using a remote desktop (RDP) client. You can then apply the configuration changes by either running a PowerShell script or using Windows tools.
 
 # [PowerShell](#tab/powershell)
 
