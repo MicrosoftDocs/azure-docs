@@ -1,6 +1,6 @@
 ---
 title: Quickstart - configure update settings for groups using dynamic scoping (preview) in the Azure portal.
-description: This quickstart helps you to configure update settings using the Azure portal.
+description: This quickstart helps you to configure update settings using dynamic scoping (preview) in Azure portal.
 ms.service: update-management-center
 ms.date: 01/25/2023
 author: SnehaSudhirG
@@ -12,13 +12,13 @@ ms.topic: quickstart
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Dynamic scoping(preview) allows you to include VMs based on the scope and schedule updates at scale. You can modify the scope at any time and the patching requirements are applied at scale without any changes to the deployment schedule.
+Dynamic scoping (preview) allows you to include VMs based on the scope and schedule updates at scale. You can modify the scope at any time and the patching requirements are applied at a scale without any changes to the deployment schedule.
 
-This quickstart details how to configure schedule updates on a group of Azure virtual machine(s) or Arc-enabled server(s)on-premises or in cloud environments that are not supported for schedule.
+This Quickstart details how to configure schedule updates on a group of Azure virtual machine(s) or Arc-enabled server(s)on-premises or in cloud environments that are not supported for schedule.
 
 ## Permissions
 
-Ensure that you have write permissions to create or modify a schedule for a dynamic scope.
+Ensure that you have *write* permissions to create or modify a schedule for a dynamic scope.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 1. In **Other criteria**, choose **Select** and in the **Select other criteria** page, specify the Resource group, Resource type, Location, Tags, and OS type and then select **Select**.
 
     > [!NOTE]
-    > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** > select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
+    > Before you create a group, you can edit, preview, and delete the group. However, after the group is created, you can only edit the scope and not the subscription. To edit the scope, go to **Browse maintenance configuration** and select the schedule. In **Maintenance configuration**, go to **Settings** > **Schedule** to edit it.  
 
 1. In the **Preview of machines based on above criteria**, you can view the list of machines for the selected criteria at that current time and select **Add**.
    > [!NOTE]
@@ -53,8 +53,8 @@ Obtaining consent to apply updates is an important step in the workflow of sched
 1. In **Create a virtual machine**, select **Management** tab and under the **Guest OS Updates**, in **Patch orchestration options**, you can do the following: 
     1. Select **Azure-orchestrated with user managed schedules (Preview)** to confirm that:
 
-       - *Patch Orchestration is set to Azure orchestration*
-       - *Set the Bypass platform safety checks on user schedule = True*.
+       - Patch Orchestration is set to *Azure orchestration*
+       - Set the Bypass platform safety checks on user schedule = *True*.
 
        The selection allows you to provide consent to apply the update settings, ensures that auto patching isn't applied and that patching on the VM(s) runs as per the schedule you've defined.
 
@@ -69,8 +69,8 @@ Obtaining consent to apply updates is an important step in the workflow of sched
 1. In **Machines** tab, select **Add machine**, In **Select resources** page, select the machines and select **Add**
 1. In **Configure Azure VMs for schedule updates**, select **Continue  to schedule updates** option to confirm that:
 
-   - *Patch Orchestration is set to Azure orchestration*
-   - *Set the Bypass platform safety checks on user schedule = True*.
+   - Patch Orchestration is set to *Azure orchestration*
+   - Set the Bypass platform safety checks on user schedule = *True*.
 
 1. Select **Continue to schedule updates** to update the patch mode as **Azure-orchestrated** and enable the scheduled patching for the VMs after obtaining the consent.
 
@@ -80,8 +80,8 @@ Obtaining consent to apply updates is an important step in the workflow of sched
 1. In **Change Update settings**, select **+Add machine** to add the machines.
 1. In the list of machines sorted as per the operating system, go to the **Patch orchestration** option and select **Azure-orchestrated with user managed schedules (Preview)** to confirm that:
 
-   - *Patch Orchestration is set to Azure orchestration* 
-   - *Set the Bypass platform safety checks on user schedule = True*
+   - Patch Orchestration is set to *Azure orchestration* 
+   - Set the Bypass platform safety checks on user schedule = *True*
 1. Select **Save**.
 
    The selection made in this workflow automatically applies the update settings and no consent is explicitly obtained.  
