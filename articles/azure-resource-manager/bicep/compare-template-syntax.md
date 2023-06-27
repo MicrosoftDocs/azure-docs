@@ -1,12 +1,11 @@
 ---
 title: Compare syntax for Azure Resource Manager templates in JSON and Bicep
 description: Compares Azure Resource Manager templates developed with JSON and Bicep, and shows how to convert between the languages.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 04/26/2022
+ms.date: 06/23/2023
 ---
+
 # Comparing JSON and Bicep for templates
 
 This article compares Bicep syntax with JSON syntax for Azure Resource Manager templates (ARM templates). In most cases, Bicep provides syntax that is less verbose than the equivalent in JSON.
@@ -135,7 +134,7 @@ targetScope = 'subscription'
 To declare a resource:
 
 ```bicep
-resource virtualMachine 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   ...
 }
 ```
@@ -153,7 +152,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2020-06-01' = {
 To conditionally deploy a resource:
 
 ```bicep
-resource virtualMachine 'Microsoft.Compute/virtualMachines@2020-06-01' = if(deployVM) {
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2023-03-01' = if(deployVM) {
   ...
 }
 ```
@@ -163,7 +162,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2020-06-01' = if(depl
   {
     "condition": "[parameters('deployVM')]",
     "type": "Microsoft.Compute/virtualMachines",
-    "apiVersion": "2020-06-01",
+    "apiVersion": "2023-03-01",
     ...
   }
 ]
@@ -214,11 +213,11 @@ For Bicep, you can set an explicit dependency but this approach isn't recommende
 The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `netSecurityGroup.id`.
 
 ```bicep
-resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
+resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-11-01' = {
   ...
 }
 
-resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
+resource nic1 'Microsoft.Network/networkInterfaces@2022-11-01' = {
   name: nic1Name
   location: location
   properties: {
@@ -255,7 +254,7 @@ storageAccount.properties.primaryEndpoints.blob
 To get a property from an existing resource that isn't deployed in the template:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
   name: storageAccountName
 }
 

@@ -6170,6 +6170,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/javascript-sdk-advanced.md",
             "redirect_url": "/azure/azure-monitor/app/javascript-sdk-configuration",
             "redirect_document_id": false
-        }
+        },
+       {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-collection-firewall.md",
+            "redirect_url": "/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent",
+            "redirect_document_id": false
+        } 
     ]
 }
