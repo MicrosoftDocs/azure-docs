@@ -122,9 +122,3 @@ Make sure to configure the machine's security according to your organization's s
 
 
 [Learn more >](https://aka.ms/SecureCEF)
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco-firepower-estreamer?tab=Overview) in the Azure Marketplace.
