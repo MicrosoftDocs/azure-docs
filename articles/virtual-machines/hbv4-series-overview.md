@@ -63,31 +63,31 @@ lstopo-no-graphics --no-io --no-legend --of txt
 <br>
 <details>
 <summary>Click to view lstopo output for Standard_HB176rs_v4</summary>
-  
+
 ![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-144rs_v4</summary>
-  
+
 ![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv4-144-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
-  
-![lstopo output for HBv4-96 VM](./media/hpc/architecture/hbv4/hbv4-96-lstopo.png)
+
+![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv4-96-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
-  
-![lstopo output for HBv4-48 VM](./media/hpc/architecture/hbv4/hbv4-48-lstopo.png)
+
+![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv4-48-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
-  
+
 ![lstopo output for HBv4-24 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
 </details>
 
