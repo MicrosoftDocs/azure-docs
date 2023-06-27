@@ -26,11 +26,11 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **myResourceGroup** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **test-rg** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroup \
+    --name test-rg \
     --location eastus2
 ```
 
@@ -38,23 +38,17 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 In this section, you create a virtual network and enable virtual network encryption.
 
-There are two options for the parameter **`--encryption-enforcement-policy`**:
-
-- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
-
-- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
-
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroup \
+    --resource-group test-rg \
     --location eastus2 \
-    --name myVNet \
+    --name vnet-1 \
     --enable-encryption true \
-    --encryption-enforcement-policy dropUnencrypted \
+    --encryption-enforcement-policy allowUnencrypted \
     --address-prefixes 10.0.0.0/16 \
-    --subnet-name myBackendSubnet \
+    --subnet-name subnet-1 \
     --subnet-prefixes 10.0.0.0/24 
 ```
 
@@ -69,19 +63,19 @@ Use [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) to view
 
 ```azurecli-interactive
   az network vnet show \
-    --resource-group myResourceGroup \
-    --name myVNet \
+    --resource-group test-rg \
+    --name vnet-1 \
     --query encryption \
     --output tsv
 ```
 
-```azurecli-interactive
+```output
 user@Azure:~$ az network vnet show \
-    --resource-group myResourceGroup \
-    --name myVNet \
+    --resource-group test-rg \
+    --name vnet-1 \
     --query encryption \
     --output tsv
-True   DropUnencrypted
+True   AllowUnencrypted
 ```
 
 ## Next steps
