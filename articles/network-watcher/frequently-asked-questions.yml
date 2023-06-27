@@ -72,7 +72,7 @@ sections:
       - question: |
           What is the NetworkWatcherRG?
         answer: |
-          Network Watcher resources are located in the **NetworkWatcherRG** resource group, which is automatically created. For example, the NSG flow logs resource is a child resource of Network Watcher and is created in the NetworkWatcherRG.
+          Network Watcher resources are located in the **NetworkWatcherRG** resource group, which is automatically created. Network Watcher instances are created in **NetworkWatcherRG**. Child resources are also create in **NetworkWatcherRG**. For example, the NSG flow logs resource is a child resource of Network Watcher and is created in **NetworkWatcherRG**.
 
       - question: |
           Why do I need to install the Network Watcher agent? 
@@ -124,7 +124,7 @@ sections:
           To use a storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
           
           1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
-          2. Under the **Security + networking** section, select **Networking**, then select **Firewalls and virtual networks**.
+          2. Under the **Security + networking**, select **Networking**, then select **Firewalls and virtual networks**.
           3. In **Public network access**, select **Enabled from selected virtual networks and IP addresses**. Then under **Exceptions**, check the box next to **Allow Azure services on the trusted services list to access this storage account.** 
           4. Enable NSG flow logs by creating a flow log for your target network security group using the above storage account. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
           
@@ -144,4 +144,4 @@ additionalContent: |
 
   ## Next steps
   
-   - To learn more about Network Watcher, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md).
+   - To learn more about Network Watcher, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md)
