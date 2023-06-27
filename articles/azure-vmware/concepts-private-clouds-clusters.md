@@ -38,7 +38,7 @@ Each Azure VMware Solution architectural component has the following function:
 - Dedicated Microsoft Enterprise Edge (D-MSEE): Router that provides connectivity between Azure cloud and the Azure VMware Solution private cloud instance.
 - Azure Virtual Network (VNet): Private network used to connect Azure services and resources together.
 - Azure Route Server: Enables network appliances to exchange dynamic route information with Azure networks.
-- Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPSec VPN, ExpressRoute, and vNet to vNet.
+- Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPSec VPN, ExpressRoute, and VNet to VNet.
 - Azure ExpressRoute: Provides high-speed private connections between Azure data centers and on-premises or colocation infrastructure.
 - Azure Virtual WAN (vWAN): Aggregates networking, security, and routing functions together into a single unified Wide Area Network (WAN).
 
