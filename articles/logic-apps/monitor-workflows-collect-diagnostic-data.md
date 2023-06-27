@@ -24,7 +24,7 @@ To get richer data for debugging and diagnosing your workflows in Azure Logic Ap
 > transactional guarantees. Transactional monitoring might reduce the reliability and performance of the monitored service, 
 > Also, transient logging errors must halt the upstream service when unable to confirm log delivery. 
 > Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
-> resolve and prevent it. However, small data losses may occur due to temporary, non-repeating service issues distributed across 
+> However, small data losses might still happen due to temporary, non-repeating service issues distributed across Azure, and not all can be caught.
 > Azure, and not all of them can be caught.
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
