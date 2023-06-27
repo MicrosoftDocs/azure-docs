@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 06/23/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
@@ -167,6 +167,10 @@ If you're connecting from a VM behind a hybrid network or using a jump machine c
 1. Verify your cross-premises DNS configuration if you use your own DNS resolution infrastructure.
 
 For more information about DNS settings for private endpoints, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+## Can I move private endpoints associated with Microsoft Purview account or its managed resources to another Azure subscription or resource group?
+
+No. Move operations for Account, Portal or Ingestion private endpoints are not supported. For more information, see [Move networking resources to new resource group or subscription](../azure-resource-manager/management/move-limitations/networking-move-limitations.md#private-endpoints).
 
 ## Next steps
 
