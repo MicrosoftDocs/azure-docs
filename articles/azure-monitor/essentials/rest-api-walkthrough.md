@@ -479,7 +479,7 @@ The following JSON shows an example response body.
 In addition to querying for metrics on an individual resource, some resource types also support querying for multiple resources in a single request. These APIs are what power the [Multi-Resource experience in Azure metrics explorer](./metrics-dynamic-scope.md). The set of resources types that support querying for multiple metrics can be seen on the [Metrics blade in Azure monitor](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics) via the resource type drop-down in the scope selector on the context blade. For more information, see the [Multi-Resource UX documentation](./metrics-dynamic-scope.md).
 
 Here are some important differences between querying metrics for multiple resources vs individual resources.
-1) Metrics multi-resource APIs operate at the subscription level instead of the resource ID level. This restriction means users querying these APIs must have [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) permissions on the subscription itself.
+1) Metrics multi-resource APIs operate at the subscription level instead of the resource ID level. This restriction means users querying these APIs must have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permissions on the subscription itself.
 2) Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
 3) Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
 
@@ -635,7 +635,7 @@ Notice that for the multi resource metrics requests, a "Microsoft.ResourceId eq 
 + No returned data can be due to the wrong region being specified:
     The multi resource APIs do not verify that any valid resources exist in the specified region and subscription combination. The only indicator that the region may be wrong is getting an empty time series data response. For example: `"timeseries": [],`
 + 401 authorization errors:
-    The individual resource metrics APIs requires a user have the [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) permission on the resource being queried. Because the multi resource metrics APIs are subscription level APIs, users must have the  [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) permission for the queried subscription to use the multi resource metrics APIs. Even if users have Monitoring Reader on all the resources in a subscription, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
+    The individual resource metrics APIs requires a user have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission on the resource being queried. Because the multi resource metrics APIs are subscription level APIs, users must have the  [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission for the queried subscription to use the multi resource metrics APIs. Even if users have Monitoring Reader on all the resources in a subscription, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
 
 ---
 ## Retrieve activity log data
@@ -698,4 +698,5 @@ If one of these statuses is returned, wait for at least 30 seconds and resend th
 * Review the [overview of monitoring](../overview.md).
 * View the [supported metrics with Azure Monitor](./metrics-supported.md).
 * Review the [Microsoft Azure Monitor REST API reference](/rest/api/monitor/).
+* Review the new [Azure Monitor Query client libraries](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-monitor-query-client-libraries/)
 * Review the [Azure Management Library](/previous-versions/azure/reference/mt417623(v=azure.100)).
