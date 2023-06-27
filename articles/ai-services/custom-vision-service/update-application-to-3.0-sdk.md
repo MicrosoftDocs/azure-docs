@@ -3,14 +3,13 @@ title: How to update your project to the 3.0 API
 titleSuffix: Azure Cognitive Services
 description: Learn how to update Custom Vision projects from the previous version of the API to the 3.0 API.
 services: cognitive-services
-author: areddish
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 12/27/2022
-ms.author: areddish
 ---
 
 # Update to the 3.0 API
