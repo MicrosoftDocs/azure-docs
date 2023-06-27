@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 06/23/2023
+ms.date: 06/27/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
@@ -27,9 +27,9 @@ When a valid SCIM bulk request payload is sent to the provisioning API endpoint,
 **Resolution:**
 Ensure the HTTP Request has the Content-Type header set to the value ```application/scim+json```.
 
-### There is nothing in the provisioning logs
+### There's nothing in the provisioning logs
 
-The provisioning logs update on 40-minute cycles, so you will not see the results of your provisioning job immediately. In the future, we will support provision-on-demand for the API. 
+The provisioning logs update on 40-minute cycles, so you won't see the results of your provisioning job immediately. In the future, we'll support provision-on-demand for the API. 
 
 **Resolution:**
 Verify that your job is in the start state. If not, make sure to select **Start Provisioning**.
@@ -40,7 +40,7 @@ Verify that your job is in the start state. If not, make sure to select **Start 
 **Resolution:**
 Obtain a new access token.
 
-- A second possible issue is that the user is not assigned the **Application Administrator** role. 
+- A second possible issue is that the user isn't assigned the **Application Administrator** role. 
 **Resolution:**
 Ensure to check permissions and assign the **Application Administrator** roles to the user running the job.
 
