@@ -852,4 +852,6 @@ After you sign in, the app will display the data returned from the Microsoft Gra
 
 Learn more about building mobile apps that call protected web APIs in our multi-part scenario series.
 
-> [!div class="nextstepaction"] > [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)
+> [!div class="nextstepaction"] 
+> [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)
+
