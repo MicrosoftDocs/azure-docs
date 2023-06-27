@@ -127,6 +127,8 @@ Sampling is based on request, which means that if a request is captured (sampled
 
 Sampling is also based on trace ID to help ensure consistent sampling decisions across different services.
 
+Sampling does not apply to standalone telemetry.
+
 ### Rate-limited sampling
 
 Starting from 3.4.0, rate-limited sampling is available and is now the default.
