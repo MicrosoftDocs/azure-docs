@@ -37,7 +37,7 @@ To use this feature, you need:
 
 1. Select **Export Data Settings**. 
 
-1. You can either creat a new setting (up to three settings are allowed) or edit an existing setting.
+1. You can either create a new setting (up to three settings are allowed) or edit an existing setting.
     - To change existing setting, select **Edit setting** next to the diagnostic setting you want to update.
     - To add new settings, select **Add diagnostic setting**.  
 
