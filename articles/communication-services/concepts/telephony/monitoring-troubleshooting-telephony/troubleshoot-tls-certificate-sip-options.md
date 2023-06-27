@@ -48,9 +48,8 @@ This article lists some common issues that are related to SIP OPTIONS and TLS ce
 ## SIP OPTIONS issues
 
 After the TLS connection is successfully established, and the SBC is able to send and receive messages to and from the SIP proxy, there might still be problems that affect the format or content of SIP OPTIONS.
-<br><br>
-<details>
-<summary><b>SBC doesn't receive a "200 OK" response from SIP proxy</b></summary>
+
+### SBC doesn't receive a "200 OK" response from SIP proxy
 
 This situation might occur if you’re using an older version of TLS. To enforce stricter security, enable TLS 1.2.
 
@@ -62,20 +61,13 @@ If you’re using TLS version 1.2 or higher, and your SBC certificate is valid, 
 - The Contact header contains an IP address instead of the FQDN.
 - The domain isn’t [fully validated](../../../how-tos/telephony/domain-validation.md). If you add an FQDN that wasn’t validated previously, you must validate it.
 
-</details>
-
-<details>
-
-<summary><b>SBC receives "200 OK" response but not SIP OPTIONS</b></summary>
+### SBC receives "200 OK" response but not SIP OPTIONS
 
 The SBC receives the **200 OK** response from the SIP proxy but not the SIP OPTIONS that were sent from the SIP proxy. If this error occurs, make sure that the FQDN that's listed in the Record-Route or Contact header is correct and resolves to the correct IP address.
 
 Another possible cause for this issue might be firewall rules that are preventing incoming traffic. Make sure that firewall rules are configured to allow incoming connections from all [SIP proxy signaling IP addresses](../direct-routing-infrastructure.md#sip-signaling-fqdns).
 
-</details>
-
-<details>
-<summary><b>SBC status is intermittently inactive</b></summary>
+### SBC status is intermittently inactive
 
 This issue might occur if:
   
@@ -98,66 +90,46 @@ This issue might occur if:
   
   For more information about certificates, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
   
-</details>
-
-<details>
-<summary><b>FQDN doesn’t match the contents of CN or SAN in the provided certificate</b></summary>
+### FQDN doesn’t match the contents of CN or SAN in the provided certificate
 
 This issue occurs if a wildcard doesn't match a lower-level subdomain. For example, the wildcard `\*\.contoso.com` would match `sbc1.contoso.com`, but not `sbc.acs.contoso.com`. You can't have multiple levels of subdomains under a wildcard. If the FQDN doesn’t match the Common Name (CN) or Subject Alternate Name (SAN) in the provided certificate, request a new certificate that matches your domain names.
 
 For more information about certificates, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
-</details>
 
 ## TLS connection issues
 
 If the TLS connection is closed right away and SIP OPTIONS aren't received from the SBC, or if **200 OK** isn't received from the SBC, then the problem might be with the TLS version. The TLS version configured on the SBC should be 1.2 or higher.
-<br><br>
-<details>
 
-<summary><b>SBC certificate is self-signed or not from a trusted CA</b></summary>
+### SBC certificate is self-signed or not from a trusted CA
 
 If the SBC certificate is self-signed, it isn't valid. Make sure that the SBC certificate is obtained from a trusted Certificate Authority (CA).
 
 For a list of supported CAs, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 
-</details>
-
-<details>
-<summary><b>SBC doesn't trust SIP proxy certificate</b></summary>
+### SBC doesn't trust SIP proxy certificate
 
 If the SBC doesn't trust the SIP proxy certificate, download and install the Baltimore CyberTrust root certificate **and** he DigiCert Global Root G2 certificates on the SBC. To download those certificates, see [Microsoft 365 encryption chains](/microsoft-365/compliance/encryption-office-365-certificate-chains).
 
 For a list of supported CAs, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
 
-</details>
-
-<details>
-<summary><b>SBC certificate is invalid</b></summary>
+### SBC certificate is invalid
 
 If the SBC connection status in the Azure portal indicates that the SBC certificate is expired, request or renew the certificate from a trusted Certificate Authority (CA). Then, install it on the SBC. For a list of supported CAs, see [SBC certificates and domain names](../direct-routing-infrastructure.md#sbc-certificates-and-domain-names).
   
 When you renew the SBC certificate, you must remove the TLS connections that were established from the SBC to Microsoft with the old certificate and re-establish them with the new certificate. Doing so ensures that certificate expiration warnings aren't triggered in Azure portal.
 To remove the old TLS connections, restart the SBC during a time frame that has low traffic such as a maintenance window. If you can't restart the SBC, contact the vendor for instructions to force the closure of all old TLS connections.
 
-</details>
-
-<details>
-<summary><b>SBC certificate or intermediary certificates are missing in the SBC TLS "Hello" message</b></summary>
+### SBC certificate or intermediary certificates are missing in the SBC TLS "Hello" message
 
 Check that a valid SBC certificate and all required intermediate certificates are installed correctly, and that the TLS connection settings on the SBC are correct.
 
 Sometimes, even if everything looks correct, a closer examination of the packet capture might reveal that the TLS certificate isn't provided to the Microsoft infrastructure.
 
-</details>
-
-<details>
-<summary><b>SBC connection is interrupted</b></summary>
+### SBC connection is interrupted
 
 The TLS connection is interrupted or not set up even though the certificates and SBC settings experience no issues.
 
 One of the intermediary devices (such as a firewall or a router) on the path between the SBC and the Microsoft network might close the TLS connection. Check for any connection issues within your managed network, and fix them.
-
-</details>
 
 ## Related articles
 
