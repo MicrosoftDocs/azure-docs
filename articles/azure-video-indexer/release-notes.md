@@ -36,6 +36,10 @@ The deprecation of the AMS dependency has led to a breaking change in the acco
 
 Guidelines to customers: We are working on a new implementation without AMS and will provide more details in our documentation. Once available, review the updated documentation and modify your account creation process accordingly to avoid any disruptions. 
 
+### AMS retirement FAQ
+
+For more information, see [AMS deprecation FAQ](ams-deprecation-faq.yml).
+
 ## May 2023
 
 ### API breaking change
