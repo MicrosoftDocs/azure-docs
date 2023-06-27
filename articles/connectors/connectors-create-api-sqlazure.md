@@ -14,7 +14,7 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This article shows how to access your SQL database from a workflow in Azure Logic Apps with the SQL Server connector. You can then create automated workflows that run when triggered by events in your SQL database or in other systems and run actions to manage your SQL data and resources.
+This how-to guide shows how to access your SQL database from a workflow in Azure Logic Apps with the SQL Server connector. You can then create automated workflows that run when triggered by events in your SQL database or in other systems and run actions to manage your SQL data and resources.
 
 For example, your workflow can run actions that get, insert, and delete data or that can run SQL queries and stored procedures. Your workflow can check for new records in a non-SQL database, do some processing work, use the results to create new records in your SQL database, and send email alerts about the new records.
 
@@ -109,23 +109,15 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
 
-1. Find and select the [SQL Server trigger](/connectors/sql/#trigger) that you want to use.
+1. In the designer, under the search box, select **Standard**. Then, [follow these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to add the [SQL Server managed trigger you want](/connectors/sql/#trigger).
 
-   1. On the designer, under the search box, select **Standard**.
+   This example continues with the trigger named **When an item is created**.
 
-   1. In the search box, enter **sql server**.
+1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-   1. From the triggers list, select the SQL trigger that you want.
-
-      This example continues with the trigger named **When an item is created**.
-
-      ![Screenshot showing the Azure portal, Consumption logic app workflow designer, search box with "sql server", and "When an item is created" trigger selected.](./media/connectors-create-api-sqlazure/select-sql-server-trigger-consumption.png)
-
-1. Provide the [information for your connection](#create-connection). When you're done, select **Create**.
-
-1. Provide the information required by [your selected trigger](/connectors/sql/#triggers).
+1. After the trigger information box appears, provide the necessary information required by [your selected trigger](/connectors/sql/#triggers).
 
 1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
@@ -137,39 +129,17 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and blank workflow in the designer.
 
-1. Find and select the SQL Server trigger that you want to use.
+1. In the designer, [follow these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to find and add the SQL Server [built-in trigger](/azure/logic-apps/connectors/built-in/reference/sql/#triggers) or [managed trigger](/connectors/sql/#triggers) you want.
 
-   1. On the designer, select **Choose an operation**.
+   For example, you might select the built-in trigger named **When a row is inserted** or the managed trigger named **When a row is created**.
 
-   1. Under the **Choose an operation** search box, select either of the following options:
+1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-      * **Built-in** to view the [SQL Server built-in connector triggers](/azure/logic-apps/connectors/built-in/reference/sql/#triggers)
+1. After the trigger information box appears, provide the information required by your selected [built-in trigger](/azure/logic-apps/connectors/built-in/reference/sql/#triggers) or [managed trigger](/connectors/sql/#triggers).
 
-      * **Azure** to view the [SQL Server managed connector triggers](/connectors/sql/#triggers)
-
-   1. In the search box, enter **sql server**.
-
-   1. From the triggers list, select the SQL trigger that you want.
-
-      * [Built-in connector triggers](/azure/logic-apps/connectors/built-in/reference/sql/#triggers)
-
-        This example selects the built-in trigger named **When a row is inserted**.
-
-        ![Screenshot showing Standard workflow designer and the selected built-in trigger named When a row is inserted.](./media/connectors-create-api-sqlazure/select-trigger-built-in-standard.png)
-
-      * [Managed connector triggers](/connectors/sql/#triggers)
-
-        This example selects the built-in trigger named **When a row is created**.
-
-        ![Screenshot showing Standard workflow designer and the selected managed trigger named When a row is created.](./media/connectors-create-api-sqlazure/select-trigger-managed-standard.png)
-
-1. Provide the [information for your connection](#create-connection). When you're done, select **Create**.
-
-1. Provide the information required by your selected [built-in trigger](/azure/logic-apps/connectors/built-in/reference/sql/#triggers) or [managed trigger](/connectors/sql/#triggers).
-
-   The following example continues with the built-in trigger named **When a row is inserted**. From the **Table name** list, select the table that you want to use.
+   This example continues with the built-in trigger named **When a row is inserted**. From the **Table name** list, select the table that you want to use.
 
    ![Screenshot showing Standard workflow designer and the built-in action named When a row is inserted.](./media/connectors-create-api-sqlazure/when-row-inserted-standard.png)
 
@@ -274,6 +244,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, review the [managed connector's reference page](/connectors/sql/).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
 
 ---
 
@@ -459,3 +430,5 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 * [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
+
+
