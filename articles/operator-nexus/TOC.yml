@@ -31,7 +31,7 @@
 - name: How-To Guides
   items:
     - name: Nexus Kubernetes cluster
-      expanded: true
+      expanded: false
       items:
         - name: Understanding agent pools
           href: howto-k8s-cluster-agent-pools.md
