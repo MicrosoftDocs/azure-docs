@@ -35,7 +35,6 @@
       items:
         - name: Understanding agent pools
           href: howto-k8s-cluster-agent-pools.md
-      items:
         - name: Configuring Huge-pages for Cluster Virtual Machines
           href: howto-k8s-cluster-hugepages.md
     - name: Before you start Operator Nexus NFC and CM deployment
