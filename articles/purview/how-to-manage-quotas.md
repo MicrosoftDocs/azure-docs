@@ -6,7 +6,7 @@ author: whhender
 ms.author: whhender
 ms.service: purview
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 02/17/2023
 ---
  
 # Manage and increase quotas for resources with Microsoft Purview

@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2023
+ms.date: 04/27/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -17,7 +17,7 @@ This article explains how enterprise administrators of direct and indirect Enter
 > [!NOTE]
 > We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 >
-> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> As of February 20, 2023 indirect EA customers can't manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
 > This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
@@ -50,6 +50,60 @@ The following table lists the terms and descriptions shown on the Usage + Charge
 | Billed Separately | The services your organization used aren't covered by the credit. |
 | Azure Marketplace | Azure Marketplace purchases and usage aren't covered by your organization's credit and are billed separately |
 | Total Charges | Charges against credits + Service Overage + Billed Separately + Azure Marketplace |
+| Refunded Overage credits | Sum of refunded overage amount. The following section describes it further. |
+
+### Refunded overage credits
+
+In the past, when a reservation refund was required, Microsoft manually reviewed closed bills - sometimes going back multiple years. The manual review sometime led to issues. To resolve the issues, the refund review process is changing to a forward-looking review that doesn't require reviewing closed bills.
+
+The new review process is being deployed in phases. The current phase begins on May 1, 2023. In this phase, Microsoft is addressing only refunds that result in an overage. For example, an overage that generates a credit note.
+
+To better understand the change, let's look at a detailed example of the old process. Assume that a reservation was bought in February 2022 with an overage credit (no Azure prepayment or Monetary Commitment was involved). You decided to return the reservation in August 2022. Refunds use the same payment method as the purchase. So, you received a credit note in August 2022 for the February 2022 billing period. However, the credit amount reflects the month of purchase. In this example, that's February 2022. The refund results in the change to the service overage and total charges.
+
+Here's how the example used to appear in the Azure portal.
+
+:::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/old-view-usage-charges.png" alt-text="Screenshot showing the old view for Usage + charges." lightbox="./media/direct-ea-azure-usage-charges-invoices/old-view-usage-charges.png" :::
+
+- After the reservation return in August 2022, you're entitled to $400 credit. You receive the credit note for the refund amount.
+- The service overage is changed from $1947.03 to $1547.03. The total charges change from $1947.83 to $1547.83. However, the changes don’t reconcile with the usage details file. In this example, that's $1947.83. Also, the invoice for February 2022 didn't reconcile.
+- Return line items appear for the month of return. For example, August 2022 in usage details file.
+
+Now, let's look at the new process. There are no changes to the purchase month overage or to total charges, February 2022. Credits given for the month are viewed in the new **Refunded overage credits** column.
+
+Here's how the example now appears in the Azure portal.
+
+:::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/new-view-usage-charges.png" alt-text="Screenshot showing the new view for Usage + charges." lightbox="./media/direct-ea-azure-usage-charges-invoices/new-view-usage-charges.png" :::
+
+- After the reservation return in August 2022, you're entitled to $400 credits. You receive the credit note for the refund amount. There's no change to the process.
+- There are no changes to the February 2022 service overage or total charges after the refund. You're able to reconcile the refund as you review the usage details file and your invoice.
+- Return line items continue to appear in the month of return. For example August 2022, because there's no behavior or process change.
+
+>[!IMPORTANT]
+> - Refunds continue to appear for the purchase month for Azure prepayment and when there's a mix of overage and Azure prepayment.
+> - New behaviour (refunds to reflect in the month of return) will be enabled for MC involved scenarios tentatively by June 2023.
+> - There's no change to the process when there are:
+>     - Adjustment charges
+>     - Back-dated credits
+>     - Discounts.  
+>     The preceding items result in bill regeneration. The regenerated bill shows the new refund billing process.
+
+#### Common refunded overage credits questions
+
+Question: What refunds are included in **Refunded Overage Credits**?<br>
+Answer: The `Refunded Overage Credits` attribute applies to reservation and savings plan refunds.
+
+Question: Are `Refunded Overage credits` values included in total charges?<br>
+Answer: No, it's standalone field that shows the sum of credits received for the month.
+
+Question: How do I reconcile the amount shown in **Refunded Overage Credits**?<br>
+Answer:
+1. In the Azure portal, navigate to **Reservation Transactions**.
+2. Sum all the refunds. They're shown as an overage for the month.  
+    :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/reservation-transactions.png" alt-text="Screenshot showing the Reservation transactions page with refund amounts." lightbox="./media/direct-ea-azure-usage-charges-invoices/reservation-transactions.png" :::
+3. Navigate to **Usage + charges** look at the value shown in **Refunded Overage Credits**. The value is sum of all reservation and savings plan refunds that happened in the month.  
+    :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/refunded-overage-credits.png" alt-text="Screenshot showing the refunded overage credits values." lightbox="./media/direct-ea-azure-usage-charges-invoices/refunded-overage-credits.png" :::
+    > [!NOTE]
+    > Savings plan refunds are not shown in **Reservation Transactions**. However, **Refunded Overage Credits** shows the sum of reservations and savings plans.
 
 ## Download usage charges CSV file
 

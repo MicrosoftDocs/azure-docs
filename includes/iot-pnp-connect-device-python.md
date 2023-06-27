@@ -8,7 +8,7 @@ ms.date: 11/17/2022
 
 This tutorial shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written for Python and is included in the Azure IoT Hub Device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
 ## Prerequisites
 
@@ -26,10 +26,10 @@ In your local Python environment, install the package as follows:
 pip install azure-iot-device
 ```
 
-Clone the Python SDK IoT repository and check out **master**:
+Clone the Python SDK IoT repository: 
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-python
+git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
 ```
 
 ## Run the sample device
@@ -62,7 +62,7 @@ Open the **simple_thermostat.py** file in a text editor. Notice how it:
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/pnp/README.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/pnp/README.md).
 
 Now that you've seen the code, use the following command to run the sample:
 

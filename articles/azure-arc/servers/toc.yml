@@ -95,6 +95,8 @@
         href: manage-vm-extensions-powershell.md
       - name: Deploy extensions using ARM template
         href: manage-vm-extensions-template.md
+      - name: Deploy extensions using Ansible
+        href: manage-vm-extensions-ansible.md
       - name: Automatic extension upgrade
         href: manage-automatic-vm-extension-upgrade.md
     - name: Use managed identities on server
@@ -111,6 +113,10 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Migrate to Azure Monitor Agent using Ansible
       href: migrate-azure-monitor-agent-ansible.md
+    - name: Deploy and configure Azure Monitor Agent using Azure Policy
+      href: deploy-ama-policy.md
+    - name: Organize and inventory servers
+      href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
     - name: Manage with Windows Admin Center
@@ -119,7 +125,7 @@
     items:
     - name: SSH access to Azure Arc-enabled servers
       href: ssh-arc-overview.md
-    - name: Troubleshoot SSH access to Azure Arc enabled servers
+    - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
   - name: Troubleshooting
     items:
@@ -129,6 +135,30 @@
       href: troubleshoot-vm-extensions.md
 - name: Reference
   items:
+  - name: azcmagent CLI
+    items:
+    - name: Overview
+      href: azcmagent.md
+    - name: azcmagent check
+      href: azcmagent-check.md
+    - name: azcmagent config
+      href: azcmagent-config.md
+    - name: azcmagent connect
+      href: azcmagent-connect.md
+    - name: azcmagent disconnect
+      href: azcmagent-disconnect.md
+    - name: azcmagent genkey
+      href: azcmagent-genkey.md
+    - name: azcmagent help
+      href: azcmagent-help.md
+    - name: azcmagent license
+      href: azcmagent-license.md
+    - name: azcmagent logs
+      href: azcmagent-logs.md
+    - name: azcmagent show
+      href: azcmagent-show.md
+    - name: azcmagent version
+      href: azcmagent-version.md
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell

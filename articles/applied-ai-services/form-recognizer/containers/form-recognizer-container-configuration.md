@@ -10,7 +10,6 @@ ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
 ---
 # Configure Form Recognizer containers
 

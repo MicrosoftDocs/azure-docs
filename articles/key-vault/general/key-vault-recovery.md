@@ -3,6 +3,7 @@ title: Azure Key Vault recovery overview | Microsoft Docs
 description: Key Vault Recovery features are designed to prevent the accidental or malicious deletion of your key vault and secrets, keys, and certificate stored inside key-vault.
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
@@ -20,7 +21,7 @@ For more information about Key Vault, see
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [Azure PowerShell](/powershell/azure/install-az-ps).
+* [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 * The user will need the following permissions (at subscription level) to perform operations on soft-deleted vaults:

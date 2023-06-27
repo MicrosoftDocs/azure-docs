@@ -2,17 +2,17 @@
 title: Monitor Azure Container Apps metrics
 description: Monitor your running apps metrics
 services: container-apps
-author: cebundy
+author: v-jaswel
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 08/30/2022
-ms.author: v-bcatherine
+ms.author: v-wellsjason
 ---
 
 # Monitor Azure Container Apps metrics
 
-Azure Monitor collects metric data from your container app at regular interval to help you gain insights into the performance and health of your container app. 
+Azure Monitor collects metric data from your container app at regular intervals to help you gain insights into the performance and health of your container app. 
 
 The metrics explorer in the Azure portal allows you to visualize the data. You can also retrieve raw metric data through the [Azure CLI](/cli/azure/monitor/metrics) and Azure [PowerShell cmdlets](/powershell/module/az.monitor/get-azmetric).
 

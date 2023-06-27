@@ -7,8 +7,6 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/13/2022
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Reset a VPN gateway or a connection
 

@@ -6,6 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: devx-track-azurecli, build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 02/02/2023
 zone_pivot_groups: openai-create-resource

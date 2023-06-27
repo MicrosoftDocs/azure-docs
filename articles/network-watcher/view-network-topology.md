@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.custom: ignite-2022, engagement-fy23
+ms.custom: ignite-2022, engagement-fy23, devx-track-azurecli
 ms.workload: infrastructure-services
 ms.date: 11/11/2022
 ---
@@ -80,7 +80,7 @@ The account that you use must have the necessary [permissions](required-rbac-per
 
 You can run the commands in the steps that follow:
 - In the Azure Cloud Shell, by selecting **Try It** at the top right of any command. The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account.
-- By running PowerShell from your computer. If you run PowerShell from your computer, this article requires the Azure PowerShell `Az` module. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- By running PowerShell from your computer. If you run PowerShell from your computer, this article requires the Azure PowerShell `Az` module. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 The account that you use must have the necessary [permissions](required-rbac-permissions.md).
 

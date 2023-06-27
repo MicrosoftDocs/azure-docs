@@ -7,10 +7,10 @@ author: vijetajo
 ms.author: vijetaj
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.date: 08/11/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q1, event-tier1-build-2022
+ms.custom: contperf-fy21q1, event-tier1-build-2022, build-2023
 ---
 # Manage compute resources for model training and deployment in studio
 
@@ -25,6 +25,8 @@ In this article, learn how to manage the compute resources you use for model tra
 
 With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as _compute targets_). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine. 
 
+You can also use [serverless compute](./how-to-use-serverless-compute.md) as a compute target.  There's nothing for you to manage when you use serverless compute.
+
 ## View compute targets
 
 To see all compute targets for your workspace, use the following steps:
@@ -36,6 +38,8 @@ To see all compute targets for your workspace, use the following steps:
 1. Select tabs at the top to show each type of compute target.
 
     :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets":::
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 ## Compute instance and clusters
 

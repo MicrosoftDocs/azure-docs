@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/31/2023
+ms.date: 06/26/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,46 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.8.1         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.8.1         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.8.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.8.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for Version 10.8.4
+
+Date published: June 16, 2023
+
+In this release, we've made the following changes:
+
+- Updated time zone redirection to accommodate certain daylight savings scenarios.
+- Resolved an issue that incorrectly toggled Caps Lock in RemoteApp connections.
+- Changed gesture recognition to make small mouse-scrolling movements smoother.
+- Fixed an issue that caused the client to stop responding when resuming a connection after entering sleep mode.
+- Updated Azure Virtual Desktop diagnostics to align with service expectations.
+- Created a workaround for a service-side simulcast regression that affected Teams redirection.
+
+## Updates for Version 10.8.3
+
+Date published: May 20, 2023
+
+In this release, we've made the following changes:
+
+- Fixed connectivity issue that affected connections with Windows XP and Windows Vista.
+- Addressed an issue that caused diagnostics reporting for Azure Virtual Desktop connections to be inaccurate.
+
+## Updates for Version 10.8.2
+
+*Date published: April 25, 2023*
+
+In this release, we've made the following changes:
+
+- Integrated support for the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth Protocol for authentication and session security.
+- Added deterministic progress UI for Azure Virtual Desktop workspace refresh. 
+- Resolved some of the most common crashes reported by debug telemetry.
+- Fixed a bug that caused vertical lines to appear in the remote session rendering.
+- Addressed a scenario where the app would stop responding when running Slack.
+- Addressed issue with full-screen scenarios that happened when users disabled the "Displays have separate Spaces" setting.
+- Fixed an issue that resulted in the caps lock state syncing incorrectly between client and server.
+- Performance and reliability updates to Teams redirection
+- Updates to improve Azure Virtual Desktop connectivity and diagnostics.
 
 ## Updates for Version 10.8.1
 

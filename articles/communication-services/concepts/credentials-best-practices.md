@@ -303,7 +303,7 @@ tokenCredential.dispose()
 Depending on your scenario, you may want to sign a user out from one or more services:
 
 - To sign a user out from a single service, [dispose](#cleaning-up-resources) of the Credential object.
-- To sign a user out from multiple services, implement a signaling mechanism to notify all services to [dispose](#cleaning-up-resources) of the Credential object, and additionally, [revoke all access tokens](../quickstarts/access-tokens.md?tabs=windows&pivots=programming-language-javascript#revoke-access-tokens) for a given identity.
+- To sign a user out from multiple services, implement a signaling mechanism to notify all services to [dispose](#cleaning-up-resources) of the Credential object, and additionally, [revoke all access tokens](../quickstarts/identity/access-tokens.md?tabs=windows&pivots=programming-language-javascript#revoke-access-tokens) for a given identity.
 
 ---
 
@@ -318,5 +318,5 @@ In this article, you learned how to:
 
 To learn more, you may want to explore the following quickstart guides:
 
-* [Create and manage access tokens](../quickstarts/access-tokens.md)
+* [Create and manage access tokens](../quickstarts/identity/access-tokens.md)
 * [Manage access tokens for Teams users](../quickstarts/manage-teams-identity.md)

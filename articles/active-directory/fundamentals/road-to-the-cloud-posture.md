@@ -7,14 +7,14 @@ manager: martinco
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: fundamentals
-ms.date: 06/03/2022
+ms.date: 06/14/2023
 ms.author: jricketts
 ms.custom: references_regions
 ---
 
 # Cloud transformation posture
 
-Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools are at the core of identity and access management (IAM). For example, Active Directory Domain Services (AD DS) and Microsoft Endpoint Configuration Manager provide device management in Active Directory. In Azure AD, Intune provides the same capability.
+Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools are at the core of identity and access management (IAM). For example, Active Directory Domain Services (AD DS) and Microsoft Configuration Manager provide device management in Active Directory. In Azure AD, Intune provides the same capability.
 
 As part of most modernization, migration, or Zero Trust initiatives, organizations shift IAM activities from using on-premises or infrastructure-as-a-service (IaaS) solutions to using built-for-the-cloud solutions. For an IT environment that uses Microsoft products and services, Active Directory and Azure AD play a role.
 
@@ -24,7 +24,7 @@ Many companies that migrate from Active Directory to Azure AD start with an envi
 
 * **Devices**: Focuses on domain-joined client devices.
 
-* **Users**: Represents the human and non-human identities and attributes that access resources from devices.
+* **Users and Groups**: Represents human and workload identities and attributes for resource access and group membership for governance and policy creation.
 
 [![Architectural diagram that depicts the common technologies contained in the pillars of applications, devices, and users.](media/road-to-cloud-posture/road-to-the-cloud-start.png)](media/road-to-cloud-posture/road-to-the-cloud-start.png#lightbox)
 
@@ -75,7 +75,7 @@ In this state:
 
 In the hybrid state, organizations start to enhance their on-premises environment through cloud capabilities. The solutions can be planned to reduce complexity, increase security posture, and reduce the footprint of the on-premises environment. 
 
-During the transition and while operating in this state, organizations grow the skills and expertise for using Azure AD for IAM solutions. Because user accounts and device attachments are relatively easy and a common part of day-to-day IT operations, this is the approach that most organizations have used. 
+During the transition and while operating in this state, organizations grow the skills and expertise for using Azure AD for IAM solutions. Because user accounts and device attachments are relatively easy and a common part of day-to-day IT operations, most organizations have used this approach. 
 
 In this state:
 
@@ -97,7 +97,7 @@ In this state:
 
 * New Windows clients are joined to Azure AD and are managed through Intune.
 * ECMA connectors are used to provision users and groups for on-premises apps.
-* All apps that previously used an AD DS-integrated federated identity provider, such as AD FS, are updated to use Azure AD for authentication. If you were using password-based authentication through that identity provider for Azure AD, it's migrated to password hash synchronization.
+* All apps that previously used an AD DS-integrated federated identity provider, such as AD FS, are updated to use Azure AD for authentication. If you used password-based authentication through that identity provider for Azure AD, it's migrated to password hash synchronization.
 * Plans to shift file and print services to Azure AD are being developed.
 * Azure AD provides a business-to-business (B2B) collaboration capability.
 * New groups are created and managed in Azure AD.
@@ -118,7 +118,7 @@ In this state:
 
 ### State 5: 100% cloud
 
-In the 100%-cloud state, Azure AD and other Azure tools provide all IAM capability. This is the long-term aspiration for many organizations. 
+In the 100%-cloud state, Azure AD and other Azure tools provide all IAM capability. This state is the long-term aspiration for many organizations. 
 
 In this state:
 
@@ -140,7 +140,7 @@ The transformation between the states is similar to moving locations:
 
 1. **Limit new items in the old location**: You stop investing in the old location and set a policy to stage new items in the new location. For more information, see [Implement a cloud-first approach](road-to-the-cloud-implement.md). These activities set the foundation to migrate at scale and reach state 3.
 
-1. **Move existing items to the new location**: You move items from the old location to the new location. You assess the business value of the items to determine if you'll move them as is, upgrade them, replace them, or deprecate them. For more information, see [Transition to the cloud](road-to-the-cloud-migrate.md). 
+1. **Move existing items to the new location**: You move items from the old location to the new location. You assess the business value of the items to determine if you move them as is, upgrade them, replace them, or deprecate them. For more information, see [Transition to the cloud](road-to-the-cloud-migrate.md). 
 
    These activities enable you to complete state 3 and reach states 4 and 5. Based on your business objectives, you decide what end state you want to target.
 

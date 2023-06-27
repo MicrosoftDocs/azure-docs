@@ -87,7 +87,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2022-10-12-preview&features=Tags`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=Tags`
 
 #### [C#](#tab/csharp)
 
@@ -104,7 +104,7 @@ Specify which visual features you'd like to extract in your analysis. See the [V
 
 #### [JavaScript](#tab/javascript)
 
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest&preserve-view=true) enum for a complete list.
+Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/computervisionmodels.visualfeaturetypes) enum for a complete list.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart.js?name=snippet_features_remote)]
 
@@ -136,7 +136,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2022-10-12-preview&features=Tags&language=en`
+`https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=Tags&language=en`
 
 #### [C#](#tab/csharp)
 
@@ -160,7 +160,7 @@ ImageAnalysis analysis = compVisClient.computerVision().analyzeImage().withUrl(p
 
 #### [JavaScript](#tab/javascript)
 
-Use the **language** property of the [ComputerVisionClientAnalyzeImageOptionalParams](/javascript/api/@azure/cognitiveservices-computervision/computervisionclientanalyzeimageoptionalparams) input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
+Use the **language** property of the [ComputerVisionClientAnalyzeImageOptionalParams](/javascript/api/@azure/cognitiveservices-computervision/computervisionmodels.computervisionclientanalyzeimageoptionalparams) input in your Analyze call to specify a language. A method call that specifies a language might look like the following.
 
 ```javascript
 const result = (await computerVisionClient.analyzeImage(imageURL,{visualFeatures: features, language: 'en'}));
@@ -184,7 +184,7 @@ This section shows you how to parse the results of the API call. It includes the
 > [!NOTE]
 > **Scoped API calls**
 >
-> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag` (or to the corresponding method in the SDK). See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
+> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://<endpoint>/vision/v3.2/tag` (or to the corresponding method in the SDK). See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
 
 #### [REST](#tab/rest)
 

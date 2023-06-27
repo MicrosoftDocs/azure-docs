@@ -1,5 +1,5 @@
 ---
-title: Manage and monitor IoT Central in the Azure portal | Microsoft Docs
+title: Manage and monitor IoT Central in the Azure portal
 description: This article describes how to create, manage, and monitor your IoT Central applications and enable managed identities from the Azure portal.
 services: iot-central
 ms.service: iot-central

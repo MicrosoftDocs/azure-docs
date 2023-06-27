@@ -262,7 +262,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](/powershell/azure/install-Az-ps) Azure PowerShell module
+1. [Install](/powershell/azure/install-azure-powershell) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzAccount –UseDeviceAuthentication`

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sentry | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sentry'
 description: Learn how to configure single sign-on between Azure Active Directory and Sentry.
 services: active-directory
 author: jeevansd

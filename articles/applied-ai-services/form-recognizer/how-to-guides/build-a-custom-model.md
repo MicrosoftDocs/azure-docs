@@ -9,7 +9,6 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 01/31/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Build and train a custom model
@@ -44,11 +43,11 @@ Follow these tips to further optimize your data set for training:
 
 ## Upload your training data
 
-Once you've put together the set of forms or documents for training, you'll need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+Once you've put together the set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Video: Train your custom model
 
-* Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we'll create a project and explore some of the fundamentals for successfully labeling and training a model.</br></br>
+* Once you've gathered and uploaded your training dataset, you're ready to train your custom model. In the following video, we create a project and explore some of the fundamentals for successfully labeling and training a model.</br></br>
 
   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
@@ -56,7 +55,7 @@ Once you've put together the set of forms or documents for training, you'll need
 
 The Form Recognizer Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you'll need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom models** tile, on the custom models page and select the **Create a project** button.
 
@@ -79,9 +78,9 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 
 ## Label your data
 
-In your project, your first task is to label your dataset with the fields you wish to extract. 
+In your project, your first task is to label your dataset with the fields you wish to extract.
 
-You'll see the files you uploaded to storage on the left of your screen, with the first file ready to be labeled.
+The files you uploaded to storage are listed on the left of your screen, with the first file ready to be labeled.
 
 1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type. 
 
@@ -89,13 +88,13 @@ You'll see the files you uploaded to storage on the left of your screen, with th
 
 1. Enter a name for the field.
 
-1. To assign a value to the field, choose a word or words in the document and select the field in either the dropdown or the field list on the right navigation bar. You'll see the labeled value below the field name in the list of fields.
+1. To assign a value to the field, choose a word or words in the document and select the field in either the dropdown or the field list on the right navigation bar. The labeled value is below the field name in the list of fields.
 
 1. Repeat the process for all the fields you wish to label for your dataset.
 
 1. Label the remaining documents in your dataset by selecting each document and selecting the text to be labeled.
 
-You now have all the documents in your dataset labeled. If you look at the storage account, you'll find a *.labels.json* and *.ocr.json* files that correspond to each document in your training dataset and a new fields.json file. This training dataset will be submitted to train the model.
+You now have all the documents in your dataset labeled. The *.labels.json* and *.ocr.json* files correspond to each document in your training dataset and a new fields.json file. This training dataset is submitted to train the model.
 
 ## Train your model
 
@@ -174,13 +173,13 @@ Follow these tips to further optimize your data set for training.
 
 ## Upload your training data
 
-When you've put together the set of form documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+When you've put together the set of form documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
-If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](../label-tool.md) (or your own UI) to generate these files.
+If you want to use manually labeled data, upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](../label-tool.md) (or your own UI) to generate these files.
 
 ### Organize your data in subfolders (optional)
 
-By default, the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API will only use documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
+By default, the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API only uses documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
 
 ```json
 {
@@ -188,7 +187,7 @@ By default, the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/
 }
 ```
 
-If you add the following content to the request body, the API will train with documents located in subfolders. The `"prefix"` field is optional and will limit the training data set to files whose paths begin with the given string. So a value of `"Test"`, for example, will cause the API to look at only the files or folders that begin with the word "Test".
+If you add the following content to the request body, the API trains with documents located in subfolders. The `"prefix"` field is optional and limits the training data set to files whose paths begin with the given string. So a value of `"Test"`, for example, causes the API to look at only the files or folders that begin with the word *Test*.
 
 ```json
 {

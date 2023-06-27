@@ -1,12 +1,12 @@
 ---
-title: Configure Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Configure Azure AD Multi-Factor Authentication
 description: Learn how to configure settings for Azure AD Multi-Factor Authentication in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 06/26/2023
 
 ms.author: justinha
 author: justinha
@@ -78,14 +78,14 @@ To unblock a user, complete the following steps:
 
 ## Report suspicious activity
 
-A preview of **Report Suspicious Activity**, the updated MFA **Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection) for more comprehensive coverage and capability. 
+**Report suspicious activity**, the updated **MFA Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
 
-Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](/azure/active-directory/identity-protection/concept-identity-protection-policies).  
+Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](../identity-protection/concept-identity-protection-policies.md).  
 
-To enable **Report Suspicious Activity** from the Authentication Methods Settings:   
+To enable **Report suspicious activity** from the Authentication Methods Settings:   
 
 1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
-1. Set **Report Suspicious Activity** to **Enabled**. 
+1. Set **Report suspicious activity** to **Enabled**. 
 1. Select **All users** or a specific group. 
 
 ### View suspicious activity events 
@@ -100,13 +100,13 @@ When a user reports a MFA prompt as suspicious, the event shows up in the Sign-i
 
 ### Manage suspicious activity events 
 
-Once a user has reported a prompt as suspicious, the risk should be investigated and remediated with [Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock). 
+Once a user has reported a prompt as suspicious, the risk should be investigated and remediated with [Identity Protection](../identity-protection/howto-identity-protection-remediate-unblock.md). 
 
 ### Report suspicious activity and fraud alert 
 
-**Report Suspicious Activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report Suspicious Activity** with a targeted test group. 
+**Report suspicious activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report suspicious activity** with a targeted test group. 
 
-If **Fraud Alert** is enabled with Automatic Blocking, and **Report Suspicious Activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
+If **Fraud Alert** is enabled with Automatic Blocking, and **Report suspicious activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
 
 ## Notifications
 
@@ -159,7 +159,7 @@ Users can have a combination of up to five OATH hardware tokens or authenticator
 
 If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Uses with spam filters should exclude this number.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Users with spam filters should exclude this number.
 
 * *+1 (855) 330-8653*
 
@@ -235,7 +235,7 @@ To use your own custom messages, complete the following steps:
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure AD portal.
+Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure portal.
 
 You can access service settings from the Azure portal by going to **Azure Active Directory** > **Security** > **Multifactor authentication** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**. A window or tab opens with additional service settings options.
 
@@ -256,6 +256,9 @@ If your organization uses the NPS extension to provide MFA to on-premises applic
 | Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multi-factor authentications. Users bypass verifications by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
 
 Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
+
+>[!NOTE]
+>If both per-user MFA and Conditional Access policies are configured in the tenant, you will need to add trusted IPs to the Conditional Access policy and update the MFA service settings.
 
 #### User experience inside the corporate network
 
@@ -366,6 +369,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 >
 > The **remember multi-factor authentication** feature isn't compatible with B2B users and won't be visible for B2B users when they sign in to the invited tenants.
 >
+> The **remember multi-factor authentication** feature isn't compatible with the Sign-in frequency Conditional Access control. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#configuring-authentication-session-controls).
 
 #### Enable remember multi-factor authentication
 

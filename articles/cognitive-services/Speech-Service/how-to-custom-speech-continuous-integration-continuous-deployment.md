@@ -7,7 +7,7 @@ author: nitinme
 manager: cmayomsft
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2022
 ms.author: nitinme
 ---
@@ -69,7 +69,7 @@ Most teams require a manual review and approval process for deployment to a prod
 Use the following tools for CI/CD automation workflows for Custom Speech:
 
 - [Azure CLI](/cli/azure/) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
-- [Azure Speech CLI](spx-overview.md) to interact with the Speech Service from the command line or an automated workflow.
+- [Azure AI Speech CLI](spx-overview.md) to interact with the Speech service from the command line or an automated workflow.
 
 ## DevOps solution for Custom Speech using GitHub Actions
 

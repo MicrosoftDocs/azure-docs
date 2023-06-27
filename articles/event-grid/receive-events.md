@@ -4,7 +4,7 @@ description: Describes how to validate an HTTP endpoint, then receive and deseri
 ms.topic: conceptual
 ms.date: 11/14/2022
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Receive events to an HTTP endpoint
@@ -382,7 +382,7 @@ Finally, test that your function can now handle your custom event type:
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.
 
-[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
+[!INCLUDE [message-headers](./includes/message-headers.md)]
 
 ## Next steps
 

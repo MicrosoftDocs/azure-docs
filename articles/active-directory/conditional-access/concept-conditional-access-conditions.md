@@ -1,5 +1,5 @@
 ---
-title: Conditions in Conditional Access policy - Azure Active Directory
+title: Conditions in Conditional Access policy
 description: What are conditions in an Azure AD Conditional Access policy
 
 services: active-directory
@@ -15,6 +15,7 @@ ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
 ---
+
 # Conditional Access: Conditions
 
 Within a Conditional Access policy, an administrator can make use of signals from conditions like risk, device platform, or location to enhance their policy decisions. 
@@ -112,13 +113,14 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | iOS | Microsoft Edge, Safari (see the notes) |
 | Android | Microsoft Edge, Chrome |
 | macOS | Microsoft Edge, Chrome, Safari |
+| Linux Desktop|Microsoft Edge|
 
 These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled. 
 
 > [!NOTE]
 > Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario.
 >  
-> Safari is supported for device-based Conditional Access, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
+> Safari is supported for device-based Conditional Access on a managed device, but it can not satisfy the **Require approved client app** or **Require app protection policy** conditions. A managed browser like Microsoft Edge will satisfy approved client app and app protection policy requirements.
 > On iOS with 3rd party MDM solution only Microsoft Edge browser supports device policy.
 > 
 > [Firefox 91+](https://support.mozilla.org/kb/windows-sso) is supported for device-based Conditional Access, but "Allow Windows single sign-on for Microsoft, work, and school accounts" needs to be enabled. 
@@ -177,7 +179,7 @@ This setting has an impact on access attempts made from the following mobile app
 - When creating a policy assigned to Exchange ActiveSync clients, **Exchange Online** should be the only cloud application assigned to the policy. 
 - Organizations can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
 
-If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multi-factor authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
+If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multifactor Authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
 
 For more information, see the following articles:
 
@@ -190,13 +192,13 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 
 ## Device state (deprecated)
 
-**This preview feature has been deprecated.** Customers should use the **Filter for devices** condition in the Conditional Access policy, to satisfy scenarios previously achieved using device state (preview) condition.
+**This preview feature has been deprecated.** Customers should use the **Filter for devices** condition in the Conditional Access policy, to satisfy scenarios previously achieved using device state (deprecated) condition.
 
 
 The device state condition was used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
-   - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+- This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
 
 The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app with **Filter for devices** condition in **exclude** mode using the following rule **device.trustType -eq "ServerAD" -or device.isCompliant -eq True** and for *Access controls*, **Block**.
 - This example would create a policy that blocks access to Microsoft Azure Management cloud app from unmanaged or non-compliant devices.
@@ -206,10 +208,12 @@ The above scenario, can be configured using *All users* accessing the *Microsoft
 
 ## Filter for devices
 
-There’s a new optional condition in Conditional Access called filter for devices. When configuring filter for devices as a condition, organizations can choose to include or exclude devices based on a filter using a rule expression on device properties. The rule expression for filter for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information, see the article [Conditional Access: Filter for devices (preview)](concept-condition-filters-for-devices.md).
+There’s a new optional condition in Conditional Access called filter for devices. When configuring filter for devices as a condition, organizations can choose to include or exclude devices based on a filter using a rule expression on device properties. The rule expression for filter for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information, see the article [Conditional Access: Filter for devices](concept-condition-filters-for-devices.md).
 
 ## Next steps
 
 - [Conditional Access: Grant](concept-conditional-access-grant.md)
 
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
+

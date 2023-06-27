@@ -1,6 +1,6 @@
 ---
-title: 'Dlsv5 and Dldsv5 (preview)' #Required; page title is displayed in search results. 60 characters max.
-description: Specifications for the Dlsv5 and Dldsv5-series VMs. #Required; this appears in search as the short description
+title: Dlsv5 and Dldsv5
+description: Specifications for the Dlsv5 and Dldsv5-series VMs.
 author: iamwilliew 
 ms.author: wwilliams 
 ms.service: virtual-machines 
@@ -10,13 +10,9 @@ ms.date: 02/16/2023
 
 ---
 
-# Dlsv5 and Dldsv5-series (preview)
+# Dlsv5 and Dldsv5-series 
 
 The Dlsv5 and Dldsv5-series Virtual Machines runs on the Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration. This new processor features an all core turbo clock speed of 3.5 GHz with [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Dlsv5 and Dldsv5 VM series provides 2GiBs of RAM per vCPU and optimized for workloads that require less RAM per vCPU than standard VM sizes. Target workloads include web servers, gaming, video encoding, AI/ML, and batch processing.
-
-
-> [!NOTE]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Dlsv5-series
 Dlsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz. These virtual machines offer up to 96 vCPU and 192 GiB of RAM. These VM sizes can reduce cost when running non-memory intensive applications.
@@ -39,7 +35,7 @@ Dlsv5-series virtual machines do not have any temporary storage thus lowering th
 | Standard_D2ls_v5 | 2  | 4   | Remote Storage Only | 4  | 3750/85 | 10000/1200 | 2  | 12500 |
 | Standard_D4ls_v5               | 4  | 8  | Remote Storage Only  | 8  | 6400/145   | 20000/1200 | 2 | 12500 |
 | Standard_D8ls_v5               | 8  | 16  | Remote Storage Only  | 16 | 12800/290   | 20000/1200 | 4 | 12500 |
-| Standard_D16s_v5              | 16 | 32  | Remote Storage Only  | 32 | 25600/600 | 40000/1200 | 8 | 12500 |
+| Standard_D16ls_v5              | 16 | 32  | Remote Storage Only  | 32 | 25600/600 | 40000/1200 | 8 | 12500 |
 | Standard_D32ls_v5              | 32 | 64 | Remote Storage Only | 32 | 51200/865 | 80000/2000 | 8 | 16000 |
 | Standard_D48ls_v5              | 48 | 96 | Remote Storage Only | 32 | 76800/1315 | 80000/3000 | 8 | 24000 |
 | Standard_D64ls_v5              | 64 | 128 | Remote Storage Only | 32 | 80000/1735 | 80000/3000 | 8 | 30000 |

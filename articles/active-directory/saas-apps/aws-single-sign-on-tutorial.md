@@ -50,8 +50,6 @@ To configure the integration of AWS IAM Identity Center into Azure AD, you need 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide&preserve-view=true).
-
 ## Configure and test Azure AD SSO for AWS IAM Identity Center
 
 Configure and test Azure AD SSO with AWS IAM Identity Center using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in AWS IAM Identity Center.
@@ -148,15 +146,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure AWS IAM Identity Center SSO
 
-1. To automate the configuration within AWS IAM Identity Center, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up AWS IAM Identity Center** will direct you to the AWS IAM Identity Center application. From there, provide the admin credentials to sign into AWS IAM Identity Center. The browser extension will automatically configure the application for you and automate steps 3-10.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup AWS IAM Identity Center manually, in a different web browser window, sign in to your AWS IAM Identity Center company site as an administrator.
+1. In a different web browser window, sign in to your AWS IAM Identity Center company site as an administrator
 
 1. Go to the **Services -> Security, Identity, & Compliance -> AWS IAM Identity Center**.
 2. In the left navigation pane, choose **Settings**.

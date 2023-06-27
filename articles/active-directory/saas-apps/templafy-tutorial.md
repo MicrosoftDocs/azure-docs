@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Templafy SAML2 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Templafy SAML2'
 description: Learn how to configure single sign-on between Azure Active Directory and Templafy SAML2.
 services: active-directory
 author: jeevansd

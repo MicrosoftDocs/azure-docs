@@ -30,25 +30,25 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Specifies  action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> -   `override` - replaces the value of the existing header.<br />-   `skip` - does not replace the existing header value.<br />-   `append` - appends the value to the existing header value.<br />-   `delete` - removes the header from the request.<br /><br /> When set to `override`, enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result.|No|`override`|
-|name|Specifies name of the header to be set.|Yes|N/A|
+|exists-action|Specifies  action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> -   `override` - replaces the value of the existing header.<br />-   `skip` - does not replace the existing header value.<br />-   `append` - appends the value to the existing header value.<br />-   `delete` - removes the header from the request.<br /><br /> When set to `override`, enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result. <br/><br/>Policy expressions are allowed.|No|`override`|
+|name|Specifies name of the header to be set. Policy expressions are allowed.|Yes|N/A|
 
 
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|value|Specifies the value of the header to be set. For multiple headers with the same name, add additional `value` elements.|No|
+|value|Specifies the value of the header to be set. Policy expressions are allowed. For multiple headers with the same name, add additional `value` elements.|No|
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
 
- Multiple values of a header are concatenated to a CSV string, for example: 
+Multiple values of a header are concatenated to a CSV string, for example: 
 
 `headerName: value1,value2,value3`
 
@@ -64,6 +64,10 @@ User-Agent: value1
 User-Agent: value2
 User-Agent: value3
 ```
+
+The following limitations apply:
+
+- Removal of `Server` header is not supported.
 
 ## Examples
 

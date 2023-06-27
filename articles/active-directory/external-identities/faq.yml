@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: B2B collaboration FAQs - Azure Active Directory | Microsoft Docs
+  title: B2B collaboration FAQs
   description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
   
   services: active-directory
@@ -207,6 +207,10 @@ sections:
           ![Screenshot shows the flow for guest redemption.](media/user-invitation-different-email-upn/guest-redemption.png)
 
           ![Screenshot shows the flow for subsequent sign-ins.](media/user-invitation-different-email-upn/subsequent-sign-in.png)
+          
+          >[!NOTE]
+          >Invitations and redemptions being sent across Microsoft clouds must use UPN. Email is not supported at this time. For example, if a user from a US Government tenant is invited to a Commercial tenant, the user must be invited using their UPN.
+
 
       - question: |
           Instant-on: What can cause replication latency?

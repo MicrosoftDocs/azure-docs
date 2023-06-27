@@ -6,6 +6,10 @@ items:
   items:
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
+  - name: Identity fundamentals
+    href: identity-fundamental-concepts.md
+  - name: Introduction to identity and access management (IAM)
+    href: introduction-identity-access-management.md
 - name: First steps
   expanded: true
   items:
@@ -17,27 +21,29 @@ items:
     href: active-directory-how-subscriptions-associated-directory.md
   - name: Add your privacy info
     href: active-directory-properties-area.md
-  - name: Add company branding
+  - name: Add company branding (preview)
     href: how-to-customize-branding.md
 - name: Users, groups, and licenses
   expanded: false
   items:
-  - name: Create or delete a user
-    href: add-users-azure-active-directory.md
+  - name: Create or delete users (preview)
+    href: how-to-create-delete-users.md
   - name: Apply licenses to users
     href: license-users-groups.md
   - name: Manage users
     expanded: false
     items: 
-    - name: Update user info
-      href: active-directory-users-profile-azure-portal.md
     - name: Assign roles to users
       href: active-directory-users-assign-role-azure-portal.md
+    - name: Manage 'Stay signed in?' prompt
+      href: how-to-manage-stay-signed-in-prompt.md
+    - name: Manage user profile info
+      href: how-to-manage-user-profile-info.md
     - name: Reset a user's password
       href: active-directory-users-reset-password-azure-portal.md
     - name: Restore a deleted user
       href: active-directory-users-restore.md
-    - name: Default user permissions
+    - name: Set default user permissions
       href: users-default-permissions.md
   - name: Manage groups
     expanded: false
@@ -62,12 +68,10 @@ items:
     href: concept-fundamentals-mfa-get-started.md
   - name: Identity secure score
     href: identity-secure-score.md
-  - name: Secure remote workers
+  - name: Improve your security posture
     href: concept-secure-remote-workers.md
   - name: Integrating all your apps with Azure AD
-    href: five-steps-to-full-application-integration-with-azure-ad.md
-  - name: Deployment 30, 90, and beyond
-    href: active-directory-deployment-checklist-p2.md
+    href: five-steps-to-full-application-integration.md
   - name: Security defaults
     href: concept-fundamentals-security-defaults.md
   - name: Block less secure authentications
@@ -88,18 +92,22 @@ items:
     - name: What's new in Azure Active Directory
       href: whats-new.md
     - name: What's deprecated in Azure Active Directory?
-      href: whats-deprecated-azure-ad.md
+      href: what-is-deprecated.md
     - name: What's new in sovereign clouds?
       href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
       href: whats-new-archive.md
+    - name: Archive for What's new in sovereign clouds? in Azure AD
+      href: whats-new-sovereign-clouds-archive.md  
   - name: Frequently asked questions
     href: active-directory-faq.yml
+  - name: Company branding CSS template reference guide
+    href: reference-company-branding-css-template.md
   - name: Compliance
     expanded: false
     items:
     - name: Azure AD and data residency
-      href: azure-ad-data-residency.md
+      href: data-residency.md
     - name: Data operational considerations
       href: data-operational-considerations.md
     - name: Data protection considerations
@@ -113,7 +121,7 @@ items:
     - name: Identity data storage for Japan
       href: active-directory-data-storage-japan.md
   - name: Compare Azure AD with AD DS
-    href: active-directory-compare-azure-ad-to-ad.md
+    href: compare.md
   - name: Custom security attributes
     expanded: false
     items:
@@ -132,6 +140,8 @@ items:
     items:
     - name: Add company branding (legacy)
       href: customize-branding.md
+    - name: Create or delete a user (legacy)
+      href: add-users-azure-active-directory.md
 - name: Identity architecture and deployment
   expanded: false
   items:
@@ -152,7 +162,7 @@ items:
       - name: Transition to the cloud
         href: road-to-the-cloud-migrate.md
     - name: Parallel identity options
-      href: azure-active-directory-parallel-identity-options.md
+      href: parallel-identity-options.md
     - name: Automate identity provisioning to applications
       items:
       - name: Automate identity provisioning to applications introduction
@@ -169,10 +179,26 @@ items:
         href: multi-tenant-common-considerations.md
       - name: Common solutions
         href: multi-tenant-common-solutions.md
+    - name: University multilateral federation solutions
+      items:
+      - name: Introduction
+        href: multilateral-federation-introduction.md
+      - name: Baseline
+        href: multilateral-federation-baseline.md     
+      - name: Solution 1 - Azure AD with Cirrus Bridge
+        href: multilateral-federation-solution-one.md
+      - name: Solution 2 - Azure AD to Shibboleth as SP Proxy
+        href: multilateral-federation-solution-two.md
+      - name: Solution 3 - Azure AD with ADFS and Shibboleth
+        href: multilateral-federation-solution-three.md    
+      - name: Decision tree
+        href: multilateral-federation-decision-tree.md    
     - name: Authentication protocols
       items:
       - name: Overview
         href: auth-sync-overview.md
+      - name: Passwordless authentication
+        href: auth-passwordless.md
       - name: SAML authentication
         href: auth-saml.md
       - name: Open ID Connect authentication
@@ -225,6 +251,10 @@ items:
           href: resilience-with-device-states.md
         - name: Continuous access evaluation
           href: resilience-with-continuous-access-evaluation.md
+        - name: The backup authentication system
+          href: backup-authentication-system.md
+        - name: Building application support for the backup authentication system
+          href: backup-authentication-system-apps.md
         - name: External user authentication
           href: resilience-b2b-authentication.md
         - name: Hybrid authentication
@@ -255,40 +285,38 @@ items:
           href: ../develop/howto-build-services-resilient-to-metadata-refresh.md?toc=/azure/active-directory/fundamentals/toc.json
       - name: Monitor application health for resilience
         href: monitor-sign-in-health-for-resilience.md
-    - name: Certificate authorities used in Azure
-      href: certificate-authorities.md
     - name: Secure with Azure Active Directory
       items:
       - name: Introduction
-        href: secure-with-azure-ad-introduction.md
+        href: secure-introduction.md
       - name: Fundamentals
-        href: secure-with-azure-ad-fundamentals.md
+        href: secure-fundamentals.md
       - name: Resource management
-        href: secure-with-azure-ad-resource-management.md
+        href: secure-resource-management.md
       - name: Delegating administration in a single tenant
-        href: secure-with-azure-ad-single-tenant.md
+        href: secure-single-tenant.md
       - name: Delegating administration in multiple tenants
-        href: secure-with-azure-ad-multiple-tenants.md
+        href: secure-multiple-tenants.md
       - name: Best practices
-        href: secure-with-azure-ad-best-practices.md
+        href: secure-best-practices.md
   - name: Deployment guide
     items:
     - name: Azure Active Directory deployment plans
-      href: active-directory-deployment-plans.md
+      href: deployment-plans.md
     - name: Azure Active Directory B2C deployment plans
-      href: azure-active-directory-b2c-deployment-plans.md
+      href: b2c-deployment-plans.md
   - name: Azure AD Operations reference
     items:
     - name: Introduction
-      href: active-directory-ops-guide-intro.md
+      href: ops-guide-intro.md
     - name: Identity and access management
-      href: active-directory-ops-guide-iam.md
+      href: ops-guide-iam.md
     - name: Authentication management
-      href: active-directory-ops-guide-auth.md
+      href: ops-guide-auth.md
     - name: Identity governance
-      href: active-directory-ops-guide-govern.md
+      href: ops-guide-govern.md
     - name: Operations
-      href: active-directory-ops-guide-ops.md
+      href: ops-guide-ops.md
   - name: Security
     items: 
     - name: Security baseline
@@ -337,16 +365,18 @@ items:
         href: 9-secure-access-teams-sharepoint.md
       - name: 10 Convert local guest accounts to B2B
         href: 10-secure-local-guest.md
+      - name: 11 Onboard external user
+        href: 11-onboard-external-user.md
     - name: Secure service accounts
       items:
       - name: Introduction to Azure service accounts
-        href: service-accounts-introduction-azure.md
+        href: secure-service-accounts.md
       - name: Secure managed identities
         href: service-accounts-managed-identities.md
       - name: Secure service principals
         href: service-accounts-principal.md
       - name: Govern Azure service accounts
-        href: service-accounts-governing-azure.md
+        href: govern-service-accounts.md
       - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Secure group MSAs

@@ -177,7 +177,23 @@ The streamed logs look like this:
 > [!div class="nextstepaction"]
 > [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
 
-Or, check out other resources:
+> [!div class="nextstepaction"]
+> [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+
+> [!div class="nextstepaction"]
+> [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
+
+> [!div class="nextstepaction"]
+> [Azure Monitor overview](/azure/azure-monitor/overview)
+
+> [!div class="nextstepaction"]
+> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+
+> [!div class="nextstepaction"]
+> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
 
 > [!div class="nextstepaction"]
 > [Configure custom container](../../configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Multi-container app tutorial](../../tutorial-multi-container-app.md)

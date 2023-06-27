@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure AD certificate-based authentication - Azure Active Directory
+title: How to configure Azure AD certificate-based authentication
 description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
 ms.service: active-directory
@@ -72,7 +72,10 @@ To enable the certificate-based authentication and configure user bindings in th
 1. To delete a CA certificate, select the certificate and click **Delete**.
 1. Click **Columns** to add or delete columns.
 
-### Configure certification authorities using PowerShell
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
+
+### Configure certification authorities(CA) using PowerShell
 
 Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs aren't supported.
 
@@ -86,6 +89,9 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 
 [!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)]
 ### Add
+
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
 
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 
@@ -130,7 +136,7 @@ For more information, see [Understanding the certificate revocation process](./c
 ## Step 2: Enable CBA on the tenant
 
 >[!IMPORTANT]
->A user is considered capable for MFA when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
+>A user is considered capable for **MFA** when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. If the users do not have access to certificates they will be locked out and not be able to register other methods for MFA. So the admin needs to enable users who have a valid certificate into the CBA scope. Do not use all users for CBA target and use groups of users who have valid certificates available. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
 
 To enable the certificate-based authentication in the Azure portal, complete the following steps:
 
@@ -192,6 +198,9 @@ To enable Azure AD CBA and configure user bindings in the Azure portal, complete
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 
 1. Click **Ok** to save any custom rule.
+
+>[!IMPORTANT]
+>PolicyOID should be in object identifier format as per https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.4. For ex: If the certificate policies says "All Issuance Policies" you should enter the OID as 2.5.29.32.0 in the add rules editor. Entering the string "All Issuance Policies" in rules editor is invalid and will not take effect.
 
 ## Step 4: Configure username binding policy
 

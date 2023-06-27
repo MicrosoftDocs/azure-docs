@@ -3,7 +3,7 @@ title: Configure Azure Automation Start/Stop VMs during off-hours
 description: This article tells how to configure the Start/Stop VMs during off-hours feature to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/23/2023
+ms.date: 03/16/2023
 ms.topic: conceptual
 ms.custom: engagement-fy23
 ---
@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 # Configure Start/Stop VMs during off-hours
 
 > [!NOTE]
-> Start/Stop VM during off-hours, version 1 is going to retire soon by CY23 and is unavailable in the marketplace now. We recommend that you start using [version 2](../azure-functions/start-stop-vms/overview.md) which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until retirement in CY23. The details on announcement will be shared soon.
+> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
 
 This article describes how to configure the [Start/Stop VMs during off-hours](automation-solution-vm-management.md) feature to support the described scenarios. You can also learn how to:
 
@@ -158,7 +158,7 @@ The feature allows you to add VMs to be targeted or excluded.
 
 There are two ways to ensure that a VM is included when the feature runs:
 
-* Each of the parent runbooksof the feature has a `VMList` parameter. You can pass a comma-separated list of VM names (without spaces) to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
+* Each of the parent runbooks of the feature has a `VMList` parameter. You can pass a comma-separated list of VM names (without spaces) to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
 
 * To select multiple VMs, set `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` with the resource group names that contain the VMs you want to start or stop. You can also set the variables to a value of `*` to have the feature run against all resource groups in the subscription.
 

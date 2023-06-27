@@ -8,15 +8,15 @@ ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: payment-hsm
 tags: azure-resource-manager
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.custom: mvc, mode-other, devx-track-arm-template, devx-track-azurepowershell
 #Customer intent: As a security admin who is new to Azure, I want to create a payment HSM using an Azure Resource Manager template.
 ---
 
 # Quickstart: Create an Azure payment HSM using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure payment HSM.  Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K payment hardware security modules (HSM)](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system's digital transformation strategy and adopt the public cloud. For more information, see [Azure Payment HSM: Overview](./overview.md).
+[!INCLUDE [Payment HSM intro](./includes/about-payment-hsm.md)]
 
-This article describes how to create a payment HSM with the host and management port in same virtual network.  You can instead:
+This quickstart describes how to create a payment HSM with the host and management port in same virtual network.  You can instead:
 - [Create a payment HSM with host and management port in different virtual network using an ARM template](create-different-vnet.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
@@ -27,6 +27,9 @@ This article describes how to create a payment HSM with the host and management 
 [!INCLUDE [Create a resource group with the Azure CLI](../../includes/payment-hsm/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
+
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
 
   To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
 

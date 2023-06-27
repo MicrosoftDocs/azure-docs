@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-    - name: About Azure Functions
+    - name: Functions overview
       href: functions-overview.md
+    - name: Scenarios
+      href: functions-scenarios.md
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions
@@ -99,12 +101,15 @@
             href: functions-create-first-function-resource-manager.md
         - name: Azure Arc (preview)
           items:
-          - name: Publish code project
-            displayName: Arc, container, Kubernetes
-            href: create-first-function-arc-cli.md
-          - name: Publish Linux container
-            displayName: Arc, container, Kubernetes
-            href: create-first-function-arc-custom-container.md
+            - name: Code-only publishing
+              displayName: Arc, container, Kubernetes
+              href: create-first-function-arc-cli.md
+            - name: Custom container
+              displayName: Arc, container, Kubernetes, Docker
+              href: create-first-function-arc-custom-container.md  
+        - name: Azure Container Apps (preview)
+          href: functions-deploy-container-apps.md
+          displayName: container, Docker, ACA 
     - name: Connect to storage
       items:
         - name: C#
@@ -161,14 +166,29 @@
     - name: Connect to a database
       items:
         - name: C#
-          displayName: Connect to a database, Azure Cosmos DB
-          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp
         - name: JavaScript
-          displayName: Connect to a database, Azure Cosmos DB
-          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-javascript
         - name: Python
-          displayName: Connect to a database, Azure Cosmos DB
-          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
+          items:
+          - name: Azure Cosmos DB
+            displayName: Connect to a database, Azure Cosmos DB
+            href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
+          - name: Azure SQL
+            displayName: Connect to a database, Azure SQL
+            href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -206,9 +226,6 @@
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
       href: machine-learning-pytorch.md
-    - name: Create a custom Linux image
-      href: functions-create-function-linux-custom-image.md
-      displayName: container, docker
     - name: Functions on IoT Edge device
       href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs
@@ -291,14 +308,18 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-    - name: Deployments
-      href: functions-deployment-technologies.md
+        - name: Azure Container Apps hosting (preview)
+          href: functions-container-apps-hosting.md   
+    - name: Deployment options
+      href: functions-deployment-technologies.md 
     - name: Events and messaging
       items:
         - name: Connect to services 
           href: event-messaging-bindings.md
         - name: Event-driven scaling
           href: event-driven-scaling.md
+        - name: Target-based scaling
+          href: functions-target-based-scaling.md
         - name: Reliable event processing
           href: functions-reliable-event-processing.md
         - name: Concurrency
@@ -375,16 +396,20 @@
           href: dotnet-isolated-in-process-differences.md
     - name: F#
       href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+    - name: Node.js
+      items:
+        - name: JavaScript
+          href: functions-reference-node.md?tabs=javascript
+        - name: TypeScript
+          href: functions-reference-node.md?tabs=typescript
+        - name: Upgrade to model v4.x
+          href: functions-node-upgrade-v4.md
     - name: Java
       href: functions-reference-java.md
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
       href: functions-reference-python.md
-    - name: TypeScript
-      href: functions-reference-node.md#typescript
 - name: How-to guides
   items:
     - name: Develop
@@ -421,6 +446,9 @@
                   href: create-first-function-cli-python.md
                 - name: Premium plan
                   href: create-premium-plan-function-app-portal.md
+                - name: Linux container (Premiumn)
+                  href: functions-deploy-container.md
+                  displayName: container, Docker, custom
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
@@ -475,6 +503,8 @@
           href: functions-continuous-deployment.md
         - name: Deployment slots
           href: functions-deployment-slots.md
+        - name: Work with containers 
+          href: functions-how-to-custom-container.md 
         - name: Build and deploy using Azure Pipelines
           href: functions-how-to-azure-devops.md
         - name: Build and deploy using GitHub Actions
@@ -700,6 +730,17 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure Data Explorer
+          items:
+            - name: Overview
+              href: functions-bindings-azure-data-explorer.md
+              displayName: Azure Data Explorer
+            - name: Input
+              href: functions-bindings-azure-data-explorer-input.md
+              displayName: Azure Data Explorer
+            - name: Output
+              href: functions-bindings-azure-data-explorer-output.md
+              displayName: Azure Data Explorer
         - name: Azure SQL
           items:
             - name: Overview
@@ -860,6 +901,8 @@
             href: errors-diagnostics/diagnostic-events/azfd0003.md
           - name: AZFD0004
             href: errors-diagnostics/diagnostic-events/azfd0004.md
+          - name: AZFD0005
+            href: errors-diagnostics/diagnostic-events/azfd0005.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

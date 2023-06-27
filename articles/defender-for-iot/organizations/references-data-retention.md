@@ -7,7 +7,9 @@ ms.date: 01/22/2023
 
 # Data retention across Microsoft Defender for IoT
 
-Microsoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
+Microsoft Defender for IoT sensors learn a baseline of your network traffic during the initial learning period after deployment. This learned baseline is stored indefinitely on your sensors. 
+
+Defender for IoT also stores other data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
 
@@ -18,8 +20,8 @@ The following table lists how long device data is stored in each Defender for Io
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
-| **OT network sensor** | The retention of device inventory data isn't limited by time. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
-| **On-premises management console** | The retention of device inventory data isn't limited by time. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
+| **OT network sensor** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
+| **On-premises management console** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
 
 ## Alert data retention
 
@@ -38,7 +40,7 @@ The following table lists how long PCAP data is stored in each Defender for IoT 
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data](how-to-manage-cloud-alerts.md#access-alert-pcap-data). |
-| **OT network sensor** | Dependent on the sensor's storage capacity allocated for PCAP files, which is determined by its [hardware profile](ot-appliance-sizing.md): <br><br>- **C5600**:   130 GB  <br>- **E1800**:   130 GB  <br>-  **E1000** :   78 GB<br>- **E500**:    78 GB <br>- **L500**: 7 GB   <br>- **L100**:    2.5 GB<br>- **L60**:   2.5 GB    <br><br> If a sensor exceeds its maximum storage capacity, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Access alert PCAP data](how-to-view-alerts.md#access-alert-pcap-data) and [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md). |
+| **OT network sensor** | Dependent on the sensor's storage capacity allocated for PCAP files, which is determined by its [hardware profile](ot-appliance-sizing.md): <br><br>- **C5600**:   130 GB  <br>- **E1800**:   130 GB  <br>-  **E1000** :   78 GB<br>- **E500**:    78 GB <br>- **L500**: 7 GB   <br>- **L100**:    2.5 GB<br>- **L60** [*](ot-appliance-sizing.md#l60):    2.5 GB    <br><br> If a sensor exceeds its maximum storage capacity, the oldest PCAP file is deleted to accommodate the new one. <br><br> For more information, see [Access alert PCAP data](how-to-view-alerts.md#access-alert-pcap-data) and [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md). |
 | **On-premises management console** | PCAP files aren't stored on the on-premises management console and are only accessed from the on-premises management console via a direct link to the OT sensor. |
 
 The usage of available PCAP storage space depends on factors such as the number of alerts, the type of the alert, and the network bandwidth, all of which affect the size of the PCAP file.
@@ -70,7 +72,7 @@ The following table lists the maximum number of events that can be stored for ea
 | **E500** | 6M events |
 | **L500** | 3M events |
 | **L100** | 500-K events |
-| **L60** | 500-K events |
+| **L60** [*](ot-appliance-sizing.md#l60) | 500-K events |
 
 For more information, see [Track sensor activity](how-to-track-sensor-activity.md) and [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
 
@@ -82,8 +84,8 @@ Other OT monitoring log files are stored only on the OT network sensor and the o
 
 For more information, see:
 
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
-- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
+- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
 
 ## On-premises backup file capacity
 
@@ -93,10 +95,9 @@ On both the OT sensor and the on-premises management console, older backup files
 
 For more information, see:
 
-- [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)
-- [Configure backup settings for an OT network sensor](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)
-- [Configure OT sensor backup settings from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#backup-storage-for-sensors)
-- [Configure backup settings for an on-premises management console](how-to-manage-the-on-premises-management-console.md#define-backup-and-restore-settings)
+- [Set up backup and restore files on an OT sensor](back-up-restore-sensor.md#set-up-backup-and-restore-files)
+- [Configure OT sensor backup settings on an on premises management console](back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
+- [Configure OT sensor backup settings for an on-premises management console](back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
 
 ### Backups on the OT network sensor
 
@@ -104,7 +105,7 @@ The retention of backup files depends on the sensor's architecture, as each hard
 
 | Hardware profile  | Allocated hard disk space  |
 |---------|---------|
-| **L60**     |  Backups are not supported       |
+| **L60** [*](ot-appliance-sizing.md#l60)    |  Backups are not supported       |
 | **L100**     |  Backups are not supported       |
 | **L500**     |  20 GB   |
 | **E1000** |   60 GB  |
@@ -129,3 +130,4 @@ For more information, see:
 - [Manage individual OT network sensors](how-to-manage-individual-sensors.md)
 - [Manage OT network sensors from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Manage an on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Azure data encryption](/azure/security/fundamentals/encryption-overview)

@@ -8,10 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 06/12/2023
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-other
+ms.custom: cog-serv-seo-aug-2020, mode-other, devx-track-python
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
@@ -51,7 +51,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 |Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|<ul><li>***Required***</li></ul> |
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services or regional (non-global) resource.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services or regional (geographic) resource like **West US**.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|<ul><li>***Required***</li></ul>|
 |**Content-Length**|The **length of the request** body.|<ul><li>***Optional***</li></ul> |
 |**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
@@ -109,7 +109,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`. Copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
 
 1. Once you've added a desired code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
@@ -2295,7 +2295,7 @@ After a successful call, you should see the following response. Unlike the call 
 
 ## Dictionary lookup (alternate translations)
 
-With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "sunshine" from `en` to `es`, this endpoint returns "`luz solar`", "`rayos solares`", and "`soleamiento`", "`sol`", and "`insolación`".
+With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "sunshine" from `en` to `es`, this endpoint returns "`luz solar`," "`rayos solares`," and "`soleamiento`," "`sol`," and "`insolación`."
 
 ### [C#](#tab/csharp)
 

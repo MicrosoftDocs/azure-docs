@@ -12,7 +12,7 @@ ms.date: 06/03/2022
 
 # Project best practices
 
-The following list of QnA pairs will be used to represent a project (knowledge base) to highlight best practices when authoring in custom question answering. 
+The following list of QnA pairs will be used to represent a project to highlight best practices when authoring in custom question answering. 
 
 |Question                             |Answer                                                 | 
 |-------------------------------------|-------------------------------------------------------|
@@ -28,7 +28,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
 ## When should you add alternate questions to a QnA?
 
-- Question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to questions in the knowledge base. For example, consider the following question answer pair:
+- Question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to questions in the project. For example, consider the following question answer pair:
 
    **Question: “What is the price of Microsoft Stock?”**
 
@@ -48,7 +48,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
    However, please note that the confidence score with which the system returns the correct response will vary based on the input query and how different it is from the original question answer pair.
 
-- There are certain scenarios which require the customer to add an alternate question. When a query does not return the correct answer despite it being present in the knowledge base, we advise adding that query as an alternate question to the intended QnA pair.
+- There are certain scenarios which require the customer to add an alternate question. When a query does not return the correct answer despite it being present in the project, we advise adding that query as an alternate question to the intended QnA pair.
 
 ## How many alternate questions per QnA is optimal?
 
@@ -56,11 +56,11 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
 - Semantic understanding in question answering should be able to take care of similar alternate questions.
 
-- The return on investment will start diminishing once you exceed 10 questions. Even if you’re adding more than 10 alternate questions, try to make the initial 10 questions as semantically dissimilar as possible so that all intents for the answer are captured by these 10 questions. For the knowledge base above, in QNA #1, adding alternate questions such as "How can I buy a car?", "I wanna buy a car." are not required. Whereas adding alternate questions such as "How to purchase a car.", "What are the options for buying a vehicle?" can be useful.
+- The return on investment will start diminishing once you exceed 10 questions. Even if you’re adding more than 10 alternate questions, try to make the initial 10 questions as semantically dissimilar as possible so that all intents for the answer are captured by these 10 questions. For the project above, in QNA #1, adding alternate questions such as "How can I buy a car?", "I wanna buy a car." are not required. Whereas adding alternate questions such as "How to purchase a car.", "What are the options for buying a vehicle?" can be useful.
 
-## When to add synonyms to a knowledge base
+## When to add synonyms to a project
 
-- Question answering provides the flexibility to use synonyms at the knowledge base level, unlike QnA Maker where synonyms are shared across knowledge bases for the entire service.
+- Question answering provides the flexibility to use synonyms at the project level, unlike QnA Maker where synonyms are shared across projects for the entire service.
 
 - For better relevance, the customer needs to provide a list of acronyms that the end user intends to use interchangeably. For instance, the following is a list of acceptable acronyms:
 
@@ -70,7 +70,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
    ETA – Estimated time of Arrival
 
-- Apart from acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as "my car’s audio isn’t working" and the knowledge base has questions on "fixing audio for car X", then we need to add "X" and "car" as synonyms.
+- Apart from acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as "my car’s audio isn’t working" and the project has questions on "fixing audio for car X", then we need to add "X" and "car" as synonyms.
 
 - The Transformer based model already takes care of most of the common synonym cases, for e.g.- Purchase – Buy, Sell - Auction, Price – Value. For example, consider the following QnA pair: Q: "What is the price of Microsoft Stock?" A: "$200".
 
@@ -94,5 +94,3 @@ Punctuation is ignored in user query before sending it to the ranking stack. Ide
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get started with Question Answering](../quickstart/sdk.md)

@@ -1,12 +1,12 @@
 ---
 title: Azure Operator Nexus resource types
 description: Operator Nexus platform and tenant resource types
-author: jashobhit #Required; your GitHub user alias, with correct capitalization.
-ms.author: shobhitjain #Required; microsoft alias of author; optional team alias.
-ms.service: azure
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+author: jashobhit
+ms.author: shobhitjain
+ms.service: azure-operator-nexus
+ms.topic: conceptual
+ms.date: 03/06/2023
+ms.custom: template-concept
 ---
 
 # Azure Operator Nexus resource types
@@ -20,39 +20,38 @@ Figure: Resource model
 
 ## Platform components
 
-Your Operator Nexus Cluster (or simply instance) platform components include the infrastructure resources and the platform software resources used to manage these infrastructure resources.
+The Operator Nexus Cluster (or Instance) platform components include the infrastructure and the platform components used to manage these infrastructure resources.
 
-### Network fabric controller
+### Network Fabric Controller
 
-The Network fabric Controller (NFC) is a resource that automates the life cycle management of all network devices (including storage appliance) deployed in an Operator Nexus instance.
-The NFC resource is created in the Resource group specified by you in your Azure subscription.
-NFC is hosted in a [Microsoft Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) in an Azure region.
-The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
-An NFC can manage the network fabric of many (subject to limits) Operator Nexus on-premises instances.
+The Network Fabric Controller (NFC) is a resource that automates the life cycle management of all network devices deployed in an Operator Nexus instance.
+NFC is hosted in a [Microsoft Azure Virtual Network](../virtual-network/virtual-networks-overview.md) in an Azure region.
+The region should be connected to your on-premises network via [Microsoft Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+An NFC can manage the Network Fabric of many (subject to limits) Operator Nexus instances.
 
-### Network fabric
+### Network Fabric
 
-The Network fabric resource models a collection of network devices, compute servers, and storage appliances, and their interconnections. The network fabric resource also includes the networking required for your Network Functions and workloads. Each Operator Nexus instance has one Network fabric.
+The Network Fabric resource models a collection of network devices, compute servers, and storage appliances, and their interconnections. The Network Fabric resource also includes the networking required for your network functions and workloads. Each Operator Nexus instance has one Network Fabric.
 
-The Network fabric Controller (NFC) performs the lifecycle management of the network fabric.
-It configures and bootstraps the network fabric resources. 
+The Network Fabric Controller (NFC) performs the lifecycle management of the Network Fabric.
+It configures and bootstraps the Network Fabric resources.
 
 ### Cluster manager
 
-A Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
+The Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
 Like NFC, a CM can manage multiple Operator Nexus instances.
 The CM and the NFC are hosted in the same Azure subscription.
 
-### Operator nexus cluster
+### Cluster
 
-An Operator Nexus cluster models a collection of racks, bare metal machines, storage, and networking.
-Each cluster (sometimes also referred as Operator Nexus instance) is mapped to the on-premises Network fabric. An Operator Nexus cluster provides a holistic view of the deployed capacity.
-Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. An Operator Nexus cluster is also the basic unit for compute and storage upgrades.
+The Cluster (or Compute Cluster) resource models a collection of racks, bare metal machines, storage, and networking.
+Each cluster is mapped to the on-premises Network Fabric. A cluster provides a holistic view of the deployed compute capacity.
+Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. A cluster is also the basic unit for compute and storage upgrades.
 
-### Network rack
+### Network Rack
 
-The Network rack consists of Consumer Edge (CE) routers, Top of Rack switches (ToRs), storage appliance, Network Packet Broker (NPB), and the Terminal Server.
-The rack also models the connectivity to the operator's Physical Edge switches (PEs) and the ToRs on the other racks.
+The Network Rack consists of Consumer Edge (CE) routers, Top of Rack switches (ToRs), storage appliance, Network Packet Broker (NPB), and the Terminal Server (TS).
+The Rack also models the connectivity to the operator's Physical Edge switches (PEs) and the ToRs on the other Racks.
 
 ### Rack
 
@@ -76,7 +75,7 @@ Workload components are resources that you use in hosting your workloads.
 The Network resources represent the virtual networking in support of your workloads hosted on  VMs or AKS-Hybrid clusters. 
 There are five Network resource types that represent a network attachment to an underlying isolation-domain. 
 
-- **Cloud Services Network Resource**: provides VMs/AKS-Hybrid clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network in each of your Operator Nexus instances. Each Cloud Service Network can be reused by many VMs and/or AKS-Hybrid clusters.
+- **Cloud Services Network Resource**: provides VMs/AKS-Hybrid clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network (CSN) in each of your Operator Nexus instances. Each CSN can be reused by many VMs and/or AKS-Hybrid clusters.
 
 - **Default CNI Network Resource**: supports configuring of the AKS-Hybrid cluster network resources.
 

@@ -64,6 +64,7 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
   - Pay-as-you-go through an Azure meter
   - Cost per user each month depends on user behavior
   - Only includes access rights to Azure Virtual Desktop
+  - Includes use rights to leverage [FSlogix](/fslogix/overview-what-is-fslogix)
 
 > [!IMPORTANT]
 > Per-user access pricing only supports Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session. Per-user access pricing currently doesn't support Windows Server session hosts.

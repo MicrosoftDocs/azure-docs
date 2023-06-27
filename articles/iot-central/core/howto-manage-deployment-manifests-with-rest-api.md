@@ -1,5 +1,5 @@
 ---
-title: Use the REST API to manage deployment manifests in Azure IoT Central
+title: Azure IoT Central deployment manifests and the REST API
 description: How to use the IoT Central REST API to manage IoT Edge deployment manifests in an IoT Central application.
 author: dominicbetts
 ms.author: dobett

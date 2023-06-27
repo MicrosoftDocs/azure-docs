@@ -9,16 +9,13 @@ author: saachigopal
 ms.author: sagopal
 ms.reviewer: larryfr
 ms.date: 11/11/2022
-ms.custom: seodec18, devx-track-azurecli, cliv1
+ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 ---
 
 # Install & use the CLI (v1)
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-azure-machine-learning-cli.md)
-> * [v2 (current version)](../how-to-configure-cli.md)
 
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
@@ -316,7 +313,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
 ## Environment management
 
-The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment-v1.md) for your workspace:
+The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment.md) for your workspace:
 
 + Create scaffolding files for an environment:
 

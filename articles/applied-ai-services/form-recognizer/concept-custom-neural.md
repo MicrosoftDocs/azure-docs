@@ -7,11 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 05/23/2023
 ms.author: lajanuar
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Custom neural document model
@@ -30,19 +29,32 @@ Custom neural models share the same labeling format and strategy as [custom temp
 
 ## Model capabilities
 
-Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases will include support for signatures.
+Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases include support for signatures.
 
 | Form fields | Selection marks | Tabular fields | Signature | Region |
 |:--:|:--:|:--:|:--:|:--:|
 | Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> |
 
-<sup>1</sup> Region labels in custom neural models will use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.
+<sup>1</sup> Region labels in custom neural models use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.
 
 ### Build mode
 
 The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
 
-Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. Neural models currently only support English text. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
+Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
+
+## Language support
+
+1. Neural models now support added languages in the ```2023-02-28-preview``` API.
+
+| Languages | API version |
+|:--:|:--:|
+| English | `2022-08-31` (GA), `2023-02-28-preview`|
+| German |  `2023-02-28-preview`|
+| Italian |  `2023-02-28-preview`|
+| French |  `2023-02-28-preview`|
+| Spanish |  `2023-02-28-preview`|
+| Dutch |  `2023-02-28-preview`|
 
 ## Tabular fields
 
@@ -98,7 +110,7 @@ Custom neural models can generalize across different formats of a single documen
 
 ### Field naming
 
-When you label the data, labeling the field relevant to the value will improve the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field "supplier_id". Field names should be in the language of the document.
+When you label the data, labeling the field relevant to the value improves the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field "supplier_id". Field names should be in the language of the document.
 
 ### Labeling contiguous values
 
@@ -114,7 +126,7 @@ Values in training cases should be diverse and representative. For example, if a
 ## Current Limitations
 
 * The model doesn't recognize values split across page boundaries.
-* Custom neural models are only trained in English and model performance will be lower for documents in other languages.
+* Custom neural models are only trained in English. Model performance is lower for documents in other languages.
 * If a dataset labeled for custom template models is used to train a custom neural model, the unsupported field types are ignored.
 * Custom neural models are limited to 10 build operations per month. Open a support request if you need the limit increased.
 

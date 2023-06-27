@@ -1,5 +1,5 @@
 ---
-title: Write code to track requests with Azure Application Insights | Microsoft Docs
+title: Write code to track requests with Application Insights | Microsoft Docs
 description: Write code to track requests with Application Insights so you can get profiles for your requests.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
@@ -9,15 +9,15 @@ ms.reviewer: charles.weininger
 
 # Write code to track requests with Application Insights
 
-Azure Application Insights needs to track requests for your application in order to provide profiles for your application on the Performance page in the Azure portal. 
+Application Insights needs to track requests for your application to provide profiles for your application on the **Performance** page in the Azure portal.
 
-For applications built on already-instrumented frameworks (like ASP.NET and ASP.NET Core)S, Application Insights can automatically track requests. 
+For applications built on already-instrumented frameworks (like ASP.NET and ASP.NET Core), Application Insights can automatically track requests.
 
-But for other applications (like Azure Cloud Services worker roles and Service Fabric stateless APIs), you need to track requests with code that tells Application Insights where your requests begin and end. Requests telemetry is then sent to Application Insights, which you can view on the Performance page. Profiles are collected for those requests. 
+For other applications (like Azure Cloud Services worker roles and Azure Service Fabric stateless APIs), you need to track requests with code that tells Application Insights where your requests begin and end. Requests telemetry is then sent to Application Insights, which you can view on the **Performance** page. Profiles are collected for those requests.
 
 To manually track requests:
 
-  1. Early in the application lifetime, add the following code:  
+  1. Early in the application lifetime, add the following code:
 
         ```csharp
         using Microsoft.ApplicationInsights.Extensibility;
@@ -26,7 +26,7 @@ To manually track requests:
         TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
         ```
     
-      For more information about this global instrumentation key configuration, see [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
+      For more information about this global instrumentation key configuration, see [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).
 
   1. For any piece of code that you want to instrument, add a `StartOperation<RequestTelemetry>` **using** statement around it, as shown in the following example:
 
@@ -42,7 +42,7 @@ To manually track requests:
         }
         ```
 
-      Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope isn't supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. For example:  
+      Calling `StartOperation<RequestTelemetry>` within another `StartOperation<RequestTelemetry>` scope isn't supported. You can use `StartOperation<DependencyTelemetry>` in the nested scope instead. For example:
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

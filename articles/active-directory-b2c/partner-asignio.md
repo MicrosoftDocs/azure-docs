@@ -1,230 +1,199 @@
 ---
-title: Configure Azure Active Directory B2C with Asignio
+title: Configure Asignio with Azure Active Directory B2C for multifactor authentication
 titleSuffix: Azure AD B2C
-description: Configure Azure Active Directory B2C with Asignio for multi-factor authentication
+description: Configure Azure Active Directory B2C with Asignio for multifactor authentication
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
-
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 05/04/2023
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Configure Asignio with Azure Active Directory B2C for multi-factor authentication
+# Configure Asignio with Azure Active Directory B2C for multifactor authentication
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+Learn to integrate Azure Active Directory (Azure AD B2C) authentication with [Asignio](https://www.asignio.com/). With this integration, provide passwordless, soft biometric, and multifactor authentication experience to customers. Asignio uses patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature helps to reduce passwords, fraud, phishing, and credential reuse through omni-channel authentication.
 
-::: zone pivot="b2c-custom-policy"
+## Before you begin
 
-::: zone-end
+Choose a policy type selector to indicate the policy type setup. Azure AD B2C has two methods to define how users interact with your applications: 
 
-In this sample article, learn how to integrate Azure Active Directory (Azure AD B2C) authentication with [Asignio](https://www.asignio.com/). Using this integration,  organizations can provide passwordless, soft biometric, and multi-factor authentication (MFA) experience to their customers. Asignio's user friendly, web-based solution is available on any device, anytime, and anywhere. Asignio uses a combination of the patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature eliminates passwords, fraud, phishing, and credential reuse through omni-channel authentication.
+* Predefined user flows
+* Configurable custom policies
+
+The steps in this article differ for each method.
+
+Learn more:
+
+* [User flows and custom policies overview](user-flow-overview.md)
+* [Azure AD B2C custom policy overview](custom-policy-overview.md)
+
 
 ## Prerequisites
 
-To get started, you'll need:
+* An Azure AD subscription. 
+* If you don't have on, get an [Azure free account](https://azure.microsoft.com/free/)
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure AD B2C tenant linked to the Azure subscription
+- See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md) 
 
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
+- An Asignio Client ID and Client Secret issued by Asignio. 
+- These tokens are obtained by registering your mobile or web applications with Asignio.
 
-- An Asignio Client ID and Client Secret that will be issued by [Asignio](https://www.asignio.com/). These tokens are obtained by registering your mobile or web applications with Asignio.
+### For custom policies
 
-::: zone pivot="b2c-custom-policy"
-
-- Complete the steps in the article [get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
-
-::: zone-end
+Complete [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 ## Scenario description
 
 This integration includes the following components:
 
-- **Azure AD B2C**: The authorization server, responsible for verifying the user's credentials.
+* **Azure AD B2C** - authorization server that verifies user credentials
+* **Web or mobile applications** - to secure with Asignio MFA
+* **Asignio web application** - signature biometric collection on the user touch device
 
-- **Web or mobile applications:** The web or mobile applications you wish to secure with Asignio MFA.
+The following diagram illustrates the implementation.
 
-- **Asignio web application:** Signature biometric collection on the user's touch device.
+   ![Diagram showing the implementation architecture.](./media/partner-asignio/partner-asignio-architecture-diagram.png)
 
-The following architecture diagram shows the implementation.
 
-![image shows the architecture diagram](./media/partner-asignio/partner-asignio-architecture-diagram.png)
+1. User opens Azure AD B2C sign in page on their mobile or web application, and then signs in or signs up.
+2. Azure AD B2C redirects the user to Asignio using an OpenID Connect (OIDC) request.
+3. The user is redirected to the Asignio web application for biometric sign in. If the user hasn't registered their Asignio Signature, they can use an SMS One-Time-Password (OTP) to authenticate. After authentication, user receives a registration link to create their Asignio Signature.
+4. The user authenticates with Asignio Signature and facial verification, or voice and facial verification.
+5. The challenge response goes to Asignio. 
+6. Asignio returns the OIDC response to Azure AD B2C sign in.
+7. Azure AD B2C sends an authentication verification request to Asignio to confirm receipt of the authentication data.
+8. The user is granted or denied access to the application. 
 
-| Step | Description |
-|:--------|:--------|
-| 1. | User opens Azure AD B2C's sign in page on their mobile or web application, and then signs in or signs up by entering their username.|
-| 2. | Azure AD B2C redirects the user to Asignio using an OpenID Connect (OIDC) request. |
-| 3. | The user is redirected to the Asignio web application to complete the biometric sign in. If the user hasn't registered their Asignio Signature, they can choose to use an SMS One-Time-Password (OTP) to authenticate the immediate request. Once authenticated, user will receive a registration link to finish creating their Asignio Signature. |
-| 4. | The user authenticates via Asignio using their Asignio Signature and facial verification or voice and facial verification.|
-|5. | The challenge response is then sent back to Asignio. |
-| 6. | Asignio returns the OIDC response to Azure AD B2C sign in. |
-| 7. | Azure AD B2C sends an authentication verification request to Asignio to confirm receipt of the authentication data. |
-| 8. | The user is either granted or denied access to the application based on the authentication results. |
+## Configure an application with Asignio
 
-## Step 1: Configure an application with Asignio
+Configurating an application with Asignio is with the Asignio Partner Administration site. 
 
-Configuring an application with Asignio is accomplished through Asignio's Partner Administration site. Contact Asignio to request access to https://partner.asignio.com for your organization. Once you've obtained credentials, sign into Asignio Partner Administration and complete the following steps:
+1. Go to asignio.com [Asignio Partner Administration](https://partner.asignio.com) page to request access for your organization. 
+2. With credentials, sign into Asignio Partner Administration.
+3. Create a record for the Azure AD B2C application using your Azure AD B2C tenant. When you use Azure AD B2C with Asignio, Azure AD B2C manages connected applications. Asignio apps represent apps in the Azure portal.
+4. In the Asignio Partner Administration site, generate a Client ID and Client Secret. 
+5. Note and store Client ID and Client Secret. You'll use them later. Asignio doesn't store Client Secrets.
+6. Enter the redirect URI in your site the user is returned to after authentication. Use the following URI pattern.
 
-1. Create a record for your Azure AD B2C application using your Azure AD B2C tenant. When Azure AD B2C is used with Asignio, Azure AD B2C manages your connected applications. All apps in your Azure portal are represented by a single application within Asignio.
+`[https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp]`.
 
-1. In the Asignio Partner Administration site, generate a Client ID and Client Secret. Once generated, store Client ID and Client Secret in a secure place, you'll need them later to configure Asignio as an Identity provider. Asignio doesn't store the Client Secret.
+7. Upload a company logo. It appears on Asignio authentication when users sign in.
 
-1. Supply redirect URI. This is the URI in your site to which the user is returned after a successful authentication. The URI that should be provided to Asignio for your Azure B2C follows the pattern - `[https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp]`.
+## Register a web application in Azure AD B2C
 
-1. Upload a company logo. This logo is displayed to users on Asignio authentication when users sign into your site.
+Register applications in a tenant you manage, then they can interact with Azure AD B2C.
 
-## Step 2: Register a web application in Azure AD B2C
+Learn more: [Application types that can be used in Active Directory B2C](application-types.md)
 
-Before your [applications](application-types.md) can interact with Azure AD B2C, they must be registered in a tenant that you manage.
+For this tutorial, you're registering  `https://jwt.ms`, a Microsoft web application with decoded token contents that don't leave your browser.
 
-For testing purposes like this tutorial, you're registering  `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser).
+### Register a web application and enable ID token implicit grant
 
-Follow the steps mentioned in [this tutorial](tutorial-register-applications.md?tabs=app-reg-ga) to **register a web application** and **enable ID token implicit grant** for testing a user flow or custom policy. There's no need to create a Client Secret at this time.
+Complete [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga)
 
-::: zone pivot="b2c-user-flow"
+## Configure Asignio as an identity provider in Azure AD B2C
 
-## Step 3: Configure Asignio as an identity provider in Azure AD B2C
+For the following instructions, use the Azure AD tenant with the Azure subscription.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the Global Administrator of the Azure AD B2C tenant.
+2. In the Azure portal toolbar, select **Directories + subscriptions**.
+3. On **Portal settings | Directories + subscriptions**, in the **Directory name** list, locate your Azure AD directory.
+4. Select **Switch**.
+5. In the top-left corner of the Azure portal, select **All services**.
+6. Search for and select **Azure AD B2C**.
+7. In the Azure portal, search for and select **Azure AD B2C**.
+8. In the left menu, select **Identity providers**.
+9. Select **New OpenID Connect Provider**.
+10. Select **Identity provider type** > **OpenID Connect**.
+11. For **Name**, enter the Asignio sign in, or a name you choose.
+12. For **Metadata URL**, enter `https://authorization.asignio.com/.well-known/openid-configuration`.
+13. For **Client ID**, enter the Client ID you generated.
+14. For **Client Secret**, enter the Client Secret you generated.
+15. For **Scope**, use **openid email profile**.
+16. For **Response type**, use **code**.
+17. For **Response mode**, use **query**.
+18. For Domain hint, use `https://asignio.com`.
+19. Select **OK**.
+20. Select **Map this identity provider's claims**.
+21. For **User ID**, use **sub**.
+22. For **Display Name**, use **name**.
+23. For **Given Name**, use **given_name**.
+24. For **Surname**, use **family_name**.
+25. For **Emai**l, use **email**.
+26. Select **Save**.
 
-1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your Azure subscription:
-
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
-  
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
-
-1. Select **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-
-1. In the Azure portal, search for and select **Azure AD B2C**.
-
-1. In the left menu, select **Identity providers**.
-
-1. Select **New OpenID Connect Provider**.
-
-1. Select **Identity provider type** > **OpenID Connect**.
-
-1. Fill out the form to set up the Identity provider
-
-   | Property | Value |
-   |:--------|:-------------|
-   |Name  | Login with Asignio *(or a name of your choice)*
-   |Metadata URL |  `https://authorization.asignio.com/.well-known/openid-configuration`|
-   | Client ID |  enter the client ID that you previously generated in [step 1](#step-1-configure-an-application-with-asignio)|
-   |Client Secret |  enter the Client secret that you previously generated in [step 1](#step-1-configure-an-application-with-asignio)|
-   | Scope | openid email profile |
-   | Response type | code |
-   | Response mode |  query |
-   | Domain hint  | https://asignio.com |
-
-1. Select **OK**.
-
-1. Select **Map this identity provider's claims**.
-
-1. Fill out the form to map the Identity provider:
-
-    | Property | Value |
-    |:--------------|:--------------|
-    |User ID | sub |
-    | Display Name |  name |
-    | Given Name |    given_name |
-    | Surname  | family_name |
-    | Email | email |
-
-1. Select **Save**.
-
-## Step 4: Create a user flow policy
+## SCreate a user flow policy
 
 1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.  
+2. Select **New user flow**.
+3. Select **Sign up and sign in** user flow type.
+4. Select **Version Recommended**.
+5. Select **Create**.
+6. Enter a user flow **Name**, such as `AsignioSignupSignin`.
+7. Under **Identity providers**, for **Local Accounts**, select **None**. This action disables email and password authentication.
+8. For **Custom identity providers**, select the created Asignio Identity provider. 
+9. Select **Create**.
 
-1. Select **New user flow**.
-
-1. Select **Sign up and sign in** user flow type, select **Version Recommended** and then select **Create**.
-
-1. Enter a **Name** for your user flow such as `AsignioSignupSignin`.
-
-1. Under **Identity providers**:
-   
-    a. For **Local Accounts**, select **None** to disable email and password-based authentication.
-    
-    b. For **Custom identity providers**, select your newly created Asignio Identity provider such as **Login with Asignio**.  
-
-1. Select **Create**.
-
-## Step 5: Test your user flow
+## Test your user flow
 
 1. In your Azure AD B2C tenant, select **User flows**.
+2. Select the created user flow.
+3. For **Application**, select the web application you registered. The **Reply URL** is `https://jwt.ms`.
+4. Select **Run user flow**. 
+5. The browser is redirected to the Asignio sign in page.
+6. A sign in screen appears.
+7. At the bottom, select **Asignio** authentication.
 
-1. Select the newly created user flow such as **AsignioSignupSignin**.
+If you have an Asignio Signature, complete the prompt to authenticate. If not, supply the device phone number to authenticate via SMS OTP. Use the link to register your Asignio Signature.
 
-1. For **Application**, select the web application that you previously registered in [step 2](#step-2-register-a-web-application-in-azure-ad-b2c). The **Reply URL** should show `https://jwt.ms`.
+8. The browser is redirected to `https://jwt.ms`. The token contents returned by Azure AD B2C appear.
 
-1. Select the **Run user flow** button. Your browser should be redirected to the Asignio sign in page.
+## Create Asignio policy key
 
-1. A sign in screen will be shown; at the bottom should be a button to use **Asignio** authentication.
+1. Store the generated Client Secret in the Azure AD B2C tenant.
+2. Sign in to the [Azure portal](https://portal.azure.com/).
+3. In the portal toolbar, select the **Directories + subscriptions**.
+4. On **Portal settings | Directories + subscriptions**, in the **Directory name** list, locate your Azure AD B2C directory.
+5. Select **Switch**.
+6. In the top-left corner of the Azure portal, select **All services**.
+7. Search for and select **Azure AD B2C**.
+8. On the Overview page, select **Identity Experience Framework**.
+9. Select **Policy Keys**.
+10. Select **Add**.
+11. For **Options**, select **Manual**.
+12. Enter a policy key **Name** for the policy key. The prefix `B2C_1A_` is appended to the key name.
+13. In **Secret**, enter the Client Secret that you noted.
+14. For **Key usage**, select **Signature**.
+15. Select **Create**.
 
-1. If you already have an Asignio Signature, you'll be prompted to authenticate using it. If not, you'll be prompted to supply the phone number of your device to authenticate via SMS OTP and then receive a link to register your Asignio Signature.
-
-1. If the sign-in process is successful, your browser is redirected to https://jwt.ms, which displays the contents of the token returned by Azure AD B2C.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## Step 3: Create Asignio policy key
-
-Store the client secret that you previously generated in [step 1](#step-1-configure-an-application-with-asignio) in your Azure AD B2C tenant.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-
-1. On the Overview page, select **Identity Experience Framework**.
-
-1. Select **Policy Keys** and then select **Add**.
-
-1. For **Options**, choose `Manual`.
-
-1. Enter a **Name** for the policy key. For example, `AsignioClientSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-
-1. In **Secret**, enter your client secret that you previously recorded.
-
-1. For **Key usage**, select `Signature`.
-
-1. Select **Create**.
-
-## Step 4: Configure Asignio as an Identity provider
+## Configure Asignio as an Identity provider
 
 >[!TIP]
->You should have the Azure AD B2C policy configured at this point. If not, follow the [instructions](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) on how to set up your Azure AD B2C tenant and configure policies.
+>Before you begin, ensure the Azure AD B2C policy is configured. If not, follow the instructions in [Custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
-To enable users to sign in using Asignio, you need to define Asignio as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using digital ID available on their device, proving the user’s identity.
+For users to sign in with Asignio, define Asignio as a claims provider that Azure AD B2C communicates with through an endpoint. The endpoint provides claims Azure AD B2C uses to verify user authentication with using digital ID on the device.
 
-Use the following steps to add Asignio as a claims provider: 
+### Add Asignio as a claims provider
 
-1. Get the custom policy starter packs from GitHub, then update the XML files in the LocalAccounts starter pack with your Azure AD B2C tenant name:
+Get the custom policy starter packs from GitHub, then update the XML files in the LocalAccounts starter pack with your Azure AD B2C tenant name:
 
-    1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository:
-        ```
-            git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
-        ```
+1. Download the zip [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository:
+
+   ```
+       git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
+   ```
     
-    1. In all of the files in the **LocalAccounts** directory, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is `contoso`, all instances of `yourtenant.onmicrosoft.com` become `contoso.onmicrosoft.com`. 
-
-1. Open the `LocalAccounts/ TrustFrameworkExtensions.xml`.
-
-1. Find the **ClaimsProviders** element. If it doesn't exist, add it under the root element, `TrustFrameworkPolicy`.
-
-1. Add a new **ClaimsProvider** similar to the one shown below:
+2. In the files in the **LocalAccounts** directory, replace the string `yourtenant` with the Azure AD B2C tenant name. 
+3. Open the **LocalAccounts/ TrustFrameworkExtensions.xml**.
+4. Find the **ClaimsProviders** element. If there isn't one, add it under the root element, `TrustFrameworkPolicy`.
+5. Add a new **ClaimsProvider** similar to the following example:
 
    ```xml
     <ClaimsProvider>
@@ -286,39 +255,41 @@ Use the following steps to add Asignio as a claims provider:
     </ClaimsProvider>
    ```
 
-1. Set **client_id** with the Asignio Application ID that you previously recorded in [step 1](#step-1-configure-an-application-with-asignio).
-
-1. Update **client_secret** section with the name of the policy key created in [step 3](#step-3-create-asignio-policy-key). For example, `B2C_1A_AsignioSecret`:
+6. Set **client_id** with the Asignio Application ID you noted.
+7. Update **client_secret** section with the policy key you created. For example, `B2C_1A_AsignioSecret`:
 
    ```xml
    <Key Id="client_secret" StorageReferenceId="B2C_1A_AsignioSecret" />
    ```
 
-1. Save the changes.
+8. Save the changes.
 
-## Step 5: Add a user journey
+## Add a user journey
 
-At this point, you've set up the identity provider, but it's not yet available in any of the sign in pages. If you've your own custom user journey continue to [step 7](#step-6-add-the-identity-provider-to-a-user-journey), otherwise, create a duplicate of an existing template user journey as follows:
+The identity provider isn't in the sign in pages. 
 
-1. Open the `LocalAccounts/ TrustFrameworkBase.xml` file from the starter pack.
+1. If you have a custom user journey continue to **Configure the relying party policy**, otherwise, copy a template user journey:
+2. From the starter pack, open the **LocalAccounts/ TrustFrameworkBase.xml**.
+3. Locate and copy the contents of the **UserJourney** element that include `Id=SignUpOrSignIn`.
+4. Open the **LocalAccounts/ TrustFrameworkExtensions.xml**.
+5. Locate the **UserJourneys** element. If there isn't one, add one.
+6. Paste the UserJourney element contents as a child of the UserJourneys element.]
+7. Rename the user journey **ID**. For example, `Id=AsignioSUSI`.
 
-1. Find and copy the entire contents of the **UserJourney** element that includes `Id=SignUpOrSignIn`.
+Learn more: [User journeys](custom-policy-overview.md#user-journeys)
 
-1. Open the `LocalAccounts/ TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
+## Add the identity provider to a user journey
 
-1. Paste the entire content of the UserJourney element that you copied as a child of the UserJourneys element.
+Add the new identity provider to the user journey.
 
-1. Rename the `Id` of the user journey. For example, `Id=AsignioSUSI`.
+1. Find the orchestration step element that includes `Type=CombinedSignInAndSignUp`, or `Type=ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element has an identity provider list that users sign in with. The order of the elements controls the order of the sign in buttons. 
+2. Add a **ClaimsProviderSelection** XML element. 
+3. Set the value of **TargetClaimsExchangeId** to a friendly name.
+4. Add a **ClaimsExchange** element. 
+5. Set the **Id** to the value of the target claims exchange ID. 
+6. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created.
 
-## Step 6: Add the identity provider to a user journey
-
-Now that you have a user journey, add the new identity provider to the user journey.
-
-1. Find the orchestration step element that includes `Type=CombinedSignInAndSignUp`, or `Type=ClaimsProviderSelection` in the user journey. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can sign in with. The order of the elements controls the order of the sign in buttons presented to the user. Add a **ClaimsProviderSelection** XML element. Set the value of **TargetClaimsExchangeId** to a friendly name, such as `AsignioExchange`.
-
-1. In the next orchestration step, add a **ClaimsExchange** element. Set the **Id** to the value of the target claims exchange ID. Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier while adding the claims provider, for example, `Asignio-Oauth2`.
-
-The following XML demonstrates orchestration steps of a user journey with the identity provider:
+The following XML demonstrates user journey orchestration with the identity provider.
 
 ```xml
     <UserJourney Id="AsignioSUSI">
@@ -400,11 +371,12 @@ The following XML demonstrates orchestration steps of a user journey with the id
     </UserJourney>
 ```
 
-Learn more about [User Journeys](custom-policy-overview.md#user-journeys).
+## Configure the relying party policy
 
-## Step 7: Configure the relying party policy
+The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/main/LocalAccounts/SignUpOrSignin.xml), specifies the user journey Azure AD B2C executes. 
 
-The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/main/LocalAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. Find the **DefaultUserJourney** element within relying party. Update the **ReferenceId** to match the user journey ID, in which you added the identity provider.
+1. In the relying party, locate the **DefaultUserJourney** element. 
+2. Update the **ReferenceId** to match the user journey ID, in which you added the identity provider.
 
 In the following example, for the `AsignioSUSI` user journey, the **ReferenceId** is set to `AsignioSUSI`:
 
@@ -430,52 +402,39 @@ In the following example, for the `AsignioSUSI` user journey, the **ReferenceId*
 
 ```
 
-## Step 8: Upload the custom policy
+## Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+2. In the portal toolbar, select the **Directories + subscriptions**.
+3. On **Portal settings | Directories + subscriptions**, in the **Directory name** list, locate your Azure AD B2C directory.
+4. Select **Switch**.
+5. In the Azure portal, search for and select **Azure AD B2C**.
+6. Under Policies, select **Identity Experience Framework**.
+7. Select **Upload Custom Policy**.
+8. Upload the two policy files you changed in the following order: 
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant:
+  * Extension policy, for example `TrustFrameworkExtensions.xml`
+  * Relying party policy, such as `SignUpOrSignin.xml`
 
-   a. Select the **Directories + subscriptions** icon in the portal toolbar.
+## Test your custom policy
 
-   b. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In your Azure AD B2C tenant, and under **Policies**, select **Identity Experience Framework**.
+2. Under **Custom policies**, select **AsignioSUSI**.
+3. For **Application**, select the web application that you registered. The **Reply URL** is `https://jwt.ms`.
+4. Select **Run now**. 
+5. The browser is redirected to the Asignio sign in page. 
+6. A sign in screen appears.
+7. At the bottom, select **Asignio** authentication.
 
-1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+If you have an Asignio Signature, you're prompted to authenticate with your Asignio Signature. If not, supply the device phone number to authenticate via SMS OTP. Use the link to register your Asignio Signature.
 
-1. Under Policies, select **Identity Experience Framework**.
-
-1. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpOrSignin.xml`.
-
-## Step 9: Test your custom policy
-
-1. In your Azure AD B2C tenant blade, and under **Policies**, select **Identity Experience Framework**.
-
-1. Under **Custom policies**, select **AsignioSUSI**.
-
-1. For **Application**, select the web application that you previously registered as part of this article's prerequisites. The **Reply URL** should show `https://jwt.ms`.
-
-1. Select **Run now**. Your browser should be redirected to the Asignio sign in page. 
-
-1. A sign in screen will be shown; at the bottom should be a button to use **Asignio** authentication.
-
-1. If you already have an Asignio Signature, you'll be prompted to authenticate with your Asignio Signature. If not, you'll be prompted to supply the phone number of your device to authenticate via SMS OTP and then receive a link to register your Asignio Signature.
-
-1. If the sign-in process is successful, your browser is redirected to https://jwt.ms, which displays the contents of the token returned by Azure AD B2C.
-
-::: zone-end
+8. The browser is redirected to `https://jwt.ms`. The token contents returned by Azure AD B2C appear.
 
 ## Next steps
 
-For additional information, review the following articles:
-
-- [Azure AD B2C docs](solution-articles.md)
-
-- [Ask your question on Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
-
-- [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
-
-- [Azure AD B2C YouTube training playlist](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0)
-
-- [Custom policies in Azure AD B2C](custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* [Solutions and Training for Azure Active Directory B2C](solution-articles.md)
+* Ask questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+* [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+* YouTube: [Identity Azure AD B2C Series](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0)
+* [Azure AD B2C custom policy overview](custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

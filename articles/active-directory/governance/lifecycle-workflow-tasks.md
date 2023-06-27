@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/26/2023
 ---
-# Lifecycle Workflow built-in tasks (preview)
+# Lifecycle Workflow built-in tasks
 
-Lifecycle Workflows come with many pre-configured tasks that are designed to automate common lifecycle management scenarios. These built-in tasks can be utilized to make customized workflows to suit your organization's needs. These tasks can be configured within seconds to create new workflows. These tasks also have categories based on the Joiner-Mover-Leaver model so that they can be easily placed into workflows based on need. In this article you'll get the complete list of tasks, information on common parameters each task has, and a list of unique parameters needed for each specific task.
+Lifecycle Workflows come with many pre-configured tasks that are designed to automate common lifecycle management scenarios. These built-in tasks can be utilized to make customized workflows to suit your organization's needs. These tasks can be configured within seconds to create new workflows. These tasks also have categories based on the Joiner-Mover-Leaver model so that they can be easily placed into workflows based on need. In this article you get the complete list of tasks, information on common parameters each task has, and a list of unique parameters needed for each specific task.
 
 
-## Supported tasks (preview)
+## Supported tasks
  
 Lifecycle Workflow's built-in tasks each include an identifier, known as **taskDefinitionID**, and can be used to create either new workflows from scratch, or inserted into workflow templates so that they fit the needs of your organization. For more information on templates available for use with Lifecycle Workflows, see: [Lifecycle Workflow Templates](lifecycle-workflow-templates.md).
 
 
 [!INCLUDE [Lifecylce Workflows tasks table](../../../includes/lifecycle-workflows-tasks-table.md)]
 
-## Common task parameters (preview)
+## Common task parameters
 
 Common task parameters are the non-unique parameters contained in every task. When adding tasks to a new workflow, or a workflow template, you can customize and configure these parameters so that they match your requirements.
 
@@ -30,18 +30,49 @@ Common task parameters are the non-unique parameters contained in every task. Wh
 |---------|---------|
 |category     |  A  read-only string that identifies the category or categories of the task. Automatically determined when the taskDefinitionID is chosen.     |
 |taskDefinitionId     | A string referencing a taskDefinition that determines which task to run.       |
-|isEnabled     | A boolean value that denotes whether the task is set to run or not. If set to “true" then the task will run. Defaults to true.       |
+|isEnabled     | A boolean value that denotes whether the task is set to run or not. If set to “true" then the task runs. Defaults to true.       |
 |displayName     |  A unique string that identifies the task.       |
 |description     | A string that describes the purpose of the task for administrative use. (Optional)         |
-|executionSequence     | A read-only integer that states in what order the task will run in a workflow. For more information about executionSequence and workflow order, see: [Configure Scope](understanding-lifecycle-workflows.md#configure-scope).       |
+|executionSequence     | A read-only integer that states in what order the task runs in a workflow. For more information about executionSequence and workflow order, see: [Configure Scope](understanding-lifecycle-workflows.md#configure-scope).       |
 |continueOnError     |  A boolean value that determines if the failure of this task stops the subsequent workflows from running.        |
 |arguments     |  Contains unique parameters relevant for the given task.       |
 
+## Common email task parameters
+
+Emails, sent from tasks, are able to be customized. If you choose to customize the email, you're able to set the following arguments:
+
+- **Subject:** Customizes the subject of emails.
+- **Message body:** Customizes the body of the emails being sent out.
+- **Email language translation:** Overrides the email recipient's language settings. Custom text isn't customized, and it's recommended to set this language to the same language as the custom text. 
+
+:::image type="content" source="media/lifecycle-workflow-task/customize-email-concept.png" alt-text="Screenshot of the customization email options.":::
+
+For a step by step guide on this, see: [Customize emails sent out by workflow tasks](customize-workflow-email.md).
+
+### Dynamic attributes within email
+
+With customized emails, you're able to include dynamic attributes within the subject and body to personalize these emails. The list of dynamic attributes that can be included are as follows:
 
 
-## Task details (preview)
+|Attribute  |Definition  |
+|---------|---------|
+|userDisplayName     | The user’s display name.        |
+|userEmployeeHireDate     | The user’s employee hire date.        |
+|userEmployeeLeaveDateTime     | The user’s employee leave date time.        |
+|managerDisplayName     |  The display name of the user’s manager.        |
+|temporaryAccessPass     |  The generated Temporary Access Pass. Only available with the **Generate TAP And Send Email** task.       |
+|userPrincipalName     |  The user’s userPrincipalName.       |
+|managerEmail     |  The manager’s email.        |
+|userSurname     |  User’s last name.       |
+|userGivenName     | User’s first name.        |
 
-Below is each specific task, and detailed information such as parameters and prerequisites, required for them to run successfully. The parameters are noted as they appear both in the Azure portal, and within Microsoft Graph. For information about editing Lifecycle Workflow tasks in general, see: [Manage workflow Versions](manage-workflow-tasks.md).
+
+> [!NOTE]
+> When adding these attributes to a customized email, or subject, they must be properly embedded. For a step by step guide on doing this, see: [Format attributes within customized emails](customize-workflow-email.md).
+
+## Task details
+
+In this section is each specific task, and detailed information such as parameters and prerequisites, required for them to run successfully. The parameters are noted as they appear both in the Azure portal, and within Microsoft Graph. For information about editing Lifecycle Workflow tasks in general, see: [Manage workflow Versions](manage-workflow-tasks.md).
 
 
 ### Send welcome email to new hire
@@ -56,7 +87,7 @@ The Azure AD prerequisite to run the **Send welcome email to new hire** task is:
 - A populated mail attribute for the user.
 
 
-For Microsoft Graph the parameters for the **Send welcome email to new hire** task are as follows:
+For Microsoft Graph, the parameters for the **Send welcome email to new hire** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -75,7 +106,24 @@ For Microsoft Graph the parameters for the **Send welcome email to new hire** ta
             "displayName": "Send Welcome Email",
             "isEnabled": true,
             "taskDefinitionId": "70b29d51-b59a-4773-9280-8841dfd3f2ea",
-            "arguments": []
+            "arguments": [
+                {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "Welcome to the organization {{userDisplayName}}!"
+                },
+                {
+                "name": "customBody",
+                "value": "Welcome to our organization {{userGivenName}} {{userSurname}}. \nFor more information, reach out to your manager {{managerDisplayName}} at {{managerEmail}}."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                }
+    ]
 }
 
 ```
@@ -93,7 +141,7 @@ The Azure AD prerequisite to run the **Send onboarding reminder email** task is:
 - A populated manager's mail attribute for the user.
 
 
-For Microsoft Graph the parameters for the **Send onboarding reminder email** task are as follows:
+For Microsoft Graph, the parameters for the **Send onboarding reminder email** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -112,14 +160,31 @@ For Microsoft Graph the parameters for the **Send onboarding reminder email** ta
             "displayName": "Send onboarding reminder email",
             "isEnabled": true,
             "taskDefinitionId": "3C860712-2D37-42A4-928F-5C93935D26A1",
-            "arguments": []
+            "arguments": [
+                {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "Reminder to onboard {{userDisplayName}}!"
+                },
+                {
+                "name": "customBody",
+                "value": "Hello {{managerDisplayName}}. \n This is a reminder to onboard {{userDisplayName}}."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                }
+        ]
 }
 
 ```
 
 ### Generate Temporary Access Pass and send via email to user's manager
 
-When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass (TAP), and have it sent to the new user's manager.
+When a compatible user joins your organization, Lifecycle Workflows allow you to automatically generate a Temporary Access Pass (TAP), and have it sent to the new user's manager. You're also able to customize the email that is sent to the user's manager.
 
 > [!NOTE]
 > The user's employee hire date is used as the start time for the Temporary Access Pass. Please make sure that the TAP lifetime task setting and the [time portion of your user's hire date](how-to-lifecycle-workflow-sync-attributes.md#importance-of-time) are set appropriately so that the TAP is still valid when the user starts their first day. If the hire date at the time of workflow execution is already in the past, the current time is used as the start time.
@@ -129,7 +194,6 @@ With this task in the Azure portal, you're able to give the task a name and desc
 - **Activation duration**- How long the passcode is active.
 - **One time use**- If the passcode can only be used once.
 :::image type="content" source="media/lifecycle-workflow-task/tap-task.png" alt-text="Screenshot of Workflows task: TAP task.":::
- 
 
 The Azure AD prerequisites to run the **Generate Temporary Access Pass and send via email to user's manager** task are:
 
@@ -140,7 +204,7 @@ The Azure AD prerequisites to run the **Generate Temporary Access Pass and send 
 > [!IMPORTANT]
 > A user having this task run for them in a workflow must also not have any other authentication methods, sign-ins, or AAD role assignments for this task to work for them.
 
-For Microsoft Graph the parameters for the **Generate Temporary Access Pass and send via email to user's manager** task are as follows:
+For Microsoft Graph, the parameters for the **Generate Temporary Access Pass and send via email to user's manager** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -161,27 +225,135 @@ For Microsoft Graph the parameters for the **Generate Temporary Access Pass and 
     "taskDefinitionId": "1b555e50-7f65-41d5-b514-5894a026d10d",
         "arguments": [
             {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "Your new employees Temporary Access Pass {{managerDisplayName}}"
+                },
+                {
+                "name": "customBody",
+                "value": "Hello {{managerDisplayName}}. \nThe temporary Access Pass {{temporaryAccessPass}} has been generated for {{userDisplayName}}."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                },
+                {
                 "name": "tapLifetimeMinutes",
                 "value": "60"
-            },
-            {
+                },
+                {
                 "name": "tapIsUsableOnce",
                 "value": "true"
-            }
+                }
         ]
 }
 
 ```
 
+### Send email to notify manager of user move
+
+When a user moves within your organization Lifecycle Workflows allow you to send an email to the users manager notifying them of the move. You're also able to customize the email that is sent to the user's manager.
+
+:::image type="content" source="media/lifecycle-workflow-task/notify-user-move-task.png" alt-text="Screenshot of the notify manager of user move task.":::
+
+The Azure AD prerequisite to run the **Send email to notify manager of user move** task are:
+
+- A populated manager attribute for the user.
+- A populated manager's mail attribute for the user.
+
+For Microsoft Graph the parameters for the **Send email to notify manager of user move** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  Mover      |
+|displayName     |  Send email to notify manager of user move (Customizable by user)       |
+|description     |  Send email to notify user’s manager of user move (Customizable by user)        |
+|taskDefinitionId     |   aab41899-9972-422a-9d97-f626014578b7      |
+
+```Example for usage within the workflow
+{
+            "category": "mover",
+            "continueOnError": true,
+            "displayName": "Send email to notify manager of user move",
+            "description": "Send email to notify user’s manager of user move",
+            "isEnabled": true,
+            "taskDefinitionId": "aab41899-9972-422a-9d97-f626014578b7",
+            "arguments": [
+                {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "Reminder that {{userDisplayName}} has moved."
+                },
+                {
+                "name": "customBody",
+                "value": "Hello {{managerDisplayName}}. \nThis is a reminder that {{userDisplayName}} has moved roles in the organization."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                },
+    ]
+}
+
+```
+
+### Request user access package assignment
+
+Allows you to request an access package assignment for users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and task description for this task. You must also select an access package that is provided to the user, and the access package policy.
+:::image type="content" source="media/lifecycle-workflow-task/request-user-access-package-assignment-task.png" alt-text="Screenshot of the request user access package assignment task.":::
+
+For Microsoft Graph, the parameters for the **Request user access package assignment** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  joiner      |
+|displayName     |  Request user access package assignment (Customizable by user)        |
+|description     |  Request user assignment to selected access package (Customizable by user)       |
+|taskDefinitionId     |   c1ec1e76-f374-4375-aaa6-0bb6bd4c60be      |
+|arguments     |  Argument contains two name parameter that is the "assignmentPolicyId", and "accessPackageId".    |
+
+
+```Example for usage within the workflow
+{
+            "category": "joiner",
+            "description": "Request user assignment to selected access package",
+            "displayName": "Request user access package assignment",
+            "id": "c1ec1e76-f374-4375-aaa6-0bb6bd4c60be",
+            "parameters": [
+                {
+                    "name": "assignmentPolicyId",
+                    "values": [],
+                    "valueType": "string"
+                },
+                {
+                    "name": "accessPackageId",
+                    "values": [],
+                    "valueType": "string"
+                }
+            ]
+        }
+
+```
+
 ### Add user to groups
 
-Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+
+Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+
 
 You're able to customize the task name and description for this task.
 :::image type="content" source="media/lifecycle-workflow-task/add-group-task.png" alt-text="Screenshot of Workflows task: Add user to group task.":::
 
 
-For Microsoft Graph the parameters for the **Add user to groups** task are as follows:
+For Microsoft Graph, the parameters for the **Add user to groups** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -217,7 +389,7 @@ You're able to add a user to an existing static team. You're able to customize t
 :::image type="content" source="media/lifecycle-workflow-task/add-team-task.png" alt-text="Screenshot of Workflows task: add user to team.":::
 
 
-For Microsoft Graph the parameters for the **Add user to teams** task are as follows:
+For Microsoft Graph, the parameters for the **Add user to teams** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -249,12 +421,12 @@ For Microsoft Graph the parameters for the **Add user to teams** task are as fol
 
 ### Enable user account
 
-Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You can utilize Azure Active Directory's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/enable-task.png" alt-text="Screenshot of Workflows task: enable user account.":::
 
 
-For Microsoft Graph the parameters for the **Enable user account** task are as follows:
+For Microsoft Graph, the parameters for the **Enable user account** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -288,7 +460,7 @@ The Azure AD prerequisite to run the **Run a Custom Task Extension** task is:
 
 - A Logic App that is compatible with the custom task extension. For more information, see: [Lifecycle workflow extensibility](lifecycle-workflow-extensibility.md).
 
-For Microsoft Graph the parameters for the **Run a Custom Task Extension** task are as follows:
+For Microsoft Graph, the parameters for the **Run a Custom Task Extension** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -323,12 +495,12 @@ For more information on setting up a Logic app to run with Lifecycle Workflows, 
 
 ### Disable user account
 
-Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You can utilize Azure Active Directory's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/disable-task.png" alt-text="Screenshot of Workflows task: disable user account.":::
 
 
-For Microsoft Graph the parameters for the **Disable user account** task are as follows:
+For Microsoft Graph, the parameters for the **Disable user account** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -353,14 +525,15 @@ For Microsoft Graph the parameters for the **Disable user account** task are as 
 
 ### Remove user from selected groups
 
-Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+
 
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-group-task.png" alt-text="Screenshot of Workflows task: Remove user from select groups.":::
 
 
 
-For Microsoft Graph the parameters for the **Remove user from selected groups** task are as follows:
+For Microsoft Graph, the parameters for the **Remove user from selected groups** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -392,7 +565,8 @@ For Microsoft Graph the parameters for the **Remove user from selected groups** 
 
 ### Remove users from all groups
 
-Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups are not supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
+Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
+
 
 
 You're able to customize the task name and description for this task in the Azure portal.
@@ -400,7 +574,7 @@ You're able to customize the task name and description for this task in the Azur
  :::image type="content" source="media/lifecycle-workflow-task/remove-all-groups-task.png" alt-text="Screenshot of Workflows task: remove user from all groups.":::
 
 
-For Microsoft Graph the parameters for the **Remove users from all groups** task are as follows:
+For Microsoft Graph, the parameters for the **Remove users from all groups** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -429,7 +603,7 @@ For Microsoft Graph the parameters for the **Remove users from all groups** task
 Allows a user to be removed from one or multiple static teams. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-user-team-task.png" alt-text="Screenshot of Workflows task: remove user from teams.":::
 
-For Microsoft Graph the parameters for the **Remove User from Teams** task are as follows:
+For Microsoft Graph, the parameters for the **Remove User from Teams** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -463,7 +637,7 @@ For Microsoft Graph the parameters for the **Remove User from Teams** task are a
 Allows users to be removed from every static team they're a member of. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-user-all-team-task.png" alt-text="Screenshot of Workflows task: remove user from all teams.":::
 
-For Microsoft Graph the parameters for the **Remove users from all teams** task are as follows:
+For Microsoft Graph, the parameters for the **Remove users from all teams** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -487,6 +661,96 @@ For Microsoft Graph the parameters for the **Remove users from all teams** task 
 
 ```
 
+### Remove access package assignment for user
+
+Allows you to remove an access package assignment from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and description for this task in the Azure portal. You must also select the access package which you want to unassign from users.
+:::image type="content" source="media/lifecycle-workflow-task/remove-access-package-assignment-user-task.png" alt-text="Screenshot of the remove access package assignment for user task.":::
+
+For Microsoft Graph, the parameters for the **Remove access package assignment for user** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  leaver      |
+|displayName     |  Remove access package assignment for user (Customizable by user)        |
+|description     |  Remove user assignment of selected access package (Customizable by user)        |
+|taskDefinitionId     |   4a0b64f2-c7ec-46ba-b117-18f262946c50      |
+|arguments     |  Argument contains a name parameter that is the "accessPackageId".   |
+
+
+```Example for usage within the workflow
+{
+            "category": "leaver",
+            "description": "Remove user assignment of selected access package",
+            "displayName": "Remove access package assignment for user",
+            "id": "4a0b64f2-c7ec-46ba-b117-18f262946c50",
+            "parameters": [
+                {
+                    "name": "accessPackageId",
+                    "values": [],
+                    "valueType": "string"
+                }
+            ]
+}
+```
+
+### Remove all access package assignments for user
+
+Allows you to remove all access package assignments from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and description for this task in the Azure portal.
+:::image type="content" source="media/lifecycle-workflow-task/remove-all-access-package-assignment-user-task.png" alt-text="Screenshot of the remove all user access package assignment task.":::
+
+For Microsoft Graph, the parameters for the **Remove all access package assignments for user** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  leaver      |
+|displayName     |  Remove all access package assignments for user (Customizable by user)        |
+|description     |  Remove all access packages assigned to the user (Customizable by user)        |
+|taskDefinitionId     |   42ae2956-193d-4f39-be06-691b8ac4fa1d      |
+
+
+```Example for usage within the workflow
+{
+            "category": "leaver",
+            "description": "Remove all access packages assigned to the user",
+            "displayName": "Remove all access package assignments for user",
+            "id": "42ae2956-193d-4f39-be06-691b8ac4fa1d",
+            "parameters": []
+}
+```
+
+
+### Cancel all pending access package assignment requests for user
+
+Allows you to remove all access package assignments from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+
+You're able to customize the task name and description for this task in the Azure portal.
+:::image type="content" source="media/lifecycle-workflow-task/cancel-all-pending-access-package-assignments-task.png" alt-text="Screenshot of the cancel all pending access package assignments requests for a user task.":::
+
+For Microsoft Graph, the parameters for the **Cancel all pending access package assignment requests for user** task are as follows:
+
+|Parameter |Definition  |
+|---------|---------|
+|category    |  leaver      |
+|displayName     |  Cancel pending access package assignment requests for user (Customizable by user)        |
+|description     |  Cancel all pending access packages assignment requests for the user (Customizable by user)        |
+|taskDefinitionId     |   498770d9-bab7-4e4c-b73d-5ded82a1d0b3      |
+
+
+```Example for usage within the workflow
+{
+            "category": "leaver",
+            "description": "Cancel all pending access packages assignment requests for the user",
+            "displayName": "Cancel pending access package assignment requests for user",
+            "id": "498770d9-bab7-4e4c-b73d-5ded82a1d0b3",
+            "parameters": []
+}
+```
+
+
 ### Remove all license assignments from User
 
 Allows all direct license assignments to be removed from a user. For group-based license assignments, you would run a task to remove the user from the group the license assignment is part of.
@@ -494,7 +758,7 @@ Allows all direct license assignments to be removed from a user. For group-based
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-license-assignment-task.png" alt-text="Screenshot of Workflows task: remove all licenses from users.":::
 
-For Microsoft Graph the parameters for the **Remove all license assignment from user** task are as follows:
+For Microsoft Graph, the parameters for the **Remove all license assignment from user** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -520,11 +784,11 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 
 ### Delete User
 
-Allows cloud-only user accounts to be deleted. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be deleted. Users with Azure AD role assignments aren't supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/delete-user-task.png" alt-text="Screenshot of Workflows task: Delete user account.":::
 
 
-For Microsoft Graph the parameters for the **Delete User** task are as follows:
+For Microsoft Graph, the parameters for the **Delete User** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -548,18 +812,18 @@ For Microsoft Graph the parameters for the **Delete User** task are as follows:
 
 ```
 
-## Send email to manager before user last day
+### Send email to manager before user's last day
 
 Allows an email to be sent to a user's manager before their last day. You're able to customize the task name and the description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/send-email-before-last-day.png" alt-text="Screenshot of Workflows task: send email before user last day task.":::
 
 
-The Azure AD prerequisite to run the **Send email before user last day** task are:
+The Azure AD prerequisite to run the **Send email before user's last day** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
 
-For Microsoft Graph the parameters for the **Send email before user last day** task are as follows:
+For Microsoft Graph the parameters for the **Send email before user's last day** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -576,12 +840,29 @@ For Microsoft Graph the parameters for the **Send email before user last day** t
             "description": "Send offboarding email to user’s manager before the last day of work",
             "isEnabled": true,
             "taskDefinitionId": "52853a3e-f4e5-4eb8-bb24-1ac09a1da935",
-            "arguments": []
+            "arguments": [
+                {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "Reminder that {{userDisplayName}}'s last day is coming up."
+                },
+                {
+                "name": "customBody",
+                "value": "Hello {{managerDisplayName}}. \nThis is a reminder that {{userDisplayName}}'s last date is coming up."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                },
+    ]
 }
 
 ```
 
-## Send email on users last day
+### Send email on user's last day
 
 Allows an email to be sent to a user's manager on their last day. You're able to customize the task name and the description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/send-email-last-day.png" alt-text="Screenshot of Workflows task: task to send email last day.":::
@@ -591,7 +872,7 @@ The Azure AD prerequisite to run the **Send email on user last day** task are:
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
 
-For Microsoft Graph the parameters for the **Send email on user last day** task are as follows:
+For Microsoft Graph, the parameters for the **Send email on user last day** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
@@ -608,29 +889,46 @@ For Microsoft Graph the parameters for the **Send email on user last day** task 
             "description": "Send offboarding email to user’s manager on the last day of work",
             "isEnabled": true,
             "taskDefinitionId": "9c0a1eaf-5bda-4392-9d9e-6e155bb57411",
-            "arguments": []
+            "arguments": [
+                {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "{{userDisplayName}}'s last day"
+                },
+                {
+                "name": "customBody",
+                "value": "Hello {{managerDisplayName}}. \nThis is a reminder that {{userDisplayName}}'s last day is today, {{userEmployeeLeaveDateTime}}."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                },
+    ]
 }
 
 ```
 
-## Send offboarding email to users manager after their last day
+### Send email to user's manager after their last day
 
-Allows an email containing offboarding information to be sent to the user's manager after their last day. You're able to customize the task name and description for this task in the Azure portal.
-:::image type="content" source="media/lifecycle-workflow-task/offboard-email-manager.png" alt-text="Screenshot of Workflows task: send offboarding email to users manager after their last day.":::
+Allows an email containing off-boarding information to be sent to the user's manager after their last day. You're able to customize the task name and description for this task in the Azure portal.
+:::image type="content" source="media/lifecycle-workflow-task/offboard-email-manager.png" alt-text="Screenshot of Workflows task: send off-boarding email to users manager after their last day.":::
 
-The Azure AD prerequisite to run the **Send offboarding email to users manager after their last day** task are:
+The Azure AD prerequisite to run the **Send email to users manager after their last day** task are:
 
 - A populated manager attribute for the user.
 - A populated manager's mail attribute for the user.
 
 
-For Microsoft Graph the parameters for the **Send offboarding email to users manager after their last day** task are as follows:
+For Microsoft Graph, the parameters for the **Send email to users manager after their last day** task are as follows:
 
 |Parameter |Definition  |
 |---------|---------|
 |category    |  leaver      |
-|displayName     |  Send offboarding email to user’s manager after the last day of work (Customizable by user)       |
-|description     |  Remove user from all Teams (Customizable by user)        |
+|displayName     |  Send email to users manager after their last day      |
+|description     |  Send offboarding email to user’s manager after the last day of work (Customizable by user)        |
 |taskDefinitionId     |   6f22ddd4-b3a5-47a4-a846-0d7c201a49ce      |
 
 ```Example for usage within the workflow
@@ -641,7 +939,24 @@ For Microsoft Graph the parameters for the **Send offboarding email to users man
             "description": "Send email after user’s last day",
             "isEnabled": true,
             "taskDefinitionId": "6f22ddd4-b3a5-47a4-a846-0d7c201a49ce",
-            "arguments": []
+            "arguments": [
+                {
+                "name": "cc",
+                "value": "b47471b9-af8f-4a5a-bfa2-b78e82398f6e, a7a23ce0-909b-40b9-82cf-95d31f0aaca2"
+                },
+                {
+                "name": "customSubject",
+                "value": "{{userDisplayName}} left on {{userEmployeeLeaveDateTime}}"
+                },
+                {
+                "name": "customBody",
+                "value": "Hello {{managerDisplayName}}. This is a reminder that {{userDisplayName}} left on{{UserEmployeeLeaveDateTime}}."
+                },
+                {
+                "name": "locale",
+                "value": "en-us"
+                },
+]
 }
 
 ```

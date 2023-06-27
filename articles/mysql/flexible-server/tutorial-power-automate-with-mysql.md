@@ -1,6 +1,6 @@
 ---
-title: Create a Power Automate flow with Azure Database for MySQL Flexible Server
-description: Create a Power Automate flow with Azure Database for MySQL Flexible Server
+title: Create a Power Automate flow with Azure Database for MySQL - Flexible Server
+description: Create a Power Automate flow with Azure Database for MySQL - Flexible Server
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: sumuth
 ms.date: 1/15/2023
 ---
 
-# Tutorial: Create a Power Automate flow app with Azure Database for MySQL Flexible Server
+# Tutorial: Create a Power Automate flow app with Azure Database for MySQL - Flexible Server
 
 Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more. Here are a few examples of what you can do with Power Automate.
 
@@ -18,7 +18,7 @@ Power Automate is a service that helps you create automated workflows between yo
 - Connect to more than 500 data sources or any publicly available API
 - Perform CRUD (create, read, update, delete) operations on data 
 
-In this quickstart shows how to create an automated workflow usingPower automate flow with [Azure database for MySQL connector(Preview)](/connectors/azuremysql/).
+In this quickstart shows how to create an automated workflow usingPower automate flow with [Azure Database for MySQL connector(Preview)](/connectors/azuremysql/).
 
 ## Prerequisites
 
@@ -26,14 +26,14 @@ In this quickstart shows how to create an automated workflow usingPower automate
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free).
 
-- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
+- Create an Azure Database for MySQL - Flexible Server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
 - Populate the database server with this [sample data](https://raw.githubusercontent.com/Azure-Samples/mysql-database-samples/main/mysqltutorial.org/mysql-classicmodesl.sql).
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
 ## Overview of cloud flows
 
-Create a cloud flow when you want your automation to be triggered either automatically, instantly, or via a schedule. Here are types of flows you can create and then use with Azure database for MySQL connector.
+Create a cloud flow when you want your automation to be triggered either automatically, instantly, or via a schedule. Here are types of flows you can create and then use with Azure Database for MySQL connector.
 
 | **Flow type**                                                                       | **Use case**                                                                                  | **Automation target**                                                                             |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
@@ -58,10 +58,10 @@ Follow the steps to create an instant cloud flow with a manual trigger.
 An operation is an action. Power Automate flow allows you to add one or more advanced options and multiple actions for the same trigger. For example, add an advanced option that sends an email message as high priority. In addition to sending mail when an item is added to a list created in Microsoft Lists, create a file in Dropbox that contains the same information.
 
 1. Once the flow app is created, select **Next Step** to create an operation. 
-2. In the box that shows Search connectors and actions, enter **Azure database for MySQL**.
-3. Select **Azure database for MySQL** connector and then select **Get Rows** operation. Get rows operation allows you to get all the rows from a table or query. 
+2. In the box that shows Search connectors and actions, enter **Azure Database for MySQL**.
+3. Select **Azure Database for MySQL** connector and then select **Get Rows** operation. Get rows operation allows you to get all the rows from a table or query. 
 
-   :::image type="content" source="./media/tutorial-power-automate-with-mysql/azure-mysql-connector-add-action.png" alt-text="Screenshot that shows how to view all the actions for Azure database for MySQL connector.":::
+   :::image type="content" source="./media/tutorial-power-automate-with-mysql/azure-mysql-connector-add-action.png" alt-text="Screenshot that shows how to view all the actions for Azure Database for MySQL connector.":::
 
 5. Add a new MySQL connection and enter the **authentication type**,**server name**, **database name**, **username**, **password**. Select **encrypt connection** if SSL is enabled on your MySQL server.
 
@@ -87,4 +87,4 @@ After saving the flow, we need to test it and run the flow app.
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/run-flow-to-get-rows-from-table.png" alt-text="Screenshot that shows output of the run.":::
 
 ## Next steps
-[Azure database for MySQL connector](/connectors/azuremysql/) reference 
+[Azure Database for MySQL connector](/connectors/azuremysql/) reference 
