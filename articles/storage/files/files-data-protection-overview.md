@@ -19,7 +19,7 @@ For Azure Files, data protection refers to protecting the storage account, file 
 
 There are several reasons why you should protect your file share data.
 
-- **Recovery from accidential data loss:** Recover data that's accidentally deleted or corrupted.
+- **Recovery from accidental data loss:** Recover data that's accidentally deleted or corrupted.
 - **Upgrade scenarios:** Restore to a known good state after a failed upgrade attempt.
 - **Ransomware protection:** Recover data without paying ransom to cybercriminals.
 - **Long-term retention:** Comply with data retention requirements.

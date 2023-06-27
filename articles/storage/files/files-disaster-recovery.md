@@ -26,7 +26,7 @@ The cost of DR generally increases with lower or zero RPO/RTO. Companies that ne
 
 ## Choose the right redundancy option
 
-Azure Files offers different redundancy options to protect your data from planned and unplanned events ranging from transient hardware failures, network and power outages, to natural disasters. All Azure file shares can use locally-redundant (LRS) or zone-redundant storage (ZRS). For more information, see [Azure Files redundancy](files-redundancy.md).
+Azure Files offers different redundancy options to protect your data from planned and unplanned events ranging from transient hardware failures, network and power outages, to natural disasters. All Azure file shares can use locally redundant (LRS) or zone-redundant storage (ZRS). For more information, see [Azure Files redundancy](files-redundancy.md).
 
 Azure Files supports account failover for standard storage accounts configured with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) for protection against regional outages. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
 
@@ -58,15 +58,15 @@ To learn how to initiate an account failover, see [Initiate an account failover]
 
 Under normal circumstances, a client writes data to a storage account in the primary region, and that data is copied asynchronously to the secondary region. The following image shows the scenario when the primary region is available:
 
-![Clients write data to the storage account in the primary region](media/files-disaster-recovery/primary-available.png)
+[ ![Diagram showing how clients write data to the storage account in the primary region.](media/files-disaster-recovery/primary-available.png) ](media/files-disaster-recovery/primary-available.png#lightbox)
 
 If the primary endpoint becomes unavailable for any reason, the client is no longer able to write to the storage account. The following image shows the scenario where the primary has become unavailable, but no recovery has happened yet:
 
-![The primary is unavailable, so clients can't write data](media/files-disaster-recovery/primary-unavailable-before-failover.png)
+[ ![Diagram showing the primary is unavailable, so clients can't write data.](media/files-disaster-recovery/primary-unavailable-before-failover.png) ](media/files-disaster-recovery/primary-unavailable-before-failover.png#lightbox)
 
 The customer initiates the account failover to the secondary endpoint. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account, as shown in the following image:
 
-![Customer initiates account failover to secondary endpoint](media/files-disaster-recovery/failover-to-secondary.png)
+[ ![Diagram showing the customer initiates account failover to secondary endpoint.](media/files-disaster-recovery/failover-to-secondary.png) ](media/files-disaster-recovery/failover-to-secondary.png#lightbox)
 
 Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints remain the same after the failover.
 
