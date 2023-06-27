@@ -4,7 +4,7 @@ description: Use environment variables and create options to enable module acces
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/22/2023
+ms.date: 06/26/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -25,7 +25,7 @@ For production scenarios, use a persistent storage location on the host filesyst
 
 To set up system modules to use persistent storage:
 
-1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
+1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **StorageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
 
    :::image type="content" source="./media/how-to-access-host-storage-from-module/offline-storage-1-4.png" alt-text="Screenshot that shows how to add create options and environment variables for local storage.":::
@@ -45,7 +45,7 @@ Your deployment manifest would be similar to the following:
 "systemModules": {
     "edgeAgent": {
         "env": {
-            "storageFolder": {
+            "StorageFolder": {
                 "value": "/tmp/edgeAgent"
             }
         },
@@ -57,7 +57,7 @@ Your deployment manifest would be similar to the following:
     },
     "edgeHub": {
         "env": {
-            "storageFolder": {
+            "StorageFolder": {
                 "value": "/tmp/edgeHub"
             }
         },
@@ -74,7 +74,7 @@ Your deployment manifest would be similar to the following:
 
 ### Automatic host system permissions management
 
-On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `storageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
+On version 1.4 and newer, there's no need for manually setting ownership or permissions for host storage backing the `StorageFolder`. Permissions and ownership are automatically managed by the system modules during startup.
 
 > [!NOTE]
 > Automatic permission management of host bound storage only applies to system modules, IoT Edge agent and Edge hub. For custom modules, manual management of permissions and ownership of bound host storage is required if the custom module container isn't running as `root` user. 
