@@ -37,7 +37,7 @@ Customer can optionally override credentials to be used for a data plane request
 ### Step 1: Create or use existing Key Vault 
 Customers can create a key vault or use an existing key vault to share license credentials for satellite (Sentinel Hub) and weather (IBM Weather). Customer [creates Azure Key Vault](/azure/key-vault/general/quick-create-portal) or reuses existing an existing key vault. 
 
-Please enable following properties:
+Enable following properties:
 
 :::image type="content" source="./media/concepts-byol-and-credentials/create-key-vault.png" alt-text="Screenshot showing key vault properties.":::
 
@@ -55,7 +55,7 @@ Refer to [this guidance](/azure/key-vault/secrets/quick-create-portal#add-a-secr
 ### Step 3: Enable system identity 
 As a customer you have to enable system identity for your Data Manager for Agriculture instance. This identity is used while given secret read permissions for Azure Data Manager for Agriculture instance.
 
-Please follow one of the following methods to enable:
+Follow one of the following methods to enable:
     
 1. Via Azure portal UI
 
@@ -83,16 +83,16 @@ Add an access policy in the key vault for your Data Manager for Agriculture inst
     :::image type="content" source="./media/concepts-byol-and-credentials/access-policy-creation.png" alt-text="Screenshot showing selection create and review tab.":::
 
 ### Step 5: Invoke control plane API call
-Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2023-06-01-preview/data-connectors?tabs=HTTP) to specify connector credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the following figure.
+Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2023-06-01-preview/data-connectors) to specify connector credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the following figure.
 
 :::image type="content" source="./media/concepts-byol-and-credentials/details-key-vault.png" alt-text="Screenshot showing where key name and key version is available.":::
 
 #### Following values should be used for the connectors while invoking above APIs:
 
-|  | DataConnectorName    | Credentials            | 
-|------------------------|----------------------|------------------------|
-| For SatelliteSentinelHub  connector | SatelliteSentinelHub | OAuthClientCredentials |
-| For WeatherIBM connector             | WeatherIBM           | ApiKeyAuthCredentials  |
+| Scenario | DataConnectorName | Credentials | 
+|--|--|--|
+| For Satellite SentinelHub connector | SatelliteSentinelHub | OAuthClientCredentials |
+| For Weather IBM connector | WeatherIBM | ApiKeyAuthCredentials |
 
 ## Overriding connector details
 As part of Data plane APIs, customer can choose to override the connector details that need to be used for that request.
