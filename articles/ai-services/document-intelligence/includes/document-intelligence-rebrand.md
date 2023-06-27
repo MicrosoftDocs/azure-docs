@@ -1,2 +1,2 @@
 > [!NOTE]
-> Form Recognizer has been rebranded to Document Intelligence.
+> Document Intelligence has been rebranded to Document Intelligence.

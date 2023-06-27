@@ -25,7 +25,7 @@ zone_pivot_groups: programming-languages-set-formre
 ::: moniker-end
 
 ::: moniker range="form-recog-3.0.0"
- In this guide, you learn how to add Document Intelligence models to your applications and workflows using a programming language SDK of your choice or the REST API. Azure AI Document Intelligence is a cloud-based Azure Applied AI Service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service as you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+ In this guide, you learn how to add Document Intelligence models to your applications and workflows using a programming language SDK of your choice or the REST API. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service as you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 Choose from the following Document Intelligence models to analyze and extract data and values from forms and documents:
 
@@ -108,7 +108,7 @@ Congratulations! You've learned to use Document Intelligence models to analyze v
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
-In this how-to guide, you learn how to add Document Intelligence to your applications and workflows using an SDK, in a programming language of your choice, or the REST API. Azure AI Document Intelligence is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+In this how-to guide, you learn how to add Document Intelligence to your applications and workflows using an SDK, in a programming language of your choice, or the REST API. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 You use the following APIs to extract structured data from forms and documents:
 

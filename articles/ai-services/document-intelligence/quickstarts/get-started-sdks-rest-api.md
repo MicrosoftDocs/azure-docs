@@ -25,7 +25,7 @@ zone_pivot_groups: programming-languages-set-formre
 
 ::: moniker range="form-recog-3.0.0"
 
-Get started with the latest version of Azure AI Document Intelligence. Azure AI Document Intelligence is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with the latest version of Azure AI Document Intelligence. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
 
@@ -91,7 +91,7 @@ In this quickstart, you used a form Document Intelligence model to analyze vario
 
 ::: moniker range="form-recog-2.1.0"
 
-Get started with Azure AI Document Intelligence using the programming language of your choice or the REST API. Azure AI Document Intelligence is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Document Intelligence models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure AI Document Intelligence using the programming language of your choice or the REST API. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Document Intelligence models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
 

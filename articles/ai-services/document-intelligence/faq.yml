@@ -21,7 +21,7 @@ sections:
           What is Document Intelligence?
         answer: |
 
-          Azure AI Document Intelligence is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
+          Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 
           Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
@@ -71,7 +71,7 @@ sections:
           How is Document Intelligence related to OCR?
         answer: |
 
-          Azure AI Document Intelligence is a cloud-based Azure Applied AI Service that is built using optical character recognition (OCR), Text Analytics, and Custom Text from Azure AI services.
+          Azure AI Document Intelligence is a cloud-based Azure AI service that is built using optical character recognition (OCR), Text Analytics, and Custom Text from Azure AI services.
 
           OCR is used to extract typeface and handwritten text documents.
 
