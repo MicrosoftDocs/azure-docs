@@ -37,8 +37,6 @@ To complete this tutorial, make sure you have:
 
 - An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 
-- A Log Analytics workspace with the Microsoft Sentinel solution deployed on it and data being ingested into it.
-
 - An Azure user with the following roles assigned on the following resources: 
     - [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) on the Log Analytics workspace where Microsoft Sentinel is deployed. 
     - [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor), and **Owner** or equivalent, on whichever resource group will contain the playbook created in this tutorial.
@@ -47,23 +45,26 @@ To complete this tutorial, make sure you have:
 
 - Filled the [Logic App prerequisites](/logic-apps/logic-apps-create-variables-store-values#prerequisites). 
 
-## Sign in to the Azure portal and open Logic App Designer
+## Create a playbook with an incident trigger
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
+1. On the left, select **Automation**, and on the top left of the **Automation** page, select **Create** > **Playbook with incident trigger**.
+1. In the **Create playbook** wizard, under **Basics**, select the subscription and resource group, and give the playbook a name. 
+1. Select **Next: Connections >**.
 
-1. Open the **Microsoft Sentinel incident (Preview)** logic app in the Logic App Designer.
+    Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible.
 
-## Create a playbook
+    TBD - screenshot
 
-1. Create a playbook with an incident trigger only, using an existing incident.
-1. Save the playbook, and run it manually on the incident. This allows you to get the scheme to help define the data.
+1. Select **Next: Review and create >**.
+1. Under **Review and create**, select **Create and continue to designer**.
 
-    TBD - SCREENSHOT 
+    The Logic app designer opens a logic app with the name of your playbook.
 
 ## Initialize an Array variable
 
-1. In your logic app, under the step where you want to add a variable, select **New step**.
-1. Under **Choose an action**, in the search box, enter *variables* as your filter. From the actions list, select **Initialize variable**.
+1. In the Logic app designer, under the step where you want to add a variable, select **New step**.
+1. Under **Choose an operation**, in the search box, enter *variables* as your filter. From the actions list, select **Initialize variable**.
 1. Provide this information about your variable:
 
     - For the variable name, use *Entities*. 
@@ -72,16 +73,33 @@ To complete this tutorial, make sure you have:
 
     TBD - SCREENSHOT  
 
+## Select an existing incident
+
+1. In Microsoft Sentinel, navigate to **Incidents** and select an incident on which you want to run the playbook. 
+1. In the incident page on the right, select **Actions > Run playbook (Preview**).
+1. Under **Playbooks**, next to the [playbook you created](#create-a-playbook-with-an-incident-trigger), select **Run**.
+
+    When the playbook is triggered, a **Playbook is triggered successfully** message is visible on the top right.
+
+    TBD - screenshot
+
+1. Select **Runs**, and next to your playbook, select **View Run**.
+
+    The **Logic app run** page is visible.
+
+1. Under **Initialize variable**, the schema is visible under **Show raw inputs**. Note the sample payload for later use.
+
 ## Filter the required entity type from other entity types
 
-1. Back in your logic app, under the step where you want to add a variable, select **New step**.
+1. Navigate back to the **Automation** page and select your playbook. 
+1. Under the step where you want to add a variable, select **New step**.
 1. Under **Choose an action**, in the search box, enter *filter array* as your filter. From the actions list, select **Data operations**.
 
     TBD - SCREENSHOT
 
 1. Provide this information about your filter array: 
 
-    1. Under **From** > **Dynamic content**, select the **Entities** variable you initialized previously.
+    1. Under **From** > **Dynamic content**, select the [**Entities** variable you initialized previously](#initialize-an-array-variable).
     1. Select the first **Choose a value** field (on the left), and select **Expression**. 
     1. Paste the value *item()?['kind']*, and select **OK**. 
 
@@ -91,7 +109,7 @@ To complete this tutorial, make sure you have:
     1. In the second **Choose a value** field (on the right), type *Process*. This needs to be an exact match to the value in the system. 
 
         > [!NOTE]
-        > This query is case-sensitive. Ensure that the `kind` value matches the value in the sample payload. See the best practice when you [create a playbook](#create-a-playbook). 
+        > This query is case-sensitive. Ensure that the `kind` value matches the value in the sample payload. See the sample payload from when you [create a playbook](#create-a-playbook-with-an-incident-trigger). 
 
         TBD - SCREENSHOT
 
@@ -105,7 +123,7 @@ To complete this tutorial, make sure you have:
 
     TBD - SCREENSHOT
 
-    - Under **Schema**, paste a JSON schema so that you can extract values from an array. Use the sample payload you generated when you [created the playbook](#create-a-playbook).  
+    1. Under **Schema**, paste a JSON schema so that you can extract values from an array. Use the sample payload you generated when you [created the playbook](#create-a-playbook-with-an-incident-trigger).  
 
         TBD - SCREENSHOT
 
@@ -130,14 +148,6 @@ TBD - SCREENSHOT
 ## Ensure that your playbook is saved
 
 Ensure that the playbook is saved, and you can now use your playbook for SOC operations. 
-
-## Clean up resources
-
-If you're not going to continue to use this application, delete
-these resources with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, enter...and then click Delete
 
 ## Next steps
 
