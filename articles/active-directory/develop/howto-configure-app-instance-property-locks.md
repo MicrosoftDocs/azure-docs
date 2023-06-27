@@ -52,3 +52,8 @@ To configure an app instance lock using the Azure portal:
    | **Token Encryption KeyId**                                | Locks the ability to change the `tokenEncryptionKeyId` property.  | 
 
 3. Select **Save** to save your changes.
+
+
+## Configure app instance lock using Microsoft Graph
+
+You manage the app instance lock feature through the **servicePrincipalLockConfiguration** property of the [application](/graph/api/resources/application) object of the multi-tenant app. For more information, see [Lock sensitive properties for service principals](/graph/tutorial-applications-basics#lock-sensitive-properties-for-service-principals).
