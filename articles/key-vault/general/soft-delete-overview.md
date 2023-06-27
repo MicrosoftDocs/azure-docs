@@ -41,7 +41,7 @@ When soft-delete is enabled, resources marked as deleted resources are retained 
 
 When creating a new key vault, soft-delete is on by default. Once soft-delete is enabled on a key vault it cannot be disabled.
 
-The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
+The retention policy interval can only be configured during key vault creation and cannot be changed afterwards. You have the option to set it anywhere from 7 to 90 days, with 90 days being the default. The same interval applies to both soft-delete and the purge protection retention policy.
 
 You cannot reuse the name of a key vault that has been soft-deleted until the retention period has passed.
 
