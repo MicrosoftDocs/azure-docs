@@ -1,9 +1,9 @@
 ---
 title: Azure monitoring REST API walkthrough
-description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
+description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions, metric values, and activity logs.
 author: EdB-MSFT
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 06/27/2023
 ms.custom: has-adal-ref
 ms.reviewer: edbaynash
 ---
@@ -476,35 +476,36 @@ The following JSON shows an example response body.
 
 ## Querying metrics for multiple resources at a time.
 
-In addition to querying for metrics on an individual resource, some resource types also support querying for multiple resources in a single request. These APIs are what power the [Multi-Resource experience in Azure metrics explorer](/metrics-dynamic-scope).
-To see the set of resources types that supports this mode of querying for multiple metrics, go to the [Metrics blade in Azure monitor](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics) and view the resource type drop down in the scope selector context blade on the right. 
+In addition to querying for metrics on an individual resource, some resource types also support querying for multiple resources in a single request. These APIs are what power the [Multi-Resource experience in Azure metrics explorer](./metrics-dynamic-scope). The set of resources types that support querying for multiple metrics can be seen on the [Metrics blade in Azure monitor](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics) via the resource type drop-down in the scope selector context blade. See the [Multi-Resource UX documentation](./metrics-dynamic-scope) for more details.
 
 Here are some important differences between querying metrics for multiple resources vs individual resources.
-1) Metrics multi-resource APIs operate at the subscription level instead of the resource id level. This means users querying these APIs must have reader access to the entire subscription.
+1) Metrics multi-resource APIs operate at the subscription level instead of the resource id level. This restriction means users querying these APIs must have reader access to the entire subscription.
 2) Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
 3) Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
 
 ### Querying metrics for multiple resources Examples:
 
-Here is an example of an individual metricdefinitions request:
+Here's an example of an individual metricdefinitions request:
 ```
-https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01
-```
-This is the equivalent metricdefinitions request for multiple resources:
-```
-https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01
 ```
 
-Here is an example of an individual metrics request:
+This request shows the equivalent metricdefinitions request for multiple resources: 
 ```
-https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines
 ```
-This is the equivalent metrics request for multiple resources:
+Notice the only changes are subscription path instead of a resource id path, and the additon of "region" and "metricNamespace" query parameters.
+
+Here's an example of an individual metrics request:
 ```
-https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01
 ```
-Notice that for the multi resource metrics requests, an additional Microsoft.ResourceId eq '*' filter is added as well. This is so a separate time series is returned per virtual machine resource in that subscription and region rather than getting a single timeseries aggregating the average CPU for all VMs.
-The timeseries for each resource is differentiated by the Microsoft.ResourceId metadata value on each timeseries entry.
+
+This request shows the the equivalent metrics request for multiple resources:
+```
+GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
+```
+Notice that for the multi resource metrics requests, a "Microsoft.ResourceId eq '*'" filter is added as well. That filter tells the API to return a separate time series per virtual machine resource in that subscription and region. Without that filter the API would return a single time series aggregating the average CPU for all VMs. The times eries for each resource is differentiated by the Microsoft.ResourceId metadata value on each time series entry, as can be seen below in the sample return value.
 
 ```JSON
 {
