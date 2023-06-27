@@ -2,7 +2,7 @@
 title: Reference table for all Microsoft Defender for Cloud recommendations for AWS resources
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your AWS resources.
 ms.topic: reference
-ms.date: 06/15/2023
+ms.date: 06/27/2023
 ms.custom: generated
 ---
 
@@ -27,7 +27,7 @@ impact on your secure score.
 
 ### Data plane recommendations
 
-All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections) are supported under AWS after [enabling the Azure policy extension](<link to the relevant section you are currently creating here>). 
+All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections) are supported under AWS after [enabling the Azure policy extension](kubernetes-workload-protections.md#deploy-the-add-on-to-specified-clusters). 
 
 ## <a name='recs-aws-data'></a> AWS Data recommendations
 
