@@ -458,7 +458,7 @@ To restore an entire VM, complete these steps:
 1. [Stop and delete the VM](#stop-and-delete-the-vm).
 1. [Recover the VM](#recover-the-vm).
 1. [Set the public IP address](#set-the-public-ip-address).
-1. [Perform database recovery](#recovery-after-complete-vm-restore).
+1. [Recover the database](#recover-the-database).
 
 There are two main choices when you're restoring a VM:
 
@@ -749,7 +749,7 @@ After the VM is restored, you should reassign the original IP address to the new
 
 ---
 
-## Database recovery
+### Recover the database
 
 To recover a database after a complete VM restore:
 
