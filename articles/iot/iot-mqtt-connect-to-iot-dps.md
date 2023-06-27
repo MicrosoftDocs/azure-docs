@@ -54,7 +54,7 @@ If a device can't use the device SDKs, it can still connect to the public device
 
 The following list contains DPS implementation-specific behaviors:
 
- * DPS doesn't support persistent sessions. It treats every session as nonpersistent, regardless of the value of the **CleanSession** flag. We recommend setting **CleanSession** to true.
+ * DPS doesn't support persistent sessions. It treats every session as non-persistent, regardless of the value of the **CleanSession** flag. We recommend setting **CleanSession** to true.
 
  * When a device app subscribes to a topic with **QoS 2**, DPS grants maximum QoS level 1 in the **SUBACK** packet. After that, DPS delivers messages to the device using QoS 1.
 
