@@ -46,12 +46,10 @@ You can enforce this behavior by creating a dedicated system node pool. Use the 
 
 The User Pool, on the other hand, is designed for your applications. This dedicated space allows you to run your applications separately from the system workloads. If you wish to ensure that your application Pods run exclusively on the User Pool, you can schedule your application Pods here.
 
-## Conclusion
+## Next steps
 
 Choosing how to utilize your System Pool and User Pool depends largely on your specific requirements and use case. Both dedicated and shared methods offer unique advantages. Dedicated pools can isolate workloads and provide guaranteed resources, while shared pools can optimize resource usage across the cluster.
 
 Always consider your cluster's resource capacity, the nature of your workloads, and the required level of resiliency when making your decision. By managing and understanding these node pools effectively, you can optimize your Nexus Kubernetes cluster to best fit your operational needs.
 
-
-## Next steps
- Refer to the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.
+Refer to the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.

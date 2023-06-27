@@ -15,6 +15,9 @@ In this article, you learn how to enable huge-page settings during the creation 
 
 This configuration is especially advantageous for data plane applications, as it enables the applications to efficiently handle larger datasets and perform memory-intensive operations. As a result, you can experience improved performance and optimize resource utilization for your data plane workloads.
 
+> [!NOTE]
+> Huge-page configuration does not apply to Kubernetes control plane nodes.
+
 ## Prerequisites
 
 Before proceeding with this how-to guide, it's recommended that you:
