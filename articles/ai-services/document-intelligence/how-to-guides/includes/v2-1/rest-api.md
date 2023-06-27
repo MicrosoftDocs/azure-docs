@@ -1,6 +1,6 @@
 ---
-title: "Use Azure Form Recognizer REST API v2.1"
-description: Use the Form Recognizer REST API v2.1 to create a forms processing app that extracts key data from documents.
+title: "Use Azure AI Document Intelligence REST API v2.1"
+description: Use the Document Intelligence REST API v2.1 to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -16,9 +16,9 @@ ms.author: lajanuar
 
 > [!NOTE]
 >
-> * This project targets Azure Form Recognizer API version **2.1** using cURL to execute REST API calls.
+> * This project targets Azure AI Document Intelligence API version **2.1** using cURL to execute REST API calls.
 
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
 
 ## Prerequisites
 
@@ -26,8 +26,8 @@ ms.author: lajanuar
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true) for tips and options for putting together your training data set. You can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code samples later in the project
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource"  target="_blank">create a Document Intelligence resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code samples later in the project
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A URL for an **image of a receipt**. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
 * A URL for an **image of a business card**. You can use a [sample image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
@@ -37,9 +37,9 @@ ms.author: lajanuar
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze and extract tables, selection marks, text, and structure in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md). Before you run the command, make these changes:
+You can use Document Intelligence to analyze and extract tables, selection marks, text, and structure in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md). Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `\"{your-document-url}` with one of the example URLs.
 
@@ -65,7 +65,7 @@ https://cognitiveservice/formrecognizer/v2/layout/analyzeResults/54f0b076-4e38-4
 
 After you've called the **[Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)** API, you call the **[Get Analyze Layout Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{resultId}` with the result ID from the previous step.
 <!-- markdownlint-disable MD024 -->
@@ -215,7 +215,7 @@ This output has been shortened for simplicity. See the [full sample output on Gi
 
 This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../../concept-receipt.md). To start analyzing a receipt, call the **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)** API using the cURL command. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{your receipt URL}` with the URL address of a receipt image.
 1. Replace `{key>` with the key you copied from the previous step.
 
@@ -241,7 +241,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/operations/54f0b07
 
 After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence key. You can find it on your Document Intelligence resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{key}` with your key.
 
@@ -594,7 +594,7 @@ This output has been shortened for readability. See the [full sample output on G
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../../concept-business-card.md). To start analyzing a business card, you call the **[Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)** API using the cURL command. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{your business card URL}` with the URL address of a receipt image.
 1. Replace `{key}` with the key you copied from the previous step.
 
@@ -620,7 +620,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/businessCard/analyzeResult
 
 After you've called the **Analyze Business Card** API, you call the **[Get Analyze Business Card Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence key. You can find it on your Document Intelligence resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{key}` with your key.
 
@@ -755,9 +755,9 @@ The script prints responses to the console until the **Analyze Business Card** o
 
 ## Analyze invoices
 
-You can use Form Recognizer to extract field text and semantic values from a given invoice document.  To start analyzing an invoice, use the cURL command. For more information about invoice analysis, see the [Invoice conceptual guide](../../../concept-invoice.md). To start analyzing an invoice, call the **[Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command. Before you run the command, make these changes:
+You can use Document Intelligence to extract field text and semantic values from a given invoice document.  To start analyzing an invoice, use the cURL command. For more information about invoice analysis, see the [Invoice conceptual guide](../../../concept-invoice.md). To start analyzing an invoice, call the **[Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{your invoice URL}` with the URL address of an invoice document.
 1. Replace `{key}` with your key.
 
@@ -783,7 +783,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/54f
 
 After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9acb78c40a2533aee83)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence key. You can find it on your Document Intelligence resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{key}` with your key.
 
@@ -967,7 +967,7 @@ This JSON content has been shortened for readability. See the [full sample outpu
 
 To start analyzing an identification document, use the cURL command. For more information about ID document analysis, see the [ID documents conceptual guide](../../../concept-id-document.md). To start analyzing an ID document, you call the **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** API using the cURL command. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{your ID document URL}` with the URL address of a receipt image.
 1. Replace `{key}` with the key you copied from the previous step.
 
@@ -993,7 +993,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/prebuilt/idDocume
 
 After you've called the **Analyze ID Document** API, call the **[Get Analyze ID Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822)** API to get the status of the operation and the extracted data.  Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence key. You can find it on your Document Intelligence resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{key}` with your key.
 
@@ -1184,13 +1184,13 @@ To train a custom model, you need a set of training data in an Azure Storage blo
 Training without labeled data is the default operation and is simpler. Alternatively, you can manually label some or all of your training data beforehand. Manual labeling is a more complex process but results in a better trained model.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../../label-tool.md).
+> You can also train models with a graphical user interface such as the [Document Intelligence Sample Labeling tool](../../../label-tool.md).
 
 ### Train a model without labels
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
+To train a Document Intelligence model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL.
 
@@ -1218,11 +1218,11 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/77d
 
 ### Train a model with labels
 
-To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
 
 Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. 
 
@@ -1252,7 +1252,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/4da
 
 After you've started the train operation, use **[Get Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel)** to check the training status. Pass the model ID into the API request to check the training status:
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer key.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence key.
 1. Replace `{key}` with your key
 1. Replace `{model ID}` with the model ID you received in the previous step
 
@@ -1266,7 +1266,7 @@ curl -X GET "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId}" -H 
 
 Next, you use your newly trained model to analyze a document and extract fields and tables from it. Call the **[Analyze Form](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)** API by running the following cURL command. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint that you obtained from your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained from your Document Intelligence key. You can find it on your Document Intelligence resource **Overview** tab.
 1. Replace `{model ID}` with the model ID that you received in the previous section.
 1. Replace `{SAS URL}` with an SAS URL to your file in Azure storage. Follow the steps in the Training section, but instead of getting a SAS URL for the whole blob container, get one for the specific file you want to analyze.
 1. Replace `{key}` with your key.
@@ -1293,7 +1293,7 @@ Save this results ID for the next step.
 
 Call the Get **[Analyze Form Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeFormResult)** API to query the results of the Analyze operation.
 
-1. Replace `{endpoint}` with the endpoint that you obtained from your Form Recognizer key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `{endpoint}` with the endpoint that you obtained from your Document Intelligence key. You can find it on your Document Intelligence resource **Overview** tab.
 1. Replace `{result ID}` with the ID that you received in the previous section.
 1. Replace `{key}` with your key.
 
@@ -1464,7 +1464,7 @@ This sample JSON output has been shortened for simplicity. See the [full sample 
 
 Use the **[List Custom Models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels)** API in the following command to return a list of all the custom models that belong to your subscription.
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
 
 #### Request
@@ -1501,7 +1501,7 @@ You receive a `200` success response, with JSON data like the following. The `"m
 
 To retrieve detailed information about a specific custom model, use the **[Get Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel)** API in the following command.
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
 
@@ -1557,7 +1557,7 @@ You receive a `200` success response, with JSON data like the following.
 
 You can also delete a model from your account by referencing its ID. This command calls the **[Delete Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel)** API to delete the model used in the previous section.
 
-1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
 
@@ -1571,7 +1571,7 @@ You receive a `204` success response, indicating that your model is marked for d
 
 ## Next steps
 
-For this project, you used the Form Recognizer REST API to analyze forms in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+For this project, you used the Document Intelligence REST API to analyze forms in different ways. Next, explore the reference documentation to learn about Document Intelligence API in more depth.
 
 > [!div class="nextstepaction"]
 > [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

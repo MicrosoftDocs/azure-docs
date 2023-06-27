@@ -1,5 +1,5 @@
 ---
-title: Form Recognizer v3.0 content
+title: Document Intelligence v3.0 content
 description: include file
 author: laujan
 ms.author: lajanuar
@@ -10,4 +10,4 @@ ms.topic: include
 ms.date: 11/11/2022
 ---
 
-**This article applies to:** ![Form Recognizer v3.0 checkmark](../media/yes-icon.png) **Form Recognizer v3.0**. **Earlier version:** [Form Recognizer v2.1](?view=form-recog-2.1.0&preserve-view=true)
+**This article applies to:** ![Document Intelligence v3.0 checkmark](../media/yes-icon.png) **Document Intelligence v3.0**. **Earlier version:** [Document Intelligence v2.1](?view=form-recog-2.1.0&preserve-view=true)

@@ -1,6 +1,6 @@
 ---
-title: Custom neural document model - Form Recognizer
-titleSuffix: Azure Applied AI Services
+title: Custom neural document model - Document Intelligence
+titleSuffix: Azure AI services
 description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
 author: laujan
 manager: nitinme
@@ -15,7 +15,7 @@ monikerRange: 'form-recog-3.0.0'
 
 # Custom neural document model
 
-**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+**This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
 
 Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
@@ -73,7 +73,7 @@ Tabular fields are also useful when extracting repeating information within a do
 
 ## Supported regions
 
-As of October 18, 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
+As of October 18, 2022, Document Intelligence custom neural model training will only be available in the following Azure regions until further notice:
 
 * Australia East
 * Brazil South
@@ -98,7 +98,7 @@ As of October 18, 2022, Form Recognizer custom neural model training will only b
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
-> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
 
 ## Best practices
 
@@ -136,7 +136,7 @@ Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Document Intelligence 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 

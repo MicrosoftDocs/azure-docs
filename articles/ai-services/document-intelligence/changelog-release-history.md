@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer changelog and release history
-titleSuffix: Azure Applied AI Services
-description: A version-based description of Form Recognizer feature and capability releases, changes, enhancements,  and updates.
+title: Document Intelligence changelog and release history
+titleSuffix: Azure AI services
+description: A version-based description of Document Intelligence feature and capability releases, changes, enhancements,  and updates.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -17,9 +17,9 @@ ms.author: lajanuar
 
 # Changelog and release history
 
-This reference article provides a version-based description of Form Recognizer feature and capability releases, changes, updates, and enhancements.
+This reference article provides a version-based description of Document Intelligence feature and capability releases, changes, updates, and enhancements.
 
-#### Form Recognizer SDK April 2023 preview release
+#### Document Intelligence SDK April 2023 preview release
 
 This release includes the following updates:
 
@@ -81,7 +81,7 @@ This release includes the following updates:
 
 ---
 
-#### Form Recognizer SDK September 2022 GA release
+#### Document Intelligence SDK September 2022 GA release
 
 This release includes the following updates:
 
@@ -153,7 +153,7 @@ This release includes the following updates:
 
 ---
 
-#### Form Recognizer SDK beta August 2022 preview release
+#### Document Intelligence SDK beta August 2022 preview release
 
 This release includes the following updates:
 
@@ -206,7 +206,7 @@ This release includes the following updates:
 
 ---
 
-### Form Recognizer SDK beta June 2022 preview release
+### Document Intelligence SDK beta June 2022 preview release
 
 This release includes the following updates:
 

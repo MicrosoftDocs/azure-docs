@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer SDKs 
-titleSuffix: Azure Applied AI Services
-description: Form Recognizer software development kits (SDKs) expose Form Recognizer models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
+title: Document Intelligence SDKs 
+titleSuffix: Azure AI services
+description: Document Intelligence software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -17,20 +17,20 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Form Recognizer SDK (GA)
+# Document Intelligence SDK (GA)
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 > [!IMPORTANT]
-> For more information on the latest public preview version (**2023-02-28-preview**), *see* [Form Recognizer SDK (preview)](sdk-preview.md)
+> For more information on the latest public preview version (**2023-02-28-preview**), *see* [Document Intelligence SDK (preview)](sdk-preview.md)
 
-Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to analyze text and structured data from documents. The Form Recognizer software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Form Recognizer models and capabilities into your applications. Form Recognizer SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
+Azure AI services Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
 ## Supported languages
 
-Form Recognizer SDK supports the following languages and platforms:
+Document Intelligence SDK supports the following languages and platforms:
 
-| Language → Azure Form Recognizer SDK version | Package| Supported API version| Platform support |
+| Language → Azure AI Document Intelligence SDK version | Package| Supported API version| Platform support |
 |:----------------------:|:----------|:----------| :----------------|
 | [.NET/C# → 4.0.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer)|[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
 |[Java → 4.0.6 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.6) |[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
@@ -48,9 +48,9 @@ Form Recognizer SDK supports the following languages and platforms:
 | Python | 3.1.x |  v2.1 (default)</br>v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 | Python | 3.0.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
 
-## Use Form Recognizer SDK in your applications
+## Use Document Intelligence SDK in your applications
 
-The Form Recognizer SDK enables the use and management of the Form Recognizer service in your application. The SDK builds on the underlying Form Recognizer REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Form Recognizer SDK for your preferred language:
+The Document Intelligence SDK enables the use and management of the Document Intelligence service in your application. The SDK builds on the underlying Document Intelligence REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Document Intelligence SDK for your preferred language:
 
 ### 1. Install the SDK client library
 
@@ -129,13 +129,13 @@ from azure.core.credentials import AzureKeyCredential
 
 There are two supported methods for authentication
 
-* Use a [Form Recognizer API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
+* Use a [Document Intelligence API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
 
 * Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 #### Use your API key
 
-Here's where to find your Form Recognizer API key in the Azure portal:
+Here's where to find your Document Intelligence API key in the Azure portal:
 
 :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint location in the Azure portal.":::
 
@@ -203,7 +203,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.ide
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret in the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -232,7 +232,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -260,7 +260,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -287,7 +287,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -310,16 +310,16 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### 4. Build your application
 
-Create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
+Create a client object to interact with the Document Intelligence SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
 
 ## Help options
 
-The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-form-recognizer) forums are available for the developer community to ask and answer questions about Azure Form Recognizer and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
+The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-form-recognizer) forums are available for the developer community to ask and answer questions about Azure AI Document Intelligence and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Explore Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+> [**Explore Document Intelligence REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
-> [**Try a Form Recognizer quickstart**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> [**Try a Document Intelligence quickstart**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

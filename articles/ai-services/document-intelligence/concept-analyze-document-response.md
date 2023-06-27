@@ -1,6 +1,6 @@
 ---
-title: Form Recognizer APIs analyze document response
-titleSuffix: Azure Applied AI Services
+title: Document Intelligence APIs analyze document response
+titleSuffix: Azure AI services
 description: Description of the different objects returned as part of the analyze document response and how to use the document analysis response in your applications.
 author: laujan
 manager: nitinme
@@ -18,7 +18,7 @@ In this article, let's examine the different objects returned as part of the ana
 
 ## Analyze document request
 
-The Form Recognizer APIs analyze images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction).
+The Document Intelligence APIs analyze images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction).
 
 ### Response elements
 
@@ -33,7 +33,7 @@ The Form Recognizer APIs analyze images, PDFs, and other document files to extra
 All content elements are grouped according to pages, specified by page number (`1`-indexed).  They're also sorted by reading order that arranges semantically contiguous elements together, even if they cross line or column boundaries.  When the reading order among paragraphs and other layout elements is ambiguous, the service generally returns the content in a left-to-right, top-to-bottom order.
 
 > [!NOTE]
-> Currently, Form Recognizer does not support reading order across page boundaries.  Selection marks are not positioned within the surrounding words.
+> Currently, Document Intelligence does not support reading order across page boundaries.  Selection marks are not positioned within the surrounding words.
 
 The top-level content property contains a concatenation of all content elements in reading order.  All elements specify their position in the reader order via spans within this content string.  The content of some elements may not be contiguous.
 
@@ -68,13 +68,13 @@ Bounding regions describe the visual position of each element in the file. Since
 :::image type="content" source="media/bounding-regions.png" alt-text="Screenshot of detected bounding regions example.":::
 
 > [!NOTE]
-> Current Form Recognizer only returns 4-vertex quadrilaterals as bounding polygons.  Future versions may return different number of points to describe more complex shapes, such as curved lines or non-rectangular images. Bounding regions applied only to rendered files, if the file is not rendered, bounding regions are not returned. Currently files of docx/xlsx/pptx/html format are not rendered.
+> Current Document Intelligence only returns 4-vertex quadrilaterals as bounding polygons.  Future versions may return different number of points to describe more complex shapes, such as curved lines or non-rectangular images. Bounding regions applied only to rendered files, if the file is not rendered, bounding regions are not returned. Currently files of docx/xlsx/pptx/html format are not rendered.
 
 ### Content elements
 
 #### Word
 
-A word is a content element composed of a sequence of characters.  In Form Recognizer, a word is defined as a sequence of adjacent characters, with whitespace separating words from one another.  For languages that don't use space separators between words each character is returned as a separate word, even if it doesn't represent a semantic word unit.
+A word is a content element composed of a sequence of characters.  In Document Intelligence, a word is defined as a sequence of adjacent characters, with whitespace separating words from one another.  For languages that don't use space separators between words each character is returned as a separate word, even if it doesn't represent a semantic word unit.
 
 :::image type="content" source="media/word-boundaries.png" alt-text="Screenshot of detected words example.":::
 
@@ -168,7 +168,7 @@ A language element describes the detected language for content specified via spa
 A document is a semantically complete unit.  A file may contain multiple documents, such as multiple tax forms within a PDF file, or multiple receipts within a single page.  However, the ordering of documents within the file doesn't fundamentally affect the information it conveys.
 
 > [!NOTE]
-> Current Form Recognizer does not support multiple documents on a single page.
+> Current Document Intelligence does not support multiple documents on a single page.
 
 The document type describes documents sharing a common set of semantic fields, represented by a structured schema, independent of its visual template or layout.  For example, all documents of type "receipt" may contain the merchant name, transaction date, and transaction total, although restaurant and hotel receipts often differ in appearance.
 
@@ -269,6 +269,6 @@ The semantic schema of a document type is described via the fields it may contai
 
 ## Next steps
 
-* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

@@ -2,22 +2,22 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Applied AI Services
+  - name: Azure AI services
     tocHref: /azure/applied-ai-services/
     topicHref: /azure/applied-ai-services/index
     items:
-    - name: Form Recognizer
+    - name: Document Intelligence
       tocHref: /azure/ai-services/
       topicHref: /azure/applied-ai-services/form-recognizer/index
 - name: Azure
   tocHref: /legal/
   topicHref: /azure/index
   items:
-  - name: Applied AI Services                # Original doc set name
+  - name: Azure AI services                # Original doc set name
     tocHref: /legal/cognitive-services/form-recognizer    # Destination doc set route
     topicHref: /azure/applied-ai-services/index    # Original doc set route
     items:
-    - name: Form Recognizer           # Destination doc set name
+    - name: Document Intelligence           # Destination doc set name
       tocHref: /legal/cognitive-services/form-recognizer      # Destination doc set route
       topicHref: /azure/ai-services/form-recognizer/index    # Original doc set route
 
