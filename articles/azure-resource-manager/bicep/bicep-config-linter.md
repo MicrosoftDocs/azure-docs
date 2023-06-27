@@ -97,7 +97,8 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-recent-api-versions": {
-          "level": "warning"
+          "level": "warning",
+          "maxAllowedAgeInDays": 730
         },
         "use-resource-id-functions": {
           "level": "warning"

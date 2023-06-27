@@ -28,7 +28,7 @@ The following table provides a list of high-level features and capabilities comp
 | **General**  | | |
 | General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
-| Supported versions | 10, 11 | 11, 12, 13, 14 |
+| Supported versions | 10, 11 | 11, 12, 13, 14 , 15(preview) |
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
@@ -79,7 +79,7 @@ The following table provides a list of high-level features and capabilities comp
 | **Logical Replication** | | |
 | Support for logical decoding | Yes | Yes |
 | Support for native logical replication | No | Yes |
-| Support for PgLogical extension | No | Yes |
+| Support for pglogical extension | No | Yes |
 | Support logical replication with HA | N/A | [Limited](concepts-high-availability.md#high-availability---limitations) |
 | **Disaster Recovery** | | |
 | Cross region DR | Using read replicas, geo-redundant backup | Using read replicas, Geo-redundant backup (in [selected regions](overview.md#azure-regions)) |
@@ -95,7 +95,7 @@ The following table provides a list of high-level features and capabilities comp
 | Ability to restore to a different region | Yes (Geo-redundant) | Yes (in [selected regions](overview.md#azure-regions)) |
 | Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
-| Support for read replicas | Yes | Yes (Preview) |
+| Support for read replicas | Yes | Yes |
 | Number of read replicas | 5 | 5 |
 | Mode of replication | Async | Async |
 | Cross-region support | Yes | Yes |
@@ -111,11 +111,11 @@ The following table provides a list of high-level features and capabilities comp
 | Traffic | Active connections, Network In, Network out | Active connections, Max. used transaction ID, Network In, Network Out, succeeded connections |
 | **Extensions** | | (offers latest versions)|
 | TimescaleDB, orafce | Yes | Yes |
-| PgCron, lo, pglogical | No | Yes |
+| pg_cron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
 | **Security** | | |
-| Azure Active Directory Support(AAD) | Yes | Yes |
-| Customer managed encryption key(BYOK) | Yes | Yes |
+| Azure Active Directory Support (AAD) | Yes | Yes |
+| Customer managed encryption key (BYOK) | Yes | Yes |
 | SCRAM Authentication (SHA-256) | No | Yes |
 | Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
@@ -124,7 +124,7 @@ The following table provides a list of high-level features and capabilities comp
 | Resource health | Yes | Yes |
 | Service health | Yes | Yes |
 | Performance insights (iPerf) | Yes | Yes. Not available in portal |
-| Major version upgrades support | No | Preview |
+| Major version upgrades support | No | Yes (Preview) |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 
 

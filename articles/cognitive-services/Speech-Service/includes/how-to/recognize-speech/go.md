@@ -10,7 +10,7 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Recognize speech-to-text from a microphone
+## Recognize speech to text from a microphone
 
 Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). Running the script will start a recognition session on your default microphone and output text.
 
@@ -101,7 +101,7 @@ go run quickstart
 
 For detailed information, see the [reference content for the `SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [reference content for the `SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
 
-## Recognize speech-to-text from an audio file
+## Recognize speech to text from an audio file
 
 Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
 

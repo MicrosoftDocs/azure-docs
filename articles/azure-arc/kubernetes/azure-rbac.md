@@ -1,14 +1,14 @@
 ---
-title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
-ms.date: 03/13/2023
+title: "Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)"
+ms.date: 05/04/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
-# Use Azure RBAC for Azure Arc-enabled Kubernetes clusters
+# Use Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This means that you can use Azure role assignments to granularly control who can read, write, and delete Kubernetes objects like deployment, pod, and service.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. Azure role assignments let you granularly control which users can read, write, and delete Kubernetes objects such as deployment, pod, and service.
 
 For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md).
 
@@ -35,11 +35,11 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
+> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. For AKS on Azure Stack HCI, see [Use Azure RBAC for AKS hybrid clusters (preview)](/azure/aks/hybrid/azure-rbac-aks-hybrid).
 
 ## Set up Azure AD applications
 
-### [AzureCLI >= v2.37](#tab/AzureCLI)
+### [Azure CLI >= v2.3.7](#tab/AzureCLI)
 
 #### Create a server application
 
@@ -134,7 +134,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
         az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${CLIENT_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
     ```
 
-### [AzureCLI < v2.37](#tab/AzureCLI236)
+### [Azure CLI < v2.3.7](#tab/AzureCLI236)
 
 #### Create a server application
 
@@ -252,7 +252,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 >
 > Use `--skip-azure-rbac-list` with the preceding command for a comma-separated list of usernames, emails, and OpenID connections undergoing authorization checks by using Kubernetes native `ClusterRoleBinding` and `RoleBinding` objects instead of Azure RBAC.
 
-### Generic cluster where no reconciler is running on the apiserver specification
+### Generic cluster where no reconciler is running on the `apiserver` specification
 
 1. SSH into every master node of the cluster and take the following steps:
 
@@ -404,7 +404,7 @@ Owners of the Azure Arc-enabled Kubernetes resource can use either built-in role
 
 | Role | Description |
 |---|---|
-| [Azure Arc Kubernetes Viewer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Allows read-only access to see most objects in a namespace. This role doesn't allow viewing secrets. This is because `read` permission on secrets would enable access to `ServiceAccount` credentials in the namespace. These credentials would in turn allow API access through that `ServiceAccount` value (a form of privilege escalation). |
+| [Azure Arc Kubernetes Viewer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Allows read-only access to see most objects in a namespace. This role doesn't allow viewing secrets, because `read` permission on secrets would enable access to `ServiceAccount` credentials in the namespace. These credentials would in turn allow API access through that `ServiceAccount` value (a form of privilege escalation). |
 | [Azure Arc Kubernetes Writer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-writer) | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing secrets and running pods as any `ServiceAccount` value in the namespace, so it can be used to gain the API access levels of any `ServiceAccount` value in the namespace. |
 | [Azure Arc Kubernetes Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Allows admin access. It's intended to be granted within a namespace through `RoleBinding`. If you use it in `RoleBinding`, it allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | [Azure Arc Kubernetes Cluster Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Allows superuser access to execute any action on any resource. When you use it in `ClusterRoleBinding`, it gives full control over every resource in the cluster and in all namespaces. When you use it in `RoleBinding`, it gives full control over every resource in the role binding's namespace, including the namespace itself.|
@@ -481,6 +481,10 @@ After the proxy process is running, you can open another tab in your console to 
 
 ### Use a shared kubeconfig file
 
+Using a shared kubeconfig requires slightly different steps depending on your Kubernetes version.
+
+### [Kubernetes version >= 1.26](#tab/kubernetes-latest)
+
 1. Run the following command to set the credentials for the user:
 
    ```console
@@ -512,6 +516,68 @@ After the proxy process is running, you can open another tab in your console to 
            config-mode: "1"
        name: azure
    ```
+
+> [!NOTE]
+>[Exec plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins) is a Kubernetes authentication strategy that allows `kubectl` to execute an external command to receive user credentials to send to `apiserver`. Starting with Kubernetes version 1.26, the default Azure authorization plugin is no longer included in `client-go` and `kubectl`. With later versions, in order to use the exec plugin to receive user credentials you must use [Azure Kubelogin](https://azure.github.io/kubelogin/index.html), a `client-go` credential (exec) plugin that implements Azure authentication.
+
+4. Install Azure Kubelogin:
+
+   - For Windows or Mac, follow the [Azure Kubelogin installation instructions](https://azure.github.io/kubelogin/install.html#installation).
+   - For Linux or Ubuntu, download the [latest version of kubelogin](https://github.com/Azure/kubelogin/releases), then run the following commands:
+
+     ```bash
+     curl -LO https://github.com/Azure/kubelogin/releases/download/"$KUBELOGIN_VERSION"/kubelogin-linux-amd64.zip 
+
+     unzip kubelogin-linux-amd64.zip 
+
+     sudo mv bin/linux_amd64/kubelogin /usr/local/bin/ 
+
+     sudo chmod +x /usr/local/bin/kubelogin 
+     ```
+
+5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
+
+   ```bash
+   export KUBECONFIG=/path/to/kubeconfig
+
+   kubelogin convert-kubeconfig
+   ```
+
+### [Kubernetes < v1.26](#tab/Kubernetes-earlier)
+
+1. Run the following command to set the credentials for the user:
+
+   ```console
+   kubectl config set-credentials <testuser>@<mytenant.onmicrosoft.com> \
+   --auth-provider=azure \
+   --auth-provider-arg=environment=AzurePublicCloud \
+   --auth-provider-arg=client-id=<clientApplicationId> \
+   --auth-provider-arg=tenant-id=<tenantId> \
+   --auth-provider-arg=apiserver-id=<serverApplicationId>
+   ```
+
+1. Open the *kubeconfig* file that you created earlier. Under `contexts`, verify that the context associated with the cluster points to the user credentials that you created in the previous step. To set the current context to these user credentials, run the following command:
+
+   ```console
+   kubectl config set-context --current=true --user=<testuser>@<mytenant.onmicrosoft.com>
+   ```
+
+1. Add the **config-mode** setting under `user` > `config`:
+  
+   ```console
+   name: testuser@mytenant.onmicrosoft.com
+   user:
+       auth-provider:
+       config:
+           apiserver-id: $SERVER_APP_ID
+           client-id: $CLIENT_APP_ID
+           environment: AzurePublicCloud
+           tenant-id: $TENANT_ID
+           config-mode: "1"
+       name: azure
+   ```
+
+---
 
 ## Send requests to the cluster
 
@@ -575,7 +641,7 @@ Access the cluster again. For example, run the `kubectl get nodes` command to vi
 kubectl get nodes
 ```
 
-Follow the instructions to sign in again. An error message states that you're successfully logged in, but your admin requires the device that's requesting access to be managed by Azure AD to access the resource. Follow these steps:
+Follow the instructions to sign in again. An error message states that you're successfully logged in, but your admin requires the device that's requesting access to be managed by Azure AD in order to access the resource. Follow these steps:
 
 1. In the Azure portal, go to **Azure Active Directory**.
 1. Select **Enterprise applications**. Then under **Activity**, select **Sign-ins**.
@@ -629,7 +695,7 @@ After you've made the assignments, verify that just-in-time access is working by
 kubectl get nodes
 ```
 
-Note the authentication requirement and follow the steps to authenticate. If authentication is successful, you should see output similar to the following:
+Note the authentication requirement and follow the steps to authenticate. If authentication is successful, you should see output similar to this:
 
 ```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
@@ -642,13 +708,13 @@ node-3    Ready    agent    6m33s    v1.18.14
 
 ## Refresh the secret of the server application
 
-If the secret for the server application's service principal has expired, you will need to rotate it.
+If the secret for the server application's service principal has expired, you'll need to rotate it.
 
 ```azurecli
 SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
 ```
 
-Update the secret on the cluster. Please add any optional parameters you configured when this command was originally run.
+Update the secret on the cluster. Include any optional parameters you configured when the command was originally run.
 
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"

@@ -63,7 +63,7 @@ class Authorization
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
 
 ### Usage notes
@@ -81,7 +81,6 @@ class Authorization
     authorization-id="auth-01" 
     context-variable-name="auth-context" 
     identity-type="managed" 
-    identity="@(context.Request.Headers["Authorization"][0].Replace("Bearer ", ""))"
     ignore-error="false" />
 <!-- Return the token -->
 <return-response>

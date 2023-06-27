@@ -3,6 +3,7 @@ title: Azure Communication Services - Email events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for Email Events.
 ms.topic: conceptual
 ms.date: 09/30/2022
+author: anmolbohra97
 ms.author: anmolbohra
 ---
 
@@ -37,6 +38,9 @@ This section contains an example of what that data would look like for each even
     "recipient": "receiver@azure.com",
     "messageId": "00000000-0000-0000-0000-000000000000",
     "status": "Delivered",
+    "deliveryStatusDetails": {
+      "statusMessage": "Status Message"
+    },
     "deliveryAttemptTimeStamp": "2020-09-18T00:22:20.2855749Z",
   },
   "eventType": "Microsoft.Communication.EmailDeliveryReportReceived",
@@ -47,7 +51,7 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `Status` are `Delivered`, `Expanded` and `Failed`.
+> Possible values for `Status` are `Delivered`, `Expanded`, `Bounced`, `Suppressed`, `FilteredSpam` and `Failed`.
 
 ### Microsoft.Communication.EmailEngagementTrackingReportReceived event
 

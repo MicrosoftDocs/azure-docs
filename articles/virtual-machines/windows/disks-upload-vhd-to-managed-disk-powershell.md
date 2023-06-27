@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 01/03/2023
+ms.date: 03/31/2023
 ms.topic: how-to
 ms.service: storage
 ms.tgt_pltfrm: linux
@@ -52,7 +52,7 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### Prerequisites
 
-- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - A VHD [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
     - On Windows: You don't need to convert your VHD to VHDx, convert it a fixed size, or resize it to include the 512-byte offset. `Add-AZVHD` performs these functions for you.
         - [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) must be enabled for Add-AzVHD to perform these functions.
@@ -99,7 +99,7 @@ Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $loca
 ### Prerequisites
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - A fixed size VHD that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
 
 To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
@@ -215,3 +215,5 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 Now that you've successfully uploaded a VHD to a managed disk, you can attach your disk to a VM and begin using it.
 
 To learn how to attach a data disk to a VM, see our article on the subject: [Attach a data disk to a Windows VM with PowerShell](attach-disk-ps.md). To use the disk as the OS disk, see [Create a Windows VM from a specialized disk](create-vm-specialized.md#create-the-new-vm).
+
+If you've additional questions, see the section on [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) in the FAQ.

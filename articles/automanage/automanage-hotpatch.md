@@ -12,16 +12,24 @@ ms.custom: devx-track-azurepowershell
 
 # Hotpatch for new virtual machines
 
-> [!IMPORTANT]
-> Hotpatch is currently in Public Preview. An opt-in procedure is needed to use the hotpatch capability described below. This preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-> [!NOTE]
-> Hotpatch is supported on _Windows Server 2022 Datacenter: Azure Edition_.
-
 Hotpatching is a new way to install updates on supported _Windows Server Azure Edition_ virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about hotpatch for supported _Windows Server Azure Edition_ VMs, which has the following benefits:
 * Lower workload impact with less reboots
 * Faster deployment of updates as the packages are smaller, install faster, and have easier patch orchestration with Azure Update Manager
 * Better protection, as the hotpatch update packages are scoped to Windows security updates that install faster without rebooting
+
+## Supported platforms
+
+> [!IMPORTANT]
+> Hotpatch is currently in PREVIEW for certain platforms in the following table.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+| Operating system | Azure | Azure Stack HCI |
+| -- | -- | -- |
+| Windows Server 2022 Datacenter: Azure Edition Server Core | Generally available (GA) | Public preview |
+| Windows Server 2022 Datacenter: Azure Edition with Desktop Experience | Public preview | Public preview |
+
+> [!NOTE]
+> You can set Hotpatch in Windows Server 2022 Datacenter: Azure Edition with Desktop Experience in the Azure portal by getting the VM preview image from [this link](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/microsoftwindowsserver.windowsserverhotpatch-previews/resourceGroupId//resourceGroupLocation//dontDiscardJourney~/false/_provisioningContext~/%7B%22initialValues%22%3A%7B%22subscriptionIds%22%3A%5B%222389fa6a-fd51-4c60-8a9e-95e7e17b76b6%22%2C%221b3510f5-e7cd-457d-a84e-1a0a61013375%22%5D%2C%22resourceGroupNames%22%3A%5B%5D%2C%22locationNames%22%3A%5B%22westus2%22%2C%22centralus%22%2C%22eastus%22%5D%7D%2C%22telemetryId%22%3A%22b73b4782-5eee-41b0-ad74-9a0b98365009%22%2C%22marketplaceItem%22%3A%7B%22categoryIds%22%3A%5B%5D%2C%22id%22%3A%22Microsoft.Portal%22%2C%22itemDisplayName%22%3A%22NoMarketplace%22%2C%22products%22%3A%5B%5D%2C%22version%22%3A%22%22%2C%22productsWithNoPricing%22%3A%5B%5D%2C%22publisherDisplayName%22%3A%22Microsoft.Portal%22%2C%22deploymentName%22%3A%22NoMarketplace%22%2C%22launchingContext%22%3A%7B%22telemetryId%22%3A%22b73b4782-5eee-41b0-ad74-9a0b98365009%22%2C%22source%22%3A%5B%5D%2C%22galleryItemId%22%3A%22%22%7D%2C%22deploymentTemplateFileUris%22%3A%7B%7D%2C%22uiMetadata%22%3Anull%7D%7D). For related information, please refer [this](https://azure.microsoft.com/updates/hotpatch-is-now-available-on-preview-images-of-windows-server-vms-on-azure-with-the-desktop-experience-installation-mode/) Azure update.
 
 ## How hotpatch works
 

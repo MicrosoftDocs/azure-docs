@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 05/11/2023
 ms.author: anfdocs
 ---
 # Dynamically change the service level of a volume
@@ -30,8 +30,6 @@ The capacity pool that you want to move the volume to must already exist. The ca
 * After the volume is moved to another capacity pool, you'll no longer have access to the previous volume activity logs and volume metrics. The volume will start with new activity logs and metrics under the new capacity pool.
 
 * If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*). You can always change to higher service level without wait time.
-
-* You cannot change the service level for volumes in a cross-region replication relationship. 
  
 ## Move a volume to another capacity pool
 

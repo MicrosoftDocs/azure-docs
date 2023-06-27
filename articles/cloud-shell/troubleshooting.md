@@ -1,7 +1,7 @@
 ---
 description: This article covers troubleshooting Cloud Shell common scenarios.
 ms.contributor: jahelmic
-ms.date: 11/14/2022
+ms.date: 05/03/2023
 ms.topic: article
 tags: azure-resource-manager
 title: Azure Cloud Shell troubleshooting
@@ -20,6 +20,13 @@ This article covers troubleshooting Cloud Shell common scenarios.
   automatically during PowerShell startup. To speed up start time, the cmdlet no longer runs
   automatically. You can choose to restore the previous behavior by adding `Connect-AzureAD` to the
   $PROFILE file in PowerShell.
+
+  > [!NOTE]
+  > These cmdlets are part of the **AzureAD.Standard.Preview** module. That module is being
+  > deprecated and won't be supported after June 30, 2023. You can use the AD cmdlets in the
+  > **Az.Resources** module or use the Microsoft Graph API instead. The **Az.Resources** module is
+  > installed by default. The **Microsoft Graph API PowerShell SDK** modules aren't installed by
+  > default. For more information, [Upgrade from AzureAD to Microsoft Graph][06].
 
 ### Early timeouts in FireFox
 
@@ -277,3 +284,4 @@ Azure Cloud Shell in Azure Government is only accessible through the Azure porta
 <!-- link references -->
 [04]: https://docs.docker.com/machine/overview/
 [05]: persisting-shell-storage.md#mount-a-new-clouddrive
+[06]: /powershell/microsoftgraph/migration-steps

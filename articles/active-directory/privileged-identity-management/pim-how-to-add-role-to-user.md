@@ -3,7 +3,7 @@ title: Assign Azure AD roles in PIM
 description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/02/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
@@ -27,7 +27,7 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 >[!Note]
 >When a role is assigned, the assignment:
->- Can't be asigned for a duration of less than five minutes
+>- Can't be assigned for a duration of less than five minutes
 >- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
@@ -317,4 +317,3 @@ POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilitySc
 ## Next steps
 
 - [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)

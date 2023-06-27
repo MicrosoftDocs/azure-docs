@@ -3,7 +3,7 @@ title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 02/11/2022
+ms.date: 05/22/2023
 ---
 
 # Comparison functions for ARM templates
@@ -83,7 +83,7 @@ The equals function is often used with the `condition` element to test whether a
   "condition": "[equals(parameters('newOrExisting'),'new')]",
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[variables('storageAccountName')]",
-  "apiVersion": "2017-06-01",
+  "apiVersion": "2022-09-01",
   "location": "[resourceGroup().location]",
   "sku": {
     "name": "[variables('storageAccountType')]"

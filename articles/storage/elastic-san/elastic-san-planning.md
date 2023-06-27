@@ -4,7 +4,7 @@ description: Understand planning for an Azure Elastic SAN deployment. Learn abou
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 05/02/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
@@ -41,6 +41,8 @@ Using the same example of a 100 TiB SAN that has 250,000 IOPS and 4,000 MB/s. Sa
 ## Networking
 
 In Preview, Elastic SAN supports public endpoint from selected virtual network, restricting access to specified virtual networks. You configure volume groups to allow network access only from specific vnet subnets. Once a volume group is configured to allow access from a subnet, this configuration is inherited by all volumes belonging to the volume group. You can then mount volumes from any clients in the subnet, with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. You must enable [service endpoint for Azure Storage](../../virtual-network/virtual-network-service-endpoints-overview.md) in your virtual network before setting up the network rule on volume group.
+
+If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
 
 ## Redundancy
 
@@ -87,7 +89,6 @@ The following iSCSI features aren't currently supported:
 - iSCSI Error Recovery Levels 1 and 2
 - ESXi iSCSI flow control
 - More than one LUN per iSCSI target
-- Multiple connections per session (MC/S)
 
 ## Next steps
 

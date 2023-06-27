@@ -37,6 +37,9 @@ The Azure Virtual Desktop Store app is available from the Microsoft Store. To do
 
 1. Once the app has finished downloading and installing, select **Open**. The first time the app runs, it will install the *Azure Virtual Desktop (HostApp)* dependency automatically.
 
+> [!IMPORTANT]
+> If you have the Azure Virtual Desktop app and the [Remote Desktop client for Windows](connect-windows.md) installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
+
 ## Subscribe to a workspace
 
 A workspace combines all the desktops and applications that have been made available to you by your admin. To be able to see these in the Azure Virtual Desktop app, you need to subscribe to the workspace by following these steps:
@@ -86,4 +89,6 @@ If you want to help us test new builds before they're released, you should downl
 
 ## Next steps
 
-To learn more about the features of the **Azure Virtual Desktop** app, check out [Use features of the Azure Virtual Desktop Store app when connecting to Azure Virtual Desktop](client-features-windows.md).
+- To learn more about the features of the **Azure Virtual Desktop** app, check out [Use features of the Azure Virtual Desktop Store app when connecting to Azure Virtual Desktop](client-features-windows.md).
+
+- If you want to use Teams on Azure Virtual Desktop with media optimization, see [Use Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).

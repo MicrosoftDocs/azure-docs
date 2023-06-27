@@ -90,6 +90,8 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId 
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
+[!INCLUDE [aad-powershell-migration-include](../includes/aad-powershell-migration-include.md)]
+
 ### Create a role-assignable group
 
 Use the [New-AzureADMSGroup](/powershell/module/azuread/new-azureadmsgroup?branch=main) command to create a role-assignable group.

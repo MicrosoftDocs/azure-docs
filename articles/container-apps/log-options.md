@@ -2,12 +2,12 @@
 title: Log storage and monitoring options in Azure Container Apps
 description: Description of logging options in Azure Container Apps
 services: container-apps
-author: lanceleonard
+author: v-jaswel
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/29/2022
-ms.author: v-laleonard
+ms.author: v-wellsjason
 ---
 
 # Log storage and monitoring options in Azure Container Apps
@@ -29,9 +29,6 @@ You can choose between these logs destinations:
     - Azure event hub for data ingestion and analytic services. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md).
     - An Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
 - **None**: You can disable the storage of log data. When disabled, you can still view real-time container logs via the **Logs stream** feature in your container app. For more information, see [Log streaming](log-streaming.md).
-
-> [!NOTE]
-> Azure Monitor is not currently supported in the Consumption + Dedicated plan structure.
 
 When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
 

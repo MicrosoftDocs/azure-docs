@@ -21,9 +21,6 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
-      - name: Cloud sync
-        tocHref: /azure/active-directory/cloud-sync/
-        topicHref: /azure/active-directory/cloud-sync/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -168,9 +165,6 @@
     - name: Blockchain Workbench
       tocHref: /azure/blockchain/workbench/
       topicHref: /azure/blockchain/workbench/
-  - name: Azure Databricks
-    tocHref: /azure/azure-databricks/
-    topicHref: /azure/azure-databricks/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
@@ -323,6 +317,9 @@
       - name: New Relic
         tocHref: /azure/partner-solutions/new-relic/
         topicHref: /azure/partner-solutions/new-relic/new-relic-overview
+      - name: Palo Alto Networks
+        tocHref: /azure/partner-solutions/palo-alto/
+        topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -372,7 +369,7 @@
     items:
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
-      topicHref: /azure/cognitive-services/academic-knowledge/home
+      topicHref: https://www.microsoft.com/research/project/academic-knowledge/
     - name: Anomaly Detector
       tocHref: /azure/cognitive-services/anomaly-detector/
       topicHref: /azure/cognitive-services/anomaly-detector/
@@ -416,6 +413,9 @@
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
       topicHref: /azure/cognitive-services/content-moderator/
+    - name: Content Safety
+      tocHref: /azure/cognitive-services/content-safety/
+      topicHref: /azure/cognitive-services/content-safety/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
@@ -834,6 +834,9 @@
       - name: Load Balancer
         tocHref: /azure/load-balancer/
         topicHref: /azure/load-balancer/
+      - name: NAT Gateway
+        tocHref: /azure/nat-gateway
+        topicHref: /azure/nat-gateway
       - name: Network Watcher
         tocHref: /azure/network-watcher/
         topicHref: /azure/network-watcher/
@@ -853,9 +856,6 @@
         tocHref: /azure/virtual-network/
         topicHref: /azure/virtual-network/
         items:
-          - name: NAT gateway
-            tocHref: /azure/virtual-network/nat-gateway
-            topicHref: /azure/virtual-network/nat-gateway
           - name: IP services
             tocHref: /azure/virtual-network/ip-services
             topicHref: /azure/virtual-network/ip-services
@@ -910,9 +910,9 @@
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
-  - name: Resiliency
-    tocHref: /azure/resiliency/
-    topicHref: /azure/architecture/framework/resiliency/app-design
+  - name: Reliability
+    tocHref: /azure/reliability/
+    topicHref: /azure/reliability
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
@@ -1035,6 +1035,9 @@
       - name: Elastic SAN
         tocHref: /azure/storage/elastic-san/
         topicHref: /azure/storage/elastic-san/elastic-san-introduction
+      - name: Container Storage
+        tocHref: /azure/storage/container-storage/
+        topicHref: /azure/storage/container-storage/container-storage-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -1056,7 +1059,7 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/workloads
+        topicHref: /azure/virtual-machines/workloads/workloads/
         items:
           - name: Azure VMs for SAP workloads
             tocHref: /azure/virtual-machines/workloads/sap/
@@ -1066,7 +1069,7 @@
             topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
           - name: Oracle
             tocHref: /azure/virtual-machines/workloads/oracle/
-            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+            topicHref: /azure/virtual-machines/workloads/oracle/index
           - name: Mainframe rehosting
             tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
             topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
@@ -1093,31 +1096,37 @@
   - name: Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
-  - name: Cost Management and Billing
-    tocHref: /azure/cost-management-billing/
-    topicHref: /azure/cost-management-billing/
+  - name: CM+B
+    tocHref: /azure/cost-management-billing
+    topicHref: /azure/cost-management-billing
     items:
-    - name: Get started
-      tocHref: /azure/cost-management-billing/understand/
-      topicHref: /azure/cost-management-billing/understand/
-    - name: Manage costs and usage
-      tocHref: /azure/cost-management-billing/costs/
-      topicHref: /azure/cost-management-billing/costs/
-    - name: Manage accounts and subscriptions
-      tocHref: /azure/cost-management-billing/manage/
-      topicHref: /azure/cost-management-billing/manage/
+    - name: Cost Management
+      tocHref: /azure/cost-management-billing/costs
+      topicHref: /azure/cost-management-billing/costs
     - name: Reservations
-      tocHref: /azure/cost-management-billing/reservations/
-      topicHref: /azure/cost-management-billing/reservations/
+      tocHref: /azure/cost-management-billing/reservations
+      topicHref: /azure/cost-management-billing/reservations
     - name: Microsoft Customer Agreement
-      tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
-      topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
+      tocHref: /azure/cost-management-billing/microsoft-customer-agreement
+      topicHref: /azure/cost-management-billing/microsoft-customer-agreement
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
     - name: Azure savings plans
       tocHref: /azure/cost-management-billing/savings-plan
       topicHref: /azure/cost-management-billing/savings-plan
+    - name: Billing and subscriptions
+      tocHref: /azure/cost-management-billing/manage
+      topicHref: /azure/cost-management-billing/manage/index
+    - name: Billing and subscriptions
+      tocHref: /azure/cost-management-billing/understand
+      topicHref: /azure/cost-management-billing/manage/index
+    - name: Cost Management
+      tocHref: /azure/cost-management-billing/automate
+      topicHref: /azure/cost-management-billing/costs/index
+    - name: FinOps
+      tocHref: /azure/cost-management-billing/finops
+      topicHref: /azure/cost-management-billing/finops/index
   - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/

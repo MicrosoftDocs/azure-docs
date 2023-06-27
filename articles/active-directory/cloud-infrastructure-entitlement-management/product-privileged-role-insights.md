@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/22/2023
 ms.author: jfields
 ---
 
-# View privileged role assignments in your organization (Preview)
+# View privileged role assignments in your organization
 
 The **Azure AD Insights** tab shows you who is assigned to privileged roles in your organization. You can review a list of identities assigned to a privileged role and learn more about each identity.
 
@@ -21,6 +21,9 @@ The **Azure AD Insights** tab shows you who is assigned to privileged roles in y
 
 > [!NOTE] 
 > Keep role assignments permanent if a user has a an additional Microsoft account (for example, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to activate a role assignment, a user with an additional Microsoft account will be locked out.  
+
+## Prerequisite
+To view information on the Azure AD Insights tab, you must have Permissions Management Administrator role permissions.
 
 ## View information in the Azure AD Insights tab
 

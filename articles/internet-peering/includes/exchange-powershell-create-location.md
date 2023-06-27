@@ -8,7 +8,7 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: halkazwini 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 The PowerShell cmdlet **Get-AzPeeringLocation** returns a list of peering locations with the mandatory parameter `Kind`, which you'll use in later steps.

@@ -17,7 +17,6 @@ Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](workspaces-overview.md#preview-limitations).
-> * This feature is being released during March and April 2023.
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
@@ -71,6 +70,10 @@ After creating a workspace, assign permissions to users to manage the workspace'
     * **API Management Workspace Contributor**
     * **API Management Workspace API Developer**
     * **API Management Workspace API Product Manager**
+
+## Migrate resources to a workspace
+
+The open source [Azure API Management workspaces migration tool](https://github.com/Azure-Samples/api-management-workspaces-migration) can help you with the initial setup of resources in the workspace. Use the tool to migrate selected service-level APIs with their dependencies from an Azure API Management instance to a workspace.  
 
 ## Next steps
 

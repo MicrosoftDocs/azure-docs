@@ -1,8 +1,8 @@
 ---
 title: Enable File Integrity Monitoring (Azure Monitor Agent)
 description: Learn how to enable File Integrity Monitor when you collect data with the Azure Monitor Agent (AMA)
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/14/2022
 ---

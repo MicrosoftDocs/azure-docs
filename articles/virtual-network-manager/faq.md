@@ -7,7 +7,7 @@ ms.service: virtual-network-manager
 ms.topic: article
 ms.date: 03/15/2023
 ms.author: mbender
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021, engagement-fy23
 ---
 
 # Azure Virtual Network Manager FAQ
@@ -37,6 +37,10 @@ For current region support, refer to [products available by region](https://azur
 * You can deny high-risk traffic: As an administrator of an enterprise, you can block specific protocols or sources that override any NSG rules that would normally allow the traffic.
 
 * Always allow traffic: You want to permit a specific security scanner to always have inbound connectivity to all your resources, even if there are NSG rules configured to deny the traffic.
+
+### What's the cost of using Azure Virtual Network Manager?
+
+Azure Virtual Network Manager charges $0.10/hour per subscription managed. AVNM charges are based on the number of subscriptions that contain a virtual network with an active network manager configuration deployed onto it. For example, if a network manager's scope consists of ten subscriptions but only three subscriptions' virtual networks are covered by a network manager deployment, then there are three managed subscriptions, so $0.10/hour * three subscriptions = $0.30/hour.
 
 ## Technical
 
@@ -88,7 +92,15 @@ Should a regional outage occur, all configurations applied to current resources 
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 
-Yes, you can choose to override and delete an existing peering already created, or allow them to coexist with those created by Azure Virtual Network Manager.
+Yes, Azure Virtual Network Manager is fully compatible with pre-existing hub and spoke topology deployments using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+
+### Can I migrate an existing hub and spoke topology to Azure Virtual Network Manager?
+
+Yes, 
+
+### How do connected groups differ from virtual network peering regarding establishing connectivity between virtual networks?
+
+In Azure, VNet peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While VNet peering works by creating a 1:1 mapping between each peered VNet, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each VNet without the need for individual peering relationships.
 
 ### How can I explicitly allow Azure SQL Managed Instance traffic before having deny rules?
 

@@ -9,7 +9,11 @@ manager: femila
 ---
 # Set up MSIX app attach with the Azure portal
 
-This article will walk you through how to set up MSIX app attach in a Azure Virtual Desktop environment.
+MSIX app attach is an application layering solution that allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the custom image and make them available them to users later.
+
+This article will walk you through how to set up MSIX app attach in an Azure Virtual Desktop environment.
+
+Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attach.md)
 
 ## Requirements
 
@@ -193,5 +197,5 @@ You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desk
 
 Here are some other articles you might find helpful:
 
-- [MSIX app attach glossary](app-attach-glossary.md)
+- [What is MSIX app attach?](what-is-app-attach.md)
 - [MSIX app attach FAQ](app-attach-faq.yml)

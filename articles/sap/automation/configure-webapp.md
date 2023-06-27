@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Configure the Control Plane Web Application
 
-As a part of the SAP automation framework control plane, you can optionally create an interactive web application that will assist you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
 
 :::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Web app front page":::
 
@@ -93,6 +93,14 @@ For full instructions on setting up the web app using the Azure CLI, see [Deploy
 5. Configure the application settings.
 6. (Optionally) add an additional access policy to the app service.
 
+## Accessing the web app
+
+By default there's no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, select networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](../../app-service/app-service-ip-restrictions.md).
+
+You'll also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
+
+You can sign in and visit the web app by following the URL from earlier or selecting browse inside the app service resource. With the web app, you are able to configure SAP workload zones and system infrastructure. Select download to obtain a parameter file of the workload zone or system you specified, for use in the later deployment steps. 
+
 
 ## Using the web app
 
@@ -120,7 +128,7 @@ If deploying using the Azure CLI, you can download the parameter file for any la
 4. Next to the file you would like to convert to a workload zone or system object, click "Convert".
 5. The workload zone or system object will appear in its respective tab.
 
-### Deploying a workload zone or system object (Azure DevOps Pipelines deployment)
+### Deploying a workload zone or system object (Azure Pipelines deployment)
 1. Navigate to the Workload zones or Systems tab.
 2. Next to the workload zone or system you would like to deploy, click "Deploy".
    * If you would like to deploy a file, first convert it to a workload zone or system object.

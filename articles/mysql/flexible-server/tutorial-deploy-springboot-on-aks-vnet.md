@@ -7,7 +7,7 @@ author: shreyaaithal
 ms.author: shaithal
 ms.topic: tutorial
 ms.date: 11/11/2021
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, build-2023, build-2023-dataai
 ---
 
 # Tutorial: Deploy a Spring Boot application on AKS cluster with MySQL Flexible Server in a VNet
@@ -464,5 +464,3 @@ az group delete --name rg-mysqlaksdemo
 
 > [!div class="nextstepaction"]
 > [Build a PHP (Laravel) web app with MySQL](tutorial-php-database-app.md)
-
-
