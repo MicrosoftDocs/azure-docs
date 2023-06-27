@@ -12,7 +12,7 @@ ms.reviewer: katabish
 ---
 # How to configure Private Access for Global Secure Access
 
-Microsoft Entra Private Access provides secure access to your organization's internal resources. You can specify the internal, private resources that you want to secure by configuring and enabling per-app access, known as Private Access, through Enterprise applications. 
+Microsoft Entra Private Access provides secure access to your organization's internal resources. You create a Global Secure Access application and specify the internal, private resources that you want to secure. 
 
 This article describes how to configure Private Access for Microsoft Entra Private Access.
 
@@ -55,7 +55,7 @@ To configure Private Access for Enterprise apps, you must have a connector group
 
 If you don't already have a connector set up, see [Configure connectors](how-to-configure-quick-access.md).
 
-## Configure Private Access
+## Create a Global Secure Access application
 
 To create a new app, you provide a name, select a connector group, and then add application segments. App segments include the fully qualified domain names (FQDNs) and IP addresses you want to tunnel through the service. You can complete all three steps at the same time, or you can add them after the initial setup is complete. 
 
