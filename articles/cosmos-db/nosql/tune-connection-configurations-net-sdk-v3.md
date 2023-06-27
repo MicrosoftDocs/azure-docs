@@ -1,7 +1,7 @@
 # Tune connection configurations for Azure Cosmos DB .NET SDK v3
 
 > [!IMPORTANT]  
-> The performance tips in this article are for Azure Cosmos DB .NET SDK v3 only. Please view the [Azure Cosmos DB SQL SDK connectivity modes](sdk-connection-modes.md) the Azure Cosmos DB .NET SDK v3 [Release notes](sdk-dotnet-v3.md), [Nuget repository](https://www.nuget.org/packages/Microsoft.Azure.Cosmos), and Azure Cosmos DB .NET SDK v3 [troubleshooting guide](troubleshoot-dotnet-sdk.md) for more information. If you are currently using an older version than v3, see the [Migrate to Azure Cosmos DB .nET SDK v3](migrate-dotnet-v3.md) guide for help upgrading to v3.
+> The performance tips in this article are for Azure Cosmos DB .NET SDK v3 only. Please view the [Azure Cosmos DB SQL SDK connectivity modes](sdk-connection-modes.md) the Azure Cosmos DB .NET SDK v3 [Release notes](sdk-dotnet-v3.md), [Nuget repository](https://www.nuget.org/packages/Microsoft.Azure.Cosmos), and Azure Cosmos DB .NET SDK v3 [troubleshooting guide](troubleshoot-dotnet-sdk.md) for more information. If you are currently using an older version than v3, see the [Migrate to Azure Cosmos DB .NET SDK v3](migrate-dotnet-v3.md) guide for help upgrading to v3.
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are connection configurations you can tune to achieve peak performance when using Azure Cosmos DB .NET SDK v3.
 
