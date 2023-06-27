@@ -69,7 +69,7 @@ In this example, we're using a device message that is capturing `heartRate` data
 >
 > :::image type="content" source="media\how-to-use-iotjsonpathcontent-templates\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\how-to-use-iotjsonpathcontent-templates\iot-hub-enriched-device-message.png":::
 >
-> `patientIdExpression` is only required for MedTech services in the **Create** mode; however, if **Lookup** is being used, a device resource with a matching device identifier must exist in the destination FHIR service. These examples assume your MedTech service is in the **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-new-config.md#destination-properties).
+> `patientIdExpression` is only required for MedTech services in the **Create** mode; however, if **Lookup** is being used, a device resource with a matching device identifier must exist in the destination FHIR service. These examples assume your MedTech service is in the **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-manual-portal.md#configure-the-destination-tab).
 
 The IoT hub enriches and routes the device message to the event hub before the MedTech service reads the device message from the event hub:
 
