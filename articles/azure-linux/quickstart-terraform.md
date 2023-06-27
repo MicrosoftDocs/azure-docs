@@ -1,9 +1,10 @@
 ---
-title: Quickstart: Deploy an Azure Linux Container Host for AKS cluster by using Terraform
+title: 'Quickstart: Deploy an Azure Linux Container Host for AKS cluster by using Terraform'
 description: Learn how to quickly create an Azure Linux Container Host for AKS cluster using Terraform.
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.editor: schaffererin
 ms.topic: quickstart
 ms.date: 06/27/2023
 ---
