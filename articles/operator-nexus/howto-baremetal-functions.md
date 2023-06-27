@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Platform Functions for Bare Metal Machines"
 description: Learn how to manage Bare Metal Machines (BMM).
 author: harish6724
 ms.author: harishrao
-ms.service: azure-operator-nexus 
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/26/2023
 ms.custom: template-how-to
@@ -17,18 +17,20 @@ This article describes how to perform lifecycle management operations on Bare Me
 - Start the BMM
 - Restart the BMM
 - Make the BMM unschedulable or schedulable
-- Reimage the BMM 
+- Reimage the BMM
 - Replace the BMM
 
 ## Prerequisites
 
 1. Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md)
+   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Get the name of the resource group for the BMM
-1. Get the name of the bare metal machine  that requires a lifecycle management operation
+1. Get the name of the bare metal machine that requires a lifecycle management operation
 1. Ensure that the target bare metal machine `poweredState` set to `On` and `readyState` set to `True`
-    1. This prerequisite is not applicable for the `start` command
+   1. This prerequisite is not applicable for the `start` command
 
+> [!CAUTION]
+> Actions against management servers should not be run without consultation with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
 
 ## Power off the BMM
 

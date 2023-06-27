@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 06/22/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -31,7 +31,7 @@ When an Azure AD security principal attempts to access blob data, that security 
 
 ## Create a user delegation SAS for a blob
 
-Once you've obtained the user delegation key, you can create a user delegation SAS. The following code example shows how to create a user delegation SAS for a blob:
+Once you've obtained the user delegation key, you can create a user delegation SAS to delegate limited access to a blob resource. The following code example shows how to create a user delegation SAS for a blob:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASBlob":::
 

@@ -10,10 +10,15 @@
  ms.custom: include file, references_regions
 ---
 Currently only available in the following regions:
+- South Africa North (Three availability zones)
 - Southeast Asia (Two availability zones)
 - Canada Central (Three availability zones)
 - North Europe (Three availability zones)
 - West Europe (Three availability zones)
+- Japan East (Two availability zones)
+- Korea Central (Two availability zones)
+- Sweden Central (Two availability zone)
+- Switzerland North (Two availability zones)
 - UK South (Three availability zones)
 - Central US (One availability zone)
 - East US (Three availability zones)
