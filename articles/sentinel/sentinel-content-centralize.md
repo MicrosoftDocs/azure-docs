@@ -104,7 +104,7 @@ All template galleries now display an in-product warning banner. This banner con
 
 This tool needs to run only once per workspace, so be sure to plan with your organization. After the tool runs successfully, the warning banner will disappear from the template galleries of that workspace.
 
-The following table lists specific impacts to the content templates for each of these galleries. Expect these changes now the OOTB content centralization is live.
+The following table lists specific impacts to the content templates for each of these galleries. Expect these changes now that the OOTB content centralization is live.
 
 | Content type | Impact |
 | ------- | ------- |
@@ -133,7 +133,7 @@ Here's an example of an analytics rule before and after the centralization chang
 - Install new OOTB content from the content hub and update solutions as needed to have the latest versions of templates.
 - For existing gallery content templates in use, get future updates by installing the solutions or standalone content items from the content hub. The gallery content in the feature galleries might be out of date.
 - If you have applications or processes that directly get OOTB content from the Microsoft Sentinel GitHub repository, update the locations to include getting OOTB content from the *Solutions* folder in addition to existing content folders.  
-- Plan with your organization who will run the tool, and when, now that the warning banner and the change is live. The tool needs to run once in a workspace to reinstate all **IN USE** retired templates from the content hub.
+- Plan with your organization who will run the tool, and when, now that the warning banner and the changes are live. The tool needs to run once in a workspace to reinstate all **IN USE** retired templates from the content hub.
 - Review the following FAQs to learn more details that might apply to your environment.
 
 ## Content centralization FAQs
