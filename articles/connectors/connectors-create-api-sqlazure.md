@@ -183,7 +183,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-1. After the action information box appears, provide the values for the SQL server name and database name, if you didn't previously provide them. Otherwise, from the **Table name** list, select the table that you want to use. In the **Row id** property, enter the ID for the record that you want.
+1. After the action information box appears, from the **Table name** list, select the table that you want to use. In the **Row id** property, enter the ID for the record that you want.
 
    For this example, the table name is **SalesLT.Customer**.
 
@@ -203,7 +203,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-1. After the action information box appears, from the **Table name** list, select the table that you want to use. In the **Row id** property, enter the ID for the record that you want.
+1. After the action information box appears, provide the values for the SQL server name and database name, if you didn't previously provide them. Otherwise, from the **Table name** list, select the table that you want to use. In the **Row id** property, enter the ID for the record that you want.
 
    For this example, the table name is **SalesLT.Customer**.
 
