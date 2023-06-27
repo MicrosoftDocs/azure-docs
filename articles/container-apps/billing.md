@@ -12,7 +12,7 @@ ms.author: cshoe
 
 # Billing in Azure Container Apps
 
-Billing in Azure Container apps is based on your [plan type](plans.md).
+Billing in Azure Container Apps is based on your [plan type](plans.md).
 
 | Plan type | Description |
 |--|--|
