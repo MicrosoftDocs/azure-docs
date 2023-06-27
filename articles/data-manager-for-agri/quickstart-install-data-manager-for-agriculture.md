@@ -141,9 +141,10 @@ The response should look like:
 }
 ```
 
-With working **API endpoint (instanceUri)** and **access_token**, you now can start making requests to our service  APIs. If there are any queries in setting up the environment write to us at madma@microsoft.com.
+With working **API endpoint (instanceUri)** and **access_token**, you now can start making requests to our service  APIs. If there are any queries in setting up the environment, [raise a support request]((how-to-create-azure-support-request.md)) to get required help.
 
 ## Next steps
 
 * See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md).
 * Understand our APIs [here](/rest/api/data-manager-for-agri).
+- [How to create an Azure support request](how-to-create-azure-support-request.md)
