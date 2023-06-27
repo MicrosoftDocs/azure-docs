@@ -21,9 +21,9 @@ The data in your Azure Active Directory (Azure AD) logs enables you to assess ma
 
 You can access Azure AD activity logs and reports using the following methods:
 
-- [Stream activity logs to an **event hub** to integrate with other tools](#stream-to-an-event-hub-to-integrate-with-siem-tools)
+- [Stream activity logs to an **event hub** to integrate with other tools](#stream-logs-to-an-event-hub-to-integrate-with-siem-tools)
 - [Access activity logs through the **Microsoft Graph API**](#access-logs-with-microsoft-graph-api)
-- [Integrate logs with **Azure Monitor logs**](#integrate-activity-logs-with-azure-monitor-logs)
+- [Integrate logs with **Azure Monitor logs**](#integrate-logs-with-azure-monitor-logs)
 - [Monitor activity in real-time with **Microsoft Sentinel**](#monitor-events-with-microsoft-sentinel)
 - [View activity logs and reports in the **Azure portal**](#view-logs-through-the-portal)
 - [Export activity logs for **storage and queries**](#export-logs-for-storage-and-queries)
@@ -62,9 +62,9 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
     - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
-    - [Learn more about streaming activity logs to an event hub](howto-stream-logs-to-event-hub.md)
+    - [Learn more about streaming activity logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
- Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. For instructions for some commonly used SIEM tools, see [How to stream logs to an event hub](howto-stream-logs-to-event-hub.md).
+ Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool.
 
 ## Access logs with Microsoft Graph API
 
@@ -86,7 +86,6 @@ The Microsoft Graph API provides a unified programmability model that you can us
 1. Set the API version to **beta** or **v1.0**, depending on the query.
 1. Add a query then select the **Run query** button.
     - [Familiarize yourself with the Microsoft Graph properties for directory audits](/graph/api/resources/directoryaudit)
-    - [Learn how to confirm a user as compromised](/graph/api/resources/riskyuser-confirmcompromised?view=graph-rest-beta&preserve-view=true)
     - [Complete the MS Graph Quickstart guide](quickstart-access-log-with-graph-api.md)
  
 ## Integrate logs with Azure Monitor logs
