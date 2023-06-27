@@ -1,6 +1,6 @@
 ---
-title: Release notes for Microsoft Azure Data Manager for Energy Preview
-description: This article provides release notes of Azure Data Manager for Energy Preview releases, improvements, bug fixes, and known issues.
+title: Release notes for Microsoft Azure Data Manager for Energy
+description: This article provides release notes of Azure Data Manager for Energy releases, improvements, bug fixes, and known issues.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
@@ -9,11 +9,9 @@ ms.date: 09/20/2022
 ms.custom: template-concept
 ---
 
-# Release Notes for Azure Data Manager for Energy Preview 
+# Release Notes for Azure Data Manager for Energy 
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
@@ -29,13 +27,13 @@ This page will be updated with the details about the upcoming release approximat
 
 ### Enriched Airflow Logs
 
-Airflow logs from your Azure Data Manager for Energy resource now include extra fields: Dag Name, Dag Task Name, Run ID or Correlation ID, Code Path, TryNumber, Content, Location, Log Severity Level, and Resource ID. These fields can be utilized in the KQL query editor of your linked Log Analytics Workspace to get more specific logs for your executed workflows/DAGs. Learn more about [how to integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md). 
+Airflow logs from your Azure Data Manager for Energy Preview resource now include extra fields: Dag Name, Dag Task Name, Run ID or Correlation ID, Code Path, TryNumber, Content, Location, Log Severity Level, and Resource ID. These fields can be utilized in the KQL query editor of your linked Log Analytics Workspace to get more specific logs for your executed workflows/DAGs. Learn more about [how to integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md). 
 
 ## April 2023
 
 ### Support for Private Links during instance provisioning
 
-Azure Private link enables access to Azure Data Manager for Energy instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
+Azure Private link enables access to Azure Data Manager for Energy Preview instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
 
 ### Enabled Monitoring of OSDU Service Logs
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - Seismic store sdutil tutorial
+title: Microsoft Azure Data Manager for Energy - Seismic store sdutil tutorial
 description: Information on setting up and using sdutil, a command-line interface (CLI) tool that allows users to easily interact with seismic store.
 author: elizabethhalper
 ms.author: elhalper
@@ -16,8 +16,6 @@ ms.custom: template-tutorial
 Sdutil is a command line Python utility tool designed to easily interact with seismic store. The seismic store is a cloud-based solution designed to store and manage datasets of any size in the cloud by enabling a secure way to access them through a scoped authorization mechanism. Seismic Store overcomes the object size limitations imposed by a cloud provider by managing generic datasets as multi-independent objects. This provides a generic, reliable, and better performing solution to handle data in cloud storage.
 
 **Sdutil** is an intuitive command line utility tool to interact with seismic store and perform some basic operations like upload or download datasets to or from seismic store, manage users, list folders content and more.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -301,9 +299,9 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
   ./scripts/changelog-generator.sh
 ```
 
-## Usage for Azure Data Manager for Energy Preview
+## Usage for Azure Data Manager for Energy
 
-Azure Data Manager for Energy Preview instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your Azure Data Manager for Energy instance.
+Azure Data Manager for Energy instance is using OSDU&trade; M12 Version of sdutil. Follow the below steps if you would like to use SDUTIL to leverage the SDMS API of your Azure Data Manager for Energy instance.
 
 1. Ensure you have followed the [installation](#prerequisites) and [configuration](#configuration) steps from above. This includes downloading the SDUTIL source code, configuring your Python virtual environment, editing the `config.yaml` file and setting your three environment variables. 
 
