@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Patch Orchestration must be set to Customer Managed Schedules (Preview)/(Sets patch mode to AutomaticByPlatform).
+- Patch Orchestration must be set to Customer Managed Schedules (Preview)/ (Sets patch mode to AutomaticByPlatform).
 - Set the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
 - Associate a Schedule with the VM.
 

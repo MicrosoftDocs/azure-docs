@@ -26,7 +26,7 @@ The criteria will be evaluated at the scheduled run time, which would be the fin
 - **Multiple schedules** - You can associate a schedule to multiple machines either dynamically or statically or both.
 
 > [!NOTE]
-> You can associate one dynamic scope can to one schedule.
+> You can associate one dynamic scope to one schedule.
 
 ## Permissions
 
@@ -46,7 +46,7 @@ For dynamic scoping (preview) and configuration assignment, ensure that you have
 1. Associate the VM with a Schedule. 
 
 > [!NOTE]
-> For Arc VMs, there are no patch orchestration pre-requisites. However, user must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
+> For Arc VMs, there are no patch orchestration pre-requisites. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
 
 
 ## Next steps
