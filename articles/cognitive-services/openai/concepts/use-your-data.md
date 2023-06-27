@@ -36,7 +36,7 @@ Azure OpenAI on your data uses an [Azure Cognitive Services](/azure/search/searc
 
 ### Data preparation script
 
-You can also use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to create an index you can use Azure OpenAI, and with your documents broken down into manageable chunks. This script also provides the ability to convert PDF files into text, and ingest data using [Form Recognizer](../../../applied-ai-services/form-recognizer/overview.md).
+You can also use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to create an index you can use Azure OpenAI, and with your documents broken down into manageable chunks. This script also provides the ability to convert PDF files into text and ingest the data using [Form Recognizer](../../../applied-ai-services/form-recognizer/overview.md).
 
 ## Data formats and file types
 
