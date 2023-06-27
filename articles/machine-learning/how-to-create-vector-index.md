@@ -28,9 +28,13 @@ A sample prompt flow, which uses the Vector Index you created. The sample prompt
 
      :::image type="content" source="/media/how-to-create-vector-index/prompt-flow.png" alt-text="Screenshot showing the Prompt flow location on the left menu.":::
 
+     media/how-to-create-vector-index/create.png
+
 1.  Select **Vector Index** on the top menu
 
     :::image type="content" source="/media/how-to-create-vector-index/vector-index.png" alt-text="Screenshot showing the Vector Index location on the top menu.":::
+
+
 
 1.  Select **Create**
 
@@ -38,7 +42,7 @@ A sample prompt flow, which uses the Vector Index you created. The sample prompt
 
 1.  Next choose your data source type
 
-    :::image type="content" source="/media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the create new Vector Index form.":::
+    :::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the create new Vector Index form.":::
 
 1.  Based on the chosen type, provide the location details of your
     source. Then, select **Next**.
@@ -52,7 +56,7 @@ A sample prompt flow, which uses the Vector Index you created. The sample prompt
     / view the status of your Vector Index creation. Note: Vector
     Index creation may take a while depending on the size of data.
 
-    ![](./media/how-to-create-vector-index
+    ![](/media/how-to-create-vector-index
     /UI-6-10.png)
 
 ## Add a Vector Index to a prompt flow
@@ -72,4 +76,8 @@ media/how-to-create-vector-index/vector-index-lookup-tool.png
 
 :::image type="content" source="/media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot showing the vector index lookup tool.":::
 
-1. Enter the path to your Vector Index and enter the question
+1. Enter the path to your Vector Index and enter your desired query. Be sure to type in your path directly, or to paste the path.
+
+## Next Steps
+
+Get started with RAG using a prompt flow sample
