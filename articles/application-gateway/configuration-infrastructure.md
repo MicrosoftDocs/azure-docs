@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 06/27/2023
 ms.author: greglin
 ---
 
@@ -86,11 +86,10 @@ As a temporary extension, we have introduced a subscription-level [Azure Feature
 
 ## Network security groups
 
-Network security groups (NSGs) are supported on Application Gateway.
+You can use Network security groups (NSGs) for your Application Gateway's subnet but there are some key points or restrictions that you should take note of.
 
-Fine grain control over the Application Gateway subnet via NSG rules is possible in public preview. More details can be found [here](application-gateway-private-deployment.md#network-security-group-control).
-
-With current functionality there are some restrictions:
+> [!IMPORTANT]
+> These NSG limitations are relaxed when using [Private Application Gateway deployment (Preview)](application-gateway-private-deployment.md#network-security-group-control).
 
 - You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't communicate on these endpoints.
 
@@ -103,16 +102,48 @@ With current functionality there are some restrictions:
 
 - To use public and private listeners with a common port number (Preview feature), you must have an inbound rule with the **destination IP address** as your gateway's **frontend IPs (public and private)**. When using this feature, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway. [Learn more](./configuration-listeners.md#frontend-port).
 
-### Allow access to a few source IPs
+### Required security rules
 
-For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
+To use NSG with your application gateway, you will need to create or retain some essential security rules. You may set their priority values in the same order.
 
-1. Allow incoming traffic from a source IP or IP range with the destination as the entire Application Gateway subnet address range and destination port as your inbound access port, for example, port 80 for HTTP access.
-2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [backend health status communication](./application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
-3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) on the [network security group](../virtual-network/network-security-groups-overview.md).
-4. Allow expected inbound traffic to match your listener configuration (i.e. if you have listeners configured for port 80, you will want an allow inbound rule for port 80)
-5. Block all other incoming traffic by using a deny-all rule.
-6. Allow outbound traffic to the Internet for all destinations.
+**Inbound rules**
+
+1. **Client traffic** - Allow incoming traffic from the expected clients (as source IP or IP range), and for the destination as your application gateway's entire subnet IP prefix and inbound access ports. (Example: If you have listeners configured for ports 80 & 443, you must allow these ports. You can also set this to Any).
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|&lt;as per need&gt;|Any|&lt;Subnet IP Prefix&gt;|&lt;listener ports&gt;|TCP|Allow|
+
+When using a common port number for public and private listeners, you must include the frontend Public IP address of your gateway in Destination.
+
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|&lt;as per need&gt;|Any|&lt;Subnet IP Prefix&gt;,<br/>&lt;Gateway's Public IP&gt;|&lt;listener ports&gt;|TCP|Allow|
+
+2. **Infrastructure ports** - Allow incoming requests from the source as GatewayManager service tag and any destination. The destination port range differs based on SKU and is required for communicating the status of the Backend Health. (These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place).
+	- V2: Ports 65200-65535
+	- V1: Ports 65503-65534 
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|GatewayManager|Any|Any|&lt;as per SKU given above&gt;|TCP|Allow|
+
+3. Azure Load Balancer probes - Allow incoming traffic from the source as AzureLoadBalancer service tag. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|AzureLoadBalancer|Any|Any|Any|Any|Allow|
+
+You may block all other incoming traffic by using a deny-all rule.
+
+**Outbound rules**
+
+1. **Outbound to the Internet** - Allow outbound traffic to the Internet for all destinations. This rule is created by default for network security groups, and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
+
+| Source  | Source ports | Destination | Destination ports | Protocol | Access |
+|---|---|---|---|---|---|
+|Any|Any|Internet|Any|Any|Allow|
 
 ## Supported user-defined routes 
 
