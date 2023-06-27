@@ -30,7 +30,7 @@ In BYOL model, you're  responsible for providing your own licenses for satellite
 Flow diagram showing creation and sharing of credentials.
 :::image type="content" source="./media/concepts-byol-and-credentials/vault-usage-flow.png" alt-text="Screenshot showing credential sharing flow.":::
 
-Customer can optionally override credentials to be used for a data plane request by providing them as part of the data plane API request.
+Customer can optionally override credentials to be used for a data plane request by providing credentials as part of the data plane API request.
 
 ## Sequence of steps for setting up connectors 
 
