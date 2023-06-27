@@ -51,7 +51,7 @@ Refer to [this guidance](/azure/key-vault/secrets/quick-create-portal#add-a-secr
 ### Step 3: Enable system identity 
 As a customer you have to enable system identity for your Data Manager for Agriculture instance. There are two options:
     
-1. Via Azure Portal UI
+1. Via Azure portal UI
 
     :::image type="content" source="./media/concepts-byol-and-credentials/enable-system-via-ui.png" alt-text="Screenshot showing usage of UI to enable key.":::
 
