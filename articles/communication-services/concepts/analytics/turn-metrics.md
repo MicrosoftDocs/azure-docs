@@ -37,4 +37,4 @@ The following operations are available on Network Traversal API request metrics:
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
 
-:::image type="content" source="../media/acs-turn-metrics.png" alt-text="TURN Token Request Metric".:::
+:::image type="content" source="../media/acs-turn-metrics.png" alt-text="TURN Token Request Metric.":::
