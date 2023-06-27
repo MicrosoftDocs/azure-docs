@@ -4,6 +4,9 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: whats-new
+ms.author: mbullwin
+author: mrbullwinkle
+manager: nitinme
 ms.date: 12/15/2022
 ---
 
