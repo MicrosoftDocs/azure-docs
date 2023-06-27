@@ -54,12 +54,14 @@ To complete this tutorial, make sure you have:
 
     Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible.
 
-    TBD - screenshot
+    :::image type="content" source="media/tutorial-extract-incident-entities/create-playbook.png" alt-text="Screenshot of creating a new playbook with an incident trigger." lightbox="media/tutorial-extract-incident-entities/create-playbook.png":::
 
 1. Select **Next: Review and create >**.
 1. Under **Review and create**, select **Create and continue to designer**.
 
     The Logic app designer opens a logic app with the name of your playbook.
+
+    :::image type="content" source="media/tutorial-extract-incident-entities/logic-app-designer.png" alt-text="Screenshot of viewing the playbook in the Logic app designer." lightbox="media/tutorial-extract-incident-entities/logic-app-designer.png":::
 
 ## Initialize an Array variable
 
@@ -71,7 +73,7 @@ To complete this tutorial, make sure you have:
     - For the type, select **Array**. 
     - For the value, start typing *entities* and select **Entities** under **Dynamic content**.
 
-    TBD - SCREENSHOT  
+    :::image type="content" source="media/tutorial-extract-incident-entities/initialize-variable.png" alt-text="Screenshot of initializing an Array variable.":::  
 
 ## Select an existing incident
 
@@ -81,13 +83,13 @@ To complete this tutorial, make sure you have:
 
     When the playbook is triggered, a **Playbook is triggered successfully** message is visible on the top right.
 
-    TBD - screenshot
-
 1. Select **Runs**, and next to your playbook, select **View Run**.
 
     The **Logic app run** page is visible.
 
-1. Under **Initialize variable**, the schema is visible under **Show raw inputs**. Note the sample payload for later use.
+1. Under **Initialize variable**, the sample payload is visible under **Value**. Note the sample payload for later use.
+
+    :::image type="content" source="media/tutorial-extract-incident-entities/sample-payload.png" alt-text="Screenshot of viewing the sample payload under the Value field.":::  
 
 ## Filter the required entity type from other entity types
 
@@ -95,7 +97,7 @@ To complete this tutorial, make sure you have:
 1. Under the step where you want to add a variable, select **New step**.
 1. Under **Choose an action**, in the search box, enter *filter array* as your filter. From the actions list, select **Data operations**.
 
-    TBD - SCREENSHOT
+    :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-data-operations.png" alt-text="Screenshot of filtering an array and selecting data operations.":::  
 
 1. Provide this information about your filter array: 
 
@@ -103,7 +105,7 @@ To complete this tutorial, make sure you have:
     1. Select the first **Choose a value** field (on the left), and select **Expression**. 
     1. Paste the value *item()?['kind']*, and select **OK**. 
 
-        TBD - SCREENSHOT
+        :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-information.png" alt-text="Screenshot of filling in the filter array expression.":::
 
     1. Leave the **is equal to** value (do not modify it).
     1. In the second **Choose a value** field (on the right), type *Process*. This needs to be an exact match to the value in the system. 
@@ -111,39 +113,42 @@ To complete this tutorial, make sure you have:
         > [!NOTE]
         > This query is case-sensitive. Ensure that the `kind` value matches the value in the sample payload. See the sample payload from when you [create a playbook](#create-a-playbook-with-an-incident-trigger). 
 
-        TBD - SCREENSHOT
+        :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-information-full.png" alt-text="Screenshot of filling in the filter array information.":::
 
 ## Parse the results to a JSON file
 
 1. In your logic app, under the step where you want to add a variable, select **New step**.
 1. Select **Data operations** > **Parse JSON**.
-    TBD - SCREENSHOT
+
+    :::image type="content" source="media/tutorial-extract-incident-entities/parse-json.png" alt-text="Screenshot of selecting the Parse JSON option under Data Operations.":::
+
 1. Provide this information about your operation:
+
     1. Select **Content**, and under **Dynamic content** > **Filter array**, select **Body**. 
 
-    TBD - SCREENSHOT
+        :::image type="content" source="media/tutorial-extract-incident-entities/dynamic-content.png" alt-text="Screenshot of selecting Dynamic content under Content.":::
 
-    1. Under **Schema**, paste a JSON schema so that you can extract values from an array. Use the sample payload you generated when you [created the playbook](#create-a-playbook-with-an-incident-trigger).  
+    1. Under **Schema**, paste a JSON schema so that you can extract values from an array. Copy the sample payload you generated when you [created the playbook](#create-a-playbook-with-an-incident-trigger). 
+    
+        :::image type="content" source="media/tutorial-extract-incident-entities/copy-sample-payload.png" alt-text="Screenshot of copying the sample payload.":::
 
-        TBD - SCREENSHOT
+    1. Return to the playbook, and select **Use sample payload to generate schema**.  
+    
+        :::image type="content" source="media/tutorial-extract-incident-entities/use-sample-payload.png" alt-text="Screenshot of selecting Use sample payload to generate schema.":::
 
-    1. Copy the sample payload, return to the playbook, select **Use sample payload to generate scheme**, and paste the payload. 
-    1. Add an opening square bracket (`[`) at the beginning of the schema and close them at the end of the schema `]`.
+    1. Paste the payload. Add an opening square bracket (`[`) at the beginning of the schema and close them at the end of the schema `]`.
+    
+        :::image type="content" source="media/tutorial-extract-incident-entities/paste-sample-payload-first.png" alt-text="Screenshot of pasting the sample payload.":::
+
+        :::image type="content" source="media/tutorial-extract-incident-entities/paste-sample-payload-second.png" alt-text="Screenshot of the second part of the pasted sample payload."::: 
+
     1. Select **Done**. 
-
-        TBD - SCREENSHOT
-
-        TBD - SCREENSHOT
-
-        TBD - SCREENSHOT
-
-        TBD - SCREENSHOT
 
 ## Use the new values as dynamic content for future use
 
 You can now use the values you created as dynamic content for further actions. For example, if you want to send an email with process data, you can find the **Parse JSON** action under **Dynamic content**, if you didn't change the action name. 
 
-TBD - SCREENSHOT
+:::image type="content" source="media/tutorial-extract-incident-entities/utilize-dynamic-content.png" alt-text="Screenshot of sending an email with process data.":::
 
 ## Ensure that your playbook is saved
 
