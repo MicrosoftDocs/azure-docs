@@ -240,6 +240,8 @@ items:
           href: app/opentelemetry-enable.md
         - name: OpenTelemetry configuration
           href: app/opentelemetry-configuration.md
+        - name: Add and modify OpenTelemetry
+          href: app/opentelemetry-add-modify.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -652,6 +654,8 @@ items:
     href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
+  - name: Stream monitoring data
+    href: essentials/stream-monitoring-data-event-hubs.md
 - name: Data collection
   items: 
   - name: Overview
@@ -725,9 +729,6 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
-      - name: Collect Windows Firewall logs
-        displayName: data collection rule,Azure Monitor Agent,firewall logs
-        href: agents/data-collection-firewall.md
       - name: Collect text logs
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
@@ -883,6 +884,9 @@ items:
       - name: Configure with ARM templates
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-api.md
+      - name: Configure with PowerShell
+        displayName: logs ingestion
+        href: logs/set-up-logs-ingestion-api-prerequisites.md
       - name: Sample code
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
@@ -1108,8 +1112,6 @@ items:
             href: logs/logs-data-export.md
           - name: Export with Logic Apps
             href: logs/logs-export-logic-app.md
-          - name: Query data with Azure Data Explorer
-            href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs

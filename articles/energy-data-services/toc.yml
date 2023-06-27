@@ -90,6 +90,8 @@
       href: how-to-convert-segy-to-ovds.md
     - name: Generate a refresh token
       href: how-to-generate-refresh-token.md
+    - name: Upload large files using file service
+      href: how-to-upload-large-files-using-file-service.md
 - name: References
   items:
   - name: REST API

@@ -386,7 +386,7 @@ This example collects events for:
 1. To verify that the connector is installed correctly, run the troubleshooting script with this command:
 
     ```
-    sudo wget -O cef_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_AMA_troubleshoot.py&&sudo python cef_AMA_troubleshoot.py
+    sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py
     ```
 
 ## Next steps

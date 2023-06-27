@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - numeric
 description: Describes the functions to use in a Bicep file to work with numbers.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/30/2021
+ms.date: 06/23/2023
 ---
 
 # Numeric functions for Bicep
