@@ -3,7 +3,7 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 06/26/2023
+ms.date: 06/27/2023
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
@@ -116,10 +116,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ## Create a new AKS cluster and encrypt the OS disk
 
-Either create a new or select an existing resource group for your AKS cluster, then use your key to encrypt the ephemeral OS disk.
-
-> [!IMPORTANT]
-> Ensure you create a new resource group for your AKS cluster
+Either create a new resource group, or select an existing resource group hosting other AKS clusters, then use your key to encrypt the ephemeral OS disk.
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -129,10 +126,14 @@ diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g 
 az group create -n myResourceGroup -l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version KUBERNETES_VERSION --generate-ssh-keys
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Ephemeral
 ```
 
-When new node pools are added to the cluster created above, the customer-managed key provided during the create process is used to encrypt the OS disk.
+When new node pools are added to the cluster created above, the customer-managed key provided during the create process is used to encrypt the OS disk. The following example shows how to deploy a new node pool with an ephemeral OS disk.
+
+```azurecli-interactive
+az aks nodepool add --cluster-name $CLUSTER_NAME -g $RG_NAME --name $NODEPOOL_NAME --node-osdisk-type Ephemeral
+```
 
 ## Encrypt your AKS cluster data disk
 
