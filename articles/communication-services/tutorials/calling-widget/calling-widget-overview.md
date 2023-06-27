@@ -32,7 +32,7 @@ Following this tutorial will:
 - Move your customers call into a new window so they can continue browsing while on the call
 
 
-This tutorial will be broken down into three parts:
+This tutorial is broken down into three parts:
 
 - Creating your widget
 - using post messaging to start a calling experience in a new window
@@ -48,9 +48,8 @@ This tutorial will be broken down into three parts:
 
 Only use this strp if you are creating a new application.
 
-To set up the react App, we'll use the create-react-app command line tool. This `create-react-app` command
-creates an easy to run TypeScript application powered by React. This command will create a simple react application 
-using TypeScript.
+To set up the react App, we use the `create-react-app` command line tool. This tool
+creates an easy to run TypeScript application powered by React. This command will create a simple react application using TypeScript.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -72,13 +71,12 @@ Then you need to update the dependency array in the `package.json` to include so
 "@fluentui/react": "~8.98.3",
 ```
 
-Once you run these commands, you’re all set to start working on your new project. In this tutorial, we’ll be modifying the files in the
-`src` directory.
+Once you run these commands, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
 
 
 ## Initial App Setup
 
-To get started, we'll replace the provided `App.tsx` content with a main page that will:
+To get started, we replace the provided `App.tsx` content with a main page that will:
 
 - Store all of the Azure Communication information that we need to create a CallAdapter to power our Calling experience
 - Control the different pages of our application
@@ -172,7 +170,7 @@ function App() {
 
 export default App;
 ```
-In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons will be used inside the widget component that we are creating later.
+In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we are creating later.
 
 ### Running the App
 
