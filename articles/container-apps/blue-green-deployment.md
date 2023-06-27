@@ -44,13 +44,9 @@ This article shows you how to implement blue-green deployment in a container app
 
 ## Create a container app with multiple active revisions enabled
 
-Begin by enabling traffic splitting.
+The container app must have the `configuration.activeRevisionsMode` property set to `multiple` to enable traffic splitting. To get deterministic revision names, you can set the `template.revisionSuffix` configuration setting to a string value that uniquely identifies a release. For example you can use a build number, or a git commit short hash.
 
-The container app must have the `configuration.activeRevisionsMode` property set to `multiple` to enable traffic splitting. To get deterministic revision names, you can set the `template.revisionSuffix` configuration setting to a string value that uniquely identifies a release.
-
-You may want to use a build number, or a git commit short hash.
-
-For the following commands, use a set of randomly generated commit hashes.
+For the following commands, a set of commit hashes was used.
 
 ::: zone pivot="azure-cli"
 
@@ -59,9 +55,9 @@ export APP_NAME=<APP_NAME>
 export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
-# A random commitId that is assumed to correspond to the app code currently in production
+# A commitId that is assumed to correspond to the app code currently in production
 export BLUE_COMMIT_ID=0b699ef
-# A random commitId that is assumed to correspond to the new version of the code to be deployed
+# A commitId that is assumed to correspond to the new version of the code to be deployed
 export GREEN_COMMIT_ID=c6f1515
 
 # create a new app with a new revision
@@ -205,9 +201,9 @@ export APP_NAME=<APP_NAME>
 export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
-# A random commitId that is assumed to belong to the app code currently in production
+# A commitId that is assumed to belong to the app code currently in production
 export BLUE_COMMIT_ID=0b699ef
-# A random commitId that is assumed to belong to the new version of the code to be deployed
+# A commitId that is assumed to belong to the new version of the code to be deployed
 export GREEN_COMMIT_ID=c6f1515
 
 # create a new app with a blue revision
