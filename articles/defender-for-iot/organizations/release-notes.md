@@ -110,6 +110,7 @@ This version includes the following updates and enhancements:
 - [Simplified installation process](ot-deploy/install-software-ot-sensor.md)
 - [Enhanced set-up wizard](ot-deploy/activate-deploy-sensor.md)
 - [Analyze sensor connectivity](how-to-manage-individual-sensors.md)
+- [UI enhancements for downloading PCAP files from the sensor](how-to-view-alerts.md#access-alert-pcap-data)
 
 ## Versions 22.3.x
 
