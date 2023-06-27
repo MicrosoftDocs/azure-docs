@@ -50,9 +50,7 @@ With the integration between Azure Cache for Redis and Functions, you can build 
 
 ## Install bundle
 
-You need to install this NuGet package:
-
-    Microsoft.Azure.WebJobs.Extensions.Redis, which is the extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
+You need to install Microsoft.Azure.WebJobs.Extensions.Redis, which is the extension that allows Redis keyspace notifications to be used as triggers in Azure Functions.
 
 Install these packages by going to the Terminal tab in VS Code and entering the following commands:
 
@@ -68,7 +66,8 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
 <!--## Requirements Include any requirements that apply to using the entire extension. See the [Kafka reference](https://learn.microsoft.com/azure/azure-functions/functions-bindings-kafka#enable-runtime-scaling) for an example. -->
 host.json settings
 <!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
+
 ## Next steps
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started.md)
-- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-rediscache-tutorial-write-behind)
+- [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
+- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
