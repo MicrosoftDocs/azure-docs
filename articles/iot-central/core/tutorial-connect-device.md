@@ -3,7 +3,7 @@ title: Tutorial - Connect a client app to Azure IoT Central
 description: This tutorial shows you how to connect a device running either a C, C#, Java, JavaScript, or Python client app to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2022
+ms.date: 06/06/2023
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

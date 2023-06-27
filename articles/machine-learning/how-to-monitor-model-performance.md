@@ -234,6 +234,7 @@ create_monitor:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
         dataset_context: training
+        target_column_name: fraud_detected
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
@@ -539,8 +540,6 @@ create_monitor:
   compute: 
     instance_type: standard_e4s_v3
     runtime_version: 3.2
-  monitoring_target:
-    endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
   
   monitoring_signals:
     advanced_data_drift: # monitoring signal name, any user defined name works
@@ -558,6 +557,7 @@ create_monitor:
           path: azureml:my_model_training_data:1 # use training data as comparison baseline
           type: mltable
         dataset_context: training
+        target_column_name: fraud_detected
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
@@ -657,10 +657,6 @@ spark_configuration = SparkResourceConfiguration(
     runtime_version="3.2"
 )
 
-monitoring_target = MonitoringTarget(
-   endpoint_deployment_id="azureml:fraud-detection-endpoint:fraud-detection-deployment"
-)
-
 #define target dataset (production dataset)
 input_data = MonitorInputData(
     input_dataset=Input(
@@ -740,7 +736,6 @@ alert_notification = AlertNotification(
 # Finally monitor definition
 monitor_definition = MonitorDefinition(
     compute=spark_configuration,
-    monitoring_target=monitoring_target,
     monitoring_signals=monitoring_signals,
     alert_notification=alert_notification
 )

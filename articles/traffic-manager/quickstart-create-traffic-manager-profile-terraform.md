@@ -7,7 +7,7 @@ ms.custom: devx-track-terraform, ai-gen-docs
 ms.service: traffic-manager
 author: TomArcherMsft
 ms.author: tarcher
-ms.date: 4/19/2023
+ms.date: 6/8/2023
 ---
 
 # Quickstart: Create an Azure Traffic Manager profile using Terraform
@@ -82,7 +82,7 @@ In this article, you learn how to:
 1. Get the Traffic Manager profile name.
 
     ```console
-         
+    traffic_manager_profile_name=$(terraform output -raw azurerm_traffic_manager_profile_name)
     ```
 
 1. Run [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile#az-network-traffic-manager-profile-show) to display information about the new Traffic Manager profile.
@@ -90,7 +90,7 @@ In this article, you learn how to:
     ```azurecli
     az network traffic-manager profile show \
         --resource-group $resource_group_name \
-        --name $azurerm_traffic_manager_profile_name
+        --name $traffic_manager_profile_name
     ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -104,14 +104,14 @@ In this article, you learn how to:
 1. Get the Traffic Manager profile name.
 
     ```console
-    $azurerm_traffic_manager_profile_name=$(terraform output -raw azurerm_traffic_manager_profile_name)
+    $traffic_manager_profile_name=$(terraform output -raw azurerm_traffic_manager_profile_name)
     ```
 
 1. Run [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to display information about the new Traffic Manager profile.
 
     ```azurepowershell
     Get-AzTrafficManagerProfile -ResourceGroupName $resource_group_name `
-                                -Name $azurerm_traffic_manager_profile_name
+                                -Name $traffic_manager_profile_name
     ```
 
 ---

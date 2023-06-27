@@ -39,13 +39,13 @@ The `Search` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/
 
 The Azure Function pulls in the Search configuration information, and fulfills the query.
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Search.cs" highlight="18-20, 40-44, 57" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Search.cs" :::
 
 ## Client: Search from the catalog
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/pages/Search/Search.js" highlight="41-52" :::
+:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/pages/Search/Search.js" :::
 
 ## Azure Function: Suggestions from the catalog
 
@@ -53,25 +53,25 @@ The `Suggest` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples
 
 The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website-functions-v4/bulk-insert/BookSearchIndex.cs) used during bulk upload.
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Suggest.cs" highlight="16-18, 39-44, 52" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Suggest.cs"  :::
 
 ## Client: Suggestions from the catalog
 
 The Suggest function API is called in the React app at `\client\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
+:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/components/SearchBar/SearchBar.js" :::
 
 ## Azure Function: Get specific document 
 
 The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website-functions-v4/api/Lookup.cs) takes an ID and returns the document object from the Search Index. 
 
-:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Lookup.cs" highlight="16-18, 41-46, 48" :::
+:::code language="csharp" source="~/azure-search-dotnet-samples/search-website-functions-v4/api/Lookup.cs"  :::
 
 ## Client: Get specific document 
 
 This function API is called in the React app at `\client\src\pages\Details\Detail.js` as part of component initialization:
 
-:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/pages/Details/Details.js" highlight="20-30" :::
+:::code language="javascript" source="~/azure-search-dotnet-samples/search-website-functions-v4/client/src/pages/Details/Details.js"  :::
 
 ## C# models to support function app
 

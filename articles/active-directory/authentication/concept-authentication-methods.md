@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 06/07/2023
 
 ms.author: justinha
 author: justinha
@@ -41,7 +41,7 @@ The following table outlines the security considerations for the available authe
 | Microsoft Authenticator        | High     | High      | High         |
 | Authenticator Lite             | High     | High      | High         |
 | FIDO2 security key             | High     | High      | High         |
-| Certificate-based authentication (preview)| High | High | High       |
+| Certificate-based authentication | High | High | High       |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
 | SMS                            | Medium   | High      | Medium       |
@@ -100,6 +100,15 @@ The following additional verification methods can be used in certain scenarios:
 * [App passwords](howto-mfa-app-passwords.md) - used for old applications that don't support modern authentication and can be configured for per-user Azure AD Multi-Factor Authentication.
 * [Security questions](concept-authentication-security-questions.md) - only used for SSPR
 * [Email address](concept-sspr-howitworks.md#authentication-methods) - only used for SSPR
+
+## Usable and non-usable methods
+
+Administrators can view user authentication methods in the Azure portal. Usable methods are listed first, followed by non-usable methods. 
+
+Each authentication method can become non-usable for different reasons. For example, a Temporary Access Pass may expire, or FIDO2 security key may fail attestation. The portal will be updated to provide the reason for why the method is non-usable. 
+
+:::image type="content" border="true" source="media/concept-authentication-methods/non-usable.png" alt-text="Screenshot of non-usable authentication methods." :::
+
 
 ## Next steps
 

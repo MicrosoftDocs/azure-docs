@@ -85,6 +85,12 @@ A virtual network is needed for the resources that are in the backend pool of th
 
 12. Select **Create**.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
+
 ## Create NSG
 
 Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
