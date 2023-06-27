@@ -2,7 +2,7 @@
 title: Microsoft Azure Monitor Application Insights JavaScript SDK
 description: Microsoft Azure Monitor Application Insights JavaScript SDK is a powerful tool for monitoring and analyzing web application performance.
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 06/23/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
