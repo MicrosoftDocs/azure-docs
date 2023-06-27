@@ -162,8 +162,8 @@ To prevent possible passive FTP connection failures, do the following steps:
 
 2. Make sure that the passive port range from your NAT gateway is allowed to pass any firewalls that may be at the destination endpoint.
 
-> !NOTE
-> Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.  
+>[!NOTE]
+>Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.  
 
 ### Extra network captures 
 

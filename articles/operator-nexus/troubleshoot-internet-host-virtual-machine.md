@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid cluster for Azure Operator Nexus
-description: Troubleshoot accessing a CSN connected internet hostname within the AKS hybrid cluster for Azure Operator Nexus
+title: Troubleshoot accessing a CSN-connected internet host name within an AKS hybrid cluster for Azure Operator Nexus
+description: Learn how to troubleshoot accessing a CSN-connected internet host name within an AKS hybrid cluster for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -9,25 +9,23 @@ ms.author: v-saambe
 author: v-saambe
 ---
 
-# Accessing a CSN connected internet hostname within the AKS hybrid cluster
+# Troubleshoot accessing a CSN-connected internet host name within an AKS hybrid cluster
 
-This article outlines troubleshooting for scenarios where the end user is having issues reaching an internet hostname, which is part of the CSN
-attached to AKS hybrid cluster.
+This article outlines troubleshooting for scenarios where you're having problems reaching an internet host name that's part of the cloud services network (CSN) attached to an Azure Kubernetes Service (AKS) hybrid cluster.
 
 ## Prerequisites
 
-* Subscription ID
-* Cluster name and resource group
-* AKS-Hybrid cluster name and resource group
-* Familiar with procedures provided in [Connect to AKS Hybrid](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster)
-
-Once these prerequisites have been applied, we can finalize the repair of the “Curl -vk” by performing the below workaround.
+* Gather this information:
+  * Subscription ID
+  * Cluster name and resource group
+  * AKS hybrid cluster name and resource group
+* Become familiar with the procedures in [Connect to the AKS hybrid cluster](/azure/AkS/Hybrid/create-aks-hybrid-preview-cli#connect-to-the-aks-hybrid-cluster).
 
 ## Common scenarios
 
-User logged in to the jump server and ssh would into AKS hybrid VM using the IP address of the worker nodes or control plane VMs. From AKS hybrid VM users couldn’t reach any egress endpoints mentioned while creating an AKS hybrid that uses the CSN
+Assume that you're logged in to the jump server. You used SSH to access the AKS hybrid virtual machine (VM) by using the IP address of the worker nodes or control plane VMs. From the AKS hybrid VM, you can't reach any egress endpoints that you obtained when you created an AKS hybrid VM that uses the CSN.
 
-The user is encountering an error when trying to access the fully qualified domain name (FQDN) of internet hostnames
+You're encountering an error when trying to access the fully qualified domain name (FQDN) of internet host names:
 
 ~~~bash
 curl -vk [http://www.ubuntu.com](http://www.ubuntu.com)
@@ -53,13 +51,17 @@ unreachable
 
 ## Suggested solutions  
 
+### First attempt
+
+Here's the code for the first attempt at a workaround:
+
 ~~~bash
 curl -x "http_proxy=http://169.xxx.x.xx.xxxx" -vk "https://ubuntu.com"
 
 https_proxy=<http://169.xxx.x.xx.xxxx> tdnf -y install openssh-clients
 ~~~
 
-### First attempt with the above commands generated a user
+Here's the output:
 
 ~~~output
 
@@ -72,16 +74,15 @@ https_proxy=[http://169.xxx.x.xx.xxxx](http://169.xxx.x.xx.xxxx/) curl
 -vk "https://ubuntu.com" shows connected but user get 403 Access denied.
 ~~~
 
-### Second attempt with the commands
+### Second attempt
 
-\# option 1 (set proxy inline on curl, settings will go away after
-command is complete)
+The first option for another attempt is to set a proxy inline by using curl. The settings will go away after the command is complete.
 
 ~~~bash
 curl -x "http://169.xxx.x.xx.xxxx" -vk "https://ubuntu.com"
 ~~~
 
-\# option 2 (proxy setting is effective while they remain in the shell)
+For the following second option, the proxy setting is effective while the user remains in the shell:
 
 ~~~bash
 export https_proxy="http://169.xxx.x.xx.xxxx"
@@ -89,18 +90,16 @@ export HTTPS_PROXY="http://169.xxx.x.xx.xxxx"
 curl -vk <https://ubuntu.com>
 ~~~
 
-If a customer is running their rpm install with a shell script, they must ensure setting the http(s)\_proxy locally inside their shell script explicitly. They can also try setting the proxy as an option inline on rpm with the '--httpproxy' and '--httpport' options.
+If you're running an RPM package installation by using a shell script, be sure to set `https_proxy` locally inside a shell script explicitly. You can also try setting the proxy as an option inline on RPM with the `--httpproxy` and `--httpport` options.
 
-[For additional information](https://www.xmodulo.com/how-to-install-rpm-packages-behind-proxy.html)
-
-### How to install.RPM packages behind proxy
-
-RPM has a proxy flag, which must be set:
+RPM has a proxy flag, which you must set:
 
 ~~~bash
 sudo rpm --import <https://aglet.packages.cloudpassage.com/cloudpassage.packages.key>
 --httpproxy 169.xxx.x.xx  --httpport 3128
 ~~~
 
->[!Note]
->Keep in mind if you set them system-wide, they may "lose" their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
+> [!NOTE]
+> If you set these flags system wide, they might lose their ability to run kubectl locally. Set them inline within the script first to help minimize the effects.
+
+For more information, see the [Xmodulo article about installing RPM packages behind a proxy](https://www.xmodulo.com/how-to-install-rpm-packages-behind-proxy.html).

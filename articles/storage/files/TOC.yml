@@ -29,14 +29,22 @@
     href: storage-files-active-directory-overview.md
   - name: Networking considerations for direct access
     href: storage-files-networking-overview.md
-  - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/files/toc.json
-  - name: Storage redundancy
-    href: files-redundancy.md
-  - name: Geo-redundancy for large file shares
-    href: geo-redundant-storage-for-large-file-shares.md
-  - name: Azure file share snapshots
-    href: storage-snapshots-files.md
+  - name: Data protection
+    items:
+    - name: Overview
+      href: files-data-protection-overview.md
+    - name: Storage redundancy
+      href: files-redundancy.md
+    - name: Disaster recovery and failover
+      href: files-disaster-recovery.md
+    - name: Back up file shares
+      href: ../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json
+    - name: Share snapshots
+      href: storage-snapshots-files.md
+    - name: Prevent accidental data deletion
+      href: storage-files-prevent-file-share-deletion.md
+    - name: Geo-redundancy for large file shares
+      href: geo-redundant-storage-for-large-file-shares.md
   - name: Performance and scale
     items:
     - name: Understanding performance
@@ -55,10 +63,6 @@
     href: understanding-billing.md
   - name: Windows Server to Azure Files
     href: windows-server-to-azure-files.md    
-  - name: Prevent accidental data deletion
-    href: storage-files-prevent-file-share-deletion.md
-  - name: Back up file shares
-    href: ../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json
   - name: Encryption
     items: 
     - name: Encryption at-rest
