@@ -8,6 +8,8 @@ items:
     href: overview-what-is-global-secure-access.md
   - name: Get started with Global Secure Access
     href: how-to-get-started-with-global-secure-access.md
+  - name: Network traffic dashboard
+    href: concept-traffic-dashboard.md
 - name: How-to guides
   expanded: true
   items:
@@ -72,8 +74,6 @@ items:
     items:
       - name: About logs and monitoring
         href: concept-global-secure-access-logs-monitoring.md
-      - name: Network traffic dashboard
-        href: concept-traffic-dashboard.md
       - name: Global Secure Access Audit logs
         href: how-to-access-audit-logs.md
       - name: Traffic logs
