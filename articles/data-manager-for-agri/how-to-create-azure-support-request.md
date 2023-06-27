@@ -1,21 +1,21 @@
 ---
 title: How to create an Azure support request for Azure Data Manager for Agriculture resource
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests for Azure Data Manager for Agriculture resource.
-author: gourdsay
-ms.author: angour
+author: BlackRider97
+ms.author: ramithar
 ms.service: data-manager-for-agri
 ms.topic: how-to
 ms.date: 06/27/2023
 ms.custom: template-how-to
 ---
 
-# Create an Azure support request for Azure Data Manager for Agriculture resource
+# Create an Azure Data Manager for Agriculture support request
 
 Azure enables you to create and manage support requests, also known as support tickets. You can create and manage requests in the [Azure portal](https://portal.azure.com), which is covered in the [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
 
-## Go to Help + support from Azure Data Manager for Agriculture resource menu
+## Steps for creating a support request
 
-To start a support request in the context of the Azure Data Manager for Agriculture resource, you're currently working with:
+Following are the steps to create a support request in the context of the Azure Data Manager for Agriculture resource, you're currently working with:
 
 1. From the resource menu, in the **Support + troubleshooting** section, select **New Support Request**.
 
