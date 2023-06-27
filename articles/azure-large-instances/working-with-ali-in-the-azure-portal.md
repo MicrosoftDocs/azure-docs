@@ -104,7 +104,8 @@ az baremetalinstance list --resource-group DSM05A-T550 –output table
 
 > [!TIP]
 > The `--output` parameter is a global parameter, available for all commands. The **table** value presents output in a friendly format. For more information, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
-> [!Note] 
+
+> [!Note]
 > If you deployed several ALI tenants under the same Azure subscription, you will see multiple Azure resource groups.
 
 ## View the attributes of a single instance
@@ -208,7 +209,7 @@ Image TBD in next couple of weeks - IW
 
 ### Restart an ALI instance through the Azure portal
 
-There are various situations where the OS won't finish a restart, which requires a power restart of the ALI instance.
+There are various situations in which the operating system won't complete a restart, which requires a power restart of the ALI instance.
 
 You can do a power restart of the instance directly from the Azure portal or through Azure CLI.
 
@@ -235,15 +236,13 @@ az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orclla
 
 ### Open a support request for ALI instances
  
-You can submit support requests specifically for BareMetal instances.
+You can submit support requests specifically for ALI instances.
 1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
  
 * **Issue type:** Select an issue type.
 * **Subscription:** Select your subscription.
-* **Service:** BareMetal Infrastructure
-* **Resource:** Provide the name of the instance.
-* **Summary:** Provide a summary of your request.
-* **Problem type:** Select a problem type.
+* **Service:** Select Epic on Azure
+* **Problem type:** Azure Large Instances (ALI) 
 * **Problem subtype:** Select a subtype for the problem.
 
 1. Select the **Solutions** tab to find a solution to your problem. If you can't find a solution, go to the next step.
