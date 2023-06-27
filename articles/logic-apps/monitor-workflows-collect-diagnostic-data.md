@@ -23,7 +23,7 @@ To get richer data for debugging and diagnosing your workflows in Azure Logic Ap
 > petabytes of data per day at scale. This capability built-in redundancy and retries across the platform, but doesn't provide 
 > transactional guarantees. Transactional monitoring might reduce the reliability and performance of the monitored service, 
 > Also, transient logging errors must halt the upstream service when unable to confirm log delivery. 
-> greatly increase costs. Whenever we can confirm a persistent source of data loss, our team considers it the highest priority to 
+> Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
 > resolve and prevent it. However, small data losses may occur due to temporary, non-repeating service issues distributed across 
 > Azure, and not all of them can be caught.
 
