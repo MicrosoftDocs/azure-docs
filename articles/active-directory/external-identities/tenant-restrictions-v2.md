@@ -107,8 +107,9 @@ Teams by default has open federation which means we do not block anyone joining 
 - Teams currently allows users to join ANY externally hosted meeting using their corporate/home provided identity. You can use XTAP outbound controls to control users with corporate/home provided identity to join externally hosted Teams meetings.
 - Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
 
-**Pure Anonymous Meeting join**
-TRv2 will automatically block all unauthenticated as well as externally issued identity join to all externally hosted Teams meetings .
+#### Pure Anonymous Meeting join
+
+Tenant restrictions V2 automatically block all unauthenticated and externally-issued identity access to externally-hosted Teams meetings.
 For example, suppose Contoso uses Teams Federation Controls to block the Fabrikam tenant. If someone with a Contoso device uses a Fabrikam account to join a Contoso Teams meeting, they're allowed into the meeting as an anonymous user. Now, if Contoso also enables tenant restrictions V2, Teams blocks anonymous access, and the user isn't able to join the meeting.
 
 **Meeting join using an externally issued foreign identity**
