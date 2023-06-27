@@ -3,7 +3,7 @@ title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, build-2023
-ms.date: 03/11/2023
+ms.date: 06/27/2023
 ---
 
 # Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -13,11 +13,12 @@ In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped t
 > [!NOTE]
 > This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only options to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
 
-This article shows you how to create and manage multiple node pools in an AKS cluster.
+This article shows you how to create and manage one or more node pools in an AKS cluster.
 
 ## Before you begin
 
-You need the Azure CLI version 2.2.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need the Azure CLI version 2.2.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* Review [Storage options for applications in Azure Kubernetes Service][aks-storage-concepts] to plan your storage configuration.
 
 ## Limitations
 
@@ -790,16 +791,11 @@ az group delete --name myResourceGroup2 --yes --no-wait
 * Use [instance-level public IP addresses](use-node-public-ips.md) to make your nodes able to serve traffic directly.
 
 <!-- EXTERNAL LINKS -->
-
-[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
-[kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-[kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 [capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
 
 <!-- INTERNAL LINKS -->
+[aks-storage-concepts]: concepts-storage.md
 [arm-sku-vm1]: ../virtual-machines/dpsv5-dpdsv5-series.md
 [arm-sku-vm2]: ../virtual-machines/dplsv5-dpldsv5-series.md
 [arm-sku-vm3]: ../virtual-machines/epsv5-epdsv5-series.md
@@ -809,38 +805,23 @@ az group delete --name myResourceGroup2 --yes --no-wait
 [az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool#az_aks_nodepool_list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az_aks_nodepool_upgrade
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az_aks_nodepool_delete
-[az-aks-show]: /cli/azure/aks#az_aks_show
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
-[az-aks-nodepool-add]: /cli/azure/aks#az_aks_nodepool_add
 [enable-fips-nodes]: enable-fips-nodes.md
-[gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [quotas-skus-regions]: quotas-skus-regions.md
-[supported-versions]: supported-kubernetes-versions.md
-[tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
-[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[public-ip-prefix-benefits]: ../virtual-network/ip-services/public-ip-address-prefix.md
-[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create
-[node-image-upgrade]: node-image-upgrade.md
-[use-tags]: use-tags.md
+[[use-tags]: use-tags.md
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
