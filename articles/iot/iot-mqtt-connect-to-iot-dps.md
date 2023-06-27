@@ -81,7 +81,7 @@ When connecting over Websocket, specify the subprotocol as `mqtt`. Follow [RFC 6
 
 To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
 
-To see sample MQTT code, see * [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples).
+To see sample MQTT code, see [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples).
 
 To further explore the capabilities of DPS, see:
 
