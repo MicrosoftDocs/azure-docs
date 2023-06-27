@@ -147,4 +147,4 @@ With working **API endpoint (instanceUri)** and **access_token**, you now can st
 
 * See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md).
 * Understand our APIs [here](/rest/api/data-manager-for-agri).
-- [How to create an Azure support request](how-to-create-azure-support-request.md)
+- [How to create an Azure support request](./how-to-create-azure-support-request.md)
