@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
-# TURN  metrics overview
+# TURN metrics overview
 
 Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that TURN requests emit.
 
@@ -37,4 +37,4 @@ The following operations are available on Network Traversal API request metrics:
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
 
-:::image type="content" source="../media/acs-turn-metrics.png" alt-text="TURN Token Request Metric.":::
+:::image type="content" source="../media/acs-turn-metrics.png" alt-text="Screenshot showing the TURN Token Request Metrics.":::
