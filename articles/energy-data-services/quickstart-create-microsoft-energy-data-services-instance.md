@@ -71,7 +71,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
     [![Screenshot of the tags tab on the create workflow. Any number of tags can be added and will show up in the list.](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png#lightbox)
 
-1. Navigate to the *Resource Sharing (CORS)* tab and configure as needed. Learn more about [Use CORS for resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md)
+1. Navigate to the *Resource Sharing (CORS)* tab and configure as needed. Learn more about [Use CORS for resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md).
 
      [![Screenshot of the cross-origin resource sharing tab on the create workflow. Multiple CORS policies can be added to the list on this tab.](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png)](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png#lightbox)
     
