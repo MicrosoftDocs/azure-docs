@@ -136,7 +136,7 @@ For example:
 
 The PCAP file is downloaded and your browser prompts you to open or save it locally.
 
-### Export alerts to CSV or PDF
+## Export alerts to CSV or PDF
 
 You may want to export a selection of alerts to a CSV or PDF file for offline sharing and reporting.
 
