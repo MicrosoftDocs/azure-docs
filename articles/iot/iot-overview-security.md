@@ -15,7 +15,7 @@ This overview introduces the key concepts around securing a typical Azure IoT so
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the security of an IoT solution.
 
-:::image type="content" source="media/iot-overview-security/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting security." border="false":::
+:::image type="content" source="media/iot-overview-security/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting security." lightbox="media/iot-overview-security/iot-architecture.svg" border="false":::
 
 You can divide security in an IoT solution into the following three areas:
 
