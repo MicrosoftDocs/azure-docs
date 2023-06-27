@@ -34,7 +34,7 @@ Before proceeding with this how-to guide, it's recommended that you:
    * A minimum of two nodes 4 vCPUs is recommended (for example, NC_G4_v1), especially for large clusters.
    * Nexus Kubernetes cluster may have multiple system node pools and requires at least one system node pool.
 
-## System Pool
+## System pool
 For a system node pool, Nexus Kubernetes automatically assigns the label `kubernetes.azure.com/mode: system` to its nodes. This label causes Nexus Kubernetes to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
 
 You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
