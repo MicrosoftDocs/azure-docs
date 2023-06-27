@@ -17,6 +17,6 @@
      * **Public IP address SKU**: Setting is autoselected.
      * **Assignment**: The assignment is typically autoselected and can be either Dynamic or Static.
      * **Enable active-active mode**: Leave this setting as **Disabled**. Only enable this setting if you're creating an active-active gateway configuration.
-     * Leave **Configure BGP** as **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this value can be changed.
+     * **Configure BGP**: Leave this setting as **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this value can be changed.
 4. Select **Review + create** to run validation.
 5. Once validation passes, select **Create** to deploy the VPN gateway.
