@@ -1,3 +1,15 @@
+---
+title: Connection configurations for Azure Cosmos DB .NET SDK v3
+description: Learn how to tune connection configurations to improve Azure Cosmos DB database performance for .NET SDK v3
+author: rinatmini
+ms.service: cosmos-db
+ms.subservice: nosql
+ms.devlang: csharp
+ms.topic: how-to
+ms.date: 06/27/2023
+ms.author: rinatmini
+ms.custom: devx-track-dotnet
+---
 # Tune connection configurations for Azure Cosmos DB .NET SDK v3
 
 > [!IMPORTANT]  
@@ -59,7 +71,7 @@ As a first step, use the following recommended configuration settings below. The
 | WebProxy        |  null           |  null       | This represents the proxy information used for web requests. |
 
 > [!NOTE]
-> See also [Best practices when using Gateway mode for Azure Cosmos DB NET SDK v3](performance-tips-dotnet-sdk-v3.md#best-practices-when-using-gateway-mode).
+> See also [Best practices when using Gateway mode for Azure Cosmos DB NET SDK v3](best-practice-dotnet.md#best-practices-when-using-gateway-mode).
 
 ## Next steps
 
