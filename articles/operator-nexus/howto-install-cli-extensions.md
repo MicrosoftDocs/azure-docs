@@ -25,27 +25,12 @@ If you haven't already installed Azure CLI: [Install Azure CLI][installation-ins
     ```azurecli
     az extension remove --name networkcloud
     ```
-
-- Download the `networkcloud` python wheel
-
-# [Linux / macOS / WSL](#tab/linux+macos+wsl)
-
-```sh
-    curl -L "https://aka.ms/nexus-nc-cli" --output "networkcloud-0.0.0-py3-none-any.whl"
-```
-
-# [PowerShell](#tab/powershell)
-
-```ps
-    curl "https://aka.ms/nexus-nc-cli" -OutFile "networkcloud-0.0.0-py3-none-any.whl"
-```
-
 ---
 
 - Install and test the `networkcloud` CLI extension
 
     ```azurecli
-    az extension add --source networkcloud-0.0.0-py3-none-any.whl
+    az extension add --name networkcloud
     az networkcloud --help
     ```
 
