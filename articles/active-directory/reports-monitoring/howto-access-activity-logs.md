@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/19/2022
+ms.date: 04/27/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -19,167 +19,228 @@ ms.collection: M365-identity-device-management
 
 The data in your Azure Active Directory (Azure AD) logs enables you to assess many aspects of your Azure AD tenant. To cover a broad range of scenarios, Azure AD provides you with various options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 
-This article shows you how to access the Azure AD activity logs and provides common use cases for accessing Azure AD logs data, including recommendations for the right access method. The article also describes related reports that use the data contained in the activity logs.
+You can access Azure AD activity logs and reports using the following methods:
 
+- [Stream activity logs to an **event hub** to integrate with other tools](#stream-to-an-event-hub-to-integrate-with-siem-tools)
+- [Access activity logs through the **Microsoft Graph API**](#access-logs-with-microsoft-graph-api)
+- [Integrate logs with **Azure Monitor logs**](#integrate-activity-logs-with-azure-monitor-logs)
+- [Monitor activity in real-time with **Microsoft Sentinel**](#monitor-events-with-microsoft-sentinel)
+- [View activity logs and reports in the **Azure portal**](#view-logs-through-the-portal)
+- [Export activity logs for **storage and queries**](#export-logs-for-storage-and-queries)
+
+Each of these methods provides you with capabilities that may align with certain scenarios. This article describes those scenarios, including recommendations and details about related reports that use the data in the activity logs. Explore the options in this article to learn about those scenarios so you can choose the right method.
 ## Prerequisites
-Viewing audit logs is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. To access the sign-ins activity logs, your tenant must have an Azure AD Premium license associated with it.
 
-The following roles provide read access to audit and sign-in logs. Always use the least privileged role, according to [Microsoft Zero Trust guidance](/security/zero-trust/zero-trust-overview).
+The required roles and licenses may vary based on the report. Global Administrator can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
 
-- Reports Reader
-- Security Reader
-- Security Administrator
-- Global Reader (sign-in logs only)
-- Global Administrator
+| Log / Report | Roles | Licenses |
+|--|--|--|
+| Audit | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Sign-ins | Report Reader<br>Security Reader<br>Security Administrator<br>Global Reader | All editions of Azure AD |
+| Provisioning | Same as audit and sign-ins, plus<br>Security Operator<br>Application Administrator<br>Cloud App Administrator<br>A custom role with `provisioningLogs` permission | Premium P1/P2 |
+| Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1/P2 |
+| Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Azure AD Free/Microsoft 365 Apps<br>Azure AD Premium P1/P2 |
 
-## Access the activity logs in the portal
+*The level of access and capabilities for Identity Protection varies with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
+
+Activity reports are available for features that you've licensed. To access the sign-ins activity logs, your tenant must have an Azure AD Premium license associated with it.
+## Stream logs to an event hub to integrate with SIEM tools
+
+Streaming your activity logs to an event hub is required to integrate your activity logs with Security Information and Event Management (SIEM) tools, such as Splunk and SumoLogic. Before you can stream logs to an event hub, you need to [set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md) in your Azure subscription. 
+
+### Recommended uses
+
+The SIEM tools you can integrate with your event hub can provide analysis and monitoring capabilities. If you're already using these tools to ingest data from other sources, you can stream your identity data for more comprehensive analysis and monitoring. We recommend streaming your activity logs to an event hub for the following types of scenarios:
+
+- If you need a big data streaming platform and event ingestion service to receive and process millions of events per second.
+- If you're looking to transform and store data by using a real-time analytics provider or batching/storage adapters.
+
+### Quick steps
 
 1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs**.
-1. Adjust the filter according to your needs.
-    - For more information on the filter options for audit logs, see [Azure AD audit log categories and activities](reference-audit-activities.md). 
-    - For more information on the sign-in logs, see [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md).
+1. Create an Event Hub namespace and event hub.
+1. Go to **Azure AD** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Stream to an event hub** option, and complete the fields.
+    - [Set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md)
+    - [Learn more about streaming activity logs to an event hub](howto-stream-logs-to-event-hub.md)
 
-## Logs and reports that use activity log data
+ Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. For instructions for some commonly used SIEM tools, see [How to stream logs to an event hub](howto-stream-logs-to-event-hub.md).
 
-The data captured in the Azure AD activity logs are used in many reports and services. You can review the sign-in logs, audit logs, and provisioning logs for specific scenarios or use the reports to look at patterns and trends. For example the sign-in logs are helpful when researching a user's sign-in activity or to track an application's usage. If you want to see trends or see how your policies impact the data, you can start with the Azure AD Identity Protection reports or use **Diagnostic settings** to [send your data to **Azure Monitor**](howto-integrate-activity-logs-with-log-analytics.md) for further analysis.
+## Access logs with Microsoft Graph API
 
-### Audit logs
+The Microsoft Graph API provides a RESTful way to query sign-in data from Azure AD in Azure AD Premium tenants It doesn't require an administrator or developer to set up additional infrastructure to support your script or app. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API leads to issues with pagination and performance. 
 
-The audit logs capture a wide variety of data. Some examples of the types of activity captured in the logs are included in the following list. New audit information is added periodically, so this list is not exhaustive.
+### Recommended uses
 
-* Password reset and registration activity
-* Self-service groups activity
-* Microsoft 365 Group name changes
-* Account provisioning activity and errors
-* Privileged Identity Management activity
-* Device registration and compliance activity
+The Microsoft Graph API provides a unified programmability model that you can use to access data for your tenant. Using Microsoft Graph explorer, you can run queries to help you with the following types of scenarios:
 
-### Anomalous activity reports
+- View tenant activities such as who made a change to a group and when
+- Mark an Azure AD sign-in event as safe or confirmed compromised
+- Retrieve a list of application sign-ins for the last 30 days
 
-Anomalous activity reports provide information on security-related risk detections that Azure AD can detect and report on.
+### Quick steps
 
-The following table lists the Azure AD anomalous activity security reports, and corresponding risk detection types in the Azure portal. For more information, see
-[Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md).  
-
-| Azure AD anomalous activity report |  Identity protection risk detection type|
-| :--- | :--- |
-| Users with leaked credentials | Leaked credentials |
-| Irregular sign-in activity | Impossible travel to atypical locations |
-| Sign-ins from possibly infected devices | Sign-ins from infected devices|
-| Sign-ins from unknown sources | Sign-ins from anonymous IP addresses |
-| Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
-| - | Sign-ins from unfamiliar locations |
-
-The following Azure AD anomalous activity security reports are not included as risk detections in the Azure portal:
-
-* Sign-ins after multiple failures
-* Sign-ins from multiple geographies
-
-### Risk detection and Azure AD Identity Protection
-
-You can access reports about risk detections in **[Azure AD Identity Protection](https://portal.azure.com/#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/Overview)**. With this service you can protect users by reviewing existing user and sign-in risk policies. You can also analyze current activity with the following reports:
-
-- Risky users
-- Risky workload identities
-- Risky sign-ins
-- Risk detections
-
-For more information, see [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
-
-## Investigate a single sign-in 
-
-Investigating a single sign-in includes scenarios, in which you need to:
-
-- Do a quick investigation of a single user over a limited scope. For example, a user had trouble signing in during a period of a few hours. 
-
-- Quickly look through a set of related events. For example, comparing device details from a series of sign-ins from the same user. 
-
-### Recommendation
-
-For these one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. The related user interface provides you with filter options enabling you to find the entries you need to solve your scenario.  
-
-Check out the following resources:
-- [Sign-in logs in Azure Active Directory (preview)](concept-all-sign-ins.md)
-- [Sign-in logs in Azure Active Directory](concept-sign-ins.md)
-- [Analyze sign-ins with the Azure AD sign-ins log](quickstart-analyze-sign-in.md)
+1. Configure the prerequisites. 
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Select **GET** as the HTTP method from the dropdown.
+1. Set the API version to **beta** or **v1.0**, depending on the query.
+1. Add a query then select the **Run query** button.
+    - [Familiarize yourself with the Microsoft Graph properties for directory audits](/graph/api/resources/directoryaudit)
+    - [Learn how to confirm a user as compromised](/graph/api/resources/riskyuser-confirmcompromised?view=graph-rest-beta&preserve-view=true)
+    - [Complete the MS Graph Quickstart guide](quickstart-access-log-with-graph-api.md)
  
-## Access from code
+## Integrate logs with Azure Monitor logs
 
-There are cases where you need to periodically access activity logs from an app or a script.
+With the Azure Monitor logs integration you can enable rich visualizations, monitoring, and alerting on the connected data. Log Analytics provides enhanced query and analysis capabilities for Azure AD activity logs. To integrate Azure AD activity logs with Azure Monitor logs, you need a Log Analytics workspace. From there you can run queries through Log Analytics.
 
-### Recommendation 
+### Recommended uses
 
-The right access method for accessing activity logs from code depends on the scope of your project. Two options you have are to access your activity logs from the [Microsoft Graph API](quickstart-access-log-with-graph-api.md) or to send your logs to [Azure Event Hubs](../../event-hubs/event-hubs-about.md). 
+Integrating Azure AD logs with Azure Monitor logs provides a centralized location for querying logs. We recommend integrating logs with Azure Monitor logs for the following types of scenarios:
+
+- Compare Azure AD sign-in logs with logs published by other Azure services
+- Correlate sign-in logs against Azure Application insights
+- Query logs using several specific search parameters
+ 
+### Quick steps
+
+1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Create a Log Analytics workspace.
+1. Go to **Azure AD** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
+    - [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md)
+    - [Integrate Azure AD logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
+1. Go to **Azure AD** > **Log Analytics** and begin querying the data.
+    - [Learn how to query Azure AD logs](howto-analyze-activity-logs-log-analytics.md)
+## Monitor events with Microsoft Sentinel
+
+Sending sign-in and audit data to Microsoft Sentinel provides your security operations center with near real-time security detection and threat hunting. The term *threat hunting* refers to a proactive approach to improve the security posture of your environment. As opposed to classic protection, thread hunting tries to proactively identify potential threats that might harm your system. Your activity log data might be part of your threat hunting solution.
+
+### Recommended uses
+
+We recommend using the real-time security detection capabilities of Microsoft Sentinel if your organization needs security analytics and thread intelligence. Use Microsoft Sentinel if you need to:
+
+- Collect security data across your enterprise
+- Detect threats with vast threat intelligence
+- Investigate critical incidents guided by AI
+- Respond rapidly and automate protection
+
+### Quick steps
+
+1. Learn about the [prerequisites](../../sentinel/prerequisites.md), [roles and permissions](../../sentinel/roles.md).
+1. [Estimate potential costs](../../sentinel/billing.md).
+1. [Onboard to Microsoft Sentinel](../../sentinel/quickstart-onboard.md).
+1. [Collect Azure AD data](../../sentinel/connect-azure-active-directory.md).
+1. [Begin hunting for threats](../../sentinel/hunting.md).
 
 
-The **Microsoft Graph API**:
+## View logs through the Portal
 
-- Provides a RESTful way to query sign-in data from Azure AD in Azure AD Premium tenants.
-- Doesn't require an administrator or developer to set up additional infrastructure to support your script or app. 
-- Is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API leads to issues with pagination and performance. 
+For one-off investigations with a limited scope, the [Azure portal](https://portal.azure.com) is often the easiest way to find the data you need. The user interface for each of these reports provides you with filter options enabling you to find the entries you need to solve your scenario. 
 
-**Azure Event Hubs**:
+The data captured in the Azure AD activity logs are used in many reports and services. You can review the sign-in, audit, and provisioning logs for one-off scenarios or use reports to look at patterns and trends. The data from the activity logs help populate the Identity Protection reports, which provide information security related risk detections that Azure AD can detect and report on. Azure AD activity logs also populate Usage and insights reports, which provide usage details for your tenant's applications. 
 
-- Is a big data streaming platform and event ingestion service.
-- Can receive and process millions of events per second.
-- Transforms and stores data by using any real-time analytics provider or batching/storage adapters.
+### Recommended uses
 
-You can use:
+The reports available in the Azure portal provide a wide range of capabilities to monitor activities and usage in your tenant. The following list of uses and scenarios is not exhaustive, so explore the reports for your needs.
 
-- The **Microsoft Graph API** for scoped queries (a limited set of users or time).
-- **Azure Event Hubs** for pulling large sets of sign-in data.
+- Sign-in logs are helpful when researching a user's sign-in activity or to track an application's usage. 
+- With audit logs you can review details around group name changes, device registration, password resets, and more.
+- Use the Identity Protection reports to monitor at risk users, risky workload identities, and risky sign-ins.
+- To ensure that your users can access the applications in use in your tenant, you can review the sign-in success rate in the Azure AD application activity (preview) report from Usage and insights.
+- Compare the different authentication methods your users prefer with the Authentication methods report from Usage and insights.
 
-## Near real-time security event detection and threat hunting
+### Quick steps
 
-To detect and stop threats before they can cause harm to your environment, you might have a security solution deployed in your environment that can process activity log data in real-time.
+Use the following basic steps to access the reports in the Azure portal. 
+#### Azure AD activity logs
 
-The term *threat hunting* refers to a proactive approach to improve the security posture of your environment. As opposed to classic protection, thread hunting tries to proactively identify potential threats that might harm your system. Your activity log data might be part of your threat hunting solution.
+1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs** from the **Monitoring** menu.
+1. Adjust the filter according to your needs.
+    - [Learn how to filter activity logs](quickstart-filter-audit-log.md)
+    - [Explore the Azure AD audit log categories and activities](reference-audit-activities.md). 
+    - [Learn about basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md).
 
-### Recommendation
+#### Azure AD Identity Protection reports
 
-For real-time security detection, use [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
+1. Go to **Azure AD** > **Security** > **Identity Protection**.
+1. Explore the available reports.
+    - [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
+    - [Learn how to investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md)
 
-You can use:
+#### Usage and insights reports
 
-- **Microsoft Sentinel** to provide sign-in and audit data to your security operations center for a near real-time security detection. You can stream data to Azure Sentinel with the built-in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
+1. Go to **Azure AD** and select **Usage and insights** from the **Monitoring** menu.
+1. Explore the available reports.
+    - [Learn more about the Usage and insights report](concept-usage-insights-report.md)
 
-- **Azure Event Hubs** if your security operations center uses another tool. You can stream Azure AD events using an Azure Event Hubs. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
+## Export logs for storage and queries
+
+The right solution for your long-term storage depends on your budget and what you plan on doing with the data. You've got three options:
   
- Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
-
-- [ArcSight](howto-integrate-activity-logs-with-arcsight.md)
-- [Splunk](howto-integrate-activity-logs-with-splunk.md) 
-- [SumoLogic](howto-integrate-activity-logs-with-sumologic.md) 
-
-## Export data for long term storage 
-
-Azure AD stores your log data only for a limited amount of time. For more information, see [How long does Azure AD store reporting data](reference-reports-data-retention.md). 
-
-If you need to store your log information for a longer period due to compliance or security reasons, you have a few options.
-
-### Recommendation
-
-The right solution for your long term storage depends on your budget and what you plan on doing with the data.
+- Archive logs to Azure Storage
+- Download logs for manual storage
+- Integrate logs with Azure Monitor logs
   
-If your budget is tight, and you need cheap method to create a long-term backup of your activity logs, you can do a manual download. The user interface of the activity logs provides you with an option to download the data as **JSON** or **CSV**. For more information, see [how to download logs in Azure Active Directory](howto-download-logs.md). 
+[Azure Storage](../../storage/common/storage-introduction.md) is the right solution if you aren't planning on querying your data often. For more information, see [Archive directory logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
-One trade off of the manual download is that it requires a lot of manual interaction. If you are looking for a more professional solution, use either Azure Storage or Azure Monitor.
-  
-[Azure Storage](../../storage/common/storage-introduction.md) is the right solution for you if you aren't planning on querying your data often. For more information, see [archive directory logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
+If you plan to query the logs often to run reports or perform analysis on the stored logs, you should integrate your data with Azure Monitor. Azure Monitor provides you with built-in reporting and alerting capabilities. To utilize this integration, you need to set up a Log Analytics workspace. Once you have the integration set up, you can use Log Analytics to query your logs. 
 
-If you plan to query the logs often to run reports or perform analysis on the stored logs, you should store your data in Azure Monitor. Azure Monitor provides you with built-in reporting and alerting capabilities. For more information, see [integrate Azure Active Directory logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have the integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze activity logs using Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
+If your budget is tight, and you need a cheap method to create a long-term backup of your activity logs, you can [manually download your logs](howto-download-logs.md). The user interface of the activity logs in the portal provides you with an option to download the data as **JSON** or **CSV**. One trade off of the manual download is that it requires a lot of manual interaction. If you are looking for a more professional solution, use either Azure Storage or Azure Monitor.
 
-## Log analysis 
+### Recommended uses
 
-One common requirement is to export activity data to perform a log analysis.
+We recommend setting up a storage account to archive your activity logs for those governance and compliance scenarios where long-term storage is required. 
 
-### Recommendation
+If you want to long-term storage *and* you want to run queries against the data, we recommend integrating your activity logs with Azure Monitor Logs
 
-If you are not planning on using an independent log analysis tool, use Azure Monitor or Event Hubs. Azure Monitor provides a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built-in connector. For more information, see [integrate Azure Active Directory logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have the integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
+We recommend manually downloading and storing your activity logs if you have budgetary constraints.
 
-You can also export your logs to an independent log analysis tool, such as [Splunk](howto-integrate-activity-logs-with-splunk.md). 
+### Quick steps
 
+Use the following basic steps to archive or download your activity logs.
+
+### Archive activity logs to a storage account
+
+1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Create an storage account.
+1. Go to **Azure AD** > **Diagnostic settings**.
+1. Choose the logs you want to stream, select the **Archive to a storage account** option, and complete the fields.
+    - [Review the data retention policies](reference-reports-data-retention.md)
+
+#### Manually download activity logs
+
+1. Navigate to the [Azure portal](https://portal.azure.com) using one of the required roles.
+1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs** from the **Monitoring** menu.
+1. Select **Download**.
+    - [Learn more about how to download logs](howto-download-logs.md).
+
+## Help me choose the right method
+
+To help choose the right method for accessing Azure AD activity logs, think about the overall task you're trying to accomplish. We've grouped the tasks and options into three main categories:
+
+- Troubleshooting
+- Long-term storage
+- Monitoring, insights, and integrations
+
+### Troubleshooting
+
+If you're performing troubleshooting tasks but you don't need to retain the logs for more than 30 days, we recommend using the Azure Portal or Microsoft Graph to access activity logs. You can filter the logs for your scenario and export or download them as needed.
+
+If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, take a look at the long-term storage options.
+
+### Long-term storage
+
+If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, you can export your logs to an Azure storage account. This option is ideal of you don't plan on querying that data often.
+
+If you need to query the data that you're retaining for more than 30 days, take a look at the monitoring, insights, and integrations options.
+
+### Monitoring, insights, and integrations
+
+If your scenario requires that you retain data for more than 30 days *and* you plan on querying that data on a regular basis, you've got a few options to integrate your data with SIEM tools for analysis and monitoring.
+
+If you have a 3rd party SIEM tool, we recommend setting up an Event Hub namespace and event hub that you can stream your data through. With an event hub, you can stream logs to one of the supported SIEM tools.
+
+If you don't plan on using a third-party SIEM tool, we recommend sending your Azure AD activity logs to Azure Monitor logs. With this integration, you can query your activity logs with Log Analytics. If you decide to integrate with SIEM tools later, you can stream your Azure AD activity logs along with your other Azure data through an event hub. 
 
 ## Next steps
 
