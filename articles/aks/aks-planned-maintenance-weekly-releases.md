@@ -35,7 +35,7 @@ There are two general kinds of pre-created public maintenance configurations:
 - **For weekdays**: (Monday, Tuesday, Wednesday, Thursday), from 10 pm to 6 am the next morning.
 - **For weekends**: (Friday, Saturday, Sunday), from 10 pm to 6 am the next morning.
 
-For a list of pre-created public maintenance configurations on the weekday schedule, see below. For weekend schedules, replace `weekday` with `weekend`.
+The following pre-created public maintenance configurations are available on the weekday and weekend schedules. For weekend schedules, replace `weekday` with `weekend`.
 
 |Configuration name| Time zone|
 |--|--|
