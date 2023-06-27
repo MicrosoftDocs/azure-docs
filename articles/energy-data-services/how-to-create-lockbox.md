@@ -28,12 +28,12 @@ After the request for elevated access is approved via the JIT (just-in-time syst
 ## Prerequisites for access request
 
 Before you begin, make sure:
-1.	You have created a [Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md).
+1.	You have created a [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 2.	You have enabled [Lockbox within the Azure portal](../security/fundamentals/customer-lockbox-overview.md). 
 
 ## Track, approve request via Lockbox
 To track and approve a request to access customer data, follow these steps:
-1.	You raise an issue for Azure Data Manager for Energy Preview using the Azure portal. The support engineer connects to Azure Data Manager for Energy Preview via Support session and tries to troubleshoot the issue by using standard tools and telemetry. Let us say to mitigate the issue, the recommendation is to restart an AKS (Azure Kubernetes Service) cluster. 
+1.	You raise an issue for Azure Data Manager for Energy using the Azure portal. The support engineer connects to Azure Data Manager for Energy via Support session and tries to troubleshoot the issue by using standard tools and telemetry. Let us say to mitigate the issue, the recommendation is to restart an AKS (Azure Kubernetes Service) cluster. 
 2.	In this case, the support engineer creates a Lockbox request to access the AKS cluster for the given subscription.
 3.	When the request is created, usually the notification goes to the subscription owner, but you can also configure a group for notifications.
 4.	You can see the lockbox request in the Azure portal for your approval.
@@ -49,7 +49,7 @@ To track and approve a request to access customer data, follow these steps:
 6.	Once the request is approved, the AKS clusters are accessible in the support session.
 7.	The support engineer restarts the AKS cluster to resolve the issue and then disables the support session or the session will expire in 4 to 8 hours.
 
-If you have not enabled Lockbox, then your consent is not needed to access the compute or data layer of Azure Data Manager for Energy Preview.
+If you have not enabled Lockbox, then your consent is not needed to access the compute or data layer of Azure Data Manager for Energy.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
