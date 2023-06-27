@@ -88,7 +88,7 @@ If you would like to learn more about the different plan options for Defender fo
 There are three components that can be enabled and configured to provide extra protections to your environments in the Defender for Servers plans.
 
 | Component | Description | Learn more |
-|--|--|--|
+|:--:|:--:|:--:|
 | Log Analytics agent/Azure Monitor agent | Collects security-related configurations and event logs from the machine and stores the |data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
 | Vulnerability assessment for machines | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
 | Agentless scanning for machines (preview) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |

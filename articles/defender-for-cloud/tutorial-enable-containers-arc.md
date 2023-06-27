@@ -3,7 +3,7 @@ title: Deploy the Defender for Containers plan on your on-premises device - Micr
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Containers plan on your on-premises device for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 02/22/2023
+ms.date: 06/27/2023
 ---
 
 # Deploy protection to your containers on your on-premises device
@@ -66,7 +66,7 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 
 ## Deploy the Defender extension in Azure
 
-You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We'll walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender extension](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#deploy-the-defender-extension) with REST API, Azure CLI or with a Resource Manager template.
+You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We'll walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender extension](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#deploy-the-defender-extension) with REST API, Azure CLI or with a Resource Manager template.
 
 **To deploy the Defender profile in Azure:**
 

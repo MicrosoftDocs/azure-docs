@@ -220,7 +220,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud. For related information, see the following pages:
 
-- [Protect all of your resources with Defender for Cloud](tutorial-enable-all-plans.md).
+- [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 
 - Set up your [on-premises machines](quickstart-onboard-machines.md), [AWS account](quickstart-onboard-aws.md).
 
