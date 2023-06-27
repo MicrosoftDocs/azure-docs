@@ -90,7 +90,7 @@ Accents are supported for all major European languages. If the query has an inco
 
 ## How is punctuation in a user query treated?
 
-Punctuation is ignored in user query before sending it to the ranking stack. Ideally it should not impact the relevance scores. Punctuations that are ignored are as follows:  ,?:;\"'(){}[]-+。./!*؟
+Punctuation is ignored in user query before sending it to the ranking stack. Ideally it should not impact the relevance scores. Punctuation that are ignored are as follows:  ,?:;\"'(){}[]-+。./!*؟
 
 ## Next steps
 
