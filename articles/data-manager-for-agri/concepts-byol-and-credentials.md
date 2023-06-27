@@ -89,11 +89,10 @@ Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2023-06-0
 
 #### Following values should be used for the connectors while invoking above APIs:
 
-|  | DataConnectorName    | Credentials            |   |   |
-|------------------------|----------------------|------------------------|---|---|
-| For SatelliteSentinelHub  connector | SatelliteSentinelHub | OAuthClientCredentials |   |   |
-| For WeatherIBM connector             | WeatherIBM           | ApiKeyAuthCredentials  |   |   |
-|                        |                      |                        |   |   |
+|  | DataConnectorName    | Credentials            | 
+|------------------------|----------------------|------------------------|
+| For SatelliteSentinelHub  connector | SatelliteSentinelHub | OAuthClientCredentials |
+| For WeatherIBM connector             | WeatherIBM           | ApiKeyAuthCredentials  |
 
 ## Overriding connector details
 As part of Data plane APIs, customer can choose to override the connector details that need to be used for that request.
