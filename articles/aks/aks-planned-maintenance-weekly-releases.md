@@ -111,7 +111,7 @@ The following pre-created public maintenance configurations are available on the
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [releases]:release-tracker.md
 [planned-maintenance]: ./planned-maintenance.md
-[az-maintenance-public-configuration-show]: /cli/azure/maintenance/maintenance/public-configuration#az-maintenance-public-configuration-show
-[az-maintenance-assignment-create]: /cli/azure/maintenance/maintenance/assignment#az-maintenance-assignment-create
-[az-maintenance-assignment-list]: /cli/azure//maintenance/maintenance/assignment#az-maintenance-assignment-list
-[az-maintenance-assignment-delete]: /cli/azure/maintenance/maintenance/assignment#az-maintenance-assignment-delete
+[az-maintenance-public-configuration-show]: /cli/azure/maintenance/public-configuration#az-maintenance-public-configuration-show
+[az-maintenance-assignment-create]: /cli/azure/maintenance/assignment#az-maintenance-assignment-create
+[az-maintenance-assignment-list]: /cli/azure/maintenance/assignment#az-maintenance-assignment-list
+[az-maintenance-assignment-delete]: /cli/azure/maintenance/assignment#az-maintenance-assignment-delete
