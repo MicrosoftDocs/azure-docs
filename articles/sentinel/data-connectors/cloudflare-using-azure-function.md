@@ -3,7 +3,7 @@ title: "Cloudflare (Preview) (using Azure Functions) connector for Microsoft Sen
 description: "Learn how to install the connector Cloudflare (Preview) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/27/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,10 +16,10 @@ The Cloudflare data connector provides the capability to ingest [Cloudflare logs
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure functions app code** | https://aka.ms/sentinel-CloudflareDataConnector-functionapp |
+| **Azure Functions app code** | https://aka.ms/sentinel-CloudflareDataConnector-functionapp |
 | **Log Analytics table(s)** | Cloudflare_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
+| **Supported by** | [Cloudflare](https://support.cloudflare.com) |
 
 ## Query samples
 
@@ -36,7 +36,7 @@ Cloudflare_CL
 
 To integrate with Cloudflare (Preview) (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name where the logs are pushed to by Cloudflare Logpush. [See the documentation to learn more about creating Azure Blob Storage container.](/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 
