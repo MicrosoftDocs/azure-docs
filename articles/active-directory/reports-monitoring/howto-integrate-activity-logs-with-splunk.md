@@ -49,4 +49,3 @@ Append **body.records.category=AuditLogs** to the search. The Azure AD activity 
 
 * [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

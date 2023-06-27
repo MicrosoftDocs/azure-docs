@@ -14,7 +14,7 @@ ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 
-# Integrate Azure AD logs with Azure Monitor
+# How to integrate Azure AD logs with Azure Monitor logs
 
 Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can integrate logs with Azure Monitor so sign-in activity and the audit trail of changes within your tenant can be analyzed along with other Azure data. Integrating Azure AD logs with Azure Monitor logs enables rich visualizations, monitoring, and alerting on the connected data.
 
@@ -32,7 +32,7 @@ To integrate Azure AD logs with Azure Monitor, you need the following roles and 
 
 * **Permission to access data in a Log Analytics workspace:** See [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md) for information on the different permission options and how to configure permissions.
 
-## How to integrate logs with Azure Monitor
+## Integrate logs with Azure Monitor logs
 
 To send Azure AD logs to Azure Monitor Logs you must first have a [Log Analytics workspace](../../azure-monitor/logs/log-analytics-overview.md). Then you can set up the Diagnostics settings in Azure AD to send your activity logs to that workspace. 
 

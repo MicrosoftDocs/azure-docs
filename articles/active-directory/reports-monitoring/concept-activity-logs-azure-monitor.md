@@ -15,9 +15,9 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD activity logs in Azure Monitor
 
-Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. You can archive logs for storage, integrate with Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs. With this integration you can enable rich visualizations, monitoring, and alerting on the connected data. Log Analytics provides enhanced query and analysis capabilities for Azure AD activity logs. 
+Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. You can archive logs for storage, integrate with Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
 
-This article focuses on the requirements, settings, and cost considerations for sending Azure AD activity logs to Azure Monitor.
+With the Azure Monitor logs integration you can enable rich visualizations, monitoring, and alerting on the connected data. Log Analytics provides enhanced query and analysis capabilities for Azure AD activity logs. This article focuses on the requirements, settings, and cost considerations for sending Azure AD activity logs to Azure Monitor.
 ## Supported reports
 
 The following logs can be integrated with one of many endpoints, including Azure Monitor logs.
@@ -88,7 +88,7 @@ From the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculat
 
 Once you have an estimate for the GB/day that will be sent to Azure Monitor or another endpoint, enter that value in the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
 
-![Screenshot of the Azure pricing calculator, with 8 GB/Day used as an example.](media/howto-integrate-activity-logs-with-log-analytics/azure-pricing-calculator-values.png)
+![Screenshot of the Azure pricing calculator, with 8 GB/Day used as an example.](media/concept-activity-logs-azure-monitor/azure-pricing-calculator-values.png)
 
 ## Next steps
 
