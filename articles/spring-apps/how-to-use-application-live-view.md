@@ -286,9 +286,9 @@ To view the Application Live View page for a specific app, follow these steps:
 
 If you try to open Application Live View for a service instance or an app that has not enabled Application Live View or exposed a public endpoint, you will see an error message instructing you to do so.
 
-  :::image type="content" source="media/how-to-use-application-live-view/vscode-error.png" alt-text="Screenshot of the error message showing how to enable Application Live View and expose public endpoint." lightbox="media/how-to-use-application-live-view/vscode-not-enabled.png":::
+  :::image type="content" source="media/how-to-use-application-live-view/vscode-not-enabled.png" alt-text="Screenshot of the error message showing how to enable Application Live View and expose public endpoint." lightbox="media/how-to-use-application-live-view/vscode-not-enabled.png":::
 
-To enable Application Live View and expose public endpoint, you can use either the Azure portal or Azure CLI. For more information, see [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-tier-instances).
+To enable Application Live View and expose public endpoint, you can use either the Azure portal or Azure CLI. For more information, see [Manage Application Live View in existing Enterprise tier instances](#manage-application-live-view-in-existing-enterprise-plan-instances).
 
 ## Next steps
 
