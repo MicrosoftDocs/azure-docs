@@ -9,7 +9,7 @@
   items:
   - name: Security overview
     href: concept-identity-protection-security-overview.md
-  - name: Risks detections
+  - name: What are risks?
     href: concept-identity-protection-risks.md
   - name: Risk-based access control policies
     href: concept-identity-protection-policies.md
