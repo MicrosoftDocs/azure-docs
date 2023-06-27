@@ -48,7 +48,7 @@ The user pool, on the other hand, is designed for your applications. This dedica
 
 ## Next steps
 
-Choosing how to utilize your System Pool and User Pool depends largely on your specific requirements and use case. Both dedicated and shared methods offer unique advantages. Dedicated pools can isolate workloads and provide guaranteed resources, while shared pools can optimize resource usage across the cluster.
+Choosing how to utilize your system pool and user pool depends largely on your specific requirements and use case. Both dedicated and shared methods offer unique advantages. Dedicated pools can isolate workloads and provide guaranteed resources, while shared pools can optimize resource usage across the cluster.
 
 Always consider your cluster's resource capacity, the nature of your workloads, and the required level of resiliency when making your decision. By managing and understanding these node pools effectively, you can optimize your Nexus Kubernetes cluster to best fit your operational needs.
 
