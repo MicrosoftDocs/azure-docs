@@ -27,7 +27,7 @@ impact on your secure score.
 
 ### Data plane recommendations
 
-All the data plane recommendations listed [here](https://learn.microsoft.com/azure/defender-for-cloud/kubernetes-workload-protections) are supported under AWS after [enabling the Azure policy extension](kubernetes-workload-protections.md#deploy-the-add-on-to-specified-clusters). 
+All the data plane recommendations listed [here](kubernetes-workload-protections.md#view-and-configure-the-bundle-of-recommendations) are supported under AWS after [enabling the Azure policy extension](kubernetes-workload-protections.md#deploy-the-add-on-to-specified-clusters). 
 
 ## <a name='recs-aws-data'></a> AWS Data recommendations
 
