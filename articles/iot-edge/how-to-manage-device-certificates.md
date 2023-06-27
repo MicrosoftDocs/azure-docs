@@ -56,8 +56,6 @@ IoT Edge requires the certificate and private key to be:
 * PEM format
 * Separate files
 * In most cases, with the full chain
-* CA certificate key size is 4096 bit
-* Device identity certificate key size is 2048 bit
 
 If you get a `.pfx` file from your PKI provider, it's likely the certificate and private key encoded together in one file. Verify it's a PKCS#12 file type by using the `file` command. You can convert a PKCS#12 `.pfx` file to PEM files using the [openssl pkcs12 command](https://www.openssl.org/docs/man1.1.1/man1/pkcs12.html).
 
@@ -65,6 +63,10 @@ If your PKI provider provides a `.cer` file, it may contain the same certificate
 
 * If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
+
+> [!IMPORTANT]
+> Your PKI infrastructure should support RSA-2048 bit keys and EC P-256 keys. For example, your EST servers should support these key sizes.
+>
 
 ## Permission requirements
 
