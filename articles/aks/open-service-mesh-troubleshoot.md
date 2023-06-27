@@ -241,7 +241,7 @@ When you deploy the Open Service Mesh (OSM) add-on for Azure Kubernetes Service 
 > [!NOTE]
 > The `kube-system` namespace never participates in a service mesh and is never labeled and/or annotated with the following key/values.
 
-The `osm namespace add` command allows you to join namespaces to a given service mesh. When you want a k8s namespace to be part of the mesh, it must have the following annotation and label.
+The `osm namespace add` command allows you to join namespaces to a given service mesh. When you want a K8s namespace to be part of the mesh, it must have the following annotation and label.
 
 1. View the annotations using the `kubectl get namespace` command with `jq '.metadata.annotations'`.
 
