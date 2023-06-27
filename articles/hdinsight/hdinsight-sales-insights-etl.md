@@ -4,7 +4,7 @@ description: Learn how to use create ETL pipelines with Azure HDInsight to deriv
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 05/13/2022
+ms.date: 06/26/2023
 ---
 
 # Tutorial: Create an end-to-end data pipeline to derive sales insights in Azure HDInsight

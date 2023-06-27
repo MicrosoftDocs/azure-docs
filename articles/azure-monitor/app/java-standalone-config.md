@@ -519,7 +519,7 @@ To send custom metrics using micrometer:
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+1. Use the Micrometer [global registry](https://micrometer.io/?/docs/concepts#_global_registry) to create a meter:
 
     ```java
     static final Counter counter = Metrics.counter("test.counter");
