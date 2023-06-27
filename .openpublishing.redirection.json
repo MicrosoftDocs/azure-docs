@@ -23734,6 +23734,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/create-function-app-linux-app-service-plan.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path_from_root": "/articles/azure-functions/create-premium-plan-function-app-portal.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },       
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/windows-firewall-events-via-ama.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
@@ -23856,6 +23866,51 @@
         {
             "source_path_from_root": "/articles/active-directory/authentication/how-to-migrate-mfa-server-to-azure-mfa-with-federation.md",
             "redirect_url": "/azure/active-directory/authentication/how-to-migrate-mfa-server-to-mfa-with-federation",
+            "redirect_document_id": true
+        },
+	{
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sample-sign-in.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-app-vanillajs-sign-in",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-angular-sample.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-application-angular",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-application-react-sample.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-application-react",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sample-sign-in.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-web-app-node-sign-in",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-node-sample-sign-in-call-api.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-web-app-node-sign-in-call-api",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sample-sign-in.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-web-app-dotnet-sign-in",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-node-sample-sign-in.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-browserless-app-node-sign-in",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-browserless-app-dotnet-sample-sign-in.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-browserless-app-dotnet-sign-in",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-sample-call-api.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/sample-daemon-node-call-api",
             "redirect_document_id": true
         },
         {

@@ -54,6 +54,7 @@ If your script is on a local server, you might still need to open other firewall
 
 ### Tips
 
+- Output is limited to the last 4,096 bytes.
 - The highest failure rate for this extension is due to syntax errors in the script. Verify that the script runs without errors. Put more logging into the script to make it easier to find failures.
 - Write scripts that are idempotent, so that running them more than once accidentally doesn't cause system changes.
 - Ensure that the scripts don't require user input when they run.
