@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
-Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
+Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Apps](./quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
 
 ## Prerequisites
 
@@ -179,7 +179,7 @@ This section shows you how to update the apps to connect to the MySQL database.
 
 ## Validate the apps
 
-You can follow the section [Verify the services](./quickstart-deploy-apps?pivots=programming-language-java#verify-the-services) to validate the PetClinic service
+You can follow the section [Verify the services](./quickstart-deploy-apps.md?pivots=programming-language-java#verify-the-services) to validate the PetClinic service
 and query records from the MySQL database to confirm the database connection.
 
 ## Clean up resources
@@ -192,5 +192,5 @@ az group delete --name <resource-group>
 
 ## Next steps
 
-* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](how-to-bind-mysql.md)
+* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](./how-to-bind-mysql.md)
 * [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](./connect-managed-identity-to-azure-sql.md)
