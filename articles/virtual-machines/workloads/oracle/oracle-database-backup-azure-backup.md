@@ -9,7 +9,7 @@ ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
-ms.reviewer: dbakevlar 
+ms.reviewer: jjaygbay1 
 ---
 
 # Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup

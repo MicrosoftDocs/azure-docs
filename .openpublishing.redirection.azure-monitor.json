@@ -6157,9 +6157,24 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-query-storage.md",
+            "redirect_url": "/azure/data-explorer/query-exported-azure-monitor-data",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/logs/api/app-insights-azure-ad-api.md",
             "redirect_url": "/azure/azure-monitor/app/app-insights-azure-ad-api",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-sdk-advanced.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk-configuration",
+            "redirect_document_id": false
+        },
+       {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-collection-firewall.md",
+            "redirect_url": "/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent",
+            "redirect_document_id": false
+        } 
     ]
 }
