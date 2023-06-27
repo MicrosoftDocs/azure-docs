@@ -122,7 +122,7 @@ landingContent:
           - text: Create SAS tokens for storage containers
             url: create-sas-tokens.md
           - text: Build a custom model (v3.0)
-            url:  how-to-guides/build-custom-model-v3.md
+            url:  how-to-guides/build-a-custom-model.md?view=form-recog-3.0.0&preserve-view=true
           - text: Compose custom models (v3.0)
             url: how-to-guides/compose-custom-models.md?view=form-recog-3.0.0&preserve-view=true
           - text: Install and run Form Recognizer containers
