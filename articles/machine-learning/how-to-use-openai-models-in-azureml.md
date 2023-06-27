@@ -22,8 +22,25 @@ ms.devlang:
 
 In this article, you learn how to discover, finetune and deploy Azure Open AI models at scale, using Azure Machine Learning. 
 
-## How to access Azure OpenAI models in Azure Machine Learning
+## Prerequisites
+- [You must have access](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview#how-do-i-get-access-to-azure-openai) to the Azure Open AI service
+- You must be in an Azure OpenAI service [supported region](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability)
+
+## What is OpenAI Models in AzureML?
+In recent years, advancements in AI have led to the rise of large foundation models that are trained on a vast quantity of data and that can be easily adapted to a wide variety of applications across various industries. This emerging trend gives rise to a unique opportunity for enterprises to build and use these foundation models in their deep learning workloads.
+
+**OpenAI Models in AzureML** provides AzureML native capabilities that enable customers to build and operationalize OpenAI models at scale:
+
+- Accessing [Azure OpenAI](https://learn.microsoft.com/azure/cognitive-services/openai/overview) in AzureML, made available in the AzureML Model catalog
+- Make connection with the Azure OpenAI service
+- Finetuning Azure OpenAI Models with AzureML
+- Deploying Azure OpenAI Models with AzureML to the Azure OpenAI service
+
+## Access Azure OpenAI models in Azure Machine Learning
 The model catalog (preview) in Azure Machine learning Studio is your starting point to explore various collections of foundation models. The Azure Open AI models collection is a collection of models, exclusively available on Azure, that enables customers to access prompt engineering, finetuning, evaluation, and deployment capabilities for large language models available in Azure OpenAI Service. You can view the complete list of supported OpenAI models in the [model catalog](https://ml.azure.com/model/catalog), under the `Azure OpenAI Service` collection.
+
+> [!TIP] 
+>Supported OpenAI models are published to the AzureML Model Catalog. View a complete list of [Azure OpenAI models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)..
 
 :::image type="content" source="./media/how-to-use-openai-models-in-azureml/aoaiModelCatalog.png" alt-text="Screenshot showing the Azure OpenAI models collection in the model catalog.":::
 
@@ -34,7 +51,29 @@ You can filter the list of models in the model catalog by inference task, or by 
 > [!NOTE] 
 >Use of Azure OpenAI models in Azure Machine Learning requires Azure OpenAI services resources. You can request access to Azure OpenAI service [here](https://go.microsoft.com/fwlink/?linkid=2222006&clcid=0x409).
 
-## How to finetune Azure OpenAI models using your own training data
+
+### Connect to Azure OpenAI service
+In order to deploy an Azure OpenAI model, you need to have an [Azure OpenAI resource](https://azure.microsoft.com/products/cognitive-services/openai-service/). Azure Machine Learning will create a default Azure OpenAI resource on behalf of the user when you deploy any Azure OpenAI model. 
+
+### Deploying Azure OpenAI models
+To deploy an Azure Open Model from AzureML, in order to deploy an Azure OpenAI model: 
+
+1. Click on `Model Catalog` in the left pane.
+1. Click on `Azure OpenAI Service` from the options.
+1. Select a model to deploy from `gpt-4-32K`,
+`text-embedding-ada-002`,`gpt-4`,`gpt35-turbo`, `text-curie-001`, `text-babbage-001`,`text-ada-001`.
+1. Suppose you selected `text-ada-001` to deploy, you can select `Deploy` to deploy the model to the Azure OpenAI service.
+
+    :::image type="content" source="./media/how-to-use-openai-models-in-azureml/deploy_to_Azure_Open_AI.png" alt-text="Screenshot showing the deploy to Azure OpenAI.":::
+
+1. Provide a name for your deployment in `Deployment Name` and select `Finish`.
+1. The find the models deployed to Azure OpenAI service, go to the `Endpoint` section in your workspace.
+1. Click the `Azure OpenAI` tab and find the deployment you just created. When you click the deployment, you will be redirect to the OpenAI resource that is linked to the deployment.
+
+> [!NOTE]  
+> Azure Machine Learning will automatically deploy [all base Azure OpenAI models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) for you so you can using interact with the models when getting started.
+
+## Finetune Azure OpenAI models using your own training data
 
 In order to improve model performance in your workload, you might want to fine tune the model using your own training data. You can easily finetune these models by using either the finetune settings in the studio or by using the code based samples linked below.
 		
@@ -65,10 +104,38 @@ If you would like to customize the finetuning parameters, you can click on the C
 :::image type="content" source="./media/how-to-use-openai-models-in-azureml/aoaiFinetuneParameters.png" alt-text="Screenshot showing the finetune parameters in the finetune wizard.":::
 
 **Deploying finetuned models:**
+To run a deploy fine-tuned model job from AzureML, in order to deploy finetuned an Azure OpenAI model:
+
+1. After you have finished finetuning an Azure OpenAI model
+1. Find the registered model in `Models` list with the name provided during finetuning and select the model you want to deploy.
+1. Click the 'Deploy' button and give the deployment name. The model will be deployed to the default Azure OpenAI resource linked to your workspace.
 
 ### Finetuning using code based samples
 
+### Troubleshooting
+Here are some steps to help you resolve any of the following issues with your Azure OpenAI in AzureML experience.
 
-## How to deploy Azure OpenAI models to endpoints for inferencing
+You might recieve any of the following errors when you try to deploy an Azure OpenAI model.
+
+- **Only one deployment can be made per model name and version**
+    - **Fix**: You will need to go to the [Azure OpenAI Studio](https://oai.azure.com/portal) and delete an deployments of the model you are trying to deploy.  
+
+- **Failed to create deployment**
+    - **Fix**: Azure OpenAI failed to create. This is usually due to Quota issues, please make sure you have enough quota for the deployment.
+
+- **Failed to fetch Azure OpenAI deployments**
+    - **Fix**: Unable to create the resource. Due to one of the following reasons. You are not in correct region, or you have exceeded the maximum limit of 3 Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability).
+
+- **Failed to get Azure OpenAI resource**
+    - **Fix**: Unable to create the resource. Due to one of the following reasons. You are not in correct region, or you have exceeded the maximum limit of 3 Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability).
+
+- **Failed to get Azure OpenAI resource**
+    - **Fix**: Unable to create the resource. Due to one of the following reasons. You are not in correct region, or you have exceeded the maximum limit of 3 Azure Open AI resources. You need to delete an existing Azure OpenAI resource or you need to make sure you created a workspace in one of the [supported regions](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability).
+
+- **Model Not Deployable**
+    - **Fix**: This is an internal server error. Try again in a few days.
+
+- **Resource Create Failed**
+    - **Fix**: We tried to automatically create the Azure OpenAI resource but the operation failed. Please try again on a new workspace.
 
 ## Next steps
