@@ -68,10 +68,10 @@ packages. It's a must-have for flow execution. So, we suggest before
 starting flow authoring, you should set up your runtime.
 
 
-In this guide, we recommend creating a runtime from a Compute Instance. If you're a Subscription Owner, you have all the permissions needed. If not, first go ask your Subscription Owner to follow this [guide](./how-to-guides/how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime) to grant your permissions.
+In this guide, we recommend creating a runtime from a Compute Instance. If you're a Subscription Owner, you have all the permissions needed. If not, first go ask your Subscription Owner to follow this [guide](https://github.com/Azure/azureml-insiders/blob/main/previews/prompt-flow/how-to-guides/how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime) to grant your permissions.
 
 
-Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow this [article](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-create-manage-compute-instance?view=azureml-api-2&tabs=python) to create one. A memory optimized compute is recommended.
+Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow this [article](/how-to-create-manage-compute-instance.md) to create one. A memory optimized compute is recommended.
 
 Once you have your Compute Instance running, 
 you can start to create a runtime. Go to **Runtime** tab, select **Create** button.
@@ -83,7 +83,7 @@ environment, then **Create**.
 
 If you want to learn more about runtime type, how to customize conda
 packages in runtime, limitations, etc.,
-visit [how to create and manage runtime](./how-to-guides/how-to-create-manage-runtime.md).
+visit [how to create and manage runtime](https://github.com/Azure/azureml-insiders/blob/main/previews/prompt-flow/how-to-guides/how-to-create-manage-runtime.md).
 
 ## Create and develop your prompt flow
 
@@ -191,8 +191,6 @@ place. Moreover, flow output helps:
 
 When you clone the sample, the flow outputs (category and evidence) are already set. You can select **View outputs** to check the outputs in a table.
 
-![Flow run, check output](./media/how-to-train-promptflow/view-outputs-entry-point.png)
-
 ![Flow run, check output](./media/how-to-train-promptflow/view-outputs.png)
 
 ## Test and Evaluation
@@ -290,7 +288,7 @@ Then you're directed to the bulk test detail page, select **Deploy**. A wizard p
 
 ![endpoint creation](./media/how-to-train-promptflow/endpoint-creation.png)
 
-If you're a Workspace Owner or Subscription Owner, follow this [guide](./how-to-guides/how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) to grant permissions to the endpoint. If not, go ask your Workspace Owner or Subscription Owner to it for you.
+If you're a Workspace Owner or Subscription Owner, follow this [guide](https://github.com/Azure/azureml-insiders/blob/main/previews/prompt-flow/how-to-guides/how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) to grant permissions to the endpoint. If not, go ask your Workspace Owner or Subscription Owner to it for you.
 
 ### Test the endpoint
 
