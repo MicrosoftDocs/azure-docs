@@ -48,7 +48,7 @@ To begin using Azure CLI:
 
 [comment]: <The following section duplicates the content provided by the INCLUDE above> 
 
-Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview). 
+Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md). 
 For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md). 
 
 If you prefer to run CLI reference commands locally, [install](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](https://learn.microsoft.com/en-us/cli/azure/run-azure-cli-docker).
