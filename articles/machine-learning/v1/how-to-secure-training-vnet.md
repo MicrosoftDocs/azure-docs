@@ -76,15 +76,7 @@ In this article you learn how to secure the following training compute resources
 
 ### Azure Machine Learning compute cluster/instance
 
-* __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
-
-    * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
-    * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
-
-    Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
-
-    > [!WARNING]
-    > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
+* __Compute clusters__ can be created in a different region and VNet than your workspace. However, this functionality is only available using the SDK v2, CLI v2, or studio. For more information, see the [v2 version of secure training environments](../how-to-secure-training-vnet.md?view=azureml-api-2&preserve-view=true#compute-cluster-in-a-different-vnetregion-from-workspace).
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
 

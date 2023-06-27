@@ -132,6 +132,9 @@ To create a compute cluster in a different Azure Virtual Network than your works
 
 1. Create a compute cluster as you normally would when using a VNet, but select the VNet that you created for the compute cluster. If the VNet is in a different region, select that region when creating the compute cluster.
 
+    > [!WARNING]
+    > When setting the region, if it is a different region than your workspace or datastores you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
+
 ### Scenario: Private endpoint
 
 1. Configure your workspace to use an Azure Virtual Network. For more information, see [Secure your workspace resources](how-to-secure-workspace-vnet.md).
@@ -150,6 +153,9 @@ To create a compute cluster in a different Azure Virtual Network than your works
     * To add a new private endpoint using the Azure CLI, use the `az network private-endpoint create`. For an example of using this command, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md#add-a-private-endpoint-to-a-workspace).
 
 1. Create a compute cluster as you normally would when using a VNet, but select the VNet that you created for the compute cluster. If the VNet is in a different region, select that region when creating the compute cluster.
+
+    > [!WARNING]
+    > When setting the region, if it is a different region than your workspace or datastores you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
 
 ## Compute instance/cluster with no public IP
 
