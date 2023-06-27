@@ -44,7 +44,7 @@ You can enforce this behavior by creating a dedicated system node pool. Use the 
 
 ## User Pool
 
-The User Pool, on the other hand, is designed for your applications. This dedicated space allows you to run your applications separately from the system workloads. If you wish to ensure that your application Pods run exclusively on the User Pool, you can schedule your application Pods here.
+The user pool, on the other hand, is designed for your applications. This dedicated space allows you to run your applications separately from the system workloads. If you wish to ensure that your application PODs run exclusively on the user pool, you can schedule your application PODs here.
 
 ## Next steps
 
