@@ -22,38 +22,32 @@ This article explains how to set up and use Virtual Network service endpoints wi
 > Before you start, review [how to use virtual networks with Cognitive Services](../../cognitive-services-virtual-networks.md).
 
 To set up a Translator resource for Virtual Network service endpoint scenarios, you need to:
-1. [Create a custom domain name for the Translator resource](#create-a-custom-domain-name).
+1. [Create a regional Translator resource - Global is not supported](../../create-translator-resource.md).
 1. [Configure virtual networks and networking settings for the Translator resource](#configure-virtual-networks-and-the-translator-resource-networking-settings).
-1. [Adjust existing applications and solutions](#adjust-existing-applications-and-solutions).
 
-This article describes how to use Virtual Network service endpoints with Custom Translator service. 
 
-## Create a custom domain name
+## Configure virtual networks and the Translator resource networking settings
 
-Virtual Network service endpoints require a [custom subdomain name for Cognitive Services](../cognitive-services-custom-subdomains.md). Create a custom domain by following the [guidance](speech-services-private-link.md#create-a-custom-domain-name) in the private endpoint article. All warnings in the section also apply to Virtual Network service endpoints.
-
-## Configure virtual networks and the Speech resource networking settings
-
-You need to add all virtual networks that are allowed access via the service endpoint to the Speech resource networking properties.
+You need to add all virtual networks that are allowed access via the service endpoint to the Translator resource networking properties.
 
 > [!NOTE]
-> To access a Speech resource via the Virtual Network service endpoint, you need to enable the `Microsoft.CognitiveServices` service endpoint type for the required subnets of your virtual network. Doing so will route all subnet traffic related to Cognitive Services through the private backbone network. If you intend to access any other Cognitive Services resources from the same subnet, make sure these resources are configured to allow your virtual network. 
+> To access a Translator resource via the Virtual Network service endpoint, you need to enable the `Microsoft.CognitiveServices` service endpoint type for the required subnets of your virtual network. Doing so will route all subnet traffic related to Cognitive Services through the private backbone network. If you intend to access any other Cognitive Services resources from the same subnet, make sure these resources are configured to allow your virtual network. 
 >
-> If a virtual network isn't added as *allowed* in the Speech resource networking properties, it won't have access to the Speech resource via the service endpoint, even if the `Microsoft.CognitiveServices` service endpoint is enabled for the virtual network. And if the service endpoint is enabled but the virtual network isn't allowed, the Speech resource won't be accessible for the virtual network through a public IP address, no matter what the Speech resource's other network security settings are. That's because enabling the `Microsoft.CognitiveServices` endpoint routes all traffic related to Cognitive Services through the private backbone network, and in this case the virtual network should be explicitly allowed to access the resource. This guidance applies for all Cognitive Services resources, not just for Speech resources.  
+> If a virtual network isn't added as *allowed* in the Translator resource networking properties, it won't have access to the Translator resource via the service endpoint, even if the `Microsoft.CognitiveServices` service endpoint is enabled for the virtual network. And if the service endpoint is enabled but the virtual network isn't allowed, the Translator resource won't be accessible for the virtual network through a public IP address, no matter what the Translator resource's other network security settings are. That's because enabling the `Microsoft.CognitiveServices` endpoint routes all traffic related to Cognitive Services through the private backbone network, and in this case the virtual network should be explicitly allowed to access the resource. This guidance applies for all Cognitive Services resources, not just for Translator resources.  
   
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
-1. Select the Speech resource.
+1. Select regional Translator resource.
 1. In the **Resource Management** group in the left pane, select **Networking**.
 1. On the **Firewalls and virtual networks** tab, select **Selected Networks and Private Endpoints**. 
 
    > [!NOTE]
-   > To use Virtual Network service endpoints, you need to select the **Selected Networks and Private Endpoints** network security option. No other options are supported. If your scenario requires the **All networks** option, consider using [private endpoints](speech-services-private-link.md), which support all three network security options.
+   > To use Virtual Network service endpoints, you need to select the **Selected Networks and Private Endpoints** network security option. No other options are supported.
 
-5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint will automatically be enabled for the selected subnets. This operation can take up to 15 minutes. Also, see the note at the beginning of this section.
+5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint will automatically be enabled for the selected subnets. This operation can take few minutes. Also, see the note at the beginning of this section.
 
 ### Enabling service endpoint for an existing virtual network 
 
-As described in the previous section, when you configure a virtual network as *allowed* for the Speech resource, the `Microsoft.CognitiveServices` service endpoint is automatically enabled. If you later disable it, you need to re-enable it manually to restore the service endpoint access to the Speech resource (and to other Cognitive Services resources):
+As described in the previous section, when you configure a virtual network as *allowed* for the Translator resource, the `Microsoft.CognitiveServices` service endpoint is automatically enabled. If you later disable it, you need to re-enable it manually to restore the service endpoint access to the Translator resource (and to other Cognitive Services resources):
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the virtual network.
@@ -62,17 +56,29 @@ As described in the previous section, when you configure a virtual network as *a
 1. A new panel appears on the right side of the window. In this panel, in the **Service Endpoints** section, select `Microsoft.CognitiveServices` in the **Services** list.
 1. Select **Save**.
 
-## Adjust existing applications and solutions
 
-A Speech resource that has a custom domain enabled interacts with the Speech service in a different way. This is true for a custom-domain-enabled Speech resource regardless of whether service endpoints are configured. Information in this section applies to both scenarios.
+### Use a Translator resource that has Virtual Network service endpoint enabled
 
-### Use a Speech resource that has a custom domain name and allowed virtual networks 
+In this scenario, the **Selected Networks and Private Endpoints** option is selected in the networking settings of the Translator resource and at least one virtual network is allowed. 
 
-In this scenario, the **Selected Networks and Private Endpoints** option is selected in the networking settings of the Speech resource and at least one virtual network is allowed. This scenario is equivalent to [using a Speech resource that has a custom domain name and a private endpoint enabled](speech-services-private-link.md#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint).
+#### Custom Translator portal
+
+The following table describes Custom Translator project accessibility per Translator resource **Networking** > **Firewalls and virtual networks** security setting.
+
+> [!NOTE]
+> If you allow only Selected Networks and Private Endpoints via the **Networking** > **Firewalls and virtual networks** tab, then you can't use Custom Translator portal with the Translator resource. You still can use the Translator resource outside of Custom Translator portal.  
+
+| Translator resource network security setting | Custom Translator portal accessibility |
+|--|--|
+| All networks | No restrictions |
+| Selected Networks and Private Endpoints | Accessible from allowed public IP addresses |
+| Disabled | Not accessible |
 
 
+To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider one of these workarounds. 
+* Create another Translator resource for development that can be used on a public network. Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource. See the [Copy model](./copy-model.md) 
+* You have the option to use the [Custom Translator non-interactive REST API](https://custom-api.cognitive.microsofttranslator.com/swagger/index.html) for all custom translation operations. 
 
 ## Learn more
 
-* [Use Custom Translator service through Azure Virtual Netowrk endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md)
-* 
+* [Custom Translator non-interactive REST API](https://custom-api.cognitive.microsofttranslator.com/swagger/index.html)
