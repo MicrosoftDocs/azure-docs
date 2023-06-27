@@ -27,7 +27,7 @@ Implementation of this capability is highly dependent on how your organization h
 
 - [IT Asset Management (ITAM)](https://www.finops.org/framework/capabilities/finops-itam/) by FinOps Foundation
 - [Sustainability](https://www.finops.org/framework/capabilities/finops-sustainability/) by FinOps Foundation
-- [Sustainability workloads]/azure/well-architected/sustainability/sustainability-get-started)
+- [Sustainability workloads](/azure/well-architected/sustainability/sustainability-get-started)
 - IT Service Management
   - [Azure Monitor integration](../../azure-monitor/alerts/itsmc-overview.md)
   - [Azure DevOps and ServiceNow](/azure/devops/pipelines/release/approvals/servicenow)
