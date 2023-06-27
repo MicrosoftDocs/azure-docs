@@ -33,10 +33,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. Save your **Application (client) ID** and **client secret** from Azure Active Directory to refer to them later in this quickstart.  
 
-1. Sign in to [Microsoft Azure Marketplace](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden)
-
-    > [!IMPORTANT]
-    > *Azure Data Manager for Energy* is accessible on the Azure Marketplace only if you use the above Azure portal link.
+1. Sign in to [Microsoft Azure Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home)
 
 
 1. If you have access to multiple tenants, use the *Directories + subscriptions* filter in the top menu to switch to the tenant in which you want to install Azure Data Manager for Energy.
