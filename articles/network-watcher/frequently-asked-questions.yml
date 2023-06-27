@@ -72,7 +72,7 @@ sections:
       - question: |
           What is the NetworkWatcherRG?
         answer: |
-          NetworkWatcherRG is a resource group that's automatically created for Network Watcher resources. For example, Network Watcher regional instances and the NSG flow logs resources are created in **NetworkWatcherRG** resource group.
+          NetworkWatcherRG is a resource group that's automatically created for Network Watcher resources. For example, Network Watcher regional instances and the NSG flow log resources are created in **NetworkWatcherRG** resource group.
 
       - question: |
           Why do I need to install the Network Watcher agent? 
