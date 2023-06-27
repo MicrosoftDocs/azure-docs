@@ -83,8 +83,6 @@ The following attributes are provided to support dual-stack clusters:
     az aks get-credentials -g <resourceGroupName> -n <clusterName>
     ```
 
----
-
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
 1. Create the ARM template and pass `["IPv4", "IPv6"]` to the `ipFamilies` parameter to the `networkProfile` object.
@@ -155,8 +153,6 @@ The following attributes are provided to support dual-stack clusters:
 
 > [!NOTE]
 > For more information on deploying ARM templates, see the [Azure Resource Manager documentation][deploy-arm-template].
-
----
 
 # [Bicep](#tab/bicep)
 
@@ -253,8 +249,6 @@ Once the cluster has been created, you can deploy your workloads. This article w
     nginx-55649fd747-r2rqh   10.244.1.2,fd12:3456:789a:0:1::2   aks-nodepool1-14508455-vmss000001   True
     ```
 
----
-
 # [YAML](#tab/yaml)
 
 1. Create an NGINX web server using the following YAML manifest.
@@ -348,8 +342,6 @@ Once the cluster has been created, you can deploy your workloads. This article w
     <title>Welcome to nginx!</title>
     <style>
     ```
-
----
 
 # [YAML](#tab/yaml)
 
