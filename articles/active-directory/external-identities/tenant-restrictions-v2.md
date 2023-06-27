@@ -117,10 +117,10 @@ You can use TRv2 policy to config specific users and/or groups with externally i
 
 There is currently a known issue where, if Teams federation is off, Teams blocks a home identity authenticated session from joining externally hosted Teams meetings.
 
-| Auth Identity | Authenticated session  | Result |
+| Auth identity | Authenticated session  | Result |
 |----------------------|---------|---------|
-|Anonymous == No Authenticated session <br></br> For ex: If a user tries to use an unauthenticated session (say in an InPrivate window on browser) then this is pure anonymous. | Not authenticated |  TRv2 will block access to teams meeting|
-|Foreign identity == Authenticated session (Using external foreign identity) <br></br> For ex:  Using any identity other than home identity like user@externalforeigntenant.com | Authenticated as foreign identity |  Allow/ Block access to teams meeting as per TRv2 policy. If TRv2 policy allows, then user can join the meeting else it will be blocked. <br></br> Note: Teams has a known bug where when Teams has no explicit federation with the external tenant, Teams + Trv2 blocks users using home identity to join an externally hosted meeting.|
+|Anonymous (no authenticated session) <br></br> Example: A user tries to use an unauthenticated session, for example in an InPrivate browser window, to access a Teams meeting. | Not authenticated |  Access to the Teams meeting is blocked by Tenant restrictions V2 |
+|Externally issued identity (authenticated session)<br></br> Example: A user uses any identity other than their home identity (for example, user@externaltenant.com) | Authenticated as an externally-issued identity |  Allow or block access to the Teams meeting per Tenant restrictions V2 policy. If allowed by the policy, the user can join the meeting. Otherwise access is blocked. <br></br> Note: There is currently a known issue where, if Teams is not explicitly federated with the external tenant, Teams and Tenant restrictions V2 block users using a home identity authenticated session from joining externally hosted Teams meetings.  
 
 ### Tenant restrictions V2 and SharePoint Online
 
