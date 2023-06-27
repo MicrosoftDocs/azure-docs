@@ -13,7 +13,7 @@ ms.subservice: data
 ---
 # Call automation metrics overview
 
-Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../../azure-monitor\essentials\metrics-getting-started) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
+Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
 ## Where to find metrics
 
