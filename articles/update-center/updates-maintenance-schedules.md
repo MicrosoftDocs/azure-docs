@@ -48,7 +48,7 @@ This mode of patching allows operating system to automatically install updates a
 
 ## Hot patching
 
-Hot patching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](../automanage/automanage-hotpatch.md)
+Hot patching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hot patch for new virtual machines](../automanage/automanage-hotpatch.md)
 
 Hot patching property is available as a setting in Update management center, which you can enable by using Update settings flow. Refer to detailed instructions [here](manage-update-settings.md#configure-settings-on-single-vm)
 
