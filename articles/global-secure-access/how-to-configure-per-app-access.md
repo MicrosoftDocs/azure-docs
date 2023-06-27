@@ -59,7 +59,7 @@ If you don't already have a connector set up, see [Configure connectors](how-to-
 
 To create a new app, you provide a name, select a connector group, and then add application segments. App segments include the fully qualified domain names (FQDNs) and IP addresses you want to tunnel through the service. You can complete all three steps at the same time, or you can add them after the initial setup is complete. 
 
-### Name and connector group
+### Choose name and connector group
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** with the appropriate roles. 
 1. Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**.
@@ -72,7 +72,7 @@ To create a new app, you provide a name, select a connector group, and then add 
     - Existing connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your app without adding private resources.
 
-### Application access segment
+### Add application segment
 
 The **Add application segment** process is where you define the FQDNs and IP addresses that you want to include in the traffic for Microsoft Entra Private Access. You can add sites when you create the app and return to add more or edit them later.
 
