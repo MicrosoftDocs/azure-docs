@@ -43,6 +43,10 @@ The search results table schema is based on the source table schema and the spec
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
+## Permissions
+
+To run a search job, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions, for example, as provided by the `Log Analytics Contributor` role.
+
 ## Run a search job
 
 Run a search job to fetch records from large datasets into a new search results table in your workspace.

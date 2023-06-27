@@ -79,10 +79,18 @@ Configure a table for Basic logs if:
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic logs.
 
+## Permissions
+
+To set a table's log data plan, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+
 ## Set a table's log data plan
 
-You can switch a table's plan once a week.
+When you change a table's plan from Analytics to Basic, Log Analytics immediately archives any data that's older than eight days and up to original data retention of the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the archive period](../logs/data-retention-archive.md). 
 
+When you change a table's plan from Basic to Analytics, the changes take affect on existing data in the table immediately.
+
+> [!NOTE]
+> You can switch a table's plan once a week. 
 # [Portal](#tab/portal-1)
 
 To configure a table for Basic logs or Analytics logs in the Azure portal:

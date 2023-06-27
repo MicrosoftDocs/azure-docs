@@ -50,7 +50,7 @@ To set the default workspace retention policy:
 
 By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
-You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,556 days (seven years).
+The Analytics log data plan includes 30 days of interactive retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). If needed, you can reduce the interactive retention period to as low as four days using the API or CLI, however, since 30 days are included in the ingestion price, lowering the retention period below 30 days does not reduce costs. You can set the archive period to a total retention time of up to 2,556 days (seven years).
 
 # [Portal](#tab/portal-1)
 

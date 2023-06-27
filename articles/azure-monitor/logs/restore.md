@@ -22,6 +22,10 @@ The restore operation creates the restore table and allocates additional compute
 
 The destination table provides a view of the underlying source data, but doesn't affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
+## Permissions
+
+To restore data from an archived table, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/restoreLogs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
+
 ## Restore data
 
 # [API](#tab/api-1)
