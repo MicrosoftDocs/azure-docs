@@ -50,7 +50,7 @@ The latest generation of VM series doesn't have a dedicated cache, but only temp
 * If you select [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100-GiB OS disk, this VM size supports ephemeral OS
 and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
 
-### Customer Managed key
+### Customer-managed keys
 
 You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Use Customer Managed key with Azure disk on AKS][azure-disk-customer-managed-key].
 
