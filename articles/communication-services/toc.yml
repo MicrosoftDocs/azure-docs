@@ -39,6 +39,8 @@ items:
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
       href: concepts/network-traversal.md
+    - name: WhatsApp
+      href: concepts/whatsapp/overview.md
   - name: Common scenarios
     items:
     - name: Virtual visit
@@ -783,6 +785,16 @@ items:
         href: concepts/analytics/logs/network-traversal-logs.md    
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+  - name: WhatsApp
+    items:
+    - name: Overview
+      href: concepts/whatsapp/overview.md
+    - name: Creating or connecting a WhatsApp Business Account
+      href: concepts/whatsapp/creating-or-connecting-a-whatsapp-business-account.md
+    - name: WhatsAppTermsOfService
+      href: concepts/whatsapp/whatswpptermsofservice.md
+    - name: Pricing
+      href: concepts/whatsapp/pricing.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
@@ -859,6 +871,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+  - name: WhatsApp
+    items:
+    - name: WhatsApp (.Net)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
   - name: Common 
     items:
     - name: Common (JavaScript)
