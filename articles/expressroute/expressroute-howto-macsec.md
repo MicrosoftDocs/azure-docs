@@ -108,6 +108,7 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
    > * GcmAes256
    > * GcmAesXpn128
    > * GcmAesXpn256
+   > * The recommendation is to configure encryption with xpn ciphers to avoid intermittent session drops observed with non-xpn ciphers on high speed links.
    >
 
 1. Set MACsec secrets and cipher and associate the user identity with the port so that the ExpressRoute management code can access the MACsec secrets if needed.
