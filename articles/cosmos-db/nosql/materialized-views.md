@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/09/2023
 ---
 
 # Materialized views for Azure Cosmos DB for NoSQL (preview)
@@ -81,6 +81,9 @@ Use the Azure CLI to enable the materialized views feature either with a native 
     
     # Variable for account name
     accountName="<account-name>"
+    
+    # Variable for Subscription
+    subscriptionId="<subscription-id>"
     ```
 
 1. Create a new JSON file named **capabilities.json** with the capabilities manifest.
@@ -96,13 +99,7 @@ Use the Azure CLI to enable the materialized views feature either with a native 
 1. Get the identifier of the account and store it in a shell variable named `$accountId`.
 
     ```azurecli
-    accountId=$(\
-        az cosmosdb show \
-            --resource-group $resourceGroupName \
-            --name $accountName \
-            --query id \
-            --output tsv \
-    )
+    accountId="/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/$accountName"
     ```
 
 1. Enable the preview materialized views feature for the account using the REST API and [`az rest`](/cli/azure/reference-index#az-rest) with an HTTP `PATCH` verb.
@@ -110,7 +107,7 @@ Use the Azure CLI to enable the materialized views feature either with a native 
     ```azurecli
     az rest \
         --method PATCH \
-        --uri "https://management.azure.com$accountId?api-version=2022-11-15-preview" \
+        --uri "https://management.azure.com/$accountId?api-version=2022-11-15-preview" \
         --body @capabilities.json
     ```
 
@@ -154,7 +151,7 @@ Create a materialized view builder to automatically transform data and write to 
     ```azurecli
     az rest \
         --method PUT \
-        --uri "https://management.azure.com$accountIdservices/materializedViewsBuilder?api-version=2022-11-15-preview" \
+        --uri "https://management.azure.com$accountId/services/materializedViewsBuilder?api-version=2022-11-15-preview" \
         --body @builder.json
     ```
 
@@ -163,7 +160,7 @@ Create a materialized view builder to automatically transform data and write to 
     ```azurecli
     az rest \
         --method GET \
-        --uri "https://management.azure.com$accountIdservices/materializedViewsBuilder?api-version=2022-11-15-preview"
+        --uri "https://management.azure.com$accountId/services/materializedViewsBuilder?api-version=2022-11-15-preview"
     ```
 
 ---
@@ -220,7 +217,7 @@ Once your account and Materialized View Builder is set up, you should be able to
               },
               "materializedViewDefinition": {
                 "sourceCollectionId": "mv-src",
-                "definition": "SELECT s.accountId, s.emailAddress, CONCAT(s.name.first, s.name.last) FROM s"
+                "definition": "SELECT s.accountId, s.emailAddress FROM s"
               }
             },
             "options": {
@@ -235,10 +232,13 @@ Once your account and Materialized View Builder is set up, you should be able to
 
 1. Now, make a REST API call to create the materialized view as defined in the **mv_definition.json** file. Use the Azure CLI to make the REST API call.
 
-    1. Create a variable for the name of the materialized view.
+    1. Create a variable for the name of the materialized view and source database name.
 
         ```azurecli
         materializedViewName="mv-target"
+        
+        # Variable for database name used in later section
+        databaseName="<database-that-contains-source-collection>"
         ```
 
     1. Make a REST API call to create the materialized view.
@@ -246,7 +246,7 @@ Once your account and Materialized View Builder is set up, you should be able to
         ```azurecli
         az rest \
             --method PUT \
-            --uri "https://management.azure.com$accountIdsqlDatabases/";\
+            --uri "https://management.azure.com$accountId/sqlDatabases/";\
                   "$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
             --body @definition.json \
             --headers content-type=application/json
@@ -257,7 +257,7 @@ Once your account and Materialized View Builder is set up, you should be able to
         ```azurecli
         az rest \
             --method GET \
-            --uri "https://management.azure.com$accountIdsqlDatabases/";\
+            --uri "https://management.azure.com$accountId/sqlDatabases/";\
                   "$databaseName/containers/$materializedViewName?api-version=2022-11-15-preview" \
             --headers content-type=application/json \
             --query "{mvCreateStatus: properties.Status}"
@@ -284,6 +284,7 @@ There are a few limitations with the Cosmos DB NoSQL API Materialized View Featu
 - point-in-time restore, hierarchical partitioning, end-to-end encryption isn't supported on source containers, which have materialized views associated with them.
 - Role-based access control is currently not supported for materialized views.
 - Cross-tenant customer-managed-key (CMK) encryption isn't supported on materialized views.
+- Currently, this feature can't be enabled along with Partition Merge feature, Analytical Store, or Continuous Backup mode.
 
 In addition to the above limitations, consider the following extra limitations:
 

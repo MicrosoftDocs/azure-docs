@@ -1,9 +1,9 @@
 ---
 title: Deploy a web app with Azure App Spaces
 description: Learn how to deploy a web app with Azure App Spaces in the Azure portal.
-ms.author: chcomley
-author: chcomley
-ms.service: app-service
+ms.author: msangapu
+author: msangapu-msft
+ms.service: app-spaces
 ms.topic: quickstart
 ms.date: 05/22/2023
 ---

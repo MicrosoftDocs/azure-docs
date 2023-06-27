@@ -11,7 +11,7 @@ items:
     href: choose-model-feature.md
   - name: Form Recognizer Studio
     displayName: get started
-    href: form-recognizer-studio-overview.md
+    href: studio-overview.md
   - name: Form Recognizer SDK
     items:
       - name: Public preview
@@ -42,7 +42,7 @@ items:
   items:
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-      href: quickstarts/try-v3-form-recognizer-studio.md
+      href: quickstarts/try-form-recognizer-studio.md
     - name: "Get started with Form Recognizer"
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
