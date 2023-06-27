@@ -5,7 +5,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 06/27/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -37,7 +37,7 @@ This article shows you how to enable [Azure Peering Service](../peering-service/
 
 1. Select **Configuration**, and then select **AS8075 (with Voice)** for **Microsoft network**. Select **Save** after you make your selection.
 
-    :::image type="content" source="./media/howto-peering-service-voice-portal/peering-connections.png" alt-text="Screenshot shows how to change Microsoft network from the Configuration page of the peering resource in the Azure portal.":::
+    :::image type="content" source="./media/howto-peering-service-voice-portal/peering-configuration.png" alt-text="Screenshot shows how to change Microsoft network from the Configuration page of the peering resource in the Azure portal.":::
 
 1. You'll receive an automatic email notification to let you know that your request to change peer type has been received. Once your request is reviewed and approved by the product team, you'll receive another notification. If you have pre-configured BGP and BFD prior to requesting the conversion, the configuration change will automatically run over the next 48 hours. A final notification is sent when the configuration is completed.  
 
