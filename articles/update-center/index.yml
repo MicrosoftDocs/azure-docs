@@ -47,7 +47,7 @@ landingContent:
           - text: Create customized reports
             url: manage-workbooks.md
 
-- title: Customized image support
+  - title: Customized image support
     linkLists:
       - linkListType: how-to-guide
         links:
