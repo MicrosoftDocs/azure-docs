@@ -114,7 +114,7 @@ For example, suppose Contoso uses Teams Federation Controls to block the Fabrika
 **Meeting join using an externally issued foreign identity**
 You can use TRv2 policy to config specific users and/or groups with externally issued identity to join to specific externally hosted Teams meetings. In this case, users will login with their externally issued identity into Teams and if TRv2 policy allows, the users will be able to join the specific tenant’s externally hosted Teams meetings.
 
-Currently Teams has a known issue where without Teams federation, it also blocks home identity authenticated session to join externally hosted Teams meetings. However, when the bug is fixed on Teams, TRv2 will block only unauthenticated or foreign identities join to externally hosted Team meetings.
+There is currently a known issue where, if Teams federation is off, Teams blocks a home identity authenticated session from joining externally hosted Teams meetings.
 
 | Auth Identity | Authenticated session  | Result |
 |----------------------|---------|---------|
