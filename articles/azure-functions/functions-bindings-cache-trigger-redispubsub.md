@@ -44,22 +44,18 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 - The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
 - Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
 - The `RedisPubSubTrigger` isn't supported with consumption functions.
- 
-## Scope of availability for functions triggers
+
+### Scope of availability for functions triggers
 
 |Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
 |---------|:---------:|:---------:|:---------:|
 |Pub/Sub  | Yes  | Yes  |  Yes  |
 
-## Example using `Channel`
+## Example
 
-- `ConnectionString`: connection string to the redis cache, for example: `<cacheName>.redis.cache.windows.net:6380,password=...`
-- `Channel`: name of the pubsub channel that the trigger should listen to.
-
-This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE functions-bindings-csharp-intro]
+This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -71,8 +67,32 @@ public static void PubSubTrigger(
 }
 ```
 
-::: zone-end
+This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
 
+```csharp
+
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyspace@0__:myKey")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+
+This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
+
+```csharp
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyevent@0__:del")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+
+::: zone-end
 ::: zone pivot="programming-language-java"
 
 ```java
@@ -87,15 +107,46 @@ public static void PubSubTrigger(
             context.getLogger().info(message);
     }
 ```
+
+```java
+@FunctionName("KeyspaceTrigger")
+    public void KeyspaceTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "__keyspace@0__:myKey")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
+```
+
+```java
+ @FunctionName("KeyeventTrigger")
+    public void KeyeventTrigger(
+            @RedisPubSubTrigger(
+                name = "message",
+                connectionStringSetting = "redisLocalhost",
+                channel = "__keyevent@0__:del")
+                String message,
+            final ExecutionContext context) {
+            context.getLogger().info(message);
+    }
+```
 <!--Content and samples from the Java tab in ##Examples go here.-->
+
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
+
 TBD
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
+
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
+
 TBD
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
+
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
@@ -113,64 +164,6 @@ TBD
   "scriptFile": "__init__.py"
 }
 ```
-<!--Content and samples from the Python tab in ##Examples go here.-->
-::: zone-end
-
-## Attributes
-
-
-|Property | Description|
-|---|---|
-| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
-| `Keys`| Keys to read from. It is space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
-|  `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: 1000|
-|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
-| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
-|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
-
-## Example using `myKey`
-
-This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
-
-::: zone pivot="programming-language-csharp"
-
-```csharp
-
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyspace@0__:myKey")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
-```
-
-::: zone-end
-::: zone pivot="programming-language-java"
-
-```java
-@FunctionName("KeyspaceTrigger")
-    public void KeyspaceTrigger(
-            @RedisPubSubTrigger(
-                name = "message",
-                connectionStringSetting = "redisLocalhost",
-                channel = "__keyspace@0__:myKey")
-                String message,
-            final ExecutionContext context) {
-            context.getLogger().info(message);
-    }
-```
-<!--Any usage information from the Java tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-<!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-powershell"
-
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-python"
 
 ```json
 {
@@ -186,54 +179,6 @@ public static void PubSubTrigger(
   "scriptFile": "__init__.py"
 }
 ```
-<!--Any usage information from the Python tab in ## Usage. -->
-::: zone-end
-
-## Example using `keyevent`
-
-This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
-
-::: zone pivot="programming-language-csharp"
-
-```csharp
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyevent@0__:del")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
-```
-
-::: zone-end
-
-<!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
-
-```java
- @FunctionName("KeyeventTrigger")
-    public void KeyeventTrigger(
-            @RedisPubSubTrigger(
-                name = "message",
-                connectionStringSetting = "redisLocalhost",
-                channel = "__keyevent@0__:del")
-                String message,
-            final ExecutionContext context) {
-            context.getLogger().info(message);
-    }
-```
-
-<!--Any usage information from the Java tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-<!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-powershell"
-
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-python"
 
 ```json
 {
@@ -249,15 +194,13 @@ public static void PubSubTrigger(
   "scriptFile": "__init__.py"
 }
 ```
-<!--Any usage information from the Python tab in ## Usage. -->
+<!--Content and samples from the Python tab in ##Examples go here.-->
+
 ::: zone-end
+::: zone pivot="programming-language-csharp"
 
 ## Attributes
 
-name = "message",
-connectionStringSetting = "redisLocalhost",
-channel = "__keyevent@0__:del")
-
 |Property | Description|
 |---|---|
 | `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
@@ -266,9 +209,15 @@ channel = "__keyevent@0__:del")
 |  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
 | `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
 |`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Annotations
-<!-- Equivalent values for the annotation parameters in Java.-->
+
+name = "message",
+connectionStringSetting = "redisLocalhost",
+channel = "__keyevent@0__:del"
 
 |Property | Description|
 |---|---|
@@ -278,14 +227,13 @@ channel = "__keyevent@0__:del")
 |  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
 | `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
 |`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
-| Count ||
 
+::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the function.json file.
-
+<!-- Equivalent values for the annotation parameters in Java.-->
 "type": "redisPubSubTrigger",
 "connectionStringSetting": "redisLocalhost",
 "channel": "__keyevent@0__:del",
@@ -303,6 +251,11 @@ The following table explains the binding configuration properties that you set i
 | Count ||
 
 ::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+
+
+
+::: zone-end
 
 ## Usage
 
@@ -310,6 +263,8 @@ All triggers return a `RedisMessageModel` object that has two fields:
 
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
+
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
@@ -347,8 +302,6 @@ TBD
 TBD
 <!--Any usage information from the PowerShell tab in ## Usage. -->
 ::: zone-end
-
-TBD
 
 ::: zone pivot="programming-language-python"
 
