@@ -47,7 +47,7 @@ The product group is actively working on resolutions for the following known iss
 | ---------- |---------|---------|
 | IP based LB outbound IP | IP based LB uses Azure's Default Outbound Access IP for outbound | In order to prevent outbound access from this IP, use NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
 | numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. Load Balancer health probes will probe up/down immediately after one probe regardless of the property's configured value | To reflect the current behavior, set the value of numberOfProbes ("Unhealthy threshold" in Portal) as 1 |
-|Cross region balancer in West Europe| Currently, there are a limited amount of IP addresses available in West Europe for Azure's cross region Load Balancer. This may affect customers' ability to deploy cross region load balancers in the West Europe region.| We recommend that customers use another home region as part of their cross region deployment.|                                        
+                                        
 
   
 

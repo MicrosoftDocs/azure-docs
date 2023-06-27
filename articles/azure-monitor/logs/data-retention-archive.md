@@ -13,6 +13,10 @@ Retention policies define when to remove or archive data in a [Log Analytics wor
 
 This article describes how to configure data retention and archiving.
 
+## Permissions
+
+To configure set data retention and archiving, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+
 ## How retention and archiving work
 
 Each workspace has a default retention policy that's applied to all tables. You can set a different retention policy on individual tables.
@@ -23,14 +27,18 @@ During the interactive retention period, data is available for monitoring, troub
 
 Archived data stays in the same table, alongside the data that's available for interactive queries. When you set a total retention period that's longer than the interactive retention period, Log Analytics automatically archives the relevant data immediately at the end of the retention period.
 
-If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 30 days of interactive retention and no archive period. You decide to change the retention policy to eight days of interactive retention and one year total retention. Log Analytics immediately archives any data that's older than eight days.
-
 You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md).
 
 > [!NOTE]
 > The archive period can only be set at the table level, not at the workspace level.
 
+### Adjustments to retention and archive settings
+
 When you shorten an existing retention policy, Azure Monitor waits 30 days before removing the data, so you can revert the change and prevent data loss in the event of an error in configuration. You can [purge data](#purge-retained-data) immediately when required. 
+
+When you increase the retention policy, the new retention period applies to all data that's already been ingested into the table and hasn't yet been purged or removed.   
+
+If you change the archive settings on a table with existing data, the relevant data in the table is also affected immediately. For example, you might have an existing table with 180 days of interactive retention and no archive period. You decide to change the retention policy to 90 days of interactive retention without changing the total retention period of 180 days. Log Analytics immediately archives any data that's older than 90 days and none of the data is deleted.
 
 ## Configure the default workspace retention policy
 
@@ -50,7 +58,7 @@ To set the default workspace retention policy:
 
 By default, all tables in your workspace inherit the workspace's interactive retention setting and have no archive policy. You can modify the retention and archive policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
-You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,556 days (seven years).
+The Analytics log data plan includes 30 days of interactive retention. You can increase the interactive retention period to up to 730 days at an [additional cost](https://azure.microsoft.com/pricing/details/monitor/). If needed, you can reduce the interactive retention period to as low as four days using the API or CLI, however, since 30 days are included in the ingestion price, lowering the retention period below 30 days does not reduce costs. You can set the archive period to a total retention time of up to 2,556 days (seven years).
 
 # [Portal](#tab/portal-1)
 
