@@ -34,9 +34,10 @@ One of the key features of Azure OpenAI on your data is its ability to retrieve 
 
 Azure OpenAI on your data uses an [Azure Cognitive Services](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information. 
 
-### Data preparation script
+## Ingesting your data into Azure cognitive search
 
-You can also use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to create an index you can use Azure OpenAI, and with your documents broken down into manageable chunks. This script also provides the ability to convert PDF files into text and ingest the data using [Form Recognizer](../../../applied-ai-services/form-recognizer/overview.md).
+For documents and datasets with long text, you should use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to ingest the data into cognitive search. This scripts chunks the data so that your response with the service will be more accurate. This script also supports scanned PDF file and images and ingests the data using [Form Recognizer](../../../applied-ai-services/form-recognizer/overview.md).
+
 
 ## Data formats and file types
 
