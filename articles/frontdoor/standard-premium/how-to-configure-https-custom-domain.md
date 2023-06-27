@@ -80,6 +80,9 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 If you already have a certificate, you can upload it to your key vault. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner certificate authorities (CAs) that Azure Key Vault integrates with.
 
+> [!WARNING]
+> Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
+
 > [!NOTE]
 > Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates, and the root certification authority (CA) must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
