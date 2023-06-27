@@ -1,18 +1,21 @@
 ---
 title: Consume events with Logic Apps - Azure Health Data Services
-description: This tutorial provides resources on how to consume events with Logic Apps.
+description: Learn how to consume FHIR events with Logic Apps.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 12/21/2022
+ms.date: 06/23/2022
 ms.author: jasteppe
 ---
 
-# Tutorial: Consume events with Logic Apps
+# Tutorial: Consume FHIR events with Logic Apps
 
-This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) events. Logic Apps creates and runs automated workflows to process event data from other applications. You'll learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform a service operation.
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services FHIR events. Logic Apps creates and runs automated workflows to process event data from other applications. Learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform a service operation.
 
 Here's an example of a Logic App workflow:
 
@@ -41,13 +44,13 @@ To set up an automated workflow, you must first create a Logic App. For more inf
 Follow these steps:
 
 1. Go to the Azure portal.
-2. Search for "Logic App".
-3. Select "Add".
-4. Specify Basic details.
-5. Specify Hosting.
-6. Specify Monitoring.
-7. Specify Tags.
-8. Review and create your Logic App.
+2. Search for **Logic App**.
+3. Select **Add**.
+4. Specify **Basic details**.
+5. Specify **Hosting**.
+6. Specify **Monitoring**.
+7. Specify **Tags**.
+8. **Review and create** your Logic App.
 
 You now need to fill out the details of your Logic App. Specify information for these five categories. They are in separate tabs:
 
@@ -90,7 +93,7 @@ Choose a plan type (Standard or Consumption). Create a new Windows Plan name and
 
 - Zone redundancy deployment
 
-Enabling your plan will make it zone redundant.
+Enabling your plan makes it zone redundant.
 
 ### Hosting - Tab 2
 
@@ -117,21 +120,21 @@ Enable Azure Monitor Application Insights to automatically monitor your applicat
 
 ### Tags - Tab 4
 
-Continue specifying your Logic App by clicking "Next: Tags".
+Continue specifying your Logic App by clicking **Next: Tags**.
 
 #### Use tags to categorize resources
 
 Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
-This example won't use tagging.
+This example doesn't use tagging.
 
 ### Review + create - Tab 5
 
-Finish specifying your Logic App by clicking "Next: Review + create".
+Finish specifying your Logic App by clicking **Next: Review + create**.
 
 #### Review your Logic App
 
-Your proposed Logic app will display the following details:
+Your proposed Logic app displays the following details:
 
 - Subscription
 - Resource Group
@@ -142,7 +145,7 @@ Your proposed Logic app will display the following details:
 - Plan
 - Monitoring
 
-If you're satisfied with the proposed configuration, select "Create". If not, select "Previous" to go back and specify new details.
+If you're satisfied with the proposed configuration, select **Create**. If not, select **Previous** to go back and specify new details.
 
 First you'll see an alert telling you that deployment is initializing. Next you'll see a new page telling you that the deployment is in progress.
 
@@ -154,7 +157,7 @@ If there are no errors, you'll finally see a notification telling you that your 
 
 #### Your Logic App dashboard
 
-Azure creates a dashboard when your Logic App is complete. The dashboard will show you the status of your app. You can return to your dashboard by clicking Overview in the Logic App menu. Here's a Logic App dashboard:
+Azure creates a dashboard when your Logic App is complete. The dashboard shows you the status of your app. You can return to your dashboard by clicking Overview in the Logic App menu. Here's a Logic App dashboard:
 
 :::image type="content" source="media/events-logic-apps/events-logic-overview.png" alt-text="Screenshot of your Logic Apps overview dashboard." lightbox="media/events-logic-apps/events-logic-overview.png":::
 
@@ -189,10 +192,10 @@ Before you begin, you'll need to have a Logic App configured and running correct
 Once your Logic App is running, you can create and configure a workflow. To initialize a workflow, follow these steps:
 
 1. Start at the Azure portal.
-2. Select "Logic Apps" in Azure services.
+2. Select **Logic Apps** in Azure services.
 3. Select the Logic App you created.
-4. Select "Workflows" in the Workflow menu on the left.
-5. Select "Add" to add a workflow.
+4. Select **Workflows** in the Workflow menu on the left.
+5. Select **Add** to add a workflow.
 
 ### Configuring a new workflow
 
@@ -244,7 +247,7 @@ Fill in the details for subscription, resource type, and resource name. Then you
 - Resource deleted
 - Resource updated
 
-For more information about event types, see [What FHIR resource events does Events support?](events-faqs.md).
+For more information about event types, see [What FHIR resource events does Events support?](events-faqs.md#what-fhir-resource-events-does-events-support).
 
 ### Adding an HTTP action
 
@@ -285,9 +288,9 @@ When the condition is ready, you can specify what actions happen if the conditio
 
 ### Choosing a condition criteria
 
-In order to specify whether you want to take action for the specific event, begin specifying the criteria by clicking on "Condition" in the workflow on the left. You'll then see a set of condition choices on the right.
+In order to specify whether you want to take action for the specific event, begin specifying the criteria by clicking on **Condition** in the workflow. A set of condition choices are then displayed.
 
-Under the "And" box, add these two conditions:
+Under the **And** box, add these two conditions:
 
 - resourceType
 - Event Type
@@ -331,7 +334,7 @@ To test your new workflow, do the following steps:
 1. Add a new Patient FHIR Resource to your FHIR Service.
 2. Wait a moment or two and then check the Overview webpage of your Logic App workflow.
 3. The event should be shaded in green if the action was successful.
-4. If it failed, the event will be shaded in red.
+4. If it failed, the event is shaded in red.
 
 Here's an example of a workflow trigger success operation:
 
@@ -339,11 +342,16 @@ Here's an example of a workflow trigger success operation:
 
 ## Next steps
 
-In this tutorial, you learned about how to use Logic Apps to process FHIR events.
+In this tutorial, you learned how to use Logic Apps to process FHIR events.
 
-To learn more about FHIR events, see:
+To learn about Events, see
 
 > [!div class="nextstepaction"]
-> [What are Events?](./events-overview.md)
+> [What are Events?](events-overview.md)
+
+To learn about the Events frequently asked questions (FAQs), see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about Events](events-faqs.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -15,6 +15,20 @@ Use the Event Grid output binding to write events to a custom topic. You must ha
 
 For information on setup and configuration details, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md).
 
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+::: zone-end
 
 > [!IMPORTANT]
 > The Event Grid output binding is only available for Functions 2.x and higher.
@@ -31,7 +45,7 @@ The type of the output parameter used with an Event Grid output binding depends 
 
 # [In-process](#tab/in-process)
 
-The following example shows a C# function that binds to a `CloudEvent` using version 3.x of the extension, which is in preview:
+The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 
 ```cs
 using System.Threading.Tasks;
@@ -59,7 +73,7 @@ namespace Azure.Extensions.WebJobs.Sample
 }
 ```
 
-The following example shows a C# function that binds to an `EventGridEvent` using version 3.x of the extension, which is in preview:
+The following example shows a C# function that publishes an `EventGridEvent` using version 3.x of the extension:
 
 ```cs
 using System.Threading.Tasks;
@@ -87,7 +101,7 @@ namespace Azure.Extensions.WebJobs.Sample
 }
 ```
 
-The following example shows a C# function that writes an [Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent] message to an Event Grid custom topic, using the method return value as the output:
+The following example shows a C# function that publishes an [EventGridEvent][EventGridEvent] message to an Event Grid custom topic, using the method return value as the output:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -98,7 +112,20 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-The following example shows how to use the `IAsyncCollector` interface to send a batch of messages.
+It is also possible to use an `out` parameter to accomplish the same thing:
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static void Run(
+    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
+    EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting") out eventGridEvent,
+    ILogger log)
+{
+    eventGridEvent = EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+The following example shows how to use the `IAsyncCollector` interface to send a batch of `EventGridEvent` messages.
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -114,6 +141,35 @@ public static async Task Run(
     }
 }
 ```
+
+Starting in version 3.3.0, it is possible to use Azure Active Directory when authenticating the output binding:
+
+```csharp
+[FunctionName("EventGridAsyncOutput")]
+public static async Task Run(
+    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
+    [EventGrid(Connection = "MyEventGridConnection"]IAsyncCollector<CloudEvent> outputEvents,
+    ILogger log)
+{
+    for (var i = 0; i < 3; i++)
+    {
+        var myEvent = new CloudEvent("message-id-" + i, "subject-name", "event-data");
+        await outputEvents.AddAsync(myEvent);
+    }
+}
+```
+
+When using the Connection property, the `topicEndpointUri` must be specified as a child of the connection setting, and the `TopicEndpointUri` and `TopicKeySetting` properties should not be used. For local development, use the local.settings.json file to store the connection information:
+```json
+{
+  "Values": {
+    "myConnection__topicEndpointUri": "{topicEndpointUri}"
+  }
+}
+```
+When deployed, use the application settings to store this information.
+
+[!INCLUDE [functions-event-grid-connections](../../includes/functions-event-grid-connections.md)]
 
 # [Isolated process](#tab/isolated-process)
 
@@ -183,7 +239,7 @@ public class Function {
 }
 ```
 
-You can also use a POJO class to send EventGrid messages.
+You can also use a POJO class to send Event Grid messages.
 
 ```java
 public class Function {
@@ -390,8 +446,40 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`.
+The following example shows a trigger binding and a Python function that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md). 
 
+# [v2](#tab/python-v2)
+
+Here's the function in the function_app.py file:
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+@app.function_name(name="eventgrid_output")
+@app.route(route="eventgrid_output")
+@app.event_grid_output(
+    arg_name="outputEvent",
+    topic_endpoint_uri="MyEventGridTopicUriSetting",
+    topic_key_setting="MyEventGridTopicKeySetting")
+def eventgrid_output(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+
+```
+
+# [v1](#tab/python-v1)
 Here's the binding data in the *function.json* file:
 
 ```json
@@ -571,7 +659,7 @@ Functions version 1.x doesn't support isolated worker process.
 C# script functions support the following types:
 
 + [Azure.Messaging.CloudEvent][CloudEvent]
-+ [Azure.Messaging.EventGrid][EventGridEvent2]
++ [Azure.Messaging.EventGrid][EventGridEvent]
 + [Newtonsoft.Json.Linq.JObject][JObject]
 + [System.String][String]
 
@@ -626,5 +714,5 @@ There are two options for outputting an Event Grid message from a function:
 
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)
 
-[EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent
+[EventGridEvent]: /dotnet/api/azure.messaging.eventgrid.eventgridevent
 [CloudEvent]: /dotnet/api/azure.messaging.cloudevent

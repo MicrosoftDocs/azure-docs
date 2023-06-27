@@ -3,7 +3,7 @@ title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/22/2023
+ms.date: 06/22/2023
 ---
 
 # Conditional deployment in ARM templates
@@ -69,8 +69,8 @@ You can use conditional deployment to create a new resource or use an existing o
       ]
     }
   },
-  "resources": {
-    "saNew": {
+  "resources": [
+    {
       "condition": "[equals(parameters('newOrExisting'), 'new')]",
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2022-09-01",
@@ -81,14 +81,13 @@ You can use conditional deployment to create a new resource or use an existing o
       },
       "kind": "StorageV2"
     },
-    "saExisting": {
+    {
       "condition": "[equals(parameters('newOrExisting'), 'existing')]",
-      "existing": true,
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2022-09-01",
       "name": "[parameters('storageAccountName')]"
     }
-  },
+  ],
   "outputs": {
     "storageAccountId": {
       "type": "string",

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: How to upload and use your own data in a remote training job, with SDK v1. This is part 3 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
