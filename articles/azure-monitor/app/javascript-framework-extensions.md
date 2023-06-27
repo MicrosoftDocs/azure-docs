@@ -143,7 +143,7 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-Wrap your component with the higher-order component function to enable Application Insights on it:
+To enable Application Insights on your component, wrap the higher-order component function around your component:
 
 ```javascript
 import React from 'react';
@@ -434,7 +434,10 @@ export default MyComponent;
 
 #### useTrackMetric
 
-The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding another component to the component structure. The Hook takes two arguments. First is the Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook. The second is an identifier for the component for tracking, such as its name.
+The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding another component to the component structure. The Hook takes two arguments:
+
+- The Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook.
+- An identifier for the component for tracking, such as its name.
 
 ```javascript
 import React from "react";
@@ -451,7 +454,7 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-It operates like the higher-order component, but it responds to Hooks lifecycle events rather than a component lifecycle. The Hook needs to be explicitly provided to user events if there's a need to run on particular interactions.
+It operates like the higher-order component, but it responds to Hooks lifecycle events rather than a component lifecycle. If there's a need to run on particular interactions, the Hook needs to be explicitly provided to user events.
 
 #### useTrackEvent
 
@@ -500,7 +503,7 @@ When the Hook is used, a data payload can be provided to it to add more data to 
 
 ### React error boundaries
 
-[Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
+[React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
 
 ```javascript
 import React from "react";
