@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 05/22/2023
+ms.date: 06/27/2023
 ms.author: cwatson
 ---
 
@@ -38,7 +38,7 @@ Data connectors are available as part of the following offerings:
 
 ## Abnormal Security Corporation
 
-- [AbnormalSecurity (using Azure Function)](data-connectors/abnormalsecurity-using-azure-function.md)
+- [AbnormalSecurity (using Azure Functions)](data-connectors/abnormalsecurity-using-azure-function.md)
 
 ## Akamai
 
@@ -46,7 +46,7 @@ Data connectors are available as part of the following offerings:
 
 ## AliCloud
 
-- [AliCloud (using Azure Function)](data-connectors/alicloud-using-azure-function.md)
+- [AliCloud (using Azure Functions)](data-connectors/alicloud-using-azure-function.md)
 
 ## Amazon Web Services
 
@@ -83,8 +83,8 @@ Data connectors are available as part of the following offerings:
 
 ## Atlassian
 
-- [Atlassian Confluence Audit (using Azure Function)](data-connectors/atlassian-confluence-audit-using-azure-function.md)
-- [Atlassian Jira Audit (using Azure Function)](data-connectors/atlassian-jira-audit-using-azure-function.md)
+- [Atlassian Confluence Audit (using Azure Functions)](data-connectors/atlassian-confluence-audit-using-azure-function.md)
+- [Atlassian Jira Audit (using Azure Functions)](data-connectors/atlassian-jira-audit-using-azure-function.md)
 
 ## Auth0
 
@@ -96,7 +96,7 @@ Data connectors are available as part of the following offerings:
 
 ## Bitglass
 
-- [Bitglass (using Azure Function)](data-connectors/bitglass-using-azure-function.md)
+- [Bitglass (using Azure Functions)](data-connectors/bitglass-using-azure-function.md)
 
 ## Blackberry
 
@@ -108,7 +108,7 @@ Data connectors are available as part of the following offerings:
 
 ## Box
 
-- [Box (using Azure Function)](data-connectors/box-using-azure-function.md)
+- [Box (using Azure Functions)](data-connectors/box-using-azure-function.md)
 
 ## Broadcom
 
@@ -118,13 +118,13 @@ Data connectors are available as part of the following offerings:
 
 - [Cisco Application Centric Infrastructure](data-connectors/cisco-application-centric-infrastructure.md)
 - [Cisco ASA](data-connectors/cisco-asa.md)
-- [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
+- [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security-using-azure-function.md)
 - [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
-- [Cisco Secure Endpoint (AMP) (using Azure Function)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
+- [Cisco Secure Endpoint (AMP) (using Azure Functions)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
 - [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
 - [Cisco UCS](data-connectors/cisco-ucs.md)
-- [Cisco Umbrella (using Azure Function)](data-connectors/cisco-umbrella-using-azure-function.md)
+- [Cisco Umbrella (using Azure Functions)](data-connectors/cisco-umbrella-using-azure-function.md)
 - [Cisco Web Security Appliance](data-connectors/cisco-web-security-appliance.md)
 
 ## Cisco Systems, Inc.
@@ -154,7 +154,7 @@ Data connectors are available as part of the following offerings:
 
 ## CohesityDev
 
-- [Cohesity (using Azure Function)](data-connectors/cohesity-using-azure-function.md)
+- [Cohesity (using Azure Functions)](data-connectors/cohesity-using-azure-function.md)
 
 ## Contrast Security
 
@@ -166,7 +166,7 @@ Data connectors are available as part of the following offerings:
 
 ## Crowdstrike
 
-- [Crowdstrike Falcon Data Replicator (using Azure Function)](data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md)
+- [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-using-azure-function.md)
 - [CrowdStrike Falcon Endpoint Protection](data-connectors/crowdstrike-falcon-endpoint-protection.md)
 
 ## Cyber Defense Group B.V.
@@ -184,7 +184,7 @@ Data connectors are available as part of the following offerings:
 
 ## Cybersixgill
 
-- [Cybersixgill Actionable Alerts (using Azure Function)](data-connectors/cybersixgill-actionable-alerts-using-azure-function.md)
+- [Cybersixgill Actionable Alerts (using Azure Functions)](data-connectors/cybersixgill-actionable-alerts-using-azure-function.md)
 
 ## Cynerio
 
@@ -237,7 +237,7 @@ Data connectors are available as part of the following offerings:
 
 ## Facebook
 
-- [Workplace from Facebook (using Azure Function)](data-connectors/workplace-from-facebook-using-azure-function.md)
+- [Workplace from Facebook (using Azure Functions)](data-connectors/workplace-from-facebook-using-azure-function.md)
 
 ## Fireeye
 
@@ -266,11 +266,11 @@ Data connectors are available as part of the following offerings:
 - [Google Cloud Platform Cloud Monitoring (using Azure Functions)](data-connectors/google-cloud-platform-cloud-monitoring-using-azure-function.md)
 - [Google Cloud Platform DNS (using Azure Functions)](data-connectors/google-cloud-platform-dns-using-azure-function.md)
 - [Google Cloud Platform IAM (using Azure Functions)](data-connectors/google-cloud-platform-iam-using-azure-function.md)
-- [Google Workspace (G Suite) (using Azure Function)](data-connectors/google-workspace-g-suite-using-azure-function.md)
+- [Google Workspace (G Suite) (using Azure Functions)](data-connectors/google-workspace-g-suite-using-azure-function.md)
 
 ## H.O.L.M. Security Sweden AB
 
-- [Holm Security Asset Data (using Azure Function)](data-connectors/holm-security-asset-data-using-azure-function.md)
+- [Holm Security Asset Data (using Azure Functions)](data-connectors/holm-security-asset-data-using-azure-function.md)
 
 ## iboss inc
 
@@ -286,7 +286,7 @@ Data connectors are available as part of the following offerings:
 
 ## Imperva
 
-- [Imperva Cloud WAF (using Azure Function)](data-connectors/imperva-cloud-waf-using-azure-function.md)
+- [Imperva Cloud WAF (using Azure Functions)](data-connectors/imperva-cloud-waf-using-azure-function.md)
 
 ## Infoblox
 
@@ -302,7 +302,7 @@ Data connectors are available as part of the following offerings:
 
 ## Insight VM / Rapid7
 
-- [Rapid7 Insight Platform Vulnerability Management Reports (using Azure Function)](data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-function.md)
+- [Rapid7 Insight Platform Vulnerability Management Reports (using Azure Functions)](data-connectors/rapid7-insight-platform-vulnerability-management-reports-using-azure-function.md)
 
 ## ISC
 
@@ -336,8 +336,8 @@ Data connectors are available as part of the following offerings:
 
 ## Lookout, Inc.
 
-- [Lookout (using Azure Function)](data-connectors/lookout-using-azure-function.md)
-- [Lookout Cloud Security for Microsoft Sentinel (using Azure Function)](data-connectors/lookout-cloud-security-for-microsoft-sentinel-using-azure-function.md)
+- [Lookout (using Azure Functions)](data-connectors/lookout-using-azure-function.md)
+- [Lookout Cloud Security for Microsoft Sentinel (using Azure Functions)](data-connectors/lookout-cloud-security-for-microsoft-sentinel-using-azure-function.md)
 
 ## MarkLogic
 
@@ -402,7 +402,7 @@ Data connectors are available as part of the following offerings:
 
 ## Microsoft Corporation - sentinel4github
 
-- [GitHub (using Webhooks) (using Azure Function)](data-connectors/github-using-webhooks-using-azure-function.md)
+- [GitHub (using Webhooks) (using Azure Functions)](data-connectors/github-using-webhooks-using-azure-function.md)
 - [GitHub Enterprise Audit Log](data-connectors/github-enterprise-audit-log.md)
 
 ## Microsoft Sentinel Community, Microsoft Corporation
@@ -422,11 +422,11 @@ Data connectors are available as part of the following offerings:
 
 ## MuleSoft
 
-- [MuleSoft Cloudhub (using Azure Function)](data-connectors/mulesoft-cloudhub-using-azure-function.md)
+- [MuleSoft Cloudhub (using Azure Functions)](data-connectors/mulesoft-cloudhub-using-azure-function.md)
 
 ## Netskope
 
-- [Netskope (using Azure Function)](data-connectors/netskope-using-azure-function.md)
+- [Netskope (using Azure Functions)](data-connectors/netskope-using-azure-function.md)
 
 ## Netwrix
 
@@ -453,11 +453,11 @@ Data connectors are available as part of the following offerings:
 
 ## Okta
 
-- [Okta Single Sign-On (using Azure Function)](data-connectors/okta-single-sign-on-using-azure-function.md)
+- [Okta Single Sign-On (using Azure Functions)](data-connectors/okta-single-sign-on-using-azure-function.md)
 
 ## OneLogin
 
-- [OneLogin IAM Platform (using Azure Function)](data-connectors/onelogin-iam-platform-using-azure-function.md)
+- [OneLogin IAM Platform (using Azure Functions)](data-connectors/onelogin-iam-platform-using-azure-function.md)
 
 ## OpenVPN
 
@@ -465,7 +465,7 @@ Data connectors are available as part of the following offerings:
 
 ## Oracle
 
-- [Oracle Cloud Infrastructure (using Azure Function)](data-connectors/oracle-cloud-infrastructure-using-azure-function.md)
+- [Oracle Cloud Infrastructure (using Azure Functions)](data-connectors/oracle-cloud-infrastructure-using-azure-function.md)
 - [Oracle Database Audit](data-connectors/oracle-database-audit.md)
 - [Oracle WebLogic Server](data-connectors/oracle-weblogic-server.md)
 
@@ -481,7 +481,7 @@ Data connectors are available as part of the following offerings:
 
 - [Palo Alto Networks (Firewall)](data-connectors/palo-alto-networks-firewall.md)
 - [Palo Alto Networks Cortex Data Lake (CDL)](data-connectors/palo-alto-networks-cortex-data-lake-cdl.md)
-- [Palo Alto Prisma Cloud CSPM (using Azure Function)](data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md)
+- [Palo Alto Prisma Cloud CSPM (using Azure Functions)](data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function.md)
 
 ## Perimeter 81
 
@@ -497,8 +497,8 @@ Data connectors are available as part of the following offerings:
 
 ## Proofpoint
 
-- [Proofpoint On Demand Email Security (using Azure Function)](data-connectors/proofpoint-on-demand-email-security-using-azure-function.md)
-- [Proofpoint TAP (using Azure Function)](data-connectors/proofpoint-tap-using-azure-function.md)
+- [Proofpoint On Demand Email Security (using Azure Functions)](data-connectors/proofpoint-on-demand-email-security-using-azure-function.md)
+- [Proofpoint TAP (using Azure Functions)](data-connectors/proofpoint-tap-using-azure-function.md)
 
 ## Pulse Secure
 
@@ -506,8 +506,8 @@ Data connectors are available as part of the following offerings:
 
 ## Qualys
 
-- [Qualys VM KnowledgeBase (using Azure Function)](data-connectors/qualys-vm-knowledgebase-using-azure-function.md)
-- [Qualys Vulnerability Management (using Azure Function)](data-connectors/qualys-vulnerability-management-using-azure-function.md)
+- [Qualys VM KnowledgeBase (using Azure Functions)](data-connectors/qualys-vm-knowledgebase-using-azure-function.md)
+- [Qualys Vulnerability Management (using Azure Functions)](data-connectors/qualys-vulnerability-management-using-azure-function.md)
 
 ## RedHat
 
@@ -519,15 +519,15 @@ Data connectors are available as part of the following offerings:
 
 ## Rubrik, Inc.
 
-- [Rubrik Security Cloud data connector (using Azure Function)](data-connectors/rubrik-security-cloud-data-connector-using-azure-function.md)
+- [Rubrik Security Cloud data connector (using Azure Functions)](data-connectors/rubrik-security-cloud-data-connector-using-azure-function.md)
 
 ## SailPoint
 
-- [SailPoint IdentityNow (using Azure Function)](data-connectors/sailpoint-identitynow-using-azure-function.md)
+- [SailPoint IdentityNow (using Azure Functions)](data-connectors/sailpoint-identitynow-using-azure-function.md)
 
 ## Salesforce
 
-- [Salesforce Service Cloud (using Azure Function)](data-connectors/salesforce-service-cloud-using-azure-function.md)
+- [Salesforce Service Cloud (using Azure Functions)](data-connectors/salesforce-service-cloud-using-azure-function.md)
 
 ## SecurityBridge
 
@@ -543,11 +543,11 @@ Data connectors are available as part of the following offerings:
 
 ## Slack
 
-- [Slack Audit (using Azure Function)](data-connectors/slack-audit-using-azure-function.md)
+- [Slack Audit (using Azure Functions)](data-connectors/slack-audit-using-azure-function.md)
 
 ## Snowflake
 
-- [Snowflake (using Azure Function)](data-connectors/snowflake-using-azure-function.md)
+- [Snowflake (using Azure Functions)](data-connectors/snowflake-using-azure-function.md)
 
 ## SonicWall Inc
 
@@ -560,7 +560,7 @@ Data connectors are available as part of the following offerings:
 ## Sophos
 
 - [Sophos Cloud Optix](data-connectors/sophos-cloud-optix.md)
-- [Sophos Endpoint Protection (using Azure Function)](data-connectors/sophos-endpoint-protection-using-azure-function.md)
+- [Sophos Endpoint Protection (using Azure Functions)](data-connectors/sophos-endpoint-protection-using-azure-function.md)
 - [Sophos XG Firewall](data-connectors/sophos-xg-firewall.md)
 
 ## Squid
@@ -580,7 +580,7 @@ Data connectors are available as part of the following offerings:
 
 ## Tenable
 
-- [Tenable.io Vulnerability Management (using Azure Function)](data-connectors/tenable-io-vulnerability-management-using-azure-function.md)
+- [Tenable.io Vulnerability Management (using Azure Functions)](data-connectors/tenable-io-vulnerability-management-using-azure-function.md)
 
 ## The Collective Consulting BV
 
@@ -588,7 +588,7 @@ Data connectors are available as part of the following offerings:
 
 ## TheHive
 
-- [TheHive Project - TheHive (using Azure Function)](data-connectors/thehive-project-thehive-using-azure-function.md)
+- [TheHive Project - TheHive (using Azure Functions)](data-connectors/thehive-project-thehive-using-azure-function.md)
 
 ## Theom, Inc.
 
@@ -598,7 +598,7 @@ Data connectors are available as part of the following offerings:
 
 - [Trend Micro Deep Security](data-connectors/trend-micro-deep-security.md)
 - [Trend Micro TippingPoint](data-connectors/trend-micro-tippingpoint.md)
-- [Trend Vision One (using Azure Function)](data-connectors/trend-micro-vision-one-using-azure-function.md)
+- [Trend Vision One (using Azure Functions)](data-connectors/trend-micro-vision-one-using-azure-function.md)
 
 ## TrendMicro
 
@@ -619,7 +619,7 @@ Data connectors are available as part of the following offerings:
 
 ## VMware
 
-- [VMware Carbon Black Cloud (using Azure Function)](data-connectors/vmware-carbon-black-cloud-using-azure-function.md)
+- [VMware Carbon Black Cloud (using Azure Functions)](data-connectors/vmware-carbon-black-cloud-using-azure-function.md)
 - [VMware ESXi](data-connectors/vmware-esxi.md)
 - [VMware vCenter](data-connectors/vmware-vcenter.md)
 
@@ -646,7 +646,7 @@ Data connectors are available as part of the following offerings:
 
 ## Zoom
 
-- [Zoom Reports (using Azure Function)](data-connectors/zoom-reports-using-azure-function.md)
+- [Zoom Reports (using Azure Functions)](data-connectors/zoom-reports-using-azure-function.md)
 
 ## Zscaler
 
