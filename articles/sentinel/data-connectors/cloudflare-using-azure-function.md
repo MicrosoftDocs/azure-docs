@@ -44,14 +44,14 @@ To integrate with Cloudflare (Preview) (using Azure Functions) make sure you hav
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to the Azure Blob Storage API to pull logs into Microsoft Sentinel. This might result in additional costs for data ingestion and for storing data in Azure Blob Storage costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) and [Azure Blob Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) for details.
+>  This connector uses Azure Functions to connect to the Azure Blob Storage API to pull logs into Microsoft Sentinel. This might result in additional costs for data ingestion and for storing data in Azure Blob Storage costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) and [Azure Blob Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**Cloudflare**](https://aka.ms/sentinel-CloudflareDataConnector-parser) which is deployed with the Microsoft Sentinel Solution.
+>  This data connector depends on a parser based on a Kusto Function to work as expected [**Cloudflare**](https://aka.ms/sentinel-CloudflareDataConnector-parser) which is deployed with the Microsoft Sentinel Solution.
 
 
 **STEP 1 - Configuration of the Cloudflare Logpush**
@@ -61,9 +61,8 @@ See documentation to [setup Cloudflare Logpush to Microsoft Azure](https://devel
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the Cloudflare data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following), as well as Azure Blob Storage connection string and container name, readily available.
-
-
+>[!IMPORTANT]
+> Before deploying the Cloudflare data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following), as well as Azure Blob Storage connection string and container name, readily available.
 
 Option 1 - Azure Resource Manager (ARM) Template
 
@@ -84,14 +83,15 @@ Use the following step-by-step instructions to deploy the Cloudflare data connec
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> [!NOTE]
+>  You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-CloudflareDataConnector-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
 3. Select the top level folder from extracted files.
 4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.
-If you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**
-If you're already signed in, go to the next step.
+   - If you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**
+   - If you're already signed in, go to the next step.
 5. Provide the following information at the prompts:
 
 	a. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.
@@ -115,15 +115,13 @@ If you're already signed in, go to the next step.
 1. In the Function App, select the Function App Name and select **Configuration**.
 2. In the **Application settings** tab, select **+ New application setting**.
 3. Add each of the following application settings individually, with their respective string values (case-sensitive): 
-		CONTAINER_NAME
-		AZURE_STORAGE_CONNECTION_STRING
-		WORKSPACE_ID
-		SHARED_KEY
-		logAnalyticsUri (Optional)
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://WORKSPACE_ID.ods.opinsights.azure.us`. 
+   - CONTAINER_NAME
+   - AZURE_STORAGE_CONNECTION_STRING
+   - WORKSPACE_ID
+   - SHARED_KEY
+   - logAnalyticsUri (Optional)
+   - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://WORKSPACE_ID.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
-
-
 
 ## Next steps
 
