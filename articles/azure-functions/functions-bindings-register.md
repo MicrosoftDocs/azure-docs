@@ -48,7 +48,7 @@ The following table lists the currently available versions of the default *Micro
 
 
 > [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version value from this table.
+> Even though host.json supports custom ranges for `version`, you should use a version range value from this table.  For example `[4.0.0, 5.0.0)`.
 
 ## Explicitly install extensions
 
@@ -61,3 +61,4 @@ For portal-only development, you need to manually create an extensions.csproj fi
 ## Next steps
 > [!div class="nextstepaction"]
 > [Azure Function trigger and binding example](./functions-bindings-example.md)
+
