@@ -13,7 +13,7 @@ ms.subservice: data
 ---
 # Chat  metrics overview
 
-Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../../azure-monitor\essentials\metrics-getting-started) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
+Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
 ## Where to find metrics
 
@@ -52,9 +52,9 @@ The following operations are available on Chat API request metrics:
 | AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
 | RemoveChatThreadParticipant   | Remove a member from a thread. |
 
-:::image type="content" source="../concepts/media/chat-metric.png" alt-text="Chat API Request Metric.":::
+:::image type="content" source="../media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
 If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
 ## Next steps
 
-- Learn more about [Data Platform Metrics](../../../../azure-monitor/essentials/data-platform-metrics).
+- Learn more about [Data Platform Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md).
