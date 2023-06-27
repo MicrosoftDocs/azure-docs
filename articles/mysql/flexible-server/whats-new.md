@@ -28,6 +28,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## June 2023
 
+- **Private Link for Azure Database for MySQL - Flexible Server (Preview)**
+
+  You can now enable private access to Azure Database for MySQL - flexible server using Private Link. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). Using the private IP address, the MySQL flexible server is accessible just like any other resource within the VNet. [Learn more](./concepts-networking-private-link.md).
+
 - **Enhanced Data Encryption with Customer Managed Keys for Azure Database for MySQL - Flexible Server**
 
   Azure Database for MySQL - Flexible Server now supports allowing access to Azure Key Vault from selected Vnets for enabling data encryption using Customer Managed Keys. [Learn more](./concepts-customer-managed-key.md).
