@@ -65,7 +65,7 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
       {
         "pointInTimeUTC": "2023-06-15T16:05:02Z",
         "createMode": "ReviveDropped",
-        "sourceServerResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-RG/providers/Microsoft.DBforPostgreSQL/flexibleServers/SourceServer-name"
+        "sourceServerResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Name/providers/Microsoft.DBforPostgreSQL/flexibleServers/SourceServer-Name"
       }
     }
     ```
@@ -81,7 +81,8 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
    - **Operation** =  Update PostgreSQL Server Create
    
 
-## Restore a dropped Vnet enabled Server
+
+## Restore a dropped VNET enabled Server
 
 
 ```json
@@ -89,40 +90,17 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
   "location": "EastUS",  
   "properties": {
     "createMode": "ReviveDropped",
-    "sourceServerResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourceserver-name",
+    "sourceServerResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Name/providers/Microsoft.DBforPostgreSQL/flexibleServers/SourceServer-Name",
     "pointInTimeUTC": "2023-06-20T20:50:59.4078005+00:00",
     "Network": {
-      "DelegatedSubnetResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-RG/providers/Microsoft.Network/virtualNetworks/SourceServer-vnet/subnets/default",
-      "PrivateDnsZoneArmResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Rg/providers/Microsoft.Network/privateDnsZones/SourceServer-name.private.postgres.database.azure.com"
+      "DelegatedSubnetResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Name/providers/Microsoft.Network/virtualNetworks/VirtualNetwork-Name/subnets/Subnet-Name",
+      "PrivateDnsZoneArmResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Name/providers/Microsoft.Network/privateDnsZones/privatednszone-name.postgres.database.azure.com"
     }
   }
 }
  ```
+  
 
-## Restore a dropped CMK enabled Server
-
-```json
-   {
-  "location": "EastUS",
-  "identity": {
-    "userAssignedIdentities": {
-      "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name": {}
-    },
-    "type": "UserAssigned"
-  },
-  "properties": {
-    "createMode": "ReviveDropped",
-    "sourceServerResourceId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff//resourcegroups/SourceResourceGroup-Rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/SourceServer-name",
-    "pointInTimeUTC": "2023-05-30T21:50Z",
-    "dataEncryption": {
-      "type": "AzureKeyVault",
-      "primaryKeyURI": "https://ffffffff.vault.azure.net/keys/key1/b7755a06a27ffffffff245d88365f120f8793b47",
-      "primaryUserAssignedIdentityId": "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup-Rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"
-    }
-  }
-}
-
-```
 ## Next steps
 
 - If you're trying to restore a server within five days, and still receive an error after accurately following the steps discussed earlier, open a support incident for assistance. If you're trying to restore a dropped server after five days, an error is expected since the backup file can't be found. Don't open a support ticket in this scenario. The support team can't provide any assistance if the backup is deleted from the system. 
