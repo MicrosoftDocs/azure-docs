@@ -18,7 +18,7 @@ Question answering provides cloud-based Natural Language Processing (NLP) that a
 
 Question answering is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications. This offering includes features like enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support.
 
-Question answering comprises of two capabilities:
+Question answering comprises two capabilities:
 
 * Custom question answering: Using this capability users can customize different aspects like edit question and answer pairs extracted from the content source, define synonyms and metadata, accept question suggestions etc.
 * Prebuilt question answering: This capability allows users to get a response by querying a text passage without having the need to manage knowledgebases.
