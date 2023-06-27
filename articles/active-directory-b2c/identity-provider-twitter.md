@@ -129,7 +129,7 @@ You need to store the secret key that you previously recorded for Twitter app in
 1. For **Options**, choose `Manual`.
 1. Enter a **Name** for the policy key. For example, `TwitterSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
 1. For **Secret**, enter your *API key secret* value that you previously recorded.
-1. For **Key usage**, select `Encryption`.
+1. For **Key usage**, select `Signature`.
 1. Click **Create**.
 
 ## Configure Twitter as an identity provider
