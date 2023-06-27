@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: The get supported document formats method returns a list of supported document formats.
 services: cognitive-services
 manager: nitinme
-
+ms.author: lajanuar
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference

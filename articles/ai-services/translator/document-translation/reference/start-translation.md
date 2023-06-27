@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Start a document translation request with the Document Translation service.
 services: cognitive-services
 manager: nitinme
-
+ms.author: lajanuar
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference

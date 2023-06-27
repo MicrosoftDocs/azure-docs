@@ -2,6 +2,8 @@
 title: Create and use a glossary with Document Translation
 description: How to create and use a glossary with Document Translation.
 ms.topic: how-to
+ms.service: cognitive-services
+ms.subservice: translator-text
 manager: nitinme
 ms.author: lajanuar
 author: laujan

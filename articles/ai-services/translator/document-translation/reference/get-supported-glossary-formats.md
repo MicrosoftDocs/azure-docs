@@ -4,7 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: The get supported glossary formats method returns the list of supported glossary formats.
 services: cognitive-services
 manager: nitinme
-
+ms.author: lajanuar
+author: laujan
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
