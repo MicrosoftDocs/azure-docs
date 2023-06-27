@@ -36,7 +36,7 @@ sections:
         answer: |
             > Soft-deleted application and service principal objects go into the deleted items container and remain available to restore for up to 30 days. After 30 days, they're permanently deleted, thus freeing up the quota.
             >
-            > To learn how to view deleted application objects through the Azure portal, see [View restorable applications](../develop/howto-restore-app.md#to-view-your-restorable-applications).
+            > To learn how to view deleted application objects through the Azure portal, see [View restorable applications](../develop/howto-restore-app.md#view-your-deleted-applications).
             >
             > Deleted service principals can't be viewed through the Azure portal. To learn how to view your restorable service principals using PowerShell or Microsoft Graph API, see [View restorable service principals](restore-application.md#view-restorable-enterprise-applications).
             >
