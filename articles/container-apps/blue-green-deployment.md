@@ -260,7 +260,7 @@ The following example shows how the traffic section is configured. The revision 
 { 
   "traffic": [
     {
-      "revisionName": "<APP_NAME>--0b699ef",
+      "revisionName": "<APP_NAME>--fb699ef",
       "weight": 100,
       "label": "blue"
     },
@@ -329,7 +329,7 @@ The following example shows how the `traffic` section is configured after this s
       "label": "blue"
     },
     {
-      "revisionName": "<APP_NAME>--0b699ef",
+      "revisionName": "<APP_NAME>--fb699ef",
       "weight": 100,
       "label": "green"
     }
