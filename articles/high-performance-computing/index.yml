@@ -91,9 +91,9 @@ productDirectory:
     - title: Azure Managed Lustre
       imageSrc: ../high-performance-computing/media/azure-managed-lustre.png
       links:
-        - url: /azure/azure-managed-lustre/amlfs-overview.md
+        - url: /azure/azure-managed-lustre/amlfs-overview
           text: What is Azure Managed Lustre?
-        - url: /azure/azure-managed-lustre/create-file-system-portal.md
+        - url: /azure/azure-managed-lustre/create-file-system-portal
           text: Create an Azure Managed Lustre File System
 
 #Additional Content (No Title)
@@ -131,7 +131,7 @@ conceptualContent:
             - url: /training/modules/accelerate-storage-with-hpc-cache/
               itemType: tutorial
               text: Accelerating storage with HPC Cache
-            - url: /azure/azure-managed-lustre/blob-integration.md
+            - url: /azure/azure-managed-lustre/blob-integration
               itemType: concept
               text: Use Azure Blob storage with an Azure Managed Lustre file system
               
