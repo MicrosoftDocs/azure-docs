@@ -141,6 +141,20 @@ For more information on how to set up a sample policy for Microsoft Azure Manage
 > [!TIP]
 > For Azure Government, you should target the Azure Government Cloud Management API application.
 
+### Microsoft admin portals (preview)
+
+When Conditional Access policy is targeted to the Microsoft admin portals application, within the Conditional Access policy app picker the policy will be enforced for tokens issued to application IDs of the following Microsoft administrative portals:
+- Microsoft 365 Admin Center
+- Exchange admin center
+- Azure Portal
+- Entra Portal
+- Security and Compliance Center
+
+Additional Microsoft admin portals will be added over time.
+
+>[!NOTE]
+> The Microsoft admin portals application applies to signins to the admin portals only.  Signins to backing resources or services are not covered by this application.  This enables customers to move along the MFA adoption journey for admins without impacting automation that relies on APIs and PowerShell. When you are ready, Microsoft recommends using the admin MFA policy for comprehensive protection for administrative users.
+
 ### Other applications
 
 Administrators can add any Azure AD registered application to Conditional Access policies. These applications may include: 
