@@ -39,7 +39,7 @@ You can set CORS rules for each Azure Data Manager for Energy instance. When you
 ## How are CORS rules evaluated?
 CORS rules are evaluated as follows:
 1. First, the origin domain of the request is checked against the domains listed for the AllowedOrigins element. 
-2. If the origin domain is included in the list, or all domains are allowed with the wildcard character '*', then rules evaluation proceeds. If the origin domain isn't included, then the request fails.
+2. Rules evaluation proceeds if the origin domain is included in the list or all domains are allowed with the wildcard character (*). If the origin domain isn't included, the request fails.
 
 ## Limitations on CORS policy
 The following limitations apply to CORS rules:
