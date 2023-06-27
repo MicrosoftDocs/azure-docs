@@ -378,7 +378,7 @@ Tracked properties can only reference the parameters, inputs, and outputs for it
 
 Tracked properties aren't allowed on a trigger or action that has secure inputs, secure outputs, or both. They're also not allowed to reference another trigger or action that has secure inputs, secure outputs, or both.
 
-The following examples shows where custom properties appear in your Log Analytics workspace:
+The following examples show where custom properties appear in your Log Analytics workspace:
 
 ### [Consumption](#tab/consumption)
 
