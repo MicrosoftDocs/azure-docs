@@ -16,9 +16,6 @@ The primary [what's New in Update management center](whats-new.md) contains upda
  
 Expanded support for [specialized images](../virtual-machines/linux/imaging.md#specialized-images), VMs created by Azure Migrate, Azure Backup, Azure Site Recovery, and marketplace images are upcoming in Q3, CY 2023. Until then, we recommend that you continue using [Automation update management](../automation/update-management/overview.md) for these images. [Learn more](support-matrix.md#supported-operating-systems).
 
-## Update management center will be GA soon
-
-Update management center will be declared GA soon.
 
 ## Next steps
 
