@@ -47,7 +47,7 @@ Use the following instructions to learn how to enhance monitoring of inactive gu
 5. The inactive days are calculated based on last sign in date if the user has signed in atleast once. For users who have never signed in, the inactive days are calculated based on creation date.
 
  ### License Requirements
- Using this feature requires Microsoft Entra ID Governance licenses.
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 > [!NOTE]
 > When you access the report for the first time, the insights in this report may not be available immediately and may take some time to generate. If you are getting an error, please follow the instructions ensuring you have Microsoft Entra ID Governance license or wait for some time to see the report generated.  
