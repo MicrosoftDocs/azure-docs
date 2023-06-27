@@ -46,7 +46,7 @@ The result from the read function is a `SpatialDataSet` object. This object exte
 
 ## Examples of reading spatial data
 
-The [Load spatial data] sample shows how to read a spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed to by a URL. For the source code of this sample, see [Load spatial data source].
+The [Load spatial data] sample shows how to read a spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed to by a URL. For the source code of this sample, see [Load spatial data source code].
 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/load-spatial-data.png"alt-text="A screenshot that shows the snap grid on map.":::
 
@@ -56,7 +56,7 @@ The [Load spatial data] sample shows how to read a spatial data set, and render 
 
 The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays, which will be in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays must be added on the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded to the maps resources before the features are loaded.
 
-The [Load KML onto map] sample shows how to load KML or KMZ files onto the map. For the source code of this sample, see [Load KML onto map source].
+The [Load KML onto map] sample shows how to load KML or KMZ files onto the map. For the source code of this sample, see [Load KML onto map source code].
 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/load-kml-onto-map.png"alt-text="A screenshot that shows a map with a KML ground overlay.":::
 
@@ -147,7 +147,7 @@ function InitMap()
 
 There are two main write functions in the spatial IO module. The `atlas.io.write` function generates a string, while the `atlas.io.writeCompressed` function generates a compressed zip file. The compressed zip file would contain a text-based file with the spatial data in it. Both of these functions return a promise to add the data to the file. And, they both can write any of the following data: `SpatialDataSet`, `DataSource`, `ImageLayer`, `OgcMapLayer`, feature collection, feature, geometry, or an array of any combination of these data types. When writing using either functions, you can specify the wanted file format. If the file format isn't specified, then the data will be written as KML.
 
-The [Spatial data write options] sample is a tool that demonstrates the majority of the write options that can be used with the `atlas.io.write` function. For the source code of this sample, see [Spatial data write options source].
+The [Spatial data write options] sample is a tool that demonstrates the majority of the write options that can be used with the `atlas.io.write` function. For the source code of this sample, see [Spatial data write options source code].
 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/spatial-data-write-options.png"alt-text="A screenshot that shows The Spatial data write options sample that demonstrates most of the write options used with the atlas.io.write function.":::
 
@@ -157,7 +157,7 @@ The [Spatial data write options] sample is a tool that demonstrates the majority
 
 ## Example of writing spatial data
 
-The [Drag and drop spatial files onto map] sample allows you to drag and drop one or more KML, KMZ, GeoRSS, GPX, GML, GeoJSON or CSV files onto the map. For the source code of this sample, see [Drag and drop spatial files onto map source].
+The [Drag and drop spatial files onto map] sample allows you to drag and drop one or more KML, KMZ, GeoRSS, GPX, GML, GeoJSON or CSV files onto the map. For the source code of this sample, see [Drag and drop spatial files onto map source code].
 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/drag-and-drop-spatial-files-onto-map.png" alt-text="A screenshot that shows a map with a panel to the left of the map that enables you to drag and drop one or more KML, KMZ, GeoRSS, GPX, GML, GeoJSON or CSV files onto the map.":::
 
@@ -187,7 +187,7 @@ Well-known text can be read using the `atlas.io.ogc.WKT.read` function, and writ
 
 ## Examples of reading and writing Well-Known Text (WKT)
 
-The [Read Well Known Text] sample shows how to read the well-known text string `POINT(-122.34009 47.60995)` and render it on the map using a bubble layer. For the source code of this sample, see [Read Well Known Text source].
+The [Read Well Known Text] sample shows how to read the well-known text string `POINT(-122.34009 47.60995)` and render it on the map using a bubble layer. For the source code of this sample, see [Read Well Known Text source code].
 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/read-well-known-text.png" alt-text="A screenshot that shows how to read Well Known Text (WKT) as GeoJSON and render it on a map using a bubble layer.":::
 
@@ -195,7 +195,7 @@ The [Read Well Known Text] sample shows how to read the well-known text string `
 <iframe height='500' scrolling='no' title='Read Well-Known Text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well-Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
 -------------------------------------------------->
 
-The [Read and write Well Known Text] sample demonstrates how to read and write Well Known Text (WKT) strings as GeoJSON. For the source code of this sample, see [Read and write Well Known Text source].
+The [Read and write Well Known Text] sample demonstrates how to read and write Well Known Text (WKT) strings as GeoJSON. For the source code of this sample, see [Read and write Well Known Text source code].
 
 :::image type="content" source="./media/spatial-io-read-write-spatial-data/read-and-write-well-known-text.png" alt-text="A screenshot showing the sample that demonstrates how to read and write Well Known Text (WKT) strings as GeoJSON.":::
 
@@ -247,14 +247,17 @@ See the following articles for more code samples to add to your maps:
 [Add an OGC map layer](spatial-io-add-ogc-map-layer.md)
 
 [Load spatial data]: https://samples.azuremaps.com/spatial-io-module/load-spatial-data-(simple)
-[Load spatial data source]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Load%20spatial%20data%20(simple)/Load%20spatial%20data%20(simple).html
+[Load spatial data source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Load%20spatial%20data%20(simple)/Load%20spatial%20data%20(simple).html
 [Load KML onto map]: https://samples.azuremaps.com/spatial-io-module/load-kml-onto-map
-[Load KML onto map source]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Load%20KML%20onto%20map/Load%20KML%20onto%20map.html
+[Load KML onto map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Load%20KML%20onto%20map/Load%20KML%20onto%20map.html
 [Spatial data write options]: https://samples.azuremaps.com/spatial-io-module/spatial-data-write-options
-[Spatial data write options source]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Spatial%20data%20write%20options/Spatial%20data%20write%20options.html
+[Spatial data write options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Spatial%20data%20write%20options/Spatial%20data%20write%20options.html
 [Drag and drop spatial files onto map]: https://samples.azuremaps.com/spatial-io-module/drag-and-drop-spatial-files-onto-map
-[Drag and drop spatial files onto map source]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Drag%20and%20drop%20spatial%20files%20onto%20map/Drag%20and%20drop%20spatial%20files%20onto%20map.html
+[Drag and drop spatial files onto map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Drag%20and%20drop%20spatial%20files%20onto%20map/Drag%20and%20drop%20spatial%20files%20onto%20map.html
 [Read Well Known Text]: https://samples.azuremaps.com/spatial-io-module/read-well-known-text
-[Read Well Known Text source]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Read%20Well%20Known%20Text/Read%20Well%20Known%20Text.html
+[Read Well Known Text source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Read%20Well%20Known%20Text/Read%20Well%20Known%20Text.html
 [Read and write Well Known Text]: https://samples.azuremaps.com/spatial-io-module/read-and-write-well-known-text
-[Read and write Well Known Text source]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Read%20and%20write%20Well%20Known%20Text/Read%20and%20write%20Well%20Known%20Text.html
+
+
+
+[Read and write Well Known Text source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20IO%20Module/Read%20and%20write%20Well%20Known%20Text/Read%20and%20write%20Well%20Known%20Text.html
