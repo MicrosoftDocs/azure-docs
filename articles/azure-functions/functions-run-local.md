@@ -183,7 +183,7 @@ The following considerations apply to project initialization:
 
 + When you don't provide a project name, the current folder is initialized. 
 
-+ If you plan to deploy your project as a function app in a Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
++ If you plan to deploy your project as a function app running in a Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function app in a local container](functions-create-container-registry.md#create-and-test-the-local-functions-project). If you forget to do this, you can always generate the Dockerfile for the project later by using the `func init --docker-only` command.
 
 ::: zone pivot="programming-language-csharp"
 + Core Tools lets you create function app projects for the .NET runtime as either [in-process](functions-dotnet-class-library.md) or [isolated worker process](dotnet-isolated-process-guide.md) C# class library projects (.csproj). These projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
@@ -500,7 +500,7 @@ The following considerations apply to this kind of deployment:
 
 ### Kubernetes cluster
 
-Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. To learn how to publish a custom container to Azure without Kubernetes, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. For more information, see [Working with containers and Azure Functions](functions-how-to-custom-container.md).
 
 Core Tools can be used to deploy your project as a custom container image to a Kubernetes cluster. 
 
