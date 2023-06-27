@@ -437,6 +437,7 @@ To learn more about using MQTT, see:
 
 * [MQTT documentation](https://mqtt.org/)
 * [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md)
+* [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
 
 To learn more about using IoT device SDKS, see:
 * [Azure IoT SDKs](iot-sdks.md)
