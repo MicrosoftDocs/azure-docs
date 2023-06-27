@@ -35,11 +35,12 @@ Nexus Kubernetes cluster enforces the following constraints to ensure proper con
    * The total size of huge-pages (HugepageSize multiplied by HugepageCount) must not exceed 80% of the VM's memory.
    * At least 2 GB of memory must be left for the host kernel after allocating huge-pages.
    * If the huge-page size is ```2M```, the huge-page count must be a power of 2 (for example, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, etc.).
+   * The existing node pools in your Nexus Kubernetes cluster have immutable huge-page configurations, and it isn't possible to modify them using the method described here.
 
 
 ## Example: Create a Nexus Kubernetes cluster with huge-page settings
 
-Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for the steps to create your cluster. However, make sure to include the huge-page configurations in the parameter file for enabling huge-pages in your agent pool.
+Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#deploy-the-bicep-file) for detailed instructions on creating your cluster. Additionally, remember to include the huge-page configurations in the `kubernetes-deploy-parameters.json` file that you created during the quickstart process. This configuration enables huge pages in your agent pool.
 
 ```json
 {
@@ -76,9 +77,9 @@ Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernete
 }
 ```
 
-## Example: Add an agent pool to Nexus Kubernetes cluster with huge-page settings
+## Example: Add an agent pool to Nexus Kubernetes cluster with huge-page settings.
 
-Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for the steps to add agent pool to your cluster. However, make sure to include the huge-page configurations in the parameter file for enabling huge-pages in your agent pool.
+Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) for instructions on adding an agent pool to your cluster. Additionally, remember to include the huge-page configurations in the `kubernetes-nodepool-parameters.json` file that you created during the quickstart process. This configuration enables huge pages in your agent pool.
 
 ```json
 {
