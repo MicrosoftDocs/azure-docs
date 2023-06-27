@@ -17,13 +17,57 @@ We've created this page to keep you updated on new features, blog posts, and oth
 <br>
 <br>
 
+## New features
+Get detailed information on the latest Azure Communication Services feature launches.
+### Call Automation and Call Recording
+:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A portion of a high-level architecture diagram showing how call automation is configured":::
+
+Use Azure Communication Services call automation to transform your customer experiences. Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. 
+
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-2023-transforming-customer-experiences-with-automated-ai/ba-p/3827857)
+
+[Try out a sample](https://aka.ms/acs-ca-demo)
+
+[Read the Call Automation conceptual docs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation)
+<br>
+<br>
+
+
+### Virtual Rooms
+:::image type="content" source="./media/whats-new-images/05-23/rooms.png" alt-text="A photograph of office towers":::
+
+ Azure Communication Services Virtual Rooms is a new set of APIs that allows developers to control who can join a call, when they meet, and how they collaborate during group meetings. Azure Communication Services Rooms is now Generally Available.
+
+[Read more about the Rooms APIs](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-virtual-rooms-is-now-generally/ba-p/3845412)
+
+[Try the virtual rooms quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/rooms/join-rooms-call)
+
+[Read the virtual rooms conceptual documentation](https://learn.microsoft.com/azure/communication-services/concepts/rooms/room-concept)
+<br>
+<br>
+
+
+### Calling SDK for Windows
+:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="Graphic showing windows laptop integrating with Azure Communication Services":::
+
+Add first-class calling capabilities to your Windows applications. Use this SDK to natively create rich audio and video experiences in Windows for your customers, tailored to your specific needs and preferences. With the Calling SDK for Windows, you can implement real-time communication features such as voice and video calls, Microsoft Teams meeting integration, screen sharing, and raw media access. Azure Communication Services Calling SDK for Windows is now generally available.
+
+[Read more about the calling SDK for Windows](https://techcommunity.microsoft.com/t5/azure-communication-services/add-first-class-calling-capabilities-to-your-windows/ba-p/3836731)
+
+[Read the calling SDK overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
+
+[Check out the calling SDK quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-windows)
+
+<br>
+<br>
+
 ## Blog posts and case studies 
 Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
 Services features.
 
 
 ### Generate and send SMS and Email using Azure OpenAI Services and Azure Communication Services
-:::image type="content" source="./media/whats-new-images/05-23/sms-ai.png" alt-text="Part of an architecture diagram showing how Azure Communication Services, Power platform, and Azure OpenAI can be used together to create a great experience." lightbox="./media/whats-new-images/05-23/sms-ai-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/05-23/contoso-school.gif" alt-text="Animated image showing what the final app will look like":::
 
 Learn how to us openAI and Azure Communication Services to send automated alerts.
 
@@ -35,20 +79,6 @@ Learn how to us openAI and Azure Communication Services to send automated alerts
 
 <br>
 <br>
-
-
-### Transforming customer experiences with automated, AI-assisted communication
-:::image type="content" source="./media/whats-new-images/05-23/transform-customer-experiences.png" alt-text="Part of an architecture diagram showing how Azure Communication Services call automation can be used to transform customer experiences." lightbox="./media/whats-new-images/05-23/transform-customer-experiences-lightbox.png":::
-
-Use Azure Communication Services call automation to transform your customer experiences.
-
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/build-2023-transforming-customer-experiences-with-automated-ai/ba-p/3827857)
-
-[Try out a sample](https://aka.ms/acs-ca-demo)
-
-[Learn more about call automation](https://aka.ms/acs-ca)
-
-
 
 <br>
 <br>
@@ -133,19 +163,6 @@ Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan
 
 <br>
 
-## New features
-Get detailed information on the latest Azure Communication Services feature launches.
-### Calling SDK for Windows is now generally available
-:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="Graphic showing windows laptop integrating with Azure Communication Services":::
-
-Add first-class calling capabilities to your Windows applications.
-
-[Read about the calling SDK for Windows](https://techcommunity.microsoft.com/t5/azure-communication-services/add-first-class-calling-capabilities-to-your-windows/ba-p/3836731)
-
-<br>
-<br>
-
-
 ### View of May's new features
 :::image type="content" source="./media/whats-new-images/05-23/new-features.png" alt-text="Screenshot of SMS insights dashboard data graphic." :::
 
@@ -165,4 +182,4 @@ In May, we launched a host of new features, including:
 <br>
 
 
-Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub.
+Enjoy all of these new features. Be sure to check back here periodically for more news and updates on all of the new capabilities we've added to our platform! For a complete list of new features and bug fixes, visit our [releases page](https://github.com/Azure/Communication/releases) on GitHub. For more blog posts, as they are released, visit the [Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog)
