@@ -55,10 +55,10 @@ The following attributes are provided to support dual-stack clusters:
   * Only `ipv4` or `ipv4,ipv6` are supported.
 * **`--pod-cidrs`**: Takes a comma-separated list of CIDR notation IP ranges to assign pod IPs from.
   * The count and order of ranges in this list must match the value provided to `--ip-families`.
-  * If no values are supplied, the default values of `10.244.0.0/16,fd12:3456:789a::/64` is used.
+  * If no values are supplied, the default value `10.244.0.0/16,fd12:3456:789a::/64` is used.
 * **`--service-cidrs`**: Takes a comma-separated list of CIDR notation IP ranges to assign service IPs from.
   * The count and order of ranges in this list must match the value provided to `--ip-families`.
-  * If no values are supplied, the default values of `10.0.0.0/16,fd12:3456:789a:1::/108` is used.
+  * If no values are supplied, the default value `10.0.0.0/16,fd12:3456:789a:1::/108` is used.
   * The IPv6 subnet assigned to `--service-cidrs` can be no larger than a /108.
 
 ## Deploy a dual-stack AKS cluster
@@ -220,7 +220,7 @@ The following attributes are provided to support dual-stack clusters:
 
 ## Create an example workload
 
-Once the cluster has been created, you can deploy your workloads. This articles walks you through an example workload deployment of an NGINX web server.
+Once the cluster has been created, you can deploy your workloads. This article walks you through an example workload deployment of an NGINX web server.
 
 ### Deploy an NGINX web server
 
@@ -238,7 +238,7 @@ Once the cluster has been created, you can deploy your workloads. This articles 
     kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
     ```
 
-    The output shows the pods have both IPv4 and IPv6 addresses. Note that the pods don't show IP addresses until they're ready.
+    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
 
     ```output
     NAME                     IPs                                NODE                                READY
@@ -279,7 +279,7 @@ Once the cluster has been created, you can deploy your workloads. This articles 
     kubectl get pods -o custom-columns="NAME:.metadata.name,IPs:.status.podIPs[*].ip,NODE:.spec.nodeName,READY:.status.conditions[?(@.type=='Ready')].status"
     ```
 
-    The output shows the pods have both IPv4 and IPv6 addresses. Note that the pods don't show IP addresses until they're ready.
+    The output shows the pods have both IPv4 and IPv6 addresses. The pods don't show IP addresses until they're ready.
 
     ```output
     NAME                     IPs                                NODE                                READY
@@ -326,7 +326,7 @@ Once the cluster has been created, you can deploy your workloads. This articles 
     nginx-ipv6   LoadBalancer   fd12:3456:789a:1::981a   2603:1030:8:5::2d   80:32002/TCP   63s
     ```
 
-3. Verify functionality via a command-line web request from an IPv6 capable host (note that Azure Cloud Shell isn't IPv6 capable).
+3. Verify functionality via a command-line web request from an IPv6 capable host. Azure Cloud Shell isn't IPv6 capable.
 
     ```bash-interactive
     SERVICE_IP=$(kubectl get services nginx-ipv6 -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
@@ -394,7 +394,7 @@ Once the cluster has been created, you can deploy your workloads. This articles 
     nginx-ipv6   LoadBalancer   fd12:3456:789a:1::981a   2603:1030:8:5::2d   80:32002/TCP   63s
     ```
 
-3. Verify functionality via a command-line web request from an IPv6 capable host (note that Azure Cloud Shell isn't IPv6 capable).
+3. Verify functionality via a command-line web request from an IPv6 capable host. Azure Cloud Shell isn't IPv6 capable.
 
     ```bash-interactive
     SERVICE_IP=$(kubectl get services nginx-ipv6 -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
