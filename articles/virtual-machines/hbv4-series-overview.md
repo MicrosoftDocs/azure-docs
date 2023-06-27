@@ -48,7 +48,7 @@ Standard_HB176rs_v4               | 4            | 44                     | Dual
 Standard_HB176-144rs_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
 Standard_HB176-96rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
 Standard_HB176-48rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
-Standard_HB176-32rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
+Standard_HB176-24rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
