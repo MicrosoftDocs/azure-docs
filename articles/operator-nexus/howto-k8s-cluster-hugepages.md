@@ -22,7 +22,7 @@ This configuration is especially advantageous for data plane applications, as it
 
 Before proceeding with this how-to guide, it's recommended that you:
 
-   * Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
+   * Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
    * Ensure that you meet the outlined prerequisites to ensure a smooth implementation of the guide.
 
 ## Huge-page settings in Nexus Kubernetes cluster
@@ -40,7 +40,7 @@ Nexus Kubernetes cluster enforces the following constraints to ensure proper con
 
 ## Example: Create a Nexus Kubernetes cluster with huge-page settings
 
-Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#deploy-the-bicep-file) for detailed instructions on creating your cluster. Additionally, remember to include the huge-page configurations in the `kubernetes-deploy-parameters.json` file that you created during the quickstart process. This configuration enables huge pages in your agent pool.
+Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#deploy-the-bicep-file) for detailed instructions on creating your cluster. Additionally, remember to include the huge-page configurations in the `kubernetes-deploy-parameters.json` file that you created during the quickstart process. This configuration enables huge pages in your agent pool.
 
 ```json
 {
@@ -48,7 +48,7 @@ Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernete
   "contentVersion": "1.0.0.0",
   "parameters": {
     "kubernetesClusterName":{
-      "value": "myNexusAKSCluster"
+      "value": "hugepage-test"
     },
     "adminGroupObjectIds": {
       "value": [
@@ -79,7 +79,7 @@ Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernete
 
 ## Example: Add an agent pool to Nexus Kubernetes cluster with huge-page settings.
 
-Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) for instructions on adding an agent pool to your cluster. Additionally, remember to include the huge-page configurations in the `kubernetes-nodepool-parameters.json` file that you created during the quickstart process. This configuration enables huge pages in your agent pool.
+Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) for instructions on adding an agent pool to your cluster. Additionally, remember to include the huge-page configurations in the `kubernetes-nodepool-parameters.json` file that you created during the quickstart process. This configuration enables huge pages in your agent pool.
 
 ```json
 {
@@ -87,7 +87,7 @@ Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernete
     "contentVersion": "1.0.0.0",
     "parameters": {
       "kubernetesClusterName":{
-        "value": "myNexusAKSCluster"
+        "value": "hugepage-test"
       },
       "extendedLocation": {
         "value": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
@@ -100,4 +100,4 @@ Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernete
 ```
 
 ## Next steps
- Refer to the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.
+ Refer to the [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.
