@@ -172,25 +172,18 @@ Connect your GCP VM instances to Azure Arc in order to have full visibility to M
 
 1. Continue from step number 8 of the [Connect your GCP project](#connect-your-gcp-project) instructions. 
 
-#### Configure the Containers plan
+### Configure the Containers plan
 
 Microsoft Defender for Containers brings threat detection and advanced defenses to your GCP GKE Standard clusters. To get the full security value out of Defender for Containers and to fully protect GCP clusters, ensure you have the following requirements configured:
 
 > [!NOTE]
 > If you choose to disable the available configuration options, no agents or components will be deployed to your clusters. Learn more about [feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
-
-### Configure the Containers plan
-
-Microsoft Defender for Containers brings threat detection and advanced defenses to your GCP GKE Standard clusters. To get the full security value out of Defender for Containers and to fully protect GCP clusters, ensure you have the following requirements configured:
 
 - **Kubernetes audit logs to Defender for Cloud** - Enabled by default. This configuration is available at a GCP project level only. This provides agentless collection of the audit log data through [GCP Cloud Logging](https://cloud.google.com/logging/) to the Microsoft Defender for Cloud backend for further analysis.
 - **Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension** - Enabled by default. You can install Azure Arc-enabled Kubernetes and its extensions on your GKE clusters in three different ways:
   - **(Recommended)** Enable the Defender for Container auto-provisioning at the project level as explained in the instructions below.
   - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
   - Manual installation for [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md) and [extensions](../azure-arc/kubernetes/extensions.md).
-
-> [!NOTE]
-> If you choose to disable the available configuration options, no agents or components will be deployed to your clusters. Learn more about [feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 **To configure the Containers plan**:
 
