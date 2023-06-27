@@ -119,7 +119,7 @@ The rule group contains the following properties.
 | `location` | True | string | Resource location from regions supported in the preview |
 | `properties.description` | False | string | Rule group description |
 | `properties.scopes` | True | string[] | Target Azure Monitor workspace. Only one scope currently supported |
-| `properties.ebabled` | False | boolean | Enable/disable group. Default is true. |
+| `properties.enabled` | False | boolean | Enable/disable group. Default is true. |
 | `properties.clusterName` | False | string | Apply rule to data from a specific cluster. Default is apply to all data in workspace. |
 | `properties.interval` | False | string | Group evaluation interval. Default = PT1M |
 
