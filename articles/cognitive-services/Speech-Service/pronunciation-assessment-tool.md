@@ -66,7 +66,7 @@ You can also check the pronunciation assessment result in JSON. The word-level, 
 
 The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
-:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="Screenshot of scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
+:::image type="content" source="media/pronunciation-assessment/pa-display-omission-full.png" alt-text="Screenshot of error types and scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
 
 ### [JSON](#tab/json)
 
