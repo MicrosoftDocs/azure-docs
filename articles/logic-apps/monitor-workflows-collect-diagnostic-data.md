@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 06/26/2023
 # As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 
@@ -16,6 +16,16 @@ ms.date: 05/25/2023
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up and use [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
+
+> [!NOTE]
+>
+> Azure Monitor Resource Logs are not 100% lossless. Resource Logs are based on a store and forward architecture designed to move 
+> petabytes of data per day affordably at scale. It has built-in redundancy and retries across the platform, but does not provide 
+> transactional guarantees. Transactional monitoring can reduce reliability and performance of the service being monitored, as 
+> transient logging errors would actually have to halt the upstream service when it is unable to confirm log delivery, as well as 
+> greatly increase costs. Whenever we can confirm a persistent source of data loss, our team considers it the highest priority to 
+> resolve and prevent it. However, small data losses may occur due to temporary, non-repeating service issues distributed across 
+> Azure, and not all of them can be caught.
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
