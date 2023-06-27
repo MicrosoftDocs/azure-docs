@@ -32,6 +32,7 @@ AzAcSnap 8b is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
   - General improvement to `azacsnap` command exit codes.
+    - `azacsnap` should return an exit code of 0 (zero) when it has run as expected, otherwise it should return an exit code of non-zero.  For example, running `azacsnap` will return non-zero as it has not done anything and will show usage information whereas `azacsnap -h` will return exit-code of zero as it's expected to return usage information.
     - Any failure in `--runbefore` exits before any backup activity and returns the `--runbefore` exit code.
     - Any failure in `--runafter` returns the `--runafter` exit code.
   - Backup (`-c backup`) changes:
