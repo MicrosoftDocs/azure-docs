@@ -262,7 +262,7 @@ sections:
           
       - question: Can I allow Application Gateway access to only a few source IP addresses?
         answer: |
-          Yes. See [restrict access to specific source IPs](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
+          Yes. See [restrict access to specific source IPs](./configuration-infrastructure.md#required-security-rules).
           
       - question: Can I use the same port for both public-facing and private-facing listeners?
         answer: |
