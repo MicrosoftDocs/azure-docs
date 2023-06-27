@@ -4,7 +4,7 @@ description: The article tells what update management center in Azure is and the
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/31/2023
+ms.date: 06/27/2023
 ms.topic: overview
 ---
 

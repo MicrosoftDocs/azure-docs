@@ -4,7 +4,7 @@ description: This article tells how to use update management center in Azure usi
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/15/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 ---
 

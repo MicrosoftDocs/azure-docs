@@ -2,7 +2,7 @@
 title: Quickstart - deploy updates in using update management center in the Azure portal
 description: This quickstart helps you to deploy updates immediately and view results for supported machines in update management center using the Azure portal.
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 06/27/2022
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: quickstart
@@ -38,7 +38,7 @@ This quickstart details you how to perform manual assessment and apply updates o
     
 ## Configure settings
 
-For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment) [hotpatch](updates-maintenance-schedules.md#hotpatching),and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
+For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment) [hot patching](updates-maintenance-schedules.md#hot-patching),and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
 
 To configure the settings on your machines, follow these steps:
 

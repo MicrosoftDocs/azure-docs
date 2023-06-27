@@ -4,7 +4,7 @@ description: This article describes how to manage the update settings for your W
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 06/27/2022
 ms.topic: conceptual
 ---
 

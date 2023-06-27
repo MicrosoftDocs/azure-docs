@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with update management center
 description: The article provides details on the known issues and troubleshooting any problems with update management center.
 ms.service: update-management-center
-ms.date: 05/30/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG

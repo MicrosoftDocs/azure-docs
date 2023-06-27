@@ -4,7 +4,7 @@ description: This article describes how to manage dynamic scoping (preview) oper
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/16/2023
+ms.date: 06/27/2023
 ms.topic: how-to
 ---
 
@@ -24,7 +24,7 @@ To view the list of Dynamic scopes (preview) associated to a given maintenance c
 1. In the given maintenance configuration page, select **Dynamic scopes** to view all the Dynamic scopes that are associated to the maintenance configuration.
 
 
-## Add a Dynamic scope
+## Add a Dynamic scope (preview)
 To add a Dynamic scope to an existing configuration, follow the steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview). 
@@ -48,7 +48,7 @@ To add a Dynamic scope to an existing configuration, follow the steps:
 
 1. Select **Save** to go back to the Dynamic scopes tab. In this tab, you can view and edit the Dynamic scope that you have created.
 
-## Edit a Dynamic scope
+## Edit a Dynamic scope (preview)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview). 
 1. Select **Machines** > **Browse maintenance configurations** > **Maintenance configurations**. 
@@ -59,16 +59,16 @@ To add a Dynamic scope to an existing configuration, follow the steps:
    > After you create the dynamic scope, you can't edit the subscription.
 1. Select **Save**.
 
-## Delete a Dynamic scope
+## Delete a Dynamic scope (preview)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview). 
 1. Select **Machines** > **Browse maintenance configurations** > **Maintenance configurations**. 
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to edit an existing Dynamic scope. 
 1. In the given maintenance configuration page > select **Dynamic scopes** and select the scope you want to delete. Select **Remove dynamic scope** and then select **Ok**.
 
-## View patch history of a Dynamic scope
+## View patch history of a Dynamic scope (preview)
 
-1. Sign in to the Azure portal and navigate to Update management center (preview). 
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview). 
 1. Select **History** > **Browse maintenance configurations** > **Maintenance configurations** to view the patch history of a dynamic scope.
 
 

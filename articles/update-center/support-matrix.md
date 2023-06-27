@@ -4,7 +4,7 @@ description: Provides a summary of supported regions and operating system settin
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/31/2023
+ms.date: 06/27/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -15,7 +15,7 @@ This article details the Windows and Linux operating systems supported and syste
 
 ## Update sources supported
 
-**Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the WSUS's last synchronization with Microsoft update, the results in the update management center might differ  to what the Microsoft update shows. You can specify sources for scanning and downloading updates using [specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations)
+**Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the WSUS's last synchronization with Microsoft update, the results in the update management center might differ  to what the Microsoft update shows. You can specify sources for scanning and downloading updates using [specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Don't connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations)
 
 **Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in update management center depend on where the machines are configured to report.
 
@@ -40,13 +40,13 @@ Use one of the following options to perform the settings change at scale:
     $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
-- For servers running Server 2016 or later which are not using Update management center scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+- For servers running Server 2016 or later that aren't using Update management center scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 ### Third-party updates
 
 **Windows**: Update Management relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows update management to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
-**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it is scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
+**Linux**: If you include a specific third party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
 
 
 ## Supported regions
@@ -102,7 +102,7 @@ Currently, we support a combination of Offer, Publisher, and Sku of the image. E
 We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
 
    |**Windows Operating System**|
-   |-- |
+   |---|
    |Windows Server 2022|
    |Windows Server 2019|
    |Windows Server 2016|
@@ -112,7 +112,7 @@ We support [generalized](../virtual-machines/linux/imaging.md#generalized-images
 
 
    |**Linux Operating System**|
-   |-- |
+   |---|
    |CentOS 7, 8|
    |Oracle Linux 7.x, 8x|
    |Red Hat Enterprise 7, 8, 9|
