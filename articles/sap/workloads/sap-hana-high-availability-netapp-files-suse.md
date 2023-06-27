@@ -10,7 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 06/23/2023
+ms.date: 06/26/2023
 ms.author: ampatel
 ---
 
@@ -127,18 +127,7 @@ The following instructions assume that you've already deployed your [Azure virtu
 
 ### Important considerations
 
-As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the following consideration:
-
-- The minimum capacity pool is 4 tebibytes (TiB).
-- The minimum volume size is 100 gibibytes (GiB).
-- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted, must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region.
-- The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
-- The throughput of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the HANA Azure NetApp volumes, make sure that the resulting throughput meets the HANA system requirements.
-- With the Azure NetApp Files [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (read-write, read only, and so on).
-- The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
-
-> [!IMPORTANT]
-> For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in proximity.
+As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).  
 
 ### Sizing of HANA database on Azure NetApp Files
 
