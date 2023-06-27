@@ -4,6 +4,8 @@ description: Custom question answering allows you to manage projects by providin
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
+author: jboback
+ms.author: jboback
 ms.date: 06/03/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

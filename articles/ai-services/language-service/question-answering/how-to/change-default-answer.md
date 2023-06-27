@@ -6,7 +6,7 @@ ms.subservice: language-service
 ms.topic: how-to
 ms.date: 11/02/2021
 author: jboback
-ms:author: jboback
+ms.author: jboback
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 

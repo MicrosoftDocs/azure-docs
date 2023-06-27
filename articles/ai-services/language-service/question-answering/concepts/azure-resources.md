@@ -4,6 +4,8 @@ description: Question answering uses several Azure sources, each with a differen
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
+author: jboback
+ms.author: jboback
 ms.date: 08/08/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

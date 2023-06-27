@@ -25,7 +25,7 @@ In custom question answering, you have the option to either select the language 
 > [!div class="mx-imgBorder"]
 > ![Multi-lingual project selection](./media/language-support/choose-language.png)
 
-* When you are creating the first project in your service, you get a choice pick the language each time your create a new project. Select this option, to create projects belonging to different languages within one service.
+* When you are creating the first project in your service, you get a choice pick the language each time you create a new project. Select this option, to create projects belonging to different languages within one service.
 * Language setting option cannot be modified for the service, once the first project is created.
 * If you enable multiple languages for the project, then instead of having one test index for the service you will have one test index per project.
 

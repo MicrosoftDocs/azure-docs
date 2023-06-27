@@ -175,7 +175,7 @@ While there’s some support for synonyms in the English language, use case-inse
 
 ### Use distinct words to differentiate questions
 
-The ranking algorithm, that matches a user query with a question in the project, works best if each question addresses a different need. Repetition of the same word set between questions reduces the likelihood that the right answer is chosen for a given user query with those words.
+The ranking algorithm, which matches a user query with a question in the project, works best if each question addresses a different need. Repetition of the same word set between questions reduces the likelihood that the right answer is chosen for a given user query with those words.
 
 For example, you might have two separate question answer pairs with the following questions:
 
