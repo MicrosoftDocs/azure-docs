@@ -112,8 +112,9 @@ Teams by default has open federation which means we do not block anyone joining 
 Tenant restrictions V2 automatically block all unauthenticated and externally-issued identity access to externally-hosted Teams meetings.
 For example, suppose Contoso uses Teams Federation Controls to block the Fabrikam tenant. If someone with a Contoso device uses a Fabrikam account to join a Contoso Teams meeting, they're allowed into the meeting as an anonymous user. Now, if Contoso also enables tenant restrictions V2, Teams blocks anonymous access, and the user isn't able to join the meeting.
 
-**Meeting join using an externally issued foreign identity**
-You can use TRv2 policy to config specific users and/or groups with externally issued identity to join to specific externally hosted Teams meetings. In this case, users will login with their externally issued identity into Teams and if TRv2 policy allows, the users will be able to join the specific tenant’s externally hosted Teams meetings.
+#### Meeting join using an externally issued identity
+
+You can configure the tenant restrictions V2 policy to allow specific users or groups with externally issued identities to join specific externally hosted Teams meetings. With this configuration, users can sign in to Teams with their externally issued identities and join the specified tenant's externally hosted Teams meetings.
 
 There is currently a known issue where, if Teams federation is off, Teams blocks a home identity authenticated session from joining externally hosted Teams meetings.
 
