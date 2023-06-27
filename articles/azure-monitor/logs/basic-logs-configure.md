@@ -17,6 +17,11 @@ Azure Monitor Logs offers two log data plans that let you reduce log ingestion a
 
 This article describes Azure Monitor's log data plans and explains how to configure the log data plan of the tables in your Log Analytics workspace.
 
+
+## Permissions
+
+To set a table's log data plan, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+
 ## Compare the Basic and Analytics log data plans 
 
 The following table summarizes the Basic and Analytics log data plans. 
@@ -78,10 +83,6 @@ Configure a table for Basic logs if:
     
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic logs.
-
-## Permissions
-
-To set a table's log data plan, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 
 ## Set a table's log data plan
 

@@ -9,6 +9,10 @@ ms.date: 10/01/2022
 # Restore logs in Azure Monitor
 The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
 
+## Permissions
+
+To restore data from an archived table, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/restoreLogs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
+
 ## When to restore logs
 Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table can't complete within the log query timeout of 10 minutes.
 
@@ -21,10 +25,6 @@ When you restore data, you specify the source table that contains the data you w
 The restore operation creates the restore table and allocates additional compute resources for querying the restored data using high-performance queries that support full KQL.
 
 The destination table provides a view of the underlying source data, but doesn't affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
-
-## Permissions
-
-To restore data from an archived table, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/restoreLogs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
 
 ## Restore data
 
