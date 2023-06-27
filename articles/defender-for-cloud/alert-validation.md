@@ -2,7 +2,7 @@
 title: Alert validation in Microsoft Defender for Cloud
 description: Learn how to validate that your security alerts are correctly configured in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 06/25/2023
+ms.date: 06/27/2023
 ms.author: dacurwin
 author: dcurwin
 ---
@@ -72,7 +72,7 @@ After the Microsoft Defender for Endpoint agent is installed on your machine, as
 Alternately, you can also use the [EICAR](https://www.eicar.org/download/eicar.com.txt) test string to perform this test:  Create a text file, paste the EICAR line, and save the file as an executable file to your machine's local drive.  
 
 > [!NOTE]
-> When reviewing test alerts for both Windows and Linux, make sure that you have Defender for Endpoint running with Real-Time protection enabled. Learn how to [validate this configuration](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-real-time-protection-microsoft-defender-antivirus?view=o365-worldwide).
+> When reviewing test alerts for Windows, make sure that you have Defender for Endpoint running with Real-Time protection enabled. Learn how to [validate this configuration](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-real-time-protection-microsoft-defender-antivirus?view=o365-worldwide).
 
 ## Simulate alerts on your Azure VMs (Linux) <a name="validate-linux"></a>
 
@@ -81,6 +81,9 @@ After the Microsoft Defender for Endpoint agent is installed on your machine, as
 1. Open a Terminal window, copy and run the following command: 
 [`curl -o ~/Downloads/eicar.com.txt`](https://www.eicar.org/download/eicar.com.txt).
 1. The Command Prompt window closes automatically. If successful, a new alert should appear in Defender for Cloud Alerts blade in 10 minutes.
+
+> [!NOTE]
+> When reviewing test alerts for Linux, make sure that you have Defender for Endpoint running with Real-Time protection enabled. Learn how to [validate this configuration](https://learn.microsoft.com/microsoft-365/security/defender-endpoint/configure-real-time-protection-microsoft-defender-antivirus?view=o365-worldwide).
 
 ## Simulate alerts on Kubernetes <a name="validate-kubernetes"></a>
 
