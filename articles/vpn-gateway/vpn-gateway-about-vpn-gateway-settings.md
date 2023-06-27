@@ -81,7 +81,7 @@ If you have a VPN gateway and you want to use a different gateway SKU, your opti
    *  In both of the preceding examples, the gateway needs to be deleted and rebuilt using the desired gateway SKU.
 1. When working with older legacy SKUs:
    * You can resize between Standard and HighPerformance SKUs.
-    * You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
+   * You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
 
 #### <a name="resizegwsku"></a>To resize a gateway
 
