@@ -8,7 +8,7 @@
     items:
     - name: Document Intelligence
       tocHref: /azure/ai-services/
-      topicHref: /azure/ai-services/form-recognizer/index
+      topicHref: /azure/ai-services/document-intelligence/index
 - name: Azure
   tocHref: /legal/
   topicHref: /azure/index
@@ -19,6 +19,6 @@
     items:
     - name: Document Intelligence           # Destination doc set name
       tocHref: /legal/cognitive-services/form-recognizer      # Destination doc set route
-      topicHref: /azure/ai-services/form-recognizer/index    # Original doc set route
+      topicHref: /azure/ai-services/document-intelligence/index    # Original doc set route
 
       
