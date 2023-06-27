@@ -16,7 +16,7 @@ In this article, we'll show what you can do in the Azure portal with your deploy
 > [!Note]
 > For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure Portal. This will be replaced with Azure Large Instances soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered as synonyms to Azure Large Instances.
 
-## Register the resource provider 
+## Register the resource provider
 
 An Azure resource provider for ALI enables to you see the instances in the Azure portal.
 By default, the Azure subscription you use for ALI deployments registers the ALI resource provider.
@@ -46,19 +46,22 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[comment]: <> (The following sections duplicates the content provided by the INCLUDE above)
+[comment]: <The following section duplicates the content provided by the INCLUDE above> 
 
-Use the Bash environment in Azure Cloud Shell. For more information, see Quickstart for Bash in Azure Cloud Shell. 
+Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview). 
+For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md). 
 
-If you prefer to run CLI reference commands locally, install the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see How to run the Azure CLI in a Docker container.
+If you prefer to run CLI reference commands locally, [install](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](https://learn.microsoft.com/en-us/cli/azure/run-azure-cli-docker).
 
-If you're using a local installation, sign in to the Azure CLI by using the az login command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see Sign in with the Azure CLI.
+If you're using a local installation, sign in to the Azure CLI by using the [az login command](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
 
-When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see Use extensions with the Azure CLI.
+When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview).
 
-Run az version to find the version and dependent libraries that are installed. To upgrade to the latest version, run az upgrade. 
+Run [az version](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-upgrade).
 
-[comment]: <> (This is a comment, it will not be included)
+For more information about resource providers, see [Azure resource providers and types](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+
+[comment]: <End of Include content> 
 
 Sign in to the Azure subscription you use for the ALI deployment through the Azure CLI.
 Register the BareMetalInfrastructure Azure Large Instance resource provider with the az provider register command:
