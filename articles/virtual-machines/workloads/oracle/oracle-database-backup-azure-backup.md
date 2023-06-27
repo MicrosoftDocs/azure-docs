@@ -16,9 +16,9 @@ ms.reviewer: dbakevlar
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-This article demonstrates the use of Azure Backup to take disk snapshots of virtual machine (VM) disks, which include the Oracle Database files and the Oracle fast recovery area. By using Azure Backup, you can take full disk snapshots that are suitable as backup and are stored in a[Recovery Services vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  
+This article demonstrates the use of Azure Backup to take disk snapshots of virtual machine (VM) disks, which include the Oracle Database files and the Oracle fast recovery area. By using Azure Backup, you can take full disk snapshots that are suitable as backups and are stored in a [Recovery Services vault](../../../backup/backup-azure-recovery-services-vault-overview.md).  
 
-Azure Backup also provides application-consistent backups, which ensure that additional fixes aren't required to restore the data. Application-consistent backups work with both file system and Oracle ASM databases.
+Azure Backup also provides application-consistent backups, which ensure that additional fixes aren't required to restore the data. Application-consistent backups work with both file system and Oracle Automatic Storage Management (ASM) databases.
 
 Restoring application-consistent data reduces restoration time, so you can quickly return to a running state. Oracle Database recovery is still necessary after restore. You facilitate the recovery by using Oracle archived redo log files that are captured and stored in a separate Azure file share.
 
@@ -28,21 +28,21 @@ This article walks you through the following tasks:
 >
 > * Back up the database with application-consistent backup.
 > * Restore and recover the database from a recovery point.
-> * Restore the VM from from a recovery point.
+> * Restore the VM from a recovery point.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12.1 or later.
 
-* Create an Oracle Database instance by following the steps in [Create an Oracle Database instance in an Azure VM](./oracle-database-quick-create.md) .
+* Create an Oracle Database instance by following the steps in [Create an Oracle Database instance in an Azure VM](./oracle-database-quick-create.md).
 
 ## Prepare the environment
 
 To prepare the environment, complete these steps:
 
-1. [Connect to the VM](#connect-to-the-vm)
-1. [Set up Azure Files storage](#set-up-azure-files-storage-for-the-oracle-archived-redo-log-files)
-1. [Prepare the databases](#prepare-the-databases)
+1. [Connect to the VM](#connect-to-the-vm).
+1. [Set up Azure Files storage](#set-up-azure-files-storage-for-the-oracle-archived-redo-log-files).
+1. [Prepare the databases](#prepare-the-databases).
 
 ### Connect to the VM
 
@@ -52,7 +52,7 @@ To prepare the environment, complete these steps:
    ssh azureuser@<publicIpAddress>
    ```
 
-1. Switch to the *root* user:
+1. Switch to the root user:
 
    ```bash
    sudo su -
@@ -72,13 +72,11 @@ When the database is in `ARCHIVELOG` mode, it archives the contents of online re
 
 Oracle provides the capability to archive redo log files to different locations. The industry best practice is that at least one of those destinations should be on remote storage, so it's separate from the host storage and protected with independent snapshots. Azure Files meets those requirements.
 
-An Azure Files file share is storage that you an attach to a Linux or Windows VM as a regular file-system component, by using the SMB or NFS protocol.
-
-To set up an Azure Files file share on Linux (by using the SMB 3.0 protocol) for use as archive log storage, see [Mount SMB Azure file share on Linux](../../../storage/files/storage-how-to-use-files-linux.md). When you complete the setup, return to this guide and complete all remaining steps.
+An Azure file share is storage that you an attach to a Linux or Windows VM as a regular file-system component, by using the SMB or NFS protocol. To set up an Azure file share on Linux (by using the SMB 3.0 protocol) for use as archive log storage, see [Mount an SMB Azure file share on Linux](../../../storage/files/storage-how-to-use-files-linux.md). When you complete the setup, return to this guide and complete all remaining steps.
 
 ### Prepare the databases
 
-This part of the process assumes that you:followed [Create an Oracle Database instance in an Azure VM](./oracle-database-quick-create.md). As a result:
+This part of the process assumes that you followed [Create an Oracle Database instance in an Azure VM](./oracle-database-quick-create.md). As a result:
 
 * You have an Oracle instance named `oratest1` that's running on a VM named `vmoracle19c`.
 * You're using the standard Oracle `oraenv` script with its dependency on the standard Oracle configuration file */etc/oratab* to set up environment variables in a shell session.
@@ -97,9 +95,9 @@ Perform the following steps for each database on the VM:
     . oraenv
     ```
 
-1. Add the Azure file share as an additional database archive log file destination.
+1. Add the Azure file share as an additional destination for database archive log files.
 
-    This step assumes that you configured and mounted an Azure file share on the Linux VM. For each database installed on the VM, make a subdirectory that's named after your database SID. 
+    This step assumes that you configured and mounted an Azure file share on the Linux VM. For each database installed on the VM, make a subdirectory that's named after your database security identifier (SID).
 
     In this example, the mount point name is `/backup` and the SID is `oratest1`. So you create the subdirectory `/backup/oratest1` and change ownership to the Oracle user. Substitute `/backup/SID` for your mount point name and database SID.
 
@@ -135,9 +133,9 @@ Perform the following steps for each database on the VM:
 
     To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo log files generally get sized quite large (for example, 1,024M, 4,096M, or 8,192M). In a busy database environment, logs are still likely to switch and archive every few seconds or minutes. In a less active database, they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency.
 
-    We recommend that you set `ARCHIVE_LAG_TARGET` to ensure a consistent RPO. A setting of 5 minutes (300 seconds) is a prudent value for `ARCHIVE_LAG_TARGET`. It ensures that any database recovery operation can recover to within 5 minutes or less of the time of failure.
+    We recommend that you set `ARCHIVE_LAG_TARGET` to ensure a consistent RPO. A setting of 5 minutes (300 seconds) is a prudent value for `ARCHIVE_LAG_TARGET`. It ensures that any database recovery operation can recover to within 5 minutes of the time of failure.
 
-    To set `ARCHIVE_LAG_TARGET`:
+    To set `ARCHIVE_LAG_TARGET`, run this command:
 
     ```bash
     SQL> alter system set archive_lag_target=300 scope=both;
@@ -185,11 +183,11 @@ The Azure Backup service provides solutions to back up your data and recover it 
 
 In this section, you use Azure Backup to take application-consistent snapshots of your running VM and Oracle Database instances. The databases are placed into backup mode, allowing a transactionally consistent online backup to occur while Azure Backup takes a snapshot of the VM disks. The snapshot is a full copy of the storage and not an incremental or copy-on-write snapshot, so it's an effective medium to restore your database from.
 
-The advantage of using Azure Backup application-consistent snapshots is that they're extremely fast to take, no matter how large your database is. You can use a snapshot for restore operations as soon as you take it, without having to wait for it to be transferred to the Recovery Services vault.
+The advantage of using Azure Backup application-consistent snapshots is that they're fast to take, no matter how large your database is. You can use a snapshot for restore operations as soon as you take it, without having to wait for it to be transferred to the Recovery Services vault.
 
 To use Azure Backup to back up the database, complete these steps:
 
-1. [Understand the Azure Backup framework](#understand-the-azure-backup-framework)
+1. [Understand the Azure Backup framework](#understand-the-azure-backup-framework).
 1. [Prepare the environment for an application-consistent backup](#prepare-the-environment-for-an-application-consistent-backup).
 1. [Set up application-consistent backups](#set-up-application-consistent-backups).
 1. [Trigger an application-consistent backup of the VM](#trigger-an-application-consistent-backup-of-the-vm).
@@ -206,19 +204,19 @@ You can author your own scripts for Azure Backup to use with pre-12.x databases.
 
 Each time you do a backup, the enhanced framework runs the pre-scripts and post-scripts on all Oracle Database instances installed on the VM. The parameter `configuration_path` in the *workload.conf* file points to the location of the Oracle */etc/oratab* file (or a user-defined file that follows the oratab syntax). For details, see [Set up application-consistent backups](#set-up-application-consistent-backups).
 
-Azure Backup runs the pre-scripts and post-scripts for each database listed in the file that `configuration_path` points to. Exceptions are line that begin with `#` (treated as comment) or `+ASM` (an Oracle Automatic Storage Management instance).
+Azure Backup runs the pre-scripts and post-scripts for each database listed in the file that `configuration_path` points to. Exceptions are lines that begin with `#` (treated as comment) or `+ASM` (an Oracle ASM instance).
 
-The Azure Backup enhanced framework takes online backups of Oracle Database instances operating in `ARCHIVELOG` mode. The pre-scripts and post-scripts use the `ALTER DATABASE BEGIN` and `END BACKUP` commands to achieve application consistency.
+The Azure Backup enhanced framework takes online backups of Oracle Database instances that operate in `ARCHIVELOG` mode. The pre-scripts and post-scripts use the `ALTER DATABASE BEGIN` and `END BACKUP` commands to achieve application consistency.
 
-For the database backup to be consistent, databases in `NOARCHIVELOG` mode must be shutdown cleanly before the snapshot starts.
+For the database backup to be consistent, databases in `NOARCHIVELOG` mode must be shut down cleanly before the snapshot starts.
 
 ### Prepare the environment for an application-consistent backup
 
-Oracle Database employs job role separation to provide separation of duties by using least privilege. It associating separate operating system groups with separate database administrative roles. Operating system users can then have different database privileges granted to them depending on their membership in operating system groups.
+Oracle Database employs job role separation to provide separation of duties by using least privilege. It associates separate operating system (OS) groups with separate database administrative roles. Operating system users can then have different database privileges granted to them, depending on their membership in OS groups.
 
-The `SYSBACKUP` database role (generic name OSBACKUPDBA) provides limited privileges to perform backup operations in the database. Azure Backup requires it.
+The `SYSBACKUP` database role (generic name `OSBACKUPDBA`) provides limited privileges to perform backup operations in the database. Azure Backup requires it.
 
-During Oracle installation, we recommended that you use `backupdba` as the operating system group name to associate with the SYSBACKUP role. But you can use any name, so you need to determine the name of the operating system group that represents the Oracle SYSBACKUP role first.
+During Oracle installation, we recommend that you use `backupdba` as the OS group name to associate with the `SYSBACKUP` role. But you can use any name, so you need to determine the name of the OS group that represents the Oracle `SYSBACKUP` role first.
 
 1. Switch to the `oracle` user:
 
@@ -234,7 +232,7 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
    . oraenv
    ```
 
-1. Determine the name of the operating system group that represents the Oracle `SYSBACKUP` role:
+1. Determine the name of the OS group that represents the Oracle `SYSBACKUP` role:
 
    ```bash
    grep "define SS_BKP" $ORACLE_HOME/rdbms/lib/config.c
@@ -246,9 +244,9 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
    #define SS_BKP_GRP "backupdba"
    ```
 
-   In the output, the value enclosed within double quotation marks is the name of the Linux operating system group to which the Oracle SYSBACKUP role is externally authenticated. In this example, it's `backupdba`. Note down the actual value.
+   In the output, the value enclosed within double quotation marks is the name of the Linux OS group to which the Oracle `SYSBACKUP` role is externally authenticated. In this example, it's `backupdba`. Note down the actual value.
 
-1. Verify if the operating system group exists by running the following command. Substitute `<group name>` with the value that the previous command returned (without the quotation marks).
+1. Verify that the OS group exists by running the following command. Substitute `<group name>` with the value that the previous command returned (without the quotation marks).
 
    ```bash
    grep <group name> /etc/group
@@ -261,12 +259,12 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
    ```
 
    > [!IMPORTANT]
-   > If the output doesn't match the Oracle operating system group value that you retrieved in step 3, use the following command to create the operating system group that represents the Oracle `SYSBACKUP` role. Substitute `<group name>` with the group name that you retrieved in step 3.
+   > If the output doesn't match the Oracle OS group value that you retrieved in step 3, use the following command to create the OS group that represents the Oracle `SYSBACKUP` role. Substitute `<group name>` with the group name that you retrieved in step 3.
    >   ```bash
    >   sudo groupadd <group name>
    >   ```
 
-1. Create a new backup user named `azbackup` that belongs to the operating system group that you verified or created in the previous steps. Substitute `<group name>` with the name of the verified group. The user is also added to the `oinstall` group to enable it to open ASM disks.
+1. Create a new backup user named `azbackup` that belongs to the OS group that you verified or created in the previous steps. Substitute `<group name>` with the name of the verified group. The user is also added to the `oinstall` group to enable it to open ASM disks.
 
    ```bash
    sudo useradd -g <group name> -G oinstall azbackup 
@@ -274,11 +272,11 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
 
 1. Set up external authentication for the new backup user.
 
-   The backup user `azbackup` needs to be able to access the database by using external authentication, so it isn't challenged by a password. To do this, you must create a database user that authenticates externally through `azbackup`. The database uses a prefix for the user name, which you need to find.
+   The backup user `azbackup` needs to be able to access the database by using external authentication, so it isn't challenged by a password. To enable this access, you must create a database user that authenticates externally through `azbackup`. The database uses a prefix for the user name, which you need to find.
 
    Perform the following steps for *each* database installed on the VM:
 
-   1. Log in to the database by using SQL Plus and check the default settings for external authentication:
+   1. Log in to the database by using SQL Plus, and check the default settings for external authentication:
 
       ```bash
       sqlplus / as sysdba
@@ -302,7 +300,7 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
       SQL> GRANT CREATE SESSION, ALTER SESSION, SYSBACKUP TO ops$azbackup;
       ```
 
-   If you receive the error `ORA-46953: The password file is not in the 12.2 format` when you run the `GRANT` statement, follow these steps to migrate the *orapwd* file to 12.2 format. Note that you need to perform this step for every Oracle Database instance on the VM:
+1. If you receive the error `ORA-46953: The password file is not in the 12.2 format` when you run the `GRANT` statement, follow these steps to migrate the *orapwd* file to 12.2 format. Note that you need to perform this step for every Oracle Database instance on the VM.
 
    1. Exit SQL Plus.
    1. Move the password file with the old format to a new name.
@@ -318,7 +316,7 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
 
    1. Rerun the `GRANT` operation in SQL Plus.
 
-1. Create a stored procedure to log backup messages to the database alert log. Use the following code for *each* database installed on the VM:
+1. Create a stored procedure to log backup messages to the database alert log. Use the following code for each database installed on the VM:
 
    ```bash
    sqlplus / as sysdba
@@ -339,13 +337,13 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
 
 ### Set up application-consistent backups  
 
-1. Switch to the root user first:
+1. Switch to the root user:
 
    ```bash
    sudo su -
    ```
 
-1. Check for the */etc/azure* folder. If it isn't present, create the application-consistent backup's working directory:
+1. Check for the */etc/azure* folder. If it isn't present, create the working directory for the application-consistent backup:
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -353,7 +351,7 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
    fi
    ```
 
-1. Check for *workload.conf* within the folder. If it isn't present, create a file in the */etc/azure* directory called *workload.conf* with the following contents. The comments must begin with `[workload]`. If the file is already present, just edit the fields so that it matches the following contents. Otherwise, the following command will create the file and populate the contents.
+1. Check for *workload.conf* within the folder. If it isn't present, create a file in the */etc/azure* directory called *workload.conf* with the following contents. The comments must begin with `[workload]`. If the file is already present, just edit the fields so that they match the following contents. Otherwise, the following command will create the file and populate the contents.
 
    ```bash
    echo "[workload]
@@ -363,18 +361,18 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
    linux_user = azbackup" > /etc/azure/workload.conf
    ```
 
-   The *workload.conf* file use the following format:
+   The *workload.conf* file uses the following format:
 
-   * The parameter `workload_name` indicates the database workload type. In this case, setting the parameter to `Oracle` allows Azure Backup to run the correct pre-scripts and post-scripts (consistency commands) for Oracle Database instances.
-   * The parameter **timeout** indicates the maximum time in seconds that each database must to complete storage snapshots.
-   * The parameter **linux_user** indicates the Linux user account that Azure Backup uses to run database quiesce operations. You created this user, `azbackup`, previously.
-   * The parameter **configuration_path** indicates the absolute path name for a text file on the VM. Each line lists a database instance running on the VM. This is typically the `/etc/oratab` file that Oracle generates during database installation, but it can be any file with any name that you choose. It must follow these format rules:
-     * The file is a text file. Each field is delimited with the colon character `:`.
+   * The `workload_name` parameter indicates the database workload type. In this case, setting the parameter to `Oracle` allows Azure Backup to run the correct pre-scripts and post-scripts (consistency commands) for Oracle Database instances.
+   * The `timeout` parameter indicates the maximum time, in seconds, that each database must complete storage snapshots.
+   * The `linux_user` parameter indicates the Linux user account that Azure Backup uses to run database quiesce operations. You created this user, `azbackup`, previously.
+   * The `configuration_path` parameter indicates the absolute path name for a text file on the VM. Each line lists a database instance running on the VM. This is typically the */etc/oratab* file that Oracle generates during database installation, but it can be any file with any name that you choose. It must follow these format rules:
+     * The file is a text file. Each field is delimited with the colon character (`:`).
      * The first field in each line is the name for an `ORACLE_SID` instance.
-     * The second field in each line is the absolute path name for the `ORACLE_HOME` for that `ORACLE_SID` instance.
-     * All text after these first two fields is ignored.
-     * If the line starts with a pound sign `#`, the entire line is ignored as a comment.
-     * If the first field has the value `+ASM`, denoting an Automatic Storage Management instance, it's ignored.
+     * The second field in each line is the absolute path name for `ORACLE_HOME` for that `ORACLE_SID` instance.
+     * All text after the first two fields is ignored.
+     * If the line starts with a pound sign (`#`), the entire line is ignored as a comment.
+     * If the first field has the value `+ASM`, denoting an Oracke ASM instance, it's ignored.
 
 ### Trigger an application-consistent backup of the VM
 
@@ -386,19 +384,19 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
    1. Under **Recovery Services vault**, select **Create new**.
    1. For **Resource group**, select **rg-oracle**.
    1. For the name of the vault, use **myVault**.
-   1. For **Choose backup policy**, use **(new) DailyPolicy**. If you want to change the backup frequency or retention range select **Create a new policy** instead.
+   1. For **Choose backup policy**, use **(new) DailyPolicy**. If you want to change the backup frequency or retention range, select **Create a new policy** instead.
 
     ![Screenshot that shows the pane for configuring a new Recovery Services vault.](./media/oracle-backup-recovery/recovery-service-01.png)
 
-1. To continue, select **Enable Backup**.
+1. Select **Enable Backup**.
 
     The backup process doesn't start until the scheduled time expires. To set up an immediate backup, complete the next step.
 
-1. From the resource group page, select your newly created Recovery Services vault named **myVault**. You might need to refresh the page to see it.
+1. From the resource group pane, select your newly created Recovery Services vault named **myVault**. You might need to refresh the page to see it.
 
 1. On the **myVault - Backup items** pane, under **BACKUP ITEM COUNT**, select the backup item count.
 
-    ![Screenshot that shows the Recovery Services vaults myVault detail page.](./media/oracle-backup-recovery/recovery-service-02.png)
+    ![Screenshot that shows details for a Recovery Services vault.](./media/oracle-backup-recovery/recovery-service-02.png)
 
 1. On the right side of the **Backup Items (Azure Virtual Machine)** pane, select the ellipsis (**...**) button, and then select **Backup now**.
 
@@ -406,7 +404,7 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
 
 1. Accept the default **Retain Backup Till** value, and then select **OK**. Wait for the backup process to finish.
 
-    To view the status of the backup job, select **Backup Jobs**.
+1. To view the status of the backup job, select **Backup Jobs**.
 
     ![Screenshot that shows the pane that lists backup jobs for a Recovery Services vault.](./media/oracle-backup-recovery/recovery-service-04.png)
 
@@ -414,7 +412,7 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
 
     ![Screenshot that shows detailed status information for a backup job.](./media/oracle-backup-recovery/recovery-service-05.png)
 
-    Although it only takes seconds to execute the snapshot, it can take some time to transfer it to the vault. The backup job is not completed until the transfer is finished.
+    Although it takes only seconds to execute the snapshot, it can take some time to transfer it to the vault. The backup job is not completed until the transfer is finished.
 
 1. For an application-consistent backup, address any errors in the log file at */var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/extension.log*.
 
@@ -447,7 +445,7 @@ During Oracle installation, we recommended that you use `backupdba` as the opera
       --item-name vmoracle19c 
    ```
 
-   You can monitor the progress of the backup job by using `az backup job list` and `az backup job show`.
+1. Monitor the progress of the backup job by using `az backup job list` and `az backup job show`.
 
 ---
 
@@ -467,7 +465,7 @@ There are two main choices when you're restoring a VM:
 * Restore the VM from which the backups were originally taken.
 * Restore (clone) a new VM without affecting the VM from which the backups were originally taken.
 
-The first steps in this exercise--stopping, deleting, and then recovering the VM--simulate the first use case.
+The first steps in this exercise (stopping, deleting, and then recovering the VM) simulate the first use case.
 
 ### Stop and delete the VM
 
@@ -508,12 +506,12 @@ The first steps in this exercise--stopping, deleting, and then recovering the VM
       ![Screenshot that shows where to create a resource.](./media/oracle-backup-recovery/storage-1.png)
 
    1. On the **Create storage account** pane:
-      1. For **Resource group**, choose your existing resource group, **rg-oracle**.
+      1. For **Resource group**, select your existing resource group, **rg-oracle**.
       1. For **Storage account name**, enter **oracrestore**.
-      1. For **Account kind**, choose **StorageV2 (general purpose v2)**.
-      1. For **Replication**, select **Locally redundant storage (LRS)**.
-      1. Ensure that Location is set to the same region as all your other resources in the resource group.
+      1. Ensure that **Location** is set to the same region as all your other resources in the resource group.
       1. Set **Performance** to **Standard**.
+      1. For **Account kind**, select **StorageV2 (general purpose v2)**.
+      1. For **Replication**, select **Locally-redundant storage (LRS)**.
 
       ![Screenshot that shows basic information for creating a storage account.](./media/oracle-backup-recovery/recovery-storage-1.png)
 
@@ -523,7 +521,7 @@ The first steps in this exercise--stopping, deleting, and then recovering the VM
 
     ![Screenshot that shows selecting a Recovery Services vault.](./media/oracle-backup-recovery/recovery-service-06.png)
 
-1. On the **Overview** pane, select **Backup items**. Then select **Azure Virtual Machine**, which should have a nonzero number for **Backup Item Count**.
+1. On the **Overview** pane, select **Backup items**. Then select **Azure Virtual Machine**, which should have a nonzero number for **BACKUP ITEM COUNT**.
 
     ![Screenshot that shows selections for a virtual machine backup item for a Recovery Services vault.](./media/oracle-backup-recovery/recovery-service-07.png)
 
@@ -537,12 +535,12 @@ The first steps in this exercise--stopping, deleting, and then recovering the VM
 
 1. On the **Restore Virtual Machine** pane:
    1. Select **Create New**.
-   1. For **Restore type**, select **Create new virtual machine**.
+   1. For **Restore Type**, select **Create new virtual machine**.
    1. For **Virtual machine name**, enter **vmoracle19c**.
    1. For **Virtual network**, select **vmoracle19cVNET**.
 
       The subnet is automatically populated based on your selection for the virtual network.
-   1. For **Staging Location**, the process of restoring a VM requires an Azure storage account in the same resource group and region. You can choose the storage account or a restore task that you set up earlier.
+   1. For **Staging Location**, the process of restoring a VM requires an Azure storage account in the same resource group and region. You can choose a storage account or a restore task that you set up earlier.
 
    ![Screenshot that shows values for restoring a virtual machine.](./media/oracle-backup-recovery/recover-vm-04.png)
 
@@ -592,7 +590,7 @@ To set up your storage account and file share, run the following commands in the
       --target-resource-group rg-oracle
    ```
 
-1. Retrieve the restore job details. The following command gets more details for the triggered restored job, including its name, which is needed to retrieve the template URI:
+1. Retrieve the restore job details. The following command gets more details for the triggered restore job, including its name. The name is needed to retrieve the template URI.
 
    ```azurecli
    az backup job list \
@@ -638,8 +636,8 @@ To set up your storage account and file share, run the following commands in the
 
    The output lists:
 
-   * The blob container name at the end of `Config Blob Container Name`. In this example, it's `vmoracle19c-75aefd4b34c64dd39fdcd3db579783f2`.
-   * The template name at the end of `Template Blob Uri`. In this example, it's `azuredeployc009747a-0d2e-4ac9-9632-f695bf874693.json`.
+   * The blob container name, at the end of `Config Blob Container Name`. In this example, it's `vmoracle19c-75aefd4b34c64dd39fdcd3db579783f2`.
+   * The template name, at the end of `Template Blob Uri`. In this example, it's `azuredeployc009747a-0d2e-4ac9-9632-f695bf874693.json`.
 
 1. Use the values from the preceding step in the following command to assign variables in preparation for creating the VM. A shared access signature (SAS) key is generated for the storage container with a 30-minute duration.  
 
@@ -697,15 +695,15 @@ After the VM is restored, you should reassign the original IP address to the new
 
     ![Screenshot that shows selecting resource type and NIC values.](./media/oracle-backup-recovery/create-ip-04.png)
 
-1. Detach the NIC that was created with the VM restore operation as it is configured as the primary interface. Select **Detach network interface** and choose the new NIC similar to **vmoracle19c-nic-XXXXXXXXXXXX**, and then select **OK**.
+1. Detach the NIC that you created with the VM restore operation, because it's configured as the primary interface. Select **Detach network interface**, select the NIC that's similar to **vmoracle19c-nic-XXXXXXXXXXXX**, and then select **OK**.
 
-    ![Screenshot that shows where to select Detach network interface.](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Screenshot that shows the pane for detaching a network interface.](./media/oracle-backup-recovery/create-ip-05.png)
 
-    Your recreated VM now has the original NIC, which is associated with the original IP address and Network Security Group rules.
+    Your re-created VM now has the original NIC, which is associated with the original IP address and network security group rules.
 
     ![Screenshot that shows an IP address value.](./media/oracle-backup-recovery/create-ip-06.png)
 
-1. Go back to the **Overview** and select **Start**.
+1. Go back to the **Overview** pane and select **Start**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -715,13 +713,13 @@ After the VM is restored, you should reassign the original IP address to the new
    az vm deallocate --resource-group rg-oracle --name vmoracle19c
    ```
 
-1. List the current, restore generated VM NIC:
+1. List the current, restore-generated VM NIC:
 
    ```azurecli
    az vm nic list --resource-group rg-oracle --vm-name vmoracle19c
    ```
 
-   The output will look similar to this, which lists the restore generated NIC name as `vmoracle19cRestoredNICc2e8a8a4fc3f47259719d5523cd32dcf`:
+   The output looks similar to the following example, which lists the restore-generated NIC name as `vmoracle19cRestoredNICc2e8a8a4fc3f47259719d5523cd32dcf`:
 
    ```output
    {
@@ -737,7 +735,7 @@ After the VM is restored, you should reassign the original IP address to the new
    az vm nic add --nics vmoracle19cVMNic --resource-group rg-oracle --vm-name vmoracle19c
    ```
 
-1. Detach the restore generated NIC:
+1. Detach the restore-generated NIC:
 
    ```azurecli
    az vm nic remove --nics vmoracle19cRestoredNICc2e8a8a4fc3f47259719d5523cd32dcf --resource-group rg-oracle --vm-name vmoracle19c
@@ -762,9 +760,9 @@ To recover a database after a complete VM restore:
 
    ```
 
-   When the whole VM has been restored, it's important to recover each database on the VM by performing the following steps on each.
+   When the whole VM has been restored, it's important to recover the databases on the VM by performing the following steps on each database.
 
-1. You might find that the instance is running as the auto start has attempted to start the database on VM boot. However the database requires recovery and is likely to be at mount stage only, so a preparatory shutdown is run first followed by starting to mount stage.
+1. You might find that the instance is running, because the autostart attempted to start the database on VM startup. However, the database requires recovery and is likely to be at the mount stage only. Run a preparatory shutdown before starting the mount stage:
 
     ```bash
     sudo su - oracle
@@ -775,15 +773,19 @@ To recover a database after a complete VM restore:
 
 1. Perform database recovery.
 
-   It's important to specify the `USING BACKUP CONTROLFILE` syntax to inform the `RECOVER AUTOMATIC DATABASE` command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file. The restored database control file was a snapshot, along with the rest of the database, and the SCN stored within it is from the point-in-time of the snapshot. There might be transactions recorded after this point and we want to recover to the point-in-time of the last transaction committed to the database.
+   It's important to specify the `USING BACKUP CONTROLFILE` syntax to inform the `RECOVER AUTOMATIC DATABASE` command that recovery should not stop at the Oracle system change number (SCN) recorded in the restored database control file.
+
+   The restored database control file was a snapshot, along with the rest of the database. The SCN stored within it is from the point in time of the snapshot. There might be transactions recorded after this point, and you want to recover to the point of the last transaction committed to the database.
 
    ```bash
    SQL> recover automatic database using backup controlfile until cancel;
    ```
 
-   When the last available archive log file has been applied type `CANCEL` to end recovery.
+1. When the last available archive log file has been applied, enter `CANCEL` to end recovery.
 
-   When recovery finishes successfully, the message `Media recovery complete` appears. However, when you're using the `BACKUP CONTROLFILE` clause, the recover command will ignore online log files and it's possible there are changes in the current online redo log required to complete point-in-time recovery. In this situation, you might see messages similar to these:
+   When recovery finishes successfully, the message `Media recovery complete` appears.
+
+   However, when you're using the `BACKUP CONTROLFILE` clause, the recover command ignores online log files. It's possible that changes in the current online redo log are required to complete point-in-time recovery. In this situation, you might see messages similar to these:
 
    ```output
    SQL> recover automatic database until cancel using backup controlfile;
@@ -804,9 +806,9 @@ To recover a database after a complete VM restore:
    ```
 
    > [!IMPORTANT]
-   > If the current online redo log has been lost or corrupted and can't be used, you might cancel recovery at this point.
+   > If the current online redo log is lost or corrupted and you can't use it, you might cancel recovery at this point.
 
-   To correct this, you can identify which is the current online log that has not been archived, and supply the fully qualified file name to the prompt.
+   To correct this situation, you can identify which online log wasn't archived and supply the fully qualified file name to the prompt.
 
 1. Open the database.
 
@@ -816,15 +818,15 @@ To recover a database after a complete VM restore:
    SQL> alter database open resetlogs;
    ```
 
-1. Check the database content has been recovered:
+1. Check that the database content was recovered:
 
    ```bash
    SQL> select * from scott.scott_table;
    ```
 
-The backup and recovery of Oracle Database on an Azure Linux VM is now finished.
+The backup and recovery of Oracle Database on an Azure Linux VM are now finished.
 
-You can find more information about Oracle commands and concept in the Oracle documentation, including:
+You can find more information about Oracle commands and concepts in the Oracle documentation, including:
 
 * [Performing Oracle user-managed backups of the entire database](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/user-managed-database-backups.html#GUID-65C5E03A-E906-47EB-92AF-6DC273DBD0A8)
 * [Performing complete user-managed database recovery](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/user-managed-flashback-dbpitr.html#GUID-66D07694-533F-4E3A-BA83-DD461B68DB56)
@@ -858,6 +860,6 @@ When you no longer need the VM, you can use the following commands to remove the
 
 ## Next steps
 
-[Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
+[Create highly available VMs](../../linux/create-cli-complete.md)
 
-[Explore VM deployment Azure CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+[Explore Azure CLI samples for VM deployment](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
