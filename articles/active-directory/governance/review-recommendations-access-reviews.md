@@ -40,6 +40,8 @@ If this decision helper is enabled by the creator of the access review, reviewer
 
 > [!NOTE]
 > This feature is only available for users in your directory. A user should have a manager attribute and should be a part of an organizational hierarchy for the User-to-group Affiliation to work.
+>
+>Groups with more than 600 users are not supported.
 
 The following image has an example of an organization's reporting structure in a cosmetics company: 
 
