@@ -156,6 +156,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 
+
 ---
 
 When you save your workflow, this step automatically publishes your updates to your deployed logic app, which is live in Azure. With only a trigger, your workflow just checks the SQL database based on your specified schedule. You have to [add an action](#add-sql-action) that responds to the trigger.
@@ -202,7 +203,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-1. After the action information box appears, provide the values for the SQL server name and database name, if you didn't previously provide them. Otherwise, from the **Table name** list, select the table that you want to use. In the **Row id** property, enter the ID for the record that you want.
+1. After the action information box appears, from the **Table name** list, select the table that you want to use. In the **Row id** property, enter the ID for the record that you want.
 
    For this example, the table name is **SalesLT.Customer**.
 
@@ -211,7 +212,6 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, review the [managed connector's reference page](/connectors/sql/).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
-
 
 ---
 
