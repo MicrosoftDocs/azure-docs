@@ -222,39 +222,182 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 
 With spoken phonemes, you can get confidence scores indicating how likely the spoken phonemes matched the expected phonemes. 
 
-For example, when you speak the word "hello", the expected IPA phonemes are "h ɛ l oʊ". The actual spoken phonemes could be "h ə l oʊ". In the following assessment result, the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
+For example, to obtain the complete spoken sound for the word "Hello", you can concatenate the first spoken phoneme for each expected phoneme with the highest confidence score. In the following assessment result, when you speak the word "hello", the expected IPA phonemes are "h ɛ l oʊ". However, the actual spoken phonemes are "h ə l oʊ". You have five possible candidates for each expected phoneme in this example. The assessment result shows that the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 
 ```json
 {
-    "Phoneme": "ɛ",
-    "PronunciationAssessment": {
-        "AccuracyScore": 47.0,
-        "NBestPhonemes": [
-            {
-                "Phoneme": "ə",
-                "Score": 100.0
-            },
-            {
-                "Phoneme": "l",
-                "Score": 52.0
-            },
-            {
-                "Phoneme": "ɛ",
-                "Score": 47.0
-            },
-            {
-                "Phoneme": "h",
-                "Score": 17.0
-            },
-            {
-                "Phoneme": "æ",
-                "Score": 2.0
-            }
-        ]
-    },
-    "Offset": 11100000,
-    "Duration": 500000
-},
+	"Id": "bbb42ea51bdb46d19a1d685e635fe173",
+	"RecognitionStatus": 0,
+	"Offset": 7500000,
+	"Duration": 13800000,
+	"DisplayText": "Hello.",
+	"NBest": [
+		{
+			"Confidence": 0.975003,
+			"Lexical": "hello",
+			"ITN": "hello",
+			"MaskedITN": "hello",
+			"Display": "Hello.",
+			"PronunciationAssessment": {
+				"AccuracyScore": 100,
+				"FluencyScore": 100,
+				"CompletenessScore": 100,
+				"PronScore": 100
+			},
+			"Words": [
+				{
+					"Word": "hello",
+					"Offset": 7500000,
+					"Duration": 13800000,
+					"PronunciationAssessment": {
+						"AccuracyScore": 99.0,
+						"ErrorType": "None"
+					},
+					"Syllables": [
+						{
+							"Syllable": "hɛ",
+							"PronunciationAssessment": {
+								"AccuracyScore": 91.0
+							},
+							"Offset": 7500000,
+                            "Duration": 4100000
+						},
+						{
+							"Syllable": "loʊ",
+							"PronunciationAssessment": {
+								"AccuracyScore": 100.0
+							},
+							"Offset": 11700000,
+                            "Duration": 9600000
+						}
+					],
+					"Phonemes": [
+						{
+							"Phoneme": "h",
+							"PronunciationAssessment": {
+								"AccuracyScore": 98.0,
+								"NBestPhonemes": [
+									{
+										"Phoneme": "h",
+										"Score": 100.0
+									},
+									{
+										"Phoneme": "oʊ",
+										"Score": 52.0
+									},
+									{
+										"Phoneme": "ə",
+										"Score": 35.0
+									},
+									{
+										"Phoneme": "k",
+										"Score": 23.0
+									},
+									{
+										"Phoneme": "æ",
+										"Score": 20.0
+									}
+								]
+							},
+							"Offset": 7500000,
+                            "Duration": 3500000
+						},
+						{
+							"Phoneme": "ɛ",
+							"PronunciationAssessment": {
+								"AccuracyScore": 47.0,
+								"NBestPhonemes": [
+									{
+										"Phoneme": "ə",
+										"Score": 100.0
+									},
+									{
+										"Phoneme": "l",
+										"Score": 52.0
+									},
+									{
+										"Phoneme": "ɛ",
+										"Score": 47.0
+									},
+									{
+										"Phoneme": "h",
+										"Score": 17.0
+									},
+									{
+										"Phoneme": "æ",
+										"Score": 2.0
+									}
+								]
+							},
+							"Offset": 11100000,
+                            "Duration": 500000
+						},
+						{
+							"Phoneme": "l",
+							"PronunciationAssessment": {
+								"AccuracyScore": 100.0,
+								"NBestPhonemes": [
+									{
+										"Phoneme": "l",
+										"Score": 100.0
+									},
+									{
+										"Phoneme": "oʊ",
+										"Score": 46.0
+									},
+									{
+										"Phoneme": "ə",
+										"Score": 5.0
+									},
+									{
+										"Phoneme": "ɛ",
+										"Score": 3.0
+									},
+									{
+										"Phoneme": "u",
+										"Score": 1.0
+									}
+								]
+							},
+							"Offset": 11700000,
+                            "Duration": 1100000
+						},
+						{
+							"Phoneme": "oʊ",
+							"PronunciationAssessment": {
+								"AccuracyScore": 100.0,
+								"NBestPhonemes": [
+									{
+										"Phoneme": "oʊ",
+										"Score": 100.0
+									},
+									{
+										"Phoneme": "d",
+										"Score": 29.0
+									},
+									{
+										"Phoneme": "t",
+										"Score": 24.0
+									},
+									{
+										"Phoneme": "n",
+										"Score": 22.0
+									},
+									{
+										"Phoneme": "l",
+										"Score": 18.0
+									}
+								]
+							},
+							"Offset": 12900000,
+                            "Duration": 8400000
+						}
+					]
+				}
+			]
+		}
+	]
+}
 ```
 
 To indicate whether, and how many potential spoken phonemes to get confidence scores for, set the `NBestPhonemeCount` parameter to an integer value such as `5`. 
