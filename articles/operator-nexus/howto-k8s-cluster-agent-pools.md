@@ -1,6 +1,6 @@
 ---
 title: Understanding agent pools in Azure Operator Nexus Kubernetes service #Required; page title is displayed in search results. Include the brand.
-description: Understanding agent pools in Nexus Kubernetes service #Required; article description that is displayed in search results. 
+description: Working with agent pools in Azure Operator Nexus Kubernetes clusters #Required; article description that is displayed in search results. 
 author: dramasamy #Required; your GitHub user alias, with correct capitalization.
 ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
 ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
@@ -9,7 +9,7 @@ ms.date: 06/27/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
-# Working with agent pools in Nexus Kubernetes Clusters
+# Working with agent pools in Nexus Kubernetes clusters
 
 In this article, you learn how to work with agent pools in a Nexus Kubernetes cluster. Agent pools serve as groups of nodes with the same configuration and play a key role in managing your applications.
 
