@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 06/27/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -36,6 +36,9 @@ Within each log instance, you can see the connection ID and transaction ID in th
 1. **Global Secure Access (Preview)** > **Monitor** > **Traffic logs**.
 
 The top of the page displays a summary of all transactions as well as a breakdown for each type of traffic. Select the **Microsoft 365** or **Private access** buttons to filter the logs to each traffic type.
+
+> [!NOTE]
+> At this time, Session ID information is not available in the log details.
 
 ### View the log details
 
@@ -76,10 +79,27 @@ The log details provide valuable information about your network traffic. Not all
 - **Device category**: Device type where the transaction initiated from. Either **client** or **remote network**.
 - **Action**: The action taken on the network session. Either **Allowed** or **Denied**.
 
+## Configure Diagnostic settings to export logs
+
+You can export the Global Secure Access traffic logs to an endpoint for further analysis and alerting. This integration is configures in Microsoft Entra ID Diagnostic settings.
+
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Administrator or Security Administrator.
+1. Go to **Microsoft Entra ID** > **Monitoring and health** > **Diagnostic settings**.
+1. Select **Add Diagnostic setting**.
+1. Give your diagnostic setting a name.
+1. Select `NetworkAccessTrafficLogs`.
+1. Select the **Destination details** for where you'd like to send the logs. Choose any or all of the following destinations. Additional fields appear, depending on your selection.
+
+    * **Send to Log Analytics workspace:** Select the appropriate details from the menus that appear.
+    * **Archive to a storage account:** Provide the number of days you'd like to retain the data in the **Retention days** boxes that appear next to the log categories. Select the appropriate details from the menus that appear.
+    * **Stream to an event hub:** Select the appropriate details from the menus that appear.
+    * **Send to partner solution:** Select the appropriate details from the menus that appear.
+
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
 
 - [Learn about the traffic dashboard](concept-traffic-dashboard.md)
 - [View the audit logs for Global Secure Access](how-to-access-audit-logs.md)
+- [View the enriched Microsoft 365 logs](how-to-view-enriched-logs.md)
 
