@@ -56,7 +56,7 @@ Follow these steps to assess your pronunciation of the reference text:
 
    :::image type="content" source="media/pronunciation-assessment/pa-upload.png" alt-text="Screenshot of uploading recorded audio to be assessed.":::
 
-## Pronunciation assessment results
+## Mispronunciation and miscue detection
 
 Once you've recorded the reference text or uploaded the recorded audio, the **Assessment result** will be output. The result includes your spoken audio and the feedback on the accuracy and fluency of spoken audio, by comparing a machine generated transcript of the input audio with the reference text. You can listen to your spoken audio, and download it if necessary.
 
@@ -64,7 +64,7 @@ You can also check the pronunciation assessment result in JSON. The word-level, 
 
 ### [Display](#tab/display)
 
-The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
+The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. The error types in the pronunciation assessment are represented using different colors. Yellow indicates mispronunciations, gray indicates omissions, and red indicates insertions. This visual distinction makes it easier to identify and analyze specific errors. It provides a clear overview of the error types and frequencies in the spoken audio, helping you focus on areas that need improvement. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
 :::image type="content" source="media/pronunciation-assessment/pa-display-omission-full.png" alt-text="Screenshot of error types and scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
 
