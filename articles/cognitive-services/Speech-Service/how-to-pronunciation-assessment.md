@@ -222,7 +222,7 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 
 With spoken phonemes, you can get confidence scores indicating how likely the spoken phonemes matched the expected phonemes. 
 
-For example, to obtain the complete spoken sound for the word "Hello", you can concatenate the first spoken phoneme for each expected phoneme with the highest confidence score. In the following assessment result, when you speak the word "hello", the expected IPA phonemes are "h ɛ l oʊ". However, the actual spoken phonemes are "h ə l oʊ". You have five possible candidates for each expected phoneme. The assessment result shows that the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
+For example, to obtain the complete spoken sound for the word "Hello", you can concatenate the first spoken phoneme for each expected phoneme with the highest confidence score. In the following assessment result, when you speak the word "hello", the expected IPA phonemes are "h ɛ l oʊ". However, the actual spoken phonemes are "h ə l oʊ". You have five possible candidates for each expected phoneme in this example. The assessment result shows that the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 
 ```json
 {
