@@ -4,7 +4,7 @@ description: The article describes about customized images, how to register, val
 ms.service: update-management-center
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 05/02/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 ---
 

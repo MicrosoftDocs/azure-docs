@@ -2,7 +2,7 @@
 title: Assessment options in update management center
 description: The article describes the assessment options available in Update management center
 ms.service: update-management-center
-ms.date: 05/23/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha

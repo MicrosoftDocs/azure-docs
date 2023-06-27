@@ -2,7 +2,7 @@
 title: An overview of Dynamic scoping (preview) 
 description: This article provides information about dynamic scoping (preview), its purpose and advantages.
 ms.service: update-management-center
-ms.date: 05/11/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha

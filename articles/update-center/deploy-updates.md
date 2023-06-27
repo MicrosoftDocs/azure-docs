@@ -2,7 +2,7 @@
 title: Deploy updates and track results in update management center
 description: The article details how to use update management center in the Azure portal to deploy updates and view results for supported machines.
 ms.service: update-management-center
-ms.date: 05/31/2023
+ms.date: 06/27/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha

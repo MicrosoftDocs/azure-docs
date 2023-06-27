@@ -2,7 +2,7 @@
 title: Quickstart - deploy updates in using update management center in the Azure portal
 description: This quickstart helps you to deploy updates immediately and view results for supported machines in update management center using the Azure portal.
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 06/27/2022
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: quickstart
