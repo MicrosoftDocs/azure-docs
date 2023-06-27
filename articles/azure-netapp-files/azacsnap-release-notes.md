@@ -24,6 +24,23 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
+## Jun-2023
+
+### AzAcSnap 8b (Build: 1AD3679)
+
+AzAcSnap 8b is being released with the following fixes and improvements:
+
+- - Fixes and Improvements:
+   - General improvement to `azacsnap` command exit codes.
+      - Any failure in `--runbefore` will exit before any backup activity and return the `--runbefore` exit code.
+      - Any failure in `--runafter` will return the `--runafter` exit code.
+-    - Backup (`-c backup`) changes:
+      - Change in the Db2 workflow to move the protected-paths query outside the WRITE SUSPEND, Storage Snapshot, WRITE RESUME workflow to improve resilience. (*Preview*)
+
+- Fix for missing snapshot name (`azSnapshotName`)  in `--runafter` command environment.
+
+Download the [AzAcSnap 8b](https://aka.ms/azacsnap-8b) installer.
+
 ## May-2023
 
 ### AzAcSnap 8a (Build: 1AC55A6)
@@ -104,7 +121,7 @@ Download the [AzAcSnap 7](https://aka.ms/azacsnap-7) installer.
 
 > [!IMPORTANT]
 > AzAcSnap 6 brings a new release model for AzAcSnap and includes fully supported GA features and Preview features in a single release.  
- 
+
 Since AzAcSnap v5.0 was released as GA in April 2021, there have been eight releases of AzAcSnap across two branches. Our goal with the new release model is to align with how Azure components are released.  This change allows moving features from Preview to GA (without having to move an entire branch), and introduce new Preview features (without having to create a new branch). From AzAcSnap 6, we have a single branch with fully supported GA features and Preview features (which are subject to Microsoft's Preview Ts&Cs). It’s important to note customers can't accidentally use Preview features, and must enable them with the `--preview` command line option.  Therefore the next release will be AzAcSnap 7, which could include; patches (if necessary) for GA features, current Preview features moving to GA, or new Preview features.
 
 AzAcSnap 6 is being released with the following fixes and improvements:
@@ -210,3 +227,5 @@ AzAcSnap v5.0 Preview (Build: 20210318.30771) has been released with the followi
 
 - [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
 - [Download the latest release of the installer](https://aka.ms/azacsnapinstaller)
+
+
