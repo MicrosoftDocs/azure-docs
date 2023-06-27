@@ -1,7 +1,7 @@
 ---
 title: Use deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack.
-ms.date: 06/15/2023
+ms.date: 06/26/2023
 ms.topic: tutorial
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ---
@@ -483,6 +483,7 @@ Get-azResource -ResourceGroupName demoRg
 ```
 
 There are three resources in the resource group, even though the stack only contains two resources.
+
 ---
 
 ### Attach an existing resource to the stack
@@ -625,7 +626,99 @@ Get-azResource -ResourceGroupName demoRg
 
 ## Deny assignment
 
-bla, bla, bla ...
+When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings.
+
+# [PowerShell](#tab/azure-powershell)
+
+The Azure PowerShell includes these parameters to customize the deny assignment:
+
+- `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
+- `DenySettingsApplyToChildScopes`: Deny settings are applied to child Azure management scopes.
+- `DenySettingsExcludedActions`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
+- `DenySettingsExcludedPrincipals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
+
+# [CLI](#tab/azure-cli)
+
+The Azure CLI includes these parameters to customize the deny assignment:
+
+- `deny-settings-mode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `none`, `denyDelete`, and `denyWriteAndDelete`.
+- `deny-settings-apply-to-child-scopes`: Deny settings are applied to child Azure management scopes.
+- `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
+- `deny-settings-excluded-principals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed.
+
+---
+
+In this tutorial, you will configure the deny settings mode. For more information about other deny settings, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+
+At the end of the previous step, you have one stack with two managed resources.
+
+Run the following command with the deny settings mode switch set to deny delete:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group create \
+  --name demoStack \
+  --resource-group demoRg \
+  --template-file ./main.bicep \
+  --deny-settings-mode denyDelete
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzResourceGroupDeploymentStack `
+  -Name 'demoStack' `
+  -ResourceGroupname 'demoRg' `
+  -TemplateFile './main.bicep' `
+  -DenySettingsMode DenyDelete
+```
+
+---
+
+The following delete command shall fail because the deny settings mode is set to deny delete:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az resource delete \
+  --resource-group demoRg \
+  --name <storage-account-name> \
+  --resource-type Microsoft.Storage/storageAccounts
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Remove-AzResource `
+  -ResourceGroupName demoRg `
+  -ResourceName <storage-account-name> `
+  -ResourceType Microsoft.Storage/storageAccounts
+
+---
+
+Update the stack with the deny settings mode to none, so you can complete the rest of the tutorial:
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group create \
+  --name demoStack \
+  --resource-group demoRg \
+  --template-file ./main.bicep \
+  --deny-settings-mode none
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzResourceGroupDeploymentStack `
+  -Name 'demoStack' `
+  -ResourceGroupname 'demoRg' `
+  -TemplateFile './main.bicep' `
+  -DenySettingsMode none
+```
+
+---
 
 ## Export template from the stack
 

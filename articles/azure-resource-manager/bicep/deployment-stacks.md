@@ -22,7 +22,7 @@ To create your first deployment stack, work through [Quickstart: create deployme
 Deployment stacks provide the following benefits:
 
 - The ease of provisioning and managing resources across various [scopes](./deploy-to-resource-group.md) as a single atomic unit.
-- The option to prevent undesirable changes to managed resources using the `DenySettingsMode`.
+- The option to prevent undesirable changes to managed resources using [deny settings](#protect-managed-resources-against-deletion).
 - The ability to rapidly cleanup environments by setting appropriate delete flags on a Deployment stack update.
 - The ability to use standard templates, including [Bicep](./overview.md), [ARM templates](../templates/overview.md), or [Template specs](./template-specs.md) for your Deployment stacks.
 
@@ -42,7 +42,9 @@ The `2022-08-01-preview` private preview API version has the following limitatio
 
 ## Create deployment stacks
 
-You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
+You can create deployment stacks at different scopes, which include resource group, subscription and management group scope. The template used to create a deployment stack can be deployed to any of the scopes. Deny settings mode can be used to block unwanted changes to the managed resources. the scope at which a stack exists determines how a deny settings mode gets applied. For more information, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion).
+
+The create deployment stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
 
 To create a deployment stack at the resource group scope:
 
@@ -56,8 +58,6 @@ New-AzResourceGroupDeploymentStack `
   -DenySettingsMode none
 ```
 
-For more information about `DenySettingsMode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion).
-
 # [CLI](#tab/azure-cli)
 
 ```azurecli
@@ -67,8 +67,6 @@ az stack group create \
   --template-file <bicep-file-name> \
   --deny-settings-mode none
 ```
-
-For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
 
 ---
 
@@ -86,8 +84,6 @@ New-AzManagmentGroupDeploymentStack `
   -DenySettingsMode none
 ```
 
-For more information about `DenySettingsMode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
-
 # [CLI](#tab/azure-cli)
 
 ```azurecli
@@ -99,8 +95,6 @@ az stack mg create \
   --deployment-subscription-id <subscription-id> \
   --deny-settings-mode none
 ```
-
-For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
 
 ---
 
@@ -117,7 +111,7 @@ New-AzSubscriptionDeploymentStack `
   -DenySettingsMode none
 ```
 
-The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources. For more information about `DenySettingsMode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
+The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources.
 
 # [CLI](#tab/azure-cli)
 
@@ -130,7 +124,7 @@ az stack sub create \
   --deny-settings-mode none
 ```
 
-The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. For more information about `deny-settings-mode`, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion)/
+The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources.
 
 ---
 
@@ -239,7 +233,7 @@ Set-AzManagmentGroupDeploymentStack `
   -DeploymentSubscriptionId '<subscription-id>' `
   -DenySettingsMode none
 ```
-DenySettingsMode
+
 # [CLI](#tab/azure-cli)
 
 ```azurecli
@@ -300,9 +294,9 @@ To instruct Azure to delete unmanaged resources, update the stack with the creat
 
 # [PowerShell](#tab/azure-powershell)
 
-- `-DeleteAll`: Flag to indicate delete rather than detach for managed resources and resource groups.
-- `-DeleteResources`: Flag to indicate delete rather than detach for managed resources only.
-- `-DeleteResourceGroups`: Flag to indicate delete rather than detach for managed resource groups only.
+- `DeleteAll`: Flag to indicate delete rather than detach for managed resources and resource groups.
+- `DeleteResources`: Flag to indicate delete rather than detach for managed resources only.
+- `DeleteResourceGroups`: Flag to indicate delete rather than detach for managed resource groups only.
 
 `DeleteResourceGroups` must be used together with `DeleteResources`. It is invalid to use `DeleteResourceGroups` by itself.
 
@@ -319,9 +313,9 @@ New-AzSubscriptionDeploymentStack `
 
 # [CLI](#tab/azure-cli)
 
-- `--delete-all`: Flag to indicate delete rather than detach for managed resources and resource groups.
-- `--delete-resources`: Flag to indicate delete rather than detach for managed resources only.
-- `--delete-resource-groups`: Flag to indicate delete rather than detach for managed resource groups only.
+- `delete-all`: Flag to indicate delete rather than detach for managed resources and resource groups.
+- `delete-resources`: Flag to indicate delete rather than detach for managed resources only.
+- `delete-resource-groups`: Flag to indicate delete rather than detach for managed resource groups only.
 
 `delete-resource-groups` must be used together with `delete-resources`. It is invalid to use `delete-resource-groups` by itself.
 
@@ -348,15 +342,15 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 # [PowerShell](#tab/azure-powershell)
 
-- `-DeleteAll`: Delete both the resources and the resource groups.
-- `-DeleteResources`: Delete the resources only.
-- `-DeleteResourceGroups`: Delete the resource groups only.
+- `DeleteAll`: Delete both the resources and the resource groups.
+- `DeleteResources`: Delete the resources only.
+- `DeleteResourceGroups`: Delete the resource groups only.
 
 # [CLI](#tab/azure-cli)
 
-- `--delete-all`: Delete both the resources and the resource groups.
-- `--delete-resources`: Delete the resources only.
-- `--delete-resource-groups`: Delete the resource groups only.
+- `delete-all`: Delete both the resources and the resource groups.
+- `delete-resources`: Delete the resources only.
+- `delete-resource-groups`: Delete the resource groups only.
 
 ---
 
@@ -496,52 +490,193 @@ See [Update deployment stacks](#update-deployment-stacks).
 
 ## Protect managed resources against deletion
 
-When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals.
+When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope. 
 
 # [PowerShell](#tab/azure-powershell)
 
-To manage deployment stack deny assignments with Azure PowerShell, include one of the following `-DenySettingsMode` parameters of the `New-AzSubscriptionDeploymentStack` command or the `Set-AzSubscriptionDeploymentStack` command:
+The Azure PowerShell includes these parameters to customize the deny assignment:
 
-- `None`: Do not apply a lock to managed resources
-- `DenyDelete`: Prevent delete operations
-- `DenyWriteAndDelete`: Prevent deletion or modification
+- `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
+- `DenySettingsApplyToChildScopes`: Deny settings are applied to child Azure management scopes.
+- `DenySettingsExcludedActions`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
+- `DenySettingsExcludedPrincipals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are permitted.
 
-For example:
+# [CLI](#tab/azure-cli)
+
+The Azure CLI includes these parameters to customize the deny assignment:
+
+- `deny-settings-mode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `none`, `denyDelete`, and `denyWriteAndDelete`.
+- `deny-settings-apply-to-child-scopes`: Deny settings are applied to child Azure management scopes.
+- `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
+- `deny-settings-excluded-principals`: List of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed.
+
+---
+
+To apply deny settings at the resource group scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -ResourceGroupName '<resource-group-name>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsExcludedPrincipals <object-id> <object-id>
+```
+
+The following sample applies deny settings to the child scopes at the resource group scope:
+
+```azurepowershell
+New-AzResourceGroupDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -ResourceGroupName '<resource-group-name>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsApplyToChildScopes
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack group create \
+  --name <deployment-stack-name> \
+  --resource-group <resource-group-name> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-excluded-principals <object-id> <object-id>
+```
+
+The following sample applies deny settings to the child scopes at the resource group scope:
+
+```azurecli
+az stack group create \
+  --name <deployment-stack-name> \
+  --resource-group <resource-group-name> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-apply-to-child-scopes
+```
+
+---
+
+To apply deny settings at the management group scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzManagmentGroupDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsExcludedPrincipals <object-id> <object-id>
+```
+
+The following sample applies deny settings to the child scopes at the management group scope:
+
+```azurepowershell
+New-AzManagmentGroupDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsApplyToChildScopes
+```
+
+Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+Use the `ManagementGroupId` parameter to specify the management group ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack mg create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-excluded-principals <object-id> <object-id>
+```
+
+The following sample applies deny settings to the child scopes at the management group scope:
+
+```azurecli
+az stack mg create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-apply-to-child-scopes
+```
+
+Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+Use the `management-group-id` parameter to specify the management group ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+
+---
+
+jgao: is the value of deployment-subscription subscription name or subscription ID?
+
+To apply deny settings at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzSubscriptionDeploymentStack `
   -Name '<deployment-stack-name>' `
+  -Location '<location>' `
   -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode 'DenyDelete'
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsExcludedPrincipals <object-id> <object-id>
 ```
 
-The Azure PowerShell interface also includes these parameters to customize the deny assignment:
+The following sample applies deny settings to the child scopes at the subscription scope:
 
-- `-DenySettingsExcludedPrincipals`: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
-- `-DenySettingsApplyToChildScopes`: Apply to child scopes.
-- `-DenySettingsExcludedActions`: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted.
-- `-DenySettingsMode`: Mode for DenySettings. Possible values include: `denyDelete`, `denyWriteAndDelete`, and `none`.
+```azurepowershell
+New-AzSubscriptionDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsApplyToChildScopes
+```
+
+Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
 
 # [CLI](#tab/azure-cli)
-
-The `--deny-delete` CLI parameter places a special type of lock on managed resources that prevents them from deletion by unauthorized security principals (be default, everyone).
-
-Following are the relevant `az stack sub create` parameters:
-
-- `deny-settings-mode`: Defines which operations are denied on resources managed by the stack: `denyDelete`, `denyWriteAndDelete`, or `none`.
-- `deny-settings-excluded-principals`: Comma-separated list of Azure Active Directory (Azure AD) principal IDs excluded from the lock. Up to five principals are allowed
-- `deny-settings-apply-to-child-scopes`: Deny settings will be applied to child Azure management scopes
-- `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed
-
-To apply a `denyDelete` lock to your deployment stack, update your deployment stack definition, specifying the appropriate parameter(s):
 
 ```azurecli
 az stack sub create \
   --name <deployment-stack-name> \
   --location <location> \
   --template-file <bicep-file-name> \
-  --deny-settings-mode denyDelete
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-excluded-principals <object-id> <object-id>
 ```
+
+The following sample applies deny settings to the child scopes at the management group scope:
+
+```azurecli
+az stack mg create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-apply-to-child-scopes
+```
+
+Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
 
 ---
 
