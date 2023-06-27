@@ -68,7 +68,7 @@ export GREEN_COMMIT_ID=c6f1515
 az containerapp create --name $APP_NAME \
   --environment $APP_ENVIRONMENT_NAME \
   --resource-group $RESOURCE_GROUP \
-  --image k8seteste2e.azurecr.io/e2e-apps/test-app:$BLUE_COMMIT_ID \
+  --image mcr.microsoft.com/k8se/samples/test-app:$BLUE_COMMIT_ID \
   --revision-suffix $BLUE_COMMIT_ID \
   --env-vars REVISION_COMMIT_ID=$BLUE_COMMIT_ID \
   --ingress external \
@@ -176,7 +176,7 @@ resource blueGreenDeploymentApp 'Microsoft.App/containerApps@2022-11-01-preview'
       revisionSuffix: currentCommitId
       containers:[
         {
-          image: 'k8seteste2e.azurecr.io/e2e-apps/test-app:${currentCommitId}'
+          image: 'mcr.microsoft.com/k8se/samples/test-app:${currentCommitId}'
           name: appName
           resources: {
             cpu: json('0.5')
@@ -231,7 +231,7 @@ The *blue* label currently refers to a revision that takes the production traffi
 #create a second revision for green commitId
 az containerapp update --name $APP_NAME \
   --resource-group $RESOURCE_GROUP \
-  --image k8seteste2e.azurecr.io/e2e-apps/test-app:latest \
+  --image mcr.microsoft.com/k8se/samples/test-app:$GREEN_COMMIT_ID \
   --revision-suffix $GREEN_COMMIT_ID  \
   --set-env-vars REVISION_COMMIT_ID=$GREEN_COMMIT_ID
 
@@ -390,7 +390,7 @@ export BLUE_COMMIT_ID=0d1436b
 # create a third revision for blue commitId
 az containerapp update --name $APP_NAME \
   --resource-group $RESOURCE_GROUP \
-  --image k8seteste2e.azurecr.io/e2e-apps/test-app:latest \
+  --image mcr.microsoft.com/k8se/samples/test-app:$BLUE_COMMIT_ID \
   --revision-suffix $BLUE_COMMIT_ID  \
   --set-env-vars REVISION_COMMIT_ID=$BLUE_COMMIT_ID
 
