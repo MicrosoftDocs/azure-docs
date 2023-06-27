@@ -7,7 +7,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 06/27/2023
 
 ---
 
@@ -44,6 +44,12 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 - The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
 - Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
 - The `RedisPubSubTrigger` isn't supported with consumption functions.
+ 
+## Scope of availability for functions triggers
+
+|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
+|---------|:---------:|:---------:|:---------:|
+|Pub/Sub  | Yes  | Yes  |  Yes  |
 
 ## Example using `Channel`
 
@@ -84,11 +90,11 @@ public static void PubSubTrigger(
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-
+TBD
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-
+TBD
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-python"
@@ -112,9 +118,15 @@ public static void PubSubTrigger(
 
 ## Attributes
 
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section: The attribute's constructor takes the following parameters: |Parameter | Description| |---------|----------------------| |**Parameter1** |Description 1| |**Parameter2** | Description 2| -->
+|Property | Description|
+|---|---|
+| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
+| `Keys`| Keys to read from. It is space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
+|  `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: 1000|
+|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
+| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
+|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
 
 ## Example using `myKey`
 
@@ -240,8 +252,33 @@ public static void PubSubTrigger(
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end
 
+## Attributes
+
+name = "message",
+connectionStringSetting = "redisLocalhost",
+channel = "__keyevent@0__:del")
+
+|Property | Description|
+|---|---|
+| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
+| `Keys`| Keys to read from. It is space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
+|  `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: 1000|
+|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
+| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
+|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
+
 ## Annotations
 <!-- Equivalent values for the annotation parameters in Java.-->
+
+|Property | Description|
+|---|---|
+| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
+| `Keys`| Keys to read from. It is space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
+|  `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: 1000|
+|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
+| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
+|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
+| Count ||
 
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
@@ -249,13 +286,79 @@ public static void PubSubTrigger(
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-<!-- this get more complex when you support the Python v2 model. --> <!-- suggestion |function.json property |Description| |---------|---------| | **type** | Required - must be set to `eventGridTrigger`. | | **direction** | Required - must be set to `in`. | | **name** | Required - the variable name used in function code for the parameter that receives the event data. | -->
+"type": "redisPubSubTrigger",
+"connectionStringSetting": "redisLocalhost",
+"channel": "__keyevent@0__:del",
+"name": "message",
+"direction": "in"
+
+|Property | Description|
+|---|---|
+| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
+| `Keys`| Keys to read from. It is space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
+|  `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: 1000|
+|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
+| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
+|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
+| Count ||
+
 ::: zone-end
 
-## Extra sections
+## Usage
 
-<!--Put any sections with content that doesn't fit into the above section headings down here. -->
-host.json settings
-<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
+All triggers return a `RedisMessageModel` object that has two fields:
+
+- `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
+- `Message`: The pubsub message, list element, or stream element.
+
+```csharp
+namespace Microsoft.Azure.WebJobs.Extensions.Redis
+{
+  public class RedisMessageModel
+  {
+    public string Trigger { get; set; }
+    public string Message { get; set; }
+  }
+}
+```
+
+<!--Any usage information specific to isolated worker process, including types. -->
+
+::: zone-end
+<!--Any of the below pivots can be combined if the usage info is identical.-->
+::: zone pivot="programming-language-java"
+
+```java
+public class RedisMessageModel {
+    public String Trigger;
+    public String Message;
+}
+```
+
+<!--Any usage information from the Java tab in ## Usage. -->
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell"
+TBD
+<!--Any usage information from the JavaScript tab in ## Usage. -->
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+TBD
+<!--Any usage information from the PowerShell tab in ## Usage. -->
+::: zone-end
+
+TBD
+
+::: zone pivot="programming-language-python"
+
+```python
+class RedisMessageModel:
+    def __init__(self, trigger, message):
+        self.Trigger = trigger
+        self.Message = message
+```
+<!--Any usage information from the Python tab in ## Usage. -->
+::: zone-end
 
 Next steps
