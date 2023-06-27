@@ -1418,21 +1418,48 @@ You can see the current version that the runtime is using by logging `process.ve
 
 ### Setting the Node version
 
+You can set the Node.js version for your function app programmatically by using the Azure CLI. The command you use to set the Node.js version depends on whether your function app runs on Windows or Linux. You can also use the portal to change the Node.js version. For more information about Node.js versions, see [Supported versions](#supported-versions).
+
+Before upgrading your Node.js version, make sure your function app is running on the latest version of the Azure Functions runtime. If you need to upgrade your runtime version, see [Migrate apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md?pivots=programming-language-javascript).  
+
+# [Azure portal](#tab/azure-portal)
+
+The following steps apply when your function app is  running on either Linux or Windows.
+
+1. In the [Azure portal](https://portal.azure.com), locate your function app and select **Configuration** on the left-hand side.
+
+1. Select the **Function runtime settings** tab and verify that your function app is running on the latest version of the Functions runtime. 
+
+1. Select the **General settings** tab and update the **Node.js Version** to the latest version. Ideally, you have already locally verified that your functions run on the version you select. 
+
+    :::image type="content" source="media/functions-reference-node/set-nodejs-version-portal.png" alt-text="Screenshot of setting Node.js for the function app to the latest LTS version in the Azure portal. ":::
+
+1. When notified about a restart, select **Continue**, and then select **Save**. 
+
 # [Windows](#tab/windows-setting-the-node-version)
 
-For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~18`.
+Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
+
+```azurecli-interactive
+az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~18 \
+ --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
+```
+
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~18`.
 
 # [Linux](#tab/linux-setting-the-node-version)
 
-For Linux function apps, run the following Azure CLI command to update the Node version.
+Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
-```azurecli
-az functionapp config set --linux-fx-version "node|18" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```azurecli-interactive
+az functionapp config set --linux-fx-version "node|18" --name "<FUNCTION_APP_NAME>" \
+ --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
+This sets the base image of the Linux function app to Node.js version 18.
 ---
 
-To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md).
+After changes are made, your function app restarts. To learn more about Functions support for Node.js, see [Language runtime support policy](./language-support-policy.md).
 
 <a name="access-environment-variables-in-code"></a>
 
