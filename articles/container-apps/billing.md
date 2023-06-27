@@ -16,17 +16,17 @@ Billing in Azure Container apps is based on your [plan type](plans.md).
 
 | Plan type | Description |
 |--|--|
-| [Consumption or Consumption workload profiles](#consumption-plan) | Serverless environment where you're only billed for the resources your apps use as they're running. |
-| [Dedicated workload profiles](#consumption-dedicated) | A fully managed environment that supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You're billed for instances allocated to each [workload profile](workload-profiles-overview.md). |
+| [Consumption plan](#consumption-plan) | Serverless compute option where you're only billed for the resources your apps use as they're running. |
+| [Dedicated plan](#consumption-dedicated) | Customized compute options where you're billed for instances allocated to each [workload profile](workload-profiles-overview.md). |
 
 - Your plan selection determines billing calculations.
 - Different applications in an environment can use different plans.
 
-For more information, see the [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/) calculator.
+For more information, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
-## Consumption plan & Consumption workload profile (preview)
+## Consumption plan
 
-Billing for Azure Container Apps Consumption plan and Consumption workload profile consists of two types of charges:
+Billing for apps running in the Consumption plan consists of two types of charges:
 
 - **[Resource consumption](#resource-consumption-charges)**: The amount of resources allocated to your container app on a per-second basis, billed in vCPU-seconds and GiB-seconds.
 - **[HTTP requests](#request-charges)**: The number of HTTP requests your container app receives.
@@ -90,15 +90,15 @@ In addition to resource consumption, Azure Container Apps also charges based on 
 
 <a id="consumption-dedicated"></a>
 
-## Dedicated workload profiles (preview)
+## Dedicated plan
 
 You're billed based on workload profile instances, not by individual applications.
 
-The billing for apps running in the Dedicated plan within the Consumption + Dedicated plan structure is as follows:
+Billing for apps running in the Dedicated plan is based on workload profile instances, not by individual applications. The charges are as follows:
 
 | Fixed management costs | Variable costs |
 |---|---|
-| If you have one or more dedicated workload profiles in your environment, you're charged a management fee. For instance, you aren't billed any charges for Dedicated unless you use a Dedicated workload profile in your environment. | You're billed on a per-second basis for vCPU-seconds and GiB-seconds resources in all the workload profile instances in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
+| If you have one or more dedicated workload profiles in your environment, you're charged a Dedicated plan management fee. You aren't billed any plan management charges unless you use a Dedicated workload profile in your environment. | You're billed on a per-second basis for vCPU-seconds and GiB-seconds resources in all the workload profile instances in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
 
 Make sure to optimize the applications you deploy to a dedicated workload profile. Evaluate the needs of your applications so that they can use the most amount of resources available to the profile.
 
@@ -106,4 +106,3 @@ Make sure to optimize the applications you deploy to a dedicated workload profil
 
 - For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
-- For best results, maximize your allocated resources by considering the needs of each container app in a workload profile. Often you can run multiple apps on a single instance of a workload profile.
