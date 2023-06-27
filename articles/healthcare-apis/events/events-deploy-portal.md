@@ -1,18 +1,21 @@
 ---
 title: Deploy Events using the Azure portal - Azure Health Data Services
-description: This article describes how to deploy the Events feature in the Azure portal.
+description: Learn how to deploy the Events feature using the Azure portal.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/21/2022
+ms.date: 06/23/2022
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy Events using the Azure portal
 
-In this quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Healthcare Interoperability Resources (FHIR&#174;) and DICOM event messages.
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+In this quickstart, learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send FHIR and DICOM event messages.
 
 ## Prerequisites
 
@@ -57,7 +60,7 @@ It's important that you have the following prerequisites completed before you be
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
-5. Event messages won't be sent until the Event Grid System Topic deployment has successfully completed. Upon successful creation of the Event Grid System Topic, the status of the workspace will change from "Updating" to "Succeeded".
+5. Event message sending can't occur until the Event Grid System Topic deployment has successfully completed. Upon successful creation of the Event Grid System Topic, the status of the workspace changes from **Updating** to **Succeeded**.
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-create.png" alt-text="Screenshot of an events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-create.png":::
 
@@ -76,7 +79,7 @@ It's important that you have the following prerequisites completed before you be
 
 ## Next steps
 
-In this article, you've learned how to deploy events in the Azure portal. For details about supported events, see [Azure Health Data Services as an Event Grid source](../../event-grid/event-schema-azure-health-data-services.md).
+In this article, you learned how to deploy Events in the Azure portal. For details about supported events, see [Azure Health Data Services as an Event Grid source](../../event-grid/event-schema-azure-health-data-services.md).
 
 To learn how to enable the Events metrics, see
 
