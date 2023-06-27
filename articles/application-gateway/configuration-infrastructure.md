@@ -119,7 +119,7 @@ When using a common port number for public and private listeners, you must inclu
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
-|&lt;as per need&gt;|Any|&lt;Subnet IP Prefix&gt;,<br/>&lt;Gateway's Public IP&gt;|&lt;listener ports&gt;|TCP|Allow|
+|&lt;as per need&gt;|Any|&lt;Public and Private frontend IPs&gt;|&lt;listener ports&gt;|TCP|Allow|
 
 2. **Infrastructure ports** - Allow incoming requests from the source as GatewayManager service tag and any destination. The destination port range differs based on SKU and is required for communicating the status of the Backend Health. (These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place).
 	- V2: Ports 65200-65535
