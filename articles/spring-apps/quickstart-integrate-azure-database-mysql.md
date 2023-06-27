@@ -42,7 +42,7 @@ An Azure account with an active subscription. [Create an account for free](https
    > [!TIP]
    > The password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
 
-## Create service connectors to Azure Database for MySQL instance
+## Create service connectors to Azure Database for MySQL
 
 Use [Service Connector](../service-connector/overview.md) to connect the app hosted in Azure Spring Apps to your MySQL database.
 
@@ -57,7 +57,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    az provider register --namespace Microsoft.ServiceLinker
    ```
 
-1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information. Use single quotes around the value for MySQL server `secret`.
+1. Run the `az spring connection create` command to create a service connection between the app `customers-service` and the Azure MySQL database. Replace the placeholders below with your own information. Use single quotes around the value for MySQL server `secret`.
 
    | Setting                   | Description                                                                                    |
    |---------------------------|------------------------------------------------------------------------------------------------|
@@ -74,7 +74,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    az spring connection create mysql-flexible \
        --resource-group <Azure-Spring-Apps-resource-group-name> \
        --service <Azure-Spring-Apps-resource-name> \
-       --app <app-name> \
+       --app customers-service \
        --connection <mysql-connection-name-for-app> \
        --target-resource-group <mySQL-server-resource-group> \
        --server <server-name> \
@@ -85,13 +85,13 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    > [!TIP]
    > If the `az spring` command isn't recognized by the system, check that you have installed the Azure Spring Apps extension by running `az extension add --name spring`.
 
-1. Run the `az spring connection validate` command to show the status of the connection between Azure Spring Apps and the Azure MySQL database. Replace the placeholders below with your own information.
+1. Run the `az spring connection validate` command to show the status of the connection between the app `customers-service` and the Azure MySQL database. Replace the placeholders below with your own information.
 
    ```azurecli-interactive
    az spring connection validate
        --resource-group <Azure-Spring-Apps-resource-group-name> \ 
        --service <Azure-Spring-Apps-resource-name> \
-       --app <app-name> \
+       --app customers-service \
        --connection <connection-name>
    ```
 
@@ -108,7 +108,7 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
    > [!TIP]
    > To get more details about the connection between your services, remove `--output table` from the above command.
 
-1. Repeat above to create and validate the service connector for the application `customers-service`, it's required to apps `vets-service` and `visits-service`.
+1. Repeat above to create and validate the service connector for the application `customers-service`, it's required for apps `vets-service` and `visits-service`.
 
 ### [Portal](#tab/azure-portal)
 
@@ -141,11 +141,11 @@ Use [Service Connector](../service-connector/overview.md) to connect the app hos
 
 :::image type="content" source="./media\quickstart-integrate-azure-database-mysql\check-connection.png" alt-text="Screenshot of the Azure portal, in the Azure Spring Apps instance, check connection to MySQL database.":::
 
-1. Repeat above to create and validate the service connector for the application `customers-service`, it's required to apps `vets-service` and `visits-service`.
+1. Repeat above to create and validate the service connector for the application `customers-service`, it's required for apps `vets-service` and `visits-service`.
 
 ---
 
-## Update apps to connect the Azure Database for MySQL instance
+## Update apps to connect the Azure Database for MySQL
 
 This section shows you how to update the apps to connect to the MySQL database.
 
