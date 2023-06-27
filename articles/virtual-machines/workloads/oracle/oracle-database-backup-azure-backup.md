@@ -58,7 +58,7 @@ To prepare the environment, complete these steps:
    sudo su -
    ```
 
-1. Add the Oracle user to the */etc/sudoers* file:
+1. Add the `oracle` user to the */etc/sudoers* file:
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
@@ -72,7 +72,7 @@ When the database is in `ARCHIVELOG` mode, it archives the contents of online re
 
 Oracle provides the capability to archive redo log files to different locations. The industry best practice is that at least one of those destinations should be on remote storage, so it's separate from the host storage and protected with independent snapshots. Azure Files meets those requirements.
 
-An Azure file share is storage that you an attach to a Linux or Windows VM as a regular file-system component, by using the SMB or NFS protocol. To set up an Azure file share on Linux (by using the SMB 3.0 protocol) for use as archive log storage, see [Mount an SMB Azure file share on Linux](../../../storage/files/storage-how-to-use-files-linux.md). When you complete the setup, return to this guide and complete all remaining steps.
+An Azure file share is storage that you an attach to a Linux or Windows VM as a regular file-system component, by using the Server Message Block (SMB) or Network File System (NFS) protocol. To set up an Azure file share on Linux (by using the SMB 3.0 protocol) for use as archive log storage, see [Mount an SMB Azure file share on Linux](../../../storage/files/storage-how-to-use-files-linux.md). When you complete the setup, return to this guide and complete all remaining steps.
 
 ### Prepare the databases
 
@@ -99,7 +99,7 @@ Perform the following steps for each database on the VM:
 
     This step assumes that you configured and mounted an Azure file share on the Linux VM. For each database installed on the VM, make a subdirectory that's named after your database security identifier (SID).
 
-    In this example, the mount point name is `/backup` and the SID is `oratest1`. So you create the subdirectory `/backup/oratest1` and change ownership to the Oracle user. Substitute `/backup/SID` for your mount point name and database SID.
+    In this example, the mount point name is `/backup` and the SID is `oratest1`. So you create the subdirectory `/backup/oratest1` and change ownership to the `oracle` user. Substitute `/backup/SID` for your mount point name and database SID.
 
     ```bash
     sudo mkdir /backup/oratest1
@@ -181,7 +181,7 @@ Perform the following steps for each database on the VM:
 
 The Azure Backup service provides solutions to back up your data and recover it from the Microsoft Azure cloud. Azure Backup provides independent and isolated backups to guard against accidental destruction of original data. Backups are stored in a Recovery Services vault with built-in management of recovery points, so you can restore as needed.
 
-In this section, you use Azure Backup to take application-consistent snapshots of your running VM and Oracle Database instances. The databases are placed into backup mode, allowing a transactionally consistent online backup to occur while Azure Backup takes a snapshot of the VM disks. The snapshot is a full copy of the storage and not an incremental or copy-on-write snapshot, so it's an effective medium to restore your database from.
+In this section, you use Azure Backup to take application-consistent snapshots of your running VM and Oracle Database instances. The databases are placed into backup mode, which allows a transactionally consistent online backup to occur while Azure Backup takes a snapshot of the VM disks. The snapshot is a full copy of the storage and not an incremental or copy-on-write snapshot. It's an effective medium to restore your database from.
 
 The advantage of using Azure Backup application-consistent snapshots is that they're fast to take, no matter how large your database is. You can use a snapshot for restore operations as soon as you take it, without having to wait for it to be transferred to the Recovery Services vault.
 
@@ -196,13 +196,13 @@ To use Azure Backup to back up the database, complete these steps:
 
 The Azure Backup service provides a [framework](../../../backup/backup-azure-linux-app-consistent.md) to achieve application consistency during backups of Windows and Linux VMs for various applications. This framework involves invoking a pre-script to quiesce the applications before taking a snapshot of disks. It calls a post-script to unfreeze the applications after the snapshot is completed.
 
-Microsoft has enhanced the framework so that the Azure Backup service provides packaged pre-scripts and post-scripts for selected applications. These pre-scripts and post-scripts are already loaded on the Linux image, so there's nothing for you to install. You just name the application, and then Azure Backup automatically invokes the relevant pre-scripts and post-scripts. Microsoft manages the packaged pre-scripts and post-scripts, so you can be assured of the support, ownership, and validity of these scripts.
+Microsoft has enhanced the framework so that the Azure Backup service provides packaged pre-scripts and post-scripts for selected applications. These pre-scripts and post-scripts are already loaded on the Linux image, so there's nothing for you to install. You just name the application, and then Azure Backup automatically invokes the relevant scripts. Microsoft manages the packaged pre-scripts and post-scripts, so you can be assured of the support, ownership, and validity of them.
 
 Currently, the supported applications for the enhanced framework are Oracle 12.x or later and MySQL. For details, see [Support matrix for managed Azure VM backups](../../../backup/backup-support-matrix-iaas.md).
 
 You can author your own scripts for Azure Backup to use with pre-12.x databases. Example scripts are available on [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts).
 
-Each time you do a backup, the enhanced framework runs the pre-scripts and post-scripts on all Oracle Database instances installed on the VM. The parameter `configuration_path` in the *workload.conf* file points to the location of the Oracle */etc/oratab* file (or a user-defined file that follows the oratab syntax). For details, see [Set up application-consistent backups](#set-up-application-consistent-backups).
+Each time you do a backup, the enhanced framework runs the pre-scripts and post-scripts on all Oracle Database instances installed on the VM. The `configuration_path` parameter in the *workload.conf* file points to the location of the Oracle */etc/oratab* file (or a user-defined file that follows the oratab syntax). For details, see [Set up application-consistent backups](#set-up-application-consistent-backups).
 
 Azure Backup runs the pre-scripts and post-scripts for each database listed in the file that `configuration_path` points to. Exceptions are lines that begin with `#` (treated as comment) or `+ASM` (an Oracle ASM instance).
 
@@ -212,7 +212,7 @@ For the database backup to be consistent, databases in `NOARCHIVELOG` mode must 
 
 ### Prepare the environment for an application-consistent backup
 
-Oracle Database employs job role separation to provide separation of duties by using least privilege. It associates separate operating system (OS) groups with separate database administrative roles. Operating system users can then have different database privileges granted to them, depending on their membership in OS groups.
+Oracle Database employs job role separation to provide separation of duties by using least privilege. It associates separate operating system (OS) groups with separate database administrative roles. Users can then have different database privileges granted to them, depending on their membership in OS groups.
 
 The `SYSBACKUP` database role (generic name `OSBACKUPDBA`) provides limited privileges to perform backup operations in the database. Azure Backup requires it.
 
@@ -274,7 +274,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
 
    The backup user `azbackup` needs to be able to access the database by using external authentication, so it isn't challenged by a password. To enable this access, you must create a database user that authenticates externally through `azbackup`. The database uses a prefix for the user name, which you need to find.
 
-   Perform the following steps for *each* database installed on the VM:
+   Perform the following steps for each database installed on the VM:
 
    1. Log in to the database by using SQL Plus, and check the default settings for external authentication:
 
@@ -293,7 +293,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
       remote_os_authent                    boolean     FALSE
       ```
 
-   1. Create a database user `ops$azbackup` for external authentication to the `azbackup` user, and grant `SYSBACKUP` privileges:
+   1. Create a database user named `ops$azbackup` for external authentication to the `azbackup` user, and grant `SYSBACKUP` privileges:
 
       ```bash
       SQL> CREATE USER ops$azbackup IDENTIFIED EXTERNALLY;
@@ -351,7 +351,7 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
    fi
    ```
 
-1. Check for *workload.conf* within the folder. If it isn't present, create a file in the */etc/azure* directory called *workload.conf* with the following contents. The comments must begin with `[workload]`. If the file is already present, just edit the fields so that they match the following contents. Otherwise, the following command creates the file and populates the contents.
+1. Check for the *workload.conf* file within the folder. If it isn't present, create it in the */etc/azure* directory and give it the following contents. The comments must begin with `[workload]`. If the file is already present, just edit the fields so that they match the following contents. Otherwise, the following command creates the file and populates the contents:
 
    ```bash
    echo "[workload]
