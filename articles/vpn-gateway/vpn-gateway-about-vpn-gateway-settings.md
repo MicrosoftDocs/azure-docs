@@ -76,9 +76,8 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. In comparison, when you resize a gateway SKU, there isn't much downtime because you don't have to delete and rebuild the gateway. While it's faster to resize your gateway SKU, there are rules regarding resizing:
 
 1. Except for the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2) and SKU family (VpnGwx or VpnGwxAZ).
-   *  Example: VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1, but not to VpnGw2 of Generation2.
-   *  Example: VpnGw2 of Generation2 can't be resized to VpnGw2AZ of either Generation1 or Generation2 because the "AZ" gateways are [zone redundant](about-zone-redundant-vnet-gateways.md).
-   *  In both of the preceding examples, the gateway needs to be deleted and rebuilt using the desired gateway SKU.
+   *  Example: VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1, but can't be resized to VpnGw2 of Generation2. The gateway must instead be changed (deleted and rebuilt).
+   *  Example: VpnGw2 of Generation2 can't be resized to VpnGw2AZ of either Generation1 or Generation2 because the "AZ" gateways are [zone redundant](about-zone-redundant-vnet-gateways.md). To change to an AZ SKU, delete the gateway and rebuild it using the desired AZ SKU.
 1. When working with older legacy SKUs:
    * You can resize between Standard and HighPerformance SKUs.
    * You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
