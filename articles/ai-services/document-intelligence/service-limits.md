@@ -150,7 +150,7 @@ Increasing the Concurrent Request limit does **not** directly affect your costs.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 
-If you would like to increase your transactions per second, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource * [enable auto scaling](../../cognitive-services/autoscale.md). You can also submit an increase TPS support request.
+If you would like to increase your transactions per second, you can enable auto scaling on your resource. Follow this document to enable auto scaling on your resource * [enable auto scaling](../../ai-services/autoscale.md). You can also submit an increase TPS support request.
 
 #### Have the required information ready
 

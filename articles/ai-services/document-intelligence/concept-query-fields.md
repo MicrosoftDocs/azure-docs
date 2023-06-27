@@ -36,7 +36,7 @@ For query field extraction, specify the fields you want to extract and Form Reco
 
    :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Form Recognizer Studio.":::
 
-* Form Recognizer utilizes the capabilities of both [**Azure OpenAI Service**](../../cognitive-services/openai/overview.md) and extraction models to analyze and extract the field data and return the values in a structured JSON output.
+* Form Recognizer utilizes the capabilities of both [**Azure OpenAI Service**](../../ai-services/openai/overview.md) and extraction models to analyze and extract the field data and return the values in a structured JSON output.
 
 * In addition to the query fields, the response includes text, tables, selection marks, general document key-value pairs, and other relevant data.
 

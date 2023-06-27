@@ -16,7 +16,7 @@ monikerRange: '>=form-recog-2.1.0'
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. In this article, learn how to create a Form Recognizer resource in the Azure portal.
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. In this article, learn how to create a Form Recognizer resource in the Azure portal.
 
 ## Visit the Azure portal
 

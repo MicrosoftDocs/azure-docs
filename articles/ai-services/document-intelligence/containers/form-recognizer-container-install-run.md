@@ -72,7 +72,7 @@ You also need the following to use Form Recognizer containers:
 :::moniker range="form-recog-2.1.0"
 You also need a **Computer Vision API resource to process business cards, ID documents, or Receipts**.
 
-* You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../cognitive-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image).
+* You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../ai-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image).
 
 * The usual [billing](#billing) fees apply.
 
@@ -1194,7 +1194,7 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 
 ### Connect to Azure
 
-The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run, but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. See the [Cognitive Services container FAQ](../../../cognitive-services/containers/container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
+The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run, but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. See the [Cognitive Services container FAQ](../../../ai-services/containers/container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
 ### Billing arguments
 
@@ -1224,4 +1224,4 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 * [Form Recognizer container configuration settings](form-recognizer-container-configuration.md)
 
-* [Azure container instance recipe](../../../cognitive-services/containers/azure-container-instance-recipe.md)
+* [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)

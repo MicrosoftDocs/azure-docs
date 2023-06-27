@@ -971,7 +971,7 @@ The new SDK supports all the features of the v2.0 REST API for Form Recognizer. 
 * Security improvements
 
 * Customer-Managed Keys are now available for FormRecognizer. For more information, see [Data encryption at rest for Form Recognizer](./encrypt-data-at-rest.md).
-* Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](../../cognitive-services/authentication.md#authorize-access-to-managed-identities).
+* Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](../../ai-services/authentication.md#authorize-access-to-managed-identities).
 
 ---
 
@@ -1012,7 +1012,7 @@ See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to l
 
 * TLS 1.2 enforcement
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/security-features.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../ai-services/security-features.md).
 
 ---
 

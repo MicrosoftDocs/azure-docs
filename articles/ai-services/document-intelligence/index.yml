@@ -39,7 +39,7 @@ landingContent:
            - text: SDK overview (GA)
              url: sdk-overview.md
            - text: Help and support
-             url: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
+             url: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/form-recognizer/context/context
 
   #Card 2
    - title: Azure Form Recognizer features

@@ -7,7 +7,7 @@
     topicHref: /azure/applied-ai-services/index
     items:
     - name: Form Recognizer
-      tocHref: /azure/cognitive-services/
+      tocHref: /azure/ai-services/
       topicHref: /azure/applied-ai-services/form-recognizer/index
 - name: Azure
   tocHref: /legal/
@@ -19,6 +19,6 @@
     items:
     - name: Form Recognizer           # Destination doc set name
       tocHref: /legal/cognitive-services/form-recognizer      # Destination doc set route
-      topicHref: /azure/cognitive-services/form-recognizer/index    # Original doc set route
+      topicHref: /azure/ai-services/form-recognizer/index    # Original doc set route
 
       

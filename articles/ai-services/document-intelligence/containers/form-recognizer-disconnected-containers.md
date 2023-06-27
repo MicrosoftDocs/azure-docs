@@ -32,7 +32,7 @@ Before attempting to run a Docker container in an offline environment, make sure
 
 ## Request access to use containers in disconnected environments
 
-Before you can use Form Recognizer containers in disconnected environments, you must first fill out and [submit a request form](../../../cognitive-services/containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../../cognitive-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+Before you can use Form Recognizer containers in disconnected environments, you must first fill out and [submit a request form](../../../ai-services/containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) and [purchase a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 
 ## Gather required parameters
 
@@ -220,9 +220,9 @@ This usage-logs endpoint returns a JSON response similar to the following exampl
 Run the container with an output mount and logging enabled. These settings enable the container generates log files that are helpful for troubleshooting issues that occur while starting or running the container.
 
 > [!TIP]
-> For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../../cognitive-services/containers/disconnected-container-faq.yml).
+> For more troubleshooting information and guidance, see [Disconnected containers Frequently asked questions (FAQ)](../../../ai-services/containers/disconnected-container-faq.yml).
 
 ## Next steps
 
 * [Deploy the Sample Labeling tool to an Azure Container Instance (ACI)](../deploy-label-tool.md#deploy-with-azure-container-instances-aci)
-* [Change or end a commitment plan](../../../cognitive-services/containers/disconnected-containers.md#purchase-a-different-commitment-plan-for-disconnected-containers)
+* [Change or end a commitment plan](../../../ai-services/containers/disconnected-containers.md#purchase-a-different-commitment-plan-for-disconnected-containers)
