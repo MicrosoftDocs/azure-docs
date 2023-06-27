@@ -86,7 +86,7 @@ az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --
 
 ## Create an instance of a DiskEncryptionSet
 
-Replace *myKeyVaultName* with the name of your key vault.  You will also need a *key* stored in Azure Key Vault to complete the following steps.  Either store your existing Key in the Key Vault you created on the previous steps, or [generate a new key][key-vault-generate] and replace *myKeyName* below with the name of your key.
+Replace *myKeyVaultName* with the name of your key vault. You also need a *key* stored in Azure Key Vault to complete the following steps. Either store your existing Key in the Key Vault you created on the previous steps, or [generate a new key][key-vault-generate] and replace *myKeyName* with the name of your key.
 
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -129,7 +129,7 @@ az group create -n myResourceGroup -l myAzureRegionName
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --generate-ssh-keys --node-osdisk-type Ephemeral
 ```
 
-When new node pools are added to the cluster created above, the customer-managed key provided during the create process is used to encrypt the OS disk. The following example shows how to deploy a new node pool with an ephemeral OS disk.
+When new node pools are added to the cluster, the customer-managed key provided during the create process is used to encrypt the OS disk. The following example shows how to deploy a new node pool with an ephemeral OS disk.
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name $CLUSTER_NAME -g $RG_NAME --name $NODEPOOL_NAME --node-osdisk-type Ephemeral
