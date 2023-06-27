@@ -158,7 +158,9 @@ Enable Azure Active Directory authentication to SQL Database by assigning an Azu
 
 ## Examples
 
-GraphQL schema used for below examples:
+### Example schema
+
+The examples in this section are resolvers for the following GraphQL schema:
 
 ```GraphQL
 type Family {
@@ -259,7 +261,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
 
 ### Resolver for GraphQL mutation 
 
-The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL 
+The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL database.
 
 ```xml
 <sql-data-source> 
