@@ -11,9 +11,6 @@ ms.date: 05/23/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 <!-- markdownlint-disable MD033 -->
 
 # Azure AI Document Intelligence receipt model
@@ -373,9 +370,6 @@ See how Document Intelligence extracts data, including time and date of transact
 |`Items.*.Category`|`string`|Item category|Room|
 
 ---
-
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
 
 
 ::: moniker-end

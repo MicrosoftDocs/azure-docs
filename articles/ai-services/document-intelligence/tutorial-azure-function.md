@@ -13,9 +13,6 @@ ms.author: lajanuar
 ms.custom: VS Code-azure-extension-update-completed, devx-track-python
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Tutorial: Use Azure Functions and Python to process stored documents
 

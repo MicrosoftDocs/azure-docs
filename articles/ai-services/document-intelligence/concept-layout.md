@@ -11,9 +11,6 @@ ms.date: 06/23/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Azure AI Document Intelligence layout model
 

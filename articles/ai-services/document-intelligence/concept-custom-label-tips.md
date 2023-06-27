@@ -12,9 +12,6 @@ ms.author: vikurpad
 ms.custom: references_regions
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Tips for labeling custom model datasets
 

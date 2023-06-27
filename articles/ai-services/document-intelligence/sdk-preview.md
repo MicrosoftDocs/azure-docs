@@ -13,9 +13,6 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -102,9 +99,6 @@ pip install azure-ai-formrecognizer==3.3.0b1
 
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 ### 2. Import the SDK client library into your application
 
@@ -139,9 +133,6 @@ from azure.core.credentials import AzureKeyCredential
 ```
 
 ---
-
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
 
 
 ### 3. Set up authentication
@@ -198,9 +189,6 @@ async function main() {
 ```
 
 ---
-
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
 
 
 #### Use an Azure Active Directory (Azure AD) token credential
@@ -330,9 +318,6 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
 For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer#authenticate-the-client)
 
 ---
-
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
 
 
 ### 4. Build your application

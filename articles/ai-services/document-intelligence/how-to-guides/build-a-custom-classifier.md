@@ -12,9 +12,6 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
-
 
 # Build and train a custom classification model (preview)
 

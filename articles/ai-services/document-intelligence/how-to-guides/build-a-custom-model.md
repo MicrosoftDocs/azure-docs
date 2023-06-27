@@ -11,9 +11,6 @@ ms.date: 01/31/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
-
 
 # Build and train a custom model
 

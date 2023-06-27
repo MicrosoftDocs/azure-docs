@@ -11,9 +11,6 @@ ms.date: 06/23/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
-
 
 # Compose custom models
 
@@ -129,9 +126,6 @@ Training with labels leads to better performance in some scenarios. To train wit
 | **Python** | [**begin_build_model**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.aio.documentmodeladministrationclient?view=azure-python#azure-ai-formrecognizer-aio-documentmodeladministrationclient-begin-build-model&preserve-view=true)
 
 ---
-
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
 
 
 ## Create a composed model
@@ -254,9 +248,6 @@ You can manage a custom model at each stage in its life cycles. You can copy a c
 |**Python** | [Copy a custom model between Document Intelligence resources](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2/sample_copy_model_to.py)|
 
 ---
-
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
 
 Great! You've learned the steps to create custom and composed models and use them in your Document Intelligence projects and applications.
 
@@ -396,9 +387,6 @@ The [**REST API**](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=t
 
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
-
 #### Compose your custom models
 
 After you've gathered your custom models corresponding to a single form type, you can compose them into a single model.
@@ -440,9 +428,6 @@ Use the programming language code of your choice to create a composed model that
 
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
-
 
 ## Analyze documents with your custom or composed model
 
@@ -478,9 +463,6 @@ Using the programming language of your choice to analyze a form or document with
 * [**Python**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.1/sample_recognize_custom_forms.py)
 
 ---
-
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
 
 
 Test your newly trained models by [analyzing forms](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#test-the-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](../label-tool.md#improve-results).

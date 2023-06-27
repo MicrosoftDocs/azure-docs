@@ -12,9 +12,6 @@ ms.author: luzhan
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
-
 
 # Check my Document Intelligence usage and estimate the price
 

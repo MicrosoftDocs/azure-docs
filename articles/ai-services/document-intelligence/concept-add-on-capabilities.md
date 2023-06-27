@@ -12,7 +12,7 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
 
 
 <!-- markdownlint-disable MD033 -->

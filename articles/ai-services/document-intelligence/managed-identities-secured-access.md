@@ -12,9 +12,6 @@ ms.author: vikurpad
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Configure secure access with managed identities and private endpoints
 

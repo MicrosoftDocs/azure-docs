@@ -12,9 +12,6 @@ ms.date: 06/23/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Document Intelligence service quotas and limits
 <!-- markdownlint-disable MD033 -->

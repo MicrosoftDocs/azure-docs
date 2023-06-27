@@ -12,9 +12,6 @@ ms.author: lajanuar
 ms.custom: applied-ai-non-critical-form
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Customer spotlight
 

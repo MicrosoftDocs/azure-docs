@@ -12,7 +12,8 @@ ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
 
 
 
@@ -65,7 +66,8 @@ Release notes for `v2.1`:
 
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
 
 
 

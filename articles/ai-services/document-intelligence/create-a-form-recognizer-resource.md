@@ -12,9 +12,6 @@ ms.author: bemabonsu
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Create a Document Intelligence resource
 

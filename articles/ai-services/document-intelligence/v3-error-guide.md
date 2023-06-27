@@ -12,9 +12,6 @@ ms.author: paulhsu
 monikerRange: 'form-recog-3.0.0'
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Document Intelligence error guide v3.0
 

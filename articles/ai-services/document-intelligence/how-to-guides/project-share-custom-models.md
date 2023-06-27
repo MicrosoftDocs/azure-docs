@@ -12,9 +12,6 @@ ms.author: jppark
 monikerRange: 'form-recog-3.0.0'
 ---
 
-[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
-
-
 
 # Share custom model projects using Azure AI Document Intelligence Studio
 

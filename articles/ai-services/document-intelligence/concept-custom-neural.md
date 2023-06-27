@@ -13,9 +13,6 @@ ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Custom neural document model
 

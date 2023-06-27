@@ -11,9 +11,6 @@ ms.date: 05/23/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
 
 # Custom template document model
 

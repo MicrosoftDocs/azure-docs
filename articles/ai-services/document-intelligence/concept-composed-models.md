@@ -11,10 +11,6 @@ ms.date: 05/23/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
-
 # Composed custom models
 
 ::: moniker range="form-recog-3.0.0"

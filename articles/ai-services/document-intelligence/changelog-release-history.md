@@ -11,10 +11,6 @@ ms.date: 04/24/2023
 ms.author: lajanuar
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
-
-
-
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD051 -->
@@ -85,7 +81,7 @@ This release includes the following updates:
 
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
 
 
 
@@ -161,7 +157,7 @@ This release includes the following updates:
 
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
 
 
 
@@ -218,7 +214,7 @@ This release includes the following updates:
 
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
 
 
 
@@ -268,6 +264,6 @@ This release includes the following updates:
 
 ---
 
-[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
 
 
