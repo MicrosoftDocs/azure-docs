@@ -66,9 +66,9 @@ Location   Name             ResourceGroup
 westus2    saphanaVault     saphanaResourceGroup
 ```
 
-# [HSR database](#tab/hsr-database)
+# [HSR](#tab/hsr)
 
-To create the Recovery Services vault for HSR database instance protection, run the following command:
+To create the Recovery Services vault for HSR instance protection, run the following command:
 
 ```azurecli
 az backup vault create --resource-group hanarghsr2     --name hanavault10     --location westus2
@@ -115,7 +115,7 @@ To register and protect database instance, follow these steps:
    > The column “name” in the above output refers to the container name. This container name will be used in the next sections to enable backups and trigger them. Which in this case, is *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*.
 
 
-# [HSR database](#tab/hsr-database)
+# [HSR](#tab/hsr)
 
 To register and protect database instance, follow these steps:
 
@@ -219,7 +219,7 @@ To get container name, run the following command. [Learn about this CLI command]
 
 ```
 
-# [HSR database](#tab/hsr-database)
+# [HSR](#tab/hsr)
 
 To enable database instance backup, follow these steps:
 
@@ -294,7 +294,7 @@ The response will give you the job name. This job name can be used to track the 
 >[!NOTE]
 >Log backups are automatically triggered and managed by SAP HANA internally.
 
-# [HSR database](#tab/hsr-database)
+# [HSR](#tab/hsr)
 
 To run an on-demand backup, run the following command:
 
