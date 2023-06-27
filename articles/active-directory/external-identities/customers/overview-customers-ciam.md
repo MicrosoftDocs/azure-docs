@@ -96,7 +96,7 @@ Azure AD for customers represents the convergence of business-to-consumer (B2C) 
 
 Learn more about the [security and governance](concept-security-customers.md) features that are available in a customer tenant.
 
-### About Azure AD B2C
+## About Azure AD B2C
 
 If you're a new customer, you might be wondering which solution is a better fit, [Azure AD B2C](../../../active-directory-b2c/index.yml) or Microsoft Entra External ID (preview). Opt for the current Azure AD B2C product if:
 
