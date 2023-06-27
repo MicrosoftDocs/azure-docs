@@ -22,13 +22,13 @@ Get started with the Azure Linux Container Host using Terraform to deploy an Azu
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- **Configure Terraform**: If you haven't already done so, configure Terraform using one of the following options:
+- If you haven't already configured Terraform, you can do so using one of the following options:
   - [Azure Cloud Shell with Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)
   - [Azure Cloud Shell with PowerShell](/azure/developer/terraform/get-started-cloud-shell-powershell?tabs=bash)
   - [Windows with Bash](/azure/developer/terraform/get-started-windows-bash?tabs=bash)
   - [Windows with PowerShell](/azure/developer/terraform/get-started-windows-powershell?tabs=bash)
-- **Azure service principal**: If you don't have a service principal, [create a service principal](/azure/developer/terraform/authenticate-to-azure?tabs=bash#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
-- **Kubernetes command-line tool (kubectl)**: [Download kubectl](https://kubernetes.io/releases/download/).
+- If you don't have an Azure service principal, [create a service principal](/azure/developer/terraform/authenticate-to-azure?tabs=bash#create-a-service-principal). Make note of the `appId`, `display_name`, `password`, and `tenant`.
+- You need the Kubernetes command-line tool `kubectl`. If you don't have it, [download kubectl](https://kubernetes.io/releases/download/).
 
 ### Create an SSH key pair
 
