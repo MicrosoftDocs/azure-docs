@@ -1,5 +1,5 @@
 ---
-title: Workflow Templates and categories
+title: Lifecycle Workflows templates and categories
 description: Conceptual article discussing workflow templates and categories with Lifecycle Workflows.
 author: owinfreyATL
 ms.author: owinfrey
@@ -12,13 +12,13 @@ ms.date: 05/31/2023
 ms.custom: template-concept
 ---
 
-# Lifecycle Workflows templates
+# Lifecycle Workflows templates and categories
 
 Lifecycle Workflows allows you to automate the lifecycle management process for your organization by creating workflows that contain both built-in tasks, and custom task extensions. These workflows, and the tasks within them, all fall into categories based on the Joiner-Mover-Leaver(JML) model of lifecycle management. To make this process even more efficient, Lifecycle Workflows also provide you with templates, which you can use to accelerate the set up, creation, and configuration of common lifecycle management processes. You can create workflows based on these templates as is, or you can customize them even further to match the requirements for users within your organization. In this article you get the complete list of workflow templates, common template parameters, default template parameters for specific templates, and the list of compatible tasks for each template. For full task definitions, see [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md).
 
 
 
-## Lifecycle Workflow Templates
+## Lifecycle Workflows built-in templates
 
 Lifecycle Workflows currently have six built-in templates you can use or customize:
 
@@ -47,7 +47,7 @@ The default specific parameters and properties for the **Onboard pre-hire employ
 
 
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Joiner       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
@@ -68,7 +68,7 @@ The **Onboard new-hire employee** template is designed to configure tasks that a
 The default specific parameters for the **Onboard new hire employee** template are as follows:
 
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Joiner       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
@@ -89,7 +89,7 @@ The **Post-Onboarding of an employee** template is designed to configure tasks t
 The default specific parameters for the **Post-Onboarding of an employee** template are as follows:
 
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Joiner       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
@@ -109,7 +109,7 @@ The **Real-time employee change** template is designed to configure tasks that a
 
 The default specific parameters for the **Real-time employee termination** template are as follows:
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Mover       |  ❌       |
 |Trigger Type     | On-demand        |  ❌       |
@@ -127,7 +127,7 @@ The **Real-time employee termination** template is designed to configure tasks t
 The default specific parameters for the **Real-time employee termination** template are as follows:
 
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Leaver       |  ❌       |
 |Trigger Type     | On-demand        |  ❌       |
@@ -147,7 +147,7 @@ The **Pre-Offboarding of an employee** template is designed to configure tasks t
 The default specific parameters for the **Pre-Offboarding of an employee** template are as follows:
 
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Leaver       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
@@ -170,7 +170,7 @@ The **Offboard an employee** template is designed to configure tasks that are co
 The default specific parameters for the **Offboard an employee** template are as follows:
 
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Leaver       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
@@ -190,7 +190,7 @@ The **Post-Offboarding of an employee** template is designed to configure tasks 
 
 The default specific parameters for the **Post-Offboarding of an employee** template are as follows:
 
-|parameter  |description  |Customizable  |
+|Parameter  |Description  |Customizable  |
 |---------|---------|---------|
 |Category     |  Leaver       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
