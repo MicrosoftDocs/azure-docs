@@ -13,7 +13,7 @@ metadata:
   ms.topic: hub-page
   author: kcpitt
   ms.author: kellypi
-  ms.date: 02/25/2023
+  ms.date: 06/23/2023
   featureFlags:
   - clicktale
 highlightedContent:
@@ -506,6 +506,7 @@ productDirectory:
       imageSrc: ./media/index/quantum.svg
       azureCategories:
         - compute
+        - featured
       url: /azure/quantum/
     # Card
     - title: Azure Spot Virtual Machines
@@ -747,6 +748,10 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/app-configuration.svg
       azureCategories:
         - developer-tools
+        - containers
+        - mobile
+        - security
+        - web
       url: azure-app-configuration/index.yml
     # Card
     - title: Azure Data Studio
@@ -882,6 +887,7 @@ productDirectory:
       azureCategories:
         - devops
         - developer-tools
+        - azure-virtual-desktop
       url: dev-box/index.yml
     # Card
     - title: Azure Active Directory (AD)
@@ -898,6 +904,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/arc.svg
       azureCategories:
         - hybrid
+        - featured
       url: azure-arc/index.yml
     # Card
     - title: Azure ExpressRoute
@@ -1596,6 +1603,59 @@ productDirectory:
        - networking
        - 5g-space
       url: network-function-manager/index.yml
+    # Card
+    - title: Azure Container Storage
+      summary: Manage persistent volumes for stateful container applications
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - storage
+       - containers
+      url: /azure/storage/container-storage/
+   # Card
+    - title: Azure Managed Lustre
+      summary: A fully managed, cloud based parallel file system that enables customers to run their high performance computing (HPC) workloads in the cloud
+      imageSrc: ./media/index/managed-lustre.svg
+      azureCategories:
+       - storage
+      url: /azure/azure-managed-lustre/
+   # Card
+    - title: Azure confidential ledger
+      summary: Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - storage
+       - databases
+       - security
+      url: /azure/confidential-ledger/
+   # Card
+    - title: Azure Lab Services
+      summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - azure-virtual-desktop
+      url: /azure/lab-services/
+   # Card
+    - title: Azure IoT
+      summary: A collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - iot
+      url: /azure/iot/
+    # Card
+    - title: Windows for IoT
+      summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - iot
+      url: /windows/iot/   
+    # Card
+    - title: Azure Kubernetes Service Edge Essentials
+      summary:  An on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale.
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
+      azureCategories:
+       - hybrid
+      url: /azure/aks/hybrid/aks-edge-overview  
+      
 tools:
   title: Languages and tools
   items:
