@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 Azure Storage supports optional anonymous read access for containers and blobs. By default, anonymous access to your data is never permitted. Unless you explicitly enable anonymous access, all requests to a container and its blobs must be authorized. When you configure a container's access level setting to permit anonymous access, clients can read data in that container without authorizing the request.
 
 > [!WARNING]
-> When a container is configured for anonymous access, any client can read data in that container. Anonymous access presents a potential security risk, so if your scenario does not require it, we recommend that you disallow it for the storage account.
+> When a container is configured for anonymous access, any client can read data in that container. Anonymous access presents a potential security risk, so if your scenario does not require it, we recommend that you remediate anonymous access for the storage account.
 
 This article describes how to configure anonymous read access for a container and its blobs. For information about how to remediate anonymous access for optimal security, see one of these articles:
 
@@ -34,7 +34,7 @@ Anonymous access to your data is always prohibited by default. There are two sep
 
     When anonymous access is permitted at the account level, blob data is not available for anonymous read access unless the user takes the additional step to explicitly configure the container's anonymous access setting.
 
-    Beginning on August 1, 2023, new Azure Resource Manager storage accounts are created with anonymous access disallowed by default. For Azure Resource Manager storage accounts created prior to that date, anonymous access is allowed by default, and should be disallowed for optimal security.
+    Beginning on August 1, 2023, new Azure Resource Manager storage accounts are created with anonymous access disallowed by default. For Azure Resource Manager storage accounts created prior to August 1, 2023, anonymous access is allowed by default.
 
 1. **Configure the container's anonymous access setting.** By default, a container's anonymous access setting is disabled, meaning that authorization is required for every request to the container or its data. A user with the appropriate permissions can modify a container's anonymous access setting to enable anonymous access only if anonymous access is allowed for the storage account.
 
@@ -47,7 +47,7 @@ The following table summarizes how the two settings together affect anonymous ac
 
 When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
 
-## Allow or disallow public read access for a storage account
+## Allow or disallow anonymous read access for a storage account
 
 When anonymous access is allowed for a storage account, a user with the appropriate permissions can modify a container's anonymous access setting to enable anonymous access to the data in that container. Blob data is never available for anonymous access unless the user takes the additional step to explicitly configure the container's anonymous access setting.
 
@@ -83,13 +83,13 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 
 To allow or disallow anonymous access for a storage account, configure the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
-The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value until you explicitly set it. The meaning of the **null** value depends on when the storage account was created:
+The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value (that is, returns a **null** value) until you explicitly set it. The meaning of the **null** value depends on when the storage account was created:
 
-- For storage accounts created on or after August 1, 2023, anonymous access is disallowed by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, the property returns **null**. The **null** return value indicates that anonymous access is disallowed in this case. You can set the value explicitly to **false** when you create the storage account or after it has been created.
+- For storage accounts created on or after August 1, 2023, anonymous access is disallowed by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, the property returns **null**. The **null** return value indicates that anonymous access is disallowed in this case. You can explicitly set the value to **false** when you create the storage account or after it has been created.
 
 - For storage accounts created prior to August 1, 2023, anonymous access is allowed by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, the property returns **null**. In this scenario, the **null** return value indicates that anonymous access is allowed.
 
-To determine when your storage account was created, check the [CreationTime](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount.creationtime#microsoft-azure-commands-management-storage-models-psstorageaccount-creationtime) property of the storage account.
+To determine when your storage account was created, check the [CreationTime](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount.creationtime#microsoft-azure-commands-management-storage-models-psstorageaccount-creationtime) property of the storage account. You can check this property in the Azure portal, with PowerShell, or with Azure CLI.
 
 # [Azure portal](#tab/portal)
 
