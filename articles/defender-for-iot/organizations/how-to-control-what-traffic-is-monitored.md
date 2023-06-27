@@ -13,7 +13,7 @@ This article is one in a series of articles describing the [deployment path](ot-
 
 Microsoft Defender for IoT OT network sensors automatically run deep packet detection for IT and OT traffic, resolving network device data, such as device attributes and behavior.
 
-After installing, activating, and configuring your OT network sensor, use the tools described in this article to control the type of traffic detected by each OT sensor, how it's identified, and what's included in Defender for IoT alerts.
+After installing, activating, and configuring your OT network sensor, use the tools described in this article to analyze the traffic that's detected automatically, add extra subnets if needed, and control the traffic information included in Defender for IoT alerts.
 
 ## Prerequisites
 
@@ -25,9 +25,30 @@ Before performing the procedures in this article, you must have:
 
 This step is performed by your deployment teams.
 
-## Define OT and IoT subnets
+## Analyze detected subnets
 
-After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, define the sensor's subnet settings directly on the OT sensor console to determine how devices are displayed in the sensor's [device map](how-to-work-with-the-sensor-device-map.md) and the [Azure device inventory](device-inventory.md).
+After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, run an initial analysis on your sensor to understand which subnets are detected automatically.
+
+**To analyze your network**:
+
+1. Sign into your OT sensor as an Admin user and select **System settings** > **Basic** > **Deployment**.
+
+1. Select **Analyze**. The analysis starts and the detected subnets start to be listed in the grid, showing the following details:
+
+    - Subnet name
+    - The number of unicast addresses in each subnet
+    - An indication of whether broadcast traffic is detected for internal networks
+    - The protocols detected in the traffic
+
+    For example:
+
+    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page.":::
+
+1. Wait for the analysis to complete, and then check the listed subnets to see if all the networks you expect to be listed are indeed listed. If there are subnets missing, subnets you want to remove, or if you want to edit subnet definitions, continue on with the other procedures in this article.
+
+## Define subnets manually
+
+Define the sensor's subnet settings to determine how devices are displayed in the sensor's [device map](how-to-work-with-the-sensor-device-map.md) and the [Azure device inventory](device-inventory.md).
 
 - **In the device map**, IT devices are automatically aggregated by subnet, where you can expand and collapse each subnet view to drill down as needed.
 - **In the Azure device inventory**, once the subnets have been configured, use the *Network location* (Public preview) filter to view *local* or *routed* devices as defined in your subnets list. All of the devices associated with the listed subnets will be displayed as *local*, while devices associated with detected subnets not included in the list will be displayed as *routed*.

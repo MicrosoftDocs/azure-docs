@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 06/26/2023
+ms.date: 06/27/2023
 ms.custom: enterprise-iot
 ---
 
@@ -30,17 +30,17 @@ In version 23.1.x we've updated the OT sensor installation and setup wizards to 
 
     The installation wizard also provides you with a single set of sign-in credentials, which you'll use only the first time you sign into your sensor. 
 
-- **Setup wizard**: After installing software, or if you've ordered pre-configured appliances, the setup wizard also now has a new look. 
+- **Setup wizard**: After installing software, or if you've ordered pre-configured appliances, the setup wizard also now has a new look.
 
-    In addition to uploading your sensor activation file and defining SSL/TLS certificate settings as before, define your network settings to ensure that each sensor monitors your network as planned.
+    In addition to uploading your sensor activation file and defining SSL/TLS certificate settings as before, make sure to update your network settings to ensure that each sensor monitors your network as planned.
 
-- **Post-deployment fine-tune**: After completing the installation and initial setup, return to the sensor settings at any time to review the subnets currently being monitored. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections.
+- **Post-deployment subnet analysis**: After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections.
 
 For more information, see:
 
 - [Install OT monitoring software on OT sensors](ot-deploy/install-software-ot-sensor.md)
 - [Activate and set up your OT network sensor](ot-deploy/activate-deploy-sensor.md)
-- [Maintain OT network sensors from the sensor console](how-to-manage-individual-sensors.md)
+- [Analyze detected subnets](how-to-control-what-traffic-is-monitored.md#analyze-detected-subnets)
 
 ## June 2023
 
