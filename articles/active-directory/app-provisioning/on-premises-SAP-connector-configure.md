@@ -53,7 +53,7 @@ To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
 
 1. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
-     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-sql\conn-1.png)](.\media\active-directory-app-provisioning-sql\conn-1.png#lightbox)
+     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-SAP\SAP-Prop-1.png)](.\media\active-directory-app-provisioning-SAP\SAP-Prop-1.png#lightbox)
 
      |Property|Value|
      |-----|-----|
@@ -307,3 +307,4 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
 If an error is shown, then select **View provisioning logs**.  Look in the log for a row in which the Status is **Failure**, and select on that row.
 
 For more information, change to the **Troubleshooting & Recommendations** tab.  
+
