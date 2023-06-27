@@ -36,6 +36,30 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 
 - Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
 
+## Enable nested virtualization for a lab
+
+To avoid that lab users need to enable nested virtualization on their lab VM and install the nested VMs inside it, you can prepare a lab template. When you publish the lab, each lab user has a lab VM that already contains the nested virtual machines.
+
+To enable nested virtualization for a lab:
+
+1. Connect to the template VM by using a remote desktop client
+
+1. Enable nested virtualization on the template VM operating system.
+
+    - Enable the Hyper-V role: the Hyper-V role must be enabled for the creation and running of VMs inside the template VM.
+    - Enable DHCP: when the template VM has the DHCP role enabled, the VMs inside the template VM get an IP address automatically assigned to them.
+    - Create a NAT network for the nested VMs: set up a Network Address Translation (NAT) network to allow the VMs inside the template VM to have internet access and communicate with each other.
+
+        >[!NOTE]
+        >The NAT network created on the Lab Services VM will allow a Hyper-V VM to access the internet and other Hyper-V VMs on the same Lab Services VM.  The Hyper-V VM won't be able to access Azure resources, such as DNS servers, on an Azure virtual network.
+
+1. Use Hyper-V manager to create the nested virtual machines inside the template VM.
+
+> [!NOTE]
+> Make sure to select the option to create a template virtual machine when you create a lab that requires nested virtualization.
+
+Follow these steps to [enable nested virtualization on a template VM](./how-to-enable-nested-virtualization-template-vm-using-script.md).
+
 ## Recommendations
 
 ### Processor compatibility
@@ -77,25 +101,6 @@ The following resources provide more best practices for running Linux or FreeBSD
 
 - [Best Practices for running FreeBSD on Hyper-V](/windows-server/virtualization/hyper-v/best-practices-for-running-freebsd-on-hyper-v)
 
-## Enable nested configuration in a lab
-
-To avoid that lab users need to enable nested virtualization on their lab VM and install the nested VMs inside it, you can prepare a lab template. When you publish the lab, each lab user has a lab VM that already contains the nested virtual machines.
-
-When you create a lab that requires nested virtualization, make sure to select the option to create a template virtual machine during the creation process.
-
-To enable nested virtualization for the lab, you then connect to the template VM by using a remote desktop client and make the required configuration changes inside the template VM.
-
-1. Enable nested virtualization on the template VM operating system.
-
-    - Enable the Hyper-V role: the Hyper-V role must be enabled for the creation and running of VMs inside the template VM.
-    - Enable DHCP: when the template VM has the DHCP role enabled, the VMs inside the template VM get an IP address automatically assigned to them.
-    - Create a NAT network for the nested VMs: set up a Network Address Translation (NAT) network to allow the VMs inside the template VM to have internet access and communicate with each other.
-
-        >[!NOTE]
-        >The NAT network created on the Lab Services VM will allow a Hyper-V VM to access the internet and other Hyper-V VMs on the same Lab Services VM.  The Hyper-V VM won't be able to access Azure resources, such as DNS servers, on an Azure virtual network.
-
-1. Use Hyper-V manager to create the nested virtual machines inside the template VM.
-
 ## Next steps
 
-Follow these steps to [enable nested virtualization on a template VM](./how-to-enable-nested-virtualization-template-vm-using-script.md). You can accomplish the tasks listed previously by using a script, or by using Windows tools.
+- [Enable nested virtualization on a template VM](./how-to-enable-nested-virtualization-template-vm-using-script.md)
