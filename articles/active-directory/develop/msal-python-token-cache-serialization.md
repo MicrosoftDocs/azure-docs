@@ -1,6 +1,6 @@
 ---
 title: Custom token cache serialization (MSAL Python)
-description: Learn how to serialize token cache for MSAL for Python
+description: Learn how to serialize token cache using MSAL for Python
 services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
