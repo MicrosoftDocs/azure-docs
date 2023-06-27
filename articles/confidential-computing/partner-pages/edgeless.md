@@ -19,7 +19,7 @@ Edgeless Systems is a cybersecurity startup on the mission to build easy-to-use,
 
 You can learn more about Edgeless Systems in [our blog here](https://techcommunity.microsoft.com/t5/azure-confidential-computing/introducing-edgelessdb-a-database-designed-for-confidential/ba-p/2813631).
 
-## Scalable Confidential Apps on AKS with EGo and MarbleRun
+## Scalable confidential apps on AKS with EGo and MarbleRun
 
 In this webinar, Felix Schuster, CEO and cofounder of Edgeless Systems, is giving an introduction to the EGo and MarbleRun products. EGo lets anyone create an SGX-enabled app in 5-min. MarbleRun makes it possible to scale and manage SGX-enabled apps on the Azure Kubernetes Service (AKS), effectively extending the properties of a single SGX enclave to an entire Kubernetes cluster. As this webinar shows, this makes it possible to build privacy-preserving and scalable Al training on AKS. 
 
@@ -36,6 +36,7 @@ You can learn more and get started with these [Azure Marketplace solutions, here
 
 ## Learn more
 
-> Learn more about [Edgeless Systems](https://www.edgeless.systems/)
-> Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Learn more about [Edgeless Systems](https://www.edgeless.systems/).
+
+- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
 

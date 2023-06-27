@@ -15,7 +15,7 @@ ms.author: ananyagarg
 
 ## Overview
 
-Scotain sells the SCONE platform and confidential services like Spark and MariaDB. It supports its customers in setting up confidential multi-stakeholder computing and confidential machine learning. Scontain helps its customers to build confidential services and to educate developers.
+Scontain sells the SCONE platform and confidential services like Spark and MariaDB. It supports its customers in setting up confidential multi-stakeholder computing and confidential machine learning. Scontain helps its customers to build confidential services and to educate developers.
 
 You can learn more about Scontain in [partner webinar here](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Scontain_GmbH).
 
@@ -38,6 +38,7 @@ This is the easiest way to get started with SCONE, now available on  [Azure Mark
 
 ## Learn more
 
-> Learn more about [Scontain](https://scontain.com/)
-> Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Learn more about [Scontain](https://scontain.com/).
+
+- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
 

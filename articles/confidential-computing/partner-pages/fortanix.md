@@ -40,6 +40,7 @@ You can learn more and get started with these [Azure Marketplace solutions, here
 
 ## Learn more
 
-> Learn more about [Fortanix](https://www.fortanix.com/).
-> Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Learn more about [Fortanix](https://www.fortanix.com/).
+
+- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
 

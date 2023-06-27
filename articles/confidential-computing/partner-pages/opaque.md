@@ -20,7 +20,7 @@ Opaque makes confidential data useful by enabling secure analytics and machine l
 
 You can learn more about Opaque in [our partner webinar here](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Opaque).
 
-## Opaque Analytics
+## Opaque analytics
 
 By combining encrypted data from several sources and training models on the joint dataset, you can generate insights that would otherwise be impossible. This product enables secure collaboration with partners, data providers, data processors, different business units, and 3rd parties. The data remains encrypted from your storage system all the way to the cloud platform’s CPU run-time memory. 
 
@@ -29,6 +29,6 @@ Get started today with the Azure Marketplace solution, [you can check it out her
 
 ## Learn more
 
-> Learn more about [Opaque Systems, Inc.](https://opaque.co/).
+- Learn more about [Opaque Systems, Inc](https://opaque.co/).
 
-> Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.

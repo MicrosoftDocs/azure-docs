@@ -25,6 +25,6 @@ You can also get started on their [Azure Marketplace solution](https://azuremark
 
 ## Learn more
 
-> Learn more about [Habu](https://habu.com/).
+- Learn more about [Habu](https://habu.com/).
 
-> Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.

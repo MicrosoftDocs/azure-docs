@@ -24,6 +24,6 @@ You can learn more about Mithril Security in [our partner webinar here](https://
 
 ## Learn more
 
-> Learn more about [Mithril Security](https://www.mithrilsecurity.io/).
+- Learn more about [Mithril Security](https://www.mithrilsecurity.io/).
 
-> Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.

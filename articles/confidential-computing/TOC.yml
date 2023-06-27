@@ -162,6 +162,8 @@
       href: partner-pages/enclaive.md
     - name: Fortanix
       items:
+      - name: About Fortanic
+        href: partner-pages/fortanix.md
       - name: Fortanix Confidential Computing Manager
         href: how-to-fortanix-confidential-computing-manager.md
       - name: Fortanix Confidential Computing Manager Node Agent
@@ -172,6 +174,8 @@
       href: partner-pages/mithril.md
     - name: Opaque
       href: partner-pages/opaque.md
+    - name: Scone
+      href: partner-pages/scone.md
 - name: Resources
   items:
   - name: Join our Tech Community

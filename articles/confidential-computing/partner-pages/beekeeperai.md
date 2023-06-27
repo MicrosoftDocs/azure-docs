@@ -31,5 +31,6 @@ You can also check out how BeeKeeperAI speeds healthcare AI development with Azu
 
 ## Learn more
 
-> Learn more about [BeeKeeperAI, Inc. here](https://www.beekeeperai.com/).
-> Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Learn more about [BeeKeeperAI, Inc. here](https://www.beekeeperai.com/).
+
+- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
