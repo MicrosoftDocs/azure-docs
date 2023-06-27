@@ -158,7 +158,7 @@ To create the SSH connection to the Windows Server node from another node, use t
 
 ### Create the SSH connection to a Windows node using a password
 
-If you didn't create your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter, you'll use a password instead of an SSH key to create the SSH connection. To do this with Azure CLI, use the following steps:
+If you didn't create your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter, you'll use a password instead of an SSH key to create the SSH connection. To do this with Azure CLI, use the following steps. Replace `<nodeRG>` with a resource group name and `<vmssName>` with the scale set name in that resource group.
 
 1. Create a root user called `azureuser`.
 
@@ -196,7 +196,7 @@ If you didn't create your AKS cluster using the Azure CLI and the `--generate-ss
     kubectl port-forward <debugPodName> 2022:22
     ```
 
-7. Open a third terminal to get the `INTERNAL-IP` of the affected node to initiate the SSH connection. You can get this with `kubectl get nodes -o wide`. Once you have it, use the following command to connect.
+7. Open a third terminal to get the IP address of the affected node to initiate the SSH connection. You can get this IP address with `kubectl get nodes -o wide`. The IP address is listed in the **INTERNAL-IP** column. After you have it, use the following command to connect:
 
     ```azurecli
      ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@<affectedNodeIp>
@@ -212,37 +212,38 @@ When done, `exit` the SSH session, stop any port forwarding, and then `exit` the
 kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 
-## Update SSH key on an existing AKS cluster (preview)
+## Update SSH public key on an existing AKS cluster (preview)
 
 ### Prerequisites
 
-* Before you start, ensure the Azure CLI is installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* The aks-preview extension version 0.5.111 or later. To learn how to install an Azure extension, see [How to install extensions][how-to-install-azure-extensions].
+* Ensure the Azure CLI is installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* Ensure that the aks-preview extension version 0.5.111 or later. To learn how to install an Azure extension, see [How to install extensions][how-to-install-azure-extensions].
 
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
 
-Use the [az aks update][az-aks-update] command to update the SSH key on the cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
+Use the [az aks update][az-aks-update] command to update the SSH public key on the cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
 ```azurecli
 az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value or SSH key file>
 ```
 
-Examples:
-In the following example, you can specify the new SSH key value for the `--ssh-key-value` argument.
+The following examples demonstrate possible usage of this command:
 
-```azurecli
-az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
-```
+* You can specify the new SSH public key value for the `--ssh-key-value` argument.
 
-In the following example, you specify a SSH key file.
+    ```azurecli
+    az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
+    ```
+    
+* You specify a SSH public key file.
 
-```azurecli
-az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value .ssh/id_rsa.pub
-```
+    ```azurecli
+    az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
+    ```
 
 > [!IMPORTANT]
-> During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH key.
+> During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH public key.
 
 
 ## Next steps
