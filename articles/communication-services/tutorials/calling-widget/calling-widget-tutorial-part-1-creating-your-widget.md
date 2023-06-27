@@ -18,12 +18,12 @@ ms.subservice: calling
 
 To begin, we're going to make a new component. This component will serve as the widget for initiating the click to call experience.
 
-While we will be using our own widget setup in this tutorial, you can adapt the functionality suit your needs. Our widget will perform the following actions:
-- Display a custom logo. This can be subsituted with an image or branding of your choice. You may download our image from the completed code if desired.
-- Allow the user to select whether or not to include video in the call.
-- Have the user consent to the call possible being recorded.
+We are using our own widget setup for this tutorial but you can expand the functionality to suit your needs. For us, we have the widget perform the following actions:
+- Display a custom logo. This can be replaced with another image or branding of your choosing. Feel free to download the image from the code if you would like to use our image.
+- Let the user decide if they want to include video in the call.
+- Obtain the user’s consent regarding the possibility of the call being recorded.
 
-Our first step will be to create a new directory called `src/components`. Within this directory, we're going to create a new file named `CallingWidgetComponent.tsx`. We'll then proceed to set up the widget component with the following imports:
+First step will be to create a new directory called `src/components`. Within this directory, we're going to create a new file named `CallingWidgetComponent.tsx`. We'll then proceed to set up the widget component with the following imports:
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -92,7 +92,7 @@ export const CallingWidgetComponent = (
     }
   }, [widgetState, onSetUseVideo]);
 
-  /** widget template for when open, put any fields here for user information desired */
+  /** widget template for when widget is open, put any fields here for user information desired */
   if (widgetState === "setup" && onSetDisplayName && onSetUseVideo) {
     return (
       <Stack
@@ -180,7 +180,7 @@ export const CallingWidgetComponent = (
 
 ### Time For Some Styles
 
-After creating the component, we'll need to add some styles to give it a visually appealing look. To do this, we'll create a new folder named `src/styles`. Within this folder we'll create a new file called `CallingWidgetComponent.styles.ts` and add the following styles.
+Once you have your component, you need some styles to give it a visually appealing look. For this, we'll create a new folder named `src/styles`. Within this folder we'll create a new file called `CallingWidgetComponent.styles.ts` and add the following styles.
 
 `src/styles/CallingWidgetComponent.styles.ts`
 
@@ -279,7 +279,7 @@ export const collapseButtonStyles: IButtonStyles = {
 };
 ```
 
-Provided the required styles have been added to the widget as seen in the snippet earlier, importing them into the `CallingWidgetComponent.tsx` file is the next.
+These styles should already be added to the widget as seen in the snippet earlier. If you added the snippet as is, these styles just need importing into the `CallingWidgetComponent.tsx` file.
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -318,7 +318,7 @@ export interface CallingWidgetPageProps {
 
 These properties are fed by the values that we set in `App.tsx`. We'll use these props to make post messages to the app when we want to start a call in a new window (More on this later).
 
-Next lets add the page content:
+Next, lets add the page content:
 
 `CallingWidgetScreen.tsx`
 ```ts
@@ -370,7 +370,7 @@ export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element 
         </Stack>
 
         <Text>
-          Welcome to a Calling Widget sample for the Azure Communications UI
+          Welcome to a Calling Widget sample for the Azure Communication Services UI
           Library. Sample has the ability to:
         </Text>
         <ul>
@@ -378,9 +378,9 @@ export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element 
             Adhoc call teams users with a tenant set that allows for external
             calls
           </li>
-          <li>Joining Teams interop meetings as a Azure Communications user</li>
+          <li>Joining Teams interop meetings as a Azure Communication Services user</li>
           <li>Make a calling Widget PSTN call to a help phone line</li>
-          <li>Join a Azure Communications group call</li>
+          <li>Join a Azure Communication Services group call</li>
         </ul>
         <Text>
           As a user all you need to do is click the widget below, enter your
@@ -412,7 +412,7 @@ export const CallingWidgetScreen = (props: CallingWidgetPageProps): JSX.Element 
   );
 };
 ```
-This page has some general information on it for what our calling experiences can currently do. We can also see that it's adding the widget component that we created earlier.
+This page provides general information on the current capabilities of our calling experiences, along with the addition of our previously created widget component. 
 
 To integrate the widget screen, we simply update the existing `'calling-widget'` case in the root of the app `App.tsx`, by adding the new view.
 

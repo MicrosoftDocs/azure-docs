@@ -46,11 +46,11 @@ This tutorial will be broken down into three parts:
 
 ### Set up the project
 
-If you are not creating a new application, you can skip this step.
+Only use this strp if you are creating a new application.
 
-To set up the react App, we'll use the create-react-app template. This `create-react-app` command
-creates an easy to run TypeScript application powered by React. This command will also install the
-Azure Communication Services packages that we need to run the sample as well.
+To set up the react App, we'll use the create-react-app command line tool. This `create-react-app` command
+creates an easy to run TypeScript application powered by React. This command will create a simple react application 
+using TypeScript.
 
 ```bash
 # Create an Azure Communication Services App powered by React.
@@ -62,7 +62,7 @@ cd ui-library-click-to-call-app
 
 ### Get your dependencies
 
-Then you need to update the dependency array in the `package.json` to include some beta and alpha packages for this to work:
+Then you need to update the dependency array in the `package.json` to include some beta and alpha packages from Azure Communication Services for this to work:
 ```json
 "@azure/communication-calling": "1.13.2-beta.1",
 "@azure/communication-chat": "1.3.2-beta.2",
@@ -72,12 +72,13 @@ Then you need to update the dependency array in the `package.json` to include so
 "@fluentui/react": "~8.98.3",
 ```
 
-Once you have run these commands, you are in your new project ready to get started. For this tutorial, we are modifying the files in the
+Once you run these commands, you’re all set to start working on your new project. In this tutorial, we’ll be modifying the files in the
 `src` directory.
+
 
 ## Initial App Setup
 
-To get us started, we'll replace the provided `App.tsx` content with a main page that will:
+To get started, we'll replace the provided `App.tsx` content with a main page that will:
 
 - Store all of the Azure Communication information that we need to create a CallAdapter to power our Calling experience
 - Control the different pages of our application
@@ -120,10 +121,10 @@ function App() {
   /**
    * This decides where the call will be going. This supports many different calling modalities in the Call Composite.
    *
-   * - teams meeting locator: {meetingLink: 'url to join link for a meeting'}
-   * - Azure communications group call: {groupId: 'GUID that defines the call'}
-   * - Azure Communications Rooms call: {roomId: 'guid that represents a rooms call'}
-   * - teams adhoc, Azure communications 1:n, PSTN calls all take a participants locator: {participantIds: ['Array of participant id's to call']}
+   * - Teams meeting locator: {meetingLink: 'url to join link for a meeting'}
+   * - Azure Communication Services group call: {groupId: 'GUID that defines the call'}
+   * - Azure Communication Services Rooms call: {roomId: 'guid that represents a rooms call'}
+   * - Teams adhoc, Azure communications 1:n, PSTN calls all take a participants locator: {participantIds: ['Array of participant id's to call']}
    *
    * You can call teams voice apps like a Call queue with the participants locator.
    */
@@ -132,10 +133,9 @@ function App() {
   };
 
   /**
-   * Phone number needed from your Azure Communications resource to start a PSTN call. Can be created under the phone numbers
-   * tab of your resource.
+   * The phone number needed from your Azure Communication Services resource to start a PSTN call. Can be created under the phone numbers.
    *
-   * For more information on phone numbers and Azure Communications go to this link: https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/plan-solution
+   * For more information on phone numbers and Azure Communication Services go to this link: https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/plan-solution
    *
    * This can be left alone if not making a PSTN call.
    */
@@ -161,7 +161,6 @@ function App() {
             ariaLive="assertive"
             labelPosition="top"
           />
-          ;
         </Stack>
       );
     }

@@ -125,7 +125,7 @@ const [widgetState, setWidgetState] = useState<'new' | 'setup' | 'inCall'>('new'
 
 ```
 
-Then we'll need to add a new logic to our Start Call button in the widget that will check to see which mode it will start the call, new window or embedded. That logic is as follows:
+Next, we'll need to add a new logic to our Start Call button in the widget that will check to see which mode it will start the call, new window or embedded. That logic is as follows:
 
 `CallingWidgetComponent.tsx`
 ```ts
@@ -305,4 +305,4 @@ Now that we have made these changes we can start our app again if it's shut down
 
 Like before, this is a call starting with the video controls enabled. 
 
-Thanks for following the different tutorials here. This concludes the quickstart guide for click to call with the Azure Communications UI Library.
+Thanks for following the different tutorials here. This concludes the quickstart guide for click to call with the Azure Communication Services UI Library.

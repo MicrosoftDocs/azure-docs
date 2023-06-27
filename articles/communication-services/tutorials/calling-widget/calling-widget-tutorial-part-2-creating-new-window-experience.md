@@ -18,7 +18,7 @@ ms.subservice: calling
 
 Now that we have a running application with our widget on the home page, we'll talk about starting the calling experience for your users with a new window. This scenario allows you to give your customer the ability to browse while still seeing your call in a new window. This can be useful in situations similar to when your users use video and screen sharing.
 
-To start, we'll create a new view in the `src/views` folder called `NewWindowCallScreen.tsx`. This new screen will be used by the `App.tsx` file to go into a new call with the arguments provided to it using our `CallComposite`. The `CallComposite` can be swapped with a stateful client and UI component experience if desired as well, but that won't be covered in this tutorial. For more information see our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-statefulcallclient--page) about the stateful client.
+To begin, we'll create a new view in the `src/views` folder called `NewWindowCallScreen.tsx`. This new screen will be used by the `App.tsx` file to go into a new call with the arguments provided to it using our `CallComposite`. If desired, the `CallComposite` can be swapped with a stateful client and UI component experience if desired as well, but that won't be covered in this tutorial. For more information see our [storybook documentation](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-statefulcallclient--page) about the stateful client.
 
 `src/views/NewWindowCallScreen.tsx`
 ```ts
@@ -34,7 +34,7 @@ import { Spinner, Stack } from '@fluentui/react';
 import React, { useMemo } from 'react';
 ```
 ```ts
-export const SameOriginCallScreen = (props: {
+export const NewWindowCallScreen = (props: {
   adapterArgs: {
     userId: CommunicationUserIdentifier;
     displayName: string;
@@ -127,7 +127,7 @@ To make sure we are passing around data correctly, let's create some handlers to
 
 <img src='../media/calling-widget/mermaid-charts-window-messaging.png' width='400' alt='disagram illustrating the flow of data between windows'>
 
-This flow illustrates that if the child window has spawned it needs to ask for the arguments. This behavior has to do with React and that if the parent window just sends a message right after creation, the call adapter arguments needed are lost when the application mounts. The adapter arguments are lost because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
+This flow illustrates that if the child window has spawned, it needs to ask for the arguments. This behavior has to do with React and that if the parent window just sends a message right after creation, the call adapter arguments needed are lost before the application mounts. The adapter arguments are lost because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
 
 Now we want to update the splash screen we created earlier. First we add a reference to the new child window that we create.
 
@@ -188,7 +188,7 @@ Next we add a `useEffect` hook that is creating an event handler listening for n
 
 This handler listens for events from the child window. (**NOTE: make sure that if the origin of the message is not from your app then return**) If the child window asks for arguments, we send it with the arguments needed to construct a `AzureCommunicationsCallAdapter`.
 
-Finally on this screen, let's add the `startNewWindow` handler to the widget so that it knows to create the new window.
+Finally on this screen, let's add the `startNewWindow` handler to the widget so that it knows to create the new window. We do this by adding the property to the template of the widget screen like below.
 
 `CallingWidgetScreen.tsx`
 ```ts
@@ -212,7 +212,7 @@ Finally on this screen, let's add the `startNewWindow` handler to the widget so 
     
 ```
 
-Next, we need to make sure that our application can listen for and ask for the messages from what would be the parent window. First to start, you might recall that we added a new query parameter to the URL of the application `newSession=true`. To use this and have our app look for that in the URL, we need to create a utility function to parse out that parameter. Once we do that, use it to make our application behave differently when it's received.
+Next, we need to make sure that our application can listen for and ask for the messages from what would be the parent window. First to start, you might recall that we added a new query parameter to the URL of the application `newSession=true`. To use this and have our app look for that in the URL, we need to create a utility function to parse out that parameter. Once we do that, we'll use it to make our application behave differently when it's received.
 
 To do that, let's add a new folder `src/utils` and in this folder, we add the file `AppUtils.ts`. In this file let's put the following function:
 
@@ -228,14 +228,14 @@ export const getStartSessionFromURL = (): boolean | undefined => {
 };
 ```
 
-This function will look into our application's URL and see if the parameters we're looking for is there. You can also stick some other parameters in there.
+This function will look into our application's URL and see if the parameters we're looking for are there. If desired, you can also stick some other parameters in there to extend other functionality for your application.
 
 As well, we'll want to add a new type in here to track the different pieces needed to create a `AzureCommunicationCallAdapter`. This type can also be simplified if you are using our calling stateful client, this approach won't be covered in this tutorial though.
 
 `AppUtils.ts`
 ```ts
 /**
- * Properties needed to create a call screen for a Azure Communications CallComposite.
+ * Properties needed to create a call screen for a  Azure Communication Services CallComposite.
  */
 export type AdapterArgs = {
   token: string;
@@ -266,12 +266,12 @@ import { AdapterArgs, getStartSessionFromURL } from './utils/AppUtils';
 
 ```
 
-Following this, we want to add some state to make sure that we're tracking the new arguments for the adapter. We pass these arguments to the `SameOriginCallScreen.tsx` that we made earlier so it can construct an adapter. As well state to track whether the user wants to use video controls or not.
+Following this, we want to add some state to make sure that we're tracking the new arguments for the adapter. We pass these arguments to the `NewWindowCallScreen.tsx` view that we made earlier so it can construct an adapter. As well state to track whether the user wants to use video controls or not.
 
 `App.tsx`
 ```ts
 /**
-   * Properties needed to start an Azure Communications Call Adapter. When these are set the app will go to the Call screen for the
+   * Properties needed to start an Azure Communication Services CallAdapter. When these are set the app will go to the Call screen for the
    * click to call scenario. Call screen should create the credential that will be used in the call for the user.
    */
   const [adapterArgs, setAdapterArgs] = useState<AdapterArgs | undefined>();
@@ -338,7 +338,7 @@ Finally, once we have done that, we want to add the new screen that we made earl
 ```ts
 // add with other imports
 
-import { SameOriginCallScreen } from './views/NewWindowCallScreen';
+import { NewWindowCallScreen } from './views/NewWindowCallScreen';
 
 ```
 
@@ -365,7 +365,7 @@ import { SameOriginCallScreen } from './views/NewWindowCallScreen';
         )
       }
       return (
-        <SameOriginCallScreen
+        <NewWindowCallScreen
           adapterArgs={{
             userId: adapterArgs.userId as CommunicationUserIdentifier,
             displayName: adapterArgs.displayName ?? '',
