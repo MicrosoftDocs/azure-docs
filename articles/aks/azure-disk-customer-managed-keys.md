@@ -29,9 +29,9 @@ Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] a
    * Rotate the key
    * Scale up the node pool to the original count.
 
-## Register customer-managed key feature
+## Register customer-managed key (preview) feature
 
-To enable customer-managed key for ephemeral OS disk feature, you must register *EnableBYOKOnEphemeralOSDiskPreview* feature flag on *Microsoft.ContainerService* over the subscription. To perform the registration, run the following commands.
+To enable customer-managed key for ephemeral OS disk (preview) feature, you must register *EnableBYOKOnEphemeralOSDiskPreview* feature flag on *Microsoft.ContainerService* over the subscription. To perform the registration, run the following commands.
 
 1. Install the *aks-preview* extension:
 
