@@ -130,8 +130,8 @@ Delete an enterprise application using [Graph Explorer](https://developer.micros
 
    ---
 
-1. Record the ID of the enterprise app you want to delete.
-1. Delete the enterprise application.
+2. Record the ID of the enterprise app you want to delete.
+3. Delete the enterprise application.
    
    # [HTTP](#tab/http)
    ```http
