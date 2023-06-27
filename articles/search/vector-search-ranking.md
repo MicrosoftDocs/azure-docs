@@ -33,7 +33,7 @@ Internally, the search engine creates and manages the vector indexes for vector 
 
 ### About vector search
 
-Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By capturing the intent of the query, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text.
+Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By capturing the intent of the query, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text. This enables new search experiences such as multi-modal search or cross-language search.
 
 ### Embeddings and vectorization
 
@@ -67,15 +67,14 @@ For normalized embedding spaces, dot product is equivalent to the cosine similar
 
 Azure Cognitive Search uses Hierarchical Navigation Small Worlds (HNSW) for Approximate Nearest Neighbors (ANN) indexing and queries.
 
-+ HNSW is a leading algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
+ANN is a class of algorithms for finding matches in vector space. Depending on the algorithm, it employs techniques such as graph construction, data partitioning, and other methods to significantly reduce the search space to accelerate query processing. While sacrificing some precision, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 
-+ ANN is an optimization technique for finding matches in vector space. It's not exhaustive, but it's fast enough to meet user expectations around query response time.
+Azure Cognitive Search uses _HNSW_, which is a leading algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
 
 > [!NOTE]
-> Finding the true set of ['k' nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) requires comparing the input vector exhaustively against all vectors in the dataset. While each vector similarity calculation is relatively fast, performing these exhaustive comparisons across large datasets is computationally expensive and slow due to the sheer number of comparisons. For example, if a dataset contains 10 million 1,000-dimensional vectors, computing the distance between the query vector and all vectors in the dataset would require scanning 37 GB of data (assuming single-precision floating point vectors) and a high number of similarity calculations.
+> Finding the true set of [_k_ nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) requires comparing the input vector exhaustively against all vectors in the dataset. While each vector similarity calculation is relatively fast, performing these exhaustive comparisons across large datasets is computationally expensive and slow due to the sheer number of comparisons. For example, if a dataset contains 10 million 1,000-dimensional vectors, computing the distance between the query vector and all vectors in the dataset would require scanning 37 GB of data (assuming single-precision floating point vectors) and a high number of similarity calculations.
 > 
-> To address this challenge, approximate nearest neighbor (ANN) search methods are used to trade off recall for speed. These methods can efficiently find a small set of candidate vectors that are most likely to be similar to the query vector, reducing the total number of vectors comparisons.
-> 
+> To address this challenge, approximate nearest neighbor (ANN) search methods are used to trade off recall for speed. These methods can efficiently find a small set of candidate vectors that are similar to the query vector and have high likelihood to be in the globally most similar neighbors. Each algorithm has a different approach to reducing the total number of vectors comparisons, but they all share the ability to balance accuracy and efficiency by tweaking the algorithm configuration parameters.
 
 ## Hybrid search
 

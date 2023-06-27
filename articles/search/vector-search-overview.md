@@ -25,10 +25,9 @@ We recommend this article for background, but if you'd rather get started, follo
 
 ## What's vector search in Cognitive Search?
 
-In Cognitive Search, similarity search matches the query input to the most similar items in the vector space. Cognitive Search uses the HNSW algorithm to find the approximate nearest neighbors, and K-items are returned in results.
+In Cognitive Search, vector search identifies the most similar vectors in the vector space for a given query vector. Cognitive Search uses the HNSW algorithm to find the approximate nearest neighbors, and up to _k_ items are returned in results.
 
-Queries in Cognitive Search are always scoped to a search index that's hosted on your search service, and that doesn't change with vector search.
-Vector space is composed of internal-only vector indexes consisting solely of the vector data that you load into it.
+Queries in Cognitive Search are always scoped to a search index that's hosted on your search service, and that doesn't change with vector search. Vector space is composed of internal-only vector indexes consisting solely of the vector data that you load into it.
 
 Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). Support consists of a *vector field*, which your documents can provide embeddings for. When you issue a search request with a query vector, the service identifies similar vectors and returns the corresponding documents.
 
@@ -42,12 +41,12 @@ Vector queries can be issued standalone or in combination with other query types
 
 ### Limitations
 
-There's no built-in support for vector generation at this time:
+Azure Cognitive Search does not currently provide vector embedding generation capabilities. You'll need to provide the embeddings yourself by using a service such as Azure OpenAI. Please see the document titled [How to generate embeddings](./vector-search-how-to-generate-embeddings.md) to learn more. Please note the following:
 
 + For indexing, vectors must be created and inserted into the source documents. 
 + For queries, inputs from the user must be converted to a vector
 + Use the same embedding model for queries and indexes.
-+ We recommend Azure OpenAI text-ada-002 and image retrieval REST API for vector generation.
++ We recommend Azure OpenAI _text-ada-002_ and image retrieval REST API for vector generation.
 
 ### Availability and pricing
 
@@ -55,7 +54,7 @@ There's no built-in support for vector generation at this time:
 + Available in all tiers, in all regions.
 
 > [!NOTE]
-> Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's possible the reason is outdated clusters. In this situation, you must create a new search service to try out the vector feature.
+> Some older search services created before January 1, 2019 are deployed on infrastructure that doesn't support vector workloads. If you try to add a vector field to a schema and get an error, it's a result of outdated services. In this situation, you must create a new search service to try out the vector feature.
 
 ### What can you do with vectors in Cognitive Search?
 

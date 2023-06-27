@@ -35,6 +35,11 @@ The schema must include fields for the document key, vector fields, and any othe
 
 Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to add vector fields.
 
+> [!NOTE]
+> + You don't need a special "vector index" to use vector search. You'll only need to add one or more "vector fields" to a new or existing index.
+> + Both new and existing indexes support vector search. However, there is a small subset of very old services that do not support vector search. In this case, a new search service must be created to use it. 
+> + Updating an existing index to add vector fields requires `allowIndexDowntime` query parameter to be `true` (see [below](#uri-parameters)).
+
 ```http
 PUT https://my-search-service.search.windows.net/indexes/my-index?api-version=2023-07-01-Preview
 Content-Type: application/json
