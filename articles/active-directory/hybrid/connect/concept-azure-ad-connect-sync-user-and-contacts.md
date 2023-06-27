@@ -31,7 +31,7 @@ There are a few general rules the configuration assumes:
 
 ## Groups
 > [!NOTE]
-> Keep in mind that when you add a user from another forest to the group, there is and anchor created in the Active Directory where the groups exists inside a specific OU. This anchor is a Foreign security principal and is stored inside the OU ‘ForeignSecurityPrincipals’. If you don't synchronize this OU the users where removed from the group membership.
+> Keep in mind that when you add a user from another forest to the group, there is an anchor created in the Active Directory where the groups exists inside a specific OU. This anchor is a Foreign security principal and is stored inside the OU ‘ForeignSecurityPrincipals’. If you don't synchronize this OU the users where removed from the group membership.
 > 
 > 
 
