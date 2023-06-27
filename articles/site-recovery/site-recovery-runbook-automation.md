@@ -89,7 +89,10 @@ $vmMap = $RecoveryPlanContext.VmMap
 ```
 
 
+
 Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has a useful example of a [recovery plan context script](http://harvestingclouds.com/post/script-sample-azure-automation-runbook-for-asr-recovery-plan/).
+
+
 
 
 
@@ -106,7 +109,6 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
     All modules should be of compatible versions. The simplest way is to always use the latest versions of all modules.
 
 
-
 ## Customize the recovery plan
 
 1. In the vault, select **Recovery Plans (Site Recovery)**
@@ -118,7 +120,6 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 2. Click the ellipses (...) next to **Group 1: Start** > **Add post action**.
 3. In **Insert action**, verify that **Script** is selected, and specify a name for the script (**Hello World**).
 4. Specify an automation account and select a runbook. To save the script, click **OK**. The script is added to **Group 1: Post-steps**.
-
 
 ## Reuse a runbook script
 
@@ -153,7 +154,6 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
 
 	![Create an NSG resource group name](media/site-recovery-runbook-automation-new/var2.png)
 
-
 3.	In the script, use this reference code to get the variable values:
 
 	```
@@ -179,10 +179,10 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
 	}
 	```
 
-
 For each recovery plan, create independent variables so that you can reuse the script. Add a prefix by using the recovery plan name. 
 
 For a complete, end-to-end script for this scenario, review [this script](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
+
 
 
 ### Use a complex variable to store more information
@@ -257,5 +257,9 @@ This video provides another example. It demonstrates how to recover a two-tier W
 ## Next steps
 
 - Learn about an [Azure Automation Run As account](../automation/manage-runas-account.md)
-- Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
-- [Learn more](site-recovery-failover.md) about running failovers.
+- - Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
+- Also Review [A few tasks you might want to run during an Azure Site Recovery DR](https://github.com/WernerRall147/RallTheory/tree/main/AzureSiteRecoveryDRRunbooks)
+
+- - [Learn more](site-recovery-failover.md) about running failovers.
+
+
