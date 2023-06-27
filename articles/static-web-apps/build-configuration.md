@@ -304,6 +304,50 @@ inputs:
 
 ---
 
+## Run workflow without deployment secrets
+
+In some cases, you may wish for your workflow to continue even if some secrets are missing. To enable this, you can add `SKIP_DEPLOY_ON_MISSING_SECRETS` as an environment variable and set its value to `true`.
+
+By doing so, the workflow will proceed without deploying the content, instead of stopping or failing due to the absence of any deployment secrets.
+
+Follow these steps:
+
+- Set `SKIP_DEPLOY_ON_MISSING_SECRETS` to `true`.
+
+# [GitHub Actions](#tab/github-actions)
+
+```yaml
+...
+
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }}
+  action: 'upload'
+  app_location: 'src/dist'
+  api_location: 'api'
+  output_location: ''
+  skip_app_build: true
+env: # Add environment variables here
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true 
+```
+
+# [Azure Pipelines](#tab/azure-devops)
+
+```yaml
+...
+
+inputs:
+  app_location: 'src/dist'
+  api_location: 'api'
+  output_location: '' # Leave this empty
+  skip_app_build: true
+  azure_static_web_apps_api_token: $(deployment_token)
+env: # Add environment variables here
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true
+```
+
+---
+
 ## Environment variables
 
 You can set environment variables for your build via the `env` section of a job's configuration.
