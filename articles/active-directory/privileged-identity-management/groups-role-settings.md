@@ -63,8 +63,7 @@ Use the **Activation maximum duration** slider to set the maximum time, in hours
 
 You can require users who are eligible for a role to prove who they are by using the multifactor authentication feature in Azure AD before they can activate. Multifactor authentication helps safeguard access to data and applications. It provides another layer of security by using a second form of authentication.
 
-> [!NOTE]
-> Users might not be prompted for multifactor authentication if they authenticated with strong credentials or provided multifactor authentication earlier in this session. If your goal is to ensure that users have to provide authentication during activation, you can use [On activation, require Azure AD conditional access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md).
+Users might not be prompted for multifactor authentication if they authenticated with strong credentials or provided multifactor authentication earlier in this session. If your goal is to ensure that users have to provide authentication during activation, you can use [On activation, require Azure AD conditional access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md).
 
 Users are required to authenticate during activation by using methods different from the one they used to sign in to the machine. For example, if users sign in to the machine by using Windows Hello for Business, you can use **On activation, require Azure AD conditional access authentication context** and **Authentication Strengths** to require users to do passwordless sign-in with Microsoft Authenticator when they activate the role.
 
@@ -80,24 +79,21 @@ To enforce this requirement, you create conditional access authentication contex
 
 1. Configure a conditional access policy that would enforce requirements for this authentication context.
 
-    > [!NOTE]
-    > The scope of the conditional access policy should include all or eligible users for group membership/ownership. Don't create a conditional access policy scoped to authentication context and group at the same time. During activation, a user doesn't have group membership yet, so the conditional access policy wouldn't apply.
+    The scope of the conditional access policy should include all or eligible users for group membership/ownership. Don't create a conditional access policy scoped to authentication context and group at the same time. During activation, a user doesn't have group membership yet, so the conditional access policy wouldn't apply.
 
 1. Configure authentication context in PIM settings for the role.
 
    :::image type="content" source="media/pim-for-groups/pim-group-21.png" alt-text="Screenshot that shows the Edit role setting - Member page." lightbox="media/pim-for-groups/pim-group-21.png":::
 
-> [!NOTE]
-> If PIM settings have **On activation, require Azure AD conditional access authentication context** configured, conditional access policies define what conditions users must meet to satisfy the access requirements.
->
-> This means that security principals with permissions to manage conditional access policies, such as conditional access administrators or security administrators, can change requirements, remove them, or block eligible users from activating their group membership/ownership. Security principals that can manage conditional access policies should be considered highly privileged and protected accordingly.
+If PIM settings have **On activation, require Azure AD conditional access authentication context** configured, conditional access policies define what conditions users must meet to satisfy the access requirements.
+
+This means that security principals with permissions to manage conditional access policies, such as conditional access administrators or security administrators, can change requirements, remove them, or block eligible users from activating their group membership/ownership. Security principals that can manage conditional access policies should be considered highly privileged and protected accordingly.
 
 We recommend that you create and enable a conditional access policy for the authentication context before the authentication context is configured in PIM settings. As a backup protection mechanism, if there are no conditional access policies in the tenant that target authentication context configured in PIM settings, during group membership/ownership activation, the multifactor authentication feature in Azure AD is required as the [On activation, require multifactor authentication](groups-role-settings.md#on-activation-require-multifactor-authentication) setting would be set.
 
 This backup protection mechanism is designed to solely protect from a scenario when PIM settings were updated before the conditional access policy was created because of a configuration mistake. This backup protection mechanism isn't triggered if the conditional access policy is turned off, is in report-only mode, or has eligible users excluded from the policy.
 
-> [!NOTE]
-> The **On activation, require Azure AD conditional access authentication context** setting defines the authentication context requirements that users must satisfy when they activate group membership/ownership. After group membership/ownership is activated, users aren't prevented from using another browsing session, device, or location to use group membership/ownership.
+The **On activation, require Azure AD conditional access authentication context** setting defines the authentication context requirements that users must satisfy when they activate group membership/ownership. After group membership/ownership is activated, users aren't prevented from using another browsing session, device, or location to use group membership/ownership.
 
 For example, users might use an Intune-compliant device to activate group membership/ownership. Then after the role is activated, they might sign in to the same user account from another device that isn't Intune compliant and use the previously activated group ownership/membership from there.
 
@@ -137,8 +133,7 @@ You can also choose one of these active assignment duration options.
 |Allow permanent active assignment | Resource administrators can assign permanent active assignments. |
 | Expire active assignment after | Resource administrators can require that all active assignments have a specified start and end date. |
 
-> [!NOTE]
-> All assignments that have a specified end date can be renewed by resource administrators. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
+All assignments that have a specified end date can be renewed by resource administrators. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
 
 ### Require multifactor authentication on active assignment
 

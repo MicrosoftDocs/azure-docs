@@ -79,10 +79,9 @@ To enforce this requirement, you create conditional access authentication contex
 
    :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png" alt-text="Screenshot that shows the Edit role settings Attestation Reader page." lightbox="media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png":::
 
-> [!NOTE]
-> If PIM settings have **On activation, require Azure AD conditional access authentication context** configured, the conditional access policies define conditions a user must meet to satisfy the access requirements.
->
-> This means that security principals with permissions to manage conditional access policies, such as conditional access administrators or security administrators, can change requirements, remove them, or block eligible users from activating the role. Security principals that can manage the conditional access policies should be considered highly privileged and protected accordingly.
+If PIM settings have **On activation, require Azure AD conditional access authentication context** configured, the conditional access policies define conditions a user must meet to satisfy the access requirements.
+
+This means that security principals with permissions to manage conditional access policies, such as conditional access administrators or security administrators, can change requirements, remove them, or block eligible users from activating the role. Security principals that can manage the conditional access policies should be considered highly privileged and protected accordingly.
 
 We recommend that you create and enable a conditional access policy for the authentication context before the authentication context is configured in PIM settings. As a backup protection mechanism, if there are no conditional access policies in the tenant that target authentication context configured in PIM settings, during PIM role activation, the multifactor authentication feature in Azure AD is required as the [On activation, require multifactor authentication](pim-resource-roles-configure-role-settings.md#on-activation-require-multifactor-authentication) setting would be set.
 
@@ -128,8 +127,7 @@ You can also choose one of these active assignment duration options.
 | Allow permanent active assignment | Resource administrators can assign permanent active assignments. |
 | Expire active assignment after | Resource administrators can require that all active assignments have a specified start and end date. |
 
-> [!NOTE]
-> All assignments that have a specified end date can be renewed by Global admins and Privileged Role admins. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
+All assignments that have a specified end date can be renewed by Global admins and Privileged Role admins. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
 
 ### Require multifactor authentication on active assignment
 
