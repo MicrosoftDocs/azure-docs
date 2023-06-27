@@ -3,7 +3,7 @@ title: Work with Azure Functions Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 06/26/2023
 ms.custom: "devx-track-csharp, 80e4ff38-5174-43"
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -322,11 +322,23 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-powershell,programming-language-python"  
 ```
 func start
 ```
 ::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-javascript" 
+The way you start the host depends on your runtime version:
+# [v4.x](#tab/v2)
+```
+func start
+```
+# [v1.x](#tab/v1)
+```
+func host start
+```
+---
+::: zone-end 
 ::: zone pivot="programming-language-typescript"  
 ```
 npm install
@@ -335,11 +347,7 @@ npm start
 ::: zone-end
 ::: zone pivot="programming-language-python" 
 This command must be [run in a virtual environment](./create-first-function-cli-python.md).
-::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-javascript" 
->[!NOTE]  
-> Version 1.x of the Functions runtime instead requires `func host start`. To learn more, see [Azure Functions Core Tools reference](functions-core-tools-reference.md?tabs=v1#func-start). 
-::: zone-end
+::: zone-end  
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions, like in the following example:
 
@@ -351,8 +359,17 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 </pre>
 
->[!IMPORTANT]
->By default, when running locally authorization isn't enforced for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
+### Considerations when running locally
+
+Keep in mind the following considerations when running your functions locally:
+
++ By default, authorization isn't enforced locally for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
+
++ While there is local storage emulation available, it's often best to validate your triggers and bindings against live services in Azure. You can maintain the connections to these services in the local.settings.json project file. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). Make sure to keep test and production data separate when testing against live Azure services. 
+
++ You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Non-HTTP triggered functions](#non-http-triggered-functions).
+
++ When you include your Application Insights connection information in the local.settings.json file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for development and testing.
 
 ### Passing test data to a function
 
@@ -474,6 +491,8 @@ The following considerations apply to this kind of deployment:
 + A [remote build](functions-deployment-technologies.md#remote-build) is performed on compiled projects. This can be controlled by using the [`--no-build` option][func azure functionapp publish].  
 
 + Your project is deployed such that it [runs from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the [`--nozip` option][func azure functionapp publish].
+
++ To publish to a specific named slot in your function app, use the [`--slot` option](functions-core-tools-reference.md#func-azure-functionapp-publish). 
 
 + Java uses Maven to publish your local project to Azure. Instead, use the following command to publish to Azure: `mvn azure-functions:deploy`. Azure resources are created during initial deployment.
 
