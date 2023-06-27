@@ -128,7 +128,7 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
 You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation.
 
-To access raw traffic files for your alert, select **Download Filtered Pcap** from the top-left corner of your alert details page:
+To access raw traffic files for your alert, select **Download PCAP** from the top-left corner of your alert details page:
 
 For example:
 
