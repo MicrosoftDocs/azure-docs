@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript framework extensions for th
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 06/23/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -117,7 +117,7 @@ Initialize a connection to Application Insights:
 ```javascript
 import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
 import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
@@ -190,7 +190,8 @@ To use this plugin, you need to construct the plugin and add it as an `extension
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-
+// Add the Click Analytics plug-in.
+// import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
 var RNPlugin = new ReactNativePlugin();
 // Add the Click Analytics plug-in.
 /* var clickPluginInstance = new ClickAnalyticsPlugin();
@@ -272,6 +273,8 @@ Set up an instance of Application Insights in the entry component in your app:
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+// Add the Click Analytics plug-in.
+// import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
 import { Router } from '@angular/router';
 
 @Component({
@@ -361,13 +364,13 @@ extensionConfig: {
 
 ### [React](#tab/react)
 
-### Configuration
+### React router configuration
 
-| Name    | Default | Description                                                                                                    |
-|---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). |
+| Name    | Type   | Required? | Default | Description |
+|---------|--------|-----------|---------|------------------|
+| history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object. Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
 
-#### React components usage tracking
+### React components usage tracking
 
 To instrument various React components usage tracking, apply the `withAITracking` higher-order component function.
 
