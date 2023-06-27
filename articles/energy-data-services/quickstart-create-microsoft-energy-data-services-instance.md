@@ -11,8 +11,6 @@ ms.custom: template-quickstart
 
 # Quickstart: Create an Azure Data Manager for Energy instance
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 Get started by creating an Azure Data Manager for Energy instance on Azure portal on a web browser. You first register an Azure application on Active Directory and then use the application ID to create an Azure Data Manager for Energy instance in your chosen Azure Subscription and region. 
 
 The setup of Azure Data Manager for Energy instance can be triggered using a simple interface on Azure portal and takes about 50 minutes to complete.
@@ -73,7 +71,8 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
     [![Screenshot of the tags tab on the create workflow. Any number of tags can be added and will show up in the list.](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png#lightbox)
 
-1. Navigate to the *Resource Sharing (CORS)* tab and configure as needed. 
+1. Navigate to the *Resource Sharing (CORS)* tab and configure as needed. Learn more about [Use CORS for resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md)
+
      [![Screenshot of the cross-origin resource sharing tab on the create workflow. Multiple CORS policies can be added to the list on this tab.](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png)](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png#lightbox)
     
 
