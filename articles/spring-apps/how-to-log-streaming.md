@@ -155,11 +155,11 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Select the **Vnet injection** page.
 
-2. Switch the status of **Dataplane resources on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
+1. Switch the status of **Dataplane resources on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
 
    :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of enabling a log stream public endpoint on the Vnet Injection page." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
-#### [CLI](#tab/azure-CLI)
+#### [Azure CLI](#tab/azure-CLI)
 
 Use the following command to enable the log stream public endpoint.
 
@@ -170,9 +170,9 @@ az spring update \
     --enable-dataplane-public-endpoint true
 ```
 
-After you've enabled the log stream public endpoint, you can access the app log from a public network as you would access a normal instance.
-
 ---
+
+After you've enabled the log stream public endpoint, you can access the app log from a public network as you would access a normal instance.
 
 ## Secure traffic to the log streaming public endpoint
 
@@ -183,12 +183,12 @@ To ensure the security of your applications when you expose a public endpoint fo
 > [!NOTE]
 > If you can't access app logs in the virtual network injection instance from the internet after you've enabled a log stream public endpoint, check your network security group to see whether you've allowed such inbound traffic.
 
-The following table shows an example of a basic rule that we recommend. You could use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address of a service.
+The following table shows an example of a basic rule that we recommend. You can use commands like `nslookup` with the endpoint `<service-name>.private.azuremicroservices.io` to get the target IP address of a service.
 
-|Priority|Name|Port|Protocol|Source|Destination|Action|
-|----|----|----|----|----|----|----|
-|100|Rule name|80|TCP|Internet|Service IP address|Allow|
-|110|Rule name|443|TCP|Internet|Service IP address|Allow|
+| Priority | Name      | Port | Protocol | Source   | Destination        | Action |
+|----------|-----------|------|----------|----------|--------------------|--------|
+| 100      | Rule name | 80   | TCP      | Internet | Service IP address | Allow  |
+| 110      | Rule name | 443  | TCP      | Internet | Service IP address | Allow  |
 
 ## Next steps
 
