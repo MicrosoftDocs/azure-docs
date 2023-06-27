@@ -100,7 +100,7 @@ When to use a community image?
 - You trust and know how to contact the publisher
 - You're looking for a community version of an image published by open-source community
 - Using the image for testing
-- Community images are free images, however may incur additional software cost if the base image used to build a community image comes from Azure marketplace and has extra cost associated with it. 
+"- Community images are free images. However, if the image used to build the community image was an Azure marketplace image with a cost associated with it, you will be billed for those same costs. You can see what costs are associated with a Marketplace image by looking at the **Plans + Pricing** tab for the image in the Azure portal."
 - Supported by the owner of the image, not Microsoft.
 
 ## Reporting issues with a community image
