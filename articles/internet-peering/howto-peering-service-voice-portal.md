@@ -21,17 +21,17 @@ This article shows you how to enable [Azure Peering Service](../peering-service/
     - To convert a legacy Direct peering, see [Convert a legacy Direct peering to an Azure resource using the portal](howto-legacy-direct-portal.md).
     - To create a new Direct peering, see [Create or modify a Direct peering using the portal](howto-direct-portal.md).
 
-## View Direct peering
+## Enable Azure Peering Service Voice
 
 1. In the search box at the top of the portal, enter *peering*. Select **Peering** in the search results.
 
     :::image type="content" source="./media/howto-peering-service-voice-portal/internet-peering-portal-search.png" alt-text="Screenshot shows how to search for Internet peering in the Azure portal.":::
 
-1. In the **Peerings** page, select the peering resource that you want to convert to Azure Peering Service voice configuration. If you have many peerings, you can filter by subscription, location, or resource group to find the peering resources that you want to convert to Azure Peering Service voice configuration.
+1. In the **Peerings** page, select the peering resource that you want to convert to Azure Peering Service Voice configuration. If you have many peerings, you can filter by subscription, location, or resource group to find the peering resources that you want to convert to Azure Peering Service Voice configuration.
 
     :::image type="content" source="./media/howto-peering-service-voice-portal/peerings-filters.png" alt-text="Screenshot shows how to apply filters to find a peering the Azure portal.":::
 
-1. Select **Connections**, and then confirm that the **Connection State** of your peering resource is **Active**. You can't convert to Azure Peering Service voice if the connection state is **PendingApproval**.
+1. Select **Connections**, and then confirm that the **Connection State** of your peering resource is **Active**. You can't convert to Azure Peering Service Voice if the connection state is **PendingApproval**.
 
     :::image type="content" source="./media/howto-peering-service-voice-portal/peering-connections.png" alt-text="Screenshot shows the connection state of the peering resource in the Azure portal.":::
 
