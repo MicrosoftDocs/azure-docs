@@ -49,6 +49,21 @@ Resolution:
 
 - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
 
+### Azure PowerShell module version mis-match 
+This issue occurs when the installed Azure PowerShell sub-module, Az.Ssh.ArcProxy, is not supported by the installed version of Az.Ssh. Error:
+- `This version of Az.Ssh only supports version 1.x.x of the Az.Ssh.ArcProxy PowerShell Module. The Az.Ssh.ArcProxy module {ModulePath} version is {ModuleVersion}, and it is not supported by this version of the Az.Ssh module. Check that this version of Az.Ssh is the latest available.`
+
+Resolution:
+
+- Update the Az.Ssh and Az.Ssh.ArcProxy modules
+
+### Az.Ssh.ArcProsy not installed
+This issue occurs when the proxy module is not found on the client machine.
+
+Resolution:
+
+- Install the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Ssh.ArcProxy): `Install-Module -Name Az.Ssh.ArcProxy`
+
 ## Server-side issues
 
 ### SSH traffic not allowed on the server
