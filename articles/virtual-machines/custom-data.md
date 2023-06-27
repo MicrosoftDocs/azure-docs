@@ -85,10 +85,9 @@ Azure currently supports two provisioning agents:
 
 ## FAQ
 ### Can I update custom data after the VM has been created?
-For single VMs, you can't update custom data in the VM model. But for Virtual Machine Scale Sets, you can update custom data via the [REST API](/rest/api/compute/virtualmachinescalesets/update), the [Azure CLI](/cli/azure/vmss#az-vmss-update), or [Azure PowerShell](/powershell/module/az.compute/update-azvmss). When you update custom data in the model for a Virtual Machine Scale Set:
+For single VMs, you can't update custom data in the VM model. But for Virtual Machine Scale Sets, you can update custom data. For more information, see [Modify a Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-update-global-scale-set-properties). When you update custom data in the model for a Virtual Machine Scale Set:
 
-* Existing instances in the scale set don't get the updated custom data until they're reimaged.
-* Existing instances in the scale set that is upgraded don't get the updated custom data.
+* Existing instances in the scale set don't get the updated custom data until they're updated to the lastest model and reimaged.
 * New instances receive the new custom data.
 
 ### Can I place sensitive values in custom data?

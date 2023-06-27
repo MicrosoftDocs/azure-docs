@@ -7,7 +7,6 @@ ms.topic: troubleshooting
 ms.date: 7/28/2022
 ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure File Sync agent installation and server registration
@@ -16,22 +15,42 @@ After deploying the Storage Sync Service, the next steps in deploying Azure File
 
 ## Agent installation
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
-If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
+If the Azure File Sync agent installation fails, locate the installation log file which is located in the agent installation directory. If the Azure File Sync agent is installed on the C: volume, the installation log file is located under C:\Program Files\Azure\StorageSyncAgent\InstallerLog. 
 
+> [!Note]  
+> If the Azure File Sync agent is installed from the command line and the /l\*v switch is used, the log file will be located in the path where the agent installation was executed. 
+
+The log file name for agent installations using the MSI package is AfsAgentInstall. The log file name for agent installations using the MSP package (update package) is AfsUpdater.
+
+Once you have located the agent installation log file, open the file and search for the failure code at the end of the log. If you search for **error code 1603** or **sandbox**, you should be able to locate the error code. 
+
+Here is a snippet from an agent installation that failed:
 ```
-StorageSyncAgent.msi /l*v AFSInstaller.log
+CAQuietExec64:      + CategoryInfo          : SecurityError: (:) , PSSecurityException  
+CAQuietExec64:      + FullyQualifiedErrorId : UnauthorizedAccess  
+CAQuietExec64:  Error 0x80070001: Command line returned an error.  
+CAQuietExec64:  Error 0x80070001: QuietExec64 Failed  
+CAQuietExec64:  Error 0x80070001: Failed in ExecCommon64 method  
+CustomAction SetRegPIIAclSettings returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)  
+Action ended 12:23:40: InstallExecute. Return value 3.  
+MSI (s) (0C:C8) [12:23:40:994]: Note: 1: 2265 2:  3: -2147287035
 ```
 
-Review installer.log to determine the cause of the installation failure.
+For this example, the agent installation failed with error code -2147287035 (ERROR_ACCESS_DENIED). 
 
 <a id="agent-installation-gpo"></a>**Agent installation fails with error: Storage Sync Agent Setup Wizard ended prematurely because of an error**
 
 In the agent installation log, the following error is logged:
 
 ```
-CAQuietExec64:  + CategoryInfo          : SecurityError: (:) , PSSecurityException
-CAQuietExec64:  + FullyQualifiedErrorId : UnauthorizedAccess
-CAQuietExec64:  Error 0x80070001: Command line returned an error.
+CAQuietExec64:      + CategoryInfo          : SecurityError: (:) , PSSecurityException  
+CAQuietExec64:      + FullyQualifiedErrorId : UnauthorizedAccess  
+CAQuietExec64:  Error 0x80070001: Command line returned an error.  
+CAQuietExec64:  Error 0x80070001: QuietExec64 Failed  
+CAQuietExec64:  Error 0x80070001: Failed in ExecCommon64 method  
+CustomAction SetRegPIIAclSettings returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)  
+Action ended 12:23:40: InstallExecute. Return value 3.  
+MSI (s) (0C:C8) [12:23:40:994]: Note: 1: 2265 2:  3: -2147287035 
 ```
 
 This issue occurs if the [PowerShell execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) is configured using group policy and the policy setting is "Allow only signed scripts." All scripts included with the Azure File Sync agent are signed. The Azure File Sync agent installation fails because the installer is performing the script execution using the Bypass execution policy setting.
@@ -39,7 +58,18 @@ This issue occurs if the [PowerShell execution policy](/powershell/module/micros
 To resolve this issue, temporarily disable the [Turn on Script Execution](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) group policy setting on the server. Once the agent installation completes, the group policy setting can be re-enabled.
 
 <a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller**  
-If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008 R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+
+In the agent installation log, the following error is logged:
+
+```
+CAQuietExec64:  Error 0x80070001: Command line returned an error.
+CAQuietExec64:  Error 0x80070001: CAQuietExec64 Failed
+CustomAction InstallHFSRequiredWindowsFeatures returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)
+Action ended 8:51:12: InstallExecute. Return value 3.
+MSI (s) (EC:B4) [08:51:12:439]: Note: 1: 2265 2:  3: -2147287035
+```
+
+This issue occurs if you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008 R2 or below OS version.
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
@@ -77,7 +107,7 @@ To install the Az or AzureRM module on PowerShell 5.1, perform the following ste
 
 1. Type **powershell** from an elevated command prompt and hit enter.
 2. Install the latest Az or AzureRM module by following the documentation:
-    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-az-ps)
+    - [Az module (requires .NET 4.7.2)](/powershell/azure/install-azure-powershell)
     - [AzureRM module](https://go.microsoft.com/fwlink/?linkid=856959)
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 

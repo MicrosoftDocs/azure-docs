@@ -4,7 +4,7 @@ description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) 
 ms.author: nickoman
 ms.topic: article
 ms.date: 10/11/2022
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Dapr

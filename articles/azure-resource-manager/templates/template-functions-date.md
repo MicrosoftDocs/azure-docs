@@ -2,7 +2,8 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.custom: devx-track-arm-template
+ms.date: 05/22/2023
 ---
 
 # Date functions for ARM templates

@@ -1,5 +1,5 @@
 ---
-title: Cloud apps, actions, and authentication context in Conditional Access policy - Azure Active Directory
+title: Cloud apps, actions, and authentication context in Conditional Access policy
 description: What are cloud apps, actions, and authentication context in an Azure AD Conditional Access policy
 
 services: active-directory
@@ -42,7 +42,6 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure Management](#microsoft-azure-management)
-- Microsoft Azure Subscription Management
 - Microsoft Defender for Cloud Apps
 - Microsoft Commerce Tools Access Control Portal
 - Microsoft Commerce Tools Authentication Service
@@ -93,7 +92,6 @@ The following key applications are affected by the Office 365 cloud app:
 - Microsoft Flow
 - Microsoft Office 365 Portal
 - Microsoft Office client application
-- Microsoft Stream 
 - Microsoft To-Do WebApp
 - Microsoft Whiteboard Services
 - Office Delve

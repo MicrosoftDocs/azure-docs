@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/30/2022
+ms.date: 05/05/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Tutorial: Reporting on automatic user account provisioning
 
-Azure Active Directory (Azure AD) includes a [user account provisioning service](user-provisioning.md) that helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems, for the purpose of end-to-end identity lifecycle management. Azure AD supports pre-integrated user provisioning connectors for all of the applications and systems with user provisioning tutorials [here](../saas-apps/tutorial-list.md).
+Azure Active Directory (Azure AD) includes a [user account provisioning service](user-provisioning.md). The service helps automate the provisioning deprovisioning of user accounts in SaaS apps and other systems. The automation helps with end-to-end identity lifecycle management. Azure AD supports preintegrated user provisioning connectors for many applications and systems. To learn more about user provisioning tutorials, see [Provisioning Tutorials](../saas-apps/tutorial-list.md).
 
 This article describes how to check the status of provisioning jobs after they have been set up, and how to troubleshoot the provisioning of individual users and groups.
 
 ## Overview
 
-Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using the following methods:
+Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. When the connector is configured and running, provisioning jobs can be reported using the following methods:
 
 - The [Azure portal](https://portal.azure.com)
 
@@ -33,27 +33,27 @@ Provisioning connectors are set up and configured using the [Azure portal](https
 
 ### Definitions
 
-This article uses the following terms, defined below:
+This article uses the following terms:
 
-* **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for the majority of pre-integrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
-* **Target System** - The repository of users that the Azure AD provisioning service synchronizes to. This is typically a SaaS application (examples: Salesforce, ServiceNow, G Suite, Dropbox for Business), but in some cases can be an on-premises system such as Active Directory (example: Workday Inbound Synchronization to Active Directory).
+* **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for most preintegrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
+* **Target System** - The repository of users where the Azure AD provisioning service synchronizes. The repository is typically a SaaS application, such as Salesforce, ServiceNow, G Suite, and Dropbox for Business. In some cases the repository can be an on-premises system such as Active Directory, such as Workday Inbound Synchronization to Active Directory.
 
 ## Getting provisioning reports from the Azure portal
 
-To get provisioning report information for a given application, start by launching the [Azure portal](https://portal.azure.com) and **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs** in the **Activity** section. You can also browse to the Enterprise Application for which provisioning is configured. For example, if you are provisioning users to LinkedIn Elevate, the navigation path to the application details is:
+To get provisioning report information for a given application, start by launching the [Azure portal](https://portal.azure.com) and **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs** in the **Activity** section. You can also browse to the Enterprise Application for which provisioning is configured. For example, if you're provisioning users to LinkedIn Elevate, the navigation path to the application details is:
 
 **Azure Active Directory > Enterprise Applications > All applications > LinkedIn Elevate**
 
-From here, you can access both the provisioning progress bar and the provisioning logs, described below.
+From the all applications area, you access both the provisioning progress bar and provisioning logs.
 
 ## Provisioning progress bar
 
-The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for a given application. It is located in the **Current Status** section and shows the status of the current initial or incremental cycle. This section also shows:
+The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for a given application. It's located in the **Current Status** section and shows the status of the current initial or incremental cycle. This section also shows:
 
-* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
+* The total number of users and groups that are synchronized and currently in scope for provisioning between the source system and the target system.
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
-* Whether or not an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
-* Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials).
+* The status of an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) and if the cycle has been completed.
+* The status of the provisioning process and if it's being placed in quarantine. The status also shows the reason for the quarantine. For example, a status might indicate a failure to communicate with the target system due to invalid admin credentials.
 
 The **Current Status** should be the first place admins look to check on the operational health of the provisioning job.
 
@@ -70,7 +70,7 @@ The provisioning summary report and provisioning logs play a key role helping ad
 
 For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](../app-provisioning/application-provisioning-config-problem.md).
 
-## Additional Resources
+## Next steps
 
-* [Managing user account provisioning for Enterprise Apps](configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Managing user account provisioning for Enterprise Apps](configure-automatic-user-provisioning-portal.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

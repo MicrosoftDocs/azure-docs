@@ -10,6 +10,7 @@ ms.date: 02/09/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-power
 ---
 
@@ -42,7 +43,10 @@ The `SMSReceived` event generated when an SMS is sent to an Azure Communication 
 }]
 ```
 
-To start generating the events, we must configure Azure Event Grid for our Azure Communication Services resource. Leveraging Event Grid generates an additional charge for the usage. More information on Event Grid pricing can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+To start generating the events, we must configure Azure Event Grid for our Azure Communication Services resource.
+
+> [!NOTE] 
+> Using Azure Event Grid incurs additional costs. For more information, see [Azure Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Pre-requisites
 

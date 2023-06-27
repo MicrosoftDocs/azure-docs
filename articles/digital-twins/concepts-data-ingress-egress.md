@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/12/2023
+ms.date: 05/31/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -37,10 +37,13 @@ You can also integrate Azure Digital Twins into a [Microsoft Power Platform](/po
 
 You may want to send Azure Digital Twins data to other downstream services for storage or additional processing. 
 
-Digital twin data can be sent to most Azure services using *endpoints*. If your destination is [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can use *data history* instead to automatically send graph updates to an Azure Data Explorer cluster, where they are stored as historical data and can be queried as such. The rest of this section describes these capabilities in more detail.
+There are two main egress options in Azure Digital Twins. Digital twin data can be sent to most Azure services using *endpoints*. Or, if your destination is [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can use *data history* to automatically send graph updates to an Azure Data Explorer cluster, where they are stored as historical data and can be queried as such.
 
->[!NOTE]
->Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
+In order for Azure Digital Twins to send data to other Azure services via endpoints or data history, the receiving service must have either public network access enabled or the Trusted Microsoft Service option enabled. For data history, the data history connection must be configured with public network access enabled on the Event Hub and Azure Data Explorer instances. Once data history is configured, the Event Hub and Azure Data Explorer firewall and security settings will need to be configured manually.
+
+Once the connection is set up, Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
+
+The rest of this section describes the two egress options in more detail.
 
 ### Endpoints
 

@@ -7,7 +7,7 @@ ms.reviewer: imotiwala, prpasunu
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 12/07/2022
+ms.date: 05/03/2023
 ---
 
 # Troubleshoot: Azure Synapse Link for SQL initial snapshot issues 
@@ -64,7 +64,6 @@ For example:
 :::image type="content" source="media/troubleshoot-sql-snapshot-issues/change-feed-errors-results-management-studio.png" alt-text="A screenshot of the results of the sys.dm_change_feed_errors dynamic management view including possible snapshot errors to investigate." lightbox="media/troubleshoot-sql-snapshot-issues/change-feed-errors-results-management-studio.png":::
 
 1. If any errors are observed from the snapshot component when `source_task` = 5, refer to error specific mitigation details in the [Known limitations and issues with Azure Synapse Link for SQL](../synapse-link-for-sql-known-issues.md).
-    - A specific `source_task` = 5 error number 22724 is due to the column order of the primary key changing, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot-sql-snapshot-primary-key-column-order.md).
 1. If the error is not found in the known limitations article, [submit an Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the below instructions:
     1.    For **Issue type**, select **Technical**.
     2.    Provide the desired subscription of the source database. Select **Next**.
@@ -74,7 +73,7 @@ For example:
     6.    For **Problem type**, select **Data Sync, Replication, CDC and Change Tracking**.
     7.    For **Problem subtype**, select **Transactional Replication**.
     
-:::image type="content" source="media/troubleshoot-sql-snapshot-issues/sql-snapshot-issues-support-request.png" alt-text="A screenshot of the Azure portal where a New support request has been prepared.":::
+   :::image type="content" source="media/troubleshoot-sql-snapshot-issues/sql-snapshot-issues-support-request.png" alt-text="A screenshot of the Azure portal where a New support request has been prepared.":::
 
 ## Next steps
 

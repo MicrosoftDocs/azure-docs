@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create compute clusters in your Azure Machine Learning workspace with CLI v1. Use the compute cluster as a compute target for training or inference.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
 ms.author: vijetaj
@@ -17,9 +17,6 @@ ms.date: 05/02/2022
 
 [!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](how-to-create-attach-compute-cluster.md)
-> * [v2 (current version)](../how-to-create-attach-compute-cluster.md)
 
 Learn how to create and manage a [compute cluster](../concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -40,7 +37,7 @@ In this article, learn how to:
 
     [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
-* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment-v1.md).  Once your environment is set up, attach to the workspace in your Python script:
+* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

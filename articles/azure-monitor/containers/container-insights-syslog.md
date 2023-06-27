@@ -15,17 +15,23 @@ Container Insights offers the ability to collect Syslog events from Linux nodes 
 
 ## Prerequisites 
 
-- You will need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: This which will create a Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>` 
+- You need to have managed identity authentication enabled on your cluster. To enable, see [migrate your AKS cluster to managed identity authentication](container-insights-enable-existing-clusters.md?tabs=azure-cli#migrate-to-managed-identity-authentication). Note: Enabling Managed Identity will create a new Data Collection Rule (DCR) named `MSCI-<WorkspaceRegion>-<ClusterName>` 
 - Minimum versions of Azure components
   - **Azure CLI**: Minimum version required for Azure CLI is [2.45.0 (link to release notes)](/cli/azure/release-notes-azure-cli#february-07-2023). See [How to update the Azure CLI](/cli/azure/update-azure-cli) for upgrade instructions. 
   - **Azure CLI AKS-Preview Extension**: Minimum version required for AKS-Preview Azure CLI extension is [ 0.5.125 (link to release notes)](https://github.com/Azure/azure-cli-extensions/blob/main/src/aks-preview/HISTORY.rst#05125). See [How to update extensions](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) for upgrade guidance. 
   - **Linux image version**: Minimum version for AKS node linux image is 2022.11.01. See [Upgrade Azure Kubernetes Service (AKS) node images](https://learn.microsoft.com/azure/aks/node-image-upgrade) for upgrade help. 
 
 ## How to enable Syslog
-  
-Use the following command in Azure CLI to enable syslog collection when you create a new AKS cluster.
+
+### From the Azure portal
+
+Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Monitor Settings_ panel. Click on Edit collection settings, then check the box for _Enable Syslog collection_
+
+:::image type="content" source="media/container-insights-syslog/syslog-enable.gif" lightbox="media/container-insights-syslog/syslog-enable.gif" alt-text="Screen recording of syslog being enabled from the Azure portal through the Monitor Settings panel in Container Insights." border="true":::
 
 ### Using Azure CLI commands
+
+Use the following command in Azure CLI to enable syslog collection when you create a new AKS cluster.
 
 ```azurecli
 az aks create -g syslog-rg -n new-cluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring --enable-syslog --generate-ssh-key
@@ -89,7 +95,23 @@ provisioningState       : Succeeded
 ```
 
 ## How to access Syslog data
- 
+
+### Access using built-in workbooks
+
+To get a quick snapshot of your syslog data, customers can use our built-in Syslog workbook. There are two ways to access the built-in workbook.
+
+Option 1 - The Reports tab in Container Insights. 
+Navigate to your cluster. Open the _Insights_ tab for your cluster. Open the _Reports_ tab and look for the _Syslog_ workbook. 
+
+:::image type="content" source="media/container-insights-syslog/syslog-workbook-cluster.gif" lightbox="media/container-insights-syslog/syslog-workbook-cluster.gif" alt-text="Video of Syslog workbook being accessed from Container Insights Reports tab." border="true":::
+
+Option 2 - The Workbooks tab in AKS
+Navigate to your cluster. Open the _Workbooks_ tab for your cluster and look for the _Syslog_ workbook. 
+
+:::image type="content" source="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" lightbox="media/container-insights-syslog/syslog-workbook-container-insights-reports-tab.gif" alt-text="Video of Syslog workbook being accessed from cluster workbooks tab." border="true":::
+
+### Access using log queries
+
 Syslog data is stored in the [Syslog](/azure/azure-monitor/reference/tables/syslog) table in your Log Analytics workspace. You can create your own [log queries](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md) to analyze this data or use any of the [prebuilt queries](../logs/log-query-overview.md).
 
 :::image type="content" source="media/container-insights-syslog/azmon-3.png" lightbox="media/container-insights-syslog/azmon-3.png" alt-text="Screenshot of Syslog query loaded in the query editor in the Azure Monitor Portal UI." border="false":::    
@@ -98,7 +120,7 @@ You can open Log Analytics from the **Logs** menu in the **Monitor** menu to acc
  
 :::image type="content" source="media/container-insights-syslog/aks-4.png" lightbox="media/container-insights-syslog/aks-4.png" alt-text="Screenshot of Query editor with Syslog query." border="false":::
   
-### Sample queries
+#### Sample queries
   
 The following table provides different examples of log queries that retrieve Syslog records.
 
@@ -129,11 +151,15 @@ Select the minimum log level for each facility that you want to collect.
 
 
 ## Known limitations
-
-- **Onboarding**. Syslog collection can only be enabled from command line during public preview. 
 - **Container restart data loss**. Agent Container restarts can lead to syslog data loss during public preview. 
 
 ## Next steps
 
-- Read more about [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
+Once setup customers can start sending Syslog data to the tools of their choice
+- Send Syslog to Microsoft Sentinel: https://learn.microsoft.com/azure/sentinel/connect-syslog  
+- Export data from Log Analytics: https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export?tabs=portal 
 
+Read more  
+- [Syslog record properties](/azure/azure-monitor/reference/tables/syslog)
+
+Share your feedback for the preview here: https://forms.office.com/r/BBvCjjDLTS 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 05/18/2023
 ms.author: phjensen
 ---
 
@@ -24,6 +24,39 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
+## May-2023
+
+### AzAcSnap 8a (Build: 1AC55A6)
+
+AzAcSnap 8a is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Configure (`-c configure`) changes:
+    - Fix for `-c configure` related changes in AzAcSnap 8.
+    - Improved workflow guidance for better customer experience.
+
+Download the [AzAcSnap 8a](https://aka.ms/azacsnap-8a) installer.
+
+### AzAcSnap 8 (Build: 1AC279E)
+
+AzAcSnap 8 is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Restore (`-c restore`) changes:
+    - New ability to use `-c restore` to revertvolume for Azure NetApp Files.
+  - Backup (`-c backup`) changes:
+    - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
+    - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
+    - Fix for when a snapshot is created even though SAP HANA wasn't put into backup-mode.  Now if SAP HANA cannot be put into backup-mode, AzAcSnap will immediately exit with an error.
+  - Details (`-c details`) changes:
+    - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
+  - Logging enhancements:
+    - Extra logging output to syslog (e.g., /var/log/messages) on failure.
+    - New “mainlog” (azacsnap.log) to provide a more parse-able high-level log of commands run with success or failure result.
+  - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
+
+Download the [AzAcSnap 8](https://aka.ms/azacsnap-8) installer.
+
 ## Feb-2023
 
 ### AzAcSnap 7a (Build: 1AA8343)
@@ -33,6 +66,8 @@ AzAcSnap 7a is being released with the following fixes:
 - Fixes for `-c restore` commands:
   - Enable mounting volumes on HLI (BareMetal) where the volumes have been reverted to a prior state when using `-c restore --restore revertvolume`.
   - Correctly set ThroughputMiBps on volume clones for Azure NetApp Files volumes in an Auto QoS Capacity Pool when using `-c restore --restore snaptovol`.
+
+Download the [AzAcSnap 7a](https://aka.ms/azacsnap-7a) installer.
 
 ## Dec-2022
 
@@ -61,6 +96,8 @@ AzAcSnap 7 is being released with the following fixes and improvements:
   - Preliminary support for Azure NetApp Files Backup.
   - Db2 database support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner.
 
+Download the [AzAcSnap 7](https://aka.ms/azacsnap-7) installer.
+
 ## Jul-2022
 
 ### AzAcSnap 6 (Build: 1A5F0B8)
@@ -81,6 +118,8 @@ AzAcSnap 6 is being released with the following fixes and improvements:
   - Azure Managed Disk as an alternate storage back-end.
 - ANF Client API Version updated to 2021-10-01.
 - Change to workflow for handling Backint to re-enable backint configuration should there be a failure when putting SAP HANA in a consistent state for snapshot.
+
+Download the [AzAcSnap 6](https://aka.ms/azacsnap-6) installer.
 
 ## May-2022
 

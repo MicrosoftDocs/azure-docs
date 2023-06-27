@@ -21,7 +21,7 @@ Model customization lets you train a specialized Image Analysis model for your o
 > [Vision Studio quickstart](./how-to/model-customization.md?tabs=studio)
 
 > [!div class="nextstepaction"]
-> [REST quickstart](./how-to/model-customization.md?tabs=rest)
+> [Python SDK quickstart](./how-to/model-customization.md?tabs=python)
 
 
 ## Scenario components
@@ -44,9 +44,9 @@ In order to train your model effectively, use images with visual variety. Select
 
 Additionally, make sure all of your training images meet the following criteria:
 
-- The image must be presented in JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, or MPO format
-- The file size of the image must be less than 20 megabytes (MB)
-- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
+- The image must be presented in JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, or MPO format.
+- The file size of the image must be less than 20 megabytes (MB).
+- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels.
 
 ### COCO file
 
@@ -61,7 +61,7 @@ The **Dataset** object is a data structure stored by the Image Analysis service 
 
 ### Model object
 
-The **Model** object is a data structure stored by the Image Analysis service that represents a custom model. It must be associated with a **Dataset** in order to do initial training. Once it's trained, you can query your model by entering its name in the `model-version` query parameter of the [Analyze Image API call](./how-to/call-analyze-image-40.md).
+The **Model** object is a data structure stored by the Image Analysis service that represents a custom model. It must be associated with a **Dataset** in order to do initial training. Once it's trained, you can query your model by entering its name in the `model-name` query parameter of the [Analyze Image API call](./how-to/call-analyze-image-40.md).
 
 ## Quota limits
 
@@ -71,11 +71,11 @@ The following table describes the limits on the scale of your custom model proje
 | ------------------------- | ------------------------------- | ------------------------------- |
 | Max # training hours                | 288 (12 days)                   | 288 (12 days)                   |
 | Max # training images               | 1,000,000                       | 200,000                         |
-| Max # evaluation images             | 1,00,000                        | 100,000                         |
+| Max # evaluation images             | 100,000                        | 100,000                         |
 | Min # training images per category  | 2                               | 2                               |
 | Max # tags per image                | multiclass: 1                   | NA                              |
 | Max # regions per image             | NA                              | 1,000                           |
-| Max # categories                    | 2,000                           | 1,000                           |
+| Max # categories                    | 2,500                           | 1,000                           |
 | Min # categories                    | 2                               | 1                               |
 | Max image size (Training)           | 20 MB                            | 20 MB                            |
 | Max image size (Prediction)         | Sync: 6 MB, Batch: 20 MB          | Sync: 6 MB, Batch: 20 MB          |

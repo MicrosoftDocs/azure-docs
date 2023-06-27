@@ -1,11 +1,11 @@
 ---
-title: Troubleshooting B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Troubleshooting B2B collaboration
 description: Remedies for common problems with Azure Active Directory B2B collaboration
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 08/30/2022
+ms.date: 05/23/2023
 tags: active-directory
 ms.author: cmulligan
 author: csmulligan
@@ -195,6 +195,10 @@ Let's say you inadvertently invite a guest user with an email address that match
 1. Sign in as a global administrator for the Azure AD tenant that you want to check for duplicate contact objects in.
 1. Run the PowerShell command `Get-AzureADContact -All $true | ? {$_.ProxyAddresses -match 'user@domain.com'}`.
 1. Run the PowerShell command `Get-AzureADContact -All $true | ? {$_.Mail -match 'user@domain.com'}`.
+
+## External access blocked by policy error on the login screen
+
+When you try to login to your tenant, you might see this error message: "Your network administrator has restricted what organizations can be accessed. Contact your IT department to unblock access." This error is related to tenant restriction settings. To resolve this issue, ask your IT team to follow the instructions in [this article](/azure/active-directory/manage-apps/tenant-restrictions).  
 
 ## Next steps
 

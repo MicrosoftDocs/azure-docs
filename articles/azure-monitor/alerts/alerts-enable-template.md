@@ -1,10 +1,8 @@
 ---
 title: Resource Manager template - create metric alert
 description: Learn how to use a Resource Manager template to create a classic metric alert to receive notifications by email or webhook.
-author: harelbr
-ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 05/28/2023
 ms.reviewer: harelbr
 ---
 # Create a classic metric alert rule with a Resource Manager template

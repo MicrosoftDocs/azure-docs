@@ -1,11 +1,11 @@
 ---
 title: Attach, push, and pull supply chain artifacts
 description: Attach, push, and pull supply chain artifacts using Azure Registry (Preview)
-author: SteveLasker
+author: tejaswikolli-web
 manager: gwallace
 ms.topic: article
 ms.date: 01/04/2023
-ms.author: stevelas
+ms.author: tejaswikolli
 ms.custom: references_regions
 ---
 
@@ -385,7 +385,7 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 
 ## Next steps
 
-* Learn more about [the ORAS CLI](https://oras.land/cli/)
+* Learn more about [the ORAS CLI](https://oras.land/docs/category/cli)
 * Learn more about [OCI Artifact Manifest][oci-artifact-manifest] for how to push, discover, pull, copy a graph of supply chain artifacts
 
 <!-- LINKS - external -->
@@ -395,9 +395,10 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 [oci-spec]:                 https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
 [oci-1_1-spec]:             https://github.com/opencontainers/distribution-spec/releases/tag/v1.1.0-rc1
 [oras-docs]:                https://oras.land/
-[oras-install-docs]:        https://oras.land/cli/
-[oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
-[oras-cli]:                 https://oras.land/cli_reference/
+[oras-install-docs]:        https://oras.land/docs/category/cli
+[oras-cli]:                 https://oras.land/docs/category/cli-reference
+[oras-push-multifiles]:     https://oras.land/docs/cli/pushing/#pushing-artifacts-with-multiple-files
+
 
 <!-- LINKS - internal -->
 [acr-authentication]:       ./container-registry-authentication.md?tabs=azure-cli

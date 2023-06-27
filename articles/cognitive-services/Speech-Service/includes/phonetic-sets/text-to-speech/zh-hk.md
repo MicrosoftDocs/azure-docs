@@ -1,6 +1,14 @@
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
 The Speech service phone set for `zh-HK` is based on the native phone <a href="https://en.wikipedia.org/wiki/Jyutping" target="_blank">Jyutping </a> set.
 
-### Jyutping Initials
+### Jyutping Initials for zh-HK
 
 | Jyutping | Character example | `sapi` example | VisemeID |
 |----------|-------------------|----------------|----------|
@@ -24,7 +32,7 @@ The Speech service phone set for `zh-HK` is based on the native phone <a href="h
 | w        | 蛙                 | **w**aa 1      | 7        |
 | j        | 廿                 | **j**aa 6      | 6        |
 
-### Jyutping Middle
+### Jyutping Middle for zh-HK
 
 | Jyutping | Character example | `sapi` example | VisemeID |
 |----------|-------------------|----------------|----------|
@@ -38,7 +46,7 @@ The Speech service phone set for `zh-HK` is based on the native phone <a href="h
 | a        | 新                 | s**a**n 1      | 4        |
 | eo       | 律                 | l**eo**t 6     | 1        |
 
-### Jyutping Ending
+### Jyutping Ending for zh-HK
 
 | Jyutping | Character example | `sapi` example | VisemeID |
 |----------|-------------------|----------------|----------|
@@ -51,7 +59,7 @@ The Speech service phone set for `zh-HK` is based on the native phone <a href="h
 | n        | 新                 | sa**n** 1      | 19       |
 | ng       | 敬                 | gi**ng** 3     | 20       |
 
-### Jyutping Tone
+### Jyutping Tone for zh-HK
 
 | Tone number | Description                                    | Character example | `sapi` example |
 |-------------|------------------------------------------------|-------------------|----------------|

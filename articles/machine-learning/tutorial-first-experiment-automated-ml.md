@@ -10,7 +10,7 @@ author: manashgoswami
 ms.author: magoswam
 ms.reviewer: ssalgado 
 ms.date: 10/21/2021
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, ignite-2022
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, ignite-2022, build-2023
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
@@ -121,34 +121,35 @@ After you load and configure your data, you can set up your experiment. This set
 
     1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
     
-    1. Select **compute cluster** as your compute type. 
+    1. Select **compute cluster** as your compute type.
+    1.  A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, you can either try a cloud-based serverless compute (preview) or create your own cloud-based compute.
+        1. To use serverless compute, [enable the preview feature](./how-to-use-serverless-compute.md#how-to-use-serverless-compute), select **Serverless**, and skip the rest of this step.
+        1.  To create your own compute target, select **+New** to configure your compute target. 
+            1. Populate the **Select virtual machine** form to set up your compute.
     
-    1.  **+New** to configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
-        1. Populate the **Select virtual machine** form to set up your compute.
-
-            Field | Description | Value for tutorial
-            ----|---|---
-            Location | Your region that you'd like to run the machine from |West US 2
-            Virtual&nbsp;machine&nbsp;tier |Select what priority your experiment should have| Dedicated
-            Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
-            Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
-        
-        1. Select **Next** to populate the **Configure settings form**.
-        
-            Field | Description | Value for tutorial
-            ----|---|---
-            Compute name |	A unique name that identifies your compute context. | automl-compute
-            Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
-            Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
-
-        1. Select **Create** to create your compute target. 
-
-            **This takes a couple minutes to complete.** 
-
-             ![Settings page](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
-
-        1. After creation, select your new compute target from the drop-down list.
+                Field | Description | Value for tutorial
+                ----|---|---
+                Location | Your region that you'd like to run the machine from |West US 2
+                Virtual&nbsp;machine&nbsp;tier |Select what priority your experiment should have| Dedicated
+                Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
+                Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
+            
+            1. Select **Next** to populate the **Configure settings form**.
+            
+                Field | Description | Value for tutorial
+                ----|---|---
+                Compute name |    A unique name that identifies your compute context. | automl-compute
+                Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+                Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+                Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None
+    
+            1. Select **Create** to create your compute target. 
+    
+                **This takes a couple minutes to complete.** 
+    
+                 ![Settings page](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
+    
+            1. After creation, select your new compute target from the drop-down list.
 
     1. Select **Next**.
 
@@ -278,8 +279,6 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
-+ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

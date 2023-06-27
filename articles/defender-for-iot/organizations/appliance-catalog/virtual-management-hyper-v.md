@@ -28,6 +28,9 @@ Before you begin the installation, make sure you have the following items:
 
 Make sure the hypervisor is running.
 
+> [!NOTE]
+> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
+
 ## Create the virtual machine
 
 This procedure describes how to create a virtual machine for your on-premises management console using Microsoft Hyper-V.
@@ -50,7 +53,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
 1. Enter a name for the virtual machine and select **Next**.
 
-1. Select **Generation** and set it to **Generation 1** or **Generation 2**, and then select **Next**.
+1. Select **Generation** and set it to **Generation 1**, and then select **Next**.
 
 1. Specify the [memory allocation for your organization's needs](../ot-appliance-sizing.md), and then select **Next**.
 
@@ -86,6 +89,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install Microsoft Defender for IoT on-premises management console software](../ot-deploy/install-software-on-premises-management-console.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

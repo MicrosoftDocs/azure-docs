@@ -1,4 +1,12 @@
-### Vowels
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels for vi-VN
 
 | `ipa` | `viseme` | Example 1 | Example 2 | Example 3|
 |-------|----------|-----------|-----------|----------|
@@ -38,7 +46,7 @@
 | `iə`  | 6,1      |           |           | k**ìa**  |
 | `a͡ʲ` | 2        | **a**ch   | họ**a**ch |          |
 
-### Consonant
+### Consonant for vi-VN
 
 | `ipa` | `viseme` | Example 1 | Example 2 | Example 3|
 |-------|----------|-----------|-----------|----------|
@@ -67,7 +75,7 @@
 | `t͡ʃ` | 19,16    | **ch**im  |           | **ch**ỉ  |
 | `w`   | 7        |           | h**o**ang |          |
 
-### Tone
+### Tone for vi-VN
 
 | `ipa` | `Description` | Example |
 |-------|---------------|---------|

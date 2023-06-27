@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Tutorial: Get search suggestions on a web page
 

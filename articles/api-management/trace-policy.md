@@ -14,7 +14,7 @@ ms.author: danlep
 The `trace` policy adds a custom trace into the request tracing output in the test console, Application Insights telemetries, and/or resource logs.
 
 -   The policy adds a custom trace to the [request tracing](./api-management-howto-api-inspector.md) output in the test console when tracing is triggered, that is, `Ocp-Apim-Trace` request header is present and set to `true` and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
--   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
+-   The policy creates a [Trace](../azure-monitor/app/data-model-complete.md#trace) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [resource logs](./api-management-howto-use-azure-monitor.md#resource-logs) are enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 -   The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
 
@@ -35,15 +35,15 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 
 | Attribute | Description                                                                                                               | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | String literal meaningful to the trace viewer and specifying the source of the message.                                   | Yes      | N/A     |
-| severity  | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). | No       | `verbose` |
+| source    | String literal meaningful to the trace viewer and specifying the source of the message. Policy expressions aren't allowed.                                   | Yes      | N/A     |
+| severity  | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). Policy expressions aren't allowed. | No       | `verbose` |
 
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| message  | A string or expression to be logged.                                                                                                                 | Yes      |
-| metadata | Adds a custom property to the Application Insights [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry. | No       |
+| message  | A string or expression to be logged. Policy expressions are allowed.                                                                                                                 | Yes      |
+| metadata | Adds a custom property to the Application Insights [Trace](../azure-monitor/app/data-model-complete.md#trace) telemetry. | No       |
 
 ### metadata attributes
 
@@ -55,7 +55,7 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

@@ -1,20 +1,20 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview csv parser ingestion workflow concept #Required; page title is displayed in search results. Include the brand.
-description: Learn how to use CSV parser ingestion. #Required; article description that is displayed in search results. 
-author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview csv parser ingestion workflow concept
+description: Learn how to use CSV parser ingestion.
+author: bharathim
+ms.author: bselvaraj
+ms.service: energy-data-services
+ms.topic: conceptual
 ms.date: 02/10/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # CSV parser ingestion concepts
 A CSV (comma-separated values) file is a comma delimited text file that is used to save data in a table structured format. 
 
-A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Azure Data Manager for Energy Preview instance based on a custom schema that is, a schema that doesn't match the [OSDU&trade;](https://osduforum.org) canonical schema. Customers must create and register the custom schema using the Schema service before loading the data. 
+A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Azure Data Manager for Energy Preview instance based on a custom schema that is, a schema that doesn't match the [OSDU&trade;](https://osduforum.org) Well Known Schema (WKS). Customers must create and register the custom schema using the Schema service before loading the data. 
 
-A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Azure Data Manager for Energy Preview instance. It could then be transformed to the [OSDU&trade;](https://osduforum.org) canonical schema using a mapping service.
+A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Azure Data Manager for Energy Preview instance. It could then be transformed to the [OSDU&trade;](https://osduforum.org) Well Known Schema using a mapping service.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

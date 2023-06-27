@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/06/2020
+ms.date: 05/03/2023
 ms.author: allensu
 ---
 
@@ -15,17 +15,22 @@ ms.author: allensu
 
 When you deploy dedicated Azure services in a [virtual network](virtual-networks-overview.md), you can communicate with the service resources privately, through private IP addresses.
 
-![Services deployed in a virtual network](./media/virtual-network-for-azure-services/deploy-service-into-vnet.png)
+:::image type="content" source="./media/virtual-network-for-azure-services/deploy-service-into-vnet.png" alt-text="Diagram of services deployed in a virtual network.":::
 
 Deploying services within a virtual network provides the following capabilities:
 
 - Resources within the virtual network can communicate with each other privately, through private IP addresses. Example, directly transferring data between HDInsight and SQL Server running on a virtual machine, in the virtual network.
+
 - On-premises resources can access resources in a virtual network using private IP addresses over a [Site-to-Site VPN (VPN Gateway)](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti) or [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
 - Virtual networks can be [peered](virtual-network-peering-overview.md) to enable resources in the virtual networks to communicate with each other, using private IP addresses.
-- Service instances in a virtual network are typically fully managed by the Azure service. This includes monitoring the health of the resources  and scaling with load.
+
 - Service instances are deployed into a subnet in a virtual network. Inbound and outbound network access for the subnet must be opened through [network security groups](./network-security-groups-overview.md#network-security-groups), per guidance provided by the service.
-- Certain services also impose restrictions on the subnet they're deployed in, limiting the application of policies, routes or combining VMs and service resources within the same subnet. Check with each service on the specific restrictions as they may change over time. Examples of such services are Azure NetApp Files, Dedicated HSM, Azure Container Instances, App Service. 
-- Optionally, services might require a [delegated subnet](virtual-network-manage-subnet.md#add-a-subnet) as an explicit identifier that a subnet can host a particular service. By delegating, services get explicit permissions to create service-specific resources in the delegated subnet.
+
+- Some services impose restrictions on the subnet they're deployed in to. This restriction limits the application of policies, routes or combining VMs and service resources within the same subnet. Check with each service on the specific restrictions as they may change over time. Examples of services are Azure NetApp Files, Dedicated HSM, Azure Container Instances, App Service. 
+
+- Optionally, services might require a [delegated subnet](virtual-network-manage-subnet.md#add-a-subnet) as an explicit identifier that a subnet can host a particular service. With delegation, services receive explicit permissions to create service-specific resources in the delegated subnet.
+
 - See an example of a REST API response on a [virtual network with a delegated subnet](/rest/api/virtualnetwork/virtualnetworks/get#get-virtual-network-with-a-delegated-subnet). A comprehensive list of services that are using the delegated subnet model can be obtained via the [Available Delegations](/rest/api/virtualnetwork/availabledelegations/list) API.
 
 ### Services that can be deployed into a virtual network

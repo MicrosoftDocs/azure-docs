@@ -5,11 +5,11 @@ services: internet-analyzer
 author: KumudD
 
 ms.service: internet-analyzer
+ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: kumud
-# Customer intent: As someone interested in creating an Internet Analyzer resource, I want to learn how to install the JavaScript client, which is necessary to run tests. 
-
+# Customer intent: As someone interested in creating an Internet Analyzer resource, I want to learn how to install the JavaScript client, which is necessary to run tests.
 ---
 
 # Embed the Internet Analyzer client

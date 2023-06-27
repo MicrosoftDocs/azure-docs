@@ -26,6 +26,6 @@ sudo chmod +x /usr/local/bin/osm
 
 You can verify the `osm` client library has been correctly added to your path and its version number with the following command.
 
-```
+```bash
 osm version
 ```

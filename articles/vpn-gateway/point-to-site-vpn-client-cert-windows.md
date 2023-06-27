@@ -4,8 +4,9 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN clients for P2S configurations that use certificate authentication. This article applies to Windows.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 05/04/2023
 ms.author: cherylmc
 ---
 

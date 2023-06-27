@@ -1,5 +1,5 @@
 ---
-title: Passwordless security key sign-in to on-premises resources - Azure Active Directory
+title: Passwordless security key sign-in to on-premises resources
 description: Learn how to enable passwordless security key sign-in to on-premises resources by using Azure Active Directory
 
 services: active-directory
@@ -44,7 +44,7 @@ You must also meet the following system requirements:
 
 - Devices must be running Windows 10 version 2004 or later.
 
-- Your Windows Server domain controllers must have patches installed for the following servers:
+- Your Windows Server domain controllers must run Windows Server 2016 or later and have patches installed for the following servers:
     - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
     - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 

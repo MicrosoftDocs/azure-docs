@@ -63,7 +63,7 @@ As you plan the governance of external access to your content, consider content,
 
 To define High, Medium, or Low Business Impact (HBI, MBI, LBI) for data, sites, and groups, consider the effect on your organization if the wrong content types are shared. 
 
-* Credit card, passport, national-ID numbers
+* Credit card, passport, national/regional ID numbers
   * [Apply a sensitivity label to content automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide&preserve-view=true)
 * Content created by corporate officers: compliance, finance, executive, etc.
 * Strategic or financial data in libraries or sites. 
@@ -101,7 +101,7 @@ You can apply sensitivity labels to containers such as Microsoft 365 Groups, Mic
 * **External user access** - determine if group owners can add guests to a group
 * **Access from unmanaged devices** - decide if and how unmanaged devices access content
 
-   ![Screenshot of otions and entries under Site and group settings.](media/secure-external-access/8-edit-label.png)
+   ![Screenshot of options and entries under Site and group settings.](media/secure-external-access/8-edit-label.png)
 
 Sensitivity labels applied to a container, such as a SharePoint site, aren't applied to content in the container; they control access to content in the container. Labels can be applied automatically to the content in the container. For users to manually apply labels to content, enable sensitivity labels for Office files in SharePoint and OneDrive.
 

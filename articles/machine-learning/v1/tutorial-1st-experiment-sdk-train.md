@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: How to train a machine learning model in Azure Machine Learning, with SDK v1. This is part 2 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-1st-experiment-sdk-train.md)
-> * [v2](../tutorial-1st-experiment-sdk-train.md)
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
 

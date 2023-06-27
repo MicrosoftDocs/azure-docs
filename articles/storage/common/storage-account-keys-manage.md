@@ -3,19 +3,19 @@ title: Manage account access keys
 titleSuffix: Azure Storage
 description: Learn how to view, manage, and rotate your storage account access keys.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/14/2022
-ms.author: jammart
+ms.date: 03/22/2023
+ms.author: tamram
 ms.reviewer: nachakra 
-ms.custom: devx-track-azurepowershell
+ms.custom: engagement-fy23
 ---
 
 # Manage storage account access keys
 
-When you create a storage account, Azure generates two 512-bit storage account access keys for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization.
+When you create a storage account, Azure generates two 512-bit storage account access keys for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.
 
 Microsoft recommends that you use Azure Key Vault to manage your access keys, and that you regularly rotate and regenerate your keys. Using Azure Key Vault makes it easy to rotate your keys without interruption to your applications. You can also manually rotate your keys.
 

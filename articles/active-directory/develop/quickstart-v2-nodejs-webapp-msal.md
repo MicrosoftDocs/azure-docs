@@ -6,7 +6,7 @@ author: cilwerner
 manager: celested
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2021
 ROBOTS: NOINDEX

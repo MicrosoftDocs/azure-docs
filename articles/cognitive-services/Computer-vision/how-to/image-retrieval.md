@@ -19,17 +19,20 @@ ms.custom: references_regions
 The Image Retrieval APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
 
 > [!IMPORTANT]
-> These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+> These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia. 
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
 ## Try out Image Retrieval
 
 You can try out the Image Retrieval feature quickly and easily in your browser using Vision Studio.
+
+> [!IMPORTANT]
+> The Vision Studio experience is limited to 500 images. To use a larger image set, create your own search application using the APIs in this guide.
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
@@ -45,9 +48,11 @@ The `retrieval:vectorizeImage` API lets you convert an image's data to a vector.
 ```bash
 curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2023-02-01-preview&modelVersion=latest" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
-'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png'
+'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'
 }"
 ```
+
+To vectorize a local image, you'd put the binary image data in the HTTP request body.
 
 The API call returns an **vector** JSON object, which defines the image's coordinates in the high-dimensional vector space.
 

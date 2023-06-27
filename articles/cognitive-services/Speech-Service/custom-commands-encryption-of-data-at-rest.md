@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Custom Commands encryption of data at rest
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 Custom Commands automatically encrypts your data when it is persisted to the cloud. The Custom Commands service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
 > [!NOTE]
@@ -33,9 +35,9 @@ By default, your subscription uses Microsoft-managed encryption keys. However, y
 
 
 > [!IMPORTANT]
-> Customer-managed keys are only available resources created after 27 June, 2020. To use CMK with Speech Services, you will need to create a new Speech resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
+> Customer-managed keys are only available resources created after 27 June, 2020. To use CMK with the Speech service, you will need to create a new Speech resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
 
-To request the ability to use customer-managed keys, fill out and submit Customer-Managed Key Request Form. It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with Speech Services, you'll need to create a new Speech resource from the Azure portal.
+To request the ability to use customer-managed keys, fill out and submit Customer-Managed Key Request Form. It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Speech service, you'll need to create a new Speech resource from the Azure portal.
    > [!NOTE]
    > **Customer-managed keys (CMK) are supported only for Custom Commands.**
    >

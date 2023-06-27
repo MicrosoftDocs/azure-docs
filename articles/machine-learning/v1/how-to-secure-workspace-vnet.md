@@ -10,31 +10,29 @@ ms.author: jhirono
 author: jhirono
 ms.date: 06/17/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)
 
 [!INCLUDE [sdk/cli v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK/CLI extension you are using:"]
-> * [v1](how-to-secure-workspace-vnet.md)
-> * [v2 (current version)](../how-to-secure-workspace-vnet.md)
 
-In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
+In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 
-> [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
->
-> * [Virtual network overview](how-to-network-security-overview.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](../how-to-custom-dns.md)
-> * [Use a firewall](../how-to-access-azureml-behind-firewall.md)
-> * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
->
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
+[!INCLUDE [managed-vnet-note](../includes/managed-vnet-note.md)]
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+* [Virtual network overview](../how-to-network-security-overview.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](../how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](../how-to-custom-dns.md)
+* [Use a firewall](../how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
+
+For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to enable the following workspaces resources in a virtual network:
 > [!div class="checklist"]
@@ -46,7 +44,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ## Prerequisites
 
-+ Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
++ Read the [Network security overview](../how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
 + Read the [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) article to learn about best practices.
 
@@ -55,12 +53,7 @@ In this article you learn how to enable the following workspaces resources in a 
     > [!IMPORTANT]
     > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
 ### Azure Container Registry
 
@@ -85,7 +78,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 ### Azure Container Registry
 
-When ACR is behind a virtual network, Azure Machine Learning can’t use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
 > [!IMPORTANT]
 > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
@@ -337,6 +330,17 @@ json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths,
 validate=False) 
 ```
 
+## Secure Azure Monitor and Application Insights
+
+To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
+
+1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
+
+    > [!TIP]
+    > New workspaces create a workspace-based Application Insights resource by default.
+
+1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For steps on how to do this, see [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
+
 ## Securely connect to your workspace
 
 [!INCLUDE [machine-learning-connect-secure-workspace](../../../includes/machine-learning-connect-secure-workspace.md)]
@@ -349,7 +353,7 @@ validate=False)
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Virtual network overview](how-to-network-security-overview.md)
+* [Virtual network overview](../how-to-network-security-overview.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)

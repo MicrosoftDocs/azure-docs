@@ -3,6 +3,7 @@ title: Remove user-assigned managed identity for Azure Automation account
 description: This article explains how to remove a user-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 10/26/2021
 ms.topic: conceptual
 ---

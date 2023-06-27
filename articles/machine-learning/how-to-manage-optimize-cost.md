@@ -12,8 +12,6 @@ ms.topic: how-to
 ms.date: 06/08/2021 
 ---
 
-[//]: # (needs PM review; ParallelJobStep or ParallelRunStep?)
-
 # Manage and optimize Azure Machine Learning costs
 
 Learn how to manage and optimize costs when training and deploying machine learning models to Azure Machine Learning.
@@ -90,7 +88,7 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 ## Schedule compute instances
 
 When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview) to save on cost when the VM has been idle for a specified time period.
+* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
 * Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances
@@ -99,15 +97,9 @@ Another way to save money on compute resources is Azure Reserved VM Instance. Wi
 
 Azure Machine Learning Compute supports reserved instances inherently. If you purchase a one-year or three-year reserved instance, we will automatically apply discount against your Azure Machine Learning managed compute.
 
-## Train locally
-
-When prototyping and running training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. 
-
-Visual Studio Code provides a full-featured environment for developing your machine learning applications. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
-
 ## Parallelize training
 
-One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel run step in Azure Machine Learning. This step allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelRunStep](xref:azureml.contrib.pipeline.steps.ParallelRunStep) documentation.
+One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel component in Azure Machine Learning. A parallel component allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelComponent](/python/api/azure-ai-ml/azure.ai.ml.entities.parallelcomponent) documentation.
 
 ## Set data retention & deletion policies
 

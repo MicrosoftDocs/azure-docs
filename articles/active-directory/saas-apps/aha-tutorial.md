@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Aha! | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Aha!'
 description: Learn how to configure single sign-on between Azure Active Directory and Aha!.
 services: active-directory
 author: jeevansd
@@ -119,15 +119,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Aha! SSO
 
-1. To automate the configuration within Aha!, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-    ![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup Aha!** will direct you to the Aha! application. From there, provide the admin credentials to sign into Aha!. The browser extension will automatically configure the application for you and automate steps 3-8.
 
-    ![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Aha! manually, open a new web browser window and sign into your Aha! company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your Aha! company site as an administrator
 
 4. In the menu on the top, click **Settings**.
 

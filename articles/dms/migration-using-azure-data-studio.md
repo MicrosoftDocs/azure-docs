@@ -39,7 +39,7 @@ For information about specific migration scenarios and Azure SQL targets, see th
 |---------|---------|
 SQL Server to Azure SQL Managed Instance| [Online](./tutorial-sql-server-managed-instance-online-ads.md) / [Offline](./tutorial-sql-server-managed-instance-offline-ads.md)
 SQL Server to SQL Server on an Azure virtual machine|[Online](./tutorial-sql-server-to-virtual-machine-online-ads.md) / [Offline](./tutorial-sql-server-to-virtual-machine-offline-ads.md)
-SQL Server to Azure SQL Database (preview)| [Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
+SQL Server to Azure SQL Database | [Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
 
 > [!IMPORTANT]
 > If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
@@ -100,7 +100,7 @@ The following sections walk through the prerequisites for each supported Azure S
 
 [!INCLUDE [dms-ads-sqlvm-prereq](../../includes/dms-ads-sqlvm-prereq.md)]
 
-### [Azure SQL Database (preview)](#tab/azure-sql-db)
+### [Azure SQL Database](#tab/azure-sql-db)
 
 [!INCLUDE [dms-ads-sqldb-prereq](../../includes/dms-ads-sqldb-prereq.md)]
 

@@ -6,11 +6,11 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.date: 08/22/2022
 ROBOTS: NOINDEX
 ms.author: owenrichards
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-js
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -61,8 +61,8 @@ ms.custom: mode-api
 > ##### Global tenant administrator
 > 
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for > Enter_the_Tenant_Name_Here**
-> > > [!div id="apipermissionspage"]
-> > > [Go to the API Permissions page]()
+> > [!div id="apipermissionspage"]
+> > [Go to the API Permissions page]()
 > 
 > ##### Standard user
 > 

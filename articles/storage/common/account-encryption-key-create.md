@@ -11,7 +11,7 @@ ms.date: 06/09/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an account that supports customer-managed keys for tables and queues
@@ -44,7 +44,7 @@ To create a storage account that relies on the account encryption key with the A
 
 # [PowerShell](#tab/powershell)
 
-To use PowerShell to create a storage account that relies on the account encryption key, make sure you have installed the Azure PowerShell module, version 3.4.0 or later. For more information, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+To use PowerShell to create a storage account that relies on the account encryption key, make sure you have installed the Azure PowerShell module, version 3.4.0 or later. For more information, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Next, create a general-purpose v2 storage account by calling the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command, with the appropriate parameters:
 
