@@ -64,7 +64,7 @@ Follow one of the following methods to enable:
 2. Via Azure Resource Manager client
 
     ```cmd
-    armclient patch /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2023-06-01-preview "{identity: { type: 'systemAssigned' }}
+    az rest --method patch --url /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2023-06-01-preview --body "{'identity': {'type': 'SystemAssigned'}}"
     ``` 
 
 ### Step 4: Access policy
