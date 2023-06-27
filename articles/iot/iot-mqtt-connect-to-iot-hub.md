@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 05/25/2023
+ms.date: 06/27/2023
 ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', iot]
 ---
