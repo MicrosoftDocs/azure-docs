@@ -46,7 +46,7 @@ landingContent:
             url: workloads/epic/quality-checks.md
           - text: Register the ALI resource provider
             url: workloads/epic/register-the-ali-resource-provider.md
-        - linkListType: reference
+      - linkListType: reference
         links:
           - text: Frequently Asked Questions
             url: workloads/epic/faq.md
