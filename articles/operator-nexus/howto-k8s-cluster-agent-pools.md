@@ -54,9 +54,4 @@ Always consider your cluster's resource capacity, the nature of your workloads, 
 
 
 ## Next steps
-TODO: Add your next step link(s)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
--->
+ Refer to the [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md#add-an-agent-pool) to add new agent pools and experiment with configurations in your Nexus Kubernetes cluster.
