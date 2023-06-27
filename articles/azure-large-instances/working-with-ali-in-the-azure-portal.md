@@ -51,15 +51,15 @@ To begin using Azure CLI:
 Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md).
 For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md). 
 
-If you prefer to run CLI reference commands locally, [install](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](https://learn.microsoft.com/en-us/cli/azure/run-azure-cli-docker).
+If you prefer to run CLI reference commands locally, [install](https://learn.microsoft.com/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](https://learn.microsoft.com/cli/azure/run-azure-cli-docker).
 
-If you're using a local installation, sign in to the Azure CLI by using the [az login command](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
+If you're using a local installation, sign in to the Azure CLI by using the [az login command](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli).
 
-When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/azure-cli-extensions-overview).
+When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
 
-Run [az version](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-upgrade).
+Run [az version](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-upgrade).
 
-For more information about resource providers, see [Azure resource providers and types](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+For more information about resource providers, see [Azure resource providers and types](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
 [comment]: <End of Include content> 
 
