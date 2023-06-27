@@ -29,10 +29,10 @@ To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD)
 
 ## Valid licenses
 
-You will need Microsoft Entra ID Governance licenses to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
+You will need either Microsoft Entra ID Governance licenses or Azure AD Premium P2 licenses to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with an Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
 
 ## Licenses you must have
-Ensure that your tenant has Microsoft Entra ID Governance licenses for all users whose identities or access is governed or who interact with an identity governance feature.
+Ensure that your tenant has either Microsoft Entra ID Governance or Microsoft Azure AD Premium P2 licenses for all users whose identities or access is governed or who interact with an identity governance feature.
 
 
 ## Example license scenarios
