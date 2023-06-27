@@ -66,14 +66,26 @@ lstopo-no-graphics --no-io --no-legend --of txt
 ![lstopo output for HX-176 VM](./media/hpc/architecture/hx/hx-176-lstopo.png)
 </details>
 
+<details>
+<summary>Click to view lstopo output for Standard_HX176-144rs</summary>
+  
 ![lstopo output for HX-144 VM](./media/hpc/architecture/hx/hx-144-lstopo.png)
 </details>
+
+<details>
+<summary>Click to view lstopo output for Standard_HX176-96rs</summary>
 
 ![lstopo output for HX-64 VM](./media/hpc/architecture/hx/hx-96-lstopo.png)
 </details>
 
+<details>
+<summary>Click to view lstopo output for Standard_HX176-48rs</summary>
+
 ![lstopo output for HX-32 VM](./media/hpc/architecture/hx/hx-48-lstopo.png)
 </details>
+
+<details>
+<summary>Click to view lstopo output for Standard_HX176-24rs</summary>
 
 ![lstopo output for HX-16 VM](./media/hpc/architecture/hx/hx-24-lstopo.png)
 </details>
