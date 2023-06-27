@@ -1,7 +1,7 @@
 ---
 title: Configure anonymous read access for containers and blobs
 titleSuffix: Azure Storage
-description: Learn how to allow or disallow anonymous access to blob data for the storage account. Set the container's access setting to make containers and blobs available for anonymous access.
+description: Learn how to allow or disallow anonymous access to blob data for the storage account. Set the container's anonymous access setting to make containers and blobs available for anonymous access.
 author: tamram
 
 ms.service: storage
@@ -30,21 +30,26 @@ This article describes how to configure anonymous read access for a container an
 
 Anonymous access to your data is always prohibited by default. There are two separate settings that affect anonymous access:
 
-1. **Allow anonymous access for the storage account.** By default, an Azure Resource Manager storage account allows a user with the appropriate permissions to enable anonymous access to a container. Blob data is not available for anonymous access unless the user takes the additional step to explicitly configure the container's access setting.
-1. **Configure the container's access setting.** By default, a container's anonymous access setting is disabled, meaning that authorization is required for every request to the container or its data. A user with the appropriate permissions can modify a container's access setting to enable anonymous access only if anonymous access is allowed for the storage account.
+1. **Anonymous access setting for the storage account.** An Azure Resource Manager storage account offers a setting to allow or disallow anonymous access for the account. Microsoft recommends disallowing anonymous access for your storage accounts for optimal security.
 
-The following table summarizes how both settings together affect anonymous access for a container.
+    When anonymous access is permitted at the account level, blob data is not available for anonymous read access unless the user takes the additional step to explicitly configure the container's anonymous access setting.
+
+    Beginning on August 1, 2023, new Azure Resource Manager storage accounts are created with anonymous access disallowed by default. For Azure Resource Manager storage accounts created prior to that date, anonymous access is allowed by default, and should be disallowed for optimal security.
+
+1. **Configure the container's anonymous access setting.** By default, a container's anonymous access setting is disabled, meaning that authorization is required for every request to the container or its data. A user with the appropriate permissions can modify a container's anonymous access setting to enable anonymous access only if anonymous access is allowed for the storage account.
+
+The following table summarizes how the two settings together affect anonymous access for a container.
 
 |  | Anonymous access level for the container is set to Private (default setting) | Anonymous access level for the container is set to Container | Anonymous access level for the container is set to Blob |
 |--|--|--|--|
-| **Anonymous access is disallowed for the storage account** | No anonymous access to any container in the storage account. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. |
-| **Anonymous access is allowed for the storage account (default setting)** | No anonymous access to this container (default configuration). | Anonymous access is permitted to this container and its blobs. | Anonymous access is permitted to blobs in this container, but not to the container itself. |
+| **Anonymous access is disallowed for the storage account (default setting for accounts created after August 1, 2023)** | No anonymous access to any container in the storage account. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. |
+| **Anonymous access is allowed for the storage account (default setting for accounts created prior to August 1, 2023)** | No anonymous access to this container (default configuration). | Anonymous access is permitted to this container and its blobs. | Anonymous access is permitted to blobs in this container, but not to the container itself. |
 
 When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
 
 ## Allow or disallow public read access for a storage account
 
-By default, a storage account is configured to allow a user with the appropriate permissions to enable anonymous access to a container. When anonymous access is allowed, a user with the appropriate permissions can modify a container's access setting to enable anonymous access to the data in that container. Blob data is never available for anonymous access unless the user takes the additional step to explicitly configure the container's access setting.
+When anonymous access is allowed for a storage account, a user with the appropriate permissions can modify a container's anonymous access setting to enable anonymous access to the data in that container. Blob data is never available for anonymous access unless the user takes the additional step to explicitly configure the container's anonymous access setting.
 
 Keep in mind that anonymous access to a container is always turned off by default and must be explicitly configured to permit anonymous requests. Regardless of the setting on the storage account, your data will never be available for anonymous access unless a user with appropriate permissions takes this additional step to enable anonymous access on the container.
 
@@ -78,7 +83,13 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 
 To allow or disallow anonymous access for a storage account, configure the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
-The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value until you explicitly set it. The storage account permits anonymous access when the property value is either **null** or **true**.
+The **AllowBlobPublicAccess** property is not set for a storage account by default and does not return a value until you explicitly set it. The meaning of the **null** value depends on when the storage account was created:
+
+- For storage accounts created on or after August 1, 2023, anonymous access is disallowed by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, the property returns **null**. The **null** return value indicates that anonymous access is disallowed in this case. You can set the value explicitly to **false** when you create the storage account or after it has been created.
+
+- For storage accounts created prior to August 1, 2023, anonymous access is allowed by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, the property returns **null**. In this scenario, the **null** return value indicates that anonymous access is allowed.
+
+To determine when your storage account was created, check the [CreationTime](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount.creationtime#microsoft-azure-commands-management-storage-models-psstorageaccount-creationtime) property of the storage account.
 
 # [Azure portal](#tab/portal)
 
@@ -101,7 +112,7 @@ $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $location = "<location>"
 
-# Create a storage account with AllowBlobPublicAccess set to false.
+# Create a storage account with AllowBlobPublicAccess explicitly set to false.
 New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
@@ -190,6 +201,9 @@ The examples in this section showed how to read the **AllowBlobPublicAccess** pr
 
 To grant anonymous users read access to a container and its blobs, first allow anonymous access for the storage account, then set the container's anonymous access level. If anonymous access is denied for the storage account, you will not be able to configure anonymous access for a container.
 
+> [!CAUTION]
+> Microsoft recommends against permitting anonymous access to blob data in your storage account.
+
 When anonymous access is allowed for a storage account, you can configure a container with the following permissions:
 
 - **No public read access:** The container and its blobs can be accessed only with an authorized request. This option is the default for all new containers.
@@ -218,7 +232,7 @@ When anonymous access is disallowed for the storage account, a container's anony
 
 To update the anonymous access level for one or more containers with PowerShell, call the [Set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
-The following example creates a container with anonymous access disabled, and then updates the container's access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
+The following example creates a container with anonymous access disabled, and then updates the container's anonymous access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 # Set variables.
@@ -230,11 +244,11 @@ $ctx = $storageAccount.Context
 # Create a new container with anonymous access setting set to Off.
 $containerName = "<container>"
 New-AzStorageContainer -Name $containerName -Permission Off -Context $ctx
-# Read the container's access setting.
+# Read the container's anonymous access setting.
 Get-AzStorageContainerAcl -Container $containerName -Context $ctx
-# Update the container's access setting to Container.
+# Update the container's anonymous access setting to Container.
 Set-AzStorageContainerAcl -Container $containerName -Permission Container -Context $ctx
-# Read the container's access setting.
+# Read the container's anonymous access setting.
 Get-AzStorageContainerAcl -Container $containerName -Context $ctx
 ```
 
@@ -244,7 +258,7 @@ When anonymous access is disallowed for the storage account, a container's anony
 
 To update the anonymous access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's anonymous access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
-The following example creates a container with anonymous access disabled, and then updates the container's access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
+The following example creates a container with anonymous access disabled, and then updates the container's anonymous access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage container create \

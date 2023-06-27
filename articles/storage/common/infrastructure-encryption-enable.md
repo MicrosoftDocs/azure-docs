@@ -63,6 +63,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
     -Location <location> `
     -SkuName "Standard_RAGRS" `
     -Kind StorageV2 `
+    -AllowBlobPublicAccess $false `
     -RequireInfrastructureEncryption
 ```
 
@@ -91,6 +92,7 @@ az storage account create \
     --location <location> \
     --sku Standard_RAGRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --require-infrastructure-encryption
 ```
 

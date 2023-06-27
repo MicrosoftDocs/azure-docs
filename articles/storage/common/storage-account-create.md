@@ -257,7 +257,8 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name <account-name> `
   -Location $location `
   -SkuName Standard_RAGRS `
-  -Kind StorageV2
+  -Kind StorageV2 `
+  -AllowBlobPublicAccess $false
 ```
 
 To create an account with Azure DNS zone endpoints (preview), follow these steps:
@@ -289,6 +290,7 @@ $account = New-AzStorageAccount -ResourceGroupName $rgName `
           -SkuName Standard_RAGRS `
           -Location <location> `
           -Kind StorageV2 `
+          -AllowBlobPublicAccess $false `
           -DnsEndpointType AzureDnsZone
 
 $account.PrimaryEndpoints
@@ -334,7 +336,8 @@ az storage account create \
   --resource-group storage-resource-group \
   --location eastus \
   --sku Standard_RAGRS \
-  --kind StorageV2
+  --kind StorageV2 \
+  --allow-blob-public-access false
 ```
 
 To create an account with Azure DNS zone endpoints (preview), first register for the preview as described in [Azure DNS zone endpoints (preview)](storage-account-overview.md#azure-dns-zone-endpoints-preview). Next, install the preview extension for the Azure CLI if it's not already installed:
