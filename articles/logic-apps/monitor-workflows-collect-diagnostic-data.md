@@ -21,7 +21,7 @@ To get richer data for debugging and diagnosing your workflows in Azure Logic Ap
 >
 > Azure Monitor Resource Logs aren't 100% lossless. Resource Logs are based on a store and forward architecture designed to affordably move 
 > petabytes of data per day at scale. This capability includes built-in redundancy and retries across the platform, but doesn't provide 
-> transactional guarantees. Transactional monitoring might reduce the reliability and performance of the monitored service, 
+> transactional guarantees. Transactional monitoring might reduce the reliability and performance of the monitored service. 
 > Also, transient logging errors must halt the upstream service when unable to confirm log delivery. 
 > Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
 > However, small data losses might still happen due to temporary, non-repeating service issues distributed across Azure, and not all can be caught.
