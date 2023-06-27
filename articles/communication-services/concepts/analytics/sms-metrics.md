@@ -1,5 +1,5 @@
 ---
-title: SMS  metrics definitions for Azure Communication Service
+title: SMS metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of SMS metrics available in the Azure portal.
 author: mkhribech
