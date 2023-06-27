@@ -12,6 +12,10 @@ ms.author: lajanuar
 
 ms.custom: references.regions
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 <!-- markdownlint-disable MD033 -->
 
 # Azure AI Document Intelligence identity document model

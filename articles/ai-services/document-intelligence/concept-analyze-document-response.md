@@ -12,6 +12,10 @@ ms.author: vikurpad
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 # Analyze document API response
 
 In this article, let's examine the different objects returned as part of the analyze document response and how to use the document analysis API response in your applications.

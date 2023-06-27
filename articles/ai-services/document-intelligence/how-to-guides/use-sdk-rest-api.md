@@ -12,6 +12,10 @@ ms.date: 03/03/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
+
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
 <!-- markdownlint-disable MD051 -->
 
 # Use Document Intelligence models

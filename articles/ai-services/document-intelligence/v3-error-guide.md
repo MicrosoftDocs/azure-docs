@@ -12,6 +12,10 @@ ms.author: paulhsu
 monikerRange: 'form-recog-3.0.0'
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Document Intelligence error guide v3.0
 
 Document Intelligence uses a unified design to represent all errors encountered in the REST APIs.  Whenever an API operation returns a 4xx or 5xx status code, additional information about the error is returned in the response JSON body as follows:

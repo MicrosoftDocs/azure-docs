@@ -12,6 +12,10 @@ ms.author: jppark
 monikerRange: 'form-recog-3.0.0'
 ---
 
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
+
 # Share custom model projects using Azure AI Document Intelligence Studio
 
 Azure AI Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. Azure AI Document Intelligence Studio enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token. The same project token can also be used to import a project.

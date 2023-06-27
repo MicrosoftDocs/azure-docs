@@ -11,6 +11,10 @@ ms.date: 04/24/2023
 ms.author: lajanuar
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD051 -->
@@ -80,6 +84,10 @@ This release includes the following updates:
 [**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0b1/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 #### Document Intelligence SDK September 2022 GA release
 
@@ -153,6 +161,10 @@ This release includes the following updates:
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 #### Document Intelligence SDK beta August 2022 preview release
 
 This release includes the following updates:
@@ -206,6 +218,10 @@ This release includes the following updates:
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ### Document Intelligence SDK beta June 2022 preview release
 
 This release includes the following updates:
@@ -251,3 +267,7 @@ This release includes the following updates:
  [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+

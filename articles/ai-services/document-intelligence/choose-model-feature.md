@@ -12,6 +12,10 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Which Document Intelligence model should I use?
 
 Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your applications and optimize your workflows. Selecting the right model is essential to ensure the success of your enterprise. In this article, we explore the available Document Intelligence models and provide guidance for how to choose the best solution for your projects.

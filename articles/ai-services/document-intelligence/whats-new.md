@@ -12,6 +12,10 @@ ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ms.custom: references_regions
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
@@ -80,6 +84,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## February 2023
 
 * Select Document Intelligence containers for v3.0 are now available for use!
@@ -88,6 +96,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   For more information, _see_ [Install and run Document Intelligence containers](containers/form-recognizer-container-install-run.md?view=form-recog-3.0.0&preserve-view=true)
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## January 2023
 
@@ -157,6 +169,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## December 2022
 
 * [**Azure AI Document Intelligence Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
@@ -183,6 +199,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## November 2022
 
 * **Announcing the latest stable release of Azure AI Document Intelligence libraries**
@@ -190,6 +210,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * The most significant enhancements are the introduction of two new clients, the **`DocumentAnalysisClient`** and the **`DocumentModelAdministrationClient`**.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## October 2022
 
@@ -217,6 +241,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
     > * US Gov Arizona
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## September 2022
 
@@ -290,6 +318,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 * **Region expansion for training custom neural models now supported in six new regions**
     > [!div class="checklist"]
     >
@@ -308,6 +340,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
     * Update your applications using your programming language's **migration guide**.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## August 2022
 
@@ -358,6 +394,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 * Document Intelligence v3.0 generally available
 
   * **Document Intelligence REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
@@ -387,6 +427,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * [**custom-neural**](concept-custom-neural.md). Improved accuracy for table detection and extraction.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## June 2022
 
@@ -433,6 +477,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
  [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 * [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) June release is the latest update to the Azure AI Document Intelligence Studio. There are considerable user experience and accessibility improvements addressed in this update:
 
   * **Code sample for JavaScript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
@@ -451,6 +499,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * [**Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [Microsoft Office and HTML text extraction](concept-read.md#microsoft-office-and-html-text-extraction).
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## February 2022
 
@@ -496,6 +548,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 * Document Intelligence v3.0 preview release introduces several new features, capabilities and enhancements:
 
   * [**Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-structured and **unstructured documents**.
@@ -535,6 +591,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## November 2021
 
 ### [**C#**](#tab/csharp)
@@ -557,9 +617,17 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 * **Document Intelligence v3.0 preview SDK release update (beta.2) incorporates bug fixes and minor feature updates.**
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## October 2021
 
@@ -589,6 +657,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## September 2021
 
 * [Azure metrics explorer advanced features](../../azure-monitor/essentials/metrics-charts.md) are available on your Document Intelligence resource overview page in the Azure portal.
@@ -610,11 +682,19 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## July 2021
 
 * System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Document Intelligence limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). _See_ [Create and use managed identity for your Document Intelligence resource](managed-identities.md) to learn more.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## June 2021
 
@@ -639,6 +719,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 * Document Intelligence containers v2.1 released in gated preview and are now supported by six feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
 
   * *See* [**Install and run Docker containers for Document Intelligence**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [**Configure Document Intelligence containers**](containers/form-recognizer-container-configuration.md?branch=main)
@@ -648,6 +732,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 * Document Intelligence SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python. The patch addresses invoices that don't have subline item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## May 2021
 
@@ -677,6 +765,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 * Document Intelligence 2.1 is generally available. The GA release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following document types:
   > [!div class="checklist"]
   >
@@ -692,6 +784,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 * The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This update can be used to identify which rows make up the table header.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## April 2021
 <!-- markdownlint-disable MD029 -->
@@ -837,9 +933,17 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 * **SDK preview updates for API version `2.1-preview.3` introduces feature updates and enhancements.**
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## March 2021
 
@@ -870,6 +974,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 * **Prebuilt receipt model quality improvements** This update includes many quality improvements for the prebuilt Receipt model, especially around line item extraction.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## November 2020
 
@@ -902,6 +1010,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## August 2020
 
 * **Document Intelligence `v2.1-preview.1` has been released and includes the following features:
@@ -927,6 +1039,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## July 2020
 
 <!-- markdownlint-disable MD004 -->
@@ -941,6 +1057,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## June 2020
 
 * **CopyModel API added to client SDKs** - You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
@@ -952,6 +1072,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * [JavaScript SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## April 2020
 
@@ -974,6 +1098,10 @@ The new SDK supports all the features of the v2.0 REST API for Document Intellig
 * Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](../../ai-services/authentication.md#authorize-access-to-managed-identities).
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## March 2020
 
@@ -1016,6 +1144,10 @@ See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to l
 
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 ## January 2020
 
 This release introduces the Document Intelligence 2.0. In the next sections, you'll find more information about new features, enhancements, and changes.
@@ -1055,6 +1187,10 @@ This release introduces the Document Intelligence 2.0. In the next sections, you
   * The JSON responses for all API calls have new formats. Some keys and values have been added, removed, or renamed. See the quickstarts for examples of the current JSON formats.
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## Next steps
 

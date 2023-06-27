@@ -11,6 +11,10 @@ ms.date: 10/10/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
+
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->

@@ -10,6 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2023
 ms.author: lajanuar
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 <!-- markdownlint-disable MD033 -->
 
 # Azure AI Document Intelligence invoice model

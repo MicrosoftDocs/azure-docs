@@ -13,6 +13,10 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
 
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
+
 # Get started with Document Intelligence
 
 ::: moniker range="form-recog-3.0.0"

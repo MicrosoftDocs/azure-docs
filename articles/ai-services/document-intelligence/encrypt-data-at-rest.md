@@ -13,6 +13,10 @@ ms.custom: applied-ai-non-critical-form
 monikerRange: '>=form-recog-2.1.0'
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Document Intelligence encryption of data at rest
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]

@@ -12,6 +12,10 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
+
 # Build and train a custom classification model (preview)
 
 **This article applies to:** ![Document Intelligence checkmark](../media/yes-icon.png) **The latest [public preview SDK](../sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.

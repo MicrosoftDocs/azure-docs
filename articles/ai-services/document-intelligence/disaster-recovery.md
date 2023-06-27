@@ -10,6 +10,10 @@ ms.topic: how-to
 ms.date: 10/14/2022
 ms.author: lajanuar
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD033 -->
 

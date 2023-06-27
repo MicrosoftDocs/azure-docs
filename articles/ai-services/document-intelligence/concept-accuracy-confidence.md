@@ -12,6 +12,10 @@ ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Accuracy and confidence scores for custom models
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]

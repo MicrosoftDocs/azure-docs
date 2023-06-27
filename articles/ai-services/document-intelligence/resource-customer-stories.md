@@ -12,6 +12,10 @@ ms.author: lajanuar
 ms.custom: applied-ai-non-critical-form
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Customer spotlight
 
 The following customers and partners have adopted Document Intelligence across a wide range of business and technical scenarios.

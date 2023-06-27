@@ -12,6 +12,10 @@ ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 ---
 
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
+
 # Document Intelligence containers in disconnected environments
 
 **This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.

@@ -12,6 +12,10 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Document Intelligence read (OCR) model
 
 **This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.

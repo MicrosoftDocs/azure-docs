@@ -11,6 +11,10 @@ ms.date: 06/19/2023
 ms.author: lajanuar
 ---
 
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
+
 # Install and run Document Intelligence containers
 
 <!-- markdownlint-disable MD024 -->
@@ -699,6 +703,10 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-
 ```
 
 ---
+
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
 :::moniker-end
 
 :::moniker range="form-recog-2.1.0"
@@ -1145,6 +1153,10 @@ $docker-compose up
 To learn how to use the Sample Labeling tool with an Azure Container Instance, *see*, [Deploy the Sample Labeling tool](../deploy-label-tool.md#deploy-with-azure-container-instances-aci).
 
 ---
+
+[!INCLUDE [document intelligence](../includes/document-intelligence-rebrand.md)]
+
+
 
 :::moniker-end
 

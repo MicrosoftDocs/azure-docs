@@ -10,6 +10,10 @@ ms.topic: conceptual
 ms.date: 03/03/2023
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Language support for Document Intelligence
 
 ::: moniker range="form-recog-3.0.0"

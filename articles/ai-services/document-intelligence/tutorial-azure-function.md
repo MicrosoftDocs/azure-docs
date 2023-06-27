@@ -13,6 +13,10 @@ ms.author: lajanuar
 ms.custom: VS Code-azure-extension-update-completed, devx-track-python
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Tutorial: Use Azure Functions and Python to process stored documents
 
 Document Intelligence can be used as part of an automated data processing pipeline built with Azure Functions. This guide will show you how to use Azure Functions to process documents that are uploaded to an Azure blob storage container. This workflow extracts table data from stored documents using the Document Intelligence layout model and saves the table data in a .csv file in Azure. You can then display the data using Microsoft Power BI (not covered here).

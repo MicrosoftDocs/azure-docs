@@ -11,6 +11,10 @@ ms.date: 05/23/2023
 monikerRange: '>=form-recog-2.1.0'
 ms.author: lajanuar
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 # Azure AI Document Intelligence Custom document models
 
 ::: moniker range="form-recog-3.0.0"
@@ -191,6 +195,10 @@ Extract data from your specific or unique documents using custom models. You nee
 For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-classifier.md)
 
 ---
+
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
 
 ## Custom model extraction summary
 

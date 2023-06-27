@@ -12,6 +12,10 @@ ms.author: vikurpad
 ms.custom: references_regions
 ---
 
+[!INCLUDE [document intelligence](includes/document-intelligence-rebrand.md)]
+
+
+
 # Tips for labeling custom model datasets
 
 This article highlights the best methods for labeling custom model datasets in the Azure AI Document Intelligence Studio. Labeling documents can be time consuming when you have a large number of labels, long documents, or documents with varying structure. These tips should help you label documents more efficiently.
