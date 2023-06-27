@@ -36,7 +36,7 @@ To add a Dynamic scope to an existing configuration, follow the steps:
 1. In the **Preview of machines based on above scope**, you can view the list of machines for the selected criteria and then select **Add**.
    > [!NOTE]
    > The list of machines may be different at run time.
-1. In **Configure Azure VMs for schedule updates** page, select any one of the following option to provide your consent:
+1. In the **Configure Azure VMs for schedule updates** page, select any one of the following options to provide your consent:
     1. **Change the required options to ensure schedule supportability** - this option confirms that you want to update the patch orchestration from existing option to *Customer Managed Schedules (Preview)*: This updates the following two properties on your behalf:
     
        - *Patch mode = AutomaticByPlatform*
