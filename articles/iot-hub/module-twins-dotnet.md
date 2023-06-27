@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/07/2019
-ms.custom: "amqp, devx-track-csharp"
+ms.custom: amqp, devx-track-csharp, devx-track-dotnet
 ---
 
 # Get started with IoT Hub module identity and module twin (.NET)
@@ -33,7 +33,7 @@ At the end of this article, you have two .NET console apps:
 
 * Visual Studio.
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 ## Get the IoT hub connection string
 

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 01/26/2023
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -132,6 +132,10 @@ You can only cancel a pending request that hasn't yet been delivered or whose de
 1. Select the request you want to cancel.
 
 1. In the request details pane, select **Cancel request**.
+
+## Automatic assignment policies
+
+* Each automatic assignment policy can include at most 5000 users in scope of its rule.  Additional users in scope of the rule may not be assigned access.
 
 ## Multiple policies
 

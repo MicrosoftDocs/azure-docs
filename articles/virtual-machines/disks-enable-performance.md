@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/14/2023
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: devx-track-azurepowershell
 ---
 
 # Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs

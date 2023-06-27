@@ -14,6 +14,8 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 This quickstart describes how to use Bicep to create an ExpressRoute circuit with private peering.
 
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using bicep.":::
+
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites

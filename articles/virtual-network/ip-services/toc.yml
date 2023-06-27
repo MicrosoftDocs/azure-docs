@@ -122,6 +122,8 @@ items:
         href: associate-public-ip-address-vm.md
       - name: Dissociate public IP address from a VM
         href: remove-public-ip-address-vm.md
+      - name: Upgrade a basic public IP address on a VM
+        href: public-ip-upgrade-vm.md
       - name: Add dual-stack network to an existing VM
         items:
         - name: Portal

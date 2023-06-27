@@ -4,6 +4,7 @@ description: This article shows you how to upgrade your existing function apps r
 ms.service: azure-functions
 ms.date: 03/15/2023
 ms.devlang: javascript, typescript
+ms.custom: devx-track-js
 ms.topic: how-to
 ---
 

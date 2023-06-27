@@ -30,6 +30,8 @@ To configure token encryption, you need to upload an X.509 certificate file that
 
 Azure AD uses AES-256 to encrypt the SAML assertion data.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Configure enterprise application SAML token encryption
 
 This section describes how to configure enterprise application's SAML token encryption. Applications that have been set up from the **Enterprise applications** blade in the Azure portal, either from the Application Gallery or a Non-Gallery app. For applications registered through the **App registrations** experience, follow the [Configure registered application SAML token encryption](#configure-registered-application-saml-token-encryption) guidance.

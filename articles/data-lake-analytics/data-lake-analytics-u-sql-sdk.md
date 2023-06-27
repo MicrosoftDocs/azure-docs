@@ -25,7 +25,7 @@ The Data Lake U-SQL SDK requires the following dependencies:
 - [Microsoft .NET Framework 4.6 or newer](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0 or newer (which is called CppSDK in this article). There are two ways to get CppSDK:
 
-  - Install [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you've this installed with Visual Studio, the U-SQL local compiler will find it automatically.
+  - Install [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/). You'll have a \Windows Kits\10 folder under the Program Files folder--for example, C:\Program Files (x86)\Windows Kits\10\. You'll also find the Windows 10 SDK version under \Windows Kits\10\Lib. If you don’t see these folders, reinstall Visual Studio and be sure to select the Windows 10 SDK during the installation. If you've this installed with Visual Studio, the U-SQL local compiler will find it automatically.
 
     ![Data Lake Tools for Visual Studio local-run Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 

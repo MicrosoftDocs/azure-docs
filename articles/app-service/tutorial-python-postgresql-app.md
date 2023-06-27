@@ -4,13 +4,13 @@ description: Create a Python Django or Flask web app with a PostgreSQL database 
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/28/2023
-ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
+ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed
 zone_pivot_groups: deploy-python-web-app-postgressql
 ---
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python 3.7 or higher](https://www.python.org/downloads/) in a Linux server environment.
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 

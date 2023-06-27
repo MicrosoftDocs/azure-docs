@@ -12,11 +12,8 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-> [!IMPORTANT]
-> The Calling Video Effects are available starting on the public preview version [1.0.0-beta.1]([https://central.sonatype.com/artifact/com.azure.android/azure-communication-calling/2.5.1-beta.4](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0-beta.1) of the Windows Calling SDK. Please ensure that you use this or a newer SDK when using Video Effects. This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
-
 > [!Note]
-> In order to use Video Effects on the Android Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your application and update them accordingly, if necessary.
+> In order to use Video Effects on the Windows Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your application and update them accordingly, if necessary.
 
 You can use the Video Effects feature to add effects to your video in video calls. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This feature is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personal data. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy.
 
@@ -40,24 +37,47 @@ The `VideoEffectEnabledEvent`, `VideoEffectDisabledEvent` and `VideoEffectErrorE
 
 Once you have the `VideoEffectsLocalVideoStreamFeature` object, you can subscribe to the events:
 
-To use Video Effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to enable/disable Video Effects:
+To use Video Effects with the Azure Communication Calling SDK, add the variables to MainPage.
 
 ```C#
-// Obtain the Video Effects feature from the LocalVideoStream object that is sending the video.
-VideoEffectsLocalVideoStreamFeature videoEffectsFeature = localVideoStream.Features.VideoEffects;
+public sealed partial class MainPage : Page
+{
+    private LocalVideoEffectsFeature localVideoEffectsFeature;
+}
 ```
+Once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to enable/disable Video Effects.
 
 ```C#
+private async void CameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+{
+    var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
+    cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+    InitVideoEffectsFeature(cameraStream);
+    
+    var localUri = await cameraStream.StartPreviewAsync();
+    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+    {
+        LocalVideo.Source = MediaSource.CreateFromUri(localUri);
+    });
+}
+
+public void InitVideoEffectsFeature(LocalOutgoingVideoStream videoStream){
+    localVideoEffectsFeature = videoStream.Features.VideoEffects;
+    localVideoEffectsFeature.VideoEffectEnabled += LocalVideoEffectsFeature_VideoEffectEnabled;
+    localVideoEffectsFeature.VideoEffectDisabled += LocalVideoEffectsFeature_VideoEffectDisabled;
+    localVideoEffectsFeature.VideoEffectError += LocalVideoEffectsFeature_VideoEffectError;
+}
+
 // Create event handlers for the events
-private void VideoEffectsFeature_OnVideoEffectEnabled(object sender, VideoEffectEnabledEventArgs args)
+private void LocalVideoEffectsFeature_VideoEffectEnabled(object sender, VideoEffectEnabledEventArgs args)
 {
 }
 
-private void VideoEffectsFeature_OnVideoEffectDisabled(object sender, VideoEffectDisabledEventArgs args)
+private void LocalVideoEffectsFeature_VideoEffectDisabled(object sender, VideoEffectDisabledEventArgs args)
 {
 }
 
-private void VideoEffectsFeature_OnVideoEffectError(object sender, VideoEffectErrorEventArgs args)
+private void LocalVideoEffectsFeature_VideoEffectError(object sender, VideoEffectErrorEventArgs args)
 {
 }
  
@@ -70,8 +90,8 @@ videoEffectsFeature.VideoEffectError += VideoEffectsFeature_OnVideoEffectError;
 and start using the APIs to enable and disable Video Effects:
 
 ```C#
-videoEffectsLocalVideoStreamFeature.EnableEffect( {{VIDEO_EFFECT_TO ENABLE}} );
-videoEffectsLocalVideoStreamFeature.DisableEffect( {{VIDEO_EFFECT_TO ENABLE}} );
+videoEffectsLocalVideoStreamFeature.EnableEffect( {{VIDEO_EFFECT_TO_ENABLE}} );
+videoEffectsLocalVideoStreamFeature.DisableEffect( {{VIDEO_EFFECT_TO_DISABLE}} );
 ```
 
 ### Background blur
@@ -80,22 +100,35 @@ Background Blur is a Video Effect that allows a person's background to be blurre
 
 To enable Background Blur Video Effect:
 
+- Add the `BackgroundBlurEffect` instance to the MainPage.
+
+```C#
+public sealed partial class MainPage : Page
+{
+    private BackgroundBlurEffect backgroundBlurVideoEffect = new BackgroundBlurEffect();
+}
+```
+
 - Create a method that obtains the `VideoEFfects` Feature subscribes to the events:
 
 ```C#
-private void VideoEffectsFeature_VideoEffectEnabled(object sender, VideoEffectEnabledEventArgs args)
+private async void LocalVideoEffectsFeature_VideoEffectEnabled(object sender, VideoEffectEnabledEventArgs e)
 {
-    string effectName = args.VideoEffectName;
-    Trace.WriteLine("VideoEffects VideoEffectEnabled on effect " + effectName);
+    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+    {
+        BackgroundBlur.IsChecked = true;
+    });
 }
 
-private void VideoEffectsFeature_VideoEffectDisabled(object sender, VideoEffectDisabledEventArgs args)
+private async void LocalVideoEffectsFeature_VideoEffectDisabled(object sender, VideoEffectDisabledEventArgs e)
 {
-    String effectName = args.VideoEffectName;
-    Trace.WriteLine("VideoEffects VideoEffectDisabled on effect " + effectName);
+    await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+    {
+        BackgroundBlur.IsChecked = false;
+    });
 }
 
-private void VideoEffectsFeature_VideoEffectError(object sender, VideoEffectErrorEventArgs args)
+private void LocalVideoEffectsFeature_VideoEffectError(object sender, VideoEffectErrorEventArgs e)
 {
     String effectName = args.VideoEffectName;
     String errorCode = args.Code;
@@ -104,33 +137,24 @@ private void VideoEffectsFeature_VideoEffectError(object sender, VideoEffectErro
     Trace.WriteLine("VideoEffects VideoEffectError on effect " + effectName + "with code "
         + errorCode + "and error message " + errorMessage);
 }
-
-VideoEffectsLocalVideoStreamFeature videoEffectsFeature;
-public void createVideoEffectsFeature() {
-    videoEffectsFeature = localVideoStream.Features.VideoEffects;
-    videoEffectsFeature.VideoEffectEnabled += VideoEffectsFeature_VideoEffectEnabled;
-    videoEffectsFeature.VideoEffectDisabled += VideoEffectsFeature_VideoEffectDisabled;
-    videoEffectsFeature.VideoEffectError += VideoEffectsFeature_VideoEffectError;
-}
 ```
 
-- Create a new Background Blur Video Effect object:
+- Enable and disable the Background Blur effect:
 
 ```C#
-BackgroundBlurEffect backgroundBlurVideoEffect = new BackgroundBlurEffect();
-```
-
-- Call `EnableEffect` on the `videoEffectsFeature` object:
-```C#
-public void EnableBackgroundBlur() {
-    videoEffectsFeature.EnableEffect(backgroundBlurVideoEffect);
-}
-```
-
-To disable Background Blur Video Effect:
-
-```C#
-public void DisableBackgroundBlur() {
-    videoEffectsFeature.disableEffect(backgroundBlurVideoEffect);
+private async void BackgroundBlur_Click(object sender, RoutedEventArgs e)
+{
+    if (localVideoEffectsFeature.IsEffectSupported(backgroundBlurVideoEffect))
+    {
+        var backgroundBlurCheckbox = sender as CheckBox;
+        if (backgroundBlurCheckbox.IsChecked.Value)
+        {
+            localVideoEffectsFeature.EnableEffect(backgroundBlurVideoEffect);
+        }
+        else
+        {
+            localVideoEffectsFeature.DisableEffect(backgroundBlurVideoEffect);
+        }
+    }
 }
 ```

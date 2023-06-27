@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 04/15/2023
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video, ignite-2022, build-2023
@@ -39,7 +39,7 @@ Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB,
 By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
 ## Different ways to restore
-Continuous backup mode supports two ways to restore deleted containers, databases. Existing restore mechanism restores into a [new account](restore-account-continuous-backup.md) as documented here. Restore into existing account is described [here](restore-account-continuous-backup.md). The choice between two depends on the scenarios and impact. Most of the deleted containers, databases can prefer in-account (existing) account restore to prevent data transfer which is required in case you restored to a new account. For scenarios where you have modified the data accidently restore into new account is the right thing to do. 
+Continuous backup mode supports two ways to restore deleted containers, databases. Existing restore mechanism restores into a [new account](restore-account-continuous-backup.md) as documented here. Restore into existing account is described [here](restore-account-continuous-backup.md). The choice between two depends on the scenarios and impact. Most of the deleted containers, databases can prefer in-account (existing) account restore to prevent data transfer which is required in case you restored to a new account. For scenarios where you have modified the data accidentally restore into new account is the right thing to do. 
 
 ## What is restored into a new account?
 
@@ -55,8 +55,7 @@ You can choose to restore any combination of provisioned throughput containers, 
 The following configurations aren't restored after the point-in-time recovery:
 
 * Firewall, VNET, Data plane RBAC or private endpoint settings. 
-* Consistency settings, by default - account is restored with session consistency.
-* Regions.
+* All the Regions from the source account.
 * Stored procedures, triggers, UDFs.
 * Role-based access control assignments. These will need to be re-assigned.
 

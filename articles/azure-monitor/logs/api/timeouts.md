@@ -1,9 +1,9 @@
 ---
 title: Timeouts of query executions
 description: Query execution times can vary widely based on the complexity of the query, the amount of data being analyzed, and the load on the system and workspace at the time of the query.
-author: AbbyMSFT
-ms.author: abbyweisberg
 ms.date: 11/28/2021
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Timeouts

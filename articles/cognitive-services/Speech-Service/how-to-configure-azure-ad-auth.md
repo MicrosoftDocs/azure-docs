@@ -12,7 +12,7 @@ ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ms.devlang: cpp, csharp, java, python
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-extended-java, devx-track-python
 ---
 # Azure Active Directory Authentication with the Speech SDK
 
@@ -26,6 +26,8 @@ This article shows how to use Azure AD authentication with the Speech SDK. You'l
 > - Configure the Speech resource for Azure AD authentication
 > - Get an Azure AD access token
 > - Create the appropriate SDK configuration object.
+
+To learn more about Azure AD access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens).
 
 ## Create a Speech resource
 To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
@@ -173,9 +175,9 @@ With an Azure AD access token, you can now create a Speech SDK configuration obj
 
 The method of providing the token, and the method to construct the corresponding Speech SDK ```Config``` object varies by the object you'll be using.
 
-### SpeechRecognizer, SpeechSynthesizer, IntentRecognizer, ConversationTranscriber, and SourceLanguageRecognizer
+### SpeechRecognizer, SpeechSynthesizer, IntentRecognizer, ConversationTranscriber
 
-For ```SpeechRecognizer```, ```SpeechSynthesizer```, ```IntentRecognizer```, ```ConversationTranscriber```, and ```SourceLanguageRecognizer``` objects, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechConfig``` object.
+For ```SpeechRecognizer```, ```SpeechSynthesizer```, ```IntentRecognizer```, ```ConversationTranscriber``` objects, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechConfig``` object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#

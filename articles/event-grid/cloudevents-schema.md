@@ -4,7 +4,7 @@ description: Describes how to use the CloudEvents schema for events in Azure Eve
 ms.topic: conceptual
 ms.date: 12/02/2022
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid

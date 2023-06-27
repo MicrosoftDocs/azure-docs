@@ -113,4 +113,4 @@ If your workspace is in a virtual network, you must perform additional configura
 
 ## Next steps
 
-Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](../tutorial-designer-automobile-price-train-score.md).
+Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).

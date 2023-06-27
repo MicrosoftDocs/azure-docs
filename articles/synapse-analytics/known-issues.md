@@ -100,6 +100,7 @@ Deleting a Synapse workspace fails with the error message:
 |Synapse Component|Issue|Status|Date Resolved
 |---------|---------|---------|---------|
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023
+|Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
@@ -111,6 +112,15 @@ Queries from serverless SQL pool to Cosmos DB Analytical Store using OPENROWSET 
 
 **Status**: Resolved
 
+## Azure Synapse Analytics Apache Spark pool active known issues summary
+
+### Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse Dedicated SQL Pool Connector for Apache Spark when using notebooks in pipelines
+
+While using Azure Synapse Dedicated SQL Pool Connector for Apache Spark to write Azure Synapse Dedicated pool using Notebooks in pipelines, we would see an error message:
+
+`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: COPY statement input file schema discovery failed: Cannot bulk load. The file does not exist or you don't have file access rights.`
+
+**Status**: Resolved
 
 ## Next steps
 

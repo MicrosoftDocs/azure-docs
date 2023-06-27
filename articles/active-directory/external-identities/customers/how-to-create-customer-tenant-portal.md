@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As an it admin, I want to learn how to create a customer tenant in the  Microsoft Entra admin center. 
 ---
 
-# Create a customer identity and access management (CIAM) tenant
+# Create a customer identity and access management (CIAM) tenant (preview)
 
 Azure Active Directory (Azure AD) offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Azure AD can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
@@ -27,9 +27,10 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">free account</a> before you begin.
 - An Azure account that's been assigned at least the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role scoped to the subscription or to a resource group within the subscription.
-- If you don't have an Azure account, sign up for a [30-day free trial](quickstart-trial-setup.md).
+
+[!INCLUDE [preview-alert](../customers/includes/preview-alert/preview-alert-ciam.md)]
 
 ## Create a new customer tenant  
 
@@ -40,7 +41,7 @@ In this article, you learn how to:
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::
 
-1. Select **Customer**, and then **Continue**. If you filtered the list of tenants by **Tenant type**: **Customer** in the previous step, this step will be skipped.
+1. Select **Customer**, and then **Continue**. 
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/select-tenant-type.png" alt-text="Screenshot of the select tenant type screen.":::
 

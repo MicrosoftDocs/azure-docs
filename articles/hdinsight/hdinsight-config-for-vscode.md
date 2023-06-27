@@ -4,7 +4,7 @@ description: Introduce the configuration of Azure HDInsight extension.
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/30/2022
-ms.custom: devx-track-python
+ms.custom:
 ---
 
 # Azure HDInsight configuration settings reference
