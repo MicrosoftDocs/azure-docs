@@ -25,8 +25,8 @@ The Global Secure Access logs provide details of your network traffic. To better
 A user accessing a website represents one *session*, and within that session there may be multiple *connections*, and within that connection there may be multiple *transactions*.
 
 - **Session**: A session is identified by the first URL a user accesses. That session could then open many connections, for example a news site that contains multiple ads from several different sites.
-- **Connection**: A connection includes the principal user name and device ID.
-- **Transaction**: A transaction is a single request/response pair.
+- **Connection**: A connection includes the source and destination IP, source and destination port, and fully qualified domain name (FQDN). The connection components comprise the 5 tuple.
+- **Transaction**: A transaction is a unique request and response pair.
 
 Within each log instance, you can see the connection ID and transaction ID in the details. By using the filters, you can look at all connections and transactions for a single session.
 
