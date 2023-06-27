@@ -87,6 +87,14 @@ productDirectory:
           text: What is Azure HPC Cache?
         - url: ../hpc-cache/hpc-cache-create.md?tabs=azure-portal%2f
           text: Create an Azure HPC Cache
+    # Card
+    - title: Azure Managed Lustre
+      imageSrc: ../high-performance-computing/media/azure-managed-lustre.png
+      links:
+        - url: /azure/azure-managed-lustre/amlfs-overview.md
+          text: What is Azure Managed Lustre?
+        - url: /azure/azure-managed-lustre/create-file-system-portal.md
+          text: Create an Azure Managed Lustre File System
 
 #Additional Content (No Title)
 conceptualContent:
@@ -123,6 +131,10 @@ conceptualContent:
             - url: /training/modules/accelerate-storage-with-hpc-cache/
               itemType: tutorial
               text: Accelerating storage with HPC Cache
+            - url: /azure/azure-managed-lustre/blob-integration.md
+              itemType: concept
+              text: Use Azure Blob storage with an Azure Managed Lustre file system
+              
         # Card
         - title: Scenarios & Frameworks 
           links:
