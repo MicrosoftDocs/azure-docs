@@ -7,44 +7,28 @@ ms.topic: conceptual
 
 # Prepare to deliver Extended Security Updates for Windows Server 2012
 
-Azure Arc-enabled servers allows customers to develop an inventory across hybrid, multicloud, and edge workloads with the organizational and reporting capabilities native to Azure management. Azure Arc-enabled servers supports a breadth of platforms and distributions across Windows and Linux. Arc-enabled servers is also domain agnostic and integrates with Azure Lighthouse for multi-tenant customers.
+With Windows Server 2012 reaching End-of-Life on October 10, 2023, customers have the option to enroll their existing Windows Server 2012 machines in Extended Security Updates (ESUs) delivered through Azure Arc. Doing so helps to position customers for migration to Azure on their own terms, affording both billing flexibility and and enhanced delivery experience.
 
-By projecting resources into the Azure management plane, Azure Arc empowers customers to leverage the organizational, tagging, and querying capabilities native to Azure.
+## Key benefits
 
-## Organize resources with built-in Azure hierarchies
+Delivering ESUs to your Windows Server 2012 resources provides customers these key benefits:
 
-Azure provides four levels of management scope:
+- **Pay-as-you-go:** Customers will have the flexibility to sign-up for a monthly subscription service, affording the ability to migrate mid-year.
 
-- Management groups
-- Subscriptions
-- Resource groups
-- Resources
+- **Azure billed:** Customers can draw down from their existing Microsoft Azure Consumption Commitment (MACC) and analyze their costs using Azure Cost Commitment.
 
-These levels of management help to manage access, policies, and compliance more efficiently. For example, if you apply a policy at one level, it propagates down to lower levels, helping improve governance posture. Moreover, these levels can be used to scope policies and security controls. For Arc-enabled servers, the different business units, applications, or workloads can be used to derive the hierarchical structure in Azure. Once resources have been onboarded to Azure Arc, you can seamlessly move an Arc-enabled server between different resource groups and scopes.
+- **Built-in inventory:** The coverage and enrollment status of Windows Server 2012 ESUs on eligible Arc-enabled servers will display in the Azure portal, highlighting gaps and status changes.
 
-:::image type="content" source="media/organize-inventory-servers/management-levels.png" alt-text="Diagram showing the four levels of management scope.":::
+- **Keyless delivery:** The enrollment of ESUs on Azure Arc-enabled Windows Server 2012 machines does not require the acquisition or activation of keys.
 
-## Tagging resources to capture additional, customizable metadata
+Customers can seamlessly leverage additional Azure services through Azure Arc-enabled servers, offerings like Microsoft Defender for Cloud affords Cloud Security Posture Management and specialized Server Protection capabilities that are particularly suitable for eligible Windows Server 2012 machines. 
 
-Tags are metadata elements you apply to your Azure resources. They are key-value pairs that help identify resources, based on settings relevant to your organization. For example, you can tag the environment for a resource as *Production* or *Testing*. Alternatively, you can use tagging to capture the ownership for a resource, separating the *Creator* or *Administrator*. Tags can also capture details on the resource itself, such as the physical datacenter, business unit, or workload. You can apply tags to your Azure resources, resource groups, and subscriptions. This extends to infrastructure outside of Azure as well, through Azure Arc.
+## Preparing to deliver ESUs
 
+To prepare for this new offer, customers will need to onboard their servers to Azure Arc through the installation of the [Azure Connected Machine agent](agent-overview.md) on their servers and running a script to establish a connection to Azure.
 
-You can define tags in Azure portal through a simple point and click method. Tags can be defined when onboarding servers to Azure Arc-enabled servers or on a per-server basis. Alternatively, you can use Azure CLI, Azure PowerShell, ARM templates, or Azure policy for scalable tag deployments. Tags can be used to filter operations as well, such as the deployment of extensions or service attachments. This provides not only a more comprehensive inventory of your servers, but also operational flexibility and ease of management.
+- **Deployment options:** There are several at-scale onboarding options for Azure Arc-enabled servers including running a [Custom Task Sequence](onboard-configuration-manager-custom-task.md) through Configuration Manager and deploying a [Scheduled Task through Group Policy](onboard-group-policy-powershell.md).
 
-:::image type="content" source="media/organize-inventory-servers/server-tags.png" alt-text="Screenshot of Azure portal showing tags applied to a server.":::
+- **Networking:** Connectivity options include public endpoint, proxy server, and private link or Azure Express Route. Customers should review the [networking prerequisites](network-requirements.md) to prepare their non-Azure environment for deployment to Azure Arc.
 
-## Reporting and querying with Azure Resource Graph (ARG)
-
-Numerous types of data are collected with Azure Arc-enabled servers as part of the instance metadata. This includes the platform, operating system, presence of SQL server, or AWS and GCP details. These attributes can be queried at scale using Azure Resource Graph. 
-
-Azure Resource Graph is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. These queries provide the ability to query resources with complex filtering, grouping, and sorting by resource properties.
-
-Results can be easily visualized and exported to other reporting solutions. Moreover there are dozens of built-in Azure Resource Graph queries capturing salient information across Azure VMs and Arc-enabled servers, such as their VM extensions, regional breakdown, and operating systems. 
-
-## Additional resources
-
-* [What is Azure Resource Graph?](../../governance/resource-graph/overview.md)
-
-* [Azure Resource Graph sample queries for Azure Arc-enabled servers](resource-graph-samples.md)
-
-* [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md?tabs=json)
+Customers should plan and deploy their Windows Server 2012 machines to Azure Arc through September 2023. Once onboarded to Azure Arc-enabled servers, customers will gain visibility into their ESU coverage and enroll through point-and-click or Azure policy experiences to ESUs delivered through Azure Arc, one month before Windows Server 2012 End-of-Life. Billing for this service will commence from October 2023, after the End-of-Life for Windows Server 2012.
