@@ -111,7 +111,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
 
-1. In the designer, under the search box, select **Standard**. Then, [follow these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to add the [SQL Server managed trigger you want](/connectors/sql/#trigger).
+1. In the designer, under the search box, select **Standard**. Then, [follow these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to add the [SQL Server managed trigger you want](/connectors/sql/#triggers).
 
    This example continues with the trigger named **When an item is created**.
 
@@ -169,29 +169,15 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. Find and select the [SQL Server action](/connectors/sql/#actions) that you want to use.
+1. In the designer, [follow these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add the [SQL Server managed action you want](/connectors/sql/#actions).
 
-   This example continues with the action named **Get row**.
-
-   1. Under the trigger or action where you want to add the SQL action, select **New step**.
-
-      Or, to add an action between existing steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-   1. Under the **Choose an operation** search box, select **Standard**.
-
-   1. In the search box, enter **sql server**.
-
-   1. From the actions list, select the SQL Server action that you want.
-
-      This example uses the **Get row** action, which gets a single record.
-
-      ![Screenshot showing the Azure portal, workflow designer for Consumption logic app, the search box with "sql server", and "Get row" selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-get-row-action-consumption.png)
+   This example continues with the action named **Get row**, which gets a single record.
 
 1. Provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-1. If you haven't already provided the SQL server name and database name, provide those values. Otherwise, from the **Table name** list, select the table that you want to use.  In the **Row id** property, enter the ID for the record that you want.
+1. After the action information box appears, provide the values for the SQL server name and database name, if you didn't previously provide them. Otherwise, from the **Table name** list, select the table that you want to use.  In the **Row id** property, enter the ID for the record that you want.
 
    In this example, the table name is **SalesLT.Customer**.
 
