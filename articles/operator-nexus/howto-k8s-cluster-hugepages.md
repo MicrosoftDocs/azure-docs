@@ -1,5 +1,5 @@
 ---
-title: Customize huge-page for Azure Nexus Kubernetes Service node pools #Required; page title is displayed in search results. Include the brand.
+title: Customize huge-page for Azure Operator Nexus Kubernetes service node pools #Required; page title is displayed in search results. Include the brand.
 description: #Required; article description that is displayed in search results. 
 author: dramasamy #Required; your GitHub user alias, with correct capitalization.
 ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
