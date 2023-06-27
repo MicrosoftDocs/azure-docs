@@ -127,7 +127,8 @@ Sampling is based on request, which means that if a request is captured (sampled
 
 Sampling is also based on trace ID to help ensure consistent sampling decisions across different services.
 
-Sampling does not apply to standalone telemetry.
+Sampling only applies to logs inside of a request. Logs which are not inside of a request (e.g. startup logs) are always collected by default.
+If you want to sample those logs, you can use [Sampling overrides](./java-standalone-sampling-overrides.md).
 
 ### Rate-limited sampling
 
