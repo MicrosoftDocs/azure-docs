@@ -96,7 +96,7 @@ Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernete
         "value": {"hugepagesCount": 512,"hugepagesSize": "2M"}
       }
     }
-  }
+}
 ```
 
 ## Next steps
