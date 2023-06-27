@@ -56,7 +56,7 @@ export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
 # A commitId that is assumed to correspond to the app code currently in production
-export BLUE_COMMIT_ID=0b699ef
+export BLUE_COMMIT_ID=fb699ef
 # A commitId that is assumed to correspond to the new version of the code to be deployed
 export GREEN_COMMIT_ID=c6f1515
 
@@ -202,7 +202,7 @@ export APP_ENVIRONMENT_NAME=<APP_ENVIRONMENT_NAME>
 export RESOURCE_GROUP=<RESOURCE_GROUP>
 
 # A commitId that is assumed to belong to the app code currently in production
-export BLUE_COMMIT_ID=0b699ef
+export BLUE_COMMIT_ID=fb699ef
 # A commitId that is assumed to belong to the new version of the code to be deployed
 export GREEN_COMMIT_ID=c6f1515
 
@@ -280,13 +280,13 @@ The newly deployed revision can be tested by using the label-specific FQDN:
 export APP_DOMAIN=$(az containerapp env show -g $RESOURCE_GROUP -n $APP_ENVIRONMENT_NAME --query properties.defaultDomain -o tsv | tr -d '\r\n')
 
 #Test the production FQDN
-curl https://$APP_NAME.$APP_DOMAIN/api/env | jq | grep COMMIT
+curl -s https://$APP_NAME.$APP_DOMAIN/api/env | jq | grep COMMIT
 
 #Test the blue lable FQDN
-curl https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq | grep COMMIT
+curl -s https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq | grep COMMIT
 
 #Test the green lable FQDN
-curl https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
+curl -s https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 ```
 
 ## Send production traffic to the green revision
@@ -381,7 +381,7 @@ The following commands demonstrate how to prepare for the next deployment cycle.
 
 ```azurecli
 # set the new commitId
-export BLUE_COMMIT_ID=0d1436b
+export BLUE_COMMIT_ID=ad1436b
 
 # create a third revision for blue commitId
 az containerapp update --name $APP_NAME \
@@ -403,7 +403,7 @@ az containerapp revision label add \
 
 ```azurecli
 # set the new commitId
-export BLUE_COMMIT_ID=0d1436b
+export BLUE_COMMIT_ID=ad1436b
 
 # deploy new version of the app to blue revision
 az deployment group create \
