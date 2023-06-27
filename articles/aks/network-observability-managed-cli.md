@@ -231,34 +231,33 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 
     ```yaml
     scrape_configs:
-    - job_name: "cilium-pods"
-        kubernetes_sd_configs:
-        - role: pod
-        relabel_configs:
+- job_name: "cilium-pods"
+  kubernetes_sd_configs:
+    - role: pod
+      relabel_configs:
         - source_labels: [__meta_kubernetes_pod_container_name]
-            action: keep
-            regex: cilium(.*)
-        - source_labels:
-            [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-            separator: ":"
-            regex: ([^:]+)(?::\d+)?
-            target_label: __address__
-            replacement: ${1}:${2}
-            action: replace
+          action: keep
+          regex: cilium(.*)
+        - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+          separator: ":"
+          regex: ([^:]+)(?::\d+)?
+          target_label: __address__
+          replacement: ${1}:${2}
+          action: replace
         - source_labels: [__meta_kubernetes_pod_node_name]
-            action: replace
-            target_label: instance
+          action: replace
+          target_label: instance
         - source_labels: [__meta_kubernetes_pod_label_k8s_app]
-            action: keep
-            regex: cilium
+          action: keep
+          regex: cilium
         - source_labels: [__meta_kubernetes_pod_name]
-            action: replace
-            regex: (.*)
-            target_label: pod
-        metric_relabel_configs:
-        - source_labels: [__name__]
-            action: keep
-            regex: (.*)
+          action: replace
+          regex: (.*)
+          target_label: pod
+  metric_relabel_configs:
+    - source_labels: [__name__]
+      action: keep
+      regex: (.*)
     ```
 
 1. To create the `configmap`, use the following example:
@@ -272,7 +271,7 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 1. Once the Azure Monitor pods have been deployed on the cluster, port forward to the `ama` pod to verify the pods are being scraped. Use the following example to port forward to the pod:
 
     ```azurecli-interactive
-    k port-forward $(k get po -l dsName=ama-metrics-node -oname | head -n 1) 9090:9090
+    kubectl port-forward $(kubectl get po -l dsName=ama-metrics-node -oname | head -n 1) 9090:9090
     ```
 
 1. In **Targets** of prometheus, verify the **cilium-pods** are present.
