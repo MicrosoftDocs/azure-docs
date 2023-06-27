@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 
 # Configure service load-balancer in Azure Operator Nexus Kubernetes service
 
-In this article, you will learn how to configure a service load balancer in a Nexus Kubernetes cluster. The load balancer allows external services to access the services running within the cluster. The focus of this guide is on the configuration aspects, providing examples to help you understand the process. By following this guide, you will be able to effectively configure service load balancers in your Nexus Kubernetes cluster.
+In this article, you learn how to configure a service load balancer in a Nexus Kubernetes cluster. The load balancer allows external services to access the services running within the cluster. The focus of this guide is on the configuration aspects, providing examples to help you understand the process. By following this guide, you're able to effectively configure service load balancers in your Nexus Kubernetes cluster.
 
 ## Prerequisites
 
