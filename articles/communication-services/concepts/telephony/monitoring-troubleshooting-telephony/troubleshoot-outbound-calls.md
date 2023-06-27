@@ -106,7 +106,7 @@ Make sure that the SIP Signaling IPs and FQDNs are allowed on all network device
 
 ## Related articles
 
-- [Troubleshoot direct routing connectivity](./troubleshoot-tls-certificate-sip-optioins.md)
+- [Troubleshoot direct routing connectivity](./troubleshoot-tls-certificate-sip-options.md)
 - [Plan for Azure direct routing](../direct-routing-infrastructure.md)
 - [Pair the Session Border Controller and configure voice routing](../direct-routing-provisioning.md)
 - [Outbound call to a phone number](../../../quickstarts/telephony/pstn-call.md)
