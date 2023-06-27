@@ -1,5 +1,5 @@
 ---
-title: Scaling Out: A Guide to Deploying Over 500 and Up To 1000 Application Instances Using Azure Spring Apps Enterprise
+title: A Guide to Deploying Over 500 and Up To 1000 Application Instances Using Azure Spring Apps Enterprise
 description: Learn how to deploy applications at scale in the Enterprise plan for Azure Spring Apps and learn about the restrictions.
 author: karlerickson
 ms.author: xiading
@@ -55,7 +55,7 @@ Spring Cloud Gateway for VMware Tanzu handles the cross-cutting concerns for API
 
 The performance of the gateway is closely related to the number of routes. In general, we recommend that you don't exceed 500 routes. When the gateway can't handle some requests with reasonably low latency or without errors, it can stress a gateway instance's performance. 
 
-Spring Cloud Gateway is able to handle a high volume of traffic. To support the traffic, you should consider increasing the memory requested for API gateway instances so that each pod can handle more requests per second. You can also refer to [Set up Autoscale settings for VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway#set-up-autoscale-settings-for-vmware-spring-cloud-gateway-in-azure-cli) to configure auto scale rules for the gateway to perform its best when demand changes.
+Spring Cloud Gateway is able to handle a high volume of traffic. To support the traffic, you should consider increasing the memory requested for API gateway instances so that each pod can handle more requests per second. You can also refer to [Set up Autoscale settings for VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md#set-up-autoscale-settings-for-vmware-spring-cloud-gateway-in-azure-cli) to configure auto scale rules for the gateway to perform its best when demand changes.
 
 Spring Cloud Gateway supports rolling restarts to ensure zero downtime and disruption. However, the current version of the gateway has a limitation that when it's rolling restarted, it may take longer to synchronize a large number of routes. This situation can cause incomplete route updates during the process. We're actively working on fixing this limitation and will provide an update through our documentation.
 
