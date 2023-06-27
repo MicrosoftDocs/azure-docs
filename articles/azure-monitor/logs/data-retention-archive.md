@@ -13,6 +13,10 @@ Retention policies define when to remove or archive data in a [Log Analytics wor
 
 This article describes how to configure data retention and archiving.
 
+## Permissions
+
+To configure set data retention and archiving, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+
 ## How retention and archiving work
 
 Each workspace has a default retention policy that's applied to all tables. You can set a different retention policy on individual tables.
