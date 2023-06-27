@@ -5,7 +5,7 @@ description: Learn how to create an encrypted virtual network using the Azure po
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 07/07/2023
 ms.author: allensu
 
 ---
@@ -34,9 +34,9 @@ In this section, you create a virtual network and enable virtual network encrypt
     | ------- | ----- |
     | **Project details** |  |
     | **Subscription** | Select your subscription. |
-    | **Resource group** | Select **Create new**, then enter **MyResourceGroup** in **Name**. Select **OK**. |
+    | **Resource group** | Select **Create new**, then enter **test-rg** in **Name**. Select **OK**. |
     | **Instance details** |  |
-    | Virtual network name | Enter **MyVNet**. |
+    | Virtual network name | Enter **vnet-1**. |
     | Region | Select **(US) East US 2**. |
 
 1. Select **Review + create**.
@@ -50,9 +50,9 @@ In this section, you create a virtual network and enable virtual network encrypt
 
 1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
 
-1. Select **MyVNet**.
+1. Select **vnet-1**.
 
-1. In the **Overview** of **MyVNet**, select the **Properties** tab.
+1. In the **Overview** of **vnet-1**, select the **Properties** tab.
 
 1. Select **Disabled** next to **Encryption**:
 
@@ -66,9 +66,9 @@ In this section, you create a virtual network and enable virtual network encrypt
 
 1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
 
-1. Select **MyVNet**.
+1. Select **vnet-1**.
 
-1. In the **Overview** of **MyVNet**, select the **Properties** tab.
+1. In the **Overview** of **vnet-1**, select the **Properties** tab.
 
 1. Verify that **Encryption** is set to **Enabled**.
 
