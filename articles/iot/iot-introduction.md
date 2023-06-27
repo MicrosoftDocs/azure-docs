@@ -109,7 +109,7 @@ To learn more, see:
 
 Any IoT solution must address the following solution-wide concerns:
 
-* [Security](iot-security-best-practices.md) including physical security, authentication, authorization, and encryption
+* [Security](iot-overview-security.md) including physical security, authentication, authorization, and encryption
 * [Solution management](iot-overview-solution-management.md) including deployment and monitoring.
 * High availability and disaster recovery for all the components in your solution.
 * Scalability for all the services in your solution.
