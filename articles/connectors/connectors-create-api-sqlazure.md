@@ -121,7 +121,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For this example, in the trigger named **When an item is created**, provide the values for the SQL server name and database name, if you didn't previously provide them. Otherwise, from the **Table name** list, select the table that you want to use. Select the **Frequency** and **Interval** to set the schedule for the trigger to check for new items.
 
-   ![Screenshot shows Consumption workflow designer and managed action named When an item is created.](media/connectors-create-api-sqlazure/when-item-created.png)
+   ![Screenshot shows Consumption workflow designer and managed action named When an item is created.](./media/connectors-create-api-sqlazure/when-item-created-consumption.png)
 
 1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
@@ -145,7 +145,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For this example, in the trigger named **When a row is inserted**, from the **Table name** list, select the table that you want to use.
 
-   ![Screenshot shows Standard workflow designer and the built-in action named When a row is inserted.](./media/connectors-create-api-sqlazure/when-row-inserted-standard.png)
+   ![Screenshot shows Standard workflow designer and built-in action named When a row is inserted.](./media/connectors-create-api-sqlazure/when-row-inserted-standard.png)
 
 1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
@@ -154,6 +154,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or the [SQL Server managed connector reference](/connectors/sql/#actions).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
 
 ---
 
@@ -210,6 +211,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, review the [managed connector's reference page](/connectors/sql/).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
 
 ---
 
