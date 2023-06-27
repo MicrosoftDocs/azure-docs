@@ -26,7 +26,7 @@ There are a few general rules the configuration assumes:
 * Regardless of which order we import from the source Active Directories, the end result should always be the same.
 * An active account will always contribute sign-in information, including **userPrincipalName** and **sourceAnchor**.
 * A disabled account contributes userPrincipalName and sourceAnchor, unless it's a linked mailbox, if there's no active account to be found.
-* An account with a linked mailbox will never be used for userPrincipalName and sourceAnchor. It is assumed that an active account will be found later.
+* An account with a linked mailbox will never be used for userPrincipalName and sourceAnchor. It's assumed that an active account will be found later.
 * A contact object might be provisioned to Azure AD as a contact or as a user. You don’t really know until all source Active Directory forests have been processed.
 
 ## Groups
@@ -61,14 +61,14 @@ Having contacts representing a user in a different forest is common after a merg
 For provisioning an object to Azure AD, the outbound rule **Out to AAD – Contact Join** will create a contact object if the metaverse attribute **sourceObjectType** is set to **Contact**. If this attribute is set to **User**, then the rule **Out to AAD – User Join** will create a user object instead.
 It is possible that an object is promoted from Contact to User when more source Active Directories are imported and synchronized.
 
-For example, in a GALSync topology we find contact objects for everyone in the second forest when we import the first forest. This stages new contact objects in the Azure AD Connector. When we later import and synchronize the second forest, we'll find the real users and join them to the existing metaverse objects. We will then delete the contact object in Azure AD and create a new user object instead.
+For example, in a GALSync topology we find contact objects for everyone in the second forest when we import the first forest. This stages new contact objects in the Azure AD Connector. When we later import and synchronize the second forest, we find the real users and join them to the existing metaverse objects. We will then delete the contact object in Azure AD and create a new user object instead.
 
-If you have a topology where users are represented as contacts, make sure you select to match users on the mail attribute in the installation guide. If you select another option, then you have an order-dependent configuration. Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide. You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object. During export to Azure AD, an error is showed. This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.
+If you have a topology where users are represented as contacts, make sure you select to match users on the mail attribute in the installation guide. If you select another option, then you have an order-dependent configuration. Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide. You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object. During export to Azure AD, an error is shown. This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.
 
 ## Disabled accounts
 Disabled accounts are synchronized as well to Azure AD. Disabled accounts are common to represent resources in Exchange, for example conference rooms. The exception is users with a linked mailbox; as previously mentioned, these will never provision an account to Azure AD.
 
-The assumption is that if a disabled user account is found, then we won't find another active account later and the object is provisioned to Azure AD with the userPrincipalName and sourceAnchor found. In case another active account will join to the same metaverse object, then its userPrincipalName and sourceAnchor will be used.
+The assumption is that if a disabled user account is found, then we won't find another active account later and the object is provisioned to Azure AD with the userPrincipalName and sourceAnchor found. In case another active account join to the same metaverse object, then its userPrincipalName and sourceAnchor will be used.
 
 ## Changing sourceAnchor
 When an object has been exported to Azure AD then it's not allowed to change the sourceAnchor anymore. When the object has been exported the metaverse attribute **cloudSourceAnchor** is set with the **sourceAnchor** value accepted by Azure AD. If **sourceAnchor** is changed and not match **cloudSourceAnchor**, the rule **Out to AAD – User Join** will throw the error **sourceAnchor attribute has changed**. In this case, the configuration or data must be corrected so the same sourceAnchor is present in the metaverse again before the object can be synchronized again.
