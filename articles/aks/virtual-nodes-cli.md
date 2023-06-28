@@ -1,7 +1,7 @@
 ---
 title: Create virtual nodes in Azure Kubernetes Service (AKS) using Azure CLI
 titleSuffix: Azure Kubernetes Service
-description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
+description: Learn how to use Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 ms.topic: conceptual
 ms.date: 06/28/2023
 ms.custom: references_regions, devx-track-azurecli
@@ -53,7 +53,7 @@ An Azure resource group is a logical group in which Azure resources are deployed
 * Create a resource group using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
-    az group create --name myResourceGroup --location westus
+    az group create --name myResourceGroup --location eastus
     ```
 
 ## Create a virtual network
@@ -84,28 +84,28 @@ An Azure resource group is a logical group in which Azure resources are deployed
 
 ## Create an AKS cluster with managed identity
 
-1. Get the ID of the subnet using the [`az network vnet subnet show`][az-network-vnet-subnet-show] command.
+1. Get the subnet ID using the [`az network vnet subnet show`][az-network-vnet-subnet-show] command.
 
     ```azurecli-interactive
     az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
     ```
 
-2. Create an AKS cluster using the [`az aks create`][az-aks-create] command and replace `<subnetId>` with the ID obtained in the previous step.
+2. Create an AKS cluster using the [`az aks create`][az-aks-create] command and replace `<subnetId>` with the ID obtained in the previous step. The following example creates a cluster named *myAKSCluster* with five nodes.
 
     ```azurecli-interactive
     az aks create \
         --resource-group myResourceGroup \
         --name myAKSCluster \
-        --node-count 1 \
+        --node-count 5 \
         --network-plugin azure \
-        --vnet-subnet-id <subnetId> \
+        --vnet-subnet-id <subnetId>
     ```
 
     After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
 For more information on managed identities, see [Use managed identities](use-managed-identity.md).
 
-## Enable virtual nodes addon
+## Enable the virtual nodes addon
 
 * Enable virtual nodes using the [`az aks enable-addons`][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step.
 
@@ -131,7 +131,7 @@ For more information on managed identities, see [Use managed identities](use-man
     kubectl get nodes
     ```
 
-    The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-aci-linux*:
+    The following example output shows the single VM node created and the virtual node for Linux, *virtual-node-aci-linux*:
 
     ```output
     NAME                          STATUS    ROLES     AGE       VERSION
