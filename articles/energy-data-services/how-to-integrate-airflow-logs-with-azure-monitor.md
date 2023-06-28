@@ -42,7 +42,8 @@ To access logs via any of the above two options, you need to create a Diagnostic
 
 Follow the following steps to set up Diagnostic Settings:
 
-1. Open the Microsoft Azure Data Manager for Energy *Overview* page
+1. Open Microsoft Azure Data Manager for Energy' *Overview* page
+
 1. Select *Diagnostic Settings* from the left panel
 
     [![Screenshot for Azure monitor diagnostic setting overview page. The page shows a list of existing diagnostic settings and the option to add a new one.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-diagnostic-settings-overview-page.png#lightbox)
