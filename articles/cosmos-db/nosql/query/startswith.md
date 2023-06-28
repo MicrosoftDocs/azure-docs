@@ -29,7 +29,7 @@ STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    Is a string expression to be compared to the beginning of *str_expr1*.
 
 *bool_expr*
-    Optional value for ignoring case. When set to true, STARTSWITH will do a case-insensitive search. When unspecified, this value is false.
+    Optional value for ignoring case. When set to true, STARTSWITH does a case-insensitive search. When unspecified, this value is false.
 
 ## Return types
   
@@ -37,13 +37,13 @@ STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
   
 ## Examples
   
-The following example checks if the string "abc" begins with "b" and "A".  
+The following example checks if the string "abc" begins with "b" and "A."  
   
 ```sql
 SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2, STARTSWITH("abc", "A", true) AS s3
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [
@@ -57,10 +57,10 @@ SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2,
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs a precise index scan.
 
 ## Next steps
 
 - [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

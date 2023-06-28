@@ -88,7 +88,7 @@
   items:
     - name: System functions
       displayName: functions, system functions, built-in functions
-      href: system-functions.md
+      href: system-functions.yml
     - name: Array functions
       items:
         - name: Array functions

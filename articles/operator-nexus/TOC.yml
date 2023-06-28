@@ -13,6 +13,8 @@
       href: concepts-compute.md
     - name: Observability
       href: concepts-observability.md
+    - name: Nexus Kubernetes
+      href: concepts-nexus-kubernetes-cluster.md
 - name: Quickstarts
   items:
     - name: Deploy Nexus Kubernetes cluster
@@ -30,6 +32,15 @@
       href: quickstarts-tenant-workload-deployment.md
 - name: How-To Guides
   items:
+    - name: Nexus Kubernetes cluster
+      expanded: false
+      items:
+        - name: Understand agent pools
+          href: howto-kubernetes-cluster-agent-pools.md
+        - name: Configure huge-pages for cluster virtual machines
+          href: howto-kubernetes-cluster-huge-pages.md
+        - name: Configure service load balancer
+          href: howto-kubernetes-service-load-balancer.md
     - name: Before you start Operator Nexus NFC and CM deployment
       href: howto-azure-operator-nexus-prerequisites.md
     - name: Network Fabric Controller
@@ -70,6 +81,8 @@
       href: howto-track-async-operations-cli.md
     - name: Cluster Upgrades
       href: howto-cluster-runtime-upgrade.md
+    - name: Install CLI Extension
+      href: howto-install-cli-extensions.md
 - name: Troubleshooting
   items:
     - name: Troubleshoot Bare Metal Machine

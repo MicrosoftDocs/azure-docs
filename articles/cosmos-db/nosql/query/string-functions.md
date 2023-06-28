@@ -51,7 +51,7 @@ Learn about about [index usage](../../index-overview.md#index-usage) in Azure Co
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
 - [User Defined Functions](udfs.md)
 - [Aggregates](aggregate-functions.md)
