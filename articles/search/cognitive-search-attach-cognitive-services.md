@@ -1,7 +1,7 @@
 ---
 title: Attach Azure AI services to a skillset
 titleSuffix: Azure Cognitive Search
-description: Learn how to attach a multi-service Azure AI services resource to an AI enrichment pipeline in Azure Cognitive Search.
+description: Learn how to attach a Azure AI multi-service resource to an AI enrichment pipeline in Azure Cognitive Search.
 
 author: HeidiSteen
 ms.author: heidist
@@ -11,9 +11,9 @@ ms.date: 05/31/2023
 
 ---
 
-# Attach a Azure AI services resource to a skillset in Azure Cognitive Search
+# Attach an Azure AI multi-service resource to a skillset in Azure Cognitive Search
 
-When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Azure AI services resource**](../ai-services/cognitive-services-apis-create-account.md). 
+When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](../ai-services/cognitive-services-apis-create-account.md). 
 
 A multi-service resource references "Azure AI services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these APIs:
 
@@ -22,7 +22,7 @@ A multi-service resource references "Azure AI services" as the offering, rather 
 + [Translator](../ai-services/translator/translator-overview.md) for machine text translation
 
 > [!TIP]
-> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Azure AI services, see [Plan and manage costs for Azure Azure AI services](../ai-services/plan-manage-costs.md).
+> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Azure AI services, see [Plan and manage costs for Azure AI services](../ai-services/plan-manage-costs.md).
 
 ## Set the resource key
 
@@ -34,7 +34,7 @@ If you leave the property unspecified, your search service will attempt to use t
 
 1. [Sign in to Azure portal](https://portal.azure.com).
 
-1. Create a [multi-service Azure AI services resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create a [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Add the key to a skillset definition:
 
@@ -46,7 +46,7 @@ If you leave the property unspecified, your search service will attempt to use t
 
 ### [**REST**](#tab/cogkey-rest)
 
-1. Create a [multi-service Azure AI services resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create a [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
 
@@ -118,7 +118,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 Key-based billing applies when API calls to Azure AI services resources exceed 20 API calls per indexer, per day. 
 
-The key is used for billing, but not for enrichment operations' connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to a Azure AI services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Azure AI services. If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
+The key is used for billing, but not for enrichment operations' connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to an Azure AI multi-service resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Azure AI services. If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
 
 Currently, billing for [built-in skills](cognitive-search-predefined-skills.md) requires a public connection from Cognitive Search to Azure AI services. Disabling public network access breaks billing. If disabling public networks is a requirement, you can configure a [Custom Web API skill](cognitive-search-custom-skill-interface.md) implemented with an [Azure Function](cognitive-search-create-custom-skill-example.md) that supports [private endpoints](../azure-functions/functions-create-vnet.md) and add the [Cognitive Service resource to the same VNET](/azure/ai-services/cognitive-services-virtual-networks). In this way, you can call Azure AI services resource directly from the custom skill using private endpoints.
 
@@ -127,11 +127,11 @@ Currently, billing for [built-in skills](cognitive-search-predefined-skills.md) 
 
 ### Key requirements special cases
 
-[Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is metered by Azure Cognitive Search, not Azure AI services, but it requires a Azure AI services resource key to unlock transactions beyond 20 per indexer, per day. For this skill only, the resource key unblocks the number of transactions, but is unrelated to billing.
+[Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is metered by Azure Cognitive Search, not Azure AI services, but it requires an Azure AI multi-service resource key to unlock transactions beyond 20 per indexer, per day. For this skill only, the resource key unblocks the number of transactions, but is unrelated to billing.
 
 ## Free enrichments
 
-AI enrichment offers a small quantity of free processing  of billable enrichments so that you can complete short exercises without having to attach a Azure AI services resource. Free enrichments are 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter if you want to repeat an exercise.
+AI enrichment offers a small quantity of free processing  of billable enrichments so that you can complete short exercises without having to attach an Azure AI multi-service resource. Free enrichments are 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter if you want to repeat an exercise.
 
 Some enrichments are always free: 
 
