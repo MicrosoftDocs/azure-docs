@@ -478,25 +478,26 @@ The following JSON shows an example response body.
 
 In addition to querying for metrics on an individual resource, some resource types also support querying for multiple resources in a single request. These APIs are what power the [Multi-Resource experience in Azure metrics explorer](./metrics-dynamic-scope.md). The set of resources types that support querying for multiple metrics can be seen on the [Metrics blade in Azure monitor](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics) via the resource type drop-down in the scope selector on the context blade. For more information, see the [Multi-Resource UX documentation](./metrics-dynamic-scope.md).
 
-Here are some important differences between querying metrics for multiple resources vs individual resources.
-1) Metrics multi-resource APIs operate at the subscription level instead of the resource ID level. This restriction means users querying these APIs must have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permissions on the subscription itself.
-2) Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
-3) Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
+There are some important differences between querying metrics for multiple and individual resources.
++ Metrics multi-resource APIs operate at the subscription level instead of the resource ID level. This restriction means users querying these APIs must have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permissions on the subscription itself.
++ Metrics multi-resource APIs only support a single resourceType per query, which must be specified in the form of a metricnamespace query parameter.
++ Metrics multi-resource APIs only support a single Azure region per query, which must be specified in the form of a region query parameter.
 
 ### Querying metrics for multiple resources examples
 
-Here's an example of an individual metricdefinitions request:
+The following example shows an individual metricdefinitions request:
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01
 ```
 
-This request shows the equivalent metricdefinitions request for multiple resources: 
+The following request shows the equivalent metricdefinitions request for multiple resources.
+The only changes are the subscription path instead of a resource ID path, and the addition of `region` and `metricNamespace` query parameters.
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.insights/metricdefinitions?api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines
 ```
 Notice the only changes are subscription path instead of a resource ID path, and the addition of "region" and "metricNamespace" query parameters.
 
-Here's an example of an individual metrics request:
+The following an example of an individual metrics request, followed by the equivalent metrics request for multiple resources:
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/resourceGroups/EASTUS-TESTING/providers/Microsoft.Compute/virtualMachines/TestVM1/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01
 ```
@@ -505,7 +506,7 @@ This request shows the equivalent metrics request for multiple resources:
 ```
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
 ```
-Notice that for the multi resource metrics requests, a "Microsoft.ResourceId eq '*'" filter is added as well. That filter tells the API to return a separate time series per virtual machine resource in that subscription and region. Without that filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the Microsoft.ResourceId metadata value on each time series entry, as can be seen in the following sample return value.
+Note that  a `Microsoft.ResourceId eq '*'` filter is added for the multi resource metrics requests as well. The filter tells the API to return a separate time series per virtual machine resource in the subscription and region. Without the filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the `Microsoft.ResourceId` metadata value on each time series entry, as can be seen in the following sample return value.
 
 ```JSON
 {
@@ -632,7 +633,7 @@ Notice that for the multi resource metrics requests, a "Microsoft.ResourceId eq 
 
 ### Troubleshooting querying metrics for multiple resources
 
-+ No returned data can be due to the wrong region being specified:
++ No data returned can be due to the wrong region being specified:
     The multi resource APIs do not verify that any valid resources exist in the specified region and subscription combination. The only indicator that the region may be wrong is getting an empty time series data response. For example: `"timeseries": [],`
 + 401 authorization errors:
     The individual resource metrics APIs requires a user have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission on the resource being queried. Because the multi resource metrics APIs are subscription level APIs, users must have the  [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission for the queried subscription to use the multi resource metrics APIs. Even if users have Monitoring Reader on all the resources in a subscription, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
