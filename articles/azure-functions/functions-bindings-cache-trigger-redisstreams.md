@@ -7,7 +7,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 06/28/2023
 
 ---
 
@@ -18,8 +18,8 @@ The `RedisStreamsTrigger` pops elements from a stream and surfaces those element
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
-|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
-|---------|:---------:|:---------:|:---------:|
+| Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
+|--------- |:---------:|:---------:|:---------:|
 | Streams  | Yes  | Yes   |  Yes  |
 
 > [!IMPORTANT]
@@ -40,25 +40,6 @@ public static void StreamsTrigger(
 }
 ```
 
-::: zone-end
-::: zone pivot="programming-language-java"
-
-```java
-@FunctionName("StreamTrigger")
-    public void StreamTrigger(
-            @RedisStreamTrigger(
-                name = "entry",
-                connectionStringSetting = "redisLocalhost",
-                key = "streamTest",
-                pollingIntervalInMs = 100,
-                messagesPerWorker = 10,
-                count = 1,
-                deleteAfterProcess = true)
-                String entry,
-            final ExecutionContext context) {
-            context.getLogger().info(entry);
-    }
-```
 
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
@@ -98,29 +79,31 @@ TBD
 
 ## Attributes
 
-|Property | Description|
+| Parameters | Description|
 |---|---|
-| `ConnectionString`| connection string to the cache instance, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.|
+| `ConnectionString`| Connection string to the cache instance, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.|
 | `Keys`| Keys to read from, space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
 |  `PollingIntervalInMs`| How often to poll the Redis server in milliseconds. Default: 1000|
-|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
-| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10 .Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
-|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
+|  `MessagesPerWorker`| (optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale to. Default: 100
+| `Count`| (optional) Number of elements to pull from Redis at one time. Default: 10. |
+|`deleteAfterProcess`| Indicates if the function deletes the stream entries after processing. Default: false |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
 ## Annotations
 
-|Property | Description|
+| Parameter  | Description|
 |---|---|
-| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
-| `Keys`| Keys to read from. It is space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
-|  `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: 1000|
-|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
-| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
-|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
-| Count ||
+|`type` |
+|`deleteAfterProcess `|
+|`connectionStringSetting` | connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
+| `key` | Keys to read from. |
+| `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000  |
+|`messagesPerWorker` |(optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale   |
+|`count` |   |
+|`name` |   |
+|`direction`  |   |
 
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
@@ -130,15 +113,17 @@ TBD
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-|Property | Description|
+| function.json Properties | Description|
 |---|---|
-| `ConnectionString`| connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
-| `Keys`| Keys to read from. It is space-delimited. Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/). Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.|
-|  `PollingIntervalInMs`| How often to poll Redis in milliseconds. Default: 1000|
-|  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
-| `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the`COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
-|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
-| Count ||
+|`type` |redisStreamTrigger|
+|`deleteAfterProcess`| false|
+|`connectionStringSetting`| redisLocalhost |
+|`key` |   |
+|`pollingIntervalInMs` | 1000,|
+|`messagesPerWorker` 100,|
+|`count`| 10,|
+|`name`: |"entry",|
+|`direction`: |"in"|
 
 <!-- this get more complex when you support the Python v2 model. -->
 <!-- suggestion 
@@ -209,3 +194,4 @@ class RedisMessageModel:
 - [Introduction to Azure Functions](functions-overview.md)
 - [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Redis streams](https://redis.io/docs/data-types/streams/)
