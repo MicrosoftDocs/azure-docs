@@ -16,6 +16,9 @@ ms.custom: query-reference
 
 Returns the number of milliseconds that have elapsed since `00:00:00 Thursday, 1 January 1970`.
 
+> [!IMPORTANT]
+> The *static* variation of this function only retrieves the timestamp once per partition. For more information on the *non-static* variation, see [`GetCurrentTimestamp`](getcurrenttimestamp.md)
+
 ## Syntax
 
 ```sql
@@ -24,7 +27,7 @@ GetCurrentTimestampStatic()
 
 ## Return types
 
-same as other doc
+Returns a signed numeric value that represents the current number of milliseconds that have elapsed since the Unix epoch (`00:00:00 Thursday, 1 January 1970`).
 
 ## Examples
 
@@ -47,14 +50,39 @@ This example uses a container with a partition key path of `/pk`. There are thre
 ]
 ```
 
-
+This function returns the same static timestamp for items within the same partition. For comparison, the nonstatic function gets a new timestamp value for each item matched by the query.
 
 ```sql
-
+SELECT
+    i.id,
+    i.pk AS partitionKey,
+    GetCurrentTimestamp() AS nonStaticTimestamp,
+    GetCurrentTimestampStatic() AS staticTimestamp
+FROM
+    items i
 ```
 
 ```json
-
+[
+  {
+    "id": "1",
+    "partitionKey": "A",
+    "nonStaticTimestamp": 1687977636235,
+    "staticTimestamp": 1687977636232
+  },
+  {
+    "id": "2",
+    "partitionKey": "A",
+    "nonStaticTimestamp": 1687977636235,
+    "staticTimestamp": 1687977636232
+  },
+  {
+    "id": "3",
+    "partitionKey": "B",
+    "nonStaticTimestamp": 1687977636238,
+    "staticTimestamp": 1687977636237
+  }
+]
 ```
 
 > [!NOTE]
@@ -63,8 +91,9 @@ This example uses a container with a partition key path of `/pk`. There are thre
 ## Remarks
 
 - This static function is called once per partition.
-- Static versions of system functions only get their respective values once during binding, rather than execute repeatedly in the runtime as is the case for the nonstatic versions of the same functions.ntime as is this case for the non\-static versions of these functions\.
+- Static versions of system functions only get their respective values once during binding, rather than execute repeatedly in the runtime as is the case for the nonstatic versions of the same functions.
 
 ## See also
 
 - [System functions](system-functions.yml)
+- [`GetCurrentTimestamp` (nonstatic)](getcurrenttimestamp.md)
