@@ -23,7 +23,7 @@ deployments, backed by a robust set of APIs for management operations.
 See [What is Kubernetes](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-kubernetes/#overview)
 to learn about Kubernetes.
 
-## Nexus Kubernetes Cluster
+## Nexus Kubernetes cluster
 
 Nexus Kubernetes Cluster is an Operator Nexus version of
 [AKS-Hybrid](/azure/aks/hybrid/). Like AKS-Hybrid, Nexus Kubernetes
