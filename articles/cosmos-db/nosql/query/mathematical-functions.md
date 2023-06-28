@@ -58,7 +58,7 @@ The following supported built-in mathematical functions perform a calculation, u
 | [TRUNC](trunc.md)     | Index seek  | Index seek                                              |                                                              |
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
 - [User Defined Functions](udfs.md)
 - [Aggregates](aggregate-functions.md)
