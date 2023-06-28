@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/08/2022
+ms.date: 06/28/2023
 ms.author: rogarana
 ---
 
@@ -22,6 +22,12 @@ With managed disks, you don't have to worry about managing storage accounts for 
 
 - As of September 30, 2023, new customers won't be able to create unmanaged disks.
 - On September 30, 2025, customers will no longer be able to start IaaS VMs by using unmanaged disks. Any VMs that are still running or allocated will be stopped and deallocated.
+
+## What is being retired?
+
+Unmanaged disks are a type of page blob in Azure that are used for storing Virtual Hard Disk (VHD) files associated with virtual machines (VM). When a page blob VHD is attached to a VM, it functions as a virtual disk for that VM. The VM's operating system can read from and write to the attached page blob as if it were a SCSI volume. This retirement only affects page blobs used as virtual disks and being directly attached to VMs.
+
+Page blobs accessed directly via HTTP/HTTPS REST APIs are standalone entities and have no dependencies on any specific VM. Clients can interact with these page blobs using standard HTTP/HTTPS protocols, making requests to read from or write to the blobs using Storage REST APIs. Since these page blobs aren't attached as virtual disks, these retirement won't affect them. This retirement also won't affect other 3rd party storage offerings on Azure that are using page blobs via HTTP/HTTPS REST APIs as their underlying storage solution.
 
 ## What actions should I take?
 
