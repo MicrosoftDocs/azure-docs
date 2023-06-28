@@ -58,7 +58,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 \*Microsoft Teams allows users to share attached image files that are stored behind authenticated servers, that may require additional configuration when using the UI Library to learn more about this, please refer to the storybook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images).
 
-\*Certain inline GIF encodings and videos may not be supported by the UI library at this time, the user might receive a static image instead and this is a known issue. 
+\*Certain GIF images may not be supported by the UI library at this time, the user might receive a static image instead and this is a known issue. In addition, the Web UI library does not support videos at this time.
 
 \*Microsoft Teams allows users to share file attachments as part of chat messages. These files are stored in SharePoint or OneDrive and require authentication to access them. Depending on the file's sharing permissions (e.g., Anyone, Everyone in your Organization, People you choose, etc.), ACS users in the Teams Interop meeting who try to access the shared files will be redirected to a SharePoint web page and prompted to authenticate in order to access the file. To learn more about this, please refer to [File Sharing Permission](https://learn.microsoft.com/microsoft-365/solutions/microsoft-365-limit-sharing)
 
