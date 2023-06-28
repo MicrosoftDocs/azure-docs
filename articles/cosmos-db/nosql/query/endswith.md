@@ -29,7 +29,7 @@ ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    Is a string expression to be compared to the end of *str_expr1*.
 
 *bool_expr*
-    Optional value for ignoring case. When set to true, ENDSWITH will do a case-insensitive search. When unspecified, this value is false.
+    Optional value for ignoring case. When set to true, ENDSWITH does a case-insensitive search. When unspecified, this value is false.
   
 ## Return types
   
@@ -37,13 +37,13 @@ ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
   
 ## Examples
   
-The following example checks if the string "abc" ends with "b" and "bC".  
+The following example checks if the string "abc" ends with "b" and "bC."  
   
 ```sql
 SELECT ENDSWITH("abc", "b", false) AS e1, ENDSWITH("abc", "bC", false) AS e2, ENDSWITH("abc", "bC", true) AS e3
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [
@@ -57,10 +57,9 @@ SELECT ENDSWITH("abc", "b", false) AS e1, ENDSWITH("abc", "bC", false) AS e2, EN
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs a full index scan.
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
