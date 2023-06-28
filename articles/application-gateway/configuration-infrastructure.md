@@ -86,25 +86,14 @@ As a temporary extension, we have introduced a subscription-level [Azure Feature
 
 ## Network security groups
 
-You can use Network security groups (NSGs) for your Application Gateway's subnet but there are some key points or restrictions that you should take note of.
+You can use Network security groups (NSGs) for your Application Gateway's subnet, but you should note some key points and restrictions.
 
 > [!IMPORTANT]
 > These NSG limitations are relaxed when using [Private Application Gateway deployment (Preview)](application-gateway-private-deployment.md#network-security-group-control).
 
-- You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't communicate on these endpoints.
-
-- Outbound Internet connectivity can't be blocked. Default outbound rules in the NSG allow Internet connectivity. We recommend that you:
-
-  - Don't remove the default outbound rules.
-  - Don't create other outbound rules that deny any outbound connectivity.
-
-- Traffic from the **AzureLoadBalancer** tag with the destination subnet as **Any** must be allowed.
-
-- To use public and private listeners with a common port number (Preview feature), you must have an inbound rule with the **destination IP address** as your gateway's **frontend IPs (public and private)**. When using this feature, your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway. [Learn more](./configuration-listeners.md#frontend-port).
-
 ### Required security rules
 
-To use NSG with your application gateway, you will need to create or retain some essential security rules. You may set their priority values in the same order.
+To use NSG with your application gateway, you will need to create or retain some essential security rules. You may set their priority in the same order.
 
 **Inbound rules**
 
@@ -114,12 +103,12 @@ To use NSG with your application gateway, you will need to create or retain some
 |---|---|---|---|---|---|
 |&lt;as per need&gt;|Any|&lt;Subnet IP Prefix&gt;|&lt;listener ports&gt;|TCP|Allow|
 
-When using a common port number for public and private listeners, you must include the frontend Public IP address of your gateway in Destination.
+Upon configuring active (associating rules) public and private listeners with the same port number (in Preview), your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway. You must thus include your gateway's frontend Public and Private IP addresses in the Destination of the inbound rule when using this same port configuration.
 
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
-|&lt;as per need&gt;|Any|&lt;Public and Private frontend IPs&gt;|&lt;listener ports&gt;|TCP|Allow|
+|&lt;as per need&gt;|Any|&lt;Public and Private<br/>frontend IPs&gt;|&lt;listener ports&gt;|TCP|Allow|
 
 2. **Infrastructure ports** - Allow incoming requests from the source as GatewayManager service tag and any destination. The destination port range differs based on SKU and is required for communicating the status of the Backend Health. (These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place).
 	- V2: Ports 65200-65535
@@ -139,7 +128,7 @@ You may block all other incoming traffic by using a deny-all rule.
 
 **Outbound rules**
 
-1. **Outbound to the Internet** - Allow outbound traffic to the Internet for all destinations. This rule is created by default for network security groups, and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
+1. **Outbound to the Internet** - Allow outbound traffic to the Internet for all destinations. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
