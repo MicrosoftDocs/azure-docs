@@ -32,6 +32,8 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 
 Setting the access tier is only allowed on block blobs. To learn more about restrictions on setting a block blob's access tier, see [Set Blob Tier (REST API)](/rest/api/storageservices/set-blob-tier#remarks).
 
+To set the access tier to `Cold`, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
+
 ## Set a blob's access tier during upload
 
 To [upload](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-upload) a blob into a specific access tier, use the [BlockBlobUploadOptions](/javascript/api/@azure/storage-blob/blockblobuploadoptions). The `tier` property choices are: `Hot`, `Cool`, `Cold`, or `Archive`.
