@@ -81,8 +81,8 @@ To view resource details such as name and pricing tier, select the **Settings** 
 
 If you want to clean up and remove a Cognitive Services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+- [Portal](/azure/ai-services/cognitive-services-apis-create-account#clean-up-resources)
+- [Azure CLI](/azure/ai-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 ## Next steps
 

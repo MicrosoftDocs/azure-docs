@@ -84,4 +84,4 @@ landingContent:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-safety/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/content-safety/context/context
