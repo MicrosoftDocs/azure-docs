@@ -134,7 +134,7 @@ az aks create \
 ## Get cluster credentials 
 
 ```azurecli-interactive
-az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## Enable Visualization on Grafana

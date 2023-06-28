@@ -27,17 +27,19 @@ sections:
       - question: Will containers be available for all Cognitive Services offerings, and what's the next set of containers I should expect?
         answer: |
           We'd like to make more Cognitive Services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
-      - question: What will the service-level agreement (SLA) be for Cognitive Services containers?
+      - question: What is the service-level agreement (SLA) for Cognitive Services containers?
         answer: |
           > [!IMPORTANT]
           > To learn more about service-level agreements for Cognitive Services, [visit our SLA page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
           
-          Cognitive Services provides SLAs that can be viewed on our SLA page at the link provided above.
+          Cognitive Services provides SLAs for cloud hosted services which can be viewed on our SLA page.
           
-          However, Cognitive Services in containers provide no SLA. Customers control Cognitive Services container configurations of resources, so Microsoft won't offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
+          However, Cognitive Services in containers do not provide an SLA as it is on-premises software. Customers control Cognitive Services container configurations of resources, so Microsoft is unable to offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
       - question: Are these containers available in Sovereign clouds?
         answer: |
-          Cognitive Services containers can be used in the Sovereign clouds. The containers can be run and can connect to the billing endpoint in these clouds, but container images need to be pulled from the Public cloud container registry.
+          Standard Cognitive Services containers can be used in the Sovereign clouds. The containers can be run and can connect to the billing endpoint in these clouds once authorized, but container images need to be pulled from the Public cloud container registry. Containers that rely on language models downloaded at runtime, such as Translator or Custom Speech to text, also are configured to pull models from Public endpoints. 
+          
+          Purchasing disconnected containers is not currently supported in Sovereign clouds, but disconnected containers purchased in Public cloud along with all dependencies can be transferred to Sovereign clouds and run on Sovereign cloud infrastructure.
   - name: Versioning
     questions:
       - question: How are containers updated to the latest version?
@@ -45,9 +47,9 @@ sections:
           Customers can choose when to update the containers that they've deployed. Containers are marked with standard [Docker tags](https://docs.docker.com/engine/reference/commandline/tag/) such as `latest` to indicate the most recent version. We encourage customers to pull the latest versions of containers as they're released. For details on how to get notified when an image is updated, see [Azure Container Registry webhooks](../../container-registry/container-registry-webhook.md).
           
            [!INCLUDE [Container license update](../../../includes/cognitive-services-containers-license-update.md)]
-      - question: What versions will be supported?
+      - question: What versions are supported?
         answer: |
-          The current and last major version of the container will be supported. However, we encourage customers to stay current to get the latest technology.
+          Generally only the current version of the container is supported. We encourage customers to stay current to get the latest patches and technology.
       - question: How are updates versioned?
         answer: |
           Major version changes indicate that there's a breaking change to the API signature. We anticipate that this will generally coincide with major version changes to the corresponding Cognitive Services cloud offering. Minor version changes indicate bug fixes, model updates, or new features that don't make a breaking change to the API signature.
@@ -76,7 +78,7 @@ sections:
           | `Invalid` |	Your API key is invalid. You must provide a valid API key to run the container. Find your API key and service region in the Azure portal, in the **Keys and Endpoint** section for your Cognitive Services resource. |
           | `Mismatch` | You've provided an API key or endpoint for a different kind of Cognitive Services resource. Find your API key and service region in the Azure portal, in the **Keys and Endpoint** section for your Cognitive Services resource. |
           | `CouldNotConnect` | The container couldn't connect to the billing endpoint. Check the `Retry-After` value and wait for this period to end before you make more requests. |
-          | `OutOfQuota` | The API key has exceeded the quota. You can either upgrade your pricing tier or wait for additional quota to become available. Find your tier in the Azure portal, in the **Pricing Tier** section of your Cognitive Service resource. |
+          | `OutOfQuota` | The API key has exceeded the quota. You can either upgrade your pricing tier or wait for more quota to become available. Find your tier in the Azure portal, in the **Pricing Tier** section of your Cognitive Service resource. |
           | `BillingEndpointBusy` | The billing endpoint is currently busy. Check the `Retry-After` value and wait for this period to end before you make more requests. |
           | `ContainerUseUnauthorized` | The provided API key is not authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
           | `[ERROR] Failed to download: context deadline exceeded` | The model file download request to our servers timed out. Make sure you have a strong internet connection to download all required files within one hour. Model downloads apply to Text Translation and some Speech Services containers. |
@@ -92,7 +94,7 @@ sections:
 
       - question: How does billing work?
         answer: | 
-          Customers are charged based on consumption, similar to the Cognitive Services cloud. The containers need to be configured to send metering data to Azure, and transactions are billed accordingly. Resources used across the hosted and on-premises services will add to the single quota with tiered pricing, counting against both usages. For more information, see the following pricing pages:
+          Customers are charged based on consumption, similar to the Cognitive Services cloud. The containers need to be configured to send metering data to Azure, and transactions are billed accordingly. Resources used across the hosted and on-premises services add to the single quota with tiered pricing, counting against both usages. For more information, see the following pricing pages:
 
           * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)
           * [Computer Vision](../computer-vision/computer-vision-how-to-install-containers.md) 

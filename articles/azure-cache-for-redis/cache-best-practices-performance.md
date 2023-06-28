@@ -179,7 +179,7 @@ The following tables show the GET requests per second at different capacities, u
 
 | Instance | Capacity 2 | Capacity 4 | Capacity 6 |
 |:---:| ---:| ---:| ---:|
-| E10 | 1,00,000 | 1,900,000 | 2,500,000 |
+| E10 | 1,000,000 | 1,900,000 | 2,500,000 |
 | E20 | 900,000 | 1,700,000 | 2,300,000 |
 | E50 | 1,700,000 | 3,000,000 | 3,900,000 |
 | E100 | 2,500,000 | 4,400,000 | 4,900,000|
