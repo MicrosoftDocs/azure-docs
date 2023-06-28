@@ -90,10 +90,12 @@ To view the parameter for encryption, enter the following information.
 
 ```azurepowershell-interactive
 $vnet.Encryption
+```
 
+```output
 Enabled Enforcement
 ------- -----------
-true   allowUnencrypted
+True   allowUnencrypted
 ```
 
 ## Clean up resources
