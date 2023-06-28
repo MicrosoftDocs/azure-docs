@@ -161,7 +161,7 @@ kubectl expose deployment nginx \
     --overrides '{"metadata":{"annotations":{"metallb.universe.tf/address-pool":"pool-2"}}}'
 ```
 
-This command assigns an IP address to the service from the third IP pool (`pool-2`). Adjust the pool name as needed. Before trying out these examples, ensure that you have already created a Nexus Kubernetes cluster with two different IP address pools. If you haven't done so, follow the necessary steps to create the cluster and configure the IP pools accordingly.
+This command assigns an IP address to the service from the IP pool `pool-2`. Adjust the pool name as needed. Before trying out these examples, ensure that you have already created a Nexus Kubernetes cluster with two different IP address pools. If you haven't done so, follow the necessary steps to create the cluster and configure the IP pools accordingly.
 
 > [!NOTE]
 > The IP address pool name is case-sensitive. Make sure to use the correct case when specifying the pool name.
