@@ -231,8 +231,8 @@ There are 6 queries to demonstrate the patterns. We use the same query string (*
 
 + [Single vector search](#single-vector-search)
 + [Single vector search with filter](#single-vector-search-with-filter)
-+ [Simple hybrid search](#simple-hybrid-search)
-+ [Simple hybrid search with filter](#simple-hybrid-search-with-filter)
++ [Hybrid search](#hybrid-search)
++ [Hybrid search with filter](#hybrid-search-with-filter)
 + [Semantic hybrid search](#semantic-hybrid-search)
 + [Semantic hybrid search with filter](#semantic-hybrid-search-with-filter)
 
