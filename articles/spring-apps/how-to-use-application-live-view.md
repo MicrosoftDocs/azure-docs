@@ -253,9 +253,9 @@ az spring dev-tool create \
 
 ---
 
-## Use Application Live View in VSCode extension
+## Use Application Live View in VS Code 
 
-You can also use Application Live View in VSCode extension to monitor your apps in Azure Spring Apps Enterprise tier.
+You can also access Application Live View directly in VSCode to monitor your apps in Azure Spring Apps Enterprise tier.
 
 ### Prerequisites
 
