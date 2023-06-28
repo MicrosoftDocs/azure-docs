@@ -53,6 +53,16 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
+## Update an existing AKS cluster
+
+You can update an AKS cluster using the [az aks update][az aks update] command with the `--enable-oidc-issuer` and the `--enable-workload-identity` parameter to use the OIDC Issuer and enable workload identity. The following example updates a cluster named *myAKSCluster*:
+
+```azurecli-interactive
+az aks update -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
+```
+
+## Retrieve the OIDC Issuer URL
+
 To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster:
 
 ```bash
@@ -197,6 +207,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az aks update]: /cli/azure/aks#az-aks-update
 [aks-two-resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-account-set]: /cli/azure/account#az-account-set
 [az-identity-create]: /cli/azure/identity#az-identity-create
