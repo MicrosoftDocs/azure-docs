@@ -236,7 +236,7 @@ The following examples demonstrate possible usage of this command:
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
     ```
     
-* You specify a SSH public key file:
+* You specify an SSH public key file:
 
     ```azurecli
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
