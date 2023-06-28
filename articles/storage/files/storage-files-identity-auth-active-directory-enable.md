@@ -28,7 +28,7 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 
 - AD DS identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD or [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities). Password hash synchronization is optional.
 - Supports Azure file shares managed by Azure File Sync.
-- Supports Kerberos authentication with AD with [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption?toc=/azure/storage/files/toc.json) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
+- Supports Kerberos authentication with AD with [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.
 - Supports single sign-on experience.
 - Only supported on clients running OS versions Windows 8/Windows Server 2012 or newer.
 - Only supported against the AD forest that the storage account is registered to. Users belonging to different domains within the same forest should be able to access the file share and underlying directories/files as long as they have the appropriate permissions.  
