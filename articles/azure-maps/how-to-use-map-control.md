@@ -2,8 +2,8 @@
 title: How to use the Azure Maps web map control
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
-author: eriklindeman
-ms.author: eriklind
+author: dubiety
+ms.author: yuchungchen
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 
 The Map Control client-side JavaScript library allows you to render maps and embedded Azure Maps functionality into your web or mobile application.
 
-This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects](open-source-projects.md#third-part-map-control-plugins).
+This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
       ```
 
-    * Load the Azure Maps Web SDK source code locally using the [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) npm package and host it with your app. This package also includes TypeScript definitions.
+    * Load the Azure Maps Web SDK source code locally using the [azure-maps-control] npm package and host it with your app. This package also includes TypeScript definitions.
 
       > **npm install azure-maps-control**
 
@@ -80,7 +80,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </body>
    ```
 
-5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Azure AD credentials with [authentication options](/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. Next, initialize the map control. In order to authenticate the control, use an Azure Maps subscription key or Azure AD credentials with [authentication options].
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps subscription key.
 
@@ -122,7 +122,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </script>
    ```
 
-    For more information about authentication with Azure Maps, see the [Authentication with Azure Maps](azure-maps-authentication.md) document. For a list of samples showing how to integrate Azure AD with Azure Maps, see [Azure Maps & Azure Active Directory Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) in GitHub.
+    For more information about authentication with Azure Maps, see the [Authentication with Azure Maps] document. For a list of samples showing how to integrate Azure AD with Azure Maps, see [Azure Maps & Azure Active Directory Samples] in GitHub.
 
     >[!TIP]
     >In this example, we've passed in the `id` of the map `<div>`. Another way to do this is to pass in the `HTMLElement` object by passing`document.getElementById('myMap')` as the first parameter.
@@ -227,7 +227,7 @@ Here's an example of Azure Maps with the language set to "fr-FR" and the regiona
 
 ![Map image showing labels in French](./media/how-to-use-map-control/websdk-localization.png)
 
-For a list of supported languages and regional views, see [Localization support in Azure Maps](supported-languages.md).
+For a list of supported languages and regional views, see [Localization support in Azure Maps].
 
 ## Azure Government cloud support
 
@@ -253,10 +253,10 @@ If directly accessing the Azure Maps REST services, change the URL domain to `at
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
-* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
-* [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
-* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
+* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [AzureMapsControl.Components] - An Azure Maps Blazor component.
+* [Azure Maps React Component] - A react wrapper for the Azure Maps control.
+* [Vue Azure Maps] - An Azure Maps component for Vue application.
 
 ## Next steps
 
@@ -283,6 +283,15 @@ For a list of samples showing how to integrate Azure AD with Azure Maps, see:
 > [!div class="nextstepaction"]
 > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions
+[Authentication with Azure Maps]: azure-maps-authentication.md
+[Azure Maps & Azure Active Directory Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps community - Open-source projects]: open-source-projects.md#third-part-map-control-plugins
+[Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
+[AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
+[azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
+[Localization support in Azure Maps]: supported-languages.md
+[ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Vue Azure Maps]: https://github.com/rickyruiz/vue-azure-maps
