@@ -2,7 +2,7 @@
 title: Create a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 06/13/2023
+ms.date: 06/28/2023
 ms.custom: references_regions
 ---
 
