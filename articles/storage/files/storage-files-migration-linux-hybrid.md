@@ -165,4 +165,4 @@ There's more to discover about Azure file shares and Azure File Sync. The follow
 
 * [Azure File Sync overview](../file-sync/file-sync-planning.md)
 * [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md)
-* [Azure File Sync troubleshooting](../file-sync/file-sync-troubleshoot.md)
+* [Azure File Sync troubleshooting](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)
