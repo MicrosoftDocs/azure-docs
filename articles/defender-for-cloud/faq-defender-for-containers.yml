@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Microsoft Defender for Cloud common questions - Defender for Containers
-  description: Get answers to common questions about Microsoft Defender for Containers.
+  description: Get answers to frequently asked questions about Microsoft Defender for Containers.
   ms.topic: faq
   ms.service: defender-for-cloud
   author: dcurwin
@@ -97,11 +97,6 @@ sections:
           Does Microsoft share any information with Qualys in order to perform image scans?
         answer: |
           No, the Qualys scanner is hosted by Microsoft, and no customer data is shared with Qualys.
-
-      - question: |
-          Can I get the scan results via REST API?
-        answer: |
-          Yes. The results are under [Sub-Assessments REST API](/rest/api/defenderforcloud/sub-assessments/list). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
       - question: |
           Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
