@@ -25,7 +25,7 @@ With managed disks, you don't have to worry about managing storage accounts for 
 
 ## What is being retired?
 
-Unmanaged disks are a type of page blob in Azure that is used for storing Virtual Hard Disk (VHD) files associated with virtual machines (VM). When a page blob VHD is attached to a VM, it functions as a virtual disk for that VM. The VM's operating system can read from and write to the attached page blob as if it were a SCSI volume. This retirement only affects page blobs used as virtual disks and being directly attached to VMs.
+Unmanaged disks are a type of page blob in Azure that is used for storing Virtual Hard Disk (VHD) files associated with virtual machines (VM). When a page blob VHD is attached to a VM, it functions as a virtual disk for that VM. The VM's operating system can read from and write to the attached page blob as if it were a SCSI volume. This retirement only affects page blobs being used as virtual disks that are directly attached to VMs.
 
 Page blobs accessed directly via HTTP/HTTPS REST APIs are standalone entities and have no dependencies on any specific VM. Clients can interact with these page blobs using standard HTTP/HTTPS protocols, making requests to read from or write to the blobs using Storage REST APIs. Since these page blobs aren't attached as virtual disks, this retirement doesn't affect them. This may not include other third party storage offerings on Azure that are using page blobs via HTTP/HTTPS REST APIs as their underlying storage solution. If you are using a third party offering like this, consult with the provider.
 
