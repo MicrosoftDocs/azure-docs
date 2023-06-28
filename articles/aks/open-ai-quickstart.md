@@ -1,6 +1,6 @@
 ---
 title: Deploy OpenAI Workload on AKS
-description: #Required; article description that is displayed in search results. 
+description: Learn how to deploy Azure OpenAI or OpenAI workload on Azure Kubernetes Service (AKS). #Required; article description that is displayed in search results. 
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 6/28/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -9,18 +9,17 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 # Deploy OpenAI Workload on AKS 
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes Service that lets you quickly deploy workload and managed your kubernetes clusters. In this doc, you will:
-- Learn how to deploy Azure OpenAI or OpenAI workload on AKS. With Azure Open AI or OpenAI, different AI models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code generation. 
+- Learn how to deploy Azure OpenAI or OpenAI workload on AKS. With Azure OpenAI or OpenAI, different AI models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code generation. 
 - Run a sample multi-container applications that is representative of a real-world application. The application is polygot, has a database, a web front end, and events to simulate traffic.
 - Codebase for [AKS Store Demo][aks-store-demo] can be found on GitHub
 
 ## Before you begin
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- For this demo, you can either use Azure Open AI service or Open AI service. If you plan on using Azure OpenAI service, you will need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
-- If you plan on using OpenAI, please sign up for that at the [OpenAI website][open-ai-landing].
-
-- is there a min CLI version required? <!--todo-->
-- any flag needs to be enabled in the CLI?
+- For this demo, you can either use Azure OpenAI service or OpenAI service. If you plan on using Azure OpenAI service, you will need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
+- If you plan on using OpenAI, please sign up on the [OpenAI website][open-ai-landing].
+- If you already have Azure CLI installed, make sure it is up to date by using the [az upgrade][az-upgrade] command.
+- todo: any flag needs to be enabled in the CLI? <!--todo-->
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
@@ -57,7 +56,7 @@ The following example creates a cluster named *myAKSCluster* in the resource gro
 * Create an AKS cluster using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myAKSCluster
+    az aks create --resource-group myResourceGroup --name myAKSCluster
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -95,15 +94,17 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     The following output example shows the single node created in the previous steps. Make sure the node status is *Ready*.
 
     ```output
-    NAME                       STATUS   ROLES   AGE     VERSION
-    aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.25.6
+    NAME                                STATUS   ROLES   AGE     VERSION
+    aks-nodepool1-31469198-vmss000000   Ready    agent   3h29m   v1.25.6
+    aks-nodepool1-31469198-vmss000001   Ready    agent   3h29m   v1.25.6
+    aks-nodepool1-31469198-vmss000002   Ready    agent   3h29m   v1.25.6
     ```
 
 ## Deploy the application 
 
 :::image type="content" source="media/aks-ai-demo/aks-ai-demo-architecture.png" alt-text="Architecture diagram of AKS AI demo":::
 
-In this demo, you use a manifest to create all objectes needed to run the [AKS Store application][aks-store-demo]. This manifest include Kubernetes deployments and services for:
+For the [AKS Store application][aks-store-demo], this manifest include Kubernetes deployments and services for:
 - Product Service: shows product information
 - Order Service: places orders
 - Makeline Service: processes to process orders from the queue and completes the orders
@@ -497,9 +498,21 @@ In this demo, you use a manifest to create all objectes needed to run the [AKS S
     deployment.apps/virtual-worker created
     ```
 
+## Deploy Azure OpenAI or OpenAI
+You can either use Azure OpenAI or OpenAI and run your AI workloads on AKS.
+
+If you are using Azure OpenAI: 
+- You will need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
+- In Azure Portal, create an Azure OpenAI instance. 
+- Open the Azure OpenAI instance you created, on the left blade, click Keys and Endpoints to generate the key.
+- On the left blade, click on Model deployments, then click on Managed Deployments which will open the [Azure OpenAI studio][aoai-studio]. Create a new deployment using the **text-davinci-003** model. For more information on how to create an deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
+
+If you are using OpenAI: 
+- [Generate an OpenAI key][open-ai-new-key] by clicking **Create new secret key** and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
+
 ## Deploy the AI service
 
-Now that the application is deployed, you will be deploying a Python based microservice that uses Azure OpenAI or Open AI to automatically generate description for new products being added to the store's catalog. 
+Now that the application is deployed, you will be deploying a Python based microservice that uses AzureOpenAI or OpenAI to automatically generate description for new products being added to the store's catalog. 
 
 1. Create a file names `ai-service.yaml` and copy the following manifest into it.
    ```yaml
@@ -525,7 +538,7 @@ Now that the application is deployed, you will be deploying a Python based micro
             ports:
             - containerPort: 5001
             env:
-            - name: USE_AZURE_OPENAI # set to "True" in quote if you are using Azure OpenAI, set to "False" if you are using Open AI
+            - name: USE_AZURE_OPENAI # set to "True" in quote if you are using Azure OpenAI, set to "False" if you are using OpenAI
               value: ""
             - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
               value: ""
@@ -550,15 +563,14 @@ Now that the application is deployed, you will be deploying a Python based micro
       selector:
         app: ai-service
    ```
-1. If using Azure Open AI: 
-- Set the environment variable USE_AZURE_OPENAI to "True"
-- Get your Azure OpenAI API key and Azure OpenAI endpoint from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. 
-- Create a deployment at the [Azure OpenAI studio][aoai-studio] using the **text-davinci-003** model. For more information on how to create an deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
-1. If using Open AI: 
-- Set the environment variable USE_AZURE_OPENAI to "False"
-- [Generate an Open AI key][open-ai-new-key] by clicking **Create new secret key** and copy the value into the YAML.
-- [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
-1. Update the environment variables section of the ai-service manifest file you created above by providing the appropriate information required depending on whether you are using Azure OpenAI or OpenAI. The commented text show which variables need to be filled in depending on your service.
+1. If you are using Azure OpenAI: 
+    * Set the environment variable *USE_AZURE_OPENAI* to "True"
+    * Get upir Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
+    * Get your Azure OpenAI endpoint and Azure OpenAI API keyfrom the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordinly. 
+1. If you are using OpenAI: 
+    * Set the environment variable *USE_AZURE_OPENAI* to "False"
+    * Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-azure-open-ai-or-open-ai).
+    * [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
     kubectl apply -f ai-service.yaml
@@ -570,7 +582,7 @@ Now that the application is deployed, you will be deploying a Python based micro
    ```
 
 > [!NOTE]
-> For best practice, use [Managed Identity][managed-identity] to store secrets. 
+> For best practice, use [Managed Identity][managed-identity] or [Azure Key Vault][key-vault] to store secrets. 
 
 ## Test the application
 1. See the status of the deployed kubernetes objects using the [kubectl get all][kubectl-get] command. To get the IP of the store admin web application and store front web application, use the kubectl get service command.
@@ -588,7 +600,7 @@ Now that the application is deployed, you will be deploying a Python based micro
 1. Open a web browser to the external IP address of your service. In the example shown here, open 40.64.86.161 to see store-admin in the browser. Repeat the same step for store-front. 
 1. In store admin, click on the products tab, then click on **Add Products**. 
 1. When the ai-service is running successfully, you should see the Ask OpenAI button next to description. Fill in the name, price, keywords, then click Ask OpenAI to generate a product description. Then click save product. 
-:::image type="content" source="media/aks-ai-demo/ai-generate-description.png" alt-text="use open AI to generate a product description":::
+:::image type="content" source="media/aks-ai-demo/ai-generate-description.png" alt-text="use openAI to generate a product description":::
 1. You can now see the new product called Jungle Monkey Chew Toy on the store admin web app for sellers.
 :::image type="content" source="media/aks-ai-demo/new-product-store-admin.png" alt-text="view the new product in the store admin page":::
 1. You can also see the new product called Jungle Monkey Chew Toy on the store front web app for buyers. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
@@ -607,9 +619,7 @@ Principal authors:
 
 <!-- todo -->
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+
 
 <!-- Links external -->
 [aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
@@ -621,13 +631,15 @@ Principal authors:
 [open-ai-landing]: https://openai.com/
 [open-ai-new-key]: https://platform.openai.com/account/api-keys
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
-[aoai-access]: https:aks.ms/oai/access
+[aoai-access]: https://aka.ms/oai/access
+[az-upgrade]: https://learn.microsoft.com/en-us/cli/azure/update-azure-cli#manual-update
 
 <!-- Links internal -->
-[azure-resource-group]: ../../azure-resource-manager/management/overview.md
+[azure-resource-group]: ../azure-resource-manager/management/overview.md 
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aoai-get-started]: ../cognitive-services/openai/quickstart.md
 [managed-identity]: use-managed-identity.md
+[key-vault]: csi-secrets-store-driver.md
