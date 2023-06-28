@@ -198,8 +198,6 @@
         href: how-to-create-encryption-powershell.md
       - name: Azure CLI
         href: how-to-create-encryption-cli.md
-    - name: Manage virtual network encryption
-      href: manage-virtual-network-encryption.md
     - name: Filter network traffic
       items:
       - name: Azure portal
