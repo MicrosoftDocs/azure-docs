@@ -83,14 +83,13 @@ You can create a variable and declare its data type and initial value by using a
    |----------|----------|-------|--------------|
    | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
    | **Type** | Yes | <*variable-type*> | The data type for the variable |
-   | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so you always know your variable's start value. |
+   | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so that you always know your variable's start value. |
 
-   The following example shows the initial values for this sample variable:
+   The following example shows the sample values for this action:
 
    [![Screenshot shows Azure portal, Standard workflow, and action named Initialize variable.](./media/logic-apps-create-variables-store-values/initialize-variable-standard.png)](./media/logic-apps-create-variables-store-values/initialize-variable-standard.png#lightbox)
 
 1. Now continue adding the actions you want for your scenario. When you're done, on the designer toolbar, select **Save**.
-
 
 ---
 
@@ -248,11 +247,11 @@ The following examples show other variable types:
 
 <a name="get-value"></a>
 
-## Get the variable's value
+## Get a variable's value
 
-To retrieve or reference a variable's contents, you can also use the [variables() function](../logic-apps/workflow-definition-language-functions-reference.md#variables) in the workflow designer and the code view editor. When referencing a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
+To retrieve or reference a variable's contents, you can use the [variables() function](workflow-definition-language-functions-reference.md#variables) in the workflow designer and the code view editor. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
-For example, this expression gets the items from the array variable [created previously in this article](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`
+For example, the following expression gets the items from the array variable [that's created in this guide](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -262,35 +261,45 @@ For example, this expression gets the items from the array variable [created pre
 
 ## Increment variable 
 
-To increase or *increment* a variable by a constant value, add the **Increment variable** action to your logic app. This action works only with integer and float variables.
+To increase or *increment* a variable by a specific constant value, add the **Increment variable** action to your workflow. This action works only with integer and float variables.
 
-1. In the workflow designer, under the step where you want to increase an existing variable, select **New step**. 
+### [Consumption](#tab/consumption)
 
-   For example, this logic app already has a trigger and an action that created a variable. So, add a new action under these steps:
+1. In the workflow designer, [follow these general steps to add an action named **Increment variable**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   ![Add action](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
-
-   To add an action between existing steps, move your mouse over the connecting arrow so that the plus sign (+) appears. Select the plus sign, and then select **Add an action**.
-
-1. In the search box, enter "increment variable" as your filter. In the actions list, select **Increment variable**.
-
-   ![Select "Increment variable" action](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
-
-1. Provide this information for incrementing your variable:
+1. Provide the following information for this action:
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
    | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
-   | **Value** | No | <*increment-value*> | The value used for incrementing the variable. The default value is one. <p><p>**Tip**: Although optional, set this value as a best practice so you always know the specific value for incrementing your variable. |
-   ||||
+   | **Value** | No | <*increment-value*> | The value used for incrementing the variable. The default value is **`1`**. <br><br>**Tip**: Although optional, set this value as a best practice so that you always know the specific value for incrementing your variable. |
 
-   For example:
+   The following example shows the sample values for this action:
 
-   ![Increment value example](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
+   [![Screenshot shows Azure portal, Consumption workflow, and action named Increment variable.](./media/logic-apps-create-variables-store-values/increment-variable-action-consumption.png)](./media/logic-apps-create-variables-store-values/increment-variable-action-consumption.png#lightbox)
 
-1. When you're done, on the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-If you switch from the designer to the code view editor, here is the way that the **Increment variable** action appears inside your logic app definition, which is in JSON format:
+### [Standard](#tab/standard)
+
+1. In the workflow designer, [follow these general steps to add an action named **Increment variable**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. Provide the following information for this action:
+
+   | Property | Required | Value |  Description |
+   |----------|----------|-------|--------------|
+   | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
+   | **Value** | No | <*increment-value*> | The value used for incrementing the variable. The default value is **`1`**. <br><br>**Tip**: Although optional, set this value as a best practice so that you always know the specific value for incrementing your variable. |
+
+   The following example shows the sample values for this action:
+
+   [![Screenshot shows Azure portal, Standard workflow, and action named Increment variable.](./media/logic-apps-create-variables-store-values/increment-variable-action-standard.png)](./media/logic-apps-create-variables-store-values/increment-variable-action-standard.png#lightbox)
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+---
+
+If you switch from the designer to code view, the following example shows how the **Increment variable** action appears in your workflow definition, which is in JSON format:
 
 ```json
 "actions": {
