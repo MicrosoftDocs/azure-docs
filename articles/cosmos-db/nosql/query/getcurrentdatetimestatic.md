@@ -22,7 +22,7 @@ Returns the current UTC (Coordinated Universal Time) date and time as an ISO 860
 ## Syntax
 
 ```sql
-GetCurrentDateTime()
+GetCurrentDateTimeStatic()
 ```
 
 ## Return types
