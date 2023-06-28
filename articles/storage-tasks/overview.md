@@ -44,6 +44,7 @@ Maybe a diagram?
 - Tasks run asynchronously. If the task lacks permission to perform operations on any of the storage accounts, then \<describe how the failure manifests to the user\>
 - You can check on the results
 - You can monitor task activity
+- Storage tasks are versioned. When you save a task, the previous version of that task is saved for future.
 
 ## Supported Regions
 

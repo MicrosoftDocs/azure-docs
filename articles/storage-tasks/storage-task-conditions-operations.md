@@ -25,25 +25,56 @@ To learn how to add and edit Storage Tasks conditions, see [Define conditions](s
 
 ## Conditions
 
-Any conceptual information about conditions goes here. Includes constraints, limits on the number of conditions etc.
+Any conceptual information about conditions goes here.
+Describe constraints such as the number of conditions allowed.
+
+A condition contains a property, a value, and an operator that is used to compare the property with the value.
 
 ### Blob properties
 
-Put something here about the purpose of a property and where they come from.
+The following table shows the available properties, the data type of each property, and any constraints on allowed values.
 
-List supported properties here.
+#### Boolean properties
 
-### Operators
+These property values must be either `True` or `False`.
 
-Put something here about the purpose of an operator and where they come from.
+- IsCurrentVersion
 
-List supported operators here.
+You can evaluate property these values by using the `equals` or the `not` operator.
 
-### Property values
+#### Date time properties
 
-Put something here about the purpose of an operator and where they come from.
+These property values must be a valid DateTime.
 
-List supported operators here.
+- AccessTierChangeTime
+- Creation-Time
+- LastAccessTime
+- Last-Modified
+
+You can evaluate property these values by using the following operators: `equals`, `greater`, `greaterOrEquals`, `less`, `lessOrEquals`, and `addToTime`. 
+
+#### Numeric properties
+
+These property values must be a valid number.
+
+- Content-Length
+- TagCount
+
+You can evaluate property these values by using the following operators: `equals`, `greater`, `greaterOrEquals`, `less`, and `lessOrEquals`.
+
+#### String properties
+
+These property values must be a string.
+
+- AccessTier (either `Hot`, `Cool`, or `Archive`)
+- Metadata.Value
+- Name
+- BlobType (either `BlockBlob`, `PageBlob`, or `AppendBlob`
+- Container.Metadata.Value[Name]
+- Container.Name
+- Tags.Value[Name]
+
+You can evaluate these property values by using the following operators: `contains`, `empty`, `equals`, `endsWith`, `length`, and `startsWith`.
 
 #### String matching in property values
 
@@ -53,7 +84,26 @@ Explain matching and wild card patterns.
 
 Any conceptual information about operations goes here. Includes constraints, limits on the number of conditions etc.
 
-List supported operations here.
+### Supported operations
+
+Supported operations, operation parameters, and parameter values appear in the table below:
+
+| Operation | Parameters | Values |
+|---|---|---|
+| Set Blob Tier | Tier | Hot \| Cold \| Archive |
+| Delete Blob | None | None |
+| Undelete Blob | None | None |
+| Set Blob Tags | TagSet | A fixed collection of up to 10 key-value pairs |
+| Set Blob Immutability Policy | Need parameter names | Need value names|
+| Set Blob Legal Hold | Need parameter names | Need parameter names |
+
+### Ordering operations
+
+- The order of operations and what order means to users.
+
+- Include information here about onSucceed and onFailure if those capabilities make into the public preview.
+
+
 
 ## Preview
 
