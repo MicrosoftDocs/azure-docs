@@ -1,6 +1,6 @@
 ---
 title: Train model
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: How to train a custom model
 author: laujan
 manager: nitinme

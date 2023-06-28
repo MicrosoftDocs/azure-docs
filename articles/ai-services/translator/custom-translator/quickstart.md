@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Build, deploy, and use a custom model - Custom Translator"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A step-by-step guide to building a translation system using the Custom Translator portal v2.
 author: laujan
 manager: nitinme
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ---
 # Quickstart: Build, publish, and translate with custom models
 
-Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../language-support.md).
+Translator is a cloud-based neural machine translation service that is part of the Azure Azure AI services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../language-support.md).
 
 ## Prerequisites
 

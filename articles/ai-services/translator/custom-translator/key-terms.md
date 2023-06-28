@@ -1,6 +1,6 @@
 ---
 title: Key terms - Custom Translator
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: List of key terms used in Custom Translator articles.
 author: laujan
 manager: nitinme

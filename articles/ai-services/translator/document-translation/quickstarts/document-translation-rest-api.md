@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-translator
 
 # Get started with Document Translation
 
-Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
+Document Translation is a cloud-based feature of the [Azure AI Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ Document Translation is a cloud-based feature of the [Azure Translator](../../tr
 >
 > * Java and JavaScript Document Translation SDKs are currently available in **public preview**. Features, approaches and processes may change, prior to the general availability (GA) release, based on user feedback.
 > * C# and Python SDKs are general availability (GA) releases ready for use in your production applications
-> * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Azure AI services (multi-service) resource.
 >
-> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 To get started, you need:
@@ -39,7 +39,7 @@ To get started, you need:
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files are stored (required).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource):
 
   **Complete the Translator project and instance details fields as follows:**
 

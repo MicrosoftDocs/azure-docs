@@ -1,6 +1,6 @@
 ---
 title: Translator V3.0 Reference
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Reference documentation for the Translator V3.0. Version 3 of the Translator provides a modern JSON-based Web API.
 services: cognitive-services
 author: laujan
@@ -50,15 +50,15 @@ curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.
 
 ## Authentication
 
-Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your key (available in the Azure portal) to authenticate.
+Subscribe to Translator or [multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Azure AI services, and use your key (available in the Azure portal) to authenticate.
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
 |Headers|Description|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you're passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator.|
-|Authorization|*Use with Cognitive Services subscription if you're passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Use with Cognitive Services multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
+|Ocp-Apim-Subscription-Key|*Use with Azure AI services subscription if you're passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator.|
+|Authorization|*Use with Azure AI services subscription if you're passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Use with multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
 
 ### Secret key
 
@@ -233,7 +233,7 @@ curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator
 
 ## Virtual Network support
 
-The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Azure AI services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You can't use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you can't authenticate with an access token.
 

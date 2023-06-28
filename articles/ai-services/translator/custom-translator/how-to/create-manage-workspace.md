@@ -1,6 +1,6 @@
 ---
 title: Create and manage a workspace
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: How to create and manage workspaces
 author: laujan
 manager: nitinme

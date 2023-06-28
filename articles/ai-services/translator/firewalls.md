@@ -1,7 +1,7 @@
 ---
 title: Translate behind firewalls - Translator
-titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Translator can translate behind firewalls using either domain-name or IP filtering.
+titleSuffix: Azure AI services
+description: Azure AI Translator can translate behind firewalls using either domain-name or IP filtering.
 services: cognitive-services
 author: laujan
 manager: nitinme

@@ -52,7 +52,7 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 ### Case sensitivity
 
-By default, Azure Cognitive Services Translator service API is **case-sensitive**, meaning that it matches terms in the source text based on case.
+By default, Azure AI Translator service API is **case-sensitive**, meaning that it matches terms in the source text based on case.
 
 * **Partial sentence application**. When your glossary is applied to **part of a sentence**, the Document Translation API checks whether the glossary term matches the case in the source text. If the casing doesn't match, the glossary isn't applied.
 

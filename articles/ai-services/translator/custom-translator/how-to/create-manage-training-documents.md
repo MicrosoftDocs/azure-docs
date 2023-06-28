@@ -1,6 +1,6 @@
 ---
 title: Build and upload training documents
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: How to build and upload parallel documents (two documents where one is the origin and the other is the translation) using Custom Translator.
 author: laujan
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Cognitive Services Translator?
-titleSuffix: Azure Cognitive Services
+title: What's new in Azure AI Translator?
+titleSuffix: Azure AI services
 description: Learn of the latest changes to the Translator Service API.
 author: laujan
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# What's new in Azure Cognitive Services Translator?
+# What's new in Azure AI Translator?
 
 Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
@@ -153,7 +153,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Text and document translation support for literary Chinese](https://www.microsoft.com/translator/blog/2021/08/25/microsoft-translator-releases-literary-chinese-translation/)
 
-* Azure Cognitive Services Translator has [text and document language support](language-support.md) for  literary Chinese. Classical or literary Chinese is a traditional style of written Chinese used by traditional Chinese poets and in ancient Chinese poetry.
+* Azure AI Translator has [text and document language support](language-support.md) for  literary Chinese. Classical or literary Chinese is a traditional style of written Chinese used by traditional Chinese poets and in ancient Chinese poetry.
 
 ## June 2021
 

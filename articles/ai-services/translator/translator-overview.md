@@ -1,6 +1,6 @@
 ---
-title: What is the Microsoft Azure Cognitive Services Translator?
-titlesuffix: Azure Cognitive Services
+title: What is the Microsoft Azure AI Translator?
+titlesuffix: Azure AI services
 description: Integrate Translator into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
 author: laujan
@@ -12,9 +12,9 @@ ms.date: 11/16/2022
 ms.author: lajanuar
 ---
 
-# What is Azure Cognitive Services Translator?
+# What is Azure AI Translator?
 
-Translator Service is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
+Translator Service is a cloud-based neural machine translation service that is part of the [Azure Azure AI services](../what-are-cognitive-services.md) family of REST APIs and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
 Translator documentation contains the following article types:
 
@@ -32,7 +32,7 @@ Translator service supports the following features. Use the links in this table 
 | [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/how-to-guides/use-client-sdks.md)</li></ul> |
 | [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
 
-For detailed information regarding Azure Translator Service request limits, *see* [**Text translation request limits**](request-limits.md#text-translation).
+For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](request-limits.md#text-translation).
 
 ## Try the Translator service for free
 

@@ -1,6 +1,6 @@
 ---
 title: Start translation
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Start a document translation request with the Document Translation service.
 services: cognitive-services
 manager: nitinme
@@ -230,7 +230,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Cognitive Services API Guidelines. This contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(this can be nested).|
 |inner.Errorcode|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
 |innerError.target|string|Gets the source of the error. For example it would be "documents" or "document ID" if the document is invalid.|

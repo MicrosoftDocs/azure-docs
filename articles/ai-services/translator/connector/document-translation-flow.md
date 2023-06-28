@@ -1,6 +1,6 @@
 ---
 title: "Use Translator V3 connector to build a Document Translation flow"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use Microsoft Translator V3 connector and Power Automate to create a Document Translation flow.
 author: laujan
 manager: nitinme
@@ -26,7 +26,7 @@ ms.author: lajanuar
 
 This tutorial guides you through configuring a Microsoft Translator V3 connector cloud flow that supports document translation. The Translator V3 connector creates a connection between your Translator Service instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
 
-Document Translation is a cloud-based REST API feature of the Azure Translator service. The Document Translation API enables multiple and complex document translations while preserving original document structure and data format.
+Document Translation is a cloud-based REST API feature of the Azure AI Translator service. The Document Translation API enables multiple and complex document translations while preserving original document structure and data format.
 
 In this tutorial:
 
@@ -45,7 +45,7 @@ Here's what you need to get started: [**Translator resource**](#translator-resou
 
 * If you don't have an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/), you can [**create one for free**](https://azure.microsoft.com/free/).
 
-* Create a [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). As you complete the Translator project and instance details fields, pay special attention to the following entries:
+* Create a [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource). As you complete the Translator project and instance details fields, pay special attention to the following entries:
 
   * **Resource Region**. Choose  a **geographic** region like **West US** (**not** the *Global* region).
 

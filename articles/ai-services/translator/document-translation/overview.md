@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Azure Cognitive Services Document Translation?
+title: What is Microsoft Azure AI Translator Document Translation?
 description: An overview of the cloud-based batch Document Translation service and process.
 services: cognitive-services
 author: laujan
@@ -14,7 +14,7 @@ recommendations: false
 ---
 # What is Document Translation?
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md), while preserving original document structure and data format.
+Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) service and is part of the Azure AI service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md), while preserving original document structure and data format.
 
 ## Key features
 
@@ -72,7 +72,7 @@ Document Translation supports the following document file types:
 
 ## Request limits
 
-For detailed information regarding Azure Translator Service request limits, *see* [**Document Translation request limits**](../request-limits.md#document-translation).
+For detailed information regarding Azure AI Translator Service request limits, *see* [**Document Translation request limits**](../request-limits.md#document-translation).
 
 ### Legacy file types
 

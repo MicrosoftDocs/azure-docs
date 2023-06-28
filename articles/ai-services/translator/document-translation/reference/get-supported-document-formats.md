@@ -1,6 +1,6 @@
 ---
 title: Get supported document formats method
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The get supported document formats method returns a list of supported document formats.
 services: cognitive-services
 manager: nitinme
@@ -69,7 +69,7 @@ The following information is returned in a successful response.
 |--- |--- |--- |
  |code|string|Enums containing high-level error codes. Possible values:<ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Azure AI services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
 |innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
