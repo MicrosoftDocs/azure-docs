@@ -1,48 +1,48 @@
 ---
-title: How to configure Private Access apps for Global Secure Access
-description: Learn how to configure Private Access apps for Microsoft Entra Private Access.
+title: How to configure Per-app Access using Global Secure Access applications
+description: Learn how to configure Per-app Access using Global Secure Access applications for Microsoft Entra Private Access
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/21/2023
+ms.date: 06/27/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
 ---
-# How to configure Private Access for Global Secure Access
+# How to configure Per-app Access using Global Secure Access applications
 
-Microsoft Entra Private Access provides secure access to your organization's internal resources. You can specify the internal, private resources that you want to secure by configuring and enabling per-app access, known as Private Access, through Enterprise applications. 
+Microsoft Entra Private Access provides secure access to your organization's internal resources. You create a Global Secure Access application and specify the internal, private resources that you want to secure. By configuring a Global Secure Access application, you're creating per-app access to your internal resources. Global Secure Access application provides a more detailed ability to manage how the resources are accessed on a per-app basis.
 
-This article describes how to configure Private Access for Microsoft Entra Private Access.
+This article describes how to configure Per-app Access using Global Secure Access applications.
 
 ## Prerequisites
 
-To configure Private Access, you must have:
+To configure a Global Secure Access app, you must have:
 
 - The **Global Secure Access Administrator** and **Application Administrator** roles in Microsoft Entra ID
 
-To manage App Proxy connector groups, which is required for Private Access, you must have:
+To manage App Proxy connector groups, which is required for Global Secure Access apps, you must have:
 
 - An **Application Administrator** role in Microsoft Entra ID
 - A Microsoft Entra ID Premium P1/P2 license
 
 ### Known limitations
 
-- Avoid overlapping app segments between Quick Access and enterprise apps.
+- Avoid overlapping app segments between Quick Access and Global Secure Access apps.
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet.
-- At this time, Private access traffic can only be acquired with the Global Secure Access Client. Remote networks can't be assigned to the Private access traffic forwarding profile.
+- At this time, Private Access traffic can only be acquired with the Global Secure Access Client. Remote networks can't be assigned to the Private access traffic forwarding profile.
 
 ## Setup overview
 
-Private Access is configured by creating a new Enterprise app from the Global Secure Access area of Microsoft Entra. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
+Per-App Access is configured by creating a new Global Secure Access app. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
 
-To configure Private Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
+To configure Per-App Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
 To summarize, the overall process is as follows:
 
 1. Create an App Proxy connector group, if you don't already have one.
-1. Create a new enterprise app from Global Secure Access.
+1. Create a Global Secure Access app.
 1. Assign users and groups to the app.
 1. Configure Conditional Access policies.
 1. Enable Microsoft Entra Private Access.
@@ -51,11 +51,11 @@ Let's look at each of these steps in more detail.
 
 ## Create an App Proxy connector group
 
-To configure Private Access for Enterprise apps, you must have a connector group with at least one active App Proxy connector.
+To configure a Global Secure Access app, you must have a connector group with at least one active App Proxy connector.
 
 If you don't already have a connector set up, see [Configure connectors](how-to-configure-quick-access.md).
 
-## Configure Private Access
+## Create a Global Secure Access application
 
 To create a new app, you provide a name, select a connector group, and then add application segments. App segments include the fully qualified domain names (FQDNs) and IP addresses you want to tunnel through the service. You can complete all three steps at the same time, or you can add them after the initial setup is complete. 
 
@@ -72,9 +72,29 @@ To create a new app, you provide a name, select a connector group, and then add 
     - Existing connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your app without adding private resources.
 
+#### Microsoft Graph API
+
+Global Secure Access apps can be configured using Microsoft Graph on the `/beta` endpoint. 
+
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Add the following query to create the Global Secure Access app:
+
+```http
+POST applicationTemplates/{templateId}/instantiate​
+{​
+    "displayName": "foobar"​
+    }​
+    
+    PATCH applications/{objectId}​
+    {​
+    "onPremisesPublishing":{​
+    "applicationType":"nonwebapp"​
+    }​
+}
+```
 ### Add application segment
 
-The **Add application segment** process is where you define the FQDNs and IP addresses that you want to include in the traffic for Microsoft Entra Private Access. You can add sites when you create the app and return to add more or edit them later.
+The **Add application segment** process is where you define the FQDNs and IP addresses that you want to include in the traffic for the Global Secure Access app. You can add sites when you create the app and return to add more or edit them later.
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
@@ -85,19 +105,37 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
     ![Screenshot of the Add application segment button.](media/how-to-configure-per-app-access/enterprise-app-add-application-segment.png)
 
-1. In the **Create application segment** panel that opens, select a **Destination type**. Choose from one of the following options. Depending on what you select, the subsequent fields change accordingly.
-    - IP address
-    - Fully qualified domain name
-    - IP address range (CIDR)
-    - IP address range (IP to IP). 
+    - **IP address**: Internet Protocol version 4 (IPv4) address, such as 192.0.2.1, that identifies a device on the network.
+    - **Fully qualified domain name** (including wildcard FQDNs): Domain name that specifies the exact location of a computer or a host in the Domain Name System (DNS).
+    - **IP address range (CIDR)**: Classless Inter-Domain Routing is a way of representing a range of IP addresses in which an IP address is followed by a suffix that indicates the number of network bits in the subnet mask. For example, 192.0.2.0/24 indicates that the first 24 bits of the IP address represent the network address, while the remaining 8 bits represents the host address.
+    - **IP address range (IP to IP)**: Range of IP addresses from start IP (such as 192.0.2.1) to end IP (such as 192.0.2.10). 
 1. Enter the appropriate detail for what you selected.
-1. Enter the port. 
+1. Enter the port. The following table provides the most commonly used ports and their associated networking protocols:
+    
+    | Port | Protocol | 
+    | --- | --- |
+    | 22 | Secure Shell (SSH) |
+    | 80 | Hypertext Transfer Protocol (HTTP) |
+    | 443 | Hypertext Transfer Protocol Secure (HTTPS) |
+    | 445 | Server Message Block (SMB) file sharing |
+    | 3389 | Remote Desktop Protocol (RDP) |
 1. Select the **Save** button when you're finished.
 
 > [!NOTE]
 > You can add up to 500 application segments to your app.
 >
 > Do not overlap FQDNs, IP addresses, and IP ranges between your Quick Access app and any Private Access apps.
+
+#### Microsoft Graph API
+
+```http
+POST applications('{objectId}')/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments​
+{​
+    "destinationHost": "10.0.0.0",​
+    "port": 445,​
+    "ports": []​
+}
+```
 
 ### Assign users and groups
 
@@ -125,13 +163,22 @@ You can add or update the FQDNs and IP addresses included in your app at any tim
 
 ## Enable or disable access with the Global Secure Access Client
 
-For Private Access, you can enable or disable access to the app using the Global Secure Access Client. This option is selected by default, but can be changed to not include the network access segments in the Private access traffic forwarding profile. 
+You can enable or disable access to the Global Secure Access app using the Global Secure Access Client. This option is selected by default, but can be disabled, so the FQDNs and IP addresses included in the app segments aren't tunneled through the service. 
 
 ![Screenshot of the enable access checkbox.](media/how-to-configure-per-app-access/per-app-access-enable-checkbox.png)
 
+
+#### Graph
+
+```http
+PATCH application('{objectId}')/OnPremisesPublishing​
+{​
+    "isAccessibleViaZTNAClient": true​
+}
+```
 ## Assign Conditional Access policies
 
-Conditional Access policies for Private Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
+Conditional Access policies for Per-app Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
 
 - Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**. Select an application and then select **Conditional Access** from the side menu.
 - Go to **Microsoft Entra ID** > **Protection** > **Conditional Access** > **Policies**. Select **+ Create new policy**.
@@ -140,7 +187,7 @@ For more information, see [Apply Conditional Access policies to Private Access a
 
 ## Enable Microsoft Entra Private Access
 
-Once you have your app configured, your private resources added, users assigned to the app, you can enable the Private access traffic forwarding profile. You can enable the profile before configuring Private Access, but without the app and profile configured, there's no traffic to forward.
+Once you have your app configured, your private resources added, users assigned to the app, you can enable the Private access traffic forwarding profile. You can enable the profile before configuring a Global Secure Access app, but without the app and profile configured, there's no traffic to forward.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
 1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.

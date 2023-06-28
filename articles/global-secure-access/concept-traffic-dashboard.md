@@ -36,7 +36,7 @@ This widget provides a summary of how many users and devices are using the servi
 
 - **Users**: The number of distinct users seen in the last 24 hours. The data uses the *user principal name (UPN)*.
 - **Devices**: The number of distinct devices seen in the last 24 hours. The data uses the *device ID*.
-- **Applications**: The number of distinct destinations seen in the last 24 hours. The data uses fully qualified domain names (FQDNs) and IP addresses.
+- **Workloads**: The number of distinct destinations seen in the last 24 hours. The data uses fully qualified domain names (FQDNs) and IP addresses.
 
 ![Screenshot of the relationship map widget.](media/concept-traffic-dashboard/relationship-map.png)
 
