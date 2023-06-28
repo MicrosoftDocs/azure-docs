@@ -157,9 +157,11 @@ You can register the Azure Container Registry server by using the Azure portal o
 
 To use the Azure portal:
 
-1. In your FHIR service instance, under **Data transformation**, go to the **Artifacts** pane. A list of currently registered Azure Container Registry servers is displayed. 
+1. In your FHIR service instance, under **Transfer and transform data**, select **Artifacts**. A list of currently registered Azure Container Registry servers is displayed. 
 3. Select **Add** and then, in the dropdown list, select your registry server. 
 4. Select **Save**. 
+
+   ![Screenshot of the Artifacts screen for registering an Azure Container Registry with a FHIR service.](media/convert-data/fhir-acr-add-registry.png#lightbox)
 
 You can register up to 20 Azure Container Registry servers in the FHIR service.
 
@@ -170,13 +172,13 @@ You can register up to 20 Azure Container Registry servers in the FHIR service.
 
 1. In the Azure portal, on the left pane, select **Networking** for the Azure Container Registry instance.
 
-   ![Screenshot of the "Networking" pane for configuring an Azure Container Registry firewall.](media/convert-data/networking-container-registry.png#lightbox)
+   ![Screenshot of the Networking screen for configuring an Azure Container Registry firewall.](media/convert-data/networking-container-registry.png#lightbox)
 
 2. On the **Public access** tab, select **Selected networks**. 
 
 3. In the **Firewall** section, specify the IP address in the **Address range** box. 
 
-Add IP ranges to allow access from the internet or your on-premises networks. 
+Add IP ranges to allow access from the Internet or your on-premises networks. 
 
 The following table lists the IP addresses for the Azure regions where the FHIR service is available:
 

@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-By using the FHIR Converter `$convert-data` endpoint in the FHIR service, you can convert health data from various formats to FHIR R4 data. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. Currently, the `$convert-data` operation supports four types of data conversion: 
+By using the FHIR Converter `$convert-data` endpoint in the FHIR service, you can convert health data from various formats to [FHIR R4](https://www.hl7.org/fhir/R4/index.html) data. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. Currently, the `$convert-data` operation supports four types of data conversion: 
 
 * HL7v2 to FHIR R4
 * C-CDA to FHIR R4
