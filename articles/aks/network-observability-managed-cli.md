@@ -231,7 +231,7 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 
     ```yaml
     global:
-    scrape_interval: 30s
+      scrape_interval: 30s
     scrape_configs:
     - job_name: "cilium-pods"
         kubernetes_sd_configs:
