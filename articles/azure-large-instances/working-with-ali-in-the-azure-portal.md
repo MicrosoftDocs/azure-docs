@@ -9,12 +9,12 @@ ms.custom: devx-track-azurecli
 ms.date: 06/01/2023
 ---
 
-# Working with  Azure Large Instances in the Azure portal 
+# Working with  ALI in the Azure portal 
 
-In this article, we'll show what you can do in the Azure portal with your deployed Azure Large Instances (ALI). 
+In this article, we'll show what you can do in the Azure portal with your implementation of Azure Large Instances (ALI).
 
 > [!Note]
-> For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure portal. This will be replaced with Azure Large Instances soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered as synonyms to Azure Large Instances.
+> For the time being, you will notice the BareMetal Infrastructure naming convention still in use in the Azure portal. This will be replaced with ALI soon. Until then, BareMetal Infrastructre or BareMetal Instances can be considered synonyms for ALI.
 
 ## Register the resource provider
 
@@ -252,7 +252,7 @@ You can submit support requests specifically for ALI instances.
 * **Issue type:** Select an issue type.
 * **Subscription:** Select your subscription.
 * **Service:** Select Epic on Azure
-* **Problem type:** Azure Large Instances (ALI) 
+* **Problem type:** ALI (ALI) 
 * **Problem subtype:** Select a subtype for the problem.
 
 1. Select the **Solutions** tab to find a solution to your problem. If you can't find a solution, go to the next step.
