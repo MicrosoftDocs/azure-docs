@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Nexus Kubernetes cluster overview
 
-This article introduces you to Nexus Kubernetes Cluster.
+This article introduces you to Nexus Kubernetes cluster.
 
 ## What is Kubernetes?
 
