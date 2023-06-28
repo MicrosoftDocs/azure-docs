@@ -33,7 +33,7 @@ map.setTraffic({
 });
 ```
 
-The [Traffic Overlay] sample demonstrates how to display the traffic overlay on a map.
+The [Traffic Overlay] sample demonstrates how to display the traffic overlay on a map. For the source code for this sample, see [Traffic Overlay source code].
 
 :::image type="content" source="./media/map-show-traffic/traffic-overlay.png"alt-text="A screenshot of map with the traffic overlay, showing current traffic.":::
 
@@ -43,7 +43,7 @@ The [Traffic Overlay] sample demonstrates how to display the traffic overlay on 
 
 ## Traffic overlay options
 
-The [Traffic Overlay Options] tool lets you switch between the different traffic overlay settings to see how the rendering changes.
+The [Traffic Overlay Options] tool lets you switch between the different traffic overlay settings to see how the rendering changes. For the source code for this sample, see [Traffic Overlay Options source code].
 
 :::image type="content" source="./media/map-show-traffic/traffic-overlay-options.png"alt-text="A screenshot of map showing the traffic overlay options.":::
 
@@ -67,7 +67,7 @@ map.controls.add(new atlas.control.TrafficControl(), { position: 'top-right' });
 map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-left' });
 ```
 
-The [Add traffic controls] sample is a fully functional map that shows how to display traffic data on a map.
+The [Traffic controls] sample is a fully functional map that shows how to display traffic data on a map. For the source code for this sample, see [Traffic controls source code].
 
 :::image type="content" source="./media/map-show-traffic/add-traffic-controls.png"alt-text="A screenshot of map with the traffic display button, showing current traffic.":::
 
@@ -99,5 +99,8 @@ Enhance your user experiences:
 > [Code sample page](https://aka.ms/AzureMapsSamples)
 
 [Traffic Overlay]: https://samples.azuremaps.com/traffic/traffic-overlay
-[Add traffic controls]: https://samples.azuremaps.com/traffic/traffic-controls
+[Traffic controls]: https://samples.azuremaps.com/traffic/traffic-controls
 [Traffic Overlay Options]: https://samples.azuremaps.com/traffic/traffic-overlay-options
+[Traffic Overlay source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20Overlay/Traffic%20Overlay.html
+[Traffic controls source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20controls/Traffic%20controls.html
+[Traffic Overlay Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20Overlay%20Options/Traffic%20Overlay%20Options.html
