@@ -19,7 +19,7 @@ Applications and Functions hosted on Azure App service may exhibit one or more o
 * Slow response times on all or some of the instances in a service plan.
 * Intermittent 5xx or **Bad Gateway** errors
 * Timeout error messages
-* Could not connect to external endpoints (like SQLDB, Service Fabric, other App services etc.)
+* Couldn't connect to external endpoints (like SQLDB, Service Fabric, other App services etc.)
 
 ## Cause
 
@@ -28,7 +28,7 @@ The major cause for intermittent connection issues is hitting a limit while maki
 * TCP Connections: There's a limit on the number of outbound connections that can be made. The limit on outbound connections is associated with the size of the worker used.
 * SNAT ports: [Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md) describes SNAT port restrictions and how they affect outbound connections. Azure uses source network address translation (SNAT) and Load Balancers (not exposed to customers) to communicate with public IP addresses. Each instance on Azure App service is initially given a preallocated number of **128** SNAT ports. The SNAT port limit affects opening connections to the same address and port combination. If your app creates connections to a mix of address and port combinations, you won't use up your SNAT ports. The SNAT ports are used up when you have repeated calls to the same address and port combination. Once a port has been released, the port is available for reuse as needed. The Azure Network load balancer reclaims SNAT port from closed connections only after waiting for 4 minutes.
 
-When applications or functions rapidly open a new connection, they can quickly exhaust their preallocated quota of the 128 ports. They're then blocked until a new SNAT port becomes available, either through dynamically allocating additional SNAT ports, or through reuse of a reclaimed SNAT port. If your app runs out of SNAT ports, it will have intermittent outbound connectivity issues. 
+When applications or functions rapidly open a new connection, they can quickly exhaust their preallocated quota of the 128 ports. They're then blocked until a new SNAT port becomes available, either through dynamically allocating more SNAT ports, or through reuse of a reclaimed SNAT port. If your app runs out of SNAT ports, it will have intermittent outbound connectivity issues. 
 
 ## Avoiding the problem
 
@@ -58,7 +58,7 @@ Here's a collection of links for implementing Connection pooling by different so
 
 #### Node
 
-By default, connections for NodeJS are not kept alive. Below are the popular databases and packages for connection pooling which contain examples for how to implement them.
+By default, connections for NodeJS aren't kept alive. Below are the popular databases and packages for connection pooling which contain examples for how to implement them.
 
 * [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
 * [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)
@@ -115,7 +115,7 @@ HTTP Connection Pooling
 
 ### Modify the application to reuse connections
 
-*  For mor pointers and examples on managing connections in Azure functions, review [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
+*  For more pointers and examples on managing connections in Azure functions, review [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
 
 ### Modify the application to use less aggressive retry logic
 
@@ -165,7 +165,7 @@ TCP connections and SNAT ports aren't directly related. A TCP connections usage 
 * A SNAT port can be shared by different flows, if the flows are different in either protocol, IP address or port. The TCP Connections metric counts every TCP connection.
 * The TCP connections limit happens at the worker instance level. The Azure Network outbound load balancing doesn't use the TCP Connections metric for SNAT port limiting.
 * The TCP connections limits are described in [Sandbox Cross VM Numerical Limits - TCP Connections](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
-* Existing TCP sessions will fail when new outbound TCP sessions are added from Azure App Service source port. You can either use a single IP or reconfigure backend pool members to avoid conflicts.
+* Existing TCP sessions fail when new outbound TCP sessions are added from Azure App Service source port. You can either use a single IP or reconfigure backend pool members to avoid conflicts.
 
 |Limit name|Description|Small (A1)|Medium (A2)|Large (A3)|Isolated tier (ASE)|
 |---|---|---|---|---|---|
@@ -173,7 +173,7 @@ TCP connections and SNAT ports aren't directly related. A TCP connections usage 
 
 ### WebJobs and Database connections
  
-If SNAT ports are exhausted, where WebJobs are unable to connect to SQL Database, there's no metric to show how many connections are opened by each individual web application process. To find the problematic WebJob, move several WebJobs out to another App Service plan to see if the situation improves, or if an issue remains in one of the plans. Repeat the process until you find the problematic WebJob.
+If SNAT ports are exhausted, and WebJobs are unable to connect to SQL Database, there's no metric to show how many connections are opened by each individual web application process. To find the problematic WebJob, move several WebJobs out to another App Service plan to see if the situation improves, or if an issue remains in one of the plans. Repeat the process until you find the problematic WebJob.
 
 ## Additional information
 
