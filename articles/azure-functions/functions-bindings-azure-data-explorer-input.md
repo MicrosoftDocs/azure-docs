@@ -573,11 +573,11 @@ The [C# library](functions-dotnet-class-library.md) uses the [KustoAttribute](ht
 
 | Attribute property |Description|
 |---------|---------|
-| Database | Required. The database against which the query has to be executed.  |
-| Connection | Required. The *name* of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable `KustoConnectionString`. At runtime, this variable is looked up against the environment. Documentation on the connection string is at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example:`"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. |
-| KqlCommand | Required. The `KqlQuery` parameter that has to be executed. Can be a KQL query or a KQL function call.|
+| Database | Required. The database against which the query must be executed.  |
+| Connection | Required. The name of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable `KustoConnectionString`. At runtime, this variable is looked up against the environment. Documentation on the connection string is at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example:`"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. |
+| KqlCommand | Required. The `KqlQuery` parameter that must be executed. Can be a KQL query or a KQL function call.|
 | KqlParameters | Optional. Parameters that act as predicate variables for `KqlCommand`. For example, "@name={name},@Id={id}", where *{name}* and *{id}* are substituted at runtime with actual values acting as predicates. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
-| ManagedServiceIdentity | Optional. You can use a managed identity to connect to Azure Data Explorer. To use a system-managed identity, use "system." Any other identity names are interpreted as a user-managed identity. |
+| ManagedServiceIdentity | Optional. You can use a managed identity to connect to Azure Data Explorer. To use a system managed identity, use "system." Any other identity names are interpreted as a user managed identity. |
 
 ::: zone-end  
 
@@ -590,11 +590,11 @@ The [Java functions runtime library](/java/api/overview/azure/functions/runtime)
 | Element |Description|
 |---------|---------|
 | name | Required. The name of the variable that represents the query results in function code. |
-| database | Required. The database against which the query has to be executed. |
-| connection | Required. The *name* of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable `KustoConnectionString`. At runtime, this variable is looked up against the environment. Documentation on the connection string is at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example:`"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. |
-| kqlCommand | Required. The `KqlQuery` parameter that has to be executed. Can be a KQL query or a KQL function call.|
+| database | Required. The database against which the query must be executed. |
+| connection | Required. The name of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable `KustoConnectionString`. At runtime, this variable is looked up against the environment. Documentation on the connection string is at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example:`"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. |
+| kqlCommand | Required. The `KqlQuery` parameter that must be executed. Can be a KQL query or a KQL function call.|
 |kqlParameters |  Optional. Parameters that act as predicate variables for `KqlCommand`. For example, "@name={name},@Id={id}", where *{name}* and *{id}* are substituted at runtime with actual values acting as predicates. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
-| managedServiceIdentity | A managed identity can be used to connect to Azure Data Explorer. To use a system-managed identity, use "system." Any other identity names are interpreted as a user-managed identity.|
+| managedServiceIdentity | A managed identity can be used to connect to Azure Data Explorer. To use a system managed identity, use "system." Any other identity names are interpreted as a user managed identity.|
 
 ::: zone-end
 
@@ -609,11 +609,11 @@ The following table explains the binding configuration properties that you set i
 |type |  Required. Must be set to `kusto`. |
 |direction | Required. Must be set to `in`. |
 |name |  Required. The name of the variable that represents the query results in function code. |
-| database | Required. The database against which the query has to be executed. |
-| connection | Required. The *name* of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable `KustoConnectionString`. At runtime, this variable is looked up against the environment. Documentation on the connection string is at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example:`"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. |
-| kqlCommand | Required. The `KqlQuery` parameter that has to be executed. Can be a KQL query or a KQL function call.|
-|kqlParameters |  Optional. Parameters that act as predicate variables for `KqlCommand`. For example, "@name={name},@Id={id}", where *{name}* and *{id}* are substituted at runtime with actual values acting as predicates. The parameter name and the parameter value can't  contain a comma (`,`) or an equals sign (`=`). |
-| managedServiceIdentity | A managed identity can be used to connect to Azure Data Explorer. To use a system-managed identity, use "system." Any other identity names are interpreted as a user-managed identity.|
+| database | Required. The database against which the query must be executed. |
+| connection | Required. The name of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable `KustoConnectionString`. At runtime, this variable is looked up against the environment. Documentation on the connection string is at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example:`"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. |
+| kqlCommand | Required. The `KqlQuery` parameter that must be executed. Can be a KQL query or a KQL function call.|
+|kqlParameters |  Optional. Parameters that act as predicate variables for `KqlCommand`. For example, "@name={name},@Id={id}", where *{name}* and *{id}* are substituted at runtime with actual values acting as predicates. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
+| managedServiceIdentity | A managed identity can be used to connect to Azure Data Explorer. To use a system managed identity, use "system." Any other identity names are interpreted as a user managed identity.|
 ::: zone-end  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -622,7 +622,7 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
-The attribute's constructor takes the database and the attributes `KQLCommand`, `KQLParameters`, and the connection setting name. The KQL command can be a KQL statement or a KQL function. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example: `"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. Queries executed by the input binding are parameterized and the values provided in the KQL parameters are used at runtime.
+The attribute's constructor takes the database and the attributes `KQLCommand` and `KQLParameters` and the connection setting name. The KQL command can be a KQL statement or a KQL function. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example: `"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. Queries executed by the input binding are parameterized. The values provided in the KQL parameters are used at runtime.
 
 ::: zone-end
 
