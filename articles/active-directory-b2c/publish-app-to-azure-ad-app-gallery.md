@@ -71,7 +71,7 @@ To allow employees and consumers from any Azure AD tenant to sign in by using Az
 
 In your app, copy the URL of the sign-in endpoint. If you use the [web application sample](configure-authentication-sample-web-app.md), the sign-in URL is `https://localhost:5001/MicrosoftIdentity/Account/SignIn?`. This URL is where the Azure AD app gallery takes users to sign in to your app.
 
-In production environments, the app registration redirect URI is ordinarily a publicly accessible endpoint where your app is running, such as `https://woodgrovedemo.com/Account/SignIn`. The reply URL must begin with `https`.
+In production environments, the app registration redirect URI is ordinarily a publicly accessible endpoint where your app is running. The reply URL must begin with `https`.
 
 ## Step 4: Publish your Azure AD B2C app
 
