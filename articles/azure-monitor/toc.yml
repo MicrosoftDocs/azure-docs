@@ -422,7 +422,6 @@ items:
         href: essentials/diagnostic-settings-policy.md
       - name: Migrate retention to Azure Storage lifecycle
         href: essentials/migrate-to-azure-storage-lifecycle-policy.md
-
   - name: Data collection
     items:
     - name: Overview
@@ -463,6 +462,8 @@ items:
         href: logs/private-link-design.md
       - name: Private Link configuration
         href: logs/private-link-configure.md
+    - name: Collect logs from Event Hubs
+      href: essentials/data-collection-endpoint-overview.md
     - name: Troubleshoot
       href: logs/data-collection-troubleshoot.md
   - name: Azure Monitor Agent
