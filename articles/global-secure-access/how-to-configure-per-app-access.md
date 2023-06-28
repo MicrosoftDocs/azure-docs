@@ -10,11 +10,11 @@ ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
 ---
-# How to configure Global Secure Access applications for Private Access
+# How to configure Per-app Access using Global Secure Access applications
 
 Microsoft Entra Private Access provides secure access to your organization's internal resources. You create a Global Secure Access application and specify the internal, private resources that you want to secure. By configuring a Global Secure Access application, you're creating per-app access to your internal resources. Global Secure Access application provides a more detailed ability to manage how the resources are accessed on a per-app basis.
 
-This article describes how to configure a Global Secure Access app for Private Access.
+This article describes how to configure Per-app Access using Global Secure Access applications.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To manage App Proxy connector groups, which is required for Global Secure Access
 
 ## Setup overview
 
-Private Access is configured by creating a new Global Secure Access app. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
+Per-App Access is configured by creating a new Global Secure Access app. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
 
 To configure Private Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
@@ -72,6 +72,26 @@ To create a new app, you provide a name, select a connector group, and then add 
     - Existing connector groups appear in the dropdown menu.
 1. Select the **Save** button at the bottom of the page to create your app without adding private resources.
 
+#### Microsoft Graph API
+
+Global Secure Access apps can be configured using Microsoft Graph on the `/beta` endpoint. 
+
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Add the following query to create the Global Secure Access app:
+
+```http
+POST applicationTemplates/{templateId}/instantiate​
+{​
+    "displayName": "foobar"​
+    }​
+    
+    PATCH applications/{objectId}​
+    {​
+    "onPremisesPublishing":{​
+    "applicationType":"nonwebapp"​
+    }​
+}
+```
 ### Add application segment
 
 The **Add application segment** process is where you define the FQDNs and IP addresses that you want to include in the traffic for Microsoft Entra Private Access. You can add sites when you create the app and return to add more or edit them later.
@@ -106,6 +126,17 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 >
 > Do not overlap FQDNs, IP addresses, and IP ranges between your Quick Access app and any Private Access apps.
 
+#### Microsoft Graph API
+
+```http
+POST applications('{objectId}')/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments​
+{​
+    "destinationHost": "10.0.0.0",​
+    "port": 445,​
+    "ports": []​
+}
+```
+
 ### Assign users and groups
 
 You need to grant access to the app you created by assigning users and/or groups to the app. For more information, see [Assign users and groups to an application.](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
@@ -136,6 +167,15 @@ You can enable or disable access to the Global Secure Access app using the Globa
 
 ![Screenshot of the enable access checkbox.](media/how-to-configure-per-app-access/per-app-access-enable-checkbox.png)
 
+
+#### Graph
+
+```http
+PATCH application('{objectId}')/OnPremisesPublishing​
+{​
+    "isAccessibleViaZTNAClient": true​
+}
+```
 ## Assign Conditional Access policies
 
 Conditional Access policies for Private Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
