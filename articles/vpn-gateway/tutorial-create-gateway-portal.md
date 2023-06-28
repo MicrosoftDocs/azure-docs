@@ -12,7 +12,9 @@ ms.date: 06/28/2023
 
 # Tutorial: Create and manage a VPN gateway using the Azure portal
 
-This tutorial helps you create and manage a virtual network gateway (VPN gateway) using the Azure portal. The VPN gateway is just one part of a connection architecture to help you securely access resources within a VNet. The following diagram shows a virtual network and a virtual network gateway (VPN gateway) that you create using the steps in this article. You can later create different types of connections, such as  [Site-to-Site](tutorial-site-to-site-portal.md) and [Point-to-site](point-to-site-about.md) to connect to this virtual network via the VPN gateway.
+This tutorial helps you create and manage a virtual network gateway (VPN gateway) using the Azure portal. The VPN gateway is just one part of a connection architecture to help you securely access resources within a VNet.
+
+The following diagram shows the virtual network and the VPN gateway that you create using the steps in this article. You can later create different types of connections, such as  [Site-to-Site](tutorial-site-to-site-portal.md) and [Point-to-site](point-to-site-about.md) to connect to this virtual network via the VPN gateway.
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-expand.png":::
 
