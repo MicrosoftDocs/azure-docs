@@ -13,17 +13,7 @@ This section reviews best practices for collecting data using Microsoft Sentinel
 
 ## Prioritize your data connectors
 
-If it's unclear to you which data connectors will best serve your environment, start by enabling all [free data connectors](billing.md#free-data-sources).
-
-The free data connectors will start showing value from Microsoft Sentinel as soon as possible, while you continue to plan other data connectors and budgets.
-
-For your [partner](data-connectors-reference.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
-
-If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
-
-> [!TIP]
-> Custom data connectors enable you to ingest data into Microsoft Sentinel from data sources not currently supported by built-in functionality, such as via agent, Logstash, or API. For more information, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).
->
+Learn how to [prioritize your data connectors](prioritize-data-connectors.md) as part of the Microsoft Sentinel deployment process.
 
 ## Filter your logs before ingestion
 

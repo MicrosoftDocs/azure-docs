@@ -19,7 +19,7 @@
       href: deployment-plan-prepare-overview.md
     - name: Deployment prerequisites
       href: prerequisites.md
-    - name: Plan architecture
+    - name: Plan workspace architecture
       items:
       - name: Review best practices
         href: best-practices-workspace-architecture.md 
