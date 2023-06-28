@@ -208,7 +208,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
        --query properties.url \
        --output tsv
    ```
-   You can also view the Applicattion Live View through VS Code extension, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
+   You can also access the Application Live View through VS Code, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
 
 ## Manage Application Live View in existing Enterprise plan instances
 
