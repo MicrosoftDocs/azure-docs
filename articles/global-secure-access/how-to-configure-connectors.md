@@ -79,7 +79,7 @@ To use Private Access, install a connector on each Windows server you're using f
 1. Go to **Global Secure Access (Preview)** > **Connect** > **Connectors**.
 1. Select **Download connector service**.
 
-    ![Screenshot of the Download connector service button in the App proxy page.](media/how-to-configure-connectors/application-proxy-download-connector-service.png)
+    ![Screenshot of the Download connector service button in the App proxy page.](media/how-to-configure-connectors/app-proxy-download-connector-service.png)
 1. Read the Terms of Service. When you're ready, select **Accept terms & Download**.
 1. At the bottom of the window, select **Run** to install the connector. An install wizard opens.
 1. Follow the instructions in the wizard to install the service. When you're prompted to register the connector with the Application Proxy for your Microsoft Entra ID tenant, provide your Global Administrator credentials.
@@ -108,7 +108,7 @@ To confirm the connector installed and registered correctly:
     - Expand the connector to view the details if it's not already expanded.
     - An active green label indicates that your connector can connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages.
 
-    ![Screenshot of the connector groups and connector group details.](media/how-to-configure-connectors/app-proxy-connectors.png)
+    ![Screenshot of the connector groups and connector group details.](media/how-to-configure-connectors/app-proxy-connectors-status.png)
 
 For more help with installing a connector, see [Problem installing the Application Proxy Connector](../active-directory/app-proxy/application-proxy-connector-installation-problem.md).
 

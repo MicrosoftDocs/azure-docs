@@ -1,6 +1,6 @@
 ---
-title: How to configure Global Secure Access apps for Private Access
-description: Learn how to configure Global Secure Access apps for Microsoft Entra Private Access
+title: How to configure Per-app Access using Global Secure Access applications
+description: Learn how to configure Per-app Access using Global Secure Access applications for Microsoft Entra Private Access
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
@@ -37,7 +37,7 @@ To manage App Proxy connector groups, which is required for Global Secure Access
 
 Per-App Access is configured by creating a new Global Secure Access app. You create the app, select a connector group, and add network access segments. These settings make up the individual app that you can assign users and groups to.
 
-To configure Private Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
+To configure Per-App Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](../active-directory/app-proxy/application-proxy.md) connector. This connector group handles the traffic to this new application. With Connectors, you can isolate apps per network and connector.
 
 To summarize, the overall process is as follows:
 
@@ -94,7 +94,7 @@ POST applicationTemplates/{templateId}/instantiate​
 ```
 ### Add application segment
 
-The **Add application segment** process is where you define the FQDNs and IP addresses that you want to include in the traffic for Microsoft Entra Private Access. You can add sites when you create the app and return to add more or edit them later.
+The **Add application segment** process is where you define the FQDNs and IP addresses that you want to include in the traffic for the Global Secure Access app. You can add sites when you create the app and return to add more or edit them later.
 
 You can add fully qualified domain names (FQDN), IP addresses, and IP address ranges.
 
@@ -107,13 +107,13 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
     - **IP address**: Internet Protocol version 4 (IPv4) address, such as 192.0.2.1, that identifies a device on the network.
     - **Fully qualified domain name** (including wildcard FQDNs): Domain name that specifies the exact location of a computer or a host in the Domain Name System (DNS).
-    - **IP address range (CIDR)**: Classless Inter-Domain Routing is a way of representing a range of IP addresses in which an IP address is followed by a suffix indicating the number of network bits in the subnet mask. For example 192.0.2.0/24 indicates that the first 24 bits of the IP address represent the network address, while the remaining 8 bits represents the host address.
+    - **IP address range (CIDR)**: Classless Inter-Domain Routing is a way of representing a range of IP addresses in which an IP address is followed by a suffix that indicates the number of network bits in the subnet mask. For example, 192.0.2.0/24 indicates that the first 24 bits of the IP address represent the network address, while the remaining 8 bits represents the host address.
     - **IP address range (IP to IP)**: Range of IP addresses from start IP (such as 192.0.2.1) to end IP (such as 192.0.2.10). 
 1. Enter the appropriate detail for what you selected.
 1. Enter the port. The following table provides the most commonly used ports and their associated networking protocols:
     
     | Port | Protocol | 
-    | -- | -- |
+    | --- | --- |
     | 22 | Secure Shell (SSH) |
     | 80 | Hypertext Transfer Protocol (HTTP) |
     | 443 | Hypertext Transfer Protocol Secure (HTTPS) |
@@ -163,7 +163,7 @@ You can add or update the FQDNs and IP addresses included in your app at any tim
 
 ## Enable or disable access with the Global Secure Access Client
 
-You can enable or disable access to the Global Secure Access app using the Global Secure Access Client. This option is selected by default, but can be disabled, so the FQDNs and IP addresses included in the app segments in the Private access traffic forwarding profile. 
+You can enable or disable access to the Global Secure Access app using the Global Secure Access Client. This option is selected by default, but can be disabled, so the FQDNs and IP addresses included in the app segments aren't tunneled through the service. 
 
 ![Screenshot of the enable access checkbox.](media/how-to-configure-per-app-access/per-app-access-enable-checkbox.png)
 
@@ -178,7 +178,7 @@ PATCH application('{objectId}')/OnPremisesPublishing​
 ```
 ## Assign Conditional Access policies
 
-Conditional Access policies for Private Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
+Conditional Access policies for Per-app Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
 
 - Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**. Select an application and then select **Conditional Access** from the side menu.
 - Go to **Microsoft Entra ID** > **Protection** > **Conditional Access** > **Policies**. Select **+ Create new policy**.
