@@ -222,10 +222,10 @@
     - name: Azure Virtual Desktop Insights
       items:
       - name: Estimate Azure Monitor costs
-        displayName: insights, avdi, monitoring, diagnostics
+        displayName: insights, avd insights, avdi, monitoring, diagnostics
         href: azure-monitor-costs.md
       - name: Azure Monitor glossary
-        displayName: insights, avdi, monitoring, diagnostics
+        displayName: insights, avd insights, avdi, monitoring, diagnostics
         href: azure-monitor-glossary.md
 - name: How-to guides
   items:
@@ -348,10 +348,10 @@
       - name: Language packs
         items:
         - name: Windows 10 multi-session images
-          displayName: languages
+          displayName: languages, language packs
           href: language-packs.md
         - name: Windows 11 Enterprise images
-          displayName: languages
+          displayName: languages, language packs
           href: windows-11-language-packs.md
       - name: Migrate from classic
         items:
@@ -520,7 +520,7 @@
       - name: Set up diagnostics to monitor Agent updates
         href: agent-updates-diagnostics.md
       - name: Use Azure Virtual Desktop Insights
-        displayName: avdi, monitoring, diagnostics
+        displayName: avd insights, avdi, monitoring, diagnostics
         href: insights.md
       - name: Use diagnostics with Log Analytics
         displayName: monitoring
@@ -595,7 +595,7 @@
     displayName: troubleshooting, rdp apps, clients
     href: troubleshoot-device-redirections.md
   - name: Azure Virtual Desktop Insights
-    displayName: troubleshooting, avdi
+    displayName: troubleshooting, avd insights, avdi
     href: troubleshoot-insights.md
   - name: Azure Files authorization
     displayName: troubleshooting
