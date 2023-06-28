@@ -76,7 +76,7 @@ After the serverless Spark compute resource tear-down happens, submission of the
 
 ### Session-level Conda Packages
 A conda dependency YAML file can define a number of session-level conda packages in a session configuration. A session will time out if it takes longer than fifteen minutes to install the conda packages defined in the YAML file. It becomes important to first check whether a required package is already available in the Azure Synapse base image. To do this, users should follow the link to determine *packages available in the base image for* the Apache Spark version in use:
-- [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime#python-libraries-normal-vms)
+- [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
 
 ## Attached Synapse Spark pool
 
