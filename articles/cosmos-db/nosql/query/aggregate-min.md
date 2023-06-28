@@ -53,5 +53,5 @@ When comparing different types data, the following priority order is used (in as
 ## Next steps
 
 - [Mathematical functions in Azure Cosmos DB](system-functions.yml)
-- [System functions in Azure Cosmos DB](system-functions.md)
+- [System functions in Azure Cosmos DB](system-functions.yml)
 - [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)

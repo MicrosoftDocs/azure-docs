@@ -63,6 +63,10 @@ There are some caveats about document structure and how it might affect the qual
 
     This will impact the quality of Azure Cognitive Search and the model response. 
 
+## Virtual network support & private link support
+
+Azure OpenAI on your data does not currently support private endpoints. 
+
 ## Recommended settings
 
 Use the following sections to help you configure Azure OpenAI on your data for optimal results.

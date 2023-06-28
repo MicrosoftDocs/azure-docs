@@ -68,5 +68,5 @@ SELECT TicksToDateTime(15943368134575530) AS DateTime
 ## Next steps
 
 - [Date and time functions Azure Cosmos DB](system-functions.yml)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

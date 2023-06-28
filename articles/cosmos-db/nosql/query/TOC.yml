@@ -88,7 +88,7 @@
   items:
     - name: System functions
       displayName: functions, system functions, array functions, date time functions, mathematical functions, spatial functions, string functions, type checking functions, built-in functions
-      href: system-functions.md
+      href: system-functions.yml
     - name: Array functions
       items:
         - name: ARRAY_CONCAT
