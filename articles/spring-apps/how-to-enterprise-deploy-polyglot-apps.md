@@ -459,7 +459,7 @@ The following table indicates the features supported for each language.
 For more information about the supported configurations for different language apps, see the corresponding section later in this article.
 
 ### Java Native Image Limitations
-[Native Image] is a technology to compile Java code ahead-of-time to a native executable. Native images provide various advantages, like an instant startup and reduced memory consumption. They can be packaged into a lightweight container image for faster and more efficient deployment. Because of the Closed World Optimization, there are some [limitations](https://www.graalvm.org/22.1/reference-manual/native-image/Limitations/):
+[Native Image](https://www.graalvm.org/latest/reference-manual/native-image/) is a technology to compile Java code ahead-of-time to a native executable. Native images provide various advantages, like an instant startup and reduced memory consumption. They can be packaged into a lightweight container image for faster and more efficient deployment. Because of the Closed World Optimization, there are some [limitations](https://www.graalvm.org/22.1/reference-manual/native-image/Limitations/):
 - The following Java features require configuration at executable build time:
   - Dynamic Class Loading
   - Reflection
