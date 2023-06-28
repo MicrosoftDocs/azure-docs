@@ -74,7 +74,7 @@ To add an environment definition:
        > [!NOTE]
        > The `version` field is optional. Later, the field will be used to support multiple versions of environment definitions.
 
-      :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-in-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and a manifest file.":::
+      :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and a manifest file.":::
 
 1. In your dev center, go to **Catalogs**, select the repository, and then select **Sync**.
 
