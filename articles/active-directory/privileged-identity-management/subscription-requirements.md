@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, a tenant must have a valid license. Licenses must also be assigned to the administrators and relevant users. This article describes the license requirements to use Privileged Identity Management.  To use Privileged Identity Management, you must have one of the following licenses:
 
 - [!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
-- Enterprise Mobility + Security (EMS) E5
+
 
 ## Valid licenses
 
@@ -47,7 +47,7 @@ Here are some example license scenarios to help you determine the number of lice
 
 ## When a license expires
 
-If an Microsoft Entra Premuim P2, Microsoft Entra ID Governance, EMS E5, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
+If an Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
 
 - Permanent role assignments to Azure AD roles will be unaffected.
 - The Privileged Identity Management service in the Azure portal, as well as the Graph API cmdlets and PowerShell interfaces of Privileged Identity Management, will no longer be available for users to activate privileged roles, manage privileged access, or perform access reviews of privileged roles.
