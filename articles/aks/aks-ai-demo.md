@@ -179,6 +179,7 @@ In this demo, you use a manifest to create all objectes needed to run the [AKS S
 - Product Service: shows product information
 - Order Service: places orders
 - Makeline Service: processes to process orders from the queue and completes the orders
+- AI Service: generates description for products
 - Store Front: web application for customers to view products and place orders
 - Store Admin: web application for store employees to view orders in the queue and manage product informations
 - Virtual Customer: simulates order creation on a scheduled basis
