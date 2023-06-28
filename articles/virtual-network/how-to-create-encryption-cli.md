@@ -53,7 +53,7 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
 ```
 
 > [!IMPORTANT]
-> Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. The setting **dropUnencrypted** will drop traffic between unsupported virtual machine SKUs if they are deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
+> Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
 
 ## Verify encryption enabled
 
@@ -76,6 +76,16 @@ user@Azure:~$ az network vnet show \
     --query encryption \
     --output tsv
 True   AllowUnencrypted
+```
+
+## Clean up resources
+
+When you're done with the virtual network, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
+
+```azurecli-interactive
+az group delete \
+    --name test-rg \
+    --yes
 ```
 
 ## Next steps
