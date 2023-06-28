@@ -30,7 +30,9 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 
 - Choose a size that provides good performance for both the host (lab VM) and guest VMs (VMs inside the lab VM). Make sure the size you choose can run the host VM and any Hyper-V machines at the same time.
 
-- By default, guest VMs don't have access to Azure resources, such as DNS servers, on the Azure virtual network. The host VM requires extra configuration to let the guest machines have internet connectivity.
+- The host VM requires extra configuration to let the guest machines have internet connectivity.
+
+- Guest VMs don't have access to Azure resources, such as DNS servers, on the Azure virtual network.
 
 - Hyper-V guest VMs are licensed as independent machines. For information about licensing for Microsoft operation systems and products, see [Microsoft Licensing](https://www.microsoft.com/licensing/default). Check licensing agreements for any other software you use, before installing it on the template VM or guest VMs.
 
@@ -47,7 +49,7 @@ To enable nested virtualization for a lab:
 1. Enable nested virtualization on the template VM operating system.
 
     - Enable the Hyper-V role: the Hyper-V role must be enabled for the creation and running of VMs inside the template VM.
-    - Enable DHCP: when the template VM has the DHCP role enabled, the VMs inside the template VM get an IP address automatically assigned to them.
+    - Enable DHCP (optional): when the template VM has the DHCP role enabled, the VMs inside the template VM get an IP address automatically assigned to them.
     - Create a NAT network for the nested VMs: set up a Network Address Translation (NAT) network to allow the VMs inside the template VM to have internet access and communicate with each other.
 
         >[!NOTE]

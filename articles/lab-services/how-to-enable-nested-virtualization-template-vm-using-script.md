@@ -237,9 +237,9 @@ Perform the following steps to verify your nested VM configuration:
 
     Learn more about the [supported guest operating systems in Hyper-V](/virtualization/hyper-v-on-windows/about/supported-guest-os).
 
-- There's a known issue with caching of the Windows Management library in older Linux distributions.
+- There's a known issue with caching of the windowing library in older Linux distributions.
 
-    Create another desktop session, manually clear the cache for the Windowing library, and then restart.
+    Create another desktop session, manually clear the cache for the windowing library, and then restart.
 
 ### Hyper-V doesn't start with error `The virtual machine is using processor-specific xsave features not supported`
 
@@ -266,9 +266,10 @@ If you're using the Medium (Nested Virtualization) VM size for the lab, consider
 
     Changing the settings of the lab VM can cause issues with other lab VMs. Create an internal or private NAT network and have one of the VMs act as the DHCP, DNS, or domain controller. Using private over internal does mean that Hyper-V VMs don't have internet access.
 
-- Check the network adapter settings for the Hyper-V VM.
+- Check the network adapter settings for the Hyper-V VM:
 
-    Set the IP address of the DNS server and DHCP server to *168.63.129.16*. Manually set IPv4 address to something is range specified by NAT network the Hyper-V VM is in. 
+    - Set the IP address of the DNS server and DHCP server to [*168.63.129.16*](/azure/virtual-network/what-is-ip-address-168-63-129-16).
+    - Set the guest VM IPv4 address in the range of the [NAT network you created previously](#create-a-nat-network).
 
 > [!NOTE]
 > The ping command from a Hyper-V VM to the host VM doesn't work. To test internet connectivity, launch a web browser and verify that the web page loads correctly.
