@@ -102,7 +102,7 @@ FROM
 
 ## Remarks
 
-- This function is similar to the ternary conditional operator in C#. For more information, see [`?:` - the ternary conditional operator](/dotnet/csharp/language-reference/operators/conditional-operator).
+- This function is similar to the ternary conditional operator in various programming languages. For more information, see [ternary conditional operator](https://wikipedia.org/wiki/ternary_conditional_operator).
 - This function doesn't utilize the index.
 
 ## Next steps
