@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Monitor and Clean up stale guest accounts using access reviews
 
-As users collaborate with external partners, it’s possible that many guest accounts get created in Azure Active Directory (Azure AD) tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Admins can use Access Reviews to automatically review inactive guest users and block them from signing in, and later, delete them from the directory.
+As users collaborate with external partners, it’s possible that many guest accounts get created in Azure Active Directory (Azure AD) tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Administrators can monitor guest accounts at scale using inactive guest insights. Administrators can also use Access Reviews to automatically review inactive guest users, block them from signing in, and, delete them from the directory.
 
 Learn more about [how to manage inactive user accounts in Azure AD](../reports-monitoring/howto-manage-inactive-user-accounts.md).
 
@@ -39,10 +39,11 @@ Use the following instructions to learn how to enhance monitoring of inactive gu
 3. You will see the inactive guest report which will provide insights about inactive guest users based on 90 days of inactivity. The threshold is set to 90 days by default but can be configured using "Edit inactivity threshold" based on your organization's needs.
 
 4. The following insights are provided as part of this report:
-   a. Guest account overview (total guests and inactive guests with further categorization of guests who have never signed in or signed in at least once)
-   b. Guest inactvitiy distribution (Percentage distribution of guest users based on days since last sign in)
-   c. Guest inactivity overview (Guest inactivity guidance to configure inactivity threshold)
-   d. Guest accounts summary (A tabular view with details of all guest accounts with insights into their activity state. The Activity state could be active or inactive based on the configured inactivity threshold)
+   
+   - Guest account overview (total guests and inactive guests with further categorization of guests who have never signed in or signed in at least once)
+   - Guest inactvitiy distribution (Percentage distribution of guest users based on days since last sign in)
+   - Guest inactivity overview (Guest inactivity guidance to configure inactivity threshold)
+   - Guest accounts summary (A tabular view with details of all guest accounts with insights into their activity state. The Activity state could be active or inactive based on the configured inactivity threshold)
 
 5. The inactive days are calculated based on last sign in date if the user has signed in atleast once. For users who have never signed in, the inactive days are calculated based on creation date.
 
