@@ -149,7 +149,7 @@
         - name: GetCurrentDateTime
           displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
           href: getcurrentdatetime.md
-        - name: GetCurrentDateTime
+        - name: GetCurrentDateTimeStatic
           displayName: GetCurrentDateTimeStatic, get current date time static, static, date and time functions, datetime
           href: getcurrentdatetimestatic.md
         - name: GetCurrentTicks
