@@ -112,6 +112,11 @@ For example, the `connection` property for an Azure Blob trigger definition migh
 
 Some connections in Azure Functions can be configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you are connecting supports identity-based connections. For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
+
+> [!NOTE]
+> For Consumption and Elastic Premium plans the apps will use the WEBSITE_AZUREFILESCONNECTIONSTRING and WEBSITE_CONTENT share to use Azure Files on the Storage account for your Application content. Azure Files does not support using Managed Identity for access to the File Share. [Azure Files Supported Authentication Secenarios](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview#supported-authentication-scenarios)
+
+
 The following components support identity-based connections:
 
 | Connection source                                       | Plans supported | Learn more                                                                                                         |
@@ -177,7 +182,7 @@ You need to create a role assignment that provides access to Azure SignalR Servi
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
----
+
 
 #### Common properties for identity-based connections
 
