@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Content Safety Studio"
-titleSuffix: "Azure Cognitive Services"
+titleSuffix: "Azure AI services"
 description: In this quickstart, get started with the Content Safety service using Content Safety Studio in your browser.
 services: cognitive-services
 author: PatrickFarley
@@ -79,7 +79,7 @@ To view resource details such as name and pricing tier, select the **Settings** 
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove a Azure AI services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](/azure/ai-services/cognitive-services-apis-create-account#clean-up-resources)
 - [Azure CLI](/azure/ai-services/cognitive-services-apis-create-account-cli#clean-up-resources)

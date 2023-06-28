@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Moderate Facebook content - Content Moderator"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
 author: PatrickFarley
@@ -14,11 +14,11 @@ ms.author: pafarley
 #Customer intent: As the moderator of a Facebook page, I want to use Azure's machine learning technology to automate and streamline the process of post moderation.
 ---
 
-# Tutorial: Moderate Facebook posts and commands with Azure Content Moderator
+# Tutorial: Moderate Facebook posts and commands with Azure AI Content Moderator
 
 [!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
-In this tutorial, you will learn how to use Azure Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds.
+In this tutorial, you will learn how to use Azure AI Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds.
 
 > [!IMPORTANT]
 > In 2018, Facebook implemented a more strict vetting policy for Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
@@ -38,7 +38,7 @@ This diagram illustrates each component of this scenario:
 
 ## Prerequisites
 
-- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](../cognitive-services-apis-create-account.md) to subscribe to the Content Moderator service and get your key.
+- A Content Moderator subscription key. Follow the instructions in [Create a Azure AI services account](../cognitive-services-apis-create-account.md) to subscribe to the Content Moderator service and get your key.
 - A [Facebook account](https://www.facebook.com/).
 
 ## Create a review team

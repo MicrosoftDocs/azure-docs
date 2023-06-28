@@ -1,7 +1,7 @@
 ---
 title: What's new in Content Safety?
-titleSuffix: Azure Cognitive Services
-description: Stay up to date on recent releases and updates to Azure Content Safety.
+titleSuffix: Azure AI services
+description: Stay up to date on recent releases and updates to Azure AI Content Safety.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -21,8 +21,8 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Content Safety public preview
 
-The Azure Content Safety is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content. Follow a [quickstart](./quickstart-text.md) to get started.
+The Azure AI Content Safety detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure AI Content Safety helps make applications and services safer from harmful user-generated and AI-generated content. Follow a [quickstart](./quickstart-text.md) to get started.
 
-## Cognitive Services updates
+## Azure AI services updates
 
-[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)
