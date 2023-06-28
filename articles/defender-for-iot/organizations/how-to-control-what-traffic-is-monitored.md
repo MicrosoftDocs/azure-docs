@@ -19,7 +19,7 @@ After installing, activating, and configuring your OT network sensor, use the to
 
 Before performing the procedures in this article, you must have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md)
+- An OT network sensor [installed, configured, and activated](ot-deploy/install-software-ot-sensor.md).
 
 - Access to your OT network sensor and on-premises management console as an **Admin** user.  For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 

@@ -15,9 +15,6 @@ This article is one in a series of articles describing the [deployment path](../
 
 [!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
 
-You might be reinstalling software on a [pre-configured appliance](../ot-pre-configured-appliances.md), or you may be installing software on your own appliance. <!--where do we start for pre-configured appliances?-->
-
-If you're using pre-configured appliances, skip this step and continue directly with [activating and setting up your OT network sensor](activate-deploy-sensor.md) instead.
 
 ## Prerequisites
 
@@ -61,10 +58,10 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 
 ## Install Defender or IoT software on OT sensors
 
-This procedure describes how to install OT monitoring software on an OT network sensor. If you're using a [pre-configured appliance](../ot-pre-configured-appliances.md)s, skip directly to [Configure setup via the GUI](#configure-setup-via-the-gui).
+This procedure describes how to install OT monitoring software on an OT network sensor.
 
-> [!NOTE]
-> Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
+If you're using a [pre-configured appliance](../ot-pre-configured-appliances.md)s, skip directly to [Configure setup via the GUI](#configure-setup-via-the-gui).
+
 
 **To install your software**:
 

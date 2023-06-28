@@ -15,7 +15,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 Before performing the procedures in this article, make sure that you have:
 
-- An OT sensor [installed](install-software-ot-sensor.md), [activated, and configured](activate-deploy-sensor.md), with device data detected.
+- An OT sensor [installed, configured, and activated](install-software-ot-sensor.md), with device data detected.
 
 - Access to your OT sensor as **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 

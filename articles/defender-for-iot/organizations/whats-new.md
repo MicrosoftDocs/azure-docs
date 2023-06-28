@@ -38,8 +38,7 @@ In version 23.1.x we've updated the OT sensor installation and setup wizards to 
 
 For more information, see:
 
-- [Install OT monitoring software on OT sensors](ot-deploy/install-software-ot-sensor.md)
-- [Activate and set up your OT network sensor](ot-deploy/activate-deploy-sensor.md)
+- [Install and set up your OT sensor](ot-deploy/install-software-ot-sensor.md)
 - [Analyze detected subnets](how-to-control-what-traffic-is-monitored.md#analyze-detected-subnets)
 
 ## June 2023
@@ -193,8 +192,7 @@ For more information, see [Device data retention periods](references-data-retent
 
 The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
-For more information, see [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
-
+For more information, see [Configure setup via the GUI](ot-deploy/install-software-ot-sensor.md#configure-setup-via-the-guitabui)
 ### Activation files expiration updates
 
 Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
@@ -697,7 +695,7 @@ For more information, see:
 
 Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your on-premises management console, and you don't need to reconnect them manually.
 
-For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
+For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Configure setup via the GUI](ot-deploy/install-software-ot-sensor.md#configure-setup-via-the-guitabui).
 
 ### Support diagnostic log enhancements (Public preview)
 

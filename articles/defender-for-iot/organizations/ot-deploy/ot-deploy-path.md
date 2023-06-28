@@ -114,7 +114,7 @@ After installing your OT sensor software, run several checks to validate the ins
 
 For more information, see:
 
-- [Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
+- [Install and set up your OT sensor](install-software-ot-sensor.md)
 - [Validate an OT sensor software installation](post-install-validation-ot-software.md)
 
 Skip these steps if you're purchasing [pre-configured appliances](../ot-pre-configured-appliances.md).
@@ -123,7 +123,7 @@ Skip these steps if you're purchasing [pre-configured appliances](../ot-pre-conf
 
 Use an initial setup wizard to confirm network settings, activate the sensor, and apply SSH/TLS certificates.
 
-For more information, see [Activate and set up your OT network sensor](activate-deploy-sensor.md).
+For more information, see [Configure setup via the GUI](install-software-ot-sensor.md#configure-setup-via-the-guitabui).
 
 #### Configure proxy connections
 
