@@ -141,7 +141,7 @@ The response should look like:
 }
 ```
 
-With working **API endpoint (instanceUri)** and **access_token**, you now can start making requests to our service  APIs. If there are any queries in setting up the environment, [raise a support request]((how-to-create-azure-support-request.md)) to get required help.
+With working **API endpoint (instanceUri)** and **access_token**, you now can start making requests to our service  APIs. If there are any queries in setting up the environment, [raise a support request]((./how-to-create-azure-support-request.md)) to get required help.
 
 ## Next steps
 
