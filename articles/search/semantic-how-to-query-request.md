@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 7/14/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -352,6 +352,9 @@ The response for the above example query returns the following match as the top 
         "Category": "Luxury"
     },
 ```
+
+> [!NOTE]
+> Beginning on July 14, 2023, the fields marked as retrievable will have a reduced impact. For example, a setting with "EN" (English) language will no longer filter just English matches. If there are matches in other languages in a multilingual index, they will also be returned as part of the response, unless other filters are applied.
 
 ## Next steps
 
