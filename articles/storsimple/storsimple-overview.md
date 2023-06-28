@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.custom: devx-track-azurepowershell
 ms.workload: TBD
-ms.date: 06/26/2023
+ms.date: 06/28/2023
 ms.author: alkohli
 ROBOTS: NOINDEX
 ---
@@ -123,7 +123,7 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 Use the following steps to create a support ticket for StorSimple data copy, data migration, and device decommission operations.
 
-1. In Azure Portal, type **help** in the search bar and then select **Help + Support**.
+1. In Azure portal, type **help** in the search bar and then select **Help + Support**.
 
     ![Screenshot of the Help and support page in Azure portal.](./media/storsimple-overview/storsimple-help-and-support-1.png)
 
@@ -150,11 +150,11 @@ Use the following steps to create a support ticket for StorSimple data copy, dat
    -	Specify **Yes** or **No** for **Advanced diagnostic information** collection.
    -	Your support plan will be generated based on your subscription. Specify severity, your preferred contact method, and language. 
    -	Specify **Contact information**: First name, Last name, Email, Phone, and Country/region.
-   -	To continue, specify **Next**.
+   -	To continue, select **Next**.
 
         ![Screenshot of Support details in Azure portal.](./media/storsimple-overview/storsimple-support-details-5.png)
 
-1. On the **Review + create** tab, review the summary of your case. To continue, specify **Create**. 
+1. On the **Review + create** tab, review the summary of your case. To continue, select **Create**. 
 
     ![Screenshot of the Review and create support request page in Azure portal.](./media/storsimple-overview/storsimple-support-review-details-6.png)
 
