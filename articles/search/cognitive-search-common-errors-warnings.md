@@ -279,13 +279,13 @@ If you know that your data set contains multiple languages and thus you need the
 
 Here are some references for the currently supported languages for each of the skills that may produce this error message:
 
-* [EntityRecognitionSkill supported languages](../cognitive-services/language-service/named-entity-recognition/language-support.md)
-* [EntityLinkingSkill supported languages](../cognitive-services/language-service/entity-linking/language-support.md)
-* [KeyPhraseExtractionSkill supported languages](../cognitive-services/language-service/key-phrase-extraction/language-support.md)
-* [LanguageDetectionSkill supported languages](../cognitive-services/language-service/language-detection/language-support.md)
-* [PIIDetectionSkill supported languages](../cognitive-services/language-service/personally-identifiable-information/language-support.md)
-* [SentimentSkill supported languages](../cognitive-services/language-service/sentiment-opinion-mining/language-support.md)
-* [Translator supported languages](../cognitive-services/translator/language-support.md)
+* [EntityRecognitionSkill supported languages](../ai-services/language-service/named-entity-recognition/language-support.md)
+* [EntityLinkingSkill supported languages](../ai-services/language-service/entity-linking/language-support.md)
+* [KeyPhraseExtractionSkill supported languages](../ai-services/language-service/key-phrase-extraction/language-support.md)
+* [LanguageDetectionSkill supported languages](../ai-services/language-service/language-detection/language-support.md)
+* [PIIDetectionSkill supported languages](../ai-services/language-service/personally-identifiable-information/language-support.md)
+* [SentimentSkill supported languages](../ai-services/language-service/sentiment-opinion-mining/language-support.md)
+* [Translator supported languages](../ai-services/translator/language-support.md)
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) supported languages: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>

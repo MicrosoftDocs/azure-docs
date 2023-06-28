@@ -13,16 +13,16 @@ ms.date: 05/31/2023
 
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search
 
-When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../cognitive-services/cognitive-services-apis-create-account.md). 
+When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../ai-services/cognitive-services-apis-create-account.md). 
 
 A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these APIs:
 
-+ [Computer Vision](../cognitive-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
-+ [Language service](../cognitive-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
-+ [Translator](../cognitive-services/translator/translator-overview.md) for machine text translation
++ [Computer Vision](../ai-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
++ [Language service](../ai-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
++ [Translator](../ai-services/translator/translator-overview.md) for machine text translation
 
 > [!TIP]
-> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md).
+> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../ai-services/plan-manage-costs.md).
 
 ## Set the resource key
 
@@ -34,7 +34,7 @@ If you leave the property unspecified, your search service will attempt to use t
 
 1. [Sign in to Azure portal](https://portal.azure.com).
 
-1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create a [multi-service Cognitive Services resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Add the key to a skillset definition:
 
@@ -46,7 +46,7 @@ If you leave the property unspecified, your search service will attempt to use t
 
 ### [**REST**](#tab/cogkey-rest)
 
-1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create a [multi-service Cognitive Services resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
 
@@ -120,7 +120,7 @@ Key-based billing applies when API calls to Cognitive Services resources exceed 
 
 The key is used for billing, but not for enrichment operations' connections. For connections, a search service [connects over the internal network](search-security-overview.md#internal-traffic) to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services. If you attempt AI enrichment in a region that doesn't have both services, you'll see this message: "Provided key isn't a valid CognitiveServices type key for the region of your search service."
 
-Currently, billing for [built-in skills](cognitive-search-predefined-skills.md) requires a public connection from Cognitive Search to Cognitive Services. Disabling public network access breaks billing. If disabling public networks is a requirement, you can configure a [Custom Web API skill](cognitive-search-custom-skill-interface.md) implemented with an [Azure Function](cognitive-search-create-custom-skill-example.md) that supports [private endpoints](../azure-functions/functions-create-vnet.md) and add the [Cognitive Service resource to the same VNET](/azure/cognitive-services/cognitive-services-virtual-networks). In this way, you can call Cognitive Services resource directly from the custom skill using private endpoints.
+Currently, billing for [built-in skills](cognitive-search-predefined-skills.md) requires a public connection from Cognitive Search to Cognitive Services. Disabling public network access breaks billing. If disabling public networks is a requirement, you can configure a [Custom Web API skill](cognitive-search-custom-skill-interface.md) implemented with an [Azure Function](cognitive-search-create-custom-skill-example.md) that supports [private endpoints](../azure-functions/functions-create-vnet.md) and add the [Cognitive Service resource to the same VNET](/azure/ai-services/cognitive-services-virtual-networks). In this way, you can call Cognitive Services resource directly from the custom skill using private endpoints.
 
 > [!NOTE]
 > Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Using a non-regional skill means that your request might be serviced in a region other than the Azure Cognitive Search region. For more information on non-regional services, see the [Cognitive Services product by region](https://aka.ms/allinoneregioninfo) page.

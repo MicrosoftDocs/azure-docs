@@ -12,11 +12,11 @@ ms.date: 12/09/2021
 
 #	Language detection cognitive skill
 
-The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis. This skill uses the machine learning models provided in [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
+The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis. This skill uses the machine learning models provided in [Azure Cognitive Services for Language](../ai-services/language-service/overview.md).
 
 This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Analysis skill](cognitive-search-skill-sentiment-v3.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
 
-See [supported languages](../cognitive-services/language-service/language-detection/language-support.md) for Language Detection. If you have content expressed in an unsupported language, the response is `(Unknown)`.
+See [supported languages](../ai-services/language-service/language-detection/language-support.md) for Language Detection. If you have content expressed in an unsupported language, the response is `(Unknown)`.
 
 > [!NOTE]
 > This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -34,8 +34,8 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot [disambiguate the language](../cognitive-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
-| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/concepts/model-lifecycle.md) to use when calling language detection. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
+| `defaultCountryHint` | (Optional) An ISO 3166-1 alpha-2 two letter country code can be provided to use as a hint to the language detection model if it cannot [disambiguate the language](../ai-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). Specifically, the `defaultCountryHint` parameter is used with documents that don't specify the `countryHint` input explicitly.  |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../ai-services/language-service/concepts/model-lifecycle.md) to use when calling language detection. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
 
 ## Skill inputs
 
@@ -44,7 +44,7 @@ Parameters are case-sensitive.
 | Inputs	 | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it cannot [disambiguate the language](../cognitive-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). |
+| `countryHint` | An ISO 3166-1 alpha-2 two letter country code to use as a hint to the language detection model if it cannot [disambiguate the language](../ai-services/language-service/language-detection/how-to/call-api.md#ambiguous-content). |
 
 ## Skill outputs
 
