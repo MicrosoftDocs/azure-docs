@@ -12922,7 +12922,66 @@
         "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-data-storage-eu.md",
         "redirect_url": "/azure/active-directory/fundamentals/data-storage-eu",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-faq.yml",
+        "redirect_url": "/azure/active-directory/fundamentals/faq",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-data-storage-japan.md",
+        "redirect_url": "/azure/active-directory/fundamentals/data-storage-japan",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-get-started-premium.md",
+        "redirect_url": "/azure/active-directory/fundamentals/get-started-premium",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-view-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/groups-view-azure-portal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md",
+        "redirect_url": "/azure/active-directory/fundamentals/how-subscriptions-associated-directory",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-how-to-find-tenant.md",
+        "redirect_url": "/azure/active-directory/fundamentals/how-to-find-tenant.md",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/how-subscriptions-associated-directory",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-properties-area.md",
+        "redirect_url": "/azure/active-directory/fundamentals/properties-area",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/licensing-whatis-azure-portal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/users-reset-password-azure-portal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-restore.md",
+        "redirect_url": "/azure/active-directory/fundamentals/users-restore",
+        "redirect_document_id": false
       }
+      
+      
+      
+      
       
       
       
