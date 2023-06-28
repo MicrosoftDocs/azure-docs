@@ -128,7 +128,7 @@ To create a custom table into which to ingest events, in the Azure portal:
 
 To collect data with a data collection rule, you need a data collection endpoint: 
 
-1. [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint#create-a-data-collection-endpoint). 
+1. [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint). 
 
     > [!IMPORTANT]
     > Create the data collection endpoint in the same region as your Log Analytics workspace.
@@ -455,7 +455,7 @@ To stop ingesting data from the event hub, [delete all data collection rule asso
 
 ## Known issues and limitations
 
-- If you transfer a subscription between Azure AD directories, you need to follow the steps described in [Known issues with managed identities for Azure resources](/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories) to continue ingesting data.
+- If you transfer a subscription between Azure AD directories, you need to follow the steps described in [Known issues with managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories) to continue ingesting data.
 - You can ingest messages of up to 64 KB from Event Hubs to Azure Monitor Logs.
 
 ## Next steps
