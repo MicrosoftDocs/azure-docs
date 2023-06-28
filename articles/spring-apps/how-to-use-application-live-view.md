@@ -208,6 +208,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
        --query properties.url \
        --output tsv
    ```
+   You can also view the Applicattion Live View through VS Code extension, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
 
 ## Manage Application Live View in existing Enterprise plan instances
 
@@ -232,6 +233,9 @@ Use the following steps to manage Application Live View using the Azure portal:
 
    :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Developer Tools section showing the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
 
+   You can also view the Applicattion Live View through VS Code extension, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
+
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to enable Application Live View using the Azure CLI:
@@ -250,6 +254,7 @@ az spring dev-tool create \
    --service <Azure-Spring-Apps-service-instance-name> \
    --assign-endpoint
 ```
+You can also view the Applicattion Live View through VS Code extension, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
 
 ---
 
