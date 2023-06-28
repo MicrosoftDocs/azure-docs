@@ -7,8 +7,6 @@ ms.topic: install-set-up-deploy
 
 # Install and set up your OT sensor
 
-<!--TBD TO UPDATE FOR HEADLESS-->
-
 This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes how to install Defender for IoT software on OT sensors and configure initial setup settings.
 
 :::image type="content" source="../media/deployment-paths/progress-deploy-your-sensors.png" alt-text="Diagram of a progress bar with Deploy your sensors highlighted." border="false" lightbox="../media/deployment-paths/progress-deploy-your-sensors.png":::
@@ -18,7 +16,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 ## Prerequisites
 
-Before installing Microsoft Defender for IoT, make sure that you have:
+Before installing, configuring, and activating your OT sensor, make sure that you have:
 
 - A [plan](../best-practices/plan-prepare-deploy.md) for your OT site deployment with Defender for IoT, including the appliance you'll be using for your OT sensor.
 
@@ -100,6 +98,15 @@ If you're using a [pre-configured appliance](../ot-pre-configured-appliances.md)
     - [Continue the setup via CLI](#configure-setup-via-the-cli). Do this if you know your networking details without needing to connect physical cables.
 
 Configuring your setup via the CLI requires you to complete the last few steps in the browser.
+
+## Configure and activate your sensor
+
+Use the following tabs to configure and activate your sensor, either using the GUI or the CLI.
+
+- Use the GUI if you can connect physical cables from your switch to the sensor to identify your interfaces correctly.
+- Use the CLI if you know your networking details without needing to connect physical cables.
+
+Configuring your setup via the CLI still requires you to complete the last few steps in the browser.
 
 
 # [Configure setup via the GUI](#tab/ui)

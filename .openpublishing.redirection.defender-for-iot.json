@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/ot-deploy/activate-deploy-sensor.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/install-software-ot-sensor",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/best-practices/plan-network-monitoring.md",
             "redirect_url": "/azure/defender-for-iot/organizations/best-practices/plan-prepare-deploy",
             "redirect_document_id": false
@@ -10,11 +15,11 @@
             "redirect_document_id": false
         },        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-activate-and-set-up-your-sensor.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/activate-deploy-sensor",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/install-software-ot-sensor#configure-and-activate-your-sensor",
             "redirect_document_id": false
         },        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-deploy-certificates.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/activate-deploy-sensor#deploy-an-ssltls-certificate",
+            "redirect_url": "/azure/defender-for-iot/organizations/ot-deploy/how-to-manage-individual-sensors#manage-ssl-tls-certificates",
             "redirect_document_id": false
         },        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-enhance-port-and-vlan-name-resolution.md",

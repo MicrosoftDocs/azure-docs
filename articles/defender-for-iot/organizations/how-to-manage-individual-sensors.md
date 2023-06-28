@@ -109,7 +109,7 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 
 ## Manage SSL/TLS certificates
 
-If you're working with a production environment, you'd deployed a CA-signed SSL/TLS certificate as part of your [OT sensor deployment](ot-deploy/install-software-ot-sensor.md#configure-setup-via-the-guitabui). We recommend using self-signed certificates only for testing purposes.
+If you're working with a production environment, you'd deployed a CA-signed SSL/TLS certificate as part of your [OT sensor deployment](ot-deploy/install-software-ot-sensor.md#configure-and-activate-your-sensor). We recommend using self-signed certificates only for testing purposes.
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 

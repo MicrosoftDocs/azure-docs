@@ -108,7 +108,7 @@ To understand whether a feature is supported in your sensor version, check the r
 This version includes the following updates and enhancements:
 
 - [Simplified installation process](ot-deploy/install-software-ot-sensor.md)
-- [A new sensor setup wizard from the UI](ot-deploy/install-software-ot-sensor.md#configure-setup-via-the-guitabui)
+- [A new sensor setup wizard from the UI](ot-deploy/install-software-ot-sensor.md#configure-and-activate-your-sensor)
 - [Analyze sensor connectivity](how-to-manage-individual-sensors.md)
 - [UI enhancements for downloading PCAP files from the sensor](how-to-view-alerts.md#access-alert-pcap-data)
 
@@ -150,7 +150,7 @@ Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 
 - [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now include confirmation messages when the action has completed
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors
 - An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process on the OT sensor, using an **Edit** button in the toolbar at the top of the page
-- [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](ot-deploy/install-software-ot-sensor.md#configure-setup-via-the-guitabui)
+- [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](ot-deploy/install-software-ot-sensor.md#configure-and-activate-your-sensor)
 - [Activation files for locally managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 - Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
 - [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
@@ -255,7 +255,7 @@ This version includes the following new updates and fixes:
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)
-- [Sensor connections restored after certificate rotation](ot-deploy/install-software-ot-sensor.md#configure-setup-via-the-guitabui)
+- [Sensor connections restored after certificate rotation](ot-deploy/install-software-ot-sensor.md#configure-and-activate-your-sensor)
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
