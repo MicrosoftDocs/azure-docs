@@ -1,6 +1,6 @@
 ---
 title: "How-to: Use Inference Explainability" 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Personalizer can return feature scores in each Rank call to provide insight on what features are important to the model's decision.
 author: jcodella
 ms.author: jacodel

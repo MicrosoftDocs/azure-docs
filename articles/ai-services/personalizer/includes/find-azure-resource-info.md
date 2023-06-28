@@ -1,6 +1,6 @@
 ---
 title: Find your Personalizer resource endpoint and key
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: jcodella
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: Data and privacy for Personalizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Data and privacy for Personalizer
 author: jcodella
 ms.author: jacodel
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Data and privacy for Personalizer
 
-This article provides information about what data Azure Personalizer uses to work, how it processes that data, and how you can control that data. It assumes basic familiarity with [what Personalizer is](what-is-personalizer.md) and [how Personalizer works](how-personalizer-works.md). Specific terms can be found in Terminology.
+This article provides information about what data Azure AI Personalizer uses to work, how it processes that data, and how you can control that data. It assumes basic familiarity with [what Personalizer is](what-is-personalizer.md) and [how Personalizer works](how-personalizer-works.md). Specific terms can be found in Terminology.
 
 
 ## What data does Personalizer process?

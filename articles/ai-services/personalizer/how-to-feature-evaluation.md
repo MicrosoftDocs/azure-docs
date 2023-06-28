@@ -1,6 +1,6 @@
 ---
 title: Personalizer feature evaluations
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: When you run a Feature Evaluation in your Personalizer resource from the Azure portal, Personalizer creates a report containing Feature Scores, a measure of how influential each feature was to the model during the evaluation period.
 author: jcodella
 ms.author: jacodel

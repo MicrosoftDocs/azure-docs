@@ -1,6 +1,6 @@
 ---
 title: Transparency note for Personalizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Transparency Note for Personalizer
 author: jcodella
 ms.author: jacodel
@@ -23,7 +23,7 @@ Transparency Notes are part of a broader effort at Microsoft to put our AI princ
 
 ## Introduction to Personalizer
 
-Azure Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use Personalizer to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, your application monitors the user's reaction and reports a reward score back to Personalizer. The reward score is used to continuously improve the machine learning model using reinforcement learning. This enhances the ability of Personalizer to select the best content item in subsequent interactions based on the contextual information it receives for each.
+Azure AI Personalizer is a cloud-based service that helps your applications choose the best content item to show your users. You can use Personalizer to determine what product to suggest to shoppers or to figure out the optimal position for an advertisement. After the content is shown to the user, your application monitors the user's reaction and reports a reward score back to Personalizer. The reward score is used to continuously improve the machine learning model using reinforcement learning. This enhances the ability of Personalizer to select the best content item in subsequent interactions based on the contextual information it receives for each.
 
 For more information, see:
 

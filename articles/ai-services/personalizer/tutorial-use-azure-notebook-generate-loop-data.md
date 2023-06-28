@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Azure Notebook - Personalizer"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
 author: jcodella
 ms.author: jacodel
@@ -63,7 +63,7 @@ The system receives the request, then compares that prediction with the user's k
 ## Prerequisites
 
 * An [Azure Notebook](https://notebooks.azure.com/) account.
-* An [Azure Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+* An [Azure AI Personalizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
     * If you have already used the Personalizer resource, make sure to [clear the data](how-to-settings.md#clear-data-for-your-learning-loop) in the Azure portal for the resource.
 * Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project.
 
