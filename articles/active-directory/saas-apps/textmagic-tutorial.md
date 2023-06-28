@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TextMagic | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TextMagic'
 description: Learn how to configure single sign-on between Azure Active Directory and TextMagic.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -50,6 +50,8 @@ To configure the integration of TextMagic into Azure AD, you need to add TextMag
 1. In the **Add from the gallery** section, type **TextMagic** in the search box.
 1. Select **TextMagic** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for TextMagic
 
 Configure and test Azure AD SSO with TextMagic using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in TextMagic.
@@ -86,10 +88,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| Name |   Source Attribute| Namespace  |
 	| --------------- | --------------- | --------------- |
-	| company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| firstName | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastName | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| phone | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstName | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastName | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| phone | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -125,15 +127,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure TextMagic SSO
 
-1. To automate the configuration within TextMagic, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup TextMagic** will direct you to the TextMagic application. From there, provide the admin credentials to sign into TextMagic. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup TextMagic manually, open a new web browser window and sign into your TextMagic company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your TextMagic company site as an administrator
 
 4. Select **Account settings** under the username.
 

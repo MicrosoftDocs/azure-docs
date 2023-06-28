@@ -16,7 +16,7 @@ ms.devlang: java, azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Apps service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway.
 
@@ -29,7 +29,7 @@ This article explains how to expose applications to the internet using Applicati
 
 ## Configure Application Gateway for Azure Spring Apps
 
-We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Apps back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Apps and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Apps, cookies and generated redirect URLs (for example) can be broken.
+We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Apps back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Apps and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Apps, cookies and generated redirect URLs (for example) can be broken. For more information, see [Host name preservation](/azure/architecture/best-practices/host-name-preservation).
 
 To configure Application Gateway in front of Azure Spring Apps, use the following steps.
 

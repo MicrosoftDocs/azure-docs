@@ -10,41 +10,39 @@ ms.custom: ignite-fall-2021
 
 # Connect Microsoft Defender for Cloud alerts to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-## Background
-
-> [!NOTE]
-> - Microsoft Defender for Cloud was formerly known as Azure Security Center.
-> - Defender for Cloud's enhanced security features were formerly known collectively as Azure Defender.
-
 [Microsoft Defender for Cloud](../defender-for-cloud/index.yml)'s integrated cloud workload protections allow you to detect and quickly respond to threats across hybrid and multi-cloud workloads.
 
 This connector allows you to stream [security alerts from Defender for Cloud](../defender-for-cloud/alerts-reference.md) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
 
-As [Microsoft Defender for Cloud's enhanced security features](../defender-for-cloud/enhanced-security-features-overview.md) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
+As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-for-cloud-introduction.md#protect-cloud-workloads) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
+
+Microsoft Defender for Cloud was formerly known as Azure Security Center. Defender for Cloud's enhanced security features were formerly known collectively as Azure Defender.
+
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-### Alert synchronization
+## Alert synchronization
 
 - When you connect Microsoft Defender for Cloud to Microsoft Sentinel, the status of security alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well.
 
 - Changing the status of an alert in Defender for Cloud will *not* affect the status of any Microsoft Sentinel **incidents** that contain the Microsoft Sentinel alert, only that of the alert itself.
 
-### Bi-directional alert synchronization
+## Bi-directional alert synchronization
 
-- Enabling **bi-directional sync** will automatically sync the status of original security alerts with that of the Microsoft Sentinel incidents that contain those alerts. So, for example, when a Microsoft Sentinel incident containing a security alerts is closed, the corresponding original alert will be closed in Microsoft Defender for Cloud automatically.
+Enabling **bi-directional sync** will automatically sync the status of original security alerts with that of the Microsoft Sentinel incidents that contain those alerts. So, for example, when a Microsoft Sentinel incident containing a security alerts is closed, the corresponding original alert will be closed in Microsoft Defender for Cloud automatically.
 
 ## Prerequisites
 
 - You must have read and write permissions on your Microsoft Sentinel workspace.
 
-- You must have the Security Reader role in the subscriptions of the logs you stream.
+- You must have the **Contributor** or **Owner** role on the subscription you want to connect to Microsoft Sentinel.
 
 - You will need to enable at least one plan within Microsoft Defender for Cloud for each subscription where you want to enable the connector. To enable Microsoft Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
 
+- You will need the `SecurityInsights` resource provider to be registered for each subscription where you want to enable the connector. Review the guidance on the [resource provider registration status](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and the ways to register it.
+
 - To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
+- Install the solution for **Microsoft Defender for Cloud** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Connect to Microsoft Defender for Cloud
 

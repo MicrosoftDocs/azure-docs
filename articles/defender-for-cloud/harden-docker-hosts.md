@@ -1,8 +1,8 @@
 ---
 title: Use Microsoft Defender for Cloud to harden your Docker hosts and protect the containers
 description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 11/09/2021
 ---
@@ -22,7 +22,7 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
 |Required roles and permissions:|**Reader** on the workspace to which the host connects|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
 

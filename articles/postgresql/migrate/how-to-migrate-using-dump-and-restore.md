@@ -4,8 +4,8 @@ description: You can extract a PostgreSQL database into a dump file. Then, you c
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 09/22/2020
 ---
 
@@ -84,18 +84,18 @@ pg_dump -h my-source-server-name -U source-server-username -Fc -d source-databas
 
 - Open the dump file to verify that the create index statements are after the insert of the data. If it isn't the case, move the create index statements after the data is inserted. This should already be done by default, but it's a good idea to confirm.
 
-- Restore with the switches `-Fc` and `-j` (with a number) to parallelize the restore. The number you specify is the number of cores on the target server. You can also set to twice the number of cores of the target server to see the impact.
+- Restore with the `-j N` switch (where `N` represents the number) to parallelize the restore. The number you specify is the number of cores on the target server. You can also set to twice the number of cores of the target server to see the impact.
 
     Here's an example for how to use this `pg_restore` for Single Server:
 
     ```bash
-     pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -Fc -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
+     pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
     ```
 
     Here's an example for how to use this `pg_restore` for Flexible Server:
 
     ```bash
-     pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -Fc -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
+     pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
     ```
 
 - You can also edit the dump file by adding the command `set synchronous_commit = off;` at the beginning, and the command `set synchronous_commit = on;` at the end. Not turning it on at the end, before the apps change the data, might result in subsequent loss of data.

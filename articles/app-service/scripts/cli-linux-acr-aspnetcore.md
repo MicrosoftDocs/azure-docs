@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/25/2022
 ms.author: msangapu
-ms.custom: "devx-track-dotnet, mvc, seodec18, devx-track-azurecli"
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Create an ASP.NET Core app in a Docker container in App Service from Azure Container Registry
@@ -18,7 +18,7 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -73,7 +73,7 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
    az webapp create --name <app_name> --plan AppServiceLinuxDockerPlan --resource-group myResourceGroup --deployment-container-image-name <acr_registry_name>.azurecr.io/<container_name:version>
    ```
 
-1. Configure web app with a custom Docker Container from Azure Container Registry.
+1. Configure an existing web app with a custom Docker Container from Azure Container Registry.
 
    ```bash
    az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-url http://<acr_registry_name>.azurecr.io --docker-registry-server-user <registry_user> --docker-registry-server-password <registry_password>

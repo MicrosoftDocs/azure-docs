@@ -5,44 +5,46 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.author: surmb
+ms.date: 04/25/2023
+ms.author: greglin
 ---
 
 # Application Gateway request routing rules
 
-When you create an application gateway using the Azure portal, you create a default rule (*rule1*). This rule binds the default listener (*appGatewayHttpListener*) with the default back-end pool (*appGatewayBackendPool*) and the default back-end HTTP settings (*appGatewayBackendHttpSettings*). After you create the  gateway, you can edit the settings of the default rule or create new rules.
+When you create an application gateway using the Azure portal, you create a default rule (*rule1*). This rule binds the default listener (*appGatewayHttpListener*) with the default backend pool (*appGatewayBackendPool*) and the default backend HTTP settings (*appGatewayBackendHttpSettings*). After you create the  gateway, you can edit the settings of the default rule or create new rules.
 
 ## Rule type
 
 When you create a rule, you choose between [*basic* and *path-based*](./application-gateway-components.md#request-routing-rules).
 
-- Choose basic if you want to forward all requests on the associated listener (for example, *blog<i></i>.contoso.com/\*)* to a single back-end pool.
-- Choose path-based if you want to route requests from specific URL paths to specific back-end pools. The path pattern is applied only to the path of the URL, not to its query parameters.
+- Choose basic if you want to forward all requests on the associated listener (for example, *blog<i></i>.contoso.com/\*)* to a single backend pool.
+- Choose path-based if you want to route requests from specific URL paths to specific backend pools. The path pattern is applied only to the path of the URL, not to its query parameters.
 
 ### Order of processing rules
 
 For the v1 and v2 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
 
+If you have multiple listeners, it's even more important that rules are processed in the correct order so that client traffic is received by the correct listener. For more information about rules evaluation order, see [Request Routing rules evaluation order](multiple-site-overview.md#request-routing-rules-evaluation-order).
+
 ## Associated listener
 
-Associate a listener to the rule so that the *request-routing rule* that's associated with the listener is evaluated to determine the back-end pool to route the request to.
+Associate a listener to the rule so that the *request-routing rule* that's associated with the listener is evaluated to determine the backend pool to route the request to.
 
-## Associated back-end pool
+## Associated backend pool
 
-Associate to the rule the back-end pool that contains the back-end targets that serve requests that the listener receives.
+Associate to the rule the backend pool that contains the backend targets that serve requests that the listener receives.
 
- - For a basic rule, only one back-end pool is allowed. All requests on the associated listener are forwarded to that back-end pool.
+ - For a basic rule, only one backend pool is allowed. All requests on the associated listener are forwarded to that backend pool.
 
- - For a path-based rule, add multiple back-end pools that correspond to each URL path. The requests that match the URL path that's entered are forwarded to the corresponding back-end pool. Also, add a default back-end pool. Requests that don't match any URL path in the rule are forwarded to that pool.
+ - For a path-based rule, add multiple backend pools that correspond to each URL path. The requests that match the URL path that's entered are forwarded to the corresponding backend pool. Also, add a default backend pool. Requests that don't match any URL path in the rule are forwarded to that pool.
 
-## Associated back-end HTTP setting
+## Associated backend HTTP setting
 
-Add a back-end HTTP setting for each rule. Requests are routed from the application gateway to the back-end targets by using the port number, protocol, and other information that's specified in this setting.
+Add a backend HTTP setting for each rule. Requests are routed from the application gateway to the backend targets by using the port number, protocol, and other information that's specified in this setting.
 
-For a basic rule, only one back-end HTTP setting is allowed. All requests on the associated listener are forwarded to the corresponding back-end targets by using this HTTP setting.
+For a basic rule, only one backend HTTP setting is allowed. All requests on the associated listener are forwarded to the corresponding backend targets by using this HTTP setting.
 
-For a path-based rule, add multiple back-end HTTP settings that correspond to each URL path. Requests that match the URL path in this setting are forwarded to the corresponding back-end targets by using the HTTP settings that correspond to each URL path. Also, add a default HTTP setting. Requests that don't match any URL path in this rule are forwarded to the default back-end pool by using the default HTTP setting.
+For a path-based rule, add multiple backend HTTP settings that correspond to each URL path. Requests that match the URL path in this setting are forwarded to the corresponding backend targets by using the HTTP settings that correspond to each URL path. Also, add a default HTTP setting. Requests that don't match any URL path in this rule are forwarded to the default backend pool by using the default HTTP setting.
 
 ## Redirection setting
 

@@ -2,7 +2,10 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 10/20/2021
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -144,7 +147,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
             --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
              --role acrpush \
             --query "password" --output tsv)
-  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+  USER_NAME=$(az identity show -n $SERVICE_PRINCIPAL_NAME -g $RESOURCE_GROUP_NAME --subscription $SUBSCRIPTION_ID --query "clientId" -o tsv)
   ```
 - Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
   ```azurecli
@@ -153,7 +156,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   ```
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
   ```azurecli
-  USER_NAME="helm-token"
+  USER_NAME="helmtoken"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \
                     --scope-map _repositories_admin \
@@ -295,7 +298,7 @@ If you previously set up your Azure container registry as a chart repository usi
 > * After you complete migration from a Helm 2-style (index.yaml-based) chart repository to OCI artifact repositories, use the Helm CLI and `az acr repository` commands to manage the charts. See previous sections in this article. 
 > * The Helm OCI artifact repositories are not discoverable using Helm commands such as `helm search` and `helm repo list`. For more information about Helm commands used to store charts as OCI artifacts, see the [Helm documentation](https://helm.sh/docs/topics/registries/).
 
-### Enable OCI support
+### Enable OCI support (enabled by default in Helm v3.8.0)
 
 Ensure that you are using the Helm 3 client:
 
@@ -303,7 +306,7 @@ Ensure that you are using the Helm 3 client:
 helm version
 ```
 
-Enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change.
+If you are using Helm v3.8.0 or higher, this is enabled by default. If you are using a lower version, you can enable OCI support setting the environment variable:
 
 ```console
 export HELM_EXPERIMENTAL_OCI=1

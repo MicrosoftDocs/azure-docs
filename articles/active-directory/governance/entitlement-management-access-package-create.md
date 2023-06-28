@@ -1,5 +1,5 @@
 ---
-title: Create a new access package in entitlement management - Azure AD
+title: Create a new access package in entitlement management
 description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available when creating a new access package so that the access package can be managed with minimal effort.
 
 ---
-# Create a new access package in Azure AD entitlement management
+# Create a new access package in entitlement management
 
 An access package enables you to do a one-time setup of resources and policies that automatically administers access for the life of the access package. This article describes how to create a new access package.
 
@@ -132,15 +132,98 @@ On the **Review + create** tab, you can review your settings and check for any v
 
     The new access package appears in the list of access packages.
 
-## Creating an access package programmatically
+## Create an access package programmatically
 
-You can also create an access package using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
+There are two ways to create an access package programmatically, through Microsoft Graph and through the PowerShell cmdlets for Microsoft Graph.
+
+### Create an access package with Microsoft Graph
+
+You can create an access package using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to
 
 1. [List the accessPackageResources in the catalog](/graph/api/entitlementmanagement-list-accesspackagecatalogs?tabs=http&view=graph-rest-beta&preserve-view=true) and [create an accessPackageResourceRequest](/graph/api/entitlementmanagement-post-accesspackageresourcerequests?tabs=http&view=graph-rest-beta&preserve-view=true) for any resources that aren't yet in the catalog.
 1. [List the accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) of each accessPackageResource in an accessPackageCatalog. This list of roles will then be used to select a role, when later creating an accessPackageResourceRoleScope.
 1. [Create an accessPackage](/graph/tutorial-access-package-api).
-1. [Create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-accesspackageassignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for each policy needed in the access package.
 1. [Create an accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta&preserve-view=true) for each resource role needed in the access package.
+1. [Create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-accesspackageassignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for each policy needed in the access package.
+
+
+### Create an access package with Microsoft PowerShell
+
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.  This script illustrates using the Graph `beta` profile.
+
+First, you would retrieve the ID of the catalog, and of the resources and their roles in that catalog that you wish to include in the access package, using a script similar to the following.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+
+$rsc = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResource -AccessPackageCatalogId $catalog.Id -Filter "resourceType eq 'Application'" -ExpandProperty "accessPackageResourceScopes"
+$filt = "(originSystem eq 'AadApplication' and accessPackageResource/id eq '" + $rsc[0].Id + "')"
+$rr = Get-MgEntitlementManagementAccessPackageCatalogAccessPackageResourceRole -AccessPackageCatalogId $catalog.Id -Filter $filt -ExpandProperty "accessPackageResource"
+```
+
+Then, create the access package.
+
+```powershell
+$params = @{
+	CatalogId = $catalog.id
+	DisplayName = "sales reps"
+	Description = "outside sales representatives"
+}
+
+$ap = New-MgEntitlementManagementAccessPackage -BodyParameter $params
+```
+Once the access package has been created, assign the resource roles to the access package.  For example, if you wished to include the second resource role of the first resource returned earlier as a resource role of the new access package, you would use a script similar to the following.
+
+```powershell
+$rparams = @{
+	AccessPackageResourceRole = @{
+	   OriginId = $rr[2].OriginId
+	   DisplayName = $rr[2].DisplayName
+	   OriginSystem = $rr[2].OriginSystem
+	   AccessPackageResource = @{
+	      Id = $rsc[0].Id
+	      ResourceType = $rsc[0].ResourceType
+	      OriginId = $rsc[0].OriginId
+	      OriginSystem = $rsc[0].OriginSystem
+	   }
+	}
+	AccessPackageResourceScope = @{
+	   OriginId = $rsc[0].OriginId
+	   OriginSystem = $rsc[0].OriginSystem
+	}
+}
+New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $ap.Id -BodyParameter $rparams
+```
+
+Finally, create the policies.  In this policy, only the administrator can assign access, and there are no access reviews.  See [create an assignment policy through PowerShell](entitlement-management-access-package-request-policy.md#create-an-access-package-assignment-policy-through-powershell) and [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for more examples.
+
+```powershell
+
+$pparams = @{
+	AccessPackageId = $ap.Id
+	DisplayName = "direct"
+	Description = "direct assignments by administrator"
+	AccessReviewSettings = $null
+	RequestorSettings = @{
+		ScopeType = "NoSubjects"
+		AcceptRequests = $true
+		AllowedRequestors = @(
+		)
+	}
+	RequestApprovalSettings = @{
+		IsApprovalRequired = $false
+		IsApprovalRequiredForExtension = $false
+		IsRequestorJustificationRequired = $false
+		ApprovalMode = "NoApproval"
+		ApprovalStages = @(
+		)
+	}
+}
+New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
+
+```
 
 ## Next steps
 

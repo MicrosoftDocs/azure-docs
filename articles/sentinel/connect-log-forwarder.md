@@ -1,16 +1,13 @@
 ---
 title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel | Microsoft Docs
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
-author: batamig
+author: limwainstein
 ms.topic: how-to
-ms.date: 12/23/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 To ingest Syslog and CEF logs into Microsoft Sentinel, particularly from devices and appliances onto which you can't install the Log Analytics agent directly, you'll need to designate and configure a Linux machine that will collect the logs from your devices and forward them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. 
 
@@ -28,10 +25,20 @@ Using the link provided below, you will run a script on the designated machine t
 - Configures the built-in Linux Syslog daemon (rsyslog.d/syslog-ng) for the following purposes:
     - listening for Syslog messages from your security solutions on TCP port 514
     - forwarding only the messages it identifies as CEF to the Log Analytics agent on localhost using TCP port 25226
+
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md). 
+>
+> For information about deploying Syslog and/or CEF logs with the Azure Monitor Agent, review the [options for streaming logs in the CEF and Syslog format to Microsoft Sentinel](connect-cef-syslog-options.md).
  
 ## Prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
+
+Install the product solution from the **Content Hub** in Microsoft Sentinel. If the product isn't listed, install the solution for **Common Event Format**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
+> [!IMPORTANT]
+> Operating system versions may have different support dates and lifecycles. We recommend that you check the official documentation of each distribution for the most accurate and up-to-date support and end of life dates.
 
 Your machine must meet the following requirements:
 
@@ -40,16 +47,16 @@ Your machine must meet the following requirements:
     - Your Linux machine must have a minimum of **4 CPU cores and 8 GB RAM**.
 
         > [!NOTE]
-        > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+        > - A single log forwarder machine with the above hardware configuration and using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
 
 - **Operating system**
 
     - CentOS 7 and 8 (not 6), including minor versions (64-bit/32-bit)
-    - Amazon Linux 2017.09 and Amazon Linux 2 (64-bit only)
+    - Amazon Linux 2 (64-bit only)
     - Oracle Linux 7, 8 (64-bit/32-bit)
     - Red Hat Enterprise Linux (RHEL) Server 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Debian GNU/Linux 8 and 9 (64-bit/32-bit)
-    - Ubuntu Linux 14.04 LTS and 16.04 LTS (64-bit/32-bit), 18.04 LTS (64-bit only), and 20.04 LTS (64-bit only)
+    - Ubuntu Linux 20.04 LTS (64-bit only)
     - SUSE Linux Enterprise Server 12, 15 (64-bit only)
 
 - **Daemon versions**
@@ -58,7 +65,8 @@ Your machine must meet the following requirements:
     - Syslog-ng: 2.1 - 3.22.1
 
 - **Packages**
-    - You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
+    - You must have **Python 2.7** or **3** installed on the Linux machine.<br>Use the `python --version` or `python3 --version` command to check.
+    - You must have the [GNU Wget](https://www.gnu.org/software/wget/) package.
 
 - **Syslog RFC support**
   - Syslog RFC 3164
@@ -81,8 +89,9 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 
 ## Run the deployment script
  
-1. From the Microsoft Sentinel navigation menu, select **Data connectors**. Select the connector for your product from the connectors gallery (or the **Common Event Format (CEF)** if your product isn't listed), and then the **Open connector page** button on the lower right. 
-
+1. In Microsoft Sentinel, select **Data connectors**. 
+1. Select the connector for your product from the connectors gallery. If your product isn't listed, select **Common Event Format (CEF)**.
+1. In the details pane for the connector, select **Open connector page**.
 1. On the connector page, in the instructions under **1.2 Install the CEF collector on the Linux machine**, copy the link provided under **Run the following script to install and apply the CEF collector**.  
 If you don't have access to that page, copy the link from the text below (copying and pasting the **Workspace ID** and **Primary Key** from above in place of the placeholders):
 
@@ -214,7 +223,7 @@ Choose a syslog daemon to see the appropriate description.
         Contents of the `security-config-omsagent.conf` file:
 
         ```bash
-        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
+        filter f_oms_filter {match("CEF\|ASA" ) ;};destination oms_destination {tcp("127.0.0.1" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 

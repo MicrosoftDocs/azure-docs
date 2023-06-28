@@ -8,10 +8,10 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
-author: s-polly
-ms.author: scottpolly
+author: balapv
+ms.author: balapv
 ms.date: 03/31/2022
-ms.reviewer: nibaccam
+ms.reviewer: scottpolly
 ---
 
 # CLI (v2) YAML schemas
@@ -46,6 +46,13 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | - | - |
 | [Model](reference-yaml-model.md) | https://azuremlschemas.azureedge.net/latest/model.schema.json |
 
+## Schedule
+
+| Reference | URI |
+| - | - |
+| [CLI (v2) schedule YAML schema](reference-yaml-schedule.md) | https://azuremlschemas.azureedge.net/latest/schedule.schema.json |
+
+
 ## Compute
 
 | Reference | URI |
@@ -76,7 +83,8 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 
 | Reference | URI |
 | - | - |
-| [Online (real-time)](reference-yaml-endpoint-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json |
+| [Managed online (real-time)](reference-yaml-endpoint-online.md) | https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json |
+| [Kubernetes online (real-time)](reference-yaml-endpoint-online.md) | https://azuremlschemas.azureedge.net/latest/kubernetesOnlineEndpoint.schema.json |
 | [Batch](reference-yaml-endpoint-batch.md) | https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json |
 
 ## Deployment

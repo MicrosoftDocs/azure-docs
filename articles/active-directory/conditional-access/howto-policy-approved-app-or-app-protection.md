@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Require approved app or app protection policy - Azure Active Directory
+title: Conditional Access - Require approved app or app protection policy
 description: Create a custom Conditional Access policy require approved app or app protection policy
 
 services: active-directory
@@ -11,11 +11,11 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, davidspo, spunukol
+ms.reviewer: calebb, lhuangnorth, spunukol
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Require approved client apps or app protection policy
+# Common Conditional Access policy: Require approved client apps or app protection policy
 
 People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from applications on devices they may not manage fully. 
 
@@ -43,7 +43,7 @@ The following steps will help create a Conditional Access policy requiring an ap
 
 Organizations can choose to deploy this policy using the steps outlined below or using the [Conditional Access templates (Preview)](concept-conditional-access-policy-common.md#conditional-access-templates-preview). 
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -67,7 +67,7 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 This policy will block all Exchange ActiveSync clients using basic authentication from connecting to Exchange Online.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -94,4 +94,4 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Migrate approved client app to application protection policy in Conditional Access](migrate-approved-client-app.md)

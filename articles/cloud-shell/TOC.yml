@@ -1,58 +1,59 @@
-- name: Overview
-  href: overview.md
-- name: Quickstart
-  items:
-  - name: Bash - Quickstart
+items:
+  - name: Overview
+    href: overview.md
+  - name: Quickstart
     href: quickstart.md
-  - name: PowerShell - Quickstart
-    href: quickstart-powershell.md
-- name: Features & tools
-  href: features.md
-- name: Tutorials
-  items:
-  - name: Ansible
+  - name: Features & tools
+    href: features.md
+  - name: Tutorials
     items:
-    - name: Run Ansible playbook
-      href: /azure/developer/ansible/getting-started-cloud-shell?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
-    - name: Manage your Azure dynamic inventories
-      href: /azure/developer/ansible/dynamic-inventory-configure?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
-  - name: Terraform
+      - name: Ansible
+        items:
+          - name: Run Ansible playbook
+            href: /azure/developer/ansible/getting-started-cloud-shell?bc=%2Fazure%2Fbread%2Ftoc.json&toc=%2Fazure%2Fcloud-shell%2Ftoc.json&tabs=azure-powershell
+          - name: Manage your Azure dynamic inventories
+            href: /azure/developer/ansible/dynamic-inventory-configure?bc=%2Fazure%2Fbread%2Ftoc.json&toc=%2Fazure%2Fcloud-shell%2Ftoc.json&tabs=azure-powershell
+      - name: Terraform
+        items:
+          - name: Install and configure Terraform
+            href: /azure/developer/terraform/quickstart-configure?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
+  - name: Concepts
     items:
-    - name: Create an execution plan
-      href: example-terraform-bash.md
-- name: Concepts
-  items:
-  - name: Security
+      - name: Cloud Shell in an Azure virtual network
+        href: private-vnet.md
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
+  - name: How-to guides
     items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?toc=/azure/cloud-shell/TOC.json
-- name: How-to guides
-  items:
-  - name: PowerShell Cloud Shell for Windows users
-    href: cloud-shell-windows-users.md
-  - name: Persist files in storage
-    href: persisting-shell-storage.md
-  - name: Use the window
-    href: using-the-shell-window.md
-  - name: Use MSI in Cloud Shell
-    href: msi-authorization.md
-  - name: Embed Cloud Shell
-    href: embed-cloud-shell.md
-  - name: Cloud Shell in Azure Virtual Network
-    href: private-vnet.md
-- name: Use the Cloud Shell editor
-  href: using-cloud-shell-editor.md
-- name: Troubleshooting & limitations
-  href: troubleshooting.md
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/
-  - name: Azure PowerShell
-    href: /powershell/azure/
-- name: Resources
-  items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+      - name: Persist files in storage
+        href: persisting-shell-storage.md
+      - name: Use the window
+        href: using-the-shell-window.md
+      - name: Use MSI in Cloud Shell
+        href: msi-authorization.md
+      - name: Embed Cloud Shell
+        href: embed-cloud-shell.md
+      - name: Predictive IntelliSense in Cloud Shell
+        href: cloud-shell-predictive-intellisense.md
+      - name: Use the Cloud Shell editor
+        href: using-cloud-shell-editor.md
+      - name: Deploy Azure Cloud Shell in a VNET with quickstart templates
+        href: quickstart-deploy-vnet.md
+      - name: Troubleshooting
+        href: troubleshooting.md
+      - name: Limitations
+        href: limitations.md
+  - name: Pricing
+    href: pricing.md
+  - name: Reference
+    items:
+      - name: Azure CLI
+        href: /cli/azure/
+      - name: Azure PowerShell
+        href: /powershell/azure/
+  - name: Resources
+    items:
+      - name: Azure Roadmap
+        href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+      - name: Pricing calculator
+        href: https://azure.microsoft.com/pricing/calculator/

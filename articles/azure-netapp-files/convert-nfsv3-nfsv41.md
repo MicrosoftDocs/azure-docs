@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 11/08/2022
 ms.author: anfdocs
 ---
 # Convert an NFS volume between NFSv3 and NFSv4.1
@@ -39,6 +39,8 @@ Converting a volume between NFSv3 and NFSv4.1 does not require that you create a
 * You cannot convert a single-protocol NFS volume to a dual-protocol volume, or the other way around. 
 * You cannot convert a destination volume in a cross-region replication relationship. 
 * Converting an NFSv4.1 volume to NFSv3 will cause all advanced NFSv4.1 features such as ACLs and file locking to become unavailable. 
+* Converting a volume from NFSv3 to NFSv4.1 will cause the `.snapshot` directory to be hidden from NFSv4.1 clients. The directory will still be accessible.
+* Converting a volume from NFSv4.1 to NFSv3 will cause the `.snapshot` directory to be visible. You can modify the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).
 
 ## Register the option 
 
@@ -141,3 +143,4 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configure access control lists on NFSv4.1 with Azure NetApp Files](configure-access-control-lists.md)

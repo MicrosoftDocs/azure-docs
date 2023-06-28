@@ -2,7 +2,9 @@
 title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
 ms.topic: article
-ms.date: 05/07/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Automatically purge images from an Azure container registry
@@ -27,14 +29,18 @@ The `acr purge` container command deletes images by tag in a repository that mat
 
 `acr purge` is designed to run as a container command in an [ACR Task](container-registry-tasks-overview.md), so that it authenticates automatically with the registry where the task runs and performs actions there. The task examples in this article use the `acr purge` command [alias](container-registry-tasks-reference-yaml.md#aliases) in place of a fully qualified container image command.
 
+> [!IMPORTANT]
+- The standard command to execute the `acr purge` is `az acr run --registry <YOUR_REGISTRY> --cmd 'acr purge --optional parameter' /dev/null`.
+- We recommend running the complete `acr purge` command to use the ACR Purge. For example, run the `acr purge --help` as `az acr run --registry <YOUR_REGISTRY> --cmd 'acr purge --help' /dev/null`.
+
 At a minimum, specify the following when you run `acr purge`:
 
 * `--filter` - A repository name *regular expression* and a tag name *regular expression* to filter images in the registry. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, `--filter "hello-world:^1.*"` matches tags beginning with `1` in the `hello-world` repository, and `--filter ".*/cache:.*"` matches all tags in the repositories ending in `/cache`. You can also pass multiple `--filter` parameters.
-* `--ago` - A Go-style [duration string](https://go.dev/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than 2 days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
+* `--ago` - A Go-style [duration string](https://go.dev/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than two days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
 
 `acr purge` supports several optional parameters. The following two are used in examples in this article:
 
-* `--untagged` - Specifies that all manifests that don't have associated tags (*untagged manifests*) are deleted.
+* `--untagged` - Specifies that all manifests that don't have associated tags (*untagged manifests*) are deleted. This parameter also deletes untagged manifests in addition to tags that are already being deleted.
 * `--dry-run` - Specifies that no data is deleted, but the output is the same as if the command is run without this flag. This parameter is useful for testing a purge command to make sure it does not inadvertently delete data you intend to preserve.
 * `--keep` - Specifies that the latest x number of to-be-deleted tags are retained.
 * `--concurrency` - Specifies a number of purge tasks to process concurrently. A default value is used if this parameter is not provided.
@@ -173,6 +179,6 @@ For more information about image storage, see [Container image storage in Azure 
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
 [az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show

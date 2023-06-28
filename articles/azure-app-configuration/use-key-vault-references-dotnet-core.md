@@ -3,7 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in an ASP
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from an ASP.NET Core app
 services: azure-app-configuration
 documentationcenter: ''
-author: maud-lv
+author: mcleanbyron
 editor: ''
 
 ms.assetid: 
@@ -12,9 +12,8 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: malev
-ms.custom: "devx-track-csharp, mvc"
-
+ms.author: mcleans
+ms.custom: devx-track-csharp, mvc, devx-track-dotnet
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
 ---
 # Tutorial: Use Key Vault references in an ASP.NET Core app
@@ -176,6 +175,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     To see this process in action, open *Index.cshtml* in the **Views** > **Home** folder. Replace its contents with the following code:
 
     ```html
+    @page
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 

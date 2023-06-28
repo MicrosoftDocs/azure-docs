@@ -53,8 +53,11 @@ conceptualContent:
           text: Custom Named Entity Recognition (custom NER)
           url:  custom-named-entity-recognition/overview.md
         - itemType: overview
-          text: Text Analytics for health
+          text: Text analytics for health
           url:  text-analytics-for-health/overview.md
+        - itemType: overview
+          text: Custom text analytics for health
+          url:  custom-text-analytics-for-health/overview.md
     - title: Summarize text-based content
       summary: Summarize lengthy documents and conversation transcripts.
       links:
@@ -106,7 +109,7 @@ additionalContent:
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
         - text: Learn
-          url: /learn/browse/?products=azure-cognitive-services&term=Speech
+          url: /training/browse/?products=azure-cognitive-services&term=Speech
       - title: Support
         links:
         - text: Support and help

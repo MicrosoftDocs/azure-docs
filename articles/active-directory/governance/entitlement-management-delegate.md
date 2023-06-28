@@ -1,5 +1,5 @@
 ---
-title: Delegation and roles in entitlement management - Azure AD
+title: Delegation and roles in entitlement management
 description: Learn how to delegate access governance from IT administrators to department managers and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 7/6/2021
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -21,9 +21,17 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Delegation and roles in Azure AD entitlement management
+# Delegation and roles in entitlement management
 
-By default, Global administrators and Identity governance administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it's users within the respective departments, teams, or projects who know who they're collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to do their job and avoid creating conflicting or inappropriate access rights.
+In Azure AD, you can use role models to manage access at scale through identity governance.
+
+ * You can use access packages to represent [organizational roles](identity-governance-organizational-roles.md) in your organization, such as "sales representative". An access package representing that organizational role would include all the access rights that a sales representative might typically need, across multiple resources.
+ * Applications [can define their own roles](../develop/howto-add-app-roles-in-azure-ad-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
+ * You can use roles for delegating administrative access.  If you have a catalog for all the access packages needed by sales, you could assign someone to be responsible for that catalog, by assigning them a catalog-specific role.
+
+This article discusses how to use roles to manage aspects within Microsoft Entra entitlement management, for controlling access to the entitlement management resources.
+
+By default, Global administrators and Identity governance administrators can create and manage all aspects of entitlement management. However, the users in these roles may not know all the situations where access packages are required. Typically it's users within the respective departments, teams, or projects who know who they're collaborating with, using what resources, and for how long. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to do their job and avoid creating conflicting or inappropriate access rights.
 
 This video provides an overview of how to delegate access governance from IT administrator to users who aren't administrators.
 
@@ -35,11 +43,11 @@ To understand how you might delegate access governance in entitlement management
 
 ![Delegate from IT administrator to managers](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-As the IT administrator, Hana has contacts in each department-- Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
+As the IT administrator, Hana has contacts in each department--Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
 
 With entitlement management, you can delegate access governance to these non-administrators because they're the ones who know which users need access, for how long, and to which resources. Delegating to non-administrators ensures the right people are managing access for their departments.
 
-Here is one way that Hana could delegate access governance to the marketing, finance, and legal departments.
+Here's one way that Hana could delegate access governance to the marketing, finance, and legal departments.
 
 1. Hana creates a new Azure AD security group, and adds Mamta, Mark, and Joe as members of the group.
 
@@ -49,9 +57,9 @@ Here is one way that Hana could delegate access governance to the marketing, fin
 
 1. Mamta creates a **Marketing** catalog, which is a container of resources.
 
-1. Mamta adds the resources that her marketing department owns to this catalog.
+1. Mamta adds the resources that the marketing department owns to this catalog.
 
-1. Mamta can add other people from her department as catalog owners for this catalog, which helps share the catalog management responsibilities.
+1. Mamta can add other people from that department as catalog owners for this catalog, which helps share the catalog management responsibilities.
 
 1. Mamta can further delegate the creation and management of access packages in the Marketing catalog to project managers in the Marketing department. She can do this by assigning them to the access package manager role. An access package manager can create and manage access packages. 
 
@@ -61,7 +69,7 @@ The following diagram shows catalogs with resources for the marketing, finance, 
 
 After delegation, the marketing department might have roles similar to the following table.
 
-| User | Job role | Azure AD role | Entitlement management role |
+| User | Organizational role | Azure AD role | Entitlement management role |
 | --- | --- | --- | --- |
 | Hana | IT administrator | Global administrator or Identity Governance administrator  |  |
 | Mamta | Marketing manager | User | Catalog creator and Catalog owner |
@@ -70,13 +78,13 @@ After delegation, the marketing department might have roles similar to the follo
 
 ## Entitlement management roles
 
-Entitlement management has the following roles that apply across all catalogs.
+Entitlement management has the following roles, with permissions for administering entitlement management itself, that applies across all catalogs.
 
 | Entitlement management role | Role definition ID | Description |
 | --- | --- | -- |
 | Catalog creator | `ba92d953-d8e0-4e39-a797-0cbedb0a89e8` | Create and manage catalogs. Typically an IT administrator who isn't a Global administrator, or a resource owner for a collection of resources. The person that creates a catalog automatically becomes the catalog's first catalog owner, and can add more catalog owners. A catalog creator can’t manage or see catalogs that they don’t own and can’t add resources they don’t own to a catalog. If the catalog creator needs to manage another catalog or add resources they don’t own, they can request to be a co-owner of that catalog or resource. |
 
-Entitlement management has the following roles that are defined for each particular catalog.  An administrator or a catalog owner can add users, groups of users, or service principals to these roles.
+Entitlement management has the following roles that are defined for each particular catalog, for administering access packages and other configuration within a catalog.  An administrator or a catalog owner can add users, groups of users, or service principals to these roles.
 
 | Entitlement management role | Role definition ID | Description |
 | --- | --- | -- |
@@ -92,7 +100,7 @@ Also, the chosen approver and a requestor of an access package have rights, alth
 | Approver | Authorized by a policy to approve or deny requests to access packages, though they can't change the access package definitions. |
 | Requestor | Authorized by a policy of an access package to request that access package. |
 
-The following table lists the tasks that the entitlement management roles can do.
+The following table lists the tasks that the entitlement management roles can do within entitlement management.
 
 | Task | Admin | Catalog creator | Catalog owner | Access package manager | Access package assignment manager |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -125,7 +133,7 @@ A Global administrator can add or remove any group (cloud-created security group
 > [!NOTE]
 > Users that have been assigned the User administrator role will no longer be able to create catalogs or manage access packages in a catalog they do not own. If users in your organization have been assigned the User administrator role to configure catalogs, access packages, or policies in entitlement management, you should instead assign these users the **Identity Governance administrator** role.
 
-For a user who isn't a global administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* an Azure AD directory role or ownership of the resource, and a and catalog owner entitlement management role for the catalog. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
+For a user who isn't a global administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* an Azure AD directory role or ownership of the resource, and a catalog owner entitlement management role for the catalog. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
 
 | Azure AD directory role | Entitlement management role | Can add security group | Can add Microsoft 365 Group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -141,17 +149,17 @@ For a user who isn't a global administrator, to add groups, applications, or Sha
 
 To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
-## Manage role assignments programmatically (preview)
+## Manage role assignments to entitlement management roles programmatically (preview)
 
 You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments) to those role definitions.
 
-For example, to view the entitlement management-specific roles which a particular user or group has been assigned, use the Graph query to list role assignments, and provide the user or group's ID as the value of the `principalId` query filter, as in
+For example, to view the entitlement management-specific roles that a particular user or group has been assigned, use the Graph query to list role assignments, and provide the user or group's ID as the value of the `principalId` query filter, as in
 
 ```http
 GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAssignments?$filter=principalId eq '10850a21-5283-41a6-9df3-3d90051dd111'&$expand=roleDefinition&$select=id,appScopeId,roleDefinition
 ```
 
-For a role that is specific to a catalog, the `appScopeId` in the response indicates the catalog in which the user is assigned a role.  Note that this response only retrieves explicit assignments of that principal to role in entitlement management, it does not return results for a user who has access rights via a directory role, or through membership in a group assigned to a role.
+For a role that is specific to a catalog, the `appScopeId` in the response indicates the catalog in which the user is assigned a role.  This response only retrieves explicit assignments of that principal to role in entitlement management, it doesn't return results for a user who has access rights via a directory role, or through membership in a group assigned to a role.
 
 
 ## Next steps

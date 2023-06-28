@@ -2,6 +2,7 @@
 title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.author: sidandrews
@@ -9,12 +10,12 @@ author: seesharprun
 ---
 
 # Use client-side encryption with Always Encrypted for Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 > [!IMPORTANT]
 > A breaking change has been introduced with the 1.0 release of our encryption packages. If you created data encryption keys and encryption-enabled containers with prior versions, you will need to re-create your databases and containers after migrating your client code to 1.0 packages.
 
-Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
+Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national/regional identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
 
 Always Encrypted brings client-side encryption capabilities to Azure Cosmos DB. Encrypting your data client-side can be required in the following scenarios:
 
@@ -53,11 +54,6 @@ For each property that you want to encrypt, the encryption policy defines:
 - An encryption type. It can be either randomized or deterministic.
 - The encryption algorithm to use when encrypting the property. The specified algorithm can override the algorithm defined when creating the key if they are compatible.
 
-> [!NOTE]
-> The following properties can't be encrypted:
-> - ID
-> - The container's partition key
-
 #### Randomized vs. deterministic encryption
 
 The Azure Cosmos DB service never sees the plain text of properties encrypted with Always Encrypted. However, it still supports some querying capabilities over the encrypted data, depending on the encryption type used for a property. Always Encrypted supports the following two types of encryptions:
@@ -89,7 +85,7 @@ To make sure you don't lose access to your encrypted data after accidental delet
 
 If you create a new Azure Key Vault instance, enable these properties during creation:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Enable soft delete and purge protection for a new Azure Key Vault instance":::
+:::image type="content" source="./media/how-to-always-encrypted/key-vault-properties.png" alt-text="Screenshot of the soft delete and purge protection properties for a new Azure Key Vault instance.":::
 
 If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 

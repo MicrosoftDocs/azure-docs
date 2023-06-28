@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure MURAL Identity for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure MURAL Identity for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to MURAL Identity.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 0b932dbd-b5c9-40e3-baeb-a7c7424e1bfd
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -22,7 +22,10 @@ This tutorial describes the steps you need to perform in both MURAL Identity and
 ## Capabilities Supported
 > [!div class="checklist"]
 > * Create users in MURAL Identity
+> * Remove users in MURAL Identity when they do not require access anymore.
 > * Keep user attributes synchronized between Azure AD and MURAL Identity
+> * Provision groups and group memberships in MURAL Identity.
+> * [Single sign-on](mural-identity-tutorial.md) to MURAL Identity (recommended).
 
 ## Prerequisites
 
@@ -35,8 +38,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and MURAL Identity](../app-provisioning/customize-application-attributes.md). 
+1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1.  Determine what data to [map between Azure AD and MURAL Identity](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure MURAL Identity to support provisioning with Azure AD
 
@@ -65,42 +68,50 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **MURAL Identity**.
+1. In the applications list, select **MURAL Identity**.
 
 	![The MURAL Identity link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Provisioning tab](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Provisioning](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your MURAL Identity Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to MURAL Identity. If the connection fails, ensure your MURAL Identity account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your MURAL Identity Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to MURAL Identity. If the connection fails, ensure your MURAL Identity account has Admin permissions and try again.
 
  	![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to MURAL Identity**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to MURAL Identity**.
 
-9. Review the user attributes that are synchronized from Azure AD to MURAL Identity in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in MURAL Identity for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the MURAL Identity API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to MURAL Identity in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in MURAL Identity for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the MURAL Identity API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|
-   |---|---|---|
-   |userName|String|&check;
-   |active|Boolean|
-    |emails[type eq "work"].value|String|
-    |name.givenName|String|
-    |name.familyName|String|
-    |externalId|String|
+   |Attribute|Type|Supported for filtering|Required by MURAL Identity
+   |---|---|---|---
+   |userName|String|&check;|&check;
+   |emails[type eq "work"].value|String||&check;
+   |active|Boolean||
+   |name.givenName|String||
+   |name.familyName|String||
+   |externalId|String||
 
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to MURAL Identity**.
 
+1. Review the group attributes that are synchronized from Azure AD to MURAL Identity in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in MURAL Identity for update operations. Select the **Save** button to commit any changes.
+
+   |Attribute|Type|Supported for filtering|Required by MURAL Identity|
+   |---|---|---|---|
+   |displayName|String|&check;|&check;
+   |members|Reference||
+   |externalId|String||
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. To enable the Azure AD provisioning service for MURAL Identity, change the **Provisioning Status** to **On** in the **Settings** section.
@@ -120,15 +131,18 @@ This operation starts the initial synchronization cycle of all users and groups 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Troubleshooting Tips
 * When provisioning a user keep in mind that at MURAL we do not support numbers in the name fields (i.e. givenName or familyName).
 * When filtering on **userName** in the GET endpoint make sure that the email address is all lowercase otherwise you will get an empty result. This is because we convert email addresses to lowercase while provisioning accounts.
 * When de-provisioning an end-user (setting the active attribute to false), user will be soft-deleted and lose access to all their workspaces. When that same de-provisioned end-user is later activated again (setting the active attribute to true), user will not have access to the workspaces user previously belonged to. The end-user will see an error message "You’ve been deactivated from this workspace",  with an option to request reactivation which the workspace admin must approve.
-* If you have any other issues, please reach out to [MURAL Identity support team](mailto:support@mural.co)
+* If you have any other issues, please reach out to [MURAL Identity support team](mailto:support@mural.co).
+
+## Change log
+06/22/2023 - Added support for **Group Provisioning**.
 
 ## More resources
 

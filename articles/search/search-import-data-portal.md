@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 10/21/2022
 ---
 # Import data wizard in Azure Cognitive Search
 
@@ -76,6 +76,8 @@ The wizard is organized into four main steps:
 
 1. Run the wizard to create objects, load data, set a schedule and other configuration options.
 
+The workflow is a pipeline, so it's one way. You can't use the wizard to edit any of the objects that were created, but you can use other portal tools, such as the index or indexer designer or the JSON editors, for allowed updates.
+
 <a name="data-source-inputs"></a>
 
 ### Data source configuration in the wizard
@@ -106,7 +108,7 @@ The wizard samples your data source to detect the fields and field type. Dependi
 
 Because sampling is an imprecise exercise, review the index for the following considerations:
 
-1. Is the field list accurate? If your data source contains fields that were not picked up in sampling, you can manually add any new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
+1. Is the field list accurate? If your data source contains fields that weren't picked up in sampling, you can manually add any new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
 1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there's [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
@@ -114,7 +116,7 @@ Because sampling is an imprecise exercise, review the index for the following co
 
 1. Set attributes to determine how that field is used in an index. 
 
-   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you will almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#index-size). Enabling filters and using suggesters increase storage requirements. 
+   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you'll almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#index-size). Enabling filters and using suggesters increase storage requirements. 
 
    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 

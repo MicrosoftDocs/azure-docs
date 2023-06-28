@@ -4,7 +4,7 @@ description: Use the Azure Toolkit for IntelliJ to develop Spark applications wr
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/28/2022
+ms.date: 05/23/2023
 ---
 
 # Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster
@@ -469,6 +469,21 @@ If you're not going to continue to use this application, delete the cluster that
 1. Select **Delete**. Select **Yes**.
 
 :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes HDInsight cluster" border="true":::
+
+## Errors and solution
+
+Unmark the src folder as **Sources** if you get build failed errors as below:
+
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/build-failed.png" alt-text="Screenshot showing the build failed." border="true":::
+
+Unmark the src folder as **Sources** to solution this issue:
+
+1. Navigate to **File** and select the **Project Structure**.
+2. Select the **Modules** under the Project Settings.
+3. Select the **src** file and unmark as **Sources**.
+4. Click on Apply button and then click on OK button to close the dialog.
+
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/unmark-src-as-sources.png" alt-text="Screenshot showing the unmark the src as sources." border="true":::
 
 ## Next steps
 

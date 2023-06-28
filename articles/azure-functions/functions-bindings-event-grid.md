@@ -4,7 +4,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 
 ms.topic: reference
 ms.date: 03/04/2022
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -33,7 +33,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -71,7 +71,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated process. 
+Functions version 1.x doesn't support the isolated worker process. 
 
 The Event Grid output binding is only available for Functions 2.x and higher.
 
@@ -125,6 +125,7 @@ The Event Grid output binding is only available for Functions 2.x and higher. Ev
 
 ## Next steps
 
+* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-sdk-for-net/issues)
 * [Event Grid trigger][trigger]
 * [Event Grid output binding][binding]
 * [Run a function when an Event Grid event is dispatched](./functions-bindings-event-grid-trigger.md)
@@ -135,4 +136,3 @@ The Event Grid output binding is only available for Functions 2.x and higher. Ev
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
 [Update your extensions]: ./functions-bindings-register.md
-

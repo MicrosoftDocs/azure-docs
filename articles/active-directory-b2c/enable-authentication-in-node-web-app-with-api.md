@@ -8,6 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 02/09/2022
 ms.author: kengaderdus
@@ -94,7 +95,7 @@ Add configurations to a configuration file. The file contains information about 
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-| credentials | tenantName | The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `fabrikamb2c`).|
+| credentials | tenantName | The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `fabrikamb2c`).|
 | credentials |clientID | The web API application ID. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
 | policies | policyName | The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).|
 | resource | scope | The scopes of your web API application registration such as `[tasks.read]`. To learn how to get your web API scope, see [Prerequisites](#prerequisites).|

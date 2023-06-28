@@ -1,22 +1,21 @@
 ---
-title: Azure RBAC permissions required to use capabilities
-titleSuffix: Azure Network Watcher
-description: Learn which Azure role-based access control permissions are required to work with Network Watcher capabilities.
+title: Azure RBAC permissions required to use Azure Network Watcher capabilities
+description: Learn which Azure role-based access control (Azure RBAC) permissions are required to use Azure Network Watcher capabilities.
 services: network-watcher
-documentationcenter: ''
-author: damendo
+author: halkazwini
 ms.service: network-watcher
-ms.workload:
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/07/2021
-ms.author: damendo
-
+ms.topic: conceptual
+ms.date: 04/03/2023
+ms.author: halkazwini
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Azure role-based access control permissions required to use Network Watcher capabilities
 
-Azure role-based access control (Azure RBAC) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities. To use Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) that is assigned the actions listed for each Network Watcher capability in the sections that follow. To learn more about Network Watcher's capabilities, see [What is Network Watcher?](network-watcher-monitoring-overview.md).
+Azure role-based access control (Azure RBAC) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities. To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) that is assigned the actions listed for each Network Watcher capability in the sections that follow. To learn more about Network Watcher's capabilities, see [What is Network Watcher?](network-watcher-monitoring-overview.md)
+
+> [!IMPORTANT]
+> [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) does not cover Microsoft.Storage/* or Microsoft.Compute/* actions listed in [Additional actions](#additional-actions) section.
 
 ## Network Watcher
 
@@ -54,13 +53,14 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 
 ## Packet capture
 
-| Action                                                              | Description                                                           |
-| ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture                           |
-| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture                                          |
-| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture                                           |
-| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture                                        |
-| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture                                        |
+Action | Description
+---    | ---        
+Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture.                     
+Microsoft.Network/networkWatchers/packetCaptures/stop/action | Stop a packet capture.                                          
+Microsoft.Network/networkWatchers/packetCaptures/read | Get a packet capture.                                           
+Microsoft.Network/networkWatchers/packetCaptures/write | Create a packet capture.                                        
+Microsoft.Network/networkWatchers/packetCaptures/delete | Delete a packet capture.
+Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read | View the status of a packet capture.
 
 ## IP flow verify
 
@@ -105,8 +105,8 @@ Network Watcher capabilities also require the following actions:
 | Microsoft.Storage/storageAccounts/Read                              | Used to get the properties for the specified storage account   |
 | Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md) and write to the storage account |
 | Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Used to log in to the VM, do a packet capture and upload it to storage account|
-| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Used to check if Network Watcher extension is present, and install if required |
+| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Used to check if Network Watcher extension is present, and install if necessary |
 | Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Used to access virtual machine scale sets, do packet captures and upload them to storage account|
-| Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Used to check if Network Watcher extension is present, and install if required |
+| Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Used to check if Network Watcher extension is present, and install if necessary |
 | Microsoft.Insights/alertRules/*                                     | Used to set up metric alerts                                     |
 | Microsoft.Support/*                                                 | Used to create and update support tickets from Network Watcher |

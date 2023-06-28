@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure role assignment conditions (preview)
-description: Troubleshoot Azure role assignment conditions (preview)
+title: Troubleshoot Azure role assignment conditions - Azure ABAC
+description: Troubleshoot Azure role assignment conditions
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,18 +8,12 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/16/2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 01/07/2023
 ms.author: rolyon
-
-#Customer intent: 
 ---
 
-# Troubleshoot Azure role assignment conditions (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Troubleshoot Azure role assignment conditions
 
 ## General issues
 
@@ -43,7 +37,7 @@ If your role assignment has multiple actions that grant a permission, ensure tha
 
 **Cause 3**
 
-When you add a condition to a role assignment, it can take up to 5 minutes for the condition to be enforced. When you add a condition, resource providers (such as Microsoft.Storage) are notified of the update. Resource providers make updates to their local caches immediately to ensure that they have the latest role assignments. This process completes in 1 or 2 minutes, but can take up to 5 minutes.
+When you add a condition to a role assignment, it can take up to 5 minutes for the condition to be enforced. When you add a condition, resource providers (such as Microsoft Storage) are notified of the update. Resource providers make updates to their local caches immediately to ensure that they have the latest role assignments. This process completes in 1 or 2 minutes, but can take up to 5 minutes.
 
 **Solution 3**
 
@@ -82,19 +76,36 @@ To use principal (user) attributes, you must have all of the following: Azure AD
 You don't meet the prerequisites. To use principal attributes, you must have **all** of the following:
 
 - Azure AD Premium P1 or P2 license
-- Azure AD permissions for signed-in user, such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role
+- Azure AD permissions for the signed-in user to read at least one attribute set
 - Custom security attributes defined in Azure AD
-
-> [!IMPORTANT]
-> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
 **Solution**
 
-1. Open **Azure Active Directory** > **Overview** and check the license for your tenant.
+1. Open **Azure Active Directory** > **Custom security attributes**.
 
-1. Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check if the Attribute Assignment Administrator role is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md).
+    If the **Custom security attributes** page is disabled, you don't have an Azure AD Premium P1 or P2 license. Open **Azure Active Directory** > **Overview** and check the license for your tenant.
 
-1. Open **Azure Active Directory** > **Custom security attributes** to see if custom security attributes have been defined and which ones you have access to. If you don't see any custom security attributes, ask your Azure AD administrator to add an attribute set that you can manage. For more information, see [Manage access to custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-manage.md) and [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+    ![Screenshot that shows Custom security attributes page disabled in Azure portal.](./media/conditions-troubleshoot/attributes-disabled.png)
+
+    If you see the **Get started** page, you don't have permissions to read at least one attribute set or custom security attributes haven't been defined yet.
+
+    ![Screenshot that shows Custom security attributes Get started page.](./media/conditions-troubleshoot/attributes-get-started.png)
+
+1. If custom security attributes have been defined, assign one of the following roles at tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-manage.md).
+
+    - [Attribute Definition Reader](../active-directory/roles/permissions-reference.md#attribute-definition-reader)
+    - [Attribute Assignment Reader](../active-directory/roles/permissions-reference.md#attribute-assignment-reader)
+    - [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator)
+    - [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
+    
+    > [!IMPORTANT]
+    > By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
+
+1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+
+    When finished, you should be able to read at least one attribute set. **Principal** should now appear in the **Attribute source** list when you add a role assignment with a condition.
+
+    ![Screenshot that shows the attribute sets the user can read.](./media/conditions-troubleshoot/attribute-sets-read.png)
 
 ### Symptom - Principal does not appear in Attribute source when using PIM 
 
@@ -156,11 +167,11 @@ The previously selected attribute no longer applies to the currently selected ac
 
 **Solution 1**
 
-In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+In the **Add action** section, select an action that applies to the selected attribute. For a list of storage actions that each storage attribute supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
 
 **Solution 2**
 
-In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+In the **Build expression** section, select an attribute that applies to the currently selected actions. For a list of storage attributes that each storage action supports, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
 
 ### Symptom - Attribute does not apply in this context warning
 
@@ -303,6 +314,6 @@ Disable history expansion with the command `set +H`. To re-enable history expans
 
 ## Next steps
 
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [FAQ for Azure role assignment conditions](conditions-faq.md)
 - [Troubleshoot custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)

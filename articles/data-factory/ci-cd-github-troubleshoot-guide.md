@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/26/2022
+ms.date: 09/19/2022
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -69,7 +69,7 @@ CI/CD release pipeline failing with the following error:
 2020-07-06T09:50:50.8771655Z ##[error]Details:
 2020-07-06T09:50:50.8772837Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
-2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
+2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://learn.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
 ```
 
@@ -352,7 +352,8 @@ If you are using old default parameterization template, new way to include globa
 Default parameterization template should include all values from global parameter list.
 
 #### Resolution
-Use updated  [default parameterization template.](/azure/data-factory/continuous-integration-delivery-resource-manager-custom-parameters#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you are already overriding the template parameters there.
+* Use updated  [default parameterization template.](./continuous-integration-delivery-resource-manager-custom-parameters.md#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you are already overriding the template parameters there.
+* Update the template parameter names in CI/CD pipeline if you are already overriding the template parameters (for global parameters).
  
 ### Error code: InvalidTemplate
 	
@@ -370,7 +371,7 @@ Dynamic content is not written as per expression language requirements.
 
 For more help with troubleshooting, try the following resources:
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

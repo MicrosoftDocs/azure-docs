@@ -1,6 +1,6 @@
 ---
-title: Hide or delete access package in entitlement management - Azure AD
-description: Learn how to hide or delete an access package in Azure Active Directory entitlement management.
+title: Hide or delete access package in entitlement management
+description: Learn how to hide or delete an access package in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Hide or delete an access package in Azure AD entitlement management
+# Hide or delete an access package in entitlement management
 
 When you create access packages, they're discoverable by default. This means that if a policy allows a user to request the access package, they'll automatically see the access package listed in their My Access portal. However, you can change the **Hidden** setting so that the access package isn't listed in the user's My Access portal.
 

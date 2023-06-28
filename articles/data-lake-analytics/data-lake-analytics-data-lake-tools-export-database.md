@@ -1,13 +1,15 @@
 ---
 title: Export U-SQL database- Azure Data Lake Tools for Visual Studio
 description: Learn how to use Azure Data Lake Tools for Visual Studio to export a U-SQL database and automatically import it to a local account.
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 11/27/2017
+ms.date: 01/27/2023
 ---
 
 # Export a U-SQL database
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 In this article, learn how to use [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) to export a U-SQL database as a single U-SQL script and downloaded resources. You can import the exported database to a local account in the same process.
 
@@ -38,7 +40,7 @@ The export action is completed by running a U-SQL job. Therefore, exporting from
 
 ### Step 3: Check the objects list and other configurations
 
-In this step, you can verify the selected objects in the **Export object list** box. If there are any errors, select **Previous** to go back and correctly configure the objects that you want to export.
+In this step, you can verify the selected objects in the **Export object list** box. If there are any errors, select **Previous** to go back, and correctly configure the objects that you want to export.
 
 You can also configure other settings for the export target. Configuration descriptions are listed in the following table:
 

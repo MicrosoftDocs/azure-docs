@@ -19,7 +19,18 @@ WAF prevents malicious attacks close to the attack sources, before they enter yo
 
 ![Azure web application firewall](../media/overview/wafoverview.png)
 
+[!INCLUDE [ddos-waf-recommendation](../../../includes/ddos-waf-recommendation.md)]
+
 Azure Front Door has [two tiers](../../frontdoor/standard-premium/overview.md): Front Door Standard and Front Door Premium. WAF is natively integrated with Front Door Premium with full capabilities. For Front Door Standard, only [custom rules](#custom-authored-rules) are supported.
+
+## Protection
+
+* Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
+
+* Protect your web applications from malicious bots with the IP Reputation ruleset.
+
+* Protect your application against DDoS attacks. For more information, see [Application DDoS Protection](../shared/application-ddos-protection.md).
+
 
 ## WAF policy and rules
 
@@ -51,6 +62,7 @@ WAF customers can choose to run from one of the actions when a request matches a
 - **Block:** The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
 - **Log:**  Request is logged in the WAF logs and WAF continues evaluating lower priority rules.
 - **Redirect:** WAF redirects the request to the specified URI. The URI specified is a policy level setting. Once configured, all requests that match the **Redirect** action will be sent to that URI.
+- **Anomaly score:** This is the default action for Default Rule Set (DRS) 2.0 or later and is not applicable for the Bot Manager ruleset. The total anomaly score is increased incrementally when a rule with this action is matched.
 
 ## WAF rules
 
@@ -116,4 +128,6 @@ Monitoring for WAF at Front Door is integrated with Azure Monitor to track alert
 
 ## Next steps
 
-- Learn about [Web Application Firewall on Azure Application Gateway](../ag/ag-overview.md)
+- [Learn about Web Application Firewall on Azure Application Gateway](../ag/ag-overview.md)
+- [Learn more about Azure network security](../../networking/security/index.yml)
+

@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/28/2022
+ms.date: 10/21/2022
 ms.author: mbaldwin
 
 ---
@@ -23,7 +23,10 @@ Microsoft uses TLS certificates from the set of Root Certificate Authorities (CA
 All Azure services are impacted by this change. Details for some services are listed below:
 
 - [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
-- [Azure IoT Hub](../../iot-hub/iot-hub-tls-support.md) and [DPS](../../iot-dps/tls-support.md) remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. Explore other details provided in [this Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+- For the most up-to-date information about the TLS certificate changes for Azure IoT services, refer to [this Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+  - [Azure IoT Hub](../../iot-hub/iot-hub-tls-support.md) began this transition in February 2023 with an expected completion in October 2023.
+  - [Azure IoT Central](../../iot-central/index.yml) will begin this transition in July 2023.
+  - [Azure IoT Hub Device Provisioning Service](../../iot-dps/tls-support.md) will begin this transition in January 2024.
 - [Azure Cosmos DB](/security/benchmark/azure/baselines/cosmos-db-security-baseline) began this transition in July 2022 with an expected completion in October 2022.
 - Details on [Azure Storage](../../storage/common/transport-layer-security-configure-minimum-version.md) TLS certificate changes can be found in [this Azure Storage blog post](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-overview.md) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](../../azure-cache-for-redis/cache-whats-new.md)
@@ -65,17 +68,14 @@ Here are some ways to detect if your application was impacted:
     - **Android**: Check the documentation for your device and version of Android.
     - **Other hardware devices, especially IoT**: Contact the device manufacturer.
 
-- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations, you'll need to allow the following CRL and OCSP URLs:
+- If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations, you'll need to allow the following CRL and OCSP URLs. For a complete list of CRL and OCSP URLs used in Azure, see the [Azure CA details article](azure-CA-details.md#certificate-downloads-and-revocation-lists).
 
     - http://crl3&#46;digicert&#46;com
     - http://crl4&#46;digicert&#46;com
     - http://ocsp&#46;digicert&#46;com
-    - http://www&#46;d-trust&#46;net
-    - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp&#46;msocsp&#46;com
-    - http://www&#46;microsoft&#46;com/pkiops
 
 ## Next steps
 

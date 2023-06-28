@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with AlertOps | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with AlertOps'
 description: Learn how to configure single sign-on between Azure Active Directory and AlertOps.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 02/07/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Integrate AlertOps with Azure Active Directory
+# Tutorial: Azure AD SSO integration with AlertOps
 
 In this tutorial, you'll learn how to integrate AlertOps with Azure Active Directory (Azure AD). When you integrate AlertOps with Azure AD, you can:
 
@@ -45,6 +45,8 @@ To configure the integration of AlertOps into Azure AD, you need to add AlertOps
 1. In the **Add from the gallery** section, type **AlertOps** in the search box.
 1. Select **AlertOps** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for AlertOps
 
 Configure and test Azure AD SSO with AlertOps using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in AlertOps.
@@ -71,18 +73,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     1. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.alertops.com`
+    `https://app.alertops.com/<SUBDOMAIN>`
 
     1. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.alertops.com/login.aspx`
+    `https://api.alertops.com/api/v2/saml/<SUBDOMAIN>`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.alertops.com/login.aspx`
+    1. In the **Logout Url (Optional)** text box, type a URL using the following pattern:
+    `https://app.alertops.com/<SUBDOMAIN>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [AlertOps Client support team](mailto:support@alertops.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Logout Url. Contact [AlertOps Client support team](mailto:support@alertops.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -118,43 +118,40 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure AlertOps SSO
 
-1. To automate the configuration within AlertOps, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Setup AlertOps** will direct you to the AlertOps application. From there, provide the admin credentials to sign into AlertOps. The browser extension will automatically configure the application for you and automate steps 3-5.
 
-	![Setup configuration](common/setup-sso.png)
+1. In a different web browser window, sign in to your AlertOps company site as an administrator
 
-3. If you want to setup AlertOps manually, open a new web browser window and sign into your AlertOps company site as an administrator and perform the following steps:
-
-4. Click on the **Account settings** from the left navigation panel.
+4. Click on the **Account settings** from the user profile.
 
     ![Screenshot shows the AlertOps menu with Account Settings called out.](./media/alertops-tutorial/settings.png)
 
-5. On the **Subscription Settings** page select **SSO** and perform the following steps:
+5. On the **Account Settings** page, click **Update SSO** and select **Use single sign-on (SSO)** 
+
+    ![Screenshot shows the Subscription Settings window for update sso as described in this step.](./media/alertops-tutorial/update-sso.png)
+
+1. In **SSO** section, perform the following steps:
 
     ![Screenshot shows the Subscription Settings window for S S O with values entered as described in this step.](./media/alertops-tutorial/configuration.png)
 
-    a. Select **Use Single Sign-On(SSO)** checkbox.
+    a. In the **Issuer URL** textbox, use the identifier value, which you have used in the **Basic SAML Configuration** section in the Azure portal.
 
-    b. Select **Azure Active Directory** as an **SSO Provider** from the dropdown.
+    b. In the **SAML endpoint URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-    c. In the **Issuer URL** textbox, use the identifier value, which you have used in the **Basic SAML Configuration** section in the Azure portal.
+    c. In the **SLO endpoint URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-    d. In the **SAML endpoint URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+    d. Select **SHA256** as a **SAML Signature Algorithm** from the dropdown.
 
-    e. In the **SLO endpoint URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+    e. Open your downloaded **Certificate(Base64)** file in Notepad. Copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** text box.
 
-    f. Select **SHA256** as a **SAML Signature Algorithm** from the dropdown.
-
-    g. Open your downloaded Certificate(Base64) file in Notepad. Copy the content of it into your clipboard, and then paste it to the X.509 Certificate text box.
+    f.	Enable **Allow username/password login**.
 
 ### Create AlertOps test user
 
 1. In a different browser window, sign in to your AlertOps company site as administrator.
 
-2. Click on the **Users** from the left navigation panel.
+2. Click on the **Configuration** and then **Users** from navigation panel.
 
     ![Screenshot shows the AlertOps menu with Users called out.](./media/alertops-tutorial/user.png)
 
@@ -166,19 +163,17 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Screenshot shows the Add Users pane with values entered as described in this step.](./media/alertops-tutorial/add-values.png)
 
-    a. In the **Login User Name** textbox, enter the user name of the user like **Brittasimon**.
+    a. In the **User Name** textbox, enter the user name of the user like **Brittasimon**.
 
-    b. In the **Official Email** textbox, enter the email address of the user like **Brittasimon\@contoso.com**.
+    b. In the **First Name** textbox, enter the first name of user like **Britta**.
 
-    c. In the **First Name** textbox, enter the first name of user like **Britta**.
+    c. In the **Last Name** textbox, enter the first name of user like **Simon**.
 
-    d. In the **Last Name** textbox, enter the first name of user like **Simon**.
+    d. In the **Email** textbox, enter the email address of the user like `Brittasimon@contoso.com`.
 
-    e. Select the **Type** value from the dropdown as per your organization.
+    f. Select the **User Role** of the user from the dropdown as per your organization.
 
-    f. Select the **Role** of the user from the dropdown as per your organization.
-
-    g. Select **Add**.
+    g. Select **Submit**.
 
 ## Test SSO
 

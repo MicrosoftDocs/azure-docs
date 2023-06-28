@@ -5,10 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.custom: engagement-fy23
+ms.date: 09/22/2022
 ---
 
 # Call, trigger, or nest logic apps by using HTTPS endpoints in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To make your logic app callable through a URL and able to receive inbound requests from other services, you can natively expose a synchronous HTTPS endpoint by using a request-based trigger on your logic app. With this capability, you can call your logic app from other logic apps and create a pattern of callable endpoints. To set up a callable endpoint for handling inbound calls, you can use any of these trigger types:
 
@@ -18,18 +21,17 @@ To make your logic app callable through a URL and able to receive inbound reques
 
 This article shows how to create a callable endpoint on your logic app by using the Request trigger and call that endpoint from another logic app. All principles apply identically to the other trigger types that you can use to receive inbound requests.
 
-
 For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app where you want to use the trigger to create the callable endpoint. You can start with either a blank logic app or an existing logic app where you can replace the current trigger. This example starts with a blank logic app. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* The logic app where you want to use the trigger to create the callable endpoint. You can start with either a blank logic app workflow or an existing logic app workflow where you can replace the current trigger. This example starts with a blank workflow. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ## Create a callable endpoint
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Create and open a blank logic app in the Logic App Designer.
+1. Sign in to the [Azure portal](https://portal.azure.com). Create and open a blank logic app workflow in the workflow designer.
 
 1. Under the search box, select **Built-in**. In the search box, enter `request` as your filter. From the triggers list, select **When a HTTP request is received**.
 
@@ -107,13 +109,9 @@ For more information about security, authorization, and encryption for inbound c
 
      1. On your logic app's menu, select **Overview**.
 
-     1. In the **Summary** section, select **See trigger history**.
+     1. On the **Overview** pane, select **Trigger history**. Under **Callback url [POST]**, copy the URL:
 
-        ![Get endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
-
-     1. Under **Callback url [POST]**, copy the URL:
-
-        ![Copy endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
+        ![Screenshot showing logic app 'Overview' pane with 'Trigger history' selected.](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
 <a name="select-method"></a>
 
@@ -265,7 +263,7 @@ After you create the endpoint, you can trigger the logic app by sending an HTTPS
 
 ## Tokens generated from schema
 
-When you provide a JSON schema in the Request trigger, the Logic App Designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your logic app workflow.
+When you provide a JSON schema in the Request trigger, the workflow designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your logic app workflow.
 
 For example, if you add more properties, such as `"suite"`, to your JSON schema, tokens for those properties are available for you to use in the later steps for your logic app. Here is the complete JSON schema:
 
@@ -395,8 +393,8 @@ For more information about security, authorization, and encryption for inbound c
 
 **A**: Yes, HTTPS endpoints support more advanced configuration through [Azure API Management](../api-management/api-management-key-concepts.md). This service also offers the capability for you to consistently manage all your APIs, including logic apps, set up custom domain names, use more authentication methods, and more, for example:
 
-* [Change the request method](../api-management/api-management-advanced-policies.md#SetRequestMethod)
-* [Change the URL segments of the request](../api-management/api-management-transformation-policies.md#RewriteURL)
+* [Change the request method](../api-management/set-method-policy.md)
+* [Change the URL segments of the request](../api-management/rewrite-uri-policy.md)
 * Set up your API Management domains in the [Azure portal](https://portal.azure.com/)
 * Set up policy to check for Basic authentication
 

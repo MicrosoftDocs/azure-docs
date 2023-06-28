@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 06/21/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
@@ -66,7 +66,7 @@ Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleC
 
 Yes, all the APIs are available.
 * [Authoring APIs](https://aka.ms/clu-authoring-apis)
-* [Prediction API](https://aka.ms/clu-runtime-api)
+* [Prediction API](/rest/api/language/2023-04-01/conversation-analysis-runtime/analyze-conversation)
 
 ## Next steps
 

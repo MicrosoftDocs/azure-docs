@@ -6,7 +6,7 @@ services: cognitive-services
 
 manager: nitinme
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp, devx-track-extended-java, devx-track-go
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
@@ -17,6 +17,9 @@ zone_pivot_groups: programming-languages-set-one
 ---
 
 # How to update the LUIS model with REST APIs
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 In this article, you will add example utterances to a Pizza app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
 

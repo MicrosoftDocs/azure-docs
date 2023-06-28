@@ -14,7 +14,7 @@ ms.author: victorh
 Azure Web Application Firewall (WAF) on Azure Content Delivery Network (CDN) from Microsoft provides centralized protection for your web content. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements.
 
 > [!IMPORTANT]
-> WAF on Azure CDN from Microsoft is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+> Azure WAF on Azure CDN from Microsoft preview is no longer accepting new customers. Customers are encouraged to use the [Azure WAF on Azure Front Door](../afds/afds-overview.md) instead. Existing CDN WAF customers are provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 WAF on Azure CDN is a global and centralized solution. It's deployed on Azure network edge locations around the globe. WAF stops malicious attacks close to the attack sources, before they reach your origin. You get global protection at scale without sacrificing performance. 
 
@@ -57,8 +57,8 @@ You can choose one of the following actions when a request matches a rule's cond
 
 A WAF policy can consist of two types of security rules:
 
-- *custom rules*: rules you create yourself 
-- *managed rule sets*: Azure managed pre-configured set of rules
+- *custom rules*: rules that you can create yourself. 
+- *managed rule sets*: Azure managed pre-configured set of rules that you can enable.
 
 ### Custom rules
 
@@ -66,7 +66,7 @@ Custom rules can have match rules and rate control rules.
 
 You can configure the following custom match rules:
 
-- *IP allowlist and blocklist*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
+- *IP allowlist and blocklist*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported.  IP list rules use the RemoteAddress IP contained in the X-Forwarded-For request header and not the SocketAddress that the WAF sees. IP lists can be configured to either block or allow requests where the RemoteAddress IP matches an IP in the list. If you have a requirement to block request on the source IP address that WAF sees, for example the proxy server address if the user is behind a proxy, you should use the Azure Front Door standard or premium tiers. For more information, see [Configure an IP restriction rule with a Web Application Firewall for Azure Front Door](../afds/waf-front-door-configure-ip-restriction.md) for details.
 
 - *Geographic based access control*: You can control access to your web applications based on the country code that's associated with a client's IP address.
 

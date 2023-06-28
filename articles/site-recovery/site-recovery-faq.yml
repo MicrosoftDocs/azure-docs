@@ -39,6 +39,11 @@ sections:
         answer: |
              Azure does not support persistent MAC addresses and so software with MAC based license models cannot be used for both on-premises to Azure migration or disaster recovery.
 
+      - question: |
+         Does Azure Site Recovery currently support Ephemeral Disks?
+        answer: |
+             No, Azure Site Recovery currently does not support Ephemeral Disks.
+
   - name: Service providers
     questions:
       - question: |
@@ -170,6 +175,12 @@ sections:
               - Classic storage accounts:
                 - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
                 - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
+      - question: |
+         Can Azure Site Recovery track source VM changes outside the Source OS?
+        answer: |
+              Azure Site Recovery doesn't track source VM changes outside the Source OS.
+              For example, If you are using Azure to Azure replication and change the size of the source VM, the change in size of source VM is not replicated to the target VM.
 
   - name: Disaster recovery
     questions:

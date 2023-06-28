@@ -4,9 +4,9 @@ description: Learn how you're billed when you use Azure Front Door.
 services: frontdoor
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/25/2022
+ms.date: 09/06/2022
 ms.author: jodowns
 ---
 
@@ -65,7 +65,7 @@ If the request can be served from the Front Door edge location's cache, Front Do
 
 ### Data transfer from origin to Front Door
 
-When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic not billed by Front Door, even if the origin is in a different region to the Front Door edge location for the request.
+When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic is not billed by Front Door, even if the origin is in a different region to the Front Door edge location for the request.
 
 If your origin is within Azure, the data egress from the Azure origin to Front Door isn't charged. However, you should determine whether those Azure services might bill you to process your requests.
 

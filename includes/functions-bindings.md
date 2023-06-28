@@ -13,7 +13,8 @@ This table shows the bindings that are supported in the major versions of the Az
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Azure Cosmos DB](../articles/azure-functions/functions-bindings-cosmosdb-v2.md)               |✔|✔|✔|✔|✔|
-| [Azure SQL (preview)](../articles/azure-functions/functions-bindings-azure-sql.md)               | |✔| |✔|✔|
+| [Azure Data Explorer](../articles/azure-functions/functions-bindings-azure-data-explorer.md)               | |✔| |✔|✔|
+| [Azure SQL](../articles/azure-functions/functions-bindings-azure-sql.md)               | |✔|✔|✔|✔|
 | [Dapr](https://github.com/dapr/azure-functions-extension)<sup>3</sup>             | |✔|✔|✔|✔|
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|

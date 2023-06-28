@@ -14,27 +14,23 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
-In Azure Spring Apps, there are two viewpoints for metrics.
-* Charts in each application overview page
-* Common metrics page
+In an Azure Spring Apps instance, you can view metrics on the following pages:
 
- ![Metrics Charts](media/metrics/metrics-1.png)
+* The application overview page, which shows quick status charts. To view this page, select **Apps** from the navigation pane, and then select an app.
 
-Charts in the application **Overview** provide quick status checks for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
+* The common metrics page, which shows common metrics available to all apps in the Azure Spring Apps instance. To view this page, select **Metrics** from the navigation pane. You can build your own charts in the common metrics page and pin them to your Dashboard.
+
+:::image type="content" source="media/concept-metrics/navigation-pane.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Overview page with Apps and Metrics highlighted in the navigation pane." lightbox="media/concept-metrics/navigation-pane.png":::
 
 ## Application overview page
 
-Select an app in **Apps** to find charts in the overview page.
+Select **Apps** in the navigation pane and then select an app from the list. The app overview page presents metrics charts that enable you to perform a quick status check of your application.
 
-![Application Metrics Management](media/metrics/metrics-2.png)
-
-Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.
-
-![Application Metrics Overview](media/metrics/metrics-3.png)
+:::image type="content" source="media/concept-metrics/app-overview-metrics-charts.png" alt-text="Screenshot of the Azure portal showing the overview page for an application with the time period selector highlighted." lightbox="media/concept-metrics/app-overview-metrics-charts.png":::
 
 Azure Spring Apps provides these five charts with metrics that are updated every minute:
 
@@ -48,17 +44,15 @@ For the chart, you can select a time range from one hour to seven days.
 
 ## Common metrics page
 
-The **Metrics** in the left navigation pane links to the common metrics page.
+Select **Metrics** in the navigation pane to access common metrics. Select a metric to use from the **Metric** dropdown.
 
-First, select metrics to view:
+:::image type="content" source="media/concept-metrics/metric-dropdown.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with the Metric dropdown menu open." lightbox="media/concept-metrics/metric-dropdown.png":::
 
-![Select Metric View](media/metrics/metrics-4.png)
+For metric details, see the [User metric options](#user-metrics-options) section.
 
-Details of all metrics options can be found in the [section](#user-metrics-options) below.
+Next, select the aggregation type for each metric:
 
-Next, select aggregation type for each metric:
-
-![Metric Aggregation](media/metrics/metrics-5.png)
+:::image type="content" source="media/concept-metrics/aggregation-dropdown.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with the Aggregation dropdown menu open." lightbox="media/concept-metrics/aggregation-dropdown.png":::
 
 The aggregation type indicates how to aggregate metric points in the chart by time. There is one raw metric point every minute, and the pre-aggregation type within a minute is pre-defined by metrics type.
 
@@ -68,7 +62,7 @@ The aggregation type indicates how to aggregate metric points in the chart by ti
 
 The time range can also be adjusted from last 30 minutes to last 30 days or a custom time range.
 
-![Metric Modification](media/metrics/metrics-6.png)
+:::image type="content" source="media/concept-metrics/time-range.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with the chart time range options highlighted." lightbox="media/concept-metrics/time-range.png":::
 
 The default view includes all of an Azure Spring Apps service's application's metrics together. Metrics of one app or instance can be filtered in the display. Select **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box.
 
@@ -76,17 +70,21 @@ You can use two kinds of filters (properties):
 
 * App: filter by app name
 * Instance: filter by app instance
+* Deployment: filter by deployment name
 
-![Metric Filters](media/metrics/metrics-7.png)
+:::image type="content" source="media/concept-metrics/add-filter.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Add filter controls highlighted." lightbox="media/concept-metrics/add-filter.png":::
 
 You can also use the **Apply splitting** option, which will draw multiple lines for one app:
 
-![Metric Splitting](media/metrics/metrics-8.png)
+:::image type="content" source="media/concept-metrics/apply-splitting.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Apply splitting option highlighted." lightbox="media/concept-metrics/apply-splitting.png"::::
 
 >[!TIP]
 > You can build your own charts on the metrics page and pin them to your **Dashboard**. Start by naming your chart.  Next, select **Pin to dashboard in the top right corner**. You can now check on your application at your Portal **Dashboard**.
 
 ## User metrics options
+
+> [!NOTE]
+> For Spring Boot applications, to see metrics from Spring Boot Actuator, add the `spring-boot-starter-actuator` dependency. For more information, see the [Add actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) section of [Manage and monitor app with Spring Boot Actuator](concept-manage-monitor-app-spring-boot-actuator.md).
 
 The following tables show the available metrics and details.
 

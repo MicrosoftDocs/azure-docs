@@ -4,12 +4,12 @@ description: Learn about troubleshooting Azure Windows VM extension failures
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-arm-template
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 03/29/2016 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 04/21/2023 
 ---
 # Troubleshooting Azure Windows VM extension failures
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -251,10 +251,5 @@ Your VM is probably missing the Baltimore CyberTrust Root certificate in "Truste
 **Solution**
 
 Open the certificates console with certmgr.msc, and check if the certificate is there.
-If it's not, please install it from https://cacert.omniroot.com/bc2025.crt
 
 Another possible issue is that the certificate chain is broken by a third party SSL Inspection tool, like ZScaler. That kind of tool should be configured to bypass SSL inspection.
-
-
-
-

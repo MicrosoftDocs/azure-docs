@@ -19,7 +19,6 @@ The following table describes the minimum and recommended allocation of resource
 |-----------|---------|-------------|
 | Read 3.2 2022-04-30 | 4 cores, 8-GB memory  | 8 cores, 16-GB memory |
 | Read 3.2 2021-04-12 | 4 cores, 16-GB memory | 8 cores, 24-GB memory |
-| Read 2.0-preview | 1 core, 8-GB memory | 8 cores, 16-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 

@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 09/29/2021
+ms.date: 10/25/2022
 ---
 
 # Mapping data flows performance and tuning guide

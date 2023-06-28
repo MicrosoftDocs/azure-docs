@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 01/25/2023
 ms.author: jeedes
 ---
 
@@ -38,7 +38,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Slack supports **SP** initiated SSO.
+* Slack supports **SP (service provider)** initiated SSO.
 * Slack supports **Just In Time** user provisioning.
 * Slack supports [**Automated** user provisioning](./slack-provisioning-tutorial.md).
 
@@ -56,7 +56,7 @@ To configure the integration of Slack into Azure AD, you need to add Slack from 
 1. In the **Add from the gallery** section, type **Slack** in the search box.
 1. Select **Slack** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide&preserve-view=true).
 
 ## Configure and test Azure AD SSO for Slack
 
@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type the URL:
     `https://slack.com`
 	
-    c. For **Reply URL**, enter one of the following URL pattern:
+    c. For **Reply URL**, enter one of the following URL patterns:
     
 	| Reply URL|
 	|----------|
@@ -152,15 +152,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Slack SSO
 
-1. To automate the configuration within Slack, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up Slack** will direct you to the Slack application. From there, provide the admin credentials to sign into Slack. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup Slack manually, in a different web browser window, sign in to your Slack company site as an administrator.
+1. In a different web browser window, sign in to your up Slack company site as an administrator
 
 2. click on your workspace name in the top left, then go to **Settings & administration** -> **Workspace settings**.
 

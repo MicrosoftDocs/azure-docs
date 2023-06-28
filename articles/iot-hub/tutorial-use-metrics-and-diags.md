@@ -49,9 +49,9 @@ In this tutorial, you perform the following tasks:
 
 * An email account capable of receiving mail.
 
-* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Set up resources
 
@@ -177,9 +177,9 @@ Now we'll use metrics explorer to create a chart that displays metrics you want 
 
 Now we'll set up alerts to trigger on two metrics: *Telemetry messages sent* and *Total number of messages used*.
 
-**Telemetry messages sent** is a good metric to track message throughput and avoid being throttled. For an IoT Hub in the free tier, the throttling limit is 100 messages/sec. With a single device, we won't be able to achieve that kind of throughput, so instead, we'll set up the alert to trigger if the number of messages exceeds 1000 in a 5-minute period. In production, you can set the signal to a more significant value based on the tier, edition, and number of units of your IoT hub.
+**Telemetry messages sent** is a good metric to track message throughput and avoid being throttled. For an IoT hub in the free tier, the throttling limit is 100 messages/sec. With a single device, we won't be able to achieve that kind of throughput, so instead, we'll set up the alert to trigger if the number of messages exceeds 1000 in a 5-minute period. In production, you can set the signal to a more significant value based on the tier, edition, and number of units of your IoT hub.
 
-**Total number of messages used** tracks the daily number of messages used. This metric resets every day at 00:00 UTC. If you exceed your daily quota past a certain threshold, your IoT Hub will no longer accept messages. For an IoT Hub in the free tier, the daily message quota is 8000. We'll set up the alert to trigger if the total number of messages exceeds 4000, 50% of the quota. In practice, you'd probably set this percentage to a higher value. The daily quota value is dependent on the tier, edition, and number of units of your IoT hub.
+**Total number of messages used** tracks the daily number of messages used. This metric resets every day at 00:00 UTC. If you exceed your daily quota past a certain threshold, your IoT Hub will no longer accept messages. For an IoT hub in the free tier, the daily message quota is 8000. We'll set up the alert to trigger if the total number of messages exceeds 4000, 50% of the quota. In practice, you'd probably set this percentage to a higher value. The daily quota value is dependent on the tier, edition, and number of units of your IoT hub.
 
 For more information about quota and throttling limits with IoT Hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
@@ -284,15 +284,15 @@ With these settings, an alert will trigger and you'll get an email notification 
 
 ## Run the simulated device app
 
-In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it.
+In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub, configure it to send these messages to your IoT hub, and then run it.
 
 > [!IMPORTANT]
 >
 > Alerts can take up to 10 minutes to be fully configured and enabled by IoT Hub. Wait at least 10 minutes between the time you configure your last alert and running the simulated device app.
 
-Download or clone the solution for the [Azure IoT C# samples repo](https://github.com/Azure-Samples/azure-iot-samples-csharp) from GitHub. This repo contains several sample applications. For this tutorial, we'll use iot-hub/Quickstarts/simulated-device/.
+Download or clone the solution for the [Azure IoT C# SDK repo](https://github.com/Azure/azure-iot-sdk-csharp) from GitHub. This repo contains several sample applications. For this tutorial, we'll use iothub/device/samples/getting started/SimulatedDevice/.
 
-1. In a local terminal window, navigate to the root folder of the solution. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
+1. In a local terminal window, navigate to the root folder of the solution. Then navigate to the **iothub\device\samples\getting started\SimulatedDevice** folder.
 
 1. Open the **SimulatedDevice.cs** file in a text editor of your choice.
 

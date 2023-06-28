@@ -16,6 +16,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Send Custom Commands activity to client application
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this article, you learn how to send activity from a Custom Commands application to a client application running the Speech SDK.
 
 You complete the following tasks:

@@ -1,23 +1,35 @@
 ---
-title: Visualizations for Change Analysis in Azure Monitor
-description: Learn how to use visualizations in Azure Monitor's Change Analysis.
+title: Scenarios for using Change Analysis in Azure Monitor
+description: Learn the various scenarios in which you can use Azure Monitor's Change Analysis.
 ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 07/28/2022
+ms.date: 01/12/2023
 ms.subservice: change-analysis
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.reviewer: cawa
 ---
 
-# Visualizations for Change Analysis in Azure Monitor
+# Scenarios for using Change Analysis in Azure Monitor
 
-Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application might have caused the issues. You can view the Change Analysis data through several channels: 
+Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application might have caused the issues. 
 
-## The Change Analysis standalone UI
+## View Change Analysis data
 
-You can access Change Analysis in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
+You can access the Change Analysis overview portal under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
+
+### Monitor home page
+
+From the Azure portal home page, select **Monitor** from the menu.
+
+:::image type="content" source="./media/change-analysis/monitor-menu-2.png" alt-text="Screenshot of finding the Monitor home page from the main portal menu.":::
+
+In the Monitor overview page, select the **Change Analysis** card.
+
+:::image type="content" source="./media/change-analysis/change-analysis-monitor-overview.png" alt-text="Screenshot of selecting the Change Analysis card on the Monitor overview page.":::
+
+### Search
 
 In the Azure portal, search for Change Analysis to launch the experience.
 
@@ -27,13 +39,13 @@ Select one or more subscriptions to view:
 - All of its resources' changes from the past 24 hours. 
 - Old and new values to provide insights at one glance.
   
-:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
+:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis pane in Azure portal":::
   
 Click into a change to view full Resource Manager snippet and other properties.
   
 :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
   
-Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
+Send feedback from the Change Analysis pane:
 
 :::image type="content" source="./media/change-analysis/change-analysis-feedback.png" alt-text="Screenshot of feedback button in Change Analysis tab":::
 
@@ -86,7 +98,7 @@ Use the [View change history](../essentials/activity-log.md#view-change-history)
 
 - Resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md).
 - Resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- In-guest changes from PaaS services, such as App Services web app.
+- In-guest changes from PaaS services, such as a web app.
 
 1. From within your resource, select **Activity Log** from the side menu.
 1. Select a change from the list.
@@ -125,6 +137,90 @@ You can also drill to Change Analysis logs via a chart you've created or pinned 
 1. From the chart, select **Drill into logs** and choose **Change Analysis** to view it.
 
    :::image type="content" source="./media/change-analysis/view-change-analysis-2.png" alt-text="Drill into logs and select to view Change Analysis.":::
+
+## Browse using custom filters and search bar
+
+Browsing through a long list of changes in the entire subscription is time consuming. With Change Analysis custom filters and search capability, you can efficiently navigate to changes relevant to issues for troubleshooting.
+
+:::image type="content" source="./media/change-analysis/filters-search-bar.png" alt-text="Screenshot showing that filters and search bar are available at the top of Change Analysis homepage, right above the changes section.":::
+
+### Filters
+
+| Filter | Description |
+| ------ | ----------- |
+| Subscription | This filter is in-sync with the Azure portal subscription selector. It supports multiple-subscription selection. |
+| Time range | Specifies how far back the UI display changes, up to 14 days. By default, it’s set to the past 24 hours. |
+| Resource group | Select the resource group to scope the changes. By default, all resource groups are selected. |
+| Change level | Controls which levels of changes to display. Levels include: important, normal, and noisy. </br> **Important:** related to availability and security </br> **Noisy:** Read-only properties that are unlikely to cause any issues </br> By default, important and normal levels are checked. |
+| Resource | Select **Add filter** to use this filter. </br> Filter the changes to specific resources. Helpful if you already know which resources to look at for changes. [If the filter is only returning 1,000 resources, see the corresponding solution in troubleshooting guide](./change-analysis-troubleshoot.md#cant-filter-to-your-resource-to-view-changes). |
+| Resource type | Select **Add filter** to use this filter. </br> Filter the changes to specific resource types. |
+
+### Search bar
+
+The search bar filters the changes according to the input keywords. Search bar results apply only to the changes loaded by the page already and don't pull in results from the server side.
+
+## Pin and share a Change Analysis query to the Azure dashboard
+
+Let's say you want to curate a change view on specific resources, like all Virtual Machine changes in your subscription, and include it in a report sent periodically. You can pin the view to an Azure dashboard for monitoring or sharing scenarios. If you'd like to share a specific change with your team members, you can use the share feature in the Change Details page.
+
+## Pin to the Azure dashboard
+
+Once you have applied filters to the Change Analysis homepage:
+
+1. Select **Pin current filters** from the top menu. 
+1. Enter a name for the pin. 
+1. Click **OK** to proceed.
+
+   :::image type="content" source="./media/change-analysis/click-pin-menu.png" alt-text="Screenshot of selecting Pin current filters button in Change Analysis.":::
+
+A side pane will open to configure the dashboard where you'll place your pin. You can select one of two dashboard types:
+
+| Dashboard type | Description |
+| -------------- | ----------- |
+| Private | Only you can access a private dashboard. Choose this option if you're creating the pin for your own easy access to the changes. |
+| Shared | A shared dashboard supports role-based access control for view/read access. Shared dashboards are created as a resource in your subscription with a region and resource group to host it. Choose this option if you're creating the pin to share with your team. |
+
+### Select an existing dashboard
+
+If you already have a dashboard to place the pin:
+
+1. Select the **Existing** tab.
+1. Select either **Private** or **Shared**.
+1. Select the dashboard you'd like to use. 
+1. If you've selected **Shared**, select the subscription in which you'd like to place the dashboard.
+1. Select **Pin**.
+ 
+   :::image type="content" source="./media/change-analysis/existing-dashboard-small.png" alt-text="Screenshot of selecting an existing dashboard to pin your changes to. ":::
+
+### Create a new dashboard
+
+You can create a new dashboard for this pin.
+ 
+1. Select the **Create new** tab. 
+1. Select either **Private** or **Shared**. 
+1. Enter the name of the new dashboard.
+1. If you're creating a shared dashboard, enter the resource group and region information. 
+1. Click **Create and pin**. 
+
+   :::image type="content" source="./media/change-analysis/create-pin-dashboard-small.png" alt-text="Screenshot of creating a new dashboard to pin your changes to.":::
+
+Once the dashboard and pin are created, navigate to the Azure dashboard to view them.
+
+1. From the Azure portal home menu, select **Dashboard**. Use the **Manage Sharing** button in the top menu to handle access or "unshare". Click on the pin to navigate to the curated view of changes.
+
+   :::image type="content" source="./media/change-analysis/azure-dashboard.png" alt-text="Screenshot of selecting the Dashboard in the Azure portal home menu.":::
+
+   :::image type="content" source="./media/change-analysis/view-share-dashboard.png" alt-text="Screenshot of the pin in the dashboard.":::
+
+## Share a single change with your team
+
+In the Change Analysis homepage, select a line of change to view details on the change.
+
+1. On the Changed properties page, select **Share** from the top menu. 
+1. On the Share Change Details pane, copy the deep link of the page and share with your team in messages, emails, reports, or whichever communication channel your team prefers.
+
+   :::image type="content" source="./media/change-analysis/share-single-change.png" alt-text="Screenshot of selecting the share button on the dashboard and copying link.":::
+
 
 ## Next steps
 

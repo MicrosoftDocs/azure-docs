@@ -356,12 +356,22 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $rgName -ClusterName $clus
 
 ## Modify the VM SKU for a node type
 
-Service Fabric managed cluster does not support in-place modification of the VM SKU, but is simpler than classic. In order to accomplish this you'll need to do the following:
-* [Create a new node type via portal, ARM template, or PowerShell](how-to-managed-cluster-modify-node-type.md#add-a-node-type) with the required VM SKU. You'll need to use a template or PowerShell for adding a primary or stateless node type.
-* Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
-* [Delete old node type via portal or PowerShell](how-to-managed-cluster-modify-node-type.md#remove-a-node-type). To remove a primary node type you will have to use PowerShell.
+To modify the VM SKU size used for a node type using an ARM Template, adjust the `vmSize` property with the new value and do a cluster deployment for the setting to take effect. The managed cluster provider will reimage each instance by upgrade domain.  For a list of SKU options, please refer to the [VM sizes - Azure Virtual Machines | Microsoft Learn](../virtual-machines/sizes.md).  
 
-
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                ...
+                "vmSize": "[parameters('vmImageVersion')]",
+                ...
+            }
+        }
+}
+```
 ## Configure multiple managed disks
 Service Fabric managed clusters by default configure one managed disk. By configuring the following optional property and values, you can add more managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
 

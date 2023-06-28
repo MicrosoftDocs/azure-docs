@@ -1,141 +1,126 @@
 ---
 title: Securing managed identities in Azure Active Directory
-description: Explanation of how to find, assess, and increase the security of managed identities.
+description: Learn to find, assess, and increase the security of managed identities in Azure AD
 services: active-directory
-author: janicericketts
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 02/07/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
-ms.custom: "it-pro, seodec18"
+ms.custom: it-pro, seodec18, ignite-2022
 ms.collection: M365-identity-device-management
 ---
 
-# Securing managed identities
+# Securing managed identities in Azure Active Directory
 
-Developers are often challenged by the management of secrets and credentials used to secure communication between different services. Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources.
+In this article, learn about managing secrets and credentials to secure communication between services. Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD). Applications use managed identities to connect to resources that support Azure AD authentication, and to obtain Azure AD tokens, without credentials management.
 
-## Benefits of using managed identities for Azure resources
+## Benefits of managed identities
 
-The following are benefits of using managed identities:
+Benefits of using managed identities:
 
-* You don't need to manage credentials. With managed identities, credentials are fully managed, rotated, and protected by Azure. Identities are automatically provided and deleted with Azure resources. Managed identities enable Azure resources to communicate with all services that support Azure AD authentication.
+* With managed identities, credentials are fully managed, rotated, and protected by Azure. Identities are provided and deleted with Azure resources. Managed identities enable Azure resources to communicate with services that support Azure AD authentication.
 
-* No one (including any Global admin) has access to the credentials, so they cannot be accidentally leaked by, for example, being included in code.
+* No one, including the Global Administrator, has access to the credentials, which can't be accidentally leaked by being included in code.
 
-## When to use managed identities?
+## Using managed identities
 
-Managed identities are best used for communications among services that support Azure AD authentication. 
+Managed identities are best for communications among services that support Azure AD authentication. A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure virtual machine (VM), Azure Function instance, and Azure App Services instances support managed identities.
 
-A source system requests access to a target service. Any Azure resource can be a source system. For example, an Azure VM, Azure Function instance, and Azure App Services instances support managed identities.
+Learn more in the video, [What can a managed identity be used for?](https://www.youtube.com/embed/5lqayO_oeEo)
 
-   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+### Authentication and authorization
 
-### How authentication and authorization work
+With managed identities, the source system obtains a token from Azure AD without owner credential management. Azure manages the credentials. Tokens obtained by the source system are presented to the target system for authentication. 
 
-With managed identities the source system can obtain a token from Azure AD without the source owner having to manage credentials. Azure manages the credentials. The token obtained by the source system is presented to the target system for authentication. 
+The target system authenticates and authorizes the source system to allow access. If the target service supports Azure AD authentication, it accepts an access token issued by Azure AD. 
 
-The target system needs to authenticate (identify) and authorize the source system before allowing access. When the target service supports Azure AD-based authentication it accepts an access token issued by Azure AD. 
+Azure has a control plane and a data plane. You create resources in the control plane, and access them in the data plane. For example, you create an Azure Cosmos DB database in the control plane, but query it in the data plane.
 
-Azure has a control plane and a data plane. In the control plane, you create resources, and in the data plane you access them. For example, you create a Cosmos database in the control plane, but query it in the data plane.
+After the target system accepts the token for authentication, it supports mechanisms for authorization for its control plane and data plane.
 
-Once the target system accepts the token for authentication, it can support different mechanisms for authorization for its control plane and data plane.
+Azure control plane operations are managed by Azure Resource Manager and use Azure role-based access control (Azure RBAC). In the data plane, target systems have authorization mechanisms. Azure Storage supports Azure RBAC on the data plane. For example, applications using Azure App Services can read data from Azure Storage, and applications using Azure Kubernetes Service can read secrets stored in Azure Key Vault.
 
-All of Azure’s control plane operations are managed by [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and use [Azure Role Based Access Control](../../role-based-access-control/overview.md). In the data plane,, each target system has its own authorization mechanism. Azure Storage supports Azure RBAC on the data plane. For example, applications using Azure App Services can read data from Azure Storage, and applications using Azure Kubernetes Service can read secrets stored in Azure Key Vault.
+Learn more:
+* [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
+* [What is Azure role-based Azure RBAC?](../../role-based-access-control/overview.md)
+* [Azure control plane and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md)
+* [Azure services that can use managed identities to access other services](../managed-identities-azure-resources/managed-identities-status.md)
 
-For more information about control and data planes, see [Control plane and data plane operations - Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
+## System-assigned and user-assigned managed identities
 
-All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md).
+There are two types of managed identities, system- and user-assigned.
 
-## Types of managed identities
+System-assigned managed identity:
 
-There are two types of managed identities—system-assigned and user-assigned.
+* One-to-one relationship with the Azure resource
+  * For example, there's a unique managed identity associated with each VM
+* Tied to the Azure resource lifecycle. When the resource is deleted, the managed identity associated with it, is automatically deleted.
+* This action eliminates the risk from orphaned accounts 
 
-System-assigned managed identity has the following properties:
+User-assigned managed identity
 
-* They have 1:1 relationship with the Azure resource. For example, there's a unique managed identity associated with each VM.
-
-* They are tied to the lifecycle of Azure resources. When the resource is deleted, the managed identity associated with it's automatically deleted, eliminating the risk associated with orphaned accounts. 
-
-User-assigned managed identities have the following properties:
-
-* The lifecycle of these identities is independent of an Azure resource, and you must manage the lifecycle. When the Azure resource is deleted, the assigned user-assigned managed identity is not automatically deleted for you.
-
-* A single user-assigned managed identity can be assigned to zero or more Azure resources.
-
-* They can be created ahead of time and then assigned to a resource.
+* The lifecycle is independent from an Azure resource. You manage the lifecycle. 
+  * When the Azure resource is deleted, the assigned user-assigned managed identity isn't automatically deleted
+* Assign user-assigned managed identity to zero or more Azure resources
+* Create an identity ahead of time, and then assigned it to a resource later
 
 ## Find managed identity service principals in Azure AD
 
-There are several ways in which you can find managed identities:
+To find managed identities, you can use:
 
-* Using the Enterprise Applications page in the Azure portal
+* Enterprise applications page in the Azure portal
+* Microsoft Graph
 
-* Using Microsoft Graph
+### The Azure portal
 
-### Using the Azure portal
+1. In the Azure portal, in the left navigation, select **Azure Active Directory**.
+2. In the left navigation, select **Enterprise applications**.
+3. In the **Application type** column, under **Value**, select the down-arrow to select **Managed Identities**.
 
-1. In Azure Active Directory, select Enterprise applications.
+   ![Screenshot of the Managed Identies option under Values, in the Application type column.](./media/govern-service-accounts/service-accounts-managed-identities.png)
 
-2. Select the filter for “Managed Identities” 
+### Microsoft Graph
 
-   ![Image of the all applications screen with the Application type dropdown highlighting "Managed Identities."](./media/securing-service-accounts/service-accounts-managed-identities.png)
+Use the following GET request to Microsoft Graph to get a list of managed identities in your tenant.
 
- 
+`https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity')`
 
-### Using Microsoft Graph
+You can filter these requests. For more information, see [GET servicePrincipal](/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http&preserve-view=true).
 
-You can get a list of all managed identities in your tenant with the following GET request to Microsoft Graph:
+## Assess managed identity security
 
-`https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
+To assess managed identity security:
 
-You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](/graph/api/serviceprincipal-get).
+* Examine privileges to ensure the least-privileged model is selected
+  * Use the following PowerShell cmdlet to get the permissions assigned to your managed identities:
 
-## Assess the security of managed identities 
+   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-You can assess the security of managed identities in the following ways:
-
-* Examine privileges and ensure that the least privileged model is selected. Use the following PowerShell cmdlet to get the permissions assigned to your managed identities.
-
-   ` Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
-
- 
-* Ensure the managed identity is not part of any privileged groups, such as an administrators group.  
-‎You can do this by enumerating the members of your highly privileged groups with PowerShell.
+* Ensure the managed identity is not part of a privileged group, such as an administrators group. 
+  * To enumerate the members of your highly privileged groups with PowerShell:
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Ensure you know what resources the managed identity is accessing](../../role-based-access-control/role-assignments-list-powershell.md).
+* Confirm what resources the managed identity accesses
+  * See, [List Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md).
 
 ## Move to managed identities
 
-If you are using a  service principal or an Azure AD user account, evaluate if you can instead use a managed identity to eliminate the need to protect, rotate, and manage credentials. 
+If you're using a  service principal or an Azure AD user account, evaluate the use of managed identities. You can eliminate the need to protect, rotate, and manage credentials. 
 
 ## Next steps
 
-**For information on creating managed identities, see:** 
+* [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md) 
+* [Configure managed identities for Azure resources on a VM using the Azure portal](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Create a user assigned managed identity](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+**Service accounts**
 
-[Enable a system assigned managed identity during resource creation](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-
-[Enable system assigned managed identity on an existing resource](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-
-**For more information on service accounts see:**
-
-[Introduction to Azure Active Directory service accounts](service-accounts-introduction-azure.md)
-
-[Securing service principals](service-accounts-principal.md)
-
-[Governing Azure service accounts](service-accounts-governing-azure.md)
-
-[Introduction to on-premises service accounts](service-accounts-on-premises.md)
-
- 
-
- 
-
+* [Securing cloud-based service accounts](secure-service-accounts.md)
+* [Securing service principals](service-accounts-principal.md)
+* [Governing Azure AD service accounts](govern-service-accounts.md)
+* [Securing on-premises service accounts](service-accounts-on-premises.md)

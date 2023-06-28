@@ -1,0 +1,120 @@
+### YamlMime:Landing
+
+title: Microsoft Azure Data Manager for Energy documentation # < 60 chars
+summary: Microsoft Azure Data Manager for Energy is an open, secure, reliable, and fully managed cloud-based data platform solution for the energy industry. It is an enterprise grade data platform that brings together the capabilities of OSDU™ Data Platform, Microsoft's secure and trusted Azure cloud platform, and SLB's extensive domain expertise.
+
+metadata:
+  title: Microsoft Azure Data Manager for Energy
+  description: description
+  ms.service: energy-data-services
+  ms.topic: landing-page
+  author: bharathim
+  ms.author: bselvaraj
+  ms.date: 09/05/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Microsoft Azure Data Manager for Energy
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Azure Data Manager for Energy?
+            url: overview-microsoft-energy-data-services.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Microsoft Azure Data Manager for Energy instance
+            url: quickstart-create-microsoft-energy-data-services-instance.md
+      - linkListType: tutorial
+        links:
+          - text: CSV parser tutorial
+            url: tutorial-csv-ingestion.md
+          - text: Manifest ingestion tutorial
+            url: tutorial-manifest-ingestion.md
+      - linkListType: concept
+        links:
+          - text: Manifest ingestion concepts
+            url: concepts-manifest-ingestion.md
+          - text: CSV parser concepts
+            url: concepts-csv-parser-ingestion.md
+          - text: Index and search workflows
+            url: concepts-index-and-search.md
+      - linkListType: whats-new
+        links:
+          - text: Release notes
+            url: release-notes.md
+  - title: About Domain Data Management Services (DDMS)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Domain Data Management Services (DDMS)?
+            url: overview-ddms.md
+      - linkListType: concept
+        links:
+          - text: DDMS concepts
+            url: concepts-ddms.md
+      - linkListType: tutorial
+        links:
+          - text: Seismic DDMS sdutil tutorial
+            url: tutorial-seismic-ddms-sdutil.md
+          - text: Seismic DDMS tutorial
+            url: tutorial-seismic-ddms.md
+          - text: Wellbore DDMS tutorial
+            url: tutorial-wellbore-ddms.md
+          - text: Well delivery DDMS tutorial
+            url: tutorial-well-delivery-ddms.md
+          - text: Petrel DDMS Tutorial
+            url: tutorial-petrel-ddms.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to convert SEG-Y to oVDS
+            url: how-to-convert-segy-to-ovds.md
+          - text: How to convert SEG-Y to ZGY
+            url: how-to-convert-segy-to-zgy.md
+          - text: How to Upload large files using file service
+            url: how-to-upload-large-files-using-file-service.md
+  - title: Administration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to manage users
+            url: how-to-manage-users.md
+          - text: How to manage legal tags
+            url: how-to-manage-legal-tags.md
+          - text: How to add more data partitions
+            url: how-to-add-more-data-partitions.md
+          - text: How to generate a refresh token
+            url: how-to-generate-refresh-token.md
+      - linkListType: concept
+        links:
+          - text: Entitlement concepts
+            url: concepts-entitlements.md
+  - title: Monitoring
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to integrate airflow logs with Azure Monitor
+            url: how-to-integrate-airflow-logs-with-azure-monitor.md
+          - text: How to integrate elastic logs with Azure Monitor
+            url: how-to-integrate-elastic-logs-with-azure-monitor.md
+          - text: How to integrate OSDU service logs with Azure Monitor
+            url: how-to-integrate-osdu-service-logs-with-azure-monitor.md
+  - title: Security
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up Private Links
+            url: how-to-set-up-private-links.md
+          - text: Set up Customer managed encryption keys (CMEK)
+            url: how-to-manage-data-security-and-encryption.md
+          - text: Set up Lockbox
+            url: how-to-create-lockbox.md
+          - text: Set up use Managed Identity
+            url: how-to-use-managed-identity.md
+          - text: Enable resource sharing (CORS)
+            url: how-to-enable-cors.md
+          - text: Set up audit logs
+            url: how-to-manage-audit-logs.md

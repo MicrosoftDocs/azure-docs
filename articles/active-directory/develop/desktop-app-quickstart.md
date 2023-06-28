@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 01/14/2022
+ms.date: 01/27/2023
 ms.author: dmwendia
-ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", mode-api
+ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", mode-api, devx-track-js
 zone_pivot_groups: desktop-app-quickstart
 #Customer intent: As an application developer, I want to learn how my desktop application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---

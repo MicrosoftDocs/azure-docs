@@ -20,6 +20,8 @@ ms.date: 07/28/2022
 
 - **Client Events**: Events are created during the lifecycle of a client connection. For example, a simple WebSocket client connection creates a `connect` event when it tries to connect to the service, a `connected` event when it successfully connected to the service, a `message` event when it sends messages to the service and a `disconnected` event when it disconnects from the service. Details about *client events* are illustrated in [Client protocol](..\concept-service-internals.md#client-protocol) section.
 
-- **Event Handler**: The event handler contains the logic to handle the client events. Register and configure event handlers in the service through the portal or Azure CLI beforehand. Details are described in [Event handler](..\concept-service-internals.md#event-handler) section. The place to host the event handler logic is considered as the server-side.
+- **Event Handler**: The event handler contains the logic to handle the client events. Register and configure event handlers in the service through the portal or Azure CLI beforehand. Details are described in [Event handler](..\concept-service-internals.md#event-handler) section.
 
-- **Server**: The server can handle client events, manage client connections, and publish messages to groups. Details about **server** are described in the [Server protocol](..\concept-service-internals.md#server-protocol) section.
+- **Event Listener(preview)**: The event listener just listens to the client events but can't interfere the lifetime of your clients through their response. Details are described in [Event listener](..\concept-service-internals.md#event-listener) section.
+
+- **Server**: The server can handle client events, manage client connections, or publish messages to groups. Both event handler and event listener are considered to be server-side. Details about **server** are described in the [Server protocol](..\concept-service-internals.md#server-protocol) section.

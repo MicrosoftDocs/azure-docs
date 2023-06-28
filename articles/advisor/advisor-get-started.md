@@ -23,7 +23,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 1. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be displayed for using the subscription filter dropdown.
 
-1. To get recommendations for a specific category, click one of the tabs: **Reliability**, **Security**, **Performance**, or **Cost**. 
+1. To get recommendations for a specific category, click one of the tabs: **Reliability**, **Security**, **Performance**, **Operational Excellence**, or **Cost**. 
 
    ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
 
@@ -84,9 +84,12 @@ You may have resource groups or subscriptions for which you do not want to recei
 
 This procedure configures the average CPU utilization rule for the low usage virtual machine recommendation.
 
-Advisor monitors your virtual machine usage for 7 days and then identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size.
+Advisor monitors your virtual machine usage for 7 days by default and then identifies low-utilization virtual machines.
+Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size.
 
-If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule on a per subscription basis.  The CPU utilization rule can be set to 5%, 10%, 15%, or 20%.
+If you would like to be more aggressive at identifying low usage virtual machines, you can adjust the average CPU utilization rule and the look back period on a per subscription basis.
+The CPU utilization rule can be set to 5%, 10%, 15%, 20%, or 100%(Default). In case the trigger is selected as 100%, it will present recommendations for virtual machines with less than 5%, 10%, 15%, and 20% of CPU utilization.
+You can select how far back in historical data you want to analyze: 7 days (default), 14, 21, 30, 60, or 90 days.
 
 > [!NOTE]
 > To adjust the average CPU utilization rule for identifying low usage virtual machines, you must be a subscription *Owner*.  If you do not have the required permissions for a subscription or resource group, the option to include or exclude it will be disabled in the user interface. 

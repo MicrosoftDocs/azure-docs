@@ -3,23 +3,21 @@ title: Deploy MLflow models as web services
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to deploy your ML models as an Azure web service.
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/25/2021
+ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1
+ms.custom: UpdateFrequency5, sdkv1
 ---
 
 # Deploy MLflow models as Azure web services
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning developer platform you are using:"]
-> * [v1](how-to-deploy-mlflow-models.md)
-> * [v2 (current version)](../how-to-deploy-mlflow-models-online-endpoints.md)
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models. See [MLflow and Azure Machine Learning](concept-mlflow-v1.md) for additional MLflow and Azure Machine Learning functionality integrations.
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models. See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
 Azure Machine Learning offers deployment configurations for:
 * Azure Container Instance (ACI) which is a suitable choice for a quick dev-test deployment.

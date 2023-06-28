@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 12/22/2020
+ms.date: 11/16/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -26,22 +26,25 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 ### Create a WAF policy
 
-1. On the Azure portal, select **Create a resource**,  type  **Web application firewall** in the search box, and then select **Web Application Firewall (WAF)**.
+1. On the Azure portal, select **Create a resource**,  type  **Web application firewall** in the **Search services and marketplace** search box, press *Enter*, and then select **Web Application Firewall (WAF)**.
 2. Select **Create**.
 3. On the **Create a WAF policy** page, use the following values to complete the **Basics** tab:
 
    |Setting  |Value  |
    |---------|---------|
    |Policy for     |Global WAF (Front Door)|
+   |Front door tier| Select Premium or Standard to match you Front Door tier|
    |Subscription     |Select your subscription|
-   |Resource group     |Select the resource group where your Front Door is.|
+   |Resource group     |Select the resource group where your Front Door is located.|
    |Policy name     |Type a name for your policy|
-   |Policy state     |Enabled|
+   |Policy state     |selected|
+   |Policy mode|Prevention|
 
-   Select **Next: Policy settings**
+1. Select **Next:Managed rules**.
 
-1. On the **Policy settings** tab, select **Prevention**. For the **Block response body**, type *You've been blocked!* so you can see that your custom rule is in effect.
-2. Select **Next: Managed rules**.
+1. Select **Next: Policy settings**
+
+1. On the **Policy settings** tab, type *You've been blocked!* for the **Block response body**,  so you can see that your custom rule is in effect.
 3. Select **Next: Custom rules**.
 4. Select **Add custom rule**.
 5. On the **Add custom rule** page, use the following test values to create a custom rule:
@@ -62,10 +65,12 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
    Select **Add**.
 6. Select **Next: Association**.
-7. Select **Add frontend host**.
-8. For **Frontend host**, select your frontend host and select **Add**.
-9. Select **Review + create**.
-10. After your policy validation passes, select **Create**.
+7. Select **Associate a Front door profile**.
+8. For **Frontend profile**, select your frontend profile.
+1. For **Domain**, select the domain.
+1. Select **Add**.
+1. Select **Review + create**.
+1. After your policy validation passes, select **Create**.
 
 ### Test your WAF policy
 
@@ -150,7 +155,7 @@ Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID 
    ```azurecli
    az network front-door update \
      --set FrontendEndpoints[0].WebApplicationFirewallPolicyLink.id=/subscriptions/<subscription ID>/resourcegroups/resource-group-name/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/IPAllowPolicyExampleCLI \
-     --name <frontdoor-name>
+     --name <frontdoor-name> \
      --resource-group <resource-group-name>
    ```
 In this example, the WAF policy is applied to **FrontendEndpoints[0]**. You can link the WAF policy to any of your front ends.
@@ -219,6 +224,8 @@ Find the name of the resource group that contains the Azure Front Door profile b
     -Mode Prevention `
     -EnabledState Enabled
    ```
+> [!TIP]
+> For an existing WAF policy, you can use [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) to update the policy.
 
 ### Link a WAF policy to an Azure Front Door front-end host
 

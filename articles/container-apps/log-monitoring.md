@@ -2,17 +2,17 @@
 title: Monitor logs in Azure Container Apps with Log Analytics
 description: Monitor your container app logs with Log Analytics
 services: container-apps
-author: cebundy
+author: v-jaswel
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 08/30/2022
-ms.author: v-bcatherine
+ms.author: v-wellsjason
 ---
 
 # Monitor logs in Azure Container Apps with Log Analytics
 
-Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs.  Each Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment.  
+Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs.  When selected as your log monitoring solution, your Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment.  
 
 Log entries are accessible by querying Log Analytics tables through the Azure portal or a command shell using the [Azure CLI](/cli/azure/monitor/log-analytics).
 
@@ -42,7 +42,7 @@ The Container Apps service provides system log messages at the container app lev
 | Revision Provisioning | Info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
 | Revision Provisioning | Error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
 
-The system log data is accessible by querying the `ContainerAppSystemlogs_CL` table. The most used Container Apps specific columns in the table are:
+The system log data is accessible by querying the `ContainerAppSystemLogs_CL` table. The most used Container Apps specific columns in the table are:
 
 | Column  | Description |
 |---|---|
@@ -53,7 +53,7 @@ The system log data is accessible by querying the `ContainerAppSystemlogs_CL` ta
 
 ## Console Logs
 
-Console logs originate from the `stderr` and `stdout` messages from the containers in your container app and Dapr sidecars.  You can view console logs by querying the `ContainerAppConsolelogs_CL` table.
+Console logs originate from the `stderr` and `stdout` messages from the containers in your container app and Dapr sidecars.  You can view console logs by querying the `ContainerAppConsoleLogs_CL` table.
 
 > [!TIP]
 > Instrumenting your code with well-defined log messages can help you to understand how your code is performing and to debug issues.  To learn more about best practices refer to [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
@@ -78,7 +78,7 @@ Log Analytics is a tool in the Azure portal that you can use to view and analyze
 
 Start Log Analytics from **Logs** in the sidebar menu on your container app page.  You can also start Log Analytics from **Monitor>Logs**.  
 
-You can query the logs using the tables listed in the **CustomLogs** category **Tables** tab.  The tables in this category are the `ContainerAppSystemlogs_CL` and `ContainerAppConsolelogs_CL` tables.
+You can query the logs using the tables listed in the **CustomLogs** category **Tables** tab.  The tables in this category are the `ContainerAppSystemlogs_CL` and `ContainerAppConsoleLogs_CL` tables.
 
 :::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics custom log tables.":::
 
@@ -142,8 +142,6 @@ $queryResults.Results
 ```
 
 ---
-
-For more information about using Azure CLI to view container app logs, see [Viewing Logs](monitor.md#viewing-logs).
 
 ## Next steps
 

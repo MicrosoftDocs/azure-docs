@@ -2,12 +2,12 @@
 title: 'Tutorial: Enable ingress controller add-on for existing AKS cluster with existing Azure application gateway'
 description: Use this tutorial to enable the Ingress Controller Add-On for your existing AKS cluster with an existing Application Gateway
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/15/2022
-ms.author: caya
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.author: greglin
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -68,7 +68,7 @@ az network application-gateway create -n myApplicationGateway -l eastus -g myRes
 ```
 
 > [!NOTE]
-> application gateway ingress controller (AGIC) add-on **only** supports application gateway v2 SKUs (Standard and WAF), and **not** the application gateway v1 SKUs. 
+> The application gateway ingress controller (AGIC) add-on **only** supports application gateway v2 SKUs (Standard and WAF), and **not** the application gateway v1 SKUs. 
 
 ## Enable the AGIC add-on in existing AKS cluster through Azure CLI 
 
@@ -82,6 +82,9 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 ## Enable the AGIC add-on in existing AKS cluster through Azure portal 
 
 If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) and navigate to your AKS cluster through the portal link. From there, go to the Networking tab within your AKS cluster. You'll see an application gateway ingress controller section, which allows you to enable/disable the ingress controller add-on using the Azure portal. Select the box next to **Enable ingress controller**, and then select the application gateway you created, **myApplicationGateway** from the dropdown menu. Select **Save**.
+
+> [!CAUTION]
+> When you use an application gateway in a different resource group, the managed identity created **_ingressapplicationgateway-{AKSNAME}_** once this add-on is enabled in the AKS nodes resource group must have Contributor role set in the Application Gateway resource as well as Reader role set in the Application Gateway resource group.
 
 :::image type="content" source="./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png" alt-text="Screenshot showing how to enable application gateway ingress controller from the networking page of the Azure Kubernetes Service.":::
 
@@ -99,6 +102,11 @@ az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vne
 appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "id")
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
+
+> [!NOTE]
+> In the "Deploy a new AKS cluster" step above we created AKS with Azure CNI, in case you have an existing AKS cluster using [Kubenet mode](../aks/configure-kubenet.md) you need to update the route table to help the packets destined for a POD IP reach the node which is hosting the pod.
+> A simple way to achieve this is by associating the same route table created by AKS to the Application Gateway's subnet. 
+
 
 ## Deploy a sample application using AGIC 
 

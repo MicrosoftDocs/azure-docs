@@ -1,0 +1,54 @@
+---
+title: "Island Enterprise Browser User Activity (Polling CCP) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Island Enterprise Browser User Activity (Polling CCP) to connect your data source to Microsoft Sentinel."
+author: cwatson-cat
+ms.topic: how-to
+ms.date: 05/22/2023
+ms.service: microsoft-sentinel
+ms.author: cwatson
+---
+
+# Island Enterprise Browser User Activity (Polling CCP) connector for Microsoft Sentinel
+
+The [Island](https://www.island.io) connector provides the capability to ingest Island User Activity logs into Microsoft Sentinel.
+
+## Connector attributes
+
+| Connector attribute | Description |
+| --- | --- |
+| **Log Analytics table(s)** | {{graphQueriesTableName}}<br/> |
+| **Data collection rules support** | Not currently supported |
+| **Supported by** | [Island](https://www.island.io) |
+
+## Query samples
+
+**Grab 10 Island log entries**
+   ```kusto
+{{graphQueriesTableName}}
+ 
+   | sort by TimeGenerated
+ 
+   | take 10
+   ```
+
+
+
+## Prerequisites
+
+To integrate with Island Enterprise Browser User Activity (Polling CCP) make sure you have: 
+
+- **Island API Key**: An Island API key is required.
+
+
+## Vendor installation instructions
+
+Connect Island to Microsoft Sentinel
+
+Provide the Island API Key.
+
+
+
+
+## Next steps
+
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/islandtechnologyinc1679434413850.island-sentinel-solution?tab=Overview) in the Azure Marketplace.

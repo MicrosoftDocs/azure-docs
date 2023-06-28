@@ -6,7 +6,7 @@ author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 06/04/2021
+ms.date: 11/15/2022
 ms.author: v-amallick
 ms.custom: include file
 ---
@@ -23,9 +23,9 @@ If your machine has limited internet access, ensure that firewall, proxy, and ne
 - `*.windowsazure.com`
 - `*.microsoftonline.com`
 - `*.windows.net`
-- `*blob.core.windows.net`
-- `*queue.core.windows.net`
-- `*blob.storage.azure.net`
+- `*.blob.core.windows.net`
+- `*.queue.core.windows.net`
+- `*.blob.storage.azure.net`
 
 If you are a US Government customer, ensure that you have access to the following URLs:
 
@@ -35,9 +35,9 @@ If you are a US Government customer, ensure that you have access to the followin
 - `*.microsoftonline.us`
 - `*.windows.net`
 - `*.usgovcloudapi.net`
-- `*blob.core.windows.net`
-- `*queue.core.windows.net`
-- `*blob.storage.azure.net`
+- `*.blob.core.windows.net`
+- `*.queue.core.windows.net`
+- `*.blob.storage.azure.net`
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
@@ -65,9 +65,9 @@ To use public peering, ensure that the following domains and addresses have HTTP
 - `*.windowsazure.com`
 - `*.microsoftonline.com`
 - `*.windows.net`
-- `*blob.core.windows.net`
-- `*queue.core.windows.net`
-- `*blob.storage.azure.net`
+- `*.blob.core.windows.net`
+- `*.queue.core.windows.net`
+- `*.blob.storage.azure.net`
 
 To use Microsoft peering, select the following services, regions, and relevant community values:
 - Azure Active Directory (12076:5060)

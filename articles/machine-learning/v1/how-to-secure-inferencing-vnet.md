@@ -1,7 +1,7 @@
 ---
-title: Secure inferencing environments with virtual networks
+title: Secure v1 inferencing environments with virtual networks
 titleSuffix: Azure Machine Learning
-description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning inferencing environment.
+description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning inferencing environment (v1).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -10,15 +10,16 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/28/2022
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ---
 
-# Secure an Azure Machine Learning inferencing environment with virtual networks
+# Secure an Azure Machine Learning inferencing environment with virtual networks (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
+
+In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning. This article is specific to the SDK/CLI v1 deployment workflow of deploying a model as a web service.
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
@@ -44,12 +45,9 @@ In this article you learn how to secure the following inferencing resources in a
 
 + An existing virtual network and subnet to use with your compute resources.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
+[!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
-    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Limitations
 
@@ -61,7 +59,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 * If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine Learning.
 
 <a id="aksvnet"></a>
 
@@ -192,7 +190,7 @@ A private load balancer is enabled by configuring AKS to use an _internal load b
 
 The following examples demonstrate how to __create a new AKS cluster with a private IP/internal load balancer__ using the SDK and CLI:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

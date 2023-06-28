@@ -2,9 +2,7 @@
 title: 'Configure an Always-On VPN user tunnel'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure an Always On VPN user tunnel for your VPN gateway.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/29/2021

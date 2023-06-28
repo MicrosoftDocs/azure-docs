@@ -3,7 +3,7 @@ title: Azure single sign-on SAML protocol
 description: This article describes the single sign-on (SSO) SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: kenwith
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,9 +11,10 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2022
-ms.author: kenwith
+ms.author: owenrichards
+ms.reviewer: kenwith
 ms.custom: aaddev
-ms.reviewer: paulgarn
+
 ---
 
 # Single sign-on SAML protocol
@@ -22,7 +23,7 @@ This article covers the SAML 2.0 authentication requests and responses that Azur
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
-![Single Sign-On (SSO) Workflow](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Screenshot of the Single Sign-On (SSO) Workflow.](./media/single-sign-on-saml-protocol/saml-single-sign-on-workflow.png)
 
 > [!NOTE]
 > This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or integrated Windows authentication), see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).

@@ -10,13 +10,12 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/25/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
 ---
 
 # Start, monitor, and track run history
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 The [Azure Machine Learning SDK for Python v1](/python/api/overview/azure/ml/intro) and [Machine Learning CLI](reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
@@ -60,12 +59,13 @@ You'll need the following items:
 
 * The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Monitor run performance
 
 * Start a run and its logging process
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -131,7 +131,7 @@ You'll need the following items:
 
 * Monitor the status of a run
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -196,7 +196,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 * Add properties and tags
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -254,7 +254,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
     [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
@@ -285,7 +285,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -434,7 +434,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
 1. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
 
-    ![Screenshot of diagnostic settings for email notification.](./media/how-to-track-monitor-analyze-runs/diagnostic-setting.png)
+    ![Screenshot of diagnostic settings for email notification.](../media/how-to-track-monitor-analyze-runs/diagnostic-setting.png)
 
 1. In the Diagnostic Setting, 
     1. under the **Category details**, select the **AmlRunStatusChangedEvent**. 
@@ -443,11 +443,11 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
     > [!NOTE]
     > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md). 
     
-    ![Screenshot of configuring the email notification.](./media/how-to-track-monitor-analyze-runs/log-location.png)
+    ![Screenshot of configuring the email notification.](../media/how-to-track-monitor-analyze-runs/log-location.png)
 
 1. In the **Logs** tab, add a **New alert rule**. 
 
-    ![Screeenshot of the new alert rule.](./media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
+    ![Screeenshot of the new alert rule.](../media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
 
 1. See [how to create and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 

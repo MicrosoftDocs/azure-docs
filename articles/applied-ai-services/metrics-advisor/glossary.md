@@ -1,13 +1,12 @@
 ---
 title: Metrics Advisor glossary
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Key ideas and concepts for the Metrics Advisor service
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.custom: applied-ai-non-critical-metrics-advisor
+ms.custom: applied-ai-non-critical-metrics-advisor, ignite-2022
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
@@ -22,7 +21,7 @@ This document explains the technical terms used in Metrics Advisor. Use this art
 > [!NOTE]
 > Multiple metrics can share the same data source, and even the same data feed.
 
-A data feed is what Metrics Advisor ingests from your data source, such as Cosmos DB or a SQL server. A data feed contains rows of:
+A data feed is what Metrics Advisor ingests from your data source, such as Azure Cosmos DB or a SQL server. A data feed contains rows of:
 * timestamps
 * zero or more dimensions
 * one or more measures. 
@@ -40,7 +39,7 @@ A metric is a quantifiable measure that is used to monitor and assess the status
 
 ## Dimension
 
-A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country, language, tenant, and so on.
+A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country/region, language, tenant, and so on.
 
 ## Multi-dimensional metric
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 03/20/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -67,7 +67,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. In the terminal, change the directory using the `cd Microsoft.SCIM.WebHostSample` command
 
-1. To run your app locally, in the terminal, run the .NET CLI command below. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
+1. To run your app locally, in the terminal, run the .NET CLI command. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
 
     ```dotnetcli
     dotnet run --environment Development
@@ -75,16 +75,16 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. If not installed, add [Azure App Service for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](/azure/app-service/tutorial-dotnetcore-sqldb-app#2---create-the-app-service).
+1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-app).
 
-1. In the Visual Studio Code terminal, run the .NET CLI command below. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
+1. In the Visual Studio Code terminal, run the .NET CLI command. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 
     ```dotnetcli
     dotnet publish -c Debug
     ```
 
 1. In the Visual Studio Code explorer, right-click on the generated **publish** folder, and select Deploy to Web App.
-1. A new workflow will open in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
+1. A new workflow opens in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
 1. Select the **App Service** web app you created earlier.
 1. If Visual Studio Code prompts you to confirm, select **Deploy**. The deployment process may take a few moments. When the process completes, a notification should appear in the bottom right corner prompting you to browse to the deployed app.
 
@@ -102,7 +102,7 @@ That's it! Your SCIM endpoint is now published, and you can use the Azure App Se
 
 ## Test your SCIM endpoint
 
-Requests to a SCIM endpoint require authorization. The SCIM standard has multiple options for authentication and authorization, including cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
+Requests to a SCIM endpoint require authorization. The SCIM standard has multiple options available.  Requests can use cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
 
 Be sure to avoid methods that aren't secure, such as username and password, in favor of a more secure method such as OAuth. Azure AD supports long-lived bearer tokens (for gallery and non-gallery applications) and the OAuth authorization grant (for gallery applications).
 
@@ -132,50 +132,8 @@ The default token validation code is configured to use an Azure AD token and req
 }
 ```
 
-### Use Postman to test endpoints
-
-After you deploy the SCIM endpoint, you can test to ensure that it's compliant with SCIM RFC. This example provides a set of tests in Postman that validate CRUD (create, read, update, and delete) operations on users and groups, filtering, updates to group membership, and disabling users.
-
-The endpoints are in the `{host}/scim/` directory, and you can use standard HTTP requests to interact with them. To modify the `/scim/` route, see *ControllerConstant.cs* in **AzureADProvisioningSCIMreference** > **ScimReferenceApi** > **Controllers**.
-
-> [!NOTE]
-> You can only use HTTP endpoints for local tests. The Azure AD provisioning service requires that your endpoint support HTTPS.
-
-1. Download [Postman](https://www.getpostman.com/downloads/) and start the application.
-1. Copy and paste this link into Postman to import the test collection: `https://aka.ms/ProvisioningPostman`.
-
-    ![Screenshot that shows importing the test collection in Postman.](media/use-scim-to-build-users-and-groups-endpoints/postman-collection.png)
-
-1. Create a test environment that has these variables:
-
-   |Environment|Variable|Value|
-   |-|-|-|
-   |Run the project locally by using IIS Express|||
-   ||**Server**|`localhost`|
-   ||**Port**|`:44359` *(don't forget the **`:`**)*|
-   ||**Api**|`scim`|
-   |Run the project locally by using Kestrel|||
-   ||**Server**|`localhost`|
-   ||**Port**|`:5001` *(don't forget the **`:`**)*|
-   ||**Api**|`scim`|
-   |Host the endpoint in Azure|||
-   ||**Server**|*(input your SCIM URL)*|
-   ||**Port**|*(leave blank)*|
-   ||**Api**|`scim`|
-
-1. Use **Get Key** from the Postman collection to send a **GET** request to the token endpoint and retrieve a security token to be stored in the **token** variable for subsequent requests.
-
-   ![Screenshot that shows the Postman Get Key folder.](media/use-scim-to-build-users-and-groups-endpoints/postman-get-key.png)
-
-   > [!NOTE]
-   > To make a SCIM endpoint secure, you need a security token before you connect. The tutorial uses the `{host}/scim/token` endpoint to generate a self-signed token.
-
-That's it! You can now run the **Postman** collection to test the SCIM endpoint functionality.
-
 ## Next steps
 
-To develop a SCIM-compliant user and group endpoint with interoperability for a client, see [SCIM client implementation](http://www.simplecloud.info/#Implementations2).
-
-> [!div class="nextstepaction"]
-> [Tutorial: Develop and plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md)
-> [Tutorial: Configure provisioning for a gallery app](configure-automatic-user-provisioning-portal.md)
+- [Tutorial: Validate a SCIM endpoint](scim-validator-tutorial.md)
+- [Tutorial: Develop and plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md)
+- [Tutorial: Configure provisioning for a gallery app](configure-automatic-user-provisioning-portal.md)

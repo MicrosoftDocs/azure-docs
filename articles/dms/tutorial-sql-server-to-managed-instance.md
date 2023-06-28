@@ -1,20 +1,27 @@
 ---
 title: "Tutorial: Migrate SQL Server to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service.
-services: dms
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
+description: Learn to migrate from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service (classic).
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: craigg
+ms.date: 02/08/2023
 ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019,fasttrack-edit"
 ms.topic: tutorial
-ms.date: 08/16/2021
+ms.custom:
+  - seo-lt-2019
+  - fasttrack-edit
+  - ignite-2022
 ---
 
-# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS
+# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS (classic)
+
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
+
+> [!NOTE]
+> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-offline-ads.md). 
+>
+> To compare features between versions, review [compare versions](dms-overview.md#compare-versions).
 
 You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to an [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview). For additional methods that may require some manual effort, see the article [SQL Server to Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide).
 
@@ -47,7 +54,7 @@ To complete this tutorial, you need to:
 
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
-    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > - Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > - Storage endpoint
     > - Service bus endpoint
     >
@@ -76,8 +83,9 @@ To complete this tutorial, you need to:
 
     > [!NOTE]
     > - Azure Database Migration Service does not support using an account level SAS token when configuring the Storage Account settings during the [Configure Migration Settings](#configure-migration-settings) step.
-    > - You can't use an Azure Storage account that has a private endpoint with Azure Database Migration Service.
-    
+ 
+- Ensure both the Azure Database Migration Service IP address and the Azure SQL Managed Instance subnet can communicate with the blob container.
+
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 [!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   

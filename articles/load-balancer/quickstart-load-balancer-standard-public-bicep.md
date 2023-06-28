@@ -1,21 +1,19 @@
 ---
 title: "Quickstart: Create a public load balancer - Bicep"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a load balancer by using a Bicep file.
+description: This quickstart shows how to create a load balancer using a Bicep file.
 services: load-balancer
-documentationcenter: na
 author: mumian
 ms.service: load-balancer
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2022
 ms.author: jgao
-ms.custom: mvc, subject-bicepqs, mode-arm
+ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
 ---
 
-# Quickstart: Create a public load balancer to load balance VMs by using a Bicep file
+# Quickstart: Create a public load balancer to load balance VMs using a Bicep file
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs).
 
@@ -47,6 +45,12 @@ Multiple Azure resources have been defined in the bicep file:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) (3).
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3).
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): use to configure the Internet Information Server (IIS), and the web pages.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 To find more Bicep files or ARM templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 

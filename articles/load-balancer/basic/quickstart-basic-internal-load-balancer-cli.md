@@ -5,9 +5,9 @@ description: This quickstart shows how to create an internal basic load balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/24/2022
+ms.date: 04/10/2023
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 # Quickstart: Create an internal basic load balancer to load balance VMs by using the Azure CLI
@@ -16,7 +16,7 @@ Get started with Azure Load Balancer by using the Azure CLI to create an interna
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -55,6 +55,11 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 
 In this example, you'll create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 ### Create a bastion public IP address
 

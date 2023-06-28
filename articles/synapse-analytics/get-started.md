@@ -7,7 +7,7 @@ ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 04/04/2021 
+ms.date: 11/18/2022
 ---
 
 # Get Started with Azure Synapse Analytics

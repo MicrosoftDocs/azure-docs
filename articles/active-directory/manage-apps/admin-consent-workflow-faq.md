@@ -2,18 +2,19 @@
 title: Frequently asked questions about the admin consent workflow
 description: Find answers to frequently asked questions (FAQs) about the admin consent workflow.
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/27/2022
-ms.author: ergreenl
+ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-
+ms.custom: enterprise-apps
 ---
+
 # Azure Active Directory admin consent workflow frequently asked questions
 
 ## I enabled a workflow, but when testing the functionality, why can’t I see the new “Approval required” prompt that allows me to request access?

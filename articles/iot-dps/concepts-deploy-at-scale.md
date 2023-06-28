@@ -1,12 +1,13 @@
 ---
-title: Best practices for large-scale Microsoft Azure IoT device deployments
-description: This article describes best practices, patterns, and sample code you can use to help with large-scale deployments.
+title: Best practices for large-scale IoT deployments
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Best practices, patterns, and sample code you can use to help with large-scale deployments of Azure IoT Hub and Device Provisioning Service.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-dps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/27/2022
-ms.custom: template-concept
 ---
 
 # Best practices for large-scale IoT device deployments
@@ -168,7 +169,7 @@ if (provisioningDetails != null)
 ## IoT Hub connectivity considerations
 
 - Any single IoT hub is limited to 1 million devices plus modules. If you plan to have more than a million devices, cap the number of devices to 1 million per hub and add hubs as needed when increasing the scale of your deployment. For more information, see [IoT Hub quotas](../iot-hub/iot-hub-devguide-quotas-throttling.md).
-- If you have plans for more than a million devices and you need to support them in a specific region (such as in an EU region for data residency requirements), you can [contact us](../iot-fundamentals/iot-support-help.md) to ensure that the region you're deploying to has the capacity to support your current and future scale.
+- If you have plans for more than a million devices and you need to support them in a specific region (such as in an EU region for data residency requirements), you can [contact us](../iot/iot-support-help.md) to ensure that the region you're deploying to has the capacity to support your current and future scale.
 
 Recommended device logic when connecting to IoT Hub via DPS:
 
@@ -180,6 +181,7 @@ Recommended device logic when connecting to IoT Hub via DPS:
     - When receiving any of the 500-series of server error responses, retry the connection using either cached credentials or the results of a Device Registration Status Lookup API call.
     - When receiving `401, Unauthorized` or `403, Forbidden` or `404, Not Found`, perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device).
 - At any time, devices should be capable of responding to a user-initiated reprovisioning command.
+- If devices get disconnected from IoT Hub, devices should try to reconnect directly to the same IoT Hub for at least 15 minutes (If scenario permits 30 minutes or more),  before attempting to go back to DPS.  
 
 Other IoT Hub scenarios when using DPS:
 
@@ -197,5 +199,5 @@ An important part of the overall deployment is monitoring the solution end-to-en
 
 ## Next steps
 
-- [Provision devices across load-balanced IoT Hubs](tutorial-provision-multiple-hubs.md)
+- [Provision devices across IoT Hubs](how-to-use-allocation-policies.md)
 - [Retry timing](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/docs/iot/mqtt_state_machine.md#retry-timing) when retrying operations

@@ -2,11 +2,11 @@
 title: Create a Java function in Azure Functions using IntelliJ 
 description: Learn how to use IntelliJ to create an HTTP-triggered Java function and then run it in a serverless environment in Azure.
 author: karlerickson
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 03/28/2022
 ms.author: jialuogan
 ms.devlang: java
-ms.custom: mvc, devcenter, devx-track-java
+ms.custom: mvc, devcenter, devx-track-java, devx-track-extended-java
 ---
 
 # Create your first Java function in Azure using IntelliJ
@@ -64,6 +64,9 @@ To use Azure Toolkit for IntelliJ to create a local Azure Functions project, fol
 ## Run the project locally
 
 To run the project locally, follow these steps:
+
+> [!IMPORTANT]
+> You must have the JAVA_HOME environment variable set correctly to the JDK directory that is used during code compiling using Maven. Make sure that the version of the JDK is at least as high as the `Java.version` setting.
 
 1. Navigate to *src/main/java/org/example/functions/HttpTriggerFunction.java* to see the code generated. Beside the line *24*, you'll notice that there's a green **Run** button. Click it and select **Run 'Functions-azur...'**. You'll see that your function app is running locally with a few logs.
 

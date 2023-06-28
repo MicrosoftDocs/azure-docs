@@ -5,7 +5,9 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 06/21/2023
+
+
 ---
 
 # Azure Cache for Redis network isolation options
@@ -18,19 +20,23 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 ### Advantages of Private Link
 
-* Supported on Basic, Standard, and Premium Azure Cache for Redis instances.
-* By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Cache instance from your virtual network via a private endpoint. The endpoint is assigned a private IP address in a subnet within the virtual network. With this private link, cache instances are available from both within the VNet and publicly.  
-* Once a private endpoint is created, access to the public network can be restricted through the `publicNetworkAccess` flag. This flag is set to `Disabled` by default, which will only allow private link access. You can set the value to `Enabled` or `Disabled` with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md).
-* All external cache dependencies won't affect the VNet's NSG rules.
+- Supported on Basic, Standard, Premium, Enterprise, and Enterprise Flash tiers of Azure Cache for Redis instances.
+- By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Cache instance from your virtual network via a private endpoint. The endpoint is assigned a private IP address in a subnet within the virtual network. With this private link, cache instances are available from both within the VNet and publicly.
+   > [!IMPORTANT]
+   > Enterprise/Enterprise Flash caches with private link cannot be accessed publicly.
+- Once a private endpoint is created on Basic/Standard/Premium tier caches, access to the public network can be restricted through the `publicNetworkAccess` flag. This flag is set to `Disabled` by default, which will only allow private link access. You can set the value to `Enabled` or `Disabled` with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md).
+   > [!IMPORTANT]
+   > Enterprise/Enterprise Flash tier does not support `publicNetworkAccess` flag.
+- All external cache dependencies won't affect the VNet's NSG rules.
 
 ### Limitations of Private Link
 
-* Network security groups (NSG) are disabled for private endpoints. However, if there are other resources on the subnet, NSG enforcement will apply to those resources.
-* Currently, portal console support, and persistence to firewall storage accounts aren't supported.
-* To connect to a clustered cache, `publicNetworkAccess` needs to be set to `Disabled` and there can only be one private endpoint connection.
+- Network security groups (NSG) are disabled for private endpoints. However, if there are other resources on the subnet, NSG enforcement will apply to those resources.
+- Currently, portal console support, import/export and persistence to firewall storage accounts aren't supported.
+- To connect to a clustered cache, `publicNetworkAccess` needs to be set to `Disabled`, and there can only be one private endpoint connection.
 
 > [!NOTE]
-> When adding a private endpoint to a cache instance, all Redis traffic will be moved to the private endpoint because of the DNS.
+> When adding a private endpoint to a cache instance, all Redis traffic is moved to the private endpoint because of the DNS.
 > Ensure previous firewall rules are adjusted before.  
 
 ## Azure Virtual Network injection
@@ -39,15 +45,16 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 ### Advantages of VNet injection
 
-* When an Azure Cache for Redis instance is configured with a VNet, it's not publicly addressable. It can only be accessed from virtual machines and applications within the VNet.  
-* When VNet is combined with restricted NSG policies, it helps reduce the risk of data exfiltration.
-* VNet deployment provides enhanced security and isolation for your Azure Cache for Redis. Subnets, access control policies, and other features further restrict access.
-* Geo-replication is supported.
+- When an Azure Cache for Redis instance is configured with a VNet, it's not publicly addressable. It can only be accessed from virtual machines and applications within the VNet.  
+- When VNet is combined with restricted NSG policies, it helps reduce the risk of data exfiltration.
+- VNet deployment provides enhanced security and isolation for your Azure Cache for Redis. Subnets, access control policies, and other features further restrict access.
+- Geo-replication is supported.
 
 ### Limitations of VNet injection
 
-* VNet injected caches are only available for Premium Azure Cache for Redis.
-* When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.  
+- VNet injected caches are only available for Premium Azure Cache for Redis.
+- When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
+- You can't inject an Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache.
 
 ## Azure Firewall rules
 
@@ -55,14 +62,16 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 ### Advantages of firewall rules
 
-* When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. Connections from Azure Cache for Redis monitoring systems are always permitted, even if firewall rules are configured. NSG rules that you define are also permitted.  
+- When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. Connections from Azure Cache for Redis monitoring systems are always permitted, even if firewall rules are configured. NSG rules that you define are also permitted.  
 
 ### Limitations of firewall rules
 
-* Firewall rules can be used with VNet injected caches, but not private endpoints currently.
+- Firewall rules can be used with VNet injected caches, but not private endpoints.
+- Firewall rules configuration is available for all Basic, Standard, and Premium tiers.
+- Firewall rules configuration isn't available for Enterprise nor Enterprise Flash tiers.
 
 ## Next steps
 
-* Learn how to configure a [VNet injected cache for a Premium Azure Cache for Redis instance](cache-how-to-premium-vnet.md).
-* Learn how to configure [firewall rules for all Azure Cache for Redis tiers](cache-configure.md#firewall).
-* Learn how to [configure private endpoints for all Azure Cache for Redis tiers](cache-private-link.md).
+- Learn how to configure a [VNet injected cache for a Premium Azure Cache for Redis instance](cache-how-to-premium-vnet.md).
+- Learn how to configure [firewall rules for all Azure Cache for Redis tiers](cache-configure.md#firewall).
+- Learn how to [configure private endpoints for all Azure Cache for Redis tiers](cache-private-link.md).

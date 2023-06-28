@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 05/10/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -20,6 +20,19 @@ If you want to get large amounts of exported data regularly, see [Retrieve large
 To learn more about the data in cost details (formerly referred to as *usage details*), see [Ingest cost details data](automation-ingest-usage-details-overview.md).
 
 The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, Pay-As-You-Go or Visual Studio customer, see [Get cost details for a pay-as-you-go subscription](get-usage-details-legacy-customer.md).
+
+## Permissions
+
+To use the Cost Details API, you need read only permissions for supported features and scopes.
+
+>[!NOTE]
+> The [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) doesn't support management groups for either EA or MCA customers.
+
+For more information, see: 
+
+- [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role)
+- [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-1)
+- [Microsoft Customer Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-2)
 
 ## Cost Details API best practices
 
@@ -81,6 +94,8 @@ An example request for an ActualCost dataset for a specified date range is provi
 }
 
 ```
+
+Available *{scope}* options to build the proper URI are documented at [Identify the resource ID for a scope](../costs/understand-work-scopes.md#identify-the-resource-id-for-a-scope).
 
 The available fields you can provide in the report request body are summarized below.
 

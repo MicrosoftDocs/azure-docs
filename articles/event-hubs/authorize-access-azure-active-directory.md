@@ -2,7 +2,7 @@
 title: Authorize access with Azure Active Directory
 description: This article provides information on authorizing access to Event Hubs resources using Azure Active Directory. 
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 10/25/2022
 ---
 
 # Authorize access to Event Hubs resources using Azure Active Directory
@@ -34,7 +34,7 @@ Azure provides the following Azure built-in roles for authorizing access to Even
 | [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Use this role to give the send access to Event Hubs resources. |
 | [Azure Event Hubs Data receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Use this role to give the consuming/receiving access to Event Hubs resources. |
 
-For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-overview.md#azure-role-based-access-control).
+For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-concepts.md#azure-role-based-access-control).
 
 ## Resource scope 
 Before you assign an Azure role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
@@ -49,7 +49,7 @@ The following list describes the levels at which you can scope access to Event H
 
 > [!NOTE]
 > - Keep in mind that Azure role assignments may take up to five minutes to propagate. 
-> - This content applies to both Event Hubs and Event Hubs for Apache Kafka. For more information on Event Hubs for Kafka support, see [Event Hubs for Kafka - security and authentication](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
+> - This content applies to both Event Hubs and Event Hubs for Apache Kafka. For more information on Event Hubs for Kafka support, see [Event Hubs for Kafka - security and authentication](azure-event-hubs-kafka-overview.md#security-and-authentication).
 
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).

@@ -1,5 +1,5 @@
 ---
-title: NAT gateway integration - Azure App Service | Microsoft Docs
+title: Azure NAT Gateway integration - Azure App Service | Microsoft Docs
 description: Describes how NAT gateway integrates with Azure App Service.
 services: app-service
 author: madsd
@@ -15,20 +15,20 @@ ms.devlang: azurecli
 
 ---
 
-# Virtual Network NAT gateway integration
+# Azure NAT Gateway integration
 
-NAT gateway is a fully managed, highly resilient service, which can be associated with one or more subnets and ensures that all outbound Internet-facing traffic will be routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. 
+Azure NAT gateway is a fully managed, highly resilient service, which can be associated with one or more subnets and ensures that all outbound Internet-facing traffic will be routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. 
 
 The NAT gateway gives you a static predictable public IP for outbound Internet-facing traffic. It also significantly increases the available [SNAT ports](../troubleshoot-intermittent-outbound-connection-errors.md) in scenarios where you have a high number of concurrent connections to the same public address/port combination.
 
-For more information and pricing. Go to the [NAT gateway overview](../../virtual-network/nat-gateway/nat-overview.md).
+For more information and pricing. Go to the [Azure NAT Gateway overview](../../virtual-network/nat-gateway/nat-overview.md).
 
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-overview.png" alt-text="Diagram shows Internet traffic flowing to a NAT gateway in an Azure Virtual Network.":::
 
 > [!Note] 
-> * Using NAT gateway with App Service is dependent on virtual network integration, and therefore a supported App Service plan pricing tier is required.
-> * When using NAT gateway together with App Service, all traffic to Azure Storage must be using private endpoint or service endpoint.
-> * NAT gateway cannot be used together with App Service Environment v1 or v2.
+> * Using a NAT gateway with App Service is dependent on virtual network integration, and therefore a supported App Service plan pricing tier is required.
+> * When using a NAT gateway together with App Service, all traffic to Azure Storage must be using private endpoint or service endpoint.
+> * A NAT gateway cannot be used together with App Service Environment v1 or v2.
 
 ## Configuring NAT gateway integration
 
@@ -38,7 +38,7 @@ To configure NAT gateway integration with App Service, you need to complete the 
 * Ensure [Route All](../overview-vnet-integration.md#routes) is enabled for your virtual network integration so the Internet bound traffic will be affected by routes in your virtual network.
 * Provision a NAT gateway with a public IP and associate it with the virtual network integration subnet.
 
-Set up NAT gateway through the portal:
+Set up Azure NAT Gateway through the portal:
 
 1. Go to the **Networking** UI in the App Service portal and select virtual network integration in the Outbound Traffic section. Ensure that your app is integrated with a subnet and **Route All** has been enabled.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-route-all-enabled.png" alt-text="Screenshot of Route All enabled for virtual network integration.":::
@@ -75,14 +75,14 @@ Associate the NAT gateway with the virtual network integration subnet:
 az network vnet subnet update --resource-group [myResourceGroup] --vnet-name [myVnet] --name [myIntegrationSubnet] --nat-gateway myNATgateway
 ```
 
-## Scaling NAT gateway
+## Scaling a NAT gateway
 
-The same NAT gateway can be used across multiple subnets in the same Virtual Network allowing a NAT gateway to be used across multiple apps and App Service plans.
+The same NAT gateway can be used across multiple subnets in the same virtual network allowing a NAT gateway to be used across multiple apps and App Service plans.
 
-NAT gateway supports both public IP addresses and public IP prefixes. A NAT gateway can support up to 16 IP addresses across individual IP addresses and prefixes. Each IP address allocates 64,512 ports (SNAT ports) allowing up to 1M available ports. Learn more in the [Scaling section](../../virtual-network/nat-gateway/nat-gateway-resource.md#scale-nat-gateway) of NAT gateway.
+Azure NAT Gateway supports both public IP addresses and public IP prefixes. A NAT gateway can support up to 16 IP addresses across individual IP addresses and prefixes. Each IP address allocates 64,512 ports (SNAT ports) allowing up to 1M available ports. Learn more in the [Scaling section](../../virtual-network/nat-gateway/nat-gateway-resource.md#scalability) of Azure NAT Gateway.
 
 ## Next steps
 
-For more information on the NAT gateway, see [NAT gateway documentation](../../virtual-network/nat-gateway/nat-overview.md).
+For more information on Azure NAT Gateway, see [Azure NAT Gateway documentation](../../virtual-network/nat-gateway/nat-overview.md).
 
 For more information on virtual network integration, see [Virtual network integration documentation](../overview-vnet-integration.md).

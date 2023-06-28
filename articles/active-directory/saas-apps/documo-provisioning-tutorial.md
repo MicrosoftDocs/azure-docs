@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Documo for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Documo for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Documo.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 92b9561a-5c87-4540-a806-744e35ff5714
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/27/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -42,7 +42,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Documo to support provisioning with Azure AD
 
-1. [Generate an API key](https://help.documo.com/support/solutions/articles/72000513690-how-to-enable-api-and-retrieve-api-key) to use for Azure AD provisioning. 
+1. [Generate an API key](https://help.documo.com/hc/en-us/articles/7789630698011-How-to-Enable-and-Retrieve-API-Keys) to use for Azure AD provisioning. 
 1. Find and remember your API URL. The default API URL is `https://api.documo.com`. If you have a custom Documo API domain, you can reference it in the domain tab of the Documo branding settings page.
 
 ## Step 3. Add Documo from the Azure AD application gallery

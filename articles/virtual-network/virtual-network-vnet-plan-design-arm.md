@@ -1,18 +1,16 @@
 ---
-title: Plan Azure virtual networks | Microsoft Docs
+title: Plan Azure virtual networks
 description: Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
 services: virtual-network
-documentationcenter: na
-author: mbender-ms
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
-ms.author: mbender
-
+ms.author: allensu
 ---
+
 # Plan virtual networks
 
 Creating a virtual network to experiment with is easy enough, but chances are, you will deploy multiple virtual networks over time to support the production needs of your organization. With some planning, you will be able to deploy virtual networks and connect the resources you need more effectively. The information in this article is most helpful if you're already familiar with virtual networks and have some experience working with them. If you are not familiar with virtual networks, it's recommended that you read [Virtual network overview](virtual-networks-overview.md).

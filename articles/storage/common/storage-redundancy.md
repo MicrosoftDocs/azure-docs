@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 06/15/2023
 ms.author: jammart
 ms.subservice: common
-ms.custom: references_regions
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Azure Storage redundancy
@@ -64,7 +64,7 @@ Zone-redundant storage (ZRS) replicates your storage account synchronously acros
 
 With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. If a zone becomes unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you access data before the updates have completed. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
 
-A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones.
+A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones. If an availability zone is temporarily unavailable, the operation returns successfully after the data is written to all available zones.
 
 Microsoft recommends using ZRS in the primary region for scenarios that require high availability. ZRS is also recommended for restricting replication of data to a particular country or region to meet data governance requirements.
 
@@ -89,33 +89,19 @@ ZRS is supported for all Azure Storage services through standard general-purpose
 - Azure Table storage
 - Azure Queue storage
 
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-zrs.md)]
+For a list of regions that support zone-redundant storage (ZRS) for standard accounts, see [Azure regions that support zone-redundant storage (ZRS) for standard storage accounts](redundancy-regions-zrs.md#standard-storage-accounts).
 
 #### Premium block blob accounts
 
 ZRS is supported for premium block blobs accounts. For more information about premium block blobs, see [Premium block blob storage accounts](../blobs/storage-blob-block-blob-premium.md).
 
-Premium block blobs are available in a subset of Azure regions:
-
-- (Asia Pacific) Australia East
-- (Asia Pacific) East Asia
-- (Asia Pacific) Japan East
-- (Asia Pacific) Southeast Asia
-- (Europe) France Central
-- (Europe) North Europe
-- (Europe) West Europe
-- (Europe) UK South
-- (North America) East US
-- (North America) East US 2
-- (North America) West US 2
-- (North America) South Central US
-- (South America) Brazil South
+For a list of regions that support zone-redundant storage (ZRS) for premium block blobs accounts, see [Azure regions that support zone-redundant storage (ZRS) for premium block blob accounts](redundancy-regions-zrs.md#premium-block-blob-accounts).
 
 #### Premium file share accounts
 
 ZRS is supported for premium file shares (Azure Files) through the `FileStorage` storage account kind.
 
-[!INCLUDE [storage-files-redundancy-premium-zrs](../../../includes/storage-files-redundancy-premium-zrs.md)]
+For a list of regions that support zone-redundant storage (ZRS) for premium file share accounts, see [Azure Files zone-redundant storage for premium file shares](../files/redundancy-premium-file-shares.md).
 
 ## Redundancy in a secondary region
 
@@ -131,7 +117,7 @@ Azure Storage offers two options for copying your data to a secondary region:
 > [!NOTE]
 > The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary region, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.
 
-With GRS or GZRS, the data in the secondary region isn't available for read or write access unless there's a failover to the secondary region. For read access to the secondary region, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
+With GRS or GZRS, the data in the secondary region isn't available for read or write access unless there's a failover to the primary region. For read access to the secondary region, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 
 If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
@@ -165,7 +151,7 @@ Only standard general-purpose v2 storage accounts support GZRS. GZRS is supporte
 - Azure Table storage
 - Azure Queue storage
 
-[!INCLUDE [storage-redundancy-standard-gzrs](../../../includes/storage-redundancy-standard-gzrs.md)]
+For a list of regions that support geo-zone-redundant storage (GZRS), see [Azure regions that support geo-zone-redundant storage (GZRS)](redundancy-regions-gzrs.md).
 
 ## Read access to data in the secondary region
 

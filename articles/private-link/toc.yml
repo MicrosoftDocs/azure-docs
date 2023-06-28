@@ -33,9 +33,11 @@
   expanded: true
 - name: Tutorials
   items: 
+  - name: Deploy a private endpoint with a private resolver
+    href: tutorial-dns-on-premises-private-resolver.md
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
-  - name: Connect to a Cosmos DB account
+  - name: Connect to an Azure Cosmos DB account
     href: tutorial-private-endpoint-cosmosdb-portal.md
   - name: Connect to a web app
     href: tutorial-private-endpoint-webapp-portal.md
@@ -59,6 +61,8 @@
     href: private-endpoint-dns.md   
   - name: RBAC permissions
     href: rbac-permissions.md 
+  - name: Private Link and DNS in Azure Virtual WAN
+    href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
   - name: Security
     items:
     - name: Security baseline
@@ -105,8 +109,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/27/2022
+ms.date: 06/06/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -22,7 +22,9 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 ## Terms for features in public preview
 
 - We encourage you to use public preview features for evaluation purposes only.
+
 - [Service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) don't apply to public preview features.
+
 - Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows
@@ -156,7 +158,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | ------- | :--: | ----- |
 | [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | GA |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
 | [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
-| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
+| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | GA |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory | GA |  |
 | [Predicate validations](predicates.md) | GA | For example, password complexity. |
@@ -170,6 +172,12 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | Azure portal | GA |   |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
 | [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
+
+## Other features 
+
+| Feature | Status | Notes |
+| ------- | :--: | ----- |
+| [Go-Local add-on](data-residency.md#go-local-add-on) | GA | Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country/region you choose when you [create your Azure AD B2C](tutorial-create-tenant.md).  |
 
 ## Responsibilities of custom policy feature-set developers
 

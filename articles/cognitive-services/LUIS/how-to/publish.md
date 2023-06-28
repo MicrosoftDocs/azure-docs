@@ -12,6 +12,9 @@ ms.date: 12/14/2021
 
 # Publish your active, trained app
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 When you finish building, training, and testing your active LUIS app, you make it available to your client application by publishing it to an endpoint.
 
 ## Publishing

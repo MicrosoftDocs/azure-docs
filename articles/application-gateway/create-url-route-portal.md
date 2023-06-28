@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/08/2022
 ms.author: greglin
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
 
@@ -126,7 +126,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 

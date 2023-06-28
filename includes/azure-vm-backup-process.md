@@ -2,7 +2,7 @@
 author: v-amallick
 ms.service: Azure Backup  
 ms.topic: include
-ms.date: 04/16/2021
+ms.date: 10/19/2022
 ms.author: v-amallick
 ---
 
@@ -23,6 +23,5 @@ ms.author: v-amallick
     - Startup type of Volume Shadow Copy service (VSS) changed to automatic from manual
     - IaaSVmProvider Windows service is added
 
-1. When the data transfer is complete, the snapshot is removed, and a recovery point is created.
 
 ![Azure virtual machine backup architecture](../articles/backup/media/backup-azure-vms-introduction/vmbackup-architecture.png)

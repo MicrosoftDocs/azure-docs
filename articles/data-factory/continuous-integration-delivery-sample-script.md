@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 10/25/2022 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -19,7 +19,7 @@ The following sample demonstrates how to use a pre- and post-deployment script w
 
 ## Install Azure PowerShell
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >Make sure to use **PowerShell Core** in ADO task to run the script

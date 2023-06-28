@@ -18,7 +18,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you label data, train, evaluate, improve, and deploy your models. 
 
-    :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
+    :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the custom text classification project creation page." lightbox="../../media/create-project.png":::
 
 
 4.  After you click, **Create new project**, a window will appear to let you connect your storage account. If you've already connected a storage account, you will see the storage accounted connected. If not, choose your storage account from the dropdown that appears and click on **Connect storage account**; this will set the required roles for your storage account. This step will possibly return an error if you are not assigned as **owner** on the storage account.
@@ -42,6 +42,8 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 6. Select the container where you have uploaded your dataset. 
     
     >[!Note]
-    > If you have already labeled your data make sure it follows the [supported format](../../concepts/data-formats.md) and click on **Yes, my documents are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below. Click **Next**.
+    > If you have already labeled your data make sure it follows the [supported format](../../concepts/data-formats.md) and click on **Yes, my documents are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below. 
+ 
+    > If you’re using one of the example datasets, use the included `webOfScience_labelsFile` or `movieLabels` json file. Then click **Next**.
     
 7. Review the data you entered and select **Create Project**.

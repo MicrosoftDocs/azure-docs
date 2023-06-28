@@ -1,7 +1,7 @@
 ---
 title: Configure Azure RBAC role for FHIR service - Azure Health Data Services
 description: This article describes how to configure Azure RBAC role for FHIR.
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
@@ -29,6 +29,7 @@ In the Role selection, search for one of the built-in roles for the FHIR data pl
 * **FHIR Data Exporter**: Can read and export ($export operator) data.
 * **FHIR Data Contributor**: Can perform all data plane operations.
 * **FHIR Data Converter**: Can use the converter to perform data conversion.
+* **FHIR SMART User**: Role allows to read and write FHIR data according to the SMART IG V1.0.0 specifications.
 
 In the **Select** section, type the client application registration name. If the name is found, the application name is listed. Select the application name, and then select **Save**. 
 

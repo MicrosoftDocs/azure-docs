@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: jorgegarc
+author: garchiro7
 manager: anujbh
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
@@ -22,11 +22,11 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ### Features
 
-Refer to the native [UI Library overview](/concepts/ui-library/ui-library-overview.md)
+Refer to the native [UI Library overview](../../concepts/ui-library/ui-library-overview.md)
 
 ### Prerequisites
 
-- Visual Studio [Setup Instructions](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=macos)
+- Visual Studio [Setup Instructions](/xamarin/get-started/installation/?pivots=macos)
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - iOS [Requirements](https://github.com/Azure/communication-ui-library-ios#requirements)
 - Android [Requirements](https://github.com/Azure/communication-ui-library-android#prerequisites)
@@ -38,8 +38,8 @@ Refer to the native [UI Library overview](/concepts/ui-library/ui-library-overvi
 Clone repo and open `CommunicationCallingXamarinSampleApp.sln` in Visual Studio
 
 #### For Android
-
-Set `CommunicationCallingXamarinSampleApp.Android` as startup project, build solution and select a device or emulator to run application.
+1. Navigate to `/XamarinAndroidBindings/` and in this directory in terminal run `sh downloadJarScript` [Learn More](https://github.com/Azure-Samples/communication-services-ui-library-xamarin/blob/main/XamarinAndroidBindings/README.md)
+2. Set `CommunicationCallingXamarinSampleApp.Android` as start up project, build solution and select a device or emulator to run application.
 
 #### For iOS
 

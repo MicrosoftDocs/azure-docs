@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with FCM HUB'
 description: Learn how to configure single sign-on between Azure Active Directory and FCM HUB.
 services: active-directory
 author: jeevansd
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2021
+ms.date: 04/19/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB
+# Tutorial: Azure Active Directory SSO integration with FCM HUB
 
-In this tutorial, you'll learn how to integrate FCM HUB with Azure Active Directory (Azure AD). When you integrate FCM HUB with Azure AD, you can:
+In this tutorial, you learn how to integrate FCM HUB with Azure Active Directory (Azure AD). When you integrate FCM HUB with Azure AD, you can:
 
 * Control in Azure AD who has access to FCM HUB.
 * Enable your users to be automatically signed-in to FCM HUB with their Azure AD accounts.
@@ -47,6 +47,8 @@ To configure the integration of FCM HUB into Azure AD, you need to add FCM HUB f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **FCM HUB** in the search box.
 1. Select **FCM HUB** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for FCM HUB
 
@@ -89,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    - **Source Attribute**: PortalID, value provided by FCM
 
 1. In the **SAML Signing Certificate** section, use the edit option to select or enter the following settings, and then select **Save**:
-   - **Signing Option**: Sign SAML response
+   - **Signing Option**: Sign SAML response and Assertion
    - **Signing Algorithm**: SHA-256
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.

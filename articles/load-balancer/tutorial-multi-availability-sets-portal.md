@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 05/09/2022
 ms.custom: template-tutorial
 ---
+
 # Tutorial: Create a load balancer with more than one availability set in the backend pool using the Azure portal
 
 As part of a high availability deployment, virtual machines are often grouped into multiple availability sets. 
@@ -86,6 +87,12 @@ In this section, you'll create a virtual network for the load balancer and the o
 14. Select the **Review + create** tab, or the blue **Review + create** button at the bottom of the page.
 
 15. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 ## Create NAT gateway 
 

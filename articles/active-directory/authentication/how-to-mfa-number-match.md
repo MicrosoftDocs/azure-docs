@@ -1,350 +1,143 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
+title: How number matching works in multifactor authentication (MFA) push notifications for Microsoft Authenticator
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/01/2022
+ms.date: 05/10/2023
 ms.author: justinha
-author: mjsantani
+author: justinha
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to explain how number matching in MFA push notifications from Authenticator in Azure AD works in different use cases.
 ---
-# How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication Methods Policy
+# How number matching works in multifactor authentication (MFA) push notifications for Authenticator - Authentication methods policy
 
-This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security. Number matching can be enabled by using the Azure portal or Microsoft Graph API. 
+This topic covers how number matching in Microsoft Authenticator push notifications improves user sign-in security. 
+Number matching is a key security upgrade to traditional second factor notifications in Authenticator. 
 
->[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will be enabled by default for all tenants a few months after general availability (GA).<br> 
->We highly recommend enabling number matching in the near-term for improved sign-in security.
+Beginning May 8, 2023, number matching is enabled for all Authenticator push notifications. 
+As relevant services deploy, users worldwide who are enabled for Authenticator push notifications will begin to see number matching in their approval requests. 
+Users can be enabled for Authenticator push notifications either in the Authentication methods policy or the legacy multifactor authentication policy if **Notifications through mobile app** is enabled.
 
-## Prerequisites
-
-Your organization will need to enable Authenticator (traditional second factor) push notifications for some users or groups only by using the Azure AD portal. The new Authentication Methods Policy API will soon be ready as another configuration option. If your organization is using ADFS adapter or NPS extensions, please upgrade to the latest versions for a consistent experience. 
-
-## Number matching
-
-Number matching can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy. 
+## Number matching scenarios
 
 Number matching is available for the following scenarios. When enabled, all scenarios support number matching.
 
-- [Multifactor authentication](tutorial-enable-azure-mfa.md)
-- [Self-service password reset](howto-sspr-deployment.md)
-- [Combined SSPR and MFA registration during Authenticator app set up](howto-registration-mfa-sspr-combined.md)
-- [AD FS adapter](howto-mfaserver-adfs-windows-server.md)
-- [NPS extension](howto-mfa-nps-extension.md)
+- [Multifactor authentication](#multifactor-authentication)
+- [Self-service password reset](#sspr)
+- [Combined SSPR and MFA registration during Authenticator app set up](#combined-registration)
+- [AD FS adapter](#ad-fs-adapter)
+- [NPS extension](#nps-extension)
 
->[!NOTE]
->For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
-
-Number matching is not supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
+Number matching isn't supported for push notifications for Apple Watch or Android wearable devices. Wearable device users need to use their phone to approve notifications when number matching is enabled.  
 
 ### Multifactor authentication
 
-When a user responds to an MFA push notification using the Authenticator app, they'll be presented with a number. They need to type that number into the app to complete the approval. 
+When a user responds to an MFA push notification using Authenticator, they'll be presented with a number. They need to type that number into the app to complete the approval. For more information about how to set up MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
 ![Screenshot of user entering a number match.](media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
 ### SSPR
 
-During self-service password reset, the Authenticator app notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
+Self-service password reset (SSPR) with Authenticator requires number matching when using Authenticator. During self-service password reset, the sign-in page shows a number that the user needs to type into the Authenticator notification. For more information about how to set up SSPR, see [Tutorial: Enable users to unlock their account or reset passwords](howto-sspr-deployment.md).
 
 ### Combined registration
 
-When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
+Combined registration with Authenticator requires number matching. When a user goes through combined registration to set up Authenticator, the user needs to approve a notification to add the account. This notification shows a number that they need to type into the Authenticator notification. For more information about how to set up combined registration, see [Enable combined security information registration](howto-registration-mfa-sspr-combined.md).
 
 ### AD FS adapter
 
-The AD FS adapter supports number matching after installing an update. Earlier versions of Windows Server don't support number matching. On earlier versions, users will continue to see the **Approve**/**Deny** experience and won't see number matching until you upgrade.
+AD FS adapter requires number matching on supported versions of Windows Server. On earlier versions, users continue to see the **Approve**/**Deny** experience and don’t see number matching until you upgrade. The AD FS adapter supports number matching only after you install one of the updates in the following table. For more information about how to set up AD FS adapter, see [Configure Azure Active Directory (Azure AD) Multi-Factor Authentication Server to work with AD FS in Windows Server](howto-mfaserver-adfs-windows-server.md).
+
+>[!NOTE]
+>Unpatched versions of Windows Server don't support number matching. Users continue to see the **Approve**/**Deny** experience and don't see number matching unless these updates are applied.
 
 | Version | Update |
 |---------|--------|
-| Windows Server 2022 | [October 26, 2021—KB5006745 (OS Build 20348.320) Preview](https://support.microsoft.com/topic/october-26-2021-kb5006745-os-build-20348-320-preview-8ff9319a-19e7-40c7-bbd1-cd70fcca066c) |
-| Windows Server 2019 | [October 19, 2021—KB5006744 (OS Build 17763.2268) Preview](https://support.microsoft.com/topic/october-19-2021-kb5006744-os-build-17763-2268-preview-e043a8a3-901b-4190-bb6b-f5a4137411c0) |
+| Windows Server 2022 | [November 9, 2021—KB5007205 (OS Build 20348.350)](https://support.microsoft.com/topic/november-9-2021-kb5007205-os-build-20348-350-af102e6f-cc7c-4cd4-8dc2-8b08d73d2b31) |
+| Windows Server 2019 | [November 9, 2021—KB5007206 (OS Build 17763.2300)](https://support.microsoft.com/topic/november-9-2021-kb5007206-os-build-17763-2300-c63b76fa-a9b4-4685-b17c-7d866bb50e48) |
 | Windows Server 2016 | [October 12, 2021—KB5006669 (OS Build 14393.4704)](https://support.microsoft.com/topic/october-12-2021-kb5006669-os-build-14393-4704-bcc95546-0768-49ae-bec9-240cc59df384) |
-
 
 ### NPS extension
 
-Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). NPS extension versions beginning with 1.0.1.40 support number matching. 
+Although NPS doesn't support number matching, the latest NPS extension does support time-based one-time password (TOTP) methods such as the TOTP available in Authenticator, other software tokens, and hardware FOBs. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to **Approve**/**Deny**. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Authenticator app, other software tokens, and so on. 
+Anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later is prompted to sign in with a TOTP method instead of **Approve**/**Deny**. 
+Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**. 
+ 
+Organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter a TOTP:
 
-If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
+- 1.2.2131.2
+- 1.2.1959.1
+- 1.2.1916.2
+- 1.1.1892.2
+- 1.0.1850.1
+- 1.0.1.41
+- 1.0.1.40
 
-To create the registry key that overrides push notifications:
+>[!NOTE] 
+>NPS extensions versions earlier than 1.0.1.40 don't support TOTP enforced by number matching. These versions will continue to present users with **Approve**/**Deny**.
+
+To create the registry entry to override the **Approve**/**Deny** options in push notifications and require a TOTP instead:
 
 1. On the NPS Server, open the Registry Editor.
 1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
-1. Set the following Key Value Pair:
-   Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP
-   Value = TRUE
+1. Create the following String/Value pair:
+   - Name: OVERRIDE_NUMBER_MATCHING_WITH_OTP
+   - Value = TRUE
 1. Restart the NPS Service. 
 
-## Enable number matching 
+In addition:
 
+- Users who perform TOTP must have either Authenticator registered as an authentication method, or some other hardware or software OATH token. A user who can't use a TOTP method will always see **Approve**/**Deny** options with push notifications if they use a version of NPS extension earlier than 1.2.2216.1.
+- The NPS Server where the NPS extension is installed must be configured to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use). 
 
->[!NOTE]
->In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
+  >[!IMPORTANT] 
+  >MSCHAPv2 doesn't support TOTP. If the NPS Server isn't configured to use PAP, user authorization fails with events in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
+  >NPS Extension for Azure MFA: Challenge requested in Authentication Ext for User npstesting_ap. 
+  >You can configure the NPS Server to support PAP. If PAP is not an option, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications.
 
-Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property under featureSettings to **enabled** and include or exclude groups:
+If your organization uses Remote Desktop Gateway and the user is registered for a TOTP code along with Authenticator push notifications, the user can't meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in fails. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Authenticator.
 
-```http
-https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
-```
+## FAQs
 
+### Can I opt out of number matching?
 
-### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
+No, users can't opt out of number matching in Authenticator push notifications. 
 
-**PROPERTIES**
+Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Authenticator push notifications in advance. 
 
-| Property | Type | Description |
-|---------|------|-------------|
-| id | String | The authentication method policy identifier. |
-| state | authenticationMethodState | Possible values are: **enabled**<br>**disabled** |
- 
-**RELATIONSHIPS**
+### Does number matching only apply if Authenticator push notifications are set as the default authentication method?
 
-| Relationship | Type | Description |
-|--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta&preserve-view=true) collection | A collection of users or groups who are enabled to use the authentication method |
-| featureSettings | [microsoftAuthenticatorFeatureSettings](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) collection | A collection of Microsoft Authenticator features. |
- 
-### MicrosoftAuthenticator includeTarget properties
- 
-**PROPERTIES**
+Yes. If the user has a different default authentication method, there's no change to their default sign-in. If the default method is Authenticator push notifications, they get number matching. If the default method is anything else, such as TOTP in Authenticator or another provider, there's no change. 
 
-| Property | Type | Description |
-|----------|------|-------------|
-| authenticationMode | String | Possible values are:<br>**any**: Both passwordless phone sign-in and traditional second factor notifications are allowed.<br>**deviceBasedPush**: Only passwordless phone sign-in notifications are allowed.<br>**push**: Only traditional second factor push notifications are allowed. |
-| id | String | Object ID of an Azure AD user or group. |
-| targetType | authenticationMethodTargetType | Possible values are: **user**, **group**.|
+Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications sees number matching. If prompted for another method, they won't see any change. 
 
+### What happens for users who aren't specified in the Authentication methods policy but they are enabled for Notifications through mobile app in the legacy MFA tenant-wide policy?
+Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match if the legacy MFA policy has enabled **Notifications through mobile app**. Users will see number matching regardless of whether they are enabled for Authenticator in the Authentication methods policy.
 
+:::image type="content" border="true" source="./media/how-to-mfa-number-match/notifications-through-mobile-app.png" alt-text="Screenshot of Notifications through mobile app setting.":::
 
-### MicrosoftAuthenticator featureSettings properties
- 
-**PROPERTIES**
+### Why does the portal still show the control to enable number matching?
 
-| Property | Type | Description |
-|----------|------|-------------|
-| numberMatchingRequiredState | authenticationMethodFeatureConfiguration | Require number matching for MFA notifications. Value is ignored for phone sign-in notifications. |
-| displayAppInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown application name in Microsoft Authenticator notification. |
-| displayLocationInformationRequiredState | authenticationMethodFeatureConfiguration | Determines whether the user is shown geographic location context in Microsoft Authenticator notification. |
+You might need to refresh the browser to update the portal after number matching is enabled by default beginning May 8, 2023. 
 
-### Authentication Method Feature Configuration properties
+### Is number matching supported with MFA Server?
 
-**PROPERTIES**
+No, number matching isn't enforced because it's not a supported feature for MFA Server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
 
-| Property | Type | Description |
-|----------|------|-------------|
-| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br> Please note: You will be able to only exclude one group for number matching. |
-| includeTarget | featureTarget | A single entity that is included in this feature. <br> Please note: You will be able to only set one group for number matching. |
-| State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
+### What happens if a user runs an older version of Authenticator?  
 
-### Feature Target properties
+If a user is running an older version of Authenticator that doesn't support number matching, authentication won't work. Users need to upgrade to the latest version of Authenticator to use it for sign-in.
 
-**PROPERTIES**
+### How can users recheck the number on mobile iOS devices after the match request appears?
 
-| Property | Type | Description |
-|----------|------|-------------|
-| id | String | ID of the entity targeted. |
-| targetType | featureTargetType | The kind of entity targeted, such as group, role, or administrative unit. The possible values are: ‘group’, 'administrativeUnit’, ‘role’, unknownFutureValue’. |
+During mobile iOS broker flows, the number match request appears over the number after a two-second delay. To recheck the number, click **Show me the number again**. This action only occurs in mobile iOS broker flows. 
 
->[!NOTE]
->Number matching can be enabled only for a single group. 
+### Is Apple Watch supported for Authenticator?
 
-### Example of how to enable number matching for all users
-
-In **featureSettings**, you will need to change the **numberMatchingRequiredState** from **default** to **enabled**. 
-
-Note that the value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you do not want to allow passwordless, use **push**. 
-
->[!NOTE]
->For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
-
-You might need to patch the entire schema to prevent overwriting any previous configuration. In that case, do a GET first, update only the relevant fields, and then PATCH. The following example only shows the update to the **numberMatchingRequiredState** under **featureSettings**. 
-
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see the feature.
-
-```json
-//Retrieve your existing policy via a GET. 
-//Leverage the Response body to create the Request body section. Then update the Request body similar to the Request body as shown below.
-//Change the Query to PATCH and Run query
- 
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "featureSettings": {
-        "numberMatchingRequiredState": {
-            "state": "enabled",
-            "includeTarget": {
-                "targetType": "group",
-                "id": "all_users"
-            },
-            "excludeTarget": {
-                "targetType": "group",
-                "id": "00000000-0000-0000-0000-000000000000"
-            }
-      }
-    },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "all_users",
-            "isRegistrationRequired": false,
-            "authenticationMode": "any",        
-        }
-    ]
-}
- 
-```
- 
-To confirm this has applied, please run the GET request below using the endpoint below.
-
-```http
-GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
-```
- 
-### Example of how to enable number matching for a single group
- 
-In **featureSettings**, you will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
-Inside the **includeTarget**, you will need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
-
-You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
-
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will see the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see the feature.
-
-```json
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "featureSettings": {
-        "numberMatchingRequiredState": {
-            "state": "enabled",
-            "includeTarget": {
-                "targetType": "group",
-                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
-            },
-            "excludeTarget": {
-                "targetType": "group",
-                "id": "00000000-0000-0000-0000-000000000000"
-            }
-        }
-    },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "all_users",
-            "isRegistrationRequired": false,
-            "authenticationMode": "any"
-        }
-    ]
-}
-```
- 
-To verify, RUN GET again and verify the ObjectID
-
-```http
-GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
-```
- 
-### Example of removing the excluded group from number matching
-
-In **featureSettings**, you will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
-You need to change the **id** of the **excludeTarget** to `00000000-0000-0000-0000-000000000000`.
-
-You need to PATCH the entire configuration to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
-
-Only users who are enabled for Microsoft Authenticator under Microsoft Authenticator’s **includeTargets** will be excluded from the number match requirement. Users who aren't enabled for Microsoft Authenticator won't see the feature.
-
-```json
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "featureSettings": {
-        "numberMatchingRequiredState": {
-            "state": "enabled",
-            "includeTarget": {
-                "targetType": "group",
-                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
-            },
-            "excludeTarget": {
-                "targetType": "group",
-                "id": " 00000000-0000-0000-0000-000000000000"
-            }
-        }
-    },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "all_users",
-            "isRegistrationRequired": false,
-            "authenticationMode": "any"
-        }
-    ]
-}
-```
-
-## Turn off number matching
-
-To turn number matching off, you will need to PATCH remove **numberMatchingRequiredState** from **enabled** to **disabled**/**default**.
-
-```json
-{
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
-    "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
-    "id": "MicrosoftAuthenticator",
-    "state": "enabled",
-    "featureSettings": {
-        "numberMatchingRequiredState": {
-            "state": "default",
-            "includeTarget": {
-                "targetType": "group",
-                "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a"
-            },
-            "excludeTarget": {
-                "targetType": "group",
-                "id": " 00000000-0000-0000-0000-000000000000"
-            }
-        }
-    },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
-    "includeTargets": [
-        {
-            "targetType": "group",
-            "id": "all_users",
-            "isRegistrationRequired": false,
-            "authenticationMode": "any"
-        }
-    ]
-}
-```
-
-## Enable number matching in the portal
-
-To enable number matching in the Azure AD portal, complete the following steps:
-
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Microsoft Authenticator**.
-1. On the **Basics** tab, click **Yes** and **All users** to enable the policy for everyone, and change **Authentication mode** to **Push**. 
-
-   Only users who are enabled for Microsoft Authenticator here can be included in the policy to require number matching for sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see a number match.
-
-   :::image type="content" border="true" source="./media/how-to-mfa-number-match/enable-settings-number-match.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
-
-1. On the **Configure** tab, for **Require number matching for push notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
-
-   :::image type="content" border="true" source="./media/how-to-mfa-number-match/number-match.png" alt-text="Screenshot of how to enable number matching.":::
+In the Authenticator release in January 2023 for iOS, there is no companion app for watchOS due to it being incompatible with Authenticator security features. You can't install or use Authenticator on Apple Watch. We therefore recommend that you [delete Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Authenticator on another device.
 
 ## Next steps
 

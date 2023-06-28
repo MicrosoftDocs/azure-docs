@@ -2,7 +2,7 @@
 title: Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Apps
 description: Describes several best practices with JVM configuration to set heap dump, JFR, and GC logs.
 author: KarlErickson
-ms.author: yinglzh
+ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 01/21/2022
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use diagnostic settings through JVM options to conduct advanced troubleshooting in Azure Spring Apps.
 
@@ -53,7 +53,7 @@ Use the following `--jvm-options` parameter to generate GC logs. For more inform
 Use the following `--jvm-options` parameter to generate a JFR file.  For more information, see the official JVM documentation.
 
 ```azurecli
---jvm-options="-XX:StartFlightRecording=dumponexit=true,dumponexitpath=<path-to-JFR-file>"
+--jvm-options="-XX:StartFlightRecording=dumponexit=true,filename=<path-to-JFR-file>"
 ```
 
 ## Configure the path for generated files
@@ -89,7 +89,7 @@ To ensure that you can access your files, be sure that the target path of your g
     }
 ```
 
-Alternately, you can use the following command to append to persistent storage.
+Alternatively, you can use the following command to append to persistent storage.
 
 ```azurecli
 az spring app append-persistent-storage \

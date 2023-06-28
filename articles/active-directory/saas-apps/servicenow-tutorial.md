@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2022
+ms.date: 05/25/2023
 ms.author: jeedes
 ---
 
@@ -59,7 +59,7 @@ To configure the integration of ServiceNow into Azure AD, you need to add Servic
 1. In the **Add from the gallery** section, enter **ServiceNow** in the search box.
 1. Select **ServiceNow** from results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for ServiceNow
 
@@ -108,7 +108,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Reply URL|
 	|----------|
 	| `https://<instancename>.service-now.com/navpage.do` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
 	d. In **Logout URL**, enter a URL that uses the following pattern:
@@ -172,23 +172,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In the **Basic SAML Configuration** section, perform the following steps:
 
-	a. For **Sign on URL**, enter one of the following URL pattern:
+	a. For **Sign on URL**, enter one of the following URL patterns:
 
 	| Sign on URL |
 	|-----------|
 	|  `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
     b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
-	c. For **Reply URL**, enter one of the following URL pattern:
+	c. For **Reply URL**, enter one of the following URL patterns:
 
 	| Reply URL |
 	|-----------|
 	| `https://<instancename>.service-now.com/navpage.do` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
 	d. In **Logout URL**, enter a URL that uses the following pattern:
@@ -372,7 +372,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 The objective of this section is to create a user called B.Simon in ServiceNow. ServiceNow supports automatic user provisioning, which is enabled by default.
 
 > [!NOTE]
-> If you need to create a user manually, contact the [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html).
+> If you need to create a user manually, contact the [ServiceNow Client support team](https://support.servicenow.com/now).
 
 ### Configure ServiceNow Express SSO
 

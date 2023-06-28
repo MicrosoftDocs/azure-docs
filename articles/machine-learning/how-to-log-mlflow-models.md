@@ -5,11 +5,12 @@ description: Learn how to start logging MLflow models instead of artifacts using
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 07/8/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cliv2, sdkv2
+ms.custom: cliv2, sdkv2
 ---
 
 # Logging MLflow models
@@ -24,10 +25,11 @@ A model in MLflow is also an artifact, but with a specific structure that serves
 
 Logging models has the following advantages:
 > [!div class="checklist"]
-> * You don't need to provide a scoring script nor an environment for deployment.
-> * Swagger is enabled in endpoints automatically and the __Test__ feature can be used in Azure ML studio.
+> * Models can be directly loaded for inference using `mlflow.<flavor>.load_model` and use the `predict` function.
 > * Models can be used as pipelines inputs directly.
-> * You can use the Responsable AI dashbord.
+> * Models can be deployed without indicating a scoring script nor an environment.
+> * Swagger is enabled in deployed endpoints automatically and the __Test__ feature can be used in Azure Machine Learning studio.
+> * You can use the Responsible AI dashboard.
 
 There are different ways to start using the model's concept in Azure Machine Learning with MLflow, as explained in the following sections:
 
@@ -52,7 +54,7 @@ accuracy = accuracy_score(y_test, y_pred)
 ```
 
 > [!TIP]
-> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demostrates how to log a model with preprocessing using pipelines.
+> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/train-and-log/xgboost_classification_mlflow.ipynb) demonstrates how to log a model with preprocessing using pipelines.
 
 ## Logging models with a custom signature, environment or samples
 
@@ -106,7 +108,7 @@ mlflow.xgboost.log_model(model,
 
 > [!NOTE]
 > * `log_models=False` is configured in `autolog`. This prevents MLflow to automatically log the model, as it is done manually later.
-> * `infer_signature` is a convenient method to try to infer the signature directly from inputs and outpus.
+> * `infer_signature` is a convenient method to try to infer the signature directly from inputs and outputs.
 > * `mlflow.utils.environment._mlflow_conda_env` is a private method in MLflow SDK and it may change in the future. This example uses it just for sake of simplicity, but it must be used with caution or generate the YAML definition manually as a Python dictionary. 
 
 ## Logging models with a different behavior in the predict method
@@ -117,7 +119,7 @@ A solution to this scenario is to implement machine learning pipelines that move
 
 ## Logging custom models
 
-MLflow provides support for a variety of [machine learning frameworks](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and statsmodels. However, they may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
+MLflow provides support for a variety of [machine learning frameworks](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) including FastAI, MXNet Gluon, PyTorch, TensorFlow, XGBoost, CatBoost, h2o, Keras, LightGBM, MLeap, ONNX, Prophet, spaCy, Spark MLLib, Scikit-Learn, and statsmodels. However, there may be times where you need to change how a flavor works, log a model not natively supported by MLflow or even log a model that uses multiple elements from different frameworks. For those cases, you may need to create a custom model flavor.
 
 For this type of models, MLflow introduces a flavor called `pyfunc` (standing from Python function). Basically this flavor allows you to log any object you want as a model, as long as it satisfies two conditions:
 
@@ -159,7 +161,7 @@ class ModelWrapper(PythonModel):
 Then, a custom model can be logged in the run like this:
 
 ```python
-mport mlflow
+import mlflow
 from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
 from mlflow.models import infer_signature
@@ -230,7 +232,7 @@ class ModelWrapper(PythonModel):
         
         self._encoder = pickle.loads(context.artifacts["encoder"])
         self._model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
-        model.load_model(context.artifacts["model"])
+        self._model.load_model(context.artifacts["model"])
 
     def predict(self, context: PythonModelContext, data):
         return self._model.predict_proba(data)
@@ -247,9 +249,9 @@ from mlflow.models import infer_signature
 
 mlflow.xgboost.autolog(log_models=False)
 
-encoder = OrdinalEncoder(handle_unknown='ignore')
-X_train['thal'] = enc.fit_transform(X_train['thal'])
-X_test['thal'] = enc.transform(X_test['thal'])
+encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=np.nan)
+X_train['thal'] = encoder.fit_transform(X_train['thal'].to_frame())
+X_test['thal'] = encoder.transform(X_test['thal'].to_frame())
 
 model = XGBClassifier(use_label_encoder=False, eval_metric="logloss")
 model.fit(X_train, y_train, eval_set=[(X_test, y_test)], verbose=False)

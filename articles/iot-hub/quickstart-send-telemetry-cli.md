@@ -3,15 +3,15 @@ title: Quickstart - Send telemetry to Azure IoT Hub (CLI) quickstart
 description: This quickstart shows developers new to IoT Hub how to get started by using the Azure CLI to create an IoT hub, send telemetry, and view messages between a device and the hub.
 ms.service: iot-hub
 ms.topic: quickstart
-ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, "Role: Cloud Development", devx-track-azurecli, mode-api]
+ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, 'Role: Cloud Development', devx-track-azurecli, mode-api]
 ms.author: timlt
 author: timlt
-ms.date: 05/26/2022
+ms.date: 11/30/2022
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this codeless quickstart, you use the Azure CLI to create an IoT Hub and a simulated device.  You'll send device telemetry to the hub, and send messages, call methods, and update properties on the device. You'll also use the Azure portal to visualize device metrics. This article shows a basic workflow for developers who use the CLI to interact with an IoT Hub application.
+IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this codeless quickstart, you use the Azure CLI to create an IoT hub and a simulated device.  You'll send device telemetry to the hub, and send messages, call methods, and update properties on the device. You'll also use the Azure portal to visualize device metrics. This article shows a basic workflow for developers who use the CLI to interact with an IoT Hub application.
 
 ## Prerequisites
 
@@ -37,7 +37,11 @@ To launch the Cloud Shell:
     > [!NOTE]
     > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share.
 
-2. Select your preferred CLI environment in the **Select environment** dropdown. This quickstart uses the **Bash** environment. All the following CLI commands work in PowerShell too. 
+2. Select your preferred CLI environment in the **Select environment** dropdown. This quickstart uses the **Bash** environment. You can also use the **PowerShell** environment. 
+
+    > [!NOTE]
+    > Some commands require different syntax or formatting in the **Bash** and **PowerShell** environments.  For more information, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively?tabs=bash%2Cbash2).
+
     ![Select CLI environment](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## Prepare two CLI sessions
@@ -176,10 +180,16 @@ In this section, you update the state of the simulated device by setting propert
 
 1. In the second CLI session, run the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command. This command updates the properties to the desired state on the IoT hub device twin that corresponds to your simulated device. In this case, the command sets example temperature condition properties.
 
+    > [!IMPORTANT]
+    > If you're using PowerShell in the CLI shell, use the PowerShell version of the command below. PowerShell requires you to escape the characters in the JSON payload. 
+
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
     
     ```azurecli
     az iot hub device-twin update -d simDevice --desired '{"conditions":{"temperature":{"warning":98, "critical":107}}}' -n {YourIoTHubName}
+    ```
+    ```azurepowershell
+    az iot hub device-twin update -d simDevice --desired '{\"conditions\":{\"temperature\":{\"warning\":98, \"critical\":107}}}' -n {YourIoTHubName}
     ```
 
 1. In the first CLI session, confirm that the simulated device outputs the property update.
@@ -233,7 +243,7 @@ If you continue to the next recommended article, you can keep the resources you'
 
 To delete a resource group by name:
 
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
+1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT hub, and the device registration you created.
 
     ```azurecli
     az group delete --name MyResourceGroup

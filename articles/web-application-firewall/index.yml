@@ -42,7 +42,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Web Application Firewall
-            url: /learn/modules/introduction-azure-web-application-firewall/
+            url: /training/modules/introduction-azure-web-application-firewall/
+      - linkListType: deploy
+        links:
+          - text: Secure your web application with Azure Web Application Firewall
+            url: https://mslearn.cloudguides.com/guides/Secure%20your%20web%20applications%20with%20Azure%20Web%20Application%20Firewall
 
 
   # Card
@@ -86,3 +90,11 @@ landingContent:
             url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
           - text: Network-hardened web app
             url: /azure/architecture/example-scenario/security/hardened-web-app
+
+# Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure network security
+           url: ../networking/security/index.yml

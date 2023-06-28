@@ -1,14 +1,14 @@
 ---
-title: Submit a Custom Named Entity Recognition (NER) task
+title: How to deploy a custom NER model
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for Custom Named Entity Recognition (NER).
+description: Learn how to deploy a model for custom NER.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 03/23/2023
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -70,6 +70,34 @@ After you are done testing a model assigned to one deployment and you want to as
 # [REST APIs](#tab/rest-api)
 
 [!INCLUDE [Delete deployment](../includes/rest-api/delete-deployment.md)]
+
+---
+
+## Assign deployment resources
+
+You can [deploy your project to multiple regions](../../concepts/custom-features/multi-region-deployment.md) by assigning different Language resources that exist in different regions.
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Assign resource](../../conversational-language-understanding/includes/language-studio/assign-resources.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Assign resource](../../custom-text-classification/includes/rest-api/assign-resources.md)]
+
+---
+
+## Unassign deployment resources
+
+When unassigning or removing a deployment resource from a project, you will also delete all the deployments that have been deployed to that resource's region.
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Unassign resource](../../conversational-language-understanding/includes/language-studio/unassign-resources.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Unassign resource](../../custom-text-classification/includes/rest-api/unassign-resources.md)]
 
 ---
 

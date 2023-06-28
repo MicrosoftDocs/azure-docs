@@ -1,11 +1,12 @@
 ---
-title: 'How-to - Use Azure OpenAI with large datasets'
+title: 'How-to - Use Azure OpenAI Service with large datasets'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to integrate Azure OpenAI with SynapseML and Apache Spark to apply large language models at a distributed scale.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 08/04/2022
 author: ChrisHMSFT
@@ -15,14 +16,14 @@ recommendations: false
 
 # Use Azure OpenAI with large datasets
 
-The Azure OpenAI service can be used to solve a large number of natural language tasks through prompting the completion API. To make it easier to scale your prompting workflows from a few examples to large datasets of examples, we have integrated the Azure OpenAI service with the distributed machine learning library [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/). This integration makes it easy to use the [Apache Spark](https://spark.apache.org/) distributed computing framework to process millions of prompts with the OpenAI service. This tutorial shows how to apply large language models at a distributed scale using Azure Open AI and Azure Synapse Analytics.
+Azure OpenAI can be used to solve a large number of natural language tasks through prompting the completion API. To make it easier to scale your prompting workflows from a few examples to large datasets of examples, we have integrated the Azure OpenAI service with the distributed machine learning library [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/). This integration makes it easy to use the [Apache Spark](https://spark.apache.org/) distributed computing framework to process millions of prompts with the OpenAI service. This tutorial shows how to apply large language models at a distributed scale using Azure Open AI and Azure Synapse Analytics.
 
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI service in the desired Azure subscription
+- Access granted to Azure OpenAI in the desired Azure subscription
 
-    Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource – [create a resource](create-resource.md?pivots=web-portal#create-a-resource)
 - An Apache Spark cluster with SynapseML installed - create a serverless Apache Spark pool [here](../../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool)
 
@@ -39,7 +40,7 @@ The next step is to add this code into your Spark cluster. You can either create
 
 ## Fill in your service information
 
-Next, edit the cell in the notebook to point to your service. In particular, set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI service.
+Next, edit the cell in the notebook to point to your service. In particular, set the `resource_name`, `deployment_name`, `location`, and `key` variables to the corresponding values for your Azure OpenAI resource.
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
@@ -47,7 +48,7 @@ Next, edit the cell in the notebook to point to your service. In particular, set
 ```python
 import os
 
-# Replace the following values with your Azure OpenAI service information
+# Replace the following values with your Azure OpenAI resource information
 resource_name = "RESOURCE_NAME"      # The name of your Azure OpenAI resource.
 deployment_name = "DEPLOYMENT_NAME"  # The name of your Azure OpenAI deployment.
 location = "RESOURCE_LOCATION"       # The location or region ID for your resource.
@@ -175,7 +176,7 @@ display(completed_autobatch_df)
 
 ### Prompt engineering for translation
 
-The Azure OpenAI service can solve many different natural language tasks through [prompt engineering](completions.md). Here, we show an example of prompting for language translation:
+Azure OpenAI can solve many different natural language tasks through [prompt engineering](completions.md). Here, we show an example of prompting for language translation:
 
 ```python
 translate_df = spark.createDataFrame(

@@ -4,15 +4,16 @@ description: Learn how to use terraform provider for App Service to deploy two w
 author: ericgre
 ms.assetid: 3e5d1bbd-5581-40cc-8f65-bc74f1802156
 ms.topic: sample
-ms.date: 08/10/2020
+ms.date: 12/06/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
+ms.custom: devx-track-terraform
 ---
 
 # Create two web apps connected securely with Private Endpoint and VNet integration
 
-This article illustrates an example use of [Private Endpoint](../networking/private-endpoint.md) and regional [VNet integration](../overview-vnet-integration.md) to connect two web apps (frontend and backend) securely following these steps:
+This article illustrates an example use of [Private Endpoint](../networking/private-endpoint.md) and regional [VNet integration](../overview-vnet-integration.md) to connect two web apps (frontend and backend) securely with the following terraform configuration:
 - Deploy a VNet
 - Create the first subnet for the integration
 - Create the second subnet for the private endpoint, you have to set a specific parameter to disable network policies
@@ -30,14 +31,14 @@ Browse to the [Azure documentation](/azure/developer/terraform/) to learn how to
 
 ## The complete terraform file
 
-To use this file you must change the name property for frontwebapp and backwebapp resources (webapp name must be unique DNS name worldwide). 
+To use this file, replace the placeholders _\<unique-frontend-app-name>_ and _\<unique-backend-app-name>_ (app name is used to form a unique DNS name worldwide). 
 
 ```hcl
 terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = "~>2.0"
+      version = "~>3.0"
     }
   }
 }
@@ -75,26 +76,24 @@ resource "azurerm_subnet" "endpointsubnet" {
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.2.0/24"]
-  enforce_private_link_endpoint_network_policies = true
+  private_endpoint_network_policies_enabled = true
 }
 
-resource "azurerm_app_service_plan" "appserviceplan" {
+resource "azurerm_service_plan" "appserviceplan" {
   name                = "appserviceplan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-
-  sku {
-    tier = "Premiumv2"
-    size = "P1v2"
-  }
+  os_type             = "Windows"
+  sku_name            = "P1v2"
 }
 
-resource "azurerm_app_service" "frontwebapp" {
-  name                = "frontwebapp20200810"
+resource "azurerm_windows_web_app" "frontwebapp" {
+  name                = "<unique-frontend-app-name>"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  app_service_plan_id = azurerm_app_service_plan.appserviceplan.id
+  service_plan_id = azurerm_service_plan.appserviceplan.id
 
+  site_config {}
   app_settings = {
     "WEBSITE_DNS_SERVER": "168.63.129.16",
     "WEBSITE_VNET_ROUTE_ALL": "1"
@@ -102,15 +101,17 @@ resource "azurerm_app_service" "frontwebapp" {
 }
 
 resource "azurerm_app_service_virtual_network_swift_connection" "vnetintegrationconnection" {
-  app_service_id  = azurerm_app_service.frontwebapp.id
+  app_service_id  = azurerm_windows_web_app.frontwebapp.id
   subnet_id       = azurerm_subnet.integrationsubnet.id
 }
 
-resource "azurerm_app_service" "backwebapp" {
-  name                = "backwebapp20200810"
+resource "azurerm_windows_web_app" "backwebapp" {
+  name                = "<unique-backend-app-name>"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  app_service_plan_id = azurerm_app_service_plan.appserviceplan.id
+  service_plan_id = azurerm_service_plan.appserviceplan.id
+
+  site_config {}
 }
 
 resource "azurerm_private_dns_zone" "dnsprivatezone" {
@@ -138,15 +139,12 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 
   private_service_connection {
     name = "privateendpointconnection"
-    private_connection_resource_id = azurerm_app_service.backwebapp.id
+    private_connection_resource_id = azurerm_windows_web_app.backwebapp.id
     subresource_names = ["sites"]
     is_manual_connection = false
   }
 }
 ```
-
-
-
 
 ## Next steps
 

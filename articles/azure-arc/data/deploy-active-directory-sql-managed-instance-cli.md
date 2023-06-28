@@ -4,18 +4,17 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
+ms.custom: devx-track-azurecli
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 04/28/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
 # Deploy Active Directory integrated Azure Arc-enabled SQL Managed Instance using Azure CLI
 
 This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication using Azure CLI.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 See these articles for specific instructions:
 
@@ -56,8 +55,10 @@ az sql mi-arc create
 --ad-connector-name < your AD connector name > 
 --keytab-secret < SQL MI keytab secret name >  
 --ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number > 
 --use-k8s
 ```
 
@@ -72,6 +73,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --use-k8s
 ```
 
@@ -82,10 +85,11 @@ az sql mi-arc create
 --name < SQL MI name >  
 --ad-connector-name < your AD connector name > 
 --keytab-secret < SQL MI keytab secret name >  
---ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
---location < your cloud region >
+--ad-account-name < SQL MI AD user account > 
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number >
 --custom-location < your custom location > 
 --resource-group < resource-group >
 ```
@@ -100,7 +104,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
---location westeurope
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --custom-location private-location
 --resource-group arc-rg
 ```
@@ -172,8 +177,10 @@ az sql mi-arc create
 --k8s-namespace < namespace > 
 --ad-connector-name < your AD connector name > 
 --ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number >
 --use-k8s
 ```
 
@@ -187,6 +194,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --use-k8s
 ```
 
@@ -197,9 +206,10 @@ az sql mi-arc create
 --name < SQL MI name >  
 --ad-connector-name < your AD connector name >  
 --ad-account-name < SQL MI AD user account >  
---primary-dns-name < SQL MI DNS endpoint > 
---primary-port-number < SQL MI port number > 
---location < your cloud region >
+--primary-dns-name < SQL MI primary endpoint DNS name > 
+--primary-port-number < SQL MI primary endpoint port number > 
+--secondary-dns-name < SQL MI secondary endpoint DNS name > 
+--secondary-port-number < SQL MI secondary endpoint port number >
 --custom-location < your custom location > 
 --resource-group <resource-group>
 ```
@@ -213,7 +223,8 @@ az sql mi-arc create
 --ad-account-name arcuser 
 --primary-dns-name arcsqlmi.contoso.local
 --primary-port-number 31433 
---location westeurope
+--secondary-dns-name arcsqlmi-2.contoso.local
+--secondary-port-number 31434
 --custom-location private-location
 --resource-group arc-rg
 ```
@@ -257,4 +268,3 @@ az sql mi-arc delete --name contososqlmi  --resource-group arc-rg
 ## Next steps
 * [Deploy Arc-enabled SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
 * [Connect to Active Directory integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
-

@@ -3,7 +3,7 @@ title: Versioning in Durable Functions - Azure
 description: Learn how to implement versioning in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
@@ -32,16 +32,23 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[bool]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
+```
+
 # [Java](#tab/java)
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            boolean result = ctx.callActivity("Foo", boolean.class).await();
-            ctx.callActivity("Bar", result).await();
-        });
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean result = ctx.callActivity("Foo", boolean.class).await();
+    ctx.callActivity("Bar", result).await();
 }
 ```
 
@@ -60,22 +67,29 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[string]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
+```
+
 # [Java](#tab/java)
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            String result = ctx.callActivity("Foo", String.class).await();
-            ctx.callActivity("Bar", result).await();
-        });
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String result = ctx.callActivity("Foo", String.class).await();
+    ctx.callActivity("Bar", result).await();
 }
 ```
 
 ---
 
-This change works fine for all new instances of the orchestrator function but breaks any in-flight instances. For example, consider the case where an orchestration instance calls a function named `Foo`, gets back a boolean value, and then checkpoints. If the signature change is deployed at this point, the checkpointed instance will fail immediately when it resumes and replays the call to `Foo`. This failure happens because the result in the history table is a Boolean value but the new code tries to deserialize it into a String value, resulting in a runtime exception for type-safe languages.
+This change works fine for all new instances of the orchestrator function but may break any in-flight instances. For example, consider the case where an orchestration instance calls a function named `Foo`, gets back a boolean value, and then checkpoints. If the signature change is deployed at this point, the checkpointed instance will fail immediately when it resumes and replays the call to `Foo`. This failure happens because the result in the history table is a Boolean value but the new code tries to deserialize it into a String value, resulting in unexpected behavior or even runtime exception for type-safe languages.
 
 This example is just one of many different ways that a function signature change can break existing instances. In general, if an orchestrator needs to change the way it calls a function, then the change is likely to be problematic.
 
@@ -96,16 +110,23 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[bool]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
+```
+
 # [Java](#tab/java)
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            boolean result = ctx.callActivity("Foo", boolean.class).await();
-            ctx.callActivity("Bar", result).await();
-        });
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean result = ctx.callActivity("Foo", boolean.class).await();
+    ctx.callActivity("Bar", result).await();
 }
 ```
 
@@ -129,20 +150,30 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+[bool]$Result = Invoke-DurableActivity -FunctionName 'Foo'
+if ($Result -eq $true) {
+    Invoke-DurableActivity -FunctionName 'SendNotification'
+}
+Invoke-DurableActivity -FunctionName 'Bar' -Input $Result
+```
+
 # [Java](#tab/java)
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            boolean result = ctx.callActivity("Foo", boolean.class).await();
-            if (result) {
-                ctx.callActivity("SendNotification").await();
-            }
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean result = ctx.callActivity("Foo", boolean.class).await();
+    if (result) {
+        ctx.callActivity("SendNotification").await();
+    }
 
-            ctx.callActivity("Bar", result).await();
-        });
+    ctx.callActivity("Bar", result).await();
 }
 ```
 

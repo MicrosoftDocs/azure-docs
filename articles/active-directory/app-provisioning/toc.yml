@@ -19,6 +19,8 @@ items:
         href: use-scim-to-provision-users-and-groups.md
       - name: Develop a sample SCIM endpoint
         href: use-scim-to-build-users-and-groups-endpoints.md
+      - name: Validate a SCIM endpoint
+        href: scim-validator-tutorial.md
     - name: On-prem app provisioning tutorials
       items:
       - name: Provisioning to On-premises SCIM-enabled apps
@@ -27,6 +29,12 @@ items:
         href: on-premises-sql-connector-configure.md
       - name: Provisioning to LDAP based apps
         href: on-premises-ldap-connector-configure.md
+      - name: Provisioning to PowerShell based apps
+        href: on-premises-powershell-connector.md
+      - name: Provisioning with the web services connector
+        href: on-premises-web-services-connector.md
+      - name: Provisioning with custom connectors
+        href: on-premises-custom-connector.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
   - name: Concepts
@@ -73,6 +81,8 @@ items:
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+      - name: Provisioning insights workbook
+        href: provisioning-workbook.md  
     - name: Workday provisioning scenarios
       items:
       - name: Retrieve pronoun information
@@ -127,6 +137,8 @@ items:
         href: provisioning-agent-release-version-history.md
     - name: Migrate connector from MIM Sync
       href: on-premises-migrate-microsoft-identity-manager.md
+    - name: Prepare AD LDS for provisioning from Azure AD
+      href: on-premises-ldap-connector-prepare-directory.md
   - name: Resources
     items:
     - name: Support and help options for developers

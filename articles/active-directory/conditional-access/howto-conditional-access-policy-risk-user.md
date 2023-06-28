@@ -1,21 +1,21 @@
 ---
-title: User risk-based Conditional Access - Azure Active Directory
+title: User risk-based password change
 description: Create Conditional Access policies using Identity Protection user risk
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 01/06/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, davidspo
+ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: User risk-based Conditional Access
+# Common Conditional Access policy: User risk-based password change
 
 Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find leaked username and password pairs. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection user risk detections](../identity-protection/concept-identity-protection-risks.md). 
 
@@ -27,7 +27,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 ## Enable with Conditional Access policy
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -39,7 +39,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
    1. Under **Configure user risk levels needed for policy to be enforced**, select **High**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Grant access**, **Require password change**.
+   1. Select **Grant access**, **Require multifactor authentication** and **Require password change**.
    1. Select **Select**.
 1. Under **Session**.
    1. Select **Sign-in frequency**.

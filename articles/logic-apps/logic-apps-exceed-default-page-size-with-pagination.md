@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/11/2019
+ms.date: 08/01/2022
 ---
 
 # Get more data, items, or records by using pagination in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 When you retrieve data, items, or records by using a connector action in 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), you might get 
@@ -54,13 +56,11 @@ can exceed the default page size for specific actions:
 * An Azure subscription. If you don't have an Azure subscription yet, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app and the action where you want to turn on pagination. 
-If you don't have a logic app, see 
-[Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* The logic app and the action where you want to turn on pagination. For more information, see [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
 
 ## Turn on pagination
 
-To determine whether an action supports pagination in the Logic App Designer, 
+To determine whether an action supports pagination in the workflow designer, 
 check the action's settings for the **Pagination** setting. This example shows 
 how to turn on pagination in the SQL Server's **Get rows** action.
 
@@ -104,6 +104,8 @@ property along with the `"minimumItemCount"` property in that action's
    }
 },
 ```
+
+In this case, the response returns an array that contains JSON objects.
 
 ## Get support
 

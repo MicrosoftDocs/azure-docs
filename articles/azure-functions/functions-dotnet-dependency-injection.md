@@ -4,7 +4,7 @@ description: Learn how to use dependency injection for registering and using ser
 
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 03/24/2021
 ms.reviewer: jehollan
 ---
@@ -19,7 +19,7 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 - Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).  
 
 > [!IMPORTANT]
-> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET 5.0 functions out-of-process. The .NET isolated process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated process guide.
+> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET functions out-of-process. The .NET isolated worker process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated worker process guide.
 
 ## Prerequisites
 
@@ -303,6 +303,10 @@ namespace MyNamespace
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
                 .AddEnvironmentVariables();
+        }
+        
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
         }
     }
 }

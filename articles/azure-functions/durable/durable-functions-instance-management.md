@@ -3,9 +3,10 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
+ms.custom: ignite-2022
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 
@@ -102,11 +103,10 @@ module.exports = async function(context, input) {
   "scriptFile": "__init__.py",
   "bindings": [    
     {
-      "name": "msg",
-      "type": "queueTrigger",
+      "name": "req",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "messages",
-      "connection": "AzureStorageQueuesConnectionString"
+      "methods": ["post"]
     },
     {
       "name": "$return",
@@ -138,7 +138,48 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     
     instance_id = await client.start_new('HelloWorld', None, None)
     logging.log(f"Started orchestration with ID = ${instance_id}.")
+```
 
+# [PowerShell](#tab/powershell)
+
+<a name="powershell-function-json"></a>Unless otherwise specified, the examples on this page use the HTTP trigger with the following function.json.
+
+**`function.json`**
+
+```json
+{
+  "bindings": [    
+    {
+      "name": "Request",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": ["post"]
+    },
+    {
+      "name": "Response",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
+
+**`run.ps1`**
+
+```powershell
+param($Request, $TriggerMetadata)
+
+$InstanceId = Start-DurableOrchestration -FunctionName 'HelloWorld'
+Write-Host "Started orchestration with ID = '$InstanceId'"
 ```
 
 # [Java](#tab/java)
@@ -268,6 +309,21 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     # example: if (existing_instance.runtime_status is df.OrchestrationRuntimeStatus.Running) { ...
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Request, $TriggerMetadata)
+
+# Get instanceid from body
+$InstanceId = $Request.Body.InstanceId
+
+$Status = Get-DurableStatus -InstanceId $InstanceId -ShowHistory -ShowHistoryOutput -ShowInput
+Write-Host "Status: $($Status | ConvertTo-Json)"
+
+# Do something based on status
+# example: if ($Status.runtimeStatus -eq 'Running') { ... }
+```
+
 # [Java](#tab/java)
 
 ```java
@@ -387,6 +443,10 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 ```
 
 See [Start instances](#python-function-json) for the function.json configuration.
+
+# [PowerShell](#tab/powershell)
+> [!NOTE]
+> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](durable-functions-http-api.md).
 
 # [Java](#tab/java)
 
@@ -510,6 +570,10 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
         logging.log(json.dumps(instance))
 ```
 
+# [PowerShell](#tab/powershell)
+> [!NOTE]
+> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](durable-functions-http-api.md).
+
 # [Java](#tab/java)
 
 ```java
@@ -599,7 +663,19 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     reason = "Found a bug"
-    return client.terminate(instance_id, reason)
+    return await client.terminate(instance_id, reason)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Request, $TriggerMetadata)
+
+# Get instance id from body
+$InstanceId = $Request.Body.InstanceId
+$Reason = 'Found a bug'
+
+Stop-DurableOrchestration -InstanceId $InstanceId -Reason $Reason
 ```
 
 # [Java](#tab/java)
@@ -649,9 +725,15 @@ public static async Task Run(
 # [JavaScript](#tab/javascript)
 > [!NOTE]
 > This feature is currently not supported in JavaScript.
+
 # [Python](#tab/python)
 > [!NOTE]
 > This feature is currently not supported in Python.
+
+# [PowerShell](#tab/powershell)
+> [!NOTE]
+> This feature is currently not supported in PowerShell.
+
 # [Java](#tab/java)
 > [!NOTE]
 > This feature is currently not supported in Java.
@@ -735,7 +817,20 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     event_data = [1, 2 ,3]
-    return client.raise_event(instance_id, 'MyEvent', event_data)
+    return await client.raise_event(instance_id, 'MyEvent', event_data)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Request, $TriggerMetadata)
+
+# Get instance id from body
+$InstanceId = $Request.Body.InstanceId
+$EventName = 'MyEvent'
+$EventData = @(1,2,3)
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName $EventName -EventData $EventData
 ```
 
 # [Java](#tab/java)
@@ -794,7 +889,7 @@ Here is an example HTTP-trigger function that demonstrates how to use this API:
 
 # [JavaScript](#tab/javascript)
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpSyncStart/index.js":::
 
 See [Start instances](#javascript-function-json) for the function.json configuration.
 
@@ -819,7 +914,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     retry_interval_in_milliseconds = get_time_in_seconds(req, retry_interval)
     retry_interval_in_milliseconds = retry_interval_in_milliseconds if retry_interval_in_milliseconds != None else 1000
 
-    return client.wait_for_completion_or_create_check_status_response(
+    return await client.wait_for_completion_or_create_check_status_response(
         req,
         instance_id,
         timeout_in_milliseconds,
@@ -830,6 +925,10 @@ def get_time_in_seconds(req: func.HttpRequest, query_parameter_name: str):
     query_value = req.params.get(query_parameter_name)
     return query_value if query_value != None else 1000
 ```
+
+# [PowerShell](#tab/powershell)
+> [!NOTE]
+> PowerShell doesn't currently have a built-in command for this scenario.
 
 # [Java](#tab/java)
 
@@ -851,7 +950,7 @@ public HttpResponseMessage httpStartAndWait(
     try {
         String timeoutString = req.getQueryParameters().get("timeout");
         Integer timeoutInSeconds = Integer.parseInt(timeoutString);
-        OrchestrationMetadata orchestration = client.waitForInstanceStart(
+        OrchestrationMetadata orchestration = client.waitForInstanceCompletion(
                 instanceId,
                 Duration.ofSeconds(timeoutInSeconds),
                 true /* getInputsAndOutputs */);
@@ -859,7 +958,7 @@ public HttpResponseMessage httpStartAndWait(
                 .body(orchestration.getSerializedOutput())
                 .header("Content-Type", "application/json")
                 .build();
-    } catch (Exception timeoutEx) {
+    } catch (TimeoutException timeoutEx) {
         // timeout expired - return a 202 response
         return durableContext.createCheckStatusResponse(req, instanceId);
     }
@@ -951,7 +1050,7 @@ public static void SendInstanceInfo(
 {
     HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
 }
 ```
@@ -969,7 +1068,7 @@ modules.exports = async function(context, ctx) {
 
     const payload = client.createHttpManagementPayload(ctx.instanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     context.bindings.document = JSON.stringify({
         id: ctx.instanceId,
         payload,
@@ -996,6 +1095,18 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.co
     })
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+using namespace System.Net
+
+param($Request, $TriggerMetadata)
+
+$InstanceId = $Request.Body.InstanceId
+$Response = New-DurableOrchestrationCheckStatusResponse -Request $Request -InstanceId $InstanceId
+Push-OutputBinding -Name Response -Value $Response
+```
+
 # [Java](#tab/java)
 
 <!-- Tracking issue: https://github.com/microsoft/durabletask-java/issues/63 -->
@@ -1010,7 +1121,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.co
 If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
 
 > [!NOTE]
-> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
+> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. Orchestrations in states other than `Failed` (e.g., `Running`, `Pending`, `Terminated`, `Completed`) cannot be "rewound". For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
 
 Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method will also rerun the activity or sub-orchestration execution failures that caused the orchestration failure.
 
@@ -1065,6 +1176,11 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     reason = "Orchestrator failed and needs to be revived."
     return client.rewind(instance_id, reason)
 ``` -->
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> This feature is currently not supported in PowerShell.
 
 # [Java](#tab/java)
 
@@ -1146,8 +1262,13 @@ import azure.durable_functions as df
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
 
-    return client.purge_instance_history(instance_id)
+    return await client.purge_instance_history(instance_id)
 ```
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](durable-functions-http-api.md).
 
 # [Java](#tab/java)
 
@@ -1237,6 +1358,11 @@ module.exports = async function (context, myTimer) {
 };
 ```
 
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](durable-functions-http-api.md).
+
 # [Python](#tab/python)
 
 ```python
@@ -1251,7 +1377,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     created_time_to = datetime.today() + timedelta(days = -30)
     runtime_statuses = [OrchestrationRuntimeStatus.Completed]
 
-    return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
+    return await client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
 ```
 
 # [Java](#tab/java)
@@ -1261,7 +1387,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 public void purgeInstances(
         @TimerTrigger(name = "purgeTimer", schedule = "0 0 12 * * *") String timerInfo,
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
-        ExecutionContext context) {
+        ExecutionContext context) throws TimeoutException {
     PurgeInstanceCriteria criteria = new PurgeInstanceCriteria()
             .setCreatedTimeFrom(Instant.now().minus(Duration.ofDays(60)))
             .setCreatedTimeTo(Instant.now().minus(Duration.ofDays(30)))

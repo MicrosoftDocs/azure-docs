@@ -2,12 +2,13 @@
 title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents. 
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 12/02/2022
 ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid
+
 In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing and consuming cloud-based events. This schema allows for uniform tooling, standard ways of routing and handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
@@ -20,7 +21,7 @@ This article describes how to use the CloudEvents schema with Event Grid.
 
 Here's an example of an Azure Blob Storage event in CloudEvents format:
 
-``` JSON
+```json
 {
     "specversion": "1.0",
     "type": "Microsoft.Storage.BlobCreated",  
@@ -50,7 +51,7 @@ For a detailed description of the available fields, their types, and definitions
 
 The headers values for events delivered in the CloudEvents schema and the Event Grid schema are the same except for `content-type`. For the CloudEvents schema, that header value is `"content-type":"application/cloudevents+json; charset=utf-8"`. For the Event Grid schema, that header value is `"content-type":"application/json; charset=utf-8"`.
 
-## Configure Event Grid for CloudEvents
+## Configure for CloudEvents
 
 You can use Event Grid for both input and output of events in the CloudEvents schema. The following table describes the possible transformations:
 
@@ -117,16 +118,45 @@ New-AzEventGridSubscription `
   -DeliverySchema CloudEventSchemaV1_0
 ```
 
- Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the CloudEvents schema. Use an HTTP trigger. For examples of implementing an HTTP trigger that receives events in the CloudEvents schema, see [Using CloudEvents with Azure Functions](#azure-functions).
-
-## Endpoint validation with CloudEvents v1.0
+ ## Endpoint validation with CloudEvents v1.0
 
 If you're already familiar with Event Grid, you might be aware of the endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) by using the HTTP OPTIONS method. To read more about it, see [HTTP 1.1 Web Hooks for event delivery - Version 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 <a name="azure-functions"></a>
 
 ## Use with Azure Functions
-The following example shows an Azure Functions version 3.x function that uses a `CloudEvent` binding parameter and `EventGridTrigger`.
+
+### Visual Studio or Visual Studio Code
+
+If you're using Visual Studio or Visual Studio Code, and C# programming language to develop functions, make sure that you're using the latest [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/) NuGet package (version **3.2.1** or above).
+
+In Visual Studio, use the **Tools** -> **NuGet Package Manager** -> **Package Manager Console**, and run the `Install-Package` command (`Install-Package Microsoft.Azure.WebJobs.Extensions.EventGrid -Version 3.2.1`). Alternatively, right-click the project in the Solution Explorer window, and select **Manage NuGet Packages** menu to browse for the NuGet package, and install or update it to the latest version.
+
+In VS Code, update the version number for the **Microsoft.Azure.WebJobs.Extensions.EventGrid** package in the **csproj** file for your Azure Functions project. 
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.EventGrid" Version="3.2.1" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
+
+The following example shows an Azure Functions version 3.x function that's developed in either Visual Studio or Visual Studio Code. It  uses a `CloudEvent` binding parameter and `EventGridTrigger`. 
 
 ```csharp
 using Azure.Messaging;
@@ -149,8 +179,38 @@ namespace Company.Function
 }
 ```
 
-For more information, see [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-csharp). 
+### Azure portal development experience
 
+If you're using the Azure portal to develop an Azure function, follow these steps:
+
+1. Update the name of the parameter in `function.json` file to `cloudEvent`.
+
+    ```json
+    {
+      "bindings": [
+        {
+          "type": "eventGridTrigger",
+          "name": "cloudEvent",
+          "direction": "in"
+        }
+      ]
+    }    
+    ```
+1. Update the `run.csx` file as shown in the following sample code. 
+    
+    ```csharp
+    #r "Azure.Core"
+    
+    using Azure.Messaging;
+    
+    public static void Run(CloudEvent cloudEvent, ILogger logger)
+    {
+        logger.LogInformation("Event received {type} {subject}", cloudEvent.Type, cloudEvent.Subject);
+    }
+    ```
+
+> [!NOTE]
+> For more information, see [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-csharp). 
 
 
 ## Next steps

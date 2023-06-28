@@ -7,15 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 04/17/2023
 ms.author: bemabonsu
-recommendations: false
-#Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
+monikerRange: '>=form-recog-2.1.0'
 ---
 
 # Create a Form Recognizer resource
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Here, you'll learn how to create a Form Recognizer resource in the Azure portal.
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. In this article, learn how to create a Form Recognizer resource in the Azure portal.
 
 ## Visit the Azure portal
 
@@ -38,7 +39,7 @@ Let's get started:
 1. Next, you're going to fill out the **Create Form Recognizer** fields with the following values:
 
     * **Subscription**. Select your current subscription.
-    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group.
+    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that contains your resource. You can create a new group or add it to a pre-existing group.
     * **Region**. Select your local region.
     * **Name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameFormRecognizer*.
     * **Pricing tier**. The cost of your resource depends on the pricing tier you choose and your usage. For more information, see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
@@ -59,7 +60,7 @@ Let's get started:
 
 1. Once you receive the *deployment is complete* message, select the **Go to resource** button.
 
-1. Copy the key and endpoint values from your Form Recognizer resource paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
+1. Copy the key and endpoint values from your Form Recognizer resource paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Form Recognizer API.
 
 1. If your overview page doesn't have the keys and endpoint visible, you can select the **Keys and Endpoint** button, on the left navigation bar, and retrieve them there.
 
@@ -73,7 +74,7 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
 
-  * [C#](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [Python](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [Java](quickstarts/get-started-v3-sdk-rest-api.md)
-  * [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [C#](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [Java](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+  * [JavaScript](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

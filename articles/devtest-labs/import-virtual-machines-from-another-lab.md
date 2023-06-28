@@ -67,4 +67,3 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ## Next steps
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md)
-- [DevTest Labs frequently asked questions](devtest-lab-faq.yml)

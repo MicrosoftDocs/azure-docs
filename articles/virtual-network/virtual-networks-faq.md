@@ -2,13 +2,15 @@
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
-author: mbender-ms
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
 ms.workload: infrastructure-services
+ms.custom: ignite-2022
 ms.date: 06/26/2020
-ms.author: mbender
+ms.author: allensu
 ---
+
 # Azure Virtual Network frequently asked questions (FAQ)
 
 ## Virtual Network basics
@@ -97,10 +99,13 @@ When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed 
 No. Multicast and broadcast are not supported.
 
 ### What protocols can I use within VNets?
-You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67) and UDP source port 65330 which is reserved for the host. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
+You can use TCP, UDP, ESP, AH, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets.  Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. You cannot use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67). UDP source port 65330 which is reserved for the host. See ["Can I deploy a DHCP server in a VNet"](#can-i-deploy-a-dhcp-server-in-a-vnet) for more detail what is and is not supported for DHCP.
+
+### Can I deploy a DHCP server in a VNet?
+Azure VNets provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a VNet.  You cannot deploy your own DHCP service to receive and provide unicast/broadcast client/server DHCP traffic for endpoints inside a VNet. It is also an *unsupported* scenario to deploy a DHCP server VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) DHCP traffic.
 
 ### Can I ping default gateway within a VNet?
-No. Azure provided default gateway does not respond ping. But you can use ping in your VNets to check connectivity and troubleshooting between VMs.
+No. Azure provided default gateway does not respond to ping. But you can use ping in your VNets to check connectivity and troubleshooting between VMs.
 
 ### Can I use tracert to diagnose connectivity?
 Yes. 
@@ -253,7 +258,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure.service/) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) deployment model.
 - The Azure CLI or Azure classic CLI to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.
 
 ## VNet peering
@@ -277,7 +282,7 @@ The following resources can use Basic Load Balancers which means you cannot reac
 - Logic Apps
 - HDInsight
 -    Azure Batch
-- App Service Environment
+- App Service Environment v1 and v2
 
 You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
@@ -351,7 +356,7 @@ The first step is a network side operation and the second step is a service reso
 >[!NOTE]
 > Both the operations described above must be completed before you can limit the Azure service access to the allowed VNet and subnet. Only turning on service endpoints for the Azure service on the network side does not provide you the limited access. In addition, you must also set up VNet ACLs on the Azure service side.
 
-Certain services (such as SQL and CosmosDB) allow exceptions to the above sequence through the **IgnoreMissingVnetServiceEndpoint** flag. Once the flag is set to **True**, VNet ACLs can be set on the Azure service side prior to setting up the service endpoints on the network side. Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services and turning on the service endpoints on the network side can lead to a connectivity drop since the source IP changes from a public IPv4 address to a private address. Setting up VNet ACLs on the Azure service side before setting service endpoints on the network side can help avoid a connectivity drop.
+Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the above sequence through the `IgnoreMissingVnetServiceEndpoint` flag. Once the flag is set to `True`, VNet ACLs can be set on the Azure service side prior to setting up the service endpoints on the network side. Azure services provide this flag to help customers in cases where the specific IP firewalls are configured on Azure services and turning on the service endpoints on the network side can lead to a connectivity drop since the source IP changes from a public IPv4 address to a private address. Setting up VNet ACLs on the Azure service side before setting service endpoints on the network side can help avoid a connectivity drop.
 
 ### Do all Azure services reside in the Azure virtual network provided by the customer? How does VNet service endpoint work with Azure services?
 

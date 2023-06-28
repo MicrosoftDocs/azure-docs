@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server'
 description: Learn how to configure single sign-on between Azure Active Directory and Tableau Server.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -45,6 +45,8 @@ To configure the integration of Tableau Server into Azure AD, you need to add Ta
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Tableau Server** in the search box.
 1. Select **Tableau Server** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Tableau Server
 
@@ -145,6 +147,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	> [!NOTE]
 	> Customer have to upload A PEM-encoded x509 Certificate file with a .crt extension and a RSA or DSA private key file that has the .key extension, as a Certificate Key file. For more information on Certificate file and Certificate Key file, please refer to [this](https://help.tableau.com/current/server/en-us/saml_requ.htm) document. If you need help configuring SAML on Tableau Server then please refer to this article [Configure Server Wide SAML](https://help.tableau.com/current/server/en-us/config_saml.htm).
+
+	> [!NOTE]
+	> The SAML Certificate and SAML Key files are generated separately and uploaded to the Tableau Server Manager. For example, in the linux shell, use openssl to generate the cert and key like so: `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout private.key -out saml.crt` then upload the `saml.crt` and `private.key` files via the TSM Configruation GUI (As shown in the screenshot at the start of this step) or via the [command line according to the tableau docs](https://help.tableau.com/current/server-linux/en-us/config_saml.htm). If you are in a production environment, you may want to find a more secure way to handle SAML certs and keys.
 
 ### Create Tableau Server test user
 

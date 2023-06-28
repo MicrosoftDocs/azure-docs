@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 01/20/2023
 ms.author: sebansal
 ---
 
@@ -99,7 +99,7 @@ The certificate request has now been successfully merged.
 ## Add more information to the CSR
 
 If you want to add more information when creating the CSR, define it in **SubjectName**. You might want to add information such as:
-- Country
+- Country/region
 - City/locality
 - State/province
 - Organization
@@ -108,7 +108,7 @@ If you want to add more information when creating the CSR, define it in **Subjec
 Example
 
    ```azure-powershell
-   SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+   SubjectName="CN = learn.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
    ```
 
 > [!NOTE]

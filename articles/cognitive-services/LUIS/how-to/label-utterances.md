@@ -12,6 +12,9 @@ ms.date: 01/05/2022
 
 # How to label example utterances
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
 Labeling an entity in an example utterance gives LUIS an example of what the entity is and where the entity can appear in the utterance. You can label machine-learned entities and subentities.
 
 You only label machine-learned entities and sub-entities. Other entity types can be added as features to them when applicable.

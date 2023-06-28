@@ -49,7 +49,7 @@ For more information, see the [Azure Backup components table](../../backup/backu
 
 ### Site Recovery
 
-[Azure Site Recovery](/azure/site-recovery) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Microsoft Defender for Cloud to perform more intelligent and effective threat detection.
+[Azure Site Recovery](../../site-recovery/index.yml) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Microsoft Defender for Cloud to perform more intelligent and effective threat detection.
 
 ## Azure Active Directory
 

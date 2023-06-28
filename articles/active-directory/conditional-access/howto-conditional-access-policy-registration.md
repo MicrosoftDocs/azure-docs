@@ -1,21 +1,21 @@
 ---
-title: Conditional Access - Combined security information - Azure Active Directory
+title: Control security information registration with Conditional Access
 description: Create a custom Conditional Access policy for security info registration
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 11/28/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb
+ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Securing security info registration
+# Common Conditional Access policy: Securing security info registration
 
 Securing when and how users register for Azure AD multifactor Authentication and self-service password reset is possible with user actions in a Conditional Access policy. This feature is available to organizations who have enabled the [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality allows organizations to treat the registration process like any application in a Conditional Access policy and use the full power of Conditional Access to secure the experience. Users signing in to the Microsoft Authenticator app or enabling passwordless phone sign-in are subject to this policy.
 
@@ -40,7 +40,7 @@ The following policy applies to the selected users, who attempt to register usin
 
    1. Under **Exclude**.
       1. Select **All guest and external users**.
-      1. Select **Directory roles** and choose **Global administrator**
+      1. Select **Directory roles** and choose **Global Administrator**
       
          > [!NOTE]
          > Temporary Access Pass does not work for guest users.
@@ -61,7 +61,7 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multifactor authentication to register. Steps to accomplish this task, are found in the section [Create a Temporary Access Pass in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 
-Organizations may choose to require other grant controls with or in place of **Require multifactor authentication** at step 6b. When selecting multiple controls, be sure to select the appropriate radio button toggle to require **all** or **one** of the selected controls when making this change.
+Organizations may choose to require other grant controls with or in place of **Require multifactor authentication** at step 7a. When selecting multiple controls, be sure to select the appropriate radio button toggle to require **all** or **one** of the selected controls when making this change.
 
 ### Guest user registration
 

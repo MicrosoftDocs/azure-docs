@@ -8,6 +8,7 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: golang
+ms.custom: devx-track-go
 ---
 
 # Quickstart: Manage secrets by using the Azure Key Vault Go client library
@@ -89,7 +90,7 @@ func main() {
 	}
 
 	// Establish a connection to the Key Vault client
-	client := azsecrets.NewClient(vaultURI, cred, nil)
+	client, err := azsecrets.NewClient(vaultURI, cred, nil)
 
 	// Create a secret
 	params := azsecrets.SetSecretParameters{Value: &mySecretValue}

@@ -1,17 +1,20 @@
 ---
-title: Set up a lab with Autodesk using Azure Lab Services
-description: Learn how to set up labs to teach engineering classes with Autodesk. 
-author: nicolela
+title: Set up a lab with Autodesk
+titleSuffix: Azure Lab Services
+description: Learn how to set up a lab in Azure Lab Services to teach engineering classes with Autodesk.
+services: lab-services
+ms.service: lab-services
+author: ntrogh
+ms.author: nicktrog
 ms.topic: how-to
-ms.date: 02/02/2022
-ms.author: nicolela
+ms.date: 03/03/2023
 ---
 
-# Set up labs for Autodesk
+# Set up a lab to teach engineering classes with Autodesk
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-This article describes how to set up Autodesk Inventor and Autodesk Revit software for engineering classes.
+This article describes how to set up Autodesk Inventor and Autodesk Revit software for engineering classes in Azure Lab Services.
 
 - [Inventor computer-aided design (CAD)](https://www.autodesk.com/products/inventor/new-features) and [computer-aided manufacturing (CAM)](https://www.autodesk.com/products/inventor-cam/overview) provide 3D modeling and are used in engineering design.
 - [Revit](https://www.autodesk.com/products/revit/overview) is used in architecture design for 3D building information modeling (BIM).
@@ -22,21 +25,21 @@ Autodesk is commonly used in both universities and K-12 schools.  For example, i
 
 ## License server
 
-You'll need to access a license server if you plan to use the Autodesk network licensing model.  Read Autodesk's article on [Network License Administration](https://knowledge.autodesk.com/customer-service/network-license-administration/network-deployment/preparing-for-deployment/determining-installation-type) for more information.
+You need to access a license server if you plan to use the Autodesk network licensing model.  Read Autodesk's article on [Network License Administration](https://knowledge.autodesk.com/customer-service/network-license-administration/network-deployment/preparing-for-deployment/determining-installation-type) for more information.
 
-To use network licensing with Autodesk software, [AutoDesk provides detailed steps](https://knowledge.autodesk.com/customer-service/network-license-administration/install-and-configure-network-license) to install Autodesk Network License Manager on your license server.  This license server is ordinarily located in either your on-premises network or hosted on an Azure virtual machine (VM) within in Azure virtual network.
+To use network licensing with Autodesk software, [AutoDesk provides detailed steps](https://knowledge.autodesk.com/customer-service/network-license-administration/install-and-configure-network-license) to install Autodesk Network License Manager on your license server.  You can host the license server in your on-premises network, or on an Azure virtual machine (VM) within in an Azure virtual network.
 
-After your license server is set up, you'll need to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plan.
+After setting up your license server, you need to enable [advanced networking](how-to-connect-vnet-injection.md) when you create the lab plan.
 
-Autodesk-generated license files embed the MAC address of the license server.  If you decide to host your license server by using an Azure VM, it’s important to make sure that your license server’s MAC address doesn’t change. If the MAC address changes, you'll need to regenerate your licensing files. To prevent your MAC address from changing:
+Autodesk-generated license files embed the MAC address of the license server.  If you decide to host your license server by using an Azure VM, it’s important to make sure that your license server’s MAC address doesn’t change. If the MAC address changes, you need to regenerate your licensing files. To prevent your MAC address from changing:
 
 - [Set a static private IP and MAC address](how-to-create-a-lab-with-shared-resource.md#tips) for the Azure VM that hosts your license server.
-- Be sure to create both your lab plan and the license server’s virtual network in the same region. Also, verify the region has sufficient VM capacity so that you don’t have to move these resources to a new region later.
+- Create both your lab plan and the license server’s virtual network in the same region. Also, verify that the region has sufficient VM capacity to avoid that you have to move these resources to another region later.
 
 For more information, see [Set up a license server as a shared resource](./how-to-create-a-lab-with-shared-resource.md).
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan.  It can not be added later.
+> You must enable [advanced networking](how-to-connect-vnet-injection.md) when creating your lab plan. You can't enable advanced networking for an existing lab plan.
 
 ## Lab configuration
 
@@ -44,38 +47,42 @@ For more information, see [Set up a license server as a shared resource](./how-t
 
 ### Lab plan settings
 
-Enable your lab plan settings as described in the following table.  For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
+This lab uses a Windows 10 Pro Azure Marketplace images as the base VM image. You first need to enable this image in your lab plan. This lets lab creators then select the image as a base image for their lab.
 
-| Lab plan setting | Instructions |
-| ------------------- | ------------ |
-|Marketplace image| Enable the Windows 10 Pro or Windows 10 Pro N image, if not done already.|
+Follow these steps to [enable these Azure Marketplace images available to lab creators](specify-marketplace-images.md). Select one of the **Windows 10** Azure Marketplace images.
 
 ### Lab settings
 
-[!INCLUDE [create lab](./includes/lab-services-class-type-lab.md)]  Use the following settings when creating the lab.
+1. Create a lab for your lab plan:
 
-| Lab setting | Value and description |
-| ------------ | ------------------ |
-| Virtual Machine Size | **Small GPU (Visualization)**. Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. |
+    [!INCLUDE [create lab](./includes/lab-services-class-type-lab.md)]  Use the following settings when creating the lab.
 
-> [!WARNING]
-> The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience and meets [Adobe’s system requirements for each application](https://helpx.adobe.com/creative-cloud/system-requirements.html).  Make sure to choose **Small GPU (Visualization)** not **Small GPU (Compute)**.  For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
+    | Lab setting | Value and description |
+    | ------------ | ------------------ |
+    | Virtual Machine Size | **Small GPU (Visualization)**. Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. |
+    | Virtual Machine Image | Windows 10 Pro |
+
+1. When you create a lab with the **Small GPU (Visualization)** size, follow these steps to [set up a lab with GPUs](./how-to-setup-lab-gpu.md).
+
+    The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience and meets [Adobe’s system requirements for each application](https://helpx.adobe.com/creative-cloud/system-requirements.html).  Make sure to choose Small GPU (Visualization) not Small GPU (Compute).
 
 ## Template machine configuration
 
 [!INCLUDE [configure template vm](./includes/lab-services-class-type-template-vm.md)]
 
-1. Start the template VM and connect to the machine.
+1. Start the template VM and connect using RDP.
 
-1. Download and install Inventor and Revit using [instructions from AutoDesk](https://knowledge.autodesk.com/customer-service/download-install/install-software).  When prompted, specify the computer name of your license server.
+1. Download and install Inventor and Revit using [instructions from AutoDesk](https://knowledge.autodesk.com/customer-service/download-install/install-software).
 
-1. Finally, [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) to create the students’ VMs.
+    When prompted, specify the computer name of your license server.
+
+1. Once the template VM is set up, [publish the template VM](how-to-create-manage-template.md). All lab VMs use this template as their base image.
 
 ## Cost
 
-Let’s cover an example cost estimate for this class.  This estimate doesn’t include the cost of running a license server. Suppose you have a class of 25 students, each of whom has 20 hours of scheduled class time.  Each student also has an extra 10 quota hours for homework or assignments outside of scheduled class time.  The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.
+This section provides a cost estimate for running this class for 25 users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units. This estimate doesn’t include the cost of running a license server.
 
-- 25 students &times; (20 scheduled hours + 10 quota hours) &times; 160 Lab Units &times; USD0.01 per hour = USD1200.00
+- 25 lab users &times; (20 scheduled hours + 10 quota hours) &times; 160 lab units
 
 > [!IMPORTANT]
 > The cost estimate is for example purposes only.  For current pricing information, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).

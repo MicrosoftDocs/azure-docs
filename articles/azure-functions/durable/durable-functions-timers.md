@@ -2,7 +2,7 @@
 title: Timers in Durable Functions - Azure
 description: Learn how to implement durable timers in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 ---
@@ -65,7 +65,8 @@ When you "await" the timer task, the orchestrator function will sleep until the 
 When you create a timer that expires at 4:30 pm UTC, the underlying Durable Task Framework enqueues a message that becomes visible only at 4:30 pm UTC. If the function app is scaled down to zero instances in the meantime, the newly visible timer message will ensure that the function app gets activated again on an appropriate VM.
 
 > [!NOTE]
-> * Starting with [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) of the Durable Extension, Durable timers are unlimited for .NET apps. For JavaScript, Python, and PowerShell apps, as well as .NET apps using earlier versions of the extension, Durable timers are limited to six days. When you are using an older extension version or a non-.NET language runtime and need a delay longer than six days, use the timer APIs in a `while` loop to simulate a longer delay.
+> * For JavaScript, Python, and PowerShell apps, Durable timers are limited to six days. To work around this limitation, you can use the timer APIs in a `while` loop to simulate a longer delay. Up-to-date .NET and Java apps support arbitrarily long timers.
+> * Depending on the version of the SDK and [storage provider](durable-functions-storage-providers.md) being used, long timers of 6 days or more may be internally implemented using a series of shorter timers (e.g., of 3 day durations) until the desired expiration time is reached. This can be observed in the underlying data store but won't impact the the orchestration behavior.
 > * Don't use built-in date/time APIs for getting the current time. When calculating a future date for a timer to expire, always use the orchestrator function's current time API. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md#dates-and-times) article.
 
 ## Usage for delay
@@ -138,14 +139,12 @@ for ($num = 0 ; $num -le 9 ; $num++){
 ```java
 @FunctionName("BillingIssuer")
 public String billingIssuer(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            for (int i = 0; i < 10; i++) {
-                ctx.createTimer(Duration.ofDays(1)).await();
-                ctx.callActivity("SendBillingEvent").await();
-            }
-            return "done";
-        });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    for (int i = 0; i < 10; i++) {
+        ctx.createTimer(Duration.ofDays(1)).await();
+        ctx.callActivity("SendBillingEvent").await();
+    }
+    return "done";
 }
 ```
 
@@ -264,21 +263,19 @@ else {
 
 ```java
 @FunctionName("TryGetQuote")
-public String tryGetQuote(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            Task<Void> activityTask = ctx.callActivity("GetQuote");
-            Task<Void> timerTask = ctx.createTimer(Duration.ofSeconds(30));
+public boolean tryGetQuote(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    Task<Double> activityTask = ctx.callActivity("GetQuote", Double.class);
+    Task<Void> timerTask = ctx.createTimer(Duration.ofSeconds(30));
 
-            Task<?> winner = ctx.anyOf(activityTask, timerTask);
-            if (winner == activityTask) {
-                // success case
-                return true;
-            } else {
-                // timeout case
-                return false;
-            }
-        });
+    Task<?> winner = ctx.anyOf(activityTask, timerTask);
+    if (winner == activityTask) {
+        // success case
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
 }
 ```
 

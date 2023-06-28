@@ -3,9 +3,8 @@ title: Non-interactive authentication .NET application - Azure HDInsight
 description: Learn how to create non-interactive authentication Microsoft .NET applications in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: "hdinsightactive, devx-track-csharp"
-ms.date: 12/23/2019
-
+ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
+ms.date: 12/23/2022
 ---
 
 # Create a non-interactive authentication .NET HDInsight application
@@ -14,9 +13,9 @@ Run your Microsoft .NET Azure HDInsight application either under the application
 
 From your non-interactive .NET application, you need:
 
-* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
-* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
-* The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
+* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) and [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
+* The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
 
 ## Prerequisites
 

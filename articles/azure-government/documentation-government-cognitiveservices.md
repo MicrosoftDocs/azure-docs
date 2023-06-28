@@ -21,7 +21,7 @@ This article provides developer guidance for using Computer Vision, Face API, Te
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Install and Configure [Azure PowerShell](/powershell/azure/install-az-ps)
+- Install and Configure [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
 ## Part 1: Provision Cognitive Services accounts

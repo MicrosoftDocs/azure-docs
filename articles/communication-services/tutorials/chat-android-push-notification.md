@@ -195,26 +195,32 @@ Push notifications let clients be notified for incoming messages and other opera
 11. Add a custom `WorkManager` initializer by creating a class implementing `Configuration.Provider`:
 
 ```java
-public class MyAppConfiguration extends Application implements Configuration.Provider {
-    Consumer<Throwable> exceptionHandler = new Consumer<Throwable>() {
+    public class MyAppConfiguration extends Application implements Configuration.Provider {
+        Consumer<Throwable> exceptionHandler = new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) {
+                Log.i("YOUR_TAG", "Registration failed for push notifications!" + throwable.getMessage());
+            }
+        };
+    
         @Override
-        public void accept(Throwable throwable) {
-            Log.i("YOUR_TAG", "Registration failed for push notifications!" + throwable.getMessage());
+        public void onCreate() {
+            super.onCreate();
+            // Initialize application parameters here
+            WorkManager.initialize(getApplicationContext(), getWorkManagerConfiguration());
         }
-    };
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        WorkManager.initialize(getApplicationContext(), getWorkManagerConfiguration());
+    
+        @NonNull
+        @Override
+        public Configuration getWorkManagerConfiguration() {
+            return new Configuration.Builder().
+                setWorkerFactory(new RegistrationRenewalWorkerFactory(COMMUNICATION_TOKEN_CREDENTIAL, exceptionHandler)).build();
+        }
     }
-    @NonNull
-    @Override
-    public Configuration getWorkManagerConfiguration() {
-        return new Configuration.Builder().
-            setWorkerFactory(new RegistrationRenewalWorkerFactory(COMMUNICATION_TOKEN_CREDENTIAL, exceptionHandler)).build();
-    }
-}
 ```
+**Explanation to code above:** The default initializer of `WorkManager` has been disabled in step 9. This step implements `Configuration.Provider` to provide a customized 'WorkFactory', which is responsible to create `WorkerManager` during runtime. 
+
+If the app is integrated with Azure Function, initialization of application parameters should be added in method 'onCreate()'. Method 'getWorkManagerConfiguration()' is called when the application is starting, before any activity, service, or receiver objects (excluding content providers) have been created, so that application parameters could be initialized before being used. More details can be found in the sample chat app.
 
 12. Add the `android:name=.MyAppConfiguration` field, which uses the class name from step 11, into `AndroidManifest.xml`:
 

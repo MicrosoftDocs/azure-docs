@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Airstack | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Airstack'
 description: Learn how to configure single sign-on between Azure Active Directory and Airstack.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -46,11 +46,13 @@ To configure the integration of Airstack into Azure AD, you need to add Airstack
 1. In the **Add from the gallery** section, type **Airstack** in the search box.
 1. Select **Airstack** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Airstack
 
 Configure and test Azure AD SSO with Airstack using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Airstack.
 
-To configure and test Azure AD SSO with Airstack, perfrom the following steps:
+To configure and test Azure AD SSO with Airstack, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.

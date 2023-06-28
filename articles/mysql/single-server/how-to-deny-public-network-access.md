@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article describes how you can configure an Azure Database for MySQL server to deny all public configurations and allow only connections through private endpoints to further enhance the network security.
 
 ## Prerequisites

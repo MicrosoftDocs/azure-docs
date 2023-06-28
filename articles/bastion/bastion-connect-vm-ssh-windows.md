@@ -5,7 +5,7 @@ description: Learn how to use Azure Bastion to connect to Windows VM using SSH.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 10/18/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
@@ -40,6 +40,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine
 * Reader role on the NIC with private IP of the virtual machine
 * Reader role on the Azure Bastion resource
+* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
 ### Ports
 
@@ -47,6 +48,8 @@ In order to connect to the Windows VM via SSH, you must have the following ports
 
 * Inbound port: SSH (22) *or*
 * Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
+
+See the [Azure Bastion FAQ](bastion-faq.md) for additional requirements.
 
 ### Supported configurations
 
@@ -56,7 +59,7 @@ Currently, Azure Bastion only supports connecting to Windows VMs via SSH using *
 
 1. In the [Azure portal](https://portal.azure.com), go to the virtual machine that you want to connect to. On the **Overview** page, select **Connect**, then select **Bastion** from the dropdown to open the Bastion connection page. You can also select **Bastion** from the left pane.
 
-   :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="Screenshot shows the overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-linux/connect.png":::
+   :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="Screenshot shows the overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
 
 1. On the **Bastion** connection page, click the **Connection Settings** arrow to expand all the available settings. If you are using a Bastion **Standard** SKU, you have more available settings than a Basic SKU.
 

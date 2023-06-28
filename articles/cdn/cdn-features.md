@@ -2,11 +2,10 @@
 title: Compare Azure Content Delivery Network (CDN) product features
 description: Learn about the features that each Azure Content Delivery Network (CDN) product supports.
 services: cdn
-documentationcenter: ''
 author: duongau
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 11/15/2019
+ms.date: 06/05/2023
 ms.author: duau
 ms.custom: mvc
 
@@ -21,6 +20,9 @@ Azure Content Delivery Network (CDN) includes four products:
 * **Azure CDN Standard from Verizon**
 * **Azure CDN Premium from Verizon**.
 
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. You can no longer create new Azure CDN from Akamai after June 1, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
+
 The following table compares the features available with each product.
 
 | **Performance features and optimizations** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
@@ -34,7 +36,7 @@ The following table compares the features available with each product.
 | Change optimization type | |**&#x2713;** | | |
 | Origin Port |All TCP ports |[Allowed origin ports](/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |All TCP ports |All TCP ports |
 | [Global server load balancing (GSLB)](../traffic-manager/traffic-manager-load-balancing-azure.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Fast purge](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Purge all and Wildcard purge are not supported by Azure CDN from Akamai currently |**&#x2713;** |**&#x2713;** |
+| [Fast purge](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;**, Purge all and Wildcard purge aren't supported by Azure CDN from Akamai currently |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | Cache/header settings (using [caching rules](cdn-caching-rules.md))  |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
 | Customizable, rules based content delivery engine |**&#x2713;** using [Standard rules engine](cdn-standard-rules-engine.md)  | | |**&#x2713;** using [rules engine](./cdn-verizon-premium-rules-engine.md) |
@@ -51,7 +53,7 @@ The following table compares the features available with each product.
 | [Custom domain name support](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Geo-filtering](cdn-restrict-access-by-country-region.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)  |  |  |  |**&#x2713;**|
-| [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [DDOS protection](https://www.cisa.gov/news-events/news/understanding-denial-service-attacks)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
 | Supported TLS Versions | TLS 1.2, TLS 1.0/1.1 - [Configurable](/rest/api/cdn/custom-domains/enable-custom-https#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||

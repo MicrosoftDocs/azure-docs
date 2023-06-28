@@ -1,100 +1,71 @@
 ---
-title: Generate and download the Permissions analytics report in Permissions Management
-description: How to generate and download the Permissions analytics report in Permissions Management.
+title: View and download the Permissions Analytics Report in Permissions Management
+description: How to view and download the Permissions Analytics Report in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 01/25/2023
+ms.author: jfields
 ---
 
-# Generate and download the Permissions analytics report
+# View and download the Permissions analytics report
 
-This article describes how to generate and download the **Permissions analytics report** in Permissions Management.
+This article describes how to view and download the **Permissions analytics report** in Permissions Management for AWS, Azure, and GPC authorization systems.
 
-> [!NOTE]
-> This topic applies only to Amazon Web Services (AWS) users.
+>[!NOTE]
+>The Permissions analytics report can be downloaded in Excel and PDF formats.
 
-## Generate the Permissions analytics report
+## View the Permissions Analytics Report in the Permissions Management UI
 
-1. In the Permissions Management home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
+You can view the Permissions Analytics Report information directly in the Permissions Management UI.
 
-    The **Systems Reports** subtab displays a list of reports the **Reports** table.
-1. Find **Permissions Analytics Report** in the list, and to download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
+1. In Permissions Management, select **Reports** in the navigation menu.
+2. Locate the **Permissions Analytics Report** in the list, then select it.
+3. View detailed report information from the list of categories that are displayed.
+   >[!NOTE]
+   > Categories will vary depending on which Authorization System you are viewing.
 
-    The following message displays: **Successfully Started To Generate On Demand Report.**
-
-1. For detailed information in the report, select the right arrow next to one of the following categories. Or, select the required category under the **Findings** column.
-
-    - **AWS**
-        - Inactive Identities
-            - Users
-            - Roles
-            - Resources
-            - Serverless Functions
-        - Inactive Groups
-        - Super Identities
-            - Users
-            - Roles
-            - Resources
-            - Serverless Functions
-        - Over-Provisioned Active Identities
-            - Users
-            - Roles
-            - Resources
-            - Serverless Functions
-        - PCI Distribution
-        - Privilege Escalation
-            - Users
-            - Roles
-            - Resources
-        - S3 Bucket Encryption
-            - Unencrypted Buckets
-            - SSE-S3 Buckets
-        - S3 Buckets Accessible Externally
-        - EC2 S3 Buckets Accessibility
-        - Open Security Groups
-        - Identities That Can Administer Security Tools
-            - Users
-            - Roles
-            - Resources
-            - Serverless Functions
-        - Identities That Can Access Secret Information
-            - Users
-            - Roles
-            - Resources
-            - Serverless Functions
-        - Cross-Account Access
-            - External Accounts
-            - Roles That Allow All Identities
-        - Hygiene: MFA Enforcement
-        - Hygiene: IAM Access Key Age
-        - Hygiene: Unused IAM Access Keys
-        - Exclude From Reports
-            - Users
-            - Roles
-            - Resources
-            - Serverless Functions
-            - Groups
-            - Security Groups
-            - S3 Buckets
+4. To view more detailed information into each category, select the drop-down arrow next to the category name.
 
 
-1. Select a category and view the following columns of information:
+## Download the Permissions Analytics Report in Excel format
 
-    - **User**, **Role**, **Resource**, **Serverless Function Name**: Displays the name of the identity.
-    - **Authorization System**: Displays the authorization system to which the identity belongs.
-    - **Domain**: Displays the domain name to which the identity belongs.
-    - **Permissions**: Displays the maximum number of permissions that the identity can be granted.
-        - **Used**: Displays how many permissions that the identity has used.
-        - **Granted**: Displays how many permissions that the identity has been granted.
-    - **PCI**: Displays the permission creep index (PCI) score of the identity.
-    - **Date Last Active On**: Displays the date that the identity was last active.
-    - **Date Created On**: Displays the date when the identity was created.
+1. From the Permissions Management home page, select the **Reports** tab, then select the **Systems Reports** subtab.
+    
+    The **Systems Reports** subtab displays a list of report names in the **Reports** table.
+2. Locate the **Permissions Analytics Report** in the list.
+3. To download the report in Excel format, click on the ellipses **(...)**, the select **Generate & Download**.
+    
+    The Permissions Analytics Report screen is displayed.
+4. Click on **Report Format** and make sure that **XLSX** is selected.
+5. Click on **Schedule** and, if you want to download this report regularly, select the frequency for which you want it downloaded. You can also leave this at the default setting of **None**.
+6. Click on **Authorization Systems** and select which system you want to download the report for (AWS, Azure, or GCP).
+   >[!NOTE]
+   > To download a report for all Authorization Systems, check the **Collate** box. This will combine all selected Authorization Systems into one report.
+7. Click **Save**
 
+    The following message displays: **Report has been created**.
+
+    Once the Excel file is generated, the report is automatically sent to your email.
+
+## Download the Permissions Analytics Report in PDF format
+
+1. From the Permissions Management home page, select the **Reports** tab, then select the **Systems Reports** subtab.
+    
+    The **Systems Reports** subtab displays a list of reports names in the **Reports** table.
+2. Locate the **Permissions Analytics Report** in the list, then select it.
+3. Select which Authorization System you want to generate the PDF download for (AWS, Azure, or GCP).
+   >[!NOTE]
+   > The PDF can only be downloaded for one Authorization System at a time. If more than one Authorization System is selected, the **Export PDF** button will be disabled. 
+4. To download the report in PDF format, click on **Export PDF**.
+    
+    The following message displays: **Successfully started to generate PDF report**. 
+    
+    Once the PDF is generated, the report is automatically sent to your email.
 
 
 <!---## Add and remove tags in the Permissions analytics report

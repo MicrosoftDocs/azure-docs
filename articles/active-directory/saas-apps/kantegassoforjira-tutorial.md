@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory with Kantega SSO for JIRA | Microsoft Docs'
+title: 'Tutorial: Integrate Azure Active Directory with Kantega SSO for JIRA'
 description: Learn how to configure single sign-on between Azure Active Directory and Jira using Kantega SSO.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/04/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Integrate Azure Active Directory with Kantega SSO for JIRA
@@ -49,6 +49,8 @@ To configure the integration of Kantega SSO for JIRA into Azure AD, you need to 
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **Kantega SSO for JIRA** in the search box.
 1. Select **Kantega SSO for JIRA** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Kantega SSO for JIRA
 
