@@ -13,7 +13,7 @@
       href: concepts-compute.md
     - name: Observability
       href: concepts-observability.md
-    - name: Nexus Kubernetes overview
+    - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
 - name: Quickstarts
   items:
