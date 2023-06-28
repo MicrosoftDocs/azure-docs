@@ -1,3 +1,11 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 06/28/2023
+ms.author: glenga
+---
+
 1. In the [Azure portal](https://portal.azure.com), locate your function app and select **Configuration** on the left-hand side.
 
 1. Select the **Function runtime settings** tab and verify that your function app is running on the latest version of the Functions runtime. 
