@@ -64,8 +64,8 @@ The following JSON snippet shows the parameters required for configuring the IP 
 }
 ```
 
-> [!NOTE]
-> The IP CIDR for the address field in the IP pool configuration can be specified as /32, which represents a single IP address. Additionally, the address field is an array, allowing for the inclusion of any number of /32 IP addresses in the pool configuration. Additionally, the IP pool configuration supports multiple IP pools, offering the flexibility to allocate specific IP ranges to different services or deployments within the Kubernetes cluster.
+<!-- > [!NOTE]
+> The IP CIDR for the address field in the IP pool configuration can be specified as /32, which represents a single IP address. Additionally, the address field is an array, allowing for the inclusion of any number of /32 IP addresses in the pool configuration. Additionally, the IP pool configuration supports multiple IP pools, offering the flexibility to allocate specific IP ranges to different services or deployments within the Kubernetes cluster. -->
 
 To add the IP pool configuration to your cluster, you need to update the `kubernetes-deploy-parameters.json` file that you created during the [quickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md). Include the IP pool configuration in this file according to your desired settings.
 
