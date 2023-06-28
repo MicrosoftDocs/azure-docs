@@ -5,7 +5,7 @@ description: Learn how to create an encrypted virtual network using Azure PowerS
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 07/07/2023
 ms.author: allensu
 
 ---
@@ -63,7 +63,6 @@ $net = @{
     Subnet = $subnetConfig
     EnableEncryption = 'true'
     EncryptionEnforcementPolicy = 'AllowUnencrypted'
-    
 }
 New-AzVirtualNetwork @net
 
@@ -94,7 +93,7 @@ $vnet.Encryption
 
 Enabled Enforcement
 ------- -----------
-false   allowUnencrypted
+true   allowUnencrypted
 ```
 
 ## Clean up resources
