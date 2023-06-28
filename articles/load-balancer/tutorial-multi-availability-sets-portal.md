@@ -36,56 +36,44 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**.
+1. In the search box at the top of the portal, enter **Virtual network**.
 
-3. In the search results, select **Virtual networks**.
+1. In the search results, select **Virtual networks**.
 
-4. Select **+ Create**.
+1. Select **+ Create**.
 
-5. In the **Basics** tab of the **Create virtual network**, enter, or select the following information:
+1. In the **Basics** tab of the **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ------|
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **TutorLBmultiAVS-rg** in **Name**. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. |
     | **Instance details** |   |
     | Name | Enter **myVNet**. |
     | Region | Select **(US) West US 2**. |
 
-6. Select the **IP addresses** tab, or the **Next: IP Addresses** button at the bottom of the page.
-
-7. In the **IP Addresses** tab, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
-
-8. Select **+ Add subnet**. 
-
-9. In **Add subnet**, enter this information:
-
-    | Setting            | Value                      |
-    |--------------------|----------------------------|
-    | Subnet name | Enter **myBackendSubnet** |
-    | Subnet address range | Enter **10.1.0.0/24** |
-
-10. Select **Add**.
-
-11. Select the **Security** tab, or the **Next: Security** button at the bottom of the page.
-
-12. In the **Security** tab, in **BastionHost** select **Enable**.
-
-13. Enter or select the following information:
+1. Select the **Security** tab, or the **Next: Security** button at the bottom of the page.
+1. In the **Security** tab, select **Enable Bastion Host**.
+1. Enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Bastion name | Enter **MyBastionHost**. |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/27**. |
-    | Public IP address | Select **Create new**. </br> Enter **myBastionIP** in **Name**. |
+    | Azure Bastion host name | Enter **myBastionHost**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **myBastionIP** in **Name** and select **Ok**. |
+1. Select the **IP addresses** tab, or the **Next: IP Addresses** button at the bottom of the page.
 
-14. Select the **Review + create** tab, or the blue **Review + create** button at the bottom of the page.
+1. In the **IP Addresses** tab, enter this information:
 
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | IPv4 address space | Enter **10.0.0.0** and choose **/16 (65,536 addresses)** |
+
+1. Select **default** under **Subnets**.
+1. Under **Subnet details**, enter **myBackendSubnet** for **Name**.
+1. In **Add subnet**, enter this information:
+1. Select **Save**.
+1. Select the **Review + create** tab, or the blue **Review + create** button at the bottom of the page.
 15. Select **Create**.
 
 > [!IMPORTANT]
@@ -98,121 +86,88 @@ In this section, you'll create a virtual network for the load balancer and the o
 
 In this section, you'll create a NAT gateway for outbound connectivity of the virtual machines.
 
-1. In the search box at the top of the portal, enter **NAT gateway**.
-
-2. Select **NAT gateways** in the search results.
-
-3. Select **+ Create**.
-
-4. In the **Basics** tab of **Create network address translation (NAT) gateway**, enter or select the following information:
+1. In the search box at the top of the portal, enter **NAT gateways**.
+1. Select **NAT gateways** in the search results.
+1. Select **+ Create** or **Create NAT Gateway** button.
+1. In the **Basics** tab of **Create network address translation (NAT) gateway**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **TutorLBmultiAVS-rg**. |
+    | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
     | NAT gateway name | Enter **myNATgateway**. |
     | Region | Select **(US) West US 2**. |
-    | Availability zone | Select **None**. |
+    | Availability zone | Select **No Zone**. |
     | Idle timeout (minutes) | Enter **15**. |
 
-5. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
-
-6. Select **Create a new public IP address** next to **Public IP addresses** in the **Outbound IP** tab.
-
-7. Enter **myNATgatewayIP** in **Name**.
-
-8. Select **OK**.
-
-9. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
-
-10. Select **myVNet** in the pull-down menu under **Virtual network**.
-
-11. Select the check box next to **myBackendSubnet**.
-
-12. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
-
-13. Select **Create**.
+1. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
+1. Select **Create a new public IP address** next to **Public IP addresses** in the **Outbound IP** tab.
+1. Enter **myNATgatewayIP** in **Name**.
+1. Select **OK**.
+1. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
+1. Select **myVNet** in the pull-down menu under **Virtual network**.
+1. Select the check box next to **myBackendSubnet**.
+1. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+1. Select **Create**.
 
 ## Create load balancer
 
 In this section, you'll create a load balancer for the virtual machines.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
-
-2. In the **Load balancer** page, select **Create**.
-
-3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+1. In the **Load balancer** page, select **Create** or the **Create load balancer** button.
+1. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **TutorLBmultiAVS-rg**. |
+    | Resource group         | Select **myResourceGroup**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **(US) West US 2**.                                        |
-    | Type          | Select **Public**.                                        |
+    | Region         | Select **(US) West US 2**.  |
     | SKU           | Leave the default **Standard**. |
+    | Type          | Select **Public**.                                        |
     | Tier          | Leave the default **Regional**. |
 
-4. Select the **Frontend IP configuration** tab, or select the **Next: Frontend IP configuration** button at the bottom of the page.
-
-5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
-
-6. Enter **LoadBalancerFrontend** in **Name**.
-
-7. Select **IPv4** or **IPv6** for the **IP version**.
+1. Select the **Frontend IP configuration** tab, or select the **Next: Frontend IP configuration** button at the bottom of the page.
+1. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
+1. Enter **myLoadBalancerFrontEnd** in **Name**.
+1. Select **IPv4** or **IPv6** for the **IP version**.
 
     > [!NOTE]
     > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
-
-8. Select **IP address** for the **IP type**.
+1. Select **IP address** for the **IP type**.
 
     > [!NOTE]
     > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
-
-9. Select **Create new** in **Public IP address**.
-
-10. In **Add a public IP address**, enter **myPublicIP-lb** for **Name**.
-
-11. Select **Zone-redundant** in **Availability zone**.
+1. Select **Create new** in **Public IP address**.
+1. In **Add a public IP address**, enter **myPublicIP-lb** for **Name**.
+1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
     > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
-12. Leave the default of **Microsoft Network** for **Routing preference**.
-
-13. Select **OK**.
-
-14. Select **Add**.
-
-15. Select the **Backend pools** tab, or select the **Next: Backend pools** button at the bottom of the page.
-
-16. In the **Backend pools** tab, select **+ Add a backend pool**.
-
-17. Enter **myBackendPool** for **Name** in **Add backend pool**.
-
-18. Select **myVNet** in **Virtual network**.
-
-19. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
-
-20. Select **IPv4** or **IPv6** for **IP version**.
-
-21. Select **Add**.
-
-22. Select the **Inbound rules** tab, or select the **Next: Inbound rules** button at the bottom of the page.
-
-23. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
-
-24. In **Add load balancing rule**, enter or select the following information:
+1. Select **OK**.
+1. Select **Add**.
+1. Select the **Next: Backend pools>** button at the bottom of the page.
+1. In the **Backend pools** tab, select **+ Add a backend pool**.
+1. Enter **myBackendPool** for **Name** in **Add backend pool**.
+1. Select **myVNet** in **Virtual network**.
+1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+1. Select **IPv4** or **IPv6** for **IP version**.
+1. Select **Add**.
+1. Select the **Inbound rules** tab, or select the **Next: Inbound rules** button at the bottom of the page.
+1. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+1. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
-    | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Frontend IP address | Select **myLoadBalancerFrontEnd**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
@@ -250,7 +205,7 @@ In this section, you'll create two availability groups with two virtual machines
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription |
-    | Resource group | Select **TutorLBmultiAVS-rg**. |
+    | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
     | Virtual machine name | Enter **myVM1**. |
     | Region | Select **(US) West US 2**. |
@@ -314,7 +269,7 @@ In this section, you'll create two availability groups with two virtual machines
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription |
-    | Resource group | Select **TutorLBmultiAVS-rg**. |
+    | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
     | Virtual machine name | Enter **myVM3**. |
     | Region | Select **(US) West US 2**. |
@@ -431,11 +386,11 @@ the load balancer and the supporting resources with the following steps:
 
 2. Select **Resource groups** in the search results.
 
-3. Select **TutorLBmultiAVS-rg**.
+3. Select **myResourceGroup**.
 
-4. In the overview page of **TutorLBmultiAVS-rg**, select **Delete resource group**.
+4. In the overview page of **myResourceGroup**, select **Delete resource group**.
 
-5. Enter **TutorLBmultiAVS-rg** in **TYPE THE RESOURCE GROUP NAME**.
+5. Enter **myResourceGroup** in **TYPE THE RESOURCE GROUP NAME**.
 
 6. Select **Delete**.
 
