@@ -21,7 +21,7 @@ Your application's performance gets throttled when it requests more IOPS or thro
 
 ## Examples
 
-Each of the following example scenarios uses the following configuration for the VMs and the Elastic SAN:
+Each of the example scenarios use the following configuration for the VMs and the Elastic SAN:
 
 - Standard_DS2_v2 VM - AKS - IOPS limit of 5,000
 - Standard_L48s_v2 - Workload 1 - IOPS limit of 48,000
