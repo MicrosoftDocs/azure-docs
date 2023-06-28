@@ -61,7 +61,7 @@
     - name: BareMetal Actions
       expanded: false
       items:
-          - name: BareMetal Functions
+        - name: BareMetal Functions
           href: howto-baremetal-functions.md
         - name: BareMetal Run-Read Execution
           href: howto-baremetal-run-read.md
