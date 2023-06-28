@@ -297,7 +297,6 @@
           href: use-tags.md
         - name: Use labels
           href: use-labels.md
-        - name: Enforce best practices with Guardrails
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -589,6 +588,8 @@
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
         - name: Build Java app with WebSphere Liberty or Open Liberty
           href: howto-deploy-java-liberty-app.md
+        - name: Build Java app with WebLogic Server
+          href: howto-deploy-java-wls-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
