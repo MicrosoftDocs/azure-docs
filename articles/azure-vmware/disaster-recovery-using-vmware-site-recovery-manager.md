@@ -17,6 +17,8 @@ vSphere Replication is VMware's hypervisor-based replication technology for vSph
 In this article, you'll implement disaster recovery for on-premises VMware virtual machines (VMs) or Azure VMware Solution-based VMs.
 
 
+> [!NOTE]
+> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
 ## Supported scenarios
 
 SRM helps you plan, test, and run the recovery of VMs between a protected vCenter Server site and a recovery vCenter Server site. You can use SRM with Azure VMware Solution with the following two DR scenarios: 
@@ -84,15 +86,18 @@ Make sure you've explicitly provided the remote user the VRM administrator and S
 
 1. In your on-premises datacenter, install VMware SRM and vSphere Replication.
 
-   >[!NOTE]
-   >Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.4/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
-
+   > [!NOTE]
+   > Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.4/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Add-ons** > **Disaster recovery**.
 
-   The default CloudAdmin user in the Azure VMware Solution private cloud doesn't have sufficient privileges to install VMware SRM or vSphere Replication. The installation process involves multiple steps outlined in the [Prerequisites](#prerequisites) section. Instead, you can install VMware SRM with vSphere Replication as an add-on service from your Azure VMware Solution private cloud.
+1. The default CloudAdmin user in the Azure VMware Solution private cloud doesn't have sufficient privileges to install VMware SRM or vSphere Replication. The installation process involves multiple steps outlined in the [Prerequisites](#prerequisites) section. Instead, you can install VMware SRM with vSphere Replication as an add-on service from your Azure VMware Solution private cloud.
 
-   :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png" alt-text="Screenshot of Azure VMware Solution private cloud to install VMware SRM with vSphere Replication as an add-on" border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png":::
 
+1. :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png" alt-text="Screenshot of Azure VMware Solution private cloud to install VMware SRM with vSphere Replication as an add-on" border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png":::
+
+
+> [!NOTE]
+> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
 1. From the **Disaster Recovery Solution** drop-down, select **VMware Site Recovery Manager (SRM) – vSphere Replication**. 
 
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with VMware Site Recovery Manager (SRM) - vSphere replication selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png":::
@@ -300,3 +305,5 @@ VMware and Microsoft support teams will engage each other as needed to troublesh
 - [Pre-requisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
 - [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
 - [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)
+
+
