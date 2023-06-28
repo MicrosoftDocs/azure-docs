@@ -197,9 +197,25 @@ To avoid this situation, when the storage usage reaches 95% or if the available 
 We recommend to actively monitor the disk space that is in use, and increase the disk size ahead of any out of storage situation. You can set up an alert to notify you when your server storage is approaching out of disk so you can avoid any issues with running out of disk. For more information, see the documentation on [how to set up an alert](howto-alert-on-metrics.md).
 
 
-### Storage auto-grow
+### Storage auto-grow (Preview)
 
-Storage auto-grow is not yet available for Flexible Server.
+
+> [!NOTE]
+> Storage auto-grow is currently in preview.
+
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 1 TiB provisioned storage, storage auto-grow triggers when the storage consumption reaches 80%  and for servers at 1 TB or over it triggers when the consumption reaches 90%. 
+
+For e.g. If you have allocated 256 Gib of storage and enabled storage auto-grow and if actual utilization reaches 80% or 205 GB, the server's storage size is automatically increased to the next available premium disk tier, which is 512 GiB. However, if the disk size is 1 TiB or larger, the threshold for triggering scaling is set at 90%. In such cases, the scaling process is initiated once the utilization reaches 922 Gib, and the disk is resized to 2 Tib.
+
+
+ Azure Database for PostgreSQL Flexible Server uses premium disk v1 and regardless of whether the storage scaling operation is manually triggered or performed automatically through storage auto-grow, the size of the disk increases to the next premium tier, which is always double in both size and price. If your workload is unpredictable, you can enable storage auto-grow which will detect that you are running out of free database space and automatically scale up your storage.  
+
+Storage scaling activity is online without any downtime in all cases expect when you have provisioned the disk at 4096 Gib which is an underlying Azure storage limitation. If a disk is 4096 Gib then storage scaling activity will not trigger even if storage auto-grow is enabled and you must manually scale your storage which is an offline operation and must be planned as per your business requirements.
+
+
+Remember that storage can only be scaled up, not down.
+
+
 
 ## Backup
 
