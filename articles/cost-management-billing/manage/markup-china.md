@@ -12,7 +12,7 @@ ms.author: banders
 ms.custom: references_regions, subject-reliability
 ---
 
-# Indirect partner markup - China
+# Markup - Azure China
 
 Markup enables you to publish prices and costs to end customers that are inclusive of any uplift you may wish to charge for any value-added services offered. The markup feature in Microsoft Cost Management enables you to configure markup that reflected in your end customers' pricing and cost management experiences for all applicable Microsoft first party products and services. Markup doesn't apply to third party marketplace products and seat-based products.
 
