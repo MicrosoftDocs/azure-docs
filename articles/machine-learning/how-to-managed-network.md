@@ -705,7 +705,8 @@ ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_n
 > These  rules are automatically added to the managed VNet.
 
 __Private Endpoints__:
-* When the isolation mode for the managed network is `Allow only approved outbound`, Private Endpoint outbound rules will be automatically created as required rules from the managed network for the workspace and associated resources that have public network access disabled (Key Vault, Storage Account, Container Registry, Azure ML Workspace).
+* When the isolation mode for the managed network is `Allow internet outbound`, Private Endpoint outbound rules will be automatically created as required rules from the managed network for the workspace and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, Azure ML Workspace).
+* When the isolation mode for the managed network is `Allow only approved outbound`, Private Endpoint outbound rules will be automatically created as required rules from the managed network for the workspace and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, Azure ML Workspace).
 
 __Outbound__ Service Tag rules:
 
