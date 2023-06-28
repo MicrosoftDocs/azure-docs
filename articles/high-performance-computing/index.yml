@@ -89,7 +89,7 @@ productDirectory:
           text: Create an Azure HPC Cache
     # Card
     - title: Azure Managed Lustre
-      imageSrc: ../high-performance-computing/media/azure-managed-lustre.png
+      imageSrc: ../high-performance-computing/media/azure-managed-lustre.svg
       links:
         - url: /azure/azure-managed-lustre/amlfs-overview
           text: What is Azure Managed Lustre?
