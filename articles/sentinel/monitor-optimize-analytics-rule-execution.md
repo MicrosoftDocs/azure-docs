@@ -37,7 +37,7 @@ Here are some scenarios that can benefit from replaying specific runs of analyti
 
 ## Prerequisites
 
-To use these monitoring and troubleshooting tools, you must have Microsoft Sentinel's health and audit feature enabled. [Learn how to enable health and audit](enable-monitoring.md).
+To use the execution management tools, you must have Microsoft Sentinel's health and audit feature enabled, and specifically the analytics rule health monitoring. [Learn how to enable health and audit](enable-monitoring.md).
 
 ## View analytics rule insights
 
