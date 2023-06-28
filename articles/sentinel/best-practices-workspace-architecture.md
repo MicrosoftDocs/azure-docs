@@ -138,7 +138,7 @@ Don't apply a resource lock to a Log Analytics workspace you'll use for Microsof
 
 If you do need to work with multiple workspaces, simplify your incident management and investigation by [condensing and listing all incidents from each Microsoft Sentinel instance in a single location](multiple-workspace-view.md).
 
-To reference data that's held in other Microsoft Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md).
+To reference data that's held in other Microsoft Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#use-cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces).
 
 The best time to use cross-workspace queries is when valuable information is stored in a different workspace, subscription or tenant, and can provide value to your current action. For example, the following code shows a sample cross-workspace query:
 

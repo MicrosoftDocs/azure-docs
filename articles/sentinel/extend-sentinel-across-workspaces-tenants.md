@@ -76,7 +76,7 @@ Workbooks can provide cross-workspace queries in one of three methods, suitable 
 
 Microsoft Sentinel provides preloaded query samples designed to get you started and get you familiar with the tables and the query language. Microsoft security researchers constantly add new built-in queries and fine-tune existing queries. You can use these queries to look for new detections and identify signs of intrusion that your security tools may have missed.  
 
-Cross-workspace hunting capabilities enable your threat hunters to create new hunting queries, or adapt existing ones, to cover multiple workspaces, by using the union operator and the workspace() expression as shown [above](#cross-workspace-querying).
+Cross-workspace hunting capabilities enable your threat hunters to create new hunting queries, or adapt existing ones, to cover multiple workspaces, by using the union operator and the workspace() expression as shown [above](#query-multiple-workspaces).
 
 ## Manage multiple workspaces using automation
 

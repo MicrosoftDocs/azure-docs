@@ -59,16 +59,14 @@
       href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
 - name: Concepts
   items:
-  - name: Plan
+  - name: Availability and support
     items:     
     - name: Geographical availability and data residency
-      href: geographical-availability-data-residency.md
-    - name: Costs and billing
-      items:      
-      - name: Monitor costs
-        href: billing-monitor-costs.md
-      - name: Reduce costs
-        href: billing-reduce-costs.md    
+      href: geographical-availability-data-residency.md          
+    - name: Support for data types in different clouds
+      href: data-type-cloud-support.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
     - name: Best practices
       items:
       - name: Overview
@@ -80,13 +78,7 @@
       - name: Basic Logs
         href: basic-logs-use-cases.md
       - name: Auditing and health monitoring 
-        href: health-audit.md    
-    - name: Architecture
-      items:                    
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json      
-      - name: Support for data types in different clouds
-        href: data-type-cloud-support.md
+        href: health-audit.md                            
   - name: Find solutions and content
     items:
     - name: About Sentinel content
@@ -192,11 +184,7 @@
       - name: Overview
         href: sap/sap-btp-solution-overview.md
 - name: How-tos
-  items:
-  - name: Plan architecture
-    items: 
-    - name: Manage workspace access
-      href: resource-context-rbac.md
+  items:    
   - name: Migrate to Microsoft Sentinel
     items:
     - name: Plan and design your migration
@@ -941,10 +929,18 @@
       href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
-    - name: Manage multiple workspaces (workspace manager)
-      href: workspace-manager.md
-    - name: Monitor and manage multiple workspaces
-      href: extend-sentinel-across-workspaces-tenants.md  
+    - name: Manage costs and billing
+      items:      
+      - name: Monitor costs
+        href: billing-monitor-costs.md
+      - name: Reduce costs
+        href: billing-reduce-costs.md
+    - name: Manage multiple workspaces 
+      items:
+      - name: Workspace manager
+        href: workspace-manager.md
+      - name: Extend across multiple workspaces
+        href: extend-sentinel-across-workspaces-tenants.md  
     - name: Microsoft Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)
@@ -953,6 +949,8 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Microsoft Sentinel
         href: mssp-protect-intellectual-property.md
+    - name: Manage workspace access
+      href: resource-context-rbac.md
     - name: Set up customer-managed keys
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
