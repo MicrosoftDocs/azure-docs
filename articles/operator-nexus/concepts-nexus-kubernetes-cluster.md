@@ -45,7 +45,7 @@ application pods can be scheduled on system node pools if user wants
 only one pool in their cluster. Every Nexus Kubernetes Cluster must
 contain at least one system node pool with at least one node.
 
-## Failure Domain
+## Failure domain
 
 Operator Nexus ensures that the Nexus Kubernetes Cluster VMs are
 distributed across nodes and failure domains (physical racks). This distribution is done in a way that improves the resilience and availability of the
