@@ -9,7 +9,7 @@ ms.author: juliako
 # What is Azure Video Indexer?
 
 > [!IMPORTANT]
-> Following Azure Media Services retirement announcement, Azure Video Indexer makes the following announcements: [June release notes](release-notes.md#june-2023).
+> Following [Azure Media Services retirement announcement](https://aka.ms/ams-retirement), Azure Video Indexer makes the following announcements: [June release notes](release-notes.md#june-2023).
 > 
 > Also checkout related [AMS deprecation FAQ](ams-deprecation-faq.yml).
 
