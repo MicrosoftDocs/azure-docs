@@ -44,13 +44,13 @@ Managed HSM, Dedicated HSM, and Payments HSM offer dedicated capacity. Key Vault
 
 Azure Key Vault and Azure Key Vault Managed HSM have integrations with Azure Services and Microsoft 365 for Customer Managed Keys, meaning customers may use their own keys in Azure Key Vault and Azure Key Managed HSM for encryption-at-rest of data stored in these services. Dedicated HSM and Payments HSM are Infrastructure-as-Service offerings and do not offer integrations with Azure Services. For an overview of encryption-at-rest with Azure Key Vault and Managed HSM, see [Azure Data Encryption-at-Rest](encryption-atrest.md).
 
-### APIs 
+### APIs
 
 Dedicated HSM and Payments HSM support the PKCS#11, JCE/JCA, and KSP/CNG APIs, but Azure Key Vault and Managed HSM do not. Azure Key Vault and  Managed HSM use the Azure Key Vault REST API and offer SDK support. For more information on the Azure Key Vault API, see [Azure Key Vault REST API Reference](/rest/api/keyvault/).
 
 ## What's next
 
-- [How to Choose the Right Key Management Solution](choosing-key-management-solutions.md)
+- [How to Choose the Right Key Management Solution](key-management-choose.md)
 - [Azure Key Vault](../../key-vault/general/overview.md)
 - [Azure Managed HSM](../../key-vault/managed-hsm/overview.md)
 - [Azure Dedicated HSM](../../dedicated-hsm/overview.md)
