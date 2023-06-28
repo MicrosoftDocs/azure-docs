@@ -49,7 +49,7 @@ For more information about creating SSH keys, see [Create and manage SSH keys fo
 
 ## Review the template
 
-The following deployment uses an ARM template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.kubernetes/aks-mariner).
+The following deployment uses an ARM template from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.kubernetes/aks-azure-linux).
 
 ```json
 {
