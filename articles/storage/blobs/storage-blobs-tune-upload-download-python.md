@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/21/2023
+ms.date: 06/28/2023
 ms.subservice: blobs
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, devx-track-python
@@ -35,9 +35,9 @@ The following arguments can be tuned based on the needs of your app:
 
 #### max_single_put_size
 
-The argument `max_single_put_size` is the size of the first range request in bytes. An HTTP range request is a partial request, with the size defined by `max_single_put_size` in this case. Blobs smaller than this size are transferred in a single request. Blobs larger than this size continue to be transferred in chunks of size `max_block_size`.
+The `max_single_put_size` argument is the size of the first range request in bytes. An HTTP range request is a partial request, with the size defined by `max_single_put_size` in this case. Blobs smaller than this size are transferred in a single request. Blobs larger than this size continue to be transferred in chunks of size `max_block_size`.
 
-It's important to note that the value you specify for `max_block_size` *does not* limit the value that you define for `max_single_put_size`. The argument `max_single_put_size` defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you want `max_single_put_size` to be *at least* as large as the value you define for `max_block_size`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
+It's important to note that the value you specify for `max_block_size` *does not* limit the value that you define for `max_single_put_size`. The `max_single_put_size` argument defines a separate size limitation for an initial request to perform the entire operation at once, with no subtransfers. It's often the case that you want `max_single_put_size` to be *at least* as large as the value you define for `max_block_size`, if not larger.  Depending on the size of the data transfer, this approach can be more performant, as the transfer is completed with a single request and avoids the overhead of multiple requests.
 
 If you're unsure of what value is best for your situation, a safe option is to set `max_single_put_size` to the same value used for `max_block_size`.
 
@@ -45,11 +45,11 @@ If you're unsure of what value is best for your situation, a safe option is to s
 > When using a `BlobClient` object, uploading a blob smaller than the `max_single_put_size` will be performed using [Put Blob](/rest/api/storageservices/put-blob), rather than [Put Block](/rest/api/storageservices/put-block).
 
 #### max_concurrency
-The argument `max_concurrency` is the maximum number of workers that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations ignore this value and work in sequence.
+The `max_concurrency` argument is the maximum number of workers that may be used in a parallel transfer. Currently, only asynchronous operations can parallelize transfers. Synchronous operations ignore this value and work in sequence.
 
 #### max_block_size
 
-The argument `max_block_size` is the maximum length of a transfer in bytes. As mentioned earlier, this value *does not* limit `max_single_put_size`, which can be larger than `max_block_size`. 
+The `max_block_size` argument is the maximum length of a transfer in bytes. As mentioned earlier, this value *does not* limit `max_single_put_size`, which can be larger than `max_block_size`. 
 
 To keep data moving efficiently, the client libraries may not always reach the `max_block_size` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
