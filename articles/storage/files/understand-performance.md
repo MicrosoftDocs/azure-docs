@@ -85,7 +85,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **Workload parallelization:** For parallel supported workloads that use multiple threads and clients, it's easier to achieve the scale limits with fewer client machines by using [SMB multichannel](storage-files-smb-multichannel-performance.md) with SMB 3.1.1 on premium files.
 
-- **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large number of files. See [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance#cause-2-metadata-or-namespace-heavy-workload?toc=/azure/storage/files/toc.json).
+- **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large number of files. See [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-2-metadata-or-namespace-heavy-workload).
 
 ## Latency
 
@@ -99,7 +99,7 @@ When thinking about latency, it's important to first understand how latency is d
 
 The difference between **SuccessE2ELatency** and **SuccessServerLatency** values is the latency likely caused by the network and/or the client.
 
-It's common to confuse client latency with service latency (in this case, Azure Files performance). For example, if the service latency is reporting low latency and the end-to-end is reporting [very high latency for requests](files-troubleshoot-performance.md#very-high-latency-for-requests), that suggests that all the time is spent in transit to and from the client, and not in the Azure Files service.
+It's common to confuse client latency with service latency (in this case, Azure Files performance). For example, if the service latency is reporting low latency and the end-to-end is reporting [very high latency for requests](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#very-high-latency-for-requests), that suggests that all the time is spent in transit to and from the client, and not in the Azure Files service.
 
 Furthermore, as the diagram illustrates, the farther you are away from the service, the slower the latency experience will be, and the more difficult it will be to achieve performance scale limits with any cloud service. This is especially true when accessing Azure Files from on premises. While options like ExpressRoute are ideal for on-premises, they still don't match the performance of an application (compute + storage) that's running exclusively in the same Azure region.
 

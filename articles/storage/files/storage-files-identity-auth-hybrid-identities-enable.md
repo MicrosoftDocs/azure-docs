@@ -130,7 +130,7 @@ az storage account update --name <storageAccountName> --resource-group <resource
 ---
 
 > [!WARNING]
-> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users?toc=/azure/storage/files/toc.json).
+> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
 
 ## Grant admin consent to the new service principal
 
@@ -148,7 +148,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 7. Select **Yes** to confirm.
 
   > [!IMPORTANT]
-  > If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Azure AD application. For instructions, see the entry in our [troubleshooting guide](files-troubleshoot-smb-authentication.md#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
+  > If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Azure AD application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
 
 ## Disable multi-factor authentication on the storage account
 
