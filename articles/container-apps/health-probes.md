@@ -195,7 +195,7 @@ The following example demonstrates how to configure the liveness and readiness p
            "port": 80
           },
           "timeoutSeconds": 5
-       }
+       }]
 ```
 
 ## Next steps
