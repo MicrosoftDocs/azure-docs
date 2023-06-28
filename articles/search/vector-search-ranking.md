@@ -101,6 +101,8 @@ Here's a simple explanation of the RRF process:
 
 By default, if you aren't using pagination, Cognitive Search returns the top 50 highest ranking matches for full text search, and it returns `k` matches for vector search. In a hybrid query, the top 50 highest ranked matches of the unified result set are returned. You can use `$top`, `$skip`, and `$next` for paginated results. For more information, see [How to work with search results](search-pagination-page-layout.md).
 
+Note that full-text search could return fewer than the requested number of results if there are fewer or no matches, but vector search will return up to `k` matches as long as there are enough documents in the vector index. This is because with vector search, similarity is relative to the input query vector, not absolute. This means less relevant results have a worse similarity score, but they can still be the "nearest" vectors if there aren't any closer vectors. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low.
+
 ## Next steps
 
 + [Try the quickstart](search-get-started-vector.md)
