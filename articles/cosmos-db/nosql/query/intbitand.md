@@ -1,7 +1,7 @@
 ---
 title: IntBitAnd
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that 
+description: An Azure Cosmos DB for NoSQL system function that adds two numbers together.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews

@@ -1,7 +1,7 @@
 ---
 title: DocumentId
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that 
+description: An Azure Cosmos DB for NoSQL system function that returns the partition-specific integer identifier for an item.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
