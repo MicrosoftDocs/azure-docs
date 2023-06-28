@@ -1,5 +1,4 @@
 ---
-title: SMS metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of SMS metrics available in the Azure portal.
 author: mkhribech
@@ -11,9 +10,6 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
-# SMS metrics overview
-
-Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that SMS requests emit.
 
 ## Where to find metrics
 
@@ -39,5 +35,3 @@ The following operations are available on SMS API request metrics:
 | SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
 | SMSMessagesReceived      | Gets SMS messages. |
 
-
-:::image type="content" source="../media/sms-metric.png" alt-text="Screenshot showing SMS API Request Metrics.":::
