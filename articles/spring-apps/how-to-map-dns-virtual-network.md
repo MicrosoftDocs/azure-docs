@@ -67,18 +67,18 @@ Both approaches require the IP address for each application in the Azure Spring 
 
 #### [Azure CLI](#tab/azure-CLI)
 
-1. Define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
-
-```azurecli
-SUBSCRIPTION='<subscription-ID>'
-RESOURCE_GROUP='<resource group name>'
-VIRTUAL_NETWORK_NAME='<Azure-Spring-Apps-VNET-name>'
-```
-
-1. Use the following commands to display the IP Address for each of your Azure Spring Apps service instances. Customize the value of your Azure Spring Apps instance name based on your environment.
+1. Define variables for your subscription, resource group, Azure Spring Apps instance, and virtual network. Customize the values based on your environment.
 
    ```azurecli
+   SUBSCRIPTION='<subscription-ID>'
+   RESOURCE_GROUP='<resource group name>'
    AZURE_SPRING_APPS_NAME='<Azure-Spring-Apps-instance-name>'
+   VIRTUAL_NETWORK_NAME='<Azure-Spring-Apps-VNET-name>'
+   ```
+
+1. Use the following commands to set the variables for the service runtime network resource group and the IP address.
+
+   ```azurecli
    SERVICE_RUNTIME_RG=`az spring show \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_SPRING_APPS_NAME \
@@ -106,7 +106,7 @@ Create a private DNS zone for an application in the private network.
 
 1. On the **Private DNS zones** page, select **Create**.
 
-1. Fill out the form on the **Create Private DNS zone** page. In **Instance details** for **Name**, specify `private.azuremicroservices.io` as the name of the private zone.
+1. Fill out the form on the **Create Private DNS zone** page. In **Instance details** for **Name**, specify `private.azuremicroservices.io` as the name of the private DNS zone.
 
 1. Select **Review create**.
 
