@@ -227,7 +227,7 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
 
-1. Use the following example to create a yaml file named **`prometheus-config`**. Copy the code in the example into the file created.
+1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
 
     ```yaml
     global:
