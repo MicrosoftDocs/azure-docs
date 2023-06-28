@@ -40,28 +40,30 @@ Yes, the Wallet Library is used by the Microsoft Authenticator. Some features ma
 ## What is the effort of adding the Wallet Library to my app?
 You add the Wallet Library to your mobile app project via adding a maven dependency for Android and adding a cocoapod dependency for iOS. 
 
-# [iOS](#tab/ios)
+### [iOS](#tab/ios)
 
-```ruby
+For iOS, add the WalletLibrary pod to your Podfile. 
 
+```Swift
 target "YourApp" do
   use_frameworks!
   pod "WalletLibrary", "~> 0.0.1"
 end
 ```
 
-# [Android](#tab/android)
+### [Android](#tab/android)
+For Android, add to your app's build.gradle to add Wallet Library as a dependency.
 
-Add to your app's build.gradle to add Wallet Library as a dependency:
 ```kotlin
 dependencies {
     implementation 'com.microsoft.entra.verifiedid:walletlibrary:0.0.1'
 }
 ```
+---
 
 Then you need to add some code to process the requests. For details, please see the WalletLibraryDemo sample code.
 
-# [iOS](#tab/ios)
+### [iOS](#tab/ios)
 
 ```swift
 /// Create a verifiedIdClient.
@@ -83,7 +85,7 @@ case .failure(let error):
 }
 ```
 
-# [Android](#tab/android)
+### [Android](#tab/android)
 
 ```kotlin
 // Create a verifiedIdClient
@@ -104,6 +106,7 @@ if (verifiedIdRequestResult.isSuccess) {
     val exception = verifiedIdRequestResult.exceptionOrNull()
 }
 ```
+---
 
 Then, you have to handle the following major tasks in your app.
 
