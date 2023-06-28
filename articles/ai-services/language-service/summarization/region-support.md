@@ -1,6 +1,6 @@
 ---
 title: Summarization region support
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about which regions are supported by document summarization.
 services: cognitive-services
 author: jboback

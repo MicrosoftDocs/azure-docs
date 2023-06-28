@@ -1,7 +1,7 @@
 ---
-title: What's new in Azure Cognitive Service for Language?
-titleSuffix: Azure Cognitive Services
-description: Find out about new releases and features for the Azure Cognitive Service for Language.
+title: What's new in Azure AI Language?
+titleSuffix: Azure AI services
+description: Find out about new releases and features for the Azure AI Language.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# What's new in Azure Cognitive Service for Language?
+# What's new in Azure AI Language?
 
-Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## May 2023
 
@@ -263,7 +263,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 * Based on ongoing customer feedback, we have increased the character limit per document for Text Analytics for health from 5,120 to 30,720.
 
-* Azure Cognitive Service for Language release, with support for:
+* Azure AI Language release, with support for:
 
   * [Question Answering (now Generally Available)](question-answering/overview.md)
   * [Sentiment Analysis and opinion mining](sentiment-opinion-mining/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create an FAQ bot with question answering and Azure Bot Service"
-description: In this tutorial, create a no code FAQ Bot with question answering and Azure Bot Service.
+title: "Tutorial: Create an FAQ bot with question answering and Azure AI Bot Service"
+description: In this tutorial, create a no code FAQ Bot with question answering and Azure AI Bot Service.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Link a question answering project to an Azure Bot Service
+> * Link a question answering project to an Azure AI Bot Service
 > * Deploy a Bot
 > * Chat with the Bot in web chat
 > * Enable the Bot in supported channels
@@ -40,7 +40,7 @@ After deploying your project, you can create a bot from the **Deploy project** p
     > [!div class="mx-imgBorder"]
     > ![Screenshot of UI with option to create a bot in Azure.](../media/bot-service/create-bot-in-azure.png)
 
-1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service and hit the **Create** button.
+1. A new browser tab opens for the Azure portal, with the Azure AI Bot Service's creation page. Configure the Azure AI Bot Service and hit the **Create** button.
 
     |Setting |Value|
     |----------|---------|
@@ -58,7 +58,7 @@ After deploying your project, you can create a bot from the **Deploy project** p
 1. Under **Settings**, select **Test in Web Chat**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of Azure Bot Service UI button that reads "Test web chat".](../media/bot-service/test-in-web-chat.png)
+    > ![Screenshot of Azure AI Bot Service UI button that reads "Test web chat".](../media/bot-service/test-in-web-chat.png)
 
 1. At the chat prompt of **Type your message**, enter:
 

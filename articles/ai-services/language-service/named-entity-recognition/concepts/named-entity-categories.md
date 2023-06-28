@@ -1,6 +1,6 @@
 ---
-title: Entity categories recognized by Named Entity Recognition in Azure Cognitive Service for Language
-titleSuffix: Azure Cognitive Services
+title: Entity categories recognized by Named Entity Recognition in Azure AI Language
+titleSuffix: Azure AI services
 description: Learn about the entities the NER feature can recognize from unstructured text.
 services: cognitive-services
 author: jboback

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting - question answering
 description: The curated list of the most frequently asked questions regarding question answering will help you adopt the feature faster and with better results.
 ms.service: cognitive-services
@@ -131,7 +131,7 @@ To use multiple language and multiple projects, the user has to create a project
 <summary><b>Do I need to use Bot Framework in order to use question answering?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with question answering. However, Question answering is offered as one of several templates in [Azure Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with question answering. However, Question answering is offered as one of several templates in [Azure AI Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 
@@ -139,12 +139,12 @@ No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botb
 <summary><b>How can I create a new bot with question answering?</b></summary>
 
 **Answer**:
-Follow the instructions in [this](../tutorials/bot-service.md) documentation to create your Bot with Azure Bot Service.
+Follow the instructions in [this](../tutorials/bot-service.md) documentation to create your Bot with Azure AI Bot Service.
 
 </details>
 
 <details>
-<summary><b>How do I use a different project with an existing Azure bot service?</b></summary>
+<summary><b>How do I use a different project with an existing Azure AI Bot Service?</b></summary>
 
 **Answer**:
 You need to have the following information about your project:

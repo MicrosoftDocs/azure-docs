@@ -1,6 +1,6 @@
 ---
 title: Definitions used in orchestration workflow
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about definitions used in orchestration workflow.
 services: cognitive-services
 author: aahill

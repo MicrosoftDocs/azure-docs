@@ -24,7 +24,7 @@ ms.custom: language-service-question-answering
 **Intended Audience:** Existing QnA Maker customers
 
 > [!IMPORTANT]
-> Question Answering, a feature of Azure Cognitive Service for Language was introduced in November 2021 with several new capabilities including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration:
+> Question Answering, a feature of Azure AI Language was introduced in November 2021 with several new capabilities including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration:
 >
 >  - Automatic RBAC to Language project (not resource)
 >  - Automatic enabling of analytics.
@@ -50,7 +50,7 @@ In addition to a new set of features, Question Answering provides many technical
 |Support for unstructured documents|➖|✔️|Users can now ingest unstructured documents as input sources and query the content for responses|
 |.NET SDK|✔️|✔️| |
 |API|✔️|✔️| |
-|Unified Authoring experience|➖|✔️|A single authoring experience across all Azure Cognitive Services for Language|
+|Unified Authoring experience|➖|✔️|A single authoring experience across all Azure AI Language|
 |Multi region support|➖|✔️|
 
 ## Pricing

@@ -1,7 +1,7 @@
 ---
 title: Personally Identifiable Information (PII) detection language support
-titleSuffix: Azure Cognitive Services
-description: This article explains which natural languages are supported by the PII detection feature of Azure Cognitive Service for Language.
+titleSuffix: Azure AI services
+description: This article explains which natural languages are supported by the PII detection feature of Azure AI Language.
 services: cognitive-services
 author: jboback
 manager: nitinme
@@ -15,7 +15,7 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 # Personally Identifiable Information (PII) detection language support 
 
-Use this article to learn which natural languages are supported by the PII and conversation PII (preview) features of Azure Cognitive Service for Language.
+Use this article to learn which natural languages are supported by the PII and conversation PII (preview) features of Azure AI Language.
 
 > [!NOTE]
 > * Languages are added as new [model versions](how-to-call.md#specify-the-pii-detection-model) are released.

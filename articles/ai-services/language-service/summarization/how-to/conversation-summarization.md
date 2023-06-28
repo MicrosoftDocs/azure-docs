@@ -1,6 +1,6 @@
 ---
 title: Summarize text with the conversation summarization API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article will show you how to summarize chat logs with the conversation summarization API.
 services: cognitive-services
 author: jboback
@@ -31,7 +31,7 @@ The AI models used by the API are provided by the service, you just have to send
 
 The conversation summarization API uses natural language processing techniques to summarize conversations into shorter summaries per request. Conversation summarization can summarize for issues and resolutions discussed in a two-party conversation or summarize a long conversation into chapters and a short narrative for each chapter.
 
-There's another feature in Azure Cognitive Service for Language named [document summarization](../overview.md?tabs=document-summarization) that is more suitable to summarize documents into concise summaries. When you're deciding between document summarization and conversation summarization, consider the following points:
+There's another feature in Azure AI Language named [document summarization](../overview.md?tabs=document-summarization) that is more suitable to summarize documents into concise summaries. When you're deciding between document summarization and conversation summarization, consider the following points:
 * Input genre: Conversation summarization can operate on both chat text and speech transcripts. which have speakers and their utterances. Document summarization operations on text.
 * Purpose of summarization: for example, conversation issue and resolution summarization returns a reason and the resolution for a chat between a customer and a customer service agent.
 

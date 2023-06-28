@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create a FAQ bot for multiple categories with Azure Bot Service"
-description: In this tutorial, create a no code FAQ Bot for production use cases with question answering and Azure Bot Service.
+title: "Tutorial: Create a FAQ bot for multiple categories with Azure AI Bot Service"
+description: In this tutorial, create a no code FAQ Bot for production use cases with question answering and Azure AI Bot Service.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
@@ -82,7 +82,7 @@ For the bot on Surface products, you can take the following steps to create a bo
 
       ![Pass context](../media/multiple-domains/extract-metadata-from-context.png)
 
-    * Extract entity from user query to identify domain to be used for metadata filter. You can use other Cognitive Services such as [Named Entity Recognition (NER)](../../named-entity-recognition/overview.md) and [conversational language understanding](../../conversational-language-understanding/overview.md) for entity extraction.
+    * Extract entity from user query to identify domain to be used for metadata filter. You can use other Azure AI services such as [Named Entity Recognition (NER)](../../named-entity-recognition/overview.md) and [conversational language understanding](../../conversational-language-understanding/overview.md) for entity extraction.
 
       ![Extract metadata from query](../media/multiple-domains/extract-metadata-from-query.png)
 

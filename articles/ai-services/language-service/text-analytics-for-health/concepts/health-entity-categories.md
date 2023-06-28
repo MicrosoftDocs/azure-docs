@@ -1,6 +1,6 @@
 ---
 title: Entity categories recognized by Text Analytics for health
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about categories recognized by Text Analytics for health
 services: cognitive-services
 author: jboback

@@ -1,6 +1,6 @@
 ---
 title: Deploy a custom summarization model
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about deploying a model for Custom summarization.
 services: cognitive-services
 author: jboback

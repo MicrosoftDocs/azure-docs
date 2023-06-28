@@ -1,6 +1,6 @@
 ---
 title: Authoring API - question answering
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the question answering Authoring API to automate common tasks like adding new question answer pairs, and creating, and publishing projects. 
 ms.service: cognitive-services
 ms.subservice: language-service
@@ -281,7 +281,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
         "value": [
           {
             "displayName": "source1",
-            "sourceUri": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/overview/overview",
+            "sourceUri": "https://learn.microsoft.com/azure/ai-services/qnamaker/overview/overview",
             "sourceKind": "url",
             "lastUpdatedDateTime": "2021-05-01T15:13:22Z"
           },

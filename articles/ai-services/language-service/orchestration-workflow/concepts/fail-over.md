@@ -1,6 +1,6 @@
 ---
 title: Save and recover orchestration workflow models
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to save and recover your orchestration workflow models.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom:  language-service-orchestration
 
 # Back up and recover your orchestration workflow models
 
-When you create a Language resource in the Azure portal, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure Language resources in different regions and the ability to sync your orchestration workflow models across regions. 
+When you create a Language resource in the Azure portal, you specify a region for it to be created in. From then on, your resource and all of the operations related to it take place in the specified Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region. This requires two Azure AI Language resources in different regions and the ability to sync your orchestration workflow models across regions. 
 
 If your app or business depends on the use of an orchestration workflow model, we recommend that you create a replica of your project into another supported region. So that if a regional outage occurs, you can then access your model in the other fail-over region where you replicated your project.
 
@@ -26,7 +26,7 @@ In this article, you will learn to how to use the export and import APIs to repl
 
 ##  Prerequisites
 
-* Two Azure Language resources in different Azure regions, each of them in a different region.
+* Two Azure AI Language resources in different Azure regions, each of them in a different region.
 
 ## Get your resource keys endpoint
 

@@ -1,6 +1,6 @@
 ---
 title: Language support - custom question answering
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of culture, natural languages supported by custom question answering for your project. Do not mix languages in the same project.
 services: cognitive-services
 manager: nitinme

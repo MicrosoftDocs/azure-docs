@@ -1,7 +1,7 @@
 ---
 title: Named Entity Recognition (NER) language support
-titleSuffix: Azure Cognitive Services
-description: This article explains which natural languages are supported by the NER feature of Azure Cognitive Service for Language.
+titleSuffix: Azure AI services
+description: This article explains which natural languages are supported by the NER feature of Azure AI Language.
 services: cognitive-services
 author: jboback
 manager: nitinme
@@ -15,7 +15,7 @@ ms.custom: language-service-ner, ignite-fall-2021, ignite-2022
 
 # Named Entity Recognition (NER) language support 
 
-Use this article to learn which natural languages are supported by the NER feature of Azure Cognitive Service for Language.
+Use this article to learn which natural languages are supported by the NER feature of Azure AI Language.
 
 > [!NOTE]
 > * Languages are added as new [model versions](how-to-call.md#specify-the-ner-model) are released. 

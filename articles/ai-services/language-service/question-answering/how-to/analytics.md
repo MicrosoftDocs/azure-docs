@@ -1,6 +1,6 @@
 ---
 title: Analytics on projects - custom question answering
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs
 services: cognitive-services
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
-title: Entity categories recognized by Conversational Personally Identifiable Information (detection) in Azure Cognitive Service for Language
-titleSuffix: Azure Cognitive Services
+title: Entity categories recognized by Conversational Personally Identifiable Information (detection) in Azure AI Language
+titleSuffix: Azure AI services
 description: Learn about the entities the Conversational PII feature (preview) can recognize from conversation inputs.
 services: cognitive-services
 author: jboback

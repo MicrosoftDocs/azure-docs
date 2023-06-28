@@ -1,6 +1,6 @@
 ---
 title: Configure Text Analytics for health containers
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Text Analytics for health containers uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
 author: jboback
@@ -46,7 +46,7 @@ This setting can be found in the following place:
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](use-containers.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../../cognitive-services-custom-subdomains.md). |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](use-containers.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Azure AI services](../../../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -80,4 +80,4 @@ The exact syntax of the host mount location varies depending on the host operati
 ## Next steps
 
 * Review [How to install and run containers](use-containers.md)
-* Use more [Cognitive Services Containers](../../../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../../../cognitive-services-container-support.md)

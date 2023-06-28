@@ -90,7 +90,7 @@ project authoring supports several role-based access permissions you apply in th
 
 Integration with client applications is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific project with an SDK or REST-based request to your question answering web app endpoint.
 
-To authenticate a client request correctly, the client application must send the correct credentials and project ID. If you're using an Azure Bot Service, configure these settings as part of the bot configuration in the Azure portal.
+To authenticate a client request correctly, the client application must send the correct credentials and project ID. If you're using an Azure AI Bot Service, configure these settings as part of the bot configuration in the Azure portal.
 
 ### Conversation flow in a client application
 
