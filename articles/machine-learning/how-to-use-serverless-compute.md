@@ -17,7 +17,7 @@ ms.date: 05/09/2023
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_.  Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a compute resource that you don't need to manage. It's created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
+You no longer need to [create and manage compute](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute target type, called _serverless compute_. Serverless compute is the easiest way to run training jobs on Azure Machine Learning. Serverless compute is a fully-managed, on-demand compute. It is created, scaled, and managed by Azure Machine Learning for you. Through model training with serverless compute, machine learning  professionals can focus on their expertise of building machine learning models and not have to learn about compute infrastructure or setting it up.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -29,14 +29,16 @@ Serverless compute can be used to run command, sweep, AutoML, pipeline, distribu
 
 ## Advantages of serverless compute
 
-* You don't need to create, setup, and manage compute anymore to run training jobs thus reducing steps involved to run a job.
-* You don't need to learn about various compute types and related properties. 
+* Azure Machine Learning manages creating, setting up, scaling, deleting, patching, compute infrastructure reducing management overhead
+* You don't need to learn about compute, various compute types, and related properties. 
 * There's no need to repeatedly create clusters for each VM size needed, using same settings, and replicating for each workspace.  
 * You can optimize costs by specifying the exact resources each job needs at runtime in terms of instance type (VM size) and instance count. You can monitor the utilization metrics of the job to optimize the resources a job would need.
+* Reduction in steps involved to run a job
 * To further simplify job submission, you can skip the resources altogether. Azure Machine Learning defaults the instance count and chooses an instance type (VM size) based on factors like quota, cost, performance and disk size. 
-* Lesser wait times before job starts executing in some cases
-* User identity and workspace user assigned managed identity is supported for job submission. 
-* With managed network isolation you can streamline and automate your network isolation configuration 
+* Lesser wait times before job starts executing in some cases.
+* User identity and workspace user-assigned managed identity is supported for job submission. 
+* With managed network isolation you can streamline and automate your network isolation configuration.
+* Admin control through quota and Azure policies
 
 ## How to use serverless compute
 
@@ -344,19 +346,19 @@ resources:
 
 ## AutoML job
 
-There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an automl image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
+There's no need to specify compute for AutoML jobs. Resources can be optionally specified. If instance count isn't specified, then it's defaulted based on max_concurrent_trials and max_nodes parameters. If you submit an AutoML image classification or NLP task with no instance type, we will automatically select a GPU VM size. It is possible to submit AutoML job through CLIs, SDK, or Studio. To submit AutoML jobs with serverless compute in studio first enable the *Guided experience for submitting training jobs with serverless compute* feature in the preview panel and then [submit a training job in studio (preview)](how-to-train-with-ui.md).
 
 # [Python SDK](#tab/python)
 
 If you want to specify the type or instance count, use the `ResourceConfiguration` class.
 
-[!notebook-python[] (~/azureml-examples-vj/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb?name=classification-configuration)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb?name=classification-configuration)]
 
 # [Azure CLI](#tab/cli)
 
 If you want to specify the type or instance count, add a  `resources` section.
 
-:::code language="yaml" source="~/azureml-examples-vj/cli/jobs/automl-standalone-jobs/cli-automl-classification-task-bankmarketing/cli-automl-classification-task-bankmarketing-serverless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-classification-task-bankmarketing/cli-automl-classification-task-bankmarketing-serverless.yml":::
 
 ---
 
@@ -366,13 +368,13 @@ If you want to specify the type or instance count, add a  `resources` section.
 
 For a pipeline job, specify `"serverless"` as your default compute type to use serverless compute.
 
-[!notebook-python[] (~/azureml-examples-vj/sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb?name=build-pipeline)]
 
 # [Azure CLI](#tab/cli)
 
 For a pipeline job, specify `azureml:serverless` as your default compute type to use serverless compute.  
 
-:::code language="yaml" source="~/azureml-examples-vj/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline-serverless.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline-serverless.yml":::
 
 ---
 
@@ -380,4 +382,4 @@ You can also set serverless compute as the default compute in Designer.
 
 ## Next steps
 
-View more examples of training with serverless compute at [azureml-examples](https://github.com/Azure/azureml-examples)
+View more examples of training with serverless compute at [azureml-examples-main](https://github.com/Azure/azureml-examples-main)

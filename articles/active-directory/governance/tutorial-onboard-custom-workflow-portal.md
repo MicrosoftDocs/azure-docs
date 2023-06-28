@@ -1,6 +1,6 @@
 ---
-title: 'Automate employee onboarding tasks before their first day of work with Azure portal (preview)'
-description: Tutorial for onboarding users to an organization using Lifecycle workflows with Azure portal (preview).
+title: 'Automate employee onboarding tasks before their first day of work with Azure portal'
+description: Tutorial for onboarding users to an organization using Lifecycle workflows with Azure portal.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/18/2023
+ms.date: 06/22/2023
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 
-# Automate employee onboarding tasks before their first day of work with Azure portal (preview)
+# Automate employee onboarding tasks before their first day of work with Azure portal
 
 This tutorial provides a step-by-step guide on how to automate prehire tasks with Lifecycle workflows using the Azure portal. 
 
@@ -60,8 +60,8 @@ Use the following steps to create a pre-hire workflow that generates a TAP and s
  1.  Sign in to Azure portal.
  2.  On the right, select **Azure Active Directory**.
  3.  Select **Identity Governance**.
- 4.  Select **Lifecycle workflows (Preview)**.
- 5.  On the **Overview (Preview)** page, select **New workflow**.
+ 4.  Select **Lifecycle workflows**.
+ 5.  On the **Overview** page, select **New workflow**.
    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
  6. From the templates, select **select** under **Onboard pre-hire employee**.
@@ -99,12 +99,12 @@ To run a workflow on-demand, for users using the Azure portal, do the following 
 
 ## Check tasks and workflow status
 
-At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks that are currently available in public preview. You may learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we look at the status using the user focused reports.
+At any time, you may monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks that are currently available. You may learn more in the how-to guide [Check the status of a workflow](check-status-workflow.md). In the course of this tutorial, we look at the status using the user focused reports.
 
- 1. To begin, select the **Workflow history (Preview)** tab to view the user summary and associated workflow tasks and statuses.  
+ 1. To begin, select the **Workflow history** tab to view the user summary and associated workflow tasks and statuses.  
  :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history.png" alt-text="Screenshot of workflow History status." lightbox="media/tutorial-lifecycle-workflows/workflow-history.png":::
 
-1. Once the **Workflow history (Preview)** tab has been selected, you land on the workflow history page as shown.
+1. Once the **Workflow history** tab has been selected, you land on the workflow history page as shown.
  :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary.png" alt-text="Screenshot of workflow history overview" lightbox="media/tutorial-lifecycle-workflows/user-summary.png":::
 
 1. Next, you may select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
@@ -118,10 +118,10 @@ At any time, you may monitor the status of the workflows and the tasks. As a rem
 
 ## Enable the workflow schedule
 
-After running your workflow on-demand and checking that everything is working fine, you may want to enable the workflow schedule. To enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties (Preview) page.
+After running your workflow on-demand and checking that everything is working fine, you may want to enable the workflow schedule. To enable the workflow schedule, you may select the **Enable Schedule** checkbox on the Properties page.
 
 :::image type="content" source="media/tutorial-lifecycle-workflows/enable-schedule.png" alt-text="Screenshot of enabling workflow schedule." lightbox="media/tutorial-lifecycle-workflows/enable-schedule.png":::
 
 ## Next steps
-- [Tutorial: Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
+- [Tutorial: Preparing user accounts for Lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
 - [Automate employee onboarding tasks before their first day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-onboard-custom-workflow)

@@ -121,13 +121,27 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 
 **Spring Boot**
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.7.0</version>
+    <version>5.2.0</version>
 </dependency>
 ```
+
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>4.8.0</version>
+</dependency>
+```
+
+---
 
 1. Update `bootstrap.properties` to enable refresh
 

@@ -6,31 +6,17 @@ ms.author: rmpablos
 ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-develop
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-seven
 
 #- id: programming-languages-set-twenty-seven
-## Owner: dobett
-#  title: Programming languages
-#  prompt: Choose a programming language
-#  pivots:
-#  - id: programming-language-ansi-c
-#    title: C
-#  - id: programming-language-csharp
-#    title: C#
-#  - id: programming-language-java
-#    title: Java
-#  - id: programming-language-javascript
-#    title: JavaScript
-#  - id: programming-language-python
-#    title: Python
-#  - id: programming-language-embedded-c
 #    title: Embedded C
 ---
 
 # IoT Plug and Play device developer guide
 
-IoT Plug and Play lets you build IoT devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
+IoT Plug and Play lets you build IoT devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications such as IoT Central.
 
 You can implement an IoT device directly by using [modules](../iot-hub/iot-hub-devguide-module-twins.md), or by using [IoT Edge modules](../iot-edge/about-iot-edge.md).
 

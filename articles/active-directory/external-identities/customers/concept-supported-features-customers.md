@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 05/31/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -34,7 +34,7 @@ Although workforce tenants and customer tenants are built on the same underlying
 |Feature  |Workforce tenant  | Customer tenant |
 |---------|---------|---------|
 | **External Identities** | Invite partners and other external users to your workforce tenant for collaboration. External users become guests in your workforce directory. | Enable self-service sign-up for customers and authorize access to apps. Users are added to your directory as customer accounts.  |
-| **Available identity providers** | - Azure AD accounts </br>- Microsoft accounts </br>- Email one-time passcode </br>- Google </br>- Facebook </br>- SAML/WS-Fed federation | - Local accounts </br>- Azure AD accounts </br>- Microsoft accounts </br>- Email one-time passcode </br>- Google </br>- Facebook |
+| **Authentication methods and identity providers** | - Azure AD accounts </br>- Microsoft accounts </br>- Email one-time passcode </br>- Google federation</br>- Facebook federation</br>- SAML/WS-Fed federation | - Local account (Email and password)  </br>- Email one-time passcode </br>- Google federation</br>- Facebook federation|
 | **Groups** | [Groups](../../fundamentals/active-directory-groups-create-azure-portal.md) can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. Support for Azure AD groups and [application roles](how-to-use-app-roles-customers.md) is being phased into customer tenants. For the latest updates, see [Groups and application roles support](reference-group-app-roles-support.md). |
 | **Roles and administrators**| [Roles and administrators](../../fundamentals/active-directory-users-assign-role-azure-portal.md) are fully supported for administrative and user accounts. | Roles aren't supported with customer accounts. Customer accounts don't have access to tenant resources.|
 | **Custom domain names** |  You can use [custom domains](../../fundamentals/add-custom-domain.md) for administrative accounts only. | Not currently supported. However, the URLs visible to customers in sign-up and sign-in pages are neutral, unbranded URLs. [Learn more](concept-branding-customers.md)|

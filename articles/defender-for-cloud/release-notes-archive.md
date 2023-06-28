@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: dcurwin
 ms.author: dacurwin
 ms.topic: reference
-ms.date: 05/03/2023
+ms.date: 06/07/2023
 ---
 
 # Archive for what's new in Defender for Cloud?
@@ -16,6 +16,25 @@ This page provides you with information about:
 - New features
 - Bug fixes
 - Deprecated functionality
+
+## December 2022
+
+Updates in December include:
+
+- [Announcing express configuration for vulnerability assessment in Defender for SQL](#announcing-express-configuration-for-vulnerability-assessment-in-defender-for-sql)
+
+### Announcing express configuration for vulnerability assessment in Defender for SQL
+
+The express configuration for vulnerability assessment in Microsoft Defender for SQL provides security teams with a streamlined configuration experience on Azure SQL Databases and Dedicated SQL Pools outside of Synapse Workspaces.
+
+With the express configuration experience for vulnerability assessments, security teams can:
+
+- Complete the vulnerability assessment configuration in the security configuration of the SQL resource, without any another settings or dependencies on customer-managed storage accounts.
+- Immediately add scan results to baselines so that the status of the finding changes from **Unhealthy** to **Healthy** without rescanning a database.
+- Add multiple rules to baselines at once and use the latest scan results.
+- Enable vulnerability assessment for all Azure SQL Servers when you turn on Microsoft Defender for databases at the subscription-level.
+
+Learn more about [Defender for SQL vulnerability assessment](sql-azure-vulnerability-assessment-overview.md).
 
 ## November 2022
 
@@ -2031,7 +2050,7 @@ Learn more in:
 
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 - [Tutorial: Improve your regulatory compliance](regulatory-compliance-dashboard.md)
-- [FAQ - Regulatory compliance dashboard](regulatory-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
+- [FAQ - Regulatory compliance dashboard](faq-regulatory-compliance.yml)
 
 ### Four new recommendations related to guest configuration (in preview)
 
@@ -2657,7 +2676,7 @@ Learn which recommendations are in each security control in [Security controls a
 
 ### Recommendations page has new filters for environment, severity, and available responses
 
-Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country.
+Azure Security Center monitors all connected resources and generates security recommendations. Use these recommendations to strengthen your hybrid cloud posture and track compliance with the policies and standards relevant to your organization, industry, and country/region.
 
 As Security Center continues to expand its coverage and features, the list of security recommendations is growing every month. For example, see [29 preview recommendations added to increase coverage of Azure Security Benchmark](release-notes-archive.md#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
 

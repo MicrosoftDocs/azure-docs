@@ -4,7 +4,7 @@ description: Learn how to take advantage of business intelligence components and
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/30/2022
+ms.date: 06/12/2023
 ---
 
 # Connect Excel to Apache Hadoop by using Power Query

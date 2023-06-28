@@ -1,21 +1,21 @@
 ---
-title: Audit activity history for group assignments (preview) in Privileged Identity Management
-description: View activity and audit activity history for group assignments (preview) in Azure AD Privileged Identity Management (PIM).
+title: Audit activity history for group assignments in Privileged Identity Management
+description: View activity and audit activity history for group assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/12/2023
-ms.author: amsliu
+ms.date: 6/7/2023
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
-# Audit activity history for group assignments (preview) in Privileged Identity Management
+# Audit activity history for group assignments in Privileged Identity Management
 
 With Privileged Identity Management (PIM), you can view activity, activations, and audit history for group membership or ownership changes done through PIM for groups within your organization in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
@@ -30,7 +30,7 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> Groups (Preview)**. 
+1. Select **Azure AD Privileged Identity Management -> Groups**. 
 
 1. Select the group you want to view audit history for.
 
@@ -46,7 +46,7 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 1. [Sign in to the Azure portal](https://portal.azure.com).
 
-1. Select **Azure AD Privileged Identity Management -> Groups (Preview)**. 
+1. Select **Azure AD Privileged Identity Management -> Groups**. 
 
 1. Select the group you want to view audit history for.
 
@@ -58,4 +58,4 @@ Follow these steps to view the audit history for groups in Privileged Identity M
 
 ## Next steps
 
-- [Assign eligibility for a group (preview) in Privileged Identity Management](groups-assign-member-owner.md)
+- [Assign eligibility for a group in Privileged Identity Management](groups-assign-member-owner.md)

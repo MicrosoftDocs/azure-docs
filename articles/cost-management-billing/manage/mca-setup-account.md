@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 06/28/2023
 ms.author: banders
 ---
 
@@ -144,19 +144,27 @@ Your new billing account simplifies billing for your organization while providin
 
 Depending on their access, billing administrators on your Enterprise Agreement enrollment get access to the billing scopes on the new account. The following table explains the change in access during the setup:
 
-| Existing role | Post transition role |
-| --- | --- |
-| **Enterprise administrator (Read only = No)** | **- Billing account owner** </br> Manage everything on the billing account </br> **- Billing profile owner** </br> Manage everything on the billing profile </br> **- Invoice section owner on all invoice sections** </br> Manage everything on the invoice sections |
-| **Enterprise administrator (Read only = Yes)** | **- Billing account reader** </br> Read-only view of everything on billing account</br> **- Billing profile reader** </br> Read-only view of everything on billing profile</br>**- Invoice section reader on all invoice section**</br> Read-only view of everything on the invoice sections|
-| **Department administrator(Read only = No)** |**- Invoice section owner on the invoice section created for their respective department** </br>Manage everything on the invoice section|
-| **Department administrator (Read only = Yes)**|**- Invoice section reader on the invoice section created for their respective department**</br> Read-only view of everything on the invoice section|
-| **Account owner** | **- Azure subscription creator on the invoice section created for their respective department** </br>  Create Azure subscriptions for their invoice section|
+| Existing role | Post transition role | Read only? |
+| --- | --- | --- |
+| **Enterprise administrator (Read only = No)** | **Billing account owner** </br>• Manage everything on the billing account </br> **Billing profile owner** </br> • Manage everything on the billing profile </br> **Invoice section owner on all invoice sections** </br>• Manage everything on the invoice sections | No |
+| **Enterprise administrator (Read only = Yes)** | **Billing account reader** </br>• Read-only view of everything on billing account</br> **Billing profile reader** </br>• Read-only view of everything on billing profile</br>**Invoice section reader on all invoice section**</br>• Read-only view of everything on the invoice sections| Yes |
+| **Department administrator(Read only = No)** |**Invoice section owner on the invoice section created for their respective department** </br>• Manage everything on the invoice section| No |
+| **Department administrator (Read only = Yes)**|**Invoice section reader on the invoice section created for their respective department**</br>• Read-only view of everything on the invoice section| Yes |
+| **Account owner** | **Azure subscription creator on the invoice section created for their respective department** </br>•  Create Azure subscriptions for their invoice section| No |
 
 An Azure Active Directory (AD) tenant is selected for the new billing account while accepting your Microsoft Customer Agreement. If a tenant doesn't exist for your organization, a new tenant is created. The tenant represents your organization within Azure Active Directory. Global tenant administrators in your organization use the tenant to manage access of applications and data in your organization.
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they'll get access to the new billing account during the setup. If they're not part of the tenant, they can't access the new billing account unless you invite them.
 
-When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. 
+When you invite the users, they're added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, about enabling guest access see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on.
+
+As mentioned previously, to send invitations, you must first enable guest access on the tenant using Azure Active Directory.
+
+:::image type="content" source="./media/microsoft-customer-agreement-setup-account/external-collaboration-settings.png" alt-text="Screenshot showing the External collaboration settings in Azure Active Directory." lightbox="./media/microsoft-customer-agreement-setup-account/external-collaboration-settings.png" :::
+
+Otherwise, you'll see an error message saying:
+
+`Invitations couldn't be sent. Guest access must be enabled on the tenant to invite users. Contact the global administrators of your tenant to enable guest access. When guest access is enabled, you can come back to this page by click the URL we sent you in email.`
 
 ## View replaced features
 
@@ -172,7 +180,7 @@ Notification contacts are sent email communications about the Azure Enterprise A
 
 ### Spending quotas
 
-Spending quotas that were set for departments in your Enterprise Agreement enrollment are replaced with budgets in the new billing account. A budget is created for each spending quota set on departments in your enrollment. For more information on budgets, see [Tutorial: Create and manage Azure budgets](../costs/tutorial-acm-create-budgets.md).
+Spending quotas that were set for departments in your Enterprise Agreement enrollment are replaced with budgets in the new billing account. A budget is created for each spending quota set on departments in your enrollment. For more information on budgets, see [Tutorial: Create and manage budgets](../costs/tutorial-acm-create-budgets.md).
 
 ### Cost centers
 

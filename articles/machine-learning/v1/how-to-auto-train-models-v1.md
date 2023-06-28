@@ -389,4 +389,4 @@ In this automated machine learning article, you did the following tasks:
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
 
-[Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models-v1.md)
+[Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models.md)

@@ -1,10 +1,10 @@
 ---
 title: Use a template with Azure App Spaces
 description: Learn how to use a template to create a web application with Azure App Spaces.
-ms.service: app-service
+ms.service: app-spaces
 ms.topic: how-to
-ms.author: chcomley
-author: chcomley
+ms.author: msangapu
+author: msangapu-msft
 ms.date: 05/22/2023
 ---
 
