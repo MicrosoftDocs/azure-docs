@@ -1,6 +1,6 @@
 ---
 title: Conversational Language Understanding limits
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the data, region, and throughput limits for Conversational Language Understanding
 services: cognitive-services
 author: aahill

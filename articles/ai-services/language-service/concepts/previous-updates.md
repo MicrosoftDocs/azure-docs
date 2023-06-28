@@ -1,7 +1,7 @@
 ---
 title: Previous language service updates
-titleSuffix: Azure Cognitive Services
-description: An archive of previous Azure Cognitive Service for Language updates.
+titleSuffix: Azure AI services
+description: An archive of previous Azure AI Language updates.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: aahi
 ROBOTS: NOINDEX
 ---
 
-# Previous updates for Azure Cognitive Service for Language
+# Previous updates for Azure AI Language
 
-This article contains a list of previously recorded updates for Azure Cognitive Service for Language. For more current service updates, see [What's new](../whats-new.md).
+This article contains a list of previously recorded updates for Azure AI Language. For more current service updates, see [What's new](../whats-new.md).
 
 ## October 2021
 

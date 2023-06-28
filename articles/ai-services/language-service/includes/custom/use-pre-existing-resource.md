@@ -1,6 +1,6 @@
 ---
 title: How to create custom projects
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -36,7 +36,7 @@ Your Language resource must have identity management, to enable it using [Langua
 
 1. Click the settings icon in the top right corner of the screen
 2. Select **Resources**
-3. Select the check box **Managed Identity** for your Azure Language resource.
+3. Select the check box **Managed Identity** for your Azure AI Language resource.
 
 ---
 
@@ -53,7 +53,7 @@ Make sure to enable this service's custom feature from Azure portal.
 > [!IMPORTANT]
 > Make sure that your **Language resource** has **storage blob data contributor** role assigned on the storage account you are connecting.
 
-### Set roles for your Azure Language resource and storage account
+### Set roles for your Azure AI Language resource and storage account
 
 [!INCLUDE [roles-for-resource-and-storage](roles-for-resource-and-storage.md)]
 

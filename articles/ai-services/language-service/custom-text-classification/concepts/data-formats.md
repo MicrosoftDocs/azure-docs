@@ -1,6 +1,6 @@
 ---
 title: Custom text classification data formats
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the data formats accepted by custom text classification.
 services: cognitive-services
 author: aahill

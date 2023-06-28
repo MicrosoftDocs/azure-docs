@@ -1,6 +1,6 @@
 ---
 title: Configure containers - Language service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Language service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
 author: aahill
@@ -77,4 +77,4 @@ The exact syntax of the host mount location varies depending on the host operati
 
 ## Next steps
 
-* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../../cognitive-services-container-support.md)

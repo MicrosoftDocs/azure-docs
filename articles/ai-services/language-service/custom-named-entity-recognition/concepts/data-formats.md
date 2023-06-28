@@ -1,6 +1,6 @@
 ---
 title: Custom NER data formats
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the data formats accepted by custom NER.
 services: cognitive-services
 author: aahill

@@ -1,6 +1,6 @@
 ---
 title: Evaluate a Custom Text Analytics for health model
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to evaluate and score your Custom Text Analytics for health model
 services: cognitive-services
 author: aahill

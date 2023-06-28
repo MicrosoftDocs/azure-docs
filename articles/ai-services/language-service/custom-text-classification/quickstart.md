@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Custom text classification
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Quickly start building an AI model to identify and apply labels (classify) unstructured text.
 services: cognitive-services
 author: aahill

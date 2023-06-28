@@ -1,6 +1,6 @@
 ---
 title: Conversational Language Understanding backwards compatibility
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about backwards compatibility between LUIS and Conversational Language Understanding
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 # Migrate from Language Understanding (LUIS) to conversational language understanding (CLU)
 
-[Conversational language understanding (CLU)](../overview.md) is a cloud-based AI offering in Azure Cognitive Services for Language. It's the newest generation of [Language Understanding (LUIS)](../../../luis/what-is-luis.md) and offers backwards compatibility with previously created LUIS applications. CLU employs state-of-the-art machine learning intelligence to allow users to build a custom natural language understanding model for predicting intents and entities in conversational utterances. 
+[Conversational language understanding (CLU)](../overview.md) is a cloud-based AI offering in Azure AI Language. It's the newest generation of [Language Understanding (LUIS)](../../../luis/what-is-luis.md) and offers backwards compatibility with previously created LUIS applications. CLU employs state-of-the-art machine learning intelligence to allow users to build a custom natural language understanding model for predicting intents and entities in conversational utterances. 
 
 CLU offers the following advantages over LUIS: 
 

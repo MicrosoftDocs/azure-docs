@@ -1,5 +1,5 @@
 ---
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the steps for using Azure resources with custom NER.
 services: cognitive-services
 author: aahill
@@ -38,7 +38,7 @@ Your Language resource must have identity management, to enable it using [Langua
 
 1. Click the settings icon in the top right corner of the screen
 2. Select **Resources**
-3. Select the check box **Managed Identity** for your Azure Language resource.
+3. Select the check box **Managed Identity** for your Azure AI Language resource.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Model Lifecycle of Language service models
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article describes the timelines for models and model versions used by Language service features.
 services: cognitive-services
 author: aahill
@@ -103,4 +103,4 @@ Use the following table to find which API versions are supported by each feature
 
 ## Next steps
 
-[Azure Cognitive Service for Language overview](../overview.md)
+[Azure AI Language overview](../overview.md)

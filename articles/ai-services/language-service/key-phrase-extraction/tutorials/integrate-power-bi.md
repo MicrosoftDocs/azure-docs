@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integrate Power BI with key phrase extraction'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the key phrase extraction feature to get text stored in Power BI.
 services: cognitive-services
 author: jboback
@@ -15,14 +15,14 @@ ms.custom: language-service-key-phrase, ignite-fall-2021, cogserv-non-critical-l
 
 # Tutorial: Extract key phrases from text stored in Power BI
 
-Microsoft Power BI Desktop is a free application that lets you connect to, transform, and visualize your data. Key phrase extraction, one of the features of Azure Cognitive Service for Language, provides natural language processing. Given raw unstructured text, it can extract the most important phrases, analyze sentiment, and identify well-known entities such as brands. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
+Microsoft Power BI Desktop is a free application that lets you connect to, transform, and visualize your data. Key phrase extraction, one of the features of Azure AI Language, provides natural language processing. Given raw unstructured text, it can extract the most important phrases, analyze sentiment, and identify well-known entities such as brands. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Use Power BI Desktop to import and transform data
 > * Create a custom function in Power BI Desktop
-> * Integrate Power BI Desktop with the Key Phrase Extraction feature of Azure Cognitive Service for Language
+> * Integrate Power BI Desktop with the Key Phrase Extraction feature of Azure AI Language
 > * Use Key Phrase Extraction to get the most important phrases from customer feedback
 > * Create a word cloud from customer feedback
 
@@ -202,7 +202,7 @@ Click the Focus Mode tool in the report to get a better look at our word cloud. 
 
 ## Using other features
 
-Azure Cognitive Service for Language also provides sentiment analysis and language detection. The language detection in particular is useful if your customer feedback isn't all in English.
+Azure AI Language also provides sentiment analysis and language detection. The language detection in particular is useful if your customer feedback isn't all in English.
 
 Both of these other APIs are similar to the Key Phrases API. That means you can integrate them with Power BI Desktop using custom functions that are nearly identical to the one you created in this tutorial. Just create a blank query and paste the appropriate code below into the Advanced Editor, as you did earlier. (Don't forget your access key!) Then, as before, use the function to add a new column to the table.
 
@@ -274,8 +274,8 @@ in  keyphrases
 
 ## Next steps
 
-Learn more about Azure Cognitive Service for Language, the Power Query M formula language, or Power BI.
+Learn more about Azure AI Language, the Power Query M formula language, or Power BI.
 
-* [Azure Cognitive Service for Language overview](../../overview.md)
+* [Azure AI Language overview](../../overview.md)
 * [Power Query M reference](/powerquery-m/power-query-m-reference)
 * [Power BI documentation](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

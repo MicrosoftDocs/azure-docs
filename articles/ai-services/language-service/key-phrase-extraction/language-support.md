@@ -1,6 +1,6 @@
 ---
 title: Language support for Key Phrase Extraction
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to find the natural languages supported by Key Phrase Extraction.
 services: cognitive-services
 author: jboback

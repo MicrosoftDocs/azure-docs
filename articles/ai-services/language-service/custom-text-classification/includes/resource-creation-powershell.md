@@ -1,6 +1,6 @@
 ---
 title: How to create custom text classification projects
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme

@@ -1,6 +1,6 @@
 ---
 title: How to deploy a custom text classification model
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to deploy a model for custom text classification.
 services: cognitive-services
 author: aahill

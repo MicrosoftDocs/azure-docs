@@ -16,12 +16,12 @@ ms.author: aahi
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-text-analytics-for-health&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
 
-## Create a new Azure Language resource and Azure storage account
+## Create a new Azure AI Language resource and Azure storage account
 
-Before you can use custom Text Analytics for health, you'll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You'll also need an Azure storage account, where you can upload your dataset that will be used in building your model.
+Before you can use custom Text Analytics for health, you'll need to create an Azure AI Language resource, which will give you the credentials that you need to create a project and start training a model. You'll also need an Azure storage account, where you can upload your dataset that will be used in building your model.
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the Language resource, and create and/or connect a storage account at the same time, which is easier than doing it later.
+> To get started quickly, we recommend creating a new Azure AI Language resource using the steps provided in this article, which will let you create the Language resource, and create and/or connect a storage account at the same time, which is easier than doing it later.
 >
 > If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [create project](../../how-to/create-project.md#using-a-pre-existing-language-resource) for more information.
 

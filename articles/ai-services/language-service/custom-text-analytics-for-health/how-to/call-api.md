@@ -1,7 +1,7 @@
 ---
 title: Send a custom Text Analytics for health request to your custom model
 description: Learn how to send a request for custom text analytics for health.
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme

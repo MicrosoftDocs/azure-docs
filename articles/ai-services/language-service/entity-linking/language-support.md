@@ -1,6 +1,6 @@
 ---
 title: Language support for key phrase analysis
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of natural languages supported by the entity linking API
 services: cognitive-services
 author: aahill

@@ -1,6 +1,6 @@
 ---
 title: Create custom NER projects and use Azure resources
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to create and manage projects and Azure resources for custom NER.
 services: cognitive-services
 author: aahill
@@ -25,7 +25,7 @@ Before you start using custom NER, you will need:
 
 ## Create a Language resource 
 
-Before you start using custom NER, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom named entity recognition.
+Before you start using custom NER, you will need an Azure AI Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom named entity recognition.
 
 You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to extract entities.
 

@@ -1,6 +1,6 @@
 ---
-title: "Migrate to Azure Cognitive Service for Language from: LUIS, QnA Maker, and Text Analytics"
-titleSuffix: Azure Cognitive Services
+title: "Migrate to Azure AI Language from: LUIS, QnA Maker, and Text Analytics"
+titleSuffix: Azure AI services
 description: Use this article to learn if you need to migrate your applications from LUIS, QnA Maker, and Text Analytics.
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-# Migrating to Azure Cognitive Service for Language
+# Migrating to Azure AI Language
 
-On November 2nd 2021, Azure Cognitive Service for Language was released into public preview. This language service unifies the Text Analytics, QnA Maker, and LUIS service offerings, and provides several new features as well. 
+On November 2nd 2021, Azure AI Language was released into public preview. This language service unifies the Text Analytics, QnA Maker, and LUIS service offerings, and provides several new features as well. 
 
 ## Do I need to migrate to the language service if I am using Text Analytics?
 
@@ -32,6 +32,6 @@ If you're using QnA Maker, see the [migration guide](../question-answering/how-t
 
 ## See also
 
-* [Azure Cognitive Service for Language overview](../overview.md)
+* [Azure AI Language overview](../overview.md)
 * [Conversational language understanding overview](../conversational-language-understanding/overview.md)
 * [Question answering overview](../question-answering/overview.md)

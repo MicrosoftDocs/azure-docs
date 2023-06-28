@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Custom Text Analytics for health (Custom TA4H)
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Quickly start building an AI model to categorize and extract information from healthcare unstructured text.
 services: cognitive-services
 author: aahill

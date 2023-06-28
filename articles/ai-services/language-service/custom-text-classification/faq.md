@@ -1,6 +1,6 @@
 ---
 title: Custom text classification FAQ
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about Frequently asked questions when using the custom text classification API.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: language-service-custom-classification, ignite-fall-2021
 
 # Frequently asked questions
 
-Find answers to commonly asked questions about concepts, and scenarios related to custom text classification in Azure Cognitive Service for Language.
+Find answers to commonly asked questions about concepts, and scenarios related to custom text classification in Azure AI Language.
 
 ## How do I get started with the service?
 

@@ -1,7 +1,7 @@
 ---
 title: Conversational language understanding language support
-titleSuffix: Azure Cognitive Services
-description: This article explains which natural languages are supported by the conversational language understanding feature of Azure Cognitive Service for Language.
+titleSuffix: Azure AI services
+description: This article explains which natural languages are supported by the conversational language understanding feature of Azure AI Language.
 services: cognitive-services
 author: aahill
 manager: nitinme

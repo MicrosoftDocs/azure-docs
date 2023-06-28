@@ -1,6 +1,6 @@
 ---
 title: Custom text classification limits
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about the data and rate limits when using custom text classification.
 services: cognitive-services
 author: aahill
