@@ -75,8 +75,6 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Analyze user connection quality
-        href: connection-latency.md
       - name: Azure Private Link
         href: private-link-overview.md
     - name: Identity and access management
@@ -176,6 +174,8 @@
         href: azure-monitor-costs.md
       - name: Azure Monitor glossary
         href: azure-monitor-glossary.md
+    - name: Analyze user connection quality
+      href: connection-latency.md
 - name: How-to guides
   items:
   - name: Deploy
