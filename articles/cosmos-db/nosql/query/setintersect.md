@@ -106,4 +106,4 @@ FROM
 ## See also
 
 - [System functions](system-functions.yml)
-- [ARRAY_CONTAINS](array-contains.md)
+- [`ARRAY_CONTAINS`](array-contains.md)

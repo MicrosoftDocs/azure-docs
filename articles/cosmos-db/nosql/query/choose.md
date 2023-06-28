@@ -114,4 +114,4 @@ FROM
 ## See also
 
 - [System functions](system-functions.yml)
-- [ARRAY_LENGTH](array-length.md)
+- [`ARRAY_LENGTH`](array-length.md)
