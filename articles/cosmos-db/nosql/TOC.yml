@@ -805,6 +805,8 @@
               href: ../self-serve-minimum-tls-enforcement.md
             - name: Configure customer-managed keys with Azure key vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: CMK troubleshooting guide
+              href: ../cmk-troubleshooting-guide.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
               href: ../how-to-setup-customer-managed-keys-mhsm.md
             - name: Configure cross-tenant customer-managed keys
