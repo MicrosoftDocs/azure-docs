@@ -60,7 +60,10 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 \*Certain GIF images may not be supported by the UI library at this time, the user might receive a static image instead and this is a known issue. In addition, the Web UI library does not support videos at this time.
 
-\*Microsoft Teams allows users to share file attachments as part of chat messages. These files are stored in SharePoint or OneDrive and require authentication to access them. Depending on the file's sharing permissions (e.g., Anyone, Everyone in your Organization, People you choose, etc.), ACS users in the Teams Interop meeting who try to access the shared files will be redirected to a SharePoint web page and prompted to authenticate in order to access the file. To learn more about this, please refer to [File Sharing Permission](https://learn.microsoft.com/microsoft-365/solutions/microsoft-365-limit-sharing)
+The Web UI library currently supports the following file permissions:
+  - "Anyone", and
+  - "People you choose" (with email address)
+The Teams user (sender) should be made aware of that all other permissions (such as "People in your organization") aren't supported. The Teams user should double check if the default permission is supported after uploading the file in their Teams client. In addition, The Teams admin could impose policies that limits or disable this feature entirely (such as having file sharing disabled or having certain permission disabled).
 
 \*Inline image and file attachment support are currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
