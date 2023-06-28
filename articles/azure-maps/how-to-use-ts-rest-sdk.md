@@ -64,35 +64,35 @@ Azure Maps provides a collection of npm modules for the *Azure TypeScript REST S
 
 1. The following code uses the newly created Azure Maps Search client to geocode an address: "1 Microsoft Way, Redmond, WA". The code makes a GET request and displays the results as a table in the body of the page.
 
-```javascript
-// Search for "1 microsoft way, redmond, wa".
-const html = [];
-const response = await client
-  .path("/search/address/{format}", "json")
-  .get({ queryParameters: { query: "1 microsoft way, redmond, wa" } });
+    ```javascript
+    // Search for "1 microsoft way, redmond, wa".
+    const html = [];
+    const response = await client
+      .path("/search/address/{format}", "json")
+      .get({ queryParameters: { query: "1 microsoft way, redmond, wa" } });
 
-// Display the total results.
-html.push("Total results: ", response.body.summary.numResults, "<br/><br/>");
+    // Display the total results.
+    html.push("Total results: ", response.body.summary.numResults, "<br/><br/>");
 
-// Create a table of the results.
-html.push("<table><tr><td>Result</td><td>Latitude</td><td>Longitude</td></tr>");
-response.body.results.forEach((result) => {
-  html.push(
-    "<tr><td>",
-    result.address.freeformAddress,
-    "</td><td>",
-    result.position.lat,
-    "</td><td>",
-    result.position.lon,
-    "</td></tr>"
-  );
-});
+    // Create a table of the results.
+    html.push("<table><tr><td>Result</td><td>Latitude</td><td>Longitude</td></tr>");
+    response.body.results.forEach((result) => {
+      html.push(
+        "<tr><td>",
+        result.address.freeformAddress,
+        "</td><td>",
+        result.position.lat,
+        "</td><td>",
+        result.position.lon,
+        "</td></tr>"
+      );
+    });
 
-html.push("</table>");
+    html.push("</table>");
 
-// Add the resulting HTML to the body of the page.
-document.body.innerHTML = html.join("");
-```
+    // Add the resulting HTML to the body of the page.
+    document.body.innerHTML = html.join("");
+    ```
 
 The following image is a screenshot showing the results of this sample code, a table with the address searched for, along with the resulting coordinates.
 
