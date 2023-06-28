@@ -195,4 +195,4 @@ When Azure File Sync is hosted in a virtual machine running on a Windows Server 
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)
 - [Deploy Azure File Sync](file-sync-deployment-guide.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
-- [Troubleshoot Azure File Sync](file-sync-troubleshoot.md)
+- [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)
