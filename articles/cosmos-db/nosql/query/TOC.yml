@@ -218,7 +218,28 @@
           href: intbitleftshift.md
         - name: IntBitNot
           displayName: IntBitNot, int-64, integer, bitwise, NOT, built-in functions
-          href: intbitnot.md    
+          href: intbitnot.md
+        - name: IntBitOr
+          displayName: IntBitOr, int-64, integer, bitwise, OR, built-in functions
+          href: intbitor.md
+        - name: IntBitRightShift
+          displayName: IntBitRightShift, int-64, integer, bitwise, right shift, built-in functions
+          href: intbitrightshift.md
+        - name: IntBitXor
+          displayName: IntBitXor, int-64, integer, bitwise, XOR, built-in functions
+          href: intbitxor.md
+        - name: IntDiv
+          displayName: IntDiv, int-64, integer, bitwise, division, built-in functions
+          href: intdiv.md
+        - name: IntMod
+          displayName: IntMod, int-64, integer, bitwise, modulus, built-in functions
+          href: intmod.md
+        - name: IntMul
+          displayName: IntMul, int-64, integer, bitwise, multiplication, built-in functions
+          href: intmul.md
+        - name: IntSub
+          displayName: IntSub, int-64, integer, bitwise, subtraction, built-in functions
+          href: intsub.md
         - name: LOG
           displayName: LOG, logarithm, built-in functions
           href: log.md
