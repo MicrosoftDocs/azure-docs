@@ -33,12 +33,12 @@
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
-        - name: Understanding agent pools
-          href: howto-k8s-cluster-agent-pools.md
-        - name: Configuring huge-pages for cluster virtual machines
-          href: howto-k8s-cluster-hugepages.md
-        - name: Configuring service load balancer
-          href: howto-k8s-service-load-balancer.md
+        - name: Understand agent pools
+          href: howto-kubernetes-cluster-agent-pools.md
+        - name: Configure huge-pages for cluster virtual machines
+          href: howto-kubernetes-cluster-huge-pages.md
+        - name: Configure service load balancer
+          href: howto-kubernetes-service-load-balancer.md
     - name: Before you start Operator Nexus NFC and CM deployment
       href: howto-azure-operator-nexus-prerequisites.md
     - name: Network Fabric Controller
