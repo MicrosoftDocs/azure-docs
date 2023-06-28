@@ -22,7 +22,7 @@ This article lists the latest features, improvements, and changes in the Microso
 
 ## June 2023
 
-Tutorial for getting started with the Wallet Library demo on Android and iOS available [here](using-walletlibrary.md).
+Tutorial for getting started with the Wallet Library demo on Android and iOS available [here](using-wallet-library.md).
 
 ## May 2023
 
@@ -55,7 +55,7 @@ Instructions for setting up place of work verification on LinkedIn available [he
 
 ## September 2022
 
-- The Request Service API now have [granular app permissions](verifiable-credentials-configure-tenant.md?#grant-permissions-to-get-access-tokens) and you can grant **VerifiableCredential.Create.IssueRequest** and **VerifiableCredential.Create.PresentRequest** separately to segregate duties of issuance and presentation to separate application. 
+- The Request Service API now has [granular app permissions](verifiable-credentials-configure-tenant.md?#grant-permissions-to-get-access-tokens) and you can grant **VerifiableCredential.Create.IssueRequest** and **VerifiableCredential.Create.PresentRequest** separately to segregate duties of issuance and presentation to separate application. 
 - [IDV Partner Gallery](partner-gallery.md) now available in the documentation guiding you how to integrate with Microsoft's Identity Verification partners.
 - How-to guide for implementing the [presentation attestation flow](how-to-use-quickstart-presentation.md) that requires presenting a verifiable credential during issuance.
 
