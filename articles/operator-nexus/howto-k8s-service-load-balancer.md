@@ -138,7 +138,7 @@ kubectl expose deployment nginx \
     --type LoadBalancer \
     --load-balancer-ip <IP from pool-1>
 ```
-Replace `<IP from pool-1>` with the desired IP address from the first IP pool.
+Replace `<IP from pool-1>` with the desired IP address from the IP pool.
 
 ### Static IP allocation (ExternalIP)
 ```bash
@@ -148,7 +148,7 @@ kubectl expose deployment nginx \
     --external-ip <IP from pool-1>
 ```
 
-Replace `<IP from pool-1>` with the desired IP address from the second IP pool.
+Replace `<IP from pool-1>` with the desired IP address from the IP pool.
 
 ## Example: IP address allocation for a service from specific IP pool
 
