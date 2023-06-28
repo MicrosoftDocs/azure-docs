@@ -19,7 +19,7 @@ import 'az@1.0.0'
 import 'sys@1.0.0'
 ```
 
-Both `az` and `sys` are Bicep built-in namespaces. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
+Both `az` and `sys` are Bicep built-in namespaces. They are imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
 The syntax for importing Bicep extensibility providers is:
 
