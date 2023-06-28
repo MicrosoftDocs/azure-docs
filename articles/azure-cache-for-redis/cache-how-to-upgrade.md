@@ -33,7 +33,10 @@ For more information on how to export, see [Import and Export data in Azure Cach
 
 - When you upgrade a cache in the Basic tier, it's unavailable for several minutes and results in data loss.
 - Upgrading on geo-replicated cache isn't supported. You must manually unlink the cache instances before upgrading.
-- Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to Virtual Machine Scale Set before upgrading. For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml) for details on cloud services hosted caches.
+- Upgrading a cache with a dependency on Cloud Services isn't supported. You should migrate your cache instance to Virtual Machine Scale Set before upgrading. 
+  - For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml) for details on cloud services hosted caches.
+- When trying to upgrade to Redis 6, your VNet must be configured correctly as per the requirements or you can experience issues.
+  - For more information on the VNet requirements, see [What are some common misconfiguration issues with Azure Cache for Redis and virtual networks?](cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks).
 
 ### Check the version of a cache
 
