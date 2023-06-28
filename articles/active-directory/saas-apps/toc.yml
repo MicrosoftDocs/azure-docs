@@ -310,6 +310,8 @@
         href: bgsonline-tutorial.md
       - name: BIC Process Design
         href: bic-cloud-design-tutorial.md
+      - name: BigPanda
+        href: bigpanda-tutorial.md
       - name: Bime
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
