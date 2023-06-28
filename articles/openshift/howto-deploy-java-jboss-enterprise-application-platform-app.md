@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
 ms.date: 05/09/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro
 ---
 
 # Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal
 
-This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal.
+This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenShift using the Azure portal.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This article shows you how to quickly stand up JBoss EAP on Azure Red Hat OpenSh
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
+The Azure Marketplace offer you use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
 
 Use the following steps to get the pull secret.
 
@@ -67,7 +67,7 @@ Use the following steps to deploy a service principal and get its Application (c
 1. Select **Azure Active Directory**.
 1. Select **App registrations**.
 1. Select **New registration**.
-1. Name the application - for example, `howto-deploy-java-enterprise-application-platform-app-app`. Select a supported account type, which determines who can use the application. After setting the values, select **Register**, as shown in the following screenshot. It takes several seconds to provision the application. Wait for the deployment to complete before proceeding.
+1. Name the application - for example, `jboss-eap-on-aro-app`. Select a supported account type, which determines who can use the application. After setting the values, select **Register**, as shown in the following screenshot. It takes several seconds to provision the application. Wait for the deployment to complete before proceeding.
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/azure-portal-create-service-principal.png" alt-text="Screenshot of Azure portal showing the Register an application page." lightbox="media/howto-deploy-java-enterprise-application-platform-app/azure-portal-create-service-principal.png":::
 
@@ -108,7 +108,7 @@ The steps in this section direct you to deploy JBoss EAP on Azure Red Hat OpenSh
 
 The following steps show you how to find the offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *JBoss EAP*. In the auto-suggested search results, in the **Marketplace** section, select **JBoss EAP on Azure Red Hat OpenShift**, as shown in the following screenshot.
+1. In the search bar at the top of the Azure portal, enter *JBoss EAP*. In the search results, in the **Marketplace** section, select **JBoss EAP on Azure Red Hat OpenShift**, as shown in the following screenshot.
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing JBoss EAP on Azure Red Hat OpenShift in search results." lightbox="media/howto-deploy-java-enterprise-application-platform-app/marketplace-search-results.png":::
 
@@ -382,9 +382,9 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    CON_REG_ACC_USER_NAME_BASE64=$(echo ${CON_REG_ACC_USER_NAME} | base64 $w0)
    CON_REG_ACC_PWD_BASE64=$(echo ${CON_REG_ACC_PWD} | base64 $w0)
    ```
-   
-   Because the next section uses HEREDOC format, it is best to include and execute it in its own code excerpt.
-   
+
+   Because the next section uses HEREDOC format, it's best to include and execute it in its own code excerpt.
+
    ```azurecli-interactive
 
    cat <<EOF | oc apply -f -
@@ -400,7 +400,7 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
      hostname: registry.redhat.io
    EOF
    ```
-   
+
    You must see `secret/eaparo-sample-pull-secret created` to indicate successful creation of the secret. If you don't see this output, troubleshoot and resolve the problem before proceeding. Finally, link the secret.
 
    ```azurecli-interactive
@@ -475,7 +475,7 @@ Next, use the following steps to create a secret:
    EOF
    ```
 
-   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`.  If you do not see this output, troubleshoot and resolve the problem before proceeding.
+   If the command completed successfully, you should see `wildflyserver.wildfly.org/javaee-cafe created`.  If you don't see this output, troubleshoot and resolve the problem before proceeding.
 
 1. Run `oc get pod -w | grep 1/1` to monitor whether all pods of the app are running. When you see output similar to the following example, press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the monitoring:
 
