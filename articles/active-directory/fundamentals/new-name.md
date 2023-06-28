@@ -176,7 +176,7 @@ Products or features that are being deprecated aren't being renamed. These produ
 
 Names that don't have "Azure AD" also aren't changing. These products or features include Active Directory Federation Services (AD FS), Microsoft identity platform, and Windows Server Active Directory Domain Services (AD DS).
 
-End users shouldn't be exposed to the Azure AD or Microsoft Entra ID name. For sign-ins and account user experiences, follow guidance for work and school accounts in [Sign in with Microsoft branding guidelines](../develop/howto-add-branding-in-apps).
+End users shouldn't be exposed to the Azure AD or Microsoft Entra ID name. For sign-ins and account user experiences, follow guidance for work and school accounts in [Sign in with Microsoft branding guidelines](../develop/howto-add-branding-in-apps.md).
 
 ## Next steps
 
