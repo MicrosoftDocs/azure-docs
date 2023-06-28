@@ -1464,7 +1464,7 @@ This sets the base image of the Linux function app to Node.js version 18.
 
 # [Azure portal](#tab/azure-portal/linux)
 
->[!NOTE}  
+>[!NOTE]  
 > You can't change the Node.js version in the Azure portal when your function app is running on Linux in a Consumption plan. Instead use the Azure CLI.
 
 For Premium and Dedicated plans, use the following steps to change the Node.js version:  
