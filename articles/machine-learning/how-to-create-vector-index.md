@@ -1,7 +1,7 @@
 ---
 title: How to create vector index in Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: Explaining retrieval augmented generation and using Prompt Flow models for business use cases
+description: How to create vector index in Azure Machine Learning prompt flow
 services: machine-learning
 ms.author: balapv
 author: balapv
@@ -29,7 +29,7 @@ When a Vector Index is created, Azure Machine Learning will chunk the data, crea
 
 1.  Select **Prompt flow** on the left menu
 
-     :::image type="content" source="/media/how-to-create-vector-index/prompt-flow.png" alt-text="Screenshot showing the Prompt flow location on the left menu.":::
+     :::image type="content" source="/media/how-to-create-vector-index/prompt.png" alt-text="Screenshot showing the Prompt flow location on the left menu.":::
 
      media/how-to-create-vector-index/create.png
 
@@ -55,11 +55,11 @@ When a Vector Index is created, Azure Machine Learning will chunk the data, crea
 1.  Review the details of your vector index, then select the **Create** button to create the vector index.
 
 1. This takes you to an overview page from where you can track
-    / view the status of your Vector Index creation. Note: Vector
+    and view the status of your Vector Index creation. Note: Vector
     Index creation may take a while depending on the size of data.
 
-    ![](/media/how-to-create-vector-index
-    /UI-6-10.png)
+    :::image type="content" source="./media/how-to-create-vector-index/UI-6-10.png" alt-text="Screenshot showing the overview page for a vector index.":::
+
 
 ## Add a Vector Index to a prompt flow
 
@@ -80,4 +80,4 @@ Once you have created a Vector Index, you can add it to a prompt flow from the p
 
 ## Next Steps
 
-[Get started with RAG using a prompt flow sample (preview)](/how-to-use-pipelines-prompt-flow.md)
+[Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)

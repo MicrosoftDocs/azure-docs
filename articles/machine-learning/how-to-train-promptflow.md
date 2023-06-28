@@ -28,7 +28,7 @@ If you'd like video reference you can follow this video tutorial to start your p
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. [Follow this link to register](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/limited-access#registration-process)
+* Access to Azure Open AI. [Follow this link to register](../cognitive-services/openai/limited-access#registration-process)
 
 * Enable prompt flow in your Azure Machine Learning workspace
 
@@ -306,6 +306,6 @@ Copy following sample input data, paste to the input box, and select **Test**, t
 
 ## Next steps
 
-[Get started with RAG using a prompt flow sample (preview)](/how-to-use-pipelines-prompt-flow.md)
+[Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
 
 [How to create vector index in Azure Machine Learning prompt flow (preview)](how-to-create-vector-index.md)

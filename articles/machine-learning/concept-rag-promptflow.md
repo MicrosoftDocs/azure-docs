@@ -75,4 +75,11 @@ libraries like [Sentence Transformers](https://www.sbert.net/index.html)
 can be used to create embeddings.
 [^3]: In Azure Machine Learning, the Vector Index could be a [FAISS](https://faiss.ai/)
 Index or an [Azure Cognitive Search
-index](https://learn.microsoft.com/en-us/azure/search/search-what-is-an-index).
+index](../search/search-what-is-an-index.md).
+
+## Next steps
+
+[Train and Deploy Large Language Models (LLMs) with Azure Machine Learning prompt flow (preview)](how-to-train-promptflow.md)
+
+[How to create vector index in Azure Machine Learning prompt flow (preview)](how-to-create-vector-index.md)
+
