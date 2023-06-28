@@ -1,6 +1,6 @@
 ---
 title: Train a custom model for Product Recognition
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use the Image Analysis model customization feature to train a model to recognize specific products in a Product Recognition task.
 author: PatrickFarley
 manager: nitinme

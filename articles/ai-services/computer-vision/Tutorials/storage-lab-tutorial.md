@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Generate metadata for Azure images"
-titleSuffix: Azure Cognitive Services
-description: In this tutorial, you'll learn how to integrate the Azure Computer Vision service into a web app to generate metadata for images.
+titleSuffix: Azure AI services
+description: In this tutorial, you'll learn how to integrate the Azure AI Vision service into a web app to generate metadata for images.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,23 +16,23 @@ ms.custom: devx-track-csharp, build-2023, build-2023-dataai
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
 
-# Tutorial: Use Computer Vision to generate image metadata in Azure Storage
+# Tutorial: Use Azure AI Vision to generate image metadata in Azure Storage
 
-In this tutorial, you'll learn how to integrate the Azure Computer Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../overview.md#computer-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
+In this tutorial, you'll learn how to integrate the Azure AI Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../overview.md#computer-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
 
-You'll use Visual Studio to write an MVC Web app that accepts images uploaded by users and stores the images in Azure blob storage. You'll learn how to read and write blobs in C# and use blob metadata to attach additional information to the blobs you create. Then you'll submit each image uploaded by the user to the Computer Vision API to generate a caption and search metadata for the image. Finally, you can deploy the app to the cloud using Visual Studio.
+You'll use Visual Studio to write an MVC Web app that accepts images uploaded by users and stores the images in Azure blob storage. You'll learn how to read and write blobs in C# and use blob metadata to attach additional information to the blobs you create. Then you'll submit each image uploaded by the user to the Azure AI Vision API to generate a caption and search metadata for the image. Finally, you can deploy the app to the cloud using Visual Studio.
 
 This tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Create a storage account and storage containers using the Azure portal
 > * Create a Web app in Visual Studio and deploy it to Azure
-> * Use the Computer Vision API to extract information from images
+> * Use the Azure AI Vision API to extract information from images
 > * Attach metadata to Azure Storage images
 > * Check image metadata using [Azure Storage Explorer](http://storageexplorer.com/)
 
 > [!TIP]
-> The section [Use Computer Vision to generate metadata](#Exercise5) is most relevant to Image Analysis. Skip to there if you just want to see how Image Analysis is integrated into an established application.
+> The section [Use Azure AI Vision to generate metadata](#Exercise5) is most relevant to Image Analysis. Skip to there if you just want to see how Image Analysis is integrated into an established application.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin. 
 
@@ -374,15 +374,15 @@ In this section, you'll use a free, open-source JavaScript library to add a ligh
 Now you have a way to view the images you uploaded. The next step is to do more with those images.
 
 <a name="Exercise5"></a>
-## Use Computer Vision to generate metadata
+## Use Azure AI Vision to generate metadata
 
-### Create a Computer Vision resource
+### Create a Azure AI Vision resource
 
-You'll need to create a Computer Vision resource for your Azure account; this resource manages your access to Azure's Computer Vision service. 
+You'll need to create a Azure AI Vision resource for your Azure account; this resource manages your access to Azure's Azure AI Vision service. 
 
-1. Follow the instructions in [Create an Azure Cognitive Services resource](../../cognitive-services-apis-create-account.md) to create a Computer Vision resource.
+1. Follow the instructions in [Create an Azure AI services resource](../../cognitive-services-apis-create-account.md) to create a Azure AI Vision resource.
 
-1. Then go to the menu for your resource group and click the Computer Vision API subscription that you created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
+1. Then go to the menu for your resource group and click the Azure AI Vision API subscription that you created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
     ![Azure portal page with the endpoint URL and access keys link outlined](Images/copy-vision-endpoint.png)
     
@@ -393,9 +393,9 @@ You'll need to create a Computer Vision resource for your Azure account; this re
 
     ![Manage keys dialog, with the copy button outlined](Images/copy-vision-key.png)
 
-### Add Computer Vision credentials
+### Add Azure AI Vision credentials
 
-Next, you'll add the required credentials to your app so that it can access Computer Vision resources.
+Next, you'll add the required credentials to your app so that it can access Azure AI Vision resources.
 
 Navigate to the *Web.config* file at the root of the project. Add the following statements to the `<appSettings>` section of the file, replacing `VISION_KEY` with the key you copied in the previous step, and `VISION_ENDPOINT` with the URL you saved in the step before.
 
@@ -404,11 +404,11 @@ Navigate to the *Web.config* file at the root of the project. Add the following 
 <add key="VisionEndpoint" value="VISION_ENDPOINT" />
 ```
 
-Then in the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains the types needed to call the Computer Vision API.
+Then in the Solution Explorer, right-click the project and use the **Manage NuGet Packages** command to install the package **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**. This package contains the types needed to call the Azure AI Vision API.
 
 ### Add metadata generation code
 
-Next, you'll add the code that actually uses the Computer Vision service to create metadata for images.
+Next, you'll add the code that actually uses the Azure AI Vision service to create metadata for images.
 
 1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statements at the top of the file:
 
@@ -417,10 +417,10 @@ Next, you'll add the code that actually uses the Computer Vision service to crea
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
     ```
 
-1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
+1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Azure AI Vision to generate a description for that image. The Azure AI Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
     ```csharp
-    // Submit the image to the Azure Computer Vision API
+    // Submit the image to the Azure AI Vision API
     ComputerVisionClient vision = new ComputerVisionClient(
         new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
         new System.Net.Http.DelegatingHandler[] { });
@@ -476,7 +476,7 @@ To view all of the attached metadata, use Azure Storage Explorer to view the sto
 <a name="Exercise6"></a>
 ## Add search to the app
 
-In this section, you will add a search box to the home page, enabling users to do keyword searches on the images that they've uploaded. The keywords are the ones generated by the Computer Vision API and stored in blob metadata.
+In this section, you will add a search box to the home page, enabling users to do keyword searches on the images that they've uploaded. The keywords are the ones generated by the Azure AI Vision API and stored in blob metadata.
 
 1. Open *Index.cshtml* in the project's **Views/Home** folder and add the following statements to the empty ```<div>``` element with the ```class="col-sm-4 pull-right"``` attribute:
 
@@ -601,13 +601,13 @@ If you make changes to the app and want to push the changes out to the Web, go t
 
 ## Clean up resources
 
-If you'd like to keep working on your web app, see the [Next steps](#next-steps) section. If you don't plan to continue using this application, you should delete all app-specific resources. To do delete resources, you can delete the resource group that contains your Azure Storage subscription and Computer Vision resource. This will remove the storage account, the blobs uploaded to it, and the App Service resource needed to connect with the ASP.NET web app. 
+If you'd like to keep working on your web app, see the [Next steps](#next-steps) section. If you don't plan to continue using this application, you should delete all app-specific resources. To do delete resources, you can delete the resource group that contains your Azure Storage subscription and Azure AI Vision resource. This will remove the storage account, the blobs uploaded to it, and the App Service resource needed to connect with the ASP.NET web app. 
 
 To delete the resource group, open the **Resource groups** tab in the portal, navigate to the resource group you used for this project, and click **Delete resource group** at the top of the view. You'll be asked to type the resource group's name to confirm you want to delete it. Once deleted, a resource group can't be recovered.
 
 ## Next steps
 
-There's much more that you could do to use Azure and develop your Intellipix app even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=academiccontent-github-cxa) to call the Computer Vision API asynchronously each time an image is added to blob storage. You could also do any number of other Image Analysis operations on the image, outlined in the overview.
+There's much more that you could do to use Azure and develop your Intellipix app even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Azure AI services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=academiccontent-github-cxa) to call the Azure AI Vision API asynchronously each time an image is added to blob storage. You could also do any number of other Image Analysis operations on the image, outlined in the overview.
 
 > [!div class="nextstepaction"]
 > [Image Analysis overview](../overview-image-analysis.md)

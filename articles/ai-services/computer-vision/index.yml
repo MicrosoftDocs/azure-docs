@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Computer Vision documentation # < 60 chars
-summary: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
+title: Azure AI Vision documentation # < 60 chars
+summary: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
-  title: Computer Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
-  description: The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
+  title: Azure AI Vision documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
+  description: The cloud-based Azure AI Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Azure AI Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: computer-vision
@@ -17,10 +17,10 @@ metadata:
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
     items:
-      - title: About Computer Vision
+      - title: About Azure AI Vision
         itemType: overview
         url: overview.md
-      - title: What's new in Computer Vision?
+      - title: What's new in Azure AI Vision?
         itemType: whats-new
         url: whats-new.md
       - title: Vision Studio
@@ -145,7 +145,7 @@ conceptualContent:
 
 tools:
   title: Software development kits (SDKs)
-  summary: Get started with the Computer Vision SDK in your favorite programming language.
+  summary: Get started with the Azure AI Vision SDK in your favorite programming language.
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg

@@ -1,7 +1,7 @@
 ---
 title: How to specify a detection model - Face
-titleSuffix: Azure Cognitive Services
-description: This article will show you how to choose which face detection model to use with your Azure Face application.
+titleSuffix: Azure AI services
+description: This article will show you how to choose which face detection model to use with your Azure AI Face application.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 # Specify a face detection model
 
-This guide shows you how to specify a face detection model for the Azure Face service.
+This guide shows you how to specify a face detection model for the Azure AI Face service.
 
 The Face service uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face detection model they'd like to use; they can choose the model that best fits their use case.
 

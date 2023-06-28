@@ -1,6 +1,6 @@
 ---
 title: Migrating to the Read v3.x containers
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to migrate to the v3 Read OCR containers
 services: cognitive-services 
 author: aahill
@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-vision
 
 # Migrate to the Read v3.x OCR containers
 
-If you're using version 2 of the Computer Vision Read OCR container, Use this article to learn about upgrading your application to use version 3.x of the container. 
+If you're using version 2 of the Azure AI Vision Read OCR container, Use this article to learn about upgrading your application to use version 3.x of the container. 
 
 
 ## Configuration changes
@@ -25,13 +25,13 @@ If you're using version 2 of the Computer Vision Read OCR container, Use this ar
 
 ## API changes
 
-The Read v3.2 container uses version 3 of the Computer Vision API and has the following endpoints:
+The Read v3.2 container uses version 3 of the Azure AI Vision API and has the following endpoints:
 
 * `/vision/v3.2/read/analyzeResults/{operationId}`
 * `/vision/v3.2/read/analyze`
 * `/vision/v3.2/read/syncAnalyze`
 
-See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Sync operations are only supported in containers.
+See the [Azure AI Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Sync operations are only supported in containers.
 
 ## Memory requirements
 
@@ -79,5 +79,5 @@ Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which set
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
 * Refer to the [Read API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
-* Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Computer Vision functionality.
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Azure AI Vision functionality.
+* Use more [Azure AI services Containers](../cognitive-services-container-support.md)

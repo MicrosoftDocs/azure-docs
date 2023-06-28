@@ -1,6 +1,6 @@
 ---
 title: Container requirements and recommendations
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme

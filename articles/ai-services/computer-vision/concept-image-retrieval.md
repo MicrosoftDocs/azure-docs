@@ -1,6 +1,6 @@
 ---
 title: Image Retrieval concepts - Image Analysis 4.0
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Concepts related to image vectorization using the Image Analysis 4.0 API.
 services: cognitive-services
 author: PatrickFarley

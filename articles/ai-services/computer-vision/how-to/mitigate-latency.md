@@ -1,6 +1,6 @@
 ---
 title: How to mitigate latency when using the Face service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to mitigate latency when using the Face service.
 services: cognitive-services
 author: PatrickFarley
@@ -22,10 +22,10 @@ You may encounter latency when using the Face service. Latency refers to any kin
 - The time required by antivirus applications, firewalls, and other security mechanisms to inspect packets.
 - Malfunctions in client or server applications.
 
-This article talks about possible causes of latency specific to using the Azure Cognitive Services, and how you can mitigate these causes.
+This article talks about possible causes of latency specific to using the Azure AI services, and how you can mitigate these causes.
 
 > [!NOTE]
-> Azure Cognitive Services does not provide any Service Level Agreement (SLA) regarding latency.
+> Azure AI services does not provide any Service Level Agreement (SLA) regarding latency.
 
 ## Possible causes of latency
 

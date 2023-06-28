@@ -1,6 +1,6 @@
 ---
 title: Deploy a Spatial Analysis web app
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to use Spatial Analysis in a web application.
 services: cognitive-services
 author: PatrickFarley
@@ -74,10 +74,10 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
     "value": "accept"
 },
 "BILLING":{ 
-    "value": "<Use the endpoint from your Computer Vision resource>"
+    "value": "<Use the endpoint from your Azure AI Vision resource>"
 },
 "APIKEY":{
-    "value": "<Use a key from your Computer Vision resource>"
+    "value": "<Use a key from your Azure AI Vision resource>"
 }
 ```
 

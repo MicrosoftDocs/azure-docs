@@ -1,6 +1,6 @@
 ---
 title: API Reference - Face
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: API reference provides information about the Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList, and Face Algorithms APIs.
 services: cognitive-services
 author: nitinme
@@ -15,7 +15,7 @@ ms.author: nitinme
 
 # Face API reference list
 
-Azure Face is a cloud-based service that provides algorithms for face detection and recognition. The Face APIs comprise the following categories:
+Azure AI Face is a cloud-based service that provides algorithms for face detection and recognition. The Face APIs comprise the following categories:
 
 - Face Algorithm APIs: Cover core functions such as [Detection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), and [Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 - [FaceList APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): Used to manage a FaceList for [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).

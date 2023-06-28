@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Optical character recognition using Vision Studio"
-titleSuffix: "Azure Cognitive Services"
+titleSuffix: "Azure AI services"
 description: In this quickstart, get started with the OCR service using Vision Studio.
 services: cognitive-services
 author: PatrickFarley
@@ -15,7 +15,7 @@ ms.author: pafarley
 
 ## Prerequisites
 
-* Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
+* Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Azure AI services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 
 
 

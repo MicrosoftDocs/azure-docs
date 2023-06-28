@@ -1,10 +1,10 @@
 items:
-- name: Computer Vision Documentation
+- name: Azure AI Vision Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Computer Vision?
+  - name: What is Azure AI Vision?
     href: overview.md
   - name: Vision Studio
     href: overview-vision-studio.md
@@ -14,7 +14,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: What's new
     href: whats-new.md
-  - name: Computer Vision FAQ
+  - name: Azure AI Vision FAQ
     href: FAQ.yml
 - name: Scenario deep-dives
   items:
@@ -71,7 +71,7 @@ items:
         displayName: container instances, container, containers, images
       - name: Use containers in disconnected environments
         href: ../containers/disconnected-containers.md
-      - name: All Cognitive Services containers
+      - name: All Azure AI services containers
         href: ../containers/index.yml
         maintainContext: true
   - name: Reference
@@ -116,17 +116,17 @@ items:
         href: https://github.com/Azure-Samples/azure-ai-vision-sdk
     - name: Version 3.2
       items:
-      - name: Cognitive Services .NET SDK samples
+      - name: Azure AI services .NET SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples
-      - name: Cognitive Services Java SDK samples
+      - name: Azure AI services Java SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples
-      - name: Cognitive Services Node.js SDK samples
+      - name: Azure AI services Node.js SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
       - name: JavaScript Static Web app
         href: https://github.com/azure-samples/js-e2e-client-cognitive-services/tree/main/
-      - name: Cognitive Services Python SDK samples
+      - name: Azure AI services Python SDK samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
-      - name: Cognitive Services Go SDK Samples
+      - name: Azure AI services Go SDK Samples
         href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Responsible use of AI
     items:
@@ -386,7 +386,7 @@ items:
         href: spatial-analysis-zone-line-placement.md
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
-      - name: All Cognitive Services containers
+      - name: All Azure AI services containers
         href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: How-to guides
   items:

@@ -1,6 +1,6 @@
 ---
 title: Spatial Analysis operations
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Spatial Analysis operations.
 services: cognitive-services
 author: PatrickFarley
@@ -31,7 +31,7 @@ All of the above operations are also available in the `.debug` version of the se
 
 
 > [!IMPORTANT]
-> The Computer Vision AI models detect and locate human presence in video footage and output a bounding box around the human body. The AI models do not attempt to discover the identities or demographics of individuals.
+> The Azure AI Vision AI models detect and locate human presence in video footage and output a bounding box around the human body. The AI models do not attempt to discover the identities or demographics of individuals.
 
 ## Operation parameters
 

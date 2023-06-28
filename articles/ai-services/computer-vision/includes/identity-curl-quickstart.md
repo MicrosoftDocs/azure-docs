@@ -84,7 +84,7 @@ To delete the **LargePersonGroup** you created in this exercise, run the LargePe
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_delete":::
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove a Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

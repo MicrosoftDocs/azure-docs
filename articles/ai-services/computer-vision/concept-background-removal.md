@@ -1,6 +1,6 @@
 ---
 title: Background removal - Image Analysis
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about background removal, an operation of Image Analysis
 services: cognitive-services
 author: PatrickFarley

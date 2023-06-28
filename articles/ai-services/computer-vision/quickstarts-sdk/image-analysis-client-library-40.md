@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Image Analysis 4.0"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to tag images in your application using Image Analysis 4.0 through a native client SDK in the language of your choice.
 services: cognitive-services
 author: PatrickFarley
@@ -13,7 +13,7 @@ ms.author: pafarley
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-dotnet
 zone_pivot_groups: programming-languages-computer-vision-40
-keywords: computer vision, computer vision service
+keywords: Azure AI Vision, Azure AI Vision service
 ---
 
 # Quickstart: Image Analysis 4.0

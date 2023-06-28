@@ -1,7 +1,7 @@
 ---
 title: "Example: Add faces to a PersonGroup - Face"
-titleSuffix: Azure Cognitive Services
-description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face service.
+titleSuffix: Azure AI services
+description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure AI Face service.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure Cognitive Services Face .NET client library.
+This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure AI Face .NET client library.
 
 ## Step 1: Initialization
 

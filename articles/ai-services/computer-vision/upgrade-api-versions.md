@@ -1,7 +1,7 @@
 ---
-title: Upgrade to Read v3.0 of the Computer Vision API
-titleSuffix: Azure Cognitive Services
-description: Learn how to upgrade to Computer Vision v3.0 Read API from v2.0/v2.1.
+title: Upgrade to Read v3.0 of the Azure AI Vision API
+titleSuffix: Azure AI services
+description: Learn how to upgrade to Azure AI Vision v3.0 Read API from v2.0/v2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -171,7 +171,7 @@ In v3.0, it has been adjusted:
 ## Service only
 
 ### `Recognize Text`
-`Recognize Text` is a *preview* operation that is being *deprecated in all versions of Computer Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and other features, so it's recommended. To upgrade from `Recognize Text` to `Read`:
+`Recognize Text` is a *preview* operation that is being *deprecated in all versions of Azure AI Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and other features, so it's recommended. To upgrade from `Recognize Text` to `Read`:
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|

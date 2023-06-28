@@ -1,6 +1,6 @@
 ---
 title: Do image retrieval using vectorization - Image Analysis 4.0
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to call the image retrieval API to vectorize image and search terms.
 services: cognitive-services
 author: PatrickFarley
@@ -24,7 +24,7 @@ The Image Retrieval APIs enable the _vectorization_ of images and text queries. 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia. 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Azure AI Vision resource"  target="_blank">create a Azure AI Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia. 
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
 ## Try out Image Retrieval
@@ -41,8 +41,8 @@ You can try out the Image Retrieval feature quickly and easily in your browser u
 
 The `retrieval:vectorizeImage` API lets you convert an image's data to a vector. To call it, make the following changes to the cURL command below:
 
-1. Replace `<endpoint>` with your Computer Vision endpoint.
-1. Replace `<subscription-key>` with your Computer Vision key.
+1. Replace `<endpoint>` with your Azure AI Vision endpoint.
+1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"url"` to the URL of a remote image you want to use.
 
 ```bash
@@ -67,8 +67,8 @@ The API call returns an **vector** JSON object, which defines the image's coordi
 
 The `retrieval:vectorizeText` API lets you convert a text string to a vector. To call it, make the following changes to the cURL command below:
 
-1. Replace `<endpoint>` with your Computer Vision endpoint.
-1. Replace `<subscription-key>` with your Computer Vision key.
+1. Replace `<endpoint>` with your Azure AI Vision endpoint.
+1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"text"` to the example search term you want to use.
 
 ```bash

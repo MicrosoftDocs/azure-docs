@@ -1,7 +1,7 @@
 ---
 title: Face service encryption of data at rest
-titleSuffix: Azure Cognitive Services
-description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Face, and how to enable and manage CMK. 
+titleSuffix: Azure AI services
+description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Azure AI services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Face, and how to enable and manage CMK. 
 author: erindormier
 manager: venkyv
 
@@ -27,6 +27,6 @@ The Face service automatically encrypts your data when persisted to the cloud. T
 
 ## Next steps
 
-* For a full list of services that support CMK, see [Customer-Managed Keys for Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
+* For a full list of services that support CMK, see [Customer-Managed Keys for Azure AI services](../encryption/cognitive-services-encryption-keys-portal.md)
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
-* [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
