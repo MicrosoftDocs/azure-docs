@@ -28,6 +28,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## June 2023
 
+- **Private Link for Azure Database for MySQL - Flexible Server (Preview)**
+
+  You can now enable private access to Azure Database for MySQL - flexible server using Private Link. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). Using the private IP address, the MySQL flexible server is accessible just like any other resource within the VNet. [Learn more](./concepts-networking-private-link.md).
+
 - **Enhanced Data Encryption with Customer Managed Keys for Azure Database for MySQL - Flexible Server**
 
   Azure Database for MySQL - Flexible Server now supports allowing access to Azure Key Vault from selected Vnets for enabling data encryption using Customer Managed Keys. [Learn more](./concepts-customer-managed-key.md).
@@ -49,9 +53,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## May 2023
 
-- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server**
+- **Read-Replica in Geo-Paired Region on Azure Database for MySQL- Flexible Server (General Availability)**
 
-  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](how-to-read-replicas-portal.md)
+  Azure Database for MySQL - Flexible server now supports cross region read-replica in a geo-paired region. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in geo-paired region. [Learn more](concepts-read-replicas.md)
 
 - **Support for data-in replication using GTID**
 
@@ -434,7 +438,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   - Australia Southeast
   - South Africa North
-  - East Asia (Hong Kong)
+  - East Asia (Hong Kong Special Administrative Region)
   - Central India
 
    [Learn more](overview.md#azure-regions).

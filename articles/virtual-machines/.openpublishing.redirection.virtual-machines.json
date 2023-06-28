@@ -76,6 +76,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/convert-disk-storage.md",
+            "redirect_url": "/azure/storagevirtual-machines/disks-convert-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/convert-disk-storage.md",
+            "redirect_url": "/azure/storagevirtual-machines/disks-convert-types",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/windows/aws-to-azure.md",
             "redirect_url": "/azure/migrate/tutorial-migrate-aws-virtual-machines",
             "redirect_document_id": false
@@ -3347,11 +3357,6 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/classic/oracle-images.md",
-            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/workloads/oracle/index.md",
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
             "redirect_document_id": false
         },

@@ -173,6 +173,7 @@ Notice that after the uploaded image disappears, a copy of the uploaded image is
 
 ![Screenshot that shows a published web app titled "ImageResizer" in a browser for the \.NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
+[previous-tutorial]: storage-upload-process-images.md
 
 ## Next steps
 See other tutorials in the Tutorials section of the table of content (TOC).
