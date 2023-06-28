@@ -1,7 +1,7 @@
 ---
 title: Use Docker Compose to deploy multiple containers
-titleSuffix: Azure Cognitive Services
-description: Learn how to deploy multiple Cognitive Services containers. This article shows you how to orchestrate multiple Docker container images by using Docker Compose.
+titleSuffix: Azure AI services
+description: Learn how to deploy multiple Azure AI services containers. This article shows you how to orchestrate multiple Docker container images by using Docker Compose.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -17,11 +17,11 @@ ms.author: aahi
 
 # Use Docker Compose to deploy multiple containers
 
-This article shows you how to deploy multiple Azure Cognitive Services containers. Specifically, you'll learn how to use Docker Compose to orchestrate multiple Docker container images.
+This article shows you how to deploy multiple Azure AI services containers. Specifically, you'll learn how to use Docker Compose to orchestrate multiple Docker container images.
 
 > [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications. In Compose, you use a YAML file to configure your application's services. Then, you create and start all the services from your configuration by running a single command.
 
-It can be useful to orchestrate multiple container images on a single host computer. In this article, we'll pull together the Read and Form Recognizer containers.
+It can be useful to orchestrate multiple container images on a single host computer. In this article, we'll pull together the Read and Document Intelligence containers.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ This procedure requires several tools that must be installed and run locally:
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 * [Docker Engine](https://www.docker.com/products/docker-engine). Confirm that the Docker CLI works in a console window.
 * An Azure resource with the correct pricing tier. Only the following pricing tiers work with this container:
-  * **Computer Vision** resource with F0 or Standard pricing tier only.
-  * **Form Recognizer** resource with F0 or Standard pricing tier only.
-  * **Cognitive Services** resource with the S0 pricing tier.
+  * **Azure AI Vision** resource with F0 or Standard pricing tier only.
+  * **Document Intelligence** resource with F0 or Standard pricing tier only.
+  * **Azure AI services** resource with the S0 pricing tier.
 * If you're using a gated preview container, You will need to complete the [online request form](https://aka.ms/csgate/) to use it.
 
 ## Docker Compose file
@@ -46,10 +46,10 @@ services:
     image: "mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout"
     environment:
        eula: accept
-       billing: # < Your form recognizer billing URL >
-       apikey: # < Your form recognizer API key >
-       FormRecognizer__ComputerVisionApiKey: # < Your form recognizer API key >
-       FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
+       billing: # < Your Document Intelligence billing URL >
+       apikey: # < Your Document Intelligence API key >
+       FormRecognizer__ComputerVisionApiKey: # < Your Document Intelligence API key >
+       FormRecognizer__ComputerVisionEndpointUri: # < Your Document Intelligence URI >
     volumes:
        - type: bind
          source: E:\publicpreview\output
@@ -64,8 +64,8 @@ services:
     image: "mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview"
     environment:
       eula: accept
-      apikey: # < Your computer vision API key >
-      billing: # < Your computer vision billing URL >
+      apikey: # < Your Azure AI Vision API key >
+      billing: # < Your Azure AI Vision billing URL >
     ports:
       - "5021:5000"
 ```
@@ -163,10 +163,10 @@ IMAGE ID            REPOSITORY                                                  
 
 ### Test containers
 
-Open a browser on the host machine and go to **localhost** by using the specified port from the *docker-compose.yaml* file, such as http://localhost:5021/swagger/index.html. For example, you could use the **Try It** feature in the API to test the Form Recognizer endpoint. Both containers swagger pages should be available and testable.
+Open a browser on the host machine and go to **localhost** by using the specified port from the *docker-compose.yaml* file, such as http://localhost:5021/swagger/index.html. For example, you could use the **Try It** feature in the API to test the Document Intelligence endpoint. Both containers swagger pages should be available and testable.
 
-![Form Recognizer Container](media/form-recognizer-swagger-page.png)
+![Document Intelligence Container](media/form-recognizer-swagger-page.png)
 
 ## Next steps
 
-[Cognitive Services containers](../cognitive-services-container-support.md)
+[Azure AI services containers](../cognitive-services-container-support.md)

@@ -1,6 +1,6 @@
 ---
 title: Container support
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to create an Azure container instance resource from the Azure CLI.
 services: cognitive-services
 author: aahill
