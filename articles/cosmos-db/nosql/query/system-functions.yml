@@ -1,44 +1,215 @@
----
-title: System functions in Azure Cosmos DB query language
-description: Learn about built-in and user defined SQL system functions in Azure Cosmos DB.
-author: ginamr
-ms.service: cosmos-db
-ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 02/03/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
----
-# System functions (Azure Cosmos DB)
-[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+### YamlMime:Landing
 
- Azure Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
-  
-|Function group|Description|Operations|  
-|--------------|-----------------|-----------------| 
-|[Array functions](array-functions.md)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value. | [ARRAY_CONCAT](array-concat.md), [ARRAY_CONTAINS](array-contains.md), [ARRAY_LENGTH](array-length.md), [ARRAY_SLICE](array-slice.md) |
-|[Date and Time functions](date-time-functions.md)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. | [GetCurrentDateTime](getcurrentdatetime.md), [GetCurrentTimestamp](getcurrenttimestamp.md), [GetCurrentTicks](getcurrentticks.md) |
-|[Mathematical functions](mathematical-functions.md)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value. | [ABS](abs.md), [ACOS](acos.md), [ASIN](asin.md), [ATAN](atan.md), [ATN2](atn2.md), [CEILING](ceiling.md), [COS](cos.md), [COT](cot.md), [DEGREES](degrees.md), [EXP](exp.md), [FLOOR](floor.md), [LOG](log.md), [LOG10](log10.md), [PI](pi.md), [POWER](power.md), [RADIANS](radians.md), [RAND](rand.md), [ROUND](round.md), [SIGN](sign.md), [SIN](sin.md), [SQRT](sqrt.md), [SQUARE](square.md), [TAN](tan.md), [TRUNC](trunc.md) |
-|[Spatial functions](spatial-functions.md)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value. | [ST_DISTANCE](st-distance.md), [ST_INTERSECTS](st-intersects.md), [ST_ISVALID](st-isvalid.md), [ST_ISVALIDDETAILED](st-isvaliddetailed.md), [ST_WITHIN](st-within.md) |
-|[String functions](string-functions.md)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value. | [CONCAT](concat.md), [CONTAINS](contains.md), [ENDSWITH](endswith.md), [INDEX_OF](index-of.md), [LEFT](left.md), [LENGTH](length.md), [LOWER](lower.md), [LTRIM](ltrim.md), [REGEXMATCH](regexmatch.md)[REPLACE](replace.md), [REPLICATE](replicate.md), [REVERSE](reverse.md), [RIGHT](right.md), [RTRIM](rtrim.md), [STARTSWITH](startswith.md), [StringToArray](stringtoarray.md), [StringToBoolean](stringtoboolean.md), [StringToNull](stringtonull.md), [StringToNumber](stringtonumber.md), [StringToObject](stringtoobject.md), [SUBSTRING](substring.md), [ToString](tostring.md), [TRIM](trim.md), [UPPER](upper.md) |
-|[Type checking functions](type-checking-functions.md)|The type checking functions allow you to check the type of an expression within SQL queries. | [IS_ARRAY](is-array.md), [IS_BOOL](is-bool.md), [IS_DEFINED](is-defined.md), [IS_NULL](is-null.md), [IS_NUMBER](is-number.md), [IS_OBJECT](is-object.md), [IS_PRIMITIVE](is-primitive.md), [IS_STRING](is-string.md) |
+title: System functions in Azure Cosmos DB for NoSQL
+summary: Azure Cosmos DB for NoSQL provides many built-in system functions for common tasks across a wide variety of categories.
 
-## Built-in versus User Defined Functions (UDFs)
+metadata:
+  title: System functions (NoSQL query)
+  titleSuffix: Azure Cosmos DB for NoSQL
+  description: Azure Cosmos DB for NoSQL provides many built-in system functions for common tasks across a wide variety of categories.
+  author: jcodella
+  ms.author: jacodel
+  ms.reviewer: sidandrews
+  ms.service: cosmos-db
+  ms.subservice: nosql
+  ms.topic: landing-page
+  ms.date: 07/01/2023
+  ms.custom: query-reference
 
-If you’re currently using a user-defined function (UDF) for which a built-in function is now available, the corresponding built-in function will be quicker to run and more efficient.
-
-## Built-in versus ANSI SQL functions
-
-The main difference between Azure Cosmos DB functions and ANSI SQL functions is that Azure Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like `undefined`, the item is skipped instead of returning an error.
-
-## Next steps
-
-- [Introduction to Azure Cosmos DB](../../introduction.md)
-- [Array functions](array-functions.md)
-- [Date and time functions](date-time-functions.md)
-- [Mathematical functions](mathematical-functions.md)
-- [Spatial functions](spatial-functions.md)
-- [String functions](string-functions.md)
-- [Type checking functions](type-checking-functions.md)
-- [User Defined Functions](udfs.md)
-- [Aggregates](aggregate-functions.md)
+landingContent:
+  - title: Array functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ARRAY_CONCAT
+            url: array-concat.md
+          - text: ARRAY_CONTAINS
+            url: array-contains.md
+          - text: ARRAY_LENGTH
+            url: array-length.md
+          - text: ARRAY_SLICE
+            url: array-slice.md
+  - title: Date and time functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: GetCurrentDateTime
+            url: getcurrentdatetime.md
+          - text: GetCurrentTimestamp
+            url: getcurrenttimestamp.md
+          - text: GetCurrentTicks
+            url: getcurrentticks.md
+      - linkListType: reference
+        links:
+          - text: DateTimeAdd
+            url: datetimeadd.md
+          - text: DateTimeBin
+            url: datetimebin.md
+          - text: DateTimeDiff
+            url: datetimediff.md
+          - text: DateTimeFromParts
+            url: datetimefromparts.md
+          - text: DateTimePart
+            url: datetimepart.md
+          - text: DateTimeToTicks
+            url: datetimetoticks.md
+          - text: DateTimeToTimestamp
+            url: datetimetotimestamp.md
+          - text: TicksToDateTime
+            url: tickstodatetime.md
+          - text: TimestampToDateTime
+            url: timestamptodatetime.md
+  - title: Mathematical functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ABS
+            url: abs.md
+          - text: ACOS
+            url: acos.md
+          - text: ASIN
+            url: asin.md
+          - text: ATAN
+            url: atan.md
+          - text: ATN2
+            url: atn2.md
+          - text: CEILING
+            url: ceiling.md
+          - text: COS
+            url: cos.md
+          - text: COT
+            url: cot.md
+      - linkListType: reference
+        links:
+          - text: DEGREES
+            url: degrees.md
+          - text: EXP
+            url: exp.md
+          - text: FLOOR
+            url: floor.md
+          - text: LOG
+            url: log.md
+          - text: LOG10
+            url: log10.md
+          - text: PI
+            url: pi.md
+          - text: POWER
+            url: power.md
+          - text: RADIANS
+            url: radians.md
+      - linkListType: reference
+        links:
+          - text: RAND
+            url: rand.md
+          - text: ROUND
+            url: round.md
+          - text: SIGN
+            url: sign.md
+          - text: SIN
+            url: sin.md
+          - text: SQRT
+            url: sqrt.md
+          - text: SQUARE
+            url: square.md
+          - text: TAN
+            url: tan.md
+          - text: TRUNC
+            url: trunc.md
+  - title: Spatial functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ST_AREA
+            url: st-area.md
+          - text: ST_DISTANCE
+            url: st-distance.md
+          - text: ST_INTERSECTS
+            url: st-intersects.md
+          - text: ST_ISVALID
+            url: st-isvalid.md
+          - text: ST_ISVALIDDETAILED
+            url: st-isvaliddetailed.md
+          - text: ST_WITHIN
+            url: st-within.md
+  - title: String functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: CONCAT
+            url: concat.md
+          - text: CONTAINS
+            url: contains.md
+          - text: ENDSWITH
+            url: endswith.md
+          - text: INDEX_OF
+            url: index-of.md
+          - text: LEFT
+            url: left.md
+      - linkListType: reference
+        links:
+          - text: LENGTH
+            url: length.md
+          - text: LOWER
+            url: lower.md
+          - text: LTRIM
+            url: ltrim.md
+          - text: REGEXMATCH
+            url: regexmatch.md
+          - text: REPLACE
+            url: replace.md
+      - linkListType: reference
+        links:
+          - text: REPLICATE
+            url: replicate.md
+          - text: REVERSE
+            url: reverse.md
+          - text: RIGHT
+            url: right.md
+          - text: RTRIM
+            url: rtrim.md
+          - text: STARTSWITH
+            url: startswith.md
+      - linkListType: reference
+        links:
+          - text: STRINGEQUALS
+            url: stringequals.md
+          - text: StringToArray
+            url: stringtoarray.md
+          - text: StringToBoolean
+            url: stringtoboolean.md
+          - text: StringToNull
+            url: stringtonull.md
+          - text: StringToNumber
+            url: stringtonumber.md
+      - linkListType: reference
+        links:
+          - text: StringToObject
+            url: stringtoobject.md
+          - text: SUBSTRING
+            url: substring.md
+          - text: ToString
+            url: tostring.md
+          - text: TRIM
+            url: trim.md
+          - text: UPPER
+            url: upper.md
+  - title: Type checking functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: IS_ARRAY
+            url: is-array.md
+          - text: IS_BOOL
+            url: is-bool.md
+          - text: IS_DEFINED
+            url: is-defined.md
+          - text: IS_NULL
+            url: is-null.md
+          - text: IS_NUMBER
+            url: is-number.md
+          - text: IS_OBJECT
+            url: is-object.md
+          - text: IS_PRIMITIVE
+            url: is-primitive.md
+          - text: IS_STRING
+            url: is-string.md
