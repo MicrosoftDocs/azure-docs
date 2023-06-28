@@ -24,12 +24,12 @@ ALI on Epic is available in the following regions:
 
 No, explicit permissions aren't required but you should register the resource provider with your subscription.
 
-## Why am I not able to see the ALI resources in Azure Portal?
+## Why am I not able to see the ALI resources in Azure portal?
 
 Check Azure Policy set up if ALI managed RGs are not reflected in the portal.
 Azure subscription you use for Azure Large Instancesdeployments is already registered with the ALI infrastructure resource provider by the Microsoft Operations team during the provisioning process.
 If you don't see your deployed ALI instances under your subscription, register the resource provider with your subscription. 
-Ensure that your VNET address space provided in the request is the same as what you configure [Working with ALI in the Azure Portal](../../working-with-ali-in-the-azure-portal.md)
+Ensure that your VNET address space provided in the request is the same as what you configure [Working with ALI in the Azure portal](../../working-with-ali-in-the-azure-portal.md)
 
 ## Is it possible to have Azure ARC installed on Azure Large Instances?
 
@@ -39,7 +39,7 @@ If you need guidance, create a support ticket with Azure Customer Support so tha
 ## How do I monitor Azure Large Instances(ALI) for Epic?
 
 ALI is an IaaS offering and Azure teams are actively monitoring ALI infrastructure (network devices, storage appliances, server hardware, etc.).
-Customer alerts related to infrastructure will be provided only via Azure Portal’s Service Health.  
+Customer alerts related to infrastructure will be provided only via Azure portal’s Service Health.  
 Customers are highly recommended to set up Service Health alerts to get notified via their preferred communication channels when service issues, planned maintenance, or other changes happen around ALI.
 
  For more information, see [Configure Azure Service Health Alerts](configure-azure-service-health-alerts.md)

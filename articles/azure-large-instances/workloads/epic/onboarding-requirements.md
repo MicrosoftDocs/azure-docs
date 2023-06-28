@@ -38,7 +38,7 @@ Install a red hat satellite server in a VM for RHEL 8.4 and patch download.
 ## ALI for Epic stamps
 
 * Validate ALI for Epic stamps and configure and patch OS based on your requirements.  
-* Verify that the stamps are visible on Azure Portal.
+* Verify that the stamps are visible on Azure portal.
 
   > [!Note]
   > Do *not* place large files like ALI for Epic installation bits on the boot volume. The Boot volume is small and can fill quickly, which could cause the server to hang (50 GB per OS is the boot limit).
@@ -71,7 +71,7 @@ For setup instructions, see [Enable ExpressRoute Fast Path](#enable-expressroute
 
 To see the learned routes from ALI, one of the options is looking at the Effective Routes table of one of your VMs, as follows:
 
-1. In Azure Portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to ALI for Epic), select **Networking**, select the network interface name, then select **Effective Routes**.
+1. In Azure portal, select any of your VMs (any connected to the Hub, or to a Spoke connected to the Hub which is connected to ALI for Epic), select **Networking**, select the network interface name, then select **Effective Routes**.
 
 2. Make sure to enable accelerated networking with all VMs connecting to ALI for Epic (link1) or (link2).
 
