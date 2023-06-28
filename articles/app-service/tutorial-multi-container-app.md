@@ -327,7 +327,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 ### Modify configuration file
 
-In the Cloud Shell, opne the file `docker-compose-wordpress.yml` in a text editor.
+In the Cloud Shell, open the file `docker-compose-wordpress.yml` in a text editor.
 
 The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. You'll use this environment variable in the volumes option so that the WordPress files are installed into persistent storage instead of the container. Make the following modifications to the file:
 
