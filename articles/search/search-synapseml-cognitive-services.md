@@ -42,7 +42,7 @@ You'll need the `synapseml` library and several Azure resources. If possible, us
 
 <sup>2</sup> You can use the free search tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For non-free tiers, you'll need to provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#2---set-up-dependencies) step further on.
 
-<sup>3</sup> This tutorial uses Azure Forms Recognizer and Azure AI Translator. In the instructions that follow, you'll provide a [multi-service key](../ai-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
+<sup>3</sup> This tutorial uses Azure AI Document Intelligence and Azure AI Translator. In the instructions that follow, you'll provide a [multi-service key](../ai-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
 
 <sup>4</sup> In this tutorial, Azure Databricks provides the Spark computing platform and the instructions in the link will tell you how to set up the workspace. For this tutorial, we used the portal steps in "Create a workspace".
 
@@ -270,7 +270,7 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 ## Next steps
 
-In this tutorial, you learned about the [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch) transformer in SynapseML, which is a new way of creating and loading search indexes in Azure Cognitive Search. The transformer takes structured JSON as an input. The FormOntologyLearner can provide the necessary structure for output produced by the Forms Recognizer transformers in SynapseML.
+In this tutorial, you learned about the [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch) transformer in SynapseML, which is a new way of creating and loading search indexes in Azure Cognitive Search. The transformer takes structured JSON as an input. The FormOntologyLearner can provide the necessary structure for output produced by the Document Intelligence transformers in SynapseML.
 
 As a next step, review the other SynapseML tutorials that produce transformed content you might want to explore through Azure Cognitive Search:
 
