@@ -62,6 +62,5 @@ SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
 - [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

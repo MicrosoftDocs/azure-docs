@@ -61,6 +61,5 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
 - [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
