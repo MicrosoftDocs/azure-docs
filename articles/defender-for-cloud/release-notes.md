@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/27/2023
+ms.date: 06/28/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -32,7 +32,7 @@ Updates in July include:
 
 July 1, 2023
 
-Data-aware security in Microsoft Defender for Cloud is now Generally Available. It helps customers to reduce data risk, and respond to data breaches. Using data-aware security posture you can:
+Data-aware security posture in Microsoft Defender for Cloud is now Generally Available. It helps customers to reduce data risk, and respond to data breaches. Using data-aware security posture you can:
 
 - Automatically discover sensitive data resources across Azure and AWS.
 - Evaluate data sensitivity, data exposure, and how data flows across the organization.
