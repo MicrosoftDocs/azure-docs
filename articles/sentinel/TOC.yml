@@ -956,7 +956,7 @@
       - name: Monitor automation rules and playbooks health
         href: monitor-automation-health.md
       - name: Monitor and troubleshoot analytics rules
-        href: monitor-troubleshoot-analytics-rule-execution.md
+        href: monitor-manage-analytics-rule-execution.md
       - name: Audit and monitor the health of analytics rules
         href: monitor-analytics-rule-integrity.md
       - name: Monitor SAP system health and role

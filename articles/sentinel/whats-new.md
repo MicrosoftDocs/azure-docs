@@ -28,9 +28,9 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ### Monitor and troubleshoot the execution of your scheduled analytics rules (Preview)
 
-To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-troubleshoot-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-troubleshoot-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and/or troubleshooting purposes.
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-manage-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-manage-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and/or troubleshooting purposes.
 
-[Learn more about monitoring and troubleshooting analytics rules](monitor-troubleshoot-analytics-rule-execution.md).
+[Learn more about monitoring and troubleshooting analytics rules](monitor-manage-analytics-rule-execution.md).
 
 ## June 2023
 
