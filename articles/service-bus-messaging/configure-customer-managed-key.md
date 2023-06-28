@@ -592,9 +592,8 @@ Here are more details:
 ## Considerations when using geo-disaster recovery
 
 ### Geo-disaster recovery - encryption with system-assigned identities
-To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This step ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace. Therefore, you need to follow these steps: 
 
-Due to this:
 
 - If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you're looking to enable customer managed key, then
     - Break the pairing.
@@ -616,6 +615,9 @@ Conditions for enabling Geo-DR and Encryption with User-Assigned Identities:
 
 1.	Secondary namespace must already have Encryption enabled with a User-Assigned identity if it's to be paired with a primary namespace that has Encryption enabled. 
 2.	It isn't possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
+
+## Autoscale based on memory usage
+To improve the receive throughput, Service Bus keeps some messages in its cache. Service Bus trims the cache only when memory usage exceeds a certain high threshold like 90%. So if an entity is sending messages but not receiving them, those messages are cached and it reflects in increased memory usage. There is nothing to concern about, as Service Bus trims the cache if needed, which eventually causes the memory usage to go down. Memory will not cause any issue unless there is performance or any other issues with the namespace. We recommend that you use the CPU usage metric for autoscaling with Service Bus. 
 
 ## Troubleshoot
 
