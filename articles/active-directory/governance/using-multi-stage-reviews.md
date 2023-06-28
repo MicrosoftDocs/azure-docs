@@ -89,7 +89,7 @@ An example would be a review of a group that grants an IT exception, that an adm
 
 Guest user reviews help organizations that use Azure AD B2B for collaboration. These guest users’ access should be reviewed regularly to check on whether these guest users have the right access still, and that collaboration is still desired, so revoking access or a cleanup of guest user accounts that are no longer needed is possible.
 
-This scenario can be configured with multi-stage reviews similar to how the "Reduce burden on later stage reviewers" scenario works. First, ask guest users to self-review and attest their continued interest and need for collaboration, including the requirement to provide a business justification. Only self-approved guests are progressed to a later stage, where an internal employee or sponsor approve or deny continued access or collaboration.
+This scenario can be configured with multi-stage reviews similar to how the "Reduce burden on later stage reviewers" scenario works. First, ask guest users to self-review and attest their continued interest and need for collaboration, including the requirement to provide a business justification. Only self-approved guests are progressed to a later stage, where an internal employee or sponsor approves or denies continued access or collaboration.
 
 For guest user reviews, also consider leveraging the **Inactive users (on tenant level) only** setting. This will scope the review to inactive external users that haven't signed in to the resource tenant in the number of specified days.
 
