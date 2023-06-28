@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 06/27/2023
 ---
 
 # Deployment stacks (Preview)
@@ -42,9 +42,13 @@ The `2022-08-01-preview` private preview API version has the following limitatio
 
 ## Create deployment stacks
 
-You can create deployment stacks at different scopes, which include resource group, subscription and management group scope. The template used to create a deployment stack can be deployed to any of the scopes. Deny settings mode can be used to block unwanted changes to the managed resources. the scope at which a stack exists determines how a deny settings mode gets applied. For more information, see [Protect managed resources against deletion](#protect-managed-resources-against-deletion).
+jgao: proof-read the following paragraph.
 
-The create deployment stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
+You have the flexibility to create deployment stacks at various scopes, such as resource group, subscription, and management group. The template utilized for creating a deployment stack can be deployed at any of these scopes. By employing the deny settings mode, undesired modifications to the managed resources can be prevented. The application of deny settings mode is determined by the scope in which the stack exists. Typically, deny settings are stored at the scope level rather than the resource level. To ensure the protection of deny settings, it is advisable to store the stack at the parent scope relative to the deployment scope. For further details, please refer to [Protect managed resources against deletion](#protect-managed-resources-against-deletion).
+
+The create-stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
+
+jgao: do I cover the scenarios to deploy template to different resoruce group/subscription/mg? See Angel's PPT.
 
 To create a deployment stack at the resource group scope:
 
@@ -70,6 +74,40 @@ az stack group create \
 
 ---
 
+To create a deployment stack at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzSubscriptionDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DeploymentResourceGroupName '<resource-group-name>' `
+  -DenySettingsMode none
+```
+
+jgao; proof-read the following sentence.
+
+The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources. If the parameter is not specified, the managed resources are stored in the subscription scope.
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deployment-resource-group-name <resource-group-name> \
+  --deny-settings-mode none
+```
+
+jgao; proof-read the following sentence.
+
+The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter is not specified, the managed resources are stored in the subscription scope.
+
+---
+
 To create a deployment stack at the management group scope:
 
 # [PowerShell](#tab/azure-powershell)
@@ -84,6 +122,8 @@ New-AzManagmentGroupDeploymentStack `
   -DenySettingsMode none
 ```
 
+The `deploymentSubscriptionId` parameter specifies the subscription used to store the managed resources. If the parameter is not specified, the managed resources are stored in the management group scope.
+
 # [CLI](#tab/azure-cli)
 
 ```azurecli
@@ -96,41 +136,15 @@ az stack mg create \
   --deny-settings-mode none
 ```
 
----
+jgao: --deployment-subscription or --deployment-subscription-id?
 
-To create a deployment stack at the subscription scope:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DeploymentResourceGroupName '<resource-group-name>' `
-  -DenySettingsMode none
-```
-
-The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources.
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack sub create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deployment-resource-group-name <resource-group-name> \
-  --deny-settings-mode none
-```
-
-The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources.
+The `deployment-subscription` parameter specifies the subscription used to store the managed resources. If the parameter is not specified, the managed resources are stored in the management group scope.
 
 ---
 
 ## List deployment stacks
 
-List deployment stack resources at the resource group scope:
+To list deployment stack resources at the resource group scope:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -148,7 +162,25 @@ az stack group list \
 
 ---
 
-List deployment stack resources at the management group scope:
+To list deployment stack resources at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzSubscriptionDeploymentStack
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub list
+```
+
+---
+
+jgao: specify the subscription parameter?
+
+To list deployment stack resources at the management group scope:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -166,28 +198,9 @@ az stack mg list \
 
 ---
 
-List deployment stack resources at the subscription scope:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Get-AzSubscriptionDeploymentStack
-```
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack sub list
-```
-
----
-
 ## Update deployment stacks
 
-To update a deployment stack, modify the underlying Bicep files, and then
-
-- run the update deployment stack command
-- re-run the create deployment stack command
+To update a deployment stack, which may involve adding or deleting a managed resource, you need to make changes to the underlying Bicep files. Once the modifications are made, you have two options to update the deployment stack: run the update command or re-run the create command.
 
 The list of managed resources can be fully controlled through the infrastructure as code (IaC) design pattern.
 
@@ -220,34 +233,6 @@ az stack group create \
 
 ---
 
-To update a deployment stack at the management group scope:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Set-AzManagmentGroupDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -ManagementGroupId '<management-group-id>' `
-  -DeploymentSubscriptionId '<subscription-id>' `
-  -DenySettingsMode none
-```
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack mg create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --management-group-id <management-group-id> \
-  --deployment-subscription-id <subscription-id> \
-  --deny-settings-mode none
-```
-
----
-
 To update a deployment stack at the subscription scope:
 
 # [PowerShell](#tab/azure-powershell)
@@ -271,6 +256,34 @@ az stack sub create \
   --location <location> \
   --template-file <bicep-file-name> \
   --deployment-resource-group-name <resource-group-name> \
+  --deny-settings-mode none
+```
+
+---
+
+To update a deployment stack at the management group scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzManagmentGroupDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -ManagementGroupId '<management-group-id>' `
+  -DeploymentSubscriptionId '<subscription-id>' `
+  -DenySettingsMode none
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack mg create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --management-group-id <management-group-id> \
+  --deployment-subscription-id <subscription-id> \
   --deny-settings-mode none
 ```
 
@@ -356,7 +369,7 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 Even if you specify the delete all switch, if there are unmanaged resources within the resource group where the deployment stack is located, both the unmanaged resource and the resource group itself will not be deleted.
 
-Delete deployment stack resources at the resource group scope:
+To delete deployment stack resources at the resource group scope:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -378,7 +391,27 @@ az stack group delete \
 
 ---
 
-Delete deployment stack resources at the management group scope:
+To delete deployment stack resources at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzSubscriptionDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub delete \
+  --name <deployment-stack-name> \
+  [--delete-all/--delete-resource-groups/--delete-resources]
+```
+
+---
+
+To delete deployment stack resources at the management group scope:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -400,31 +433,11 @@ az stack mg delete \
 
 ---
 
-Delete deployment stack resources at the subscription scope:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Remove-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
-```
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack sub delete \
-  --name <deployment-stack-name> \
-  [--delete-all/--delete-resource-groups/--delete-resources]
-```
-
----
-
 ## View managed resources in deployment stack
 
 During public preview, the deployment stack service doesn't yet have an Azure portal graphical user interface (GUI). To view the managed resources inside a deployment stack, use the following Azure Powershell/Azure CLI commands:
 
-View managed resources at the resource group scope:
+To view managed resources at the resource group scope:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -443,7 +456,25 @@ az stack group list \
 
 ---
 
-View managed resources at the management group scope:
+To view managed resources at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+(Get-AzSubscriptionDeploymentStack -Name '<deployment-stack-name>').Resources
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub show \
+  --name <deployment-stack-name> \
+  --output json
+```
+
+---
+
+To view managed resources at the management group scope:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -462,24 +493,6 @@ az stack mg show \
 
 ---
 
-View managed resources at the subscription scope:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-(Get-AzSubscriptionDeploymentStack -Name '<deployment-stack-name>').Resources
-```
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack sub show \
-  --name <deployment-stack-name> \
-  --output json
-```
-
----
-
 ## Add resources to deployment stack
 
 See [Update deployment stacks](#update-deployment-stacks).
@@ -490,7 +503,7 @@ See [Update deployment stacks](#update-deployment-stacks).
 
 ## Protect managed resources against deletion
 
-When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope. 
+When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -564,6 +577,62 @@ az stack group create \
 
 ---
 
+To apply deny settings at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzSubscriptionDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsExcludedPrincipals <object-id> <object-id>
+```
+
+The following sample applies deny settings to the child scopes at the subscription scope:
+
+```azurepowershell
+New-AzSubscriptionDeploymentStack `
+  -Name '<deployment-stack-name>' `
+  -Location '<location>' `
+  -TemplateFile '<bicep-file-name>' `
+  -DenySettingsMode DenyDelete `
+  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
+  -DenySettingsApplyToChildScopes
+```
+
+Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-excluded-principals <object-id> <object-id>
+```
+
+The following sample applies deny settings to the child scopes at the management group scope:
+
+```azurecli
+az stack mg create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete \
+  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
+  --deny-settings-apply-to-child-scopes
+```
+
+Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+
+---
+
 To apply deny settings at the management group scope:
 
 # [PowerShell](#tab/azure-powershell)
@@ -624,62 +693,6 @@ Use the `management-group-id` parameter to specify the management group ID at wh
 
 jgao: is the value of deployment-subscription subscription name or subscription ID?
 
-To apply deny settings at the subscription scope:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode DenyDelete `
-  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
-  -DenySettingsExcludedPrincipals <object-id> <object-id>
-```
-
-The following sample applies deny settings to the child scopes at the subscription scope:
-
-```azurepowershell
-New-AzSubscriptionDeploymentStack `
-  -Name '<deployment-stack-name>' `
-  -Location '<location>' `
-  -TemplateFile '<bicep-file-name>' `
-  -DenySettingsMode DenyDelete `
-  -DenySettingsExcludedActions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete `
-  -DenySettingsApplyToChildScopes
-```
-
-Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack sub create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deny-settings-mode denyDelete \
-  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
-  --deny-settings-excluded-principals <object-id> <object-id>
-```
-
-The following sample applies deny settings to the child scopes at the management group scope:
-
-```azurecli
-az stack mg create \
-  --name <deployment-stack-name> \
-  --location <location> \
-  --template-file <bicep-file-name> \
-  --deny-settings-mode denyDelete \
-  --deny-settings-excluded-actions Microsoft.Compute/virtualMachines/write Microsoft.StorageAccounts/delete \
-  --deny-settings-apply-to-child-scopes
-```
-
-Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
-
----
-
 ## Detach managed resources from deployment stack
 
 By default, deployment stacks detach and don't delete unmanaged resources when they're no longer contained within the stack's management scope. For more information, see [Update deployment stacks](#update-deployment-stacks).
@@ -708,6 +721,24 @@ az stack group save \
 
 ---
 
+To export a deployment stack at the subscription scope:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Save-AzSubscriptionDeploymentStack `
+  -name '<deployment-stack-name>'
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub save \
+  --name <deployment-stack-name>
+```
+
+---
+
 To export a deployment stack at the management group scope:
 
 # [PowerShell](#tab/azure-powershell)
@@ -724,24 +755,6 @@ Save-AzManagmentGroupDeploymentStack `
 az stack mg save \
   --name <deployment-stack-name> \
   --management-group-id <management-group-id>
-```
-
----
-
-To export a deployment stack at the subscription scope:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Save-AzSubscriptionDeploymentStack `
-  -name '<deployment-stack-name>'
-```
-
-# [CLI](#tab/azure-cli)
-
-```azurecli
-az stack sub save \
-  --name <deployment-stack-name>
 ```
 
 ---
