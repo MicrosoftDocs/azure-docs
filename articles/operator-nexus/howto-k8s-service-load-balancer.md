@@ -110,8 +110,8 @@ This parameter file is intended to be used with the [quickStart guide](./quickst
         {
           "addresses": ["<IP>/<CIDR>"],
           "name": "<pool-name>",
-          "autoAssign": "True",  /* "True"/"False" */
-          "onlyUseHostIps": "True"  /* "True"/"False" */
+          "autoAssign": "True",
+          "onlyUseHostIps": "True"
         }
       ]
     }
