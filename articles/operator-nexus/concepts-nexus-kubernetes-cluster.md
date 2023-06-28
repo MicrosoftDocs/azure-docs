@@ -32,7 +32,7 @@ orchestrator, which automates running containerized applications. Nexus
 Kubernetes Cluster is optimized to automate creation of containers to
 run tenant network function workloads.
 
-Like any Kubernetes cluster, Nexus Kubernetes Cluster has two
+Like any Kubernetes cluster, Nexus Kubernetes cluster has two
 components:
 
 • Control plane: provides core Kubernetes services and orchestration of
