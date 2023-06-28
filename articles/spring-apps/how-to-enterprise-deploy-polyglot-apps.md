@@ -456,7 +456,26 @@ The following table indicates the features supported for each language.
 | Web shell connect for troubleshooting                           | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ️   ✔️            |
 | Remote debugging                                                | ✔️   |        |      |           | ️   | ️                                                       | ️                 |
 
-For more information about the supported configurations for different language apps, see the corresponding section later in this article.
+### Java Native Image Limitations
+[Native Image] is a technology to compile Java code ahead-of-time to a native executable. Native images provide various advantages, like an instant startup and reduced memory consumption. They can be packaged into a lightweight container image for faster and more efficient deployment. Because of the Closed World Optimization, there are some [limitations](https://www.graalvm.org/22.1/reference-manual/native-image/Limitations/):
+- The following Java features require configuration at executable build time:
+  - Dynamic Class Loading
+  - Reflection
+  - Dynamic Proxy
+  - JNI (Java Native Interface)
+  - Serialization
+- Bytecode is not available at runtime anymore, so Debugging and Monitoring with tools targeted to the JVMTI is not possible.
+
+The following features are not support in Azure Spring Apps due to the limitation of Java Native Image. Azure Spring Apps will support them as long as the limitation is overcome by Java Native Image and the community.
+| Feature                                           | Why it's not support                                         |
+|---------------------------------------------------|--------------------------------------------------------------|
+| Azure Monitor                                     | GraalVM built native images doesn't support JVM metrics well |
+| Scaling – auto scaling                            | GraalVM built native images doesn't support JVM metrics well |
+| Out of box APM integrations                       | APM Vendor & Buildpack doesn't support native image well |
+| Managed identity                                  | Azure SDKs doesn't support native image well |
+| Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump well |
+| Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging well |
+| Integrate service binding with Resource Connector | JDBC driver or resource SDK doesn't support native image well |
 
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
