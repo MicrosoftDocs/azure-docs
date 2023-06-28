@@ -29,11 +29,11 @@ Azure Cognitive Search is used to index and query content that you host in a sea
 + Vector fields are the unit for indexing and queries
 + Vectors can be pushed or pulled into a search index using familiar approaches (portal, REST APIs, Azure SDKs)
 
-Internally, the search engine creates and manages the vector indexes for vector data. With regard to vector indexes, the only consideration for developers is staying under the [vector index size limit](vector-search-index-size.md) for a search service. 
+Internally, the search engine creates and manages the vector indexes for vector data. Regarding vector indexes, the only consideration for developers is staying under the [vector index size limit](vector-search-index-size.md) for a search service. 
 
 ### About vector search
 
-Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By capturing the intent of the query, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text. This enables new search experiences such as multi-modal search or cross-language search.
+Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By capturing the intent of the query with the embedding, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text. This enables new search experiences such as multi-modal search or cross-language search.
 
 ### Embeddings and vectorization
 
@@ -93,13 +93,13 @@ Here's a simple explanation of the RRF process:
 
 1. Obtain search results from multiple systems: Let's say we have two search systems, A and B. We search for a specific query on both systems and get ranked lists of documents as results.
 
-1. Assign reciprocal rank scores: For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as 1/(rank + k), where rank is the position of the document in the list, and k is a constant, usually set to a small value like 60.
+1. Assign reciprocal rank scores: For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as 1/(rank + k), where rank is the position of the document in the list, and k is a constant which was experimentally observed to perform best if it's set to a small value like 60.
 
 1. Combine scores: For each document, we sum the reciprocal rank scores obtained from each search system. This gives us a combined score for each document. 
 
 1. Rank documents based on combined scores: Finally, we sort the documents based on their combined scores, and the resulting list is the fused ranking.
 
-By default, if you aren't using pagination, Cognitive Search returns the top 50 highest ranking matches for full text search, and it returns `k` matches for vector search. In a hybrid query, the top 50 highest ranked matches of the unified result set is returned. You can use `$top`, `$skip`, and `$next` for paginated results. For more information, see [How to work with search results](search-pagination-page-layout.md).
+By default, if you aren't using pagination, Cognitive Search returns the top 50 highest ranking matches for full text search, and it returns `k` matches for vector search. In a hybrid query, the top 50 highest ranked matches of the unified result set are returned. You can use `$top`, `$skip`, and `$next` for paginated results. For more information, see [How to work with search results](search-pagination-page-layout.md).
 
 ## Next steps
 

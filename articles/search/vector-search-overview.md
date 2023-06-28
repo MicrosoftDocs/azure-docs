@@ -41,9 +41,9 @@ Vector queries can be issued standalone or in combination with other query types
 
 ### Limitations
 
-Azure Cognitive Search does not currently provide vector embedding generation capabilities. You'll need to provide the embeddings yourself by using a service such as Azure OpenAI. Please see the document titled [How to generate embeddings](./vector-search-how-to-generate-embeddings.md) to learn more. Please note the following:
+Azure Cognitive Search doesn't currently provide vector embedding generation capabilities. You need to provide the embeddings yourself by using a service such as Azure OpenAI. See the document titled [How to generate embeddings](./vector-search-how-to-generate-embeddings.md) to learn more. Note the following details:
 
-+ For indexing, vectors must be created and inserted into the source documents. 
++ For document indexing, vectors must be created and inserted into the source documents. 
 + For queries, inputs from the user must be converted to a vector
 + Use the same embedding model for queries and indexes.
 + We recommend Azure OpenAI _text-ada-002_ and image retrieval REST API for vector generation.
@@ -78,7 +78,7 @@ Scenarios for vector search include the following items:
 
 + [Image Retrieval REST API (Preview)](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) supports vectorization of image content. We recommend this API for image vector data in Azure Cognitive Search.
 
-+ Several Azure data platforms now have vector search features in preview, including those listed as a supported data source for indexers. Unless it's mentioned otherwise, you should assume that the vector search previews in other Azure products are independent of Azure Cognitive Search. Having said that, if you want to use the vector capabilities in Azure Cognitive Search with vector data from those data platforms, you can set up an indexer in your search service and pull in vector data using the same workflow as you would for nonvector content.
++ Several Azure data platforms now have vector search features in preview, including those listed as a supported data source for indexers. Unless it's mentioned otherwise, you should assume that the vector search previews in other Azure products are independent of Azure Cognitive Search. If you want to use the vector capabilities in Azure Cognitive Search with vector data from those data platforms, you can set up an indexer in your search service and pull in vector data using the same workflow as you would for nonvector content.
 
   Currently, just two indexer data sources have been tested and are confirmed to work: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index](vector-search-how-to-create-index.md)
 
