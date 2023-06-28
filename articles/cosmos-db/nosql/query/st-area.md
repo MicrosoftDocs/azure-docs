@@ -67,6 +67,6 @@ Using the ST_AREA function to calculate the area of zero or one-dimensional figu
 
 ## Next steps
 
-- [Spatial functions Azure Cosmos DB](spatial-functions.md)
+- [Spatial functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

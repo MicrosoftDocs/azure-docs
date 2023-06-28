@@ -57,10 +57,10 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+Learn about [how this string system function uses the index](system-functions.yml).
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
+- [String functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

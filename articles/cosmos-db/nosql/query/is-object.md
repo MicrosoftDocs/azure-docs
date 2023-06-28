@@ -56,6 +56,6 @@ This system function will benefit from a [range index](../../index-policy.md#inc
 
 ## Next steps
 
-- [Type checking functions Azure Cosmos DB](type-checking-functions.md)
+- [Type checking functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

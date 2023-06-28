@@ -57,6 +57,6 @@ This system function will benefit from a [geospatial index](../../index-policy.m
 
 ## Next steps
 
-- [Spatial functions Azure Cosmos DB](spatial-functions.md)
+- [Spatial functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

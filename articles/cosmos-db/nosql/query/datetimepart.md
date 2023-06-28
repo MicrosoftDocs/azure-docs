@@ -86,6 +86,6 @@ SELECT DateTimePart("mcs", "2020-01-02T03:04:05.6789123Z") AS MicrosecondsValue
 
 ## Next steps
 
-- [Date and time functions Azure Cosmos DB](date-time-functions.md)
+- [Date and time functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

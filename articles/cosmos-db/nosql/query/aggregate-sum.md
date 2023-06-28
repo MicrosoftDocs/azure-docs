@@ -45,6 +45,6 @@ This system function will benefit from a [range index](../../index-policy.md#inc
 
 ## Next steps
 
-- [Mathematical functions in Azure Cosmos DB](mathematical-functions.md)
+- [Mathematical functions in Azure Cosmos DB](system-functions.yml)
 - [System functions in Azure Cosmos DB](system-functions.md)
 - [Aggregate functions in Azure Cosmos DB](aggregate-functions.md)

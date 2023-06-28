@@ -54,6 +54,6 @@ This system function won't [use indexes](../../index-overview.md#index-usage).
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
+- [String functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

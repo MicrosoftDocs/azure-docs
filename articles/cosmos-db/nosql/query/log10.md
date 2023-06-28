@@ -49,6 +49,6 @@ SELECT LOG10(100) AS log10
 
 ## Next steps
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
+- [Mathematical functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

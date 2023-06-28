@@ -114,6 +114,6 @@ SELECT DateTimeFromParts(2020, 9, 4, 10, 52, 12, 3456789) AS DateTime
 
 ## Next steps
 
-- [Date and time functions Azure Cosmos DB](date-time-functions.md)
+- [Date and time functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.md)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
