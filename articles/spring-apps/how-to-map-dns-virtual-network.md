@@ -168,7 +168,7 @@ Use the following command to link the private DNS zone you created to the virtua
 
 ### Assign private FQDN for your applications
 
-Assign a private FQDN for your application. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+Assign a private FQDN for your application.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -215,8 +215,6 @@ You need the IP address for each application. Copy it as described in the [Find 
 
 1. Select **Record set**.
 
-   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png" alt-text="Screenshot of the Azure portal showing the Add record set pane in a Private DNS zone." lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png":::
-
 1. In the **Add record set** pane, enter the values from the following table.
 
    | Setting    | Value                            |
@@ -228,6 +226,8 @@ You need the IP address for each application. Copy it as described in the [Find 
    | IP address | (paste from copy)                |
 
 1. Select **OK**.
+
+   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png" alt-text="Screenshot of the Azure portal showing the Add record set pane in a Private DNS zone." lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
@@ -263,12 +263,11 @@ You must map your custom domain to each of the applications in the Azure Spring 
 1. On the **Apps** page, select an application.
 1. Select **Custom domain** in the navigation pane.
 1. Select **Add Custom domain**.
-
-   :::image type="content" source="./media/how-to-map-dns-virtual-network/add-custom-domain.png" alt-text="Screenshot of the Azure portal showing the Add custom domain pane for an app in an Azure Spring Apps instance." lightbox="./media/how-to-map-dns-virtual-network/add-custom-domain.png":::
-
 1. On the **Add custom domain** pane, enter the FQDN you want to use and make sure it's corresponding to the certificate to use for SSL binding later. This example uses `hello-vnet.azure-spring-apps-1.private.azuremicroservices.io`. You can disregard the CNAME part.
 1. Select **Validate**.
 1. If validated, select **Add**.
+
+   :::image type="content" source="./media/how-to-map-dns-virtual-network/add-custom-domain.png" alt-text="Screenshot of the Azure portal showing the Add custom domain pane for an app in an Azure Spring Apps instance." lightbox="./media/how-to-map-dns-virtual-network/add-custom-domain.png":::
 
 When the custom domain is successfully mapped to the app, it appears in the custom domain table.
 
@@ -346,19 +345,19 @@ You need the IP address for each application. Copy it as described in the [Find 
 
 1. Select **Record set**.
 
-   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png" alt-text="Screenshot of the Azure portal showing Overview page for a private DNS zone with the add record set pane open." lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png":::
-
 1. In the **Add record set** pane, enter the values from the following table.
 
    | Setting    | Value                            |
    |------------|----------------------------------|
-   | Name       | *azure-spring-apps-1-hello-vnet* |
+   | Name       | *\*.azure-spring-apps-1*         |
    | Type       | **A**                            |
    | TTL        | 1                                |
    | TTL unit   | **Hours**                        |
    | IP address | (paste from copy)                |
 
 1. Select **OK**.
+
+   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png" alt-text="Screenshot of the Azure portal showing Overview page for a private DNS zone with the add record set pane open." lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
