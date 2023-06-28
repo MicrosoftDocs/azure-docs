@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 28/06/2022
+ms.date: 06/28/2022
 # Customer intent: As a developer, I want to build a custom wallet using Entra Verified ID Wallet Library.
 
 ---
