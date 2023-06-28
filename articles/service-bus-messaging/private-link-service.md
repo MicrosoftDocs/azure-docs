@@ -57,15 +57,12 @@ If you already have an existing namespace, you can create a private endpoint by 
 
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
-1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Select **Disabled** if you want the namespace to be accessed only via private endpoints. 
-    - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
-    - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
+1. On the **Networking** page, for **Public network access**, select **Disabled** if you want the namespace to be accessed only via private endpoints. 
+1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall. 
 
-        > [!IMPORTANT]
-        > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.       
-    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, Service Bus accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
-5. To allow access to the namespace via private endpoints, select the **Private endpoint connections** tab at the top of the page
-6. Select the **+ Private Endpoint** button at the top of the page.
+    :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled.":::
+1. To allow access to the namespace via private endpoints, select the **Private endpoint connections** tab at the top of the page
+1. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Add private endpoint button](./media/private-link-service/private-link-service-3.png)
 7. On the **Basics** page, follow these steps: 
@@ -190,7 +187,7 @@ There are four provisioning states:
 
 ### Approve a private endpoint connection
 
-1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
 

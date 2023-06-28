@@ -88,6 +88,9 @@ New-AzResourceGroup @rg
 
 Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
 
+>[!NOTE]
+>[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 1. Configure an Azure Bastion subnet for your virtual network. This subnet is reserved exclusively for Azure Bastion resources and must be named **AzureBastionSubnet**.
 
     ```azurepowershell-interactive

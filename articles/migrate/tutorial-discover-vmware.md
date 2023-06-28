@@ -169,6 +169,9 @@ To set up the appliance by using an OVA template, complete these steps, which ar
 
 #### Download the OVA template
 
+> [!NOTE]
+> To make sure you get the latest version of the OVA template refer to the [Azure Migrate appliance requirements](./migrate-appliance.md) under the **Appliance - VMware** section.
+
 In **2: Download Azure Migrate appliance**, select the OVA file, and then select **Download**.
 
 ##### Verify security
