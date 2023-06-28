@@ -56,7 +56,7 @@ ms.author: pafarley
     | **Resource group** | Select the Azure resource group that contains your Cognitive Services resource. You can create a new group or add it to a pre-existing group. |
     | **Region** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
     | **Name** | A descriptive name for your cognitive services resource. For example, *MyCognitiveServicesResource*. |
-    | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see [service quotas and limits](../../../applied-ai-services/form-recognizer/service-limits.md) and [pricing details](https://azure.microsoft.com/pricing/details/form-recognizer/).|
+    | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see [service quotas and limits](../../../ai-services/document-intelligence/service-limits.md) and [pricing details](https://azure.microsoft.com/pricing/details/form-recognizer/).|
 
 1. Select **Review + create**.
 
