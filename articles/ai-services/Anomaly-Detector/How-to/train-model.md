@@ -1,6 +1,6 @@
 ---
 title: Train a Multivariate Anomaly Detection model
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Train a Multivariate Anomaly Detection model
 services: cognitive-services
 author: mrbullwinkle

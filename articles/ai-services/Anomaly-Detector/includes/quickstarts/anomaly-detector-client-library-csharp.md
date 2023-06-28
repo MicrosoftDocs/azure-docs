@@ -1,6 +1,6 @@
 ---
 title: Anomaly Detector .NET client library quickstart
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -186,7 +186,7 @@ namespace anomaly_detector_quickstart
 ```
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
 
 ```cmd
 dotnet run program.cs

@@ -1,6 +1,6 @@
 ---
 title: Regions - Anomaly Detector service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: A list of available regions and endpoints for the Anomaly Detector service, including Univariate Anomaly Detection and Multivariate Anomaly Detection.
 services: cognitive-services
 author: jr-MS

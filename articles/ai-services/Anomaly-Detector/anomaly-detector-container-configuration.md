@@ -1,6 +1,6 @@
 ---
 title: How to configure a container for Anomaly Detector API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Anomaly Detector API container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. 
 services: cognitive-services
 author: mrbullwinkle
@@ -56,7 +56,7 @@ This setting can be found in the following place:
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](anomaly-detector-container-howto.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](anomaly-detector-container-howto.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Azure AI services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -106,7 +106,7 @@ Replace value in brackets, `{}`, with your own values:
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](anomaly-detector-container-howto.md#billing).
-> The ApiKey value is the **Key** from the Azure Anomaly Detector Resource keys page. 
+> The ApiKey value is the **Key** from the Azure AI Anomaly Detector Resource keys page. 
 
 ## Anomaly Detector container Docker examples
 

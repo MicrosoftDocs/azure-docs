@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently asked questions - Anomaly Detector
-  titleSuffix: Azure Cognitive Services
-  description: Get answers to frequently asked questions about the Anomaly Detector Service in Azure Cognitive Services.
+  titleSuffix: Azure AI services
+  description: Get answers to frequently asked questions about the Anomaly Detector Service in Azure AI services.
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: faq
@@ -47,7 +47,7 @@ sections:
       - question: |
           When will I be charged for the Multivariate Anomaly Detection GA version?
         answer:  |
-          Multivariate Anomaly Detection will start charging in January 2023, you can stay up-to-date by checking the Azure Anomaly Detector [Pricing Page](https://aka.ms/adpricing).
+          Multivariate Anomaly Detection will start charging in January 2023, you can stay up-to-date by checking the Azure AI Anomaly Detector [Pricing Page](https://aka.ms/adpricing).
 
 additionalContent: |
   ## Next steps

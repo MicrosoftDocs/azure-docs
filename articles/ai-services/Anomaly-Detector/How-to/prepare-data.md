@@ -1,6 +1,6 @@
 ---
 title: Prepare your data and upload to Storage Account
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Prepare your data and upload to Storage Account
 services: cognitive-services
 author: mrbullwinkle

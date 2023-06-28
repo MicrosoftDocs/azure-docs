@@ -1,6 +1,6 @@
 ---
 title: Best practices for using the Multivariate Anomaly Detector API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Best practices for using the Anomaly Detector Multivariate API's to apply anomaly detection to your time series data.
 services: cognitive-services
 author: mrbullwinkle

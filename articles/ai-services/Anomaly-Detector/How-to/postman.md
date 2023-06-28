@@ -1,6 +1,6 @@
 ---
 title: How to run Multivariate Anomaly Detector API (GA version) in Postman?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to detect anomalies in your data either as a batch, or on streaming data with Postman.
 services: cognitive-services
 author: mrbullwinkle

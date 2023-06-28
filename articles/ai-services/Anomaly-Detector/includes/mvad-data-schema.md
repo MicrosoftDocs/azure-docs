@@ -1,6 +1,6 @@
 ---
 title: MVAD data schema
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: quying
 manager: tonyxin
