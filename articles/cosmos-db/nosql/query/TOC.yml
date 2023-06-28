@@ -106,6 +106,9 @@
         - name: CHOOSE
           displayName: CHOOSE, choose, choose index, select item, array functions
           href: choose.md
+        - name: ObjectToArray
+          displayName: ObjectToArray, object, array, converstion, project items, array functions
+          href: objecttoarray.md
         - name: SetIntersect
           displayName: SetIntersect, array intersect, intersect, array functions
           href: setintersect.md
@@ -164,6 +167,11 @@
         - name: TimestampToDateTime
           displayName: TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp
           href: timestamptodatetime.md
+    - name: Item functions
+      items:
+        - name: DocumentId
+          displayName: DocumentId, document identifier, integer, item functions
+          href: documentid.md
     - name: Mathematical functions
       items:
         - name: ABS
@@ -199,6 +207,18 @@
         - name: FLOOR
           displayName: FLOOR, built-in functions
           href: floor.md
+        - name: IntAdd
+          displayName: IntAdd, int-64, integer, add, addition, built-in functions
+          href: intadd.md
+        - name: IntBitAnd
+          displayName: IntBitAnd, int-64, integer, bitwise, AND, built-in functions
+          href: intbitand.md
+        - name: IntBitLeftShift
+          displayName: IntBitLeftShift, int-64, integer, bitwise, left shift, built-in functions
+          href: intbitleftshift.md
+        - name: IntBitNot
+          displayName: IntBitNot, int-64, integer, bitwise, NOT, built-in functions
+          href: intbitnot.md    
         - name: LOG
           displayName: LOG, logarithm, built-in functions
           href: log.md
@@ -349,6 +369,12 @@
         - name: IS_DEFINED
           displayName: IS_DEFINED, IsDefined, is defined, built-in functions
           href: is-defined.md
+        - name: IS_FINITE_NUMBER
+          displayName: IS_FINITE_NUMBER, IsFiniteNumber, is finite number, is countable, real number, built-in functions
+          href: is-finite-number.md
+        - name: IS_INTEGER
+          displayName: IS_INTEGER, IsInteger, is integer, number, built-in functions
+          href: is-integer.md
         - name: IS_NULL
           displayName: IS_NULL, IsNull, is null, built-in functions
           href: is-null.md
