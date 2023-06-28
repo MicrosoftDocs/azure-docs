@@ -35,12 +35,12 @@ You can configure each of your apps to run on any of the workload profiles defin
 
 ## Supported regions
 
-The following regions support workload profiles during preview:
+All regions are supported except for the following regions that are not supported during preview:
 
-- North Central US
-- North Europe
-- West Europe
-- East US
+- West US 2
+- Central US
+- UAE North
+- Germany West Central
 
 ## Profile types
 
