@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Prepare to deliver Extended Security Updates for Windows Server 2012
 
-With Windows Server 2012 reaching End-of-Life on October 10, 2023, customers have the option to enroll their existing Windows Server 2012 machines in Extended Security Updates (ESUs) delivered through Azure Arc. Doing so helps to position customers for migration to Azure on their own terms, affording both billing flexibility and an enhanced delivery experience.
+With Windows Server 2012 reaching End-of-Life on October 10, 2023, customers have the option to enroll their existing Windows Server 2012 machines in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview) delivered through Azure Arc. Doing so helps to position customers for migration to Azure on their own terms, affording both billing flexibility and an enhanced delivery experience.
 
 ## Key benefits
 
