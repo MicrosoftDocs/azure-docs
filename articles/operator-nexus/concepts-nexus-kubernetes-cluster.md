@@ -25,7 +25,7 @@ to learn about Kubernetes.
 
 ## Nexus Kubernetes cluster
 
-Nexus Kubernetes Cluster is an Operator Nexus version of
+Nexus Kubernetes cluster is an Operator Nexus version of
 [AKS-Hybrid](/azure/aks/hybrid/). Like AKS-Hybrid, Nexus Kubernetes
 Cluster is an on-premises implementation of the Azure Kubernetes Service
 orchestrator, which automates running containerized applications. Nexus
