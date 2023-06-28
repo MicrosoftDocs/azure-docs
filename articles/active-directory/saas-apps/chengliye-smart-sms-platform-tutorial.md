@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 06/28/2023
 ms.author: jeedes
 
 ---
@@ -65,7 +65,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Chengliye Smart SMS Platform SSO
 
-To configure single sign-on on **Chengliye Smart SMS Platform** side, you need to send the **App Federation Metadata Url** to [Chengliye Smart SMS Platform support team](mailto:473786018@qq.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Chengliye Smart SMS Platform** side, you need to send the **App Federation Metadata Url** to [Chengliye Smart SMS Platform support team](http://www.cly-chn.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Chengliye Smart SMS Platform test user
 
