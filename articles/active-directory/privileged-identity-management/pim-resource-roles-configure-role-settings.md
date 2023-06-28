@@ -28,7 +28,7 @@ PIM role settings are also known as PIM policies.
 
 To open the settings for an Azure resource role:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/)
+1. [Sign in to the Azure portal](https://portal.azure.com/).
 
 1. Select **Azure AD Privileged Identity Management** > **Azure Resources**. This page shows a list of Azure resources discovered in Privileged Identity Management. Use the **Resource type** filter to select all required resource types.
 
@@ -48,11 +48,11 @@ To open the settings for an Azure resource role:
 
 ## Role settings
 
-This section discusses role settings options.
+This section discusses options for role settings.
 
 ### Activation maximum duration
 
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from 1 to 24 hours.
 
 ### On activation, require multifactor authentication
 
