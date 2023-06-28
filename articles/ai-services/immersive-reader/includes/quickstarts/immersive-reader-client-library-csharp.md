@@ -1,6 +1,6 @@
 ---
 title: Immersive Reader C# client library quickstart 
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
 author: rwallerms

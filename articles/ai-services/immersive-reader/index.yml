@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Immersive Reader documentation
+title: Azure AI Immersive Reader documentation
 summary: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK.
 
 metadata:
-  title: Azure Immersive Reader documentation
+  title: Azure AI Immersive Reader documentation
   description: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK.
   services: service
   ms.service: applied-ai-services
@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is Immersive Reader?
             url: overview.md
-          - text: What are Azure Applied AI Services?
+          - text: What are Azure AI services?
             url: ../../ai-services/what-are-applied-ai-services.md
       - linkListType: video
         links:

@@ -1,6 +1,6 @@
 ---
 title: "Cache the authentication token"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: This article will show you how to cache the authentication token.
 author: rwallerms
 manager: nitinme

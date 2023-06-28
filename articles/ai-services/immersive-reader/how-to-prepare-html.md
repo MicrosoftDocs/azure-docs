@@ -1,6 +1,6 @@
 ---
 title: "How to prepare HTML content for Immersive Reader"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Learn how to launch the Immersive reader using HTML, JavaScript, Python, Android, or iOS. Immersive Reader uses proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences.
 author: rwallerms
 manager: nitinme
