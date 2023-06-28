@@ -1,7 +1,7 @@
 ---
 title: "Azure Operator Nexus: Nexus Kubernetes Cluster"
 description: Introduction ou to Nexus Kubernetes Cluster.
-author: ja.shobhit
+author: jashobhit
 ms.author: shobhitjain
 ms.service: azure-operator-nexus
 ms.topic: conceptual
