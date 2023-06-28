@@ -12,7 +12,7 @@ ms.date: 07/01/2023
 ms.custom: query-reference
 ---
 
-# SetIntersect
+# SetIntersect (NoSQL query)
 
 Compares expressions in two sets and returns the set of expressions that is contained in both sets with no duplicates.
 

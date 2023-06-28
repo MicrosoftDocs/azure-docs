@@ -12,7 +12,7 @@ ms.date: 07/01/2023
 ms.custom: query-reference
 ---
 
-# GetCurrentTicksStatic
+# GetCurrentTicksStatic (NoSQL query)
 
 Returns the number of 100-nanosecond ticks that have elapsed since `00:00:00 Thursday, 1 January 1970`.
 

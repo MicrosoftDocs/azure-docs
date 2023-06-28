@@ -12,7 +12,7 @@ ms.date: 07/01/2023
 ms.custom: query-reference
 ---
 
-# GetCurrentTimestampStatic
+# GetCurrentTimestampStatic (NoSQL query)
 
 Returns the number of milliseconds that have elapsed since `00:00:00 Thursday, 1 January 1970`.
 

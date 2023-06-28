@@ -12,7 +12,7 @@ ms.date: 07/01/2023
 ms.custom: query-reference
 ---
 
-# SetUnion
+# SetUnion (NoSQL query)
 
 Gathers expressions in two sets and returns a set of expressions containing all expressions in both sets with no duplicates.
 

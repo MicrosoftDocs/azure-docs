@@ -12,7 +12,7 @@ ms.date: 07/01/2023
 ms.custom: query-reference
 ---
 
-# GetCurrentDateTimeStatic
+# GetCurrentDateTimeStatic (NoSQL query)
 
 Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
 

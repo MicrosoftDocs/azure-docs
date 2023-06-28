@@ -12,7 +12,7 @@ ms.date: 07/01/2023
 ms.custom: query-reference
 ---
 
-# NumberBin
+# NumberBin (NoSQL query)
 
 Rounds the numeric expression's value down to a multiple of specified bin size.
 
