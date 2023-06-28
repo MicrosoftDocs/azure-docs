@@ -55,7 +55,7 @@ This range must NOT overlap with your on-premises or other Azure IP addresses.
 Your corporate network team or service provider should provide an IP address range that's not currently being used inside your network.
 This range is an IP address range, which must be submitted to Microsoft when asking for an initial deployment.
 
-## Optional IP address ranges to eventually submit to Microsoft
+## Optional IP address ranges to submit to Microsoft
   
 If you choose to use ExpressRoute Global Reach to enable direct routing from on-premises to ALI for Epic instance units, you must reserve another /29 IP address range.
 This range may not overlap with any of the other IP addresses ranges you defined before.  
