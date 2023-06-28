@@ -19,7 +19,7 @@ Azure Active Directory (Azure AD) for customers offers solutions that let you qu
 
 ## Get started
 
-To try out the demo environment, go to [Woodgrove Groceries](https://wggdemo.net/) and select from a list of use cases that illustrate different sign-in options and business cases.
+To try out the demo environment, go to [Woodgrove Groceries](https://woodgrovedemo.com/) and select from a list of use cases that illustrate different sign-in options and business cases.
 
 :::image type="content" source="media/overview-solutions-customers/demo-woodgrove.png" alt-text="Screenshot of the Woodgrove Groceries demo home page.":::
 
@@ -61,7 +61,7 @@ You can enable email one-time passcode in the admin center under **Authenticatio
 
 When users authenticate to your application with Azure Active Directory, a security token is returned to your application. The security token contains claims that are statements about the user, such as name, unique identifier, or application roles. Beyond the default set of claims that are contained in the security token you can define your own custom claims from external systems using a REST API you develop.
  
-In this use case, you can sign in or sign up with your credentials. Then after you're successfully authenticated, from the Woodgrove top bar select your name and check your profile. It contains information that return by the Azure AD custom extension REST API.
+In this use case, you can sign in or sign up with your credentials. Then after you're successfully authenticated, from the top bar select your name and check your profile. It contains information that return by the Azure AD custom extension REST API.
 
 If you want to understand how custom extensions work, you can refer to the [Custom extension overview](/azure/active-directory/develop/custom-extension-overview) article. For information on custom claims providers, you can check out the [Custom claims provider](/azure/active-directory/develop/custom-claims-provider-overview) article.
 
@@ -69,11 +69,11 @@ If you want to understand how custom extensions work, you can refer to the [Cust
 
 Profile editing policy lets you manage your profile attributes, like display name, surname, given name, city, and others. After you update your profile, sign out and sign in again.
 
-To edit your profile on the **Woodgrove Groceries** page, select the icon with your name, located in the top-right corner of the page. After making your changes, select **Save**.
+To edit your profile on the **Groceries** page, select the icon with your name, located in the top-right corner of the page. After making your changes, select **Save**.
 
 ### Delete your account
 
 If you would like to delete your account and personal information, visit the **Delete my account** page. Once you delete your account, you can't reactivate it. After a couple of minutes, you'll be able to sign up again with the same credentials.
 
-To delete your account on the **Woodgrove Groceries** page, select the icon with your name located in the top-right corner of the page. On the **Edit your profile** page select **Delete your account**.
+To delete your account on the **Groceries** page, select the icon with your name located in the top-right corner of the page. On the **Edit your profile** page select **Delete your account**.
 
