@@ -33,7 +33,7 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
     - **Operation** = Delete PostgreSQL Server (Microsoft.DBforPostgreSQL/flexibleservers/delete)
 
   
-      ![Activity log filtered for delete PostgreSQL server operation](./media/how-to-restore-server-portal/activity-log-azure.png)"   alt-text="Diagram of activity log.":::
+      ![Activity log filtered for delete PostgreSQL server operation](./media/how-to-restore-server-portal/activity-log-azure.png)
 
 3. Select the **Delete PostgreSQL Server** event, then select the **JSON tab**. Copy the `resourceId` and `submissionTimestamp` attributes in JSON output. The resourceId is in the following format: `/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/deletedserver`.
 
@@ -41,7 +41,9 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
 
 5. Provide the **resourceGroupName**, **serverName** (Target server name), **subscriptionId** properties, based on the resourceId attribute JSON value captured in the preceding step 3. The api-version property is prepopulated and can be left as-is, as shown in the following image.
 
-    ![Create server using REST API](./media/how-to-restore-server-portal/create-server-from-rest-api-azure.png)" alt-text="Create server from Rest API.":::
+    ![Create server using REST API](./media/how-to-restore-server-portal/create-server-from-rest-api-azure.png)
+
+    
 
 6. Go to **Request Body** section and paste the following replacing the "Dropped server Location"(e.g. CentralUS, EastUS etc.), "submissionTimestamp", and "resourceId". For "pointInTimeUTC", specify a value of "submissionTimestamp" plus **5 minutes** to ensure the command doesn't error out.
 
