@@ -47,16 +47,16 @@ Azure Monitor currently supports ingestion from Event Hubs in these regions:
 |	Canada Central	|	Germany North	|	UAE North	|		|	Australia East	|
 |	Canada East	|	Germany West Central	|		|		|	Central India	|
 |	Central US	|	North Europe	|		|		|	East Asia	|
-|	Central US EUAP	|	Norway East	|		|		|	Japan East	|
-|	East US	|	Norway West	|		|		|	Japan West	|
-|	East US 2	|	Poland Central	|		|		|	Jio India Central	|
-|	East US 2 EUAP	|	Sweden Central	|		|		|	Jio India West	|
-|	North Central US	|	Sweden South	|		|		|	South India	|
-|	South Central US	|	Switzerland North	|		|		|		|
-|	West Central US	|	Switzerland West	|		|		|		|
-|	West US	|	UK South	|		|		|		|
-|	West US 2	|	UK West	|		|		|		|
-|	West US 3	|	West Europe	|		|		|		|
+|	East US		|	Norway East	|		|		|	Japan East	|
+|	East US 2	|	Norway West	|		|		|	Japan West	|
+|	North Central US	|	Poland Central	|		|		|	Jio India Central	|
+|	South Central US	 |	Sweden Central	|		|		|	Jio India West	|
+|	West Central US	|	Sweden South	|		|		|	South India	|
+|	West US	|	Switzerland North	|		|		|		|
+|	West US 2	|	Switzerland West	|		|		|		|
+|	West US 3	|	UK South	|		|		|		|
+|	|	UK West	|		|		|		|
+|	|	West Europe	|		|		|		|
 
 
 ## Collect required information
