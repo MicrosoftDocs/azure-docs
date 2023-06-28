@@ -7,13 +7,13 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 06/27/2023
-ms.author: v-rminibaev
+ms.author: maquaran
 ms.custom: devx-track-dotnet
 ---
 # Tune connection configurations for Azure Cosmos DB .NET SDK v3
 
 > [!IMPORTANT]  
-> The performance tips in this article are for Azure Cosmos DB .NET SDK v3 only. Please view the [Azure Cosmos DB SQL SDK connectivity modes](sdk-connection-modes.md) the Azure Cosmos DB .NET SDK v3 [Release notes](sdk-dotnet-v3.md), [Nuget repository](https://www.nuget.org/packages/Microsoft.Azure.Cosmos), and Azure Cosmos DB .NET SDK v3 [troubleshooting guide](troubleshoot-dotnet-sdk.md) for more information. If you are currently using an older version than v3, see the [Migrate to Azure Cosmos DB .NET SDK v3](migrate-dotnet-v3.md) guide for help upgrading to v3.
+> The information in this article are for Azure Cosmos DB .NET SDK v3 only. Please view the [Azure Cosmos DB SQL SDK connectivity modes](sdk-connection-modes.md) the Azure Cosmos DB .NET SDK v3 [Release notes](sdk-dotnet-v3.md), [Nuget repository](https://www.nuget.org/packages/Microsoft.Azure.Cosmos), and Azure Cosmos DB .NET SDK v3 [troubleshooting guide](troubleshoot-dotnet-sdk.md) for more information. If you are currently using an older version than v3, see the [Migrate to Azure Cosmos DB .NET SDK v3](migrate-dotnet-v3.md) guide for help upgrading to v3.
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are connection configurations you can tune to achieve peak performance when using Azure Cosmos DB .NET SDK v3.
 
@@ -26,7 +26,7 @@ To learn more about different connectivity options, see the [connectivity modes]
 
 ## Direct connection mode
 
-.NET SDK default connection mode is direct with TCP protocol. Direct mode Azure Cosmos DB requests are made over TCP when using Azure Cosmos DB .NET SDK v3. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance. The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. To learn more about architecture, see the [direct mode connection architecture](sdk-connection-modes.md#direct-mode).
+.NET SDK default connection mode is direct. In direct mode, requests are made using the TCP protocol. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance. The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. To learn more about architecture, see the [direct mode connection architecture](sdk-connection-modes.md#direct-mode).
 
 You configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`.
 
@@ -41,11 +41,7 @@ new CosmosClientOptions
 
 ### Customizing direct connection mode
 
-If default Direct mode behavior is desired, create a *CosmosClientOptions* instance and customize its properties, then pass the customized property instance to the *CosmosClient* constructor or in the Azure Cosmos DB client builder.
-
-These configuration settings control the behavior of the underlying Direct mode architecture discussed above.
-
-As a first step, use the following recommended configuration settings below. These *CosmosClientOptions* options are advanced configuration settings, which can affect SDK performance in unexpected ways. We recommend users avoid modifying them unless they feel comfortable in understanding the tradeoffs and it's necessary. Contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular article.
+Direct mode can be customized through the *CosmosClientOptions* passed to the *CosmosClient* constructor. We recommend users avoid modifying these unless they feel comfortable in understanding the tradeoffs and it's necessary.
 
 | Configuration option       | Default          | Recommended   | Details |
 | :------------------:       | :-----:          | :---------:   | :-----: |
@@ -61,9 +57,7 @@ As a first step, use the following recommended configuration settings below. The
 
 #### Customizing gateway connection mode
 
-If nondefault Gateway mode behavior is desired, create a *CosmosClientOptions* instance and customize its properties, then pass the customized property instance to the *CosmosClient* constructor or in the Azure Cosmos DB client builder.
-
-As a first step, use the following recommended configuration settings below. These *CosmosClientOptions* options are advanced configuration settings, which can affect SDK performance in unexpected ways; we recommend users avoid modifying them unless they feel comfortable in understanding the tradeoffs and it's necessary. Contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular article.
+The nondefault Gateway mode can be customized through the *CosmosClientOptions* passed to the *CosmosClient* constructor. We recommend users avoid modifying these unless they feel comfortable in understanding the tradeoffs and it's necessary.
 
 | Configuration option       | Default          | Recommended   | Details |
 | :------------------:       | :-----:          | :---------:   | :-----: |
