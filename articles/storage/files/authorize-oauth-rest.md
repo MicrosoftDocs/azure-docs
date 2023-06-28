@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 05/11/2023
 ms.author: kendownie
 ms.subservice: files
+ms.custom: devx-track-azurepowershell
 ---
 
 # Access Azure file shares using Azure Active Directory with Azure Files OAuth over REST (preview)
