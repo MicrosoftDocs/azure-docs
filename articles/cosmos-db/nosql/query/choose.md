@@ -28,7 +28,7 @@ CHOOSE( <numeric_expr>, <expr1> [, <exprN>])
 | --- | --- |
 | **`numeric_expr`** | A numeric expression, which specifies the index used to get a specific expression in the list. The starting index of the list is `1`. |
 | **`expr1`** | The first expression in the list. |
-| **`exprN`** | Optional expression\[s\], which can contain a variable number of expressions up to the `N`th item in the list. |
+| **`exprN` *(Optional)*** | Optional expression\[s\], which can contain a variable number of expressions up to the `N`th item in the list. |
 
 ## Return types
 
@@ -78,15 +78,17 @@ SELECT VALUE {
 This final example uses an existing item in a container and selects an expression from existing paths in the item.
 
 ```json
-{
-  "id": "68719519522",
-  "name": "Gremon Fins",
-  "sku": "73311",
-  "tags": [
-    "Science Blue",
-    "Turbo"
-  ]
-}
+[
+  {
+    "id": "68719519522",
+    "name": "Gremon Fins",
+    "sku": "73311",
+    "tags": [
+      "Science Blue",
+      "Turbo"
+    ]
+  }
+]
 ```
 
 ```sql
@@ -109,7 +111,7 @@ FROM
 - This function uses one-based list indexing. The first item in the list is referenced using the numeric index `1` instead of `0`.
 - This function doesn't utilize the index.
 
-## Next steps
+## See also
 
-- [System functions](system-functions.md)
+- [System functions](system-functions.yml)
 - [ARRAY_LENGTH](array-length.md)

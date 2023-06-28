@@ -107,5 +107,5 @@ FROM
 
 ## See also
 
-- [System functions](system-functions.md)
+- [System functions](system-functions.yml)
 - [Equality and comparison operators](equality-comparison-operators.md)
