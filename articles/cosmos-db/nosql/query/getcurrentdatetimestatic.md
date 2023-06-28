@@ -1,7 +1,7 @@
 ---
 title: GetCurrentDateTimeStatic
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that
+description: An Azure Cosmos DB for NoSQL system function that returns a static ISO 8601 date and time value.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
@@ -17,7 +17,7 @@ ms.custom: query-reference
 Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
 
 > [!IMPORTANT]
-> The *static* variation of this function only retrieves the date and time once per query execution of partition. For more information on the *non-static* variation, see [`GetCurrentDateTime`](getcurrentdatetime.md)
+> The *static* variation of this function only retrieves the date and time once per partition. For more information on the *non-static* variation, see [`GetCurrentDateTime`](getcurrentdatetime.md)
 
 ## Syntax
 
@@ -90,7 +90,7 @@ FROM
 
 ## Remarks
 
-- This static function is called once per query execution or once per partition
+- This static function is called once per partition.
 - Static versions of system functions only get their respective values once during binding, rather than execute repeatedly in the runtime as is the case for the nonstatic versions of the same functions.
 
 ## See also
