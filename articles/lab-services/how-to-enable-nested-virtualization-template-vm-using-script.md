@@ -62,8 +62,6 @@ You can use a PowerShell script to set up nested virtualization on a template VM
     Set-ExecutionPolicy default -force
     ```
 
-You've now configured your template VM to use nested virtualization and create VMs inside it.
-
 # [Windows tools](#tab/windows)
 
 You can set up nested virtualization on a template VM in Azure Lab Services using Windows roles and tools directly. There are a few things needed on the template VM enable nested virtualization. The following steps describe how to manually set up a Lab Services machine template with Hyper-V. Steps are intended for Windows Server 2016 or Windows Server 2019.
@@ -226,6 +224,8 @@ Next, you can add a DHCP scope. In this case, our NAT network is 192.168.0.0/24 
 16. On the **Completing the New Scope Wizard** page, select **Finish**.
 
 ---
+
+You've now configured your template VM to use nested virtualization and create VMs inside it.
 
 ## Troubleshooting
 
