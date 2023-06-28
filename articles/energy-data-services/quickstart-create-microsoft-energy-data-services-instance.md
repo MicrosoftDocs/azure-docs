@@ -21,8 +21,8 @@ Azure Data Manager for Energy is a managed "Platform as a service (PaaS)" offeri
 
 | Prerequisite | Details |
 | ------------ | ------- |
-Active Azure Subscription | You'll need the Azure subscription ID in which you want to install Azure Data Manager for Energy. You need to have appropriate permissions to create Azure resources in this subscription. 
-Application ID | You'll need an [application ID](../active-directory/develop/application-model.md) (often referred to as "App ID" or a "client ID"). This application ID will be used for authentication to Azure Active Directory and will be associated with your Azure Data Manager for Energy instance. You can [create an application ID](../active-directory/develop/quickstart-register-app.md) by navigating to Active directory and selecting *App registrations* > *New registration*.
+Active Azure Subscription | You need the Azure subscription ID in which you want to install Azure Data Manager for Energy. You need to have appropriate permissions to create Azure resources in this subscription. 
+Application ID | You need an [application ID](../active-directory/develop/application-model.md) (often referred to as "App ID" or a "client ID"). This application ID is used for authentication to Azure Active Directory and will be associated with your Azure Data Manager for Energy instance. You can [create an application ID](../active-directory/develop/quickstart-register-app.md) by navigating to Active directory and selecting *App registrations* > *New registration*.
 Client Secret | Sometimes called an application password, a client secret is a string value that your app can use in place of a certificate to identity itself. You can [create a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) by selecting *Certificates & secrets* > *Client secrets* > *New client secret*. Record the secret's value for use in your client application code. This secret value is never displayed again after you leave this page.
 
 
@@ -45,7 +45,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. A new window appears. Complete the *Basics* tab by choosing the *subscription*, *resource group*, *tier*, and the *region* in which you want to create your instance of Azure Data Manager for Energy. Enter the *App ID* that you created during the prerequisite steps. The default tier is currently the *Standard* tier. You can use the drop down to change your tier selection.
 
-    [![Screenshot of the basic details page after you select 'create' for Azure Data Manager for Energy. This page allows you to enter both instance and data partition details.](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details2.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details2.png#lightbox)
+    [![Screenshot of the basic details page after you select 'create' for Azure Data Manager for Energy. This page allows you to enter both instance and data partition details.](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details-sku.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-basic-details-sku.png#lightbox)
 
  
 
@@ -82,7 +82,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
 
 1. Once the basic validation tests pass (validation takes a few seconds), review the Terms and Basic Details. 
 
-    [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details2.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details2.png#lightbox)
+    [![Screenshot of the review tab. It shows that data validation happens before you start deployment.](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details-sku.png)](media/quickstart-create-microsoft-energy-data-services-instance/validation-check-after-entering-details-sku.png#lightbox)
 
 1. Optional step: You can download an Azure Resource Manager (ARM) template and use it for automated deployments of Azure Data Manager for Energy in future. Select *View automation template* located in the *Review + create* tab. 
  
@@ -94,7 +94,7 @@ Client Secret | Sometimes called an application password, a client secret is a s
     [![Screenshot of the deployment progress page. Options are available to view details of the deployment.](media/quickstart-create-microsoft-energy-data-services-instance/deployment-progress.png)](media/quickstart-create-microsoft-energy-data-services-instance/deployment-progress.png#lightbox)
 
 You will find the newly created Azure Data Manager for Energy resource in your resource group. Select it to open the resource UI on portal.
-    [![Screenshot of the overview of Azure Data Manager for Energy instance page. Details as such data partitions, instance URI, and app ID are accessible.](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services2.png)](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services2.png#lightbox)
+    [![Screenshot of the overview of Azure Data Manager for Energy instance page. Details as such data partitions, instance URI, and app ID are accessible.](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services-sku.png)](media/quickstart-create-microsoft-energy-data-services-instance/overview-energy-data-services-sku.png#lightbox)
 
     
    
@@ -106,7 +106,8 @@ Deleting a Microsoft Energy Data instance also deletes any data that you've inge
 
 2. This step is optional. Go to Azure Active Directory and delete the *app registration* that you linked to your Azure Data Manager for Energy instance.
 
-Note: Any set locks at the resource group (RG) level must be removed before deleting any resource in the RG. Resources not deleted due to locks are considered active until the resource is successfully deleted.
+[!NOTE]
+Any set locks at the resource group (RG) level must be removed before deleting any resource in the RG. Resources not deleted due to locks are considered active until the resource is successfully deleted.
 
 OSDU&trade; is a trademark of The Open Group.
 
