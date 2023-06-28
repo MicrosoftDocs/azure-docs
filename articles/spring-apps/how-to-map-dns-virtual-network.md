@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: wenhaozhang
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 6/5/2023
+ms.date: 6/29/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23
 ---
 
@@ -34,46 +34,48 @@ This article describes two approaches for mapping DNS:
   This approach requires a DNS record for each application.
 
 - Use the custom domain.
-  If you already have a custom domain or you want a wildcard approach to work in a multi instance scenario, use this approach.
+  If you already have a custom domain or you want a wildcard approach to work in a multi-instance scenario, use this approach.
 
   This approach requires a DNS record for each Azure Spring Apps service instance, and a custom domain configured for each application.
 
 As an example, this article uses `azure-spring-apps-1` and `azure-spring-apps-2` as the names for two instances of Azure Spring Apps in the same VNET.
 
-Begin with the [Preliminary steps for DNS mapping](#preliminary-steps-for-dns-mapping) and then proceed with your preferred approach:
+Begin with the [Preliminary steps for DNS mapping](#preliminary-steps-for-dns-mapping) section and then proceed with your preferred approach:
 
 - [DNS mapping with Microsoft provided FQDN](#dns-mapping-with-microsoft-provided-fqdn)
 - [DNS mapping with a custom domain](#dns-mapping-with-a-custom-domain)
 
-Then test the mapping as described in the [Access private FQDN URLs for private applications](#access-private-fqdn-for-applications) section.
+End with testing the mapping as described in the [Access private FQDN URLs for private applications](#access-private-fqdn-for-applications) section.
 
 ## Preliminary steps for DNS mapping
 
 Complete the steps in this section for both the FDQN and the custom domain approaches to mapping DNS.
 
-### Find the IP for your applications
+### Find application IP addresses
+
+Both approaches require the IP address for each application in the Azure Spring Apps instance you want to map.
 
 #### [Azure portal](#tab/azure-portal)
 
-1. Select the virtual network you created for an Azure Spring Apps instance, and then select **Connected devices** in the navigation pane.
+1. Navigate to5 the virtual network you created for an Azure Spring Apps instance, and then select **Connected devices** in the navigation pane.
 
 1. On the **Connected devices** page, search for *kubernetes-internal*.
 
-1. In the results, find the **Device** connected to the service runtime **Subnet** of those service instance, and copy its **IP Address**. In the following screenshot example, the IP Address of azure-spring-apps-1 is *10.1.0.6*, and the IP Address of azure-spring-apps-2 is *10.1.2.6*.
+1. In the results, find each **Device** connected to a service runtime **Subnet** of the Azure Spring Apps service instances, and copy its **IP Address**. In the following screenshot example, the IP Address of `azure-spring-apps-1` is `10.1.0.6`, and the IP Address of `azure-spring-apps-2` is `10.1.2.6`.
 
-   :::image type="content" source="media/how-to-map-dns-virtual-network/create-dns-record.png" alt-text="Create DNS record" lightbox="media/how-to-map-dns-virtual-network/create-dns-record.png":::
+   :::image type="content" source="media/how-to-map-dns-virtual-network/create-dns-record.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network and highlights the devices with a service runtime subnet." lightbox="media/how-to-map-dns-virtual-network/create-dns-record.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
 1. Define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
 
    ```azurecli
-   SUBSCRIPTION='<subscription-id>'
+   SUBSCRIPTION='<subscription-ID>'
    RESOURCE_GROUP='<resource group name>'
    VIRTUAL_NETWORK_NAME='<Azure-Spring-Apps-VNET-name>'
    ```
 
-1. Find the IP Address for each of your Azure Spring Apps service instances. Customize the value of your Azure Spring Apps instance name based on your environment.
+1. Use the following commands to display the IP Address for each of your Azure Spring Apps service instances. Customize the value of your Azure Spring Apps instance name based on your environment.
 
    ```azurecli
    AZURE_SPRING_APPS_NAME='<Azure-Spring-Apps-instance-name>'
@@ -96,15 +98,15 @@ Complete the steps in this section for both the FDQN and the custom domain appro
 Create a private DNS zone for an application in the private network.
 
 > [!NOTE]
-> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. Learn more about [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you are using Azure China, replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 #### [Azure portal](#tab/azure-portal)
 
-1. In the top search box, search for **Private DNS zones**.
+1. On the Azure Home page, search for **Private DNS zones**.
 
 1. On the **Private DNS zones** page, select **Create**.
 
-1. Fill out the form on the **Create Private DNS zone** page. For the instance **Name** enter *private.azuremicroservices.io* as the **Name** for of the zone.
+1. Fill out the form on the **Create Private DNS zone** page. In **Instance details** for **Name**, specify `private.azuremicroservices.io` as the name of the private zone.
 
 1. Select **Review create**.
 
@@ -133,11 +135,11 @@ It may take a few minutes to create the zone.
 
 ### Link the virtual network
 
-You must create a virtual network link to link the private DNS zone to the virtual network.
+You must create a virtual network link to link the private DNS zone you created to the virtual network.
 
 #### [Azure portal](#tab/azure-portal)
 
-1. Select the private DNS zone resource you created earlier: `private.azuremicroservices.io`.
+1. Navigate to the private DNS zone you created named `private.azuremicroservices.io`. There might be several with the name, so determine the correct one by its resource group and subscription.
 
 1. On the navigation pane, select **Virtual network links**, then select **Add**.
 
@@ -145,13 +147,13 @@ You must create a virtual network link to link the private DNS zone to the virtu
 
 1. For **Virtual network**, select the virtual network you created for [Prerequisites](#prerequisites).
 
-   :::image type="content" source="media/how-to-map-dns-virtual-network/add-virtual-network-link.png" alt-text="Add virtual network link" lightbox="media/how-to-map-dns-virtual-network/add-virtual-network-link.png":::
+   :::image type="content" source="media/how-to-map-dns-virtual-network/add-virtual-network-link.png" alt-text="Screenshot of the Azure portal showing the Add virtual network link page for a private DNS zone." lightbox="media/how-to-map-dns-virtual-network/add-virtual-network-link.png":::
 
 1. Select **OK**.
 
 #### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to link the private DNS zone you created to the virtual network that holds your Azure Spring Apps services.
+Use the following command to link the private DNS zone you created to the virtual network that contains your Azure Spring Apps services.
 
    ```azurecli
    az network private-dns link vnet create \
@@ -172,7 +174,7 @@ You can assign a private FQDN for your application. For more information, see [D
 
 1. Open the Azure Spring Apps instance deployed in your virtual network, and then select **Apps** in the navigation pane.
 
-1. Select the application to show the **Overview** page.
+1. Select the application.
 
 1. Select **Assign Endpoint** to assign a private FQDN to your application. Assigning an FQDN can take a few minutes.
 
@@ -195,21 +197,19 @@ az spring app update \
 
 ## DNS mapping with Microsoft provided FQDN
 
-Using the Microsoft provided fully qualified domain name (FQDN) requires you to add DNS record for each application. For a core understanding of this process, see [Access your application in a private network](access-app-virtual-network.md).
+Using this approach, you must create a DNS record for each application as a requirement when using the Microsoft provided fully qualified domain name (FQDN). For a core understanding of this process, see [Access your application in a private network](access-app-virtual-network.md).
 
 When an application in an Azure Spring Apps service instance with assigned endpoint is deployed in the virtual network, the endpoint is a private FQDN. By default, the fully qualified domain name is unique for each app across service instances. The FQDN format is:  `<service\-name>-<app\-name>.private.azuremicroservices.io`.
-
-In this approach, we need to create a DNS record for each application.
 
 ### Create DNS record for all the applications
 
 To use the private DNS zone to translate and resolve DNS, you must create an "A" type record in the zone for each of your applications. In this example, the app name is `hello-vnet` and the Azure Springs Apps service instance name is `azure-spring-apps-1`.
 
-You'll need the IP address for each application. Copy it as described in the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
+You need the IP address for each application. Copy it as described in the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
 
 #### [Azure portal](#tab/azure-portal)
 
-1. Select the private DNS zone you created earlier: `private.azuremicroservices.io`
+1. Navigate to the private DNS zone you created earlier: `private.azuremicroservices.io`
 
 1. Select **Record set**.
 
@@ -225,7 +225,7 @@ You'll need the IP address for each application. Copy it as described in the [Fi
 
 1. Select **OK**.
 
-   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png" alt-text="Add private DNS zone record FQDN" lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png":::
+   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png" alt-text="Screenshot of the Azure portal showing the Add record set pane in a Private DNS zone." lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-fqdn.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
@@ -245,9 +245,9 @@ Repeat these steps to add a DSN record for each application.
 
 ## DNS mapping with a custom domain
 
-With the custom domain approach, you only need to add DNS record for each Azure Spring Apps instance but you must configure the custom domain for each application. For a core understanding of this process, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
+Using this approach, you only need to only add DNS record for each Azure Spring Apps instance but you must configure the custom domain for each application. For a core understanding of this process, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
 
-This example reuses the private DNS zone `private.azuremicroservices.io` to add a custom domain related DNS record. The private FQDN has the format `<app\-name>.<service\-name>.private.azuremicroservices.io`. 
+This example reuses the private DNS zone `private.azuremicroservices.io` to add a custom domain related DNS record. The private FQDN has the format `<app\-name>.<service\-name>.private.azuremicroservices.io`.
 
 Technically, you can use any private fully qualified domain name you want. In that case, you have to create a new private DNS zone corresponding to the fully qualified domain name you choose.
 
@@ -265,11 +265,11 @@ You must map your custom domain to each of the applications in the Azure Spring 
 1. Select **Validate**.
 1. If validated, select **Add**.
 
-   :::image type="content" source="./media/how-to-map-dns-virtual-network/add-custom-domain.png" alt-text="Add custom domain" lightbox="./media/how-to-map-dns-virtual-network/add-custom-domain.png":::
+   :::image type="content" source="./media/how-to-map-dns-virtual-network/add-custom-domain.png" alt-text="Screenshot of the Azure portal showing the Add custom domain pane for an app in an Azure Spring Apps instance." lightbox="./media/how-to-map-dns-virtual-network/add-custom-domain.png":::
 
 When the custom domain is successfully mapped to the app, it appears in the custom domain table.
 
-   :::image type="content" source="./media/how-to-map-dns-virtual-network/custom-domain-table.png" alt-text="Custom domain table" lightbox="./media/how-to-map-dns-virtual-network/custom-domain-table.png":::
+   :::image type="content" source="./media/how-to-map-dns-virtual-network/custom-domain-table.png" alt-text="Screenshot of the Azure portal showing the custom domain table in the Custom domain page for an app." lightbox="./media/how-to-map-dns-virtual-network/custom-domain-table.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -299,33 +299,33 @@ When the custom domain is successfully mapped to the app, it appears in the cust
 
 ### Add SSL binding
 
-Before doing this step, please make sure you have prepared your certificates and import them into Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
+Before doing this step, make sure you have prepared your certificates and import them into Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
 
 #### [Azure portal](#tab/Azure-portal)
 
 1. Open the Azure Spring Apps instance and select **Apps** in the navigation pane.
 1. On the **Apps** page, select an application.
 1. Select **Custom domain** in the navigation pane.
-1. Select **TLS/SSL binding**.
+1. Select the ellipsis (**...**) button for a custom domain and then select **Bind TLS/SSL**.
 1. On the **TLS/SSL binding pane**, select **Certificate** and select the certificate or you can import the certificate.
 1. Select **Save**.
 
-   :::image type="content" source="./media/how-to-map-dns-virtual-network/add-ssl-binding.png" alt-text="Add SSL binding 1" lightbox="./media/how-to-map-dns-virtual-network/add-ssl-binding.png":::
+   :::image type="content" source="./media/how-to-map-dns-virtual-network/add-ssl-binding.png" alt-text="Screenshot of the Azure portal showing the TLS/SSL binding pane on the Custom domain page for an app." lightbox="./media/how-to-map-dns-virtual-network/add-ssl-binding.png":::
 
 After you successfully add SSL binding, the domain state will be secure: **Healthy**.
 
-:::image type="content" source="./media/how-to-map-dns-virtual-network/secured-domain-state.png" alt-text="Add SSL binding 2" lightbox="./media/how-to-map-dns-virtual-network/secured-domain-state.png":::
+:::image type="content" source="./media/how-to-map-dns-virtual-network/secured-domain-state.png" alt-text="Screenshot of the Azure portal showing a custom domain in a healthy state on the Custom domain page." lightbox="./media/how-to-map-dns-virtual-network/secured-domain-state.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to update a custom domain of an app.
+Use the following command to update a custom domain of an app with a certificate.
 
 ```azurecli
 az spring app custom-domain update \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
-    --domain-name <domain name> \
-    --certificate <cert name> \
+    --domain-name <domain-name> \
+    --certificate <cert-name> \
     --app <app name> 
 ```
 
@@ -335,11 +335,11 @@ az spring app custom-domain update \
 
 To use the private DNS zone to translate and resolve DNS, you must create an "A" type record in the zone for each of your Azure Spring Apps service instances. In this example, the app name is `hello-vnet` and the Azure Springs Apps service instance name is `azure-spring-apps-1`.
 
-You'll need the IP address for each application. Copy it as described in the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
+You need the IP address for each application. Copy it as described in the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access your application in a private network](access-app-virtual-network.md). In this example, the IP address is `10.1.0.6`.
 
 #### [Azure portal](#tab/azure-portal)
 
-1. Select the private DNS zone you created earlier: `private.azuremicroservices.io`
+1. Navigate to the private DNS zone you created earlier: `private.azuremicroservices.io`
 
 1. Select **Record set**.
 
@@ -355,11 +355,11 @@ You'll need the IP address for each application. Copy it as described in the [Fi
 
 1. Select **OK**.
 
-   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png" alt-text="Add private DNS zone record custom domain" lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png":::
+   :::image type="content" source="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png" alt-text="Screenshot of the Azure portal showing Overview page for a private DNS zone with the add record set pane open." lightbox="media/how-to-map-dns-virtual-network/private-dns-zone-add-record-custom-domain.png":::
 
 #### [Azure CLI](#tab/azure-CLI)
 
-Use the [IP address](#find-the-ip-for-your-applications) to create the A record in your DNS zone.
+Use the following command to create the A record in your DNS zone. To determine the IP address, see the [Find application IP addresses](#find-application-ip-addresses) section.
 
    ```azurecli
    az network private-dns record-set a add-record \
@@ -385,7 +385,13 @@ Examples for the Custom domain approach:
 - `https://azure-spring-apps-1-hello-vnet.private.azuremicroservices.io`
 - `https://azure-spring-apps-2-hello-vnet.private.azuremicroservices.io`
 
-:::image type="content" source="media/how-to-map-dns-virtual-network/access-private-endpoint-1-fqdn.png" alt-text="Access private endpoint in vnet FQDN 1" lightbox="media/how-to-map-dns-virtual-network/access-private-endpoint-1-fqdn.png":::
+The following screenshot shows the URL for a Spring application using an FDQN:
+
+:::image type="content" source="media/how-to-map-dns-virtual-network/access-private-endpoint-1-fqdn.png" alt-text="Screenshot of a Spring application accessed by a URL using an FDQN." lightbox="media/how-to-map-dns-virtual-network/access-private-endpoint-1-fqdn.png":::
+
+The following screenshot shows the URL for a Spring application using a custom domain:
+
+:::image type="content" source="media/how-to-map-dns-virtual-network/access-private-endpoint-custom-domain-1.png" alt-text="Screenshot of a Spring application accessed by a URL using a custom domain." lightbox="media/how-to-map-dns-virtual-network/access-private-endpoint-custom-domain-1.png":::
 
 ## Clean up resources
 
