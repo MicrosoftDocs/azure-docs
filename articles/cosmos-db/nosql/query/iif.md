@@ -105,6 +105,7 @@ FROM
 - This function is similar to the ternary conditional operator in various programming languages. For more information, see [ternary conditional operator](https://wikipedia.org/wiki/ternary_conditional_operator).
 - This function doesn't utilize the index.
 
-## Next steps
+## See also
 
-- Explore more [boolean functions](boolean-functions.yml)
+- [System functions](system-functions.md)
+- [Equality and comparison operators](equality-comparison-operators.md)

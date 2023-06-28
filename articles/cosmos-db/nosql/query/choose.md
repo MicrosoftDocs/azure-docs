@@ -111,4 +111,5 @@ FROM
 
 ## Next steps
 
-- Explore more [array functions](array-functions.yml)
+- [System functions](system-functions.md)
+- [ARRAY_LENGTH](array-length.md)
