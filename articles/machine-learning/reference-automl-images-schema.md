@@ -278,12 +278,11 @@ The following schemas are applicable when the input request contains one image.
 
 #### Image classification (binary/multi-class)
 
-Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.  `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for image classification, see the [explainability for image classification section](#image-classification-binarymulti-class-2).
+Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.  `visualizations` and `attributions` are related to explainability and when the request is only for scoring, these keys will not be included in the output. For more information on explainability input and output schema for image classification, see the [explainability for image classification section](#image-classification-binarymulti-class-2).
 
 ```json
 [
    {
-      "filename": "/tmp/tmppjr4et28",
       "probs": [
          2.098e-06,
          4.783e-08,
@@ -295,21 +294,18 @@ Endpoint for image classification returns all the labels in the dataset and thei
          "carton",
          "milk_bottle",
          "water_bottle"
-      ],
-      "visualizations": None,
-      "attributions": None
+      ]
    }
 ]
 ```
 
 #### Image classification multi-label
 
-For image classification multi-label, model endpoint returns labels and their probabilities. `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for multi-label classification, see the [explainability for image classification multi-label section](#image-classification-multi-label-2).
+For image classification multi-label, model endpoint returns labels and their probabilities. `visualizations` and `attributions` are related to explainability and when the request is only for scoring, these keys will not be included in the output. For more information on explainability input and output schema for multi-label classification, see the [explainability for image classification multi-label section](#image-classification-multi-label-2).
 
 ```json
 [
    {
-      "filename": "/tmp/tmpsdzxlmlm",
       "probs": [
          0.997,
          0.960,
@@ -321,9 +317,7 @@ For image classification multi-label, model endpoint returns labels and their pr
          "carton",
          "milk_bottle",
          "water_bottle"
-      ],
-      "visualizations": None,
-      "attributions": None
+      ]
    }
 ]
 ```
@@ -335,7 +329,6 @@ Object detection model returns multiple boxes with their scaled top-left and bot
 ```json
 [
    {
-      "filename": "/tmp/tmpdkg2wkdy",
       "boxes": [
          {
             "box": {
@@ -378,7 +371,6 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 ```json
 [
     {
-       "filename": "/tmp/tmpi8604s0h",
        "boxes": [
           {
              "box": {
@@ -532,7 +524,7 @@ Predictions made on model endpoints follow different schema depending on the tas
 The following schemas are defined for the case of two input images.
 
 #### Image classification (binary/multi-class)
-Output schema is [same as described above](#data-schema-for-online-scoring) except that `visualizations` and `attributions` key values won't be `None`, if these keys were set to `True` in the request.
+Output schema is [same as described above](#data-schema-for-online-scoring) except that `visualizations` and `attributions` key values are included, if these keys were set to `True` in the request.
 
 If `model_explainability`, `visualizations`, `attributions` are set to `True` in the input request, then the output will have `visualizations` and `attributions`. More details on these parameters are explained in the following table. Visualizations and attributions are generated against a class that has the highest probability score.  
 
@@ -546,7 +538,6 @@ If `model_explainability`, `visualizations`, `attributions` are set to `True` in
 ```json
 [
     {
-       "filename": "/tmp/tmp7lqqp4pt/tmp7xmop_j8",
        "probs": [
           0.006,
           9.345e-05,
@@ -588,7 +579,6 @@ If `model_explainability`, `visualizations`, `attributions` are set to `True` in
 ```json
 [
     {
-       "filename": "/tmp/tmp_9zieom3/tmp6threa9_",
        "probs": [
           0.994,
           0.994,
