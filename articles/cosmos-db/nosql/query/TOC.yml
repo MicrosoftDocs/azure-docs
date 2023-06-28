@@ -88,12 +88,9 @@
   items:
     - name: System functions
       displayName: functions, system functions, built-in functions
-      href: system-functions.md
+      href: system-functions.yml
     - name: Array functions
       items:
-        - name: Array functions
-          displayName: array functions, array, system functions, built-in functions
-          href: array-functions.md
         - name: ARRAY_CONCAT
           displayName: ARRAY_CONCAT, array concat, array functions
           href: array-concat.md
@@ -108,9 +105,6 @@
           href: array-slice.md
     - name: Date and time functions
       items:
-        - name: Date and time functions
-          displayName: date and time functions, date and time, datetime, system functions, built-in functions
-          href: date-time-functions.md
         - name: DateTimeAdd
           displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
           href: datetimeadd.md
@@ -149,9 +143,6 @@
           href: timestamptodatetime.md
     - name: Mathematical functions
       items:
-        - name: Mathematical functions
-          displayName: mathematical, mathematical functions, system functions, built-in functions
-          href: mathematical-functions.md
         - name: ABS
           displayName: ABS, absolute value, built-in functions
           href: abs.md
@@ -226,9 +217,6 @@
           href: trunc.md
     - name: Spatial functions
       items:
-        - name: Spatial functions
-          displayName: spatial functions, spatial, system functions, built-in functions
-          href: spatial-functions.md
         - name: ST_AREA
           displayName: ST_AREA, st area, area, built-in functions
           href: st-area.md
@@ -249,9 +237,6 @@
           href: st-isvaliddetailed.md
     - name: String functions
       items:
-        - name: String functions
-          displayName: string functions, string, system functions, built-in functions
-          href: string-functions.md
         - name: CONCAT
           displayName: CONCAT, concatenate, built-in functions
           href: concat.md
@@ -329,9 +314,6 @@
           href: upper.md
     - name: Type checking functions
       items:
-        - name: Type checking functions
-          displayName: type checking functions, type checking, type, system functions, built-in functions
-          href: type-checking-functions.md
         - name: IS_ARRAY
           displayName: IS_ARRAY, is array, built-in functions
           href: is-array.md

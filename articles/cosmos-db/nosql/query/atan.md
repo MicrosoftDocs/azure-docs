@@ -49,6 +49,5 @@ This system function won't utilize the index.
 
 ## Next steps
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
