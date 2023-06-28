@@ -24,23 +24,23 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create an Azure Database for MySQL instance
 
-1. Create an Azure Database for MySQL flexible server using the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password. Use single quotes around the value for `admin-password`.
+Create an Azure Database for MySQL flexible server using the [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create) command. Replace the placeholders `<database-name>`, `<resource-group-name>`, `<MySQL-flexible-server-name>`, `<admin-username>`, and `<admin-password>` with a name for your new database, the name of your resource group, a name for your new server, and an admin username and password. Use single quotes around the value for `admin-password`.
 
-   ```azurecli-interactive
-   az mysql flexible-server create \
-       --resource-group <resource-group-name> \
-       --name <MySQL-flexible-server-name> \
-       --database-name <database-name> \
-       --public-access 0.0.0.0 \
-       --admin-user <admin-username> \
-       --admin-password '<admin-password>'
-   ```
+```azurecli-interactive
+az mysql flexible-server create \
+    --resource-group <resource-group-name> \
+    --name <MySQL-flexible-server-name> \
+    --database-name <database-name> \
+    --public-access 0.0.0.0 \
+    --admin-user <admin-username> \
+    --admin-password '<admin-password>'
+```
 
-   > [!NOTE]
-   > The `Standard_B1ms` SKU is used by default. For pricing details, see [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
+> [!NOTE]
+> The `Standard_B1ms` SKU is used by default. For pricing details, see [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
 
-   > [!TIP]
-   > The password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
+> [!TIP]
+> The password should be at least eight characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
 
 ## Connect your application to the MySQL database
 
@@ -160,15 +160,15 @@ This section shows you how to update the apps to connect to the MySQL database.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Run the below command to set an environment variable to activate the profile `mysql` for app `customers-service`:
+Run the below command to set an environment variable to activate the profile `mysql` for app `customers-service`:
 
-   ```azurecli
-   az spring app update \
-       --resource-group <Azure-Spring-Apps-resource-group-name> \
-       --service <Azure-Spring-Apps-resource-name> \
-       --name customers-service \
-       --env SPRING_PROFILES_ACTIVE=mysql
-   ```
+```azurecli
+az spring app update \
+    --resource-group <Azure-Spring-Apps-resource-group-name> \
+    --service <Azure-Spring-Apps-resource-name> \
+    --name customers-service \
+    --env SPRING_PROFILES_ACTIVE=mysql
+```
 
 ### [Portal](#tab/azure-portal)
 
