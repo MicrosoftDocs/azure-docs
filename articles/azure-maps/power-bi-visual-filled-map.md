@@ -35,7 +35,7 @@ Filled maps can be a great choice:
 
 Some common uses for filled maps include:
 
-* Visualize sales or revenue results by country or state.
+* Visualize sales or revenue results by country/region or state.
 * Visualize election results where the color represents the party that won and the shading represent the margin of victory.
 * Visualize unemployment rates  by region, state or county.
 
@@ -65,7 +65,7 @@ There are two places where you can adjust filled maps settings: Build and format
 
 | Bucket               | Description                                                                                     |
 |----------------------|-------------------------------------------------------------------------------------------------|
-| Location             | Geospatial area with a boundary, such as country, state, city, county or postal code. Street and address aren't supported in filled map. |
+| Location             | Geospatial area with a boundary, such as country/region, state, city, county or postal code. Street and address aren't supported in filled map. |
 | Legend               | Categorical data that will be used to shade the map.                                            |
 | Tool Tips (optional) | Determined the data/columns that would be shown in tool tips                                    |
 

@@ -6,7 +6,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ms.reviewer: jgardner
 
 #Customer intent: As an Azure service administrator, I want to move my resources to another Azure region

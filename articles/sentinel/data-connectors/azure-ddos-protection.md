@@ -3,7 +3,7 @@ title: "Azure DDoS Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector Azure DDoS Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

@@ -144,7 +144,7 @@ A network manager is only delegated enough access to apply configurations to vir
 
 #### Are you applying security rules to a VNet containing Azure SQL Managed Instances?
 
-Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowOnlyRules on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
+Azure SQL Managed Instance has some network requirements. These are enforced through high priority Network Intent Policies, whose purpose conflicts with Security Admin Rules. By default, Admin rule application is skipped on VNets containing any of these Intent Policies. Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules. If you only wish to use Allow rules, you can set AllowRulesOnly on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices`.
 
 ## Limits
 

@@ -238,7 +238,7 @@ To start using Azure Hybrid Benefit for SLES virtual machines:
 
 1. If you want to switch back to the bring-your-own-subscription model,  just change the license type to `None` and run the extension. This action removes all repositories from your virtual machine and stops the billing.
 
-After you successfully install the `AHBForRHEL` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
+After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES`, `SLES_SAP`, or `SLES_HPC`.
 
 ---
 
@@ -328,7 +328,7 @@ After you successfully install the `AHBForRHEL` extension, you can use the `az v
 
 ## SUSE (SLES) VMs with Azure Hybrid Benefit
 
-After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES_STANDARD`, `SLES_SAP`, or `SLES_HPC`.
+After you successfully install the `AHBForSLES` extension, you can use the `az vm update` command to update the existing license type on your running virtual machines. For SLES virtual machines, run the command and set the `--license-type` parameter to one of the following license types: `SLES`, `SLES_SAP`, or `SLES_HPC`.
 
 ### Enable PAYG using the Azure CLI
 
@@ -351,7 +351,8 @@ After you successfully install the `AHBForSLES` extension, you can use the `az v
 
 1. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the following, your virtual machine has Azure Hybrid Benefit enabled:
 
-    `RHEL_BASE`, `RHEL_EUS`, `RHEL_BASESAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES`, `SLES_SAP`, `SLES_HPC`
+- For RHEL: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
+- For SLES: `SLES`, `SLES_SAP`, or `SLES_HPC`
 
 ## Compliance
 

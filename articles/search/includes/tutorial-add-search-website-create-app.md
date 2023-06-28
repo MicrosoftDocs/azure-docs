@@ -59,7 +59,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     The _part_ of the YAML file relevant to the static web app is shown below:
 
-    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml" highlight="28-33":::
+    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml":::
 
 1. Edit your action file to contain the `api_location` property. If your local file doesn't have the property, add it below the `app_location` property.
 
@@ -83,11 +83,13 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 ## Get Cognitive Search query key in Visual Studio Code
 
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
+1. In Visual Studio Code, open a new PowerShell terminal window.
 
-1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
+1. Get the Query Key with this PowerShell command:
 
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="Screenshot of Visual Studio Code showing the Azure Cognitive Search explorer, with the Copy Query Key option shown.":::
+    ```powershell
+    Get-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
+    ```
 
 1. Keep this query key, you'll need to use it in the next section. The query key is able to query your Index. 
 

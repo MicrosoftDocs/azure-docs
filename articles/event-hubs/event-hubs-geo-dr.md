@@ -2,14 +2,14 @@
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 ms.topic: article
-ms.date: 05/10/2022
+ms.date: 06/01/2023
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
 
 Resilience against disastrous outages of data processing resources is a requirement for many enterprises and in some cases even required by industry regulations. 
 
-Azure Event Hubs already spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service will continue to operate within the assured service-levels and typically without noticeable interruptions in the event of such failures. If an Event Hubs namespace has been created with the enabled option for [availability zones](../availability-zones/az-overview.md), the outage risk is further spread across three physically separated facilities, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of the entire facility. 
+Azure Event Hubs already spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter. It implements transparent failure detection and failover mechanisms such that the service will continue to operate within the assured service-levels and typically without noticeable interruptions in the event of such failures. If you create an Event Hubs namespace with [availability zones](../availability-zones/az-overview.md) enabled, you reduce the risk of outage further and enable high availablity. With availability zones, the outage risk is further spread across three physically separated facilities, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of the entire facility. 
 
 The all-active Azure Event Hubs cluster model with availability zone support provides resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures cannot sufficiently defend against. 
 

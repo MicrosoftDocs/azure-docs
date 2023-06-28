@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/12/2023
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 robots: noindex
 ---
 # Use custom activities in an Azure Data Factory version 1 pipeline

@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/09/2022
 ms.author: dmwendia
-ms.custom: aaddev, scenarios:getting-started, devx-track-js
+ms.custom: aaddev, "scenarios:getting-started"
 zone_pivot_groups: web-api-quickstart
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my web app can sign in users of personal accounts, work accounts, and school accounts.
 ---

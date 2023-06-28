@@ -3,15 +3,15 @@ title: Configure Azure resource role settings in PIM
 description: Learn how to configure Azure resource role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/27/2023
-ms.author: amsliu
+ms.date: 6/7/2023
+ms.author: billmath
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -57,11 +57,11 @@ Use the **Activation maximum duration** slider to set the maximum time, in hours
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. 
 
 > [!NOTE]
-> User may not be prompted for multi-factor authentication if they authenticated with strong credentials, or provided multi-factor authentication earlier in this session. If your goal is to ensure that users have to provide authentication during activation, you can use [On activation, require Azure AD Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context-public-preview) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md) to require users to authenticate during activation using methods different from the one they used to sign-in to the machine. For example, if users sign-in to the machine using Windows Hello for Business, you can use “On activation, require Azure AD Conditional Access authentication context” and Authentication Strengths to require users to do Passwordless sign-in with Microsoft Authenticator when they activate the role. After the user provides Passwordless sign-in with Microsoft Authenticator once in this example, they'll be able to do their next activation in this session without additional authentication because Passwordless sign-in with Microsoft Authenticator will already be part of their token. 
+> User may not be prompted for multi-factor authentication if they authenticated with strong credentials, or provided multi-factor authentication earlier in this session. If your goal is to ensure that users have to provide authentication during activation, you can use [On activation, require Azure AD Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md) to require users to authenticate during activation using methods different from the one they used to sign-in to the machine. For example, if users sign-in to the machine using Windows Hello for Business, you can use “On activation, require Azure AD Conditional Access authentication context” and Authentication Strengths to require users to do Passwordless sign-in with Microsoft Authenticator when they activate the role. After the user provides Passwordless sign-in with Microsoft Authenticator once in this example, they'll be able to do their next activation in this session without additional authentication because Passwordless sign-in with Microsoft Authenticator will already be part of their token. 
 > 
 > It's recommended to enable Azure AD Multi-Factor Authentication for all users. For more information, see [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
-### On activation, require Azure AD Conditional Access authentication context (Public Preview)
+### On activation, require Azure AD Conditional Access authentication context 
 
 You can require users who are eligible for a role to satisfy Conditional Access policy requirements: use specific authentication method enforced through Authentication Strengths, elevate the role from Intune compliant device, comply with Terms of Use, and more. 
 

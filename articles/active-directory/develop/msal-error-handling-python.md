@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 03/16/2023
 ms.author: dmwendia
 ms.reviewer: saeeda, rayluo
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-python
 ---
 # Handle errors and exceptions in MSAL for Python
 

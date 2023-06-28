@@ -73,13 +73,29 @@
         "exclude": [
           "**/_themes/**",
           "**/includes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -186,13 +202,30 @@
         "exclude": [
           "**/_themes/**",
           "**/obj/**",
-          "**/v1/**"
+          "**/v1/**",
+          "**/v-fake/**"
         ]
       },
       {
         "group": "grp-machine-learningv1",
         "src": "articles/machine-learning/v1",
         "dest": "./machine-learning/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v-fake",
+        "dest": "./machine-learning/v1",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -462,7 +495,7 @@
         "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "rboucher",
         "articles/site-recovery/*.md": "ankitaduttaMSFT",
-        "articles/stream-analytics/*.md": "ajetasin",
+        "articles/stream-analytics/*.md": "alicialimicrosoft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -852,7 +885,7 @@
         "articles/service-fabric/*.md": "sukanyas",
         "articles/service-health/*.md": "robb",
         "articles/site-recovery/*.md": "jsuri",
-        "articles/stream-analytics/*.md": "ajetasi",
+        "articles/stream-analytics/*.md": "ali",
         "articles/terraform/**/*.md": "tarcher",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -1046,9 +1079,6 @@
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
-        "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "video-analyzer-subservice",
-        "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "video-analyzer-subservice",
         "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",

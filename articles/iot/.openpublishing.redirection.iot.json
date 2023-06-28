@@ -11,12 +11,12 @@
       "redirect_document_id": false
     },    {
       "source_path_from_root": "/articles/iot-fundamentals/security-recommendations.md",
-      "redirect_url": "/azure/iot/iot-security-best-practices",
+      "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-security-deployment.md",
-      "redirect_url": "/azure/iot/iot-security-best-practices",
+      "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false
     },
     {
@@ -56,8 +56,8 @@
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-security-best-practices.md",
-      "redirect_url": "/azure/iot/iot-security-best-practices",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-services-and-technologies.md",
@@ -78,6 +78,11 @@
       "source_path_from_root": "/articles/iot/iot-solution-options.md",
       "redirect_url": "/azure/iot/iot-introduction",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-security-best-practices.md",
+      "redirect_url": "/azure/iot/iot-overview-security",
+      "redirect_document_id": true
     }
   ]
 }

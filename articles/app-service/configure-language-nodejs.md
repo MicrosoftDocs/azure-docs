@@ -174,7 +174,7 @@ You can also configure a custom start file with the following extensions:
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename-with-extension>"
 ```
 
 ### Run custom command

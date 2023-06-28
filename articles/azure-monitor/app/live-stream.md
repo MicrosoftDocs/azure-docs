@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics - Application Insights - Azure Monitor
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/23/2023
 ms.reviewer: sdash
 ms.devlang: csharp
 ---
@@ -433,7 +433,7 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 ### "Data is temporarily inaccessible" status message
 
-When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus"
+When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus "
 
 Follow the link to the *Azure status* page and check if there's an activate outage affecting Application Insights. If there's no outage, verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to `*.monitor.azure.com`. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain `*.livediagnostics.monitor.azure.com` to your ad-blocker, firewall, etc.
 

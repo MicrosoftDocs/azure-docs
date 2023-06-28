@@ -1,9 +1,9 @@
 ---
-title: Extend or renew PIM for groups assignments (preview)
-description: Learn how to extend or renew PIM for groups assignments (preview).
+title: Extend or renew PIM for groups assignments
+description: Learn how to extend or renew PIM for groups assignments.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.reviewer: markwahl-msft
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 4/12/2023
-ms.author: amsliu
+ms.date: 6/7/2023
+ms.author: billmath
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Extend or renew PIM for groups assignments (preview)
+# Extend or renew PIM for groups assignments 
 
 Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, provides controls to manage the access and assignment lifecycle for group membership and ownership. Administrators can assign start and end date-time properties for group membership and ownership. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
 
@@ -109,5 +109,5 @@ When approving a request to renew a group assignment, resource administrators mu
 
 ## Next steps
 
-- [Approve activation requests for group members and owners (preview)](groups-approval-workflow.md)
-- [Configure PIM for Groups settings (preview)](groups-role-settings.md)
+- [Approve activation requests for group members and owners](groups-approval-workflow.md)
+- [Configure PIM for Groups settings](groups-role-settings.md)

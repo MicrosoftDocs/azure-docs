@@ -64,9 +64,9 @@ Generally after training a model you would review its [evaluation details](../..
 
 After your model is deployed, you can start using it to extract entities from your text via [Prediction API](https://aka.ms/ct-runtime-swagger). For this quickstart, you will use the [Language Studio](https://aka.ms/LanguageStudio) to submit the custom entity recognition task and visualize the results. In the sample dataset you downloaded earlier, you can find some test documents that you can use in this step.
 
-[!INCLUDE [Test a model using Language Studio](../language-studio/test-model.md)]
+[!INCLUDE [Test a model using Language Studio](../../../includes/custom/language-studio/test-model.md)]
 
-
+:::image type="content" source="../../media/test-model-results.png" alt-text="A screenshot showing the model test results." lightbox="../../media/test-model-results.png":::
 
 ## Clean up resources
 

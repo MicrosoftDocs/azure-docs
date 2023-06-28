@@ -91,7 +91,7 @@ param vmName string
 param location string
 param logAnalytics string = ''
 
-resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2023-03-01'' = if (!empty(logAnalytics)) {
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2023-03-01' = if (!empty(logAnalytics)) {
   name: '${vmName}/omsOnboarding'
   location: location
   properties: {

@@ -7,7 +7,7 @@ manager: carmonm
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 06/23/2023
 ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model
@@ -429,7 +429,7 @@ To learn more:
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
 - Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
-- Explore [Java trace logs in Application Insights](./opentelemetry-enable.md?tabs=java#logs).
+- Explore [Java trace logs in Application Insights](./opentelemetry-add-modify.md?tabs=java#logs).
 - Learn about the [Azure Functions built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
 - Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
 - Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).

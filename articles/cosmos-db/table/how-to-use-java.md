@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 12/10/2020
 author: seesharprun
 ms.author: sidandrews
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # How to use the Azure Tables client library for Java

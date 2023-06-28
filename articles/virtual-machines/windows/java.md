@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/09/2021
-ms.custom: devx-track-java, devx-track-arm-template
+ms.custom: devx-track-java, devx-track-arm-template, devx-track-extended-java
 ms.author: cynthn
 ---
 # Create and manage Windows VMs in Azure using Java
