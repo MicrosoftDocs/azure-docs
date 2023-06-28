@@ -6051,32 +6051,32 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql-query/array-functions.md",
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/array-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql-query/date-time-functions.md",
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/date-time-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql-query/mathematical-functions.md",
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/mathematical-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql-query/spatial-functions.md",
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/spatial-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql-query/string-functions.md",
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/string-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql-query/type-checking-functions.md",
+      "source_path_from_root": "/articles/cosmos-db/nosql/query/type-checking-functions.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/system-functions",
       "redirect_document_id": false
     }
