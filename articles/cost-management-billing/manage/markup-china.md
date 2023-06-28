@@ -1,37 +1,36 @@
 ---
-title: Indirect partner markup - China
-description: This article explains how indirect partners configure markup rules for their customers in Azure China.
+title: Markup - Azure China
+description: This article explains how to configure markup rules for use in Azure China.
 author: bandersmsft
 ms.reviewer: shrshett
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/21/2023
+ms.date: 06/28/2023
 ms.author: banders
 ms.custom: references_regions, subject-reliability
 ---
 
 # Indirect partner markup - China
 
-Markup enables you, an indirect partner provider, to uplift the base cost of cloud resources to cover your expenses and any value-added services that you offer. The markup feature in Microsoft Cost Management enables you to configure markup rules that appear in your end customers' cost management experiences.
+Markup enables you to publish prices and costs to end customers that are inclusive of any uplift you may wish to charge for any value-added services offered. The markup feature in Microsoft Cost Management enables you to configure markup that reflected in your end customers' pricing and cost management experiences for all applicable Microsoft first party products and services. Markup doesn't apply to third party marketplace products and seat-based products.
 
-Markup configured applies to all Microsoft first party services in all cost and price-viewing experiences. Marketplace, seat-based costs, and prices aren't marked up.
-
-This feature provides an _estimation_ of the price and cost to the end customer. As a provider, you're responsible for all financial transactions with the customer.
+This feature provides estimated prices and accumulated costs to your end customers so they can better anticipate their bills. As a billing partner, you're responsible for all financial transactions with the customer.
 
 >[!IMPORTANT]
-> Microsoft doesn't access or use the configured markup and associated prices for any purpose unless explicitly authorized by the provider.
+> Microsoft doesn't access or use the configured markup and associated prices for any purpose unless explicitly authorized by you
 
 ## Prerequisites
 
-Currently, functionality to configure markup is available only for New Commerce Enterprise Indirect (NCEI) partners with Azure China 21Vianet (Azure China).
+>[!IMPORTANT]
+> Configuring markup is currently available only for partner use with customers on the Microsoft Customer Agreement (MCA) with Azure China 21Vianet (Azure China).
 
-NCEI partners who are billing account or billing profile admins can create and manage markup rules for the customers linked to their billing profile. Only one markup rule can be set up per customer billing profile for a defined time period. The markup rule applies to the customer billing profile only for their first party Azure charges. Marketplace and seat-based costs and prices aren't marked up.
+If you're a billing account or billing profile admin, you can create and manage markup rules for the customers linked to your billing profile. Only one markup rule can be set up per customer billing profile for a defined time period. The markup rule applies to the customer billing profile only for first party Azure prices and charges. 
 
 ## Create a markup rule
 
-1. Sign in to the Azure China portal at [https://portal.azure.cn/](https://portal.azure.cn/).
+1. Sign in to the Azure China portal at https://portal.azure.cn/.
 2. Navigate to  **Cost Management**.
  Don't navigate to **Cost Management + Billing**.
 3. Navigate to **Settings** > **Manage billing account.**
@@ -52,11 +51,13 @@ NCEI partners who are billing account or billing profile admins can create and m
 
 ## Markup examples
 
-As an NCEI partner, you can configure a markup or a markdown percentage value. If you set the markup percentage as 0%, then customers see the same prices and costs that you do.
+As a partner, you can configure a markup or a markdown percentage value. If you set the markup percentage as 0%, then customers see the same prices and costs that you do.
+
+Here are some examples of markup application for hypothetical usage costs, purchase prices and credits.
 
 ### Markup 10%
 
-| **Charge type** | **NCEI partner** | **NCEI customer** |
+| **Charge type** | **Partner** | **Customer** |
 | --- | --- | --- |
 | **Usage charges** | $1000 | $1100 |
 | **Resource price** | $2.00/hour | $2.2/hour |
@@ -64,7 +65,7 @@ As an NCEI partner, you can configure a markup or a markdown percentage value. I
 
 ### Markup 0%
 
-| **Charge type** | **NCEI partner** | **NCEI customer** |
+| **Charge type** | **Partner** | **Customer** |
 | --- | --- | --- |
 | **Usage charges** | $1000 | $1000 |
 | **Resource price** | $2.00/hour | $2.00/hour |
@@ -72,7 +73,7 @@ As an NCEI partner, you can configure a markup or a markdown percentage value. I
 
 ### Markup -10%
 
-| **Charge type** | **NCEI partner** | **NCEI customer** |
+| **Charge type** | **Partner** | **Customer** |
 | --- | --- | --- |
 | **Usage charges** | $1000 | $990 |
 | **Resource price** | $2.00/hour | $1.9/hour |
