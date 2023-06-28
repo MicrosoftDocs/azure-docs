@@ -35,7 +35,7 @@ Returns an array of expressions.
 
 ## Examples
 
-
+This first example uses the function with static arrays to demonstrate the union functionality.
 
 ```sql
 SELECT VALUE {
@@ -57,7 +57,7 @@ SELECT VALUE {
 ]
 ```
 
-
+This last example uses two items in a container that share values within an array property.
 
 ```json
 [
