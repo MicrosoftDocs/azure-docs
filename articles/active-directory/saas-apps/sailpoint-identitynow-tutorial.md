@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 06/28/2023
 ms.author: jeedes
 
 ---
@@ -124,7 +124,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SailPoint IdentityNow SSO
 
-To configure single sign-on on **SailPoint IdentityNow** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [SailPoint IdentityNow support team](mailto:suppor@sailpoint.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. In a different web browser window, sign in to your SailPoint IdentityNow company site as an administrator.
+
+1. Go to **Global -> Security Settings -> Service Provider** make the following configuration changes.
+
+    ![Screenshot of sailpoint sso configuration.](./media/sailpoint-identitynow-tutorial/configuration.png)
+
+    a. Enable Remote Identity Provider.
+
+    b. In the **Entity ID** field, paste **Entity ID** value, which you have copied from the Azure portal.
+
+    c. In the **Login URL for Post** field, paste **Login URL** value, which you have copied from the Azure portal.
+
+    d. In the **Login URL for Redirect** field, paste **Login URL** value, which you have copied from the Azure portal.
+
+    e. In the **Logout URL** field, enter the value `https://<IDN Tenant>.login.sailpoint.com/signout`.
+
+    f. In the **SAML Request Attribute** section, select the following values.
+
+    * Identity Mapping Attribute - `uid`
+    * SAML NameID - `Unspecified`
+    * SAML Binding - `Post`
+    * Exclude Requested Authentication Context - `checked`
+
+    g. In the **Signing Certificate**, click on **Import** to upload the downloaded **Certificate (Base64)** from Azure portal.
+
+> [!NOTE]
+> To know more about SailPoint IdentityNow SSO configuration, please follow the support [guide](https://blog.darrenjrobinson.com/using-azure-ad-for-sso-into-sailpoint-identitynow/).
 
 ### Create SailPoint IdentityNow test user
 
