@@ -1,5 +1,5 @@
 ---
-title: GetCurrentTimestampStatic
+title: GetCurrentTicksStatic
 titleSuffix: Azure Cosmos DB for NoSQL
 description: An Azure Cosmos DB for NoSQL system function that returns a static nanosecond ticks value.
 author: jcodella
