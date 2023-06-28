@@ -316,58 +316,54 @@ If you switch from the designer to code view, the following example shows how th
 
 ## Example: Create loop counter
 
-Variables are commonly used for counting the number of times that a loop runs. This example shows how you create and use variables for this task by creating a loop that counts the attachments in an email.
+Variables are commonly used for counting the number of times that a loop runs. This example shows how you can create and use variables for this task by creating a loop that counts the attachments in an email.
 
-1. In the Azure portal, create a blank logic app workflow. Add a trigger that checks for new email and any attachments.
+### [Consumption](#tab/consumption)
+
+1. In the Azure portal, create your Consumption logic app resource with a blank workflow. Add a trigger that checks for new email and any attachments.
 
    This example uses the Office 365 Outlook trigger for **When a new email arrives**. You can set up this trigger to fire only when the email has attachments. However, you can use any connector that checks for new emails with attachments, such as the Outlook.com connector.
 
-1. In the trigger, to check for attachments and pass those attachments into your logic app's workflow, select **Yes** for these properties:
+1. In the trigger, to check for attachments and pass those attachments into your workflow, select **Yes** for the following properties:
 
-   * **Has Attachment**
+   * **Only with Attachment**
    * **Include Attachments**
 
-   ![Check for and include attachments](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
+   [![Screenshot shows Azure portal, Consumption workflow, and properties selected to check for and include attachments.](./media/logic-apps-create-variables-store-values/check-include-attachments-consumption.png)](./media/logic-apps-create-variables-store-values/check-include-attachments-consumption.png#lightbox)
 
-1. Add the [**Initialize variable** action](#create-variable). Create an integer variable named `Count` that has a zero start value.
+1. Add the [**Initialize variable** action](#create-variable) to create an integer variable named **Count** that has a start value set to **`0`**.
 
-   ![Add action for "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+1. To iterate through each attachment, [follow these general steps to add an action called a **For each** loop](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. To cycle through each attachment, add a *for each* loop.
+1. In the loop, select inside the box named **Select an output from previous steps**. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
 
-   1. Under the **Initialize variable** action, select **New step**.
+   [![Screenshot shows Consumption workflow, For each loop, opened dynamic content list, and selected Attachments output.](./media/logic-apps-create-variables-store-values/select-attachments-consumption.png)](./media/logic-apps-create-variables-store-values/select-attachments-consumption.png#lightbox)
 
-   1. Under **Choose an action**, select **Built-in**. In the search box, enter `for each` as your search filter, and select **For each**.
+   The **Attachments** property passes an array that contains the email attachments from the trigger's output into the loop for your workflow to iterate over.
 
-      ![Add a "for each" loop](./media/logic-apps-create-variables-store-values/add-loop.png)
+1. In the **For each** loop, select **Add an action**. 
 
-1. In the loop, click inside the **Select an output from previous steps** box. When the dynamic content list appears, select **Attachments**.
-
-   ![Select "Attachments"](./media/logic-apps-create-variables-store-values/select-attachments.png)
-
-   The **Attachments** property passes an array, which has the email attachments from the trigger's output, into your loop.
-
-1. In the **For each** loop, select **Add an action**.
-
-   ![Select "Add an action"](./media/logic-apps-create-variables-store-values/add-action-2.png)
-
-1. In the search box, enter "increment variable" as your filter. From the actions list, select **Increment variable**.
+1. [Follow these general steps to add an action called a **Increment variable** to the loop](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    > [!NOTE]
    > Make sure that the **Increment variable** action appears inside the loop. 
    > If the action appears outside the loop, drag the action into the loop.
 
-1. In the **Increment variable** action, from the **Name** list, select the **Count** variable.
+1. In the **Increment variable** action, from the **Name** list, select the **Count** variable. Set the **Value** property to **`1`**.
 
-   ![Select "Count" variable](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
+   [![Screenshot shows Consumption workflow with selected variable named Count.](./media/logic-apps-create-variables-store-values/add-increment-variable-loop-consumption.png)](./media/logic-apps-create-variables-store-values/add-increment-variable-loop-consumption.png#lightbox)
 
 1. Under the loop, add any action that sends you the number of attachments. In your action, include the value from the **Count** variable, for example:
 
-   ![Add an action that sends results](./media/logic-apps-create-variables-store-values/send-email-results.png)
+   [![Screenshot shows Consumption workflow and an action that sends results.](./media/logic-apps-create-variables-store-values/send-email-results-consumption.png)](./media/logic-apps-create-variables-store-values/send-email-results-consumption.png#lightbox)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
-### Test your logic app
+### [Standard](#tab/standard)
+
+---
+
+### Test your workflow
 
 1. If your logic app resource isn't enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
