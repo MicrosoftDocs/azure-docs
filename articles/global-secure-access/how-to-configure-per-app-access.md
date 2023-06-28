@@ -5,14 +5,14 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/21/2023
+ms.date: 06/27/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
 ---
 # How to configure Private Access for Global Secure Access
 
-Microsoft Entra Private Access provides secure access to your organization's internal resources. You can specify the internal, private resources that you want to secure by configuring and enabling per-app access, known as Private Access, through Enterprise applications. 
+Microsoft Entra Private Access provides secure access to your organization's internal resources. You create a Global Secure Access application and specify the internal, private resources that you want to secure. 
 
 This article describes how to configure Private Access for Microsoft Entra Private Access.
 
@@ -55,7 +55,7 @@ To configure Private Access for Enterprise apps, you must have a connector group
 
 If you don't already have a connector set up, see [Configure connectors](how-to-configure-quick-access.md).
 
-## Configure Private Access
+## Create a Global Secure Access application
 
 To create a new app, you provide a name, select a connector group, and then add application segments. App segments include the fully qualified domain names (FQDNs) and IP addresses you want to tunnel through the service. You can complete all three steps at the same time, or you can add them after the initial setup is complete. 
 
@@ -85,13 +85,20 @@ You can add fully qualified domain names (FQDN), IP addresses, and IP address ra
 
     ![Screenshot of the Add application segment button.](media/how-to-configure-per-app-access/enterprise-app-add-application-segment.png)
 
-1. In the **Create application segment** panel that opens, select a **Destination type**. Choose from one of the following options. Depending on what you select, the subsequent fields change accordingly.
-    - IP address
-    - Fully qualified domain name
-    - IP address range (CIDR)
-    - IP address range (IP to IP). 
+    - **IP address**: Internet Protocol version 4 (IPv4) address, such as 192.0.2.1, that identifies a device on the network.
+    - **Fully qualified domain name** (including wildcard FQDNs): Domain name that specifies the exact location of a computer or a host in the Domain Name System (DNS).
+    - **IP address range (CIDR)**: Classless Inter-Domain Routing is a way of representing a range of IP addresses in which an IP address is followed by a suffix indicating the number of network bits in the subnet mask. For example 192.0.2.0/24 indicates that the first 24 bits of the IP address represent the network address, while the remaining 8 bits represents the host address.
+    - **IP address range (IP to IP)**: Range of IP addresses from start IP (such as 192.0.2.1) to end IP (such as 192.0.2.10). 
 1. Enter the appropriate detail for what you selected.
-1. Enter the port. 
+1. Enter the port. The following table provides the most commonly used ports and their associated networking protocols:
+    
+    | Port | Protocol | 
+    | -- | -- |
+    | 22 | Secure Shell (SSH) |
+    | 80 | Hypertext Transfer Protocol (HTTP) |
+    | 443 | Hypertext Transfer Protocol Secure (HTTPS) |
+    | 445 | Server Message Block (SMB) file sharing |
+    | 3389 | Remote Desktop Protocol (RDP) |
 1. Select the **Save** button when you're finished.
 
 > [!NOTE]
