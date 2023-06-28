@@ -1,18 +1,18 @@
 ---
-title: Create and manage variables for storing and passing values
-description: Store, manage, use, and pass values with variables for workflows in Azure Logic Apps.
+title: Create variables to store and pass values
+description: Store, use, manage, and pass values using variables for workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 06/29/2023
 ---
 
-# Store and manage values by using variables in Azure Logic Apps
+# Create variables to store and manage values in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-This article shows how to create and work with variables that you use to store values in your logic app workflow. For example, variables can help you track the number of times that a loop runs. To iterate over an array or check an array for a specific item, you can use a variable to reference the index number for each array item.
+This how-to guide shows how to create and work with variables so thatyou can store and use values in your logic app workflow. For example, variables can help you track the number of times that a loop runs. To iterate over an array or check an array for a specific item, you can use a variable to reference the index number for each array item.
 
 You can create variables for data types such as integer, float, boolean, string, array, and object. After you create a variable, you can perform other tasks, for example:
 
@@ -21,74 +21,93 @@ You can create variables for data types such as integer, float, boolean, string,
 * Assign a different value to the variable.
 * Insert or *append* the variable's value as the last item in a string or array.
 
-Variables exist and are global only within the logic app workflow instance that creates them. Also, they persist across any loop iterations inside a logic app instance. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
+Variables exist and are global only within the workflow instance that creates them. Also, they persist across any loop iterations inside a workflow instance. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
 > [!IMPORTANT]
-> By default, cycles in a "For each" loop run in parallel. When you use variables in loops, 
+>
+> By default, the iterations in a **For each** loop run in parallel. When you use variables in loops, 
 > run the loop [sequentially](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 
 > so that variables return predictable results.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app workflow where you want to create the variable
+* A logic app workflow where you want to create the variable and a trigger that starts the workflow.
 
-  If you're new to logic apps, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
+  Before you can add actions for creating and working with variables, your workflow must start with a trigger as the first step in your workflow. For more information, see [Build a workflow with a trigger or action](create-workflow-with-trigger-or-action.md).
 
-* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app workflow
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
-  Before you can add actions for creating and working with variables, your workflow must start with a trigger.
+* Consumption workflows: [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
+
+* Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
+
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps:
 
 <a name="create-variable"></a>
 
 ## Initialize variable
 
-You can create a variable and declare its data type and initial value - all within one action in your logic app workflow. You can only declare variables at the global level, not within scopes, conditions, and loops.
+You can create a variable and declare its data type and initial value by using a single action in your workflow. You can only declare variables at the global level, not within scopes, conditions, and loops.
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app workflow in the designer.
+### [Consumption](#tab/consumption)
 
-   This example uses the Azure portal and a logic app with an existing trigger.
+1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
-1. In your workflow, under the step where you want to add a variable, follow one of these steps: 
+1. In the designer, [follow these general steps to add an action named **Initialize variable**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action under the last step, select **New step**.
-
-     ![Screenshot that shows the "New Step" action selected on the workflow designer.](./media/logic-apps-create-variables-store-values/add-action.png)
-
-   * To add an action between steps, move your mouse over the connecting arrow so that the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
-
-1. Under **Choose an action**, in the search box, enter `variables` as your filter. From the actions list, select **Initialize variable**.
-
-   ![Select action](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
-
-1. Provide this information about your variable as described below:
+1. Provide the following information about your variable:
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
    | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
    | **Type** | Yes | <*variable-type*> | The data type for the variable |
-   | **Value** | No | <*start-value*> | The initial value for your variable <p><p>**Tip**: Although optional, set this value as a best practice so you always know the start value for your variable. |
-   |||||
+   | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so you always know your variable's start value. |
 
-   For example:
+   The following example shows the initial values for this sample variable:
 
-   ![Initialize variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+   [![Screenshot shows Azure portal, Consumer workflow, and action named Initialize variable.](./media/logic-apps-create-variables-store-values/initialize-variable-consumption.png)](./media/logic-apps-create-variables-store-values/initialize-variable-consumption.png#lightbox)
 
-1. Now continue adding the actions you want. When you're done, on the designer toolbar, select **Save**.
+1. Now continue adding the actions you want for your scenario. When you're done, on the designer toolbar, select **Save**.
 
-If you switch from the designer to the code view editor, here is the way that the **Initialize variable** action appears in your logic app definition, which is in JavaScript Object Notation (JSON) format:
+### [Standard](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
+
+1. In the designer, [follow these general steps to add an action named **Initialize variable**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. Provide the following information about your variable:
+
+   | Property | Required | Value |  Description |
+   |----------|----------|-------|--------------|
+   | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
+   | **Type** | Yes | <*variable-type*> | The data type for the variable |
+   | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so you always know your variable's start value. |
+
+   The following example shows the initial values for this sample variable:
+
+   [![Screenshot shows Azure portal, Standard workflow, and action named Initialize variable.](./media/logic-apps-create-variables-store-values/initialize-variable-standard.png)](./media/logic-apps-create-variables-store-values/initialize-variable-standard.png#lightbox)
+
+1. Now continue adding the actions you want for your scenario. When you're done, on the designer toolbar, select **Save**.
+
+
+---
+
+If you switch from the designer to code view, the following example shows how the **Initialize variable** action appears in your workflow definition, which is in JavaScript Object Notation (JSON) format:
 
 ```json
 "actions": {
    "Initialize_variable": {
       "type": "InitializeVariable",
       "inputs": {
-         "variables": [ {
+         "variables": [ 
+            {
                "name": "Count",
                "type": "Integer",
                "value": 0
-          } ]
+            }
+         ]
       },
       "runAfter": {}
    }
@@ -96,28 +115,11 @@ If you switch from the designer to the code view editor, here is the way that th
 ```
 
 > [!NOTE]
-> Although the **Initialize variable** action has a `variables` section that's structured as an array, 
-> the action can create only one variable at a time. Each new variable requires an individual **Initialize variable** action.
+>
+> Although the **Initialize variable** action has a `"variables"` object that's structured as an array, the action 
+> can create only one variable at a time. Each new variable requires an individual **Initialize variable** action.
 
-Here are examples for some other variable types:
-
-*String variable*
-
-```json
-"actions": {
-   "Initialize_variable": {
-      "type": "InitializeVariable",
-      "inputs": {
-         "variables": [ {
-               "name": "myStringVariable",
-               "type": "String",
-               "value": "lorem ipsum"
-          } ]
-      },
-      "runAfter": {}
-   }
-},
-```
+The following examples show other variable types:
 
 *Boolean variable*
 
@@ -126,11 +128,78 @@ Here are examples for some other variable types:
    "Initialize_variable": {
       "type": "InitializeVariable",
       "inputs": {
-         "variables": [ {
+         "variables": [
+            {
                "name": "myBooleanVariable",
-               "type": "Boolean",
+               "type": "boolean",
                "value": false
-          } ]
+            }
+         ]
+      },
+      "runAfter": {}
+   }
+},
+```
+
+*Float variable*
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [
+            {
+               "name": "myFloatVariable",
+               "type": "float",
+               "value": 1.99999
+            }
+         ]
+      },
+      "runAfter": {}
+   }
+},
+```
+
+*String variable*
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [
+            {
+               "name": "myStringVariable",
+               "type": "string",
+               "value": "lorem ipsum"
+            }
+         ]
+      },
+      "runAfter": {}
+   }
+},
+```
+
+*Object variable*
+
+```json
+"actions": {
+   "Initialize_variable": {
+      "type": "InitializeVariable",
+      "inputs": {
+         "variables": [
+            {
+               "name": "MyObjectVariable",
+               "type": "object",
+               "value": {
+                  "ProductItem": {
+                     "Name": "myProductName",
+                     "ProductID": "000000"
+                  }
+               }
+            }
+         ]
       },
       "runAfter": {}
    }
@@ -144,11 +213,13 @@ Here are examples for some other variable types:
    "Initialize_variable": {
       "type": "InitializeVariable",
       "inputs": {
-         "variables": [ {
+         "variables": [
+            {
                "name": "myArrayVariable",
-               "type": "Array",
+               "type": "array",
                "value": [1, 2, 3]
-          } ]
+            }
+         ]
       },
       "runAfter": {}
    }
@@ -162,11 +233,13 @@ Here are examples for some other variable types:
    "Initialize_variable": {
       "type": "InitializeVariable",
       "inputs": {
-         "variables": [ {
+         "variables": [
+            {
                "name": "myArrayVariable",
-               "type": "Array",
+               "type": "array",
                "value": ["red", "orange", "yellow"]
-          } ]
+            }
+         ]
       },
       "runAfter": {}
    }
