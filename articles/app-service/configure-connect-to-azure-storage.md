@@ -10,7 +10,7 @@ zone_pivot_groups: app-service-containers-code
 ---
 # Mount Azure Storage as a local share in App Service
 > [!NOTE]
-> When using VNET integration on your web app, the mounted drive will use an RC1918 IP address and not an IP address from your VNET.
+> When using VNET integration on your web app, the mounted drive will use an RFC1918 IP address and not an IP address from your VNET.
 >
 ::: zone pivot="code-windows"
 
