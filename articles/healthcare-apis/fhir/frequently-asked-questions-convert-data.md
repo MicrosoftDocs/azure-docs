@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 06/22/2023
+ms.date: 06/28/2023
 ms.author: jasteppe
 ---
 
@@ -18,27 +18,27 @@ ms.author: jasteppe
 
 ## Does your service create/manage the entire ETL pipeline for me?
 
-You can use the $convert-data endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data formats into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine that's based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md).  
+You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data formats into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine that's based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md).  
 
 As an example, a workflow might include:
 
 * Data reading, ingestion and data validation.
-* Making $convert-data API calls.
+* Making `$convert-data` operation calls.
 * Data pre/post processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
 
-However, the $convert-data operation isn't an ETL pipeline in of itself.
+However, the `$convert-data` operation isn't an ETL pipeline in of itself.
 
 ## How can I persist the data into the FHIR service?
 
 You can use the FHIR services APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
 
-* For more information about using the $convert-data endpoint to persist data in the FHIR service, see [Overview of the FHIR Converter](overview-of-convert-data.md#use-the-convert-data-endpoint).
+* For more information about using the `$convert-data` endpoint to persist data in the FHIR service, see [Overview of the FHIR Converter](overview-of-convert-data.md#use-the-convert-data-endpoint).
 
 * For more information about using Postman with the FHIR service, see [Access the Azure Health Data Services FHIR service using Postman](use-postman.md).
 
 ## Is there a difference in the experience of the $convert-data endpoint in Azure API for FHIR versus in the Azure Health Data Services?
 
-The experience and core converter functionality is similar for both [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/overview.md) and the [Azure Health Data Services FHIR service](../../healthcare-apis/fhir/overview.md). The only difference exists in the setup for the Azure API for FHIR version of converter, which requires assigning permissions to the right resources. For more information about converter versions, see:
+The experience and core FHIR Converter functionality is similar for both [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/overview.md) and the [Azure Health Data Services FHIR service](../../healthcare-apis/fhir/overview.md). The only difference exists in the setup for the Azure API for FHIR version of the FHIR Converter, which requires assigning permissions to the right resources. For more information about FHIR Converter versions, see:
 
 * [Azure API for FHIR: Data conversion for Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/convert-data.md)
 
@@ -50,7 +50,7 @@ The experience and core converter functionality is similar for both [Azure API f
 
 ## The conversion succeeded, does this mean I have a valid FHIR bundle?
 
-The $convert-data endpoint outputs a FHIR bundle as a batch transaction per the [FHIR R4 specification](https://www.hl7.org/fhir/R4/). However, if you need to validate the FHIR bundle output against a specific profile, see [Overview of the FHIR Converter](overview-of-convert-data.md) and [Validate FHIR resources against profiles in Azure Health Data Services](../../healthcare-apis/fhir/validation-against-profiles.md) to learn about the `$validate` function. 
+The `$convert-data` endpoint outputs a FHIR bundle as a batch transaction per the [FHIR R4 specification](https://www.hl7.org/fhir/R4/). However, if you need to validate the FHIR bundle output against a specific profile, see [Overview of the FHIR Converter](overview-of-convert-data.md) and [Validate FHIR resources against profiles in Azure Health Data Services](../../healthcare-apis/fhir/validation-against-profiles.md) to learn about the `$validate` operation. 
 
 ## Can I customize a default Liquid template? 
 
@@ -70,7 +70,7 @@ Depending on the version of converter you’re using, you can either:
 
 ## Next steps
 
-In this article, you've learned about the frequently asked questions about the $convert-data endpoint for converting health data to FHIR by using the FHIR service in Azure Health Data Services. 
+In this article, you learned about the frequently asked questions (FAQs) about the FHIR Converter, the `$convert-data` operation, and the `$convert-data` endpoint for converting health data to FHIR by using the FHIR service in Azure Health Data Services. 
 
 For information about how to export FHIR data from the FHIR service, see:
  

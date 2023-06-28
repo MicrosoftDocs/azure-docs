@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 06/28/2022
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,23 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to deploy and configure the FHIR Converter using the Azure portal to convert your existing data to FHIR R4.
+In this article, learn how to deploy and configure the FHIR Converter using the Azure portal to convert your existing data to [FHIR R4](https://www.hl7.org/fhir/R4/index.html).
+
+## Default templates
+
+We need verbiage for this section.
+
+> [!WARNING]
+> Default templates are released under the MIT License and are *not* supported by Microsoft Support.
+>
+> The default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and might change when Microsoft releases updates for the FHIR service. To have consistent data conversion behavior across different versions of the FHIR service, you must do the following:
+>
+> 1. Host your own copy of the templates in an Azure Container Registry instance.
+> 2. Register the templates to the FHIR service. 
+> 3. Use your registered templates in your API calls.
+> 4. Verify that the conversion behavior meets your requirements.
+>
+> For more information on hosting your own templates, see [Host your own templates](deploy-and-configure-convert-data.md#host-your-own-templates) 
 
 ## Customize templates
 
@@ -23,7 +39,7 @@ You can use the [FHIR Converter Visual Studio Code extension](https://marketplac
 > [!NOTE]
 > The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported.
 
-The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following the these guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for a FHIR Bundle resource. 
+The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following these guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for a FHIR Bundle resource. 
 
 For instance, the Liquid templates should have a format such as the following code:
 
@@ -48,7 +64,7 @@ For instance, the Liquid templates should have a format such as the following co
 }
 ```
 
-The overall template follows the structure and expectations for a FHIR bundle resource, with the FHIR bundle JSON being at the root of the file. If you choose to add custom fields to the template that aren’t part of the FHIR specification for a bundle resource, the conversion request could still succeed. However, the converted result could potentially have unexpected output and wouldn't yield a valid FHIR bundle resource that can be persisted in the FHIR service as is.
+The overall template follows the structure and expectations for a FHIR Bundle resource, with the FHIR Bundle JSON being at the root of the file. If you choose to add custom fields to the template that aren’t part of the FHIR specification for a bundle resource, the conversion request could still succeed. However, the converted result could potentially have unexpected output and wouldn't yield a valid FHIR Bundle resource that can be persisted in the FHIR service as is.
 
 For example, consider the following code:
 
@@ -76,11 +92,11 @@ For example, consider the following code:
 }
 ```
 
-In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR bundle resource seem to be nested under `customfield_data` (that is, the FHIR bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR bundle (since it's nested and has non FHIR spec properties) and attempting to persist the result in your FHIR service would fail.
+In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR Bundle resource seem to be nested under `customfield_data` (that is, the FHIR Bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR Bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR Bundle (since it's nested and has non FHIR specification properties) and attempting to persist the result in your FHIR service would fail.
  
 ## Host your own templates
 
-We recommend that you host your own copy of templates in an Azure Container Registry instance. Hosting your own templates and using them for `$convert-data` operations involves the following six steps:
+We recommend that you host your own copy of templates in an Azure Container Registry (ACR) instance. Hosting your own templates and using them for `$convert-data` operations involves the following six steps:
 
 1. [Create an Azure Container Registry instance](#step-1-create-an-azure-container-registry-instance)
 2. [Push the templates to your Azure Container Registry instance](#step-2-push-the-templates-to-your-azure-container-registry-instance)
@@ -101,7 +117,7 @@ To maintain different versions of custom templates in your ACR, you may push the
 * For more information about ACR registries, repositories, and artifacts, see [About registries, repositories, and artifacts](../../container-registry/container-registry-concepts.md).
 * For more information about image tag best practices, see [Recommendations for tagging and versioning container images](../../container-registry/container-registry-image-tag-version.md).
 
-To reference specific template versions in the API, be sure to use the exact image name and tag that contains the versioned template to be used. For the API parameter `templateCollectionReference`, use the appropriate image name + tag (for example: `<RegistryServer>/<imageName>:<imageTag>`).
+To reference specific template versions in the API, be sure to use the exact image name and tag that contains the versioned template to be used. For the API parameter `templateCollectionReference`, use the appropriate **image name + tag** (for example: `<RegistryServer>/<imageName>:<imageTag>`).
 
 ### Step 3: Enable Azure Managed Identity in your FHIR service instance
 
@@ -109,7 +125,7 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 2. Change the status to **On** to enable Managed Identity in the FHIR service.
 
-   ![Screenshot of the FHIR pane for enabling the Managed Identity feature.](media/convert-data/fhir-mi-enabled.png#lightbox)
+   ![Screenshot of the FHIR pane for enabling the managed identity feature.](media/convert-data/fhir-mi-enabled.png#lightbox)
 
 ### Step 4: Provide Azure Container Registry access to the FHIR service managed identity
 
@@ -145,31 +161,10 @@ To use the Azure portal:
 3. Select **Add** and then, in the dropdown list, select your registry server. 
 4. Select **Save**. 
 
-It might take a few minutes for the registration to take effect.
-
-To use the Azure CLI:
-
 You can register up to 20 Azure Container Registry servers in the FHIR service.
 
-1. Install the Azure Health Data Services CLI, if needed, by running the following command:
-
-    ```azurecli
-    az extension add -n healthcareapis
-    ```
-
-2. Register the Azure Container Registry servers to the FHIR service by doing either of the following steps:
-
-   * To register a single Azure Container Registry server, run:
-
-      ```azurecli
-      az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
-      ```
-
-   * To register multiple Azure Container Registry servers, run:
-
-     ```azurecli
-     az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
-     ```
+> [!NOTE]
+> It might take a few minutes for the registration to take effect.
 
 ### Step 6: Configure the Azure Container Registry firewall for secure access
 
@@ -214,19 +209,16 @@ The following table lists the IP addresses for the Azure regions where the FHIR 
 | West US 2            | 20.51.13.80, 20.51.13.84, 20.51.13.85 |
 | West US 3            | 20.150.245.165 |
 
-> [!NOTE]
-> The preceding steps are similar to the configuration steps in [Configure export settings and set up a storage account](./configure-export-data.md).
-
-For private network access (that is, a private link), you can also disable the public network access to your Azure Container Registry instance. To do so:
+You can also completely disable public access to your Azure Container Registry instance while still allowing access from your FHIR service. To do so:
 
 1. In the Azure portal container registry, select **Networking**.
 2. Select the **Public access** tab, select **Disabled**, and then select **Allow trusted Microsoft services to access this container registry**.
 
 ![Screenshot of the "Networking" pane for disabling public network access to an Azure Container Registry instance.](media/convert-data/configure-private-network-container-registry.png#lightbox)
 
-### Verify the `$convert-data` operation
+### Verify the $convert-data operation
 
-Make a call to the `$convert-data` API by specifying your template reference in the `templateCollectionReference` parameter:
+Make a call to the `$convert-data` operation by specifying your template reference in the `templateCollectionReference` parameter:
 
 `<RegistryServer>/<imageName>@<imageDigest>`
 
