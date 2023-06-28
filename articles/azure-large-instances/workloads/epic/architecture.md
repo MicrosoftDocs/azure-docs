@@ -12,7 +12,7 @@ ms.date: 06/01/2023
 
 Epic Architecture consists of multiple tiers, Presentation, Web and Service, Reporting, and Operational Database.  
 
-:::image type="content" source="media/architecture/architecture.png" alt-text="ALI architecture." lightbox="media/architecture/architecture.png" border="false":::
+:::image type="content" source="media/architecture/architecture1.png" alt-text="ALI architecture." lightbox="media/architecture/architecture1.png" border="false":::
 
 Overall architecture can consist of hundreds to thousands of virtual machines. Of this only the production Operational Database (ODB) or Production Analytical Database (ADB/Clarity) requires the use of Azure Large Instances. The ODB and Clarity systems are represented as an ALI workload.  ODB can have the Epic Production (PRD) or Reporting (RPT) instances deployed, where Clarity is only deployed as the production instance which gets a nightly database extract from RPT.
 
