@@ -3,7 +3,7 @@ title: Plan a Microsoft Entra access reviews deployment
 description: Planning guide for a successful access reviews deployment.
 services: active-directory
 documentationCenter: ''
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/16/2021
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -47,7 +47,7 @@ Planning your access reviews deployment is essential to make sure you achieve yo
 The key benefits of enabling access reviews are:
 
 * **Control collaboration**: Access reviews allow you to manage access to all the resources your users need. When users share and collaborate, you can be assured that the information is among authorized users only.
-* **Manage risk**: Access reviews provide you a way to review access to data and applications, which lowers the risk of data leakage and data spill. You gain the capability to regularly review external partners' access to corporate resources.
+* **Manage risk**: Access reviews provide you with a way to review access to data and applications, which lowers the risk of data leakage and data spill. You gain the capability to regularly review external partners' access to corporate resources.
 * **Address compliance and governance**: With access reviews, you can govern and recertify the access lifecycle to groups, apps, and sites. You can control and track reviews for compliance or risk-sensitive applications specific to your organization.
 * **Reduce cost**: Access reviews are built in the cloud and natively work with cloud resources such as groups, applications, and access packages. Using access reviews is less costly than building your own tools or otherwise upgrading your on-premises tool set.
 
@@ -111,11 +111,11 @@ Communication is critical to the success of any new business process. Proactivel
 
 Access reviews support shifting responsibility of reviewing and acting on continued access to business owners. Decoupling access decisions from the IT department drives more accurate access decisions. This shift is a cultural change in the resource owner's accountability and responsibility. Proactively communicate this change and ensure resource owners are trained and able to use the insights to make good decisions.
 
-The IT department will want to stay in control for all infrastructure-related access decisions and privileged role assignments.
+The IT department wants to stay in control for all infrastructure-related access decisions and privileged role assignments.
 
 #### Customize email communication
 
-When you schedule a review, you nominate users who will do this review. These reviewers then receive an email notification of new reviews assigned to them and reminders before a review assigned to them expires.
+When you schedule a review, you nominate users who do this review. These reviewers then receive an email notification of new reviews assigned to them and reminders before a review assigned to them expires.
 
 The email sent to reviewers can be customized to include a short message that encourages them to act on the review. Use the extra text to:
 
@@ -180,7 +180,7 @@ When you create an access review, administrators can choose one or more reviewer
 
 ### Components of an access review
 
-Before you implement your access reviews, plan the types of reviews relevant to your organization. To do so, you'll need to make business decisions about what you want to review and the actions to take based on those reviews.
+Before you implement your access reviews, plan the types of reviews relevant to your organization. To do so, you need to make business decisions about what you want to review and the actions to take based on those reviews.
 
 To create an access review policy, you must have the following information:
 
@@ -195,7 +195,7 @@ To create an access review policy, you must have the following information:
 * What automatic actions should be enforced based on the review?
    * What happens if the reviewer doesn't respond in time?
 
-* What manual actions will be taken as a result based on the review?
+* What manual actions are taken as a result based on the review?
 * What communications should be sent based on the actions taken?
 
 #### Example access review plan
@@ -329,7 +329,7 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Azure AD and Azure resource roles
 
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. Using PIM keeps the list of privileged roles in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller. It also increases the overall security of the directory.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. Using PIM keeps the list of privileged roles in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) smaller. It also increases the overall security of the directory.
 
 Access reviews allow reviewers to attest whether users still need to be in a role. Just like access reviews for access packages, reviews for Azure AD roles and Azure resources are integrated into the PIM admin user experience.
 

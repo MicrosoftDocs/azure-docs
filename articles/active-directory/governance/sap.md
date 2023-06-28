@@ -3,7 +3,7 @@ title: Manage access to your SAP applications
 description: Learn how to bring identities from SAP SuccessFactors into Azure AD and provision access to SAP ECC, SAP S/4HANA, and other SAP applications.  
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 5/12/2023
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -74,7 +74,7 @@ When a new employee is hired in your organization, you might need to trigger a w
 With separation-of-duties checks now available in preview in Azure AD [entitlement management](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/ensure-compliance-using-separation-of-duties-checks-in-access/ba-p/2466939), customers can ensure that users don't take on excessive access rights:
 
 * Admins and access managers can prevent users from requesting additional access packages if they're already assigned to other access packages or are a member of other groups that are incompatible with the requested access.
-* Enterprises with critical regulatory requirements for SAP apps will have a single consistent view of access controls. They can then enforce separation-of-duties checks across their financial and other business-critical applications, along with Azure AD-integrated applications.
+* Enterprises with critical regulatory requirements for SAP apps have a single consistent view of access controls. They can then enforce separation-of-duties checks across their financial and other business-critical applications, along with Azure AD-integrated applications.
 * With [Pathlock](https://pathlock.com/), integration customers can take advantage of fine-grained separation-of-duties checks with access packages in Azure AD. Over time, this ability will help customers address Sarbanes-Oxley and other compliance requirements.
 
 ## Next steps
