@@ -28,7 +28,7 @@ Use Azure Communication Services call automation to transform your customer expe
 
 [Try out a sample](https://aka.ms/acs-ca-demo)
 
-[Read the Call Automation conceptual docs](https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/call-automation)
+[Read the Call Automation conceptual docs](./concepts/call-automation/call-automation.md)
 <br>
 <br>
 
@@ -40,9 +40,9 @@ Use Azure Communication Services call automation to transform your customer expe
 
 [Read more about the Rooms APIs](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-virtual-rooms-is-now-generally/ba-p/3845412)
 
-[Try the virtual rooms quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/rooms/join-rooms-call)
+[Try the virtual rooms quickstart](./quickstarts/rooms/join-rooms-call.md)
 
-[Read the virtual rooms conceptual documentation](https://learn.microsoft.com/azure/communication-services/concepts/rooms/room-concept)
+[Read the virtual rooms conceptual documentation](./concepts/rooms/room-concept.md)
 <br>
 <br>
 
@@ -54,9 +54,9 @@ Add first-class calling capabilities to your Windows applications. Use this SDK 
 
 [Read more about the calling SDK for Windows](https://techcommunity.microsoft.com/t5/azure-communication-services/add-first-class-calling-capabilities-to-your-windows/ba-p/3836731)
 
-[Read the calling SDK overview](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
+[Read the calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)
 
-[Check out the calling SDK quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling?pivots=platform-windows)
+[Check out the calling SDK quickstart](./quickstarts/voice-video-calling/get-started-with-video-calling.md)
 
 <br>
 <br>
@@ -123,7 +123,7 @@ Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create vi
 
 [Watch the video](https://youtu.be/IBCp_-dk_m0)
 
-[Learn how to set up the Microsoft Teams virtual appointments app](../../microsoft-365/frontline/virtual-appointments-app.md)
+[Learn how to set up the Microsoft Teams virtual appointments app](https://learn.microsoft.com/microsoft-365/frontline/virtual-appointments-app?view=o365-worldwide)
 
 [Read more about Microsoft Teams Premium](https://www.microsoft.com/microsoft-teams/premium)
 
@@ -140,7 +140,7 @@ Learn how to convert a lengthy URL into a format that fits the format of SMS, an
 
 [Read the accompanying tutorial](https://aka.ms/sms-shorturl)
 
-[Read the quickstart on how to send an SMS using Azure Communication Services](quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
+[Read the quickstart on how to send an SMS using Azure Communication Services](./quickstarts/sms/send.md)
 
 
 <br>
@@ -155,7 +155,7 @@ Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan
 
 [Read the accompanying tutorial](https://aka.ms/mscloud-acs-teams-tutorial)
 
-[Read the quickstart on how to send an SMS using Azure Communication Services](../communication-services/quickstarts/sms/send?ns-enrollment-type=Collection&ns-enrollment-id=3n70tjm2nwe5oj&tabs=windows&pivots=platform-azcli)
+[Read the quickstart on how to send an SMS using Azure Communication Services](./quickstarts/sms/send.md)
 
 
 <br>
