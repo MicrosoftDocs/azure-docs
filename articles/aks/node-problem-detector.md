@@ -9,7 +9,7 @@ ms.date: 05/31/2023
 
 [Node Problem Detector (NPD)](https://github.com/kubernetes/node-problem-detector) is an open source Kubernetes component that detects node-related problems and reports on them. It runs as a systemd serviced on each node in the cluster and collects various metrics and system information, such as CPU usage, disk usage, and network connectivity. When it detects a problem, it generates an Events and/or Node Conditions. NPD is used in AKS (Azure Kubernetes Service) to monitor and manage nodes in a Kubernetes cluster running on the Azure cloud platform. NPD is enabled by default as part of the AKS Linux Extension. 
 
-## Node Conditions
+## Node conditions
 AKS uses the following Node conditions from NPD to expose permanent problems on the node. In addition to these node conditions, corresponding kubernetes events are also emitted. Node conditions indicate a permanent problem that makes the node unavailable.
 
 |Problem Daemon type| NodeCondition | Reason |  
@@ -56,6 +56,7 @@ In few temporary scenarios, Events are emitted with relevant information to be a
 In certain instances, AKS will automatically cordon and drain the node to minimize disruption to workloads. You can learn more about the events and actions [here](/azure/aks/node-auto-repair#node-auto-drain).
 
 ## Check the node conditions and events
+
  ```azurecli-interactive
     kubectl describe node my-aks-node
 ```
@@ -96,7 +97,7 @@ These events are also available in [Container Insights](/azure/azure-monitor/con
 
 ## Metrics
 
-NPD also exposes Prometheus metrics based on the node problems which can be used for monitoring and alerting. This are exposed on port 20257 of the Node IP and can be scraped by Prometheus. Below is an example of a scrape config that can be used with the [Azure Managed Prometheus add on as a DaemonSet](/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset)
+NPD also exposes Prometheus metrics based on the node problems which can be used for monitoring and alerting. These are exposed on port 20257 of the Node IP and can be scraped by Prometheus. Below is an example of a scrape config that can be used with the [Azure Managed Prometheus add on as a DaemonSet](/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset)
 
 ```yaml
 kind: ConfigMap
