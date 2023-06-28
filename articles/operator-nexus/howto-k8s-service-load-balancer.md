@@ -119,6 +119,9 @@ This parameter file is intended to be used with the [quickStart guide](./quickst
 }
 ```
 
+> [!NOTE]
+> If you intend to create a DualStack service, ensure that the address pool contains both an IPv4 CIDR and an IPv6 CIDR. This allows for simultaneous support of both IPv4 and IPv6 addresses in your load balancer configuration.
+
 ## Example: Static IP address allocation for a service
 
 To allocate a static IP address for a service, you can use the following commands.
