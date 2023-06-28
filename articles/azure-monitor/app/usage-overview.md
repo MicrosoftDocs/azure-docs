@@ -110,18 +110,6 @@ In the Application Insights portal, filter and split your data on the property v
 
 To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
-# [ASP.NET Core 6.0+](#tab/aspnetcore)
-
-For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility;
-
-builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
-```
-
-# [ASP.NET Framework](#tab/aspnet-framework)
-
 ```csharp
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
@@ -138,6 +126,18 @@ builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
         }
     }
 ```
+
+# [ASP.NET Core 6.0+](#tab/aspnetcore)
+
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+
+builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+```
+
+# [ASP.NET Framework](#tab/aspnet-framework)
 
 In the web app initializer, such as `Global.asax.cs`:
 
