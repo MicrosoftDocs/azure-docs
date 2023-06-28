@@ -378,12 +378,12 @@ During Oracle installation, we recommend that you use `backupdba` as the OS grou
 
 # [Portal](#tab/azure-portal)
 
-1. In the Azure portal, go to your resource group **rg-oracle** and select your virtual machine **vmoracle19c**.
+1. In the Azure portal, go to your **rg-oracle** resource group and select your **vmoracle19c** virtual machine.
 
 1. On the **Backup** pane:
    1. Under **Recovery Services vault**, select **Create new**.
-   1. For **Resource group**, select **rg-oracle**.
    1. For the name of the vault, use **myVault**.
+   1. For **Resource group**, select **rg-oracle**.
    1. For **Choose backup policy**, use **(new) DailyPolicy**. If you want to change the backup frequency or retention range, select **Create a new policy** instead.
 
     ![Screenshot that shows the pane for configuring a new Recovery Services vault.](./media/oracle-backup-recovery/recovery-service-01.png)
@@ -556,7 +556,7 @@ The first steps in this exercise (stopping, deleting, and then recovering the VM
 
 # [Azure CLI](#tab/azure-cli)
 
-To set up your storage account and file share, run the following commands in the Azure CLI:
+To set up your storage account and file share, run the following commands:
 
 1. Create the storage account in the same resource group and location as your VM:
 
@@ -729,7 +729,7 @@ After the VM is restored, you should reassign the original IP address to the new
    }
    ```
 
-1. Attach original NIC, which should have a name of `<VMName>VMNic`. In this case, it's `vmoracle19cVMNic`. The original public IP address is still attached to this NIC and will be restored to the VM when the NIC is reattached.
+1. Attach the original NIC, which should have a name of `<VMName>VMNic`. In this case, it's `vmoracle19cVMNic`. The original public IP address is still attached to this NIC and will be restored to the VM when the NIC is reattached.
 
    ```azurecli
    az vm nic add --nics vmoracle19cVMNic --resource-group rg-oracle --vm-name vmoracle19c

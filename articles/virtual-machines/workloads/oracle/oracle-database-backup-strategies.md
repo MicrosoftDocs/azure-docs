@@ -24,7 +24,7 @@ Backups also help protect against regional outages when a disaster recovery tech
 
 ## Azure Storage
 
-The [Azure Storage services](../../../storage/common/storage-introduction.md) are Microsoft's cloud solution for modern data-storage scenarios. Azure Storage offers services that you can use to mount external storage to an Azure Linux virtual machine (VM), which is suitable as backup media for Oracle Database instances. A backup tool such as Oracle Recovery Manager (RMAN) is required to initiate a backup or restore operation, and to copy the backup to or from the Azure Storage service.
+The [Azure Storage services](../../../storage/common/storage-introduction.md) are Microsoft's cloud solution for modern data-storage scenarios. Azure Storage offers services that you can use to mount external storage to an Azure Linux virtual machine (VM), which is suitable as backup media for Oracle Database instances. A backup tool such as Oracle Recovery Manager (RMAN) is required to initiate a backup or restore operation, and to copy the backup to or from Azure Storage.
 
 Azure Storage services offer the following benefits:
 
@@ -84,7 +84,7 @@ Azure Blob Storage is a cloud-based service for storing large amounts of unstruc
 
 Blobfuse is currently available for Ubuntu and Centos/RedHat distributions. It's also available for Kubernetes via the [CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver).
 
-Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Store Gen2. But it doesn't perform as well as alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) protocol to mount Azure Blob Storage.
+Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Storage Gen2. But it doesn't perform as well as alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) protocol to mount Azure Blob Storage.
 
 #### NFS v3.0
 
@@ -122,7 +122,7 @@ The [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduc
 
 Azure NetApp Files provides efficient storage-based snapshots on the underlying storage system that uses a redirect-on-write mechanism. Although snapshots are fast to take and restore, they serve only as a first line of defense. They can account for most of the required restore operations of any organization, which are often part of recovery from human error.
 
-However, snapshots are not a complete backup. To cover all backup and restore requirements, you must create [external snapshot replicas](../../../azure-netapp-files/cross-region-replication-introduction.md) or other [backup vaults](../../../azure-netapp-files/backup-introduction.md) in a remote geography to protect against regional outages. [Read more about how Azure NetApp Files snapshots work](../../../azure-netapp-files/snapshots-introduction.md).
+However, snapshots are not a complete backup. To cover all backup and restore requirements, you must create [external snapshot replicas](../../../azure-netapp-files/cross-region-replication-introduction.md) or other [backup vaults](../../../azure-netapp-files/backup-introduction.md) in a remote geography to help protect against regional outages. [Read more about how Azure NetApp Files snapshots work](../../../azure-netapp-files/snapshots-introduction.md).
 
 To ensure the creation of database-consistent snapshots, the backup process must be orchestrated between the database and the storage. The Azure Application Consistent Snapshot (AzAcSnap) command-line tool enables data protection for third-party databases. It handles all the orchestration required to put those databases into an application-consistent state before taking a storage snapshot. After that, it returns the databases to an operational state. Oracle Database instances are supported with AzAcSnap since [version 5.1](../../../azure-netapp-files/azacsnap-release-notes.md#azacsnap-v51-preview-build-2022012585030).
 

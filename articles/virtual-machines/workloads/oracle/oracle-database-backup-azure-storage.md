@@ -225,7 +225,7 @@ Set up your storage account:
 
 # [Azure CLI](#tab/azure-cli)
 
-To set up your storage account and file share, run the following commands in the Azure CLI:
+To set up your storage account and file share, run the following commands:
 
 1. Create the storage account in the same resource group and location as your VM:
 
@@ -239,7 +239,7 @@ To set up your storage account and file share, run the following commands in the
    az storage share create --account-name orabackup1 --name orabackup --quota 10240
    ```
 
-3. Retrieve the storage account's primary key (`key1` value). You'll need it later, when you mount the file share to your VM.
+3. Retrieve the storage account's primary key (`key1` value). You'll need when you mount the file share to your VM.
 
    ```azurecli
    az storage account keys list --resource-group rg-oracle --account-name orabackup1
@@ -263,7 +263,7 @@ To set up your storage account and file share, run the following commands in the
    fi
    ```
 
-3. Run the following command. Substitute `<Your Storage Account Key1>` for the storage account key that you retrieved earlier.
+3. Run the following command. Substitute `<Your Storage Account Key1>` with the storage account key that you retrieved earlier.
 
    ```bash
    if [ ! -f "/etc/smbcredentials/orabackup1.cred" ]; then
@@ -302,13 +302,11 @@ To set up your storage account and file share, run the following commands in the
    sudo rpm -qa|grep cifs-utils
    ```
 
-   If the command returns no output, install the CIFS package by using the following command:
+   If the command returns no output, install the CIFS package by using the following command. Then rerun the `mount` command to mount the Azure file share.
 
    ```bash
    sudo yum install cifs-utils
    ```
-
-   Now rerun the `mount` command to mount the Azure file share.
 
 7. Check that the file share is mounted properly by using the following command:
 
