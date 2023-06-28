@@ -4,7 +4,6 @@ description: Troubleshoot intermittent connection errors and related performance
 
 ms.topic: troubleshooting
 ms.date: 06/28/2023
-ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 
 ---
