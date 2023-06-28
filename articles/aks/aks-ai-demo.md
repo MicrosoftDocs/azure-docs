@@ -16,6 +16,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes Service that lets you qui
 ## Before you begin
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you plan on using Azure OpenAI service, you will need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service](https://aka.ms/oai/access) form.
 - add access to OpenAI or AOAI account
 - is there a min CLI version required?
 - any flag needs to be enabled in the CLI?
@@ -157,7 +158,7 @@ In this demo, you will be deploying a series of [microservices](https://learn.mi
    ```
 1. Deploy an Azure OpenAI service if you plan on using Azure OpenAI. If you plan on using OpenAI, please sign up for that at the [OpenAI website](https://www.openai.com/) and get an API key.
 1. Get your Azure OpenAI API key and Azure OpenAI endpoint from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. 
-1. Create a deployment at the [Azure Open AI studio](https://oai.azure.com/portal/) using the **text-davinci-003** model. For more information on how to create an deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio).
+1. Create a deployment at the [Azure OpenAI studio](https://oai.azure.com/portal/) using the **text-davinci-003** model. For more information on how to create an deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio).
 1. Update the environment variables section of the ai-service manifest file you created above by providing the appropriate information required depending on whether you are using Azure OpenAI or OpenAI. The commented text show which variables need to be filled in depending on your service.
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
