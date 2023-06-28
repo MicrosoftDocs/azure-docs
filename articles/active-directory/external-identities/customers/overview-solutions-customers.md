@@ -77,3 +77,8 @@ If you would like to delete your account and personal information, visit the **D
 
 To delete your account on the **Groceries** page, select the icon with your name located in the top-right corner of the page. On the **Edit your profile** page select **Delete your account**.
 
+## Next steps
+
+- Learn more about [planning for Azure AD for customers](concept-planning-your-solution.md).
+- [Create a tenant](quickstart-tenant-setup.md).
+
