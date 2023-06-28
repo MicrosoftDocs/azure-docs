@@ -140,11 +140,17 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 
 ### Update a private cluster from a private DNS zone to public
 
-Update a private cluster from a private DNS zone to public using the [`az aks update`][az-aks-update] command with the following flags:
+> [!NOTE]
+> This feature requires the `aks-preview` extension version >= 0.5.97
+
+Update a private cluster from `byo` or `system` to `none` using the [`az aks update`][az-aks-update] command with the following flags:
 
 ```azurecli-interactive
 az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --private-dns-zone none
 ```
+
+> [!NOTE]
+> You can only update from `byo` or `system` to `none`. No other combination of update values is supported.
 
 ## Options for connecting to the private cluster
 
