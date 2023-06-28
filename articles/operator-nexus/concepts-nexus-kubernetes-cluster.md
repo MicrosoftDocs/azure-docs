@@ -9,7 +9,7 @@ ms.date: 06/28/2023
 ms.custom: template-concept
 ---
 
-# Nexus Kubernetes Cluster Overview
+# Nexus Kubernetes cluster overview
 
 This article introduces you to Nexus Kubernetes Cluster.
 
