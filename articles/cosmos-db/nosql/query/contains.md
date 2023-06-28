@@ -61,6 +61,5 @@ Learn about [how this string system function uses the index](system-functions.ym
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

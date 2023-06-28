@@ -45,6 +45,5 @@ SELECT RAND() AS rand
 
 ## Next steps
 
-- [Mathematical functions Azure Cosmos DB](system-functions.yml)
 - [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
