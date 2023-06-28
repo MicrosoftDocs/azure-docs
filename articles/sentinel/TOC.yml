@@ -11,6 +11,30 @@
   items:
   - name: Onboard to Microsoft Sentinel
     href: quickstart-onboard.md
+- name: Deploy
+  items:
+  - name: Plan and Prepare
+    items: 
+    - name: Overview
+      href: deployment-plan-prepare-overview.md
+    - name: Deployment prerequisites
+      href: prerequisites.md
+    - name: Plan architecture
+      items:
+      - name: Review best practices
+        href: best-practices-workspace-architecture.md 
+      - name: Design workspace architecture
+        href: design-your-workspace-architecture.md
+      - name: Prepare for multiple workspaces
+        href: extend-sentinel-across-workspaces-tenants.md
+      - name: Review sample workspace designs
+        href: sample-workspace-designs.md
+    - name: Prioritize data connectors
+      href: prioritize-data-connectors.md 
+    - name: Plan roles and permissions
+      href: roles.md
+    - name: Plan costs
+      href: billing.md
 - name: Tutorials
   items:
   - name: Forward syslog data to workspace
@@ -36,15 +60,11 @@
 - name: Concepts
   items:
   - name: Plan
-    items:
-    - name: Prerequisites
-      href: prerequisites.md
+    items:     
     - name: Geographical availability and data residency
       href: geographical-availability-data-residency.md
     - name: Costs and billing
-      items:
-      - name: Plan costs
-        href: billing.md
+      items:      
       - name: Monitor costs
         href: billing-monitor-costs.md
       - name: Reduce costs
@@ -52,9 +72,7 @@
     - name: Best practices
       items:
       - name: Overview
-        href: best-practices.md
-      - name: Workspace architecture
-        href: best-practices-workspace-architecture.md
+        href: best-practices.md      
       - name: Data collection
         href: best-practices-data.md
       - name: Partner integrations
@@ -64,11 +82,7 @@
       - name: Auditing and health monitoring 
         href: health-audit.md    
     - name: Architecture
-      items:
-      - name: Roles and permissions
-        href: roles.md
-      - name: Extend Microsoft Sentinel across workspaces and tenants
-        href: extend-sentinel-across-workspaces-tenants.md
+      items:                    
       - name: Security baseline
         href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json      
       - name: Support for data types in different clouds
@@ -180,11 +194,7 @@
 - name: How-tos
   items:
   - name: Plan architecture
-    items:
-    - name: Overview
-      href: design-your-workspace-architecture.md
-    - name: Sample workspace designs
-      href: sample-workspace-designs.md
+    items: 
     - name: Manage workspace access
       href: resource-context-rbac.md
   - name: Migrate to Microsoft Sentinel
