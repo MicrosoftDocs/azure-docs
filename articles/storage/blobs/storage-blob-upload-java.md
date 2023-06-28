@@ -90,7 +90,7 @@ You can set a blob's access tier on upload by using the [BlobUploadFromFileOptio
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_UploadBlobWithAccessTier":::
 
-Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`.
+Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/java/api/overview/azure/storage-blob-readme) version of 12.21.0.
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 
