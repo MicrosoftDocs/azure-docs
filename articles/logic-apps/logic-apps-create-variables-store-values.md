@@ -357,23 +357,75 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
    [![Screenshot shows Consumption workflow and an action that sends results.](./media/logic-apps-create-variables-store-values/send-email-results-consumption.png)](./media/logic-apps-create-variables-store-values/send-email-results-consumption.png#lightbox)
 
-1. When you're done, save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
+
+1. In the Azure portal, create your Standard logic app resource with a blank workflow. Add a trigger that checks for new email and any attachments.
+
+   This example uses the Office 365 Outlook trigger for **When a new email arrives**. You can set up this trigger to fire only when the email has attachments. However, you can use any connector that checks for new emails with attachments, such as the Outlook.com connector.
+
+1. In the trigger, to check for attachments and pass those attachments into your workflow, select **Yes** for the following properties:
+
+   * **Only with Attachment**
+   * **Include Attachments**
+
+   If these properties don't already appear in the trigger, add them from the **Add new parameters** list.
+
+   [![Screenshot shows Azure portal, Standard workflow, and properties selected to check for and include attachments.](./media/logic-apps-create-variables-store-values/check-include-attachments-standard.png)](./media/logic-apps-create-variables-store-values/check-include-attachments-standard.png#lightbox)
+
+1. Add the [**Initialize variable** action](#create-variable) to create an integer variable named **Count** that has a start value set to **`0`**.
+
+1. To iterate through each attachment, [follow these general steps to add an action called a **For each** loop](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. In the loop, select inside the box named **Select an output from previous steps**. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
+
+   > [!TIP]
+   >
+   > If the **Attachments** output doesn't appear in the dynamic content list, 
+   > next to **When a new email arrives**, select **See more**.
+
+   [![Screenshot shows Standard workflow, For each loop, opened dynamic content list, and selected Attachments output.](./media/logic-apps-create-variables-store-values/select-attachments-standard.png)](./media/logic-apps-create-variables-store-values/select-attachments-standard.png#lightbox)
+
+   The **Attachments** property passes an array that contains the email attachments from the trigger's output into the loop for your workflow to iterate over.
+
+1. In the **For each** loop, select the plus sign (**+**), and then select **Add an action**. 
+
+1. [Follow these general steps to add an action called a **Increment variable** to the loop](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+   > [!NOTE]
+   > Make sure that the **Increment variable** action appears inside the loop. 
+   > If the action appears outside the loop, drag the action into the loop.
+
+1. In the **Increment variable** action, from the **Name** list, select the **Count** variable. Set the **Value** property to **`1`**.
+
+   [![Screenshot shows Standard workflow with selected variable named Count.](./media/logic-apps-create-variables-store-values/add-increment-variable-loop-standard.png)](./media/logic-apps-create-variables-store-values/add-increment-variable-loop-standard.png#lightbox)
+
+1. Under the loop, add any action that sends you the number of attachments. In your action, include the value from the **Count** variable, for example:
+
+   [![Screenshot shows Standard workflow and an action that sends results.](./media/logic-apps-create-variables-store-values/send-email-results-standard.png)](./media/logic-apps-create-variables-store-values/send-email-results-standard.png#lightbox)
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
 ### Test your workflow
 
-1. If your logic app resource isn't enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
+1. To manually trigger your workflow, follow the corresponding step:
 
-1. On the designer toolbar, select **Run**. This step manually starts your logic app.
+   **Consumption workflow**
+
+   On the designer workflow toolbar, select **Run Trigger** > **Run** to manually run your workflow.
+
+   **Standard workflow**
+
+   On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run**.
 
 1. Send an email with one or more attachments to the email account you used in this example.
 
-   This step fires the logic app's trigger, which creates and runs an instance for your logic app's workflow. As a result, the logic app sends you a message or email that shows the number of attachments in the email you sent.
+   This step fires the workflow trigger, which creates and runs a workflow instance. As a result, the workflow sends you a message or email that shows the number of attachments in the email that you sent.
 
-If you switch from the designer to the code view editor, here is the way that the **For each** loop appears along with the **Increment variable** action inside your logic app definition, which is in JSON format.
+If you switch from the designer to code view, the following example shows how the **For each** loop appears along with the **Increment variable** action in your workflow definition, which is in JSON format:
 
 ```json
 "actions": {
@@ -409,7 +461,6 @@ Here are the properties for the **Decrement variable** action:
 |----------|----------|-------|--------------|
 | **Name** | Yes | <*variable-name*> | The name for the variable to decrement | 
 | **Value** | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <p><p>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. |
-||||| 
 
 If you switch from the designer to the code view editor, here is the way that the **Decrement variable** action appears inside your logic app definition, which is in JSON format.
 
@@ -442,7 +493,6 @@ Here are the properties for the **Set variable** action:
 |----------|----------|-------|--------------|
 | **Name** | Yes | <*variable-name*> | The name for the variable to change |
 | **Value** | Yes | <*new-value*> | The value you want to assign the variable. Both must have the same data type. |
-||||| 
 
 > [!NOTE]
 > Unless you're incrementing or decrementing variables, changing variables 
@@ -505,7 +555,6 @@ Here are the properties for the **Append to...** actions:
 |----------|----------|-------|--------------|
 | **Name** | Yes | <*variable-name*> | The name for the variable to change |
 | **Value** | Yes | <*append-value*> | The value you want to append, which can have any type |
-|||||
 
 If you switch from the designer to the code view editor, here is the way that the **Append to array variable** action appears inside your logic app definition, which is in JSON format. This example creates an array variable, and adds another value as the last item in the array. Your result is an updated variable that contains this array: `[1,2,3,"red"]`
 
