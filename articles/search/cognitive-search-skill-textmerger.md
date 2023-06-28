@@ -15,7 +15,7 @@ ms.date: 04/20/2023
 The **Text Merge** skill consolidates text from an array of strings into a single field. 
 
 > [!NOTE]
-> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Text.MergeSkill

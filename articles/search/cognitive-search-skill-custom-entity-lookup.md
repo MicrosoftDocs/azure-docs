@@ -16,7 +16,7 @@ ms.date: 09/07/2022
 The **Custom Entity Lookup** skill is used to detect or recognize entities that you define. During skillset execution, the skill looks for text from a custom, user-defined list of words and phrases. The skill uses this list to label any matching entities found within source documents. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
 
 > [!NOTE]
-> This skill isn't bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+> This skill isn't bound to a Azure AI services API but requires a Azure AI services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
 

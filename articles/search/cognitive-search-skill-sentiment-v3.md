@@ -13,10 +13,10 @@ ms.date: 08/17/2022
 
 # Sentiment cognitive skill (v3)
 
-The **Sentiment** skill (v3) evaluates unstructured text and for each record, provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This skill uses the machine learning models provided by version 3 of [Language Service](../ai-services/language-service/overview.md) in Cognitive Services. It also exposes [opinion mining capabilities](../ai-services/language-service/sentiment-opinion-mining/overview.md), which provides more granular information about the opinions related to attributes of products or services in text.
+The **Sentiment** skill (v3) evaluates unstructured text and for each record, provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This skill uses the machine learning models provided by version 3 of [Language Service](../ai-services/language-service/overview.md) in Azure AI services. It also exposes [opinion mining capabilities](../ai-services/language-service/sentiment-opinion-mining/overview.md), which provides more granular information about the opinions related to attributes of products or services in text.
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 
 ## @odata.type  

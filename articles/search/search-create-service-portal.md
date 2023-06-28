@@ -95,7 +95,7 @@ Two notable exceptions might lead to provisioning one or more search services in
 
 Some features are subject to regional availability. If you require any of following features, choose a region that provides them:
 
-+ [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. There are just a few regions that *don't* provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates a common regional presence by showing two stacked check marks. An unavailable combination has a missing check mark. The time piece icon indicates future availability.
++ [AI enrichment](cognitive-search-concept-intro.md) requires Azure AI services to be in the same physical region as Azure Cognitive Search. There are just a few regions that *don't* provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates a common regional presence by showing two stacked check marks. An unavailable combination has a missing check mark. The time piece icon indicates future availability.
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" lightbox="media/search-create-service-portal/region-availability.png" alt-text="Screenshot of the regional availability page." border="true":::
 

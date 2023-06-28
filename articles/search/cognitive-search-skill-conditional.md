@@ -24,7 +24,7 @@ else
 ```
 
 > [!NOTE]
-> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ConditionalSkill

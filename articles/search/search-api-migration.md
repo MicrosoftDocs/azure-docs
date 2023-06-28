@@ -62,7 +62,7 @@ Version 2019-05-06 is the previous generally available release of the REST API. 
 * [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input.
 * [Complex types](search-howto-complex-data-types.md) provides native support for structured object data in search index.
 * [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
-* [AI enrichment](cognitive-search-concept-intro.md) provides indexing that uses the AI enrichment engines of Cognitive Services.
+* [AI enrichment](cognitive-search-concept-intro.md) provides indexing that uses the AI enrichment engines of Azure AI services.
 
 ### Breaking changes
 

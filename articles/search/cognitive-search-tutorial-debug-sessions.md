@@ -35,7 +35,7 @@ Before you begin, have the following prerequisites in place:
 + [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19).
 
 > [!NOTE]
-> This tutorial also uses [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for language detection, entity recognition, and key phrase extraction. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create a billable Cognitive Services resource.
+> This tutorial also uses [Azure Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for language detection, entity recognition, and key phrase extraction. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create a billable Azure AI services resource.
 
 ## Set up your data
 

@@ -69,7 +69,7 @@ Internal requests are secured and managed by Microsoft. You can't configure or c
 Internal traffic consists of:
 
 + Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
-+ Requests made to Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md).
++ Requests made to Azure AI services APIs for [built-in skills](cognitive-search-predefined-skills.md).
 + Requests made to the machine learning models that support [semantic search](semantic-search-overview.md#availability-and-pricing).
 
 <a name="service-access-and-authentication"></a>

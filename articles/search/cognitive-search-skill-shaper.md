@@ -19,7 +19,7 @@ Additionally, the **Shaper** skill illustrated in [scenario 3](#nested-complex-t
 The output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" as shown in the examples below, but the **Shaper** skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
 > [!NOTE]
-> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
+> This skill isn't bound to Azure AI services. It is non-billable and has no Azure AI services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill

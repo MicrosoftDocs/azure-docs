@@ -43,7 +43,7 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
    ],
    "cognitiveServices":{
       "@odata.type":"#Microsoft.Azure.Search.CognitiveServicesByKey",
-      "description":"A Cognitive Services resource in the same region as Azure Cognitive Search",
+      "description":"A Azure AI services resource in the same region as Azure Cognitive Search",
       "key":"<Your-Cognitive-Services-Multiservice-Key>"
    },
    "knowledgeStore":{
@@ -62,9 +62,9 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
 
 After the name and description, a skillset has four main properties:
 
-+ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md). Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the next section.
++ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md). Skills can be utilitarian (like splitting text), transformational (based on AI from Azure AI services), or custom skills that you provide. An example of a skills array is provided in the next section.
 
-+ `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Cognitive Services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
++ `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Azure AI services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
 
 + `knowledgeStore` (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need it, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
 
