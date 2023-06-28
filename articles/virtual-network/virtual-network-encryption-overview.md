@@ -52,8 +52,6 @@ Azure Virtual Network encryption is available in the following regions during th
 
 - Central US EUAP
 
-- West Central US
-
 - North Central US
 
 - East US
