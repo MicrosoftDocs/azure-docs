@@ -87,7 +87,7 @@ To complete this tutorial, make sure you have:
 
 1. Under **Initialize variable**, the sample payload is visible under **Value**. Note the sample payload for later use.
 
-    :::image type="content" source="media/tutorial-extract-incident-entities/sample-payload.png" alt-text="Screenshot of viewing the sample payload under the Value field.":::  
+    :::image type="content" source="media/tutorial-extract-incident-entities/sample-payload-new.png" alt-text="Screenshot of viewing the sample payload under the Value field.":::  
 
 ## Filter the required entity type from other entity types
 
@@ -124,7 +124,7 @@ To complete this tutorial, make sure you have:
 
     1. Select **Content**, and under **Dynamic content** > **Filter array**, select **Body**. 
 
-        :::image type="content" source="media/tutorial-extract-incident-entities/dynamic-content.png" alt-text="Screenshot of selecting Dynamic content under Content.":::
+        :::image type="content" source="media/tutorial-extract-incident-entities/dynamic-content-new.png" alt-text="Screenshot of selecting Dynamic content under Content.":::
 
     1. Under **Schema**, paste a JSON schema so that you can extract values from an array. Copy the sample payload you generated when you [created the playbook](#create-a-playbook-with-an-incident-trigger). 
     
@@ -132,7 +132,7 @@ To complete this tutorial, make sure you have:
 
     1. Return to the playbook, and select **Use sample payload to generate schema**.  
     
-        :::image type="content" source="media/tutorial-extract-incident-entities/use-sample-payload.png" alt-text="Screenshot of selecting Use sample payload to generate schema.":::
+        :::image type="content" source="media/tutorial-extract-incident-entities/use-sample-payload-new.png" alt-text="Screenshot of selecting Use sample payload to generate schema.":::
 
     1. Paste the payload. Add an opening square bracket (`[`) at the beginning of the schema and close them at the end of the schema `]`.
     
