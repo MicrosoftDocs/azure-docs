@@ -209,9 +209,9 @@ Kubelet custom configuration is supported for Linux and Windows node pools. Supp
 ## Linux custom OS configuration settings
 
 > [!IMPORTANT]
-> For ease of search and readability the OS settings are displayed in this document by their name but should be added to the configuration json file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
+> To simplify search and readability, the OS settings are displayed in this article by their name, but they should be added to the configuration JSON file or AKS API using [camelCase capitalization convention](/dotnet/standard/design-guidelines/capitalization-conventions).
 >
-> eg. if you plan to modify the 'vm.max_map_count' setting, then you should use 'vmMaxMapCount' in the configuration json file.
+> For example, if you modify the 'vm.max_map_count setting', you should reformat to 'vmMaxMapCount' in the configuration JSON file.
 > 
 
 ### File handle limits
