@@ -29,7 +29,7 @@ CONTAINS(<str_expr1>, <str_expr2> [, <bool_expr>])
    Is the string expression to find.  
 
 *bool_expr*
-    Optional value for ignoring case. When set to true, CONTAINS will do a case-insensitive search. When unspecified, this value is false.
+    Optional value for ignoring case. When set to true, CONTAINS does a case-insensitive search. When unspecified, this value is false.
   
 ## Return types
   
@@ -37,13 +37,13 @@ CONTAINS(<str_expr1>, <str_expr2> [, <bool_expr>])
   
 ## Examples
   
-  The following example checks if "abc" contains "ab" and if "abc" contains "A".  
+  The following example checks if "abc" contains "ab" and if "abc" contains "A."  
   
 ```sql
 SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CONTAINS("abc", "A", true) AS c3
 ```  
   
- Here is the result set.  
+ Here's the result set.  
   
 ```json
 [
@@ -57,10 +57,9 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs a full scan.
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
 - [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
