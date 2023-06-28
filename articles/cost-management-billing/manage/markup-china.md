@@ -31,20 +31,24 @@ If you're a billing account or billing profile admin, you can create and manage 
 ## Create a markup rule
 
 1. Sign in to the Azure China portal at https://portal.azure.cn/.
-2. Navigate to  **Cost Management**.
+1. Navigate to  **Cost Management**.
  Don't navigate to **Cost Management + Billing**.
-3. Navigate to **Settings** > **Manage billing account.**
-4. Select the **Markup** card.  
+1. Navigate to **Settings** > **Manage billing account.**
+1. Select the **Markup** card.
+
     :::image type="content" source="./media/markup-china/manage-billing-account-markup.png" alt-text="Screenshot showing navigation to the Markup card." lightbox="./media/markup-china/manage-billing-account-markup.png" :::
-5. Select **Add**.
-6. On the New Markup rule page, enter or select the following information and then select **Create**.  
+
+1. Select **Add**.
+1. On the New Markup rule page, enter or select the following information and then select **Create**.
+ 
     :::image type="content" source="./media/markup-china/new-markup-rule.png" alt-text="Screenshot showing the New Markup rule page." lightbox="./media/markup-china/new-markup-rule.png" :::
-    - **Billing account** : Shows your billing account name at billing account scope.
-    - **Billing profiles** : Select one or more billing profiles. Note: Only billing profiles under the current billing account that are linked to your customers are shown.
-    - **Adjust price by** : Enter markup or markdown value that adjusts your (partner's) price and costs and appears in the customer's cost and price views.
-    - **Effective from** : During an open month, markup always defaults to the start of the month. You can't set the date for any previous month (closed periods).
+   
+    - **Billing account**: Shows your billing account name at billing account scope.
+    - **Billing profiles**: Select one or more billing profiles. Note: Only billing profiles under the current billing account that are linked to your customers are shown.
+    - **Adjust price by**: Enter markup or markdown value that adjusts your (partner's) price and costs and appears in the customer's cost and price views.
+    - **Effective from**: During an open month, markup always defaults to the start of the month. You can't set the date for any previous month (closed periods).
     - **End date:** An optional field. If not selected, the markup rule has no end date unless the rule is explicitly inactivated.
-    - **Description** : Optional field to capture notes or comments as needed.
+    - **Description**: Optional field to capture notes or comments as needed.
 
 >[!NOTE]
 > After you configure a markup rule, it can take 8-24 hours to complete processing.
