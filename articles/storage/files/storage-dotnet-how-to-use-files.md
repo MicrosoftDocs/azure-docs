@@ -195,7 +195,7 @@ The following code example shows how to use the .NET client library to enable me
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UseMetrics":::
 
-If you encounter any problems, refer to [Troubleshoot Azure Files](files-troubleshoot.md).
+If you encounter any problems, refer to [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json).
 
 ## Next steps
 
@@ -209,7 +209,7 @@ For more information about Azure Files, see the following resources:
 ### Tooling support for File storage
 
 - [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)
-- [Troubleshoot Azure Files](files-troubleshoot.md)
+- [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
 
 ### Reference
 
