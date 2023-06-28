@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 11/14/2022
+ms.date: 06/28/2023
 ms.author: barclayn
 ms.custom: it-pro, seodec18, fasttrack-edit, mode-other
 ms.collection: M365-identity-device-management
@@ -29,6 +29,9 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 >If you're unable to create Azure AD or Azure AD B2C tenant, review your user settings page to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
 
 ### To create a new tenant
+
+[!INCLUDE [Entra note](../includes/preview-portal.md)]
+
 
 1. Sign in to your organization's [Azure portal](https://portal.azure.com/).
 
