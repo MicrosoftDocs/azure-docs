@@ -32,6 +32,8 @@ landingContent:
              url: concepts-resource-types.md
            - text: Observability
              url: concepts-observability.md
+           - text: Frequently asked questions
+             url: azure-operator-nexus-faq.md
 #     - linkListType: how-to-guide
 #       links:
 #          - text: Deploy agents and monitoring
