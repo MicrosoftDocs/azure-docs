@@ -50,7 +50,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/anomaly-detector/context/context
         - text: Join the Anomaly Detector community for better support on Microsoft Teams
           url: https://aka.ms/adadvisorsjoin
         - text: Technical articles about Anomaly Detector
