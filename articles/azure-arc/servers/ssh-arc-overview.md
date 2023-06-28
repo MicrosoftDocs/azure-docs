@@ -108,7 +108,10 @@ Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
 ---
 
 ### Enable functionality on your Arc-enabled server
-In order to use the SSH connect feature, you must enable connections on the hybrid agent via Azure CLI or Azure PowerShell.
+In order to use the SSH connect feature, you must update the Service Configuration in the Connectivity Endpoint on the Arc-Enabled Server to allow SSH connection to a specific port. You may only allow connection to a single port. The CLI tools will attempt to update the allowed port at runtime, but the port can be manually configured with the following:
+
+> [!NOTE]
+> There may be a delay after updating the Service Configuration.
 
 #### [Azure CLI](#tab/azure-cli)
 
