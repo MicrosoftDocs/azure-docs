@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to use RAG by creating a prompt flow. A promp
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. [Follow this link to register](../cognitive-services/openai/limited-access#registration-process)
+* Access to Azure Open AI. [Follow this link to register](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access#registration-process)
 
 * Enable prompt flow in your Azure Machine Learning workspace
 
@@ -38,8 +38,6 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 ## Create a prompt flow using the samples gallery
 
 1.  Select **Prompt flow** on the left menu.
-
-(./media/how-to-use-rag-prompt-flow/prompt.png)
 
 :::image type="content" source="./media/how-to-use-rag-prompt-flow/prompt.png" alt-text="Screenshot showing prompt flow location.":::
 

@@ -1,6 +1,21 @@
+---
+title: Concept Vector Stores in AzureML (preview)
+titleSuffix: Azure Machine Learning embedding vectors in AzureML
+description: Explaining embedding vectors in AzureML
+services: machine-learning
+ms.author: balapv
+author: balapv
+ms.reviewer: ssalgado
+ms.service: machine-learning
+ms.subservice: core
+ms.date: 06/30/2023
+ms.topic: concept
+
+---
+
 # Vector Stores in AzureML
 
- 
+ [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 AzureML supports embedding vectors to be stored in 2 types of vector stores. Faiss and Azure Cognitive Search.
 

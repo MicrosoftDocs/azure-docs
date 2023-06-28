@@ -25,13 +25,22 @@ When a Vector Index is created, Azure Machine Learning will chunk the data, crea
 
 * A sample prompt flow, which uses the Vector Index you created. The sample prompt flow, which gets created has several key features like: a. Automatically generated prompt variants. b. Evaluation of each of these variations using the test data generated<TBD - link to eval blog>. c. Metrics against each of the variants to help you choose the best variant to run. You can use this sample to continue developing your prompt. 
 
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+
+* Access to Azure Open AI. [Follow this link to register](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access#registration-process)
+
+* Enable prompt flow in your Azure Machine Learning workspace
+
+In your Azure Machine Learning workspace, you can enable prompt flow by turn-on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
+
+
 ## Create a new Vector Index using studio
 
 1.  Select **Prompt flow** on the left menu
 
      :::image type="content" source="/media/how-to-create-vector-index/prompt.png" alt-text="Screenshot showing the Prompt flow location on the left menu.":::
-
-     media/how-to-create-vector-index/create.png
 
 1.  Select **Vector Index** on the top menu
 

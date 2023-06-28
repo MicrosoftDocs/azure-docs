@@ -28,7 +28,7 @@ If you'd like video reference you can follow this video tutorial to start your p
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. [Follow this link to register](../cognitive-services/openai/limited-access#registration-process)
+* Access to Azure Open AI. [Follow this link to register](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access#registration-process)
 
 * Enable prompt flow in your Azure Machine Learning workspace
 
@@ -71,7 +71,7 @@ starting flow authoring, you should set up your runtime.
 In this guide, we recommend creating a runtime from a Compute Instance. If you're a Subscription Owner, you have all the permissions needed. If not, first go ask your Subscription Owner to follow this [guide](https://github.com/Azure/azureml-insiders/blob/main/previews/prompt-flow/how-to-guides/how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime) to grant your permissions.
 
 
-Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow this [article](/how-to-create-manage-compute-instance.md) to create one. A memory optimized compute is recommended.
+Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow this [article](how-to-create-manage-compute-instance.md) to create one. A memory optimized compute is recommended.
 
 Once you have your Compute Instance running, 
 you can start to create a runtime. Go to **Runtime** tab, select **Create** button.
