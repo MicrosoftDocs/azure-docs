@@ -102,7 +102,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ## Deploy the application 
 
-:::image type="content" source="media/aks-ai-demo/aks-ai-demo-architecture.png" alt-text="Architecture diagram of AKS AI demo":::
+:::image type="content" source="media/ai-walkthrough/aks-ai-demo-architecture.png" alt-text="Architecture diagram of AKS AI demo":::
 
 For the [AKS Store application][aks-store-demo], this manifest include Kubernetes deployments and services for:
 - Product Service: shows product information
@@ -600,11 +600,11 @@ Now that the application is deployed, you will be deploying a Python based micro
 1. Open a web browser to the external IP address of your service. In the example shown here, open 40.64.86.161 to see store-admin in the browser. Repeat the same step for store-front. 
 1. In store admin, click on the products tab, then click on **Add Products**. 
 1. When the ai-service is running successfully, you should see the Ask OpenAI button next to description. Fill in the name, price, keywords, then click Ask OpenAI to generate a product description. Then click save product. 
-:::image type="content" source="media/aks-ai-demo/ai-generate-description.png" alt-text="use openAI to generate a product description":::
+:::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="use openAI to generate a product description":::
 1. You can now see the new product called Jungle Monkey Chew Toy on the store admin web app for sellers.
-:::image type="content" source="media/aks-ai-demo/new-product-store-admin.png" alt-text="view the new product in the store admin page":::
+:::image type="content" source="media/ai-walkthrough/new-product-store-admin.png" alt-text="view the new product in the store admin page":::
 1. You can also see the new product called Jungle Monkey Chew Toy on the store front web app for buyers. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
-:::image type="content" source="media/aks-ai-demo/new-product-store-front.png" alt-text="view the new product in the store front page":::
+:::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="view the new product in the store front page":::
 
 ## Contributors
 
@@ -619,7 +619,7 @@ Principal authors:
 
 <!-- todo -->
 ## Next steps
-
+- todo
 
 <!-- Links external -->
 [aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
@@ -632,7 +632,7 @@ Principal authors:
 [open-ai-new-key]: https://platform.openai.com/account/api-keys
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
 [aoai-access]: https://aka.ms/oai/access
-[az-upgrade]: https://learn.microsoft.com/en-us/cli/azure/update-azure-cli#manual-update
+[az-upgrade]: https://learn.microsoft.com/cli/azure/update-azure-cli#manual-update
 
 <!-- Links internal -->
 [azure-resource-group]: ../azure-resource-manager/management/overview.md 

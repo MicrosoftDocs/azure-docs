@@ -620,7 +620,7 @@
     - name: Deploy Intelligence Apps on AKS
       items:
         - name: Deploy OpenAI Workload on AKS 
-          href: open-ai-quickstard.md
+          href: open-ai-quickstart.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh
