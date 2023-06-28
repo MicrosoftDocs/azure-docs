@@ -81,11 +81,13 @@ The following code example shows how to specify data transfer options when creat
 
 ### Set a blob's access tier on upload
 
-You can set a blob's access tier on upload by passing the `standard_blob_tier` keyword argument to [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). Azure Storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. Setting the access tier is only allowed for block blobs. 
+You can set a blob's access tier on upload by passing the `standard_blob_tier` keyword argument to [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob). Azure Storage offers different access tiers so that you can store your blob data in the most cost-effective manner based on how it's being used.
 
 The following code example shows how to set the access tier when uploading a blob:
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_access_tier":::
+
+Setting the access tier is only allowed for block blobs.  You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/python/api/azure-storage-blob) version of 12.15.0.
 
 To learn more about access tiers, see [Access tiers overview](access-tiers-overview.md).
 

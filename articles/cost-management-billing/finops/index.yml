@@ -33,6 +33,74 @@ landingContent:
 
 # Card (optional)
 
+  - title: Understanding cloud usage + cost
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Data analysis and showback
+        url: capabilities-analysis-showback.md
+      - text: Cost allocation
+        url: capabilities-allocation.md
+      - text: Managing shared cost
+        url: capabilities-shared-cost.md
+      - text: Data ingestion and normalization
+        url: capabilities-ingestion-normalization.md
+
+  - title: Performance tracking + benchmarking
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Forecasting
+        url: capabilities-forecasting.md
+      - text: Budget management
+        url: capabilities-budgets.md
+      - text: Measuring unit costs
+        url: capabilities-unit-costs.md
+
+  - title: Real-time decision making
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Managing anomalies
+        url: capabilities-anomalies.md
+      - text: Establishing a decision and accountability structure
+        url: capabilities-structure.md
+
+  - title: Cloud usage optimization
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Resource utilization and efficiency
+        url: capabilities-efficiency.md
+      - text: Workload management and automation
+        url: capabilities-workloads.md
+      - text: Onboarding workloads
+        url: capabilities-onboarding.md
+
+  - title: Cloud rate optimization
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Establishing commitment-based discounts
+        url: capabilities-commitment-discounts.md
+
+  - title: Organizational alignment
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Cloud policy and governance
+        url: capabilities-policy.md
+      - text: Chargeback and finance integration
+        url: capabilities-chargeback.md
+      - text: FinOps education and enablement
+        url: capabilities-education.md
+      - text: Establishing a FinOps culture
+        url: capabilities-culture.md
+      - text: FinOps and intersecting frameworks
+        url: capabilities-frameworks.md
+
+# Card (optional)
+
   - title: Resources
     linkLists:
     - linkListType: reference
