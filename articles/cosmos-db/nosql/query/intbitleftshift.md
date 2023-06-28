@@ -1,7 +1,7 @@
 ---
 title: IntBitLeftShift
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that shifts one number by a specific number of bits.
+description: An Azure Cosmos DB for NoSQL system function that left shifts one number by a specific number of bits.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
