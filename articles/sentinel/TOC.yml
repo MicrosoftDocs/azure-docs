@@ -13,7 +13,7 @@
     href: quickstart-onboard.md
 - name: Deploy
   items:
-  - name: Plan and Prepare
+  - name: Plan and prepare
     items: 
     - name: Overview
       href: deployment-plan-prepare-overview.md
@@ -26,7 +26,7 @@
       - name: Design workspace architecture
         href: design-your-workspace-architecture.md
       - name: Prepare for multiple workspaces
-        href: extend-sentinel-across-workspaces-tenants.md
+        href: prepare-multiple-workspaces.md
       - name: Review sample workspace designs
         href: sample-workspace-designs.md
     - name: Prioritize data connectors
@@ -941,8 +941,10 @@
       href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
-    - name: Manage multiple workspaces
+    - name: Manage multiple workspaces (workspace manager)
       href: workspace-manager.md
+    - name: Monitor and manage multiple workspaces
+      href: extend-sentinel-across-workspaces-tenants.md  
     - name: Microsoft Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)

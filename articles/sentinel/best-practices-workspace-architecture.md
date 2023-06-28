@@ -4,7 +4,7 @@ description: Learn about best practices for designing your Microsoft Sentinel wo
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 06/28/2023
 ---
 
 # Microsoft Sentinel workspace architecture best practices
