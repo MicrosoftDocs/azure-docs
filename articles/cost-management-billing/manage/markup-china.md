@@ -98,11 +98,11 @@ If you choose not to publish markup, customers see all cost management and prici
 When editing markup rules, keep the following points in mind.
 
 - Change markup % only
-  1. Changing the markup % on an existing rule sets the end date the current rule to the end of the previous month. The new markup % is effective from the current month start date.
-  2. For all prior months, the customer costs and price are shown with the old markup %.
+  - Changing the markup % on an existing rule sets the end date the current rule to the end of the previous month. The new markup % is effective from the current month start date.
+ - For all prior months, the customer costs and price are shown with the old markup %.
 - Change markup % and start date
-  1. Changing the markup % and start date sets the end date of the current rule to the new effective start date minus one day. The new markup % is effective from the new start date that you select.
-  2. For the period before the new effective start date, the customer costs and prices are shown with the old markup %.
+  - Changing the markup % and start date sets the end date of the current rule to the new effective start date minus one day. The new markup % is effective from the new start date that you select.
+ - For the period before the new effective start date, the customer costs and prices are shown with the old markup %.
 
 ## Delete markup rules
 
