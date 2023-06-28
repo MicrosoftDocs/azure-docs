@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 04/27/2023
+ms.date: 06/29/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -191,14 +191,14 @@ The GitOps agents require outbound (egress) TCP to the repo source on either por
 
 ## Apply a Flux configuration
 
-Use the `k8s-configuration` Azure CLI extension (or the Azure portal) to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For a demonstration, use the public [gitops-flux2-kustomize-helm-mt](https://github.com/Azure/gitops-flux2-kustomize-helm-mt) repository.
+Use the `k8s-configuration` Azure CLI extension or the Azure portal to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For a demonstration, use the public [gitops-flux2-kustomize-helm-mt](https://github.com/Azure/gitops-flux2-kustomize-helm-mt) repository.
 
 > [!IMPORTANT]
 > The demonstration repo is designed to simplify your use of this tutorial and illustrate some key principles. To keep up to date, the repo can get breaking changes occasionally from version upgrades. These changes won't affect your new application of this tutorial, only previous tutorial applications that have not been deleted. To learn how to handle these changes please see the [breaking change disclaimer](https://github.com/Azure/gitops-flux2-kustomize-helm-mt#breaking-change-disclaimer-%EF%B8%8F).
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following example applies a Flux configuration to a cluster, using the following values and settings:
+The following example uses the `az k8s-configuration create` command to apply a Flux configuration to a cluster, using the following values and settings:
 
 * The resource group that contains the cluster is `flux-demo-rg`.
 * The name of the Azure Arc cluster is `flux-demo-arc`.
@@ -226,6 +226,9 @@ az k8s-configuration flux create -g flux-demo-rg \
 ```
 
 The `microsoft.flux` extension will be installed on the cluster (if it hasn't already been installed due to a previous GitOps deployment).
+
+> [!TIP]
+> The `az k8s-configuration create` command deploys the flux extension to the cluster and creates the configuration. In some scenarios, you may want to create the flux extension instance separately from applying the configuration. To do so, use [`az k8s-extension create` to create an instance of the extension](extensions.md#create-extension-instance) on your cluster.
 
 When the flux configuration is first installed, the initial compliance state may be `Pending` or `Non-compliant` because reconciliation is still ongoing. After a minute or so, query the configuration again to see the final compliance state.
 
