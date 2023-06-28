@@ -15,7 +15,7 @@ We've created an administrative template for Azure Virtual Desktop to configure 
 
 - Group Policy with Active Directory (AD), which enables you to centrally configure session hosts that are joined to an AD domain.
 
-- Group Policy locally on each session host, but this isn't recommended to manage session hosts at scale.
+- Group Policy locally on each session host, but we don't recommend this to manage session hosts at scale.
 
 You can configure the following features with the administrative template:
 
@@ -26,23 +26,23 @@ You can configure the following features with the administrative template:
 
 ## Prerequisites
 
-Before you can use configure the , you need to meet the following prerequisites. Select a tab for your scenario.
+Before you can configure the template settings, you need to meet the following prerequisites. Select a tab for your scenario.
 
 # [Intune](#tab/intune)
 
-For Intune device configuration profile, you'll need the following permission:
+For Intune device configuration profile, you need the following permission:
 
 - Assigned the [**Policy and Profile manager**](/mem/intune/fundamentals/role-based-access-control-reference#policy-and-profile-manager) built-in role-based access control (RBAC) role.
 
 # [Group Policy (AD)](#tab/group-policy-domain)
 
-For Group Policy in an Active Directory (AD) domain, you'll need the following permission:
+For Group Policy in an Active Directory (AD) domain, you need the following permission:
 
 - A member of the **Domain Admins** security group.
 
 # [Local Group Policy](#tab/local-group-policy)
 
-For local Group Policy on a session host, you'll need the following permission:
+For local Group Policy on a session host, you need the following permission:
 
 - A member of the local **Administrators** security group on each session host.
 
