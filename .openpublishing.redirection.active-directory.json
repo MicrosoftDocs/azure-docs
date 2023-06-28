@@ -12892,6 +12892,11 @@
         "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-get-started.md",
         "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-get-started",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md",
+        "redirect_url": "/azure/active-directory/authentication/create-new-tenant",
+        "redirect_document_id": false
       }
       
       ]
