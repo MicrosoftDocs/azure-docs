@@ -23,7 +23,7 @@ This configuration is especially advantageous for data plane applications, as it
 Before proceeding with this how-to guide, it's recommended that you:
 
    * Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
-   * Ensure that you meet the outlined prerequisites to ensure a smooth implementation of the guide.
+   * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 
 ## Huge-page settings in Nexus Kubernetes cluster
 When configuring huge-pages for a Nexus Kubernetes cluster, you need to provide the following arguments:

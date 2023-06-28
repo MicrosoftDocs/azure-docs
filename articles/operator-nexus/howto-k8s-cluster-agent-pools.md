@@ -24,7 +24,7 @@ Application pods can be scheduled on system node pools if you wish to only have 
 Before proceeding with this how-to guide, it's recommended that you:
 
    * Refer to the Nexus Kubernetes cluster [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
-   * Ensure that you meet the outlined prerequisites to ensure a smooth implementation of the guide.
+   * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 
 ## Limitations
    * You can delete system node pools, provided you have another system node pool to take its place in the Nexus Kubernetes cluster.
