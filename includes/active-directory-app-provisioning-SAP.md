@@ -53,7 +53,7 @@ To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
 
 1. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
-     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-SAP\SAP-Prop-1.png)](.\media\active-directory-app-provisioning-SAP\SAP-Prop-1.png#lightbox)
+     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-SAP\sap-Prop-1.png)](.\media\active-directory-app-provisioning-SAP\sap-prop-1.png#lightbox)
 
      |Property|Value|
      |-----|-----|
@@ -64,7 +64,7 @@ To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
 
 1. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
-     [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sql\conn-2.png)](.\media\active-directory-app-provisioning-sql\conn-2.png#lightbox)
+     [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sap\sap-prop-1.png)](.\media\active-directory-app-provisioning-sap\sap-prop-1.png#lightbox)
      
      |Property|Description|
      |-----|-----|
@@ -107,7 +107,7 @@ Note: if your web services connector template sapecc.wsconfig is opened for edit
 
 1. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**. The **Export** run profile will be used when the ECMA Connector host needs to send changes from Azure AD to SAP ECC 7, to insert, update and delete records.  The **Full Import** run profile will be used when the ECMA Connector host service starts, to read in the current content of SAP ECC 7.  
 
-     [![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sql\conn-9.png)](.\media\active-directory-app-provisioning-sql\conn-9.png#lightbox)
+     [![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sap\sap-rps-1.png)](.\media\active-directory-app-provisioning-sap\sap-rps-1.png#lightbox)
      
     | Property | Value |
     | --- | --- |
