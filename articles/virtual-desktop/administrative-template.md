@@ -55,7 +55,7 @@ To configure the administrative template, select a tab for your scenario and fol
 # [Intune](#tab/intune)
 
 > [!IMPORTANT]
-> The administrative template for Azure Virtual Desktop is only available with the *templates* profile type, not the *settings catalog*. You can't use this with Windows multi-session client operating systems as they only support the settings catalog. You'll need to use one of the other methods.
+> The administrative template for Azure Virtual Desktop is only available with the *templates* profile type, not the *settings catalog*. You can use the templates profile type with Windows 10 and Windows 11, but you can't use this with multi-session versions of these operating systems as they only support the settings catalog. You'll need to use one of the other methods with multi-session.
 
 1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
@@ -65,7 +65,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-intune-template.png" alt-text="Screenshot of the Intune admin center showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-intune-template.png":::
 
-1. Apply the configuration profile, then restart your clients.
+1. Apply the configuration profile to your session hosts, then restart your clients.
 
 # [Group Policy (AD)](#tab/group-policy-domain)
 
@@ -82,7 +82,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Group Policy Management Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
-1. Apply the policy, then restart your session hosts.
+1. Apply the policy to your session hosts, then restart your session hosts.
 
 # [Local Group Policy](#tab/local-group-policy)
 
@@ -96,7 +96,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Local Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
-1. Apply the policy, then restart your session hosts.
+1. Restart your session hosts for the settings to take effect.
 
 ---
 
@@ -104,6 +104,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
 Learn how to use the administrative template with the following features:
 
+- [Graphics related data logging](connection-latency.md#connection-graphics-data-preview)
 - [Screen capture protection](screen-capture-protection.md)
 - [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks)
 - [Watermarking](watermarking.md)
