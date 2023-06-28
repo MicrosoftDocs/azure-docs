@@ -21,13 +21,11 @@ landingContent:
         links:
           - text: What is Azure Large Instances?
             url: what-is-azure-large-instances.md
-          - text: Working with ALI in the Azure portal
-            url: working-with-ali-in-the-azure-portal.md
 
 # card 2
   - title: Azure Large Instances for Epic
     linkLists: 
-      - linkListType: overview
+      - linkListType: concepts
         links:
           - text: Onboarding requirements
             url: workloads/epic/onboarding-requirements.md
@@ -39,6 +37,8 @@ landingContent:
             url: workloads/epic/architecture.md 
       - linkListType: how-to-guide
         links:
+          - text: Working with ALI in the Azure portal
+            url: working-with-ali-in-the-azure-portal.md
           - text: Create a volume group
             url: workloads/epic/create-a-volume-group.md
           - text: Configure Azure Service health alerts
