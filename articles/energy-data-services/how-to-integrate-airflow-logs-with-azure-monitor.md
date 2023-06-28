@@ -1,5 +1,5 @@
 ---
-title: Integrate airflow logs with Azure Monitor - Microsoft Microsoft Azure Data Manager for Energy
+title: Integrate airflow logs with Azure Monitor - Microsoft Azure Data Manager for Energy
 description: This is a how-to article on how to start collecting Airflow Task logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
@@ -83,12 +83,12 @@ You can integrate Airflow logs with Log Analytics Workspace by using **Diagnosti
 
 ## Working with the integrated Airflow Logs in Log Analytics Workspace
 
-Use Kusto Query Language (KQL) to retrieve desired data on collected Airflow logs from your Log Analytics Workspace.You can either load the prebuilt sample queries to your Log Analytics Workspace or create your own queries.
+Use Kusto Query Language (KQL) to retrieve desired data on collected Airflow logs from your Log Analytics Workspace. You can either load the prebuilt sample queries to your Log Analytics Workspace or create your own queries.
 
 
 [![Screenshot for Azure Monitor Log Analytics page for viewing collected logs. Under log management, tables from all sources will be visible.](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png)](media/how-to-integrate-airflow-logs-with-azure-monitor/azure-monitor-log-analytics-page-viewing-collected-logs.png#lightbox)
 
-1. **Loading Pre-built queries:** Select Logs from your resource's menu. Log Analytics opens with the *Queries* window that includes prebuilt queries for your resource type.Browse through the available queries. Identify the one to run and select Run. The query is added to the query window and the results are returned.
+1. **Loading Pre-built queries:** Select Logs from your resource's menu. Log Analytics opens with the *Queries* window that includes prebuilt queries for your resource type. Browse through the available queries. Identify the one to run and select Run. The query is added to the query window and the results are returned.
 
 2. **Write queries in the Query editor:** You can copy, paste and edit the following queries or write your own in KQL on the Query Editor of your Log Analytics Workspace.
 
