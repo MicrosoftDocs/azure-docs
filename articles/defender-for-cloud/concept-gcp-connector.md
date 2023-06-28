@@ -1,13 +1,13 @@
 ---
-title: Protecting your GCP projects and organizations
+title: Defender for Cloud's GCP connector
 description: Learn how the GCP connector works on Microsoft Defender for Cloud.
 titleSuffix: Microsoft Defender for Cloud
 ms.topic: conceptual
 ms.service: defender-for-cloud
-ms.date: 06/22/2023
+ms.date: 06/28/2023
 ---
 
-# Microsoft Defender for Cloud's GCP connector
+# Defender for Cloud's GCP connector
 
 The Microsoft Defender for Cloud GCP (Google Cloud Platform) connector is a feature that allows an organization to extend its cloud security posture management to their Google Cloud environments.
 

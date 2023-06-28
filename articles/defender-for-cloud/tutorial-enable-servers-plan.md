@@ -1,12 +1,12 @@
 ---
-title: Protect your servers - Microsoft Defender for Cloud
+title: Protect servers with Defender for Servers - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/27/2023
+ms.date: 06/28/2023
 ---
 
-# Protect your servers
+# Protect servers with Defender for Servers
 
 Defender for Servers in Microsoft Defender for Cloud brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 

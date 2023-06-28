@@ -77,4 +77,6 @@ You can enable the Defender for Containers plan and deploy all of the relevant c
 
 ## Next steps
 
-[Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
+- For advanced enablement features for Defender for Containers, see the [Enable Microsoft Defender for Containers](defender-for-containers-enable.md) page.
+
+- [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).

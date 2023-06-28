@@ -28,35 +28,6 @@
       displayName: regulatory, compliance, regulatory compliance, common questions
       href: faq-regulatory-compliance.yml
 
-- name: HOLDING FOLDER
-  items:
-  - name: 2. Enable the enhanced security features
-    displayName: plans, enable, security, protect
-    href: enable-enhanced-security.md
-  - name: 3. Connect hybrid and multicloud environments
-    items:
-    - name: Connect AWS accounts
-      displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts
-      href: quickstart-onboard-aws.md
-    - name: Connect GCP projects
-      displayName: hybrid, multicloud, multicloud, google, gcp
-      href: quickstart-onboard-gcp.md
-    - name: Connect GitHub repositories
-      displayName: GitHub, DevOps, repositories
-      href: quickstart-onboard-github.md
-    - name: Connect Azure DevOps repositories
-      displayName: DevOps, connect, Azure
-      href: quickstart-onboard-devops.md
-  - name: 4. Set up email notifications
-    displayName: email,e-mail, notifications
-    href: configure-email-notifications.md
-  - name: 5. Create auto-responses to alerts using an ARM template or Bicep
-    displayName: Resource Manager, ARM, Template
-    href: quickstart-automation-alert.md
-  - name: 6. Choose standards for your compliance dashboard
-    displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
-    href: update-regulatory-compliance-packages.md
-
 - name: Quickstarts
   items:
   - name: Enable Defender for Cloud on your Azure subscription
@@ -86,46 +57,40 @@
   - name: Protect individual resources
     expanded: false
     items:
-    - name: Protect your resources with CSPM
+    - name: Protect your resources with Defender CSPM
       displayName: CSPM, cloud security posture management, enable
       href: tutorial-enable-cspm-plan.md
-    - name: Protect servers
+    - name: Protect servers with Defender for Servers
       displayName: servers, server, enable
       href: tutorial-enable-servers-plan.md
-    - name: Protect apps
+    - name: Protect your applications with Defender for App Service
       displayName: App, service, enable, app service
       href: tutorial-enable-app-service-plan.md
-    - name: Protect databases
+    - name: Protect your databases with Defender for Databases
       displayName: Databases, Cosmos, DB, SQL servers, Azure SQL, SQL, Open-source relational databases
       href: tutorial-enable-databases-plan.md
-    - name: Protect storage
+    - name: Protect your storage with Defender for Storage
       displayName: storage, enable
       href: tutorial-enable-storage-plan.md
-    - name: Protect containers
+    - name: Protect containers with Defender for Containers
       items:
-      - name: Protect containers on Azure (AKS)
+      - name: Protect your Azure containers (AKS) 
         href: tutorial-enable-containers-azure.md
-      - name: Protect containers on On-premises and IaaS (ARC)
+      - name: Protect your on-premises and IaaS (ARC) devices 
         href: tutorial-enable-containers-arc.md
-      - name: Protect containers on AWS
+      - name: Protect your Amazon Web Service (AWS) accounts containers
         href: tutorial-enable-container-aws.md
-      - name: Protect containers on GCP
+      - name: Protect your Google Cloud Platform (GCP) project containers
         href: tutorial-enable-container-gcp.md
-    - name: Protect Azure Key Vault
+    - name: Protect your key vault with Defender for Key Vault
       displayName: enable, key, vault, key vault
       href: tutorial-enable-key-vault-plan.md
-    - name: Protect Azure Resource Manager
+    - name: Protect your resources with Defender for Resource Manager
       displayName: resource manager, resource, manager, enable
       href: tutorial-enable-resource-manager-plan.md
-    - name: Protect DevOps environments
-      items: 
-      - name: Configure the Microsoft Security DevOps GitHub action
-        displayName: GitHuB, DevOps, enable defender for devops
-        href: github-action.md
-      - name: Configure the Microsoft Security DevOps Azure DevOps extension
-        displayName: DevOps extension, Security, DevOps, enable defender for devops
-        href: azure-devops-extension.md
-
+    - name: Protect your APIs with Defender for APIs (Preview)
+      displayName: APIs, enable
+      href: defender-for-apis-deploy.md
 
 - name: Tutorials
   items:
@@ -141,12 +106,21 @@
   - name: Improve your regulatory compliance
     displayName: regulatory, compliance, remediate, assessment, reports, certificates, export, workflow, automation
     href: regulatory-compliance-dashboard.md
+  - name: Choose standards for your compliance dashboard
+    displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
+    href: update-regulatory-compliance-packages.md
   - name: Manage security policies
     displayName: security, policies, edit, disable
     href: tutorial-security-policy.md
   - name: Investigate the health of your resources
     displayName: health, resources, outstanding, security, issues, 
     href: investigate-resource-health.md
+  - name: Set up email notifications
+    displayName: email,e-mail, notifications
+    href: configure-email-notifications.md
+  - name: Create auto-responses to alerts using an ARM template or Bicep
+    displayName: Resource Manager, ARM, Template
+    href: quickstart-automation-alert.md
 
 - name: Samples
   items:
@@ -175,10 +149,10 @@
     items:
     - name: The Defender for Cloud multicloud solution
       href: multicloud.yml
-    - name: Protecting your GCP projects and organizations
+    - name: Defender for Cloud's GCP connector
       displayName: GCP, connector, project, organizations
       href: concept-gcp-connector.md
-    - name: AWS connector
+    - name: Defender for Cloud's AWS connector
       displayName: AWS, connector
       href: concept-aws-connector.md
     - name: Zero Trust infrastructure and integrations
@@ -455,7 +429,7 @@
       href: defender-for-apis-introduction.md
     - name: Support and prerequisites
       href: defender-for-apis-prepare.md
-    - name: Onboard Defender for APIs
+    - name: Protect your APIs with Defender for APIs (Preview)
       href: defender-for-apis-deploy.md
     - name: Validate APIs alerts
       displayName: validate, api, apis
@@ -493,7 +467,7 @@
         href: concept-agentless-data-collection.md
       - name: Scale a Defender for Servers deployment
         href: plan-defender-for-servers-scale.md    
-    - name: Deploy server protection
+    - name: Protect servers with Defender for Servers
       href: tutorial-enable-servers-plan.md    
     - name: Configure vulnerability scanning
       items:
@@ -594,9 +568,9 @@
       href: faq-defender-for-containers.yml
   - name: Database protection
     items:
-    - name: Enable database protection
+    - name: Protect your databases with Defender for Databases
       displayName: database, protections
-      href: quickstart-enable-database-protections.md
+      href: tutorial-enable-databases-plan.md
     - name: Defender for Azure SQL Databases
       items: 
       - name: Get started
@@ -672,9 +646,9 @@
     - name: Overview
       displayName: Azure Defender for App Service, defender for app
       href: defender-for-app-service-introduction.md
-    - name: Enable Defender for App Service
+    - name: Protect your applications with Defender for App Service
       displayName: App service
-      href: enable-enhanced-security.md
+      href: tutorial-enable-app-service-plan.md
   - name: Defender for Storage
     items:
     - name: Overview
@@ -747,12 +721,20 @@
     - name: Overview
       displayName: DevOps
       href: defender-for-devops-introduction.md
-    - name: Configure the Microsoft Security DevOps GitHub action
-      displayName: GitHuB, DevOps, 
-      href: github-action.md
-    - name: Configure the Microsoft Security DevOps Azure DevOps extension
-      displayName: DevOps extension, Security, DevOps
-      href: azure-devops-extension.md
+    - name: Protect DevOps environments
+      items: 
+      - name: Connect GitHub repositories
+        displayName: GitHub, DevOps, repositories
+        href: quickstart-onboard-github.md
+      - name: Connect Azure DevOps repositories
+        displayName: DevOps, connect, Azure
+        href: quickstart-onboard-devops.md
+      - name: Configure the Microsoft Security DevOps GitHub action
+        displayName: GitHuB, DevOps, enable defender for devops
+        href: github-action.md
+      - name: Configure the Microsoft Security DevOps Azure DevOps extension
+        displayName: DevOps extension, Security, DevOps, enable defender for devops
+        href: azure-devops-extension.md
     - name: Discover misconfigurations in Infrastructure as Code
       displayName: misconfiguration, iac, infrastructure
       href: iac-vulnerabilities.md

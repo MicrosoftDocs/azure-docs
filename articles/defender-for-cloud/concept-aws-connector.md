@@ -1,11 +1,11 @@
 ---
-title: AWS connector information
+title: Defender for Cloud's AWS connector
 description: Conceptual information pulled from AWS connector article.
 ms.topic: tutorial
-ms.date: 06/22/2023
+ms.date: 06/28/2023
 ---
 
-# Learn more about your AWS connector
+# Defender for Cloud's AWS connector
 
 To protect your AWS-based resources, you must [connect your AWS account](quickstart-onboard-aws.md) using the built in connector. The connector provides an agentless connection to your AWS account that you can extend with Defender for Cloud's Defender plans to secure your AWS resources:
 

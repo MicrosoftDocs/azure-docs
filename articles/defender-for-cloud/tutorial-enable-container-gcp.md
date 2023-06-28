@@ -115,4 +115,6 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 ## Next steps
 
-[Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
+- For advanced enablement features for Defender for Containers, see the [Enable Microsoft Defender for Containers](defender-for-containers-enable.md) page.
+
+- [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).

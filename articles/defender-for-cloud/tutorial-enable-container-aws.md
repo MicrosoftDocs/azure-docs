@@ -98,4 +98,6 @@ Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy exten
 
 ## Next steps
 
-[Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
+- For advanced enablement features for Defender for Containers, see the [Enable Microsoft Defender for Containers](defender-for-containers-enable.md) page.
+
+- [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
