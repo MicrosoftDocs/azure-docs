@@ -108,10 +108,8 @@
         href: ot-deploy/provision-cloud-management.md
     - name: Deploy OT network sensors
       items:
-      - name: Install sensor software
+      - name: Install sensor software and perform initial setup
         href: ot-deploy/install-software-ot-sensor.md
-      - name: Activate and set up an OT sensor
-        href: ot-deploy/activate-deploy-sensor.md
         displayName: SSL, TLS, certificate
       - name: Validate after installation
         href: ot-deploy/post-install-validation-ot-software.md

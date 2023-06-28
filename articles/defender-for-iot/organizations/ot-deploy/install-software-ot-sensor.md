@@ -303,6 +303,5 @@ For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-senso
 > [!div class="step-by-step"]
 > [« Provision OT sensors for cloud management](provision-cloud-management.md)
 
-
 > [!div class="step-by-step"]
 > [Validate after installing software »](post-install-validation-ot-software.md)
