@@ -9,7 +9,7 @@ ms.date: 03/06/2023
 
 [!INCLUDE [speech model](./includes/speech-model.md)]
 
-Through Azure Video Indexer integration with [Azure speech services](../cognitive-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. The base model works well in most speech recognition scenarios. 
+Through Azure Video Indexer integration with [Azure speech services](../ai-services/speech-service/captioning-concepts.md), a Universal Language Model is utilized as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. The base model works well in most speech recognition scenarios. 
 
 However, sometimes the base model’s transcription doesn't accurately handle some content. In these situations, a customized speech model can be used to improve recognition of domain-specific vocabulary or pronunciation that is specific to your content by providing text data to train the model. Through the process of creating and adapting speech customization models, your content can be properly transcribed. There is no additional charge for using Video Indexers speech customization. 
 
@@ -23,7 +23,7 @@ For a list of languages that support custom models and pronunciation, see the Cu
 
 ## Train datasets 
 
-When indexing a video, you can use a customized speech model to improve the transcription. Models are trained by loading them with [datasets](../cognitive-services/speech-service/how-to-custom-speech-test-and-train.md) that can include plain text data and pronunciation data.   
+When indexing a video, you can use a customized speech model to improve the transcription. Models are trained by loading them with [datasets](../ai-services/speech-service/how-to-custom-speech-test-and-train.md) that can include plain text data and pronunciation data.   
 
 Text used to test and train a custom model should include samples from a diverse set of content and scenarios that you want your model to recognize. Consider the following factors when creating and training your datasets: 
 
