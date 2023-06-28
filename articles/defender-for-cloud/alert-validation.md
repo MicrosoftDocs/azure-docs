@@ -203,7 +203,7 @@ You can simulate alerts for resources running on [App Service](/azure/app-servic
 **To simulate an app services EICAR alert:**
 
 1. Find the HTTP endpoint of the website either by going into Azure portal blade for the App Services website or using the custom DNS entry associated with this website. (The default URL endpoint for Azure App Services website has the suffix `https://XXXXXXX.azurewebsites.net`). The website should be an existing website and not one that was created prior to the alert simulation. 
-1. Browse to the website URL and add to it the following fixed suffix: `/This_Will_Generate_ASC_Alert`. The URL should look like this: `https://XXXXXXX.azurewebsites.net/This_Will_Generate_ASC_Alert`. It might take some time for the alert to be generated (~1.5 hours).
+1. Browse to the website URL and add the following fixed suffix: `/This_Will_Generate_ASC_Alert`. The URL should look like this: `https://XXXXXXX.azurewebsites.net/This_Will_Generate_ASC_Alert`. It might take some time for the alert to be generated (~1.5 hours).
 
 
 ## Validate Azure Key Vault Threat Detection
