@@ -19,7 +19,7 @@ Returns the expression at the specified index of a list, or Undefined if the ind
 ## Syntax
 
 ```sql
-CHOOSE( <numeric_expr>, <expr1> [, <exprN>])
+CHOOSE(<numeric_expr>, <expr_1> [, <expr_N>])
 ```
 
 ## Arguments
@@ -27,8 +27,8 @@ CHOOSE( <numeric_expr>, <expr1> [, <exprN>])
 | | Description |
 | --- | --- |
 | **`numeric_expr`** | A numeric expression, which specifies the index used to get a specific expression in the list. The starting index of the list is `1`. |
-| **`expr1`** | The first expression in the list. |
-| **`exprN` *(Optional)*** | Optional expression\[s\], which can contain a variable number of expressions up to the `N`th item in the list. |
+| **`expr_1`** | The first expression in the list. |
+| **`expr_N` *(Optional)*** | Optional expression\[s\], which can contain a variable number of expressions up to the `N`th item in the list. |
 
 ## Return types
 

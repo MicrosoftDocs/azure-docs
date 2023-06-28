@@ -19,7 +19,7 @@ Evaluates a boolean expression and returns the result of one of two expressions 
 ## Syntax
 
 ```sql
-IIF( <bool_expr>, <true_expr>, <false_expr>)
+IIF(<bool_expr>, <true_expr>, <false_expr>)
 ```
 
 ## Arguments

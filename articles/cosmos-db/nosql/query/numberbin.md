@@ -19,7 +19,7 @@ Rounds the numeric expression's value down to a multiple of specified bin size.
 ## Syntax
 
 ```sql
-NumericBin( <numeric_expr> [, <bin_size>])
+NumericBin(<numeric_expr> [, <bin_size>])
 ```
 
 ## Arguments
