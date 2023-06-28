@@ -128,7 +128,7 @@ To create the SSH connection to the Windows Server node from another node, use t
 
     In the previous example, *10.224.0.62* is the internal IP address of the Windows Server node.
 
-4. Create an SSH connection to the Windows Server node using the internal IP address, and connect to port 22 through port 2022 on your development computer. The default username for AKS nodes is *azureuser*. Accept the prompt to continue with the connection. You're then provided with the bash prompt of your Windows Server node:
+4. Create an SSH connection to the Windows Server node using the internal IP address, and connect to port `22` through port `2022` on your development computer. The default username for AKS nodes is *azureuser*. Accept the prompt to continue with the connection. You're then provided with the bash prompt of your Windows Server node:
 
     ```bash
     ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@10.224.0.62
@@ -230,13 +230,13 @@ az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-val
 
 The following examples demonstrate possible usage of this command:
 
-* You can specify the new SSH public key value for the `--ssh-key-value` argument.
+* You can specify the new SSH public key value for the `--ssh-key-value` argument:
 
     ```azurecli
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
     ```
     
-* You specify a SSH public key file.
+* You specify a SSH public key file:
 
     ```azurecli
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
