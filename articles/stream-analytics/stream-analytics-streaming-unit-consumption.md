@@ -26,7 +26,7 @@ The underlying compute power for V1 and V2 streaming units is as follows:
 > [!Note]
 > If you notice that the SU count in your [Activity log](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs) appears to be diffrent than the value that you see on the UI for a particular job, do not be alarmed as long as the mapping is as follows: 1/3 SU V2 = 3, 2/3 SU V2 = 7, 1 SU V2 = 10, 2 SU V2= 20, 3 SU V2 = 30, and so on. This conversion is automatic and has no impact on your job's performance.
 
-For information on SU pricing, visit the [Azure Stream Analytics Pricing Page](https://azure.microsoft.com/pricingdetails/stream-analytics/).
+For information on SU pricing, visit the [Azure Stream Analytics Pricing Page](https://azure.microsoft.com/pricing/details/stream-analytics/).
 
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.
 
@@ -62,7 +62,7 @@ In general, the best practice is to start with 1 SU V2 for queries that don't us
 For more information about choosing the right number of SUs, see this page: [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. For information on Azure Stream Analytics subscription quota, visit [Stream Analytics limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#stream-analytics-limits). To increase SUs for your subscriptions beyond this quota, contact [Microsoft Support](https://support.microsoft.com). Valid values for SUs per job are 1/3, 2/3, 1, 2, 3, and so on. 
+> Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. For information on Azure Stream Analytics subscription quota, visit [Stream Analytics limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#stream-analytics-limits). To increase SUs for your subscriptions beyond this quota, contact [Microsoft Support](https://support.microsoft.com). Valid values for SUs per job are 1/3, 2/3, 1, 2, 3, and so on. 
 
 ## Factors that increase SU% utilization 
 
