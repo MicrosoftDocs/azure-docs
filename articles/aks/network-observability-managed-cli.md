@@ -233,34 +233,34 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     global:
       scrape_interval: 30s
     scrape_configs:
-    - job_name: "cilium-pods"
-      kubernetes_sd_configs:
-        - role: pod
-      relabel_configs:
-        - source_labels: [__meta_kubernetes_pod_container_name]
-          action: keep
-          regex: cilium-agent
-        - source_labels:
-          [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-          separator: ":"
-          regex: ([^:]+)(?::\d+)?
-          target_label: __address__
-          replacement: ${1}:${2}
-          action: replace
-        - source_labels: [__meta_kubernetes_pod_node_name]
-          action: replace
-          target_label: instance
-        - source_labels: [__meta_kubernetes_pod_label_k8s_app]
-          action: replace
-          target_label: k8s_app
-        - source_labels: [__meta_kubernetes_pod_name]
-          action: replace
-          regex: (.*)
-          target_label: pod
-      metric_relabel_configs:
-        - source_labels: [__name__]
-          action: keep
-          regex: (.*)
+        - job_name: "cilium-pods"
+        kubernetes_sd_configs:
+            - role: pod
+        relabel_configs:
+            - source_labels: [__meta_kubernetes_pod_container_name]
+            action: keep
+            regex: cilium-agent
+            - source_labels:
+                [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+            separator: ":"
+            regex: ([^:]+)(?::\d+)?
+            target_label: __address__
+            replacement: ${1}:${2}
+            action: replace
+            - source_labels: [__meta_kubernetes_pod_node_name]
+            action: replace
+            target_label: instance
+            - source_labels: [__meta_kubernetes_pod_label_k8s_app]
+            action: replace
+            target_label: k8s_app
+            - source_labels: [__meta_kubernetes_pod_name]
+            action: replace
+            regex: (.*)
+            target_label: pod
+        metric_relabel_configs:
+            - source_labels: [__name__]
+            action: keep
+            regex: (.*)
     ```
 
 1. To create the `configmap`, use the following example:
