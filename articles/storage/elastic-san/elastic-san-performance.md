@@ -36,7 +36,7 @@ Each of the following example scenarios uses the following configuration for the
 
 ### Average scenario
 
-In this scenario, no throttling occurs at either the VM or SAN level. An application on the AKS cluster makes a request for 3000 IOPS from the VM, workload 1 requests 10,000 IOPS from its VM, workload 2 requests 8,000 IOPS from its VM, and workload 3 requests 20,000 IOPS from its VM. Since the SAN itself has 135,000 IOPS, each volume is large enough to serve up to 64,000 IOPS if they're available from the SAN, none of the VM's IOPS limits have been surpassed, and the total IOPS requested is 41,000. So the workloads all execute without any throttling.
+In this scenario, no throttling occurs at either the VM or SAN level. An application on the AKS cluster makes a request for 3000 IOPS from the VM, workload 1 requests 10,000 IOPS from its VM, workload 2 requests 8,000 IOPS from its VM, and workload 3 requests 20,000 IOPS from its VM. The SAN itself has 135,000 IOPS, each volume is large enough to serve up to 64,000 IOPS, enough IOPS are available from the SAN, none of the VM's IOPS limits have been surpassed, and the total IOPS requested is 41,000. So the workloads all execute without any throttling.
 
 :::image type="content" source="media/elastic-san-performance/scenario_one.png" alt-text="Average scenario example diagram." lightbox="media/elastic-san-performance/scenario_one.png":::
 
