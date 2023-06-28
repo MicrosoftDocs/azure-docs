@@ -3,7 +3,7 @@ title: Protect your Azure containers with the Defender for Containers plan on yo
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Containers plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/27/2023
+ms.date: 06/28/2023
 ---
 
 # Protect your Azure containers with Defender for Containers
@@ -24,7 +24,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -55,7 +55,7 @@ If you would prefer to [assign a custom workspace](/azure/defender-for-cloud/def
 
 ## Deploy the Defender profile in Azure
 
-You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We'll walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender profile](includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) with REST API, Azure CLI or with a Resource Manager template.
+You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender profile](/azure/defender-for-cloud/includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) with REST API, Azure CLI or with a Resource Manager template.
 
 **To deploy the Defender profile in Azure:**
 

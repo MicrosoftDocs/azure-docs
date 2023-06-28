@@ -2,12 +2,12 @@
 title: Connect your AWS account to Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: install-set-up-deploy
-ms.date: 06/22/2023
+ms.date: 06/28/2023
 ---
 
 # Connect your AWS accounts to Microsoft Defender for Cloud
 
-With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Amazon Web Services (AWS), but you'll need to set up the connection between them to your Azure subscription.
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Amazon Web Services (AWS), but you need to set up the connection between them to your Azure subscription.
 
 > [!NOTE]
 > If you are connecting an AWS account that was previously connected with the classic connector, you must [remove them](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account that is connected by both the classic and native connector can produce duplicate recommendations.
@@ -23,7 +23,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [Set up Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -47,7 +47,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
     - Azure Arc for servers installed on your EC2 instances/RDS Custom for SQL Server.
       - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
 
-          Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If you already have the SSM agent pre-installed, the AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you'll need to install it using either of the following relevant instructions from Amazon:
+          Auto provisioning, which is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If you already have the SSM agent preinstalled, the AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either of the following relevant instructions from Amazon:
             - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
             Ensure that your SSM agent has the managed policy ["AmazonSSMManagedInstanceCore"](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html) that enables AWS Systems Manager service core functionality.
 
@@ -59,7 +59,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
       - VA solution (TVM/Qualys)
       - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA)
 
-           Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription will inherit the subscription settings for the LA agent and AMA.
+           Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription inherits the subscription settings for the LA agent and AMA.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -72,7 +72,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
     - Azure Arc for servers installed on your EC2 instances.
       - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
 
-           Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If that is the case, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you'll need to install it using either of the following relevant instructions from Amazon:
+           Auto provisioning, which is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If that is the case, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either of the following relevant instructions from Amazon:
             - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
             - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
             Ensure that your SSM agent has the managed policy ["AmazonSSMManagedInstanceCore"](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html) that enables AWS Systems Manager service core functionality.
@@ -87,7 +87,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
       - VA solution (TVM/Qualys)
       - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA)
 
-           Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription will inherit the subscription settings for the LA agent and AMA.
+           Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription inherits the subscription settings for the LA agent and AMA.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -107,11 +107,11 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-environment-settings.png" alt-text="Connecting an AWS account to an Azure subscription." lightbox="media/quickstart-onboard-aws/add-aws-account-environment-settings.png":::
 
-1. Enter the details of the AWS account, including the location where you'll store the connector resource.
+1. Enter the details of the AWS account, including the location where you store the connector resource.
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
 
-   (Optional) Select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts.
+   (Optional) Select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Autoprovisioning is enabled for all of the newly onboarded accounts.
 
 1. Select **Next: Select plans**.
 
@@ -128,7 +128,7 @@ For a reference list of all the recommendations Defender for Cloud can provide f
         - (Optional) Select **Configure**, to edit the configuration as required.
 
     > [!NOTE]
-    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of ["Disconnected" or "Expired"](https://learn.microsoft.com/azure/azure-arc/servers/overview)) will be removed after 7 days. This process removes irrelevant Azure ARC entities, ensuring only Azure Arc servers related to existing instances are displayed.
+    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of ["Disconnected" or "Expired"](/azure/azure-arc/servers/overview)) will be removed after 7 days. This process removes irrelevant Azure ARC entities, ensuring only Azure Arc servers related to existing instances are displayed.
 
     - By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you've fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
@@ -148,19 +148,19 @@ For a reference list of all the recommendations Defender for Cloud can provide f
     :::image type="content" source="media/quickstart-onboard-aws/download-cloudformation-template.png" alt-text="Screenshot that shows you where to select on the screen to download the CloudFormation template." lightbox="media/quickstart-onboard-aws/download-cloudformation-template.png":::
 
     - Default access - Allows Defender for Cloud to scan your resources and automatically include future capabilities.
-    - Least privileged access - Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality on the connector health section.
+    - Least privileged access - Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you receive notifications on any new roles and permissions that are required to get full functionality on the connector health section.
 
     b. Choose deployment method: **AWS CloudFormation** or **Terraform**.
 
     :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot showing the configure access and its deployment options and instructions.":::
 
-1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
+1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
 
 1. Select **Next: Review and generate**.
 
 1. Select **Create**.
 
-Defender for Cloud immediately starts scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
+Defender for Cloud immediately starts scanning your AWS resources and you see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
 ## Deploy a CloudFormation template to your AWS account
 
