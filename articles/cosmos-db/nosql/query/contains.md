@@ -57,7 +57,7 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs a full scan.
 
 ## Next steps
 

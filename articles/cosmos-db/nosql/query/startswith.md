@@ -57,7 +57,7 @@ SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2,
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs a precise index scan.
 
 ## Next steps
 

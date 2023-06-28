@@ -58,7 +58,7 @@ SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs an index seek.
 
 ## Next steps
 

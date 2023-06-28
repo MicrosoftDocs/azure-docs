@@ -57,7 +57,7 @@ SELECT ENDSWITH("abc", "b", false) AS e1, ENDSWITH("abc", "bC", false) AS e2, EN
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs a full index scan.
 
 ## Next steps
 
