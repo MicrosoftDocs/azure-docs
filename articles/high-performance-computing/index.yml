@@ -157,7 +157,7 @@ additionalContent:
   # Supports up to 4 subsections
   sections:
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
-      summary: Learn more about Azure HPC with a variety of video content and events # < 160 chars (Optional; Remove if not applicable.)
+      summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: HPC Business Strategy
@@ -208,7 +208,7 @@ additionalContent:
             - text: "Want to learn more? Check out the 'HPC Events' playlist!"
               url: https://aka.ms/HPCEvents
     - title: HPC Conferences # < 60 chars (optional)
-      summary: See where you can find HPC at a variety of tech conferences. # < 160 chars (optional)
+      summary: See where you can find HPC at various tech conferences. # < 160 chars (optional)
       items:
         # Card
         - title: SC22 (Supercomputing) 
