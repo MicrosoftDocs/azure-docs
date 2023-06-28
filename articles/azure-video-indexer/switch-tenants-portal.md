@@ -18,8 +18,8 @@ When logging in the Azure AI Video Indexer website, a default directory will loa
 
 This article shows two options to solve the same problem - how to switch tenants:
 
-- When starting [from within the Azure AI Video Indexer website](#switch-tenants-from-within-the-azure-video-indexer-website).
-- When starting [from outside of the Azure AI Video Indexer website](#switch-tenants-from-outside-the-azure-video-indexer-website).
+- When starting [from within the Azure AI Video Indexer website](#switch-tenants-from-within-the-azure-ai-video-indexer-website).
+- When starting [from outside of the Azure AI Video Indexer website](#switch-tenants-from-outside-the-azure-ai-video-indexer-website).
 
 ## Switch tenants from within the Azure AI Video Indexer website
 

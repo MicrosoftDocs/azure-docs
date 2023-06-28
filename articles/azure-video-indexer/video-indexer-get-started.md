@@ -20,7 +20,7 @@ You can access Azure AI Video Indexer capabilities in three ways:
 Once you start using Azure AI Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
 
 > [!NOTE]
-> Review [planned Azure AI Video Indexer website authenticatication changes](./release-notes.md#planned-azure-video-indexer-website-authenticatication-changes).
+> Review [planned Azure AI Video Indexer website authenticatication changes](./release-notes.md#planned-azure-ai-video-indexer-website-authenticatication-changes).
 
 This quickstart shows you how to sign in to the Azure AI Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. 
 

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
  
 title: Learn about Azure AI Video Indexer
-summary: Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
+summary: Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
 
 metadata:
   title: Azure AI Video Indexer documentation
-  description: Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
+  description: Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models.
   services: azure-video-indexer
   ms.service: azure-video-indexer
   ms.topic: landing-page

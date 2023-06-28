@@ -17,7 +17,7 @@ sections:
     questions:
       - question: What is Azure AI Video Indexer?
         answer: |
-          Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models. For more information, see [Overview](video-indexer-overview.md).
+          Azure AI Video Indexer is a cloud application, part of Azure AI services, built on Azure Media Services and Azure AI services (such as the Face, Translator, Azure AI Vision, and Speech). It enables you to extract the insights from your videos using Azure AI Video Indexer video and audio models. For more information, see [Overview](video-indexer-overview.md).
           
       - question: What can I do with Azure AI Video Indexer?
         answer: |

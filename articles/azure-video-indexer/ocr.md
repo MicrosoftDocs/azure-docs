@@ -100,7 +100,7 @@ During the OCR procedure, text images in a media file are processed, as follows:
 |Component|Definition|
 |---|---|
 |Source file|	The user uploads the source file for indexing.|
-|Read model	|Images are detected in the media file and text is then extracted and analyzed by Azure Azure AI services. |
+|Read model	|Images are detected in the media file and text is then extracted and analyzed by Azure AI services. |
 |Get read results model	|The output of the extracted text is displayed in a JSON file.|
 |Confidence value|	The estimated confidence level of each word is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty will be represented as an 0.82 score.|
 
