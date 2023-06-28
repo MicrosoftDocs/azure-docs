@@ -16,6 +16,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes Service that lets you qui
 ## Before you begin
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you plan on using Azure OpenAI service, you will need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service](https://aka.ms/oai/access) form.
 - add access to OpenAI or AOAI account
 - is there a min CLI version required?
 - any flag needs to be enabled in the CLI?
@@ -104,12 +105,71 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.25.6
     ```
 
-<!-- Ayo -->
-## Create AI service yaml (might need to switch the order with deploying the application) 
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Deploy the AI service
+In this demo, you will be deploying a series of [microservices](https://learn.microsoft.com/en-us/devops/deliver/what-are-microservices) that make up the application. AKS makes it easy to build and manage microservice applications at scale. During this quickstart, you will be deploying a polyglot e-commerce web application for a pet supplies store. In this first step in the application deployment process, you will be deploying a Python based microservice that uses Azure OpenAI to automatically generate description for new products being added to the store's catalog. I the next section, we will describe the remaining microservices in this application.
+1. Create a file names `azure-store-ai-service.yaml` and copy the following manifest into it.
+   ```yml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: ai-service
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: ai-service
+      template:
+        metadata:
+          labels:
+            app: ai-service
+        spec:
+          nodeSelector:
+            "kubernetes.io/os": linux
+          containers:
+          - name: order-service
+            image: ghcr.io/azure-samples/aks-store-demo/ai-service:latest
+            ports:
+            - containerPort: 5001
+            env:
+            - name: USE_AZURE_OPENAI # set to "False" in quote if you are not using Azure OpenAI, otherwise "True"
+              value: ""
+            - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
+              value: ""
+            - name: AZURE_OPENAI_ENDPOINT # required if using Azure OpenAI
+              value: ""
+            - name: OPENAI_API_KEY # always required
+              value: ""
+            - name: OPENAI_ORG_ID # required if using OpenAI
+              value: ""
+            resources: {}
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: ai-service
+    spec:
+      type: ClusterIP
+      ports:
+      - name: http
+        port: 5001
+        targetPort: 5001
+      selector:
+        app: ai-service
+   ```
+1. Deploy an Azure OpenAI service if you plan on using Azure OpenAI. If you plan on using OpenAI, please sign up for that at the [OpenAI website](https://www.openai.com/) and get an API key.
+1. Get your Azure OpenAI API key and Azure OpenAI endpoint from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. 
+1. Create a deployment at the [Azure OpenAI studio](https://oai.azure.com/portal/) using the **text-davinci-003** model. For more information on how to create an deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?tabs=command-line&pivots=programming-language-studio).
+1. Update the environment variables section of the ai-service manifest file you created above by providing the appropriate information required depending on whether you are using Azure OpenAI or OpenAI. The commented text show which variables need to be filled in depending on your service.
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your yaml manifest.
+    ```bash
+    kubectl apply -f azure-store.yaml
+    ```
+   The following example resembles output showing successfully created deployments and services.
+   ```output
+   deployment.apps/ai-service created
+   service/ai-service created
+   ```
+1. 
 
 <!-- Amanda -->
 ## Deploy the application 
@@ -555,6 +615,19 @@ Demo: AI service will generate product descriptions based on title and tags -->
 Required. Provide at least one next step and no more than three. Include some 
 context so the customer can determine why they would click the link.
 -->
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Amanda Wang](https://www.linkedin.com/in/amandawang14/) | Product Manager II 
+- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager 
+
+ Solutions Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
