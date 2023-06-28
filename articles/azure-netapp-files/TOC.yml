@@ -269,6 +269,8 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
+    - name: Delete a volume
+      href: volume-delete.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
