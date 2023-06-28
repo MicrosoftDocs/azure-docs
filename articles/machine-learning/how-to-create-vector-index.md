@@ -15,8 +15,6 @@ ms.custom: prompt-flow
 
 # How to create vector index in Azure Machine Learning prompt flow (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 Azure Machine Learning enables you to create a vector index from files/folders on your machine, a location in a cloud storage, an Azure Machine Learning data asset, a Git repository, or an SQL database. Azure Machine Learning can currently crack and process text files, md files, pdf, excel files, word documents. You can also reuse an existing Azure Cognitive Search Index instead of creating a new Index.
 
 When a Vector Index is created, Azure Machine Learning will chunk the data, create embeddings, and store the embeddings in a FAISS Index or Azure Cognitive Search Index. In addition, Azure Machine Learning creates: 
@@ -24,6 +22,8 @@ When a Vector Index is created, Azure Machine Learning will chunk the data, crea
 * Test data for your data source.
 
 * A sample prompt flow, which uses the Vector Index you created. The sample prompt flow, which gets created has several key features like: a. Automatically generated prompt variants. b. Evaluation of each of these variations using the test data generated<TBD - link to eval blog>. c. Metrics against each of the variants to help you choose the best variant to run. You can use this sample to continue developing your prompt. 
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 1.  Select **Prompt flow** on the left menu
 
-     :::image type="content" source="/media/how-to-create-vector-index/prompt.png" alt-text="Screenshot showing the Prompt flow location on the left menu.":::
+     :::image type="content" source="media/how-to-create-vector-index/prompt.png" alt-text="Screenshot showing the Prompt flow location on the left menu.":::
 
 1.  Select **Vector Index** on the top menu
 
@@ -79,11 +79,11 @@ Once you have created a Vector Index, you can add it to a prompt flow from the p
 
 1. On the top menu, select **More Tools** and select Vector Index Lookup
 
-:::image type="content" source="/media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the location of the More Tools button.":::
+:::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the location of the More Tools button.":::
 
 1. The Vector Index lookup tool gets added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
 
-:::image type="content" source="/media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot showing the vector index lookup tool.":::
+:::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot showing the vector index lookup tool.":::
 
 1. Enter the path to your Vector Index and enter your desired query. Be sure to type in your path directly, or to paste the path.
 

@@ -9,7 +9,7 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/30/2023
-ms.topic: concept
+ms.topic: conceptual
 ms.custom: prompt-flow
 ---
 
@@ -52,7 +52,7 @@ RAG in Azure Machine Learning is enabled by integration with Azure OpenAI Servic
 
 To implement RAG, a few key requirements must be met. Firstly, data should be formatted in a manner that allows efficient searchability before sending it to the LLM, which ultimately reduces token consumption. To ensure the effectiveness of RAG, it's also important to regularly update your data on a periodic basis. Furthermore, having the capability to evaluate the output from the LLM using your data enables you to measure the efficacy of your techniques. Azure Machine Learning not only allows you to get started easily on these aspects, but also enables you to improve and productionize RAG. Azure Machine Learning offers: 
 
-* samples for starting RAG-based Q&A scenarios. 
+* Samples for starting RAG-based Q&A scenarios. 
 * Wizard-based UI experience to create and manage data and incorporate it into prompt flows. 
 * Ability to measure and enhance RAG workflows, including test data generation, automatic prompt creation, and visualized prompt evaluation metrics. 
 * Advanced scenarios with more control using the new built-in RAG components for creating custom pipelines in notebooks. 
@@ -66,18 +66,18 @@ in trying out RAG, you can sign up at <https://aka.ms/aml-rag-signup>
 
 Azure Machine Learning allows you to incorporate RAG in your AI using the Azure studio or using code with Azure Machine Learning pipelines. It offers several value additions like the ability to measure and enhance RAG workflows, test data generation, automatic prompt creation, and visualize prompt evaluation metrics. It enables the integration of RAG workflows into MLOps workflows using pipelines. You can also use your data with OSS offerings like LangChain. 
 
-[^1]: [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401).
-[^2]: To convert text to vectors, that is, create embeddings, an embedding
+* [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401).
+* To convert text to vectors, that is, create embeddings, an embedding
 model is used. Azure OpenAI Service models like Ada or open-source
 libraries like [Sentence Transformers](https://www.sbert.net/index.html)
 can be used to create embeddings.
-[^3]: In Azure Machine Learning, the Vector Index could be a [FAISS](https://faiss.ai/)
+* In Azure Machine Learning, the Vector Index could be a [FAISS](https://faiss.ai/)
 Index or an [Azure Cognitive Search
 index](../search/search-what-is-an-index.md).
 
 ## Next steps
 
-[Train and Deploy Large Language Models (LLMs) with Azure Machine Learning prompt flow (preview)](how-to-train-promptflow.md)
+[Train and Deploy Large Language Models] (LLMs) with Azure Machine Learning prompt flow (preview)(how-to-train-promptflow.md)
 
-[How to create vector index in Azure Machine Learning prompt flow (preview)](how-to-create-vector-index.md)
+[How to create vector index] in Azure Machine Learning prompt flow (preview)(how-to-create-vector-index.md)
 

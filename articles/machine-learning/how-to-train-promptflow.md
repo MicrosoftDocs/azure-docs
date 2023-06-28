@@ -15,14 +15,14 @@ ms.custom: prompt
 
 # Train and Deploy Large Language Models (LLMs) with Azure Machine Learning prompt flow (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-
 This guide walks you through using Azure Machine Learning prompt flow. You learn how to enable prompt flow in your Azure Machine Learning workspace. Then you create and develop your first prompt flow, test and evaluate it, then deploy it to production.
 
 If you'd like video reference you can follow this video tutorial to start your prompt flow journey in your workspace:
 
 [![quick_start_journey](https://img.youtube.com/vi/kYqRtjDBci8/0.jpg)](https://www.youtube.com/watch?v=kYqRtjDBci8)
+
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -87,7 +87,7 @@ visit [how to create and manage runtime](https://github.com/Azure/azureml-inside
 
 ## Create and develop your prompt flow
 
-In **Flows** tab of prompt flow home page, select **Create** to create
+In the **Flows** tab of prompt flow home page, select **Create** to create
 your first prompt flow. You can create a flow by cloning the samples in
 the gallery.
 

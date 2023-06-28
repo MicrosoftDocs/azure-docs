@@ -16,9 +16,9 @@ ms.custom: prompt
 
 # Use Azure ML pipelines with no code to construct RAG pipelines (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+This tutorial walks you through how to create an RAG pipeline. For advanced scenarios, you can build your own custom AzureML pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. AzureML provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in AzureML in LangChain. 
 
-This tutorial walks you through how to create an RAG pipeline. For advanced scenarios, you can build your own custom AzureML pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. AzureML provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in AzureML in LangChain.  
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 
 ## Prerequisites

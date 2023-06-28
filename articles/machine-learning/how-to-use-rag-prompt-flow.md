@@ -13,13 +13,11 @@ ms.topic: how-to
 ms.custom: prompt
 ---
 
-
 # Get started with RAG using a prompt flow sample (preview)
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-
 In this tutorial, you'll learn how to use RAG by creating a prompt flow. A prompt is an input, a text command or a question provided to an AI model, to generate desired output like content or answer. The process of crafting effective and efficient prompts is called prompt design or prompt engineering. Prompt flow <TBD - link to PF blog> is the interactive editor of Azure Machine Learning for prompt engineering projects. To get started, you can create a prompt flow sample, which uses RAG from the samples gallery in Azure Machine Learning. You can use this sample to learn how to use Vector Index in a prompt flow. 
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 
 ## Prerequisites
@@ -42,18 +40,18 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 :::image type="content" source="./media/how-to-use-rag-prompt-flow/prompt.png" alt-text="Screenshot showing prompt flow location.":::
 
 
-1.  Select **Create**.
+2.  Select **Create**.
 
 
-1. In the **Create from gallery** section, select **View Detail** on the Bring your own data Q&A sample.
+3. In the **Create from gallery** section, select **View Detail** on the Bring your own data Q&A sample.
 
 :::image type="content" source="./media/how-to-use-rag-prompt-flow/view-detail.png" alt-text="Screenshot showing view details button on the prompt flow sample.":::
 
-1. Read the instructions and select **Clone** to create a Prompt flow in your workspace.
+4. Read the instructions and select **Clone** to create a Prompt flow in your workspace.
 
 :::image type="content" source="./media/how-to-use-rag-prompt-flow/clone.png" alt-text="Screenshot showing instructions and clone button on the prompt flow sample.":::
 
-1. This opens a prompt flow, which you can run in your workspace and explore.
+5. This opens a prompt flow, which you can run in your workspace and explore.
 
 :::image type="content" source="./media/how-to-use-rag-prompt-flow/flow.png" alt-text="Screenshot showing the prompt flow sample.":::
 

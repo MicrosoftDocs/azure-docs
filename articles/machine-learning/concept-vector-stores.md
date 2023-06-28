@@ -9,7 +9,7 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/30/2023
-ms.topic: concept
+ms.topic: conceptual
 
 ---
 
