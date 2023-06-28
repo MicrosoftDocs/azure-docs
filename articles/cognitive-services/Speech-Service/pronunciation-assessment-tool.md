@@ -56,7 +56,7 @@ Follow these steps to assess your pronunciation of the reference text:
 
    :::image type="content" source="media/pronunciation-assessment/pa-upload.png" alt-text="Screenshot of uploading recorded audio to be assessed.":::
 
-## Mispronunciation and miscue detection
+## Pronunciation assessment results
 
 Once you've recorded the reference text or uploaded the recorded audio, the **Assessment result** will be output. The result includes your spoken audio and the feedback on the accuracy and fluency of spoken audio, by comparing a machine generated transcript of the input audio with the reference text. You can listen to your spoken audio, and download it if necessary.
 
