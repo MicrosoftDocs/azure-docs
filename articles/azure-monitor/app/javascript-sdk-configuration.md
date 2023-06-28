@@ -27,7 +27,6 @@ These configuration fields are optional and default to false unless otherwise st
 | accountId | string | null | An optional account ID, if your app groups users into accounts. No spaces, commas, semicolons, equals, or vertical bars |
 | addRequestContext | (requestContext: IRequestionContext) => {[key: string]: any} | undefined | Provide a way to enrich dependencies logs with context at the beginning of api call. Default is undefined. You need to check if `xhr` exists if you configure `xhr` related context. You need to check if `fetch request` and `fetch response` exist if you configure `fetch` related context. Otherwise you may not get the data you need. |
 | ajaxPerfLookupDelay | numeric | 25 | Defaults to 25 ms. The amount of time to wait before reattempting to find the windows.performance timings for an Ajax request, time is in milliseconds and is passed directly to setTimeout().
-| sessionRenewalMs | numeric | 1800000 | A session is logged if the user is inactive for this amount of time in milliseconds. Default is 30 minutes |
 | appId | string | null | AppId is used for the correlation between AJAX dependencies happening on the client-side with the server-side requests. When Beacon API is enabled, it can't be used automatically, but can be set manually in the configuration. Default is null |
 | autoTrackPageVisitTime | boolean | false | If true, on a pageview, the _previous_ instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. It's sent as a custom metric named `PageVisitTime` in `milliseconds` and is calculated via the Date [now()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/now) function (if available) and falls back to (new Date()).[getTime()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) if now() is unavailable (IE8 or less). Default is false. |
 | convertUndefined | `any` | undefined | [Optional] Provide user an option to convert undefined field to user defined value.
@@ -85,6 +84,7 @@ These configuration fields are optional and default to false unless otherwise st
 | sdkExtension | string | null | Sets the sdk extension name. Only alphabetic characters are allowed. The extension name is added as a prefix to the 'ai.internal.sdkVersion' tag (for example, 'ext_javascript:2.0.0'). Default is null. |
 | sessionCookiePostfix | string | undefined | An optional value that is used as name postfix for session cookie name. If undefined, namePrefix is used as name postfix for session cookie name.
 | sessionExpirationMs | numeric | 86400000 | A session is logged if it has continued for this amount of time in milliseconds. Default is 24 hours |
+| sessionRenewalMs | numeric | 1800000 | A session is logged if the user is inactive for this amount of time in milliseconds. Default is 30 minutes |
 | userCookiePostfix | string | undefined | An optional value that is used as name postfix for user cookie name. If undefined, no postfix is added on user cookie name.
 
 ## Cookies
