@@ -35,7 +35,7 @@ Nexus Kubernetes cluster enforces the following constraints to ensure proper con
    * The total size of huge-pages (HugepageSize multiplied by HugepageCount) must not exceed 80% of the VM's memory.
    * At least 2 GB of memory must be left for the host kernel after allocating huge-pages.
    * If the huge-page size is ```2M```, the huge-page count must be a power of 2 (for example, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, etc.).
-   * The existing node pools in your Nexus Kubernetes cluster have immutable huge-page configurations, and it isn't possible to modify them using the method described here.
+   * Huge-page configurations must be done during agent pool creation, it can't be added or modified after.
 
 
 ## Example: Create a Nexus Kubernetes cluster with huge-page settings
