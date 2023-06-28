@@ -469,6 +469,7 @@ For more information about the supported configurations for different language a
 - Bytecode is not available at runtime anymore, so Debugging and Monitoring with tools targeted to the JVMTI is not possible.
 
 The following features are not support in Azure Spring Apps due to the limitation of Java Native Image. Azure Spring Apps will support them as long as the limitation is overcome by Java Native Image and the community.
+
 | Feature                                           | Why it's not support                                         |
 |---------------------------------------------------|--------------------------------------------------------------|
 | Azure Monitor                                     | GraalVM built native images doesn't support JVM metrics well |
