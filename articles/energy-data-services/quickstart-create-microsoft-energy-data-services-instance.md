@@ -5,7 +5,7 @@ author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: quickstart
-ms.date: 06/26/2023
+ms.date: 06/28/2023
 ms.custom: template-quickstart
 ---
 
