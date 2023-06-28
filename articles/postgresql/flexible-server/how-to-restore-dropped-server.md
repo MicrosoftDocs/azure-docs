@@ -33,7 +33,7 @@ To restore a dropped Azure Database for PostgreSQL Flexible server, you need
     - **Operation** = Delete PostgreSQL Server (Microsoft.DBforPostgreSQL/flexibleservers/delete)
 
   
-      ![Activity log filtered for delete PostgreSQL server operation](./media/how-to-restore-server-portal/activity-log-azure.png)
+      ![Screenshot showing activity log filtered for delete PostgreSQL server operation.](./media/how-to-restore-server-portal/activity-log-azure.png#lightbox)
 
 3. Select the **Delete PostgreSQL Server** event, then select the **JSON tab**. Copy the `resourceId` and `submissionTimestamp` attributes in JSON output. The resourceId is in the following format: `/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/deletedserver`.
 
