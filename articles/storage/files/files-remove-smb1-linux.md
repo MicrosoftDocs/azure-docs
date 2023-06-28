@@ -97,5 +97,5 @@ See these links for more information about Azure Files:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Use Azure Files with Linux](storage-how-to-use-files-linux.md)
-- [Troubleshoot SMB issues on Linux](files-troubleshoot-linux-smb.md)
-- [Troubleshoot NFS issues on Linux](files-troubleshoot-linux-nfs.md)
+- [Troubleshoot SMB issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json)
+- [Troubleshoot NFS issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json)
