@@ -1,6 +1,6 @@
 ---
-title: Customize a Brands model with Azure Video Indexer API
-description: Learn how to customize a Brands model with the Azure Video Indexer API.
+title: Customize a Brands model with Azure AI Video Indexer API
+description: Learn how to customize a Brands model with the Azure AI Video Indexer API.
 author: anikaz
 manager: johndeu
 ms.topic: article
@@ -8,26 +8,26 @@ ms.date: 01/14/2020
 ms.author: kumud
 ---
 
-# Customize a Brands model with the Azure Video Indexer API
+# Customize a Brands model with the Azure AI Video Indexer API
 
-Azure Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Azure Video Indexer detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database. For more information, see [Overview](customize-brands-model-overview.md).
+Azure AI Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Azure AI Video Indexer detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database. For more information, see [Overview](customize-brands-model-overview.md).
 
 > [!NOTE]
 > If your video was indexed prior to adding a brand, you need to reindex it.
 
-You can use the Azure Video Indexer APIs to create, use, and edit custom Brands models detected in a video, as described in this topic. You can also use the Azure Video Indexer website, as described in [Customize Brands model using the Azure Video Indexer website](customize-brands-model-with-api.md).
+You can use the Azure AI Video Indexer APIs to create, use, and edit custom Brands models detected in a video, as described in this topic. You can also use the Azure AI Video Indexer website, as described in [Customize Brands model using the Azure AI Video Indexer website](customize-brands-model-with-api.md).
 
 ## Create a Brand
 
 The [create a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Brand) API creates a new custom brand and adds it to the custom Brands model for the specified account.
 
 > [!NOTE]
-> Setting `enabled` (in the body) to true puts the brand in the *Include* list for Azure Video Indexer to detect. Setting `enabled` to false puts the brand in the *Exclude* list, so Azure Video Indexer won't detect it.
+> Setting `enabled` (in the body) to true puts the brand in the *Include* list for Azure AI Video Indexer to detect. Setting `enabled` to false puts the brand in the *Exclude* list, so Azure AI Video Indexer won't detect it.
 
 Some other parameters that you can set in the body:
 
 * The `referenceUrl` value can be any reference websites for the brand, such as a link to its Wikipedia page.
-* The `tags` value is a list of tags for the brand. This tag shows up in the brand's *Category* field in the Azure Video Indexer website. For example, the brand "Azure" can be tagged or categorized as "Cloud".
+* The `tags` value is a list of tags for the brand. This tag shows up in the brand's *Category* field in the Azure AI Video Indexer website. For example, the brand "Azure" can be tagged or categorized as "Cloud".
 
 ### Response
 
@@ -86,7 +86,7 @@ The response provides information on the brand that you searched (using brand ID
 ```
 
 > [!NOTE]
-> `enabled` being set to `true` signifies that the brand is in the *Include* list for Azure Video Indexer to detect, and `enabled` being false signifies that the brand is in the *Exclude* list, so Azure Video Indexer won't detect it.
+> `enabled` being set to `true` signifies that the brand is in the *Include* list for Azure AI Video Indexer to detect, and `enabled` being false signifies that the brand is in the *Exclude* list, so Azure AI Video Indexer won't detect it.
 
 ## Update a specific brand
 
@@ -152,11 +152,11 @@ The response provides a list of all of the brands in your account and each of th
 ```
 
 > [!NOTE]
-> The brand named *Example* is in the *Include* list for Azure Video Indexer to detect, and the brand named *Example2* is in the *Exclude* list, so Azure Video Indexer won't detect it.
+> The brand named *Example* is in the *Include* list for Azure AI Video Indexer to detect, and the brand named *Example2* is in the *Exclude* list, so Azure AI Video Indexer won't detect it.
 
 ## Get Brands model settings
 
-The [get brands settings](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Azure Video Indexer will only detect brands from the custom Brands model of the specified account.
+The [get brands settings](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Azure AI Video Indexer will only detect brands from the custom Brands model of the specified account.
 
 ### Response
 
@@ -174,7 +174,7 @@ The response shows whether Bing brands are enabled following the format of the e
 
 ## Update Brands model settings
 
-The [update brands](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brands-Model-Settings) API updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Azure Video Indexer will only detect brands from the custom Brands model of the specified account.
+The [update brands](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brands-Model-Settings) API updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Azure AI Video Indexer will only detect brands from the custom Brands model of the specified account.
 
 The `useBuiltIn` flag set to true means that Bing brands are enabled. If `useBuiltin` is false, Bing brands are disabled.
 

@@ -1,7 +1,7 @@
 ---
-title: Azure Video Indexer observed people tracking & matched faces overview 
-titleSuffix: Azure Video Indexer 
-description: An introduction to Azure Video Indexer observed people tracking & matched faces component responsibly.
+title: Azure AI Video Indexer observed people tracking & matched faces overview 
+titleSuffix: Azure AI Video Indexer 
+description: An introduction to Azure AI Video Indexer observed people tracking & matched faces component responsibly.
 author: Juliako
 ms.author: juliako
 manager: femila
@@ -15,7 +15,7 @@ ms.topic: article
 > [!IMPORTANT]
 > Face identification, customization and celebrity recognition features access is limited based on eligibility and usage criteria in order to support our Responsible AI principles. Face identification, customization and celebrity recognition features are only available to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access.
 
-Observed people tracking and matched faces are Azure Video Indexer AI features that automatically detect and match people in media files. Observed people tracking and matched faces can be set to display insights on people, their clothing, and the exact timeframe of their appearance. 
+Observed people tracking and matched faces are Azure AI Video Indexer AI features that automatically detect and match people in media files. Observed people tracking and matched faces can be set to display insights on people, their clothing, and the exact timeframe of their appearance. 
 
 The resulting insights are displayed in a categorized list in the Insights tab, the tab includes a thumbnail of each person and their ID. Clicking the thumbnail of a person displays the matched person (the corresponding face in the People insight). Insights are also generated in a categorized list in a JSON file that includes the thumbnail ID of the person, the percentage of time appearing in the file, Wiki link (if they're a celebrity) and confidence level.  
 
@@ -186,7 +186,7 @@ To see  the insights in a JSON file, do the following:
 	},    
 	```
     
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 ## Observed people tracking and matched faces components  
 
@@ -225,7 +225,7 @@ It's important to note the limitations of observed people tracing, to avoid or m
 
 ### Other considerations
 
-When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:  
+When used responsibly and carefully, Azure AI Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:  
 
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
 - Don't purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
@@ -251,7 +251,7 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Audio effects detection](audio-effects-detection.md)
 - [Face detection](face-detection.md)
