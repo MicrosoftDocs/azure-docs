@@ -397,6 +397,8 @@ items:
       href: schema-stateset-stylesobject.md
     - name: Drawing error visualizer
       href: drawing-error-visualizer.md
+    - name: Drawing conversion errors and warnings
+      href: drawing-conversion-error-codes.md
   - name: API and parameter extensions
     items:
     - name: Vehicle consumption model

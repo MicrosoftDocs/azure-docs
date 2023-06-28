@@ -21,7 +21,8 @@ Operations run on an Azure Service Bus namespace are of two kinds
    * **Data operations** - Send to and receive messages from queues, topics, and subscriptions.
 
 > [!IMPORTANT]
-> Service Bus Explorer doesn't support **management operations** and **sessions**. 
+> - Service Bus Explorer doesn't support **management operations** and **sessions**. 
+> - Service Bus Explorer doesn't support sending or receiving **large messages**. 
 
 
 ## Prerequisites
