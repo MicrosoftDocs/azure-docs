@@ -191,9 +191,9 @@ additionalContent:
         - title: Azure key management
           summary: Key management solutions in Azure
           links: 
-            - url: key-management.md
+            - url: ./fundamentals/key-management.md
               text: Key management in Azure
-            - url: key-management-choose.md
+            - url: ./fundamentals/key-management-choose.md
               text: Choosing a key management solution
             - url: ../key-vault/index.yml
               text: Azure Key Vault
