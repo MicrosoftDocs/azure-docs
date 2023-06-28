@@ -155,7 +155,7 @@
         - name: GetCurrentTicks
           displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
           href: getcurrentticks.md
-        - name: GetCurrentTicks
+        - name: GetCurrentTicksStatic
           displayName: GetCurrentTicksStatic, get current ticks static, static, date and time functions, datetime, ticks
           href: getcurrentticksstatic.md
         - name: GetCurrentTimestamp
