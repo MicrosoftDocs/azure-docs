@@ -141,7 +141,7 @@ You need to take an extra step to give your Computer Vision resource access to r
 
 #### Option 1: Shared access signature (SAS)
 
-You can generate a SAS token with at least `read` permission on your Azure Blob Container. This is the option used in the code below. For instructions on acquiring a SAS token, see [Create SAS tokens](/azure/cognitive-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers).
+You can generate a SAS token with at least `read` permission on your Azure Blob Container. This is the option used in the code below. For instructions on acquiring a SAS token, see [Create SAS tokens](/azure/ai-services/translator/document-translation/how-to-guides/create-sas-tokens?tabs=Containers).
 
 #### Option 2: Managed Identity or public accessible
 
@@ -435,7 +435,7 @@ The `imageanalysis:analyze` API does ordinary Image Analysis operations. By spec
 
 ```bash
 curl.exe -v -X POST "https://<endpoint>/computervision/imageanalysis:analyze?model-name=<model-name>&api-version=2023-02-01-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
-{'url':'https://learn.microsoft.com/azure/cognitive-services/computer-vision/media/quickstarts/presentation.png'
+{'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'
 }"
 ```
 

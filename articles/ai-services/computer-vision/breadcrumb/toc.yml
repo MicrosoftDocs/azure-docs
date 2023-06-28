@@ -3,20 +3,20 @@
   topicHref: /azure/index
   items:
   - name: Cognitive Services
-    tocHref: /azure/cognitive-services/
-    topicHref: /azure/cognitive-services/index
+    tocHref: /azure/ai-services/
+    topicHref: /azure/ai-services/index
     items:
     - name: Computer Vision
-      tocHref: /azure/cognitive-services/
-      topicHref: /azure/cognitive-services/computer-vision/index
+      tocHref: /azure/ai-services/
+      topicHref: /azure/ai-services/computer-vision/index
 - name: Azure
   tocHref: /legal/
   topicHref: /azure/index
   items:
   - name: Cognitive Services                # Original doc set name
     tocHref: /legal/cognitive-services/computer-vision    # Destination doc set route
-    topicHref: /azure/cognitive-services/index    # Original doc set route
+    topicHref: /azure/ai-services/index    # Original doc set route
     items:
     - name: Computer Vision                  # Original doc set name
       tocHref: /legal/cognitive-services/computer-vision    # Destination doc set route
-      topicHref: /azure/cognitive-services/Computer-vision/index      # Original doc set route
+      topicHref: /azure/ai-services/Computer-vision/index      # Original doc set route

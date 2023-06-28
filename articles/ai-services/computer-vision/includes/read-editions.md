@@ -20,7 +20,7 @@ ms.author: pafarley
 > | Input | Examples | Read edition | Benefit |
 > |----------|--------------|-------------------------|-------------------------|
 > | **Images**: General, in-the-wild images |  labels, street signs, and posters | [Computer Vision v4.0 preview](../concept-ocr.md) | Optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
-> | **Documents**: Digital and scanned, including images | books, articles, and reports | [Form&nbsp;Recognizer](../../../applied-ai-services/form-recognizer/concept-read.md) | Optimized for text-heavy scanned and digital documents with an asynchronous API to help automate intelligent document processing at scale.
+> | **Documents**: Digital and scanned, including images | books, articles, and reports | [Form&nbsp;Recognizer](../../../ai-services/document-intelligence/concept-read.md) | Optimized for text-heavy scanned and digital documents with an asynchronous API to help automate intelligent document processing at scale.
 >
 > **About Computer Vision v3.2 GA Read**
 >

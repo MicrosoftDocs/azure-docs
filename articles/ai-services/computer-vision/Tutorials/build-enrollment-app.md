@@ -94,7 +94,7 @@ To extend the app's functionality to cover the full experience, read the [overvi
 
    You need to use a database to store the face image along with user metadata. The social security number or other unique person identifier can be used as a key to look up their face ID. 
 
-1. For secure methods of passing your subscription key and endpoint to Face service, see the Azure Cognitive Services [Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) guide.
+1. For secure methods of passing your subscription key and endpoint to Face service, see the Azure Cognitive Services [Security](/azure/ai-services/cognitive-services-security?tabs=command-line%2Ccsharp) guide.
 
 
 ## Deploy the app
