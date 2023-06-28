@@ -176,7 +176,7 @@ PS C:\MyProject> Stop-AzureEmulator
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure.service/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure.service/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Next steps
 
