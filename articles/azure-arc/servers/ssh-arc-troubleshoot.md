@@ -70,6 +70,7 @@ Resolution:
 This issue occurs when SSHD isn't running on the server, or SSH traffic isn't allowed on the server. Error:
 
 - `{"level":"fatal","msg":"sshproxy: error copying information from the connection: read tcp 192.168.1.180:60887-\u003e40.122.115.96:443: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2022-02-24T13:50:40-05:00"}`
+- `SSH connection is not enabled in the target port {Port}. `
 
 Resolution:
  - Ensure that the SSHD service is running on the Arc-enabled server.
@@ -95,6 +96,7 @@ This issue occurs when the current user doesn't have the proper role assignment 
 - `Unable to determine that the target machine is an Azure VM`
 - `Permission denied (publickey).`
 - `Request for Azure Relay Information Failed: (AuthorizationFailed) The client '\<user name\>' with object id '\<ID\>' does not have authorization to perform action 'Microsoft.HybridConnectivity/endpoints/listCredentials/action' over scope '/subscriptions/\<Subscription ID\>/resourceGroups/\<Resource Group\>/providers/Microsoft.HybridCompute/machines/\<Machine Name\>/providers/Microsoft.HybridConnectivity/endpoints/default' or the scope is invalid. If access was recently granted, please refresh your credentials.`
+- `Client is not authorized to create a Default connectivity endpoint for {Name} in the Resource Group {ResourceGroupName}. This is a one-time operation that must be performed by an account with Owner or Contributor role to allow connections to target resource`
 
 Resolution:
 - Ensure that you have Contributor or Owner permissions on the resource you're connecting to.
