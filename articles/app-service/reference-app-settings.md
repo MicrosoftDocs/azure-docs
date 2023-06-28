@@ -667,7 +667,7 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
         // NOTE: This is set on all sites, irrespective of whether it is a Functions site, because the EnvSettings module depends 
         // upon it to decide when to inject the app-settings.|
 | `WEBSITE_PLACEHOLDER_PING_PATH` | This env var can be used to set a special warmup ping path on placeholder template sites. |
-| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disabe specialization from being enabled automatically for a given placeholder template site. |
+| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disable specialization from being enabled automatically for a given placeholder template site. |
 | `WEBSITE_FUNCTIONS_STARTUPCONTEXT_CACHE` | This env var is set only during specialization of a placeholder, to indicate to the Functions Runtime that
         // some function-app related data needed at startup, like secrets, are available in a file at the path specified
         // by this env var. |

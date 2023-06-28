@@ -78,7 +78,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
   // Use certificate
   Console.WriteLine(cert.FriendlyName);
   
-  // Consider to call Dispose() on the certificate after it's being used, avaliable in .NET 4.6 and later
+  // Consider to call Dispose() on the certificate after it's being used, available in .NET 4.6 and later
 }
 ```
 
