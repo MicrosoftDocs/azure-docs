@@ -25,7 +25,6 @@ landingContent:
             url: working-with-ali-in-the-azure-portal.md
 
 # card 2
-landingContent:
   - title: Azure Large Instances for Epic
     linkLists: 
       - linkListType: overview
