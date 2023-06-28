@@ -1,7 +1,5 @@
 ---
-title: Chat metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
-description: This document covers definitions of chat metrics available in the Azure portal.
 author: mkhribech
 manager: timmitchell
 services: azure-communication-services
@@ -11,10 +9,6 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
-# Chat metrics overview
-
-Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat requests emit.
-
 ## Where to find metrics
 
 Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource.
