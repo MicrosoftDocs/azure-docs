@@ -57,9 +57,7 @@ We refer to this as the "deleted documents ratio". Since the deleted documents r
 
 This is another factor impacting the size of your vector index. Unfortunately, we don't have a mechanism to surface your current deleted documents ratio.
 
-## Estimating the total size for your data
-
-Disk storage overhead of vector data is roughly three times the size of raw vector data. The following approach takes a closer look at disk storage requirements.
+## Estimating the total size for your data in memory
 
 To estimate the total size of your vector index, use the following calculation:
 
@@ -70,6 +68,10 @@ For example, to calculate the **raw_size**, let's assume you're using a popular 
 If you have multiple vector fields, you need to perform this calculation for each vector field within your index and add them all together. For example, 1,000 documents with **two** 1,536-dimensional vector fields, consume 1000 docs x **2 fields** x 1536 floats/doc x 4 bytes/float = 12,288,000 bytes. 
 
 To obtain the **vector index size**, multiply this **raw_size** by the **algorithm overhead** and **deleted document ratio**. If your algorithm overhead for your chosen HNSW parameters is 10% and your deleted document ratio is 10%, then we get: `6.144 MB * (1 + 0.10) * (1 + 0.10) = 7.434 MB`.
+
+## Storage size on disk
+
+Disk storage overhead of vector data is roughly three times the size of raw vector data.
 
 ## Storage vs. vector index size quotas
 

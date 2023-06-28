@@ -85,13 +85,13 @@ Hybrid search combines results from both term and vector queries, which use diff
 
 ## Reciprocal Rank Fusion (RRF) for hybrid queries
 
-For hybrid search scoring, Cognitive Search uses Reciprocal Rank Fusion (RRF). In information retrieval, RRF combines the results of different search systems to produce a single, more accurate and relevant result. It's based on the concept of reciprocal rank, which is the inverse of the rank of the first relevant document in a list of search results. 
+For hybrid search scoring, Cognitive Search uses Reciprocal Rank Fusion (RRF). In information retrieval, RRF combines the results of different search methods to produce a single, more accurate and relevant result. (Here, a search method refers to methods such as vector search and full-text search.) RRF is based on the concept of reciprocal rank, which is the inverse of the rank of the first relevant document in a list of search results. 
 
-At a basic level, RRF works by taking the search results from multiple systems, assigning a reciprocal rank score to each document in the results, and then combining these scores to create a new ranking. The main idea behind this method is that documents appearing in the top positions across multiple search systems are likely to be more relevant and should be ranked higher in the combined result.
+At a basic level, RRF works by taking the search results from multiple methods, assigning a reciprocal rank score to each document in the results, and then combining these scores to create a new ranking. The main idea behind this method is that documents appearing in the top positions across multiple search methods are likely to be more relevant and should be ranked higher in the combined result.
 
 Here's a simple explanation of the RRF process:
 
-1. Obtain search results from multiple systems: Let's say we have two search systems, A and B. We search for a specific query on both systems and get ranked lists of documents as results.
+1. Obtain search results from multiple methods: Let's say we have two search methods, A and B. (In the context of Azure Cognitive Search, this will be vector search and full-text search.) We search for a specific query on both methods and get ranked lists of documents as results.
 
 1. Assign reciprocal rank scores: For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as 1/(rank + k), where rank is the position of the document in the list, and k is a constant which was experimentally observed to perform best if it's set to a small value like 60.
 
