@@ -48,6 +48,7 @@ This issue occurs when the client side SSH binaries required to connect aren't f
 Resolution:
 
 - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
+- Ensure that the folder is tin the PATH environment variable for Azure PowerShell
 
 ### Azure PowerShell module version mis-match 
 This issue occurs when the installed Azure PowerShell sub-module, Az.Ssh.ArcProxy, is not supported by the installed version of Az.Ssh. Error:
@@ -57,7 +58,7 @@ Resolution:
 
 - Update the Az.Ssh and Az.Ssh.ArcProxy modules
 
-### Az.Ssh.ArcProsy not installed
+### Az.Ssh.ArcProxy not installed
 This issue occurs when the proxy module is not found on the client machine.
 
 Resolution:
@@ -83,7 +84,7 @@ Resolution:
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-```Invoke-AzRestMethod -Method put -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
+```Invoke-AzRestMethod -Method put -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{"properties": {"serviceName": "SSH", "port": "22"}}'```
 
 ---
    
