@@ -63,19 +63,26 @@ This operation can take 2-5 minutes to complete.  Before moving on, check that t
 > The following actions must be completed for each Arc-enabled server.
 
 
-#### [Create the default endpoint in Bash:](#tab/azure-cli)
+#### [Create the default endpoint with Azure CLI:](#tab/azure-cli)
 ```bash
 az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 --body '{"properties": {"type": "default"}}'
 ```
+> [!NOTE]
+> If using Azure CLI from PowerShell, the following should be used.
+```powershell
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 --body '{\"properties\":{\"type\":\"default\"}}'
+```
+
 Validate endpoint creation:
  ```bash
- az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15
+az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15
  ```
  
-#### [Create the default endpoint in PowerShell:](#tab/azure-powershell)
+#### [Create the default endpoint with Azure PowerShell:](#tab/azure-powershell)
  ```powershell
 Invoke-AzRestMethod -Method put -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 --body '{\"properties\": {\"type\": \"default\"}}'
- ```
+```
+
 Validate endpoint creation:
  ```powershell
  Invoke-AzRestMethod -Method get -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15
@@ -89,11 +96,14 @@ This functionality is currently packaged in an Azure CLI extension and an Azure 
 ```az extension add --name ssh```
 
 > [!NOTE]
-> The Azure CLI extension version must be greater than 1.1.0.
+> The Azure CLI extension version must be greater than 2.0.0.
 
 #### [Install Azure PowerShell module](#tab/azure-powershell)
 
-```Install-Module -Name AzPreview -Scope CurrentUser -Repository PSGallery -Force```
+```powershell
+Install-Module -Name Az.Ssh -Scope CurrentUser -Repository PSGallery
+Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
+```
 
 ---
 
