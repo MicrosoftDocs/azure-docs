@@ -30,7 +30,7 @@ Customer-managed keys can be stored on-premises or, more commonly, in a cloud ke
 
 Azure offers several options for storing and managing your keys in the cloud, including Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM. These options differ in terms of their FIPS compliance level, management overhead, and intended applications.
 
-For an overview of each key management service and a comprehensive guide to choosing the right key management solution for you, see [How to Choose the Right Key Management Solution](choosing-key-management-solutions.md).
+For an overview of each key management service and a comprehensive guide to choosing the right key management solution for you, see [How to Choose the Right Key Management Solution](key-management-choose.md).
 
 ### Pricing
 

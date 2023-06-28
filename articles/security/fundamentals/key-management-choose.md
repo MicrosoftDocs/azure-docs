@@ -23,7 +23,7 @@ The following chart describes common requirements and use case scenarios and the
 
 The chart refers to these common requirements:
 
-- _FIPS-140_ is a US government standard with different levels of security requirements. For more information, see [Federal Information Processing Standard (FIPS) 140](https://lear/azure/compliance/offerings/offering-fips-140-2).
+- _FIPS-140_ is a US government standard with different levels of security requirements. For more information, see [Federal Information Processing Standard (FIPS) 140](/azure/compliance/offerings/offering-fips-140-2).
 - _Key sovereignty_ is when the customer's organization has full and exclusive control of their keys, including control over what users and services can access the keys and key management policies. 
 - _Single tenancy_ refers to a single dedicated instance of an application deployed for each customer, rather than a shared instance amongst multiple customers. The need for single tenant products is often found as an internal compliance requirement in financial service industries.
 
@@ -34,7 +34,7 @@ It also refers to these various key management use cases:
 - _Lift and shift_ refer to scenarios where a PKCS11 application on-premises is migrated to Azure Virtual Machines and running software such as Oracle TDE in Azure Virtual Machines. Lift and shift requiring payment processing is supported by Azure Payment HSM. All other scenarios are supported by Azure Dedicated HSM. Legacy APIs and libraries such as PKCS11, JCA/JCE, and CNG/KSP are only supported by Azure Dedicated HSM.
 - _Payment transactions/processing_ includes allowing card and mobile payment authorization and 3D-Secure authentication; PIN generation, management, and validation; payment credential issuing for cards, wearables, and connected devices; securing keys and authentication data; and sensitive data protection for point-to-point encryption, security tokenization, and EMV payment tokenization. This also includes certifications such as PCI DSS, PCI 3DS, and PCI PIN. These are only supported by Azure Payment HSM.
 
-:::image type="content" source="../media/choosing-key-management-solutions/key-management-product-flow-chart.png" alt-text="Key Management Product Flow Chart" lightbox="./media/choosing-key-management-solutions/key-management-product-flow-chart.png":::
+:::image type="content" source="./media/choosing-key-management-solutions/key-management-product-flow-chart.png" alt-text="Key Management Product Flow Chart" lightbox="./media/choosing-key-management-solutions/key-management-product-flow-chart.png":::
 
 The flowchart result is a starting point to identify the solution that best matches your needs.
 
