@@ -14,7 +14,7 @@ ms.reviewer: arvinh
 ---
 
 # Configuring Azure AD to provision users into SAP ECC 7
-The following documentation provides configuration and tutorial information demonstrating how to provision users from Azure AD into an SAP ECC 7.  
+The following documentation provides configuration and tutorial information demonstrating how to provision users from Azure AD into SAP ECC 7.  
 
 
 [!INCLUDE [active-directory-app-provisioning-sap.md](../../../includes/active-directory-app-provisioning-sap.md)]
