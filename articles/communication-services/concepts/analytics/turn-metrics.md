@@ -1,5 +1,5 @@
 ---
-title: TURN metrics definitions for Azure Communication Service
+title: TURN metrics definitions for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of TURN metrics available in the Azure portal.
 author: mkhribech
@@ -13,7 +13,7 @@ ms.subservice: data
 ---
 # TURN metrics overview
 
-Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that TURN requests emit.
+Azure Communication Services currently provides metrics for all Azure communication services' primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that TURN requests emit.
 
 ## Where to find metrics
 
