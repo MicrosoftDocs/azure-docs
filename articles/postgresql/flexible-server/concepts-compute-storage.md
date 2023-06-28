@@ -200,7 +200,7 @@ We recommend to actively monitor the disk space that is in use, and increase the
 ### Storage auto-grow (Preview)
 
 
->[!NOTE]
+> [!NOTE]
 > Storage auto-grow is currently in preview.
 
 Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 1 TiB provisioned storage, storage auto-grow triggers when the storage consumption reaches 80%  and for servers at 1 TB or over it triggers when the consumption reaches 90%. If storage auto-grow is not enabled then workloads are automatically set to read only mode when the total storage consumption reaches 95% at which you must increase the storage size manually.
