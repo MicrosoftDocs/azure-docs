@@ -28,7 +28,7 @@ Paste the code into the **inbound** block.
 
 ## Next steps
 
-Learn more about APIM policies:
+Learn more about API Management policies:
 
 + [Transformation policies](../api-management-transformation-policies.md)
-+ [Policy samples](../policy-reference.md)
++ [Policy samples](/azure/api-management/policies)

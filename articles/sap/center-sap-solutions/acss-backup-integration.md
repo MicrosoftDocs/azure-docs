@@ -30,8 +30,11 @@ Before you can go ahead and use this feature in preview, register for it from th
 - An Azure account with **Contributor** role access on the Subscription in which your SAP system exists.
 - Register **Microsoft.Features** Resource Provider on your subscription. 
 - Register your subscription for this preview feature in Azure Center for SAP solutions.
-- After you have successfully registered for the Preview feature, re-register Microsoft.Workloads resource provider on the Subscription.
-- To be able to configure Backup from the VIS resource, assign **Backup Contributor** role access to **Azure Workloads Connector Service** first-party app. This step is not required if you have already configured Backup for your VMs and HANA DB using Azure Backup Center. You will be able to monitor Backup of your SAP system from the VIS. 
+- After you have successfully registered for the Preview feature, re-register **Microsoft.Workloads** resource provider on the Subscription.
+- To be able to configure Backup from the VIS resource, assign the following roles to **Azure Workloads Connector Service** first-party app
+  1. **Backup Contributor** role access on the Subscription or specific Resource group which has the Recovery services vault that will be used for Backup. 
+  2. **Virtual Machine Contributor** role access on the Subscription or Resource groups which have the Compute resources of the SAP systems.
+  - You can skip this step if you have already configured Backup for your VMs and HANA DB using Azure Backup Center. You will be able to monitor Backup of your SAP system from the VIS. 
 - For HANA database backup, ensure the [prerequisites](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) required by Azure Backup are in place.
 - For HANA database backup, create a HDB Userstore key that will be used for preparing HANA DB for configuring Backup. 
 
