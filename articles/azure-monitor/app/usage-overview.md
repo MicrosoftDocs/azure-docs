@@ -127,7 +127,7 @@ To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#ad
     }
 ```
 
-# [ASP.NET Core 6.0+](#tab/aspnetcore)
+# [NET 6.0+](#tab/aspnetcore)
 
 For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class.
 
@@ -137,7 +137,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 ```
 
-# [ASP.NET Framework](#tab/aspnet-framework)
+# [.NET Framework 4.8](#tab/aspnet-framework)
 
 In the web app initializer, such as `Global.asax.cs`:
 
