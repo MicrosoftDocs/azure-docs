@@ -17,6 +17,11 @@ Azure Monitor Logs offers two log data plans that let you reduce log ingestion a
 
 This article describes Azure Monitor's log data plans and explains how to configure the log data plan of the tables in your Log Analytics workspace.
 
+
+## Permissions
+
+To set a table's log data plan, you must have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+
 ## Compare the Basic and Analytics log data plans 
 
 The following table summarizes the Basic and Analytics log data plans. 
@@ -50,12 +55,13 @@ Configure a table for Basic logs if:
     | API Management | [ApiManagementGatewayLogs](/azure/azure-monitor/reference/tables/ApiManagementGatewayLogs)<br>[ApiManagementWebSocketConnectionLogs](/azure/azure-monitor/reference/tables/ApiManagementWebSocketConnectionLogs) |
     | Application Insights | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) |
     | Chaos Experiments | [ChaosStudioExperimentEventLogs](/azure/azure-monitor/reference/tables/ChaosStudioExperimentEventLogs) |
+    | Cloud HSM | [CHSMManagementAuditLogs](/azure/azure-monitor/reference/tables/CHSMManagementAuditLogs) |
     | Container Apps | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) |
     | Container Insights | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) |
     | Container Apps Environments | [AppEnvSpringAppConsoleLogs](/azure/azure-monitor/reference/tables/AppEnvSpringAppConsoleLogs) |
     | Communication Services | [ACSCallAutomationIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallAutomationIncomingOperations)<br>[ACSCallAutomationMediaSummary](/azure/azure-monitor/reference/tables/ACSCallAutomationMediaSummary)<br>[ACSCallRecordingIncomingOperations](/azure/azure-monitor/reference/tables/ACSCallRecordingIncomingOperations)<br>[ACSCallRecordingSummary](/azure/azure-monitor/reference/tables/ACSCallRecordingSummary)<br>[ACSRoomsIncomingOperations](/azure/azure-monitor/reference/tables/acsroomsincomingoperations) |
     | Confidential Ledgers | [CCFApplicationLogs](/azure/azure-monitor/reference/tables/CCFApplicationLogs) |
-    | Custom tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
+    | Custom log tables | All custom tables created with or migrated to the [data collection rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) |
     | Data Manager for Energy | [OEPDataplaneLogs](/azure/azure-monitor/reference/tables/OEPDataplaneLogs) |
     | Dedicated SQL Pool | [SynapseSqlPoolSqlRequests](/azure/azure-monitor/reference/tables/synapsesqlpoolsqlrequests)<br>[SynapseSqlPoolRequestSteps](/azure/azure-monitor/reference/tables/synapsesqlpoolrequeststeps)<br>[SynapseSqlPoolExecRequests](/azure/azure-monitor/reference/tables/synapsesqlpoolexecrequests)<br>[SynapseSqlPoolDmsWorkers](/azure/azure-monitor/reference/tables/synapsesqlpooldmsworkers)<br>[SynapseSqlPoolWaits](/azure/azure-monitor/reference/tables/synapsesqlpoolwaits) |
     | Dev Center | [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) |
@@ -80,8 +86,12 @@ Configure a table for Basic logs if:
 
 ## Set a table's log data plan
 
-You can switch a table's plan once a week.
+When you change a table's plan from Analytics to Basic, Log Analytics immediately archives any data that's older than eight days and up to original data retention of the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the archive period](../logs/data-retention-archive.md). 
 
+When you change a table's plan from Basic to Analytics, the changes take affect on existing data in the table immediately.
+
+> [!NOTE]
+> You can switch a table's plan once a week. 
 # [Portal](#tab/portal-1)
 
 To configure a table for Basic logs or Analytics logs in the Azure portal:
