@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage the execution of your Microsoft Sentinel scheduled analytics rules
+title: Monitor and optimize the execution of your Microsoft Sentinel scheduled analytics rules
 description: Use Microsoft Sentinel's execution management tools, rule insights and manual rerun, to test and manage your scheduled analytics rules' execution.
 author: yelevin
 ms.author: yelevin
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 06/19/2023
 ---
 
-# Monitor and manage the execution of your scheduled analytics rules
+# Monitor and optimize the execution of your scheduled analytics rules
 
 To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of insights on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to manually rerun previous executions of rules on specific time windows, for testing and/or troubleshooting purposes.
 
@@ -49,11 +49,11 @@ To take advantage of these tools, start by examining the insights on a given rul
 
 1. Select the **Insights** tab in the details pane.
 
-    :::image type="content" source="media/monitor-manage-analytics-rule-execution/analytics-screen-select-rule.png" alt-text="Screenshot of selecting an analytics rule.":::
+    :::image type="content" source="media/monitor-optimize-analytics-rule-execution/analytics-screen-select-rule.png" alt-text="Screenshot of selecting an analytics rule.":::
 
 1. When you select the **Insights** tab, the time frame selector will appear. Select a time frame, or leave it as the default of the last 24 hours.
 
-    :::image type="content" source="media/monitor-manage-analytics-rule-execution/time-frame.png" alt-text="Screenshot of time frame selector on Analytics page.":::
+    :::image type="content" source="media/monitor-optimize-analytics-rule-execution/time-frame.png" alt-text="Screenshot of time frame selector on Analytics page.":::
 
 The **Insights** panel currently shows four kinds of insights. Each insight is followed by a **View all** link that takes you to the **Logs** page and displays the query that produced the insight along with the full raw results. Here are the insights:
 
@@ -79,23 +79,23 @@ Here's how to rerun a rule:
 
 1. From the **Analytics** page, select **Rule runs (Preview)** from the toolbar at the top. The **Rule runs** panel will open.
 
-    :::image type="content" source="media/monitor-manage-analytics-rule-execution/rerun-rules.png" alt-text="Screenshot of how to access rule runs panel.":::
+    :::image type="content" source="media/monitor-optimize-analytics-rule-execution/rerun-rules.png" alt-text="Screenshot of how to access rule runs panel.":::
 
     You can also get to the **Rule runs** panel by selecting **Rerun rules** from the **Failed executions** display on the **Insights** tab (see above).
 
-    :::image type="content" source="media/monitor-manage-analytics-rule-execution/rule-runs-pane.png" alt-text="Screenshot of rule runs panel.":::
+    :::image type="content" source="media/monitor-optimize-analytics-rule-execution/rule-runs-pane.png" alt-text="Screenshot of rule runs panel.":::
 
 1. Select the rule runs you want to replay, according to the time window in which they originally ran, as displayed in the **Execution time** column. You can choose more than one rule run.
 
-    :::image type="content" source="media/monitor-manage-analytics-rule-execution/choose-rule-runs.png" alt-text="Screenshot of choosing rule runs to run again.":::
+    :::image type="content" source="media/monitor-optimize-analytics-rule-execution/choose-rule-runs.png" alt-text="Screenshot of choosing rule runs to run again.":::
 
 1. Select **Replay run**. Notifications will be displayed that show the progress of the requests and that the rules were queued for execution.
 
-    :::image type="content" source="media/monitor-manage-analytics-rule-execution/notifications.png" alt-text="Screenshot of rule runs notifications.":::
+    :::image type="content" source="media/monitor-optimize-analytics-rule-execution/notifications.png" alt-text="Screenshot of rule runs notifications.":::
 
 1. Select **Refresh** to view the updated status of the rule's runs. You'll see that your requests are displayed among them, with a status of **In progress** (it will eventually show as **Success**) and a type of **User-triggered** as opposed to **System-triggered**.
 
-    :::image type="content" source="media/monitor-manage-analytics-rule-execution/in-progress.png" alt-text="Screenshot of progress of rule reruns.":::
+    :::image type="content" source="media/monitor-optimize-analytics-rule-execution/in-progress.png" alt-text="Screenshot of progress of rule reruns.":::
 
     You'll also notice that the execution time of your requested reruns is the same as the original system-triggered run's execution, and *not* the execution time of your rerun. This is to show you which time window your rerun is referencing.
 
