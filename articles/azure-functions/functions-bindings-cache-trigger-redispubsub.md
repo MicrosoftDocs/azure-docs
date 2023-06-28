@@ -215,7 +215,7 @@ TBD
 | Parameter | Description|
 |---|---|
 |`name`|  |
-| `connectionStringSetting`| Connection string 
+| `connectionStringSetting`| Connection string
 | `channel`| |
 
 ::: zone-end
@@ -295,6 +295,7 @@ class RedisMessageModel:
 ::: zone-end
 
 ## Next steps
+
 - [Introduction to Azure Functions](functions-overview.md)
 - [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)

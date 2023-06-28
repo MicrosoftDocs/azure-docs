@@ -13,7 +13,7 @@ ms.date: 06/27/2023
 
 # Overview of Azure functions for Azure Cache for Redis
 
-This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures. 
+This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures.
 
 Azure Functions provide an event-driven programming model where triggers and bindings are key features. With Azure Functions, you can easily build event-driven serverless applications. Azure Cache for Redis provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
@@ -109,6 +109,7 @@ Install the Redis Extension manually for now following this procedure.
 ::: zone-end
 
 ## Next steps
+
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)

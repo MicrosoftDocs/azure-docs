@@ -40,7 +40,6 @@ public static void StreamsTrigger(
 }
 ```
 
-
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
@@ -93,17 +92,17 @@ TBD
 
 ## Annotations
 
-| Parameter  | Description|
+| Parameter  | Description |
 |---|---|
-|`type` |
-|`deleteAfterProcess `|
-|`connectionStringSetting` | connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
+| `type` |  |
+| `deleteAfterProcess`|  |
+| `connectionStringSetting` | connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password=...`|
 | `key` | Keys to read from. |
 | `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000  |
-|`messagesPerWorker` |(optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale   |
-|`count` |   |
-|`name` |   |
-|`direction`  |   |
+| `messagesPerWorker` |(optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale   |
+| `count` |   |
+| `name` |   |
+| `direction`  |   |
 
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end

@@ -27,7 +27,7 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 
 ## Example
 
-::: zone pivot|"programming-language-csharp"
+::: zone pivot="programming-language-csharp"
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
@@ -42,7 +42,7 @@ public static void ListsTrigger(
 ```
 
 ::: zone-end
-::: zone pivot|"programming-language-java"
+::: zone pivot="programming-language-java"
 
 The following sample polls the key `listTest` at a localhost Redis instance at `redisLocalhost`:
 
@@ -64,19 +64,19 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ```
 <!--Content and samples from the Java tab in ##Examples go here.-->
 ::: zone-end
-::: zone pivot|"programming-language-javascript"
+::: zone pivot="programming-language-javascript"
 
 TBD
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 
 ::: zone-end
-::: zone pivot|"programming-language-powershell"
+::: zone pivot="programming-language-powershell"
 
 TBD
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 
 ::: zone-end
-::: zone pivot|"programming-language-python"
+::: zone pivot="programming-language-python"
 
 ```json
 {
@@ -98,7 +98,7 @@ TBD
 ```
 <!--Content and samples from the Python tab in ##Examples go here.-->
 ::: zone-end
-::: zone pivot|"programming-language-csharp"
+::: zone pivot="programming-language-csharp"
 
 ## Attributes
 
@@ -109,10 +109,10 @@ TBD
 |  `PollingIntervalInMs`| How often to poll the Redis server in milliseconds. Default: 1000|
 |  `MessagesPerWorker`| (optional) The number of messages each functions worker "should" process. Used to determine how many workers the function should scale to. Default: 100
 | `BatchSize`| (optional) Number of elements to pull from Redis at one time. Default: 10. Only supported on Redis 6.2+ using the `COUNT` argument in [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/).|
-|`ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
+| `ListPopFromBeginning`| (optional) determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/). Default: true |
 
 ::: zone-end
-::: zone pivot|"programming-language-java"
+::: zone pivot="programming-language-java"
 
 ## Annotations
 
@@ -128,7 +128,7 @@ TBD
 
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end
-::: zone pivot|"programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Configuration
 
@@ -141,7 +141,7 @@ The following table explains the binding configuration properties that you set i
 | `connectionString` | Connection string to the cache instance. For example: `<cacheName>.redis.cache.windows.net:6380,password|...`|
 | `key` | Name of the key to check. |
 | `pollingIntervalInMs` | How often to poll Redis in milliseconds. Default: 1000|
-|  `messagesPerWorker`| (optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale to. Default: 100 |
+| `messagesPerWorker`| (optional) The number of messages each functions worker should process. Used to determine how many workers the function should scale to. Default: 100 |
 | `count` |  Number of entries to pull from Redis each time. |
 | `name` |? |
 | `direction` | Set to `in`.  |
@@ -157,7 +157,7 @@ All triggers return a `RedisMessageModel` object that has two fields:
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 
-::: zone pivot|"programming-language-csharp"
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
@@ -174,7 +174,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 
 ::: zone-end
 <!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot|"programming-language-java"
+::: zone pivot="programming-language-java"
 
 ```java
 public class RedisMessageModel {
@@ -185,19 +185,19 @@ public class RedisMessageModel {
 
 <!--Any usage information from the Java tab in ## Usage. -->
 ::: zone-end
-::: zone pivot|"programming-language-javascript,programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-powershell"
 
 TBD
 <!--Any usage information from the JavaScript tab in ## Usage. -->
 
 ::: zone-end
-::: zone pivot|"programming-language-powershell"
+::: zone pivot="programming-language-powershell"
 
 TBD
 <!--Any usage information from the PowerShell tab in ## Usage. -->
 
 ::: zone-end
-::: zone pivot|"programming-language-python"
+::: zone pivot="programming-language-python"
 
 ```python
 class RedisMessageModel:
@@ -209,6 +209,7 @@ class RedisMessageModel:
 ::: zone-end
 
 ## Next steps
+
 - [Introduction to Azure Functions](functions-overview.md)
 - [Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
 - [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
