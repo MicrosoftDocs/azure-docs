@@ -1,5 +1,5 @@
 ---
-title: Rooms  metrics definitions for Azure Communication Service
+title: Rooms metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of rooms metrics available in the Azure portal.
 author: mkhribech
@@ -45,7 +45,7 @@ The following operations are available on Rooms API request metrics:
 | GetParticipants               | Gets list of participants for a Room. |
 | UpdateParticipants            | Updates list of participants for a Room. |
 
-:::image type="content" source="../media/rooms/rooms-metrics.png" alt-text="Rooms Request Metric.":::
+:::image type="content" source="../media/rooms/rooms-metrics.png" alt-text="Screenshot showing Rooms Request Metrics.":::
 
 ## Next steps
 

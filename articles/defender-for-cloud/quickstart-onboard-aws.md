@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/15/2023
+ms.date: 06/26/2023
 author: dcurwin
 ms.author: dacurwin
 zone_pivot_groups: connect-aws-accounts
@@ -138,6 +138,9 @@ The native cloud connector requires:
 
    (Optional) Select **Management account** to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
 
+    > [!NOTE]
+    > Defender for Cloud can be connected to each AWS account or management account only once.
+
 1. Select **Next: Select plans**.<a name="cloudtrail-implications-note"></a>
 
     > [!NOTE]
@@ -152,6 +155,9 @@ The native cloud connector requires:
 
     - (Optional) Select **Configure**, to edit the configuration as required.
 
+    > [!NOTE]
+    > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of ["Disconnected" or "Expired"](https://learn.microsoft.com/azure/azure-arc/servers/overview)) will be removed after 7 days. This process removes irrelevant Azure ARC entities, ensuring only Azure Arc servers related to existing instances are displayed.
+
 1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure you've fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!Note]
@@ -165,9 +171,16 @@ The native cloud connector requires:
 
 1. Select **Next: Configure access**.
 
-1. Download the CloudFormation template.
+    a. Choose deployment type, **Default access** or **Least privilege access**.
 
-1. Using the downloaded CloudFormation template, create the stack in AWS as instructed on screen. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
+    - Default access - Allows Defender for Cloud to scan your resources and automatically include future capabilities.
+    - Least privileged access - Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality on the connector health section.
+
+    b. Choose deployment method: **AWS CloudFormation** or **Terraform**.
+
+    :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot showing the configure access and its deployment options and instructions.":::
+
+1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you'll need to run the CloudFormation template both as Stack and as StackSet. Connectors will be created for the member accounts up to 24 hours after the onboarding.
 
 1. Select **Next: Review and generate**.
 
@@ -250,7 +263,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
     :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
 
-1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+1. For each connector, select the three-dot button **…** at the end of the row, and select **Delete**.
 
 1. On AWS, delete the role ARN, or the credentials created for the integration.
 

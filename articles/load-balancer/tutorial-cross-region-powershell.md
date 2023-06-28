@@ -6,8 +6,9 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 02/10/2021 
-ms.custom: devx-track-azurepowershell, template-tutorial
+ms.date: 06/27/2023 
+ms.custom: devx-track-azurepowershell, template-tutorial, engagement-fy23
+ROBOTS: NOINDEX
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -77,7 +78,7 @@ A global standard sku public IP is used for the frontend of the cross-region loa
 * Create a cross-region load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
 
 ```azurepowershell-interactive
-## Create global IP address for load balancer ##
+`## Create global IP address for load balancer ##
 $ip = @{
     Name = 'myPublicIP-CR'
     ResourceGroupName = 'MyResourceGroupLB-CR'
@@ -123,7 +124,7 @@ $lbp = @{
     BackendAddressPool = $bepool
     LoadBalancingRule = $rule
 }
-$lb = New-AzLoadBalancer @lbp
+$lb = New-AzLoadBalancer @lbp`
 ```
 
 ## Configure backend pool
@@ -140,7 +141,7 @@ In this section, you'll add two regional standard load balancers to the backend 
 * Use [Set-AzLoadBalancerBackendAddressPool](/powershell/module/az.network/new-azloadbalancerbackendaddresspool) to add the regional load balancer frontend to the cross-region backend pool.
 
 ```azurepowershell-interactive
-## Place the region one load balancer configuration in a variable ##
+ ## Place the region one load balancer configuration in a variable ##
 $region1 = @{
     Name = 'myLoadBalancer-R1'
     ResourceGroupName = 'CreatePubLBQS-rg-r1'

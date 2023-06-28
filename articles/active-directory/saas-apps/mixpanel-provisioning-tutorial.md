@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Determine what data to [map between Azure AD and Mixpanel](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Mixpanel to support provisioning with Azure AD
-1. For setting up SSO and claiming a domain refer [this](https://help.mixpanel.com/hc/articles/360036428871-Single-Sign-On).
+1. For setting up SSO and claiming a domain refer [this](https://docs.mixpanel.com/docs/admin/sso).
 2. After that you will need to generate a SCIM token in the SCIM tab of the access security section of your organization settings.
 ![Mixpanel token](./media/mixpanel-provisioning-tutorial/mixpanelscim.png)
 

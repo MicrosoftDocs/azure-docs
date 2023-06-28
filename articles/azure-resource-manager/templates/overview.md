@@ -3,7 +3,7 @@ title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/26/2022
+ms.date: 06/23/2023
 ---
 
 # What are ARM templates?
@@ -83,15 +83,14 @@ When you deploy a template, Resource Manager converts the template into REST API
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2019-04-01",
+    "apiVersion": "2022-09-01",
     "name": "mystorageaccount",
-    "location": "westus",
+    "location": "centralus",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "StorageV2",
-    "properties": {}
-  }
+    "kind": "StorageV2"
+  },
 ]
 ```
 
