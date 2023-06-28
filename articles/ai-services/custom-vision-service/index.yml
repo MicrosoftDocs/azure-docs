@@ -133,4 +133,4 @@ landingContent:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/custom-vision-service/context/context
