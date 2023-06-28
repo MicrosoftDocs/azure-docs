@@ -131,7 +131,7 @@ In this demo, you will be deploying a series of [microservices](https://learn.mi
             ports:
             - containerPort: 5001
             env:
-            - name: USE_AZURE_OPENAI # set to False if you are not using Azure OpenAI
+            - name: USE_AZURE_OPENAI # set to "False" in quote if you are not using Azure OpenAI, otherwise "True"
               value: ""
             - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
               value: ""
