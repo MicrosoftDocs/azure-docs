@@ -14,9 +14,9 @@ ms.date: 06/01/2023
 Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. 
 In some cases, though, you may need to run services without a virtualization layer.
 You may need root access and control over the operating system (OS).
-To meet this need, Azure offers Azure Large Instances for several high-value, mission-critical applications.
+To meet this need, Azure offers Azure Large Instances (ALI) for several high-value, mission-critical applications.
 
-Azure Large Instances (ALI) is comprised of dedicated large instances (compute instances). It features:
+Azure Large Instances is comprised of dedicated large instances (compute instances). It features:
 
 * High-performance storage appropriate to the application (Fiber Channel).
 Storage can also be shared across ALI to enable features like scale-out clusters or high availability pairs with failed-node-fencing capability. 
@@ -24,13 +24,13 @@ Storage can also be shared across ALI to enable features like scale-out clusters
 * A set of function-specific virtual LANs (VLANs) in an isolated environment.
 
 This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription.
-The entire environment is represented as a resource group in your Azure subscription.
+The entire environment is represented as a resource group in that subscription.
 
 ALI is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TBs up to 24 TBs. 
 A large set of SKUs is also available with Optane memory.
 Azure offers the largest range of Azure Large Instances in a hyperscale cloud.
 
-## Why Azure Large Instances?
+## Why ALI?
 
 Some workloads in the enterprise consist of technologies that just aren't designed to run in a typical virtualized cloud setting.
 They require special architecture, certified hardware, or extraordinarily large sizes.
@@ -40,7 +40,7 @@ They're more sensitive to latencies and noisy neighbors and require more control
 ALI is built, certified, and tested for a select set of such applications.
 Azure was the first to offer such solutions and has since led with the largest portfolio and most sophisticated systems.
 
-## Azure Large Instances benefits
+## ALI benefits
 
 ALI is intended for critical workloads that require certification to run your enterprise applications. 
 Azure Large Instances implementations are dedicated only to you, and you'll have full access (root access) to the operating system (OS).
