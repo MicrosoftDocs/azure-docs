@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 06/27/2023
 ---
 
-# Enable nested virtualization on a template virtual machine in Azure Lab Services
+# Enable nested virtualization in Azure Lab Services
 
 Nested virtualization enables you to create a lab in Azure Lab Services that contains a multi-VM environment. To avoid that lab users need to enable nested virtualization on their lab VM and install the nested VMs inside it, you can prepare a lab template. When you publish the lab, each lab user has a lab VM that already contains the nested virtual machines.
 
