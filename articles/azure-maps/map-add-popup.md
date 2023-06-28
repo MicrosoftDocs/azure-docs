@@ -242,7 +242,7 @@ var popup = new atlas.Popup({
 
 When the Popup template isn't defined to be a String template, a PropertyInfo template, or a combination of both, then it uses the default settings. When the `title` and `description` are the only assigned properties, the popup template shows a white background, a close button in the top-right corner. And, on small and medium screens, it shows an arrow at the bottom. The default settings show inside a table for all properties other than the `title` and the `description`. Even when falling back to the default settings, the popup template can still be manipulated programmatically. For example, users can turn off hyperlink detection and the default settings would still apply to other properties.
 
-Click the points on the map in the CodePen. There is a point on the map for each of the following popup templates: String template, PropertyInfo template, and Multiple content template. There are also three points to show how templates render using the defaulting settings.
+Once running, you can select the points on the map to see the popup. There is a point on the map for each of the following popup templates: String template, PropertyInfo template, and Multiple content template. There are also three points to show how templates render using the defaulting settings.
 
 ```javascript
 function InitMap()
@@ -416,7 +416,7 @@ function InitMap()
 -------------------------------------------------------------------------------->
 ## Reuse popup template
 
-Similar to reusing popup, you can reuse popup templates. This approach is useful when you only want to show one popup template at a time, for multiple points. By reusing the popup template, the number of DOM elements created by the application is reduced, which then improves your application performance. The following sample uses the same popup template for three points. If you click on any of them, a popup will be displayed with the content for that point feature.
+Similar to reusing a popup, you can reuse popup templates. This approach is useful when you only want to show one popup template at a time, for multiple points. By reusing the popup template, the number of DOM elements created by the application is reduced, which then improves your application performance. The following sample uses the same popup template for three points. If you click on any of them, a popup will be displayed with the content for that point feature.
 
 For a fully functional sample that shows hot to reuse a single popup template with multiple features that share a common set of property fields, see [Reuse a popup template] in the [Azure Maps Samples]. For the source code for this sample, see [Reuse a popup template source code].
 
