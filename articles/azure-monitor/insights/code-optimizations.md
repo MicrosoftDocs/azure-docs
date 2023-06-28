@@ -31,6 +31,7 @@ Before you can use Code Optimizations on your application:
 - Verify your application:
   - Is .NET.
   - Uses [Application Insights](../app/app-insights-overview.md).
+  - Is collecting profiles.
 
 ## Application Insights Profiler vs. Code Optimizations
 

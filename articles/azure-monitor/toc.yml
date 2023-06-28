@@ -236,9 +236,9 @@ items:
           href: app/sdk-support-guidance.md
       - name: OpenTelemetry Distro
         items:
-        - name: Get started (.NET, Node.js, Python and Java)
+        - name: Get started with OpenTelemetry (.NET, Node.js, Python and Java)
           href: app/opentelemetry-enable.md
-        - name: OpenTelemetry configuration
+        - name: Configure OpenTelemetry
           href: app/opentelemetry-configuration.md
         - name: Add and modify OpenTelemetry
           href: app/opentelemetry-add-modify.md

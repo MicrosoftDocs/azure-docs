@@ -85,7 +85,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **Workload parallelization:** For parallel supported workloads that use multiple threads and clients, it's easier to achieve the scale limits with fewer client machines by using [SMB multichannel](storage-files-smb-multichannel-performance.md) with SMB 3.1.1 on premium files.
 
-- **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large number of files. See [Metadata or namespace heavy workload](files-troubleshoot-performance.md#cause-2-metadata-or-namespace-heavy-workload).
+- **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large number of files. See [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance#cause-2-metadata-or-namespace-heavy-workload?toc=/azure/storage/files/toc.json).
 
 ## Latency
 
@@ -154,7 +154,7 @@ By using eight threads instead of one, the above workload can be reduced from 14
 | Thread 8         | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
 ## See also
-- [Troubleshoot Azure file shares performance issues](files-troubleshoot-performance.md)
+- [Troubleshoot Azure file shares performance issues](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json)
 - [Monitoring Azure Files](storage-files-monitoring.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Understanding Azure Files billing](understanding-billing.md)
