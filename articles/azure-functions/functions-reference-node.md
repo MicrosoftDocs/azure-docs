@@ -1447,17 +1447,9 @@ This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-a
 
 # [Azure portal](#tab/azure-portal/windows)
 
-The following steps apply when your function app is  running on either Linux or Windows.
+Use the following steps to change the Node.js version:
 
-1. In the [Azure portal](https://portal.azure.com), locate your function app and select **Configuration** on the left-hand side.
-
-1. Select the **Function runtime settings** tab and verify that your function app is running on the latest version of the Functions runtime. 
-
-1. Select the **General settings** tab and update the **Node.js Version** to the latest version. Ideally, you have already locally verified that your functions run on the version you select. 
-
-    :::image type="content" source="media/functions-reference-node/set-nodejs-version-portal.png" alt-text="Screenshot of setting Node.js for the function app to the latest LTS version in the Azure portal. ":::
-
-1. When notified about a restart, select **Continue**, and then select **Save**. 
+[!INCLUDE [functions-set-nodejs-version-portal](../../includes/functions-set-nodejs-version-portal.md)]
 
 # [Azure CLI](#tab/azure-cli/linux)
 
@@ -1472,7 +1464,12 @@ This sets the base image of the Linux function app to Node.js version 18.
 
 # [Azure portal](#tab/azure-portal/linux)
 
-You can't change the Node.js version in the Azure portal for a function app running on Linux. Instead use the Azure CLI.
+>[!NOTE}  
+> You can't change the Node.js version in the Azure portal when your function app is running on Linux in a Consumption plan. Instead use the Azure CLI.
+
+For Premium and Dedicated plans, use the following steps to change the Node.js version:  
+
+[!INCLUDE [functions-set-nodejs-version-portal](../../includes/functions-set-nodejs-version-portal.md)]
 
 ---
 
