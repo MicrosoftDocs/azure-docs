@@ -70,6 +70,7 @@ Resolution:
 This issue occurs when SSHD isn't running on the server, or SSH traffic isn't allowed on the server. Error:
 
 - `{"level":"fatal","msg":"sshproxy: error copying information from the connection: read tcp 192.168.1.180:60887-\u003e40.122.115.96:443: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2022-02-24T13:50:40-05:00"}`
+- `{"level":"fatal","msg":"sshproxy: error connecting to the address: 503 connection to localhost:22 failed: dial tcp [::1]:22: connectex: No connection could be made because the target machine actively refused it.. websocket: bad handshake","proxyVersion":"1.3.022941"}`
 - `SSH connection is not enabled in the target port {Port}. `
 
 Resolution:
