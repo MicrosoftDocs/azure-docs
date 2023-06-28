@@ -71,14 +71,13 @@ The following table describes Custom Translator project accessibility per Transl
 | Translator resource network security setting | Custom Translator portal accessibility |
 |--|--|
 | All networks | No restrictions |
-| Selected Networks and Private Endpoints | Accessible from allowed public IP addresses |
+| Selected Networks and Private Endpoints | Accessible from allowed VNET IP addresses |
 | Disabled | Not accessible |
 
 
-To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider one of these workarounds. 
-* Create another Translator resource for development that can be used on a public network. Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource. See the [Copy model](./copy-model.md) 
-* You have the option to use the [Custom Translator non-interactive REST API](https://custom-api.cognitive.microsofttranslator.com/swagger/index.html) for all custom translation operations. 
+To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround: 
+* Create another Translator resource for development that can be used on a public network. Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) workspaces>copyauthorization and models>copy functions. 
 
 ## Learn more
 
-* [Custom Translator non-interactive REST API](https://custom-api.cognitive.microsofttranslator.com/swagger/index.html)
+* [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/)
