@@ -81,9 +81,9 @@ Add the following code to your **Main** method to list available resources, crea
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_calls)]
 
-## Create a Cognitive Services resource (C#)
+## Create a Azure AI services resource (C#)
 
-To create and subscribe to a new Cognitive Services resource, use the **Create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
+To create and subscribe to a new Azure AI services resource, use the **Create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following method takes all of these as arguments and creates a resource.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_create)]
 
@@ -109,7 +109,7 @@ The following method deletes the specified resource from the given resource grou
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
 
-If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](../../manage-resources.md).
 
 ## Run the application
 
@@ -121,9 +121,9 @@ dotnet run
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](../../authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](../../what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
-* See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
-* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices(deprecated))** for more details on the management SDK.
+* See **[Authenticate requests to Azure Azure AI services](../../authentication.md)** on how to securely work with Azure AI services.
+* See **[What are Azure Azure AI services?](../../what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Azure AI services supports.
+* See **[Use Azure AI services as containers](../../cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
+* See **[Plan and manage costs for Azure AI services](../../plan-manage-costs.md)** to estimate cost of using Azure AI services.
+* See **[Azure AI services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices(deprecated))** for more details on the management SDK.

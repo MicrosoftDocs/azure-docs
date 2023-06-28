@@ -22,11 +22,11 @@ See the list of SKUs and pricing information below.
 
 | Service    | Kind    |
 |------------|---------|
-| Computer Vision            | `ComputerVision`          |
+| Azure AI Vision            | `ComputerVision`          |
 | Custom Vision - Prediction | `CustomVision.Prediction` |
 | Custom Vision - Training   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
-| Form Recognizer            | `FormRecognizer`          |
+| Document Intelligence            | `FormRecognizer`          |
 
 #### Speech
 
@@ -65,4 +65,4 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 * cost for a predefined number of transactions. Going above this number will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
 > [!NOTE]
-> Many of the Cognitive Services have a free tier you can use to try the service. To use the free tier, use `F0` as the SKU for your resource.
+> Many of the Azure AI services have a free tier you can use to try the service. To use the free tier, use `F0` as the SKU for your resource.
