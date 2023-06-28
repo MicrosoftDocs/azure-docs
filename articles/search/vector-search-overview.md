@@ -74,7 +74,7 @@ Scenarios for vector search include the following items:
 
 ## Vector integration across Azure
 
-+ Azure OpenAI provides embedding models. Demos and samples target the **text-embedding-ada-002** and other models. We recommend Azure OpenAI for generating embeddings for text.
++ Azure OpenAI provides embedding models. Demos and samples target the _text-embedding-ada-002_ and other models. We recommend Azure OpenAI for generating embeddings for text.
 
 + [Image Retrieval REST API (Preview)](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) supports vectorization of image content. We recommend this API for image vector data in Azure Cognitive Search.
 

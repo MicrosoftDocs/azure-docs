@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 06/29/2023
 ---
 
-# Quickstart: Call preview REST APIs for vector search queries
+# Quickstart: Use preview REST APIs for vector search queries
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
@@ -345,7 +345,7 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 
 ### Hybrid search with filter
 
-This example adds a filter, which is applied to the nonvector content of the search index.
+This example adds a filter, which is applied to the non-vector content of the search index.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
