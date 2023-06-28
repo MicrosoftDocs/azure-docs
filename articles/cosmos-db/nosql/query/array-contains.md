@@ -77,5 +77,5 @@ This system function will benefit from a [range index](../../index-policy.md#inc
 ## Next steps
 
 - [Array functions Azure Cosmos DB](array-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

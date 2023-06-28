@@ -40,7 +40,7 @@ The following functions allow you to easily manipulate DateTime, timestamp, and 
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions Azure Cosmos DB](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)
 - [User Defined Functions](udfs.md)
 - [Aggregates](aggregate-functions.md)
