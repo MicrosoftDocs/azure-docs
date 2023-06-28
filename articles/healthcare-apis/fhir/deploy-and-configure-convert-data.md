@@ -92,7 +92,7 @@ For example, consider the following code:
 }
 ```
 
-In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR Bundle resource seem to be nested under `customfield_data` (that is, the FHIR Bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR Bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR Bundle (since it's nested and has non FHIR specification properties) and attempting to persist the result in your FHIR service would fail.
+In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR Bundle resource seem to be nested under `customfield_data` (that is, the FHIR Bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR Bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR Bundle (since it's nested and has non FHIR specification properties) and attempting to persist the result in your FHIR service will fail.
  
 ## Host your own templates
 
