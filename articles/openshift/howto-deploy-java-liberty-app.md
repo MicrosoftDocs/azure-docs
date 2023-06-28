@@ -10,9 +10,9 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 # Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
 
-This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
+This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift using the Azure portal.
 
-For step-by-step guidance in setting up Liberty and Open Liberty on Azure Red Hat OpenShift, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an ARO cluster](/azure/developer/java/ee/liberty-on-aro).
+For step-by-step guidance in setting up Liberty and Open Liberty on Azure Red Hat OpenShift, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
 ## Prerequisites
 
@@ -22,26 +22,26 @@ For step-by-step guidance in setting up Liberty and Open Liberty on Azure Red Ha
 
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or higher.
 
-  [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+  [![Image of button to launch Cloud Shell in a new window.](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
   > [!NOTE]
   > You can also execute this guidance from a local developer command line with the Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
-- ARO requires a minimum of 40 cores to create and run an OpenShift cluster. Ensure your subscription has sufficient quota.
+- Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. Ensure your subscription has sufficient quota.
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for ARO. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional) section of [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx). To get the pull secret for use, follow the steps in this section.
+The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional) section of [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx). To get the pull secret for use, follow the steps in this section.
 
 Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You may need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
-:::image type="content" source="media/howto-deploy-java-liberty-app/redhat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-liberty-app/redhat-account-complete-profile.png":::
+:::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png":::
 
 After you sign in, select **OpenShift** then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
 
-:::image type="content" source="media/howto-deploy-java-liberty-app/redhat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/howto-deploy-java-liberty-app/redhat-console-portal-pull-secret.png":::
+:::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png":::
 
 The following content is an example that was copied from the Red Hat console portal, with the auth codes replaced with `xxxx...xxx`.
 
@@ -155,8 +155,8 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. Open Azure Cloud Shell and paste the value from the **cmdToGetKubeadminCredentials** field. You'll see the admin account and credential for logging in to the OpenShift cluster console portal. The following content is an example of an admin account.
 
-   ```bash
-   user@Azure:~$ az aro list-credentials -g abc1228rg -n clusterf9e8b9
+   ```azurecli-interactive
+   az aro list-credentials --resource-group abc1228rg --name clusterf9e8b9
    {
      "kubeadminPassword": "xxxxx-xxxxx-xxxxx-xxxxx",
      "kubeadminUsername": "kubeadmin"
@@ -165,7 +165,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. Paste the value from the **clusterConsoleUrl** field into an Internet-connected web browser, and then press <kbd>Enter</kbd>. Fill in the admin user name and password, which you can find in the list of installed IBM WebSphere Liberty operators, as shown in the following screenshot.
 
-   :::image type="content" source="media/howto-deploy-java-liberty-app/redhat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/howto-deploy-java-liberty-app/redhat-openshift-cluster-console-portal.png":::
+   :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png" alt-text="Screenshot of Red Hat OpenShift cluster console portal showing Installed Operators page." lightbox="media/howto-deploy-java-liberty-app/red-hat-openshift-cluster-console-portal.png":::
 
 You can use the output commands to create an application or manage the cluster.
 
