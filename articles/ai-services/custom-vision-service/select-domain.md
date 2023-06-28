@@ -1,6 +1,6 @@
 ---
-title: "Select a domain for a Custom Vision project - Computer Vision"
-titleSuffix: Azure Cognitive Services
+title: "Select a domain for a Custom Vision project - Azure AI Vision"
+titleSuffix: Azure AI services
 description: This article will show you how to select a domain for your project in the Custom Vision Service.
 services: cognitive-services
 author: PatrickFarley

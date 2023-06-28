@@ -1,6 +1,6 @@
 ---
 title: What's new in Custom Vision?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article contains news about Custom Vision.
 services: cognitive-services
 author: PatrickFarley
@@ -61,4 +61,4 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## Cognitive Service updates
 
-[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)

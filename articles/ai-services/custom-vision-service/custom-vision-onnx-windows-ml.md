@@ -1,7 +1,7 @@
 ---
 title: "Use an ONNX model with Windows ML - Custom Vision Service"
-titleSuffix: Azure Cognitive Services
-description: Learn how to create a Windows UWP app that uses an ONNX model exported from Azure Cognitive Services.
+titleSuffix: Azure AI services
+description: Learn how to create a Windows UWP app that uses an ONNX model exported from Azure AI services.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -33,7 +33,7 @@ The included application is a generic Windows UWP app. It allows you to select a
 
 ## Get the example code
 
-The example application is available at the [Cognitive Services ONNX Custom Vision Sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample) repo on GitHub. Clone it to your local machine and open *SampleOnnxEvaluationApp.sln* in Visual Studio.
+The example application is available at the [Azure AI services ONNX Custom Vision Sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample) repo on GitHub. Clone it to your local machine and open *SampleOnnxEvaluationApp.sln* in Visual Studio.
 
 ## Test the application
 

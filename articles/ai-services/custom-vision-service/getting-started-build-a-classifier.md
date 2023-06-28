@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Build an image classification model with the Custom Vision portal"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this quickstart, you'll learn how to use the Custom Vision web portal to create, train, and test an image classification model.
 services: cognitive-services
 author: PatrickFarley

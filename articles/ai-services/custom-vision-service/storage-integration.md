@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure storage for notifications and model backup
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to integrate Azure storage to receive push notifications when you train or export Custom Vision models. You can also save a backup of exported models.
 author: PatrickFarley
 manager: nitinme

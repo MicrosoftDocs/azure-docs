@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Use custom logo detector to recognize Azure services - Custom Vision"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this tutorial, you will step through a sample app that uses Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
 services: cognitive-services
 author: PatrickFarley
@@ -23,7 +23,7 @@ This tutorial will show you how to:
 
 > [!div class="checklist"]
 > - Create a custom object detector to recognize Azure service logos.
-> - Connect your app to Azure Computer Vision and Custom Vision.
+> - Connect your app to Azure AI Vision and Custom Vision.
 > - Create an Azure service principal account to deploy Azure services from the app.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
@@ -87,17 +87,17 @@ This result takes the form of a **PredictionResult** instance, which itself cont
 
 To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the *Source/VisualProvision/Services/Recognition/RecognitionService.cs* file.  
 
-## Add Computer Vision
+## Add Azure AI Vision
 
-The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Computer Vision service as well. The app uses the Computer Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Computer Vision is pretrained to perform certain operations on images or videos.
+The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Azure AI Vision service as well. The app uses the Azure AI Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Azure AI Vision is pretrained to perform certain operations on images or videos.
 
-Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain keys](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
+Subscribe to the Azure AI Vision service to get a key and endpoint URL. For help on this step, see [How to obtain keys](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
-![The Computer Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
+![The Azure AI Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
 Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `ComputerVisionEndpoint` and `ComputerVisionKey` variables with the correct values.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
+[!code-csharp[Azure AI Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## Create a service principal
 
@@ -131,14 +131,14 @@ Upon successful completion, you should see the following JSON output, including 
 
 Take note of the `clientId` and `tenantId` values. Add them to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
+[!code-csharp[Azure AI Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## Run the app
 
 At this point, you've given the app access to:
 
 - A trained Custom Vision model
-- The Computer Vision service
+- The Azure AI Vision service
 - A service principal account
 
 Follow these steps to run the app:

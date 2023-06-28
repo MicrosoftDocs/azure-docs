@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
   title: "Frequently asked questions - Custom Vision"
-  titleSuffix: Azure Cognitive Services
-  description: Get answers to frequently asked questions about the Custom Vision Service in Azure Cognitive Services.
+  titleSuffix: Azure AI services
+  description: Get answers to frequently asked questions about the Custom Vision Service in Azure AI services.
   services: cognitive-services
   author: PatrickFarley
   manager: nitinme
@@ -16,7 +16,7 @@ metadata:
 title: Custom Vision frequently asked questions
 summary: |
   > [!TIP]
-  > If you can't find answers to your questions in this FAQ, ask the Computer Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
+  > If you can't find answers to your questions in this FAQ, ask the Azure AI Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
   
   
 sections:
@@ -53,7 +53,7 @@ sections:
       - question: |
           What is the difference between Custom Vision and AutoML?
         answer: |
-          Custom Vision is a tool for easily building computer vision models without needing to have any data science or ML knowledge. These models are pre-trained using datasets optimized for specific domains.
+          Custom Vision is a tool for easily building Azure AI Vision models without needing to have any data science or ML knowledge. These models are pre-trained using datasets optimized for specific domains.
 
           Sometimes, your scenario might require more control over model training, deployment and the end-to-end ML lifecycle. AutoML is the ideal solution when you need this extra control, and it's addressed to customers with ML knowledge.
       - question: |
@@ -67,7 +67,7 @@ sections:
           See the [Limits and quotas](./limits-and-quotas.md) page.
 
       - question: |
-          How can users be added to a Cognitive Services multi-service account to collaborate on a Custom Vision project in the web portal?
+          How can users be added to a multi-service account to collaborate on a Custom Vision project in the web portal?
         answer: |
           You can use Azure RBAC roles to give specific users access to collaborate on a custom vision portal project. See the [Role-based access control docs](./role-based-access-control.md)
       - question: | 
