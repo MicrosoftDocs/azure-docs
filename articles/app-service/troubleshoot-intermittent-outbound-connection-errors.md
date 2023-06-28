@@ -1,11 +1,9 @@
 ---
 title: Troubleshooting intermittent outbound connection errors in Azure App Service
 description: Troubleshoot intermittent connection errors and related performance issues in Azure App Service
-author: v-miegge
-manager: barbkess
 
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 06/28/2023
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 
@@ -56,7 +54,6 @@ General strategies for mitigating SNAT port exhaustion are discussed in the [Pro
 
 * For pooling HTTP connections, review [Pool HTTP connections with HttpClientFactory](/aspnet/core/performance/performance-best-practices#pool-http-connections-with-httpclientfactory).
 * For information on SQL Server connection pooling, review [SQL Server Connection Pooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
-* For implementing pooling with entity framework applications, review [DbContext pooling](/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling).
 
 Here is a collection of links for implementing Connection pooling by different solution stack.
 
