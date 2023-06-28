@@ -253,7 +253,6 @@ az spring dev-tool create \
    --service <Azure-Spring-Apps-service-instance-name> \
    --assign-endpoint
 ```
-You can also view the Applicattion Live View through VS Code extension, see [Use Application Live View in VS Code](#use-application-live-view-in-vs-code).
 
 ---
 
