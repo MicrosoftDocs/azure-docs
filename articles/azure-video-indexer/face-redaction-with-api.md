@@ -150,7 +150,10 @@ When successful you receive an HTTP 202 ACCEPTED
 ## Monitor job status 
 
 In the response of the job creation request you receive an HTTP header `Location` with a URL to the job. You can perform a GET request to this url with the same token to see the status of the redaction job. An example url would be: 
-```https://api.videoindexer.ai/westeurope/Accounts/&lt;accountid&gt;/Jobs/&lt;jobid&gt;``` 
+
+```
+https://api.videoindexer.ai/westeurope/Accounts/<accountid>/Jobs/<jobid>
+``` 
 
 Response 
 
@@ -167,7 +170,7 @@ Response
 Calling the same url once the redaction job has completed you get a Storage SAS url to the redacted video again in the `Location` header. For instance: 
 
 ```
-https://api.videoindexer.ai/westeurope/Accounts/&lt;accountid&gt;/Videos/&lt;videoid&gt;/SourceFile/DownloadUrl 
+https://api.videoindexer.ai/westeurope/Accounts/<accountid>/Videos/<videoid>/SourceFile/DownloadUrl 
 ```
 
 This will redirect to the mp4 stored on the Azure Storage Account connected to the Media Services account. 
