@@ -6,7 +6,7 @@ ms.topic: sample
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
-ms.custom: subject-policy-compliancecontrols, event-tier1-build-2022, devx-track-java
+ms.custom: subject-policy-compliancecontrols, event-tier1-build-2022, devx-track-java, devx-track-extended-java
 ---
 # Azure Policy Regulatory Compliance controls for Azure Spring Apps
 
