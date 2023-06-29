@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/15/2023
+ms.date: 06/29/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
@@ -75,13 +75,9 @@ To set Contributor or Owner permissions in the Azure subscription:
 
 To give the account the required permissions to register Azure AD apps:
 
-1. In the portal, go to **Azure Active Directory** > **Users** > **User Settings**.
+1. In the portal, go to **Azure Active Directory** > **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
-
-    :::image type="content" source="./media/tutorial-discover-vmware/register-apps.png" alt-text="Screenshot that shows verifying user setting to register apps.":::
-
-1. If **App registrations** is set to **No**, request the tenant, or global admin to assign the required permissions. Alternately, the tenant or global admin can assign the Application Developer role to an account to allow Azure AD app registration by users. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare VMware
 
@@ -124,7 +120,7 @@ To set up a new project:
 
 1. In the Azure portal, select **All services**, and then search for **Azure Migrate**.
 1. Under **Services**, select **Azure Migrate**.
-1. In **Overview**,  select one of the following options, depending on your migration goals: **Servers, databases and web apps**, **SQL Server (only)**, or **Explore more scenarios**.
+1. In **Get started**,  select one of the following options, depending on your migration goals: **Servers, databases and web apps**, **Databases (only)**, or **Explore more scenarios**.
 1. Select **Create project**.
 1. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 1. In **Project Details**, specify the project name and the geography where you want to create the project. Review [supported geographies for public clouds](migrate-support-matrix.md#public-cloud) and [supported geographies for government clouds](migrate-support-matrix.md#azure-government).
