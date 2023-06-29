@@ -28,7 +28,8 @@ For more information, see [Run a workflow on demand](on-demand-workflow.md).
 
 ## Prerequisites
 
-The preview of lifecycle workflows requires Microsoft Entra ID Governance or Azure Active Directory (Azure AD) Premium P2 licenses. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ## Before you begin
 
