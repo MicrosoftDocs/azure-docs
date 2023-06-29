@@ -5,7 +5,7 @@ services: active-directory
 author: billmath
 ms.author: billmath
 manager: martinco
-ms.date: 08/29/2022
+ms.date: 06/29/2023
 ms.reviewer: gasinh
 ms.topic: how-to
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Monitor and Clean up stale guest accounts using access reviews
+# Monitor and Clean up stale guest accounts using access reviews 
 
 As users collaborate with external partners, it’s possible that many guest accounts get created in Azure Active Directory (Azure AD) tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Administrators can monitor guest accounts at scale using inactive guest insights. Administrators can also use Access Reviews to automatically review inactive guest users, block them from signing in, and, delete them from the directory.
 
