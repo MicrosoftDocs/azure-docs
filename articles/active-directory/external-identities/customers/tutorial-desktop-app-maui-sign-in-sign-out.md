@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Sign in users in .NET MAUI shell app"
-description: This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) and how to run the app on the Windows platform.
+title: "Tutorial: Sign in users in .NET MAUI app"
+description: This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Windows platform.
 author: henrymbuguakiarie
 manager: mwongerapk
 
@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.date: 06/05/2023
 ---
 
-# Tutorial: Sign in users in .NET MAUI shell app
+# Tutorial: Sign in users in .NET MAUI app
 
 This tutorial demonstrates how to add sign-in and sign-out code in .NET Multi-platform App UI (.NET MAUI) shell and run the app on the Windows platform.
 

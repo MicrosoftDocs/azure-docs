@@ -49,4 +49,4 @@ In this tutorial, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a .NET MAUI shell app](tutorial-desktop-app-maui-sign-in-prepare-app.md)
+> [Tutorial: Sign in users in .NET MAUI app](tutorial-desktop-app-maui-sign-in-prepare-app.md)
