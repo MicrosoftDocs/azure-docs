@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 06/27/2023
 ms.author: jasteppe
 ---
 
@@ -135,17 +135,17 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 * Next, select the **Resolution type**.
 
-  **Resolution type** specifies how MedTech service associates device data with FHIR Device resources and FHIR Patient resources. MedTech reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the encounter identifier is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown.
+  **Resolution type** specifies how the MedTech service associates device data with FHIR Device resources and FHIR Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the encounter identifier is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown.
 
   Device and Patient resources can be resolved by choosing a **Resolution type** of **Create** and **Lookup**:
 
   - **Create**
 
-    If **Create** was selected, and device or patient resources are missing when you're reading data, new resources are created using the identifiers included in the device message.
+    If **Create** was selected, and Device or Patient resources are missing when the MedTech service is reading the device data, new resources are created using the identifiers included in the device data.
 
   - **Lookup**
   
-    If **Lookup** was selected, and device or patient resources are missing, an error occurs, and the data isn't processed. The errors **DeviceNotFoundException** and/or a **PatientNotFoundException** error is generated, depending on the type of resource not found.
+    If **Lookup** was selected, and Device or Patient resources are missing, an error occurs, and the device data isn't processed. A **DeviceNotFoundException** and/or a **PatientNotFoundException** error is generated, depending on the type of resource not found.
 
  * For the **Destination mapping** field, accept the default **Destination mapping**. The FHIR destination mapping is addressed in the [Post-deployment](#post-deployment) section of this quickstart.
 
