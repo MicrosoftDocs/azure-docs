@@ -94,7 +94,7 @@ The following table shows connectivity locations and the service providers for e
 | **Milan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | n/a | Supported | Colt<br/>Equinix<br/>Fastweb<br/>IRIDEOS<br/>Retelit<br/>Vodafone |
 | **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) and [Cologix MIN3](https://www.cologix.com/data-centers/minneapolis/min3/) | 1 | n/a | Supported | Cologix<br/>Megaport |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/a | Supported | Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Fibrenoire<br/>Megaport<br/>Telus<br/>Zayo |
-| **Mumbai** | Tata Communications | 2 | West India | Supported | BSNL<br/>DE-CIX<br/>Global CloudXchange (GCX)<br/>Reliance Jio<br/>Sify<br/>Tata Communications<br/>Verizon |
+| **Mumbai** | Tata Communications | 2 | West India | Supported | BSNL<br/>British Telecom<br/>DE-CIX<br/>Global CloudXchange (GCX)<br/>Reliance Jio<br/>Sify<br/>Tata Communications<br/>Verizon |
 | **Mumbai2** | Airtel | 2 | West India | Supported | Airtel<br/>Sify<br/>Orange<br/>Vodafone Idea |
 | **Munich** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | n/a | Supported | Colt<br/>DE-CIX<br/>Megaport |
 | **New York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | 1 | n/a | Supported | CenturyLink Cloud Connect<br/>Coresite<br/>Crown Castle<br/>DE-CIX<br/>Equinix<br/>InterCloud<br/>Lightpath<br/>Megaport<br/>NTT Communications<br/>Packet<br/>Zayo |
@@ -163,7 +163,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | Location | Address | Local Azure regions | ER Direct | Service providers |
 |--|--|--|--|--|
 | **Beijing** | China Telecom | n/a | Supported | China Telecom |
-| **Beijing2** | GDS | n/a | Supported | China Telecom<br/>China Unicom<br/>GDS |
+| **Beijing2** | GDS | n/a | Supported | China Telecom<br/>China Mobile<br/>China Unicom<br/>GDS |
 | **Shanghai** | China Telecom | n/a | Supported | China Telecom |
 | **Shanghai2** | GDS | n/a | Supported | China Telecom<br/>China Unicom<br/>GDS |
 

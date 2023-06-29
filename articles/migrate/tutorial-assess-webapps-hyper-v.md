@@ -4,7 +4,7 @@ description: Learn how to create assessment for Azure App Service for Hyper-V VM
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 03/03/2023
+ms.date: 06/29/2023
 ms.custom: engagement-fy23
 ---
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
 
@@ -53,7 +53,7 @@ Run an assessment as follows:
     --- | ---
     **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
     **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory to core ratio compared to Standard plans.
-    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
+    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
         - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.

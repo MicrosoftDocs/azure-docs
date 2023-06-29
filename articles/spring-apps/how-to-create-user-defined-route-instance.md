@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: article
 ms.date: 01/17/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Control egress traffic for an Azure Spring Apps instance
