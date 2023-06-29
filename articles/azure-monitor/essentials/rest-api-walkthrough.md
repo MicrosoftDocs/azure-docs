@@ -87,12 +87,12 @@ Use the Azure portal, PowerShell or the Azure CLI to find the resource ID.
 ### [Azure portal](#tab/portal)
 
 To find the resourceID in the portal, from the resource's overview page, select **JSON view**
-:::image type="content" source="./media/rest-api-walkthrough/json-view-azure-portal.png" alt-text="A screenshot showing the overview page for a resource with the JSON view link highlighted":::
+:::image type="content" source="./media/rest-api-walkthrough/json-view-azure-portal.png" alt-text="A screenshot showing the overview page for a resource with the JSON view link highlighted.":::
 
 
 The Resource JSON page is displayed. The resource ID can be copied using the icon on the right of the ID 
 
-:::image type="content" source="./media/rest-api-walkthrough/resourceid-azure-portal.png" alt-text="A screenshot showing the Resource JSON page for a resource":::
+:::image type="content" source="./media/rest-api-walkthrough/resourceid-azure-portal.png" alt-text="A screenshot showing the Resource JSON page for a resource.":::
 
 
 ### [PowerShell](#tab/powershell)
