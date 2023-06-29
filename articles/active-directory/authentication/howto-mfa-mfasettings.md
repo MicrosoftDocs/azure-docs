@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/26/2023
+ms.date: 06/28/2023
 
 ms.author: justinha
 author: justinha
@@ -19,12 +19,12 @@ ms.custom: contperf-fy20q4
 # Configure Azure AD Multi-Factor Authentication settings
 
 To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. Some settings are available directly in the Azure portal for Azure Active Directory (Azure AD), and some are in a separate Azure AD Multi-Factor Authentication portal.
-
+ 
 The following Azure AD Multi-Factor Authentication settings are available in the Azure portal:
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server only) |
+| [Account lockout](#account-lockout) (MFA Server only) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who use MFA Server to enter a PIN to authenticate. |
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
 | [Report suspicious activity](#report-suspicious-activity) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
@@ -34,9 +34,12 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
-## Account lockout
+## Account lockout (MFA Server only)
 
-To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are  applied only when a PIN code is entered for the MFA prompt.
+>[!NOTE]
+>Account lockout only affects users who sign in by using MFA Server on-premises. 
+
+To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are applied only when a PIN code is entered for the MFA prompt by using MFA Server on-premises.
 
 The following settings are available:
 
