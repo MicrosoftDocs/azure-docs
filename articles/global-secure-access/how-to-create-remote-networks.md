@@ -5,15 +5,13 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 06/29/2023
 ms.service: network-access
 ms.custom: 
 ---
 # How to create a remote network
 
-Remote networks are remote locations, such as a branch office, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access (preview). Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic.
-
-Global Secure Access provides remote network connectivity so you can connect a remote network to Global Secure Access. Network security policies are then applied on all outbound traffic. 
+Remote networks are remote locations, such as a branch office, or networks that require internet connectivity. Setting up remote networks connects your users in remote locations to Global Secure Access (preview). Once a remote network is configured, you can assign a traffic forwarding profile to manage your corporate network traffic. Global Secure Access provides remote network connectivity so you can apply network security policies to your outbound traffic. 
 
 There are multiple ways to connect remote networks to Global Secure Access. In a nutshell, you're creating an Internet Protocol Security (IPSec) tunnel between a core router at your remote network and the nearest Global Secure Access endpoint. All internet-bound traffic is routed through the core router of the remote network for security policy evaluation in the cloud. Installation of a client isn't required on individual devices.
 
@@ -21,8 +19,10 @@ This article explains how to create a remote network for Global Secure Access (p
 
 ## Prerequisites
 
-- **Global Secure Access Administrator** role in Microsoft Entra ID
-- Complete the onboarding process for remote networks
+To configure remote networks, you must have: 
+
+- A **Global Secure Access Administrator** role in Microsoft Entra ID
+- Completed the [onboarding process](#onboard-your-tenant-for-remote-networks) for remote networks
 
 ### Known limitations
 
@@ -62,54 +62,24 @@ You MUST complete the email step before selecting the checkbox.
 Remote networks are configured on three tabs. You must complete each tab in order. After completing the tab either select the next tab from the top of the page, or select the **Next** button at the bottom of the page.
 
 ### Basics
-The first step is to provide the basic details of your remote network, including the name, location, and bandwidth capacity. Completing this tab is required to create a new remote network.
+The first step is to provide the name and location of your remote network. Completing this tab is required.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
 1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 1. Select the **Create remote network** button and provide the following details:
     - **Name**
     - **Region**
+1. Select the **Next** button.
 
-![Screenshot of the General tab of the create device link process.](media/how-to-create-remote-networks/create-basics-tab.png)
+    ![Screenshot of the General tab of the create device link process.](media/how-to-create-remote-networks/create-basics-tab.png)
 
 ### Connectivity
 
-The connectivity tab is where you add the device links for the remote network. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. You can also add device links after creating the remote network. For more information on device links, see [How to manage remote network device links](how-to-manage-remote-network-device-links.md).
+The connectivity tab is where you add the device links for the remote network. You need to provide the device type, IP address, border gateway protocol (BGP) address, and autonomous system number (ASN) for each device link. You can also add device links after creating the remote network.
 
-1. Select the **Add a link** button. The **Add a link pane** opens with three tabs to complete.
-
-**General**
-
-1. Enter the following details: 
-    - **Link name**: Name of your CPE.
-    - **Device type**: Choose one of the options from the dropdown list.
-    - **IP address**: Public IP address of your device.
-    - **Peer BGP address**: The border gateway protocol address of the CPE.
-    - **Link ASN**: Provide the autonomous system number of the CPE. For more information, see the **Valid ASNs** section of the [Remote network configurations](reference-remote-network-configurations.md) article.
-    - **Redundancy**: Select either *No redundancy* or *Zone redundancy* for your IPSec tunnel.
-    - **Bandwidth capacity (Mbps)**: Choose the bandwidth for your IPSec tunnel.
-1. Select the **Next** button.
+This process is covered in detail in the [How to manage remote network device links](how-to-manage-remote-network-device-links.md).
 
 ![Screenshot of the general tab of the create device link process.](media/how-to-create-remote-networks/device-link-general-tab.png)
-
-**Details**
-
-1. **IKEv2** is selected by default. At this time, only IKEv2 is supported.
-1. The IPSec/IKE policy is set to **Default** but you can change to **Custom**.
-    - If you select **Custom**, you must use a combination of settings that are supported by Global Secure Access.
-    - The valid configurations you can use are mapped out in the [Remote network valid configurations](reference-remote-network-configurations.md) reference article.
-    - Whether you choose Default or Custom, the IPSec/IKE policy you specify must match the policy on your CPE.
-    - View the [remote network valid configurations](reference-remote-network-configurations.md).
-1. Select the **Next** button.
-
-The following screenshot displays the **Details** tab, with the **Custom** option selected.
-
-![Screenshot of the custom details for the device link.](media/how-to-create-remote-networks/device-link-details.png)
-
-**Security**
-
-1. Enter a preshared key to be used on your CPE.
-1. Select the **Add link** button. 
 
 ### Traffic forwarding profiles
 
@@ -157,6 +127,7 @@ Global Secure Access remote networks can be viewed and managed using Microsoft G
         }] 
     }  
     ```
+
 1. Select **Run query** to create a remote network.
 
 ### Assign a traffic forwarding profile
@@ -184,6 +155,7 @@ Associating a traffic forwarding profile to your remote network using the Micros
             }]
         }
     ```
+
 1. Select **Run query** to update the remote network.
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]

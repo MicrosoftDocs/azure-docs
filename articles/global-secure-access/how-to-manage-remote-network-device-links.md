@@ -18,7 +18,11 @@ This article explains how to add and delete device links for remote networks for
 
 ## Prerequisites 
 
+To configure remote networks, you must have: 
+
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
+- Completed the [onboarding process](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks) for remote networks
+- Created a remote network
 
 ## Add a device link using the Microsoft Entra admin center
 
@@ -26,6 +30,9 @@ You can add a device link to a remote network at any time.
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a Global Secure Access Administrator. 
 1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
+1. Select a remote network from the list.
+1. Select **Links** from the menu.
+1. Select the **+ Add a link** button.
 
 **General**
 
