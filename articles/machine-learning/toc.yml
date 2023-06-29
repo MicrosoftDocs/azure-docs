@@ -1159,6 +1159,15 @@
           href: how-to-use-foundation-models.md
         - name: Hugging Face Hub community partner models
           href: how-to-deploy-models-from-huggingface.md
+    - name: Retrieval Augmented Generation (RAG)
+        - name: Use Vector Stores
+          href: concept-vector-stores.md
+        - name: Use pipelines for retrieval augmented generation
+          href: how-to-use-pipelines-prompt-flow.md
+        - name: Use retrieval augmented generation in Prompt flow
+          href: how-to-use-rag-prompt-flow.md
+        - name: How to create vector index
+          href: how-to-create-vector-index.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Set up MLOps with Azure DevOps
