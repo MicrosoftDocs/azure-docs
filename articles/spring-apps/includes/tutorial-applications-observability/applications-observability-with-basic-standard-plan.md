@@ -74,7 +74,7 @@ This section provides the steps to check the liveness for each app on Azure Spri
    | vets-service      | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/vet/actuator/health/liveness      | UP                   |
    | visits-service    | https://[your-Azure-Spring-Apps-instance-name]-api-gateway.azuremicroservices.io/api/visit/actuator/health/liveness    | UP                   |
 
-### Create a private dashboard instance
+### Pin metrics to a dashboard
 
 This section provides the steps to create a custom dashboard.
 If you choose to use the built-in dashboard of Application Insights created by Azure Spring Apps,
