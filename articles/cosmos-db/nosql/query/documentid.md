@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # DocumentId (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Extracts the integer identifier corresponding to a specific item within a physical partition.
 
 ## Syntax
