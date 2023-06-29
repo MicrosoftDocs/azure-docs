@@ -22,7 +22,7 @@ Operations run on an Azure Service Bus namespace are of two kinds
 
 > [!IMPORTANT]
 > - Service Bus Explorer doesn't support **management operations** and **sessions**. 
-> - Service Bus Explorer doesn't support sending or receiving **large messages**. 
+> - Service Bus Explorer doesn't support sending or receiving **large messages** (> 1 MB). For Large messages, the send and receive operations take longer because of the message size. Therefore, you should increase the operation timeout before trying to send or receive large messages. 
 
 
 ## Prerequisites
