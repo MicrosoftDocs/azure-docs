@@ -24,7 +24,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -42,7 +42,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - [Connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 
-- Complete the [pre-requisites listed under the generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md).
+- Complete the [prerequisites listed under the generic cluster extensions documentation](../azure-arc/kubernetes/extensions.md).
 
 ## Enable the Defender for Containers plan
 
@@ -66,7 +66,7 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 
 ## Deploy the Defender extension in Azure
 
-You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We'll walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender extension](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#deploy-the-defender-extension) with REST API, Azure CLI or with a Resource Manager template.
+You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender extension](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#deploy-the-defender-extension) with REST API, Azure CLI or with a Resource Manager template.
 
 **To deploy the Defender profile in Azure:**
 

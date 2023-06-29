@@ -5,7 +5,7 @@ author: elazark
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 06/29/2023
 ---
 
 # Protect your APIs with Defender for APIs (Preview)

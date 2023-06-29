@@ -51,7 +51,7 @@ You can view and filter your list of subscriptions from the subscriptions menu t
 Within minutes of launching Defender for Cloud for the first time, you might see:
 
 - **Recommendations** for ways to improve the security of your connected resources.
-- An inventory of your resources that are now being assessed by Defender for Cloud, along with the security posture of each.
+- An inventory of your resources that Defender for Cloud assesses along with the security posture of each.
 
 ## Next steps
 

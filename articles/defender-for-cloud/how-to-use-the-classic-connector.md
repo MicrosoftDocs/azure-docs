@@ -3,14 +3,14 @@ title: Manage the classic connectors
 titleSuffix: Defender for Cloud
 description: Learn how to remove the AWS and GCP classic connectors from your subscription.
 ms.topic: how-to
-ms.date: 06/22/2023
+ms.date: 06/29/2023
 ---
 
 # Classic connector (retired)
 
-The retired **Classic cloud connector** - Requires configuration in your GCP project or AWS account to create a user that Defender for Cloud can use to connect to your GCP project or AWS environment. The classic connector is only available to those who have previously connected GCP projects or AWS environments with it.
+The retired **Classic cloud connector** - Requires configuration in your GCP project or AWS account to create a user that Defender for Cloud can use to connect to your GCP project or AWS environment. The classic connector is only available to customers who have previously connected GCP projects or AWS environments with it.
 
-If you need to connect a [GCP project](quickstart-onboard-gcp.md) or [AWS account](quickstart-onboard-aws.md) you should do so using the native connector available in Defender for Cloud.
+To connect a [GCP project](quickstart-onboard-gcp.md) or [AWS account](quickstart-onboard-aws.md), you should do so using the native connector available in Defender for Cloud.
 
 ## Connect your AWS account using the classic connector
 
@@ -18,7 +18,7 @@ To connect your AWS account using the classic connector:
 
 ### Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -129,7 +129,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
     1. Enter a **Display name** for the connector.
     
-    1. Confirm that the subscription is correct. It's the subscription that will include the connector and AWS Security Hub recommendations.
+    1. Confirm that the subscription is correct. It's the subscription that includes the connector and AWS Security Hub recommendations.
     
     1. Depending on the authentication option, you chose in [Set up authentication for Defender for Cloud in AWS](#set-up-authentication-for-defender-for-cloud-in-aws):
         - Select  **Assume Role** and paste the ARN from [Create an IAM role for Defender for Cloud](#create-an-iam-role-for-defender-for-cloud).
@@ -149,7 +149,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
     > [!TIP]
     > See [What operating systems for my EC2 instances are supported?](faq-general.yml)
 
-    1. Select the **Resource Group** and **Azure Region** that the discovered AWS EC2s will be onboarded to in the selected subscription.
+    1. Select the **Resource Group** and **Azure Region** that the discovered AWS EC2s is onboarded to in the selected subscription.
     
     1. Enter the **Service Principal ID** and **Service Principal Client Secret** for Azure Arc as described here [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
     
@@ -159,7 +159,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
         Review the summary information
 
-        The Tags sections will list all Azure Tags that will be automatically created for each onboarded EC2 with its own relevant details to easily recognize it in Azure. 
+        The Tags sections list all Azure Tags that are automatically created for each onboarded EC2 with its own relevant details to easily recognize it in Azure. 
 
         Learn more about Azure Tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
@@ -171,7 +171,7 @@ When the connector is successfully created, and AWS Security Hub has been config
 
 - The Defender for Cloud service scans for new AWS EC2 instances every 6 hours and onboards them according to the configuration.
 
-- The AWS CIS standard will be shown in the Defender for Cloud's regulatory compliance dashboard.
+- The AWS CIS standard is shown in the Defender for Cloud's regulatory compliance dashboard.
 
 - If Security Hub policy is enabled, recommendations will appear in the Defender for Cloud portal and the  regulatory compliance dashboard 5-10 minutes after onboard completes.
 
@@ -189,7 +189,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
     :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
 
-1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+1. For each connector, select the three dots button **…** at the end of the row, and select **Delete**.
 
 1. On AWS, delete the role ARN, or the credentials created for the integration.
 
@@ -199,7 +199,7 @@ To connect your GCP project using the classic connector:
 
 ### Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -228,9 +228,9 @@ For all the GCP projects in your organization, you must also:
 
 1. Enable **Security Health Analytics** using [these instructions from the GCP documentation](https://cloud.google.com/security-command-center/docs/how-to-use-security-health-analytics).
 
-1. Verify that there is data flowing to the Security Command Center.
+1. Verify that there's data flowing to the Security Command Center.
 
-The instructions for connecting your GCP environment for security configuration follow Google's recommendations for consuming security configuration recommendations. The integration leverages Google Security Command Center and will consume additional resources that might impact your billing.
+The instructions for connecting your GCP environment for security configuration follow Google's recommendations for consuming security configuration recommendations. The integration applies Google Security Command Center and consumes extra resources that might impact your billing.
 
 When you first enable Security Health Analytics, it might take several hours for data to be available.
 
@@ -311,9 +311,9 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 ### Confirmation
 
-When the connector is successfully created and GCP Security Command Center has been configured properly:
+When the connector is successfully created, and GCP Security Command Center has been configured properly:
 
-- The GCP CIS standard will be shown in the Defender for Cloud's regulatory compliance dashboard.
+- The GCP CIS standard is shown in the Defender for Cloud's regulatory compliance dashboard.
 
 - Security recommendations for your GCP resources will appear in the Defender for Cloud portal and the regulatory compliance dashboard 5-10 minutes after onboard completes:
 

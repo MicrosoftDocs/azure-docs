@@ -3,7 +3,7 @@ title: Protect your Google Cloud Platform (GCP) project containers with Defender
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Containers plan on your Google Cloud Platform (GCP) project for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/26/2023
+ms.date: 06/29/2023
 ---
 
 # Protect your Google Cloud Platform (GCP) project containers with Defender for Containers
@@ -24,7 +24,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -33,7 +33,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 - Validate the following domains only if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
 
 | Domain                     | Port | Host operating systems |
-| -------------------------- | ---- | -- |
+| -------------------------- | ---- |--|
 | amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
 | yum default repositories | - | RHEL / Centos |
 | apt default repositories | - | Debian |
@@ -72,9 +72,9 @@ The connector will update after the script executes. This process can take up to
 
 ## Deploy the solution to specific clusters
 
-If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You'll need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
+If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your GKE clusters to get the full security value out of Defender for Containers.
 
-There are 2 dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
+There are two dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
 -	`GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
 -	`GKE clusters should have the Azure Policy extension installed`
 
@@ -103,7 +103,7 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
     :::image type="content" source="media/tutorial-enable-containers-gcp/fix-button.png" alt-text="Screenshot showing the location of the fix button.":::
 
-1. Defender for Cloud will generate a script in the language of your choice: 
+1. Defender for Cloud generates a script in the language of your choice: 
     - For Linux, select **Bash**.
     - For Windows, select **PowerShell**.
 

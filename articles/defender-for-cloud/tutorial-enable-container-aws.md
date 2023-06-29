@@ -3,7 +3,7 @@ title: Protect your Amazon Web Service (AWS) accounts containers with Defender f
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Containers plan on your Amazon Web Service (AWS) accounts for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/27/2023
+ms.date: 06/29/2023
 ---
 
 # Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers
@@ -24,7 +24,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -33,7 +33,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 - Validate the following domains only if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
 
 | Domain                     | Port | Host operating systems |
-| -------------------------- | ---- | -- |
+| -------------------------- | ---- |--|
 | amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
 | yum default repositories | - | RHEL / Centos |
 | apt default repositories | - | Debian |
@@ -42,7 +42,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Enable the Defender for Containers plan on your AWS account
 
-To protect your EKS clusters, you will need to enable the Containers plan on the relevant AWS account connector.
+To protect your EKS clusters, you need to enable the Containers plan on the relevant AWS account connector.
 
 **To enable the Defender for Containers plan on your AWS account**:
 
@@ -69,7 +69,7 @@ To protect your EKS clusters, you will need to enable the Containers plan on the
 
 ## Deploy the Defender extension in Azure
 
-Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There is a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
+Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
 
 - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
 

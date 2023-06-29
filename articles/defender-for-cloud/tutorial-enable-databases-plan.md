@@ -3,7 +3,7 @@ title: Protect your databases with Defender for Databases - Microsoft Defender f
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Databases plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/26/2023
+ms.date: 06/29/2023
 ---
 
 # Protect your databases with Defender for Databases
@@ -21,7 +21,7 @@ Defender for Databases protects four database protection plans at their own cost
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 

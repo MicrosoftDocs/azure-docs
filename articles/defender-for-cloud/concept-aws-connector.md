@@ -2,12 +2,12 @@
 title: Defender for Cloud's AWS connector
 description: Conceptual information pulled from AWS connector article.
 ms.topic: tutorial
-ms.date: 06/28/2023
+ms.date: 06/29/2023
 ---
 
 # Defender for Cloud's AWS connector
 
-To protect your AWS-based resources, you must [connect your AWS account](quickstart-onboard-aws.md) using the built in connector. The connector provides an agentless connection to your AWS account that you can extend with Defender for Cloud's Defender plans to secure your AWS resources:
+To protect your AWS-based resources, you must [connect your AWS account](quickstart-onboard-aws.md) using the built-in connector. The connector provides an agentless connection to your AWS account that you can extend with Defender for Cloud's Defender plans to secure your AWS resources:
 
 - [**Cloud Security Posture Management (CSPM)**](overview-page.md) assesses your AWS resources according to AWS-specific security recommendations and reflects your security posture in your secure score. The [asset inventory](asset-inventory.md) gives you one place to see all of your protected AWS resources. The [regulatory compliance dashboard](regulatory-compliance-dashboard.md) shows your compliance with built-in standards specific to AWS, including AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices.
 
@@ -17,7 +17,7 @@ To protect your AWS-based resources, you must [connect your AWS account](quickst
 
 - [**Microsoft Defender for SQL**](defender-for-sql-introduction.md) brings threat detection and advanced defenses to your SQL Servers running on AWS EC2, AWS RDS Custom for SQL Server.
 
-The retired **Classic cloud connector** - Requires configuration in your AWS account to create a user that Defender for Cloud can use to connect to your AWS environment. The classic connector is only available to those who have previously connected AWS accounts with it. 
+The retired **Classic cloud connector** - Requires you to configure your AWS account to create a user that Defender for Cloud can use to connect to your AWS environment. The classic connector is only available to customers who have previously connected AWS accounts with it. 
 
 > [!NOTE]
 > If you are connecting an AWS account that was previously connected with the classic connector, you must [remove them](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account that is connected by both the classic and native connectors can produce duplicate recommendations.
@@ -45,7 +45,7 @@ The architecture of the authentication process across clouds is as follows:
 
  1.  The Microsoft Defender for Cloud CSPM role is assumed only after the validation conditions defined at the trust relationship have been met. The conditions defined for the role level are used for validation within AWS and allows only the Microsoft Defender for Cloud CSPM application (validated audience) access to the specific role (and not any other Microsoft token).
 
-1. After the Azure AD token is validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
+1. After the Azure AD token validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
 
 ## Native connector plan requirements
 
@@ -66,7 +66,7 @@ Each plan has its own requirements for the native connector.
 - Azure Arc for servers installed on your EC2 instances/RDS Custom for SQL Server.
      - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
 
-        Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If you already have the SSM agent pre-installed, the AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you'll need to install it using either of the following relevant instructions from Amazon:
+        Auto provisioning managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If you already have the SSM agent preinstalled, the AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either of the following relevant instructions from Amazon:
             
         - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
 
@@ -78,7 +78,7 @@ Each plan has its own requirements for the native connector.
     - VA solution (TVM/Qualys)
     - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA)
 
-        Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription will inherit the subscription settings for the LA agent and AMA.
+        Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription inherit the subscription settings for the LA agent and AMA.
         
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -91,7 +91,7 @@ Each plan has its own requirements for the native connector.
 - Azure Arc for servers installed on your EC2 instances. 
     - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
             
-        Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If that is the case, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you'll need to install it using either of the following relevant instructions from Amazon:
+        Auto provisioning managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If that is the case, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either of the following relevant instructions from Amazon:
 
         - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
         
@@ -107,7 +107,7 @@ Each plan has its own requirements for the native connector.
     - VA solution (TVM/Qualys)
     - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA)
 
-        Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription will inherit the subscription settings for the LA agent and AMA.
+        Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription inherit the subscription settings for the LA agent and AMA.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 

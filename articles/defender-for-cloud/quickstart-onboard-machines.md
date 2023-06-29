@@ -2,7 +2,7 @@
 title: Connect your on-premises machine to Defender for Cloud
 description: Learn how to connect your on-premises machines to Microsoft Defender for Cloud
 ms.topic: install-set-up-deploy
-ms.date: 06/22/2023
+ms.date: 06/29/2023
 ms.custom: mode-other
 ---
 
@@ -17,14 +17,12 @@ You can connect your non-Azure computers in any of the following ways:
   - [From Defender for Cloud's pages in the Azure portal](#connect-on-premises-machines-using-the-azure-portal)
 - [Onboarding directly with Defender for Endpoint](onboard-machines-with-defender-for-endpoint.md)
 
-Each of these is described on this page.
-
 > [!TIP]
 > If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP projects](quickstart-onboard-gcp.md). Defender for Cloud's multicloud connectors for AWS and GCP transparently handles the Azure Arc deployment for you.
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [Set up Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -32,7 +30,7 @@ Each of these is described on this page.
 
 ## Connect on-premises machines using Azure Arc
 
-A machine that has [Azure Arc-enabled servers](../azure-arc/servers/overview.md) becomes an Azure resource, and when you've installed the Log Analytics agent on it, it appears in Defender for Cloud with recommendations similar to your other Azure resources.
+A machine that has [Azure Arc-enabled servers](../azure-arc/servers/overview.md) becomes an Azure resource. When you've installed the Log Analytics agent on it, it appears in Defender for Cloud with recommendations similar to your other Azure resources.
 
 In addition, Azure Arc-enabled servers provide enhanced capabilities such as the ability to enable guest configuration policies on the machine, simplify deployment with other Azure services and more. For an overview of the benefits of Azure Arc-enabled servers, see [Supported cloud operations](../azure-arc/servers/overview.md#supported-cloud-operations).
 
@@ -68,7 +66,7 @@ Once Defender for Cloud has been connected to your Azure subscription, you can s
 
     A list of your Log Analytics workspaces is shown.
 
-1. (Optional) If you do not already have a Log Analytics workspace, select **Create New workspace**, to create a new workspace in which to store the data. Follow the onscreen guide to create the workspace.
+1. (Optional) If you don't already have a Log Analytics workspace, select **Create New workspace**, to create a new workspace in which to store the data. Follow the onscreen guide to create the workspace.
 
 1. From the list of workspaces, select **Upgrade** for the relevant workspace to turn on Defender for Cloud's paid plans for 30 free days.
 
@@ -83,7 +81,7 @@ Once Defender for Cloud has been connected to your Azure subscription, you can s
 
 ## Onboard your Windows server
 
-When you add Windows server, you'll need the information on the Agents management page and to download the appropriate agent file (32/64-bit).
+When you add Windows server, you need the information on the Agents management page and to download the appropriate agent file (32/64-bit).
 
 **To onboard a Windows server**:
 

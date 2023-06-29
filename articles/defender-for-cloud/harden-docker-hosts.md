@@ -4,7 +4,7 @@ description: How-to protect your Docker hosts and verify they're compliant with 
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/29/2023
 ---
 # Review Docker host hardening recommendations
 

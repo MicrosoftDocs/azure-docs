@@ -10,7 +10,7 @@ ms.date: 06/27/2023
 
 Defender Cloud Security Posture Management (CSPM) in Microsoft Defender for Cloud provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
 
-Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. Defender for Cloud will show you your security posture with the secure score. The secure score is an aggregated score of the security findings that tells you your current security situation. The higher the score, the lower the identified risk level.
+Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. Defender for Cloud shows you your security posture with the secure score. The secure score is an aggregated score of the security findings that tells you your current security situation. The higher the score, the lower the identified risk level.
 
 When you enable Defender for Cloud, you automatically enable the **Foundational CSPM capabilities**. these capabilities are part of the free services offered by Defender for Cloud.
 
@@ -25,7 +25,7 @@ You can learn more about Defender for CSPM's pricing on [the pricing page](https
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
@@ -35,7 +35,7 @@ You can learn more about Defender for CSPM's pricing on [the pricing page](https
 
 ## Enable the Defender for CSPM plan
 
-When you enable Defender for Cloud, you'll automatically receive the protections offered by the Foundational CSPM capabilities. In order to gain access to the other features provided by Defender CSPM, you'll need to enable the Defender CSPM plan on your subscription.
+When you enable Defender for Cloud, you automatically receive the protections offered by the Foundational CSPM capabilities. In order to gain access to the other features provided by Defender CSPM, you need to enable the Defender CSPM plan on your subscription.
 
 **To enable the Defender for CSPM plan on your subscription**:
 
@@ -51,7 +51,7 @@ When you enable Defender for Cloud, you'll automatically receive the protections
 
 ## Configure monitoring coverage
 
-Once the Defender CSPM plan is enabled on your subscription, you'll have the ability to disable the agentless scanner or add exclusion tags to your subscription.
+Once the Defender CSPM plan is enabled on your subscription, you have the ability to disable the agentless scanner or add exclusion tags to your subscription.
 
 **To configure monitoring coverage**:
 

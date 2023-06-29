@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 06/29/2023
 ms.custom: template-concept, ignite-2022
 ---
 

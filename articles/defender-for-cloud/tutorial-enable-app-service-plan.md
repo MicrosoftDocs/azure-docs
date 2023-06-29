@@ -3,14 +3,14 @@ title: Protect your applications with the App Service plan - Microsoft Defender 
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the App Service plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/28/2023
+ms.date: 06/29/2023
 ---
 
 # Protect your applications with Defender for App Service
 
 Defender for App Service in Microsoft Defender for Cloud is a fully managed platform for building and hosting your web apps and APIs. It provides management, monitoring, and operational insights to meet enterprise-grade performance, security, and compliance requirements. For more information, see [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-**Microsoft Defender for App Service** uses the scale of the cloud to identify attacks targeting applications running over App Service. Attackers probe web applications to find and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways, where they're inspected and logged. The data is then used to identify exploits and attackers, and to learn new patterns that will be used later.
+**Microsoft Defender for App Service** uses the scale of the cloud to identify attacks targeting applications running over App Service. Attackers probe web applications to find and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways, where they're inspected and logged. The data is then used to identify exploits and attackers, and to learn new patterns that are used later.
 
 When you enable Microsoft Defender for App Service, you immediately benefit from the following services offered by this Defender plan:
 

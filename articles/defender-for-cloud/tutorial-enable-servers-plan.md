@@ -3,24 +3,24 @@ title: Protect servers with Defender for Servers - Microsoft Defender for Cloud
 titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/28/2023
+ms.date: 06/29/2023
 ---
 
 # Protect servers with Defender for Servers
 
 Defender for Servers in Microsoft Defender for Cloud brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
-Microsoft Defender for Servers includes an automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md). With this integration enabled, you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**.
+Microsoft Defender for Servers includes an automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md). With this integration enabled, you have access to the vulnerability findings from **Microsoft threat and vulnerability management**.
 
 Defender for Servers offers two plan options with that offer different levels of protection and their own cost. You can learn more about Defender for Clouds pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
 
 ## Prerequisites
 
-- You'll need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Before starting you should review the [Defender for Servers deployment guide](plan-defender-for-servers.md).
+- Review the [Defender for Servers deployment guide](plan-defender-for-servers.md).
 
 ## Enable the Defender for Servers plan
 
@@ -42,7 +42,7 @@ You can enable the Defender for Servers plan on your Azure subscription, AWS acc
 
 ## Select a Defender for Servers plan
 
-When you enable the Defender for Servers plan, you'll then be given the option to select which plan you want to enable. There are two plans you can choose from that offer different levels of protections for your resources. 
+When you enable the Defender for Servers plan, you're then given the option to select which plan you want to enable. There are two plans you can choose from that offer different levels of protections for your resources. 
 
 You can compare what's included in [each plan](plan-defender-for-servers-select-plan.md#plan-features).
 
