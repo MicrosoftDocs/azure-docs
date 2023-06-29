@@ -149,7 +149,7 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
 #### Database copy
 
-To create a database copy and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql#copy-using-the-azure-portal).
+To create a database copy and enable zone redundancy with Azure portal, PowerShell, or Azure CLI, follow the instructions in [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql&preserve-view=true#copy-using-the-azure-portal).
  
 
 #### Point-in-time restore
