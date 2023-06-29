@@ -206,7 +206,7 @@ This section provides the steps to set up action groups and alert rules to monit
 The alert rules bind metric patterns with the action groups on the target resource,
 when the metric pattern matches the condition, the alert rule is triggered, and the associated action group is executed.
 
-### Set up Action Groups
+### Set up an action group
 
 1. Go to the Azure Spring Apps instance overview page.
 
