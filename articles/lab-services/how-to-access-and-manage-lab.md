@@ -76,19 +76,28 @@ To link your GitHub account to a Microsoft account:
 
 When you access a lab in Microsoft Teams, you're automatically registered for the lab, based on your team membership in Microsoft Teams. 
 
-You can access your lab by going to the **Azure Lab Services** tab in your Teams channel.
+To access your lab in Teams:
 
-:::image type="content" source="./media/how-to-access-and-manage-lab/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
+1. Sign into Microsoft Teams with your organizational account.
+1. Go to the Teams channel, and then select the **Azure Lab Services** tab.
+
+    :::image type="content" source="./media/how-to-access-and-manage-lab/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
 
 You might see a message that the lab isn't available if the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
 
-:::image type="content" source="./media/how-to-access-and-manage-lab/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/how-to-access-vm-for-students-within-teams/not-published-lab.png":::
+:::image type="content" source="./media/how-to-access-and-manage-lab/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/media/how-to-access-and-manage-lab/not-published-lab.png":::
 
 # [Canvas](#tab/canvas)
 
 When you access a lab in [Canvas](https://www.instructure.com/canvas), you're automatically registered for the lab, based on your course membership in Canvas. Azure Lab Services supports test users in Canvas and the ability for the educator to act as another user.
 
-You can access your lab in Canvas, by using your Canvas credentials.
+To access your lab in Canvas:
+
+1. Sign into Canvas by using your Canvas credentials.
+
+1. Go to the course, and then open the **Azure Lab Services** app.
+
+    :::image type="content" source="./media/how-to-access-and-manage-lab/canvas-view-lab.png" alt-text="Screenshot of a lab in the Canvas portal.":::
 
 You might see a message that the lab isn't available if the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
 
