@@ -20,26 +20,34 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.x**: [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) |
+| **OT networks** | **Version 23.1.x**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Sensor network analysis](#sensor-network-analysis) <br>- [Simplified privileged users](#simplified-privileged-users) |
 
-## OT sensor installation and setup enhancements
+### OT sensor installation and setup enhancements
 
 In version 23.1.x we've updated the OT sensor installation and setup wizards to be quicker and more user-friendly. Updates include:
 
-- **Installation wizard**: If you're installing software on your own physical or virtual machines, the Linux installation wizard now goes directly through the installation process without requiring any input or details from you. The installation uses default values for your network settings, which you fine-tune only after installation in the sensor user interface. 
+- **Installation wizard**: If you're installing software on your own physical or virtual machines, the Linux installation wizard now goes directly through the installation process without requiring any input or details from you.
 
-    The installation wizard also provides you with a single set of sign-in credentials, which you'll use only the first time you sign into your sensor. 
+    - The installation uses default values for your network settings, which you fine-tune only afterwards, either in the CLI as before, or in a new GUI-based wizard.
+    - All sensors are installed with a default *support* user, who's password you change immediately with the first sign-in.
 
-- **Setup wizard**: After installing software, or if you've ordered pre-configured appliances, the setup wizard also now has a new look.
+- **Configure initial setup in the GUI**: After installing software, configure initial network settings in a new GUI wizard. Continue with the same wizard to activate your sensor and define SSL/TLS certificate settings.
 
-    In addition to uploading your sensor activation file and defining SSL/TLS certificate settings as before, make sure to update your network settings to ensure that each sensor monitors your network as planned.
+For more information, see [Install and set up your OT sensor](ot-deploy/install-software-ot-sensor.md).
 
-- **Post-deployment subnet analysis**: After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections.
+### Sensor network analysis
 
-For more information, see:
+After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections. For example:
 
-- [Install and set up your OT sensor](ot-deploy/install-software-ot-sensor.md)
-- [Analyze detected subnets](how-to-control-what-traffic-is-monitored.md#analyze-detected-subnets)
+:::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page.":::
+
+For more information, see [Analyze detected subnets](how-to-control-what-traffic-is-monitored.md#analyze-detected-subnets).
+
+### Simplified privileged users
+
+In new sensor installations of version 23.1.x, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).
+
+In sensors that have been updated from previous versions to 23.1.x, the *cyberx* and *cyberx_host* users remain enabled as before.
 
 ## June 2023
 

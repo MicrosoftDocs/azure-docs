@@ -15,9 +15,15 @@ This article lists the CLI commands available from Defender for IoT OT network s
 
 Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a *support* user.
 
-In software versions before 23.1.x, the sensor and on-premises management console also support the *cyberx* and *cyberx_host* users. Command syntax is listed only for the users supported for a specific activity. The *cyberx* and *cyberx_host* users are not supported in version 23.1.x and higher.
-
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
+
+### Other privileged users
+
+OT sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default.
+
+While this article lists the command syntax for each user, as relevant, we recommend using the *support* user for all CLI commands.
+
+For more information, see [Default privileged users](manage-users-sensor.md#default-privileged-users).
 
 ## Appliance maintenance
 

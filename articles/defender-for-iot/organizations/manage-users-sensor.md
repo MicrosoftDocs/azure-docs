@@ -13,12 +13,13 @@ This article describes how to manage on-premises users directly on an OT network
 
 ## Default privileged users
 
-By default, each OT network sensor is installed with the privileged *cyberx*, *support*, and *cyberx_host* users, which have access to advanced tools for troubleshooting and setup.
+By default, each OT network sensor is installed with the privileged *support* user, which has access to advanced tools for troubleshooting and setup.
 
-When setting up a sensor for the first time, sign in with one of these privileged users, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
+When setting up a sensor for the first time, sign in the *support* user, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
 For more information, see [Install and set up your OT sensor](how-to-install-software.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
+Sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default. To enable the *cyberx* and *cyberx_host* users in versions 23.1.x and higher, such as to use them with the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), reset the password. For more information, see [Change a sensor user's password](#change-a-sensor-users-password).
 
 ## Configure an Active Directory connection
 

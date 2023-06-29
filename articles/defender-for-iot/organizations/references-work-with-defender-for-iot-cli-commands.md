@@ -18,25 +18,21 @@ To access the Defender for IoT CLI, you'll need access to the sensor or on-premi
 
 ## Privileged user access for OT monitoring
 
-Use the *support* user when using the Defender for IoT CLI. The *support* user is an administrative account with access to all CLI commands, the ability to manage log files, and access to start and stop services. The *support* user has no filesystem access.
+Use the *support* user when using the Defender for IoT CLI, which is an an administrative account with access to all CLI commands. On the on-premises management console, use either the *support* or the *cyberx* user.
+
+In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. In versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).
 
 Other CLI users cannot be added.
-
-### Legacy users for versions earlier than 23.1.x
-
-The following additional users are supported only in software versions earlier than 23.1.x:
-
-- On the OT sensor: The *cyberx* and *cyberx_host* users.
-- On the on-premises management console: The *cyberx* user.
-
-For more information, see [OT monitoring software versions](release-notes.md).
 
 The following table describes the access available to each privileged user:
 
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
+|**support** | The OT sensor or on-premises management console's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services <br><br>This user has no filesystem access |
 |**cyberx**     |    The OT sensor or on-premises management console's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
+
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ### Supported users by CLI actions
 

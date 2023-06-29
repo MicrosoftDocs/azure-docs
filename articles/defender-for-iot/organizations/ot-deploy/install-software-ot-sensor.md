@@ -108,7 +108,6 @@ Use the following tabs to configure and activate your sensor, either using the G
 
 Configuring your setup via the CLI still requires you to complete the last few steps in the browser.
 
-
 # [Configure setup via the GUI](#tab/ui)
 
 1. In a browser, go to the default IP address provided. For example: `https://172.23.41.83`
@@ -180,7 +179,9 @@ Configuring your setup via the CLI still requires you to complete the last few s
         You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors).
 
         > [!TIP]
-        > If you're working on a testing environment, you can also use the self-signed certificate that's generated locally during installation. For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
+        > If you're working on a testing environment, you can also use the self-signed certificate that's generated locally during installation. If you select to use a self-signed certificate, make sure to select the **Confirm** option about the recommendations.
+        >
+        > For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
     1. In the **Enable certificate validation** area, select **Mandatory** to validate the certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements). <!--in the current UI this actually reads Validation of on-premises management console certificate-->
 

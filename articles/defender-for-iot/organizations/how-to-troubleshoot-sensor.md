@@ -200,7 +200,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 
 1. On the Defender for IoT sign in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
-1. Select either **CyberX** or **Support**, and copy the unique identifier.
+1. Select either **Support** or **CyberX**, and copy the unique identifier.
 
 1. Navigate to the Azure portal and select **Sites and sensors**.
 
@@ -219,7 +219,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 1. Select **Next**, and your user, and a system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *cyberx*, or *support* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
+    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *support*, or *cyberx* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
 
 ## Investigate a lack of traffic
 

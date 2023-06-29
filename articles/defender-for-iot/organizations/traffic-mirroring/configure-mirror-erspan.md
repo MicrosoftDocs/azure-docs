@@ -29,7 +29,7 @@ ERSPAN support is configured in the **Select erspan monitor interfaces** screen,
 
 :::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
-To access this screen later on, sign in to your sensor via SSH as the *cyberx_host* user and run the following command:
+To access this screen later on, sign in to your sensor via SSH as the *cyberx_host* user and run the following command: <!--is this now supported by the support user?-->
 
 ```console
 sudo dpkg-reconfigure iot-sensor

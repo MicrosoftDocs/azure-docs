@@ -143,7 +143,7 @@ The device or devices are deleted, and a confirmation message appears at the top
 
 **To delete all inactive devices**:
 
-This procedure is supported for the *cyberx* and admin users only.
+This procedure is supported for the *cyberx* and admin users only. <!--should we indicate support here instead?-->
 
 1. Select the **Last Activity** filter icon in the Inventory.
 1. Select a filter option.

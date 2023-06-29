@@ -13,7 +13,7 @@ This article describes how to manage on-premises users directly on an on-premise
 
 ## Default privileged users
 
-By default, each on-premises management console is installed with the privileged *cyberx* and *support* users, which have access to advanced tools for troubleshooting and setup.
+By default, each on-premises management console is installed with the privileged *support* and *cyberx* users, which have access to advanced tools for troubleshooting and setup.
 
 When setting up an on-premises management console for the first time, sign in with one of these privileged users, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
@@ -23,7 +23,7 @@ For more information, see [Install OT monitoring software on an on-premises mana
 
 This procedure describes how to create new users for an on-premises management console.
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users, and any user with the **Admin** role.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users, and any user with the **Admin** role.
 
 **To add a user**:
 
@@ -60,7 +60,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 > [!TIP]
 > If you need to recover access to a privileged user account, see [Recover privileged access to an on-premises management console](#recover-privileged-access-to-an-on-premises-management-console).
 
-**Prerequisites**: This procedure is available only for the *cyberx* or *support* users, or for users with the **Admin** role.
+**Prerequisites**: This procedure is available only for the *support* or *cyberx* users, or for users with the **Admin** role.
 
 **To reset a user's password on the on-premises management console**:
 
@@ -78,9 +78,9 @@ This procedure describes how **Admin** users can change local user passwords. **
 
 ### Recover privileged access to an on-premises management console
 
-This procedure describes how to recover either the *cyberx* or *support* user password on an on-premises management console. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+This procedure describes how to recover either the *support* or *cyberx* user password on an on-premises management console. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users only.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users only.
 
 **To recover privileged access to an on-premises management console**:
 
@@ -122,7 +122,7 @@ For example, use Active Directory when you have a large number of users that you
 
 For more information, see [Active Directory support on sensors and on-premises management consoles](manage-users-overview.md#active-directory-support-on-sensors-and-on-premises-management-consoles).
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users only, or any user with an **Admin** role.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users only, or any user with an **Admin** role.
 
 **To integrate with Active Directory**:
 
@@ -169,7 +169,7 @@ For more information, see [On-premises global access groups](manage-users-overvi
 
 **Prerequisites**:
 
-This procedure is available for the *cyberx* and *support* users, and any user with the **Admin** role.
+This procedure is available for the *support* and *cyberx* users, and any user with the **Admin** role.
 
 Before you create access groups, we also recommend that you:
 
@@ -228,7 +228,7 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).
 
-**Prerequisites**: This procedure is available for the *cyberx* and *support* users only.
+**Prerequisites**: This procedure is available for the *support* and *cyberx* users only.
 
 **To control sensor user session timeouts**:
 

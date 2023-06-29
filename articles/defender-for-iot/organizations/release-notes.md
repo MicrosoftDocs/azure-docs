@@ -111,6 +111,7 @@ This version includes the following updates and enhancements:
 - [A new sensor setup wizard from the UI](ot-deploy/install-software-ot-sensor.md#configure-and-activate-your-sensor)
 - [Analyze sensor connectivity](how-to-manage-individual-sensors.md)
 - [UI enhancements for downloading PCAP files from the sensor](how-to-view-alerts.md#access-alert-pcap-data)
+- [*cyberx* and *cyberx_host* users are not enabled by default](roles-on-premises.md#default-privileged-on-premises-users)
 
 ## Versions 22.3.x
 
