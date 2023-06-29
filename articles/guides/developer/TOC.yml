@@ -117,7 +117,7 @@
     - name: Blobs
       href: ../../storage/blobs/storage-quickstart-blobs-dotnet.md
     - name: Queues
-      href: ../../storage/blobs/storage-quickstart-queues-dotnet.md
+      href: ../../storage/queues/storage-quickstart-queues-dotnet.md
     - name: File shares
       href: ../../storage/files/storage-dotnet-how-to-use-files.md
     - name: Key-value pairs
