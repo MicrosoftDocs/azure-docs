@@ -252,7 +252,7 @@ You can submit support requests specifically for ALI instances.
 * **Issue type:** Select an issue type.
 * **Subscription:** Select your subscription.
 * **Service:** Select Epic on Azure
-* **Problem type:** ALI (ALI) 
+* **Problem type:** Azure Large Instances (ALI) 
 * **Problem subtype:** Select a subtype for the problem.
 
 1. Select the **Solutions** tab to find a solution to your problem. If you can't find a solution, go to the next step.
