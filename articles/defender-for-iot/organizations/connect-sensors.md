@@ -21,7 +21,7 @@ You can skip this step in the following cases:
 
 To perform the steps described in this article, you'll need:
 
-- An OT network sensor [installed, configured, and activated](ot-deploy/install-software-ot-sensor.md).
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
 
 - An understanding of the [supported connection methods](architecture-connections.md) for cloud-connected Defender for IoT sensors, and a plan for your [OT site deployment](best-practices/plan-prepare-deploy.md) that includes the connection method you want to use for each sensor.
 
@@ -419,7 +419,7 @@ If you don't configure these settings during deployment, you can also return and
 - [Configure an Active Directory connection](manage-users-sensor.md#configure-an-active-directory-connection)
 
 > [!div class="step-by-step"]
-> [« Validate an OT sensor software installation](ot-deploy/post-install-validation-ot-software.md)
+> [« Configure initial settings and activate your OT network sensor](ot-deploy/activate-deploy-sensor.md)
 
 > [!div class="step-by-step"]
 > [Control the OT traffic monitored by Microsoft Defender for IoT »](how-to-control-what-traffic-is-monitored.md)

@@ -15,7 +15,7 @@ To perform the procedures in this article, make sure you have:
 
 - An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and [activated](ot-deploy/activate-deploy-management.md)
 
-- One ore more OT network sensors [installed, configured, and activated](ot-deploy/install-software-ot-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md)
+- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md)
 
 - Access to the on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -81,7 +81,7 @@ Each type of data has a different retention period and maximum capacity. For mor
 
 ### Turn off learning mode from your on-premises management console
 
-A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've signed in. Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've signed in<!--add xref-->. Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
 Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 

@@ -17,7 +17,7 @@ OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), th
 
 Before performing the procedures in this article, make sure that you have:
 
-- An OT network sensor [installed, configured, and activated](ot-deploy/install-software-ot-sensor.md), and [onboarded](onboard-sensors.md) to Defender for IoT in the Azure portal.
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md) and [onboarded](onboard-sensors.md) to Defender for IoT in the Azure portal.
 
 - Access to the OT sensor as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -214,7 +214,7 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 ### Turn off learning mode manually
 
-A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've signed in. Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've signed in<!--add xref-->. Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
 Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 

@@ -17,11 +17,10 @@ Before you can run any of the following CLI commands, you'll need access to the 
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
-### Other privileged users
 
 OT sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default.
 
-While this article lists the command syntax for each user, as relevant, we recommend using the *support* user for all CLI commands.
+While this article lists the command syntax for each user, we recommend using the *support* user for all CLI commands where the *support* user is supported.
 
 For more information, see [Default privileged users](manage-users-sensor.md#default-privileged-users).
 

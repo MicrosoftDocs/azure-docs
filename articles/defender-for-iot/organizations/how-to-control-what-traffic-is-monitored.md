@@ -19,7 +19,7 @@ After installing, activating, and configuring your OT network sensor, use the to
 
 Before performing the procedures in this article, you must have:
 
-- An OT network sensor [installed, configured, and activated](ot-deploy/install-software-ot-sensor.md).
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
 
 - Access to your OT network sensor and on-premises management console as an **Admin** user.  For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -42,7 +42,7 @@ After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defe
 
     For example:
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page.":::
+    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page."::: <!--add lightbox-->
 
 1. Wait for the analysis to complete, and then check the listed subnets to see if all the networks you expect to be listed are indeed listed. If there are subnets missing, subnets you want to remove, or if you want to edit subnet definitions, continue on with the other procedures in this article.
 

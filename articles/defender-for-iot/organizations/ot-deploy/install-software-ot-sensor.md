@@ -1,11 +1,11 @@
 ---
 title: Install OT network monitoring software on OT sensors - Microsoft Defender for IoT
-description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article if you've chosen to install softare on your own appliances.
+description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article if you've chosen to install software on your own appliances or when reinstalling software on a pre-configured appliance.
 ms.date: 06/26/2023
 ms.topic: install-set-up-deploy
 ---
 
-# Install and set up your OT sensor
+# Install OT monitoring software on OT sensors
 
 This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes how to install Defender for IoT software on OT sensors and configure initial setup settings.
 

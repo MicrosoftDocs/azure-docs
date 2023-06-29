@@ -15,13 +15,13 @@ After you've installed OT software on your [OT sensors](install-software-ot-sens
 
 System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the *support* and *cyberx* users.
 
-Skip this step if you're using [pre-configured physical appliances](../ot-pre-configured-appliances.md) and continue with [configuring a proxy](../connect-sensors.md), if needed, or [controlling monitored traffic](../how-to-control-what-traffic-is-monitored.md) instead.
+If you're using pre-configured appliances, continue directly with [activating and setting up your OT network sensor](activate-deploy-sensor.md) instead.
 
 ## Prerequisites
 
 The procedures in this article assume that you've just installed Defender for IoT software on an OT network sensor.
 
-For more information, see [Install and set up your OT sensor](install-software-ot-sensor.md).
+For more information, see [Install OT monitoring software on OT sensors](install-software-ot-sensor.md).
 
 This step is performed by your deployment teams.
 
@@ -33,7 +33,7 @@ After installing OT monitoring software, make sure to run the following tests:
 
 - **Version**: Verify that the version is correct.
 
-- **ifconfig**: Verify that all the input interfaces configured during the installation process are running. <!--do we still do this? do we still need to do anyhting on this page anymore or is it all in the UI?-->
+- **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
 ## Gateway checks
 
@@ -110,7 +110,7 @@ For more information, see [Check system health](../how-to-troubleshoot-sensor.md
 For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](../how-to-troubleshoot-on-premises-management-console.md).
 
 > [!div class="step-by-step"]
-> [« Install and set up your OT sensor](install-software-ot-sensor.md)
+> [« Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
 
 > [!div class="step-by-step"]
 > [Configure and activate your sensor »](activate-deploy-sensor.md)

@@ -114,7 +114,7 @@ After installing your OT sensor software, run several checks to validate the ins
 
 For more information, see:
 
-- [Install and set up your OT sensor](install-software-ot-sensor.md)
+- [Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
 - [Validate an OT sensor software installation](post-install-validation-ot-software.md)
 
 Skip these steps if you're purchasing [pre-configured appliances](../ot-pre-configured-appliances.md).
