@@ -1,8 +1,8 @@
 ---
 title: Create a Microsoft Azure Data Manager for Energy instance
 description: Quickly create an Azure Data Manager for Energy instance
-author: tiannaward
-ms.author: tiannaward
+author: nitinnms
+ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: quickstart
 ms.date: 06/28/2023
