@@ -49,8 +49,6 @@ SELECT VALUE {
 } 
 ```  
   
-Here's the result set.  
-  
 ```json
 [
   {
