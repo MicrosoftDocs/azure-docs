@@ -1,16 +1,21 @@
 ---
-title: Deploy an application that uses OpenAI on AKS 
+title: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
 description: Learn how to deploy an application that uses OpenAI on Azure Kubernetes Service (AKS). #Required; article description that is displayed in search results. 
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 6/29/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Deploy an Application that uses OpenAI on AKS 
+# Deploy an Application that uses OpenAI on Azure Kubernetes Service (AKS) 
 
-In this article, you learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, different AI models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code generation. 
+In this article, you learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, you can easily adapt different AI models, such as content generation, summarization, semantic search, and natural language to code generation, to your specific tasks. 
 
-This article also walks you through how to run a sample multi-container solution that is representative of real-world implementations. The solution is comprised of applications written in multiple languages and frameworks including Golang with Gin, Rust with Actix-Web, JavaScript with Vue.js and Fastify, and Python with FastAPI. These applications provide front ends for customers and store admins, REST APIs for sending data to RabbitMQ message queue and MongoDB database, and console apps to simulate traffic.
+This article also walks you through how to run a sample multi-container solution representative of real-world implementations. The multi-container solution is comprised of applications written in multiple languages and frameworks, including: 
+- Golang with Gin
+- Rust with Actix-Web
+- JavaScript with Vue.js and Fastify
+- Python with FastAPI
+These applications provide front ends for customers and store admins, REST APIs for sending data to RabbitMQ message queue and MongoDB database, and console apps to simulate traffic.
 
 - The codebase for [AKS Store Demo][aks-store-demo] can be found on GitHub
 
@@ -19,12 +24,12 @@ This article also walks you through how to run a sample multi-container solution
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - For this demo, you can either use Azure OpenAI service or OpenAI service. If you plan on using Azure OpenAI service, you need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
 - If you plan on using OpenAI, sign up on the [OpenAI website][open-ai-landing].
-- If you already have Azure CLI installed, make sure it is up to date by using the [az upgrade][az-upgrade] command.
+- If you already have Azure CLI installed, update to the latest version by using the [az upgrade][az-upgrade] command.
 - todo: any flag needs to be enabled in the CLI? <!--todo-->
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
-## Create a Resource Group
+## Create a resource group
 An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
@@ -51,7 +56,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
     }
     ```
 
-## Create an AKS Cluster
+## Create an AKS cluster
 The following example creates a cluster named *myAKSCluster* in the resource group *myResourceGroup* created earlier.
 
 * Create an AKS cluster using the [`az aks create`][az-aks-create] command.
@@ -61,9 +66,6 @@ The following example creates a cluster named *myAKSCluster* in the resource gro
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
-
-> [!NOTE]
-> When you create a new cluster, AKS automatically creates a second resource group to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -105,14 +107,14 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 :::image type="content" source="media/ai-walkthrough/aks-ai-demo-architecture.png" alt-text="Architecture diagram of AKS AI demo":::
 
-For the [AKS Store application][aks-store-demo], this manifest includes Kubernetes deployments and services for:
-- Product Service: shows product information
-- Order Service: places orders
-- Makeline Service: processes orders from the queue and completes the orders
-- Store Front: web application for customers to view products and place orders
-- Store Admin: web application for store employees to view orders in the queue and manage product information
-- Virtual Customer: simulates order creation on a scheduled basis
-- Virtual Worker: simulates order completion on a scheduled basis
+For the [AKS Store application][aks-store-demo], this manifest includes the following Kubernetes deployments and services:
+- Product Service: Shows product information
+- Order Service: Places orders
+- Makeline Service: Processes orders from the queue and completes the orders
+- Store Front: Web application for customers to view products and place orders
+- Store Admin: Web application for store employees to view orders in the queue and manage product information
+- Virtual Customer: Simulates order creation on a scheduled basis
+- Virtual Worker: Simulates order completion on a scheduled basis
 - Mongo DB: MongoDB instance for persisted data
 - Rabbit MQ: RabbitMQ for an order queue
 
@@ -473,7 +475,7 @@ For the [AKS Store application][aks-store-demo], this manifest includes Kubernet
             resources: {}
     ```
 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your yaml manifest.
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```console
     kubectl apply -f azure-store.yaml
     ```
@@ -502,15 +504,18 @@ For the [AKS Store application][aks-store-demo], this manifest includes Kubernet
 ## Deploy OpenAI
 You can either use Azure OpenAI or OpenAI and run your application on AKS.
 
-If you're using Azure OpenAI: 
-- You need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
-- In Azure Portal, create an Azure OpenAI instance. 
-- Open the Azure OpenAI instance you created, on the left blade, click on *Keys and Endpoints* to generate the key.
-- On the left blade, click on *Model Deployments*, then click on *Managed Deployments*, which opens the [Azure OpenAI studio][aoai-studio]. Create a new deployment using the **text-davinci-003** model. For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
+### Azure OpenAI
+1. Enable Azure OpenAI on your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
+1. In the Azure Portal, create an Azure OpenAI instance. 
+1. Select the Azure OpenAI instance you created.
+1. Select **Keys and Endpoints** to generate a key.
+1. Select **Model Deployments** > **Managed Deployments** to open the [Azure OpenAI studio][aoai-studio].
+1. Create a new deployment using the **text-davinci-003** model. 
+For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
 
-If you're using OpenAI: 
-- [Generate an OpenAI key][open-ai-new-key] by clicking *Create new secret key* and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
-- [Start a paid plan][openai-paid] to use OpenAI API.
+### OpenAI
+1. [Generate an OpenAI key][open-ai-new-key] by selecting **Create new secret key** and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
+1. [Start a paid plan][openai-paid] to use OpenAI API.
 
 ## Deploy the AI service
 
@@ -565,15 +570,15 @@ Now that the application is deployed, you can deploy the Python based microservi
       selector:
         app: ai-service
     ```
-1. If you are using Azure OpenAI: 
+1. If you're using Azure OpenAI: 
     * Set the environment variable *USE_AZURE_OPENAI* to "True"
     * Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
     * Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
-1. If you are using OpenAI: 
+1. If you're using OpenAI: 
     * Set the environment variable *USE_AZURE_OPENAI* to "False"
     * Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-azure-openai-or-openai).
     * [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
-1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your yaml manifest.
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
     kubectl apply -f ai-service.yaml
     ```
@@ -600,7 +605,7 @@ Now that the application is deployed, you can deploy the Python based microservi
     Repeat the same step for the service named store-front. 
     
 1. Open a web browser to the external IP address of your service. In the example shown here, open 40.64.86.161 to see store admin in the browser. Repeat the same step for store front. 
-1. In store admin, click on the products tab, then click on **Add Products**. 
+1. In store admin, click on the products tab, then select **Add Products**. 
 1. When the ai-service is running successfully, you should see the Ask OpenAI button next to the description field. Fill in the name, price, and keywords, then click Ask OpenAI to generate a product description. Then click save product. See the picture for an example of adding a new product. 
 :::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="use openAI to generate a product description":::
 1. You can now see the new product you created on the store admin web app for sellers. In the picture, you can see Jungle Monkey Chew Toy is added.
