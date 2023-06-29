@@ -1,7 +1,7 @@
 ---
 title: Enable redundancy and disaster recovery for Azure Spring Apps
 description: Learn how to protect your Spring Apps application from zonal and regional outages.
-author: karlerickson
+author: KarlErickson
 ms.author: wenhaozhang
 ms.service: spring-apps
 ms.topic: how-to

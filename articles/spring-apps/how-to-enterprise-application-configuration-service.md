@@ -2,7 +2,7 @@
 title: Use Application Configuration Service for Tanzu with the Azure Spring Apps Enterprise plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to use Application Configuration Service for Tanzu with the Azure Spring Apps Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
