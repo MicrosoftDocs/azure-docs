@@ -27,7 +27,7 @@ By using the FHIR Converter `$convert-data` endpoint in the FHIR service, you ca
 
 ## Use the $convert-data endpoint
 
-The `$convert-data` operation is integrated into the FHIR service as a [REST API](https://learn.microsoft.com/rest/api/azure/) action. You can call the `$convert-data` endpoint as follows:
+The `$convert-data` operation is integrated into the FHIR service as a REST API action. You can call the `$convert-data` endpoint as follows:
 
 `POST {{fhirurl}}/$convert-data`
 
