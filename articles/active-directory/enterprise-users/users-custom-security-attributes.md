@@ -5,7 +5,7 @@ services: active-directory
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/20/2023
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
