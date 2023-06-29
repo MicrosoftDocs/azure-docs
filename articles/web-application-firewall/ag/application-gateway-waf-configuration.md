@@ -82,11 +82,15 @@ The below table shows some examples of how you might structure your exclusion fo
 | Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request | What gets excluded |
 |-|-|-|-|-|-|
 | Query string | RequestArgKeys | Equals | /etc/passwd | Uri: http://localhost:8080/?/etc/passwd=test | /etc/passwd |
+| Query string|RequestArgKeys|EqualsAny|""|Uri: http://localhost:8080/?/etc/passwd=test&.htaccess=test2|/etc/passwd and .htaccess|
 | Query string | RequestArgNames | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd | /etc/passwd |
+| Query string|RequestArgNames|EqualsAny|""|Uri: http://localhost:8080/?text=/etc/passwd&text2=.cshrc|/etc/passwd and .cshrc|
 | Query string | RequestArgValues | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd | /etc/passwd |
 | Request body | RequestArgKeys | Contains | sleep | Request body: {"sleep(5)": "test"} | sleep(5) |
+| Request body|RequestArgKeys|EqualsAny|""|Request body: {".zshrc": "value", "sleep(5)":"value2"}|.zshrc and sleep(5)|
 | Request body | RequestArgNames | Equals | test | Request body: {"test": ".zshrc"} | .zshrc |
 | Request body | RequestArgValues | Equals | test | Request body: {"test": ".zshrc"} | .zshrc |
+| Request body|RequestArgValues|EqualsAny|""|Request body: {"key1": ".zshrc", "key2":"sleep(5)"}|.zshrc and sleep(5)|
 | Header | RequestHeaderKeys | Equals | X-Scanner | Header: {k: "X-Scanner", v: "test"} | X-scanner |
 | Header | RequestHeaderNames | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | X-scanner |
 | Header | RequestHeaderValues | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | X-scanner |
