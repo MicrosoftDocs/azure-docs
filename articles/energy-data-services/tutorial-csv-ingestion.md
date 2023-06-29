@@ -50,7 +50,7 @@ In this tutorial, you'll learn how to:
   > [!NOTE]
   >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
   
-* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in [Azure Data Manager for Energy instance details](#get-azure-data-manager-for-energy-instance-details)
+* Update the **CURRENT_VALUE** of the Postman environment with the information obtained in Azure Data Manager for Energy instance details
 * The Postman collection for CSV parser ingestion contains a total of 10 requests, which have to be executed in a sequential manner.
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.
   :::image type="content" source="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png" alt-text="Screenshot of the postman environment." lightbox="media/tutorial-csv-ingestion/tutorial-postman-choose-environment.png":::
