@@ -7,7 +7,7 @@ manager: carmonm
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 06/23/2023
 ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model

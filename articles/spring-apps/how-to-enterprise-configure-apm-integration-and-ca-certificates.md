@@ -7,7 +7,7 @@ ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 05/25/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # How to configure APM integration and CA certificates

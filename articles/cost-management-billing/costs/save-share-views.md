@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to save and share a customized view with others.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/10/2023
+ms.date: 06/28/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -141,10 +141,14 @@ The following sections cover the most commonly asked questions and answers about
 
 There could be a few reasons why you're not receiving alert emails. Try the following actions:
 
-- Confirm that your email address is shown as a recipient and that it was entered correctly.
+- Confirm that the creator of the schedule continues to have `Reader` role assigned or `Microsoft.CostManagement/scheduledActions/read` permission, if it's a custom role.
+- Confirm that your email address is shown as a recipient and that it's entered correctly.
 - Check your spam or junk mail folder for emails from `microsoft-noreply@microsoft.com`.
 - Check to see if the alert is expired, disabled, or deleted. You can extend, reenable, or create a new scheduled alert to fix the problem.
 - Work with your admin to reenable the [view charges policy](assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements with a Microsoft partner.
+
+>[!NOTE]
+> Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope).
 
 ### Why can't I use the Subscribe command in cost analysis?
 

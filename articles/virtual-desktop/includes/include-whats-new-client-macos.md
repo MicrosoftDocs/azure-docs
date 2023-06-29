@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 06/15/2023
+ms.date: 06/26/2023
 ---
 
 ## Latest client versions
@@ -13,6 +13,19 @@ The following table lists the current versions available for the public and beta
 |---------|----------------|----------|
 | Public  | 10.8.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
 | Beta    | 10.8.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for Version 10.8.4
+
+Date published: June 16, 2023
+
+In this release, we've made the following changes:
+
+- Updated time zone redirection to accommodate certain daylight savings scenarios.
+- Resolved an issue that incorrectly toggled Caps Lock in RemoteApp connections.
+- Changed gesture recognition to make small mouse-scrolling movements smoother.
+- Fixed an issue that caused the client to stop responding when resuming a connection after entering sleep mode.
+- Updated Azure Virtual Desktop diagnostics to align with service expectations.
+- Created a workaround for a service-side simulcast regression that affected Teams redirection.
 
 ## Updates for Version 10.8.3
 

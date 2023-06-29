@@ -2,7 +2,7 @@
 title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 06/23/2023
 ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---

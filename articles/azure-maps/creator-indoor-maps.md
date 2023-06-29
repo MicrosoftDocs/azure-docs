@@ -300,9 +300,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 > [!div class="nextstepaction"]
 > [Tutorial: Creating a Creator indoor map]
 
-> [!div class="nextstepaction"]
-> [Create custom styles for indoor maps]
-
 <!-----	Internal Links	------->
 [Convert a drawing package]: #convert-a-drawing-package
 [Custom styling service]: #custom-styling-preview
