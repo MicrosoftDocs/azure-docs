@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-ciam-dotnet-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",

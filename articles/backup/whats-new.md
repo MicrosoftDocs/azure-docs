@@ -16,8 +16,6 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
-- June 2023
-  - [Support for backup of SAP HANA System Replication is now generally available](#support-for-backup-of-sap-hana-system-replication-is-now-generally-available)
 - April 2023
   - [Microsoft Azure Backup Server v4 is now generally available](#microsoft-azure-backup-server-v4-is-now-generally-available)
 - March 2023
@@ -60,14 +58,6 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-
-## Support for backup of SAP HANA System Replication is now generally available
-
-Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
-
-This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
-
-For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
 
 ## Microsoft Azure Backup Server v4 is now generally available
 
@@ -154,7 +144,7 @@ Azure Backup now supports backup of HANA database with HANA System Replication. 
 
 This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
 
-For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
+For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
 
 ## Built-in Azure Monitor alerting for Azure Backup is now generally available
 
