@@ -91,7 +91,7 @@ The following image is taken from the sample package, and shows the exterior lay
 
 ### Unit layer
 
-Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. A closed entity type such as Polygon, closed Polyline, Circle, or closed Ellipse is required to represent each unit. So, walls and doors alone doesn't create a unit because there isn’t an entity that represents the unit.  
+Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. A closed entity type such as Polygon, closed Polyline, Circle, or closed Ellipse is required to represent each unit. So, walls and doors alone don't create a unit because there isn’t an entity that represents the unit.  
 
 The following image is taken from the [sample drawing package] and shows the unit label layer and unit layer in red. All other layers are turned off to help with visualization. Also, one unit is selected to help show that each unit is a closed Polyline.  
 
@@ -316,7 +316,7 @@ Defining text properties enables you to associate text entities that fall inside
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the 'create a new manifest' screen of the onboarding tool.":::
 
 > [!IMPORTANT]
-> Wayfinding support for `Drawing Package 2.0` will be available soon. The following feature class should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
+> The following feature class should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
 >
 > 1. Wall
 > 2. Stair

@@ -8,7 +8,7 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
-ms.date: 05/22/2023
+ms.date: 06/28/2023
 ms.custom: template-how-to 
 ---
 
@@ -697,6 +697,18 @@ ml_client.jobs.stream(pipeline_job.name)
 This functionality isn't available in the Studio UI. The Studio UI doesn't support this feature.
 
 ---
+
+## Troubleshooting Spark jobs
+To troubleshoot a Spark job, you can access the logs generated for that job in Azure Machine Learning studio. To view the logs for a Spark job:
+1. Navigate to **Jobs** from the left panel in the Azure Machine Learning studio UI
+1. Select the **All jobs** tab
+1. Select the **Display name** value for the job
+1. On the job details page, select the **Output + logs** tab
+1. In the file explorer, expand the **logs** folder, and then expand the **azureml** folder
+1. Access the Spark job logs inside the **driver** and **library manager** folders
+
+> [!NOTE]
+> To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. 
 
 ## Next steps
 
