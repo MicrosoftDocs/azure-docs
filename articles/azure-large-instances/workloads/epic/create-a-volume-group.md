@@ -1,5 +1,5 @@
 ---
-title: Create a volume group
+title: Create volume  groups on a compute host running RHEL (Red Hat Enterprise Linux) 8.4
 description: Explains how to create an ALI for Epic volume group.
 ms.topic: conceptual
 author: jjaygbay1
