@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/01/2023
 ---
 
-#  What is Azure for Large Instances?
+#  What is Azure Large Instances?
 
 Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. 
 In some cases, though, you may need to run services without a virtualization layer.
