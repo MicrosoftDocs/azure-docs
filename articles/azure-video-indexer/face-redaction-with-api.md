@@ -61,7 +61,7 @@ Or when using the BlurringKind number:
 
 ## Filters 
 
-You can apply filters to instruct which face IDs should be blurred. You can specify the IDs of the faces in a comma separated array in the json body. Additionally using the scope you can instruct to exclude or include these faces for redaction. This way you have the option to achieve  a behavior of “redact all faces except these IDs” or “redact only these IDs” by specifying the least number of IDs. For example: 
+You can apply filters to instruct which face IDs should be blurred. You can specify the IDs of the faces in a comma separated array in the json body. Additionally using the scope you can instruct to exclude or include these faces for redaction. This way you have the option to achieve  a behavior of “redact all faces except these IDs” or “redact only these IDs” by specifying the least number of IDs. See examples below. 
 
 ### Exclude scope
 
@@ -150,7 +150,7 @@ When successful you receive an HTTP 202 ACCEPTED
 ## Monitor job status 
 
 In the response of the job creation request you receive an HTTP header `Location` with a URL to the job. You can perform a GET request to this url with the same token to see the status of the redaction job. An example url would be: 
-```https://api.videoindexer.ai/westeurope/Accounts/&lt;account id&gt;/Jobs/&lt;job id&gt;``` 
+```https://api.videoindexer.ai/westeurope/Accounts/&lt;accountid&gt;/Jobs/&lt;jobid&gt;``` 
 
 Response 
 
@@ -164,7 +164,11 @@ Response
 } 
 ```
 
-Calling the same url once the redaction job has completed you get a Storage SAS url to the redacted video again in the `Location` header. For instance: https://api.videoindexer.ai/westeurope/Accounts/&lt;account if&gt;/Videos/&lt;video id&gt;/SourceFile/DownloadUrl 
+Calling the same url once the redaction job has completed you get a Storage SAS url to the redacted video again in the `Location` header. For instance: 
+
+```
+https://api.videoindexer.ai/westeurope/Accounts/&lt;accountid&gt;/Videos/&lt;videoid&gt;/SourceFile/DownloadUrl 
+```
 
 This will redirect to the mp4 stored on the Azure Storage Account connected to the Media Services account. 
 
