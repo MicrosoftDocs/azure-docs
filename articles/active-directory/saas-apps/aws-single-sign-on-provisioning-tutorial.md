@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to AWS IAM Identity Center**.
 
-9. Review the user attributes that are synchronized from Azure AD to AWS IAM Identity Center in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in AWS IAM Identity Center for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the AWS IAM Identity Center API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to AWS IAM Identity Center in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in AWS IAM Identity Center for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the AWS IAM Identity Center API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for Filtering|
    |---|---|---|
@@ -164,10 +164,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+3. If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## Just-in-time (JIT) application access with PIM for groups (preview)
-With PIM for Groups, you can provide just-in-time access to groups in Amazon Web Services and reduce the number of users that have permanent access to priviliged groups in AWS. 
+With PIM for Groups, you can provide just-in-time access to groups in Amazon Web Services and reduce the number of users that have permanent access to privileged groups in AWS. 
 
 **Configure your enterprise application for SSO and provisioning**
 1. Add AWS IAM Identity Center to your tenant, configure it for provisioning as described in the tutorial above, and start provisioning. 
@@ -192,7 +192,7 @@ Now any end user that was made eligible for the group in PIM can get JIT access 
 ## Troubleshooting Tips
 
 ### Missing attributes
-When exporting a user to AWS, they are required to have the following attributes
+When provisioning a user to AWS, they're required to have the following attributes
 
 * firstName
 * lastName
@@ -205,7 +205,7 @@ Users who don't have these attributes will fail with the following error
 
 
 ### Multi-valued attributes
-AWS does not support the following multi-valued attributes:
+AWS doesn't support the following multi-valued attributes:
 
 * email
 * phone numbers
