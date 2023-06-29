@@ -237,8 +237,8 @@
       href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)
     items:
-    - name: Access labs
-      href: how-to-use-lab.md
+    - name: Access & manage a lab
+      href: how-to-access-and-manage-lab.md
     - name: Connect to a lab VM
       href: connect-virtual-machine.md
     - name: Connect to a VM from Windows using RDP
