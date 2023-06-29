@@ -13,7 +13,7 @@ ms.service: azure-maps
 
 This article shows you how to make a route request and show the route on the map.
 
-There are two ways to do so. The first way is to query the [Get Route Directions] API using the TypeScript REST SDK. The second way is to use the [Fetch API] to make a search request to the [Get Route Directions] API. Both ways are discussed below.
+There are two ways to do so. The first way is to query the [Get Route Directions] API using the TypeScript REST SDK [@azure-rest/maps-route]. The second way is to use the [Fetch API] to make a search request to the [Get Route Directions] API. Both ways are discussed below.
 
 ## Query the route via REST SDK
 
@@ -364,5 +364,6 @@ See the following articles for full code examples:
 [LinestringLayerOptions]: /javascript/api/azure-maps-control/atlas.linelayeroptions
 [Feature]: /javascript/api/azure-maps-control/atlas.data.feature
 [points]: /javascript/api/azure-maps-control/atlas.data.point
+[@azure-rest/maps-route]: https://www.npmjs.com/package/@azure-rest/maps-route
 [MapsRoute]: /javascript/api/@azure-rest/maps-route
 [TokenCredential]: /javascript/api/@azure/identity/tokencredential

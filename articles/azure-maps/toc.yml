@@ -237,7 +237,7 @@ items:
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
         href: drawing-tools-interactions-keyboard-shortcuts.md
-    - name: REST SDK
+    - name: REST SDK integration
       items:
       - name: Use the REST SDK
         href: how-to-use-ts-rest-sdk.md

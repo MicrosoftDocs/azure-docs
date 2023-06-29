@@ -13,7 +13,7 @@ ms.service: azure-maps
 
 This article shows you how to search for location of interest and show the search results on the map.
 
-There are two ways to search for a location of interest. One way is to use the TypeScript REST SDK to make a search request. The other way is to make a search request to Azure Maps [Fuzzy search API] through the [Fetch API]. Both ways are discussed below.
+There are two ways to search for a location of interest. One way is to use the TypeScript REST SDK, [@azure-rest/maps-search] to make a search request. The other way is to make a search request to Azure Maps [Fuzzy search API] through the [Fetch API]. Both ways are discussed below.
 
 ## Make a search request via REST SDK
 
@@ -236,6 +236,7 @@ See the following articles for full code examples:
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
 [BoundingBox]: /javascript/api/azure-maps-control/atlas.data.boundingbox
+[@azure-rest/maps-search]: https://www.npmjs.com/package/@azure-rest/maps-search
 [MapsSearch]: /javascript/api/@azure-rest/maps-search
 [TokenCredential]: /javascript/api/@azure/identity/tokencredential
 [Feature]: /javascript/api/azure-maps-control/atlas.data.feature

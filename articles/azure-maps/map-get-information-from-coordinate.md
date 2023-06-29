@@ -13,7 +13,7 @@ ms.service: azure-maps
 
 This article shows how to make a reverse address search that shows the address of a clicked popup location.
 
-There are two ways to make a reverse address search. One way is to query the [Reverse Address Search API] through the TypeScript REST SDK. The other way is to use the [Fetch API] to make a request to the [Reverse Address Search API] to find an address. Both ways are surveyed below.
+There are two ways to make a reverse address search. One way is to query the [Reverse Address Search API] through the TypeScript REST SDK [@azure-rest/maps-search]. The other way is to use the [Fetch API] to make a request to the [Reverse Address Search API] to find an address. Both ways are surveyed below.
 
 ## Make a reverse search request via REST SDK
 
@@ -213,5 +213,6 @@ See the following articles for full code examples:
 [Get Search Address Reverse API]: /rest/api/maps/search/getsearchaddressreverse
 [load event listener]: /javascript/api/azure-maps-control/atlas.map#events
 [setOptions]: /javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-
+[@azure-rest/maps-search]: https://www.npmjs.com/package/@azure-rest/maps-search
 [MapsSearch]: /javascript/api/@azure-rest/maps-search
 [TokenCredential]: /javascript/api/@azure/identity/tokencredential
