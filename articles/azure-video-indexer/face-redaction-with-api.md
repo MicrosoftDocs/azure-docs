@@ -7,7 +7,7 @@ ms.date: 06/26/2023
 
 # Redact faces with Azure Video Indexer API
 
-Azure Video Indexer enables customers to detect and identify faces. Face redaction enables you to modify your video in order to blur faces of selected individuals. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this preset the face redaction process requiresS just a few simple steps.
+Azure Video Indexer enables customers to detect and identify faces. Face redaction enables you to modify your video in order to blur faces of selected individuals. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this preset the face redaction process requires just a few simple steps.
 
 This article shows how to do the face redaction with an API. The face redaction API includes a **Face Redaction** preset that offers scalable face detection and redaction (blurring) in the cloud. 
 
@@ -65,7 +65,7 @@ You can apply filters to instruct which face IDs should be blurred. You can spec
 
 ### Exclude scope
 
-Redact all faces except 1001 and 1016 use the `Exclude` scope.
+Redact all faces except 1001 and 1016, use the `Exclude` scope.
 
 ```json
 { 
@@ -81,7 +81,7 @@ Redact all faces except 1001 and 1016 use the `Exclude` scope.
 
 ### Include scope
 
-Redact only face IDs 1001 and 1016 use the `Include` scope.
+Redact only face IDs 1001 and 1016, use the `Include` scope.
 
 ```json
 { 
@@ -129,7 +129,9 @@ The following values are mandatory:
 
 A sample request would be: 
 
-`https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/redact?priority=Low&name=testredaction&privacy=Private&streamingPreset=Default `
+```
+https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/redact?priority=Low&name=testredaction&privacy=Private&streamingPreset=Default 
+```
 
 We can specify the token as authorization header with a key value type of bearertoken:{token} or you can provide it as query param using `?token={token}` 
 
@@ -147,7 +149,8 @@ When successful you receive an HTTP 202 ACCEPTED
 
 ## Monitor job status 
 
-In the response of the job creation request you receive an HTTP header `Location` with a URL to the job. You can perform a GET request to this url with the same token to see the status of the redaction job. An example url would be: https://api.videoindexer.ai/westeurope/Accounts/&lt;account id&gt;/Jobs/&lt;job id&gt; 
+In the response of the job creation request you receive an HTTP header `Location` with a URL to the job. You can perform a GET request to this url with the same token to see the status of the redaction job. An example url would be: 
+```https://api.videoindexer.ai/westeurope/Accounts/&lt;account id&gt;/Jobs/&lt;job id&gt;``` 
 
 Response 
 
@@ -208,8 +211,7 @@ ErrorType
 Message  
 false  
 string  
-default  
-DEFAULT - JSON COPY 
+*default*  
 
 ```json
 { 
@@ -220,7 +222,7 @@ DEFAULT - JSON COPY
 
 ### Response: 400 Bad Request  
 
-Invalid input or Cannot redact the video since its original upload failed. Please upload the video again.  
+Invalid input or cannot redact the video since its original upload failed. Please upload the video again.  
 
 Response headers  
 Name  
@@ -236,8 +238,6 @@ A globally unique identifier (GUID) for the request which is assigned by the ser
 application/json  
 ErrorResponse  
 
-
-
 Name  
 Required  
 Type  
@@ -248,8 +248,7 @@ ErrorType
 Message  
 false  
 string  
-default  
-DEFAULT - JSON COPY 
+*default*  
 
 ```json
 { 
@@ -276,7 +275,6 @@ A globally unique identifier (GUID) for the request which is assigned by the ser
 application/json  
 ErrorResponse  
 
-
 Name  
 Required  
 Type  
@@ -287,8 +285,7 @@ ErrorType
 Message  
 false  
 string  
-default  
-DEFAULT - JSON COPY 
+*default*
 
 ```json
 { 
@@ -313,7 +310,6 @@ A globally unique identifier (GUID) for the request which is assigned by the ser
 
 application/json  
 ErrorResponse  
- 
 
 Name  
 Required  
@@ -325,16 +321,17 @@ ErrorType
 Message  
 false  
 string  
-default  
-DEFAULT - JSON COPY 
+*default*  
 
 ```json
 { 
     "ErrorType": "USER_NOT_ALLOWED", 
     "Message": "Access token is not authorized to access account 'SampleAccountId'." 
 } 
+```
 
-Response: 500 Internal Server Error 
+### Response: 500 Internal Server Error 
+
 Response headers  
 Name  
 Required  
@@ -349,7 +346,6 @@ A globally unique identifier (GUID) for the request which is assigned by the ser
 application/json  
 ErrorResponse 
  
-
 Name  
 Required  
 Type  
@@ -360,8 +356,7 @@ ErrorType
 Message  
 false  
 string  
-default  
-DEFAULT - JSON COPY 
+*default*  
 
 ```json
 { 
@@ -406,8 +401,7 @@ string
 A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID so a client can provide this request ID in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request ID never repeats itself. 
 
 application/json  
-default  
-DEFAULT - JSON COPY 
+*default*  
 
 ```json
 { 
