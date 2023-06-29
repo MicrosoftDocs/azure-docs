@@ -91,7 +91,7 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 1. Use the **Environmental variables** tab to add or update the variables used by your application.
 
-   :::image type="content" source="media/how-to-dynatrace-one-agent-monitor/configuration-application.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app in an Azure Spring Apps instance, with the Environmental variables tab selected." lightbox="media/how-to-dynatrace-one-agent-monitor/configuration-application.png":::
+   :::image type="content" source="media/how-to-dynatrace-one-agent-monitor/configuration-application.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environmental variables tab selected." lightbox="media/how-to-dynatrace-one-agent-monitor/configuration-application.png":::
 
 ## Automate provisioning
 
@@ -196,7 +196,7 @@ You can apply some environment variables provided by Dynatrace to configure logg
 
 ## Dynatrace OneAgent upgrade
 
-The Dynatrace OneAgent auto-upgrade is disabled and is upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
+The Dynatrace OneAgent autoupgrade is disabled and is upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
 
 * Existing applications using Dynatrace OneAgent before upgrade are unchanged, but require restart or redeploy to engage the new version of Dynatrace OneAgent.
 * Applications created after upgrade use the new version of Dynatrace OneAgent.
