@@ -1,53 +1,62 @@
 ---
-title: COS in Azure Cosmos DB query language
-description: Learn about how the Cosine (COS) SQL system function in Azure Cosmos DB returns the trigonometric cosine of the specified angle, in radians, in the specified expression
-author: ginamr
+title: COS
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the trigonometric cosine of the specified angle.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# COS (Azure Cosmos DB)
+
+# COS (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.  
+Returns the trigonometric cosine of the specified angle in radians.
   
 ## Syntax
   
 ```sql
 COS(<numeric_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
+
+Returns a numeric expression.  
+
 ## Examples
   
-  The following example calculates the `COS` of the specified angle.  
+The following example calculates the cosine of the specified angle using the function.
   
 ```sql
-SELECT COS(14.78) AS cos  
+SELECT VALUE {
+    cosine: COS(14.78)
+}
 ```  
-  
- Here is the result set.  
-  
+
 ```json
-[{"cos": -0.59946542619465426}]  
+[
+  {
+    "cosine": -0.5994654261946543
+  }
+]
 ```  
 
 ## Remarks
 
-This system function will not utilize the index.
+- This system function doesn't utilize the index.
 
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`SIN`](sin.md)

@@ -65,4 +65,4 @@ SELECT VALUE {
 ## See also
 
 - [System functions](system-functions.yml)
-- [IS_NUMBER](is-number.md)
+- [`IS_NUMBER`](is-number.md)

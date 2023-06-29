@@ -6,8 +6,8 @@ ms.author: dobett
 ms.date: 09/15/2022
 ms.topic: tutorial
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 services: iot-central
-
 #Customer intent: As a solution builder, I want to deploy a complete industrial IoT solution that uses IoT Central so that I understand how IoT Central enables industrial IoT scenarios.
 ---
 
