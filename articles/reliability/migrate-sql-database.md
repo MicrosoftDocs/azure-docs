@@ -29,7 +29,7 @@ Before you migrate to availability zone support, refer to the following table to
 
 ## Downtime requirements
 
-Migration for Premium, Business Critical, and General Purpose service tier is an online operation with a brief disconnect towards the end to finish the migration process. If you have implemented [retry logic for standard transient errors](/azure/azure-sql/database/troubleshoot-common-connectivity-issues?view=azuresql#retry-logic-for-transient-errors), you won't notice the failover. 
+Migration for Premium, Business Critical, and General Purpose service tier is an online operation with a brief disconnect towards the end to finish the migration process. If you have implemented [retry logic for standard transient errors](/azure/azure-sql/database/troubleshoot-common-connectivity-issues?view=azuresql&preserve-view=true#retry-logic-for-transient-errors), you won't notice the failover. 
 
 For Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the resource is provisioned. If you wish to move to availability zone support, you'll need to transfer the data with database copy, point-in-time restore, or geo-replica. If the target database is in a different region than the source or if the database backup storage redundancy for the target differs from the source database, then downtime is proportional to the size of the data operation.  
 
