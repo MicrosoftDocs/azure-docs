@@ -497,11 +497,11 @@ The following table describes the information for the **Set variable** action:
 
 > [!NOTE]
 >
-> Unless you're incrementing or decrementing variables, changing variables 
-> inside loops *might* create unexpected results because loops run in parallel, 
-> or concurrently, by default. For these cases, try setting your loop to run sequentially. 
-> For example, when you want to reference the variable value inside the loop and expect 
-> same value at the start and end of that loop instance, follow these steps to change how the loop runs: 
+> Unless you're incrementing or decrementing variables, changing variables inside loops 
+> *might* create unexpected results because loops run in parallel, or concurrently, 
+> by default. For these cases, try setting your loop to run sequentially. For example, 
+> when you want to reference the variable value inside the loop and expect same value 
+> at the start and end of that loop instance, follow these steps to change how the loop runs: 
 >
 > 1. On your loop, find and open the loop settings.
 >
