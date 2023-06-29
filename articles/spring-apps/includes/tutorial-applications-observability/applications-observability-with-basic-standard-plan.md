@@ -40,7 +40,7 @@ This section provides the steps to use the default metrics defined by Spring Boo
    > [!NOTE]
    > The metrics are available after the application is deployed and running.
 
-1. Use custom metrics based on Micrometer
+#### Add custom metrics defined in application code
 
    The REST controllers can be instrumented through the custom metrics, they are already marked by the Micrometer annotation `@Timed` as the class level, 
    the below are the three custom metrics details: 
