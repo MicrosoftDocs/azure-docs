@@ -8,7 +8,7 @@ ms.service: baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 
-# ALI for Epic Onboarding requirements
+# ALI for Epic onboarding requirements
 
 This article suggests actions to take after you receive an environment from the Microsoft ALI team.
 
