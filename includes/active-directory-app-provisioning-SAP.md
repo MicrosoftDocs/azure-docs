@@ -98,11 +98,12 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 1. Select **New Connector**.
 
-     ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)
+     [![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)](.\media\active-directory-app-provisioning-sql\sql-3.png#lightbox)
+
 
 1. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
-     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-SAP\sap-Prop-1.png)](.\media\active-directory-app-provisioning-SAP\sap-prop-1.png#lightbox)
+     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-SAP\sap-properties-1.png)](.\media\active-directory-app-provisioning-SAP\sap-properties-1.png#lightbox)
 
      |Property|Value|
      |-----|-----|
@@ -113,7 +114,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 1. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
-     [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sap\sap-conn-1.png)](.\media\active-directory-app-provisioning-sap\sap-conn-1.png#lightbox)
+     [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sap\sap-connectivity-1.png)](.\media\active-directory-app-provisioning-sap\sap-connectivity-1.png#lightbox)
      
      |Property|Description|
      |-----|-----|
@@ -140,10 +141,9 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
     | Delete-Add as Replace | Unchecked |
 
 >[!NOTE]
->Note: if your web services connector template sapecc.wsconfig is opened for editing in the Web Service Configuration Tool, you will get the below error message:
+>If your web services connector template sapecc.wsconfig is opened for editing in the Web Service Configuration Tool, you will get the below error message:
 
-   [![Screenshot that shows the error.](.\media\active-directory-app-provisioning-sap\sap-error-1.png)](.\media\active-directory-app-provisioning-sap\sap-error- 
-1.png#lightbox)
+   [![Screenshot that shows the error.](.\media\active-directory-app-provisioning-sap\sap-error-1.png)](.\media\active-directory-app-provisioning-sap\sap-error-1.png#lightbox)
 
 
 8. On the **Global** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
@@ -183,7 +183,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
  1. The ECMA connector host discovers the attributes supported by SAP ECC 7.0. You can then choose which of the discovered attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time. The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC 7.0 and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  
-     [![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sap\sap-sa-1.png)](.\media\active-directory-app-provisioning-sap\sap-sa-1.png#lightbox)
+     [![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sap\sap-select-attributes-1.png)](.\media\active-directory-app-provisioning-sap\sap-select-attributes-1.png#lightbox)
 
  13. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. The attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
  >[!NOTE]
@@ -239,16 +239,17 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
 
  1. Ensure that the Azure AD schema includes the attributes that are required by SAP ECC 7.0. If it requires users to have an attribute, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
  1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
- 2. Select **Edit provisioning**, and wait 10 seconds.
- 3. Expand **Mappings** and select **Provision Azure Active Directory Users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
+ 1. Select **Edit provisioning**, and wait 10 seconds.
+ 1. Expand **Mappings** and select **Provision Azure Active Directory Users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
 
 
      ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)
 
- 1. To confirm that the schema of SAP ECC 7.0 is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
- 2. Now, click on the **userPrincipalName** PLACEHOLDER mapping.  This mapping is added by default when you first configure on-premises provisioning.  
+ 5. To confirm that the schema of SAP ECC 7.0 is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
+ 6. Now, click on the **userPrincipalName** PLACEHOLDER mapping.  This mapping is added by default when you first configure on-premises provisioning.  
  
-   :::image type="content" source="media/active-directory-app-provisioning-sql/configure-11.png" alt-text="Screenshot of placeholder." lightbox="media/active-directory-app-provisioning-sql/configure-11.png":::
+:::image type="content" source="media/active-directory-app-provisioning-sql/configure-11.png" alt-text="Screenshot of placeholder." lightbox="media/active-directory-app-provisioning-sql/configure-11.png":::
+
  Change the value to match the following:
  
  |Mapping type|Source attribute|Target attribute|
@@ -258,15 +259,15 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
 :::image type="content" source="media/active-directory-app-provisioning-sql/attribute-2.png" alt-text="Screenshot of changing value." lightbox="media/active-directory-app-provisioning-sql/attribute-2.png":::
  
 
- 4. Now select **Add New Mapping**, and repeat the next step for each mapping.
+ 7. Now select **Add New Mapping**, and repeat the next step for each mapping.
  
 
      [![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)](.\media\active-directory-app-provisioning-sql\configure-11.png#lightbox)
 
- 5. Specify the source and target attributes for each of the mappings in the following table.
+ 8. Specify the source and target attributes for each of the mappings in the following table.
 
      
-     | Azure Active Directory Attribute | ScimOnPremises Attribute | Matching precedence | Apply this mapping |
+    | Azure Active Directory Attribute | ScimOnPremises Attribute | Matching precedence | Apply this mapping |
     | --- | --- | --- | --- |
     | ToUpper(Word([userPrincipalName], 1, "@"), ) | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userName | 1 | Only during object creation |
     | Redact("Pass@w0rd1") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:export\_password |
@@ -291,7 +292,7 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
     | Always |
 
  
- 6. Once all of the mappings have been added, select **Save**.
+ 9. Once all of the mappings have been added, select **Save**.
 
 ## 9. Assign users to the application
 
@@ -335,7 +336,7 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
  4. Select **Provision on demand**.
  5. Search for one of your test users, and select **Provision**.
 
-     [![Screenshot that shows testing provisioning.](.\media\active-directory-app-provisioning-sql\configure-13.png)
+     ![Screenshot that shows testing provisioning.](.\media\active-directory-app-provisioning-sql\configure-13.png)
 
  6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
 
