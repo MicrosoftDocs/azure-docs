@@ -158,6 +158,35 @@ Enable Azure Active Directory authentication to SQL Database by assigning an Azu
 
 ## Examples
 
+### Example schema
+
+The examples in this section are resolvers for the following GraphQL schema:
+
+```GraphQL
+type Family {
+  id: Int!
+  name: String!
+}
+
+type Person {
+  id: Int!
+  name: String!
+}
+
+type PersonQueryResult {
+  items: [Person]  
+}
+
+type Query {
+  familyById(familyId: Int!): Family
+  familyMembers(familyId: Int!): PersonQueryResult
+}
+
+type Mutation {
+  createFamily(familyId: Int!, familyName: String!): Family
+}
+```
+
 ### Resolver for GraphQL query using single-result T-SQL request
 
 The following example resolves a GraphQL query by making a single-result T-SQL request to a backend Azure SQL database. The connection string uses SQL authentication with username and password and is provided using a named value. The response is returned as a single JSON object representing a single row.
@@ -219,7 +248,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
         <set-body template="liquid"> 
             { 
                 "items": [ 
-                    {% JSONArray For person in body.results %} 
+                    {% JSONArray For person in body.items %} 
                         "id": "{{ person.id }}" 
                         "name": "{{ person.firstName }} + "" "" + {{body.lastName}}" 
                     {% endJSONArrayFor %} 
@@ -232,7 +261,7 @@ The query parameter is accessed using the `context.GraphQL.Arguments` context va
 
 ### Resolver for GraphQL mutation 
 
-The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL 
+The following example resolves a GraphQL mutation using a T-SQL INSERT statement to insert a row an Azure SQL database. The connection to the database uses the API Management instance's system-assigned managed identity. The identity must be [configured](#configure-managed-identity-integration-with-azure-sql) to access the Azure SQL database.
 
 ```xml
 <sql-data-source> 
@@ -240,7 +269,7 @@ The following example resolves a GraphQL mutation using a T-SQL INSERT statement
         <connection-string use-managed-identity="true">
             Server=tcp:{your_server_name}.database.windows.net,1433;Initial Catalog={your_database_name};</connection-string>
     </connection-info> 
-    <request> 
+    <request single-result="true"> 
         <sql-statement> 
                 INSERT INTO [dbo].[Family]
                        ([Id]

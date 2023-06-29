@@ -87,13 +87,10 @@
 - name: System functions
   items:
     - name: System functions
-      displayName: functions, system functions, built-in functions
-      href: system-functions.md
+      displayName: functions, system functions, array functions, date time functions, mathematical functions, spatial functions, string functions, type checking functions, built-in functions
+      href: system-functions.yml
     - name: Array functions
       items:
-        - name: Array functions
-          displayName: array functions, array, system functions, built-in functions
-          href: array-functions.md
         - name: ARRAY_CONCAT
           displayName: ARRAY_CONCAT, array concat, array functions
           href: array-concat.md
@@ -106,11 +103,25 @@
         - name: ARRAY_SLICE
           displayName: ARRAY_SLICE, array slice, array functions
           href: array-slice.md
+        - name: CHOOSE
+          displayName: CHOOSE, choose, choose index, select item, array functions
+          href: choose.md
+        - name: ObjectToArray
+          displayName: ObjectToArray, object, array, converstion, project items, array functions
+          href: objecttoarray.md
+        - name: SetIntersect
+          displayName: SetIntersect, array intersect, intersect, array functions
+          href: setintersect.md
+        - name: SetUnion
+          displayName: SetUnion, array union, union, array functions
+          href: setunion.md
+    - name: Conditional functions
+      items:
+        - name: IIF
+          displayName: IIF, ternary, ternary conditional operator
+          href: iif.md
     - name: Date and time functions
       items:
-        - name: Date and time functions
-          displayName: date and time functions, date and time, datetime, system functions, built-in functions
-          href: date-time-functions.md
         - name: DateTimeAdd
           displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
           href: datetimeadd.md
@@ -135,23 +146,34 @@
         - name: GetCurrentDateTime
           displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
           href: getcurrentdatetime.md
+        - name: GetCurrentDateTimeStatic
+          displayName: GetCurrentDateTimeStatic, get current date time static, static, date and time functions, datetime
+          href: getcurrentdatetimestatic.md
         - name: GetCurrentTicks
           displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
           href: getcurrentticks.md
+        - name: GetCurrentTicksStatic
+          displayName: GetCurrentTicksStatic, get current ticks static, static, date and time functions, datetime, ticks
+          href: getcurrentticksstatic.md
         - name: GetCurrentTimestamp
           displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
           href: getcurrenttimestamp.md
+        - name: GetCurrentTimestampStatic
+          displayName: GetCurrentTimestampStatic, get current timestamp static, static, timestamp, date and time functions, datetime
+          href: getcurrenttimestampstatic.md
         - name: TicksToDateTime
           displayName: TicksToDateTime, ticks to date time, date and time functions, datetime, ticks
           href: tickstodatetime.md
         - name: TimestampToDateTime
           displayName: TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp
           href: timestamptodatetime.md
+    - name: Item functions
+      items:
+        - name: DocumentId
+          displayName: DocumentId, document identifier, integer, item functions
+          href: documentid.md
     - name: Mathematical functions
       items:
-        - name: Mathematical functions
-          displayName: mathematical, mathematical functions, system functions, built-in functions
-          href: mathematical-functions.md
         - name: ABS
           displayName: ABS, absolute value, built-in functions
           href: abs.md
@@ -185,12 +207,27 @@
         - name: FLOOR
           displayName: FLOOR, built-in functions
           href: floor.md
+        - name: IntAdd
+          displayName: IntAdd, int-64, integer, add, addition, built-in functions
+          href: intadd.md
+        - name: IntBitAnd
+          displayName: IntBitAnd, int-64, integer, bitwise, AND, built-in functions
+          href: intbitand.md
+        - name: IntBitLeftShift
+          displayName: IntBitLeftShift, int-64, integer, bitwise, left shift, built-in functions
+          href: intbitleftshift.md
+        - name: IntBitNot
+          displayName: IntBitNot, int-64, integer, bitwise, NOT, built-in functions
+          href: intbitnot.md    
         - name: LOG
           displayName: LOG, logarithm, built-in functions
           href: log.md
         - name: LOG10
           displayName: LOG10, log base 10, built-in functions
           href: log10.md
+        - name: NumberBin
+          displayName: NumberBin, bin, bin size, round, build-in functions
+          href: numberbin.md
         - name: PI
           displayName: PI, built-in functions
           href: pi.md
@@ -226,9 +263,6 @@
           href: trunc.md
     - name: Spatial functions
       items:
-        - name: Spatial functions
-          displayName: spatial functions, spatial, system functions, built-in functions
-          href: spatial-functions.md
         - name: ST_AREA
           displayName: ST_AREA, st area, area, built-in functions
           href: st-area.md
@@ -249,9 +283,6 @@
           href: st-isvaliddetailed.md
     - name: String functions
       items:
-        - name: String functions
-          displayName: string functions, string, system functions, built-in functions
-          href: string-functions.md
         - name: CONCAT
           displayName: CONCAT, concatenate, built-in functions
           href: concat.md
@@ -329,9 +360,6 @@
           href: upper.md
     - name: Type checking functions
       items:
-        - name: Type checking functions
-          displayName: type checking functions, type checking, type, system functions, built-in functions
-          href: type-checking-functions.md
         - name: IS_ARRAY
           displayName: IS_ARRAY, is array, built-in functions
           href: is-array.md
@@ -341,6 +369,12 @@
         - name: IS_DEFINED
           displayName: IS_DEFINED, IsDefined, is defined, built-in functions
           href: is-defined.md
+        - name: IS_FINITE_NUMBER
+          displayName: IS_FINITE_NUMBER, IsFiniteNumber, is finite number, is countable, real number, built-in functions
+          href: is-finite-number.md
+        - name: IS_INTEGER
+          displayName: IS_INTEGER, IsInteger, is integer, number, built-in functions
+          href: is-integer.md
         - name: IS_NULL
           displayName: IS_NULL, IsNull, is null, built-in functions
           href: is-null.md

@@ -1018,14 +1018,14 @@ items:
     - name: Best practices
       displayName: Logs, WAF, well architected framework
       href: best-practices-logs.md
+    - name: Cost details
+      displayName: Log Analytics workspace,Logs
+      href: logs/cost-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
-        - name: Cost details
-          displayName: Log Analytics workspace,Logs
-          href: logs/cost-logs.md
         - name: Manage Log Analytics workspaces
           items:
           - name: Create a Log Analytics workspace
@@ -1047,12 +1047,13 @@ items:
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
           - name: Set Basic or Analytics log data plan
-            displayName: Basic logs
+            displayName: Basic logs, cost optimization
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
           - name: Set retention and archive policy
             href: logs/data-retention-archive.md
+            displayName: Log retention, log archive, cost optimization
           - name: Run a search job
             href: logs/search-jobs.md
           - name: Restore logs
