@@ -196,7 +196,7 @@ You can apply some environment variables provided by Dynatrace to configure logg
 
 ## Dynatrace OneAgent upgrade
 
-The Dynatrace OneAgent autoupgrade is disabled and is upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
+The Dynatrace OneAgent auto-upgrade is disabled and is upgraded quarterly with the JDK. Agent upgrade may affect the following scenarios:
 
 * Existing applications using Dynatrace OneAgent before upgrade are unchanged, but require restart or redeploy to engage the new version of Dynatrace OneAgent.
 * Applications created after upgrade use the new version of Dynatrace OneAgent.
