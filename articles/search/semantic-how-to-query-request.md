@@ -354,7 +354,7 @@ The response for the above example query returns the following match as the top 
 ```
 
 > [!NOTE]
-> Starting from July 14, 2023, if the initial search results display matches in multiple languages, the semantic ranker will include these results as a part of the semantic response. This is in contrast to the previous behavior, where the semantic ranker would downvote results differing from the language specified by the field analyzer.
+> Starting from July 14, 2023, if the initial search results display matches in multiple languages, the semantic ranker will include these results as a part of the semantic response. This is in contrast to the previous behavior, where the semantic ranker would deprioritize results differing from the language specified by the field analyzer.
 
 ## Next steps
 
