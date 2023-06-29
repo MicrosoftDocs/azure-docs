@@ -16,7 +16,7 @@ ms.custom: prompt
 
 # Use Azure Machine Learning pipelines with no code to construct RAG pipelines (preview)
 
-This tutorial walks you through how to create an RAG pipeline. For advanced scenarios, you can build your own custom Azure Machine Learning pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. AzureML provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in AzureML in LangChain. 
+This tutorial walks you through how to create an RAG pipeline. For advanced scenarios, you can build your own custom Azure Machine Learning pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. Azure Machine Learning provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in Azure Machine Learning in LangChain. 
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -33,7 +33,7 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 ## Prompt Flow pipeline notebook sample repository
 
-Azure Machine Learning offers notebook tutorials for several usecases with prompt flow pipelines. 
+Azure Machine Learning offers notebook tutorials for several use cases with prompt flow pipelines. 
 
 **QA Data Generation** 
 
@@ -46,7 +46,7 @@ Azure Machine Learning offers notebook tutorials for several usecases with promp
 
 **Create a FAISS based Vector Index**
 
-[Set up an AzureML Pipeline](https://github.com/Azure/azureml-insiders/blob/main/previews/retrieval-augmented-generation/examples/notebooks/faiss/faiss_mlindex_with_langchain.ipynb) to pull a Git Repo, process the data into chunks, embed the chunks and create a langchain compatible FAISS Vector Index. 
+[Set up an Azure Machine Learning Pipeline](https://github.com/Azure/azureml-insiders/blob/main/previews/retrieval-augmented-generation/examples/notebooks/faiss/faiss_mlindex_with_langchain.ipynb) to pull a Git Repo, process the data into chunks, embed the chunks and create a langchain compatible FAISS Vector Index. 
 
 ## Next steps
 
