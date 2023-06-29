@@ -102,7 +102,7 @@ This issue occurs when the current user doesn't have the proper role assignment 
 
 Resolution:
 - Ensure that you have Contributor or Owner permissions on the resource you're connecting to.
-- If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles
+- If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles and that the AAD SSH Login extension is installed on the Arc-Enabled Server.
 
 ### HybridConnectivity RP not registered
 
