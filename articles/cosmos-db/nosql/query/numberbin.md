@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # NumberBin (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Rounds the numeric expression's value down to a multiple of specified bin size.
 
 ## Syntax

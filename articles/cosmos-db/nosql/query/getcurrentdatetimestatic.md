@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # GetCurrentDateTimeStatic (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
 
 > [!IMPORTANT]
