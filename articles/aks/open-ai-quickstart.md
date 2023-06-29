@@ -8,14 +8,17 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Deploy an Application that uses OpenAI on AKS 
 
-In this article, you will learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, different AI models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code generation. This article also walk you through how to run a sample multi-container applications that is representative of a real-world application. The application is written in multiple languages (Go, Rust, JavaScript, and Python), has a database, a web front end, and events to simulate traffic.
+In this article, you learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, different AI models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code generation. 
+
+This article also walks you through how to run a sample multi-container solution that is representative of real-world implementations. The solution is comprised of applications written in multiple languages and frameworks including Golang with Gin, Rust with Actix-Web, JavaScript with Vue.js and Fastify, and Python with FastAPI. These applications provide front ends for customers and store admins, REST APIs for sending data to RabbitMQ message queue and MongoDB database, and console apps to simulate traffic.
+
 - The codebase for [AKS Store Demo][aks-store-demo] can be found on GitHub
 
 ## Before you begin
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- For this demo, you can either use Azure OpenAI service or OpenAI service. If you plan on using Azure OpenAI service, you will need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
-- If you plan on using OpenAI, please sign up on the [OpenAI website][open-ai-landing].
+- For this demo, you can either use Azure OpenAI service or OpenAI service. If you plan on using Azure OpenAI service, you need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
+- If you plan on using OpenAI, sign up on the [OpenAI website][open-ai-landing].
 - If you already have Azure CLI installed, make sure it is up to date by using the [az upgrade][az-upgrade] command.
 - todo: any flag needs to be enabled in the CLI? <!--todo-->
 
@@ -102,7 +105,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 :::image type="content" source="media/ai-walkthrough/aks-ai-demo-architecture.png" alt-text="Architecture diagram of AKS AI demo":::
 
-For the [AKS Store application][aks-store-demo], this manifest include Kubernetes deployments and services for:
+For the [AKS Store application][aks-store-demo], this manifest includes Kubernetes deployments and services for:
 - Product Service: shows product information
 - Order Service: places orders
 - Makeline Service: processes orders from the queue and completes the orders
@@ -499,21 +502,21 @@ For the [AKS Store application][aks-store-demo], this manifest include Kubernete
 ## Deploy OpenAI
 You can either use Azure OpenAI or OpenAI and run your application on AKS.
 
-If you are using Azure OpenAI: 
-- You will need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
+If you're using Azure OpenAI: 
+- You need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
 - In Azure Portal, create an Azure OpenAI instance. 
 - Open the Azure OpenAI instance you created, on the left blade, click on *Keys and Endpoints* to generate the key.
-- On the left blade, click on *Model Deployments*, then click on *Managed Deployments* which will open the [Azure OpenAI studio][aoai-studio]. Create a new deployment using the **text-davinci-003** model. For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
+- On the left blade, click on *Model Deployments*, then click on *Managed Deployments*, which opens the [Azure OpenAI studio][aoai-studio]. Create a new deployment using the **text-davinci-003** model. For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
 
-If you are using OpenAI: 
+If you're using OpenAI: 
 - [Generate an OpenAI key][open-ai-new-key] by clicking *Create new secret key* and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
 
 ## Deploy the AI service
 
-Now that the application is deployed, you will be deploying a Python based microservice that uses OpenAI to automatically generate descriptions for new products being added to the store's catalog. 
+Now that the application is deployed, you can deploy the Python based microservice that uses OpenAI to automatically generate descriptions for new products being added to the store's catalog. 
 
 1. Create a file names `ai-service.yaml` and copy the following manifest into it.
-   ```yaml
+    ```yaml
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -560,7 +563,7 @@ Now that the application is deployed, you will be deploying a Python based micro
         targetPort: 5001
       selector:
         app: ai-service
-   ```
+    ```
 1. If you are using Azure OpenAI: 
     * Set the environment variable *USE_AZURE_OPENAI* to "True"
     * Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
@@ -574,10 +577,10 @@ Now that the application is deployed, you will be deploying a Python based micro
     kubectl apply -f ai-service.yaml
     ```
    The following example resembles output showing successfully created deployments and services.
-   ```output
-   deployment.apps/ai-service created
-   service/ai-service created
-   ```
+    ```output
+      deployment.apps/ai-service created
+      service/ai-service created
+    ```
 
 > [!NOTE]
 > For best practice, use [Managed Identity][managed-identity] or [Azure Key Vault][key-vault] to store secrets. 
@@ -588,7 +591,7 @@ Now that the application is deployed, you will be deploying a Python based micro
     ```bash
     kubectl get service store-admin
     ```
-    When the application runs, a Kubernetes service exposes the application's front end to the internet. This process can take a few minutes to complete. **EXTERNAL IP** will initially show *pending*, until the service comes up and shows the IP address. 
+    When the application runs, a Kubernetes service exposes the application's front end to the internet. This process can take a few minutes to complete. **EXTERNAL IP** initially shows *pending*, until the service comes up and shows the IP address. 
     ```output
     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
     store-admin   LoadBalancer   10.0.142.228   40.64.86.161    80:32494/TCP   50m    
