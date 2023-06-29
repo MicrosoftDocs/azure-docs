@@ -259,7 +259,7 @@ For example, the following expression gets the items from the array variable [th
 
 <a name="increment-value"></a>
 
-## Increment variable 
+## Increment variable
 
 To increase or *increment* a variable by a specific constant value, add the **Increment variable** action to your workflow. This action works only with integer and float variables.
 
@@ -394,6 +394,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 1. [Follow these general steps to add an action called a **Increment variable** to the loop](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    > [!NOTE]
+   >
    > Make sure that the **Increment variable** action appears inside the loop. 
    > If the action appears outside the loop, drag the action into the loop.
 
@@ -453,16 +454,16 @@ If you switch from the designer to code view, the following example shows how th
 
 ## Decrement variable
 
-To decrease or *decrement* a variable by a constant value, follow the steps for [increasing a variable](#increment-value) except that you find and select the **Decrement variable** action instead. This action works only with integer and float variables.
+To decrease or *decrement* a variable by a specific constant value, follow the steps for [incrementing a variable](#increment-value) except that you add the **Decrement variable** action to your workflow instead. This action works only with integer and float variables.
 
-Here are the properties for the **Decrement variable** action:
+The following table describes the information for the **Decrement variable** action:
 
 | Property | Required | Value |  Description |
 |----------|----------|-------|--------------|
 | **Name** | Yes | <*variable-name*> | The name for the variable to decrement | 
-| **Value** | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <p><p>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. |
+| **Value** | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <br><br>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. |
 
-If you switch from the designer to the code view editor, here is the way that the **Decrement variable** action appears inside your logic app definition, which is in JSON format.
+If you switch from the designer to code view, the following example shows how the **Decrement variable** action appears in your workflow definition, which is in JSON format:
 
 ```json
 "actions": {
@@ -481,13 +482,13 @@ If you switch from the designer to the code view editor, here is the way that th
 
 ## Set variable
 
-To assign a different value to an existing variable, follow the steps for [increasing a variable](#increment-value) except that you:
+To assign a different value to an existing variable, follow the steps for [incrementing a variable](#increment-value) except that you:
 
 1. Find and select the **Set variable** action instead.
 
 1. Provide the variable name and value you want to assign. Both the new value and the variable must have the same data type. The value is required because this action doesn't have a default value.
 
-Here are the properties for the **Set variable** action:
+The following table describes the information for the **Set variable** action:
 
 | Property | Required | Value |  Description |
 |----------|----------|-------|--------------|
@@ -495,20 +496,26 @@ Here are the properties for the **Set variable** action:
 | **Value** | Yes | <*new-value*> | The value you want to assign the variable. Both must have the same data type. |
 
 > [!NOTE]
+>
 > Unless you're incrementing or decrementing variables, changing variables 
 > inside loops *might* create unexpected results because loops run in parallel, 
 > or concurrently, by default. For these cases, try setting your loop to run sequentially. 
 > For example, when you want to reference the variable value inside the loop and expect 
 > same value at the start and end of that loop instance, follow these steps to change how the loop runs: 
 >
-> 1. In your loop's upper-right corner, select the ellipsis (**...**) button, 
-> and then select **Settings**.
-> 
-> 2. Under **Concurrency Control**, change the **Override Default** setting to **On**.
+> 1. On your loop, find and open the loop settings.
+>
+> 2. Based on your workflow type, follow the corresponding steps:
+>
+>    - Consumption: Change the **Concurrency Control** setting from **Off** to **On**.
+>
+>    - Standard: Under **General**, change the **Concurrency Control** setting from **Off** to **On**.
 >
 > 3. Drag the **Degree of Parallelism** slider to **1**.
 
-If you switch from the designer to the code view editor, here is the way that the **Set variable** action appears inside your logic app definition, which is in JSON format. This example changes the `Count` variable's current value to another value.
+If you switch from the designer to code view, the following example shows how the **Set variable** action appears in your workflow definition, which is in JSON format:
+
+The following example changes the **`Count`** variable's current value to another value:
 
 ```json
 "actions": {
