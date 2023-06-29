@@ -203,17 +203,15 @@ We recommend to actively monitor the disk space that is in use, and increase the
 > [!NOTE]
 > Storage auto-grow is currently in preview.
 
-Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 1 TiB provisioned storage, storage auto-grow triggers when the storage consumption reaches 80%  and for servers at 1 TB or over it triggers when the consumption reaches 90%. 
+Enabling storage auto-grow ensures that your server always has sufficient storage capacity and avoids the possibility of it becoming read-only. When storage auto-grow is activated, the storage will automatically expand without affecting the workload. For servers with less than 1 TiB of provisioned storage, the auto-grow feature activates when storage consumption reaches 80%. For servers with 1 TB or more of storage, auto-grow activates at 90% consumption.
 
-For e.g. If you have allocated 256 Gib of storage and enabled storage auto-grow and if actual utilization reaches 80% or 205 GB, the server's storage size is automatically increased to the next available premium disk tier, which is 512 GiB. However, if the disk size is 1 TiB or larger, the threshold for triggering scaling is set at 90%. In such cases, the scaling process is initiated once the utilization reaches 922 Gib, and the disk is resized to 2 Tib.
+For example, if you have allocated 256 GiB of storage and enabled storage auto-grow, once the actual utilization reaches 80% (205 GB), the server's storage size will automatically increase to the next available premium disk tier, which is 512 GiB. However, if the disk size is 1 TiB or larger, the scaling threshold is set at 90%. In such cases, the scaling process begins when the utilization reaches 922 GiB, and the disk is resized to 2 TiB.
 
+Azure Database for PostgreSQL Flexible Server employs premium disk v1. Regardless of whether the storage scaling operation is triggered manually or through storage auto-grow, the disk size is always increased to the next premium tier, which is double in both size and cost. Enabling storage auto-grow is especially useful when dealing with unpredictable workloads as it automatically detects low database space and scales up the storage.
 
- Azure Database for PostgreSQL Flexible Server uses premium disk v1 and regardless of whether the storage scaling operation is manually triggered or performed automatically through storage auto-grow, the size of the disk increases to the next premium tier, which is always double in both size and price. If your workload is unpredictable, you can enable storage auto-grow which will detect that you are running out of free database space and automatically scale up your storage.  
+The process of scaling storage is performed online, without causing any downtime, except when the disk is provisioned at 4096 GiB, which is a limitation imposed by Azure storage. If a disk is already 4096 GiB, the storage scaling activity will not be triggered, even if storage auto-grow is enabled. In such cases, you need to manually scale your storage, which is an offline operation that should be planned according to your business requirements.
 
-Storage scaling activity is online without any downtime in all cases expect when you have provisioned the disk at 4096 Gib which is an underlying Azure storage limitation. If a disk is 4096 Gib then storage scaling activity will not trigger even if storage auto-grow is enabled and you must manually scale your storage which is an offline operation and must be planned as per your business requirements.
-
-
-Remember that storage can only be scaled up, not down.
+Remember that storage can only be increased in size and cannot be reduced.
 
 
 
