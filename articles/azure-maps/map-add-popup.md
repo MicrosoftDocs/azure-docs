@@ -72,7 +72,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 
 There are cases in which the best approach is to create one popup and reuse it. For example, you may have a large number of points and want to show only one popup at a time. By reusing the popup, the number of DOM elements created by the application is greatly reduced, which can provide better performance. The following sample creates 3-point features. If you click on any of them, a popup will be displayed with the content for that point feature.
 
-For a fully functional sample that shows how to create one popup and reuse it rather than creating a popup for each point feature, see [Reusing Popup with Multiple Pins] in the [Azure Maps Samples].
+For a fully functional sample that shows how to create one popup and reuse it rather than creating a popup for each point feature, see [Reusing Popup with Multiple Pins] in the [Azure Maps Samples]. For the source code for this sample, see [Reusing Popup with Multiple Pins source code].
 
 :::image type="content" source="./media/map-add-popup/reusing-popup-with-multiple-pins.png"alt-text="A screenshot of map with three blue pins.":::
 
@@ -85,7 +85,7 @@ For a fully functional sample that shows how to create one popup and reuse it ra
 
 By default, the popup has a white background, a pointer arrow on the bottom, and a close button in the top-right corner. The following sample changes the background color to black using the `fillColor` option of the popup. The close button is removed by setting the `CloseButton` option to false. The HTML content of the popup uses padded of 10 pixels from the edges of the popup. The text is made white, so it shows up nicely on the black background.  
 
-For a fully functional sample that shows how to customize the look of a popup, see [Customize a popup] in the [Azure Maps Samples].
+For a fully functional sample that shows how to customize the look of a popup, see [Customize a popup] in the [Azure Maps Samples]. For the source code for this sample, see [Customize a popup source code].
 
 :::image type="content" source="./media/map-add-popup/customize-popup.png"alt-text="A screenshot of map with a custom popup in the center of the map with the caption 'hello world'.":::
 
@@ -418,7 +418,7 @@ function InitMap()
 
 Similar to reusing popup, you can reuse popup templates. This approach is useful when you only want to show one popup template at a time, for multiple points. By reusing the popup template, the number of DOM elements created by the application is reduced, which then improves your application performance. The following sample uses the same popup template for three points. If you click on any of them, a popup will be displayed with the content for that point feature.
 
-For a fully functional sample that shows hot to reuse a single popup template with multiple features that share a common set of property fields, see [Reuse a popup template] in the [Azure Maps Samples].
+For a fully functional sample that shows hot to reuse a single popup template with multiple features that share a common set of property fields, see [Reuse a popup template] in the [Azure Maps Samples]. For the source code for this sample, see [Reuse a popup template source code].
 
 :::image type="content" source="./media/map-add-popup/reuse-popup-template.png"alt-text="A screenshot of a map showing Seattle with three blue pins to demonstrating how to reuse popup templates.":::
 
@@ -431,7 +431,7 @@ For a fully functional sample that shows hot to reuse a single popup template wi
 
 Popups can be opened, closed, and dragged. The popup class provides events to help developers react to these events. The following sample highlights which events fire when the user opens, closes, or drags the popup.
 
-For a fully functional sample that shows how to add events to popups, see [Popup events] in the [Azure Maps Samples].
+For a fully functional sample that shows how to add events to popups, see [Popup events] in the [Azure Maps Samples]. For the source code for this sample, see [Popup events source code].
 
 :::image type="content" source="./media/map-add-popup/popup-events.png"alt-text="A screenshot of a map of the world with a popup in the center and a list of events in the upper left that are highlighted when the user opens, closes, or drags the popup.":::
 
@@ -474,3 +474,8 @@ See the following great articles for full code samples:
 [Customize a popup]: https://samples.azuremaps.com/popups/customize-a-popup
 [Reuse a popup template]: https://samples.azuremaps.com/popups/reuse-a-popup-template
 [Popup events]: https://samples.azuremaps.com/popups/popup-events
+
+[Reusing Popup with Multiple Pins source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Reusing%20Popup%20with%20Multiple%20Pins/Reusing%20Popup%20with%20Multiple%20Pins.html
+[Customize a popup source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Customize%20a%20popup/Customize%20a%20popup.html
+[Reuse a popup template source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Reuse%20a%20popup%20template/Reuse%20a%20popup%20template.html
+[Popup events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Popup%20events/Popup%20events.html

@@ -150,11 +150,14 @@ Here's how to install OneDrive in per-machine mode:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
+> [!TIP]
+> You can configure OneDrive so that it will attempt to automatically sign-in when a user connects to a session. For more information, see [Silently configure user accounts](/sharepoint/use-silent-account-configuration).
+
 ## Microsoft Teams and Skype for Business
 
-Azure Virtual Desktop doesn't support Skype for Business.
+To learn how to install Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](./teams-on-avd.md). 
 
-For help with installing Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](./teams-on-avd.md). 
+Azure Virtual Desktop doesn't support Skype for Business.
 
 ## Next steps
 

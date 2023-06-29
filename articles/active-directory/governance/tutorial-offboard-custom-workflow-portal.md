@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/18/2023
+ms.date: 06/22/2023
 ms.author: owinfrey
 ms.reviewer: krbain
 ms.custom: template-tutorial
