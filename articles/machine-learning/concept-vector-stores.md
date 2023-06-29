@@ -50,8 +50,6 @@ The following tables list pros and cons for each type of Index:
 
 ## Next steps
 
-[Train and Deploy Large Language Models](how-to-train-promptflow.md) (LLMs) with Azure Machine Learning prompt flow (preview)
-
 [How to create vector index in Azure Machine Learning prompt flow (preview)](how-to-create-vector-index.md)
 
 
