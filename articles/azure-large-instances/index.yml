@@ -22,7 +22,7 @@ landingContent:
           - text: What is Azure Large Instances?
             url: what-is-azure-large-instances.md
           - text: Working with ALI in the Azure portal
-            url: working-with-ali-in-the-azure-portal.md
+            url: work-with-ali-in-the-azure-portal.md
 
 # card 2
   - title: Azure Large Instances for Epic

@@ -29,7 +29,7 @@ No, explicit permissions aren't required but you should register the resource pr
 Check Azure Policy set up if ALI managed RGs are not reflected in the portal.
 Azure subscription you use for Azure Large Instancesdeployments is already registered with the ALI infrastructure resource provider by the Microsoft Operations team during the provisioning process.
 If you don't see your deployed ALI instances under your subscription, register the resource provider with your subscription. 
-Ensure that your VNET address space provided in the request is the same as what you configure [Working with ALI in the Azure portal](../../working-with-ali-in-the-azure-portal.md)
+Ensure that your VNET address space provided in the request is the same as what you configure [Working with ALI in the Azure portal](../../work-with-ali-in-the-azure-portal.md)
 
 ## Is it possible to have Azure ARC installed on Azure Large Instances?
 
