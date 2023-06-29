@@ -1,6 +1,6 @@
 ---
-title: What is the Azure Metrics Advisor service?
-titleSuffix: Azure Applied AI Services
+title: What is the Azure AI Metrics Advisor service?
+titleSuffix: Azure AI services
 description: What is Metrics Advisor?
 author: mrbullwinkle
 manager: nitinme
@@ -11,9 +11,9 @@ ms.date: 07/06/2021
 ms.author: mbullwin
 ---
 
-# What is Azure Metrics Advisor? 
+# What is Azure AI Metrics Advisor? 
 
-Metrics Advisor is a part of [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md) that uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service. Use Metrics Advisor to:
+Metrics Advisor is a part of [Azure AI services](../../ai-services/what-are-applied-ai-services.md) that uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service. Use Metrics Advisor to:
 
 * Analyze multi-dimensional data from multiple data sources
 * Identify and correlate anomalies
@@ -67,7 +67,7 @@ The workflow is simple: after onboarding your data, you can fine-tune the anomal
 
 ## Video
 * [Introducing Metrics Advisor](https://www.youtube.com/watch?v=0Y26cJqZMIM)
-* [New to Cognitive Services](https://www.youtube.com/watch?v=7tCLJHdBZgM)
+* [New to Azure AI services](https://www.youtube.com/watch?v=7tCLJHdBZgM)
 
 ## Data retention & limitation: 
 
@@ -85,11 +85,11 @@ There are also further limitations. Refer to [FAQ](faq.yml#what-are-the-data-ret
 
 ## Use cases for Metrics Advisor
 
-* [Protect your organization's growth by using Azure Metrics Advisor](https://techcommunity.microsoft.com/t5/azure-ai/protect-your-organization-s-growth-by-using-azure-metrics/ba-p/2564682)
+* [Protect your organization's growth by using Azure AI Metrics Advisor](https://techcommunity.microsoft.com/t5/azure-ai/protect-your-organization-s-growth-by-using-azure-metrics/ba-p/2564682)
 * [Supply chain anomaly detection and root cause analysis with Azure Metric Advisor](https://techcommunity.microsoft.com/t5/azure-ai/supply-chain-anomaly-detection-and-root-cause-analysis-with/ba-p/2871920)
-* [Customer support: How Azure Metrics Advisor can help improve customer satisfaction](https://techcommunity.microsoft.com/t5/azure-ai-blog/customer-support-how-azure-metrics-advisor-can-help-improve/ba-p/3038907)
-* [Detecting methane leaks using Azure Metrics Advisor](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/detecting-methane-leaks-using-azure-metrics-advisor/ba-p/3254005)
-* [AIOps with Azure Metrics Advisor - OpenDataScience.com](https://opendatascience.com/aiops-with-azure-metrics-advisor/)
+* [Customer support: How Azure AI Metrics Advisor can help improve customer satisfaction](https://techcommunity.microsoft.com/t5/azure-ai-blog/customer-support-how-azure-metrics-advisor-can-help-improve/ba-p/3038907)
+* [Detecting methane leaks using Azure AI Metrics Advisor](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/detecting-methane-leaks-using-azure-metrics-advisor/ba-p/3254005)
+* [AIOps with Azure AI Metrics Advisor - OpenDataScience.com](https://opendatascience.com/aiops-with-azure-metrics-advisor/)
 
 ## Next steps
 

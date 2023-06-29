@@ -1,7 +1,7 @@
 ---
 title: Metrics Advisor client libraries REST API
-titleSuffix: Azure Applied AI Services
-description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure Cognitive Services.
+titleSuffix: Azure AI services
+description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure AI services.
 author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
@@ -58,10 +58,10 @@ Use Metrics Advisor to perform:
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove a Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../ai-services/cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../ai-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 

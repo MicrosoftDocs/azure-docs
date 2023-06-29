@@ -1,6 +1,6 @@
 ---
 title: Connect different data sources to Metrics Advisor
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Add different data feeds to Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: mbullwin
 
 # How-to: Connect different data sources
 
-Use this article to find the settings and requirements for connecting different types of data sources to Azure Metrics Advisor. To learn about using your data with Metrics Advisor, see [Onboard your data](how-tos/onboard-your-data.md). 
+Use this article to find the settings and requirements for connecting different types of data sources to Azure AI Metrics Advisor. To learn about using your data with Metrics Advisor, see [Onboard your data](how-tos/onboard-your-data.md). 
 
 ## Supported authentication types
 
