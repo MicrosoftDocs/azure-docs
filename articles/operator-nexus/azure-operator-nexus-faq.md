@@ -38,9 +38,6 @@ Updates of Management bundle may cause interruptions to provisioning activities 
           
 On the other hand, Runtime bundle upgrades deals with the components that require updates to the OS (Operating System) and/or workload supporting components. The update of the runtime bundle is entirely under the control of the customer and APIs can be used to perform these updates. You might observe some workload impacts during this upgrade.
 
-### In what all regions are Operator Nexus available?
-Refer to the [link](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/) to learn about region level availability of product.
-
 ### Is the storage appliance a must required device?
 For near-edge SKUs, Storage appliance is a part of the Hardware infrastructure that Operator needs to procure. 
 
