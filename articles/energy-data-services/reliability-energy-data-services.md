@@ -20,7 +20,7 @@ Azure availability zones are at least three physically separate groups of datace
 
 Azure Data Manager for Energy supports zone-redundant instance by default and there's no additional configuration required.
 
-### Prerequisites
+## Prerequisites
 
 The Azure Data Manager for Energy supports availability zones in the following regions:
 
