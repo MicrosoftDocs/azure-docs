@@ -12,12 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.subservice: compliance
 <<<<<<< HEAD
+<<<<<<< HEAD
 ms.date: 6/13/2023
 ms.author: amsliu
 =======
 ms.date: 06/28/2023
 ms.author: owinfrey
 >>>>>>> 717097f7580e65a0320d7a1a80df3ed6775f9a94
+=======
+ms.date: 06/28/2023
+ms.author: owinfrey
+>>>>>>> 3cb499d0b8d21f8cf7c9b22becf4c9bbe2b720d1
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
