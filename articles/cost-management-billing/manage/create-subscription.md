@@ -63,7 +63,7 @@ When you created the subscription, Azure created a notification stating **Succes
 
 Here's an example of the notification:
 
-:::image type="content" source="./media/create-subscription/subscription-create-notification.png" alt-text="Screenshot showing the Advanced tab where you can specify the directory, management group, and owner. " lightbox="./media/create-subscription/subscription-create-notification.png" :::
+:::image type="content" source="./media/create-subscription/subscription-create-notification.png" alt-text="Screenshot showing the Successfully created the subscription notification. " lightbox="./media/create-subscription/subscription-create-notification.png" :::
 
 Or, if you're already on the Subscriptions page, you can refresh your browser's view to see the new subscription.
 
