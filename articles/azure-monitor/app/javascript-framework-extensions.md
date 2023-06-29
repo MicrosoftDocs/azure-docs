@@ -248,9 +248,13 @@ export class AppComponent {
 
 | Name    | Type   | Required? | Default | Description |
 |---------|--------|-----------|---------|------------------|
-| history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object. Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
+| history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object. For a code example of how to enable this field, see [Enable `enableAutoRouteTracking` field](#example-enable-enableautoroutetracking-field).<br><br>Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
 
-Here's an example for enabling the `enableAutoRouteTracking` field: 
+### Examples of SDK configuration
+
+The following section contains code examples of [SDK configuration](./javascript-sdk-configuration.md#sdk-configuration).
+
+#### Example: Enable `enableAutoRouteTracking` field
 
 ```javascript
 var reactPlugin = new ReactPlugin();
@@ -266,7 +270,7 @@ appInsights.loadAppInsights();
 
 ### React components usage tracking
 
-To instrument various React components usage tracking, apply the `withAITracking` higher-order component function. To enable Application Insights on your component, wrap the higher-order component function around your component:
+To instrument React components with usage tracking, apply the `withAITracking` higher-order component function. To enable Application Insights for a component, wrap `withAITracking` around the component:
 
 ```javascript
 import React from 'react';
@@ -290,7 +294,7 @@ It measures time from the [`ComponentDidMount`](https://react.dev/reference/reac
 
 #### Confirm usage tracking data is flowing
 
-To see this metric in the Azure portal, go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation (for example, sum or avg) of your metric and split by `Component Name`.
+To see the `React Component Engaged Time (seconds)` in [Metrics Explorer](../essentials/metrics-getting-started.md), go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation of your metric and split by `Component Name`.
 
 :::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
