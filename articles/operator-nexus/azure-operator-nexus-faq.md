@@ -10,6 +10,7 @@ ms.custom: template-reference
 ---
 
 # Azure Operator Nexus frequently asked questions (FAQ)
+The following sections covers some of the frequently asked questions for Azure Operator Nexus:
 
 ## Platform - General
 
@@ -31,10 +32,10 @@ Yes, to ensure carrier-grade performance and high degrees of automation, you'll 
 ### How should I plan for a resilient Operator Nexus instance? How does Operator Nexus handle disaster recovery?
 Customers should design their services with Intra-rack redundancy, Inter-rack redundancy and globally load balancing across multiple instances. Also, for high availability, plan to spread your instances across multiple Azure regions.
 
-### How do updates work to on premises and to Azure components?
-Upgrades to Operator Nexus are made in two phases - Management bundle upgrades and Runtime bundle upgrades. Management bundle upgrades deals with the upgrades of Controllers in Azure, Cluster Managers in customer subscription and on-prem instances. In on-prem instances, it includes the Kubernetes controllers responsible for maintaining the state of infra resources. 
+### How do updates work to on-premises and to Azure components?
+Upgrades to Operator Nexus are made in two phases - Management bundle upgrades and Runtime bundle upgrades. Management bundle upgrades deals with the upgrades of Controllers in Azure, Cluster Managers in customer subscription and on-premises instances. In on-premises instances, it includes the Kubernetes controllers responsible for maintaining the state of infra resources. 
           
-Updates of Management bundle may cause interruptions to provisioning activities but it doesn't impacts the customers running workloads. Customers don't control or drive these upgrades, but these upgrades are essential to provide customers with the options to update to new runtime-based upgrades within their on-premises environment.
+Updates of Management bundle may cause interruptions to provisioning activities but it doesn't impacts the customers running workloads. Customers don't control or drive these upgrades, but these upgrades are essential to provide customers with the options to update to new runtime-based upgrades within their on-premises instances.
           
 On the other hand, Runtime bundle upgrades deals with the components that require updates to the OS (Operating System) and/or workload supporting components. The update of the runtime bundle is entirely under the control of the customer and APIs can be used to perform these updates. You might observe some workload impacts during this upgrade.
 

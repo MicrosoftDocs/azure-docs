@@ -1,5 +1,5 @@
 ---
-title: Nexus - Limits and Quotas
+title: Azure Operator Nexus - Limits and Quotas
 description: Limits and quotas that apply to Azure Operator Nexus.
 author: mukeshdua
 ms.author: mukeshdua
@@ -66,7 +66,7 @@ The creation of the Network Cloud specific resources is subject to the following
 > * The number of Nexus instances a pair of NFC + CM can handle has been set to 20 based on some theoretical study for ExpressRoute. These numbers will be refined post GA after some further testing. 
 > * Some of these limits are yet to be introduced and are not applied by default today.
 
-### Other Azure Resources
+### Other Azure resources
 There are several Azure resources that are required to build up Network Fabric Controllers and Cluster Manager. The table here outlines the Azure services that Operators must ensure that they have adequate capacity available for creation for each Network Fabric Controller and Cluster Manager pair.
 
 | Resource Type	              | # of vCPUs |
