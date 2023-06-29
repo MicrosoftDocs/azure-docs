@@ -21,7 +21,7 @@ In this article, you'll learn how to deploy FHIR service within the Azure Health
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
-    * [Azure PowerShell](/powershell/azure/install-az-ps).
+    * [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 

@@ -9,7 +9,7 @@ ms.subservice: mongodb
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/08/2022
-ms.custom: devx-track-js, ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-python
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver

@@ -197,7 +197,7 @@ For more information about cluster operations in AKS, see the following best pra
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
-[azure-ad-integration]: managed-aad.md
+[azure-ad-integration]: managed-azure-ad.md
 [aks-aad]: azure-ad-integration-cli.md
 [managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md

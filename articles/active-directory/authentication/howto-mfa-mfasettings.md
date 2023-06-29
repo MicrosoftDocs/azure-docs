@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 06/29/2023
 
 ms.author: justinha
 author: justinha
@@ -19,12 +19,12 @@ ms.custom: contperf-fy20q4
 # Configure Azure AD Multi-Factor Authentication settings
 
 To customize the end-user experience for Azure AD Multi-Factor Authentication, you can configure options for settings like account lockout thresholds or fraud alerts and notifications. Some settings are available directly in the Azure portal for Azure Active Directory (Azure AD), and some are in a separate Azure AD Multi-Factor Authentication portal.
-
+ 
 The following Azure AD Multi-Factor Authentication settings are available in the Azure portal:
 
 | Feature | Description |
 | ------- | ----------- |
-| [Account lockout](#account-lockout) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who enter a PIN to authenticate. (MFA Server only) |
+| [Account lockout (MFA Server only)](#account-lockout-mfa-server-only) | Temporarily lock accounts from using Azure AD Multi-Factor Authentication if there are too many denied authentication attempts in a row. This feature applies only to users who use MFA Server to enter a PIN to authenticate. |
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure AD Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they're blocked or until they're manually unblocked. |
 | [Report suspicious activity](#report-suspicious-activity) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
@@ -34,9 +34,12 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
-## Account lockout
+## Account lockout (MFA Server only)
 
-To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are  applied only when a PIN code is entered for the MFA prompt.
+>[!NOTE]
+>Account lockout only affects users who sign in by using MFA Server on-premises. 
+
+To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are applied only when a PIN code is entered for the MFA prompt by using MFA Server on-premises.
 
 The following settings are available:
 
@@ -78,14 +81,14 @@ To unblock a user, complete the following steps:
 
 ## Report suspicious activity
 
-A preview of **Report Suspicious Activity**, the updated MFA **Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
+**Report suspicious activity**, the updated **MFA Fraud Alert** feature, is now available. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using Microsoft Authenticator or through their phone. These alerts are integrated with [Identity Protection](../identity-protection/overview-identity-protection.md) for more comprehensive coverage and capability. 
 
 Users who report an MFA prompt as suspicious are set to **High User Risk**. Administrators can use risk-based policies to limit access for these users, or enable self-service password reset (SSPR) for users to remediate problems on their own. If you previously used the **Fraud Alert** automatic blocking feature and don't have an Azure AD P2 license for risk-based policies, you can use risk detection events to identify and disable impacted users and automatically prevent their sign-in. For more information about using risk-based policies, see [Risk-based access policies](../identity-protection/concept-identity-protection-policies.md).  
 
-To enable **Report Suspicious Activity** from the Authentication Methods Settings:   
+To enable **Report suspicious activity** from the Authentication Methods Settings:   
 
 1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
-1. Set **Report Suspicious Activity** to **Enabled**. 
+1. Set **Report suspicious activity** to **Enabled**. 
 1. Select **All users** or a specific group. 
 
 ### View suspicious activity events 
@@ -104,9 +107,9 @@ Once a user has reported a prompt as suspicious, the risk should be investigated
 
 ### Report suspicious activity and fraud alert 
 
-**Report Suspicious Activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report Suspicious Activity** with a targeted test group. 
+**Report suspicious activity** and the legacy **Fraud Alert** implementation can operate in parallel. You can keep your tenant-wide **Fraud Alert** functionality in place while you start to use **Report suspicious activity** with a targeted test group. 
 
-If **Fraud Alert** is enabled with Automatic Blocking, and **Report Suspicious Activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
+If **Fraud Alert** is enabled with Automatic Blocking, and **Report suspicious activity** is enabled, the user will be added to the blocklist and set as high-risk and in-scope for any other policies configured. These users will need to be removed from the blocklist and have their risk remediated to enable them to sign in with MFA. 
 
 ## Notifications
 
@@ -257,6 +260,9 @@ If your organization uses the NPS extension to provide MFA to on-premises applic
 
 Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
 
+>[!NOTE]
+>If both per-user MFA and Conditional Access policies are configured in the tenant, you will need to add trusted IPs to the Conditional Access policy and update the MFA service settings.
+
 #### User experience inside the corporate network
 
 When the trusted IPs feature is disabled, multi-factor authentication is required for browser flows. App passwords are required for older rich-client applications.
@@ -366,6 +372,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 >
 > The **remember multi-factor authentication** feature isn't compatible with B2B users and won't be visible for B2B users when they sign in to the invited tenants.
 >
+> The **remember multi-factor authentication** feature isn't compatible with the Sign-in frequency Conditional Access control. For more information, see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md#configuring-authentication-session-controls).
 
 #### Enable remember multi-factor authentication
 

@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -196,6 +196,7 @@ This article explains how to build and deploy Spring applications to Azure Sprin
   - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
   - [Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md).
 - [JDK 17](/azure/developer/java/fundamentals/java-jdk-install)
+- [Maven 3.0 or above](https://maven.apache.org/download.cgi)
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Optionally, [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 - Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
@@ -224,7 +225,7 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
    az configure --defaults group=<resource-group-name> spring=<service-name>
    ```
 
-1. Create the two core Spring applications for PetClinic: API gateway and customers-service.
+1. Create the two core Spring applications for PetClinic: `api-gateway` and `customers-service`.
 
    ```azurecli
    az spring app create \
@@ -270,12 +271,12 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
 
 ## Verify the services
 
-Access the app gateway and customers service from browser with the **Public Url** shown previously, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
+Access `api-gateway` and `customers-service` from a browser with the **Public Url** shown previously, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
 
 :::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic customers service." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
 
 > [!TIP]
-> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring app logs --name <app name> -f`.
+> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring app logs --name <app name> --follow`.
 
 ## Deploy extra apps
 
@@ -331,20 +332,19 @@ Compiling the project takes 5-10 minutes. When the project is compiled, you shou
 
 ## Generate configurations and deploy to Azure Spring Apps
 
-The following steps show you how to generate configurations and deploy to Azure Spring Apps.
+The following steps show you how to generate configurations and deploy to Azure Spring Apps:
 
-1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+1. Go to the *spring-petclinic-customers-service* folder. Generate configurations by running the following command. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in using a prompt with instructions. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) on the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) wiki.
 
    ```bash
-   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=customers-service
    ```
 
-   You're asked to select:
+   You're asked to provide the following values:
 
-   - **Modules:** Select `api-gateway` and `customers-service`.
    - **Subscription:** The subscription you used to create an Azure Spring Apps instance.
    - **Service Instance:** The name of your Azure Spring Apps instance.
-   - **Public endpoint:** In the list of provided projects, enter the number that corresponds with `api-gateway`, giving it public access.
+   - **Public endpoint:** Whether to assign a public endpoint to the app. Select **No**.
 
 1. Verify that the `appName` elements in the POM files are correct:
 
@@ -354,23 +354,25 @@ The following steps show you how to generate configurations and deploy to Azure 
            <plugin>
                <groupId>com.microsoft.azure</groupId>
                <artifactId>azure-spring-apps-maven-plugin</artifactId>
-               <version>1.10.0</version>
+               <version>1.17.0</version>
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>
                    <appName>customers-service</appName>
    ```
 
-   Make sure `appName` is one of the following values:
+   The POM now contains the plugin dependencies and configurations.
 
-     - api-gateway
-     - customers-service
-
-   Remove any prefix if needed, and save the file.
-
-1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
+1. Deploy the apps by using the following command:
 
    ```bash
+   mvn azure-spring-apps:deploy
+   ```
+
+1. Go to the *spring-petclinic-api-gateway* folder. Run the following commands to generate the configuration and deploy `api-gateway`. Select **yes** for **Public endpoint**.
+
+   ```bash
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=api-gateway
    mvn azure-spring-apps:deploy
    ```
 
@@ -431,7 +433,7 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
    :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of memory and JVM options." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
 
 1. In the **Before launch** section of the dialog, double-click **Run Maven Goal**.
-1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/gateway* folder.
+1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/spring-petclinic-api-gateway* folder.
 1. In the **Command line** textbox, enter *package -DskipTests*. Select **OK**.
 
    :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png" alt-text="Screenshot of the spring-petclinic-microservices/gateway page and command line textbox." lightbox="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png":::

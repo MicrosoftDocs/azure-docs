@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/06/2023
 ms.author: duau
 ms.custom: references_regions
 
@@ -23,7 +23,7 @@ With **ExpressRoute Global Reach**, you can link ExpressRoute circuits together 
 ![Diagram that shows circuits linked together with Express Route Global Reach.][2]
 
 ## Use case
-ExpressRoute Global Reach is designed to complement your service provider’s WAN implementation and connect your branch offices across the world. For example, if your service provider primarily operates in the United States and has linked all of your branches in the U.S., but the service provider doesn’t operate in Japan and Hong Kong, with ExpressRoute Global Reach you can work with a local service provider and Microsoft will connect your branches there to the ones in the U.S. using ExpressRoute and our global network.
+ExpressRoute Global Reach is designed to complement your service provider’s WAN implementation and connect your branch offices across the world. For example, if your service provider primarily operates in the United States and has linked all of your branches in the U.S., but the service provider doesn’t operate in Japan and Hong Kong Special Administrative Region, with ExpressRoute Global Reach you can work with a local service provider and Microsoft will connect your branches there to the ones in the U.S. using ExpressRoute and our global network.
 
 ![Diagram that shows a use case for Express Route Global Reach.][3]
 
@@ -46,6 +46,7 @@ ExpressRoute Global Reach is supported in the following places.
 * Netherlands
 * New Zealand
 * Norway
+* Poland
 * Singapore
 * South Africa (Johannesburg only)
 * Sweden

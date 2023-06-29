@@ -1,4 +1,4 @@
-﻿---
+---
 title: Run background tasks with WebJobs
 description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from a variety of script formats and run them with CRON expressions.
 author: ggailey777

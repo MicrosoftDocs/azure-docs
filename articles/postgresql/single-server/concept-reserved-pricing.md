@@ -14,6 +14,7 @@ ms.date: 06/24/2022
 # Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
@@ -88,11 +89,11 @@ vCore size flexibility helps you scale up or down within a performance tier and 
 
 ## How to view reserved instance purchase details
 
-You can view your reserved instance purchase details via the [Reservations menu on the left side of the Azure portal](https://aka.ms/reservations). For more information, see [How a reservation discount is applied to Azure Database for PostgreSQL](../../cost-management-billing/reservations/understand-reservation-charges-postgresql.md).
+You can view your reserved instance purchase details via the [Reservations menu on the left side of the Azure portal](https://aka.ms/reservations).
 
 ## Reserved instance expiration
 
-You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Instances for Azure Database for PostgreSQL](../../cost-management-billing/reservations/understand-reservation-charges-postgresql.md).
+You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate.
 
 ## Need help? Contact us
 
@@ -107,6 +108,5 @@ To learn more about Azure Reservations, see the following articles:
 * [What are Azure Reservations](../../cost-management-billing/reservations/save-compute-costs-reservations.md)?
 * [Manage Azure Reservations](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 * [Understand Azure Reservations discount](../../cost-management-billing/reservations/understand-reservation-charges.md)
-* [Understand reservation usage for your Pay-As-You-Go subscription](../../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
 * [Understand reservation usage for your Enterprise enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 * [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

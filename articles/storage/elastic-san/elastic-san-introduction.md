@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview, a service that enables yo
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 02/22/2023
+ms.date: 05/02/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022

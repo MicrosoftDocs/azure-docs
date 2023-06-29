@@ -298,7 +298,7 @@ A BIG-IP supports SSO options, but in OAuth client mode the Guided Configuration
 | Header Operation |Insert|
 | Header Name | name|
 | Header Value | `%{session.oauth.client.last.id_token.name}`|
-| Header Operation |Inser|
+| Header Operation |Insert|
 |Header Name|agentid|
 |Header Value | `%{session.oauth.client.last.id_token.extension_AgentGeo}`|
  

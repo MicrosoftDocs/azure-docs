@@ -1,9 +1,9 @@
 ---
 title: Redundancy options for Azure managed disks
-description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
+description: Learn about zone-redundant storage and locally redundant storage for Azure managed disks.
 author: roygara
 ms.author: rogarana
-ms.date: 10/19/2022
+ms.date: 05/05/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
@@ -14,11 +14,11 @@ ms.custom: references_regions
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure managed disks offer two storage redundancy options, zone-redundant storage (ZRS), and locally-redundant storage. ZRS provides higher availability for managed disks than locally-redundant storage (LRS) does. However, the write latency for LRS disks is better than ZRS disks because LRS disks synchronously write data to three copies in a single data center.
+Azure managed disks offer two storage redundancy options, zone-redundant storage (ZRS), and locally redundant storage. ZRS provides higher availability for managed disks than locally redundant storage (LRS) does. However, the write latency for LRS disks is better than ZRS disks because LRS disks synchronously write data to three copies in a single data center.
 
-## Locally-redundant storage for managed disks
+## Locally redundant storage for managed disks
 
-Locally-redundant storage (LRS) replicates your data three times within a single data center in the selected region. LRS protects your data against server rack and drive failures. LRS disks provide at least 99.999999999% (11 9's) of durability over a given year. To protect an LRS disk from a zonal failure like a natural disaster or other issues, take the following steps:
+Locally redundant storage (LRS) replicates your data three times within a single data center in the selected region. LRS protects your data against server rack and drive failures. LRS disks provide at least 99.999999999% (11 9's) of durability over a given year. To protect an LRS disk from a zonal failure like a natural disaster or other issues, take the following steps:
 
 - Use applications that can synchronously write data to two zones, and automatically failover to another zone during a disaster.
     - An example would be SQL Server Always On.
@@ -35,6 +35,14 @@ A ZRS disk lets you recover from failures in availability zones. If a zone went 
 
 For more information on ZRS disks, see [Zone Redundant Storage (ZRS) option for Azure Disks for high availability](https://youtu.be/RSHmhmdHXcY).
 
+### Limitations
+
+[!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
+
+### Regional availability
+
+[!INCLUDE [disk-storage-zrs-regions](../../includes/disk-storage-zrs-regions.md)]
+
 ### Billing implications
 
 For details see the [Azure pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -42,10 +50,6 @@ For details see the [Azure pricing page](https://azure.microsoft.com/pricing/det
 ### Comparison with other disk types
 
 Except for more write latency, disks using ZRS are identical to disks using LRS, they have the same scale targets. [Benchmark your disks](disks-benchmarks.md) to simulate the workload of your application and compare the latency between LRS and ZRS disks.
-
-### Limitations
-
-[!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
 
 ## Next steps
 

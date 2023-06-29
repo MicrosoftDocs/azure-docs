@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 06/19/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -39,7 +39,7 @@ For shared premium SSD disks, in addition to cost of the disk's tier, there's an
 
 Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MB/s that the disk is configured for. Normally, an ultra disk has two performance throttles that determine its total IOPS/MB/s. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two additional throttles allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 
-The four performance throttles a shared ultra disk has are diskMB/sReadWrite, diskIOPSReadOnly and diskMB/sReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MB/s (diskMB/sReadWrite + diskMB/sReadOnly).
+The four performance throttles a shared ultra disk has are diskIOPSReadWrite, diskMB/sReadWrite, diskIOPSReadOnly, and diskMB/sReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MB/s (diskMB/sReadWrite + diskMB/sReadOnly).
 
 Once you've determined your total provisioned IOPS and total provisioned throughput, you can use them in the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
 
@@ -171,3 +171,5 @@ Both shared Ultra Disks and shared Premium SSD v2 managed disks are priced based
 ## Next steps
 
 If you're interested in enabling and using shared disks for your managed disks, proceed to our article [Enable shared disk](disks-shared-enable.md)
+
+If you've additional questions, see the [shared disks](faq-for-disks.yml#azure-shared-disks) section of the FAQ.

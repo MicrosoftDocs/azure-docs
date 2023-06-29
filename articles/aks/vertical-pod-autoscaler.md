@@ -49,13 +49,13 @@ The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 
@@ -85,7 +85,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 
 1. To enable VPA on a new cluster, use `--enable-vpa` parameter with the [az aks create][az-aks-create] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create -n myAKSCluster -g myResourceGroup --enable-vpa
     ```
 
@@ -93,7 +93,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 
 2. Optionally, to enable VPA on an existing cluster, use the `--enable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
     ```
 
@@ -101,7 +101,7 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 
 3. Optionally, to disable VPA on an existing cluster, use the `--disable-vpa` with the [az aks upgrade][az-aks-upgrade] command.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks update -n myAKSCluster -g myResourceGroup --disable-vpa
     ```
 
@@ -144,7 +144,7 @@ The following steps create a deployment with two pods, each running a single con
 
     The example output resembles the following:
 
-    ```bash
+    ```output
     hamster-78f9dcdd4c-hf7gk   1/1     Running   0          24s
     hamster-78f9dcdd4c-j9mc7   1/1     Running   0          24s
     ```
@@ -157,7 +157,7 @@ The following steps create a deployment with two pods, each running a single con
 
     The example output is a snippet of the information about the cluster:
 
-    ```bash
+    ```output
      hamster:
         Container ID:  containerd://
         Image:         k8s.gcr.io/ubuntu-slim:0.1
@@ -195,7 +195,7 @@ The following steps create a deployment with two pods, each running a single con
 
     The example output is a snippet of the information describing the pod:
 
-    ```bash
+    ```output
     State:          Running
       Started:      Wed, 28 Sep 2022 15:09:51 -0400
     Ready:          True
@@ -216,7 +216,7 @@ The following steps create a deployment with two pods, each running a single con
 
     The example output is a snippet of the information about the resource utilization:
 
-    ```bash
+    ```output
      State:          Running
       Started:      Wed, 28 Sep 2022 15:09:51 -0400
     Ready:          True
@@ -233,7 +233,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
 1. Enable VPA for your cluster by running the following command. Replace cluster name `myAKSCluster` with the name of your AKS cluster and replace `myResourceGroup` with the name of the resource group the cluster is hosted in.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks update -n myAKSCluster -g myResourceGroup --enable-vpa
     ```
 

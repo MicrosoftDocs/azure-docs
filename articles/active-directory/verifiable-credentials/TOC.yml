@@ -18,6 +18,8 @@
     href: verifiable-credentials-configure-verifier.md
   - name: Using the Authenticator
     href: using-authenticator.md
+  - name: Using the Wallet Library
+    href: using-wallet-library.md
 - name: Concepts
   expanded: true
   items:
@@ -88,6 +90,8 @@
   items:
   - name: Remote onboarding
     href: remote-onboarding-new-employees-id-verification.md
+  - name: LinkedIn employment verification
+    href: linkedin-employment-verification.md
 - name: Reference
   expanded: true
   items:

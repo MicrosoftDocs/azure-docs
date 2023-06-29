@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
-ms.date: 04/10/2023
+ms.date: 04/25/2023
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
@@ -62,7 +62,7 @@ Person Name machine learning model has been trained using global datasets of nam
 -------------------------------------
 
 ### Person's Address
-Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
+Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country/Region, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
 
 #### Supported formats
 Currently the address model supports the following formats in the same column:
@@ -81,6 +81,7 @@ Person's Gender machine learning model has been trained using US Census data and
 #### Keywords
 - sex
 - gender
+- sexual
 - orientation
 
 -------------------------------------
@@ -90,6 +91,7 @@ Person's Age machine learning model detects age of an individual specified in va
 
 #### Keywords
 - age
+- ages
 
 #### Supported formats
 - {%y} y, {%m} m
@@ -6166,7 +6168,7 @@ Pattern must include all of the following:
 - 1-7 groups of four letters or digits (can be separated by spaces)
 - 1-3 letters or digits
 
-The format for each country is slightly different. The IBAN sensitive information type covers these 60 countries:
+The format for each country is slightly different. The IBAN sensitive information type covers these 60 countries/regions:
 
 - ad
 - ae
@@ -6251,6 +6253,17 @@ Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
 #### Pattern
 
+- 000.00.000.00
+- 000.000.00.00
+- 00.000.000.00
+- 000.000.000.00
+- 000.000.000.000
+- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
+- 0000:0000:0000::00:00:000:0
+- 0a0a:a000:00a::
+- 0000:0000:0000:00::0
+- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
+
 #### Checksum
 
 No
@@ -6268,14 +6281,15 @@ No
 
 -------------------------------------
 
-### IP Address v4
+### Personal IP Address
 
 #### Format
 
-Complex pattern that accounts for formatted (periods) and unformatted (no periods) versions of the IPv4 addresses
+Complex pattern that accounts for formatted (periods) versions of the IPv4 addresses
 
 #### Pattern
 
+000.000.000.000
 
 #### Checksum
 
@@ -6294,31 +6308,6 @@ No
 
 -------------------------------------
 
-### IP Address v6
-
-#### Format
-
-Complex pattern that accounts for formatted IPv6 numbers (which include colons)
-
-#### Pattern
-
-
-#### Checksum
-
-No
-
-#### Keywords
-
-##### Keyword_ipaddress
-
-- IP (case sensitive)
-- ip address
-- ip addresses
-- internet protocol
-- IP-כתובת ה
-
-
--------------------------------------
 
 ### Ireland driver's license number
 
@@ -6832,7 +6821,7 @@ A 16-character combination of letters and digits:
 - two digits that correspond to the last digits of the birth year
 - one letter that corresponds to the letter for the month of birth—letters are used in alphabetical order, but only the letters A to E, H, L, M, P, R to T are used (so, January is A and October is R)
 - two digits that correspond to the day of the month of birth in order to differentiate between genders, 40 is added to the day of birth for women
-- four digits that correspond to the area code specific to the municipality where the person was born (country-wide codes are used for foreign countries)
+- four digits that correspond to the area code specific to the municipality where the person was born (country-wide codes are used for foreign countries/regions)
 - one parity digit
 
 #### Checksum

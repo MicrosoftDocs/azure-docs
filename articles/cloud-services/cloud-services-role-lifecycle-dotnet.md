@@ -7,7 +7,7 @@ ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: compute-evergreen
+ms.custom: compute-evergreen, devx-track-dotnet
 ---
 
 # Customize the Lifecycle of a Web or Worker role in .NET
@@ -74,7 +74,3 @@ You can use the ASP.NET lifecycle methods, in addition to those provided by the 
 
 ## Next steps
 Learn how to [create a cloud service package](cloud-services-model-and-package.md).
-
-
-
-

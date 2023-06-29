@@ -100,7 +100,7 @@ az network nic ip-config update \
 
 ## PowerShell
 
-Install [PowerShell](/powershell/azure/install-az-ps), or use the [Azure Cloud Shell](../../cloud-shell/overview.md). The Azure Cloud Shell is a free shell that you can run directly within the Azure portal. It has PowerShell preinstalled and configured to use with your account.
+Install [PowerShell](/powershell/azure/install-azure-powershell), or use the [Azure Cloud Shell](../../cloud-shell/overview.md). The Azure Cloud Shell is a free shell that you can run directly within the Azure portal. It has PowerShell preinstalled and configured to use with your account.
 
 - If using PowerShell locally, sign in to Azure with `Connect-AzAccount`.
 

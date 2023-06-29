@@ -87,7 +87,7 @@ For more information, see [Lock resources to prevent unexpected changes](lock-re
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources.md#portal).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources-portal.md).
 
 ## Export resource groups to templates
 

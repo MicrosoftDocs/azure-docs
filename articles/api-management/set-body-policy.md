@@ -77,7 +77,7 @@ OriginalUrl.
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
@@ -99,6 +99,9 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 
 > [!IMPORTANT]
 > In order to correctly bind to an XML body using the Liquid template, use a `set-header` policy to set Content-Type to either application/xml, text/xml (or any type ending with +xml); for a JSON body, it must be application/json, text/json (or any type ending with +json).
+
+> [!IMPORTANT]
+> Liquid templates use the request/response body in the current execution pipeline as their input. For this reason, liquid templates do not work when used inside a return-response policy. A return-response policy cancels the current execution pipeline and removes the request/response body. As a result, any liquid template used inside the return-response will receive an empty string as its input and will not produced the expected output. 
 
 ### Supported Liquid filters
 

@@ -5,7 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
-ms.date: 12/12/2022
+ms.date: 06/19/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -54,6 +54,9 @@ After setting up the appliance and completing discovery, you can begin replicati
 
 - You can run up to 500 replications simultaneously.
 - In the portal, you can select up to 10 VMs at once for migration. To migrate more machines, add them to groups in batches of 10.
+
+> [!Note]
+> Azure Migrate doesn't support agentless migration of VMware VMs with VMDK containing non-ASCII characters.
 
 Enable replication as follows:
 
@@ -119,6 +122,9 @@ Enable replication as follows:
 
  
 14. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+
+   > [!NOTE]
+   > If there is a connectivity issue with Azure or if the appliance services are down for more than 90 minutes, the active replication cycles for replicating servers are reset to 0% and the respective cycle runs from the beginning.  
 
 > [!NOTE]
 > You can update replication settings any time before replication starts (**Manage** > **Replicating machines**). You can't change settings after replication starts.

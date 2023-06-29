@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 05/11/2023
 ---
 
 # Prepare for live traffic with Azure Communications Gateway
@@ -38,7 +38,36 @@ In some parts of this article, the steps you must take depend on whether your de
 ## 1. Connect Azure Communications Gateway to your networks
 
 1. Configure your infrastructure to meet the call routing requirements described in [Reliability in Azure Communications Gateway](reliability-communications-gateway.md).
-1. Configure your network devices to send and receive traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs).
+1. Configure your network devices to send and receive SIP traffic from Azure Communications Gateway. You might need to configure SBCs, softswitches and access control lists (ACLs). To find the hostnames to use for SIP traffic:
+    1. Go to the **Overview** page for your Azure Communications Gateway resource.
+    1. In each **Service Location** section, find the **Hostname** field.
+1. If your Azure Communications Gateway includes integrated MCP, configure the connection to MCP:
+    1. Go to the **Overview** page for your Azure Communications Gateway resource.
+    1. In each **Service Location** section, find the **MCP hostname** field.
+    1. Configure your test numbers with an iFC of the following form, replacing *`<mcp-hostname>`* with the MCP hostname for the preferred region for that subscriber.
+       ```xml
+        <InitialFilterCriteria>
+            <Priority>0</Priority>
+            <TriggerPoint>
+                <ConditionTypeCNF>0</ConditionTypeCNF>
+                <SPT>
+                    <ConditionNegated>0</ConditionNegated>
+                    <Group>0</Group>
+                    <Method>INVITE</Method>
+                </SPT>
+                <SPT>
+                    <ConditionNegated>1</ConditionNegated>
+                    <Group>0</Group>
+                    <SessionCase>4</SessionCase>
+                </SPT>
+            </TriggerPoint>
+            <ApplicationServer>
+                <ServerName>sips:<mcp-hostname>;transport=tcp;service=mcp</ServerName>
+                <DefaultHandling>0</DefaultHandling>
+            </ApplicationServer>
+            <ProfilePartIndicator>0</ProfilePartIndicator>
+        </InitialFilterCriteria>
+        ```
 1. Configure your routers and peering connection to ensure all traffic to Azure Communications Gateway is through Azure Internet Peering for Communications Services (also known as MAPS for Voice).
 1. Enable Bidirectional Forwarding Detection (BFD) on your on-premises edge routers to speed up link failure detection.
     - The interval must be 150 ms (or 300 ms if you can't use 150 ms).
@@ -57,7 +86,7 @@ Your onboarding team must register the test enterprise tenant that you chose in 
 
 ## 3. Assign numbers to test users in your tenant
 
-1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name has the suffix `azcog`. This Calling Profile has been created for you during the Azure Communications Gateway deployment process.
+1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `commsgw`. This Calling Profile has been created for you during the Azure Communications Gateway deployment process.
 1. In your test tenant, request service from your company.
     1. Sign in to the [Teams Admin Center](https://admin.teams.microsoft.com/) for your test tenant.
     1. Select **Voice** > **Operators**.

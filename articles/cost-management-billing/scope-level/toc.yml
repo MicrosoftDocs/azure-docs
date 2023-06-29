@@ -13,6 +13,8 @@
 - name: Concepts
   expanded: false
   items:
+  - name: SQL IaaS extension registration options
+    href: sql-iaas-extension-registration.md
   - name: How Azure applies centrally assigned licenses
     href: manage-licenses-centrally.md
   - name: SQL Server HADR vs Azure Hybrid Benefit

@@ -11,7 +11,7 @@ ms.date: 09/02/2022
 ms.author: pauljewell
 ms.reviewer: artek
 ms.devlang: csharp, javascript, python
-ms.custom: "mvc, devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: mvc, devx-track-csharp
 ms.subservice: blobs
 #Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
 ---

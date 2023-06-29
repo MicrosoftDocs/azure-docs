@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
 ms.custom: cogserv-non-critical-speech
@@ -37,7 +37,7 @@ To set up the client, checkout [Windows Voice Assistant Client](https://github.c
 > [!div class="mx-imgBorder"]
 > ![WVAC Create profile](media/custom-commands/conversation.png)
 
-## Test programatically with the Cognitive Services Voice Assistant Test Tool
+## Test programatically with the Voice Assistant Test Tool
 
 The Voice Assistant Test Tool is a configurable .NET Core C# console application for end-to-end functional regression tests for your Microsoft Voice Assistant. 
 

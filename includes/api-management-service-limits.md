@@ -5,10 +5,9 @@ description: Include file
 services: api-management
 author: dlepow
 
-ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 04/20/2023
+ms.date: 06/27/2023
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -30,6 +29,7 @@ ms.custom: Include file
 | Maximum total request duration<sup>8</sup> | 30 seconds |
 | Maximum request payload size<sup>8</sup> | 1 GiB |
 | Maximum buffered payload size<sup>8</sup> | 2 MiB |
+| Maximum request/response payload size in diagnostic logs | 8,192 bytes |
 | Maximum request URL size<sup>9</sup> | 16,384 bytes |
 | Maximum length of URL path segment<sup>10</sup> | 1,024 characters |
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |

@@ -30,7 +30,7 @@ You can also export monitoring data from Azure Monitor into other systems so you
   - Integrate with other third-party and open-source monitoring and visualization tools
   - Integrate with ticketing and other ITSM systems
 
-## Monitoring and observability
+## Monitoring, observability, and artificial intelligence for IT operations
 
 Observability is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
 
@@ -41,11 +41,13 @@ The pillars of observability are the different kinds of data that a monitoring t
 When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding.
 Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
 
+Artificial Intelligence for IT Operations (AIOps) improves service quality and reliability by using machine learning to process and automatically act on data you collect in Azure Monitor. [Azure Monitor AIOps and machine learning capabilities](./logs/aiops-machine-learning.md) let you detect, diagnose, predict, and respond to potential issues in your IT environment using advanced analytics.
+
 ## High level architecture
 
 The following diagram gives a high-level view of Azure Monitor. 
 
-:::image type="content" source="media/overview/overview_2023_02.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview_2023_02.png":::
+:::image type="content" source="media/overview/overview-2023-06.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-2023-06.png":::
 
 The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
@@ -107,7 +109,7 @@ Click on the picture to see a larger version of the data collection diagram in c
 
 |Collection method|Description  |
 |---------|---------|
-|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
+|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Autoinstrumentation (agent)](app/codeless-overview.md#what-is-autoinstrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. For more information, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
 |[Agents](agents/agents-overview.md)|Agents can collect monitoring data from the guest operating system of Azure and hybrid virtual machines.|
 |[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
 |Internal| Data is automatically sent to a destination without user configuration.  |

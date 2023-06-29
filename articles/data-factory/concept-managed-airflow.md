@@ -23,7 +23,7 @@ ms.custom: references_regions
 Azure Data Factory offers serverless pipelines for data process orchestration, data movement with 100+ managed connectors, and visual transformations with the mapping data flow.
 
 Azure Data Factory's Managed Airflow service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org) environments, enabling you to run data pipelines at scale with ease. 
-[Apache Airflow](https://airflow.apache.org) is an open-source platform used to programmatically create, schedule, and monitor complex data workflows. It allows you to define a set of tasks, called operators, that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. Airflow enables you to execute these DAGs on a schedule or in response to an event, monitor the progress of workflows, and provide visibility into the state of each task. It is widely used in data engineering and data science to orchestrate data pipelines, and is known for its flexibility, extensibility, and ease of use.
+[Apache Airflow](https://airflow.apache.org) is an open-source platform used to programmatically create, schedule, and monitor complex data workflows. It allows you to define a set of tasks, called operators, that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. Airflow enables you to execute these DAGs on a schedule or in response to an event, monitor the progress of workflows, and provide visibility into the state of each task. It's widely used in data engineering and data science to orchestrate data pipelines, and is known for its flexibility, extensibility, and ease of use.
 
 :::image type="content" source="media/concept-managed-airflow/data-integration.png" alt-text="Screenshot shows data integration.":::
 
@@ -80,16 +80,15 @@ You can install any provider package by editing the airflow environment from the
 
 ## Limitations
 
-* Managed Airflow in other regions will be available by GA (Tentative GA is Q2 2023 ).
+* Managed Airflow in other regions is available by GA.
 * Data Sources connecting through airflow should be publicly accessible. 
-* Blob Storage behind VNet are not supported during the public preview (Tentative GA is Q2 2023
+* Blob Storage behind VNet is not supported during the public preview.
 * DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
-* Azure Key Vault is not supported in LinkedServices to import dags.(Tentative GA is Q2 2023)
+* Azure Key Vault isn't supported in LinkedServices to import dags.
 * Airflow supports officially Blob Storage and ADLS with some limitations.
 
 ## Next steps
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)
 - [How to change the password for Managed Airflow environments](password-change-airflow.md)

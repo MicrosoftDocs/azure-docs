@@ -22,9 +22,9 @@ You can also browse available images and offers using the [Azure Marketplace](ht
 
 A Marketplace image in Azure has the following attributes:
 
-* **Publisher**: The organization that created the image. Examples: Canonical, RedHat, SUSE
-* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, RHEL, sles-12-sp5
-* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 7_9,  gen2
+* **Publisher**: The organization that created the image. Examples: Canonical, RedHat, SUSE.
+* **Offer**: The name of a group of related images created by a publisher. Examples: 0001-com-ubuntu-server-jammy, RHEL, sles-15-sp3.
+* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 22_04-lts-gen2, 8-lvm-gen2,  gen2.
 * **Version**: The version number of an image SKU. 
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image.
@@ -41,20 +41,40 @@ You can run the [az vm image list --all](/cli/azure/vm/image) to see all of the 
 az vm image list --output table
 ```
 
-The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *UbuntuLTS*.
+The output includes the image URN. You can also use the *UrnAlias*, which is a shortened version created for popular images like *Ubuntu2204*.
+The Linux image alias names and their details outputted by this command are:
 
 ```output
 Architecture    Offer                         Publisher               Sku                                 Urn                                                                             UrnAlias                 Version
 --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
 x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                     CentOS                   latest
+x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                                CentOS85Gen2             latest
 x64             debian-10                     Debian                  10                                  Debian:debian-10:10:latest                                                      Debian                   latest
+x64             Debian11                      Debian                  11-backports-gen2                   Debian:debian-11:11-backports-gen2:latest                                       Debian-11                latest
 x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                              Flatcar                  latest
+x64             flatcar-container-linux-free  kinvolk                 stable-gen2                         kinvolk:flatcar-container-linux-free:stable-gen2:latest                         FlatcarLinuxFreeGen2     latest
 x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                             openSUSE-Leap            latest
+x64             opensuse-leap-15-4            SUSE                    gen2                                SUSE:opensuse-leap-15-4:gen2:latest                                             OpenSuseLeap154Gen2      latest
 x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                        RHEL                     latest
+x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                   RHELRaw8LVMGen2          latest
 x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
 x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
-[...]
+x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest                    Ubuntu2204               latest
 ```
+
+The Windows image alias names and their details outputted by this command are:
+
+```output
+Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Alias                    Version
+--------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ -----------------------  ---------
+x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                    Win2022Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest Win2022AzureEditionCore   latest
+x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                    Win2019Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                    Win2016Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                 Win2012R2Datacenter       latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                    Win2012Datacenter         latest
+```
+
 
 ## Find specific images
 

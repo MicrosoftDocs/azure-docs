@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 # Compose custom models
@@ -102,7 +101,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Form Recognizer Studio: labeling as tables](../quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables)
+See [Form Recognizer Studio: labeling as tables](../quickstarts/try-form-recognizer-studio.md#labeling-as-tables)
 
 ### [REST API](#tab/rest)
 
@@ -116,7 +115,7 @@ Once you have your label files, you can include them with by calling the trainin
 
 ### [Client libraries](#tab/sdks)
 
-Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. Once you've them, you can call the training method with the *useTrainingLabels* parameter set to `true`.
+Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. Once you have them, you can call the training method with the *useTrainingLabels* parameter set to `true`.
 
 |Language |Method|
 |--|--|
@@ -254,7 +253,7 @@ Great! You've learned the steps to create custom and composed models and use the
 Try one of our Form Recognizer quickstarts:
 
 > [!div class="nextstepaction"]
-> [Form Recognizer Studio](../quickstarts/try-v3-form-recognizer-studio.md)
+> [Form Recognizer Studio](../quickstarts/try-form-recognizer-studio.md)
 
 > [!div class="nextstepaction"]
 > [REST API](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

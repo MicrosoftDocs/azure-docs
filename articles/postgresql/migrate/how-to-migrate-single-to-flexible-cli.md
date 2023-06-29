@@ -31,16 +31,19 @@ In this tutorial, you learn about:
 
 To complete this tutorial, you need to:
 
-* Use an existing instance of Azure Database for PostgreSQL – Single Server (the source server)
-* All extensions used on the Single Server (source) must be [allow-listed on the Flexible Server (target)](./concepts-single-to-flexible.md#allow-list-required-extensions)
+1. Use an existing instance of Azure Database for PostgreSQL – Single Server (the source server)
+2. All extensions used on the Single Server (source) must be [allow-listed on the Flexible Server (target)](./concepts-single-to-flexible.md#allow-list-required-extensions)
 
 >[!NOTE]
 > If TIMESCALEDB, PG_PARTMAN, POSTGRES_FDW or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
+3. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../flexible-server/quickstart-create-server-cli.md)
+
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable instance of Flexible server is not supported. Please use a general purpose or a memory optimized instance (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale back to a burstable instance if necessary.
 
-* Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../flexible-server/quickstart-create-server-cli.md)
+4. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it is skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+
 
 ## Getting started
 
@@ -93,6 +96,7 @@ az postgres flexible-server migration create [--subscription]
                                             [--resource-group]
                                             [--name] 
                                             [--migration-name] 
+                                            [--migration-mode]
                                             [--properties]
 ```
 
@@ -102,12 +106,13 @@ az postgres flexible-server migration create [--subscription]
 |`resource-group` | Resource group of the Flexible Server target. |
 |`name` | Name of the Flexible Server target. |
 |`migration-name` | Unique identifier to migrations attempted to Flexible Server. This field accepts only alphanumeric characters and does not accept any special characters, except a hyphen (`-`). The name can't start with `-`, and no two migrations to a Flexible Server target can have the same name. |
+|`migration-mode` | This is an optional parameter. Default value: Offline. Offline migration involves copying of your source databases at a point in time, to your target server. |
 |`properties` | Absolute path to a JSON file that has the information about the Single Server source. |
 
 For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
+az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode offline
 ```
 
 The `migration-name` argument used in the `create` command will be used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it uniquely identifies the migration attempt in the corresponding actions.
@@ -119,22 +124,22 @@ The structure of the JSON is:
 ```bash
 {
 "properties": {
- "SourceDBServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
+ "sourceDbServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
 
-"SecretParameters": {
-    "AdminCredentials": 
+"secretParameters": {
+    "adminCredentials": 
     {
-  "SourceServerPassword": "<password>",
-  "TargetServerPassword": "<password>"
+  "sourceServerPassword": "<password>",
+  "targetServerPassword": "<password>"
     }
 },
 
-"DBsToMigrate": 
+"dbsToMigrate": 
    [
    "<db1>","<db2>"
    ],
 
-"OverwriteDBsInTarget":"true"
+"overwriteDbsInTarget":"true"
 
 }
 
@@ -146,10 +151,10 @@ The `create` parameters that go into the json file format are as shown below:
 
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
-| `SourceDBServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
-| `SecretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
-| `DBsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
-| `OverwriteDBsinTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
+| `sourceDbServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
+| `secretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
+| `dbsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
+| `overwriteDbsInTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
 | `SetupLogicalReplicationOnSourceDBIfNeeded` | Optional | You can enable logical replication on the source server automatically by setting this property to `true`. This change in the server settings requires a server restart with a downtime of two to three minutes. |
 | `SourceDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution for a virtual network. Provide the FQDN of the Single Server source according to the custom DNS server for this property. |
 | `TargetDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution inside a virtual network. Provide the FQDN of the Flexible Server target according to the custom DNS server. <br> `SourceDBServerFullyQualifiedDomainName` and `TargetDBServerFullyQualifiedDomainName` are included as a part of the JSON only in the rare scenario that a custom DNS server is used for name resolution instead of Azure-provided DNS. Otherwise, don't include these parameters as a part of the JSON file. |

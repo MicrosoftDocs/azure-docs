@@ -135,9 +135,9 @@ The following table lists the supported languages for print text by the most rec
 |Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
 |Khaling | `klr`|Zulu  | `zu` |
 
-### Print text in preview (API version 2022-06-30-preview)
+### Print text in preview (API version 2023-02-28-preview)
 
-Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
+Use the parameter `api-version=2023-02-28-preview` when using the REST API or the corresponding SDK to support these languages in your applications.
 
 |Language| Code (optional) |Language| Code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -179,18 +179,19 @@ Use the parameter `api-version=2022-06-30-preview` when using the REST API or th
 |Guarani| `gn`| Shambala  | `ksb`|
 |Gusii | `guz`|Shona | `sn`|
 |Greek | `el`|Siksika | `bla`|
-|Herero | `hz` |Soga | `xog`|
-|Hiligaynon | `hil` |Somali (Latin) | `so-latn` |
-|Iban | `iba`|Songhai | `son` |
-|Igbo  |`ig`|South Ndebele | `nr`|
-|Iloko | `ilo`|Southern Altai | `alt`|
-|Ingush |`inh`|Southern Sotho | `st` |
-|Jola-Fonyi  |`dyo`|Sundanese  | `su` |
-|Kabardian | `kbd` | Swati | `ss` |
-|Kalenjin | `kln` |Tabassaran| `tab` |
-|Kalmyk  | `xal` | Tachelhit| `shi` |
-|Kanuri | `kr`|Tahitian | `ty`|
-|Khakas   | `kjh` |Taita | `dav` |
+|Hebrew | `he` | Soga | `xog`|
+|Herero | `hz` |Somali (Latin) | `so-latn` |
+|Hiligaynon | `hil` |Songhai | `son` |
+|Iban | `iba`|South Ndebele | `nr`|
+|Igbo  |`ig`|Southern Altai | `alt`|
+|Iloko | `ilo`|Southern Sotho | `st` |
+|Ingush |`inh`|Sundanese  | `su` |
+|Jola-Fonyi  |`dyo`|Swati | `ss` |
+|Kabardian | `kbd` | Tabassaran| `tab` |
+|Kalenjin | `kln` |Tachelhit| `shi` |
+|Kalmyk  | `xal` | Tahitian | `ty`|
+|Kanuri | `kr`|Taita | `dav` |
+|Khakas   | `kjh` | Tamil | `ta`|
 |Kikuyu | `ki` | Tatar (Cyrillic)  | `tt-cyrl` |
 |Kildin Sami    | `sjd` | Teso | `teo` |
 |Kinyarwanda| `rw`| Thai | `th`|

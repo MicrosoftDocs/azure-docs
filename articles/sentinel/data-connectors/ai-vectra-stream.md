@@ -92,7 +92,7 @@ Install the Linux agent on sperate Linux instance.
 
 2. Configure the logs to be collected
 
-Follow the configuration steps below to get Vectra Stream metadata into Microsoft Sentinel. The Log Analytics agent is leveraged to send custom JSON into Azure Monitor, enabling the storage of the metadata into a custom table. For more information, refer to the [Azure Monitor Documentation](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-json).
+Follow the configuration steps below to get Vectra Stream metadata into Microsoft Sentinel. The Log Analytics agent is leveraged to send custom JSON into Azure Monitor, enabling the storage of the metadata into a custom table. For more information, refer to the [Azure Monitor Documentation](/azure/azure-monitor/agents/data-sources-json).
 1. Download config file for the log analytics agent: VectraStream.conf (located in the Connector folder within the Vectra solution: https://aka.ms/sentinel-aivectrastream-conf).
 2. Login to the server where you have installed Azure Log Analytics agent.
 3. Copy VectraStream.conf to the /etc/opt/microsoft/omsagent/**workspace_id**/conf/omsagent.d/ folder.

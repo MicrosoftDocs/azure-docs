@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/19/2022
+ ms.date: 05/02/2023
  ms.author: cherylmc
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?

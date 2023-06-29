@@ -39,7 +39,7 @@ The example assumes that you have one Data Lake Storage Gen2 account named `stor
 
 ![Screenshot of a Data Lake Storage Gen2 storage account.](./media/synapse-file-mount-api/gen2-storage-account.png)
 
-To mount the container called `mycontainer`, `mssparkutils` first needs to check whether you have the permission to access the container. Currently, Azure Synapse Analytics supports three authentication methods for the trigger mount operation: `linkedService`, `accountKey`, and `sastoken`. 
+To mount the container called `mycontainer`, `mssparkutils` first needs to check whether you have the permission to access the container. Currently, Azure Synapse Analytics supports three authentication methods for the trigger mount operation: `LinkedService`, `accountKey`, and `sastoken`. 
 
 ### Mount by using a linked service (recommended)
 
@@ -73,7 +73,7 @@ After you create linked service successfully, you can easily mount the container
 mssparkutils.fs.mount( 
     "abfss://mycontainer@<accountname>.dfs.core.windows.net", 
     "/test", 
-    {"linkedService":"mygen2account"} 
+    {"LinkedService":"mygen2account"} 
 ) 
 ``` 
 
@@ -220,7 +220,7 @@ If you mounted a Blob Storage account and want to access it by using `mssparkuti
     mssparkutils.fs.mount( 
         "wasbs://mycontainer@<blobStorageAccountName>.blob.core.windows.net", 
         "/test", 
-        Map("linkedService" -> "myblobstorageaccount") 
+        Map("LinkedService" -> "myblobstorageaccount") 
     ) 
     ``` 
 

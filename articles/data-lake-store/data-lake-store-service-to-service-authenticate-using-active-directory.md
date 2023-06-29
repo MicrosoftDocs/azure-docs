@@ -4,10 +4,10 @@ description: Learn how to achieve service-to-service authentication with Azure D
 
 author: normesta
 ms.service: data-lake-store
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: normesta
-
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
 > [!div class="op_single_selector"]
@@ -97,5 +97,3 @@ In this article, you created an Azure AD web application and gathered the inform
 * [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 * [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md)
 * [Service-to-service authentication with Data Lake Storage Gen1 using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
-
-

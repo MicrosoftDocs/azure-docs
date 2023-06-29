@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # User-defined functions (UDFs) in Azure Cosmos DB
@@ -24,7 +24,7 @@ Using UDFs, you can extend Azure Cosmos DB's query language. UDFs are a great wa
 
 However, we recommending avoiding UDFs when:
 
-- An equivalent [system function](system-functions.md) already exists in Azure Cosmos DB. System functions will always use fewer RU's than the equivalent UDF.
+- An equivalent [system function](system-functions.yml) already exists in Azure Cosmos DB. System functions will always use fewer RU's than the equivalent UDF.
 - The UDF is the only filter in the `WHERE` clause of your query. UDF's do not utilize the index so evaluating the UDF will require loading documents. Combining additional filter predicates that use the index, in combination with a UDF, in the `WHERE` clause will reduce the number of documents processed by the UDF.
 
 If you must use the same UDF multiple times in a query, you should reference the UDF in a [subquery](subquery.md#evaluate-once-and-reference-many-times), allowing you to use a JOIN expression to evaluate the UDF once but reference it many times.
@@ -142,5 +142,5 @@ As the preceding examples show, UDFs integrate the power of JavaScript language 
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](../../introduction.md)
-- [System functions](system-functions.md)
+- [System functions](system-functions.yml)
 - [Aggregates](aggregate-functions.md)

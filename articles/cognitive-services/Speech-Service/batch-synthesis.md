@@ -441,5 +441,5 @@ The response body will resemble the following JSON example:
 ## Next steps
 
 - [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
-- [Text-to-speech quickstart](get-started-text-to-speech.md)
+- [Text to speech quickstart](get-started-text-to-speech.md)
 - [Migrate to batch synthesis](migrate-to-batch-synthesis.md)

@@ -17,7 +17,7 @@ ms.custom: cogserv-non-critical-speech
 
 [!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
-Applications such as [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md). Devices connect to assistants with the Speech SDK's `DialogServiceConnector` object.
+Applications such as [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech to text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text to speech](text-to-speech.md). Devices connect to assistants with the Speech SDK's `DialogServiceConnector` object.
 
 Custom Commands makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
 
@@ -31,7 +31,7 @@ Good candidates for Custom Commands have a fixed vocabulary with well-defined se
 
 ## Getting started with Custom Commands
 
-Our goal with Custom Commands is to reduce your cognitive load to learn all the different technologies and focus building your voice commanding app. First step for using Custom Commands to <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">create an Azure Speech resource </a>. You can author your Custom Commands app on the Speech Studio and publish it, after which an on-device application can communicate with it using the Speech SDK.
+Our goal with Custom Commands is to reduce your cognitive load to learn all the different technologies and focus building your voice commanding app. First step for using Custom Commands to <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">create a Speech resource</a>. You can author your Custom Commands app on the Speech Studio and publish it, after which an on-device application can communicate with it using the Speech SDK.
 
 #### Authoring flow for Custom Commands
    ![Authoring flow for Custom Commands](media/voice-assistants/custom-commands-flow.png "The Custom Commands authoring flow")

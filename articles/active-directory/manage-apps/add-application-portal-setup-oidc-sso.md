@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 04/14/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Add an OpenID Connect-based single sign-on application
@@ -18,6 +19,8 @@ ms.reviewer: ergreenl
 Add an application that supports [OpenID Connect (OIDC)](../develop/active-directory-v2-protocols.md) based single sign-on (SSO) to your Azure Active Directory (Azure AD) tenant.
 
 It is recommended that you use a non-production environment to test the steps in this page.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

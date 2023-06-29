@@ -48,23 +48,23 @@ The customer-led trial is the experience that AppSource recommends as it offers 
 
 1.  A user finds your application in the AppSource web site, then selects **Free trial** option.
 
-    ![Shows Free trial for customer-led trial experience](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png)
+    ![Shows Free trial for customer-led trial experience](./media/devhowto-appsource-certified/customer-led-trial-step1.png)
 
 2.  AppSource redirects the user to a URL in your web site. Your web site starts the *single-sign-on* process automatically (on page load).
 
-    ![Shows how user is redirected to a URL in your web site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png)
+    ![Shows how user is redirected to a URL in your web site](./media/devhowto-appsource-certified/customer-led-trial-step2.png)
 
 3.  The user is redirected to the Microsoft sign-in page and the user provides credentials to sign in.
 
-    ![Shows the Microsoft sign-in page](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png)
+    ![Shows the Microsoft sign-in page](./media/devhowto-appsource-certified/customer-led-trial-step3.png)
 
 4. The user gives consent for your application.
 
-    ![Example: Consent page for an application](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png)
+    ![Example: Consent page for an application](./media/devhowto-appsource-certified/customer-led-trial-step4.png)
 
 5.  Sign-in completes and the user is redirected back to your web site.  The user starts the free trial.
 
-    ![Shows the experience the user sees when redirected back to your site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
+    ![Shows the experience the user sees when redirected back to your site](./media/devhowto-appsource-certified/customer-led-trial-step5.png)
 
 ### Contact me (partner-led trial experience)
 
@@ -72,27 +72,27 @@ You can use the partner trial experience when a manual or a long-term operation 
 
 1. A user finds your application in AppSource web site, then selects **Contact Me**.
 
-    ![Shows Contact me for partner-led trial experience](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png)
+    ![Shows Contact me for partner-led trial experience](./media/devhowto-appsource-certified/partner-led-trial-step1.png)
 
 2. The user fills out a form with contact information.
 
-    ![Shows an example form with contact info](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png)
+    ![Shows an example form with contact info](./media/devhowto-appsource-certified/partner-led-trial-step2.png)
 
 3. You receive the user's information, set up a trial instance, and send the hyperlink to access your application to the user.
 
-    ![Shows placeholder for user information](./media/active-directory-devhowto-appsource-certified/usercontact.png)
+    ![Shows placeholder for user information](./media/devhowto-appsource-certified/usercontact.png)
 
 4. The user accesses your application and completes the single sign-on process.
 
-    ![Shows the application sign-in screen](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png)
+    ![Shows the application sign-in screen](./media/devhowto-appsource-certified/partner-led-trial-step3.png)
 
 5. The user gives consent for your application.
 
-    ![Shows an example consent page for an application](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png)
+    ![Shows an example consent page for an application](./media/devhowto-appsource-certified/partner-led-trial-step4.png)
 
 6. Sign-in completes and the user is redirected back to your web site. The user starts the free trial.
 
-    ![Shows the experience the user sees when redirected back to your site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
+    ![Shows the experience the user sees when redirected back to your site](./media/devhowto-appsource-certified/customer-led-trial-step5.png)
 
 ### More information
 

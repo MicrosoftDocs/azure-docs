@@ -2,12 +2,12 @@
 title: Cancel your Azure subscription
 description: Describes how to cancel your Azure subscription, like the Free Trial subscription
 author: bandersmsft
-ms.reviewer: amberb
+ms.reviewer: sgautam
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 06/19/2023
 ms.author: banders
 ---
 
@@ -30,6 +30,8 @@ Although not required, Microsoft *recommends* that you take the following action
 
 If you cancel an Azure Support plan, you're billed for the rest of the month. Cancelling a support plan doesn't result in a prorated refund. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
 
+Instead of canceling a subscription, you can remove all of its resources to [prevent unwanted charges](#prevent-unwanted-charges).
+
 ## Who can cancel a subscription?
 
 The following table describes the permission required to cancel a subscription.
@@ -38,7 +40,7 @@ The following table describes the permission required to cancel a subscription.
 |---------|---------|
 |Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Service administrator and subscription owner  |
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Service administrator and subscription owner       |
-|[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Owners of the subscription      |
+|[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Subscription owners      |
 
 An account administrator without the service administrator or subscription owner role can’t cancel an Azure subscription. However, an account administrator can make themself the service administrator and then they can cancel a subscription. For more information, see [Change the Service Administrator](../../role-based-access-control/classic-administrators.md#change-the-service-administrator).
 
@@ -49,8 +51,6 @@ Depending on your environment, the cancel subscription experience allows you to 
 If you have a support plan associated with the subscription, it's shown in the cancellation process. Otherwise, it isn't shown.
 
 If you have any Azure resources associated with the subscription, they're shown in the cancellation process. Otherwise, they're not shown.
-
-A billing account owner uses the following steps to cancel a subscription.
 
 A subscription owner can navigate in the Azure portal to **Subscriptions** and then start at step 3.
 
@@ -108,7 +108,15 @@ Depending on your subscription type, you may not be able to delete a subscriptio
 > - The subscription is automatically deleted 90 days after you cancel a subscription.
 > - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
 
+## Prevent unwanted charges
 
+To prevent unwanted charges on a subscription, you can go to **Resources** menu for the subscription and select the resources that you want to delete. If don't want to have any charges for the subscription, select all of the subscription resources and then **Delete** them. The subscription essentially becomes an empty container with no charges.
+
+:::image type="content" source="./media/cancel-azure-subscription/delete-resources.png" alt-text="Screenshot showing delete resources." lightbox="./media/cancel-azure-subscription/delete-resources.png" :::
+
+If you have a support plan, you might continue to get charged for it. To delete a support a plan, navigate to **Cost Management + Billing** and select **Recurring charges**. Select the support plan and turn off autorenewal.
+
+:::image type="content" source="./media/cancel-azure-subscription/change-renewal-settings.png" alt-text="Screenshot showing Change renewal settings." lightbox="./media/cancel-azure-subscription/change-renewal-settings.png" :::
 
 ## Reactivate a subscription
 

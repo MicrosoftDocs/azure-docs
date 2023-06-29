@@ -1,25 +1,25 @@
 ---
 title: Create and manage intra-account container copy jobs in Azure Cosmos DB
 description: Learn how to create, monitor, and manage container copy jobs within an Azure Cosmos DB account using CLI commands.
-author: nayakshweta
+author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022, devx-track-azurecli, build-2023
 ms.topic: how-to
 ms.date: 08/01/2022
-ms.author: shwetn
+ms.author: sidandrews
 ms.reviewer: sidandrews
 ---
 
 # Create and manage intra-account container copy jobs in Azure Cosmos DB (Preview)
-[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
+[!INCLUDE[NoSQL, Cassandra, MongoDB](includes/appliesto-nosql-mongodb-cassandra.md)]
 
 [Container copy jobs](intra-account-container-copy.md) help create offline copies of containers within an Azure Cosmos DB account.
 
-This article describes how to create, monitor, and manage intra-account container copy jobs using Azure PowerShell or CLI commands.
+This article describes how to create, monitor, and manage intra-account container copy jobs using Azure CLI commands.
 
 ## Prerequisites
 
-* You may use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps-msi) downloaded and installed on your machine.
+* You may use the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) to run container copy commands. Alternately, you may run the commands locally; make sure you have [Azure CLI](/cli/azure/install-azure-cli) downloaded and installed on your machine.
 * Currently, container copy is only supported in [these regions](intra-account-container-copy.md#supported-regions). Make sure your account's write region belongs to this list.
 
 
@@ -27,7 +27,7 @@ This article describes how to create, monitor, and manage intra-account containe
 
 This extension contains the container copy commands.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az extension add --name cosmosdb-preview
 ```
 
@@ -35,7 +35,7 @@ az extension add --name cosmosdb-preview
 
 First, set all of the variables that each individual script uses.
 
-```azurepowershell-interactive
+```azurecli-interactive
 $resourceGroup = "<resource-group-name>"
 $accountName = "<cosmos-account-name>"
 $jobName = ""
@@ -49,7 +49,7 @@ $destinationContainer = ""
 
 Create a job to copy a container within an Azure Cosmos DB API for NoSQL account:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az cosmosdb dts copy `
     --resource-group $resourceGroup `
     --account-name $accountName `
@@ -62,7 +62,7 @@ az cosmosdb dts copy `
 
 Create a job to copy a container within an Azure Cosmos DB API for Cassandra account:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az cosmosdb dts copy `
     --resource-group $resourceGroup `
     --account-name $accountName `
@@ -70,13 +70,28 @@ az cosmosdb dts copy `
     --source-cassandra-table keyspace=$sourceKeySpace table=$sourceTable `
     --dest-cassandra-table keyspace=$destinationKeySpace table=$destinationTable
 ```
-**Note**: *'--job-name'* should be unique for each job within an account.
+
+## Create intra-account container copy job for API for MongoDB account
+
+Create a job to copy a container within an Azure Cosmos DB API for MongoDB account:
+
+```azurecli-interactive
+az cosmosdb dts copy `
+    --resource-group $resourceGroup `
+    --account-name $accountName `
+    --job-name $jobName `
+    --source-mongo database=$sourceDatabase collection=$sourceCollection `
+    --dest-mongo database=$destinationDatabase collection=$destinationCollection
+```
+
+> [!NOTE]
+> `--job-name` should be unique for each job within an account.
 
 ## Monitor the progress of a container copy job
 
 View the progress and status of a copy job:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az cosmosdb dts show `
     --resource-group $resourceGroup `
     --account-name $accountName `
@@ -87,7 +102,7 @@ az cosmosdb dts show `
 
 To list all the container copy jobs created in an account:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az cosmosdb dts list `
     --resource-group $resourceGroup `
     --account-name $accountName
@@ -97,7 +112,7 @@ az cosmosdb dts list `
 
 In order to pause an ongoing container copy job, you may use the command:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az cosmosdb dts pause `
     --resource-group $resourceGroup `
     --account-name $accountName `
@@ -108,7 +123,7 @@ az cosmosdb dts pause `
 
 In order to resume an ongoing container copy job, you may use the command:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az cosmosdb dts resume `
     --resource-group $resourceGroup `
     --account-name $accountName `

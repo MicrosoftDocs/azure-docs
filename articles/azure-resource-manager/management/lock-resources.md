@@ -3,7 +3,7 @@ title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
 ms.date: 04/06/2023
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ai-gen-docs
 ---
 
 # Lock your resources to protect your infrastructure
@@ -76,6 +76,8 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting a virtual machine. These operations require a POST method request.
 
 - A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST method request.
+
+- A cannot-delete lock on a **resource** or **resource group** prevents the deletion of Azure RBAC assignments.
 
 - A cannot-delete lock on a **resource group** prevents Azure Resource Manager from [automatically deleting deployments](../templates/deployment-history-deletions.md) in the history. If you reach 800 deployments in the history, your deployments fail.
 

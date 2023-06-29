@@ -158,8 +158,8 @@ The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose 
 
 You can also specify an existing log analytics workspace by adding this setting to the configuration section of properties below:
 * "LogAnalytics/Workspace": "/subscriptions/**subscriptionId**/resourceGroups/**resourceGroupName**/providers/Microsoft.OperationalInsights/workspaces/**workspaceName**"
-* "LogAnalytics/Behavior": false
-Specify your existing workspace in the `LogAnalytics/Workspace` line. Set the `LogAnalytics/Behavior` setting to true if you would like this log analytics workspace to be used in all cases. This means that any machine with this custom profile will use this workspace, even it is already connected to one. By default, the `LogAnalytics/Behavior` is set to false. If your machine is already connected to a workspace, then that workspace will continue to be used. If it's not connected to a workspace, then the workspace specified in `LogAnalytics\Workspace` will be used.
+* "LogAnalytics/Reprovision": false
+Specify your existing workspace in the `LogAnalytics/Workspace` line. Set the `LogAnalytics/Reprovision` setting to true if you would like this log analytics workspace to be used in all cases. This means that any machine with this custom profile will use this workspace, even it is already connected to one. By default, the `LogAnalytics/Reprovision` is set to false. If your machine is already connected to a workspace, then that workspace will continue to be used. If it's not connected to a workspace, then the workspace specified in `LogAnalytics\Workspace` will be used.
 
 Also, you can add tags to resources specified in the custom profile like below:
 

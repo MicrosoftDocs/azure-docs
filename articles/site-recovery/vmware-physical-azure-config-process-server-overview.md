@@ -27,6 +27,9 @@ For disaster recovery of on-premises VMware VMs and physical servers, deploy an 
 **Physical server requirements** | For disaster recovery on on-premises physical servers, you deploy the configuration server manually. | [Learn about](physical-azure-set-up-source.md#prerequisites) the prerequisites.
 **Physical server deployment** | If it can't be installed as a VMware VM, you can install it on a physical server. | [Deploy](physical-azure-set-up-source.md#set-up-the-source-environment) the configuration server manually.
 
+> [!NOTE]
+> Configuration server can be setup to run in Azure, but only if Express Route is being used to connect to the on-premises environment. 
+
 ## Process server
 
 A process server handles replication data during failover and failback, and installs the Mobility service for on-premises VMware VMs and physical servers.

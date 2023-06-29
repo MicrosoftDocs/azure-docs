@@ -6,7 +6,7 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: quickstart
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.date: 02/16/2023
 ---
 # Quickstart: Share and receive Azure Storage data in-place with Microsoft Purview Data Sharing (preview)

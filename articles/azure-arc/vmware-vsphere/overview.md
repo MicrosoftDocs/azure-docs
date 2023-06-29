@@ -64,6 +64,6 @@ Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the
 
 ## Next steps
 
-- [Connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md)
-
-- [Support matrix for Arc enabled VMware vSphere](support-matrix-for-arc-enabled-vmware-vsphere.md)
+- [Connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md).
+- View the [support matrix for Arc-enabled VMware vSphere](support-matrix-for-arc-enabled-vmware-vsphere.md).
+- Try out Arc-enabled VMware vSphere by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_vsphere/).

@@ -81,5 +81,3 @@ If you're not going to continue to use this application, delete the associate qu
 ## Next steps
 
 Advance to the next article to learn how to customize your FAQ bot with multi-turn prompts.
-> [!div class="nextstepaction"]
-> [Multi-turn prompts](guided-conversations.md)

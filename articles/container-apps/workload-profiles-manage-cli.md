@@ -4,6 +4,7 @@ description: Learn to create an environment with a specialized hardware profile.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic:  how-to
 ms.date: 04/11/2023
 ms.author: cshoe

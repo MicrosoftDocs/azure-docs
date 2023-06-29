@@ -21,13 +21,17 @@ To enable nested virtualization on the template VM, you first connect to the VM 
 - [Enable nested virtualization by using a script](#enable-nested-virtualization-by-using-a-script).
 - [Enable nested virtualization by using Windows tools](#enable-nested-virtualization-by-using-windows-tools).
 
+> [!NOTE]
+> Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
+
 >[!IMPORTANT]
 >Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab. Nested virtualization will not work otherwise.
 
 ## Prerequisites
 
-- A lab plan and one or more labs. Learn how to [Set up a lab plan](quick-create-resources.md) and [Set up a lab](tutorial-setup-lab.md).
-- Permission to edit the lab. Learn how to [Add a user to the Lab Creator role](quick-create-resources.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services built-in roles](administrator-guide.md#rbac-roles).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Enable nested virtualization by using a script
 

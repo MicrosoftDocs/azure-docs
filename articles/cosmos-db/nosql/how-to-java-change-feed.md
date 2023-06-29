@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # How to create a Java application that uses Azure Cosmos DB for NoSQL and change feed processor

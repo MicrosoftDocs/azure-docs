@@ -33,6 +33,7 @@ The following SDKs are supported for this feature, along with all their supporte
 * Phone Numbers
 * Management
 * Network Traversal
+* Call Automation
 
 ## Next steps
 

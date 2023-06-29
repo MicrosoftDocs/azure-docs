@@ -45,7 +45,7 @@ sections:
         answer: |
           Currently, after the Synapse Link capability is enabled at the account level, you can't disable it. There are no billing implications if the Synapse Link capability is enabled at the account level and there's no analytical store enabled containers.
           
-          If you need to turn off the capability, you have two options. The first one is to delete and re-create a new Azure Cosmos DB account, migrating the data if necessary. The second option is to open a support ticket, to get help on a data migration to another account.
+          If you need to turn off the capability, delete and re-create a new Azure Cosmos DB account, migrating the data if necessary.
           
       - question: |
           Does analytical store have any impact on Azure Cosmos DB transactional SLAs?
@@ -53,7 +53,7 @@ sections:
           No, there's no impact.
 
       - question: |
-          Can I enable4 Synapse Link in Azure Cosmos DB serverless accounts?
+          Can I enable Synapse Link in Azure Cosmos DB serverless accounts?
         answer: |
           Yes, for both the APIs for MongoDB and NoSQLs database accounts. Use CLI or PowerShell for MongoDB accounts.
           

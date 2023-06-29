@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: article
 ms.date: 01/17/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Control egress traffic for an Azure Spring Apps instance
@@ -164,7 +164,7 @@ FWPUBLIC_IP=$(az network public-ip show \
 FWPRIVATE_IP=$(az network firewall show \
     --resource-group $RG \
     --name $FWNAME \
-    --query "ipConfigurations[0].privateIpAddress" \
+    --query "ipConfigurations[0].privateIPAddress" \
     --output tsv | tr -d '[:space:]')
 ```
 

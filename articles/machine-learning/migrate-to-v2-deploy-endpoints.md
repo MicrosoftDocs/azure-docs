@@ -139,7 +139,7 @@ For more information on registering models, see [Register a model from a local f
         ml_client.begin_create_or_update(endpoint)
         ```
 
-For more information on concepts for endpoints and deployments, see [What are online endpoints?](concept-endpoints.md#what-are-online-endpoints)
+For more information on concepts for endpoints and deployments, see [What are online endpoints?](concept-endpoints-online.md)
 
 
 ## Submit a request

@@ -4,6 +4,7 @@ description: Learn to use temporary and permanent storage mounts in Azure Contai
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 02/21/2023
 ms.author: cshoe

@@ -8,8 +8,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 09/29/2022
 ms.subservice: blobs
-ms.custom: devx-track-js
-
+ms.custom:
 ---
 
 # Static website hosting in Azure Storage
@@ -146,5 +145,5 @@ In the Azure portal, open the static website configuration page of your account 
 - [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 - [Azure Functions](../../azure-functions/functions-overview.md)
 - [Azure App Service](../../app-service/overview.md)
-- [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [Build your first serverless web app](/labs/build2018/serverlesswebapp/)
 - [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

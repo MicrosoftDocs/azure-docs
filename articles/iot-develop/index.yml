@@ -25,7 +25,7 @@ landingContent:
           url: about-getting-started-device-development.md
         - text: Overview of Azure IoT Device SDKs
           url: about-iot-sdks.md
-  - title: Get started with device application development
+  - title: Get started with general device development
     linkLists:
     - linkListType: quickstart
       links:
@@ -37,18 +37,20 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect a Microchip ATSAME54-XPro to IoT Hub
-          url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
         - text: Connect an STMicroelectronics B-L475E-IOT01A to IoT Hub
           url: quickstart-devkit-stm-b-l475e-iot-hub.md
-        - text: Connect an STMicroelectronics L4S5I-IOT01A to IoT Hub
-          url: quickstart-devkit-stm-b-l4s5i-iot-hub.md
+        - text: Connect a Microchip ATSAME54-XPro to IoT Hub
+          url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
+        - text: Connect a Renesas RX65N Cloud Kit to IoT Hub
+          url: quickstart-devkit-renesas-rx65n-cloud-kit-iot-hub.md
         - text: Connect an NXP MIMXRT1060-EVK to IoT Hub
           url: quickstart-devkit-nxp-mimxrt1060-evk-iot-hub.md
   - title: Build device solutions
     linkLists:
     - linkListType: tutorial
       links:
+        - text: Use MQTT to connect without a device SDK
+          url: tutorial-use-mqtt.md
         - text: Connect a sample device to IoT Hub
           url: tutorial-connect-device.md
     - linkListType: concept

@@ -8,7 +8,7 @@ ms.service: iot-dps
 ms.topic: concept-article
 ms.date: 09/22/2021
 ms.author: kgremban
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) with shared access signatures and security tokens

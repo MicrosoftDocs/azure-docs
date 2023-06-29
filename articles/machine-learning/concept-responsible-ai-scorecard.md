@@ -10,7 +10,7 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
 ms.date: 11/09/2022
-ms.custom: responsible-ml
+ms.custom: responsible-ml, build-2023, build-2023-dataai
 ---
 
 # Share Responsible AI insights using the Responsible AI scorecard (preview)

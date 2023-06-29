@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 02/07/2023
 ms.author: normesta
 ms.reviewer: dineshm
-ms.custom: devx-track-python, py-fresh-zinc
+ms.custom: py-fresh-zinc
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
