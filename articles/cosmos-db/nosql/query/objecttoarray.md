@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # ObjectToArray (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Converts each field/value pair in a JSON object into an element and then returns the set of elements as a JSON array. By default, the array elements contain a new `k` field for the original field's name and a new `v` field for the original field's value. These new field names can be further customized.
 
 ## Syntax
