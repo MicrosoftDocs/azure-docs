@@ -37,7 +37,9 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
 
       To begin, install style-loader and css-loader:
 
-      `npm install --save-dev style-loader css-loader`
+      ```powershell
+      npm install --save-dev style-loader css-loader
+      ```
 
       Inside your source file, import atlas-drawing.min.css:
       ```js
