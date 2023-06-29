@@ -12,7 +12,7 @@ ms.date: 06/01/2023
 #  What is Azure for Large Instances?
 
 Microsoft Azure offers a cloud infrastructure with a wide range of integrated cloud services to meet your business needs. 
-In some cases, though, you may need to run services on Azure Large Instances without a virtualization layer. 
+In some cases, though, you may need to run services on Azure large servers without a virtualization layer. 
 You may need root access and control over the operating system (OS). To meet this need, Azure offers Azure Large Instances for several high-value, mission-critical applications. 
 
 Azure Large Instances (ALI) is made up of dedicated large instances (compute instances). It features: 
