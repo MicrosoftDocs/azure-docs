@@ -47,7 +47,7 @@ An important detail to understand is that even if you instruct a model in the sy
 
 A common way to adapt language models to new tasks is to use few-shot learning. In few-shot learning, a set of training examples is provided as part of the prompt to give additional context to the model.  
 
-When using the Chat Completions API, a series of messages between the User and Assistant (written in the [new prompt format](/azure/cognitive-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions#few-shot-learning-with-chat-completion)), can serve as examples for few-shot learning. These examples can be used to prime the model to respond in a certain way, emulate particular behaviors, and seed answers to common questions.
+When using the Chat Completions API, a series of messages between the User and Assistant (written in the [new prompt format](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions#few-shot-learning-with-chat-completion)), can serve as examples for few-shot learning. These examples can be used to prime the model to respond in a certain way, emulate particular behaviors, and seed answers to common questions.
 
 | System message |Few-shot examples |
 |----------------|------------------|

@@ -20,7 +20,7 @@ Azure OpenAI Service detects and mitigates instances of recurring content and/or
 
 There are several components to abuse monitoring:
 
-- **Content Classification**: Classifier models detect harmful language and/or images in user prompts (inputs) and completions (outputs). The system looks for categories of harms as defined in the [Content Requirements](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext), and assigns severity levels as described in more detail on the [Content Filtering page](/azure/cognitive-services/openai/concepts/content-filter).
+- **Content Classification**: Classifier models detect harmful language and/or images in user prompts (inputs) and completions (outputs). The system looks for categories of harms as defined in the [Content Requirements](/legal/cognitive-services/openai/code-of-conduct?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext), and assigns severity levels as described in more detail on the [Content Filtering page](/azure/ai-services/openai/concepts/content-filter).
 
 - **Abuse Pattern Capture**: Azure OpenAI Service’s abuse monitoring looks at customer usage patterns and employs algorithms and heuristics to detect indicators of potential abuse. Detected patterns consider, for example, the frequency and severity at which harmful content is detected in a customer’s prompts and completions.
 

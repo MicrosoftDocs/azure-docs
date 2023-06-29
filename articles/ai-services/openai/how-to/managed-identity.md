@@ -35,9 +35,9 @@ To sign-in to the Azure CLI, run the following command and complete the sign-in.
 az login
 ```
 
-## Assign yourself to the Cognitive Services User role
+## Assign yourself to the Azure AI services User role
 
-Assigning yourself to the Cognitive Services User role will allow you to use your account for access to the specific cognitive services resource
+Assigning yourself to the Azure AI services User role will allow you to use your account for access to the specific Azure AI services resource
 
 1. Get your user information
 
@@ -45,11 +45,11 @@ Assigning yourself to the Cognitive Services User role will allow you to use you
     export user=$(az account show -o json | jq -r .user.name)
     ```
 
-2. Assign yourself to “Cognitive Services User” role.
+2. Assign yourself to “Azure AI services User” role.
 
     ```azurecli
     export resourceId=$(az group show -g $myResourceGroupName -o json | jq -r .id)
-    az role assignment create --role "Cognitive Services User" --assignee $user --scope $resourceId
+    az role assignment create --role "Azure AI services User" --assignee $user --scope $resourceId
     ```
 
     > [!NOTE]
@@ -73,11 +73,11 @@ Use the access token to authorize your API call by setting the `Authorization` h
 
 ## Authorize access to managed identities
 
-OpenAI supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Cognitive Services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+OpenAI supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Azure AI services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
 ## Enable managed identities on a VM
 
-Before you can use managed identities for Azure resources to authorize access to Cognitive Services resources from your VM, you must enable managed identities for Azure resources on the VM. To learn how to enable managed identities for Azure Resources, see:
+Before you can use managed identities for Azure resources to authorize access to Azure AI services resources from your VM, you must enable managed identities for Azure resources on the VM. To learn how to enable managed identities for Azure Resources, see:
 
 - [Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)

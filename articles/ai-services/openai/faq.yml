@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Azure OpenAI Service frequently asked questions
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: Get answers to the most popular questions about Azure OpenAI Service
   services: cognitive-services
   manager: nitinme
@@ -13,7 +13,7 @@ metadata:
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
 summary: |
-  If you can't find answers to your questions in this document, and still need help check the [Cognitive Services support options guide](../cognitive-services-support-options.md?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext). Azure OpenAI is part of Azure Cognitive Services.
+  If you can't find answers to your questions in this document, and still need help check the [Azure AI services support options guide](../cognitive-services-support-options.md?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext). Azure OpenAI is part of Azure AI services.
 sections:
   - name: Data and Privacy
     questions:
@@ -36,7 +36,7 @@ sections:
       - question: |
           Does Azure OpenAI support VNETs and Private Endpoints?
         answer: | 
-          Yes, as part of Azure Cognitive Services, Azure OpenAI supports VNETs and Private Endpoints. To learn more consult the [Cognitive Services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/openai/context/context) 
+          Yes, as part of Azure AI services, Azure OpenAI supports VNETs and Private Endpoints. To learn more consult the [Azure AI services virtual networking guidance](../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context) 
       - question: |
           Do the GPT-4 models currently support image input?
         answer: | 
@@ -44,7 +44,7 @@ sections:
       - question: |
           How do I apply for new use cases?
         answer: |
-          Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure Cognitive Services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you did not originally apply for.
+          Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure AI services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you did not originally apply for.
       - question: |
           I am trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
         answer: | 
@@ -81,7 +81,7 @@ sections:
       - question: |
           Where do I go for Azure OpenAI customer support?
         answer: |  
-          Azure OpenAI is part of Azure Cognitive Services. You can learn about all the support options for Azure Cognitive Services in the [support and help options guide](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext).
+          Azure OpenAI is part of Azure AI services. You can learn about all the support options for Azure AI services in the [support and help options guide](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fopenai%2fcontext%2fcontext).
   - name: Models and fine-tuning
     questions:
       - question: |
@@ -103,15 +103,15 @@ sections:
       - question: |
           What are the SLAs for API responses in Azure OpenAI?
         answer:
-          We don't have a defined API response time Service Level Agreement (SLA) at this time. The overall SLA for Azure OpenAI Service is the same as for other Azure Cognitive Services. For more information, see the Cognitive Services section of the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
+          We don't have a defined API response time Service Level Agreement (SLA) at this time. The overall SLA for Azure OpenAI Service is the same as for other Azure AI services. For more information, see the Azure AI services section of the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
       - question: |
           Why was my fine-tuned model deployment deleted? 
         answer:
-          If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#deploy-a-customized-model).  
+          If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio#deploy-a-customized-model).  
       - question: |
           How do I deploy a model with the REST API? 
         answer:
-          There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Cognitive Services Create or Update REST API call](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP). 
+          There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Azure AI services Create or Update REST API call](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP). 
       - question: |
           Can I use quota to increase the max token limit of a model?
         answer:

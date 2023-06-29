@@ -156,7 +156,7 @@ public class GetChatCompletionsSample {
         chatMessages.add(new ChatMessage(ChatRole.SYSTEM).setContent("You are a helpful assistant."));
         chatMessages.add(new ChatMessage(ChatRole.USER).setContent("Does Azure OpenAI support customer managed keys?"));
         chatMessages.add(new ChatMessage(ChatRole.ASSISTANT).setContent("Yes, customer managed keys are supported by Azure OpenAI?"));
-        chatMessages.add(new ChatMessage(ChatRole.USER).setContent("Do other Azure Cognitive Services support this too?"));
+        chatMessages.add(new ChatMessage(ChatRole.USER).setContent("Do other Azure AI services support this too?"));
 
         ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, new ChatCompletionsOptions(chatMessages));
 
@@ -178,7 +178,7 @@ public class GetChatCompletionsSample {
 ```
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 From the top level quickstart directory where your `pom.xml` is located run:
 
@@ -198,7 +198,7 @@ mvn exec:java -Dexec.mainClass="com.azure.ai.openai.usage.GetChatCompletionsSamp
 Model ID=chatcmpl-7JYnyE4zpd5gaIfTRH7hNpeVsvAw4 is created at 1684896378.
 Index: 0, Chat Role: assistant.
 Message:
-Yes, most of the Azure Cognitive Services support customer managed keys. However, there may be some exceptions, so it is best to check the documentation of each specific service to confirm.
+Yes, most of the Azure AI services support customer managed keys. However, there may be some exceptions, so it is best to check the documentation of each specific service to confirm.
 
 Usage: number of prompt token is 59, number of completion token is 36, and number of total tokens in request and response is 95.
 ```
