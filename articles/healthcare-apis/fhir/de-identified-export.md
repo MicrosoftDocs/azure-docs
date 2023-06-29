@@ -56,7 +56,7 @@ You need to create a container for the de-identified export in your ADLS Gen2 ac
 
 ## Manage Configuration File in ACR
 
-It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](deploy-and-configure-convert-data.md#host-your-own-templates).  
+It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](configure-settings-convert-data.md#host-your-own-templates).  
 1. Push the configuration files to your Azure Container Registry.
 2. Enable Managed Identity on your FHIR service instance.
 3. Provide access of the ACR to the FHIR service Managed Identity.

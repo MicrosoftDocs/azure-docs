@@ -54,17 +54,17 @@ The outcome of FHIR conversion is a FHIR Bundle as a batch.
 
 ## Can I customize a default Liquid template? 
 
-Yes. You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. For more information about setting up custom templates, see [Deploy and configure the FHIR Converter](deploy-and-configure-convert-data.md).
+Yes. You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. For more information about setting up custom templates, see [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md).
 
 ## Once I customize a template, is it possible to reference and store various versions of the template?
 
-Yes. It’s possible to store and reference custom templates. See [Deploy and configure the FHIR Converter](deploy-and-configure-convert-data.md) for instructions to reference and store various versions of custom templates.
+Yes. It’s possible to store and reference custom templates. See [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md) for instructions to reference and store various versions of custom templates.
 
 ## If I need support in troubleshooting issues, where can I go?
 
 Depending on the version of converter you’re using, you can either:
 
-* Open a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) for the `$convert-data` operation version of the FHIR Converter.
+* Open a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) for the Azure Health Data Service FHIR service version of the `$convert-data` operation.
 
 * Leave a comment on the [GitHub repository](https://github.com/microsoft/FHIR-Converter/issues) for the open source version of the FHIR Converter.
 

@@ -156,7 +156,7 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](./deploy-and-configure-convert-data.md#step-6-configure-the-azure-container-registry-firewall-for-secure-access).
+> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](configure-settings-convert-data.md#step-6-configure-the-azure-container-registry-firewall-for-secure-access).
 
 ### Allowing specific IP addresses to access the Azure storage account in the same region
 
