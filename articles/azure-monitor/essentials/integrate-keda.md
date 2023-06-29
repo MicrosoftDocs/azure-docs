@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 05/31/2023
 --- 
 
@@ -252,5 +253,3 @@ kubectl logs -n keda keda-operator-5d9f7d975-mgv7r
 ```
 
 Ensure the identity has the `Monitoring Data Reader` role on the Azure Monitor workspace.
-
-

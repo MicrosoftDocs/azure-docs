@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
+ms.custom: developer, devx-track-dotnet
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample .NET MAUI desktop app to sign in and sign out users with the Azure AD for customers tenant
 ---
 

@@ -7,7 +7,7 @@ ms.service: nat-gateway
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: allensu
-ms.custom: subject-armqs, devx-track-arm-template
+ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 # Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ---
 

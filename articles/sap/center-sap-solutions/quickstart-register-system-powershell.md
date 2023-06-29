@@ -3,7 +3,7 @@ title: Quickstart - Register an existing system with Azure Center for SAP soluti
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: kanamudu

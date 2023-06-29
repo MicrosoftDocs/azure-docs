@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 05/15/2023
 ms.reviewer: sharrai
 ms.service: backup
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
 ---

@@ -3,7 +3,7 @@ title: Azure Data Explorer bindings for Azure Functions overview (preview)
 description: Learn how to use Azure Data Explorer bindings in Azure Functions.
 author: ramacg
 ms.topic: reference
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/04/2023
 ms.author: shsagir
 ms.reviewer: ramacg
