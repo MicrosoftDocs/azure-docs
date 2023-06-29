@@ -648,7 +648,15 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 You can set up other applications, such as RStudio, or Posit Workbench (formerly RStudio Workbench), when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
-* Studio
+# [Python SDK](#tab/python)
+
+Use either Studio or Studio (preview) to see how to set up applications.
+
+# [Azure CLI](#tab/azure-cli)
+
+USe either Studio or Studio (preview) to see how to set up applications.
+
+# [Studio](#tab/azure-studio)
 
   1. Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
   1. Select **Next: Advanced Settings**
@@ -656,7 +664,7 @@ You can set up other applications, such as RStudio, or Posit Workbench (formerly
 
   :::image type="content" source="media/how-to-create-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
 
-* Studio (preview)
+# [Studio (preview)](#tab/azure-studio-preview)
 
   1. Fill out the form to [create a new compute instance](?tabs=azure-studio-preview#create)
   1. Select **Applications**
