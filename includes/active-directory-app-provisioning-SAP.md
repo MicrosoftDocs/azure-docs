@@ -232,11 +232,9 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
  5. Enter the **Secret Token** value that you defined when you created the connector.
      >[!NOTE]
      >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
- 7. Select **Test Connection**, and wait one minute.
+ 1. Select **Test Connection**, and wait one minute.
 
-     ![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-sql\configure-5.png)
-
- 7. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
+ 1. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
 
      ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
 
