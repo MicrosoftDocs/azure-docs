@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
 ms.service: machine-learning
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.reviewer: ssalgado
 author: ManojBableshwar

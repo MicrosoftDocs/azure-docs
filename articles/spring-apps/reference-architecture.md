@@ -1,11 +1,11 @@
 ---
 ms.date: 05/31/2022
 ms.topic: reference-architecture
-author: karlerickson
+author: KarlErickson
 title: Azure Spring Apps reference architecture
 ms.author: akaleshian
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022, devx-track-java
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
 description: This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps.
 ---
 
