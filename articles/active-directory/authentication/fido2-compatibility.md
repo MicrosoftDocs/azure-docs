@@ -33,9 +33,9 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 | **iOS**  | ![Chrome supports USB on iOS for Azure AD accounts.][y] | ![Chrome supports NFC on iOS for Azure AD accounts.][y] | ![Chrome supports BLE on iOS for Azure AD accounts.][y] | ![Edge supports USB on iOS for Azure AD accounts.][n] | ![Edge supports NFC on Linux for Azure AD accounts.][n] | ![Edge supports BLE on Linux for Azure AD accounts.][n] | ![Firefox supports USB on Linux for Azure AD accounts.][n] | ![Firefox supports NFC on iOS for Azure AD accounts.][n] | ![Firefox supports BLE on iOS for Azure AD accounts.][n] | ![Safari supports USB on iOS for Azure AD accounts.][y] | ![Safari supports NFC on iOS for Azure AD accounts.][y] | ![Safari supports BLE on iOS for Azure AD accounts.][y] |
 | **Android**  | ![Chrome supports USB on Android for Azure AD accounts.][n] | ![Chrome supports NFC on Android for Azure AD accounts.][n] | ![Chrome supports BLE on Android for Azure AD accounts.][n] | ![Edge supports USB on Android for Azure AD accounts.][n] | ![Edge supports NFC on Android for Azure AD accounts.][n] | ![Edge supports BLE on Android for Azure AD accounts.][n] | ![Firefox supports USB on Android for Azure AD accounts.][n] | ![Firefox supports NFC on Android for Azure AD accounts.][n] | ![Firefox supports BLE on Android for Azure AD accounts.][n] | ![Safari supports USB on Android for Azure AD accounts.][n] | ![Safari supports NFC on Android for Azure AD accounts.][n] | ![Safari supports BLE on Android for Azure AD accounts.][n] |
 
-*Key registration is currently not supported with ChromeOS/Chrome Browser.
-*For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
-*Security key PIN for user verification isn't currently supported with Android.
+- Key registration is currently not supported with ChromeOS/Chrome Browser.
+- For iOS and macOS on Safari browser, PIN requests fail if the PIN isn't already set on the security key.
+- Security key PIN for user verification isn't currently supported with Android.
 
 >[!NOTE]
 >This is the view for web support. Authentication for native apps in iOS and Android are not available yet.
