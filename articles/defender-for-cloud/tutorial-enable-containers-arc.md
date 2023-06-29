@@ -34,11 +34,11 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - Validate the following endpoints are configured for outbound access so that the Defender extension can connect to Microsoft Defender for Cloud to send security data and events:
 
-| Domain                     | Port |
-| -------------------------- | ---- |
-| *.ods.opinsights.azure.com | 443  |
-| *.oms.opinsights.azure.com | 443  |
-| login.microsoftonline.com  | 443  |
+    | Domain                     | Port |
+    | -------------------------- | ---- |
+    | *.ods.opinsights.azure.com | 443  |
+    | *.oms.opinsights.azure.com | 443  |
+    | login.microsoftonline.com  | 443  |
 
 - [Connect the Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 
@@ -63,6 +63,8 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 1. On the Defender plans page, toggle the Containers plan to **On**.
 
     :::image type="content" source="media/tutorial-enable-containers-azure/containers-enabled-aks.png" alt-text="Screenshot of the Defender plans page that shows where to toggle the containers plan switch to on is located." lightbox="media/tutorial-enable-containers-azure/containers-enabled-aks.png":::
+
+1. Select **Save**.
 
 ## Deploy the Defender extension in Azure
 

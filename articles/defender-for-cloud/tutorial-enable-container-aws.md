@@ -32,11 +32,11 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - Validate the following domains only if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
 
-| Domain                     | Port | Host operating systems |
-| -------------------------- | ---- |--|
-| amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
-| yum default repositories | - | RHEL / Centos |
-| apt default repositories | - | Debian |
+    | Domain                     | Port | Host operating systems |
+    | -------------------------- | ---- |--|
+    | amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
+    | yum default repositories | - | RHEL / Centos |
+    | apt default repositories | - | Debian |
 
 - Ensure the following [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md) are validated.
 
@@ -66,6 +66,10 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
     > [!Note]
     > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
+1. Select **Next: Review and generate>**.
+
+1. Select **Update**.
 
 ## Deploy the Defender extension in Azure
 

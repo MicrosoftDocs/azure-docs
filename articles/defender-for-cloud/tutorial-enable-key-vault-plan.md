@@ -38,6 +38,8 @@ Microsoft Defender for Key Vault detects unusual and potentially harmful attempt
 
     :::image type="content" source="media/tutorial-enable-key-vault-plan/enable-key-vault.png" alt-text="Screenshot of the Defender for Cloud plans that shows where to enable the key vault plan toggle." lightbox="media/tutorial-enable-key-vault-plan/enable-key-vault.png":::
 
+1. Select **Save**.
+
 ## Clean up resources
 
 There's no need to clean up any resources for this tutorial.

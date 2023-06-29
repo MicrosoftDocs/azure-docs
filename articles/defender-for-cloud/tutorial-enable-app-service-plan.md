@@ -54,6 +54,8 @@ When you enable Defender for Cloud, you have the ability to add the Defender for
 
     :::image type="content" source="media/tutorial-enable-app-service-plan/enable-app-service.png" alt-text="Screenshot that shows where on the Defender plans page to toggle the app service plan switch to on." lightbox="media/tutorial-enable-app-service-plan/enable-app-service.png":::
 
+1. Select **Save**.
+
 ## Next steps
 
 [Overview of Defender for App Service to protect your Azure App Service web apps and APIs](defender-for-app-service-introduction.md)

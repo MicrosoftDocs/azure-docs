@@ -34,10 +34,14 @@ Learn more about the [Microsoft Defender for APIs](defender-for-apis-introductio
 ## Enable the Defender for APIs plan
 
 1. Sign into the [portal](https://portal.azure.com/), and in Defender for Cloud, select **Environment settings**.
+
 1. Select the subscription that contains the managed APIs that you want to protect.
+
 1. In the **APIs** plan, select **On**. Then select **Save**.
 
     :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Screenshot that shows how to turn on the Defender for APIs plan in the portal." lightbox="media/defender-for-apis-deploy/enable-plan.png":::
+
+1. Select **Save**.
 
 > [!NOTE]
 > After enabling Defender for APIs, onboarded APIs take up to 50 minutes to appear in the **Recommendations** tab. Security insights are available in the **Workload protections** > **API security** dashboard within 40 minutes of onboarding.

@@ -49,6 +49,8 @@ When you enable Defender for Cloud, you automatically receive the protections of
 
 1. On the Defender plans page, toggle the Defender CSPM plan to **On**.
 
+1. Select **Save**.
+
 ## Configure monitoring coverage
 
 Once the Defender CSPM plan is enabled on your subscription, you have the ability to disable the agentless scanner or add exclusion tags to your subscription.

@@ -32,11 +32,11 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - Validate the following domains only if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
 
-| Domain                     | Port | Host operating systems |
-| -------------------------- | ---- |--|
-| amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
-| yum default repositories | - | RHEL / Centos |
-| apt default repositories | - | Debian |
+    | Domain                     | Port | Host operating systems |
+    | -------------------------- | ---- |--|
+    | amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
+    | yum default repositories | - | RHEL / Centos |
+    | apt default repositories | - | Debian |
 
 - Ensure the following [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md) are validated.
 
@@ -68,7 +68,11 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 1. Paste the script into the Cloud Shell terminal, and run it.
 
-The connector will update after the script executes. This process can take up to 6-8 hours up to complete.
+    The connector will update after the script executes. This process can take up to 6-8 hours up to complete.
+
+1. Select **Next: Review and Generate>**.
+
+1. Select **Update**.
 
 ## Deploy the solution to specific clusters
 

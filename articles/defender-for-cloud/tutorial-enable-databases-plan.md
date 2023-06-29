@@ -74,9 +74,11 @@ These plans protect all of the supported databases in your subscription.
 
     :::image type="content" source="media/tutorial-enabledatabases-plan/individual-plans-on.png" alt-text="Screenshot that shows the toggle switches for each of the four available plans." lightbox="media/tutorial-enabledatabases-plan/individual-plans-on.png":::
 
+1. (Optional) Exclude specific database resource types by toggling them to **Off**.
+
 1. Select **Continue**.
 
-You can exclude specific database resource types by toggling them to **Off**.
+1. Select **Save**.
 
 ## Next steps
 

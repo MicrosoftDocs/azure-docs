@@ -85,6 +85,9 @@
     - name: Protect your key vault with Defender for Key Vault
       displayName: enable, key, vault, key vault
       href: tutorial-enable-key-vault-plan.md
+    - name: Protect your Domain Name System (DNS) with Defender for DNS
+      displayName: DNS
+      href: tutorial-enable-dns-plan.md
     - name: Protect your resources with Defender for Resource Manager
       displayName: resource manager, resource, manager, enable
       href: tutorial-enable-resource-manager-plan.md
@@ -478,15 +481,21 @@
       - name: Enable vulnerability scanning with Microsoft Defender Vulnerability Management 
         displayName: mde, tvm, vulnerability, va, arc, hybrid, defender vulnerability management
         href: deploy-vulnerability-assessment-defender-vulnerability-management.md
-      - name: o	Enable vulnerability scanning with the integrated Qualys scanner
+      - name: Enable vulnerability scanning with the integrated Qualys scanner
         displayName: qualys, va, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
       - name: Enable vulnerability scanning with a Bring Your Own License (BYOL) solution        
         displayName: qualys, rapid7, vulnerability
         href: deploy-vulnerability-assessment-byol-vm.md
+      - name: Automatically enable a vulnerability assessment solution
+        displayName: qualys, rapid7, vulnerability, auto provision
+        href: auto-deploy-vulnerability-assessment.md
     - name: Enable just-in-time access on VMs
       displayName: jit, management, ports
       href: just-in-time-access-usage.md
+    - name: Protect your endpoints with Defender for Cloud's integration with Microsoft Defender for Endpoint
+      displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr
+      href: integration-defender-for-endpoint.md
     - name: Define lists of safe applications for machines
       displayName: aac, whitelist, allowlist, reviewgroup, adaptive application controls
       href: adaptive-application-controls.md
@@ -532,14 +541,6 @@
       - name: Common questions about vulnerability assessments
         displayName: common questions, VA, vulnerability, assessment, faq, frequently asked questions
         href: faq-vulnerability-assessments.yml
-    - name: Outstanding
-      items:    
-      - name: Automatically enable a vulnerability assessment solution
-        displayName: qualys, rapid7, vulnerability, auto provision
-        href: auto-deploy-vulnerability-assessment.md
-      - name: Use the integrated Microsoft Defender for Endpoint license
-        displayName: ATP, mdatp, wdatp, mde, mdfe
-        href: integration-defender-for-endpoint.md
   - name: Defender for Containers
     items:
     - name: Overview
@@ -663,7 +664,9 @@
       href: defender-for-storage-data-sensitivity.md
     - name: Enable and configure with Defender for Storage
       items:
-      - name: Enable and configure Defender for Storage
+      - name: Protect your storage with Defender for Storage
+        href: tutorial-enable-storage-plan.md
+      - name: Additional configurations for Defender for Storage
         href: ../storage/common/azure-defender-storage-configure.md?toc=/azure/defender-for-cloud/toc.json
       - name: Required permissions
         href: support-matrix-defender-for-storage.md
@@ -692,9 +695,9 @@
     - name: Overview
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
-    - name: Enable Defender for Key Vault
+    - name: Protect your key vault with Defender for Key Vault
       displayName: Key vault
-      href: enable-enhanced-security.md
+      href: tutorial-enable-key-vault-plan.md
     - name: Handle Defender for Key Vault alerts
       displayName: akv, kv
       href: defender-for-key-vault-introduction.md#respond-to-microsoft-defender-for-key-vault-alerts
@@ -703,8 +706,8 @@
     - name: Overview
       displayName: ARM
       href: defender-for-resource-manager-introduction.md
-    - name: Enable Defender for Resource Manager
-      href: enable-enhanced-security.md
+    - name: Protect your resources with Defender for Resource Manager
+      href: tutorial-enable-resource-manager-plan.md
     - name: Handle Defender for Resource Manager alerts
       displayName: arm
       href: defender-for-resource-manager-usage.md
@@ -713,9 +716,9 @@
     - name: Overview
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
-    - name: Enable Defender for DNS
+    - name: Protect your Domain Name System (DNS) with Defender for DNS
       displayName: DNS
-      href: enable-enhanced-security.md
+      href: tutorial-enable-dns-plan.md
     - name: Respond to Microsoft Defender for DNS alerts
       displayName: DNS
       href: defender-for-dns-alerts.md 

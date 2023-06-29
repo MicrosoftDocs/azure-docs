@@ -53,6 +53,8 @@ If you would prefer to [assign a custom workspace](/azure/defender-for-cloud/def
 
     :::image type="content" source="media/tutorial-enable-containers-azure/containers-enabled-aks.png" alt-text="Screenshot of the Defender plans page that shows where to toggle the containers plan switch to on is located." lightbox="media/tutorial-enable-containers-azure/containers-enabled-aks.png":::
 
+1. Select **Save**.
+
 ## Deploy the Defender profile in Azure
 
 You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender profile](/azure/defender-for-cloud/includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) with REST API, Azure CLI or with a Resource Manager template.

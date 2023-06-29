@@ -38,9 +38,7 @@ Microsoft Defender for Resource Manager automatically monitors the resource mana
 
     :::image type="content" source="media/tutorial-enable-resource-manager-plan/enable-resource-manager.png" alt-text="Screenshot of the Defender for Cloud plans that shows where to enable the Resource Manager plan toggle." lightbox="media/tutorial-enable-resource-manager-plan/enable-resource-manager.png":::
 
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
+1. Select **Save**.
 
 ## Next steps
 

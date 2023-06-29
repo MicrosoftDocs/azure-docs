@@ -66,6 +66,8 @@ You can compare what's included in [each plan](plan-defender-for-servers-select-
 
 1. Select **Confirm**.
 
+1. Select **Save**.
+
 ## Configure monitoring coverage
 
 There are three components that can be enabled and configured to provide extra protections to your environments in the Defender for Servers plans.
