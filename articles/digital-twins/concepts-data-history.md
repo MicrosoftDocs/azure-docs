@@ -77,7 +77,7 @@ Later, your Azure Digital Twins instance must have the following permission on t
 
 These permissions can be assigned using the Azure CLI or Azure portal.
 
-If you'd like to disable local authorization to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. For more information about this process, see [Restrict local access to data history resources](#restrict-local-access-to-data-history-resources).
+If you'd like to disable local authorization to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. For more information about this process, see [Restrict local access to data history resources](how-to-create-data-history-connection.md#restrict-local-access-to-data-history-resources).
 
 ## Data types and schemas
 
