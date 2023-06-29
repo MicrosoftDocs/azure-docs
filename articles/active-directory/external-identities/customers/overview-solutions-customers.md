@@ -37,7 +37,7 @@ When you enter an email address to create an account, your email is verified thr
 
 Self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work.
 
-Before you start, make sure you've run one of the sign-up use cases to create an account with Woodgrove Groceries. Then select the password reset use case to try it out. On the sign-in page, enter your email, and select **Next**. Then, select the **Forgot password?** link. Enter the verification code sent to your mailbox, and select next. Then, enter a password, and reenter the password, and select next.
+Before you start, make sure you've run one of the sign-up use cases to create an account with Woodgrove . Then select the password reset use case to try it out. On the sign-in page, enter your email, and select **Next**. Then, select the **Forgot password?** link. Enter the verification code sent to your mailbox, and select next. Then, enter a password, and reenter the password, and select next.
 
 To set up self-service password reset for your customers see the [Enable self-service password reset](how-to-enable-password-reset-customers.md) article.
 
@@ -69,13 +69,13 @@ If you want to understand how custom extensions work, you can refer to the [Cust
 
 Profile editing policy lets you manage your profile attributes, like display name, surname, given name, city, and others. After you update your profile, sign out and sign in again.
 
-To edit your profile on the **Groceries** page, select the icon with your name, located in the top-right corner of the page. After making your changes, select **Save**.
+To edit your profile on the **Woodgrove Groceries** page, select the icon with your name, located in the top-right corner of the page. After making your changes, select **Save**.
 
 ### Delete your account
 
 If you would like to delete your account and personal information, visit the **Delete my account** page. Once you delete your account, you can't reactivate it. After a couple of minutes, you'll be able to sign up again with the same credentials.
 
-To delete your account on the **Groceries** page, select the icon with your name located in the top-right corner of the page. On the **Edit your profile** page select **Delete your account**.
+To delete your account on the **Woodgrove Groceries** page, select the icon with your name located in the top-right corner of the page. On the **Edit your profile** page select **Delete your account**.
 
 ## Next steps
 
