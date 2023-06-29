@@ -19,7 +19,7 @@ Azure Spring Apps provides several metrics by default, see [Metrics for Azure Sp
 
 ### Add metrics to monitor resource utilization
 
-This section provides the steps to use the metrics registered by Spring Boot and register the custom metrics, they all are available for applications running on Azure Spring Apps. 
+This section provides the steps to use the default metrics defined by Spring Boot and custom metrics defined in application code, they all are available for applications running on Azure Spring Apps. 
 
 1. Use core metrics registered by Spring Boot
 
