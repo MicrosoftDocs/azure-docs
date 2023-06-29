@@ -17,7 +17,7 @@ Enabling zone redundancy for Azure SQL Database guarantees high availability as 
 
 ## Prerequisites
 
-Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones].
+Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](/azure/reliability/availability-zones-service-support).
 
 | Service tier | Zone redundancy availability |
 |-----|-----|-----|
@@ -29,11 +29,13 @@ Before you migrate to availability zone support, refer to the following table to
 
 ## Downtime requirements
 
-Migration for Premium, Business Critical, and General Purpose service tier is an online operation with a brief disconnect towards the end to finish the migration process. If you have implemented [retry logic for standard transient errors](/azure/azure-sql/database/troubleshoot-common-connectivity-issues?view=azuresql#retry-logic-for-transient-errors), you won't notice the failover. 
+Migration for Premium, Business Critical, and General Purpose service tier is an online operation with a brief disconnect towards the end to finish the migration process. If you have implemented [retry logic for standard transient errors](/azure/azure-sql/database/troubleshoot-common-connectivity-issues?view=azuresql&preserve-view=true#retry-logic-for-transient-errors), you won't notice the failover. 
 
 For Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the resource is provisioned. If you wish to move to availability zone support, you'll need to transfer the data with database copy, point-in-time restore, or geo-replica. If the target database is in a different region than the source or if the database backup storage redundancy for the target differs from the source database, then downtime is proportional to the size of the data operation.  
 
-## Option 1: Migration (Premium, Business Critical, and General Purpose)
+## Migration (Premium, Business Critical, and General Purpose) 
+
+For the Premium, Business Critical, and General Purpose service tiers, migration to zone redundancy is possible. 
 
 Follow the steps below to perform migration for a single database or an elastic pool.
 
@@ -76,7 +78,7 @@ Use Azure CLI to run the following command (replace the placeholders in "<>" wit
 
 # [ARM](#tab/arm)
 
-To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP). 
+To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
 
 ---
 
@@ -147,25 +149,26 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
 #### Database copy
 
-To create a database copy and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql#copy-using-the-azure-portal).
+To create a database copy and enable zone redundancy with Azure portal, PowerShell, or Azure CLI, follow the instructions in [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql&preserve-view=true#copy-using-the-azure-portal).
  
 
 #### Point-in-time restore
 
-To create a point-in-time database restore and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [Point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal#point-in-time-restore).
+To create a point-in-time database restore and enable zone redundancy with Azure portal, PowerShell, or Azure CLI, follow the instructions in [Point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&preserve-view=true&tabs=azure-portal#point-in-time-restore).
 
 ##### Geo-replica
 
 To create a geo-replica of the database:
 
-1. Follow the instructions with Azure Portal, PowerShell, or Azure CLI in [Configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&tabs=portal) and enable zone redundancy under **Compute + Storage**
+1. Follow the instructions with Azure portal, PowerShell, or Azure CLI in [Configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&preserve-view=true&tabs=portal) and enable zone redundancy under **Compute + Storage**
 
 1. The replica is seeded, and the time taken for seeding the data depends upon size of source database. You can monitor the status of seeding in the Azure portal or by running the following TSQL queries on the replica database:
 
-    ```tsql
-        select * from sys.dm_geo_replication_link_status 
-        select * from sys.dm_operation_status 
+    ```sql
+        SELECT * FROM sys.dm_geo_replication_link_status;
+        SELECT * FROM sys.dm_operation_status;
     ```
+
 1. Once the database seeding is finished, perform a planned (no data loss) failover to make the zone redundant target database as primary.  
 
 1. Update the server name in the connection strings for the application to reflect the new zone redundant database.
