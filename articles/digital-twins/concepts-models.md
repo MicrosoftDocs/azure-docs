@@ -110,7 +110,7 @@ As a result, when designing a model in Azure Digital Twins, you'll probably use 
 
 Telemetry and properties often work together to handle data ingress from devices. You'll often use an ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
 
-You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
+You can also publish a telemetry event from the Azure Digital Twins API. Telemetry is a short-lived event that requires a listener to handle.
 
 ### Schema
 
@@ -186,7 +186,7 @@ Here's an example of a relationship on a DTDL model that doesn't have a target. 
 
 ### Properties of relationships
 
-DTDL also allows for relationships to have properties of their own. When defining a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
+DTDL also allows for relationships to have properties of their own. When you define a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
 
 The following example shows another version of the Home model, where the `rel_has_floors` relationship has a property representing when the related Floor was last occupied.
 
@@ -338,7 +338,7 @@ You can upload many models in a single API call using the [Jobs API](concepts-ap
 
 An alternative to the Jobs API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
-If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
+If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model Deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
 ### Visualize models
 

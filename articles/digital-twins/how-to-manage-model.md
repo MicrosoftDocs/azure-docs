@@ -207,7 +207,7 @@ The sections linked above contain example code and considerations for decommissi
 
 Instead of incrementing the version of a model, you can delete a model completely and reupload an edited model to the instance.
 
-Azure Digital Twins doesn't remember the old model was ever uploaded, so this action will be like uploading an entirely new model. Twins in the graph that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one, so you may need to patch them to make sure they remain valid.
+Azure Digital Twins doesn't remember the old model was ever uploaded, so this action will be like uploading an entirely new model. Twins that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one, so you may need to patch them to make sure they remain valid.
 
 To use this strategy, follow the steps below.
 

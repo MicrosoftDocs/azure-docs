@@ -180,7 +180,7 @@ The **Chart** view of historized properties shows property values as points on a
 You can use the icons above the chart to control the chart settings, including...
 * changing the time range for the data that's included in the chart.
 * selecting whether multiple time series are shown independently or on a shared y-axis. Selecting **Independent** for the axes means that each time series will scale to the chart and maintain their own axis for scale. Selecting **Shared** axes means that all time series data will be scaled to the same axis. 
-* choosing the aggregation logic for the chart. When the property has more data points than can be shown on the chart, the data will be aggregated into a finite amount of data points using either average, minimum or maximum functions.
+* choosing the aggregation logic for the chart. When the property has more data points than can be shown on the chart, the data will be aggregated into a finite number of data points using either average, minimum or maximum functions.
 
 There's also a button to **Open query in Azure Data Explorer**, where you can view and modify the current query to further explore the time series data.
 

@@ -45,7 +45,7 @@ Here's a code example on how to set marker `tags` for a twin using the [.NET SDK
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
-After creating the twin with tag properties according to the example above, the twin will look like this:
+After you create a twin with tag properties according to the example above, the twin will look like this:
 
 ```JSON
 {
