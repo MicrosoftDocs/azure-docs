@@ -23,7 +23,7 @@ monikerRange: 'form-recog-3.0.0'
 
 > [!NOTE]
 >
-> Add-on capabilities for Azure AI Document Intelligence Studio are only available within the Read and Layout models for the `2023-02-28-preview` release.
+> Add-on capabilities for Document Intelligence Studio are only available within the Read and Layout models for the `2023-02-28-preview` release.
 
 Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are three add-on capabilities available for the `2023-02-28-preview`:
 

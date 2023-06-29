@@ -19,9 +19,9 @@ monikerRange: 'form-recog-3.0.0'
 
 The Document Intelligence health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards. A health insurance card is a key document for care processing and can be digitally analyzed for patient onboarding, financial coverage information, cashless payments, and insurance claim processing. The health insurance card model analyzes health card images; extracts key information such as insurer, member, prescription, and group number; and returns a structured JSON representation.  Health insurance cards can be presented in various formats and quality including phone-captured images, scanned documents, and digital PDFs.
 
-***Sample health insurance card processed using Azure AI Document Intelligence Studio***
+***Sample health insurance card processed using Document Intelligence Studio***
 
-:::image type="content" source="media/studio/health-insurance-card.png" alt-text="Screenshot of sample health insurance card processed in the Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/health-insurance-card.png" alt-text="Screenshot of sample health insurance card processed in the Document Intelligence Studio.":::
 
 ## Development options
 
@@ -29,11 +29,11 @@ Document Intelligence v3.0 supports the prebuilt health insurance card model wit
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**health insurance card model**|<ul><li> [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-healthInsuranceCard.us**|
+|**health insurance card model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-healthInsuranceCard.us**|
 
 ### Try Document Intelligence
 
-See how data is extracted from health insurance cards using the Azure AI Document Intelligence Studio. You need the following resources:
+See how data is extracted from health insurance cards using the Document Intelligence Studio. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -41,21 +41,21 @@ See how data is extracted from health insurance cards using the Azure AI Documen
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-#### Azure AI Document Intelligence Studio
+#### Document Intelligence Studio
 
 > [!NOTE]
-> Azure AI Document Intelligence Studio is available with API version v3.0.
+> Document Intelligence Studio is available with API version v3.0.
 
-1. On the [Azure AI Document Intelligence Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **Health insurance cards**.
+1. On the [Document Intelligence Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **Health insurance cards**.
 
 1. You can analyze the sample insurance card document or select the **➕ Add** button to upload your own sample.
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/insurance-card-analyze.png" alt-text="Screenshot: analyze health insurance card window in the Azure AI Document Intelligence Studio.":::
+    :::image type="content" source="media/studio/insurance-card-analyze.png" alt-text="Screenshot: analyze health insurance card window in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
-    > [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)
 
 ## Input requirements
 
@@ -115,6 +115,6 @@ See how data is extracted from health insurance cards using the Azure AI Documen
 
 ## Next steps
 
-* Try processing your own forms and documents with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.

@@ -51,11 +51,11 @@ Document Intelligence v3.0 supports the following resources:
 
 | Model | Resources | Model ID |
 |----------|------------|------------|
-|**Read model**| <ul><li>[**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**Read model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Try OCR in Document Intelligence
 
-Try extracting text from forms and documents using the Azure AI Document Intelligence Studio. You need the following assets:
+Try extracting text from forms and documents using the Document Intelligence Studio. You need the following assets:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -63,16 +63,16 @@ Try extracting text from forms and documents using the Azure AI Document Intelli
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Azure AI Document Intelligence Studio
+### Document Intelligence Studio
 
 > [!NOTE]
-> Currently, Azure AI Document Intelligence Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read version v3.0.
+> Currently, Document Intelligence Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read version v3.0.
 
-***Sample form processed with [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
+***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot: Read processing in Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot: Read processing in Document Intelligence Studio.":::
 
-1. On the Azure AI Document Intelligence Studio home page, select **Read**
+1. On the Document Intelligence Studio home page, select **Read**
 
 1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
 
@@ -81,7 +81,7 @@ Try extracting text from forms and documents using the Azure AI Document Intelli
     :::image type="content" source="media/studio/form-recognizer-studio-read-analyze-v3p2-updated.png" alt-text="Screenshot: analyze read menu.":::
 
    > [!div class="nextstepaction"]
-   > [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
 ## Input requirements
 

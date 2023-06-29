@@ -21,7 +21,7 @@ This how-to guide walks you through the process of enabling secure connections f
 
 * Communication between a client application within a Virtual Network (VNET) and your Document Intelligence Resource.
 
-* Communication between Azure AI Document Intelligence Studio and your Document Intelligence resource.
+* Communication between Document Intelligence Studio and your Document Intelligence resource.
 
 * Communication between your Document Intelligence resource and a storage account (needed when training a custom model).
 
@@ -47,7 +47,7 @@ To get started, you need:
 
 Configure each of the resources to ensure that the resources can communicate with each other:
 
-* Configure the Azure AI Document Intelligence Studio to use the newly created Document Intelligence resource by accessing the settings page and selecting the resource.
+* Configure the Document Intelligence Studio to use the newly created Document Intelligence resource by accessing the settings page and selecting the resource.
 
 * Validate that the configuration works by selecting the Read API and analyzing a sample document. If the resource was configured correctly, the request successfully completes.
 
@@ -137,7 +137,7 @@ Great! You've configured your Document Intelligence resource to use a managed id
 
 > [!TIP]
 >
-> When you try the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio), you'll see the READ API and other prebuilt models don't require storage access to process documents. However, training a custom model requires additional configuration because the Studio can't directly communicate with a storage account.
+> When you try the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio), you'll see the READ API and other prebuilt models don't require storage access to process documents. However, training a custom model requires additional configuration because the Studio can't directly communicate with a storage account.
   > You can enable storage access by selecting **Add your client IP address** from the **Networking** tab of the storage account to configure your machine to access the storage account via IP allowlisting.
 
 ## Configure private endpoints for access from VNETs
@@ -156,7 +156,7 @@ Next, configure the virtual network to ensure only resources within the virtual 
 
 > [!NOTE]
 >
->If you try accessing any of the Azure AI Document Intelligence Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
+>If you try accessing any of the Document Intelligence Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
 
   :::image type="content" source="media/managed-identities/v2-fr-network.png" alt-text="Screenshot showing how to disable public access to Document Intelligence.":::
 
@@ -243,7 +243,7 @@ To validate your deployment, you can deploy a virtual machine (VM) to the virtua
 
 1. Configure a [Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) in the virtual network.
 
-1. Remotely connect into the VM from your desktop to launch a browser session to access Azure AI Document Intelligence Studio.
+1. Remotely connect into the VM from your desktop to launch a browser session to access Document Intelligence Studio.
 
 1. Analyze requests and the training operations should now work successfully.
 
@@ -261,7 +261,7 @@ That's it! You can now configure secure access for your Document Intelligence re
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
-  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the Azure AI Document Intelligence Studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
+  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the Document Intelligence Studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
 
 * **ContentSourceNotAccessible**:
 
@@ -273,7 +273,7 @@ That's it! You can now configure secure access for your Document Intelligence re
 
   :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
-  **Resolution**: Check to make sure there's connectivity between the computer accessing the Azure AI Document Intelligence Studio and the Document Intelligence service. For example, you may need to add the client IP address to the Document Intelligence service's networking tab.
+  **Resolution**: Check to make sure there's connectivity between the computer accessing the Document Intelligence Studio and the Document Intelligence service. For example, you may need to add the client IP address to the Document Intelligence service's networking tab.
 
 ## Next steps
 

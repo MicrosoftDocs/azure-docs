@@ -74,7 +74,7 @@ landingContent:
                url: concept-business-card.md
 
   #Card 3
-   - title: Azure AI Document Intelligence Studio 
+   - title: Document Intelligence Studio 
      linkLists:
       - linkListType: overview
         links:
@@ -107,7 +107,7 @@ landingContent:
      linkLists:
       - linkListType: quickstart
         links:
-        - text: Azure AI Document Intelligence Studio
+        - text: Document Intelligence Studio
           url: quickstarts/try-form-recognizer-studio.md
         - text: Document Intelligence SDK
           url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true

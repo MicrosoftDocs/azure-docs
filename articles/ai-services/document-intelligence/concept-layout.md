@@ -37,9 +37,9 @@ The following illustration shows the typical components in an image of a sample 
 
 ::: moniker range="form-recog-3.0.0"
 
-***Sample form processed with [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
 
 ## Development options
 
@@ -47,7 +47,7 @@ Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|------------|------------|
-|**Layout model**| <ul><li>[**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
+|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
 
 ::: moniker-end
 
@@ -87,16 +87,16 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ::: moniker range="form-recog-3.0.0"
 
-## Azure AI Document Intelligence Studio
+## Document Intelligence Studio
 
 > [!NOTE]
-> Azure AI Document Intelligence Studio is available with the v3.0 API.
+> Document Intelligence Studio is available with the v3.0 API.
 
-***Sample form processed with [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
+***Sample form processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Document Intelligence Studio.":::
 
-1. On the Azure AI Document Intelligence Studio home page, select **Layout**
+1. On the Document Intelligence Studio home page, select **Layout**
 
 1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
 
@@ -105,7 +105,7 @@ See how data, including text, tables, table headers, selection marks, and struct
     :::image type="content" source="media/studio/layout-analyze.png" alt-text="Screenshot: analyze layout menu.":::
 
    > [!div class="nextstepaction"]
-   > [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
 
 ::: moniker-end
 
@@ -475,7 +475,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range="form-recog-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-form-recognizer-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

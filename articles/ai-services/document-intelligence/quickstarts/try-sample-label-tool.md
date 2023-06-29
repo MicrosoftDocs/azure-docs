@@ -141,7 +141,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 * Configure CORS
 
-    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Azure AI Document Intelligence Studio. To configure CORS in the Azure portal, you'll need access to the CORS tab of your storage account.
+    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you'll need access to the CORS tab of your storage account.
 
     1. Select the CORS tab for the storage account.
 
@@ -286,4 +286,4 @@ That's it! You've learned how to use the Document Intelligence sample tool for D
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
+> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)

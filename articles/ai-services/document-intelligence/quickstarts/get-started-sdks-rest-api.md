@@ -71,12 +71,12 @@ To learn more about Document Intelligence features and development options, visi
 ::: moniker range="form-recog-3.0.0"
 That's it, congratulations!
 
-In this quickstart, you used a form Document Intelligence model to analyze various forms and documents. Next, explore the Azure AI Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
+In this quickstart, you used a form Document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Try the Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
+> [**Try the Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
 > [**Explore our how-to documentation and take a deeper dive into Document Intelligence models**](../how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

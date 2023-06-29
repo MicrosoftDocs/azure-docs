@@ -9,7 +9,7 @@ items:
     href: overview.md
   - name: 🆕 Choose a model
     href: choose-model-feature.md
-  - name: Azure AI Document Intelligence Studio
+  - name: Document Intelligence Studio
     displayName: get started
     href: studio-overview.md
   - name: Document Intelligence SDK
@@ -40,7 +40,7 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
-    - name: Azure AI Document Intelligence Studio
+    - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-form-recognizer-studio.md
     - name: "Get started with Document Intelligence"
@@ -150,7 +150,7 @@ items:
   - name: Model overview
     displayName: get started, prebuilt, extraction, input
     href: concept-model-overview.md
-  - name: Azure AI Document Intelligence Studio
+  - name: Document Intelligence Studio
     href: concept-form-recognizer-studio.md
   - name: Accuracy and confidence scores
     displayName: tables, labels, ocr, performance, signatures

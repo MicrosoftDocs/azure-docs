@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Azure AI Document Intelligence Studio | v3.0"
+title: "Quickstart: Document Intelligence Studio | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Azure AI Document Intelligence Studio
+description: Form and document processing, data extraction, and analysis using Document Intelligence Studio
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -15,11 +15,11 @@ monikerRange: 'form-recog-3.0.0'
 
 <!-- markdownlint-disable MD001 -->
 
-# Get started: Azure AI Document Intelligence Studio
+# Get started: Document Intelligence Studio
 
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
 
-[Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
+[Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service in your applications. You can get started by exploring the pretrained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and other quickstarts.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE56n49]
 
@@ -58,7 +58,7 @@ Prebuilt models help you add Document Intelligence features to your apps without
 #### Gated preview models
 
 > [!NOTE]
-> To request access for gated preview models in Azure AI Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 
 * [**General document with query fields**](https://formrecognizer.appliedai.azure.com/studio): extract labels, values such as names, dates, and amounts from documents.
 * [**Contract**](https://formrecognizer.appliedai.azure.com/studio): extract the title and signatory party information (including names, references, and addresses) from contracts.
@@ -68,13 +68,13 @@ Prebuilt models help you add Document Intelligence features to your apps without
 * [**US 1098-T tax form**](https://formrecognizer.appliedai.azure.com/studio): extract tuition information from US 1098-T forms.
 
 > [!NOTE]
-> To request access for gated preview models in Azure AI Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+> To request access for gated preview models in Document Intelligence Studio, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 
-After you've completed the prerequisites, navigate to [Azure AI Document Intelligence Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
+After you've completed the prerequisites, navigate to [Document Intelligence Studio General Documents](https://formrecognizer.appliedai.azure.com/studio/document).
 
 In the following example, we use the General Documents feature. The steps to use other pretrained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
-   :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Selecting the General Document API to analysis a document in the Azure AI Document Intelligence Studio.":::
+   :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Selecting the General Document API to analysis a document in the Document Intelligence Studio.":::
 
 1. Select a Document Intelligence service feature from the Studio home page.
 
@@ -103,7 +103,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 ### Configure CORS
 
-[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Azure AI Document Intelligence Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
 
 1. Select the CORS tab for the storage account.
 
@@ -126,7 +126,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 1. Select the save button at the top of the page to save the changes.
 
-CORS should now be configured to use the storage account from Azure AI Document Intelligence Studio.
+CORS should now be configured to use the storage account from Document Intelligence Studio.
 
 ### Sample documents set
 
@@ -238,4 +238,4 @@ To label for signature detection: (Custom form only)
 * Explore our [**v3.0 SDK quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features in your applications using the new SDKs.
 * Refer to our [**v3.0 REST API quickstarts**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) to try the v3.0 features using the new REST API.
 
-[Get started with the Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com).
+[Get started with the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com).

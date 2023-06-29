@@ -59,11 +59,11 @@ Template models rely on a defined visual template, changes to the template resul
 
 ::: moniker range="form-recog-3.0.0"
 
-Custom template models are generally available with the [v3.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3 API with Azure AI Document Intelligence Studio to train a custom template model.
+Custom template models are generally available with the [v3.0 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/BuildDocumentModel). If you're starting with a new project or have an existing labeled dataset, use the v3 API with Document Intelligence Studio to train a custom template model.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom template  | [Document Intelligence 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom template  | [Document Intelligence 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
 
 With the v3.0 API, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 

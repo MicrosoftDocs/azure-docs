@@ -52,15 +52,15 @@ Once you've put together the set of forms or documents for training, you need to
 
   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1c]
 
-## Create a project in the Azure AI Document Intelligence Studio
+## Create a project in the Document Intelligence Studio
 
-The Azure AI Document Intelligence Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
+The Document Intelligence Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom models** tile, on the custom models page and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Azure AI Document Intelligence Studio.":::
+    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Document Intelligence Studio.":::
 
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
 
@@ -129,7 +129,7 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. The right navigation bar also has the sample code to invoke your model and the JSON results from the API.
 
-Congratulations you've trained a custom model in the Azure AI Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
+Congratulations you've trained a custom model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
 
 ## Next steps
 

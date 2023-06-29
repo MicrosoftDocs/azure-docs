@@ -35,9 +35,9 @@ The General document v3.0 model combines powerful Optical Character Recognition 
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:```
 
-***Sample document processed in the Azure AI Document Intelligence Studio***
+***Sample document processed in the Document Intelligence Studio***
 
-:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Document Intelligence Studio.":::
 
 ## Key-value pair extraction
 
@@ -47,7 +47,7 @@ The general document API supports most form types and analyzes your documents an
 
 When the service analyzes documents with variations in key names like ```Social Security Number```, ```Social Security Nbr```, ```SSN```, the output normalizes the key variations to a single common name, ```SocialSecurityNumber```. This normalization simplifies downstream processing for documents where you no longer need to account for variations in the key name.
 
-:::image type="content" source="media/common-name.png" alt-text="Screenshot of general document processing in the Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/common-name.png" alt-text="Screenshot of general document processing in the Document Intelligence Studio.":::
 
 ## Development options
 
@@ -55,11 +55,11 @@ Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID
 |----------|----------|---------------|
-| **General document model**|<ul ><li>[**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-document**|
+| **General document model**|<ul ><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-document**|
 
 ### Try Document Intelligence
 
-Try extracting data from forms and documents using the Azure AI Document Intelligence Studio.
+Try extracting data from forms and documents using the Document Intelligence Studio.
 
 You need the following resources:
 
@@ -69,12 +69,12 @@ You need the following resources:
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Azure AI Document Intelligence Studio
+#### Document Intelligence Studio
 
 > [!NOTE]
-> Azure AI Document Intelligence Studio and the general document model are available with the v3.0 API.
+> Document Intelligence Studio and the general document model are available with the v3.0 API.
 
-1. On the Azure AI Document Intelligence Studio home page, select **General documents**
+1. On the Document Intelligence Studio home page, select **General documents**
 
 1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
 
@@ -83,7 +83,7 @@ You need the following resources:
     :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="Screenshot: analyze general document menu.":::
 
     > [!div class="nextstepaction"]
-    > [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
 
 ## Key-value pairs
 
@@ -125,4 +125,4 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 * Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 > [!div class="nextstepaction"]
-> [Try the Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+> [Try the Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)

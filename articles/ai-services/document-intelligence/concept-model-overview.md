@@ -59,9 +59,9 @@ ms.author: lajanuar
 
 The Read API analyzes and extracts lines, words, their locations, detected languages, and handwritten style if detected.
 
-***Sample document processed using the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
+***Sample document processed using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
 
-:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Azure AI Document Intelligence Studio Read":::
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Document Intelligence Studio Read":::
 
 > [!div class="nextstepaction"]
 > [Learn more: read model](concept-read.md)
@@ -72,9 +72,9 @@ The Read API analyzes and extracts lines, words, their locations, detected langu
 
 The Layout analysis model analyzes and extracts text, tables, selection marks, and other structure elements like titles, section headings, page headers, page footers, and more.
 
-***Sample document processed using the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
+***Sample document processed using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
 >
@@ -86,9 +86,9 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 
 The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pretrained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
 
-***Sample document processed using the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
+***Sample document processed using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
 
-:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: general document model](concept-general-document.md)
@@ -99,9 +99,9 @@ The general document model is ideal for extracting common key-value pairs from f
 
 The health insurance card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from US health insurance cards.
 
-***Sample US health insurance card processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
+***Sample US health insurance card processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)***:
 
-:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Azure AI Document Intelligence Studio." lightbox="./media/studio/analyze-health-card.png":::
+:::image type="content" source="./media/studio/analyze-health-card.png" alt-text="Screenshot of a sample US health insurance card analysis in Document Intelligence Studio." lightbox="./media/studio/analyze-health-card.png":::
 
 > [!div class="nextstepaction"]
 > [Learn more: Health insurance card model](concept-insurance-card.md)
@@ -112,7 +112,7 @@ The health insurance card model combines powerful Optical Character Recognition 
 
 The W-2 form model extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including single and multiple forms on one page.
 
-***Sample W-2 document processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
+***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
 :::image type="content" source="./media/studio/w-2.png" alt-text="Screenshot of a sample W-2.":::
 
@@ -125,7 +125,7 @@ The W-2 form model extracts key information reported in each box on a W-2 form. 
 
 The invoice model automates processing of invoices to extracts customer name, billing address, due date, and amount due, line items and other key data. Currently, the model supports English, Spanish, German, French, Italian, Portuguese, and Dutch invoices.
 
-***Sample invoice processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
+***Sample invoice processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
 :::image type="content" source="./media/studio/analyze-invoice.png" alt-text="Screenshot of a sample invoice." lightbox="./media/overview-invoices.jpg":::
 
@@ -138,7 +138,7 @@ The invoice model automates processing of invoices to extracts customer name, bi
 
 Use the receipt model to scan sales receipts for merchant name, dates, line items, quantities, and totals from printed and handwritten receipts. The version v3.0 also supports single-page hotel receipt processing.
 
-***Sample receipt processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
+***Sample receipt processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
 :::image type="content" source="./media/studio/analyze-receipt.png" alt-text="Screenshot of a sample receipt." lightbox="./media/overview-receipt.jpg":::
 
@@ -151,7 +151,7 @@ Use the receipt model to scan sales receipts for merchant name, dates, line item
 
 Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 states and District of Columbia) and biographical pages from international passports (excluding visa and other travel documents) to extract key fields.
 
-***Sample U.S. Driver's License processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
+***Sample U.S. Driver's License processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***:
 
 :::image type="content" source="./media/studio/analyze-drivers-license.png" alt-text="Screenshot of a sample identification card." lightbox="./media/overview-id.jpg":::
 
@@ -164,7 +164,7 @@ Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 s
 
 Use the business card model to scan and extract key information from business card images.
 
-***Sample business card processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
+***Sample business card processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
 
 :::image type="content" source="./media/studio/analyze-business-card.png" alt-text="Screenshot of a sample business card." lightbox="./media/overview-business-card.jpg":::
 
@@ -179,7 +179,7 @@ Custom document models analyze and extract data from forms and documents specifi
 
 Version v3.0 custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
 
-***Sample custom template processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+***Sample custom template processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
 :::image type="content" source="media/studio/train-model.png" alt-text="Screenshot: Document Intelligence tool analyze-a-custom-form window.":::
 
@@ -192,9 +192,9 @@ Version v3.0 custom model supports signature detection in custom forms (template
 
 Custom extraction model can be one of two types, **custom template** or **custom neural**. To create a custom extraction model, label a dataset of documents with the values you want extracted and train the model on the labeled dataset. You only need five examples of the same form or document type to get started.
 
-***Sample custom extraction processed using [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+***Sample custom extraction processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/studio/custom-extraction-models.png" alt-text="Screenshot of custom extraction model analysis in Azure AI Document Intelligence Studio.":::
+:::image type="content" source="media/studio/custom-extraction-models.png" alt-text="Screenshot of custom extraction model analysis in Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom template model](concept-custom-template.md)
@@ -215,9 +215,9 @@ The custom classification model enables you to identify the document type prior 
 
 A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. You can assign up to 200 trained custom models to a single composed model.
 
-***Composed model dialog window in [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+***Composed model dialog window in [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot of Azure AI Document Intelligence Studio compose custom model dialog window.":::
+:::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot of Document Intelligence Studio compose custom model dialog window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
@@ -342,7 +342,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ***Composed model dialog window using the [Sample Labeling tool](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
-:::image type="content" source="media/custom-model-compose.png" alt-text="Screenshot of Azure AI Document Intelligence Studio compose custom model dialog window.":::
+:::image type="content" source="media/custom-model-compose.png" alt-text="Screenshot of Document Intelligence Studio compose custom model dialog window.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: custom model](concept-custom.md)
@@ -375,7 +375,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

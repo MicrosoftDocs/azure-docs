@@ -1,7 +1,7 @@
 ---
-title: "Share custom model projects using Azure AI Document Intelligence Studio"
+title: "Share custom model projects using Document Intelligence Studio"
 titleSuffix: Azure AI services
-description: Learn how to share custom model projects using Azure AI Document Intelligence Studio.
+description: Learn how to share custom model projects using Document Intelligence Studio.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,9 +13,9 @@ monikerRange: 'form-recog-3.0.0'
 ---
 
 
-# Share custom model projects using Azure AI Document Intelligence Studio
+# Share custom model projects using Document Intelligence Studio
 
-Azure AI Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. Azure AI Document Intelligence Studio enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token. The same project token can also be used to import a project.
+Document Intelligence Studio is an online tool to visually explore, understand, train, and integrate features from the Document Intelligence service into your applications. Document Intelligence Studio enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token. The same project token can also be used to import a project.
 
 ## Prerequisite
 
@@ -40,7 +40,7 @@ For more information, *see*, [Grant access to your storage account](../managed-i
 
 ### Configure cross origin resource sharing (CORS)
 
-CORS needs to be configured in your Azure storage account for it to be accessible to the Azure AI Document Intelligence Studio. You can update the CORS setting in the Azure portal.
+CORS needs to be configured in your Azure storage account for it to be accessible to the Document Intelligence Studio. You can update the CORS setting in the Azure portal.
 
 Form more information, *see* [Configure CORS](../quickstarts/try-form-recognizer-studio.md#configure-cors)
 
@@ -58,11 +58,11 @@ Users sharing the project need to create a project [**`ListAccountSAS`**](/rest/
 
 Users who want to import the project need a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
 
-## Share a custom extraction model with Azure AI Document Intelligence Studio
+## Share a custom extraction model with Document Intelligence Studio
 
-Follow these steps to share your project using Azure AI Document Intelligence Studio:
+Follow these steps to share your project using Document Intelligence Studio:
 
-1. Start by navigating to the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 1. In the Studio, select the **Custom extraction models** tile, under the custom models section.
 
@@ -76,11 +76,11 @@ Follow these steps to share your project using Azure AI Document Intelligence St
 
 :::image type="content" source="../media/how-to/studio-project-token.png" alt-text="Screenshot showing how to copy the project token.":::
 
-## Import custom extraction model with Azure AI Document Intelligence Studio
+## Import custom extraction model with Document Intelligence Studio
 
-Follow these steps to import a project using Azure AI Document Intelligence Studio.
+Follow these steps to import a project using Document Intelligence Studio.
 
-1. Start by navigating to the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 1. In the Studio, select the **Custom extraction models** tile, under the custom models section.
 

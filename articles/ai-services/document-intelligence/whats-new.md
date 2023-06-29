@@ -58,8 +58,8 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > * West US2
 > * East US
 
-* [**Custom classification model**](concept-custom-classifier.md) is a new capability within Document Intelligence starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
-* [**Query fields**](concept-query-fields.md) capabilities, added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
+* [**Custom classification model**](concept-custom-classifier.md) is a new capability within Document Intelligence starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
+* [**Query fields**](concept-query-fields.md) capabilities, added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
 * [**Read**](concept-read.md#barcode-extraction) and [**Layout**](concept-layout.md#barcode-extraction) models support **barcode** extraction with the ```2023-02-28-preview``` API.
 * [**Add-on capabilities**](concept-add-on-capabilities.md)
   * [**Font extraction**](concept-add-on-capabilities.md#font-property-extraction) is now recognized with the ```2023-02-28-preview``` API.
@@ -69,7 +69,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 * [**Custom extraction model updates**](concept-custom.md)
   * [**Custom neural model**](concept-custom-neural.md) now supports added languages for training and analysis. Train neural models for Dutch, French, German, Italian and Spanish.
   * [**Custom template model**](concept-custom-template.md) now has an improved signature detection capability.
-* [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio) updates
+* [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio) updates
   * In addition to support for all the new features like classification and query fields, the Studio now enables project sharing for custom model projects.
   * New model additions in gated preview: **Vaccination cards**, **Contracts**, **US Tax 1098**, **US Tax 1098-E**, and **US Tax 1098-T**.  To request access to gated preview models, complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 * [**Receipt model updates**](concept-receipt.md)
@@ -163,9 +163,9 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ## December 2022
 
-* [**Azure AI Document Intelligence Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
+* [**Document Intelligence Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
 
-  The December Azure AI Document Intelligence Studio release includes the latest updates to Azure AI Document Intelligence Studio. There are significant improvements to user experience, primarily with custom model labeling support.
+  The December Document Intelligence Studio release includes the latest updates to Document Intelligence Studio. There are significant improvements to user experience, primarily with custom model labeling support.
 
   * **Page range**. The Studio now supports analyzing specified pages from a document.
 
@@ -204,8 +204,8 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
     :::image type="content" source="media/versioning-and-monikers.png" alt-text="Screenshot of the Document Intelligence landing page denoting the version dropdown menu.":::
 
-* **Azure AI Document Intelligence Studio Sample Code**
-  * Sample code for the [Azure AI Document Intelligence Studio labeling experience](https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX) is now available on GitHub. Customers can develop and integrate Document Intelligence into their own UX or build their own new UX using the Azure AI Document Intelligence Studio sample code.
+* **Document Intelligence Studio Sample Code**
+  * Sample code for the [Document Intelligence Studio labeling experience](https://github.com/microsoft/Form-Recognizer-Toolkit/tree/main/SampleCode/LabelingUX) is now available on GitHub. Customers can develop and integrate Document Intelligence into their own UX or build their own new UX using the Document Intelligence Studio sample code.
 
 * **Language expansion**
   * With the latest preview release, Document Intelligence's Read (OCR), Layout, and Custom template models support 134 new languages. These language additions include Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages. Document Intelligence now has a total of 299 supported languages across the most recent GA and new preview versions. Refer to the [supported languages](language-support.md) page to see all supported languages.
@@ -372,7 +372,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
   * **Document Intelligence REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
 
-* Azure AI Document Intelligence Studio updates
+* Document Intelligence Studio updates
   > [!div class="checklist"]
   >
   > * **Next steps**. Under each model page, the Studio now has a next steps section. Users can quickly reference sample code, troubleshooting guidelines, and pricing information.
@@ -445,7 +445,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ---
 
-* [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) June release is the latest update to the Azure AI Document Intelligence Studio. There are considerable user experience and accessibility improvements addressed in this update:
+* [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) June release is the latest update to the Document Intelligence Studio. There are considerable user experience and accessibility improvements addressed in this update:
 
   * **Code sample for JavaScript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
   * **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
@@ -517,7 +517,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * [**Read**](concept-read.md) API extracts printed text lines, words, text locations, detected languages, and handwritten text, if detected.
   * [**General document**](concept-general-document.md) pretrained model is now updated to support selection marks in addition to API  text, tables, structure, and key-value pairs from forms and documents.
   * [**Invoice API**](language-support.md#invoice-model) Invoice prebuilt model expands support to Spanish invoices.
-  * [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
+  * [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
   * [**Language Expansion**](language-support.md) Document Intelligence Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
 * Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
@@ -588,7 +588,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
   * [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
   * [**Language Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Document Intelligence Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. The preview includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports seven languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
   * **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
-  * [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Azure AI Document Intelligence Studio to test the different prebuilt models or label and train a custom model
+  * [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Document Intelligence Studio to test the different prebuilt models or label and train a custom model
 
   * Get started with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [.NET](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK for the v3.0 preview API.
 
@@ -1094,7 +1094,7 @@ This release introduces the Document Intelligence 2.0. In the next sections, you
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

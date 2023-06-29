@@ -31,9 +31,9 @@ Receipt digitization is the process of converting scanned receipts into digital 
 
 ::: moniker range="form-recog-3.0.0"
 
-***Sample receipt processed with [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
+***Sample receipt processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
-:::image type="content" source="media/studio/overview-receipt.png" alt-text="Screenshot of a sample receipt processed in the Azure AI Document Intelligence Studio." lightbox="media/overview-receipt.jpg":::
+:::image type="content" source="media/studio/overview-receipt.png" alt-text="Screenshot of a sample receipt processed in the Document Intelligence Studio." lightbox="media/overview-receipt.jpg":::
 
 ::: moniker-end
 
@@ -52,7 +52,7 @@ Document Intelligence v3.0 Supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Receipt model**| <ul><li>[**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-receipt**|
+|**Receipt model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-receipt**|
 
 ::: moniker-end
 
@@ -94,12 +94,12 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker range="form-recog-3.0.0"
 
-#### Azure AI Document Intelligence Studio
+#### Document Intelligence Studio
 
 > [!NOTE]
-> Azure AI Document Intelligence Studio is available with the v3.0 API.
+> Document Intelligence Studio is available with the v3.0 API.
 
-1. On the Azure AI Document Intelligence Studio home page, select **Receipts**
+1. On the Document Intelligence Studio home page, select **Receipts**
 
 1. You can analyze the sample receipt or select the **+ Add** button to upload your own sample.
 
@@ -108,7 +108,7 @@ See how Document Intelligence extracts data, including time and date of transact
     :::image type="content" source="media/studio/receipt-analyze.png" alt-text="Screenshot: analyze receipt menu.":::
 
     > [!div class="nextstepaction"]
-    > [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
 ::: moniker-end
 
@@ -386,7 +386,7 @@ See how Document Intelligence extracts data, including time and date of transact
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

@@ -38,9 +38,9 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ::: moniker range="form-recog-3.0.0"
 
-**Sample invoice processed with [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
+**Sample invoice processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
-:::image type="content" source="media/studio/overview-invoices.png" alt-text="Screenshot of a sample invoice analyzed in the Azure AI Document Intelligence Studio." lightbox="media/overview-invoices-big.jpg":::
+:::image type="content" source="media/studio/overview-invoices.png" alt-text="Screenshot of a sample invoice analyzed in the Document Intelligence Studio." lightbox="media/overview-invoices-big.jpg":::
 
 ::: moniker-end
 
@@ -60,7 +60,7 @@ Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model** | <ul><li>[**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
+|**Invoice model** | <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
 
 ::: moniker-end
 
@@ -102,9 +102,9 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker range="form-recog-3.0.0"
 
-## Azure AI Document Intelligence Studio
+## Document Intelligence Studio
 
-1. On the Azure AI Document Intelligence Studio home page, select **Invoices**
+1. On the Document Intelligence Studio home page, select **Invoices**
 
 1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
 
@@ -113,7 +113,7 @@ See how data, including customer information, vendor details, and line items, is
     :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot: analyze invoice menu.":::
 
 > [!div class="nextstepaction"]
-> [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
+> [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
 ::: moniker-end
 
@@ -310,7 +310,7 @@ The JSON output has three parts:
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

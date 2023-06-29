@@ -161,7 +161,7 @@ sections:
 
           - [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 
-          - [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+          - [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
           - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
@@ -225,9 +225,9 @@ sections:
             - If no page range is provided, the entire document is processed.
 
       - question: |
-            Both Azure AI Document Intelligence Studio and the FOTT Sample Labeling tool are available. Which one should I use?
+            Both Document Intelligence Studio and the FOTT Sample Labeling tool are available. Which one should I use?
         answer:  |
-           Most of time [Azure AI Document Intelligence Studio]() is recommended since it can reduce your time for configuring Document Intelligence resource and storage services.
+           Most of time [Document Intelligence Studio]() is recommended since it can reduce your time for configuring Document Intelligence resource and storage services.
 
            Consider using FOTT (Form OCR Testing Tool) for the following scenarios:
 
@@ -410,13 +410,13 @@ sections:
 
             Learn how to [create and use a managed identity for your Document Intelligence resource](managed-identities.md)
 
-  - name: Azure AI Document Intelligence Studio
+  - name: Document Intelligence Studio
     questions:
       - question: |
-          What permissions do I need to access Azure AI Document Intelligence Studio?
+          What permissions do I need to access Document Intelligence Studio?
         answer: |
 
-          - You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Azure AI Document Intelligence Studio.
+          - You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Document Intelligence Studio.
 
           - For **document analysis and prebuilt models**, you need full access—**Contributor** role—to at least one [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
 
@@ -425,16 +425,16 @@ sections:
           - For more information, *see* [Azure AD built-in roles](../../role-based-access-control/built-in-roles.md).
 
       - question: |
-          I have multiple pages in a document. Why are there only two pages analyzed in Azure AI Document Intelligence Studio?
+          I have multiple pages in a document. Why are there only two pages analyzed in Document Intelligence Studio?
         answer: |
 
-          For free (F0) tier resources, only the first two pages are analyzed no matter you're using Azure AI Document Intelligence Studio, REST API or SDKs. In Azure AI Document Intelligence Studio, select the top right gear button (Settings), choose the Resources tab and check the Price Tier you're using to analyze the documents. Change to an S0 paid resource if you want to analyze all pages in a document.
+          For free (F0) tier resources, only the first two pages are analyzed no matter you're using Document Intelligence Studio, REST API or SDKs. In Document Intelligence Studio, select the top right gear button (Settings), choose the Resources tab and check the Price Tier you're using to analyze the documents. Change to an S0 paid resource if you want to analyze all pages in a document.
 
       - question: |
-          How can I change directories or subscriptions to use in Azure AI Document Intelligence Studio?
+          How can I change directories or subscriptions to use in Document Intelligence Studio?
         answer: |
 
-          - In Azure AI Document Intelligence Studio, you can select the top right gear button (Settings), under Directory, search and select the directory from the list and select on Switch Directory. You'll be prompted to sign in again after switching directory.
+          - In Document Intelligence Studio, you can select the top right gear button (Settings), under Directory, search and select the directory from the list and select on Switch Directory. You'll be prompted to sign in again after switching directory.
 
           - Switching subscriptions or resources can be done under Settings -> Resource tab.
 

@@ -49,7 +49,7 @@ Identity document processing involves extracting data from identity documents ei
 
 ::: moniker range="form-recog-3.0.0"
 
-***Sample U.S. Driver's License processed with [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
+***Sample U.S. Driver's License processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 
 :::image type="content" source="media/studio/analyze-drivers-license.png" alt-text="Image of a sample driver's license.":::
 
@@ -78,7 +78,7 @@ Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**ID document model**|<ul><li> [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-idDocument**|
+|**ID document model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-idDocument**|
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
@@ -120,12 +120,12 @@ Extract data, including name, birth date, and expiration date, from ID documents
 
 ::: moniker range="form-recog-3.0.0"
 
-## Azure AI Document Intelligence Studio
+## Document Intelligence Studio
 
 > [!NOTE]
-> Azure AI Document Intelligence Studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
+> Document Intelligence Studio is available with the v3.0 API (API version 2022-08-31 generally available (GA) release)
 
-1. On the Azure AI Document Intelligence Studio home page, select **Identity documents**
+1. On the Document Intelligence Studio home page, select **Identity documents**
 
 1. You can analyze the sample invoice or select the **+ Add** button to upload your own sample.
 
@@ -134,7 +134,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
     :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot: analyze ID document menu.":::
 
     > [!div class="nextstepaction"]
-    > [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
@@ -357,7 +357,7 @@ The following are the fields extracted per document type. The Azure AI Document 
 
 ::: moniker range="form-recog-3.0.0"
 
-* Try processing your own forms and documents with the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

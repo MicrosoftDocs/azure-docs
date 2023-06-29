@@ -99,7 +99,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
-> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+> Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
 
 ## Best practices
 
@@ -137,7 +137,7 @@ Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Document Intelligence 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Document Intelligence 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 

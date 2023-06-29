@@ -20,22 +20,22 @@ monikerRange: 'form-recog-3.0.0'
 
 > [!IMPORTANT]
 >
-> * The Azure AI Document Intelligence Studio query fields extraction feature is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
+> * The Document Intelligence Studio query fields extraction feature is currently in gated preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 > * Complete and submit the [**Document Intelligence private preview request form**](https://aka.ms/form-recognizer/preview/survey) to request access.
 
 Document Intelligence now supports query field extractions using Azure OpenAI capabilities. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
 
 > [!NOTE]
 >
-> Azure AI Document Intelligence Studio query field extraction is currently available with the general document model for the `2023-02-28-preview` release.
+> Document Intelligence Studio query field extraction is currently available with the general document model for the `2023-02-28-preview` release.
 
 ## Select query fields
 
 For query field extraction, specify the fields you want to extract and Document Intelligence analyzes the document accordingly. Here's an example:
 
-* If you're processing a contract in the Azure AI Document Intelligence Studio, you can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the analyze document request.
+* If you're processing a contract in the Document Intelligence Studio, you can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the analyze document request.
 
-   :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Azure AI Document Intelligence Studio.":::
+   :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
 
 * Document Intelligence utilizes the capabilities of both [**Azure OpenAI Service**](../../ai-services/openai/overview.md) and extraction models to analyze and extract the field data and return the values in a structured JSON output.
 
@@ -44,4 +44,4 @@ For query field extraction, specify the fields you want to extract and Document 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try the Azure AI Document Intelligence Studio quickstart](./quickstarts/try-form-recognizer-studio.md)
+> [Try the Document Intelligence Studio quickstart](./quickstarts/try-form-recognizer-studio.md)

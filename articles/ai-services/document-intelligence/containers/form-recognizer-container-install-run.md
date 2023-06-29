@@ -654,7 +654,7 @@ Custom template containers require a few different configurations and support ot
 | AzureCognitiveServiceReadHost (Receipt, IdDocument Containers Only)| Yes    | Specify Read container uri Example:AzureCognitiveServiceReadHost=http://onprem-frread:5000 |
 | AzureCognitiveServiceLayoutHost (Document, Invoice Containers Only) |    Yes    | Specify Layout container uri Example:AzureCognitiveServiceLayoutHost=http://onprem-frlayout:5000 |
 
-#### Use the Azure AI Document Intelligence Studio to train a model
+#### Use the Document Intelligence Studio to train a model
 
 * Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 

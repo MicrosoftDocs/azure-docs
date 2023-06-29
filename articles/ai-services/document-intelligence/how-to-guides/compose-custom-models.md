@@ -50,7 +50,7 @@ To get started, you need the following resources:
 
 ## Create your custom models
 
-First, you need a set of custom models to compose. You can use the Azure AI Document Intelligence Studio, REST API, or client-library SDKs. The steps are as follows:
+First, you need a set of custom models to compose. You can use the Document Intelligence Studio, REST API, or client-library SDKs. The steps are as follows:
 
 * [**Assemble your training dataset**](#assemble-your-training-dataset)
 * [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
@@ -82,7 +82,7 @@ When you [train your model](https://formrecognizer.appliedai.azure.com/studio/cu
 
 Document Intelligence uses the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started with training a new model. Then, add more labeled data, as needed, to improve the model accuracy. Document Intelligence enables training a model to extract key-value pairs and tables using supervised learning capabilities.
 
-### [Azure AI Document Intelligence Studio](#tab/studio)
+### [Document Intelligence Studio](#tab/studio)
 
 To create custom models, start with configuring your project:
 
@@ -94,7 +94,7 @@ To create custom models, start with configuring your project:
 
 1. Review and submit your settings to create the project.
 
-:::image type="content" source="../media/studio/create-project.gif" alt-text="Animation showing create a custom project in Azure AI Document Intelligence Studio.":::
+:::image type="content" source="../media/studio/create-project.gif" alt-text="Animation showing create a custom project in Document Intelligence Studio.":::
 
 While creating your custom models, you may need to extract data collections from your documents. The collections may appear one of two formats. Using tables as the visual pattern:
 
@@ -102,13 +102,13 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Azure AI Document Intelligence Studio: labeling as tables](../quickstarts/try-form-recognizer-studio.md#labeling-as-tables)
+See [Document Intelligence Studio: labeling as tables](../quickstarts/try-form-recognizer-studio.md#labeling-as-tables)
 
 ### [REST API](#tab/rest)
 
 Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents.
 
-Label files contain key-value associations that a user has entered manually. They're needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
+Label files contain key-value associations that a user has entered manually. They're needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
 
 Once you have your label files, you can include them with by calling the training method with the *useLabelFile* parameter set to `true`.
 
@@ -135,7 +135,7 @@ Training with labels leads to better performance in some scenarios. To train wit
 
 With the [**create compose model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel) operation, you can assign up to 100 trained custom models to a single model ID. When analyze documents with a composed model, Document Intelligence first classifies the form you submitted, then chooses the best matching assigned model, and returns results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
-### [Azure AI Document Intelligence Studio](#tab/studio)
+### [Document Intelligence Studio](#tab/studio)
 
 Once the training process has successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
 
@@ -146,9 +146,9 @@ Once the training process has successfully completed, you can begin to build you
 
 #### Gather your model IDs
 
-When you train models using the [**Azure AI Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/), the model ID is located in the models menu under a project:
+When you train models using the [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/), the model ID is located in the models menu under a project:
 
-:::image type="content" source="../media/studio/composed-model.png" alt-text="Screenshot: model configuration window in Azure AI Document Intelligence Studio.":::
+:::image type="content" source="../media/studio/composed-model.png" alt-text="Screenshot: model configuration window in Document Intelligence Studio.":::
 
 #### Compose your custom models
 
@@ -170,7 +170,7 @@ When you train models using the [**Azure AI Document Intelligence Studio**](http
 
 The custom model **Analyze** operation requires you to provide the `modelID` in the call to Document Intelligence. You should provide the composed model ID for the `modelID` parameter in your applications.
 
-:::image type="content" source="../media/studio/composed-model-id.png" alt-text="Screenshot of a composed model ID in Azure AI Document Intelligence Studio.":::
+:::image type="content" source="../media/studio/composed-model-id.png" alt-text="Screenshot of a composed model ID in Document Intelligence Studio.":::
 
 #### Manage your composed models
 
@@ -180,7 +180,7 @@ You can manage your custom models throughout life cycles:
 * Download your model to use in your applications.
 * Delete your model when its lifecycle is complete.
 
-:::image type="content" source="../media/studio/compose-manage.png" alt-text="Screenshot of a composed model in the Azure AI Document Intelligence Studio":::
+:::image type="content" source="../media/studio/compose-manage.png" alt-text="Screenshot of a composed model in the Document Intelligence Studio":::
 
 ### [REST API](#tab/rest)
 
@@ -256,7 +256,7 @@ Great! You've learned the steps to create custom and composed models and use the
 Try one of our Document Intelligence quickstarts:
 
 > [!div class="nextstepaction"]
-> [Azure AI Document Intelligence Studio](../quickstarts/try-form-recognizer-studio.md)
+> [Document Intelligence Studio](../quickstarts/try-form-recognizer-studio.md)
 
 > [!div class="nextstepaction"]
 > [REST API](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

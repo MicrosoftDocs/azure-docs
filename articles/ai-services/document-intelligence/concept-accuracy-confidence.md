@@ -31,7 +31,7 @@ Custom models generate an estimated accuracy score when trained. Documents analy
 The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
 The accuracy value range is a percentage between 0% (low) and 100% (high). The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values.
 
-**Azure AI Document Intelligence Studio** </br>
+**Document Intelligence Studio** </br>
 **Trained custom model (invoice)**
 
 :::image type="content" source="media/accuracy-confidence/accuracy-studio-results.png" alt-text="Trained custom model accuracy scores":::
@@ -44,10 +44,10 @@ Field confidence indicates an estimated probability between 0 and 1 that the pre
 
 Confidence scores have two data points: the field level confidence score and the text extraction confidence score. In addition to the field confidence of position and span, the text extraction confidence in the ```pages``` section of the response is the model's confidence in the text extraction (OCR) process. The two confidence scores should be combined to generate one overall confidence score.
 
-**Azure AI Document Intelligence Studio** </br>
+**Document Intelligence Studio** </br>
 **Analyzed invoice prebuilt-invoice model**
 
-:::image type="content" source="media/accuracy-confidence/confidence-scores.png" alt-text="confidence scores from Azure AI Document Intelligence Studio":::
+:::image type="content" source="media/accuracy-confidence/confidence-scores.png" alt-text="confidence scores from Document Intelligence Studio":::
 
 ## Interpret accuracy and confidence scores
 

@@ -42,15 +42,15 @@ Follow these tips to further optimize your data set for training:
 
 Once you've put together the set of forms or documents for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production. If your dataset is organized as folders, preserve that structure as the Studio can use your folder names for labels to simplify the labeling process.
 
-## Create a classification project in the Azure AI Document Intelligence Studio
+## Create a classification project in the Document Intelligence Studio
 
-The Azure AI Document Intelligence Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
+The Document Intelligence Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom classification model** tile, on the custom models section of the page and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio-create-classifier-project.png" alt-text="Screenshot of how to create a classifier project in the Azure AI Document Intelligence Studio.":::
+    :::image type="content" source="../media/how-to/studio-create-classifier-project.png" alt-text="Screenshot of how to create a classifier project in the Document Intelligence Studio.":::
 
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
 
@@ -111,7 +111,7 @@ Once the model training is complete, you can test your model by selecting the mo
 
 1. Validate your model by evaluating the results for each document identified.
 
-Congratulations you've trained a custom classification model in the Azure AI Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
+Congratulations you've trained a custom classification model in the Document Intelligence Studio! Your model is ready for use with the REST API or the SDK to analyze documents.
 
 ## Troubleshoot
 

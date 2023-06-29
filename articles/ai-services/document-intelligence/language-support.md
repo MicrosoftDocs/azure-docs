@@ -541,7 +541,7 @@ This technology is currently available for US driver licenses and the biographic
 ::: moniker range="form-recog-3.0.0"
 
 > [!div class="nextstepaction"]
-> [Try Azure AI Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+> [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
