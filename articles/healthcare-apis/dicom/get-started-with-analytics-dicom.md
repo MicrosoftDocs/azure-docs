@@ -42,11 +42,11 @@ Azure Data Factory pipelines read from data sources and write to data sinks, typ
 #### Create linked service for the DICOM service
 1. In the Azure Data Factory Studio, select **Manage**  from the navigation menu. Under **Connections** select **Linked services** and then select **New**.
 
-:::image type="content" source="/media/data-factory-linked-services.png" alt-text="View of Linked services screen in Azure Data Factory." lightbox="/media/data-factory-linked-services.png":::
+:::image type="content" source="media/data-factory-linked-services.png" alt-text="View of Linked services screen in Azure Data Factory." lightbox="media/data-factory-linked-services.png":::
 
 2. On the New linked service panel, search for "REST".  Select the **REST** tile and then **Continue**.
 
-:::image type="content" source="/media/data-factory-rest.png" alt-text="New Linked services panel with REST tile selected." lightbox="/media/data-factory-rest.png":::
+:::image type="content" source="media/data-factory-rest.png" alt-text="New Linked services panel with REST tile selected." lightbox="media/data-factory-rest.png":::
 
 3. Enter a **Name** and **Description** for the linked service.  
 
