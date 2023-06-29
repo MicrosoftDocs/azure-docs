@@ -27,7 +27,7 @@ This section provides the steps to use the metrics registered by Spring Boot and
 
     1. Go to the Azure Spring Apps instance overview page.
     
-    1. Select **Application Insights** in the left navigation menu, select the **Application Insights** to go to the Application Insights overview page.
+    1. Select **Application Insights** in the left navigation menu to go to the Application Insights overview page.
     
     1. Select **Metrics** in the left navigation menu, Select the edit icon in the chart title, rename the chart title to `JVM Memory Used`.
     
