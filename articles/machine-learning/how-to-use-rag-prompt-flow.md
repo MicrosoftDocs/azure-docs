@@ -39,9 +39,7 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 :::image type="content" source="./media/how-to-use-rag-prompt-flow/prompt.png" alt-text="Screenshot showing prompt flow location.":::
 
-
 2.  Select **Create**.
-
 
 3. In the **Create from gallery** section, select **View Detail** on the Bring your own data Q&A sample.
 
@@ -61,3 +59,5 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 [Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
 
 [How to create vector index in Azure Machine Learning prompt flow (preview).](how-to-create-vector-index.md)
+
+[Use Vector Stores](concept-vector-stores.md) with Azure Machine Learning (preview)

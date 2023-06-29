@@ -1,7 +1,7 @@
 ---
 title: Concept Vector Stores in AzureML (preview)
 titleSuffix: Azure Machine Learning embedding vectors in AzureML
-description: Explaining embedding vectors in AzureML
+description: This concept article helps you use a vector index in AzureML for performing Retrieval Augmented Generation.
 services: machine-learning
 ms.author: balapv
 author: balapv
@@ -15,7 +15,9 @@ ms.topic: conceptual
 
 # Vector Stores in AzureML
 
- [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+This concept article helps you use a vector index in AzureML for performing Retrieval Augmented Generation. A vector index stores embeddings, which are numerical representations of concepts (data) converted to number sequences, which enable LLMs to understand the relationships between those concepts. Creating vector stores will better help you to hook up your data with an LLM and retrieve the data efficiently.
 
 AzureML supports embedding vectors to be stored in 2 types of vector stores. Faiss and Azure Cognitive Search.
 
@@ -46,6 +48,11 @@ The following tables list pros and cons for each type of Index:
 | Can be scaled via replicas and partitions as needed | Initial setup is complex: need to provision and manage Azure Resource, need to grant access for local dev usage/manage secrets |
 | Support and detailed documentation are available on service features/limitations | Limitations on number of vectors which can be stored in index | 
 
+## Next steps
+
+[Train and Deploy Large Language Models](how-to-train-promptflow.md) (LLMs) with Azure Machine Learning prompt flow (preview)
+
+[How to create vector index in Azure Machine Learning prompt flow (preview)](how-to-create-vector-index.md)
 
 
  

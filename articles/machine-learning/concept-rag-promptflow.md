@@ -59,25 +59,14 @@ To implement RAG, a few key requirements must be met. Firstly, data should be fo
 * Code experience, which allows utilization of data created with OSS offerings like LangChain. 
 * Seamless integration of RAG workflows into MLOps workflows using pipelines and jobs. 
 
-RAG in Azure Machine Learning is currently available on demand. If you're interested
-in trying out RAG, you can sign up at <https://aka.ms/aml-rag-signup>
 
 ## Conclusion
 
 Azure Machine Learning allows you to incorporate RAG in your AI using the Azure studio or using code with Azure Machine Learning pipelines. It offers several value additions like the ability to measure and enhance RAG workflows, test data generation, automatic prompt creation, and visualize prompt evaluation metrics. It enables the integration of RAG workflows into MLOps workflows using pipelines. You can also use your data with OSS offerings like LangChain. 
 
-* [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401).
-* To convert text to vectors, that is, create embeddings, an embedding
-model is used. Azure OpenAI Service models like Ada or open-source
-libraries like [Sentence Transformers](https://www.sbert.net/index.html)
-can be used to create embeddings.
-* In Azure Machine Learning, the Vector Index could be a [FAISS](https://faiss.ai/)
-Index or an [Azure Cognitive Search
-index](../search/search-what-is-an-index.md).
-
 ## Next steps
 
-[Train and Deploy Large Language Models] (LLMs) with Azure Machine Learning prompt flow (preview)(how-to-train-promptflow.md)
+[Use Vector Stores](concept-vector-stores.md) with Azure Machine Learning (preview)
 
-[How to create vector index] in Azure Machine Learning prompt flow (preview)(how-to-create-vector-index.md)
+[How to create vector index](how-to-create-vector-index.md) in Azure Machine Learning prompt flow (preview)
 

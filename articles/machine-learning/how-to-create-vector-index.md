@@ -58,10 +58,7 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 1.  Based on the chosen type, provide the location details of your
     source. Then, select **Next**.
 
-1.  Choose the Azure OpenAI connection, which is required to access the
-    embedding and generation models.
-
-1.  Review the details of your vector index, then select the **Create** button to create the vector index.
+1.  Review the details of your vector index, then select the **Create** button to create the vector index. For more information about how to [use Vector Stores (preview).](concept-vector-stores.md) 
 
 1. This takes you to an overview page from where you can track
     and view the status of your Vector Index creation. Note: Vector
@@ -90,3 +87,5 @@ Once you have created a Vector Index, you can add it to a prompt flow from the p
 ## Next Steps
 
 [Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
+
+[Use Vector Stores](concept-vector-stores.md) with Azure Machine Learning (preview)
