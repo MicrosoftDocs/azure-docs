@@ -19,7 +19,7 @@ metadata:
 # Main Items (Icons)
 # Maximum of 8 items
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new | thought-leadership
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
     - title: What is Azure HPC?
@@ -43,7 +43,7 @@ highlightedContent:
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
     # Card
     - title: Azure.com Blogs
-      itemType: thought-leadership
+      itemType: learn
       url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
 # Azure Services
