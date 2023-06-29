@@ -102,12 +102,11 @@ productDirectory:
 
 #Additional Content (No Title)
 conceptualContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-      title: HPC Documentation # < 60 chars (optional)
-      #summary: # < 160 chars (optional)
-    - items:
+    - title: HPC Documentation # < 60 chars (Optional; Remove if not applicable.)
+      #summary: Learn more about Azure HPC with various video content and events # < 160 chars (Optional; Remove if not applicable.)
+      items:
         # Card
         - title: HPC Compute
           links:
