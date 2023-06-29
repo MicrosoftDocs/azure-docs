@@ -4,9 +4,8 @@ description: Learn how to migrate your Azure SQL Database to availability zone s
 author: rsetlem
 ms.service: sql
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/29/2023
 ms.author: anaharris 
-ms.reviewer: anaharris
 ms.custom: references_regions, subject-reliability
 ---
 
@@ -148,34 +147,18 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
 # [Database copy](#tab/database)
 
-To create a database copy and enable zone redundancy, use one of the following methods:
-
-- Copy with the Azure portal. Follow the instructions in [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql#copy-using-the-azure-portal) and enable zone redundancy under **Compute + Storage**
-
-- Copy with PowerShell. Use the `-ZoneRedundant` switch to [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql#copy-using-powershell-or-the-azure-cli).
-
-- Copy with Azure CLI. Use the `--zone-redundant` switch to [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-cli&view=azuresql#copy-using-powershell-or-the-azure-cli).
+To create a database copy and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql#copy-using-the-azure-portal).
  
 
 # [Point-in-time restore](#tab/point)
 
-To create a point-in-time database restore and enable zone redundancy, use one of the following methods:
-
-- Restore with the Azure portal. Follow the instructions in [Point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal#point-in-time-restore) and enable zone redundancy under **Compute + Storage**
-
-- Restore with PowerShell. Use the `-ZoneRedundant` switch to [create a point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=powershell#point-in-time-restore).
-
-- Restore with Azure CLI. Use the `--zone-redundant` switch to [create a point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-cli#point-in-time-restore).
+To create a point-in-time database restore and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [Point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal#point-in-time-restore).
 
 # [Geo-replica](#tab/geo)
 
 To create a geo-replica of the database:
 
-1. Use one of the following methods:
-
-    - Create with the Azure portal. Follow the instructions in [Configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&tabs=portal) and enable zone redundancy under **Compute + Storage**
-
-    - Create with Azure CLI. Use the `--zone-redundant` switch to [configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&tabs=azure-cli).
+1. Follow the instructions with Azure Portal, PowerShell, or Azure CLI in [Configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&tabs=portal) and enable zone redundancy under **Compute + Storage**
 
 1. The replica is seeded, and the time taken for seeding the data depends upon size of source database. You can monitor the status of seeding in the Azure portal or by running the following TSQL queries on the replica database:
 
