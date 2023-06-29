@@ -31,7 +31,7 @@ highlightedContent:
       url: ../virtual-machines/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
     # Card
     - title: HPC Architecture
-      itemType: architecture
+      itemType: reference
       url: /azure/architecture/browse/?terms=HPC
     # Card
     - title: Run HPC applications on Azure
@@ -39,11 +39,11 @@ highlightedContent:
       url: /training/paths/run-high-performance-computing-applications-azure/
     # Card
     - title: Azure HPC Technical Blog
-      itemType: reference
+      itemType: whats-new
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
     # Card
     - title: Azure.com Blogs
-      itemType: whats-new
+      itemType: architecture
       url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
 # Azure Services
