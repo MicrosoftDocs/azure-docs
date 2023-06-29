@@ -138,10 +138,14 @@ additionalContent:
         # Card
         - title: External partners (B2B)
           summary: Collaborate with partners using their own external identities (B2B).
-          url: ./external-identities/index.yml
+          url: ./external-identities/index-b2b.yml
         # Card
-        - title: Customers (B2C)
-          summary: Manage customer identity and access management (CIAM) for your app.
+        - title: Customers (CIAM)(preview)
+          summary: Create secure, customized sign-in experiences for your customer-facing apps and services. 
+          url: ./external-identities/customers/index.yml
+        # Card
+        - title: Consumers (B2C)
+          summary: Business to consumers identity and access management for your app.   
           url: ../active-directory-b2c/index.yml
         # Card
         - title: Application provisioning
