@@ -2,29 +2,35 @@ The following video provides an overview of on-premises provisioning.
 
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
+## Capabilities supported
+
+> [!div class="checklist"]
+> - Create users in SAP ECC 7.0
+> - Remove users in SAP ECC 7.0 when they don't need access anymore.
+> - Keep user attributes synchronized between Azure AD and SAP ECC 7.0.
+> - Discover the schema for SAP ECC 7.0.
+
 ## Out of scope
 * Other object types including local activity groups, roles, and profiles are not supported. Please use the Microsoft Identity Manager if these objects are required. 
 * Password operations are not supported. Please use the Microsoft Identity Manager if password management is required.
-* SAP CUA and complex SAP landscapes are out of scope of this guide as it is intended to demonstrate the approach, which you can customize to meet your needs for a production deployment. 
 
-
-## Prerequisites for provisioning to SAP ECC 7
+## Prerequisites for provisioning to SAP ECC 7.0
 
 ### On-premises prerequisites
 
 The computer that runs the provisioning agent should have:
 
-- Connectivity to SAP ECC 7 with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
+- Connectivity to SAP ECC 7.0 with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
 - At least 3 GB of RAM, to host a provisioning agent. 
 - .NET Framework 4.7.2 
 - A Windows Server 2016 or a later version. 
 
 Prior to configuring provisioning, ensure that you:
-- Expose the necessary APIs in SAP ECC 7 to create, update, and delete users. The guide here walks through how you can expose the necessary APIs.
+- Expose the necessary APIs in SAP ECC 7.0 to create, update, and delete users. The guide here walks through how you can expose the necessary APIs.
 - Create a web services connector template for the ECMA host. You can use the template provided here as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment.  
 
 
-Configuration of the connection to SAP ECC 7 is done using a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
+Configuration of the connection to SAP ECC 7.0 is done using a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
 
 ### Cloud requirements
 
@@ -32,16 +38,60 @@ Configuration of the connection to SAP ECC 7 is done using a wizard. Depending o
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
  - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
- - The Azure AD users to be provisioned to SAP ECC 7 must already be populated with any attributes that will be required by SAP ECC 7. 
+ - The Azure AD users to be provisioned to SAP ECC 7.0 must already be populated with any attributes that will be required by SAP ECC 7.0. 
 
+## 1. Install and configure the Azure AD Connect Provisioning Agent
 
-## 1. Configure the generic web services connector
+If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
-In this section, you will create the connector configuration for SAP ECC 7.
+ 1. Sign in to the Azure portal.
+ 2. Go to **Enterprise applications** and select **New application**.
+ 3. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
+ 4. From the menu, navigate to the **Provisioning** page of your application.
+ 5. Select **Get started**.
+ 6. On the **Provisioning** page, change the mode to **Automatic**.
+ 
+ :::image type="content" source="media/active-directory-app-provisioning-sql/configure-7.png" alt-text="Screenshot of selecting Automatic." lightbox="media/active-directory-app-provisioning-sql/configure-7.png":::
 
-### 1.1 Connect the provisioning agent to SAP ECC 
+ 7. Under **On-premises Connectivity**, select **Download and install**, and select **Accept terms & download**.
+ 
+ :::image type="content" source="media/active-directory-app-provisioning-sql/download-1.png" alt-text="Screenshot of download location for agent." lightbox="media/active-directory-app-provisioning-sql/download-1.png":::
+ 8. Leave the portal and open the provisioning agent installer, agree to the terms of service, and select **next**.
+ 9. Open the provisioning agent wizard.
+ 10. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
 
-To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
+ :::image type="content" source="media/active-directory-app-provisioning-sql/azure-ad-sync-agent-select-on-premises.png" alt-text="Screenshot that shows how to select on premises provisioning." lightbox="media/active-directory-app-provisioning-sql/azure-ad-sync-agent-select-on-premises.png":::
+    
+ 11. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
+ 12. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
+ 13. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
+ 
+## 4. Configure the On-premises ECMA app
+
+ 1. Back in the portal, on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**.
+
+      ![Screenshot that shows how to select and assign and agent.](.\media\active-directory-app-provisioning-sql\configure-7a.png)
+
+ 2. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
+
+  
+ ## 5. Configure the Azure AD ECMA Connector Host certificate
+
+ 1. On the Windows Server where the provisioning agent is installed, right click the **Microsoft ECMA2Host Configuration Wizard** from the start menu, and run as administrator.  Running as a Windows administrator is necessary for the wizard to create the necessary Windows event logs.
+ 
+ 1. After the ECMA Connector Host Configuration starts, if it's the first time you have run the wizard, it will ask you to create a certificate. Leave the default port **8585** and select **Generate certificate** to generate a certificate. The autogenerated certificate will be self-signed as part of the trusted root. The certificate SAN matches the host name.
+
+     [![Screenshot that shows configuring your settings.](.\media\active-directory-app-provisioning-sql\configure-1.png)](.\media\active-directory-app-provisioning-sql\configure-1.png#lightbox)
+
+ 3. Select **Save**.
+
+## 5. Configure the generic web services connector
+
+In this section, you will create the connector configuration for SAP ECC 7.0.
+
+### 5.1 Connect the provisioning agent to SAP ECC 7.0
+
+To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 1. Copy your web service connector template sapecc.wsconfig into `C:\Program Files\Microsoft ECMA2Host\Service\ECMA` folder. 
 1. Generate a secret token that will be used for authenticating Azure AD to the connector. It should be 12 characters minimum and unique for each application.
@@ -137,7 +187,7 @@ To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
         | Autogenerated | Checked |
    
 
- 1. The ECMA connector host discovers the attributes supported by SAP ECC 7. You can then choose which of the discovered attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time. The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC 7 and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
+ 1. The ECMA connector host discovers the attributes supported by SAP ECC 7.0. You can then choose which of the discovered attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time. The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC 7.0 and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  
      [![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sap\sap-sa-1.png)](.\media\active-directory-app-provisioning-sap\sap-sa-1.png#lightbox)
@@ -149,7 +199,7 @@ To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
  On the **Deprovisioning** page, under Disable flow, select None. You will control user account status with **expirationTime** property. Under Delete flow, select None if you do not want to delete SAP users or Delete if you do. Select **Finish**.
      
 
-## 2. Ensure the ECMA2Host service is running
+## 6. Ensure the ECMA2Host service is running
 
  1. On the server running the Azure AD ECMA Connector Host, select **Start**.
  2. Enter **run** and enter **services.msc** in the box.
@@ -159,9 +209,9 @@ To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
 
 
 
- 1. If you have recently started the service, and have many user objects in the SAP ECC 7, then wait several minutes for the connector to establish a connection with SAP ECC 7.
+ 1. If you have recently started the service, and have many user objects in the SAP ECC 7.0, then wait several minutes for the connector to establish a connection with SAP ECC 7.0.
 
-## 3. Configure the application connection in the Azure portal
+## 7. Configure the application connection in the Azure portal
 
 1. Return to the web browser window where you were configuring the application provisioning.
 
@@ -190,13 +240,13 @@ To connect the Azure AD provisioning agent with SAP ECC, follow these steps:
 
      ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
 
-## 4. Configure attribute mappings
+## 8. Configure attribute mappings
 
-Now you will map attributes between the representation of the user in Azure AD and the representation of the user in SAP ECC 7.
+Now you will map attributes between the representation of the user in Azure AD and the representation of the user in SAP ECC 7.0.
 
 You'll use the Azure portal to configure the mapping between the Azure AD user's attributes and the attributes that you previously selected in the ECMA Host configuration wizard.
 
- 1. Ensure that the Azure AD schema includes the attributes that are required by SAP ECC 7. If it requires users to have an attribute, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
+ 1. Ensure that the Azure AD schema includes the attributes that are required by SAP ECC 7.0. If it requires users to have an attribute, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
  1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
  2. Select **Edit provisioning**, and wait 10 seconds.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
@@ -204,7 +254,7 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
 
      ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)
 
- 1. To confirm that the schema of SAP ECC 7 is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
+ 1. To confirm that the schema of SAP ECC 7.0 is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
  2. Now, click on the **userPrincipalName** PLACEHOLDER mapping.  This mapping is added by default when you first configure on-premises provisioning.  
  
    :::image type="content" source="media/active-directory-app-provisioning-sql/configure-11.png" alt-text="Screenshot of placeholder." lightbox="media/active-directory-app-provisioning-sql/configure-11.png":::
@@ -252,7 +302,7 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  
  6. Once all of the mappings have been added, select **Save**.
 
-## 5. Assign users to the application
+## 9. Assign users to the application
 
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning.
 
@@ -260,11 +310,11 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and th
 >If you were signed in using a Hybrid Identity Administrator role, you need to sign-out and sign-in with an account that has the Application Administrator, Cloud Application Administrator or Global Administrator role, for this section.  The Hybrid Identity Administrator role does not have permissions to assign users to applications.
 
 
-If there are existing users in the SAP ECC 7, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
+If there are existing users in the SAP ECC 7.0, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
 
 Otherwise, if there are no current users of the application, then select a test user from Azure AD who will be provisioned to the application.
 
- 1. Ensure that the user you will select has all the properties that will be mapped to the required attributes of SAP ECC 7.
+ 1. Ensure that the user you will select has all the properties that will be mapped to the required attributes of SAP ECC 7.0.
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.
  3. On the left, under **Manage**, select **Users and groups**.
@@ -284,7 +334,7 @@ Otherwise, if there are no current users of the application, then select a test 
 
      [![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)](.\media\active-directory-app-provisioning-sql\app-5.png#lightbox)
      
-## 6. Test provisioning
+## 10. Test provisioning
 
 Now that your attributes are mapped and users are assigned, you can test on-demand provisioning with one of your users.
  
@@ -298,7 +348,7 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
 
  6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
 
-## 7. Start provisioning users
+## 11. Start provisioning users
 
 1. After on-demand provisioning is successful, return to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
