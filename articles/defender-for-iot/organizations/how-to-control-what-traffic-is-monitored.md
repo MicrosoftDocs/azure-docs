@@ -42,7 +42,7 @@ After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defe
 
     For example:
 
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page."::: <!--add lightbox-->
+    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page." lightbox="media/how-to-control-what-traffic-is-monitored/deployment-settings.png":::
 
 1. Wait for the analysis to complete, and then check the listed subnets to see if all the networks you expect to be listed are indeed listed. If there are subnets missing, subnets you want to remove, or if you want to edit subnet definitions, continue on with the other procedures in this article.
 

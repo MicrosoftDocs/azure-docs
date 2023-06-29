@@ -134,7 +134,7 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
 
     Enter the certificate's name and passphrase, and then select **Upload** to upload your private key file, certificate file, and an optional certificate chain file.
 
-    You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors). <!-do we still need to?-->
+    You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors). <!--do we still need to?-->
 
     > [!TIP]
     > If you're working on a testing environment, you can also use the self-signed certificate that's generated locally during installation. If you select to use a self-signed certificate, make sure to select the **Confirm** option about the recommendations.
@@ -187,7 +187,7 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
     > [!IMPORTANT]
     > Make sure that you select only interfaces that are connected.
     >
-    > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them later via the [CLI](../references-work-with-defender-for-iot-cli-commands.md). <!--can i still not do this after via the UI?-->
+    > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them later via the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
 
 <!--
 1. In the `Select erspan monitor interfaces` screen, select any ERSPAN monitoring ports that you have. The wizard lists available interfaces, even if you don't have any ERSPAN monitoring ports in your system. If you have no ERSPAN monitoring ports, leave all options unselected. <!--does this page still show? i don't see it
@@ -197,7 +197,7 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
     :::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
 -->
-1. In the `Select management interface` screen, select the interface you want to use to connect to the Azure portal or an on-premises management console.  <!--is this correct?-->
+1. In the `Select management interface` screen, select the interface you want to use to connect to the Azure portal or an on-premises management console.
 
     <!--not shown in my sample machine: we recommend keeping the default `eno1` value selected as the management interface.-->
 
