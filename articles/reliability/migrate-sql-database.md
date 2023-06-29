@@ -160,7 +160,7 @@ To create a point-in-time database restore and enable zone redundancy with Azure
 
 To create a geo-replica of the database:
 
-1. Follow the instructions with Azure Portal, PowerShell, or Azure CLI in [Configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&tabs=portal) and enable zone redundancy under **Compute + Storage**
+1. Follow the instructions with Azure portal, PowerShell, or Azure CLI in [Configure active geo-replication and failover (Azure SQL Database)](/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&preserve-view=true&tabs=portal) and enable zone redundancy under **Compute + Storage**
 
 1. The replica is seeded, and the time taken for seeding the data depends upon size of source database. You can monitor the status of seeding in the Azure portal or by running the following TSQL queries on the replica database:
 
