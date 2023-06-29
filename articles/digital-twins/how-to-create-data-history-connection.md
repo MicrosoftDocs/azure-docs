@@ -92,7 +92,7 @@ As part of the [data history connection setup](#set-up-data-history-connection) 
 For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
 
 >[!NOTE]
->While setting up data history, local authorization must be *enabled* on the event hub. If you ultimately want to have local authorization disabled on your event hub, disable the authorization after setting up the connection. You'll also need to adjust some permissions, described in [Restrict local access to data history resources](#restrict-local-access-to-data-history-resources) later in this article.
+>While setting up data history, local authorization must be *enabled* on the event hub. If you ultimately want to have local authorization disabled on your event hub, disable the authorization after setting up the connection. You'll also need to adjust some permissions, described in [Restrict network access to data history resources](#restrict-network-access-to-data-history-resources) later in this article.
 
 # [CLI](#tab/cli) 
 
@@ -230,18 +230,18 @@ After setting up the data history connection, you can optionally remove the role
 >[!NOTE]
 >Once the connection is set up, the default settings on your Azure Data Explorer cluster will result in an ingestion latency of approximately 10 minutes or less. You can reduce this latency by enabling [streaming ingestion](/azure/data-explorer/ingest-data-streaming) (less than 10 seconds of latency) or an [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). For more information about Azure Data Explorer ingestion latency, see [End-to-end ingestion latency](concepts-data-history.md#end-to-end-ingestion-latency).
 
-### Restrict local access to data history resources
+### Restrict network access to data history resources
 
-If you'd like to disable local access to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection.
+If you'd like to restrict network access to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. This includes disabling local access for your resources, among other measures to reduce network access.
 
-You'll also need to modify the data connection for the Azure Data Explorer database to use a system-assigned managed identity.
+To make sure your data history resources can communicate with each other, you should also modify the data connection for the Azure Data Explorer database to use a system-assigned managed identity.
 
-So, to disable local access to a resource used in your data history connection, here are the required steps:
+Follow the order of steps below to make sure your data history connection is set up properly when your resources need reduced network access.
 1. Make sure local authorization is *enabled* on your data history resources (your Azure Digital Twins instance, event hub, and Azure Data Explorer cluster)
 1. [Create the data history connection](#set-up-data-history-connection)
 1. Update the data connection for the Azure Data Explorer database to use a system-assigned managed identity. In the Azure portal, you can do this by navigating to the Azure Data Explorer cluster and using **Databases** in the menu to navigate to the data history database. In the database menu, select **Data connections**. In the table entry for your data history connection, you should see the option to **Assign managed identity**, where you can choose **System-assigned**.
     :::image type="content" source="media/how-to-create-data-history-connection/database-managed-identity.png" alt-text="Screenshot of the option to assign a managed identity to a data connection in the Azure portal." lightbox="media/how-to-create-data-history-connection/database-managed-identity.png":::
-1. Now, you can disable local authorization for your desired resources, by changing the access settings on your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster.
+1. Now, you can disable local authorization or set other network restrictions for your desired resources, by changing the access settings on your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster.
 
 ### Troubleshoot connection setup
 
