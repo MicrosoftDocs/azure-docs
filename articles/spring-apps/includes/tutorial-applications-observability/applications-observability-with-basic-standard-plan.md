@@ -172,7 +172,7 @@ save the **Response time** chart to the dashboard.
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-response-time.png" alt-text="Screenshot of the Azure portal with response time to dashboard." lightbox="../../media/tutorial-applications-observability/chart-response-time.png":::
 
-#### Add Active MySQL connections chart
+#### Pin the "Active MySQL connections" chart
 
 Repeat with the previous section steps for the **hikaricp_connection_active** metric under the **Log-based metrics** namespace, save the **Active MySQL connections** chart to the dashboard.
 
