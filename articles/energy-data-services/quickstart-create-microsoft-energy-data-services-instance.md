@@ -15,7 +15,7 @@ Get started by creating an Azure Data Manager for Energy instance on Azure porta
 
 The setup of Azure Data Manager for Energy instance can be triggered using a simple interface on Azure portal and takes about 50 minutes to complete.
 
-Azure Data Manager for Energy is a managed "Platform as a service (PaaS)" offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) Data Platform. Azure Data Manager for Energy lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications.
+Azure Data Manager for Energy is a managed "Platform as a service (PaaS)" offering from Microsoft that builds on top of the [OSDU&trade;](https://osduforum.org/) Data Platform. Azure Data Manager for Energy lets you ingest, transform, and export subsurface data by letting you connect your consuming in-house or third-party applications. 
 
 ## Prerequisites
 
