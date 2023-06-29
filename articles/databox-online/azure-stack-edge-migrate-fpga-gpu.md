@@ -1,16 +1,16 @@
 ---
 title: Migration guide for Azure Stack Edge Pro FPGA to Pro 2 physical device
-description: This guide contains instructions to migrate workloads from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro 2 device.
+description: This guide contains instructions to migrate workloads from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro 2 or Azure Stack Edge GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/09/2023
+ms.date: 06/29/2023
 ms.author: alkohli  
 ---
-# Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro 2
+# Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro 2 or Azure Stack Edge GPU device
 
 This article describes how to migrate workloads and data from an Azure Stack Edge Pro FPGA device to an Azure Stack Edge Pro 2 or Pro GPU device. The migration process begins with selection of a new device, a migration plan, and a review of migration considerations. The migration procedure gives detailed steps ending with verification and device cleanup.
 
