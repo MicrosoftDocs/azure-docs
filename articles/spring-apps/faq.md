@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022, devx-track-dotnet, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, ignite-2022, devx-track-dotnet
 zone_pivot_groups: programming-languages-spring-apps
 ---
 

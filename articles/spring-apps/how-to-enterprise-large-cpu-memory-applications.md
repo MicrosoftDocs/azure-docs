@@ -6,7 +6,7 @@ ms.author: haital
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/17/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan

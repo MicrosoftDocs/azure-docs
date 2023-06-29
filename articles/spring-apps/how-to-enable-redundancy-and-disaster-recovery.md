@@ -6,7 +6,7 @@ ms.author: wenhaozhang
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 07/12/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Enable redundancy and disaster recovery for Azure Spring Apps

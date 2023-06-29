@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.custom: devx-track-java, event-tier1-build-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Java and Base OS for Azure Spring Apps apps
