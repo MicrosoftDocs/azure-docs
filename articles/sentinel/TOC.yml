@@ -998,6 +998,8 @@
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
+      - name: Deploy incident response playbooks for SAP
+        href: sap/sap-incident-response-playbooks.md
       - name: Configure SAP audit log monitoring rules
         href: sap/configure-audit-log-rules.md
       - name: Select SAP ingestion profile

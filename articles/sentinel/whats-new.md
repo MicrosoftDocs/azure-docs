@@ -22,6 +22,16 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## July 2023
+
+- [Deploy incident response playbooks for SAP](#deploy-incident-response-playbooks-for-sap)
+
+### Deploy incident response playbooks for SAP
+
+Take advantage of Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities in conjunction with SAP. Microsoft Sentinel presents purpose-built playbooks included in the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md). You can use these playbooks to respond automatically to suspicious user activity in SAP systems, automating remedial actions in SAP RISE, SAP ERP, SAP Business Technology Platform (BTP) as well as in Azure Active Directory.
+
+Learn more about [Microsoft Sentinel incident response playbooks for SAP](sap/sap-incident-response-playbooks.md).
+
 ## June 2023
 
 - [Content Hub is now generally available](#content-hub-is-now-generally-available)
