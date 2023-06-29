@@ -121,7 +121,7 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
 
    :::image type="content" source="../../media/tutorial-applications-observability/chart-app-memory-usage.png" alt-text="Screenshot of the Azure portal with app memory usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-memory-usage.png":::
 
-#### Add App Network In chart
+#### Pin the "App Network In" chart
 
 1. Repeat with the previous section steps for the **App Network In** metric, 
    select **Add filter** for an extra step, for **Property**, select the corresponding dropdown list to choose the `App`, select `=` for **Operator**, select `admin-server` and `api-gateway` for **Values**, 
