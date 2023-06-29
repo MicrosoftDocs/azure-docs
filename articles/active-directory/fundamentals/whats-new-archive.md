@@ -7160,15 +7160,6 @@ For more information, see [Add an on-premises application for remote access thro
 
 ---
 
-### Plan for change: Design updates are coming for the Application Gallery
-
-**Type:** Plan for change
-**Service category:** Enterprise Apps
-**Product capability:** SSO
-
-New user interface changes are coming to the design of the **Add from the gallery** area of the **Add an application** blade. These changes will help you more easily find your apps that support automatic provisioning, OpenID Connect, Security Assertion Markup Language (SAML), and Password single sign-on (SSO).
-
----
 
 
 
