@@ -202,7 +202,7 @@ You need to set up and activate the *target* device against the new resource you
 Follow these steps to configure the *target* device via the Azure portal:
 
 1. Gather the information required in the [Deployment checklist](azure-stack-edge-pro-2-deploy-checklist.md). You can use the information that you saved from the source device configuration. 
-1. [Unpack](azure-stack-edge-pro-2-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-pro-2-deploy-install.md#rack-the-device) and [cable your device](azure-stack-edge-p-2-deploy-install.md#cable-the-device). 
+1. [Unpack](azure-stack-edge-pro-2-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-pro-2-deploy-install.md#rack-the-device) and [cable your device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device). 
 1. [Connect to the local UI of the device](azure-stack-edge-pro-2-deploy-connect.md).
 1. Configure the network using a different set of IP addresses (if using static IPs) than the ones that you used for your old device. See how to [configure network settings](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md).
 1. Assign the same device name as your old device and provide a DNS domain. See how to [configure device setting](azure-stack-edge-pro-2-deploy-set-up-device-update-time.md).
