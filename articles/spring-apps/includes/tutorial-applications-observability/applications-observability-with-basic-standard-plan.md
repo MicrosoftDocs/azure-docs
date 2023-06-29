@@ -226,7 +226,7 @@ when the metric pattern matches the condition, the alert rule is triggered, and 
 
 1. Select **Review and Create** to review your selections. Select **Create** to create the action group.
 
-### Set up Alert rules
+### Set up an alert rule
 
 1. Go to the Azure Spring Apps instance overview page.
 
