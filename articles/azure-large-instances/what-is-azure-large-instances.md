@@ -156,7 +156,7 @@ These Data access protocols are supported:
 
 The architecture of Azure network services is a key component for a successful deployment of specialized workloads in ALI.
 It's likely that not all IT systems are located in Azure already. Azure offers you network technology to make Azure look like a virtual data center to your on-premises software deployments.
-The Azure network functionality required for BareMetal instances includes: 
+The Azure network functionality required for ALI instances includes: 
 
 * Azure virtual networks connected to the Azure ExpressRoute circuit that connects to your on-premises network assets. 
 * The ExpressRoute circuit that connects on-premises to Azure should have a minimum bandwidth of 1 Gbps or higher. 
