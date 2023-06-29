@@ -247,12 +247,9 @@ The suggested solution includes:
 
 - The central SOC team can also create an additional workspace if it needs to store artifacts that remain hidden from the continent SOC teams, or if it wants to ingest other data that is not relevant to the continent SOC teams.
 
-
-
 ## Next steps
 
-> [!div class="nextstepaction"]
->[On-board Microsoft Sentinel](quickstart-onboard.md)
+In this article, you reviewed a set of suggested workspace designs for organizations.
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](get-visibility.md)
+>>[Prepare for multiple workspaces](prepare-multiple-workspaces.md)

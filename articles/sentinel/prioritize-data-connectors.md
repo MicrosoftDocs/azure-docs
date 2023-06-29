@@ -40,4 +40,4 @@ If you choose to filter your collected logs or log content before the data is in
 In this article, you learned how to prioritize data connectors to prepare for your Microsoft Sentinel deployment.
 
 > [!div class="nextstepaction"]
-> [Plan roles and permissions](roles.md)
+>>[Plan roles and permissions](roles.md)

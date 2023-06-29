@@ -24,11 +24,11 @@
       - name: Review best practices
         href: best-practices-workspace-architecture.md 
       - name: Design workspace architecture
-        href: design-your-workspace-architecture.md
-      - name: Prepare for multiple workspaces
-        href: prepare-multiple-workspaces.md
+        href: design-your-workspace-architecture.md      
       - name: Review sample workspace designs
         href: sample-workspace-designs.md
+      - name: Prepare for multiple workspaces
+        href: prepare-multiple-workspaces.md
     - name: Prioritize data connectors
       href: prioritize-data-connectors.md 
     - name: Plan roles and permissions

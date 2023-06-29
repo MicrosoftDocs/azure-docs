@@ -195,9 +195,7 @@ When planning to use resource-context or table level RBAC, consider the followin
 
 ## Next steps
 
-For examples of this decision tree in practice, see [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md).
+In this article, you reviewed a decision tree to help you make key decisions about how to design your Microsoft Sentinel workspace architecture.
 
-For more information, see:
-
-- [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
-- [Best practices for Microsoft Sentinel](best-practices.md)
+> [!div class="nextstepaction"]
+> >[Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)

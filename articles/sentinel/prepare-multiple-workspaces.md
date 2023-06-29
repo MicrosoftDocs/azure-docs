@@ -69,4 +69,4 @@ In the following sections, we'll explain how to operate this model, and particul
 In this article, you learned how Microsoft Sentinel can extend across multiple workspaces and tenants.
 
 > [!div class="nextstepaction"]
-> [Review sample workspace designs](sample-workspace-designs.md)
+>>[Prioritize data connectors](prioritize-data-connectors.md)

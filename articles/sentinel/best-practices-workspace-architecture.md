@@ -152,12 +152,8 @@ union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Up
 For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).
 
 ## Next steps
+
+In this article, you learned about key decision factors to help you determine the right workspace architecture for your organizations.
+
 > [!div class="nextstepaction"]
 > >[Design your Microsoft Sentinel workspace architecture](design-your-workspace-architecture.md)
-> [!div class="nextstepaction"]
-> >[Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
-> [!div class="nextstepaction"]
-> >[On-board Microsoft Sentinel](quickstart-onboard.md)
-> [!div class="nextstepaction"]
-> >[Get visibility into alerts](get-visibility.md)
-
