@@ -145,16 +145,16 @@ For the Hyperscale service tier, zone redundancy support can only be specified d
 
 ### Redeploy a single database
 
-# [Database copy](#tab/database)
+#### Database copy
 
 To create a database copy and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [copy a transactionally consistent copy of a database in Azure SQL Database](/azure/azure-sql/database/database-copy?tabs=azure-powershell&view=azuresql#copy-using-the-azure-portal).
  
 
-# [Point-in-time restore](#tab/point)
+#### Point-in-time restore
 
 To create a point-in-time database restore and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [Point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal#point-in-time-restore).
 
-# [Geo-replica](#tab/geo)
+##### Geo-replica
 
 To create a geo-replica of the database:
 
@@ -171,6 +171,7 @@ To create a geo-replica of the database:
 1. Update the server name in the connection strings for the application to reflect the new zone redundant database.
 
 1. To clean up, consider removing the original non-zone redundant database from the geo replica relationship. You can choose to delete it.  
+
 
 ## Next steps
 
