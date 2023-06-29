@@ -1,19 +1,20 @@
 ---
-title: SMS metrics definitions for Azure Communication Service
+title: TURN metrics definitions for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: This document covers definitions of SMS metrics available in the Azure portal.
+description: This document covers definitions of TURN metrics available in the Azure portal.
 author: mkhribech
 manager: timmitchell
 services: azure-communication-services
 ms.author: mkhribech
-ms.date: 06/23/2023
+ms.date: 06/26/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
-# SMS metrics overview
+# TURN metrics overview
 
-Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that SMS requests emit.
+Azure Communication Services currently provides metrics for all Azure communication services' primitives. [Azure Metrics Explorer](../../../azure-monitor\essentials\metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that TURN requests emit.
+
 ## Where to find metrics
 
 Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource.
@@ -27,15 +28,13 @@ More information on supported aggregation types and time series aggregations can
 - **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
 - **Status Code** - The status code response sent after the request.
 - **StatusSubClass** - The status code series sent after the response. 
-  
-### SMS API requests
 
-The following operations are available on SMS API request metrics:
+### Network Traversal API requests
+
+The following operations are available on Network Traversal API request metrics:
 
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| SMSMessageSent       | Sends an SMS message. |
-| SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
-| SMSMessagesReceived      | Gets SMS messages. |
+| IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
 
-
+:::image type="content" source="../media/acs-turn-metrics.png" alt-text="Screenshot showing the TURN Token Request Metrics.":::
