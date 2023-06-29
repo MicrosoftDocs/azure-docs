@@ -1,53 +1,66 @@
 ---
-title: ABS in Azure Cosmos DB query language
-description: Learn about how the Absolute(ABS) SQL system function in Azure Cosmos DB returns the positive value of the specified numeric expression
-author: ginamr
+title: ABS
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the positive value of the specified numeric expression
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# ABS (Azure Cosmos DB)
+
+# ABS (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the absolute (positive) value of the specified numeric expression.  
+Returns the absolute (positive) value of the specified numeric expression.  
   
 ## Syntax
   
 ```sql
-ABS (<numeric_expr>)  
+ABS(<numeric_expr>)  
 ```  
   
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
   
 ## Return types
   
-  Returns a numeric expression.  
+Returns a numeric expression.  
   
 ## Examples
   
-  The following example shows the results of using the `ABS` function on three different numbers.  
+The following example shows the results of using this function on three different numbers.  
   
 ```sql
-SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
+SELECT VALUE {
+    absoluteNegativeOne: ABS(-1),
+    absoluteZero: ABS(0),
+    absoluteOne: ABS(1)
+} 
 ```  
   
- Here is the result set.  
-  
 ```json
-[{abs1: 1, abs2: 0, abs3: 1}]  
+[
+  {
+    "absoluteNegativeOne": 1,
+    "absoluteZero": 0,
+    "absoluteOne": 1
+  }
+]
 ```
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from the use of a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`IS_NUMBER`](is-number.md)
