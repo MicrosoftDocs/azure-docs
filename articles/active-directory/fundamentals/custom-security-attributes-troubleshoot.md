@@ -27,7 +27,7 @@ When signed in to the Azure portal as Global Administrator and you try to access
 
 **Cause**
 
-Custom security attributes requires an Azure AD Premium P1 or P2 license.
+Custom security attributes require an Azure AD Premium P1 or P2 license.
 
 **Solution**
 

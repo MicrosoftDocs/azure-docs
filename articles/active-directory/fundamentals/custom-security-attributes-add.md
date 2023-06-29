@@ -218,7 +218,7 @@ None
 
 #### Get attribute sets in order
 
-The following examples gets attribute sets in order.
+The following example gets attribute sets in order.
 
 # [PowerShell](#tab/ms-powershell)
 
