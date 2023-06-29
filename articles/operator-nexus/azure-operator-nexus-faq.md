@@ -20,7 +20,7 @@ Azure Operator Nexus is a managed hybrid cloud platform that supports carrier-gr
 You can interact with Operator Nexus like any other Azure services using AZ CLI, API, ARM template, or portal. You can alternatively use BICEP templates.  
 
 ### Does customer need to deploy any resources in their subscription to deploy Azure Operator Nexus instances?
-Yes, there are some resources that customer needs to create in the respective region under their Azure subscriptions. Some of these include creation of a pair of Network Fabric Controller and Cluster Manager resource, Log Analytics Workspace, a storage account. For more details, please refer to [Azure Operator Nexus documentation](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-azure-operator-nexus-prerequisites).
+Yes, there are some resources that customer needs to create in the respective region under their Azure subscriptions. Some of these include creation of a pair of Network Fabric Controller and Cluster Manager resource, Log Analytics Workspace, a storage account. For more details, please refer to [Azure Operator Nexus documentation](howto-azure-operator-nexus-prerequisites.md).
 
 ### Does Azure Operator Nexus rely on connectivity with Azure? What happens when there's a disconnection?
 Yes, you need an ExpressRoute connection for its connectivity back to Azure and for Orchestration, Management and Operation purposes. During disconnection, the workloads will continue to run as is but you may lose the capability to orchestrate any new resources.
@@ -53,7 +53,7 @@ From Infrastructure perspective, the data is managed via Azure APIs. The telemet
 For tenant workloads, the images get stored in ACRs (Azure Container Registry) and once deployed. Microsoft provides an option to collect the telemetry from tenant workloads into Azure but Customers can choose alternative tooling they wish to collect telemetry data or to analyze it.
 
 ### If an Azure region doesn't exist in my country, can I still use Operator Nexus?
-Yes, all you need is ExpressRoute connectivity to an Azure region. ExpressRoute connectivity is available at many locations. For more information, see the [Geo-locations](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-locations#locations) and [connectivity providers](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-locations#partners). 
+Yes, all you need is ExpressRoute connectivity to an Azure region. ExpressRoute connectivity is available at many locations. For more information, see the [Geo-locations](../expressroute/expressroute-locations.md#locations) and [connectivity providers](../expressroute/expressroute-locations.md#partners). 
 
 ### Can I move my resources from one subscription to another?
 Currently, we don't support resource moves. If you need to move resources, you can consider deleting the existing controllers and using the ARM template to create another one in another location.
@@ -61,7 +61,7 @@ Currently, we don't support resource moves. If you need to move resources, you c
 ### How many instances can be associated to a cluster manager/fabric controller pair? 
 The number of Azure Operator Nexus instances, a single pair of Network Fabric Controller and Cluster Manager can manage depends on multiple factors. It can be influenced by factors like size of Operator Nexus instances, ExpressRoute circuit bandwidth, number and frequency of optional metrics collection, number of workloads running in Instance, destination for workload telemetry data collection and other factors. 
           
-For more information, see [limits & quotas](./reference-limits-and-quotas.md).
+For more information, see [limits & quotas](reference-limits-and-quotas.md).
 
 ## Compute
 
@@ -89,7 +89,7 @@ Here are some of the network requirements for Azure Operator Nexus:
 * PE must have routes to ExpressRoutes
 * IP address blocks defined for various services, VLANs for iDrac, PXE, Storage, OAM etc. 
           
-For more information, see [Network fabric controller](./howto-configure-network-fabric-controller.md) and [Network fabric](./howto-configure-network-fabric.md).
+For more information, see [Network fabric controller](howto-configure-network-fabric-controller.md) and [Network fabric](howto-configure-network-fabric.md).
           
 ### What is an isolation domain?
 Isolation domains enable Layer 2 or Layer 3 connectivity between workloads hosted across the Azure Operator Nexus instance and external networks. These constructs segment a network into authentication domains and enforces communication within required boundaries.
@@ -131,4 +131,4 @@ Azure Operator Nexus provides customers to monitor the health of Nexus instance 
 ### What metrics are available for compute, networking, storage? Can I alert on them? Can I integrate with my own monitoring solution?
 A wide and curated set of metrics are delivered to customer from across the layers in the Azure Operator Nexus instance stack. These include the metrics essential for assessing the health based of compute, storage and networking incl. resource quotas and utilization. Customers can set appropriate alert rules based on the telemetry collected to ensure that notifications are triggered whenever the configured thresholds are met.
 
-For more information, see the [list of metrics](./list-of-metrics-collected.md).
+For more information, see the [list of metrics](list-of-metrics-collected.md).

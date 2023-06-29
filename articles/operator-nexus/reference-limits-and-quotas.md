@@ -80,17 +80,17 @@ The table here briefly mentions other Azure resources that are necessary. Howeve
 
 | Resource Type                | Notes |
 | ---------------------------- | -------------------------|
-| Subscription	               | [Subscription limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) |
-| Resource Group               | [Resource Group Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits). There's a max limit for RG per subscription. Operators need to make appropriate consideration for how they want to manage Resource Groups for NAKS clusters vs Virtual machines per Nexus instance. |
+| Subscription	               | [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md) |
+| Resource Group               | [Resource Group Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). There's a max limit for RG per subscription. Operators need to make appropriate consideration for how they want to manage Resource Groups for NAKS clusters vs Virtual machines per Nexus instance. |
 | VM Flavors	               | Customer generally has VM flavor quota in each region within subscription. You need to ensure that you can still create VMs per the requirements. |
-| AKS Clusters	               | [AKS Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-kubernetes-service-limits) |
-| Virtual Networks	           | [Virtual Network Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits) |
-| Managed Identity             | [Managed Identity Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#managed-identity-limits) |
-| ExpressRoute                 | [ExpressRoute Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#expressroute-limits) |
-| Virtual Network Gateway	   | [Virtual Network Gateway Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits) |
-| Azure Key Vault	           | [Key Vault Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) |
-| Storage Account	           | [Storage Account Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#standard-storage-account-limits) |
-| Load Balancers (Standard)	   | [Load Balancer Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) |
-| Public IP Address (Standard) | [Public IP Address Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) |
-| Azure Monitor Metrics	       | [Azure Monitor Limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) |
-| Log Analytics Workspace	   | [Log Analytics Workspace Limits](https://learn.microsoft.com/en-us/azure/azure-monitor/service-limits#log-analytics-workspaces) |
+| AKS Clusters	               | [AKS Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-kubernetes-service-limits) |
+| Virtual Networks	           | [Virtual Network Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) |
+| Managed Identity             | [Managed Identity Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) |
+| ExpressRoute                 | [ExpressRoute Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#expressroute-limits) |
+| Virtual Network Gateway	   | [Virtual Network Gateway Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) |
+| Azure Key Vault	           | [Key Vault Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#key-vault-limits) |
+| Storage Account	           | [Storage Account Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#standard-storage-account-limits) |
+| Load Balancers (Standard)	   | [Load Balancer Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer) |
+| Public IP Address (Standard) | [Public IP Address Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#publicip-address) |
+| Azure Monitor Metrics	       | [Azure Monitor Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits) |
+| Log Analytics Workspace	   | [Log Analytics Workspace Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces) |
