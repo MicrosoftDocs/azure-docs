@@ -174,7 +174,7 @@ With PIM for Groups, you can provide just-in-time access to groups in Amazon Web
 1. Configure [single sign-on](aws-single-sign-on-provisioning-tutorial.md) for AWS IAM Identity Center.
 1. Create a [group](https://learn.microsoft.com/azure/active-directory/fundamentals/how-to-manage-groups) that will provide all users access to the application and assign the group to the application.
 1. Assign your test user as a direct member of the group created in the previous step, or provide them access to the group through an access package. This group can be used for persistent, non-admin access in AWS.
-1. Use on-demand provisioning to provision the group created in step 1 into your application. At this point the group does not have any active members so this will simply create the group object in AWS.
+1. Use on-demand provisioning to provision the group created in step 3 into your application. At this point the group does not have any active members so this will simply create the group object in AWS.
 1. Sign-in to AWS and assign the group to the necessary role / permissions in  AWS.
 
 
