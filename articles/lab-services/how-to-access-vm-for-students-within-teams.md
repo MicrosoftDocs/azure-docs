@@ -18,5 +18,5 @@ Students see a message if the lab hasn't been published yet. Lab is also seen as
 
 ## Next steps
 
-- As a student, [start the VM](tutorial-connect-lab-virtual-machine.md#start-the-vm).
+- As a student, [start the lab VM](tutorial-connect-lab-virtual-machine.md#start-the-lab-vm).
 - As a student, [connect to a lab VM](connect-virtual-machine.md).
