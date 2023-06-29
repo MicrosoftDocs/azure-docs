@@ -16,7 +16,7 @@ ms.custom: query-reference
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a string expression after it removes trailing whitespace or specified characters.  
+Returns a string expression after it removes trailing whitespace or specified characters.  
   
 ## Syntax
   
