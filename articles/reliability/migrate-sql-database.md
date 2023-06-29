@@ -23,7 +23,7 @@ Before you migrate to availability zone support, refer to the following table to
 |-----|------|
 | Premium  | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support)|
 | Business Critical. | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
-| General Purpose  | [Selected regions that support availability zones](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#general-purpose-service-tier-zone-redundant-availability)|
+| General Purpose  | [Selected regions that support availability zones](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#general-purpose-service-tier-zone-redundant-availability)|
 | Hyperscale (Preview) |[All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
 
 
