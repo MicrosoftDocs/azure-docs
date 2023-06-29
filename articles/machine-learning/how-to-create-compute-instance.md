@@ -670,7 +670,7 @@ USe either Studio or Studio (preview) to see how to set up applications.
   1. Select **Applications**
   1. Select **Add application** 
 
-  :::image type="content" source="media/how-to-create-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
+  :::image type="content" source="media/how-to-create-compute-instance/custom-service-setup-preview.png" alt-text="Screenshot showing Custom Service Setup.":::
 
 ---
 
