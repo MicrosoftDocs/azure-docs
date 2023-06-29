@@ -106,7 +106,6 @@ Deleting a Microsoft Energy Data instance also deletes any data that you've inge
 
 2. This step is optional. Go to Azure Active Directory and delete the *app registration* that you linked to your Azure Data Manager for Energy instance.
 
-> [!NOTE]
 Any set locks at the resource group (RG) level must be removed before deleting any resource in the RG. Resources not deleted due to locks are considered active until the resource is successfully deleted.
 
 OSDU&trade; is a trademark of The Open Group.
