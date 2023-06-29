@@ -1,6 +1,6 @@
 ---
 title: Redact faces with Azure Video Indexer API 
-description: This article shows how to use Azure Video Indexer face reduction feature using API.
+description: This article shows how to use Azure Video Indexer face redaction feature using API.
 ms.topic: how-to
 ms.date: 06/26/2023
 ---
@@ -9,7 +9,7 @@ ms.date: 06/26/2023
 
 Azure Video Indexer enables customers to detect and identify faces. Face redaction enables you to modify your video in order to blur faces of selected individuals. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this preset the face redaction process requiresS just a few simple steps.
 
-This article shows how to do the face redaction with an API. The face reduction API includes a **Face Redaction** preset that offers scalable face detection and redaction (blurring) in the cloud. 
+This article shows how to do the face redaction with an API. The face redaction API includes a **Face Redaction** preset that offers scalable face detection and redaction (blurring) in the cloud. 
 
 The following video shows how to redact a video with Azure Video Indexer API.
 
@@ -33,11 +33,11 @@ The Face Redaction comes with several options, which can be provided in the requ
 
 |Blurring Kind number |Blurring Kind name |Example|
 |---|---|---|
-|0| MediumBlur|:::image type="content" source="./media/face-reduction-with-api/medium-blur.png" alt-text="Picture of the Azure Video Indexer medium blur kind.":::|
-|1| HighBlur|:::image type="content" source="./media/face-reduction-with-api/high-blur.png" alt-text="Picture of the Azure Video Indexer high blur kind.":::|
-|2| LowBlur|:::image type="content" source="./media/face-reduction-with-api/low-blur.png" alt-text="Picture of the Azure Video Indexer low blur kind.":::|
-|3| BoundingBox|:::image type="content" source="./media/face-reduction-with-api/bounding-boxes.png" alt-text="Picture of the Azure Video Indexer bounding boxes kind.":::|
-|4| Black|:::image type="content" source="./media/face-reduction-with-api/black-boxes.png" alt-text="Picture of the Azure Video Indexer black boxes kind.":::|
+|0| MediumBlur|:::image type="content" source="./media/face-redaction-with-api/medium-blur.png" alt-text="Picture of the Azure Video Indexer medium blur kind.":::|
+|1| HighBlur|:::image type="content" source="./media/face-redaction-with-api/high-blur.png" alt-text="Picture of the Azure Video Indexer high blur kind.":::|
+|2| LowBlur|:::image type="content" source="./media/face-redaction-with-api/low-blur.png" alt-text="Picture of the Azure Video Indexer low blur kind.":::|
+|3| BoundingBox|:::image type="content" source="./media/face-redaction-with-api/bounding-boxes.png" alt-text="Picture of the Azure Video Indexer bounding boxes kind.":::|
+|4| Black|:::image type="content" source="./media/face-redaction-with-api/black-boxes.png" alt-text="Picture of the Azure Video Indexer black boxes kind.":::|
 
 You can specify the blurring kind in the request body using the `blurringKind`. For example:
 
@@ -174,9 +174,9 @@ This will redirect to the mp4 stored on the Azure Storage Account connected to t
 |Can I playback the redacted video using the Video Indexer [website](https://www.videoindexer.ai/)?|Yes, the redacted video is visible in the Video Indexer like any other indexed video, however it doesn't contain any insights. |
 |How do I delete a redacted video? |You can use the [Delete Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) API and provide the `Videoid` of the redacted video. |
 |Do I need to pass Facial Identification gating to use Redactor? |Unless you're a US Police Department, no, even when you’re gated we continue to offer Face Detection. We don't offer Face Identification when gated. You can however redact all faces in a video with just the Face Detection. |
-<!--|How Long is a SAS URL valid to download the Redacted Video? |The SAS URL is valid for xxxx. To download the redacted video after the SAS url expired, you need to call the initial Job status URL. It's best to keep these `Jobstatus` URLs in a database in your backend for future reference. |-->
 |Not all faces are properly redacted. What can I do? |Redaction relies on the initial Face Detection and tracking output of the Analysis pipeline. While we detect all faces most of the time there can be circumstances where we haven't detected a face. This can have several reasons like face angle, number of frames the face was present and quality of the source video. See our [Face insights](face-detection.md) documentation for more information. |
 |Can I redact other objects than faces? |No, currently we only have face redaction. If you have the need for other objects, provide feedback to our product in the [Azure User Voice](https://feedback.azure.com/d365community/forum/8952b9e3-e03b-ec11-8c62-00224825aadf) channel. |
+<!--|How Long is a SAS URL valid to download the Redacted Video? |The SAS URL is valid for xxxx. To download the redacted video after the SAS url expired, you need to call the initial Job status URL. It's best to keep these `Jobstatus` URLs in a database in your backend for future reference. |-->
 
 ## Error codes 
 
