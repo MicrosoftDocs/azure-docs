@@ -111,6 +111,9 @@ To run a deploy fine-tuned model job from AzureML, in order to deploy finetuned 
 1. Click the 'Deploy' button and give the deployment name. The model will be deployed to the default Azure OpenAI resource linked to your workspace.
 
 ### Finetuning using code based samples
+To enable users to quickly get started with code based finetuning, we have published samples (both Python notebooks and CLI examples) to the azureml-examples gut repo - 
+* [SDK example](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/azure_openai)
+* [CLI example](https://github.com/Azure/azureml-examples/tree/main/cli/foundation-models/azure_openai)
 
 ### Troubleshooting
 Here are some steps to help you resolve any of the following issues with your Azure OpenAI in AzureML experience.
