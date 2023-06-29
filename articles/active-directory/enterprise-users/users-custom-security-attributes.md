@@ -132,7 +132,7 @@ The following example assigns a custom security attribute with a string value to
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -147,7 +147,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -180,7 +180,7 @@ The following example assigns a custom security attribute with a multi-string va
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -196,7 +196,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -215,7 +215,7 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser?branch=main)
+[Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser)
 
 ```powershell
 $attributes = @{
@@ -241,7 +241,7 @@ The following example assigns a custom security attribute with an integer value 
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -257,7 +257,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -291,7 +291,7 @@ The following example assigns a custom security attribute with a multi-integer v
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -307,7 +307,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -341,7 +341,7 @@ The following example assigns a custom security attribute with a Boolean value t
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -356,7 +356,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -389,7 +389,7 @@ The following example updates a custom security attribute assignment with an int
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -405,7 +405,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -439,7 +439,7 @@ The following example updates a custom security attribute assignment with a Bool
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -454,7 +454,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -487,7 +487,7 @@ The following example updates a custom security attribute assignment with a mult
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -503,7 +503,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -522,7 +522,7 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser?branch=main)
+[Set-AzureADMSUser](/powershell/module/azuread/set-azureadmsuser)
 
 ```powershell
 $attributesUpdate = @{
@@ -543,7 +543,7 @@ The following example gets the custom security attribute assignments for a user.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -585,7 +585,7 @@ If there are no custom security attributes assigned to the user or if the callin
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Get user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true&branch=main)
+[Get user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
@@ -629,7 +629,7 @@ If there are no custom security attributes assigned to the user or if the callin
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Get-AzureADMSUser](/powershell/module/azuread/get-azureadmsuser?branch=main)
+[Get-AzureADMSUser](/powershell/module/azuread/get-azureadmsuser)
 
 ```powershell
 $user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
@@ -648,7 +648,7 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -677,7 +677,7 @@ Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [AppCount
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true&branch=main)
+[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry eq 'Canada'
@@ -746,7 +746,7 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -779,7 +779,7 @@ Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [Employee
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true&branch=main)
+[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
@@ -862,7 +862,7 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -882,7 +882,7 @@ d5a1c025-2d79-4ad3-9217-91ac3a4ed8b8 Joe                      Microsoft.Graph.Po
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true&branch=main)
+[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
@@ -982,7 +982,7 @@ The following example removes a single-valued custom security attribute assignme
 
 # [PowerShell](#tab/ms-powershell)
 
-[Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest)
+[Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands#using-invoke-mggraphrequest)
 
 ```powershell
 $params = @{
@@ -998,7 +998,7 @@ Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/beta/users
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -1030,7 +1030,7 @@ The following example removes a multi-valued custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true&branch=main)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
 
 ```powershell
 Select-MgProfile -Name "beta"
@@ -1045,7 +1045,7 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true&branch=main)
+[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}

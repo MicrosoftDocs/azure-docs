@@ -154,7 +154,7 @@ The following example gets all attribute sets.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset)
 
 ```powershell
 Get-MgDirectoryAttributeSet | Format-List
@@ -174,7 +174,7 @@ AdditionalProperties : {}
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List attributeSets](/graph/api/directory-list-attributesets?branch=main)
+[List attributeSets](/graph/api/directory-list-attributesets)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets
@@ -182,7 +182,7 @@ GET https://graph.microsoft.com/beta/directory/attributeSets
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset?branch=main)
+[Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset)
 
 ```powershell
 Get-AzureADMSAttributeSet
@@ -196,7 +196,7 @@ The following example gets the top attribute sets.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset)
 
 ```powershell
 Get-MgDirectoryAttributeSet -Top 10
@@ -204,7 +204,7 @@ Get-MgDirectoryAttributeSet -Top 10
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List attributeSets](/graph/api/directory-list-attributesets?branch=main)
+[List attributeSets](/graph/api/directory-list-attributesets)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
@@ -222,7 +222,7 @@ The following examples gets attribute sets in order.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset)
 
 ```powershell
 Get-MgDirectoryAttributeSet -Sort "Id"
@@ -230,7 +230,7 @@ Get-MgDirectoryAttributeSet -Sort "Id"
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List attributeSets](/graph/api/directory-list-attributesets?branch=main)
+[List attributeSets](/graph/api/directory-list-attributesets)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
@@ -250,7 +250,7 @@ The following example gets an attribute set.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset?branch=main)
+[Get-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryattributeset)
 
 ```powershell
 Get-MgDirectoryAttributeSet -AttributeSetId "Engineering" | Format-List
@@ -265,7 +265,7 @@ AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metad
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Get attributeSet](/graph/api/attributeset-get?branch=main)
+[Get attributeSet](/graph/api/attributeset-get)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
@@ -273,7 +273,7 @@ GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset?branch=main)
+[Get-AzureADMSAttributeSet](/powershell/module/azuread/get-azureadmsattributeset)
 
 ```powershell
 Get-AzureADMSAttributeSet -Id "Engineering"
@@ -289,7 +289,7 @@ The following example adds a new attribute set.
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryattributeset?branch=main)
+[New-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryattributeset)
 
 ```powershell
 $params = @{
@@ -308,7 +308,7 @@ Engineering Attributes for engineering team 25
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Create attributeSet](/graph/api/directory-post-attributesets?branch=main)
+[Create attributeSet](/graph/api/directory-post-attributesets)
 
 ```http
 POST https://graph.microsoft.com/beta/directory/attributeSets 
@@ -321,7 +321,7 @@ POST https://graph.microsoft.com/beta/directory/attributeSets
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[New-AzureADMSAttributeSet](/powershell/module/azuread/new-azureadmsattributeset?branch=main)
+[New-AzureADMSAttributeSet](/powershell/module/azuread/new-azureadmsattributeset)
 
 ```powershell
 New-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for engineering team" -MaxAttributesPerSet 10 
@@ -337,7 +337,7 @@ The following example updates an attribute set.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryattributeset?branch=main)
+[Update-MgDirectoryAttributeSet](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectoryattributeset)
 
 ```powershell
 $params = @{
@@ -349,7 +349,7 @@ Update-MgDirectoryAttributeSet -AttributeSetId "Engineering" -BodyParameter $par
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update attributeSet](/graph/api/attributeset-update?branch=main)
+[Update attributeSet](/graph/api/attributeset-update)
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
@@ -361,7 +361,7 @@ PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Set-AzureADMSAttributeSet](/powershell/module/azuread/set-azureadmsattributeset?branch=main)
+[Set-AzureADMSAttributeSet](/powershell/module/azuread/set-azureadmsattributeset)
 
 ```powershell
 Set-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for cloud engineering team"
@@ -376,7 +376,7 @@ The following example gets all custom security attribute definitions.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition?branch=main)
+[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 Get-MgDirectoryCustomSecurityAttributeDefinition | Format-List
@@ -422,7 +422,7 @@ AdditionalProperties    : {}
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions?branch=main)
+[List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
@@ -430,7 +430,7 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition?branch=main)
+[Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition)
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinition
@@ -446,7 +446,7 @@ The following examples filter custom security attribute definitions.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition?branch=main)
+[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 Get-MgDirectoryCustomSecurityAttributeDefinition -Filter "name eq 'Project' and status eq 'Available'" | Format-List
@@ -468,7 +468,7 @@ AdditionalProperties    : {}
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions?branch=main)
+[List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project'%20and%20status+eq+'Available'
@@ -484,7 +484,7 @@ None
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition?branch=main)
+[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 Get-MgDirectoryCustomSecurityAttributeDefinition -Filter "attributeSet eq 'Engineering' and status eq 'Available' and type eq 'String'" | Format-List
@@ -518,7 +518,7 @@ AdditionalProperties    : {}
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions?branch=main)
+[List customSecurityAttributeDefinitions](/graph/api/directory-list-customsecurityattributedefinitions)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Engineering'%20and%20status+eq+'Available'%20and%20type+eq+'String'
@@ -539,7 +539,7 @@ The following example gets a custom security attribute definition.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition?branch=main)
+[Get-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 Get-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefinitionId "Engineering_ProjectDate" | Format-List
@@ -561,7 +561,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Get customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-get?branch=main)
+[Get customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-get)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
@@ -569,7 +569,7 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition?branch=main)
+[Get-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinition)
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
@@ -587,7 +587,7 @@ The following example adds a new custom security attribute definition.
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinition?branch=main)
+[New-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 $params = @{
@@ -619,7 +619,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions?branch=main)
+[Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions)
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
@@ -637,7 +637,7 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[New-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/new-azureadmscustomsecurityattributedefinition?branch=main)
+[New-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/new-azureadmscustomsecurityattributedefinition)
 
 ```powershell
 New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name "ProjectDate" -Description "Target completion date" -Type "String" -Status "Available" -IsCollection $false -IsSearchable $true -UsePreDefinedValuesOnly $false
@@ -655,7 +655,7 @@ The following example adds a new custom security attribute definition that suppo
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinition?branch=main)
+[New-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 $params = @{
@@ -687,7 +687,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions?branch=main)
+[Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions)
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
@@ -720,7 +720,7 @@ The following example adds a new custom security attribute definition with a lis
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinition?branch=main)
+[New-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 $params = @{
@@ -766,7 +766,7 @@ AdditionalProperties    : {[@odata.context, https://graph.microsoft.com/v1.0/$me
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions?branch=main)
+[Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions)
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
@@ -811,7 +811,7 @@ The following example updates a custom security attribute definition.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectorycustomsecurityattributedefinition?branch=main)
+[Update-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 $params = @{
@@ -822,7 +822,7 @@ Update-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefi
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update?branch=main)
+[Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update)
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
@@ -833,7 +833,7 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition?branch=main)
+[Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition)
 
 ```powershell
 Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate" -Description "Target completion date (YYYY/MM/DD)"
@@ -853,7 +853,7 @@ The following example updates the predefined values for a custom security attrib
 
 # [PowerShell](#tab/ms-powershell)
 
-[Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands?branch=main#using-invoke-mggraphrequest)
+[Invoke-MgGraphRequest](/powershell/microsoftgraph/authentication-commands#using-invoke-mggraphrequest)
 
 > [!NOTE]
 > For this request, you must add the **OData-Version** header and assign it the value `4.01`.
@@ -879,7 +879,7 @@ Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/v1.0/direc
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update?branch=main)
+[Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update)
 
 > [!NOTE]
 > For this request, you must add the **OData-Version** header and assign it the value `4.01`.
@@ -915,7 +915,7 @@ The following example deactivates a custom security attribute definition.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectorycustomsecurityattributedefinition?branch=main)
+[Update-MgDirectoryCustomSecurityAttributeDefinition](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectorycustomsecurityattributedefinition)
 
 ```powershell
 $params = @{
@@ -926,7 +926,7 @@ Update-MgDirectoryCustomSecurityAttributeDefinition -CustomSecurityAttributeDefi
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update?branch=main)
+[Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update)
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
@@ -937,7 +937,7 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition?branch=main)
+[Set-AzureADMSCustomSecurityAttributeDefinition](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinition)
 
 ```powershell
 Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_Project" -Status "Deprecated"
@@ -954,7 +954,7 @@ The following example gets all predefined values for a custom security attribute
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinitionallowedvalue?branch=main)
+[Get-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinitionallowedvalue)
 
 ```powershell
 Get-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" | Format-List
@@ -980,7 +980,7 @@ AdditionalProperties : {}
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List allowedValues](/graph/api/customsecurityattributedefinition-list-allowedvalues?branch=main)
+[List allowedValues](/graph/api/customsecurityattributedefinition-list-allowedvalues)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
@@ -988,7 +988,7 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main)
+[Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue)
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project"
@@ -1006,7 +1006,7 @@ The following example gets a predefined value for a custom security attribute de
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinitionallowedvalue?branch=main)
+[Get-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectorycustomsecurityattributedefinitionallowedvalue)
 
 ```powershell
 Get-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -AllowedValueId "Alpine" | Format-List
@@ -1021,7 +1021,7 @@ AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metad
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Get allowedValue](/graph/api/allowedvalue-get?branch=main)
+[Get allowedValue](/graph/api/allowedvalue-get)
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
@@ -1029,7 +1029,7 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main)
+[Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/get-azureadmscustomsecurityattributedefinitionallowedvalue)
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" 
@@ -1049,7 +1049,7 @@ You can add predefined values for custom security attributes that have `usePreDe
 
 # [PowerShell](#tab/ms-powershell)
 
-[New-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinitionallowedvalue?branch=main)
+[New-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectorycustomsecurityattributedefinitionallowedvalue)
 
 ```powershell
 $params = @{
@@ -1068,7 +1068,7 @@ AdditionalProperties : {[@odata.context, https://graph.microsoft.com/v1.0/$metad
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Create allowedValue](/graph/api/customsecurityattributedefinition-post-allowedvalues?branch=main)
+[Create allowedValue](/graph/api/customsecurityattributedefinition-post-allowedvalues)
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
@@ -1080,7 +1080,7 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues](/powershell/module/azuread/add-azureadmscustomsecurityattributedefinitionallowedvalues?branch=main)
+[Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues](/powershell/module/azuread/add-azureadmscustomsecurityattributedefinitionallowedvalues)
 
 ```powershell
 Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $true
@@ -1098,7 +1098,7 @@ The following example deactivates a predefined value for a custom security attri
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectorycustomsecurityattributedefinitionallowedvalue?branch=main)
+[Update-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdirectorycustomsecurityattributedefinitionallowedvalue)
 
 ```powershell
 $params = @{
@@ -1109,7 +1109,7 @@ Update-MgDirectoryCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityA
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update allowedValue](/graph/api/allowedvalue-update?branch=main)
+[Update allowedValue](/graph/api/allowedvalue-update)
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
@@ -1120,7 +1120,7 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 
 # [Azure AD PowerShell](#tab/aad-powershell)
 
-[Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinitionallowedvalue?branch=main)
+[Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue](/powershell/module/azuread/set-azureadmscustomsecurityattributedefinitionallowedvalue)
 
 ```powershell
 Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $false
