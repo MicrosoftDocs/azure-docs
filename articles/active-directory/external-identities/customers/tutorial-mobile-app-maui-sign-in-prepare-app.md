@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > - Create a .NET MAUI shell app.
-> - Add MSAL SDK support via MSAL helper classes.
+> - Add MSAL SDK support using MSAL helper classes.
 > - Install required packages.
 > - Add image resource.
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Wait for the project to be created and its dependencies to be restored.
 
-## Add MSAL SDK support via MSAL helper classes
+## Add MSAL SDK support using MSAL helper classes
 
 MSAL client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 
