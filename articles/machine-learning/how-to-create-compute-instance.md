@@ -48,11 +48,13 @@ Choose the tab for the environment you are using for additional prerequisites.
 
 # [Studio](#tab/azure-studio)
 
-No additional prerequisites.  
+* No additional prerequisites.  
 
 # [Studio (preview)](#tab/azure-studio-preview)
 
-* To use the Studio (preview) version, enable the preview feature:
+* To use the Studio (preview) version, enable the preview feature **Create Compute Instances using the optimized creation wizard:
+
+  :::image type="content" source="media/how-to-create-compute-instance/preview-panel.png" alt-text="Screenshot shows how to enable the preview feature.":::
 
 ---
 
