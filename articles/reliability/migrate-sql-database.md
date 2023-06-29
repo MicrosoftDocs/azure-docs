@@ -76,7 +76,7 @@ Use Azure CLI to run the following command (replace the placeholders in "<>" wit
 
 # [ARM](#tab/arm)
 
-To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP). 
+To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
 
 ---
 
