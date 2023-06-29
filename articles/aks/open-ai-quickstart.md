@@ -584,7 +584,7 @@ Now that the application is deployed, you can deploy the Python based microservi
     ```
 
 > [!NOTE]
-> For best practice, use [Managed Identity][managed-identity] or [Azure Key Vault][key-vault] to store secrets. 
+> Adding sensitive information like API keys directly to Kubernetes Manifest files like this is not secure and can accidentally get committed to code repositories. We have done it that way here for simplicity. For production workloads, use [Managed Identity](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/managed-identity#authorize-access-to-managed-identities) to authenticate to Azure OpenAI service instead or store your secrets in [Azure Key Vault][key-vault].
 
 ## Test the application
 1. See the status of the deployed Kubernetes objects using the [kubectl get all][kubectl-get] command. To get the IP of the store admin web application and store front web application, use the kubectl get service command.
