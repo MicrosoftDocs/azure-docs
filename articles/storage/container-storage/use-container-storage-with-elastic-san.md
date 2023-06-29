@@ -4,14 +4,14 @@ description: Configure Azure Container Storage Preview for use with Azure Elasti
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 06/29/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
 ---
 
 # Use Azure Container Storage Preview with Azure Elastic SAN Preview
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN Preview as back-end storage for your Kubernetes workloads.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN Preview as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
 
 ## Prerequisites
 
