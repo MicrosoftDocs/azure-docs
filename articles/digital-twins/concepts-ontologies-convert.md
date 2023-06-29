@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the process of converting industry-standard models into DTDL for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 04/21/2023
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 

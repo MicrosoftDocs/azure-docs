@@ -3,7 +3,7 @@ author: baanders
 description: include file noting DTDL version requirements for Azure Digital Twins Explorer
 ms.service: digital-twins
 ms.topic: include
-ms.date: 9/29/2022
+ms.date: 06/29/2023
 ms.author: baanders
 ---
 

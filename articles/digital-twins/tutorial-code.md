@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to write the minimal code for an Azure Digital Twins client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 06/29/2023
 ms.topic: tutorial
 ms.service: digital-twins
 ms.custom: devx-track-dotnet

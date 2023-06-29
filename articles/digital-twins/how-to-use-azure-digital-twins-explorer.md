@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/27/2023
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022

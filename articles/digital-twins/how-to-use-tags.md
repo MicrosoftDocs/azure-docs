@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to implement marker and value tags on models and digital twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 

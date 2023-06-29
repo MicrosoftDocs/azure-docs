@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twin ontologies, how they're used in Azure Digital Twins, and how these DTDL ontologies can be used for modeling in the context of certain industries.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 04/05/2023
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23

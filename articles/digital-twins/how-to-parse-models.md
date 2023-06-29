@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3, devx-track-dotnet

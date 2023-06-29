@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/19/2023
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 

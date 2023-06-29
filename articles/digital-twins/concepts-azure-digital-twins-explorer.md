@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the capabilities and purpose of Azure Digital Twins Explorer (preview) and when it can be a useful tool for visualizing digital models, twins, and graphs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 09/29/2022
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
