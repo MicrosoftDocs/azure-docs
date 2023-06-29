@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# Develop a standard flow
+# Develop a standard flow (preview)
 
 You can develop your flow from scratch, by creating a standard flow. In this article, you'll learn how to develop the standard flow in the authoring page.
 

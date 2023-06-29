@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# Create and manage runtimes
+# Create and manage runtimes (preivew)
 
 Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
 
