@@ -2,18 +2,18 @@
 title: Manage secrets with agentless secret scanning
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 06/13/2023
+ms.date: 06/29/2023
 ---
 
 # Manage secrets with agentless secret scanning
 
-Attackers can move laterally across networks, searching for sensitive data and ways to damage critical information systems by exploiting exposed credentials and secrets in internet-facing workloads.
+Attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing internet-facing workloads and exploiting exposed credentials and secrets.
 
-Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement and prevent attackers from affecting your machine's performance.
+Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
 
 By using agentless secret scanning, you can proactively discover the following types of secrets across your environments:
 
-- **Insecure (plaintext) SSH private keys** - Detects Putty and PKCS#8 and PKCS#1 (RSA algorithm). 
+- **Insecure (plaintext) SSH private keys** - Detects Putty and PKCS#8 and PKCS#1 (RSA algorithm).
 - **Plaintext AWS access keys** - CLI & plaintext on many file extensions.
 - **Plaintext AWS RDS SQL connection string (SQL PAAS)** - Detects Microsoft SQL server connection string.
 - **Plaintext SQL connection strings (SQL PAAS)** - Detects Microsoft SQL server connection string.  
@@ -23,7 +23,7 @@ By using agentless secret scanning, you can proactively discover the following t
 > [!NOTE]
 > All of the standards are supported by the RSA algorithm.
 
-In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that can't be used are categorized as `unvalidated`.
+In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that we didn't successfully verify are categorized as **unverified**.
 
 ## Prerequisites
 
@@ -31,30 +31,30 @@ In addition to detecting SSH private keys, the agentless scanner verifies whethe
 
 - Access to [Defender for Cloud](get-started.md)
 
-- [Enable](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) either or both of the following two plans: 
-    - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md)
-    - [Defender CSPM](concept-cloud-security-posture-management.md)
+- [Enable](enable-enhanced-security.md#enable-defender-plans-to-get-the-enhanced-security-features) either or both of the following two plans:
+  - [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md)
+  - [Defender CSPM](concept-cloud-security-posture-management.md)
 
 > [!NOTE]
 > If both plans are not enabled, you will only have limited access to the features available from Defender for Server's agentless secret scanning capabilities. Check out [which features are available with each plan](#feature-capability).
 
 - [Enable agentless scanning for machines](enable-vulnerability-assessment-agentless.md#enabling-agentless-scanning-for-machines).
 
-- On Azure environments, your disks can be:
-    - Unencrypted 
-    - Encrypted disks must be managed using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK)
+- In Azure environments, your disks can be:
+  - Unencrypted
+  - Encrypted disks must be managed using [Azure Storage encryption](../virtual-machines/disk-encryption.md) with platform-managed keys (PMK)
 
 - On AWS environments, your disks must be unencrypted.
 
 - Required roles and permissions:
-    - **Azure** - Subscription Owner
-    - **AWS** - Administrator Access
+  - **Azure** - Subscription Owner
+  - **AWS** - Administrator Access
 
 Once your subscriptions are protected by the agentless scanner, findings will begin to appear after 12 hours.
 
 ## Feature capability
 
-You must enable [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) to gain access to all of the agentless secret scanning capabilities. 
+You must enable [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) and [Defender CSPM](concept-cloud-security-posture-management.md) to gain access to all of the agentless secret scanning capabilities.
 
 If you only enable one of the two plans, you gain only part of the available features of the agentless secret scanning capabilities. The following table shows which plans enable which features:
 
@@ -77,35 +77,35 @@ The attack path page shows an overview of your attack paths, affected resources 
 
 Agentless secret scanning for Azure VMs supports the following attack path scenarios:
 
-- `Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`. 
+- `Exposed Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`.
 
-- `Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`. 
+- `Vulnerable VM has an insecure SSH private key that is used to authenticate to a VM`.
 
-- `Exposed Vulnerable VM has insecure secrets that are used to authenticate to a storage account`. 
+- `Exposed Vulnerable VM has insecure secrets that are used to authenticate to a storage account`.
 
-- `Vulnerable VM has insecure secrets that are used to authenticate to a storage account`. 
+- `Vulnerable VM has insecure secrets that are used to authenticate to a storage account`.
 
-- `Exposed Vulnerable VM has insecure secrets that are used to authenticate to an SQL server`. 
+- `Exposed Vulnerable VM has insecure secrets that are used to authenticate to an SQL server`.
 
 ### AWS instances supported attack path scenarios
 
 Agentless secret scanning for AWS instances supports the following attack path scenarios:
 
-- `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`. 
+- `Exposed Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`.
 
-- `Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`. 
+- `Vulnerable EC2 instance has an insecure SSH private key that is used to authenticate to a EC2 instance`.
 
-- `Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account`. 
+- `Exposed Vulnerable EC2 instance has an insecure secret that are used to authenticate to a storage account`.
 
-- `Vulnerable EC2 instances have insecure secrets that are used to authenticate to a storage account`. 
+- `Vulnerable EC2 instances have insecure secrets that are used to authenticate to a storage account`.
 
-- `Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`. 
+- `Exposed Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`.
 
-- `Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`. 
+- `Vulnerable EC2 instance has insecure secrets that are used to authenticate to an AWS RDS server`.
 
 **To investigate secrets with Attack path**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations** > **Attack path**.
 
@@ -125,13 +125,13 @@ If a secret is found on your resource, that resource triggers an affiliated reco
 
 **To remediate secrets from the recommendations page**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
 1. Expand the **Remediate vulnerabilities** security control.
 
-1. Select either
+1. Select either:
 
     - **Azure resources**: `Machines should have secrets findings resolved`
 
@@ -155,11 +155,11 @@ Secrets that don't have a known attack path, are referred to as `secrets without
 
 ## Remediate secrets with cloud security explorer
 
-The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) allows you to proactively identify potential security risks within your cloud environment. By querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), the context engine of Defender for Cloud. The cloud security explorer allows your security team to prioritize any concerns, while also considering the specific context and conventions of your organization. 
+The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) allows you to proactively identify potential security risks within your cloud environment. By querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), the context engine of Defender for Cloud. The cloud security explorer allows your security team to prioritize any concerns, while also considering the specific context and conventions of your organization.
 
 **To remediate secrets with cloud security explorer**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
 
@@ -179,7 +179,7 @@ The asset inventory allows you to view the secrets discovered on a specific mach
 
 **To remediate secrets from your asset inventory**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Microsoft Defender for Cloud** > **Inventory**.
 
@@ -195,3 +195,4 @@ Different types of secrets have different sets of additional information. For ex
 
 ## Next steps
 
+- [Use asset inventory to manage your resources' security posture](asset-inventory.md)
