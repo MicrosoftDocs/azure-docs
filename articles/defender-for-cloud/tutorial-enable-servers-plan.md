@@ -80,7 +80,7 @@ There are three components that can be enabled and configured to provide extra p
 
 Toggle the corresponding switch to **On**, to enable any of these options.
 
-:::image type="content" source="media/tutorial-enable-servers-plan/components-on.png" alt-text="Screenshot that shows where you need to select On, in order to enable each component of the servers plan." lightbox="media/tutorial-enable-servers-plan/compnents-on.png":::
+:::image type="content" source="media/tutorial-enable-servers-plan/turn-components-on.png" alt-text="Screenshot that shows where you need to select On, in order to enable each component of the servers plan." lightbox="media/tutorial-enable-servers-plan/compnents-on.png":::
 
 ### Configure Log Analytics agent/Azure Monitor agent
 
