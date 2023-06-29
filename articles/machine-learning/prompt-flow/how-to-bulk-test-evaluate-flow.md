@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: tutorial
-author: Zhong-J
-ms.author: jinzhong
+author: ZikeiWong
+ms.author: ziqiwang
 ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
