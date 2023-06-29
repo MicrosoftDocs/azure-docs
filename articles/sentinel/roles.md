@@ -122,7 +122,7 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 > More roles may be required depending on the data you ingest or monitor. For example, Azure AD roles may be required, such as the global admin or security admin roles, to set up data connectors for services in other Microsoft portals.
 >
 
-## Role based access control (RBAC)
+## Resource-based access control
 
 You may have some users who need to access only specific data in your Microsoft Sentinel workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you may want to provide a non-security operations (non-SOC) team with access to the Windows event data for the servers they own.
 
