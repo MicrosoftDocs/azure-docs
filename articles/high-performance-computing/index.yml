@@ -39,11 +39,11 @@ highlightedContent:
       url: /training/paths/run-high-performance-computing-applications-azure/
     # Card
     - title: Azure HPC Technical Blog
-      itemType: whats-new
+      itemType: reference
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
     # Card
     - title: Azure.com Blogs
-      itemType: learn
+      itemType: whats-new
       url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
 # Azure Services
@@ -105,7 +105,7 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-      #title: HPC Documentation # < 60 chars (optional)
+      title: HPC Documentation # < 60 chars (optional)
       #summary: # < 160 chars (optional)
     - items:
         # Card
@@ -169,8 +169,7 @@ conceptualContent:
               text: HPC Deployments
             - url: /azure/architecture/browse/?terms=HPC
               itemType: overview
-              text: HPC Architectures
-                    
+              text: HPC Architectures                    
 
 
 # Video Playlists and other links
@@ -228,6 +227,8 @@ additionalContent:
               url: https://www.youtube.com/watch?v=tXLnV6MDsVc
             - text: "Want to learn more? Check out the 'HPC Events' playlist!"
               url: https://aka.ms/HPCEvents
+
+              
     - title: HPC Conferences # < 60 chars (optional)
       summary: See where you can find HPC at various tech conferences. # < 160 chars (optional)
       items:
