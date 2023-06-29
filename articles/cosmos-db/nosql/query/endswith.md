@@ -67,4 +67,4 @@ SELECT VALUE {
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [STARTSWITH](startswith.md)
+- [`STARTSWITH`](startswith.md)

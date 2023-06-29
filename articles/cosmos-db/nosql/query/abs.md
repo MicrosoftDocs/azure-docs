@@ -63,4 +63,4 @@ SELECT VALUE {
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [IS_NUMBER](is-number.md)
+- [`IS_NUMBER`](is-number.md)
