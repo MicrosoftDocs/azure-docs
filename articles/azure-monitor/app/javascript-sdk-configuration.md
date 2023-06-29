@@ -14,7 +14,7 @@ The Azure Application Insights JavaScript SDK provides configuration for trackin
 
 > [!div class="checklist"]
 > - [SDK configuration](#sdk-configuration)
-> - [Cookie configuration and management](#cookies)
+> - [Cookie management and configuration](#cookie-management)
 > - [Source map un-minify support](#source-map)
 > - [Tree shaking optimized code](#tree-shaking)
 
@@ -30,9 +30,9 @@ These configuration fields are optional and default to false unless otherwise st
 | appId | string | null | AppId is used for the correlation between AJAX dependencies happening on the client-side with the server-side requests. When Beacon API is enabled, it can't be used automatically, but can be set manually in the configuration. Default is null |
 | autoTrackPageVisitTime | boolean | false | If true, on a pageview, the _previous_ instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. It's sent as a custom metric named `PageVisitTime` in `milliseconds` and is calculated via the Date [now()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/now) function (if available) and falls back to (new Date()).[getTime()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) if now() is unavailable (IE8 or less). Default is false. |
 | convertUndefined | `any` | undefined | Provide user an option to convert undefined field to user defined value.
-| cookieCfg | [ICookieCfgConfig](#cookies)<br>[Optional]<br>(Since 2.6.0) | undefined | Defaults to cookie usage enabled see [ICookieCfgConfig](#cookies) settings for full defaults. |
-| cookieDomain | alias for [`cookieCfg.domain`](#cookies)<br>[Optional] | null | Custom cookie domain. It's helpful if you want to share Application Insights cookies across subdomains.<br>(Since v2.6.0) If `cookieCfg.domain` is defined it takes precedence over this value. |
-| cookiePath | alias for [`cookieCfg.path`](#cookies)<br>[Optional]<br>(Since 2.6.0) | null | Custom cookie path. It's helpful if you want to share Application Insights cookies behind an application gateway.<br>If `cookieCfg.path` is defined, it takes precedence. |
+| cookieCfg | [ICookieCfgConfig](#cookie-management)<br>[Optional]<br>(Since 2.6.0) | undefined | Defaults to cookie usage enabled see [ICookieCfgConfig](#cookie-management) settings for full defaults. |
+| cookieDomain | alias for [`cookieCfg.domain`](#cookie-management)<br>[Optional] | null | Custom cookie domain. It's helpful if you want to share Application Insights cookies across subdomains.<br>(Since v2.6.0) If `cookieCfg.domain` is defined it takes precedence over this value. |
+| cookiePath | alias for [`cookieCfg.path`](#cookie-management)<br>[Optional]<br>(Since 2.6.0) | null | Custom cookie path. It's helpful if you want to share Application Insights cookies behind an application gateway.<br>If `cookieCfg.path` is defined, it takes precedence. |
 | correlationHeaderDomains | string[] | undefined | Enable correlation headers for specific domains |
 | correlationHeaderExcludedDomains | string[] | undefined | Disable correlation headers for specific domains |
 | correlationHeaderExcludePatterns | regex[] | undefined | Disable correlation headers using regular expressions |
@@ -40,7 +40,7 @@ These configuration fields are optional and default to false unless otherwise st
 | customHeaders | `[{header: string, value: string}]` | undefined | The ability for the user to provide extra headers when using a custom endpoint. customHeaders aren't added on browser shutdown moment when beacon sender is used. And adding custom headers isn't supported on IE9 or earlier.
 | diagnosticLogInterval | numeric | 10000 | (internal) Polling interval (in ms) for internal logging queue |
 | disableAjaxTracking | boolean | false | If true, Ajax calls aren't autocollected. Default is false. |
-| disableCookiesUsage | alias for [`cookieCfg.enabled`](#cookies)<br>[Optional] | false | Default false. A boolean that indicates whether to disable the use of cookies by the SDK. If true, the SDK doesn't store or read any data from cookies.<br>(Since v2.6.0) If `cookieCfg.enabled` is defined it takes precedence. Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). |
+| disableCookiesUsage | alias for [`cookieCfg.enabled`](#cookie-management)<br>[Optional] | false | Default false. A boolean that indicates whether to disable the use of cookies by the SDK. If true, the SDK doesn't store or read any data from cookies.<br>(Since v2.6.0) If `cookieCfg.enabled` is defined it takes precedence. Cookie usage can be re-enabled after initialization via the core.getCookieMgr().setEnabled(true). |
 | disableCorrelationHeaders | boolean | false | If false, the SDK adds two headers ('Request-Id' and 'Request-Context') to all dependency requests to correlate them with corresponding requests on the server side. Default is false. |
 | disableDataLossAnalysis | boolean | true | If false, internal telemetry sender buffers are checked at startup for items not yet sent. |
 | disableExceptionTracking | boolean | false | If true, exceptions aren't autocollected. Default is false. |
