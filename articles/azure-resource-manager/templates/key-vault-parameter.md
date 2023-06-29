@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 06/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -185,8 +185,8 @@ The following template deploys a SQL server that includes an administrator passw
       "type": "securestring"
     }
   },
-  "resources": {
-    "sqlServer": {
+  "resources": [
+    {
       "type": "Microsoft.Sql/servers",
       "apiVersion": "2021-11-01",
       "name": "[parameters('sqlServerName')]",
@@ -197,7 +197,7 @@ The following template deploys a SQL server that includes an administrator passw
         "version": "12.0"
       }
     }
-  }
+  ]
 }
 ```
 

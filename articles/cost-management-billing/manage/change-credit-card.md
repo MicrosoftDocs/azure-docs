@@ -27,7 +27,7 @@ The supported payment methods for Microsoft Azure are credit cards, debit cards,
 >[!NOTE]
 > Azure doesn't support virtual or prepaid cards.
 > Credit cards are accepted and debit cards are accepted by most countries or regions.
->   - Hong Kong and Brazil only support credit cards.
+>   - Hong Kong Special Administrative Region and Brazil only support credit cards.
 >   - India supports debit and credit cards through Visa and Mastercard.
 
 With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account).

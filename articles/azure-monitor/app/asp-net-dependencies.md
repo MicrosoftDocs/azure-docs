@@ -256,7 +256,7 @@ Below is the currently supported list of dependency calls that are automatically
 ### Java
 
 See the list of Application Insights Java's
-[autocollected dependencies](opentelemetry-enable.md?tabs=java#included-instrumentation-libraries).
+[autocollected dependencies](opentelemetry-add-modify.md?tabs=java#included-instrumentation-libraries).
 
 ### Node.js
 
@@ -273,7 +273,7 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
 * [Availability](./availability-overview.md)
-* Set up custom dependency tracking for [Java](opentelemetry-enable.md?tabs=java#add-custom-spans).
+* Set up custom dependency tracking for [Java](opentelemetry-add-modify.md?tabs=java#add-custom-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 * See [data model](./data-model-complete.md) for Application Insights types and data model.

@@ -6,7 +6,7 @@ ms.author: yitaopan
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
@@ -122,7 +122,7 @@ az spring app append-persistent-storage \
     --name $APP_NAME \
     --persistent-storage-type AzureFileVolume \
     --mount-path /var/log/nginx \
-    --storage-name STORAGE_MOUNT_NAME
+    --storage-name $STORAGE_MOUNT_NAME
 ```
 
 ## Clean up resources

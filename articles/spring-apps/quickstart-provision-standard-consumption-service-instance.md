@@ -5,8 +5,8 @@ author: karlerickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/21/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 06/21/2023
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance
@@ -122,6 +122,14 @@ You can create the Azure Container Apps environment in one of two ways:
    RESOURCE_GROUP="<resource-group-name>"
    LOCATION="eastus"
    AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+   ```
+
+1. Use the following command to create a resource group:
+
+   ```azurecli
+   az group create \
+       --name $RESOURCE_GROUP \
+       --location $LOCATION 
    ```
 
 1. Use the following command to create the Azure Container Apps environment:

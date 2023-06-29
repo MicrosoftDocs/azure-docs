@@ -84,7 +84,7 @@ The following table shows a summary of the different features in Online and Batc
 | Stable invocation URL                 | Yes                                             | Yes                                           |
 | Multiple deployments support          | Yes                                             | Yes                                           |
 | Deployment's routing                  | Traffic split                                   | Switch to default                             |
-| Mirror traffic to all deployment      | Yes                                             | No                                            |
+| Mirror traffic for safe rollout       | Yes                                             | No                                            |
 | Swagger support                       | Yes                                             | No                                            |
 | Authentication                        | Key and token                                   | Azure AD                                      |
 | Private network support               | Yes                                             | Yes                                           |

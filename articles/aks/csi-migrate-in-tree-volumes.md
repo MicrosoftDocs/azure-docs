@@ -279,10 +279,11 @@ Before proceeding, verify the following:
               DISK_URI="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.azureDisk.diskURI}')"
               TARGET_RESOURCE_GROUP="$(cut -d'/' -f5 <<<"$DISK_URI")"
               echo $DISK_URI
+              SUBSCRIPTION_ID="$(echo $DISK_URI | grep -o 'subscriptions/[^/]*' | sed 's#subscriptions/##g')"
               echo $TARGET_RESOURCE_GROUP
               PERSISTENT_VOLUME_RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-              az snapshot create --resource-group $TARGET_RESOURCE_GROUP --name $PVC-$FILENAME --source "$DISK_URI"
-              SNAPSHOT_PATH=$(az snapshot list --resource-group $TARGET_RESOURCE_GROUP --query "[?name == '$PVC-$FILENAME'].id | [0]")
+              az snapshot create --resource-group $TARGET_RESOURCE_GROUP --name $PVC-$FILENAME --source "$DISK_URI" --subscription ${SUBSCRIPTION_ID}
+              SNAPSHOT_PATH=$(az snapshot list --resource-group $TARGET_RESOURCE_GROUP --query "[?name == '$PVC-$FILENAME'].id | [0]" --subscription ${SUBSCRIPTION_ID})
               SNAPSHOT_HANDLE=$(echo "$SNAPSHOT_PATH" | tr -d '"')
               echo $SNAPSHOT_HANDLE
               sleep 10
@@ -510,8 +511,8 @@ Migration from in-tree to CSI is supported by creating a static volume:
 
 ## Next steps
 
-For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
-
+- For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
+- Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster

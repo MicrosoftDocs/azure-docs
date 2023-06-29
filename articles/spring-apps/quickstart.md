@@ -5,8 +5,8 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/21/2022
-ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
+ms.date: 06/21/2023
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-plan-selection
 ---
 
@@ -92,11 +92,11 @@ Use the following steps to create an Azure Spring Apps service instance.
 1. Use the following commands to define variables for this quickstart with the names of your resources and desired settings:
 
    ```azurecli-interactive
-   LOCATION="<region>"
-   RESOURCE_GROUP="<resource-group-name>"
-   MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-   SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
-   APP_NAME="<Spring-app-name>"
+   export LOCATION="<region>"
+   export RESOURCE_GROUP="<resource-group-name>"
+   export MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+   export SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
+   export APP_NAME="<Spring-app-name>"
    ```
 
 1. Use the following command to create a resource group:
@@ -120,7 +120,7 @@ Use the following steps to create an Azure Spring Apps service instance.
 1. Use the following command to create a variable to store the environment resource ID:
 
    ```azurecli-interactive
-   MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
+   export MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --resource-group ${RESOURCE_GROUP} \
        --name ${MANAGED_ENVIRONMENT} \
        --query id \
