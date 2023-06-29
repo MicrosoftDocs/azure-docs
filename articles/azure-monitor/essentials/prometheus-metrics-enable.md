@@ -387,14 +387,12 @@ Deploy the template with the parameter file by using any valid method for deploy
 ## Enable Windows metrics collection
 
 > [!NOTE]
-> There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes
-> 
-> https://kubernetes.io/docs/concepts/configuration/windows-resource-management/#resource-reservation
+> There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes  
+> For more details see [Resource reservation] (https://kubernetes.io/docs/concepts/configuration/windows-resource-management/#resource-reservation)
 > 
 > ```
 > Caution:
 > As you deploy workloads, set resource memory and CPU limits on containers. This also subtracts from NodeAllocatable and helps the cluster-wide scheduler in determining which pods to place on which nodes.
-> 
 > Scheduling pods without limits may over-provision the Windows nodes and in extreme cases can cause the nodes to become unhealthy.
 > ```
 
