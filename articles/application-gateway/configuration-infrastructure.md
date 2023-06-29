@@ -103,7 +103,7 @@ To use NSG with your application gateway, you will need to create or retain some
 |---|---|---|---|---|---|
 |&lt;as per need&gt;|Any|&lt;Subnet IP Prefix&gt;|&lt;listener ports&gt;|TCP|Allow|
 
-Upon configuring active (associating rules) public and private listeners with the same port number (in Preview), your application gateway changes the "Destination" of the inbound flow to the frontend IPs of your gateway. You must thus include your gateway's frontend Public and Private IP addresses in the Destination of the inbound rule when using this same port configuration.
+Upon configuring **active public and private listeners** (with Rules) **with the same port number** (in Preview), your application gateway changes the "Destination" of all inbound flows to the frontend IPs of your gateway. This is true even for the listeners not sharing any port. You must thus include your gateway's frontend Public and Private IP addresses in the Destination of the inbound rule when using the same port configuration.
 
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
@@ -118,7 +118,7 @@ Upon configuring active (associating rules) public and private listeners with th
 |---|---|---|---|---|---|
 |GatewayManager|Any|Any|&lt;as per SKU given above&gt;|TCP|Allow|
 
-3. Azure Load Balancer probes - Allow incoming traffic from the source as AzureLoadBalancer service tag. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
+3. **Azure Load Balancer probes** - Allow incoming traffic from the source as AzureLoadBalancer service tag. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
