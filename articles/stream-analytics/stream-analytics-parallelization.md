@@ -210,7 +210,7 @@ Partitioning a step requires the following conditions:
 When a query is partitioned, the input events are processed and aggregated in separate partition groups, and outputs events are generated for each of the groups. If you want a combined aggregate, you must create a second non-partitioned step to aggregate.
 
 ### Calculate the max streaming units for a job
-All non-partitioned steps together can scale up to six streaming units (SUs) for a Stream Analytics job. In addition, you can add 1 SU V2 for each partition in a partitioned step.
+All non-partitioned steps together can scale up to one streaming unit (SU V2s) for a Stream Analytics job. In addition, you can add 1 SU V2 for each partition in a partitioned step.
 You can see some **examples** in the table below.
 
 | Query                                               | Max SUs for the job |
