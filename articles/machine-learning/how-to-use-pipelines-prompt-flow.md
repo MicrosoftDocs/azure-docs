@@ -25,8 +25,6 @@ This tutorial walks you through how to create an RAG pipeline. For advanced scen
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-![preview feature](./media/how-to-train-promptflow/preview-panel.png) 
-
 ## Prompt Flow pipeline notebook sample repository
 
 Azure Machine Learning offers notebook tutorials for several usecases with prompt flow pipelines. 
