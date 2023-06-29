@@ -6,8 +6,8 @@ ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/04/2022
-ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
----
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, devx-track-azurecli
+--
 
 # Configure VMware Spring Cloud Gateway
 

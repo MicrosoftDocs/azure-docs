@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # CHOOSE (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Returns the expression at the specified index of a list, or Undefined if the index exceeds the bounds of the list\.
 
 ## Syntax
