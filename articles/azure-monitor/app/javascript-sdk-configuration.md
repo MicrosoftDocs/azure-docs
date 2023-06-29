@@ -87,11 +87,15 @@ These configuration fields are optional and default to false unless otherwise st
 | sessionRenewalMs | numeric | 1800000 | A session is logged if the user is inactive for this amount of time in milliseconds. Default is 30 minutes |
 | userCookiePostfix | string | undefined | An optional value that is used as name postfix for user cookie name. If undefined, no postfix is added on user cookie name.
 
-## Cookies
+## Cookie management
 
-The Azure Application Insights JavaScript SDK provides instance-based cookie management that allows you to control the use of cookies.
+Starting from version 2.6.0, the Azure Application Insights JavaScript SDK provides instance-based cookie management that can be disabled and re-enabled after initialization.
 
-You can control cookies by enabling or disabling them, setting custom domains and paths, and customizing the functions for managing cookies.
+If you disabled cookies during initialization using the `disableCookiesUsage` or `cookieCfg.enabled` configurations, you can re-enable them using the `setEnabled` function of the ICookieMgr object.
+
+The instance-based cookie management replaces the previous CoreUtils global functions of `disableCookies()`, `setCookie()`, `getCookie()`, and `deleteCookie()`.
+
+To take advantage of the tree-shaking enhancements introduced in version 2.6.0, it's recommended to no longer use the global functions.
 
 ### Cookie configuration
 
@@ -109,16 +113,6 @@ The ICookieMgrConfig options are defined in the following table.
 | getCookie | `(name: string) => string` | null | Function to fetch the named cookie value, if not provided it uses the internal cookie parsing / caching. |
 | setCookie | `(name: string, value: string) => void` | null | Function to set the named cookie with the specified value, only called when adding or updating a cookie. |
 | delCookie | `(name: string, value: string) => void` | null | Function to delete the named cookie with the specified value, separated from setCookie to avoid the need to parse the value to determine whether the cookie is being added or removed. If not provided it uses the internal cookie parsing / caching. |
-
-### Cookie management
-
-Starting from version 2.6.0, the Azure Application Insights JavaScript SDK provides instance-based cookie management that can be disabled and re-enabled after initialization.
-
-If you disabled cookies during initialization using the `disableCookiesUsage` or `cookieCfg.enabled` configurations, you can re-enable them using the `setEnabled` function of the ICookieMgr object.
-
-The instance-based cookie management replaces the previous CoreUtils global functions of `disableCookies()`, `setCookie()`, `getCookie()`, and `deleteCookie()`.
-
-To take advantage of the tree-shaking enhancements introduced in version 2.6.0, it's recommended to no longer use the global functions
 
 ## Source map
 

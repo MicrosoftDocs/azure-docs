@@ -250,11 +250,7 @@ export class AppComponent {
 |---------|--------|-----------|---------|------------------|
 | history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object. For a code example of how to enable this field, see [Enable `enableAutoRouteTracking` field](#example-enable-enableautoroutetracking-field).<br><br>Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
 
-### Examples of SDK configuration
-
-The following section contains code examples of [SDK configuration](./javascript-sdk-configuration.md#sdk-configuration).
-
-#### Example: Enable `enableAutoRouteTracking` field
+The following code example shows how to enable the `enableAutoRouteTracking` field.
 
 ```javascript
 var reactPlugin = new ReactPlugin();
@@ -292,9 +288,9 @@ export default withAITracking(reactPlugin, MyComponent);
 
 It measures time from the [`ComponentDidMount`](https://react.dev/reference/react/Component#componentdidmount) event through the [`ComponentWillUnmount`](https://react.dev/reference/react/Component#componentwillunmount) event. To make the result more accurate, it subtracts the time in which the user was idle by using `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`.
 
-#### Confirm usage tracking data is flowing
+#### Explore your data
 
-To see the `React Component Engaged Time (seconds)` in [Metrics Explorer](../essentials/metrics-getting-started.md), go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation of your metric and split by `Component Name`.
+To see the `React Component Engaged Time (seconds)` in [Metrics Explorer](../essentials/metrics-getting-started.md), go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation of your metric and [split](../essentials/metrics-getting-started.md#apply-dimension-filters-and-splitting) by `Component Name`.
 
 :::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
@@ -474,6 +470,8 @@ If events are getting "blocked" because the `Promise` returned via `getUniqueId`
 
 ### Disable automatic device info collection
 
+If you don’t want to collect the device inforomation, you can set `disableDeviceCollection` to `true`. 
+
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 
@@ -489,6 +487,8 @@ appInsights.loadAppInsights();
 ```
 
 ### Use your own device info collection class
+
+If you want to override your own device’s information, you can use `myDeviceInfoModule` to collect your own device information. 
 
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
