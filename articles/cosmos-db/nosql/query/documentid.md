@@ -93,3 +93,4 @@ WHERE
 ## See also
 
 - [System functions](system-functions.yml)
+- [`IS_OBJECT`](is-object.md)

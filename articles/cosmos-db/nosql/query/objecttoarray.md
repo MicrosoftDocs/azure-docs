@@ -170,4 +170,4 @@ If the input value isn't a valid Object, the result is Undefined\.
 ## See also
 
 - [System functions](system-functions.yml)
-- [IS_ARRAY](is-array.md)
+- [`IS_ARRAY`](is-array.md)
