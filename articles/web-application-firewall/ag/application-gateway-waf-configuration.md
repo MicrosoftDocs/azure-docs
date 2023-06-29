@@ -86,9 +86,11 @@ The below table shows some examples of how you might structure your exclusion fo
 | Query string | RequestArgNames | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd | /etc/passwd |
 | Query string | RequestArgNames | EqualsAny | "" | Uri: http://localhost:8080/?text=/etc/passwd&text2=.cshrc | /etc/passwd and .cshrc |
 | Query string | RequestArgValues | Equals | text | Uri: http://localhost:8080/?text=/etc/passwd | /etc/passwd |
+| Query string | RequestArgValues | EqualsAny | "" | Uri: http://localhost:8080/?text=/etc/passwd&text2=.cshrc | /etc/passwd and .cshrc |
 | Request body | RequestArgKeys | Contains | sleep | Request body: {"sleep(5)": "test"} | sleep(5) |
 | Request body | RequestArgKeys | EqualsAny | "" | Request body: {".zshrc": "value", "sleep(5)":"value2"} | .zshrc and sleep(5) |
 | Request body | RequestArgNames | Equals | test | Request body: {"test": ".zshrc"} | .zshrc |
+| Request body | RequestArgNames | EqualsAny | "" | Request body: {"key1": ".zshrc", "key2":"sleep(5)"} | .zshrc and sleep(5) |
 | Request body | RequestArgValues | Equals | test | Request body: {"test": ".zshrc"} | .zshrc |
 | Request body | RequestArgValues | EqualsAny | "" | Request body: {"key1": ".zshrc", "key2":"sleep(5)"} | .zshrc and sleep(5) |
 | Header | RequestHeaderKeys | Equals | X-Scanner | Header: {k: "X-Scanner", v: "test"} | X-scanner |
@@ -99,9 +101,9 @@ The below table shows some examples of how you might structure your exclusion fo
 | Header | RequestHeaderValues | EqualsAny | "" | Header: {k: "head1", v: "myvar=1234"},{k: "User-Agent", v: "(hydra)"} | myvar=1234 and (hydra) |
 | Cookie | RequestCookieKeys | Contains | /etc/passwd | Header: {k: "Cookie", v: "/etc/passwdtest=hello1"} | /etc/passwdtest |
 | Cookie | RequestCookieKeys | EqualsAny | "" | Header: {k: "Cookie", v: "/etc/passwdtest=hello1"},{k: "Cookie", v: ".htaccess=test1} | /etc/passwdtest and .htaccess |
-| Cookie | RequestHeaderNames | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | /etc/passwd |
+| Cookie | RequestCookieNames | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | /etc/passwd |
 | Cookie | RequestCookieNames | EqualsAny | "" | Header: {k: "Cookie", v: "arg1=/etc/passwd"},{k: "Cookie", v: "arg1=.cshrc"} | /etc/passwd and .cshrc |
-| Cookie | RequestHeaderValues | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | /etc/passwd |
+| Cookie | RequestCookieValues | Equals | arg1 | Header: {k: "Cookie", v: "arg1=/etc/passwd"} | /etc/passwd |
 | Cookie | RequestCookieValues | EqualsAny | "" | Header: {k: "Cookie", v: "arg1=/etc/passwd"},{k: "Cookie", v: "arg1=.cshrc"} | /etc/passwd and .cshrc |
 
 ## Exclusion scopes
