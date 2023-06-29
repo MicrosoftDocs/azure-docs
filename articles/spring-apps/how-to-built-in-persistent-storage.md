@@ -1,7 +1,7 @@
 ---
 title: Use built-in persistent storage in Azure Spring Apps | Microsoft Docs
 description: Learn how to use built-in persistent storage in Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 10/28/2021
