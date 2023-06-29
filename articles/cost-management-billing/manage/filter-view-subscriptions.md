@@ -34,9 +34,9 @@ When you apply the global subscription filter, you can choose either **Select al
 1. In the Azure portal, navigate to **Subscriptions**.
 2. In the top left area of the page, select the filter option.
 3. Select the link labeled **global subscriptions filter**.  
-    :::image type="content" source="./media/filter-view-subscriptions/global-subscriptions-filter-link.png" alt-text="ALTTEXT" lightbox="./media/filter-view-subscriptions/global-subscriptions-filter-link.png" :::
+    :::image type="content" source="./media/filter-view-subscriptions/global-subscriptions-filter-link.png" alt-text="Screenshot showing the global subscriptions filter link." lightbox="./media/filter-view-subscriptions/global-subscriptions-filter-link.png" :::
 4. On the **Portal settings | Directory + subscriptions** page, under **Default subscription** filter, select the **Select all** option or select a subset of subscriptions.  
-    :::image type="content" source="./media/filter-view-subscriptions/default-subscription-filter.png" alt-text="ALTTEXT" lightbox="./media/filter-view-subscriptions/default-subscription-filter.png" :::
+    :::image type="content" source="./media/filter-view-subscriptions/default-subscription-filter.png" alt-text="Screenshot showing the default subscription filter." lightbox="./media/filter-view-subscriptions/default-subscription-filter.png" :::
 5. Navigate to **Subscriptions** to view the list of subscriptions, based on your filter selection.
 
 ## Subscriptions list filter
@@ -53,7 +53,7 @@ The **All** option is based on what is or what isn't already filtered by the glo
 2. In the top left area of the page, select the filter option.
 3. In the list of subscriptions to filter, either select a subset of subscriptions or select **All**.
 4. If needed, clear the **Show only subscriptions selected in the global subscriptions filter** option to temporarily override the global filter. Or, enable it to temporarily apply the global filter.  
-    :::image type="content" source="./media/filter-view-subscriptions/show-only-subscriptions-global.png" alt-text="ALTTEXT" lightbox="./media/filter-view-subscriptions/show-only-subscriptions-global.png" :::
+    :::image type="content" source="./media/filter-view-subscriptions/show-only-subscriptions-global.png" alt-text="Screenshot showing the Show only subscriptions selected in the global subscription filter option." lightbox="./media/filter-view-subscriptions/show-only-subscriptions-global.png" :::
 5. Select **Apply**.
 
 ## View subscriptions
@@ -61,7 +61,7 @@ The **All** option is based on what is or what isn't already filtered by the glo
 1. In the Azure portal, navigate to **Subscriptions**.
 2. The list of subscriptions is shown.
 3. If needed, update the global subscription filter or apply a subscriptions list filter.  
-    :::image type="content" source="./media/filter-view-subscriptions/subscription-list.png" alt-text="ALTTEXT" lightbox="./media/filter-view-subscriptions/subscription-list.png" :::
+    :::image type="content" source="./media/filter-view-subscriptions/subscription-list.png" alt-text="Screenshot showing the Subscriptions list." lightbox="./media/filter-view-subscriptions/subscription-list.png" :::
 
 ## Next steps
 - Review the [Billing and subscription documentation](index.yml).
