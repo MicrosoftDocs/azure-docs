@@ -107,7 +107,7 @@ You can view all your assigned lab virtual machines to you in the Azure Lab Serv
     - In the top-left, notice the name of the lab. The lab creator specifies the lab name when creating the lab.
     - In the top-right, you can see an icon that represents the operating system (OS) of the VM.
     - In the center, you can see a progress bar that shows your [quota hours consumption](#view-quota-hours).
-    - In the bottom-left, you can see the status of the lab VM and a control to [start or stop the VM](#start-or-stop-the-vm).
+    - In the bottom-left, you can see the status of the lab VM and a control to [start or stop the VM](#start-or-stop-the-lab-vm).
     - In the bottom-right, you have the control to [connect to the lab VM](./connect-virtual-machine.md) with remote desktop (RDP) or secure shell (SSH).
     - Also in the bottom-right, you can [reset or troubleshoot the lab VM](./how-to-reset-and-redeploy-vm.md), if you experience problems with the VM.
 
