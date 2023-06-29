@@ -54,9 +54,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Troubleshoot Azure Files
-            url: files-troubleshoot.md
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json
           - text: Troubleshoot Azure Files performance
-            url: files-troubleshoot-performance.md
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json
 
   # Card
   - title: Migrate

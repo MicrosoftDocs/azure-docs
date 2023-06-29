@@ -12,16 +12,25 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 06/01/2023
+ms.date: 06/26/2023
 ms.author: anfdocs
 ---
+
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## June 2023
 
-* Availability zone volume placement enhancement - [Populate existing volumes](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) (preview)
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) (Preview)
+
+    You can now create VM consistent snapshot backups of VMs on Azure NetApp Files datastores using [Cloud Backup for Virtual Machines](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). The associated virtual appliance installs in the Azure VMware Solution cluster and provides policy based automated and consistent backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores.
+
+* [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) (Preview)
+
+    We are excited to announce the addition of double encryption at rest for Azure NetApp Files volumes. This new feature provides an extra layer of protection for your critical data, ensuring maximum confidentiality and mitigating potential liabilities. Double encryption at rest is ideal for industries such as finance, military, healthcare, and government, where breaches of confidentiality can have catastrophic consequences. By combining hardware-based encryption with encrypted SSD drives and software-based encryption at the volume level, your data remains secure throughout its lifecycle. You can select **double** as the encryption type during capacity pool creation to easily enable this advanced security layer.      
+
+* Availability zone volume placement enhancement - [Populate existing volumes](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) (Preview)
 
     The Azure NetApp Files [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy *new volumes* in the availability zone of your choice, in alignment with Azure compute and other services in the same zone. With this "Populate existing volume" enhancement, you can now obtain and, if desired, populate *previously deployed, existing volumes* with the logical availability zone information. This capability automatically maps the physical zone the volumes was deployed in and maps it to the logical zone for your subscription. This feature doesn't move any volumes between zones.
 

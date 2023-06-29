@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 03/13/2023
+ms.date: 06/27/2023
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -15,7 +15,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 ## Prerequisites
 
-In addition to the prerequisites below, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
+In addition to these prerequisites, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -147,7 +147,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Connect an existing Kubernetes cluster
 
-Run the following command to connect your cluster. This command deploys the Azure Arc agents to the cluster and installs Helm v. 3.6.3 to the .azure folder of the deployment machine. This Helm 3 installation is only used for Azure Arc, and it does not remove or change any previously installed versions of Helm on the machine.
+Run the following command to connect your cluster. This command deploys the Azure Arc agents to the cluster and installs Helm v. 3.6.3 to the `.azure` folder of the deployment machine. This Helm 3 installation is only used for Azure Arc, and it doesn't remove or change any previously installed versions of Helm on the machine.
 
 In this example, the cluster's name is AzureArcTest1.
 
@@ -222,7 +222,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Set the environment variables needed for Azure CLI to use the outbound proxy server:
+1. On the deployment machine, set the environment variables needed for Azure CLI to use the outbound proxy server:
 
     ```bash
     export HTTP_PROXY=<proxy-server-ip-address>:<port>
@@ -230,7 +230,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
     export NO_PROXY=<cluster-apiserver-ip-address>:<port>
     ```
 
-2. Run the connect command with the `proxy-https` and `proxy-http` parameters specified. If your proxy server is set up with both HTTP and HTTPS, be sure to use `--proxy-http` for the HTTP proxy and `--proxy-https` for the HTTPS proxy. If your proxy server only uses HTTP, you can use that value for both parameters.
+2. On the Kubernetes cluster, run the connect command with the `proxy-https` and `proxy-http` parameters specified. If your proxy server is set up with both HTTP and HTTPS, be sure to use `--proxy-http` for the HTTP proxy and `--proxy-https` for the HTTPS proxy. If your proxy server only uses HTTP, you can use that value for both parameters.
 
     ```azurecli
     az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
@@ -244,7 +244,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
+1. On the deployment machine, set the environment variables needed for Azure PowerShell to use the outbound proxy server:
 
     ```powershell
     $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
@@ -252,7 +252,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
     $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
     ```
 
-2. Run the connect command with the proxy parameter specified:
+2. On the Kubernetes cluster, run the connect command with the proxy parameter specified:
 
     ```azurepowershell
     New-AzConnectedKubernetes -ClusterName <cluster-name> -ResourceGroupName <resource-group> -Location eastus -Proxy 'https://<proxy-server-ip-address>:<port>'
@@ -264,7 +264,7 @@ For outbound proxy servers where only a trusted certificate needs to be provided
 
 > [!NOTE]
 >
-> * `--custom-ca-cert` is an alias for `--proxy-cert`. Either parameters can be used interchangeably. Passing both parameters in the same command will honour the one passed last.
+> * `--custom-ca-cert` is an alias for `--proxy-cert`. Either parameters can be used interchangeably. Passing both parameters in the same command will honor the one passed last.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -276,7 +276,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell.
+The ability to pass in the proxy certificate only without the proxy server endpoint details isn't currently supported via PowerShell.
 
 ---
 

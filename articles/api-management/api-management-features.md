@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/17/2023
+ms.date: 06/27/2023
 ms.author: danlep
 ---
 
@@ -39,7 +39,9 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
 | [Management over Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |
 | Direct management API                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
-| Azure Monitor logs and metrics                                                               | No          | Yes       | Yes   | Yes      | Yes     |
+| Azure Monitor metrics                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
+| Azure Monitor and Log Analytics request logs                                                              | No          | Yes       | Yes   | Yes      | Yes     |
+| Application Insights request logs                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
 | Static IP                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 | [Pass-through WebSocket APIs](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 | [Pass-through GraphQL APIs](graphql-apis-overview.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |

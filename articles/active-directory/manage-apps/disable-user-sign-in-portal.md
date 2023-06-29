@@ -23,7 +23,7 @@ There may be situations while configuring or managing an application where you d
 
 In this article, you'll learn how to prevent users from signing in to an application in Azure Active Directory through both the Azure portal and PowerShell. If you're looking for how to block specific users from accessing an application, use [user or group assignment](./assign-user-or-group-access-portal.md).
 
-
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

@@ -29,7 +29,7 @@ Materialized views are disabled by default, but users can enable them on their c
 Microsoft cannot offer any SLA or support on issues with materialized views.
 
 ## Alternatives to materialized views
-Like most NoSQL stores, Apache Cassandra is not designed to have a normalized data model. If you need to update data in more than one place, your program should send all the necessary statements as part of a [BATCH](https://cassandra.apache.org/doc/trunk/cassandra/cql/dml.html#batch_statement). This has two advantages over materialized views:
+Like most NoSQL stores, Apache Cassandra is not designed to have a normalized data model. If you need to update data in more than one place, your program should send all the necessary statements as part of a [BATCH](https://cassandra.apache.org/doc/latest/cassandra/cql/dml.html#batch_statement). This has two advantages over materialized views:
 
 - BATCH guarantees that all statements in the batch are committed or none.
 - All the statements have the same quorum and commit semantics.

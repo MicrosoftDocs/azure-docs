@@ -1,6 +1,6 @@
 ---
-title: Add or remove a user in Permissions Management through the Microsoft Entra admin center
-description: How to add or remove a user in Permissions Management through Azure Active Directory (AD).
+title: Add or remove a user in Microsoft Entra Permissions Management through the Microsoft Entra admin center
+description: How to add or remove a user in Microsoft Entra Permissions Management through the Microsoft Enter admin center.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/28/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
-# Add or remove a user in Permissions Management
+# Add or remove a user in Microsoft Entra Permissions Management
 
 This article describes how you can add or remove a new user for a group in Permissions Management. 
 

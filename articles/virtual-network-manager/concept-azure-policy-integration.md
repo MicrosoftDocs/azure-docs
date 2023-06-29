@@ -92,13 +92,19 @@ Policy definitions and assignment can be created through with API/PS/CLI or [Azu
 To use Azure Policy with network groups, users need the following permissions:
 - `Microsoft.Authorization/policyassignments/Write` and `Microsoft.Authorization/policydefinitions/Write` are needed at the scope you're assigning.
 - `Microsoft.Network/networkManagers/networkGroups/join/action` action is needed on the target network group referenced in the **Add to network group** section. This permission allows for the adding and removing of objects from the target network group.
-- When using set definitions to assign multiple policies at the same time, concurrent `networkGroup/join/action` permissions are needed on all definitions being assigned at the time of assignment.
+- When using set definitions to assign multiple policies at the same time, concurrent `Microsoft.Network/networkManagers/networkGroups/join/action` permissions are needed on all definitions being assigned at the time of assignment.
 
 To set the needed permissions, users can be assigned built-in roles with [role-based access control](../role-based-access-control/quickstart-assign-role-user-portal.md):
 - **Network Contributor** role to the target network group. 
 - **Resource Policy Contributor** role at the target scope level.
 
-For more granular role assignment, you can create [custom roles](../role-based-access-control/custom-roles-portal.md) using the `networkGroups/join/action` permission and `policy/write` permission.
+For more granular role assignment, you can create [custom roles](../role-based-access-control/custom-roles-portal.md) using the `Microsoft.Network/networkManagers/networkGroups/join/action` permission and `policy/write` permission.
+
+> [!IMPORTANT]
+> To modify AVNM dynamic groups, you must be granted access via Azure RBAC role assignment only.
+> Classic Admin/legacy authorization is not supported; this means if your account were
+> assigned only the co-administrator subscription role, you'd have no permissions on AVNM
+> dynamic groups.
 
 Along with the required permissions, your subscriptions and management groups must be registered with the following resource providers:
 - `Microsoft.Network` is required to create virtual networks.
