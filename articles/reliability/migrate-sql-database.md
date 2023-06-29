@@ -154,7 +154,7 @@ To create a database copy and enable zone redundancy with Azure portal, PowerShe
 
 #### Point-in-time restore
 
-To create a point-in-time database restore and enable zone redundancy with Azure Portal, PowerShell, or Azure CLI, follow the instructions in [Point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal#point-in-time-restore).
+To create a point-in-time database restore and enable zone redundancy with Azure portal, PowerShell, or Azure CLI, follow the instructions in [Point-in-time restore](/azure/azure-sql/database/recovery-using-backups?view=azuresql&preserve-view=true&tabs=azure-portal#point-in-time-restore).
 
 ##### Geo-replica
 
