@@ -143,7 +143,7 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
 
    :::image type="content" source="../../media/tutorial-applications-observability/chart-availability.png" alt-text="Screenshot of the Azure portal with availability to dashboard." lightbox="../../media/tutorial-applications-observability/chart-availability.png":::
 
-#### Add Server exceptions and Dependency call failures chart
+#### Pin the "Server exceptions and Dependency call failures" chart
 
 Repeat with the previous section steps for the **Server exception** and **Dependency call failures** metrics under the **Application Insights standard metrics** namespace, save the **Server exceptions and Dependency call failures** chart to the dashboard.
 
