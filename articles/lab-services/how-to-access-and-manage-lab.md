@@ -37,35 +37,32 @@ Depending on how the lab creator has assigned you to the lab, you might have to 
 
 ### User account types
 
-To add users to a lab, you use their email accounts. Users might have the following types of email accounts:
+Azure Lab Services supports different email account types when registering for a lab:
 
-- An organizational email account that's provided by your university's Azure Active Directory instance.
+- An organizational email account that's provided by your Azure Active Directory instance.
 - A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
-- A non-Microsoft email account, such as one provided by Yahoo! or Google. However, these types of accounts must be linked with a Microsoft account.
-- A GitHub account. This account must be linked with a Microsoft account.
+- A non-Microsoft email account, such as one provided by Yahoo! or Google. You need to link your account with a Microsoft account.
+- A GitHub account. You need to link your account with a Microsoft account.
 
 #### Use a non-Microsoft email account
 
-Users can use non-Microsoft email accounts to register and sign in to a lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
+You can use non-Microsoft email accounts to register and sign in to a lab.  However, the registration requires that you first create a Microsoft account that's linked to your non-Microsoft email address.
 
-Many users might already have a Microsoft account that's linked to their non-Microsoft email address. For example, users already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
+You might already have a Microsoft account that's linked to your non-Microsoft email address. For example, users already have a Microsoft account if you've used this email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.
 
-When users use the registration link to sign in to a classroom, they're prompted for their email address and password. Users who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account receive the following error message:
+When you use the lab registration link to sign into a lab, you're prompted for your email address and password. If you sign in with a non-Microsoft account that's not linked to a Microsoft account, you receive the following error message:
 
 :::image type="content" source="./media/how-to-access-and-manage-lab/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-access-and-manage-lab/cant-find-account.png":::
 
-Here's a link for users to [sign up for a Microsoft account](https://signup.live.com).  
-
-> [!IMPORTANT]
-> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
+Follow these steps to [sign up for a new Microsoft account](https://signup.live.com).
 
 #### Use a GitHub account
 
-Users can also use an existing GitHub account to register and sign in to a lab. If they already have a Microsoft account linked to their GitHub account, users can sign in and provide their password as shown in the preceding section.
+You can use an existing GitHub account to register and sign into a lab. If you already have a Microsoft account that's linked to your GitHub account, you can sign in and continue the lab registration process.
 
-If users haven't yet linked their GitHub account to a Microsoft account, they can do the following:
+To link your GitHub account to a Microsoft account:
 
-1. Select the **Sign-in options** link, as shown here:
+1. Select the **Sign-in options** link:
 
     :::image type="content" source="./media/how-to-access-and-manage-lab/signin-options.png" alt-text="Screenshot that shows the Microsoft sign in window, highlighting the Sign-in options link.":::
 
@@ -73,7 +70,7 @@ If users haven't yet linked their GitHub account to a Microsoft account, they ca
 
     :::image type="content" source="./media/how-to-access-and-manage-lab/signin-github.png" alt-text="Screenshot that shows the Microsoft sign-in options window, highlighting the option to sign in with GitHub.":::
 
-    At the prompt, users then create a Microsoft account that's linked to their GitHub account. The linking happens automatically when they select **Next**. They're then immediately signed in and connected to the lab.
+    At the prompt, you then create a Microsoft account that's linked to your GitHub account. The linking happens automatically when you select **Next**. You're then immediately signed in and connected to the lab.
 
 # [Teams](#tab/teams)
 
@@ -143,7 +140,7 @@ The color of the progress bar and the text under the progress bar changes depend
 As a lab user, you can start or stop a lab VM from the Azure Lab Services website. Alternately, you can also stop a lab VM by using the operating system shutdown command from within the lab VM. The preferred method to stop a lab VM is to use the [Azure Lab Services website](https://labs.azure.com) to avoid incurring additional costs.
 
 > [!TIP]
-> With the [April 2022 Updates](lab-services-whats-new.md), Azure Lab Services will detect when a lab user shuts down their VM using the OS shutdown command. After a long delay to ensure the VM wasn't being restarted, the lab VM will be marked as stopped and billing will discontinue.
+> With the [April 2022 Updates](lab-services-whats-new.md), Azure Lab Services will detect when a lab user shuts down a lab VM using the OS shutdown command. After a long delay to ensure the VM wasn't being restarted, the lab VM will be marked as stopped and billing will discontinue.
 
 To start or stop a lab VM in the Azure Lab Services website:
 
