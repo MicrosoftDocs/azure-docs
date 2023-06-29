@@ -178,7 +178,7 @@ Repeat with the previous section steps for the **hikaricp_connection_active** me
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-connection-active.png" alt-text="Screenshot of the Azure portal with active connection to dashboard." lightbox="../../media/tutorial-applications-observability/chart-connection-active.png":::
 
-#### Pin blades to dashboard
+#### Pin more blades to the dashboard
 
 You can pin some blades to the dashboard as needed, it will be convenient to jump to the corresponding page from the dashboard.
 
