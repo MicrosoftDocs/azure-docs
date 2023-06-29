@@ -1,6 +1,31 @@
 {
     "redirections": [
         {
+            "source_path": "/articles/storage/queues/storage-c-plus-plus-how-to-use-queues.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/storage-c-plus-plus-how-to-use-queues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "/articles/storage/queues/storage-dotnet-how-to-use-queues.md",
+            "redirect_url": "/articles/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "/articles/storage/queues/storage-java-how-to-use-queue-storage.md",
+            "redirect_url": "/articles/storage/queues/storage-quickstart-queues-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "/articles/storage/queues/storage-nodejs-how-to-use-queues.md",
+            "redirect_url": "/articles/storage/queues/storage-quickstart-queues-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "/articles/storage/queues/storage-python-how-to-use-queue-storage.md",
+            "redirect_url": "/articles/storage/queues/storage-quickstart-queues-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
             "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
             "redirect_document_id": false
