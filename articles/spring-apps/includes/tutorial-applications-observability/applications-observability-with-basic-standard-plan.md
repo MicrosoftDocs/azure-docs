@@ -155,7 +155,7 @@ Repeat with the previous section steps for the **Failed requests** metric under 
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-failed-requests.png" alt-text="Screenshot of the Azure portal with failed requests to dashboard." lightbox="../../media/tutorial-applications-observability/chart-failed-requests.png":::
 
-#### Add Request count chart
+#### Pin the "Request count" chart
 
 Repeat with the previous section steps for the **Server requests** metric under the **Application Insights standard metrics** namespace, 
 add a filter to filter the **Cloud role name** with **api-gateway** and **admin-server**, 
