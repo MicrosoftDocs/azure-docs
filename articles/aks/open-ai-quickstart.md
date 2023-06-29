@@ -510,12 +510,13 @@ If you're using Azure OpenAI:
 
 If you're using OpenAI: 
 - [Generate an OpenAI key][open-ai-new-key] by clicking *Create new secret key* and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
+- [Start a paid plan][openai-paid] to use OpenAI API.
 
 ## Deploy the AI service
 
 Now that the application is deployed, you can deploy the Python based microservice that uses OpenAI to automatically generate descriptions for new products being added to the store's catalog. 
 
-1. Create a file names `ai-service.yaml` and copy the following manifest into it.
+1. Create a file named `ai-service.yaml` and copy the following manifest into it.
     ```yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -539,7 +540,7 @@ Now that the application is deployed, you can deploy the Python based microservi
             ports:
             - containerPort: 5001
             env:
-            - name: USE_AZURE_OPENAI # set to "True" in quote if you are using Azure OpenAI, set to "False" if you are using OpenAI
+            - name: USE_AZURE_OPENAI # set to "True" in quote if you are using Azure OpenAI, set to "False" if you are using public OpenAI
               value: ""
             - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
               value: ""
@@ -547,7 +548,7 @@ Now that the application is deployed, you can deploy the Python based microservi
               value: ""
             - name: OPENAI_API_KEY # always required
               value: ""
-            - name: OPENAI_ORG_ID # required if using OpenAI
+            - name: OPENAI_ORG_ID # required if using public OpenAI
               value: ""
             resources: {}
     ---
@@ -600,23 +601,12 @@ Now that the application is deployed, you can deploy the Python based microservi
     
 1. Open a web browser to the external IP address of your service. In the example shown here, open 40.64.86.161 to see store admin in the browser. Repeat the same step for store front. 
 1. In store admin, click on the products tab, then click on **Add Products**. 
-1. When the ai-service is running successfully, you should see the Ask OpenAI button next to the description field. Fill in the name, price, and keywords, then click Ask OpenAI to generate a product description. Then click save product. 
+1. When the ai-service is running successfully, you should see the Ask OpenAI button next to the description field. Fill in the name, price, and keywords, then click Ask OpenAI to generate a product description. Then click save product. See the picture for an example of adding a new product. 
 :::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="use openAI to generate a product description":::
-1. You can now see the new product called Jungle Monkey Chew Toy on the store admin web app for sellers.
+1. You can now see the new product you created on the store admin web app for sellers. In the picture, you can see Jungle Monkey Chew Toy is added.
 :::image type="content" source="media/ai-walkthrough/new-product-store-admin.png" alt-text="view the new product in the store admin page":::
-1. You can also see the new product called Jungle Monkey Chew Toy on the store front web app for buyers. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
+1. You can also see the new product you created on the store front web app for buyers. In the picture, you can see Jungle Monkey Chew Toy is added. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
 :::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="view the new product in the store front page":::
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
-
-Principal authors:
-
-- [Amanda Wang](https://www.linkedin.com/in/amandawang14/) | Product Manager
-- [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Senior Program Manager 
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 <!-- todo -->
 ## Next steps
@@ -634,6 +624,7 @@ Principal authors:
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
 [aoai-access]: https://aka.ms/oai/access
 [az-upgrade]: https://learn.microsoft.com/cli/azure/update-azure-cli#manual-update
+[openai-paid]: https://platform.openai.com/account/billing/overview
 
 <!-- Links internal -->
 [azure-resource-group]: ../azure-resource-manager/management/overview.md 
