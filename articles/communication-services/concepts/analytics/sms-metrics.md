@@ -27,7 +27,7 @@ More information on supported aggregation types and time series aggregations can
 - **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
 - **Status Code** - The status code response sent after the request.
 - **StatusSubClass** - The status code series sent after the response. 
-- 
+  
 ### SMS API requests
 
 The following operations are available on SMS API request metrics:
@@ -37,4 +37,5 @@ The following operations are available on SMS API request metrics:
 | SMSMessageSent       | Sends an SMS message. |
 | SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
 | SMSMessagesReceived      | Gets SMS messages. |
+
 

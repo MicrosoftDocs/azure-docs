@@ -24,6 +24,7 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
 - You will need Owner permission on the resource group for your Azure Stack Edge resource.
     > [!NOTE]
     > Make a note of the Azure Stack Edge's resource group. The AKS cluster and custom location, created in this procedure, must belong to this resource group.
+- Review [Azure Stack Edge virtual machine sizing](azure-stack-edge-virtual-machine-sizing.md#azure-stack-edge-virtual-machine-sizing) to ensure your ASE has enough space available to commission the cluster.
 
 ## Enter a minishell session
 

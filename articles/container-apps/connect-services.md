@@ -4,6 +4,7 @@ description: Connect a service in development and then promote to production in 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/13/2023
 ms.author: cshoe

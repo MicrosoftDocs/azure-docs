@@ -92,7 +92,7 @@ The following core requirements apply:
     | --- | --- |
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD Password Protection functionality|
-    |`https://autoupdate.msappproxaxy.net` | Azure AD Password Protection auto-upgrade functionality |
+    |`https://autoupdate.msappproxy.net` | Azure AD Password Protection auto-upgrade functionality |
 
 > [!NOTE]
 > Some endpoints, such as the CRL endpoint, are not addressed in this article. For a list of all supported endpoints, see [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

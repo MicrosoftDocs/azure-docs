@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 03/28/2023
 ms.reviewer: ju-shim
-ms.custom: maxsurge, upgradepolicy
-
+ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Manage Upgrade Policies for Virtual Machine Scale Sets
 

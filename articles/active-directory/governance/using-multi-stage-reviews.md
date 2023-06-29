@@ -2,7 +2,7 @@
 title: Using multi-stage reviews to meet your attestation and certification needs - Microsoft Entra
 description: Learn how to use multi-stage reviews to design more efficient reviews with Microsoft Entra. 
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: florianf
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/15/2022
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: florianf
 ms.collection: M365-identity-device-management
 ---
@@ -89,9 +89,9 @@ An example would be a review of a group that grants an IT exception, that an adm
 
 Guest user reviews help organizations that use Azure AD B2B for collaboration. These guest users’ access should be reviewed regularly to check on whether these guest users have the right access still, and that collaboration is still desired, so revoking access or a cleanup of guest user accounts that are no longer needed is possible.
 
-This scenario can be configured with multi-stage reviews similar to how the "Reduce burden on later stage reviewers" scenario works. First, ask guest users to self-review and attest their continued interest and need for collaboration, including the requirement to provide a business justification. Only self-approved guests are progressed to a later stage, where an internal employee or sponsor approve or deny continued access or collaboration.
+This scenario can be configured with multi-stage reviews similar to how the "Reduce burden on later stage reviewers" scenario works. First, ask guest users to self-review and attest their continued interest and need for collaboration, including the requirement to provide a business justification. Only self-approved guests are progressed to a later stage, where an internal employee or sponsor approves or denies continued access or collaboration.
 
-For guest user reviews, also consider leveraging the **Inactive users (on tenant level) only** setting. This will scope the review to inactive external users that have not signed in to the resource tenant in the number of specified days.
+For guest user reviews, also consider leveraging the **Inactive users (on tenant level) only** setting. This will scope the review to inactive external users that haven't signed in to the resource tenant in the number of specified days.
 
 In scenarios for guest users, Access Reviews supports an extra configuration option: **Action to apply on denied guest users**, which can result in either:
 
@@ -120,7 +120,7 @@ Review administrators define the duration of every review stage and therefore, h
 
 :::image type="content" source="media/using-multi-stage-reviews/using-multi-stage-reviews.png" alt-text="Screenshot of using multi-stage reviews." lightbox="media/using-multi-stage-reviews/using-multi-stage-reviews.png":::
 
-Each review stage will stay open for reviewers to add decisions for the length of the duration. Review administrators can stop a running stage and automatically progress the overall review to the next review stage on the reviewer overview page, by selecting **Stop current stage**.
+Each review stage stays open for reviewers to add decisions for the length of the duration. Review administrators can stop a running stage and automatically progress the overall review to the next review stage on the reviewer overview page, by selecting **Stop current stage**.
 
 ## Application of results 
 
