@@ -4,7 +4,7 @@ description: Learn how to add session hosts virtual machines to a host pool in A
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/31/2023
+ms.date: 06/29/2023
 ---
 
 # Add session hosts to a host pool

@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/28/2023
+ms.date: 06/30/2023
 ---
 
 # Create a host pool in Azure Virtual Desktop
