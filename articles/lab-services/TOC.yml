@@ -18,13 +18,25 @@
       href: quick-create-connect-lab.md
 - name: Tutorials
   items:
-  - name: Set up a lab for classroom training
-    displayName: get started, lab, tutorial, lab VM, virtual machine, getting started, admin, lab creator, create lab
-    href: tutorial-setup-lab.md
+  - name: Set up a lab for classroom training (Lab Services website)
+    items:
+    - name: Set up a lab for classroom training
+      displayName: get started, lab, tutorial, lab VM, virtual machine, getting started, admin, lab creator, create lab
+      href: tutorial-setup-lab.md
+    - name: Regsiter & access a lab from the Lab Services website
+      href: tutorial-connect-lab-virtual-machine.md
+  - name: Set up a lab in Teams/Canvas
+    items:
+      - name: Create & manage labs (Canvas)
+        href: how-to-manage-labs-within-canvas.md
+      - name: Access a lab VM in Canvas
+        href: how-to-access-vm-for-students-within-canvas.md     
+      - name: Create & manage labs (Teams)
+        href: how-to-manage-labs-within-teams.md
+      - name: Access a lab VM in Teams
+        href: how-to-access-vm-for-students-within-teams.md 
   - name: Set up lab to lab communication
     href: tutorial-create-lab-with-advanced-networking.md
-  - name: Access a lab
-    href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
   - name: Set up a lab account
@@ -224,10 +236,10 @@
     - name: View support information
       href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)
-    items:        
+    items:
     - name: Access labs
       href: how-to-use-lab.md
-    - name: Connect to VM
+    - name: Connect to a lab VM
       href: connect-virtual-machine.md
     - name: Connect to a VM from Windows using RDP
       href: connect-virtual-machine-windows-rdp.md              
@@ -237,28 +249,20 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: Troubleshoot a lab VM
+    - name: Redeploy or reset a lab VM
       href: how-to-reset-and-redeploy-vm.md  
-    - name: Set or reset passwords for VMs 
+    - name: Set or reset passwords for lab VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
-    - name: View support information (student)
+    - name: View support information
       href: lab-user-support-information.md
   - name: Use labs within Canvas
     items:
       - name: Configure Canvas to use the service
         href: how-to-configure-canvas-for-lab-plans.md
-      - name: Create & manage labs
-        href: how-to-manage-labs-within-canvas.md
-      - name: Access a lab VM
-        href: how-to-access-vm-for-students-within-canvas.md     
   - name: Use labs within Teams
     items:
       - name: Configure Teams to use the service
         href: how-to-configure-teams-for-lab-plans.md
-      - name: Create & manage labs
-        href: how-to-manage-labs-within-teams.md
-      - name: Access a lab VM
-        href: how-to-access-vm-for-students-within-teams.md 
   - name: Earlier releases
     items:
     - name: Labs architecture fundamentals
