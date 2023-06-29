@@ -141,10 +141,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
     | Delete-Add as Replace | Unchecked |
 
 >[!NOTE]
->If your web services connector template sapecc.wsconfig is opened for editing in the Web Service Configuration Tool, you will get the below error message:
-
-   [![Screenshot that shows the error.](.\media\active-directory-app-provisioning-sap\sap-error-1.png)](.\media\active-directory-app-provisioning-sap\sap-error-1.png#lightbox)
-
+>If your web services connector template sapecc.wsconfig is opened for editing in the Web Service Configuration Tool, you will get an error.
 
 8. On the **Global** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
 
