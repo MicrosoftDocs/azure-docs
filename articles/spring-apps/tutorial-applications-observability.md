@@ -20,9 +20,9 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to observe your production applications deployed on Azure Spring Apps, 
 as well as diagnose and investigate production issues. 
-We use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program, 
-the following is a further explanation in conjunction with [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) 
-and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md).
+We use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as a production program.  
+You can follow [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md) 
+and [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md) to deploy the PetClinic project to Azure Spring Apps and use MySQL as the persistent store.
 [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) and [Application Insights](../azure-monitor/insights/insights-overview.md) 
 are deeply integrated with Azure Spring Apps, you can use Log Analytics to diagnose your application with variously log queries, 
 and use Application Insights to investigate production issues.
