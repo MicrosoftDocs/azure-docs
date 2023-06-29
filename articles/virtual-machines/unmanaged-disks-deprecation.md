@@ -29,7 +29,7 @@ Unmanaged disks are a type of page blob in Azure that is used for storing Virtua
 
 Page blobs accessed directly via HTTP/HTTPS REST APIs are standalone entities and have no dependencies on any specific VM. Clients can interact with these page blobs using standard HTTP/HTTPS protocols, making requests to read from or write to the blobs using Storage REST APIs. Since these page blobs aren't attached as virtual disks, this retirement doesn't affect them.
 
-Third party storage offerings on Azure that are using page blobs via HTTP/HTTPS REST APIs as their underlying storage solution may be affected by this retirement. If you are using a third party offering like this, consult with the provider.
+Third party storage offerings on Azure that are using page blobs via HTTP/HTTPS REST APIs as their underlying storage solution may not be affected by this retirement.
 
 ## What actions should I take?
 
