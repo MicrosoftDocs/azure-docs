@@ -6,9 +6,9 @@ zone_pivot_groups: cache-redis-zone-pivot-group
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-extended-java, devx-track-python
 ms.topic: conceptual
 ms.date: 05/24/2023
-
 ---
 
 # Serverless event-based architectures with Azure Cache for Redis and Azure Functions (preview)

@@ -2,7 +2,7 @@
 title: Create an access review of groups and applications
 description: Learn how to create an access review of group members or application access in Azure Active Directory. 
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 3/23/2023
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -38,7 +38,7 @@ This article describes how to create one or more access reviews for group member
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
-If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
+If you're reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
 
 ## Create a single-stage access review
 
@@ -76,7 +76,7 @@ If you are reviewing access to an application, then before creating the review, 
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
 
-8. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group. In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
+8. Or if you're conducting group membership review, you can create access reviews for only the inactive users in the group. In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review focuses on inactive users only, those who haven't signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with many days inactive up to 730 days (two years). Users in the group inactive for the specified number of days are the only users in the review.
 
     > [!NOTE]  
     > Recently created users are not affected when configuring the inactivity time. The Access Review will check if a user has been created in the time frame configured and disregard users who haven’t existed for at least that amount of time. For example, if you set the inactivity time as 90 days and a guest user was created or invited less than 90 days ago, the guest user will not be in scope of the Access Review. This ensures that a user can sign in at least once before being removed.
@@ -85,7 +85,7 @@ If you are reviewing access to an application, then before creating the review, 
 
 ### Next: Reviews
  
-1. You can create a single-stage or multi-stage review. For a single stage review continue here. To create a multi-stage access review, follow the steps in [Create a multi-stage access review](#create-a-multi-stage-access-review)
+1. You can create a single-stage or multi-stage review. For a single stage review, continue here. To create a multi-stage access review, follow the steps in [Create a multi-stage access review](#create-a-multi-stage-access-review)
 
 1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to make decisions in the access reviews. You can choose from:
 
@@ -120,7 +120,7 @@ If you are reviewing access to an application, then before creating the review, 
 
     ![Screenshot that shows Upon completion settings.](./media/create-access-review/upon-completion-settings-new.png)
 
-    - **Auto apply results to resource**: Select this checkbox if you want access of denied users to be removed automatically after the review duration ends. If the option is disabled, you'll have to manually apply the results when the review finishes. To learn more about applying the results of the review, see [Manage access reviews](manage-access-review.md).
+    - **Auto apply results to resource**: Select this checkbox if you want access of denied users to be removed automatically after the review duration ends. If the option is disabled, you have to manually apply the results when the review finishes. To learn more about applying the results of the review, see [Manage access reviews](manage-access-review.md).
 
     - **If reviewers don't respond**: Use this option to specify what happens for users not reviewed by any reviewer within the review period. This setting doesn't affect users who were reviewed by a reviewer. The dropdown list shows the following options:
 
@@ -146,7 +146,7 @@ If you are reviewing access to an application, then before creating the review, 
 
 1. In the **Enable review decision helpers** section choose whether you want your reviewer to receive recommendations during the review process:
     1. If you select **No sign-in within 30 days**, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
-    1. If you select **(Preview) User-to-Group Affiliation**, reviewers will get the recommendation to Approve or Deny access for the users based on user’s average distance in the organization’s reporting-structure. Users who are very distant from all the other users within the group are considered to have "low affiliation" and will get a deny recommendation in the group access reviews.
+    1. If you select **(Preview) User-to-Group Affiliation**, reviewers get the recommendation to Approve or Deny access for the users based on user’s average distance in the organization’s reporting-structure. Users who are distant from all the other users within the group are considered to have "low affiliation" and will get a deny recommendation in the group access reviews.
 
    > [!NOTE]
    > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
@@ -180,11 +180,11 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
 
-1. Click the checkbox next to **Multi-stage review**.
+1. Select the checkbox next to **Multi-stage review**.
 
 1. Under **First stage review**, select the reviewers from the dropdown menu next to **Select reviewers**. 
 
-1. If you select **Group owner(s)** or **Managers of Users**, you have the option to add a fallback reviewer. To add a fallback, click **Select fallback reviewers** and add the users you want to be fallback reviewers.
+1. If you select **Group owner(s)** or **Managers of Users**, you have the option to add a fallback reviewer. To add a fallback, select **Select fallback reviewers** and add the users you want to be fallback reviewers.
  
     ![Screenshot that shows multi-stage review enabled and multi-stage review settings.](./media/create-access-review/create-multi-stage-review.png)
 
@@ -196,13 +196,13 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 1. Add the duration for the second stage.
  
-1. By default, you will see two stages when you create a multi-stage review. However, you can add up to three stages. If you want to add a third stage, click **+ Add a stage** and complete the required fields.  
+1. By default, you'll see two stages when you create a multi-stage review. However, you can add up to three stages. If you want to add a third stage, select **+ Add a stage** and complete the required fields.  
 
-1. You can decide to allow 2nd and 3rd stage reviewers to the see decisions made in the previous stage(s).If you want to allow them to see the decisions made prior, click the box next to **Show previous stage(s) decisions to later stage reviewers** under **Reveal review results**. Leave the box unchecked to disable this setting if you’d like your reviewers to review independently. 
+1. You can decide to allow 2nd and 3rd stage reviewers to the see decisions made in the previous stage(s).If you want to allow them to see the decisions made prior, select the box next to **Show previous stage(s) decisions to later stage reviewers** under **Reveal review results**. Leave the box unchecked to disable this setting if you’d like your reviewers to review independently. 
 
     ![Screenshot that shows duration and show previous stages setting enabled for multi-stage review.](./media/create-access-review/reveal-multi-stage-results-and-duration.png)
 
-1. The duration of each recurrence will be set to the sum of the duration day(s) you specified in each stage.
+1. The duration of each recurrence are set to the sum of the duration day(s) you specified in each stage.
 
 1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. The recurrence type must be at least as long as the total duration of the recurrence (i.e., the max duration for a weekly review recurrence is 7 days).
 
@@ -241,7 +241,7 @@ Use the following instructions to create an access review on a team with shared 
 
 1. Select **+ New access review**.
 
-1. Select **Teams + Groups** and then click **Select teams + groups** to set the **Review scope**. B2B direct connect users and teams are not included in reviews of **All Microsoft 365 groups with guest users**.
+1. Select **Teams + Groups** and then select **Select teams + groups** to set the **Review scope**. B2B direct connect users and teams aren't included in reviews of **All Microsoft 365 groups with guest users**.
  
 1. Select a Team that has shared channels shared with 1 or more B2B direct connect users or Teams.  
 
