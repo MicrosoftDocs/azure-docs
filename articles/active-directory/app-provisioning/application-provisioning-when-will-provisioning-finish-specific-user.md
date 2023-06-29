@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 06/29/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -93,7 +93,7 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 - If performance becomes an issue, and you're attempting to provision most users and groups in your tenant, then use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
-In most cases, the **incremental cycle** completes in 30 minutes. However, in cases where there are hundreds or thousands of user changes or group membership changes, the incremental cycle time will increase proportional to the amount of changes to process. Using **sync assigned users and groups** and minimizing the number of users / groups in scope for provisioning will help to reduce the sync time.
+In most cases, the **incremental cycle** completes in 30 minutes. However, when there are hundreds or thousands of user changes or group membership changes, the incremental cycle time will increase proportionally with the number of changes to process and can take several hours. Using **sync assigned users and groups** and minimizing the number of users / groups in scope for provisioning will help to reduce the sync time.
 
 ## Next steps
 [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md)
