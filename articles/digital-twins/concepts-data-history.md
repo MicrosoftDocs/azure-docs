@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the data history feature for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/08/2023
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -76,6 +76,8 @@ In order to set up a data history connection, your Azure Digital Twins instance 
 Later, your Azure Digital Twins instance must have the following permission on the Event Hubs resource while data history is being used: **Azure Event Hubs Data Sender** (you can also opt instead to keep **Azure Event Hubs Data Owner** from data history setup).
 
 These permissions can be assigned using the Azure CLI or Azure portal.
+
+If you'd like to disable local authorization to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. For more information about this process, see [Restrict local access to data history resources](#restrict-local-access-to-data-history-resources).
 
 ## Data types and schemas
 
