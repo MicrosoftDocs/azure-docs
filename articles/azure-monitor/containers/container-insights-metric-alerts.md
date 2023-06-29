@@ -19,12 +19,12 @@ There are two types of metric rules used by Container insights based on either P
 
 | Alert rule type | Description |
 |:---|:---|
-| [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
+| [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
 | [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on March 14, 2026. |
 
 ## Prometheus alert rules
 
-[Prometheus alert rules](../alerts/alerts-types.md#prometheus-alerts-preview) use metric data from your Kubernetes cluster sent to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
+[Prometheus alert rules](../alerts/alerts-types.md#prometheus-alerts) use metric data from your Kubernetes cluster sent to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
 
 ### Prerequisites
 
