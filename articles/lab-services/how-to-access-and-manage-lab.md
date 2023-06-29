@@ -1,16 +1,16 @@
 ---
 title: How to access and manage a lab VM
 titleSuffix: Azure Lab Services
-description: Learn how to register to a lab.  Also learn how to view, start, stop, and connect to all the lab VMs assigned to you. 
+description: Learn how to access and manage a lab in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 06/29/2023
 ---
 
-# Access a lab in Azure Lab Services
+# Access and manage a lab in Azure Lab Services
 
 Before you can access a lab in Azure Lab Services, you need to first register to the lab. In this article, you learn how to register for a lab, connect to a lab virtual machine (VM), start and stop the lab VM, and how to monitor your quota hours.
 
