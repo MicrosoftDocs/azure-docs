@@ -29,17 +29,17 @@ The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive she
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
 
 ## Prerequisites
 
-You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You'll need to log in to your account using the [az login](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using [az account set](/cli/azure/account#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
+Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using [az account set](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
@@ -48,7 +48,7 @@ az account set --subscription <subscription id>
 ## Limitations
 
 * The source Azure Database for MySQL - Single Server and the target Azure Database for MySQL - Flexible Server must be in the same subscription, resource group, region and on the same MySQL version. MySQL Import across subscriptions, resource groups, regions and versions are not possible.
-* MySQL Import from Legacy Storage architecture (XIO | 4 TB) is not possible to latest storage architecture ( PFS | 16 TB). 
+* MySQL Import for Single Servers with Legacy Storage architecture (General Purpose storage V1) is not supported. You must upgrade your storage to latest storage architecture (General Purpose storage V2) to trigger a MySQL Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers#how-can-i-determine-which-storage-type-my-server-is-running-on.md).
 * MySQL Import to an existing Azure MySQL Flexible Server isn’t supported. The CLI command will provision a new Azure MySQL Flexible Server and initiate the import.  
 * If the target flexible server is provisioned as non-HA (High Availability disabled) when updating the CLI command parameters, it can later be switched to Same-Zone HA but not Zone-Redundant HA.
 * Azure Database for MySQL Single Servers with Customer managed key (CMK) are not supported for import by MySQL Import currently.
@@ -99,7 +99,8 @@ az mysql flexible-server import create --data-source-type
                                 [--vnet]
                                 [--zone]
 ```
-Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command and then create your MySQL server inside this resource group. You should provide a unique name. The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of source Single Server) and performs an import from source to target.
+
+ The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of source Single Server) and performs an import from source to target.
 
 ```azurecli-interactive
 az mysql flexible-server import create --data-source-type “mysql_single” --data-source “test-single-server” --subscription “test-subscription” --resource-group “test-rg” --location westus --server-name "test-flexible-server" --admin-user "username" --admin-password "password" --sku-name "Standard_B1ms" --tier "Burstable" --public-access 0.0.0.0 --storage-size 32 --tags "key=value" --version 5.7 --high-availability ZoneRedundant --zone 1 --standby-zone 3 --storage-auto-grow Enabled --iops 500 
