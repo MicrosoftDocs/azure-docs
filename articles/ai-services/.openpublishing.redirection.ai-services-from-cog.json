@@ -141,11 +141,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/toc.yml",
-      "redirect_url": "/azure/ai-services/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/use-key-vault.md",
       "redirect_url": "/azure/ai-services/use-key-vault",
       "redirect_document_id": true
