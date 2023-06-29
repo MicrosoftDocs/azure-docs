@@ -80,7 +80,7 @@ You can enable the Defender for Containers plan and deploy all of the relevant c
 
 1. Search for and select the `Azure Arc-enabled Kubernetes clusters should have Defender for Cloud's extension installed` recommendation.
 
-    :::image type="content" source="media/tutorial-enable-containers-azure/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters.":::
+    :::image type="content" source="media/tutorial-enable-containers-azure/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/tutorial-enable-containers-azure/extension-recommendation.png":::
 
 1. Select all of the relevant affected resources.
 

@@ -58,7 +58,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 1. Ensure that the Containers plan is toggled to **On**.
 
-    :::image type="content" source="media/tutorial-enable-containers-gcp/containers-on.png" alt-text="Screenshot that shows the containers plan is toggled to on.":::
+    :::image type="content" source="media/tutorial-enable-containers-gcp/containers-on.png" alt-text="Screenshot that shows the containers plan is toggled to on." lightbox="media/tutorial-enable-containers-gcp/containers-on.png":::
 
 1. Select the **Copy** button.
 

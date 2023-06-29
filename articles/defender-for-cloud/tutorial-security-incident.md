@@ -54,7 +54,7 @@ Once you have selected an alert, you will then be able to investigate it.
 
 1. Begin your investigation from the left pane, which shows the high-level information about the security alert.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="The left pane of the alert details page highlighting the high-level information." lightbox="media/tutorial-security-incident/alert-details-left-pane.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Screenshot of the left pane of the alert details page highlighting the high-level information." lightbox="media/tutorial-security-incident/alert-details-left-pane.png":::
 
     This pane shows:
     - Alert severity, status, and activity time

@@ -58,16 +58,16 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
 1. Set the toggle for the **Containers** plan to **On**.
 
-    :::image type="content" source="media/tutorial-enable-containers-aws/aws-containers-enabled.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector.":::
+    :::image type="content" source="media/tutorial-enable-containers-aws/aws-containers-enabled.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector." lightbox="media/tutorial-enable-containers-aws/aws-containers-enabled.png":::
 
 1. (Optional) To change the retention period for your audit logs, select **Settings**, enter the required timeframe, and select **Save**.
 
-    :::image type="content" source="media/tutorial-enable-containers-aws/retention-period.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs.":::    
+    :::image type="content" source="media/tutorial-enable-containers-aws/retention-period.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="media/tutorial-enable-containers-aws/retention-period.png":::    
 
     > [!Note]
     > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
-1. Select **Next: Review and generate>**.
+1. Select **Next: Review and generate**.
 
 1. Select **Update**.
 
