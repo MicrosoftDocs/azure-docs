@@ -18,7 +18,7 @@ You can develop your flow from scratch, by creating a standard flow. In this art
 
 You can quickly start developing your standard flow by following this video tutorial:
 
-A quick video tutorial can be found here: [Prompt flow get started video tutorial](https://www.youtube.com/watch?v=Y1CPlvQZiBg).
+A quick video tutorial can be found here: [standard flow video tutorial](https://www.youtube.com/watch?v=Y1CPlvQZiBg).
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
