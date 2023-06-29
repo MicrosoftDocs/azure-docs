@@ -5,17 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 01/19/2023
+ms.date: 06/29/2023
 ms.author: cynthn
 ---
 
 # In-place upgrade for VMs running Windows Server in Azure
 
-An in-place upgrade allows you to go from an older operating system to a newer one while keeping your settings, server roles, and data intact. This article teaches you how to move your Azure VMs to a later version of Windows Server using an in-place upgrade. Currently, upgrading to Windows Server 2016, Windows Server 2019 and Windows Server 2022 are supported.
+An in-place upgrade allows you to go from an older operating system to a newer one while keeping your settings, server roles, and data intact. This article teaches you how to move your Azure VMs to a later version of Windows Server using an in-place upgrade. Currently, upgrading to Windows Server 2012, Windows Server 2016, Windows Server 2019 and Windows Server 2022 are supported.
 
 Before you begin an in-place upgrade:
 
 - Review the upgrade requirements for the target operating system:
+
+   - Upgrade options for Windows Server 2012 from Windows Server 2008 or Windows Server 2008 R2
 
    - Upgrade options for Windows Server 2016 from Windows Server 2012 or Windows Server 2012 R2
    
@@ -43,9 +45,7 @@ The upgrade media provided by Azure requires the VM to be configured for Windows
 
 The in-place upgrade process requires the use of Managed Disks on the VM to be upgraded. Most VMs in Azure are using Managed Disks, and retirement for unmanaged disks support was announced in November of 2022. If the VM is currently using unmanaged disks, then follow these steps to [migrate to Managed Disks](./windows/migrate-to-managed-disks.md).
 
- 
-
-## Create snapshot of the operating system disk 
+ ## Create snapshot of the operating system disk 
 
 We recommend that you create a snapshot of your operating system disk and any data disks before starting the in-place upgrade process. This enables you to revert to the previous state of the VM if anything fails during the in-place upgrade process. To create a snapshot on each disk, follow these steps to [create a snapshot of a disk](./snapshot-copy-managed-disk.md). 
 
@@ -80,7 +80,7 @@ $zone = ""
 # Disk name for the that will be created
 $diskName = "WindowsServer2022UpgradeDisk"
 
-# Target version for the upgrade - must be either server2022Upgrade or server2019Upgrade
+# Target version for the upgrade - must be either server2022Upgrade, server2019Upgrade, server2016Upgrade or server2012Upgrade
 $sku = "server2022Upgrade"
 
 
