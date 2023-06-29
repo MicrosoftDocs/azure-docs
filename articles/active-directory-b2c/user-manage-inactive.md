@@ -3,7 +3,7 @@ title: Manage inactive users in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Learn how to manage inactive users and remove unused accounts 
 services: active-directory-b2c
-author: alvesfabi
+author: shlipsey3
 manager: DavidHoerster
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/15/2023
 ms.custom: b2c-docs-improvements
 ms.reviewer: kengaderdus
-ms.author: falves
+ms.author: sarahlipsey
 ms.subservice: B2C
 ---
 
