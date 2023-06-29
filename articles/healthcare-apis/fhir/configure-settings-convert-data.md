@@ -1,6 +1,6 @@
 ---
-title: Deploy and configure the FHIR Converter using the Azure portal - Azure Health Data Services
-description: Learn how to deploy and configure the FHIR Converter using the Azure portal.
+title: Configure settings for $convert-data using the Azure portal - Azure Health Data Services
+description: Learn how to configure settings for $convert-data using the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,16 +9,24 @@ ms.date: 06/29/2022
 ms.author: jasteppe
 ---
 
-# Deploy and configure the FHIR Converter using the Azure portal
+# Configure settings for $convert-data using the Azure portal
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to deploy and configure the FHIR Converter using the Azure portal to convert your existing data to [FHIR R4](https://www.hl7.org/fhir/R4/index.html).
+In this article, learn how to configure settings for $convert-data using the Azure portal to convert your existing health data into [FHIR R4](https://www.hl7.org/fhir/R4/index.html).
 
 ## Default templates
 
-We need verbiage for this section.
+Microsoft publishes a set of predefined sample Liquid templates from the FHIR Converter project to support FHIR data conversion. These templates are only provided to help get you started with your data conversion workflow. It's recommended that you customize and host your own templates that support your own data conversion requirements. For information on customized templates, see [Customize templates](#customize-templates).
+    
+The default templates are hosted in a public container registry and require no further configurations or settings for your FHIR service.
+To access and use the default templates for your conversion requests, ensure that when invoking the `$convert-data` operation, the `templateCollectionReference` request parameter has the appropriate value based on the type of data input. 
+
+* [HL7v2 templates](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates/Hl7v2)
+* [C-CDA templates](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates/Ccda)
+* [JSON templates](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates/Json)
+* [FHIR STU3 templates](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates/Stu3ToR4)
 
 > [!WARNING]
 > Default templates are released under the MIT License and are *not* supported by Microsoft Support.
@@ -30,7 +38,7 @@ We need verbiage for this section.
 > 3. Use your registered templates in your API calls.
 > 4. Verify that the conversion behavior meets your requirements.
 >
-> For more information on hosting your own templates, see [Host your own templates](deploy-and-configure-convert-data.md#host-your-own-templates) 
+> For more information on hosting your own templates, see [Host your own templates](configure-settings-convert-data.md#host-your-own-templates) 
 
 ## Customize templates
 
@@ -92,7 +100,7 @@ For example, consider the following code:
 }
 ```
 
-In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR Bundle resource seem to be nested under `customfield_data` (that is, the FHIR Bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR Bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR Bundle (since it's nested and has non FHIR specification properties) and attempting to persist the result in your FHIR service will fail.
+In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR Bundle resource seem to be nested under `customfield_data` (that is, the FHIR Bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR Bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR Bundle (since it's nested and has non FHIR specification properties) and attempting to persist the result in your FHIR service fails.
  
 ## Host your own templates
 
@@ -228,9 +236,21 @@ You should receive a `Bundle` response that contains the health data converted i
 
 ## Next steps
 
-In this article, you've learned about the `$convert-data` endpoint for converting health data to FHIR by using the FHIR service in Azure Health Data Services. For information about how to export FHIR data from the FHIR service, see:
+In this article, you've learned how to configure settings for `$convert-data` for converting health data into FHIR by using the FHIR service in Azure Health Data Services. 
+
+To learn about the frequently asked questions (FAQs) for `$convert-data`, see
  
 >[!div class="nextstepaction"]
->[Export data](export-data.md)
+>[Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
+
+For information about how to import FHIR data into the FHIR service, see:
+ 
+>[!div class="nextstepaction"]
+>[Import operation](import-data.md)
+
+For information about how to export FHIR data from the FHIR service, see:
+ 
+>[!div class="nextstepaction"]
+>[Export operation](export-data.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

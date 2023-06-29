@@ -77,11 +77,11 @@ items:
     - name: $convert-data
       expanded: false
       items:
-      - name: Overview of the FHIR Converter
+      - name: Overview of $convert-data
         href: overview-of-convert-data.md
-      - name: Deploy and configure the FHIR Converter
-        href: deploy-and-configure-convert-data.md
-      - name: FAQs - FHIR Converter 
+      - name: Configure settings for $convert-data
+        href: configure-settings-convert-data.md
+      - name: FAQs - $convert-data
         href: frequently-asked-questions-convert-data.md     
     - name: $export
       expanded: false
