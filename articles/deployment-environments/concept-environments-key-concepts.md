@@ -54,11 +54,11 @@ Project environment types allow you to automatically apply the right set of poli
 
 Catalogs help you provide a set of curated IaC templates for your development teams to create environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos) as a catalog. 
 
-Deployment environments scan the specified folder of the repository to find [catalog items](#catalog-items). The environments then make those catalog items available to all the projects associated with the dev center.
+Deployment environments scan the specified folder of the repository to find [environment definitions](#environment-definitions). The environments then make those environment definitions available to all the projects associated with the dev center.
 
-## Catalog items
+## Environment definitions
 
-A catalog item is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams will use the items that you provide in the catalog to create environments in Azure.
+An environment definition is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams will use the items that you provide in the catalog to create environments in Azure.
 
 > [!NOTE]
 > Azure Deployment Environments uses Azure Resource Manager (ARM) templates.

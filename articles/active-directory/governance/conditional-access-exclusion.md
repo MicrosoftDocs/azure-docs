@@ -3,7 +3,7 @@ title: Manage users excluded from Conditional Access policies
 description: Learn how to use access reviews to manage users that have been excluded from Conditional Access policies
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/27/2022
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---

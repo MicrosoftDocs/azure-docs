@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - Steps to perform a CSV parser ingestion
+title: Microsoft Azure Data Manager for Energy - Steps to perform a CSV parser ingestion
 description: This tutorial shows you how to perform CSV parser ingestion
 author: bharathim
 ms.author: bselvaraj

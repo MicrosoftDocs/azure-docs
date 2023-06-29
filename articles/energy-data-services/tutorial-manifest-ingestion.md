@@ -23,7 +23,7 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-Before beginning this tutorial, the following prerequisites must be completed
+Before beginning this tutorial, the following prerequisites must be completed:
 ### Get Azure Data Manager for Energy instance details
 
 * Azure Data Manager for Energy instance is created already. If not, follow the steps outlined in [Quickstart: Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md)
@@ -50,6 +50,7 @@ Before beginning this tutorial, the following prerequisites must be completed
   * [Manifest Ingestion postman environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/IngestionWorkflowEnvironment.postman_environment.json)
     > [!NOTE]
     >  To import the Postman collection and environment variables, follow the steps outlined in [Importing data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman)
+
 * Update the **CURRENT_VALUE** of the postman environment with the information obtained in Azure Data Manager for Energy instance details
 * The Postman collection for manifest ingestion contains multiple requests, which will have to be executed in a sequential manner.
 * Make sure to choose the **Ingestion Workflow Environment** before triggering the Postman collection.

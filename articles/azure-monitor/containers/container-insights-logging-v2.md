@@ -76,6 +76,7 @@ Azure Monitor - Container insights now supports multiline logging. With this fea
 Additionally, the feature also adds support for .NET and Go stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
 
 ### Pre-requisites 
+
 Customers must enable *ContainerLogV2* for multi-line logging to work.  Go here to [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) in Container Insights. 
 
 ### How to enable - This is currently a preview feature

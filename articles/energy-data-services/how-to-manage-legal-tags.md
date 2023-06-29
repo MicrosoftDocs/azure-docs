@@ -14,7 +14,6 @@ In this article, you'll know how to manage legal tags in your Azure Data Manager
 
 While in Azure Data Manager for Energy instance, [entitlement service](concepts-entitlements.md) defines access to data for a given user(s), legal tag defines the overall access to the data across users. A user may have access to manage the data within a data partition however, they may not be able to do so-until certain legal requirements are fulfilled.
 
-
 ## Create a legal tag
 Run the below curl command in Azure Cloud Bash to create a legal tag for a given data partition of your Azure Data Manager for Energy instance.
 

@@ -71,6 +71,7 @@ Next, set up Postman:
 
    1. In the **CURRENT VALUE** column, enter the information that's described in the table in 'Get your Azure Data Manager for Energy instance details'.
 
+
    :::image type="content" source="media/tutorial-wellbore-ddms/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Wellbore DDMS environment.":::
 
 ## Send an example Postman request
