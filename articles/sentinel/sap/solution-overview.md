@@ -17,14 +17,11 @@ To help close this gap, Microsoft Sentinel offers the Microsoft Sentinel solutio
 
 ## What Microsoft Sentinel solution for SAP® applications does
 
-The Microsoft Sentinel solution for SAP® applications continuously monitors SAP systems for threats at all layers - business logic, application, database, and OS.
+- The Microsoft Sentinel solution for SAP® applications continuously monitors SAP systems for threats at all layers - business logic, application, database, and OS.
 
-It analyzes SAP system data to detect threats such as privilege escalation, unapproved changes, and unauthorized access. It allows you to correlate SAP monitoring with other signals across your organization, and to build your own detections to monitor sensitive transactions and other business risks.
-    - Privilege escalation
-    - Unapproved changes
-    - Unauthorized access
-- Correlate SAP monitoring with other signals across your organization
-- Build your own detections to monitor sensitive transactions and other business risks
+- It allows you to correlate SAP monitoring with other signals across your organization, and to use detections provided by the solution&mdash;or build your own detections&mdash;to monitor sensitive transactions and other business risks such as privilege escalation, unapproved changes, and unauthorized access.
+
+- It also allows you to build automated response processes to interact with your SAP systems to stop active security threats.
 
 ## Solution details
 

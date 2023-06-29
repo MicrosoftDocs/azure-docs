@@ -37,10 +37,9 @@ With your mission being to ensure that security coverage of your SAP environment
 
 ## Standard vs. Consumption playbooks
 
-Microsoft Sentinel lets you create instances of these playbooks directly from templates if you're using Consumption playbooks. If you have specific requirements for virtual networking (VNET) support, you must use Standard playbooks, which means you currently have to create them from scratch as blank playbooks, and then import the relevant workflows into the playbook. See the [full explanation of the different types of playbooks](../automate-responses-with-playbooks.md#logic-app-types). Here is the procedure to follow:
+Microsoft Sentinel lets you create instances of these playbooks directly from templates if you're using Consumption playbooks. If you have specific requirements for virtual networking (VNET) support, you must use Standard playbooks, which means you currently have to create them from scratch as blank playbooks, and then import the relevant workflows into the playbook. See the [full explanation of the different types of playbooks](../automate-responses-with-playbooks.md#logic-app-types).
 
-1. Create the playbook as described in [these instructions](../tutorial-respond-threats-playbook.md?tabs=LAS#create-a-playbook). Follow the steps for a **Standard** playbook.
-1. 
+You can find the [deployment files for the Standard playbooks](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Playbooks/Basic-SAPLockUser-STD) in the Microsoft Sentinel GitHub repository. Follow the [procedure outlined there](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SAP/Playbooks/INSTALLATION.md) to deploy the playbooks.
 
 ## Next steps
 
