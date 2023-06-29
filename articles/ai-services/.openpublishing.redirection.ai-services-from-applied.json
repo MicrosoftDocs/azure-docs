@@ -1,31 +1,6 @@
 {
   "redirections": [
     {
-      "source_path_from_root": "/articles/applied-ai-services/applied-ai-services-customer-spotlight-use-cases.md",
-      "redirect_url": "/azure/ai-services/applied-ai-services-customer-spotlight-use-cases",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/applied-ai-services/faq.yml",
-      "redirect_url": "/azure/ai-services/faq",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/applied-ai-services/index.yml",
-      "redirect_url": "/azure/ai-services/index",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/applied-ai-services/what-are-applied-ai-services.md",
-      "redirect_url": "/azure/ai-services/what-are-applied-ai-services",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/applied-ai-services/why-applied-ai-services.md",
-      "redirect_url": "/azure/ai-services/why-applied-ai-services",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/changelog-release-history.md",
       "redirect_url": "/azure/ai-services/document-intelligence/changelog-release-history",
       "redirect_document_id": true
