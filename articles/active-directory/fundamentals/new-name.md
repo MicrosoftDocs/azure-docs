@@ -56,7 +56,7 @@ Naming is also not changing for:
 
 ### When is the name change happening?
 
-The name change will start appearing across Microsoft experiences after a 30-day notification period, which started July 11, 2023. Display names for SKUs and service plans will change on September 1, 2023. We expect most naming text string changes in Microsoft experiences to be completed by the end of 2023.  
+The name change will start appearing across Microsoft experiences after a 30-day notification period, which started July 11, 2023. Display names for SKUs and service plans will change on October 1, 2023. We expect most naming text string changes in Microsoft experiences to be completed by the end of 2023.  
 
 ### Why is the name being changed?
 
@@ -78,17 +78,15 @@ You can manage Microsoft Entra ID and all other Microsoft Entra solutions in the
 
 ### What are the display names for service plans and SKUs?
 
-Licensing, pricing, and functionality aren't changing. Display names will be updated October 1, 2023 as follows:
+Licensing, pricing, and functionality aren't changing. Display names will be updated October 1, 2023 as follows.
 
-| Old display name for service plan | New display name for service plan |
+| **Old display name for service plan** | **New display name for service plan** |
 |---------|---------|
 | Azure Active Directory Free | Microsoft Entra ID Free |
 | Azure Active Directory Premium P1 | Microsoft Entra ID P1 |
 | Azure Active Directory Premium P2 | Microsoft Entra ID P2 |
 | Azure Active Directory for education | Microsoft Entra ID for education |
-
-| Old display name for product SKU | New display name for product SKU |
-|---------|---------|
+| **Old display name for product SKU** | **New display name for product SKU** |
 | Azure Active Directory Premium P1 | Microsoft Entra ID P1 |
 | Azure Active Directory Premium P1 for students | Microsoft Entra ID P1 for students |
 | Azure Active Directory Premium P1 for faculty | Microsoft Entra ID P1 for faculty |
@@ -180,6 +178,6 @@ End users shouldn't be exposed to the Azure AD or Microsoft Entra ID name. For s
 
 ## Next steps
 
-- [Stay up-to-date with what's new in Azure AD/Microsoft Graph ID](whats-new.md)
+- [Stay up-to-date with what's new in Azure AD/Microsoft Entra ID](whats-new.md)
 - [Get started using Microsoft Entra ID at the Microsoft Entra admin center](https://entra.microsoft.com/)
 - [Learn more about Microsoft Entra with content from Microsoft Learn](/entra)
