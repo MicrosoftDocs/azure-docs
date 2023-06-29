@@ -26,8 +26,8 @@ The computer that runs the provisioning agent should have:
 - A Windows Server 2016 or a later version. 
 
 Prior to configuring provisioning, ensure that you:
-- Expose the necessary APIs in SAP ECC 7.0 to create, update, and delete users. The guide here walks through how you can expose the necessary APIs.
-- Create a web services connector template for the ECMA host. You can use the template provided here as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment.  
+- Expose the necessary APIs in SAP ECC 7.0 to create, update, and delete users. The [guide](https://www.microsoft.com/en-us/download/details.aspx?id=51495) here walks through how you can expose the necessary APIs.
+- Create a web services connector template for the ECMA host. You can use the template provided [here](https://www.microsoft.com/en-us/download/details.aspx?id=51495) as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment.  
 
 
 Configuration of the connection to SAP ECC 7.0 is done using a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
@@ -56,6 +56,7 @@ If you have already downloaded the provisioning agent and configured it for anot
  7. Under **On-premises Connectivity**, select **Download and install**, and select **Accept terms & download**.
  
  :::image type="content" source="media/active-directory-app-provisioning-sql/download-1.png" alt-text="Screenshot of download location for agent." lightbox="media/active-directory-app-provisioning-sql/download-1.png":::
+ 
  8. Leave the portal and open the provisioning agent installer, agree to the terms of service, and select **next**.
  9. Open the provisioning agent wizard.
  10. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
@@ -93,7 +94,7 @@ In this section, you will create the connector configuration for SAP ECC 7.0.
 
 To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
-1. Copy your web service connector template sapecc.wsconfig into `C:\Program Files\Microsoft ECMA2Host\Service\ECMA` folder. 
+1. Copy your web service connector [template](https://www.microsoft.com/en-us/download/details.aspx?id=51495) sapecc.wsconfig into `C:\Program Files\Microsoft ECMA2Host\Service\ECMA` folder. 
 1. Generate a secret token that will be used for authenticating Azure AD to the connector. It should be 12 characters minimum and unique for each application.
 1. If you haven't already done so, launch the **Microsoft ECMA2Host Configuration Wizard** from the Windows Start menu.
 
@@ -342,7 +343,7 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
  4. Select **Provision on demand**.
  5. Search for one of your test users, and select **Provision**.
 
-     [![Screenshot that shows testing provisioning.](.\media\active-directory-app-provisioning-sql\configure-13.png)]
+     [![Screenshot that shows testing provisioning.](.\media\active-directory-app-provisioning-sql\configure-13.png)
 
  6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
 
