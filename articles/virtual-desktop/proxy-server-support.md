@@ -76,7 +76,9 @@ To configure your network to use DNS resolution for WPAD, follow the instruction
 
 ### Manually set a device-wide proxy for Windows services
 
-If you're specifying a proxy server manually, at a minimum you will need to set a proxy for the Windows services *RDAgent* and *Remote Desktop Services* on your session hosts. RDAgent runs with the account *Local System* and Remote Desktop Services runs with the account *Network Service*. You can set a proxy for these accounts using the `bitsadmin` command-line tool. The following example configures the Local System and Network Service accounts to use a proxy `.pac` file . You'll need to run these from an elevated command prompt, changing the placeholder value for `<server>` with your own address:
+If you're specifying a proxy server manually, at a minimum you will need to set a proxy for the Windows services *RDAgent* and *Remote Desktop Services* on your session hosts. RDAgent runs with the account *Local System* and Remote Desktop Services runs with the account *Network Service*. You can set a proxy for these accounts using the `bitsadmin` command-line tool.
+
+The following example configures the Local System and Network Service accounts to use a proxy `.pac` file . You'll need to run these commands from an elevated command prompt, changing the placeholder value for `<server>` with your own address:
 
 ```cmd
 bitsadmin /util /setieproxy LOCALSYSTEM AUTOSCRIPT http://<server>/proxy.pac
