@@ -26,7 +26,8 @@ If you're using Microsoft Teams or Canvas with Azure Lab Services, learn more in
 
 ## Prerequisites
 
-- A lab that was created in the Azure Lab Services website.
+- A lab that was created in the Azure Lab Services website. Follow the steps to create a lab and invite users in [Tutorial: Create a lab for classroom training](./tutorial-setup-lab.md).
+
 - You've received a lab registration link.
 
 ## Register for the lab
