@@ -7170,15 +7170,6 @@ New user interface changes are coming to the design of the **Add from the galler
 
 ---
 
-### Plan for change: Removal of the multifactor authentication (MFA) server IP address from the Office 365 IP address
-
-**Type:** Plan for change
-**Service category:** MFA
-**Product capability:** Identity Security & Protection
-
-We're removing the multifactor authentication (MFA) server IP address from the [Office 365 IP Address and URL Web service](/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Active Directory Multi-Factor Authentication Server firewall requirements** section of the [Getting started with the Azure Active Directory Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements) article.
-
----
 
 
 
