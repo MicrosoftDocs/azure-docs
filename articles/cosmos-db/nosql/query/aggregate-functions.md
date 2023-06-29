@@ -67,5 +67,5 @@ These aggregate system functions will benefit from a [range index](../../index-p
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](../../introduction.md)
-- [System functions](system-functions.md)
+- [System functions](system-functions.yml)
 - [User defined functions](udfs.md)

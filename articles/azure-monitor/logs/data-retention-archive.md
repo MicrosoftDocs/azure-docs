@@ -3,7 +3,7 @@ title: Configure data retention and archive in Azure Monitor Logs
 description: Configure archive settings for a table in a Log Analytics workspace in Azure Monitor.
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 6/28/2023
 # Customer intent: As an Azure account administrator, I want to set data retention and archive policies to save retention costs.
 ---
 
@@ -235,7 +235,7 @@ The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn
 
 ## Tables with unique retention policies
 
-By default, two data types, `Usage` and `AzureActivity`, keep data for at least 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types. You'll be charged for retaining this data beyond the 90-day period. These tables are also free from data ingestion charges.
+By default, two data types, `Usage` and `AzureActivity`, keep data for at least 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types. These tables are also free from data ingestion charges.
 
 Tables related to Application Insights resources also keep data for 90 days at no charge. You can adjust the retention policy of each of these tables individually:
 
