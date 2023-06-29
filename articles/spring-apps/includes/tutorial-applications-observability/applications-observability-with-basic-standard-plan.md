@@ -29,7 +29,7 @@ This section provides the steps to use the metrics registered by Spring Boot and
     
     1. Select **Application Insights** in the left navigation menu to go to the Application Insights overview page.
     
-    1. Select **Metrics** in the left navigation menu, Select the edit icon in the chart title, rename the chart title to `JVM Memory Used`.
+    1. Select **Metrics** in the left navigation menu. Select the edit icon in the chart title, rename the chart title to `JVM Memory Used`.
     
     1. Select **Add metric**, for **Metric**, select the corresponding dropdown list to choose the **jvm_memory_used** metric under the **Log-based metrics** namespace, select `Avg` for **Avg**.
     
