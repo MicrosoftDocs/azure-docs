@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Post Bare Metal machine(BMM) Cordon and Restart, VMs show up as error on portal. Power and Restart doesn’t work anymore for Azure Operator Nexus
-description: Troubleshoot Post Bare Metal machine(BMM) Cordon and restart, VMs show up as error on portal. Power & Restart doesn’t work anymore.
+title: Troubleshoot VM problems after cordoning off and restarting bare-metal machines for Azure Operator Nexus
+description: Learn what to do when you get VM errors on the Azure portal after you cordon off and restart bare-metal machines.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -8,51 +8,55 @@ ms.date: 06/13/2023
 ms.author: v-sathysubra
 author: Sathyadevi-S
 ---
-# Troubleshoot post Bare Metal machine(BMM) cordon and restart, VMs show up as error on portal. Power and Restart doesn’t work anymore
-Follow this troubleshooting guide for Bare Metal machine(BMM) Cordon and Restart:
-- If you encounter VMs showing up as "ERROR" on the portal after an upgrade.
-- Traditional methods such as powering off and restarting the VMs doesn't work 
+# Troubleshoot VM problems after cordoning off and restarting bare-metal machines
 
-## Prerequisites to complete this TSG
+Follow this troubleshooting guide after you cordon off and restart bare metal machine (BMMs) for Azure Operator Nexus if:
+
+- You encounter virtual machines (VMs) with an error status on the Azure portal after an upgrade.
+- Traditional methods such as powering off and restarting the VMs don't work.
+
+## Prerequisites
+
 - Install the latest version of the
-  [appropriate CLI extensions](./howto-install-cli-extensions.md)
-- Familiarize yourself with the capabilities referenced in this article by reviewing the [Bare Metal Machine Actions](howto-baremetal-functions.md)
-- Subscription ID
-- Cluster name and resource group
-- Virtual machine name  
-- The Virtual Machine should have a Provisioning State of "Succeeded" and a Power State of "On."
+  [appropriate Azure CLI extensions](./howto-install-cli-extensions.md).
+- Familiarize yourself with the capabilities referenced in this article by reviewing the [BMM actions](howto-baremetal-functions.md).
+- Gather the following information:
+  - Subscription ID
+  - Cluster name and resource group
+  - Virtual machine name
+- Make sure that the virtual machine has a provisioning state of **Succeeded** and a power state of **On**.
 
-## Symptoms 
+## Symptoms
 
-- During Bare Metal machine(BMM) restart or upgrade testing, the VM is currently in an error state.
-- After the Bare Metal machine(BMM) reboot CORDONED -> POWERED OFF -> POWERED ON -> UNCORDONED 
-    - Although the VNF successfully came up, established its BGP sessions, and started routing traffic, the VM status in the portal consistently shows an error. Despite this discrepancy, the application remains healthy and continues to function properly.
-    - The Portal actions and AZ CLI APIs for the NC VM resource itself were no longer achieving the intent. Example: 
-        - Clicking the Power Off (or AZ CLI)  actually Power Off the VM anymore 
-        - Clicking the Restart (or AZ CLI) doesn't actually Restart the VM anymore 
-    - The platform has lost capability to manage this VM Resource 
+- During BMM restart or upgrade testing, the VM is in an error state.
+- After the restart, or after powering off and powering back on, the BMM is no longer cordoned off.
+- Although the virtual network function (VNF) successfully came up, established its BGP sessions, and started routing traffic, the VM status in the portal consistently shows an error. Despite this discrepancy, the application remains healthy and continues to function properly.
+- The portal actions and Azure CLI APIs for the NC VM resource itself are no longer achieving the intent. For example:
+  - Selecting **Power Off** (or using the Azure CLI to power off)  doesn't actually power off the VM anymore.
+  - Selecting **Restart** (or using the Azure CLI to restart) doesn't actually restart the VM anymore.
+  - The platform has lost the ability to manage this VM resource.
 
-:::image type="content" source="media\troubleshoot-bmm-server\bmm-error-status.png" alt-text="Screenshot of Sample VM in Error status." lightbox="media\troubleshoot-bmm-server\bmm-error-status.png":::
+:::image type="content" source="media\troubleshoot-bmm-server\bmm-error-status.png" alt-text="Screenshot of an example virtual machine in an error status." lightbox="media\troubleshoot-bmm-server\bmm-error-status.png":::
 
-## Troubleshooting
+## Troubleshooting steps
 
-- Gather the VM details and Validate the VM status in the portal. 
+1. Gather the VM details and validate the VM status in the portal. Ensure that the VM isn't connected and is powered off.  
+1. Validate the status of the virtual machine before and after restart or upgrade.
+1. Check the BGP session and traffic flow before and after restart or upgrade of the VNF.
 
-    - VM isn't connected and powered off  
-    - Validate the status of the virtual machine before and after restart or upgrade 
-    - Check the BGP session and traffic flow before and after restart or upgrade of the VNF  
-    - For more troubleshooting, see [troubleshoot-reboot-reimage-replace](troubleshoot-reboot-reimage-replace.md)
+For more troubleshooting, see [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md).
 
 ## Procedure
 
-There's an issue with the status update on the VM after the upgrade.
+There's a problem with the status update on the VM after the upgrade.
 Although the upgrade and the VM itself are fine, the status is being reported incorrectly, leading to actions being ignored.
-Perform the following CLI update on any affected VMs with some dummy tag values (the use of "tag1" and "value1")  
+
+Perform the following Azure CLI update on any affected VMs with dummy tag values (the use of `tag1` and `value1`):  
 
 ~~~bash
    az networkcloud virtualmachine update --ids <VMresourceId> --tags tag1=value1
 ~~~
 
-This process facilitates the restoration of the VM to an online state. 
+This process restores the VM to an online state.
 
-:::image type="content" source="media\troubleshoot-bmm-server\BMM-running-status.png" alt-text="Screenshot of Sample VM in running status." lightbox="media\troubleshoot-bmm-server\BMM-running-status.png":::
+:::image type="content" source="media\troubleshoot-bmm-server\BMM-running-status.png" alt-text="Screenshot of an example virtual machine in a running status." lightbox="media\troubleshoot-bmm-server\BMM-running-status.png":::

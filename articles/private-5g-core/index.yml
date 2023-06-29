@@ -40,6 +40,10 @@ landingContent:
         links:
           - text: How to open a support request 
             url: open-support-request.md
+      - linkListType: concept
+        links:
+          - text: Support lifetime 
+            url: support-lifetime.md
   # Card
   - title: Training
     linkLists:

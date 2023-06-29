@@ -3,7 +3,7 @@ title: Bring groups into Privileged Identity Management
 description: Learn how to bring groups into Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 6/7/2023
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: ilyal
 ms.collection: M365-identity-device-management
 ---

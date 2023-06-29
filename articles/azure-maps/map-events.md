@@ -14,7 +14,7 @@ This article shows you how to use [map events class](/javascript/api/azure-maps-
 
 ## Interact with the map
 
-The [Map Events] sample highlights the name of the events that are firing as you interact with the map.
+The [Map Events] sample highlights the name of the events that are firing as you interact with the map. For the source code for this sample, see [Map Events source code].
 
 :::image type="content" source="./media/map-events/map-events.png"alt-text="A screenshot showing a map with a list of map events that are highlighted anytime your actions on the map trigger that event.":::
 
@@ -25,7 +25,7 @@ The [Map Events] sample highlights the name of the events that are firing as you
 
 ## Interact with map layers
 
-The [Layer Events] sample highlights the name of the events that are firing as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers don't support any of these events.
+The [Layer Events] sample highlights the name of the events that are firing as you interact with the Symbol Layer. The symbol, bubble, line, and polygon layer all support the same set of events. The heat map and tile layers don't support any of these events. For the source code for this sample, see [Layer Events source code].
 
 :::image type="content" source="./media/map-events/layer-events.png"alt-text="A screenshot showing a map with a list of layer events that are highlighted anytime you interact with the Symbol Layer.":::
 
@@ -36,7 +36,7 @@ The [Layer Events] sample highlights the name of the events that are firing as y
 
 ## Interact with HTML Marker
 
-The [HTML marker layer events] sample highlights the name of the events that are firing as you interact with the HTML marker layer.
+The [HTML marker layer events] sample highlights the name of the events that are firing as you interact with the HTML marker layer. For the source code for this sample, see [HTML marker layer Events source code].
 
 :::image type="content" source="./media/map-events/html-marker-layer-events.png"alt-text="A screenshot showing a map with a list of HTML marker layer events that are highlighted anytime your actions on the map trigger that event.":::
 
@@ -119,3 +119,7 @@ See the following articles for full code examples:
 [Map Events]: https://samples.azuremaps.com/map/map-events
 [Layer Events]: https://samples.azuremaps.com/symbol-layer/symbol-layer-events
 [HTML marker layer events]: https://samples.azuremaps.com/html-markers/html-marker-layer-events
+
+[Map Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Map%20Events/Map%20Events.html
+[Layer Events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20layer%20events/Symbol%20layer%20events.html
+[HTML marker layer events source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/HTML%20Markers/HTML%20marker%20layer%20events/HTML%20marker%20layer%20events.html

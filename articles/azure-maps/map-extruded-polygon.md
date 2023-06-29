@@ -112,7 +112,7 @@ function InitMap()
 
 A choropleth map can be rendered using the polygon extrusion layer. Set the `height` and `fillColor` properties of the extrusion layer to the measurement of the statistical variable in the `Polygon` and `MultiPolygon` feature geometries.
 
-The [Create a Choropleth Map] sample shows an extruded choropleth map of the United States based on the measurement of the population density by state.
+The [Create a Choropleth Map] sample shows an extruded choropleth map of the United States based on the measurement of the population density by state. For the source code for this sample, see [Create a Choropleth Map source code].
 
 :::image type="content" source="./media/map-extruded-polygon/choropleth-map.png"alt-text="A screenshot of a map showing a choropleth map rendered using the polygon extrusion layer.":::
 
@@ -193,7 +193,7 @@ function InitMap()
 
 ## Customize a polygon extrusion layer
 
-The Polygon Extrusion layer has several styling options. The [Polygon Extrusion Layer Options] sample is a tool to try them out.
+The Polygon Extrusion layer has several styling options. The [Polygon Extrusion Layer Options] sample is a tool to try them out. For the source code for this sample, see [Polygon Extrusion Layer Options source code].
 
 :::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer-options.png"alt-text="A screenshot of the Azure Maps code sample that shows how the different options of the polygon extrusion layer affect rendering.":::
 <!------------------------------------------------------------
@@ -217,3 +217,6 @@ Additional resources:
 
 [Create a Choropleth Map]: https://samples.azuremaps.com/?sample=create-a-choropleth-map
 [Polygon Extrusion Layer Options]: https://samples.azuremaps.com/?sample=polygon-extrusion-layer-options
+
+[Create a Choropleth Map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Demos/Create%20a%20Choropleth%20Map/Create%20a%20Choropleth%20Map.html
+[Polygon Extrusion Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Polygon%20Extrusion%20Layer%20Options/Polygon%20Extrusion%20Layer%20Options.html
