@@ -114,7 +114,7 @@ Some connections in Azure Functions can be configured to use an identity instead
 
 
 > [!NOTE]
-> For Consumption and Elastic Premium plans the apps will use the WEBSITE_AZUREFILESCONNECTIONSTRING and WEBSITE_CONTENT share to use Azure Files on the Storage account for your Application content. Azure Files does not support using Managed Identity for access to the File Share. [Azure Files Supported Authentication Secenarios](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview#supported-authentication-scenarios)
+> When running in a Consumption or Elastic Premium plan, your app uses the [`WEBSITE_AZUREFILESCONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings when connecting to Azure Files on the storage account used by your function app. Azure Files doesn't support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios)
 
 
 The following components support identity-based connections:
