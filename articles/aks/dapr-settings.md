@@ -151,7 +151,7 @@ az k8s-extension show --cluster-type managedClusters \
 > * `global.ha.*`
 > * `dapr_placement.*`
 >
-> HA is enabled enabled by default. Disabling it requires deletion and recreation of the extension.
+> HA is enabled by default. Disabling it requires deletion and recreation of the extension.
 
 To update your Dapr configuration settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
 
@@ -199,10 +199,10 @@ az k8s-extension upgrade --cluster-type managedClusters \
 --resource-group myResourceGroup \
 --name dapr \
 --extension-type Microsoft.Dapr \
---set global.tag=1.10.0-AzureLinux
+--set global.tag=1.10.0-mariner
 ```
 
-- [Learn more about using AzureLinux-based images with Dapr][dapr-azurelinux].
+- [Learn more about using Mariner-based images with Dapr][dapr-mariner].
 - [Learn more about deploying AzureLinux on AKS][aks-azurelinux].
 
 
@@ -262,4 +262,4 @@ Once you have successfully provisioned Dapr in your AKS cluster, try deploying a
 [dapr-supported-version]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
 [dapr-troubleshooting]: https://docs.dapr.io/operations/troubleshooting/common_issues/
 [supported-cloud-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc
-[dapr-azurelinux]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-azurelinux-based-images
+[dapr-mariner]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/#using-mariner-based-images

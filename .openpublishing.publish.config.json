@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-ciam-dotnet-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -1049,8 +1055,8 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",

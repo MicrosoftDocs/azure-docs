@@ -390,7 +390,7 @@ You can now create a job that uses to use the container image. In this section, 
     ```bash
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Event \
-        --replica-timeout 300 \
+        --replica-timeout 1800 \
         --replica-retry-limit 1 \
         --replica-completion-count 1 \
         --parallelism 1 \
@@ -413,7 +413,7 @@ You can now create a job that uses to use the container image. In this section, 
     ```powershell
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
         --trigger-type Event `
-        --replica-timeout 300 `
+        --replica-timeout 1800 `
         --replica-retry-limit 1 `
         --replica-completion-count 1 `
         --parallelism 1 `
@@ -801,7 +801,7 @@ Now that you have a placeholder agent, you can create a self-hosted agent. In th
 ```bash
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
-    --replica-timeout 300 \
+    --replica-timeout 1800 \
     --replica-retry-limit 1 \
     --replica-completion-count 1 \
     --parallelism 1 \
@@ -824,7 +824,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
 ```powershell
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
-    --replica-timeout 300 \
+    --replica-timeout 1800 \
     --replica-retry-limit 1 \
     --replica-completion-count 1 \
     --parallelism 1 \

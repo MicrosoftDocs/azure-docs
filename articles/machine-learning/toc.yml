@@ -40,7 +40,7 @@
 - name: Quickstart
   expanded: true
   items:
-    - name: Get started with Azure ML
+    - name: Get started with Azure Machine Learning
       href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
   expanded: true
@@ -215,7 +215,7 @@
             href: how-to-deploy-mlflow-models.md
           - name: Online inference
             items:
-              - name: Deploy MLflow models to Online Endpoints
+              - name: Deploy MLflow models to online endpoints
                 href: how-to-deploy-mlflow-models-online-endpoints.md
               - name: Progressive rollout of MLflow models to Online Endpoints
                 href: how-to-deploy-mlflow-models-online-progressive.md
@@ -357,6 +357,8 @@
       href: concept-what-is-managed-feature-store.md
     - name: Feature store entities
       href: concept-top-level-entities-in-managed-feature-store.md
+    - name: Manage access to managed feature store
+      href: how-to-setup-access-control-feature-store.md
     - name: Develop and register a feature set
       href: tutorial-get-started-with-feature-store.md
     - name: Enable materialization and backfill feature data
@@ -365,6 +367,8 @@
       href: tutorial-experiment-train-models-using-features.md
     - name: Enable recurrent materialization
       href: tutorial-enable-recurrent-materialization-run-batch-inference.md
+    - name: Troubleshoot managed feature store errors
+      href: troubleshooting-managed-feature-store.md
   - name: Compliance
     items:
       - name: Export and delete data
@@ -544,6 +548,10 @@
     items:
     - name: Monitor and analyze jobs in studio
       href: how-to-track-monitor-analyze-runs.md
+    - name: Organize & manage jobs (preview)
+      href: how-to-track-monitor-organize-jobs.md
+    - name: Visualize training results (preview)
+      href: how-to-visualize-jobs.md
   - name: Debug jobs
     href: how-to-interactive-jobs.md
   - name: Schedule jobs
@@ -615,7 +623,7 @@
       href: concept-ml-pipelines.md
     - name: What is a component
       href: concept-component.md
-    - name: What is the Azure MaChine Learning Designer (v2)?
+    - name: What is the Azure Machine Learning Designer (v2)?
       href: concept-designer.md
   # v1
   - name: Designer (drag-n-drop ML)
@@ -695,15 +703,15 @@
   # end v1
 - name: Deploy for inferencing
   items:
+    - name: Endpoints for inferencing
+      href: concept-endpoints.md
     - name: Online endpoints (real-time)
       items:
-        - name: Endpoints
-          href: concept-endpoints.md
         - name: Online endpoints
           href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
-        - name: Safe rollout for online endpoints
+        - name: Roll out models with safe deployment strategies
           href: how-to-safely-rollout-online-endpoints.md
         - name: Autoscale online endpoints
           href: how-to-autoscale-endpoints.md
@@ -721,6 +729,9 @@
           href: how-to-troubleshoot-online-endpoints.md
         - name: Deployment scenarios
           items:
+            - name: Deploy MLflow models to online endpoints
+              displayName: ncd, no code deploy, no-code deployment
+              href: how-to-deploy-mlflow-models-online-endpoints.md
             - name: Use a custom container to deploy a model to an online endpoint
               href: how-to-deploy-custom-container.md
             - name: Use online endpoints in studio
@@ -729,7 +740,7 @@
               href: how-to-deploy-with-triton.md
             - name: Use REST to deploy a model as an online endpoint
               href: how-to-deploy-with-rest.md
-            - name: Deploy an AutoML endpoint with an online endpoint
+            - name: Deploy an AutoML model to an online endpoint
               href: how-to-deploy-automl-endpoint.md
         - name: Security
           items:
@@ -744,14 +755,34 @@
       items:
         - name: Batch endpoints
           href: concept-endpoints-batch.md
-        - name: Batch scoring with batch endpoints
-          href: how-to-use-batch-endpoint.md	
+        - name: Perform batch scoring with batch endpoints
+          href: how-to-use-batch-endpoints.md	
         - name: Create jobs and input data for batch endpoints	
           href: how-to-access-data-batch-endpoints-jobs.md
-        - name: Author scoring scripts for batch scoring	
-          href: how-to-batch-scoring-script.md
-        - name: Customize outputs in batch jobs
-          href: how-to-deploy-model-custom-output.md	
+        - name: Deploy models
+          items:
+            - name: Deploy models for scoring in batch endpoints
+              href: how-to-use-batch-model-deployments.md
+            - name: Deploy MLflow models in batch deployments
+              href: how-to-mlflow-batch.md
+            - name: Author scoring scripts
+              href: how-to-batch-scoring-script.md
+            - name: Customize outputs in batch jobs
+              href: how-to-deploy-model-custom-output.md
+            - name: Image processing with batch model deployments
+              href: how-to-image-processing-batch.md
+            - name: Deploy language models with batch model deployments
+              href: how-to-nlp-processing-batch.md
+        - name: Deploy pipeline components (Preview)
+          items:
+            - name: Deploy pipelines with batch endpoints
+              href: how-to-use-batch-pipeline-deployments.md
+            - name: Operationalize a training pipeline on batch endpoints
+              href: how-to-use-batch-training-pipeline.md
+            - name: Operationalize a scoring pipeline on batch endpoints
+              href: how-to-use-batch-scoring-pipeline.md
+            - name: Create batch endpoints from pipeline jobs
+              href: how-to-use-batch-pipeline-from-job.md
         - name: Troubleshoot batch endpoints
           href: how-to-troubleshoot-batch-endpoints.md	
         - name: Security
@@ -764,20 +795,12 @@
           items:
             - name: Use low priority VMs in batch deployments
               href: how-to-use-low-priority-batch.md
-        - name: Scenarios
-          items:
-            - name: Image processing with batch deployments
-              href: how-to-image-processing-batch.md
-            - name: Text processing with batch deployments 
-              href: how-to-nlp-processing-batch.md
         - name: Integrations
           items:
             - name: Run batch endpoints from Azure Data Factory
               href: how-to-use-batch-azure-data-factory.md
             - name: Run batch endpoints from Event Grid events in storage
               href: how-to-use-event-grid-batch.md
-            - name: Use REST to deploy a model as batch endpoints
-              href: how-to-deploy-batch-with-rest.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
     - name: Prebuilt Docker images for inference
@@ -871,22 +894,21 @@
           href: concept-ml-pipelines.md
         - name: Work with Assets
           href: concept-component.md
-        - name: System and Community Registry
         - name: How to manage models
           href: how-to-manage-models.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+    - name: Share assets across workspaces using registries
+      items:
+        - name: Share models, components, and environments
+          displayName: collaborate share
+          href: how-to-share-models-pipelines-across-workspaces-with-registries.md
+        - name: Share data assets
+          displayName: collaborate share
+          href: how-to-share-data-across-workspaces-with-registries.md
     - name: Model Deployment
       items:
-        - name: How to share assets across workspaces using registries
-          items:
-            - name: Share models, components, and environments
-              displayName: collaborate share
-              href: how-to-share-models-pipelines-across-workspaces-with-registries.md
-            - name: Share data assets
-              displayName: collaborate share
-              href: how-to-share-data-across-workspaces-with-registries.md
         - name: Endpoints
           href: concept-endpoints.md
     - name: Automation
@@ -896,7 +918,7 @@
         - name: Intro to Azure Pipelines for CI/CD
           displayName: continuous, integration, delivery
           href: how-to-devops-machine-learning.md
-        - name: Intro to Github Actions for CI/CD
+        - name: Intro to GitHub Actions for CI/CD
           href: how-to-github-actions-machine-learning.md
         - name: Custom CI/CD and Event-driven workflows
           displayName: event grid
@@ -905,7 +927,7 @@
       items:
       - name: Set up MLOps with Azure DevOps
         href: how-to-setup-mlops-azureml.md
-      - name: Set up MLOps with Github Actions
+      - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
 - name: Monitor your models
   items:
@@ -1135,6 +1157,12 @@
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
+    - name: Manage resource quotas
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md
     - name: Monitor Azure Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure coding
