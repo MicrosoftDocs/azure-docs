@@ -30,8 +30,6 @@ In this tutorial, you'll learn how to use RAG by creating a prompt flow. A promp
 
 In your Azure Machine Learning workspace, you can enable prompt flow by turn-on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
 
-![preview feature](./media/how-to-train-promptflow/preview-panel.png) 
-
 
 ## Create a prompt flow using the samples gallery
 
