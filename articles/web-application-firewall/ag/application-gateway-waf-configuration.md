@@ -94,7 +94,7 @@ The below table shows some examples of how you might structure your exclusion fo
 | Request body | RequestArgValues | Equals | test | Request body: {"test": ".zshrc"} | .zshrc |
 | Request body | RequestArgValues | EqualsAny | "" | Request body: {"key1": ".zshrc", "key2":"sleep(5)"} | .zshrc and sleep(5) |
 | Header | RequestHeaderKeys | Equals | X-Scanner | Header: {k: "X-Scanner", v: "test"} | X-scanner |
-| Header | RequestHeaderKeys | EqualsAny | "" | Header: {k: "X-Scanner", v: "test"},{k: "User-Agent", v: "(hydra)"} | X-Scanner and (hydra) |
+| Header | RequestHeaderKeys | EqualsAny | "" | Header: {k: "X-Scanner", v: "test"},{k: "User-Agent", v: "(hydra)"} | X-Scanner and User-Agent |
 | Header | RequestHeaderNames | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | X-scanner |
 | Header | RequestHeaderNames | EqualsAny | "" | Header: {k: "head1", v: "myvar=1234"},{k: "User-Agent", v: "(hydra)"} | myvar=1234 and (hydra) |
 | Header | RequestHeaderValues | Equals | head1 | Header: {k: "head1", v: "X-Scanner"} | X-scanner |
