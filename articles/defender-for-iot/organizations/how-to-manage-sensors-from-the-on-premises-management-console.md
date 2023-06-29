@@ -63,7 +63,7 @@ For example, you might see one of the following disconnection messages:
 - **Sensor not communicating with on-premises management console. Check network connectivity or certificate validation.**
 
 > [!TIP]
-> You may want to send alerts about your OT sensor connection status on the on-premises management console to partner services. 
+> You may want to send alerts about your OT sensor connection status on the on-premises management console to partner services.
 >
 > To do this, [create a forwarding alert rule](how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**.
 

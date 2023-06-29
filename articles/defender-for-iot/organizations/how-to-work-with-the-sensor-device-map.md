@@ -75,7 +75,7 @@ To see device details, select a device and expand the device details pane on the
 
 ### View IT subnets from an OT sensor device map
 
-By default, IT devices are automatically aggregated by [subnet](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets), so that the map focuses on your local OT and IoT networks.
+By default, IT devices are automatically aggregated by [subnet](../how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets), so that the map focuses on your local OT and IoT networks.
 
 **To expand an IT subnet**:
 

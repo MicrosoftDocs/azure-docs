@@ -123,7 +123,7 @@ Skip these steps if you're purchasing [pre-configured appliances](../ot-pre-conf
 
 Use an initial setup wizard to confirm network settings, activate the sensor, and apply SSH/TLS certificates.
 
-For more information, see [Configure setup via the GUI](install-software-ot-sensor.md#configure-and-activate-your-sensor).
+For more information, see [Configure and activate your OT sensor](activate-deploy-sensor.md).
 
 #### Configure proxy connections
 

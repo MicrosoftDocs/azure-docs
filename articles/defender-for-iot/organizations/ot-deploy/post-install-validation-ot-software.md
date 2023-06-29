@@ -15,7 +15,7 @@ After you've installed OT software on your [OT sensors](install-software-ot-sens
 
 System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the *support* and *cyberx* users.
 
-Skip this step if you're using [pre-configured physical appliances](../ot-pre-configured-appliances.md) and continue with [configuring a proxy](../connect-sensors.md), if needed, or [controlling monitored traffic](how-to-control-what-traffic-is-monitored.md) instead.
+Skip this step if you're using [pre-configured physical appliances](../ot-pre-configured-appliances.md) and continue with [configuring a proxy](../connect-sensors.md), if needed, or [controlling monitored traffic](../how-to-control-what-traffic-is-monitored.md) instead.
 
 ## Prerequisites
 
@@ -113,4 +113,4 @@ For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-senso
 > [« Install and set up your OT sensor](install-software-ot-sensor.md)
 
 > [!div class="step-by-step"]
-> [Configure proxy settings on an OT sensor »](../connect-sensors.md)
+> [Configure and activate your sensor »](activate-deploy-sensor.md)
