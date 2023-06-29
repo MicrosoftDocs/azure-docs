@@ -110,8 +110,8 @@ You can configure private DNS zones using the following parameters:
   * If your AKS cluster is configured with an Active Directory service principal, AKS doesn't support using a system-assigned managed identity with custom private DNS zone.
   * If you are specifying a `<subzone>` there is a 32 character limit for the `<subzone>` name.
 
-> [!IMPORTANT]
-> The **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID** cannot be changed after the cluster has been created and it can't be deleted. Otherwise, the cluster will have issues performing upgrade operations.
+  > [!IMPORTANT]
+  > The **CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID** cannot be changed after the cluster has been created and it can't be deleted. Otherwise, the cluster will have issues performing upgrade operations.
 
 ### Create a private AKS cluster with a private DNS zone
 
