@@ -171,7 +171,7 @@ This will redirect to the mp4 stored on the Azure Storage Account connected to t
 |---|---|
 |Can I upload a video and redact in one operation? |No, you need to first upload and analyze a video using the Index Video API and reference the indexed video in your redaction job.|
 |Can I use the [Azure Video Indexer website](https://www.videoindexer.ai/) to redact a video? |No, Currently you can only use the API to create Redaction jobs.|
-|Can I playback the redacted video using the Video Indexer [website](https://www.videoindexer.ai/)?|Yes, the redacted video is visible in the Video Indexer like any other indexed video, however it doesn't contain any insights. |
+|Can I play back the redacted video using the Video Indexer [website](https://www.videoindexer.ai/)?|Yes, the redacted video is visible in the Video Indexer like any other indexed video, however it doesn't contain any insights. |
 |How do I delete a redacted video? |You can use the [Delete Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) API and provide the `Videoid` of the redacted video. |
 |Do I need to pass Facial Identification gating to use Redactor? |Unless you're a US Police Department, no, even when you’re gated we continue to offer Face Detection. We don't offer Face Identification when gated. You can however redact all faces in a video with just the Face Detection. |
 |Not all faces are properly redacted. What can I do? |Redaction relies on the initial Face Detection and tracking output of the Analysis pipeline. While we detect all faces most of the time there can be circumstances where we haven't detected a face. This can have several reasons like face angle, number of frames the face was present and quality of the source video. See our [Face insights](face-detection.md) documentation for more information. |
@@ -197,8 +197,6 @@ A globally unique identifier (GUID) for the request which is assigned by the ser
 
 application/json  
 ErrorResponse  
-
-
 
 Name  
 Required  
@@ -311,7 +309,7 @@ x-ms-request-id
 false  
 string 
 
-A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. 
+A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID so a client can provide this request ID in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request ID never repeats itself. 
 
 application/json  
 ErrorResponse  
@@ -405,7 +403,7 @@ x-ms-request-id
 false  
 string  
 
-A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. 
+A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID so a client can provide this request ID in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request ID never repeats itself. 
 
 application/json  
 default  
