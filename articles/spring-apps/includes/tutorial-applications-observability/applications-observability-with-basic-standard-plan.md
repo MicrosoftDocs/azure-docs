@@ -149,7 +149,7 @@ Repeat with the previous section steps for the **Server exception** and **Depend
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal with exceptions and failures to dashboard." lightbox="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png":::
 
-#### Add Failed requests chart
+#### Pin the "Failed requests" chart
 
 Repeat with the previous section steps for the **Failed requests** metric under the **Application Insights standard metrics** namespace, save the **Failed requests** chart to the dashboard.
 
