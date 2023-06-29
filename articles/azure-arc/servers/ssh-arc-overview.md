@@ -21,7 +21,7 @@ SSH access to Arc-enabled servers provides the following key benefits:
 ## Prerequisites
 To leverage this functionality, please ensure the following: 
  - Ensure the Arc-enabled server has a hybrid agent version of "1.31.xxxx" or higher.  Run: ```azcmagent show``` on your Arc-enabled Server.
- - Ensure the Arc-enabled server has the "sshd" service enabled. For Linux machine this is commonly on-by-default.  SSHD will need to be [enabled on Windows](/windows-server/administration/openssh/openssh_install_firstuse).
+ - Ensure the Arc-enabled server has the "sshd" service enabled. For Linux machines `openssh-server` can be installed via a package manager and will need to be enabled.  SSHD will need to be [enabled on Windows](/windows-server/administration/openssh/openssh_install_firstuse).
  - Ensure you have the Owner or Contributer role assigned.
 
 Authenticating with Azure AD credentials has additional requirements:
@@ -77,12 +77,12 @@ az rest --method get --uri https://management.azure.com/subscriptions/<subscript
  
 #### [Create the default endpoint with Azure PowerShell:](#tab/azure-powershell)
  ```powershell
-Invoke-AzRestMethod -Method put -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 --body '{\"properties\": {\"type\": \"default\"}}'
+Invoke-AzRestMethod -Method put -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 -Payload '{\"properties\": {\"type\": \"default\"}}'
 ```
 
 Validate endpoint creation:
  ```powershell
- Invoke-AzRestMethod -Method get -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15
+ Invoke-AzRestMethod -Method get -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15
  ```
  ---
  
@@ -108,7 +108,7 @@ Install-Module -Name Az.Ssh.ArcProxy -Scope CurrentUser -Repository PSGallery
 In order to use the SSH connect feature, you must update the Service Configuration in the Connectivity Endpoint on the Arc-Enabled Server to allow SSH connection to a specific port. You may only allow connection to a single port. The CLI tools will attempt to update the allowed port at runtime, but the port can be manually configured with the following:
 
 > [!NOTE]
-> There may be a delay after updating the Service Configuration.
+> There may be a delay after updating the Service Configuration until you are able to connect.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -116,7 +116,7 @@ In order to use the SSH connect feature, you must update the Service Configurati
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-```Invoke-AzRestMethod -Method put -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
+```Invoke-AzRestMethod -Method put -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{"properties": {"serviceName": "SSH", "port": 22}}'```
 
 ---
 
