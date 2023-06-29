@@ -33,7 +33,9 @@ Migration for Premium, Business Critical, and General Purpose service tier is an
 
 For Hyperscale service tier, zone redundancy support can only be specified during database creation and can't be modified once the resource is provisioned. If you wish to move to availability zone support, you'll need to transfer the data with database copy, point-in-time restore, or geo-replica. If the target database is in a different region than the source or if the database backup storage redundancy for the target differs from the source database, then downtime is proportional to the size of the data operation.  
 
-## Option 1: Migration (Premium, Business Critical, and General Purpose)
+## Migration (Premium, Business Critical, and General Purpose) 
+
+For the Premium, Business Critical, and General Purpose service tiers, migration to zone redundancy is possible. 
 
 Follow the steps below to perform migration for a single database or an elastic pool.
 
