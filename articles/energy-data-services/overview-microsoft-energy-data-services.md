@@ -4,6 +4,7 @@ description: This article provides an overview of Azure Data Manager for Energy
 author: sharad4u
 ms.service: energy-data-services
 ms.author: sharadag
+
 ms.topic: overview
 ms.date: 02/08/2023
 ms.custom: template-overview
