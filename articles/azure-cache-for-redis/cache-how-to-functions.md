@@ -6,9 +6,9 @@ zone_pivot_groups: cache-redis-zone-pivot-group
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-extended-java, devx-track-python
 ms.topic: conceptual
-ms.date: 05/22/2023
-
+ms.date: 05/24/2023
 ---
 
 # Serverless event-based architectures with Azure Cache for Redis and Azure Functions (preview)
@@ -438,3 +438,5 @@ class RedisMessageModel:
 ## Next steps
 
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
+- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](cache-tutorial-write-behind.md)

@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 06/12/2023
+ms.date: 06/14/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -112,6 +112,36 @@ location="westcentralus"
 az aks create -n $clusterName -g $resourceGroup --location $location --network-plugin azure --network-plugin-mode overlay --pod-cidr 192.168.0.0/16
 ```
 
+## Upgrade an existing cluster to CNI Overlay
+
+> [!NOTE]
+> You can update an existing Azure CNI cluster to Overlay if the cluster meets the following criteria:
+>
+> - The cluster is on Kubernetes version 1.22+.
+> - Doesn't use the dynamic pod IP allocation feature.
+> - Doesn't have network policies enabled.
+> - Doesn't use any Windows node pools with docker as the container runtime.
+
+The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately to Overlay isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
+
+Update an existing Azure CNI cluster to use Overlay using the [`az aks update`][az-aks-update] command.
+
+```azurecli-interactive
+clusterName="myOverlayCluster"
+resourceGroup="myResourceGroup"
+location="westcentralus"
+
+az aks update --name $clusterName \
+--resource-group $resourceGroup \
+--network-plugin-mode overlay \
+--pod-cidr 192.168.0.0/16
+```
+
+The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
+
+> [!WARNING]
+> Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build 20348.1668**.
+
 ## Install the aks-preview Azure CLI extension - Windows only
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
@@ -149,38 +179,6 @@ az extension update --name aks-preview
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```
-
-## Upgrade an existing cluster to CNI Overlay (Preview)
-
-> [!NOTE]
-> The upgrade capability is still in preview and requires the preview AKS Azure CLI extension.
->
-> You can update an existing Azure CNI cluster to Overlay if the cluster meets the following criteria:
->
-> - The cluster is on Kubernetes version 1.22+.
-> - Doesn't use the dynamic pod IP allocation feature.
-> - Doesn't have network policies enabled.
-> - Doesn't use any Windows node pools with docker as the container runtime.
-
-The upgrade process triggers each node pool to be reimaged simultaneously. Upgrading each node pool separately to Overlay isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is reimaged.
-
-Update an existing Azure CNI cluster to use Overlay using the [`az aks update`][az-aks-update] command.
-
-```azurecli-interactive
-clusterName="myOverlayCluster"
-resourceGroup="myResourceGroup"
-location="westcentralus"
-
-az aks update --name $clusterName \
---group $resourceGroup \
---network-plugin-mode overlay \
---pod-cidr 192.168.0.0/16
-```
-
-The `--pod-cidr` parameter is required when upgrading from legacy CNI because the pods need to get IPs from a new overlay space, which doesn't overlap with the existing node subnet. The pod CIDR also can't overlap with any VNet address of the node pools. For example, if your VNet address is *10.0.0.0/8*, and your nodes are in the subnet *10.240.0.0/16*, the `--pod-cidr` can't overlap with *10.0.0.0/8* or the existing service CIDR on the cluster.
-
-> [!WARNING]
-> Prior to Windows OS Build 20348.1668, there was a limitation around Windows Overlay pods incorrectly SNATing packets from host network pods, which had a more detrimental effect for clusters upgrading to Overlay. To avoid this issue, **use Windows OS Build 20348.1668**.
 
 ## Next steps
 

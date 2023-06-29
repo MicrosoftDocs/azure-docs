@@ -57,7 +57,7 @@ Follow the instructions in the article, [Add or deactivate custom security attri
 :::image type="content" source="media/concept-filter-for-applications/custom-attributes.png" alt-text="A screenshot showing custom security attribute and predefined values in Azure AD." lightbox="media/concept-filter-for-applications/custom-attributes.png":::
 
 > [!NOTE] 
-> Conditional Access filters for devices only works with custom security attributes of type "string".
+> Conditional Access filters for devices only works with custom security attributes of type "string". Custom Security Attributes support creation of Boolean data type but Conditional Access Policy only supports "string".
 
 ## Create a Conditional Access policy
 

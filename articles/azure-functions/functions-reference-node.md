@@ -1,10 +1,9 @@
 ---
 title: Node.js developer reference for Azure Functions
 description: Understand how to develop functions by using Node.js.
-
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 04/17/2023
 ms.devlang: javascript, typescript
 ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
 zone_pivot_groups: functions-nodejs-model

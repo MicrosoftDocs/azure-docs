@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Ephemeral Di
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 06/23/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
@@ -37,7 +37,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code. The storage pool **name** value can be whatever you want.
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1alpha1
@@ -85,7 +85,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc.yaml`.
 
-1. Paste in the following code. The PVC `name` value can be whatever you want.
+1. Paste in the following code and save the file. The PVC `name` value can be whatever you want.
 
    ```yml
    apiVersion: v1
@@ -127,7 +127,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
-1. Paste in the following code.
+1. Paste in the following code and save the file.
 
    ```yml
    kind: Pod

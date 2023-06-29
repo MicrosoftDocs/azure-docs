@@ -15,7 +15,7 @@ As you develop applications in Azure Container Apps, you often need to connect t
 
 Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as "dev services".
 
-dev services allow you to use OSS services without the burden of manual downloads, creation, and configuration.
+Dev services allow you to use OSS services without the burden of manual downloads, creation, and configuration.
 
 Services available as dev services include:
 

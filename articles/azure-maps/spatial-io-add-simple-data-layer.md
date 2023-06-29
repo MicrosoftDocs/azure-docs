@@ -1,12 +1,12 @@
 ---
-title: Add a simple data layer | Microsoft Azure Maps
+title: Add a simple data layer
+titleSuffix: Microsoft Azure Maps
 description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 02/29/2020
-ms.topic: conceptual
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/19/2023
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom:
 #Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
 ---
 
@@ -32,7 +32,60 @@ var layer = new atlas.layer.SimpleDataLayer(datasource);
 map.layers.add(layer);
 ```
 
-Add features to the data source. Then, the simple data layer will figure out how best to render the features. Styles for individual features can be set as properties on the feature. The following code shows a GeoJSON point feature with a `color` property set to `red`. 
+The following code snippet demonstrates using a simple data layer, referencing the data from an online source.
+
+```javascript
+function InitMap()
+{
+  var map = new atlas.Map('myMap', {
+    center: [-73.967605, 40.780452],
+    zoom: 12,
+    view: "Auto",
+
+    //Add authentication details for connecting to Azure Maps.
+    authOptions: {
+      // Get an Azure Maps key at https://azuremaps.com/.
+      authType: 'subscriptionKey',
+      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+    },
+  });    
+
+  //Wait until the map resources are ready.
+  map.events.add('ready', function () {
+
+    //Create a data source and add it to the map.
+    var datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+
+    //Add a simple data layer for rendering data.
+    var layer = new atlas.layer.SimpleDataLayer(datasource);
+    map.layers.add(layer);
+
+    //Load an initial data set.
+    loadDataSet('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/use-simple-data-layer.json');
+
+    function loadDataSet(url) {
+      //Read the spatial data and add it to the map.
+      atlas.io.read(url).then(r => {
+      if (r) {
+        //Update the features in the data source.
+        datasource.setShapes(r);
+
+        //If bounding box information is known for data, set the map view to it.
+        if (r.bbox) {
+          map.setCamera({
+            bounds: r.bbox,
+            padding: 50
+          });
+        }
+      }
+      });
+    }
+  });
+}
+```
+
+The url passed to the `loadDataSet` function points to the following json:
 
 ```json
 {
@@ -47,12 +100,26 @@ Add features to the data source. Then, the simple data layer will figure out how
 }
 ```
 
-The following code renders the above point feature using the simple data layer. 
+Once you add features to the data source, the simple data layer figures out how best to render them. Styles for individual features can be set as properties on the feature.
 
-<br/>
+The above sample code shows a GeoJSON point feature with a `color` property set to `red`.
 
-<iframe height="500" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+This sample code renders the point feature using the simple data layer, and appears as follows:
+
+:::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer.png"alt-text="A screenshot of map with coordinates of 0, 0 that shows a red dot over blue water, the red dot was added using the symbol layer.":::
+
+> [!NOTE]
+> Notice that the coordinates set when the map was initialized:
+>
+> &emsp; center: [-73.967605, 40.780452]
+>
+> Are overwritten by the value from the datasource:
+>
+> &emsp; "coordinates": [0, 0]
+
+<!------------------------------------
+<iframe height="500" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------------>
 
 The real power of the simple data layer comes when:
 
@@ -60,21 +127,21 @@ The real power of the simple data layer comes when:
 - Features in the data set have several style properties individually set on them; or
 - You're not sure what the data set exactly contains.
 
-For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The following sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
+For example when parsing XML data feeds, you may not know the exact styles and geometry types of the features. The [Simple data layer options] sample shows the power of the simple data layer by rendering the features of a KML file. It also demonstrates various options that the simple data layer class provides.
 
-<br/>
+:::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing the different simple data layer options.":::
 
-<iframe height="700" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
+<!------------------------------------
+<iframe height="700" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+------------------------------------>
 
 > [!NOTE]
 > This simple data layer uses the [popup template](map-add-popup.md#add-popup-templates-to-the-map) class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked. 
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked.
 > - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
-> 
-> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false. 
+>
+> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false.
 
 ## Default supported style properties
 
@@ -191,3 +258,5 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Supported data format details](spatial-io-supported-data-format-details.md)
+
+[Simple data layer options]: https://samples.azuremaps.com/spatial-io-module/simple-data-layer-options

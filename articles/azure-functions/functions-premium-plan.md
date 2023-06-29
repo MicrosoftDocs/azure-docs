@@ -243,7 +243,7 @@ See the complete regional availability of Functions on the [Azure web site](http
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia Central| 100 | Not Available |
+|Australia Central| 100 | 20 |
 |Australia Central 2| 100 | Not Available |
 |Australia East| 100 | 40 |
 |Australia Southeast | 100 | 20 |

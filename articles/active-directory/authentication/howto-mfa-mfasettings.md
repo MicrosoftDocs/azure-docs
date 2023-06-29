@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 06/26/2023
 
 ms.author: justinha
 author: justinha
@@ -256,6 +256,9 @@ If your organization uses the NPS extension to provide MFA to on-premises applic
 | Federated |**All Federated Users**: All federated users who sign in from inside the organization can bypass multi-factor authentications. Users bypass verifications by using a claim that's issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
 
 Trusted IP bypass works only from inside the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
+
+>[!NOTE]
+>If both per-user MFA and Conditional Access policies are configured in the tenant, you will need to add trusted IPs to the Conditional Access policy and update the MFA service settings.
 
 #### User experience inside the corporate network
 

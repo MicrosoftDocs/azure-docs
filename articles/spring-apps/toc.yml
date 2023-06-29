@@ -24,6 +24,8 @@ items:
     href: quickstart-deploy-web-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app-standard-consumption.md
+  - name: Launch your first microservice apps
+    href: quickstart-deploy-microservice-apps.md
   - name: Run apps on Standard consumption and dedicated plan
     expanded: true
     items:
@@ -165,6 +167,8 @@ items:
           href: how-to-configure-enterprise-spring-cloud-gateway.md
         - name: Configure routes
           href: how-to-use-enterprise-spring-cloud-gateway.md
+        - name: Troubleshoot
+          href: how-to-troubleshoot-enterprise-spring-cloud-gateway.md
       - name: Use VMware Tanzu Application Accelerator
         href: how-to-use-accelerator.md
       - name: Configure Tanzu Dev Tools

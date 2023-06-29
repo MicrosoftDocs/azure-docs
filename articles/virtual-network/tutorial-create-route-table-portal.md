@@ -91,6 +91,9 @@ In this section, you'll create a virtual network, three subnets, and a bastion h
     | AzureBastionSubnet address space | Enter *10.0.3.0/24*. |
     | Public IP Address | Select **Create new**. </br> Enter *myBastionIP* for **Name**. </br> Select **OK**. |
 
+    >[!NOTE]
+    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 12. Select the **Review + create** tab or select the **Review + create** button.
 
 13. Select **Create**.

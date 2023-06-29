@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: larryfr
-ms.custom: devplatv2, devx-track-azurecli
+ms.custom: devplatv2
 ---
 
 # Deploy MLflow models in batch deployments
@@ -262,7 +262,7 @@ Azure Machine Learning supports no-code deployment for batch inference in [manag
 
 ### How work is distributed on workers
 
-Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets](v1/how-to-create-register-datasets.md#filedataset) or [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
+Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets (v1 API)](v1/how-to-create-register-datasets.md#filedataset) or [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
 
 > [!WARNING]
 > Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.

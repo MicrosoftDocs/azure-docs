@@ -1,5 +1,5 @@
 ---
-title: Drawing tool events | Microsoft Azure Maps
+title: Drawing tools events | Microsoft Azure Maps
 description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
 author: dubiety
 ms.author: yuchungchen
@@ -9,7 +9,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Drawing tool events
+# Drawing tools events
 
 When using drawing tools on a map, it's useful to react to certain events as the user draws on the map. This table lists all events supported by the `DrawingManager` class.
 
@@ -22,7 +22,7 @@ When using drawing tools on a map, it's useful to react to certain events as the
 | `drawingmodechanged` | Fired when the drawing mode has changed. The new drawing mode is passed into the event handler. |
 | `drawingstarted` | Fired when the user starts drawing a shape or puts a shape into edit mode.  |
 
-For a complete working sample of how to display data from a vector tile source on the map, see [Drawing tool events] in the [Azure Maps Samples]. In this sample you can draw shapes on the map and watch as the events fire.
+For a complete working sample of how to display data from a vector tile source on the map, see [Drawing tools events] in the [Azure Maps Samples]. In this sample you can draw shapes on the map and watch as the events fire. For the source code for this sample, see [Drawing tools events sample code].
 
 The following image shows a screenshot of the complete working sample that demonstrates how the events in the Drawing Tools module work.
 
@@ -46,7 +46,7 @@ Let's see some common scenarios that use the drawing tools events.
 
 This code demonstrates how to monitor an event of a user drawing shapes. For this example, the code monitors shapes of polygons, rectangles, and circles. Then, it determines which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, the code loops through all the data points on the map. It checks if there's an intersection of the point and the area of the drawn shape. This example makes use of the open-source [Turf.js](https://turfjs.org/) library to perform a spatial intersection calculation.
 
-For a complete working sample of how to use the drawing tools to draw polygon areas on the map with points within them that can be selected, see [Select data in drawn polygon area] in the [Azure Maps Samples].
+For a complete working sample of how to use the drawing tools to draw polygon areas on the map with points within them that can be selected, see [Select data in drawn polygon area] in the [Azure Maps Samples]. For the source code for this sample, see [Select data in drawn polygon area sample code].
 
 :::image type="content" source="./media/drawing-tools-events/select-data-in-drawn-polygon-area.png" alt-text="Screenshot showing a map displaying points within polygon areas.":::
 
@@ -63,7 +63,7 @@ For a complete working sample of how to use the drawing tools to draw polygon ar
 
 This code searches for points of interests inside the area of a shape after the user finished drawing the shape. You can modify and execute the code by clicking 'Edit on Code pen' on the top-right corner of the frame. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user switches to the drawing mode, and this event clears the drawing canvas.
 
-For a complete working sample of how to use the drawing tools to search for points of interests within drawn areas, see [Draw and search polygon area] in the [Azure Maps Samples].
+For a complete working sample of how to use the drawing tools to search for points of interests within drawn areas, see [Draw and search polygon area] in the [Azure Maps Samples]. For the source code for this sample, see [Draw and search polygon area sample code].
 
 :::image type="content" source="./media/drawing-tools-events/draw-and-search-polygon-area.png" alt-text="Screenshot showing a map displaying the Draw and search in polygon area sample.":::
 
@@ -80,7 +80,7 @@ For a complete working sample of how to use the drawing tools to search for poin
 
 The following code shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape, as it's being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode. Also, the  `drawingmodechanged` event clears the drawing canvas and clears old measurement information.
 
-For a complete working sample of how to use the drawing tools to measure distances and areas, see [Create a measuring tool] in the [Azure Maps Samples].
+For a complete working sample of how to use the drawing tools to measure distances and areas, see [Create a measuring tool] in the [Azure Maps Samples]. For the source code for this sample, see [Create a measuring tool sample code].
 
 :::image type="content" source="./media/drawing-tools-events/create-a-measuring-tool.png" alt-text="Screenshot showing a map displaying the measuring tool sample.":::
 
@@ -112,7 +112,11 @@ Check out more code samples:
 > [Code sample page](https://aka.ms/AzureMapsSamples)
 
 [Azure Maps Samples]:https://samples.azuremaps.com
-[Drawing tool events]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=drawing-tools-events
-[Select data in drawn polygon area]:https://samples.azuremaps.com/?search=Drawing%20tool&sample=select-data-in-drawn-polygon-area
-[Draw and search polygon area]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=draw-and-search-polygon-area
-[Create a measuring tool]: https://samples.azuremaps.com/?search=Drawing%20tool&sample=create-a-measuring-tool
+[Drawing tools events]: https://samples.azuremaps.com/drawing-tools-module/drawing-tools-events
+[Drawing tools events sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20tools%20events/Drawing%20tools%20events.html
+[Select data in drawn polygon area]: https://samples.azuremaps.com/drawing-tools-module/select-data-in-drawn-polygon-area
+[Select data in drawn polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Select%20data%20in%20drawn%20polygon%20area/Select%20data%20in%20drawn%20polygon%20area.html
+[Draw and search polygon area]: https://samples.azuremaps.com/drawing-tools-module/draw-and-search-polygon-area
+[Draw and search polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Draw%20and%20search%20polygon%20area/Draw%20and%20search%20polygon%20area.html
+[Create a measuring tool]: https://samples.azuremaps.com/drawing-tools-module/create-a-measuring-tool
+[Create a measuring tool sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Create%20a%20measuring%20tool/Create%20a%20measuring%20tool.html

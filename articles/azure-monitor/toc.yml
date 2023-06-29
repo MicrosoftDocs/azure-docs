@@ -189,13 +189,13 @@ items:
         - name: JavaScript
           items:
           - name: Get started
-            displayName: browser, client-side, SDK Loader Script
+            displayName: browser, client-side, Javascript (Web) SDK Loader Script
             href: app/javascript-sdk.md
-          - name: JavaScript SDK advanced topics
-            href: app/javascript-sdk-advanced.md
-          - name: Framework extensions
+          - name: JavaScript SDK configuration
+            href: app/javascript-sdk-configuration.md
+          - name: React, React Native, Angular
             href: app/javascript-framework-extensions.md
-          - name: Feature extensions (Click Analytics)
+          - name: Click Analytics Auto-Collection
             href: app/javascript-feature-extensions.md
           - name: Upgrade
             href: app/javascript-sdk-upgrade.md
@@ -203,14 +203,45 @@ items:
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
           - name: FAQ
             href: /azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-
+        - name: Advanced SDK topics
+          items:
+          - name: Application Insights API summary
+            displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
+            href: app/api-custom-events-metrics.md
+          - name: Application Insights data model
+            href: app/data-model-complete.md
+          - name: Connection strings
+            href: app/sdk-connection-string.md
+            displayName: connection string, instrumentation key
+          - name: Distributed tracing and telemetry correlation
+            href: app/distributed-tracing-telemetry-correlation.md
+            displayName: correlation headers, w3c, distributed tracing, tracing
+          - name: Exceptions
+            href: app/asp-net-exceptions.md        
+          - name: Log traces
+            href: app/asp-net-trace-logs.md
+          - name: Remove Application Insights
+            href: app/remove-application-insights.md
+          - name: Sampling
+            displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+            href: app/sampling.md
+          - name: SDK support policy
+            href: app/sdk-support-guidance.md
+          - name: Statsbeat
+            href: app/statsbeat.md
+          - name: TelemetryProcessors
+            displayName: processors, filtering, telemetry filtering, telemetry processor
+            href: app/api-filtering-sampling.md
         - name: SDK support policy
           href: app/sdk-support-guidance.md
       - name: OpenTelemetry Distro
         items:
-        - name: Get started (.NET, Node.js, Python and Java)
+        - name: Get started with OpenTelemetry (.NET, Node.js, Python and Java)
           href: app/opentelemetry-enable.md
-        - name: OpenTelemetry configuration
+        - name: Configure OpenTelemetry
           href: app/opentelemetry-configuration.md
+        - name: Add and modify OpenTelemetry
+          href: app/opentelemetry-add-modify.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -249,35 +280,6 @@ items:
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
-      - name: Advanced SDK topics
-        items:
-        - name: Application Insights API summary
-          displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
-          href: app/api-custom-events-metrics.md
-        - name: Application Insights data model
-          href: app/data-model-complete.md
-        - name: Connection strings
-          href: app/sdk-connection-string.md
-          displayName: connection string, instrumentation key
-        - name: Distributed tracing and telemetry correlation
-          href: app/distributed-tracing-telemetry-correlation.md
-          displayName: correlation headers, w3c, distributed tracing, tracing
-        - name: Exceptions
-          href: app/asp-net-exceptions.md        
-        - name: Log traces
-          href: app/asp-net-trace-logs.md
-        - name: Remove Application Insights
-          href: app/remove-application-insights.md
-        - name: Sampling
-          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-          href: app/sampling.md
-        - name: SDK support policy
-          href: app/sdk-support-guidance.md
-        - name: Statsbeat
-          href: app/statsbeat.md
-        - name: TelemetryProcessors
-          displayName: processors, filtering, telemetry filtering, telemetry processor
-          href: app/api-filtering-sampling.md
     - name: Features
       items:
       - name: Application dashboard
@@ -577,6 +579,8 @@ items:
           href: containers/container-insights-logging-v2.md
         - name: Enable cost optimization settings (preview)
           href: containers/container-insights-cost-config.md
+        - name: Authentication
+          href: containers/container-insights-authentication.md
       - name: Monitor
         items:
         - name: Monitor performance
@@ -650,6 +654,8 @@ items:
     href: essentials/activity-log-insights.md
   - name: Resource logs
     href: essentials/resource-logs.md
+  - name: Stream monitoring data
+    href: essentials/stream-monitoring-data-event-hubs.md
 - name: Data collection
   items: 
   - name: Overview
@@ -723,9 +729,6 @@ items:
       - name: Collect IIS logs
         displayName: data collection rule,Azure Monitor Agent,IIS logs
         href: agents/data-collection-iis.md
-      - name: Collect Windows Firewall logs
-        displayName: data collection rule,Azure Monitor Agent,firewall logs
-        href: agents/data-collection-firewall.md
       - name: Collect text logs
         displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
@@ -881,6 +884,9 @@ items:
       - name: Configure with ARM templates
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-api.md
+      - name: Configure with PowerShell
+        displayName: logs ingestion
+        href: logs/set-up-logs-ingestion-api-prerequisites.md
       - name: Sample code
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
@@ -1012,14 +1018,14 @@ items:
     - name: Best practices
       displayName: Logs, WAF, well architected framework
       href: best-practices-logs.md
+    - name: Cost details
+      displayName: Log Analytics workspace,Logs
+      href: logs/cost-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
-        - name: Cost details
-          displayName: Log Analytics workspace,Logs
-          href: logs/cost-logs.md
         - name: Manage Log Analytics workspaces
           items:
           - name: Create a Log Analytics workspace
@@ -1041,12 +1047,13 @@ items:
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
           - name: Set Basic or Analytics log data plan
-            displayName: Basic logs
+            displayName: Basic logs, cost optimization
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
           - name: Set retention and archive policy
             href: logs/data-retention-archive.md
+            displayName: Log retention, log archive, cost optimization
           - name: Run a search job
             href: logs/search-jobs.md
           - name: Restore logs
@@ -1106,8 +1113,6 @@ items:
             href: logs/logs-data-export.md
           - name: Export with Logic Apps
             href: logs/logs-export-logic-app.md
-          - name: Query data with Azure Data Explorer
-            href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs
