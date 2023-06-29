@@ -85,8 +85,9 @@ ml_client.online_deployments.begin_create_or_update(ManagedOnlineDeployment(
     instance_type="Standard_DS2_v2",
     instance_count=1,
 )).wait()
+endpoint = ml_client.online_endpoints.get(endpoint_name)
 endpoint.traffic = {"demo": 100}
-ml_client.begin_create_or_update(endpoint_name).result()
+ml_client.begin_create_or_update(endpoint).result()
 ```
 
 ### Test the deployed model
