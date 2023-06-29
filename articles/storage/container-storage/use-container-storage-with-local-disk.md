@@ -4,14 +4,14 @@ description: Configure Azure Container Storage Preview for use with Ephemeral Di
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 06/29/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
 ---
 
 # Use Azure Container Storage Preview with Ephemeral Disk
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk as back-end storage for your Kubernetes workloads.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Ephemeral Disk as its storage.
 
 > [!IMPORTANT]
 > Azure Container Storage Preview only supports NVMe for local disk. Temp drives and local SSD aren't currently supported. Local NVMe disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.

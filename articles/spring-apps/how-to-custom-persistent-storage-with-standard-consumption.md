@@ -1,7 +1,7 @@
 ---
 title: How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
 description: Learn how to enable your own persistent storage in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: yitaopan
 ms.service: spring-apps
 ms.topic: how-to
