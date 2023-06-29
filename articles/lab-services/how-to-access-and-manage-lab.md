@@ -1,7 +1,7 @@
 ---
-title: How to access and manage a lab VM
+title: Access a lab
 titleSuffix: Azure Lab Services
-description: Learn how to access and manage a lab in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
+description: Learn how to access a lab in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
@@ -10,7 +10,9 @@ ms.topic: how-to
 ms.date: 06/29/2023
 ---
 
-# Access and manage a lab in Azure Lab Services
+# Access a lab in Azure Lab Services
+
+This article describes how you can access labs in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
 
 Before you can access a lab in Azure Lab Services, you need to first register to the lab. In this article, you learn how to register for a lab, connect to a lab virtual machine (VM), start and stop the lab VM, and how to monitor your quota hours.
 
@@ -19,28 +21,85 @@ Before you can access a lab in Azure Lab Services, you need to first register to
 - To register for a lab, you need a lab registration link.
 - To view, start, stop, and connect to a lab VM, you need to register for the lab and have an assigned lab VM.
 
-## Register to the lab
+## Access a lab
 
-To get access to a lab and connect to the lab VM from the Azure Lab Services website, you first need to register for the lab by using a lab registration link. The lab creator can [provide the registration link for the lab](./how-to-configure-student-usage.md#send-invitations-to-users).
+# [Lab Services website](#tab/als-website)
 
-To register for a lab by using the registration link:
+You can access your labs by navigating to the Azure Lab Services website (https://labs.azure.com).
 
-1. Open the lab registration URL in a browser. 
+Depending on how the lab creator has assigned you to the lab, you might have to register for the lab with your email address before you can access your lab.
 
-    After you complete the lab registration, you no longer need the registration link. Instead, you can navigate to the Azure Lab Services website (https://labs.azure.com) to access your labs.
+### Register for the lab
 
-    :::image type="content" source="./media/how-to-use-lab/register-lab.png" alt-text="Screenshot of registration link for lab.":::
-
-1. Sign in to the service using your organizational or school account to complete the registration.
-
-    > [!NOTE]
-    > You need a Microsoft account to use Azure Lab Services, unless you're using Canvas. If you try to use your non-Microsoft account, such as Yahoo or Google accounts, to sign in to the portal, follow the instructions to create a Microsoft account that's linked to your non-Microsoft account. Then, follow the steps to complete the lab registration process.
+[!INCLUDE [Register for a lab](./includes/lab-services-register-for-lab.md)]
 
 1. After the registration finishes, confirm that you see the lab virtual machine in **My virtual machines**.
 
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
+### User account types
 
-## View your lab virtual machines
+To add users to a lab, you use their email accounts. Users might have the following types of email accounts:
+
+- An organizational email account that's provided by your university's Azure Active Directory instance.
+- A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
+- A non-Microsoft email account, such as one provided by Yahoo! or Google. However, these types of accounts must be linked with a Microsoft account.
+- A GitHub account. This account must be linked with a Microsoft account.
+
+#### Use a non-Microsoft email account
+
+Users can use non-Microsoft email accounts to register and sign in to a lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
+
+Many users might already have a Microsoft account that's linked to their non-Microsoft email address. For example, users already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
+
+When users use the registration link to sign in to a classroom, they're prompted for their email address and password. Users who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account receive the following error message:
+
+:::image type="content" source="./media/how-to-access-and-manage-lab/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-access-and-manage-lab/cant-find-account.png":::
+
+Here's a link for users to [sign up for a Microsoft account](https://signup.live.com).  
+
+> [!IMPORTANT]
+> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
+
+#### Use a GitHub account
+
+Users can also use an existing GitHub account to register and sign in to a lab. If they already have a Microsoft account linked to their GitHub account, users can sign in and provide their password as shown in the preceding section.
+
+If users haven't yet linked their GitHub account to a Microsoft account, they can do the following:
+
+1. Select the **Sign-in options** link, as shown here:
+
+    :::image type="content" source="./media/how-to-access-and-manage-lab/signin-options.png" alt-text="Screenshot that shows the Microsoft sign in window, highlighting the Sign-in options link.":::
+
+1. In the **Sign-in options** window, select **Sign in with GitHub**.
+
+    :::image type="content" source="./media/how-to-access-and-manage-lab/signin-github.png" alt-text="Screenshot that shows the Microsoft sign-in options window, highlighting the option to sign in with GitHub.":::
+
+    At the prompt, users then create a Microsoft account that's linked to their GitHub account. The linking happens automatically when they select **Next**. They're then immediately signed in and connected to the lab.
+
+# [Teams](#tab/teams)
+
+When you access a lab in Microsoft Teams, you're automatically registered for the lab, based on your team membership in Microsoft Teams. 
+
+You can access your lab by going to the **Azure Lab Services** tab in your Teams channel.
+
+:::image type="content" source="./media/how-to-access-and-manage-lab/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
+
+You might see a message that the lab isn't available if the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
+
+:::image type="content" source="./media/how-to-access-and-manage-lab/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/how-to-access-vm-for-students-within-teams/not-published-lab.png":::
+
+# [Canvas](#tab/canvas)
+
+When you access a lab in [Canvas](https://www.instructure.com/canvas), you're automatically registered for the lab, based on your course membership in Canvas. Azure Lab Services supports test users in Canvas and the ability for the educator to act as another user.
+
+You can access your lab in Canvas, by using your Canvas credentials.
+
+You might see a message that the lab isn't available if the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
+
+:::image type="content" source="./media/how-to-access-and-manage-lab/troubleshooting-lab-isnt-available-yet.png" alt-text="Screenshot that shows the lab isn't available yet.":::
+
+---
+
+## View the lab virtual machines
 
 You can view all your assigned lab virtual machines to you in the Azure Lab Services website. Alternately, if your organization uses Azure Lab Services with Microsoft Teams or Canvas, learn how you can [access your lab VMs in Microsoft Teams](./how-to-access-vm-for-students-within-teams.md) or [access your lab VMs in Canvas](./how-to-access-vm-for-students-within-canvas.md).
 
@@ -55,34 +114,7 @@ You can view all your assigned lab virtual machines to you in the Azure Lab Serv
     - In the bottom-right, you have the control to [connect to the lab VM](./connect-virtual-machine.md) with remote desktop (RDP) or secure shell (SSH).
     - Also in the bottom-right, you can [reset or troubleshoot the lab VM](./how-to-reset-and-redeploy-vm.md), if you experience problems with the VM.
 
-    :::image type="content" source="./media/how-to-use-lab/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the VM tile sections.":::
-
-## Start or stop the VM
-
-As a lab user, you can start or stop a lab VM from the Azure Lab Services website. Alternately, you can also stop a lab VM by using the operating system shutdown command from within the lab VM. The preferred method to stop a lab VM is to use the [Azure Lab Services website](https://labs.azure.com) to avoid incurring additional costs.
-
-> [!TIP]
-> With the [April 2022 Updates](lab-services-whats-new.md), Azure Lab Services will detect when a lab user shuts down their VM using the OS shutdown command. After a long delay to ensure the VM wasn't being restarted, the lab VM will be marked as stopped and billing will discontinue.
-
-To start or stop a lab VM in the Azure Lab Services website:
-
-1. Go to the [Azure Lab Services website](https://labs.azure.com).
-
-1. Use the toggle control in the bottom-left of the VM tile to start or stop the lab VM.
-
-    Depending on the current status of the lab VM, the toggle control starts or stops the VM. When the VM is in progress of starting or stopping, the control is inactive.
-
-    Starting or stopping the lab VM might take some time to complete.
-
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/start-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status toggle and status label on the VM tile.":::
-
-1. After the operation finishes, confirm that the lab VM status is correct.
-
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/vm-running.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status label on the VM tile.":::
-
-## Connect to the VM
-
-Depending on the lab VM operating system configuration, you can use remote desktop (RDP) or secure shell (SSH) to connect to your lab VM. Learn more about how to [connect to a lab VM](connect-virtual-machine.md).
+    :::image type="content" source="./media/how-to-access-and-manage-lab/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the VM tile sections.":::
 
 ## View quota hours
 
@@ -105,6 +137,33 @@ The color of the progress bar and the text under the progress bar changes depend
 - No class is in progress, according to the lab schedules: the color of the progress bar is **blue** to indicate that it's outside the scheduled time for the lab, and some of the quota time was used.
 
     :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been partially used.":::
+
+## Start or stop the lab VM
+
+As a lab user, you can start or stop a lab VM from the Azure Lab Services website. Alternately, you can also stop a lab VM by using the operating system shutdown command from within the lab VM. The preferred method to stop a lab VM is to use the [Azure Lab Services website](https://labs.azure.com) to avoid incurring additional costs.
+
+> [!TIP]
+> With the [April 2022 Updates](lab-services-whats-new.md), Azure Lab Services will detect when a lab user shuts down their VM using the OS shutdown command. After a long delay to ensure the VM wasn't being restarted, the lab VM will be marked as stopped and billing will discontinue.
+
+To start or stop a lab VM in the Azure Lab Services website:
+
+1. Go to the [Azure Lab Services website](https://labs.azure.com).
+
+1. Use the toggle control in the bottom-left of the VM tile to start or stop the lab VM.
+
+    Depending on the current status of the lab VM, the toggle control starts or stops the VM. When the VM is in progress of starting or stopping, the control is inactive.
+
+    Starting or stopping the lab VM might take some time to complete.
+
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/start-vm.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status toggle and status label on the VM tile.":::
+
+1. After the operation finishes, confirm that the lab VM status is correct.
+
+    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/vm-running.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the status label on the VM tile.":::
+
+## Connect to the lab VM
+
+Depending on the lab VM operating system configuration, you can use remote desktop (RDP) or secure shell (SSH) to connect to your lab VM. Learn more about how to [connect to a lab VM](connect-virtual-machine.md).
 
 ## Next steps
 

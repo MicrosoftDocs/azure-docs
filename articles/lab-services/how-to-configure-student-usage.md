@@ -234,46 +234,6 @@ To set additional quotas, do the following:
 
     Notice that the user list shows the updated quota hours for the users you selected.
 
-## User account types
-
-To add users to a lab, you use their email accounts. Users might have the following types of email accounts:
-
-- An organizational email account that's provided by your university's Azure Active Directory instance.
-- A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
-- A non-Microsoft email account, such as one provided by Yahoo! or Google. However, these types of accounts must be linked with a Microsoft account.
-- A GitHub account. This account must be linked with a Microsoft account.
-
-### Use a non-Microsoft email account
-
-Users can use non-Microsoft email accounts to register and sign in to a lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
-
-Many users might already have a Microsoft account that's linked to their non-Microsoft email address. For example, users already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
-
-When users use the registration link to sign in to a classroom, they're prompted for their email address and password. Users who attempt to sign in with a non-Microsoft account that's not linked to a Microsoft account receive the following error message:
-
-:::image type="content" source="./media/how-to-configure-student-usage/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/cant-find-account.png":::
-
-Here's a link for users to [sign up for a Microsoft account](https://signup.live.com).  
-
-> [!IMPORTANT]
-> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
-
-### Use a GitHub account
-
-Users can also use an existing GitHub account to register and sign in to a lab. If they already have a Microsoft account linked to their GitHub account, users can sign in and provide their password as shown in the preceding section.
-
-If users haven't yet linked their GitHub account to a Microsoft account, they can do the following:
-
-1. Select the **Sign-in options** link, as shown here:
-
-    :::image type="content" source="./media/how-to-configure-student-usage/signin-options.png" alt-text="Screenshot that shows the Microsoft sign in window, highlighting the Sign-in options link.":::
-
-1. In the **Sign-in options** window, select **Sign in with GitHub**.
-
-    :::image type="content" source="./media/how-to-configure-student-usage/signin-github.png" alt-text="Screenshot that shows the Microsoft sign-in options window, highlighting the option to sign in with GitHub.":::
-
-    At the prompt, users then create a Microsoft account that's linked to their GitHub account. The linking happens automatically when they select **Next**. They're then immediately signed in and connected to the lab.
-
 ## Export a list of users to a CSV file
 
 To export the list of users for a lab:
