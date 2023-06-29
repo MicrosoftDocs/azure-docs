@@ -138,3 +138,4 @@ Defender for Cloud has the ability to scan your Azure machines for installed sof
 ## Next steps
 
 [Overview of Microsoft Defender for Servers](defender-for-servers-introduction.md)
+
