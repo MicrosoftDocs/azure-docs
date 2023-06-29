@@ -71,7 +71,7 @@ You can create a variable and declare its data type and initial value by using a
 
 1. Now continue adding the actions you want for your scenario. When you're done, on the designer toolbar, select **Save**.
 
-### [Standard](#tab/consumption)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
