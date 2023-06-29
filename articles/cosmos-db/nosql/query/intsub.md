@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntSub (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Subtracts the value of the right-hand operand from the left-hand operand. For more information, see [additive operators](/cpp/cpp/additive-operators-plus-and).
 
 ## Syntax

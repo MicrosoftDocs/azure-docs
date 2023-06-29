@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntMul (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Multiples the values of the left and right operators. For more information, see [multiplicative operators](/cpp/cpp/multiplicative-operators-and-the-modulus-operator).
 
 ## Syntax

@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntDiv (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Divides the left-hand operator by the right-hand operator. For more information, see [multiplicative operators](/cpp/cpp/multiplicative-operators-and-the-modulus-operator).
 
 ## Syntax

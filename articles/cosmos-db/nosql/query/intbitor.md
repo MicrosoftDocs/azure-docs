@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntBitOr (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Compares the bits on both the left-hand and right-hand operators using inclusive `OR` and returns a result for each bit. If either bit is `1`, the corresponding bit is `1`. Otherwise, the corresponding bit is `0`. For more information, see [bitwise inclusive `OR` operator](/cpp/cpp/bitwise-inclusive-or-operator-pipe).
 
 ## Syntax

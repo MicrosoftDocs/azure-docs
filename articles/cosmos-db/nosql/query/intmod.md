@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntMod (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Returns the remainder from dividing the left-hand operator by the right-hand operator.  For more information, see [modulus operators](/cpp/cpp/multiplicative-operators-and-the-modulus-operator).
 
 ## Syntax
