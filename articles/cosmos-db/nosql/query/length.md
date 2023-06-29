@@ -1,53 +1,67 @@
 ---
-title: LENGTH in Azure Cosmos DB query language
-description: Learn about SQL system function LENGTH in Azure Cosmos DB.
-author: ginamr
+title: LENGTH
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the numeric length of a string expression.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# LENGTH (Azure Cosmos DB)
+
+# LENGTH (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the number of characters of the specified string expression.  
+Returns the number of characters in the specified string expression.  
   
 ## Syntax
   
 ```sql
-LENGTH(<str_expr>)  
+LENGTH(<string_expr>)  
 ```  
   
 ## Arguments
-  
-*str_expr*  
-   Is the string expression to be evaluated.  
+
+| | Description |
+| --- | --- |
+| **`string_expr`** | A string expression. |
   
 ## Return types
   
-  Returns a numeric expression.  
+Returns a numeric expression.  
   
 ## Examples
   
-  The following example returns the length of a string.  
+The following example returns the length of a static string.  
   
 ```sql
-SELECT LENGTH("abc") AS len 
+SELECT VALUE {
+    stringValue: LENGTH("AdventureWorks"),
+    emptyString: LENGTH(""),
+    nullValue: LENGTH(null),
+    numberValue: LENGTH(0),
+    arrayValue: LENGTH(["Adventure", "Works"])
+}
 ```  
   
- Here is the result set.  
-  
 ```json
-[{"len": 3}]  
+[
+  {
+    "stringValue": 14,
+    "emptyString": 0
+  }
+] 
 ```  
 
 ## Remarks
 
-This system function will not utilize the index.
+- This system function doesn't use the index.
 
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`REVERSE`](reverse.md)
