@@ -4,7 +4,7 @@ description: Log Analytics workspace data export in Azure Monitor lets you conti
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: yossiy
-ms.date: 06/21/2023
+ms.date: 06/29/2023
 
 ---
 
