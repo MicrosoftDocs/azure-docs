@@ -115,7 +115,7 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
 
    :::image type="content" source="../../media/tutorial-applications-observability/pin-to-dashboard.png" alt-text="Screenshot of the Azure portal with pin to dashboard." lightbox="../../media/tutorial-applications-observability/pin-to-dashboard.png":::
 
-#### Add App Memory Usage chart
+#### Pin the "App Memory Usage" chart
 
 1. Repeat with the previous section steps for the **App Memory Usage** metric, save the **App Memory Usage** chart to the dashboard.
 
