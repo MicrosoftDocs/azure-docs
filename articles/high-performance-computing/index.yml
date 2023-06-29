@@ -224,3 +224,12 @@ additionalContent:
               url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
             - text: GTC Website
               url: https://www.nvidia.com/gtc/
+        # Card
+        - title: ISC23 (ISC High Performance Event) 
+          links:
+            - text: Microsoft at ISC!
+              url: https://www.aka.ms/ISC
+            - text: Microsoft at ISC23 Blog
+              url: https://www.aka.ms/ISC23
+            - text: ISC High Performance Event Website!
+              url: https://www.isc-hpc.com/
