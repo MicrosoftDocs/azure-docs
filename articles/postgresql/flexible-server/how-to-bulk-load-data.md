@@ -86,7 +86,7 @@ To create an unlogged table or change an existing table to an unlogged table, us
 * `wal_compression`: Can be turned on. Enabling this parameter can incur some extra CPU cost spent on the compression during write-ahead log (WAL) logging and on the decompression during WAL replay.
 
 
-### Flexible server recommendations
+### Flexible Server recommendations
 
 Before you begin an initial data load on the flexible server, we recommend that you:
 
