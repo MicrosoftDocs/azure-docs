@@ -13,7 +13,7 @@ In the [previous tutorial](./deployment-tutorial-linked-template.md), you deploy
 Azure DevOps provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud using Azure DevOps Services. Azure DevOps provides an integrated set of features that you can access through your web browser or IDE client. Azure Pipelines is one of these features. Azure Pipelines is a fully featured continuous integration (CI) and continuous delivery (CD) service. It works with your preferred Git provider and can deploy to most major cloud services. Then you can automate the build, testing, and deployment of your code to Microsoft Azure, Google Cloud Platform, or Amazon Web Services.
 
 > [!NOTE]
-> Pick a project name. When you go through the tutorial, replace any of the **AzureRmPipeline** with your project name.
+> Pick a project name. When you go through the tutorial, replace any of the **ARMPipelineProj** with your project name.
 > This project name is used to generate resource names.  One of the resources is a storage account. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with **store** appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
 
 This tutorial covers the following tasks:
@@ -111,7 +111,7 @@ So far, you have created a GitHub repository, and uploaded the templates to the 
 
 A DevOps organization is needed before you can proceed to the next procedure. If you don't have one, see [Prerequisites](#prerequisites).
 
-1. Sign in to [Azure DevOps](https://dev.azure.com).
+1. Sign in to [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=307137).
 1. Select a DevOps organization from the left.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
@@ -120,17 +120,17 @@ A DevOps organization is needed before you can proceed to the next procedure. If
 1. Enter the following values:
 
     * **Project name**: enter a project name. You can use the project name you picked at the very beginning of the tutorial.
-    * **Version control**: Select **Git**. You might need to expand **Advanced** to see **Version control**.
+    * **visibility**: Select **Private**.
 
     Use the default value for the other properties.
-1. Select **Create**.
+1. Select **Create project**.
 
 Create a service connection that is used to deploy projects to Azure.
 
 1. Select **Project settings** from the bottom of the left menu.
 1. Select **Service connections** under **Pipelines**.
 1. Select **Create Service connection**, select **Azure Resource Manager**, and then select **Next**.
-1. Select **Service principal**, and then select **Next**.
+1. Select **Service principal (automatic)**, and then select **Next**.
 1. Enter the following values:
 
     * **Scope level**: select **Subscription**.
