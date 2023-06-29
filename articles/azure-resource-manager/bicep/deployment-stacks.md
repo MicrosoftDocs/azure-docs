@@ -28,27 +28,22 @@ Deployment stacks provide the following benefits:
 
 ### Known issues (remove this section)
 
-jgao: Angel will update this list.
-
-The `2022-08-01-preview` private preview API version has the following limitations:
-
-- We don't recommended using deployment stacks in production environments because the service is still in preview. Therefore, you should expect breaking changes in future releases.
-- Resource group delete currently bypasses deny assignments.
-- Implicitly created resources aren't managed by the stack (therefore, no deny assignments or cleanup is possible)
-- The `denyDelete` resource locking method is available in private preview. The `denyWriteAndDelete` method will be available in the future.
-- `Whatif` isn't available in the private preview. `Whatif` allows you to evaluate changes before actually submitting the deployment to ARM.
-- Deployment stacks are currently limited to the resource group and subscription management scopes for the private preview. At this time management group-scoped Azure PowerShell and Azure CLI commands exist; they just aren't usable yet.
-- A deployment stack doesn't guarantee the protection of `secureString` and `secureObject` parameters; this release returns them in plain text when requested.
+- Deleting resource groups currently bypasses deny assignments.
+- Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
+- What-if isn't available in the preview. What-if allows you to evaluate changes before actually submitting the deployment to Azure resource manager.
+- Management group scoped deployment stacks can only deploy the template to subscription.
 
 ## Create deployment stacks
 
-jgao: proof-read the following paragraph.
+A deployment stack resource can be created at resource group, subscription, or management group scope. The template passed into a deployment stack defines the resources to be created or updated at the target scope specified for the template deployment.
 
-You have the flexibility to create deployment stacks at various scopes, such as resource group, subscription, and management group. The template utilized for creating a deployment stack can be deployed at any of these scopes. By employing the deny settings mode, undesired modifications to the managed resources can be prevented. The application of deny settings mode is determined by the scope in which the stack exists. Typically, deny settings are stored at the scope level rather than the resource level. To ensure the protection of deny settings, it is advisable to store the stack at the parent scope relative to the deployment scope. For further details, please refer to [Protect managed resources against deletion](#protect-managed-resources-against-deletion).
+- A stack at resource group scope can deploy the template passed-in to the same resource group scope where the deployment stack exists.
+- A stack at subscription scope can deploy the template passed-in to a resource group scope (if specified) or the same subscription scope where the deployment stack exists.
+- A stack at management group scope can deploy the template passed-in to the subscription scope specified.
+
+It is important to note that where a deployment stack exists, so will the deny assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode 'DenyDelete', you can easily provision managed resources to the specified resource group and block delete attempts to those resources. With this approach you also add an extra layer of security to the deployment stack by separating it into the subscription level rather that resource group level which is visible and writable by developer teams working with the provisioned resources. This minimizes the number of users that can edit a deployment stack and make changes to its deny assignment. For further details, see [Protect managed resource agsinst deletion](#protect-managed-resources-against-deletion).
 
 The create-stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
-
-jgao: do I cover the scenarios to deploy template to different resoruce group/subscription/mg? See Angel's PPT.
 
 To create a deployment stack at the resource group scope:
 
@@ -87,8 +82,6 @@ New-AzSubscriptionDeploymentStack `
   -DenySettingsMode none
 ```
 
-jgao; proof-read the following sentence.
-
 The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources. If the parameter is not specified, the managed resources are stored in the subscription scope.
 
 # [CLI](#tab/azure-cli)
@@ -101,8 +94,6 @@ az stack sub create \
   --deployment-resource-group-name <resource-group-name> \
   --deny-settings-mode none
 ```
-
-jgao; proof-read the following sentence.
 
 The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter is not specified, the managed resources are stored in the subscription scope.
 
@@ -117,7 +108,6 @@ New-AzManagmentGroupDeploymentStack `
   -Name '<deployment-stack-name>' `
   -Location '<location>' `
   -TemplateFile '<bicep-file-name>' `
-  -ManagementGroupId '<management-group-id>' `
   -DeploymentSubscriptionId '<subscription-id>' `
   -DenySettingsMode none
 ```
@@ -131,12 +121,9 @@ az stack mg create \
   --name <deployment-stack-name> \
   --location <location> \
   --template-file <bicep-file-name> \
-  --management-group-id <management-group-id> \
   --deployment-subscription-id <subscription-id> \
   --deny-settings-mode none
 ```
-
-jgao: --deployment-subscription or --deployment-subscription-id?
 
 The `deployment-subscription` parameter specifies the subscription used to store the managed resources. If the parameter is not specified, the managed resources are stored in the management group scope.
 
@@ -177,8 +164,6 @@ az stack sub list
 ```
 
 ---
-
-jgao: specify the subscription parameter?
 
 To list deployment stack resources at the management group scope:
 
@@ -270,7 +255,6 @@ Set-AzManagmentGroupDeploymentStack `
   -Name '<deployment-stack-name>' `
   -Location '<location>' `
   -TemplateFile '<bicep-file-name>' `
-  -ManagementGroupId '<management-group-id>' `
   -DeploymentSubscriptionId '<subscription-id>' `
   -DenySettingsMode none
 ```
@@ -282,7 +266,6 @@ az stack mg create \
   --name <deployment-stack-name> \
   --location <location> \
   --template-file <bicep-file-name> \
-  --management-group-id <management-group-id> \
   --deployment-subscription-id <subscription-id> \
   --deny-settings-mode none
 ```
@@ -660,7 +643,6 @@ New-AzManagmentGroupDeploymentStack `
 ```
 
 Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
-Use the `ManagementGroupId` parameter to specify the management group ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
 
 # [CLI](#tab/azure-cli)
 
@@ -687,11 +669,8 @@ az stack mg create \
 ```
 
 Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
-Use the `management-group-id` parameter to specify the management group ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
 
 ---
-
-jgao: is the value of deployment-subscription subscription name or subscription ID?
 
 ## Detach managed resources from deployment stack
 
