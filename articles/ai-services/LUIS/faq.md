@@ -141,6 +141,6 @@ See [supported languages](luis-language-support.md), for multilingual NLU, consi
 
 Yes, you can use the LUIS [container](luis-container-howto.md) for these scenarios if you have the necessary connectivity to meter usage.
 
-## How do I integrate LUIS with Azure Bot Services?
+## How do I integrate LUIS with Azure AI Bot Services?
 
 Use this [tutorial](/composer/how-to-add-luis) to integrate LUIS app with a Bot

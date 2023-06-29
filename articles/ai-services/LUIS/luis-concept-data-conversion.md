@@ -1,6 +1,6 @@
 ---
 title: Data conversion - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how utterances can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 ms.author: aahi
@@ -20,14 +20,14 @@ ms.date: 03/21/2022
 
 LUIS provides the following conversions of a user utterance before prediction.
 
-* Speech to text using [Cognitive Services Speech](../Speech-Service/overview.md) service.
+* Speech to text using [Azure AI Speech](../Speech-Service/overview.md) service.
 
 ## Speech to text
 
 Speech to text is provided as an integration with LUIS.
 
 ### Intent conversion concepts
-Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](/azure/cognitive-services/Speech) service with LUIS. Learn more about Speech to Intent with a [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](/azure/ai-services/Speech) service with LUIS. Learn more about Speech to Intent with a [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### Key requirements
 You do not need to create a **Bing Speech API** key for this integration. A **Language Understanding** key created in the Azure portal works for this integration. Do not use the LUIS starter key.

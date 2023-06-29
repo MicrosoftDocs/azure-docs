@@ -26,13 +26,13 @@ items:
   - name: Transparency notes
     items:
     - name: LUIS use cases
-      href: /legal/cognitive-services/luis/luis-transparency-note?context=/azure/cognitive-services/LUIS/context/context
+      href: /legal/cognitive-services/luis/luis-transparency-note?context=/azure/ai-services/LUIS/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/cognitive-services/LUIS/context/context
+      href: /legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/ai-services/LUIS/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/cognitive-services/LUIS/context/context
+    href: /legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/ai-services/LUIS/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
+    href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/ai-services/LUIS/context/context
 - name: How-to guides
   items:
   - name: Sign in to the LUIS portal and create an app
@@ -75,13 +75,13 @@ items:
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
-      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/ai-services/luis/toc.json&bc=/azure/ai-services/luis/breadcrumb/toc.json
     - name: With LUIS and question answering using orchestration
       href: how-to/orchestration-projects.md
   - name: Migrate
     items:
     - name: Migrate to conversational language understanding
-      href: ../language-service/conversational-language-understanding/how-to/migrate-from-luis.md?context=/azure/cognitive-services/LUIS/context/context
+      href: ../language-service/conversational-language-understanding/how-to/migrate-from-luis.md?context=/azure/ai-services/LUIS/context/context
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
@@ -118,14 +118,14 @@ items:
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
     - name: Use containers in disconnected environments
-      href: ../containers/disconnected-containers.md?context=/azure/cognitive-services/luis/context/context
-    - name: All Cognitive Services containers documentation
+      href: ../containers/disconnected-containers.md?context=/azure/ai-services/luis/context/context
+    - name: All Azure AI containers documentation
       href: ../containers/index.yml
       maintainContext: true
   - name: Set up enterprise features
     items:
     - name: Set up Virtual Networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/luis/context/context
+      href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/luis/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
   - name: Applying DevOps practices with LUIS
@@ -184,9 +184,9 @@ items:
   - name: Use with Bot Framework 
     items:
     - name: Bot Framework Composer
-      href: /composer/how-to-add-luis?context=/azure/cognitive-services/luis/context/context
+      href: /composer/how-to-add-luis?context=/azure/ai-services/luis/context/context
     - name: Bot Framework SDK
-      href: /azure/bot-service/bot-builder-howto-v4-luis?context=/azure/cognitive-services/luis/context/context
+      href: /azure/bot-service/bot-builder-howto-v4-luis?context=/azure/ai-services/luis/context/context
   - name: Build app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
@@ -336,7 +336,7 @@ items:
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
+    href: ../cognitive-services-support-options.md?context=/azure/ai-services/luis/context/context
   - name: LUIS portal
     href: https://www.luis.ai
   - name: Azure Roadmap
@@ -349,7 +349,7 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Related services
     items:
-    - name: Azure Bot Service
+    - name: Azure AI Bot Service
       href: https://dev.botframework.com/
     - name: Bot Builder 4.x SDK C#
       href: https://github.com/Microsoft/botbuilder-dotnet

@@ -1,6 +1,6 @@
 ---
 title: Language support - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 services: cognitive-services
 ms.author: aahi
@@ -25,7 +25,7 @@ LUIS has a variety of features within the service. Not all features are at the s
 If you need a multilingual LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use the [Translator service](../translator/translator-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
 
 > [!NOTE]
-> A newer version of Language Understanding capabilities is now available as part of Azure Cognitive Service for Language. For more information, see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities that support multiple languages within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/concepts/multiple-languages.md).
+> A newer version of Language Understanding capabilities is now available as part of Azure AI Language. For more information, see [Azure AI Language Documentation](../language-service/index.yml). For language understanding capabilities that support multiple languages within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/concepts/multiple-languages.md).
 
 ## Languages supported
 

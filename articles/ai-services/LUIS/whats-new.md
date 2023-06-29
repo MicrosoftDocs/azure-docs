@@ -1,6 +1,6 @@
 ---
 title: What's New - Language Understanding (LUIS)
-description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
+description: This article is regularly updated with news about the Azure AI services Language Understanding API.
 ms.service: cognitive-services
 ms.author: aahi
 author: aahill
@@ -20,7 +20,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 ## Release notes
 
 ### February 2022
-* LUIS containers can be used in [disconnected environments](../containers/disconnected-containers.md?context=/azure/cognitive-services/luis/context/context).
+* LUIS containers can be used in [disconnected environments](../containers/disconnected-containers.md?context=/azure/ai-services/luis/context/context).
 
 ### January 2022
 * [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.2) to v1.8.2
@@ -86,11 +86,11 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure AI services security](../cognitive-services-security.md).
 
 ### November 4, 2019 - Ignite
 
-* Video - [Advanced Natural Language Understanding (NLU) models using LUIS and Azure Cognitive Services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+* Video - [Advanced Natural Language Understanding (NLU) models using LUIS and Azure AI services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 * Improved developer productivity
     * General availability of our [prediction endpoint V3](luis-migration-api-v3.md).
@@ -152,7 +152,7 @@ The following features were released at the Build 2019 Conference:
 
 ### 2019 Ignite videos
 
-[Advanced Natural Language Understanding (NLU) models using LUIS and Azure Cognitive Services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
+[Advanced Natural Language Understanding (NLU) models using LUIS and Azure AI services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
 
 ### 2019 Build videos
 
@@ -160,4 +160,4 @@ The following features were released at the Build 2019 Conference:
 
 ## Service updates
 
-[Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure update announcements for Azure AI services](https://azure.microsoft.com/updates/?product=cognitive-services)

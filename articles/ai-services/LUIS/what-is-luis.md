@@ -37,7 +37,7 @@ This documentation contains the following article types:
 
 ## LUIS Scenarios
 * [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot): This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.
-* [Commerce Chatbot](/azure/architecture/solution-ideas/articles/commerce-chatbot): Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment.
+* [Commerce Chatbot](/azure/architecture/solution-ideas/articles/commerce-chatbot): Together, the Azure AI Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment.
 * [Controlling IoT devices using a Voice Assistant](/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant): Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant.
 
 

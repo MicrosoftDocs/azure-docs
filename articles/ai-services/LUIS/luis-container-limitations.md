@@ -1,6 +1,6 @@
 ---
 title: Container limitations - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The LUIS container languages that are supported.
 services: cognitive-services
 author: aahill

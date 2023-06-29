@@ -1,6 +1,6 @@
 ---
 title: Import utterances using Node.js - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
 services: cognitive-services
 ms.author: aahi

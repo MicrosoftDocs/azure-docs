@@ -1,6 +1,6 @@
 ---
 title: Entities
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Entities concepts
 services: cognitive-services
 ms.author: aahi

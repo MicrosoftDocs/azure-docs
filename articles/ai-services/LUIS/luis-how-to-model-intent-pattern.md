@@ -1,6 +1,6 @@
 ---
 title: Patterns add accuracy - LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Add pattern templates to improve prediction accuracy in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: aahill
@@ -150,7 +150,7 @@ For a pattern to be matched to an utterance, _first_ the entities within the utt
 
 To add an entity as a feature to an intent, select the intent from the Intents page, then select  **+ Add feature**  above the contextual toolbar. The list will include all phrase lists and entities that can be applied as features.
 
-To add an entity as a feature to another entity, you can add the feature either on the Intent detail page using the [Entity Palette](/azure/cognitive-services/luis/label-entity-example-utterance#adding-entity-as-a-feature-from-the-entity-palette) or you can add the feature on the Entity detail page.
+To add an entity as a feature to another entity, you can add the feature either on the Intent detail page using the [Entity Palette](/azure/ai-services/luis/label-entity-example-utterance#adding-entity-as-a-feature-from-the-entity-palette) or you can add the feature on the Entity detail page.
 
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
 title: Get model with REST call in Go
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 
 manager: nitinme

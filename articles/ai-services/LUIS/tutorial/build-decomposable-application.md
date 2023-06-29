@@ -48,13 +48,13 @@ In this tutorial you will learn how to:
 
 ## User intentions as intents
 
-The first thing you will see in the **Build** section are the app's intents. [Intents](/azure/cognitive-services/luis/luis-concept-intent) represent a task or an action a user want to perform.
+The first thing you will see in the **Build** section are the app's intents. [Intents](/azure/ai-services/luis/luis-concept-intent) represent a task or an action a user want to perform.
 
 Imagine a telecom LUIS application, what would a user need?
 
 They would probably need to perform some type of user action or ask for help. Another user might want to update their tier or **pay a bill**
 
-The resulting schema is as follows. For more information, see [best practices about planning the schema](/azure/cognitive-services/luis/luis-concept-best-practices#do-plan-your-schema).
+The resulting schema is as follows. For more information, see [best practices about planning the schema](/azure/ai-services/luis/luis-concept-best-practices#do-plan-your-schema).
 
 | **Intent** | **Purpose** |
 | --- | --- |
@@ -94,7 +94,7 @@ For the **PayBill** intent, some utterances could be:
 
 By providing _example utterances_, you are teaching LUIS about what kinds of utterances should be predicted for this intent. These are positive examples. The utterances in all the other intents are treated as negative examples for this intent. Ideally, the more example utterances you add, the better your app's predictions will be.
 
-These few utterances are for demonstration purposes only. A real-world app should have at least 15-30 [utterances](/azure/cognitive-services/luis/luis-concept-utterance) of varying length, word order, tense, grammatical correctness, punctuation, and word count.
+These few utterances are for demonstration purposes only. A real-world app should have at least 15-30 [utterances](/azure/ai-services/luis/luis-concept-utterance) of varying length, word order, tense, grammatical correctness, punctuation, and word count.
 
 ## Creating the remaining intents
 
@@ -138,7 +138,7 @@ An entity is an item or element that is relevant to the user's intent. Entities 
 1. In the build section, select **Entities.**
 2. To add a new entity, select **+Create**
 
-    In this example, we will be creating two entities, "**UpdateTierInfo**" as a machine-learned entity type, and "Tier" as a list entity type. Luis also lets you create [different entity types](/azure/cognitive-services/luis/luis-concept-entity-types).
+    In this example, we will be creating two entities, "**UpdateTierInfo**" as a machine-learned entity type, and "Tier" as a list entity type. Luis also lets you create [different entity types](/azure/ai-services/luis/luis-concept-entity-types).
 
 3. In the window that appears, enter "**UpdateTierInfo**", and select Machine learned from the available types. Select the **Add structure** box to be able to add a structure to this entity.
 

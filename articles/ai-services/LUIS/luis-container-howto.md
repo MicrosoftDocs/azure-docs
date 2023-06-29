@@ -1,6 +1,6 @@
 ---
 title: Install and run Docker containers for LUIS
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the LUIS container to load your trained or published app, and gain access to its predictions on-premises.
 services: cognitive-services
 author: aahill
@@ -27,7 +27,7 @@ The Language Understanding (LUIS) container loads your trained or published Lang
 
 The following video demonstrates using this container.
 
-[![Container demonstration for Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Container demonstration for Azure AI services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -142,7 +142,7 @@ Before packaging a LUIS application, you must have the following:
 
 |Packaging Requirements|Details|
 |--|--|
-|Azure _Cognitive Services_ resource instance|Supported regions include<br><br>West US (`westus`)<br>West Europe (`westeurope`)<br>Australia East (`australiaeast`)|
+|Azure _Azure AI services_ resource instance|Supported regions include<br><br>West US (`westus`)<br>West Europe (`westeurope`)<br>Australia East (`australiaeast`)|
 |Trained or published LUIS app|With no [unsupported dependencies][unsupported-dependencies]. |
 |Access to the [host computer](#the-host-computer)'s file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
 
@@ -251,7 +251,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
-> The ApiKey value is the **Key** from the **Azure Resources** page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page.
+> The ApiKey value is the **Key** from the **Azure Resources** page in the LUIS portal and is also available on the Azure `Azure AI services` resource keys page.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -385,13 +385,13 @@ To shut down the container, in the command-line environment where the container 
 
 If you run the container with an output [mount](luis-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
-[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+[!INCLUDE [Azure AI services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 [!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 
-The LUIS container sends billing information to Azure, using a _Cognitive Services_ resource on your Azure account.
+The LUIS container sends billing information to Azure, using a _Azure AI services_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -408,14 +408,14 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
+> Azure AI containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Azure AI containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings.
 * See [LUIS container limitations](luis-container-limitations.md) for known capability restrictions.
 * Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* Use more [Azure AI containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->
 [download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip

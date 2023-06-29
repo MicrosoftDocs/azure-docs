@@ -1,6 +1,6 @@
 ---
 title: Application Design
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Application design concepts
 services: cognitive-services
 ms.author: aahi
