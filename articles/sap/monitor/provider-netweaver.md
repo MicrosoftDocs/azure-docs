@@ -20,7 +20,7 @@ User can select between the two connection types when configuring SAP Netweaver 
 - **SAP Control** - The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAP Control**, which is a SOAP web service interface that exposes these capabilities. The **SAP Control** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
 - **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. It's available only as part of Azure Monitor for SAP solution.
 
-You can collect below metric using SAP NetWeaver Provider
+You can collect the below metric using SAP NetWeaver Provider
 
 - SAP system and application server availability (for example Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAP Control)
 - Work process usage statistics and trends (SAP Control)
@@ -79,15 +79,16 @@ This step is **mandatory** when configuring SAP NetWeaver Provider. To fetch spe
     ```    
     3. Repeat the previous steps for each instance profile.
     
-    **Powershell script to unprotect web-methods** 
+    **Powershell script to unprotect web methods** 
     
     You can refer to the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/Windows) to unprotect the web-methods in the SAP windows virtual machine.
 
 ### Prerequisite to enable RFC metrics
 
-For AS ABAP applications only, you can set up the NetWeaver RFC metrics. This step is **mandatory** when connection type selected is **SOAP+RFC**. Below steps need to be performed as a pre-requisite to enable RFC
+RFC metrics are only supported for **AS ABAP applications** and do not apply to SAP JAVA systems. This step is **mandatory** when the connection type selected is **SOAP+RFC**. 
+Below steps need to be performed as a pre-requisite to enable RFC
 
-1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses least privilege access.Download and unzips [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip).
+1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzips [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip).
     1. Sign in to your SAP system.
     1. Use the transaction code **PFCG** &gt; select on **Role Upload** in the menu.
     1. Upload the **Z_AMS_NETWEAVER_MONITORING.SAP** file from the ZIP file.
@@ -135,7 +136,7 @@ It's also recommended to check that you enabled the ICF ports.
 
 ### Adding NetWeaver provider
 
-Ensure all the pre-requisites are successfully completed. To add the NetWeaver provider:
+Ensure all the prerequisites are successfully completed. To add the NetWeaver provider:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the Azure Monitor for SAP solutions service page.
@@ -230,54 +231,12 @@ To determine all SAP hostnames associated with the SID, Sign in to the SAP syste
     /usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList
    ```
 
-### Common errors and possible solutions
-
-#### Methods incorrectly unprotected in RZ10
-The provider settings validation operation has failed with code ‘SOAPWebMethodsValidationFailed’.
-
-Possible Causes: The operation failed with error: ‘Error occurred while validating SOAP client API calls for SAP system saptstgtmci.redmond.corp.microsoft.com [‘ABAPGetWPTable – [[“HTTP 401 Unauthorized”, [“SAPSYSTEM1_10”, “SAPSYSTEM2_10”, “SAPSYSTEM3_10”]]]’, ‘GetQueueStatistic – [[“HTTP 401 Unauthorized”, [“SAPSYSTEM1_10”, “SAPSYSTEM2_10”, “SAPSYSTEM3_10”]]]’].’.
-
-Recommended Action: ‘Ensure that the SOAP web service methods are unprotected correctly. For more information, see'.
-(Code: ProviderInstanceValidationOperationFailed)
-
-#### Incorrect username and password
-The provider settings validation operation has failed with code 'NetWeaverAuthenticationFailed'.
-
-Possible Causes: The operation failed with error: 'Authentication failed, incorrect SAP NetWeaver username, password or client id.'.
-
-Recommended Action: 'Please check the mandatory parameters username, password or client id are provided correctly.'.
-(Code: ProviderInstanceValidationOperationFailed)
-
-#### WSDL11 is inactive in SICF
-The provider settings validation operation has failed with code 'NetWeaverRfcSOAPWSDLInactive'.
-
-Possible Causes: The operation failed with error: 'WSDL11 is inactive in the SAP System: (SID).
-Error occurred while validating RFC SOAP client API calls for SAP system.
-
-Recommended Action: 'Please check the WSDL11 service node is active, refer to SICF Transaction in SAP System to activate the service'.
-(Code: ProviderInstanceValidationOperationFailed)
-
-#### Roles incorrectly uploaded and profile not activated
-
-The provider settings validation operation has failed with code ‘NetWeaverRFCAuthorizationFailed’.
-
-Possible Causes: Authentication failed, roles file isn't uploaded in the SAP System.
-
-Recommended Action: Ensure that the roles file is uploaded correctly in SAP System. For more information, see.
-(Code: ProviderInstanceValidationOperationFaile)
-
-#### Incorrect input provided
-The provider settings validation operation has failed with code 'SOAPApiConnectionError'.
-
-Possible Causes: The operation failed with error: 'Unable to reach the hostname: (hostname) with the input provided.
-
-Recommended Action: 'check the input hostname, instance number, and host file entries. '.
-(Code: ProviderInstanceValidationOperationFailed)
+### Common issues with the metric collection and possible solutions
 
 #### Batch job metrics not fetched
 Apply the OSS Note - 2469926 in your SAP System to resolve the issues with batch job metrics.
 
-After you apply this OSS note you need to execute the RFC function module - BAPI_XMI_LOGON_WS with following parameters:
+After you apply this OSS note you need to execute the RFC function module - BAPI_XMI_LOGON_WS with the following parameters:
 
 This function module has the same parameters as BAPI_XMI_LOGON but stores them in the table BTCOPTIONS.
 
@@ -285,6 +244,9 @@ INTERFACE = XBP
 VERSION = 3.0
 EXTCOMPANY = TESTC
 EXTPRODUCT = TESTP
+
+#### SWNC metrics not fetched
+In order to retrieve the SWNC metrics, it is important to ensure that the application servers, central instance, and database are consistently set to the same timezone.
 
 ### Unprotect methods
 
