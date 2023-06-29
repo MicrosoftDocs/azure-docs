@@ -79,13 +79,14 @@ When you access a lab in Microsoft Teams, you're automatically registered for th
 To access your lab in Teams:
 
 1. Sign into Microsoft Teams with your organizational account.
+
 1. Go to the Teams channel, and then select the **Azure Lab Services** tab.
 
     :::image type="content" source="./media/how-to-access-and-manage-lab/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
 
 You might see a message that the lab isn't available if the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
 
-:::image type="content" source="./media/how-to-access-and-manage-lab/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/media/how-to-access-and-manage-lab/not-published-lab.png":::
+:::image type="content" source="./media/how-to-access-and-manage-lab/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/how-to-access-and-manage-lab/not-published-lab.png":::
 
 # [Canvas](#tab/canvas)
 
