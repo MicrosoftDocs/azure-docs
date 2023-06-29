@@ -7197,17 +7197,7 @@ For more information, see [What's new for authentication?](../develop/reference-
 
 ---
 
-### New passwordless sign-in to Azure AD using FIDO2 security keys
 
-**Type:** New feature
-**Service category:** Authentications (Logins)
-**Product capability:** User Authentication
-
-Azure AD customers can now set policies to manage FIDO2 security keys for their organization's users and groups. End users can also self-register their security keys, use the keys to sign in to their Microsoft accounts on web sites while on FIDO-capable devices, and sign-in to their Azure AD-joined Windows 10 devices.
-
-For more information, see [Enable passwordless sign in for Azure AD (preview)](../authentication/concept-authentication-passwordless.md) for administrator-related information, and [Set up security info to use a security key (Preview)](https://support.microsoft.com/account-billing/set-up-a-security-key-as-your-verification-method-2911cacd-efa5-4593-ae22-e09ae14c6698) for end-user-related information.
-
----
 
 
 
