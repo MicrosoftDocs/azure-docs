@@ -23,17 +23,30 @@ This page will be updated with the details about the upcoming release approximat
 
 <hr width = 100%>
 
+## June 2023
+
+### Partition names without instance name prefix
+July 2023 onwards, all data partitions that you create in Azure Data Manager for Energy will stop having the instance name as a prefix. For example, if your instance is called 'myinstance' and you create a partition called 'mydata', the partition name/ ID will be 'mydata', while previously it used to be 'myinstance-mydata'. This change will not impact the existing data partitions.
+
+
+### Service Level Agreement (SLA) for Azure Data Manager for Energy
+July 2023 onwards, Azure Data Manager for Energy will start offering an uptime SLA for its Standard tier. You can find the details of our SLA in the consolidated Azure services SLA document for the month of July 2023 that will be published at [Microsoft Licensing Documents & Resource website](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
+
+<hr width = 100%>
+
 ## May 2023
 
 ### Enriched Airflow Logs
 
-Airflow logs from your Azure Data Manager for Energy resource now include extra fields: Dag Name, Dag Task Name, Run ID or Correlation ID, Code Path, TryNumber, Content, Location, Log Severity Level, and Resource ID. These fields can be utilized in the KQL query editor of your linked Log Analytics Workspace to get more specific logs for your executed workflows/DAGs. Learn more about [how to integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md). 
+Airflow logs from your Azure Data Manager for Energy Preview resource now include extra fields: Dag Name, Dag Task Name, Run ID or Correlation ID, Code Path, TryNumber, Content, Location, Log Severity Level, and Resource ID. These fields can be utilized in the KQL query editor of your linked Log Analytics Workspace to get more specific logs for your executed workflows/DAGs. Learn more about [how to integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md). 
+
+<hr width = 100%>
 
 ## April 2023
 
 ### Support for Private Links during instance provisioning
 
-Azure Private link enables access to Azure Data Manager for Energy instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
+Azure Private link enables access to Azure Data Manager for Energy Preview instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
 
 ### Enabled Monitoring of OSDU Service Logs
 
@@ -42,6 +55,8 @@ Now you can configure diagnostic settings of your Azure Data Manager for Energy 
 ### Monitoring and investigating actions with Audit logs
 
 Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R3.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
+
+<hr width = 100%>
 
 ## February 2023
 
@@ -64,6 +79,8 @@ Azure Data Manager for Energy supports [Petrel Data Services](overview-ddms.md#)
 ### Enable Resource sharing (CORS)
 
 CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin. You can set CORS rules for each Azure Data Manager for Energy instance. When you set CORS rules for the instance they get applied automatically across all the services and storage accounts linked with Azure Data Manager for Energy. [How to enable CORS.]( ../energy-data-services/how-to-enable-CORS.md)
+
+<hr width = 100%>
 
 ## January 2023
 
