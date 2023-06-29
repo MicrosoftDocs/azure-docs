@@ -478,7 +478,7 @@ import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 var RNPlugin = new ReactNativePlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         disableDeviceCollection: true,
         extensions: [RNPlugin]
     }
@@ -506,7 +506,7 @@ RNPlugin.setDeviceInfoModule(myDeviceInfoModule);
 
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [RNPlugin]
     }
 });
