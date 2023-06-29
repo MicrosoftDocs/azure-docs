@@ -41,7 +41,7 @@ When you apply the global subscription filter, you can choose either **Select al
 
 ## Subscriptions list filter
 
-The second filter is the filter on the Subscriptions page. The filter that you set there is temporary. So, it doesn't persist when you navigate away from the Subscriptions page or when you leave or sign out of the Azure portal.
+The second filter is the filter on the Subscriptions page. The filter that you set there's temporary. So, it doesn't persist when you navigate away from the Subscriptions page or when you leave or sign out of the Azure portal.
 
 When you navigate to the Subscriptions page, the list of subscriptions shown is based on the global subscription filter.
 
