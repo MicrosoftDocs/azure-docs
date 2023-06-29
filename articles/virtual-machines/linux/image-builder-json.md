@@ -8,7 +8,7 @@ ms.date: 06/12/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions, devx-track-bicep
+ms.custom: references_regions, devx-track-bicep, devx-track-arm-template
 ---
 
 # Create an Azure Image Builder Bicep or ARM template JSON template
@@ -842,7 +842,7 @@ The image output is a managed image resource.
 
 ```json
 {
-  "type":"managedImage",
+  "type":"ManagedImage",
   "imageId": "<resource ID>",
   "location": "<region>",
   "runOutputName": "<name>",
@@ -857,7 +857,7 @@ The image output is a managed image resource.
 
 ```bicep
 {
-  type:'managedImage'
+  type:'ManagedImage'
   imageId: '<resource ID>'
   location: '<region>'
   runOutputName: '<name>'
@@ -872,7 +872,7 @@ The image output is a managed image resource.
 
 Distribute properties:
 
-- **type** – managedImage
+- **type** – ManagedImage
 - **imageId** – Resource ID of the destination image, expected format: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - location of the managed image.
 - **runOutputName** – unique name for identifying the distribution.

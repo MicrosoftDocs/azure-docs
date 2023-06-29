@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: hangwan
 ms.service: spring-apps
 ms.topic: conceptual
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.date: 05/23/2023
 ---
 

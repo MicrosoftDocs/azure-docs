@@ -10,7 +10,7 @@ ms.date: 05/17/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: it-pro, devx-track-dotnet
 ms.collection: M365-identity-device-management
 ---
 
@@ -243,7 +243,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-external-users-organizational.png" alt-text="Screenshot showing selecting the external users allow access selections.":::
 
-1. Under **Applies to**, choose either **All &lt;your tenant&gt; users and groups** or **Select &lt;your tenant&gt; users and groups**. If you choose **Select &lt;your tenant&gt; users and groups**, perform these steps for each user or group you want to add:
+1. Under **Applies to**, choose either **All &lt;organization&gt; users and groups** or **Select &lt;organization&gt; users and groups**. If you choose **Select &lt;organization&gt; users and groups**, perform these steps for each user or group you want to add:
 
       - Select **Add external users and groups**.
       - In the **Select** pane, type the user name or group name in the search box.
@@ -251,7 +251,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
       - If you want to add more, select **Add** and repeat these steps. When you're done selecting the users and groups you want to add, select **Submit**.
 
    > [!NOTE]
-   > For our Microsoft Accounts example, we select **All Contoso users and groups**.
+   > For our Microsoft Accounts example, we select **All Microsoft Accounts users and groups**.
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-external-users-organizational-applies-to.png" alt-text="Screenshot showing selecting the external users and groups selections.":::
 

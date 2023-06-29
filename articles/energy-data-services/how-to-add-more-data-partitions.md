@@ -1,6 +1,6 @@
 ---
 title: How to manage partitions
-description: How-to article on managing data partitions in Azure Data Manager for Energy.
+description: This is a how-to article on managing data partitions using the Microsoft Azure Data Manager for Energy instance UI.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
@@ -15,9 +15,7 @@ The concept of "data partitions" is picked from [OSDU&trade;](https://osduforum.
 
 Each partition provides the highest level of data isolation within a single deployment. All access rights are governed at a partition level. Data is separated in a way that allows for the partition's life cycle and deployment to be handled independently. (See [Partition Service](https://community.opengroup.org/osdu/platform/home/-/issues/31) in OSDU&trade;)
 
-
 You can create up to 10 data partitions in one Azure Data Manager for Energy instance. Once a data partition is created successfully, it can't be renamed or deleted.
-
 
 ## Create a data partition
 
