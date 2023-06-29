@@ -129,7 +129,7 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
 
    :::image type="content" source="../../media/tutorial-applications-observability/chart-app-network-in-usage.png" alt-text="Screenshot of the Azure portal with app network in usage to dashboard." lightbox="../../media/tutorial-applications-observability/chart-app-network-in-usage.png":::
 
-#### Add Availability chart
+#### Pin the "Availability" chart
 
 1. Go to the Azure Spring Apps instance overview page.
 
