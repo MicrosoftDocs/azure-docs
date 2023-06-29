@@ -11,9 +11,9 @@ ms.date: 7/5/2023
 
 # No-code stream processing through Azure Stream Analytics
 
-You can process your real-time data streams by using Azure Stream Analytics. The no-code editor allows you to develop a Stream Analytics job without writing a single line of code. The experience provides a canvas that allows you to connect to input sources to quickly see your streaming data. Then you can transform it before writing to your destination of choice in Azure.
+The no-code editor allows you to develop a Stream Analytics job effortlessly to process your real-time streaming data, using drag-and-drop functionality, without writing a single line of code. The experience provides a canvas that allows you to connect to input sources to quickly see your streaming data. Then you can transform it before writing to your destinations.
 
-You can:
+With the no-code editor, you can easily accomplish:
 
 - Modify input schemas.
 - Perform data preparation operations like joins and filters.
@@ -25,7 +25,7 @@ After you create and run your Stream Analytics jobs, you can easily operationali
 
 Before you develop your Stream Analytics jobs by using the no-code editor, you must meet these requirements:
 
-- The Azure Event Hubs namespace and any target destination resource where you want to write must be publicly accessible and can't be in an Azure virtual network.
+- The streaming input sources and target destination resources for the Stream Analytics job must be publicly accessible and can't be in an Azure virtual network.
 - You must have the required permissions to access the streaming input and output resources.
 - You must maintain permissions to create and modify Azure Stream Analytics resources.
 
@@ -42,12 +42,12 @@ A Stream Analytics job is built on three main components: _streaming inputs_, _t
 
 To access the no-code editor for building your stream analytics job, there are two approaches:
 
-1. Through Azure Stream Analytics portal (**preview**). Create a Stream Analytics job, and then select the no-code editor in the **Get started** tab in **Overview** blade, or select **No-code editor** in the left panel.
+1. **Through Azure Stream Analytics portal (preview)**: Create a Stream Analytics job, and then select the no-code editor in the **Get started** tab in **Overview** blade, or select **No-code editor** in the left panel.
 
    :::image type="content" source="./media/no-code-stream-processing/no-code-on-asa-portal.png" alt-text="Screenshot that shows no-code on ASA portal locations." lightbox="./media/no-code-stream-processing/no-code-on-asa-portal.png" :::
 
 
-2. Through Azure Event Hubs portal. Open an Event Hubs instance. Select **Process Data**, and then select any pre-defined template.
+2. **Through Azure Event Hubs portal**: Open an Event Hubs instance. Select **Process Data**, and then select any pre-defined template.
 
    :::image type="content" source="./media/no-code-stream-processing/new-stream-analytics-job.png" alt-text="Screenshot that shows selections to create a new Stream Analytics job." lightbox="./media/no-code-stream-processing/new-stream-analytics-job.png" :::
 
@@ -83,7 +83,7 @@ The no-code editor supports the streaming data input from three kinds of resourc
 For more information about the streaming data inputs, see [Stream data as input into Stream Analytics](./stream-analytics-define-inputs.md).
 
 > [!NOTE]
-> The no-code editor in the Azure Event Hubs portal only has **Event Hub** as an input option as well.
+> The no-code editor in the Azure Event Hubs portal only has **Event Hub** as an input option.
 
 :::image type="content" source="./media/no-code-stream-processing/streaming-input-type.png" alt-text="Screenshot that shows the streaming inputtype." lightbox="./media/no-code-stream-processing/streaming-input-type.png" :::
 
@@ -114,7 +114,7 @@ When Stream Analytics jobs detect the fields, you'll see them in the list. You'l
 You can edit the field names, or remove field, or change the data type, or change the event time (**Mark as event time**: TIMESTAMP BY clause if a datetime type field), by selecting the three-dot symbol next to each field. You can also expand, select, and edit any nested fields from the incoming messages, as shown in the following image.
 
 > [!TIP]
-> This applies to the input data from Azure IoT Hub and ADLS Gen2.
+> This applies to the input data from Azure IoT Hub and ADLS Gen2 as well.
 
 :::image type="content" source="./media/no-code-stream-processing/event-hub-schema.png" alt-text="Screenshot that shows selections for adding, removing, and editing the fields for an event hub." lightbox="./media/no-code-stream-processing/event-hub-schema.png" :::
 
@@ -131,7 +131,7 @@ The available data types are:
 Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. IoT device data sent to IoT hub can be used as an input for a Stream Analytics job.
 
 > [!NOTE]
-> Azure IoT Hub input is available in no-code editor on Azure Stream Analytics portal.
+> Azure IoT Hub input is available in the no-code editor on Azure Stream Analytics portal.
 
 To add an IoT hub as a streaming input for your job, select the **IoT Hub** under **Inputs** from the ribbon. Then fill in the needed information in the right panel to connect IoT hub to your job. To learm more about the details about each fields, see [Stream data from IoT Hub to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-iot-hub).
 
@@ -142,7 +142,7 @@ To add an IoT hub as a streaming input for your job, select the **IoT Hub** unde
 Azure Data Lake Storage Gen2 (ADLS Gen2) is a cloud-based, enterprise data lake solution. It's designed to store massive amounts of data in any format, and to facilitate big data analytical workloads. The data stored in ADLS Gen2 can be processed as a data stream by Stream Analytics. To learn more about this type of input, see [Stream data from ADLS Gen2 to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-blob-storage-or-data-lake-storage-gen2)
 
 > [!NOTE]
-> Azure Data Lake Storage Gen2 input is available in no-code editor on Azure Stream Analytics portal.
+> Azure Data Lake Storage Gen2 input is available in the no-code editor on Azure Stream Analytics portal.
 
 To add an ADLS Gen2 as a streaming input for your job, select the **ADLS Gen2** under **Inputs** from the ribbon. Then fill in the needed information in the right panel to connect ADLS Gen2 to your job. To learm more about the details about each fields, see [Stream data from ADLS Gen2 to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-blob-storage-or-data-lake-storage-gen2)
 
@@ -411,10 +411,10 @@ You can select more metrics from the list. To understand all the metrics in deta
 
 ## Start a Stream Analytics job
 
-You can save the job anytime while creating it. After you configure the event hub, transformations, and streaming outputs for the job, you can start the job.
+You can save the job anytime while creating it. After you configure the streaming inputs, transformations, and streaming outputs for the job, you can start the job.
 
 > [!NOTE]
-> Although the no-code editor is in preview, the Azure Stream Analytics service is generally available.
+> Although the no-code editor on Azure Stream Analtyics portal is in preview, the Azure Stream Analytics service is generally available.
 
 :::image type="content" source="./media/no-code-stream-processing/no-code-save-start.png" alt-text="Screenshot that shows the Save and Start buttons." lightbox="./media/no-code-stream-processing/no-code-save-start.png" :::
 
@@ -430,9 +430,9 @@ You can configure these options:
 
 :::image type="content" source="./media/no-code-stream-processing/start-job.png" alt-text="Screenshot that shows the dialog for reviewing the Stream Analytics job configuration and starting the job." lightbox="./media/no-code-stream-processing/start-job.png" :::
 
-## Stream Analytics jobs list
+### Stream Analytics jobs list in Azure Event Hubs portal
 
-To see a list of all Stream Analytics jobs that you created by using the no-code drag-and-drop experience, select **Process data** > **Stream Analytics jobs**.
+To see a list of all Stream Analytics jobs that you created by using the no-code drag-and-drop experience in Azure Event Hubs portal, select **Process data** > **Stream Analytics jobs**.
 
 :::image type="content" source="./media/no-code-stream-processing/jobs-list.png" alt-text="Screenshot that shows the Stream Analytics job list where you review job status." lightbox="./media/no-code-stream-processing/jobs-list.png" :::
 
@@ -451,10 +451,7 @@ These are the elements of the **Stream Analytics jobs** tab:
 
 Learn how to use the no-code editor to address common scenarios by using predefined templates:
 
-- [Capture Event Hubs data in Parquet format](capture-event-hub-data-parquet.md)
-- [Filter and ingest to Azure Synapse SQL](filter-ingest-synapse-sql.md)
-- [Filter and ingest to Azure Data Lake Storage Gen2](filter-ingest-data-lake-storage-gen2.md)
-- [Materialize data to Azure Cosmos DB](no-code-materialize-cosmos-db.md)
-- [Transform and store data to SQL database](no-code-transform-filter-ingest-sql.md)
-- [Filter and store data to Azure Data Explorer](no-code-filter-ingest-data-explorer.md)
-- [Enrich data and ingest to Event Hubs](no-code-enrich-event-hub-data.md)
+- [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+- [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
+- [Understand inputs for Azure Stream Analytics](./stream-analytics-add-inputs.md)
+- [Outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md)
