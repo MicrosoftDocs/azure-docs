@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity logs in Azure Monitor
-description: Introduction to Azure Active Directory activity logs in Azure Monitor
+title: Azure Active Directory activity log integrations
+description: Introduction to Azure Active Directory activity log integrations
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,14 +13,14 @@ ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
-# Azure AD activity logs in Azure Monitor
+# Azure AD activity log integrations
 
-Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. You can archive logs for storage, integrate with Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
+Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. You can archive logs for storage, route to Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
 
-With the Azure Monitor logs integration you can enable rich visualizations, monitoring, and alerting on the connected data. Log Analytics provides enhanced query and analysis capabilities for Azure AD activity logs. This article focuses on the requirements, settings, and cost considerations for sending Azure AD activity logs to Azure Monitor.
+With these integrations, you can enable rich visualizations, monitoring, and alerting on the connected data. This article describes the recommended uses for each integration or access method. Cost considerations for sending Azure AD activity logs to various endpoints are also covered.
 ## Supported reports
 
-The following logs can be integrated with one of many endpoints, including Azure Monitor logs.
+The following logs can be integrated with one of many endpoints:
 
 * The [**audit logs activity report**](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * With the [**sign-in activity report**](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
@@ -28,19 +28,33 @@ The following logs can be integrated with one of many endpoints, including Azure
 * The [**risky users logs**](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users) helps you monitor changes in user risk level and remediation activity. 
 * With the [**risk detections logs**](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
-## Getting started
+## Help me choose the right method
 
-To integrate Azure AD logs with Azure Monitor logs, you need the following prerequisites:
+To help choose the right method for accessing Azure AD activity logs, think about the overall task you're trying to accomplish. We've grouped the tasks and options into three main categories:
 
-* An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* An Azure AD Free, Basic, or Premium P1/P2 license. For more information, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
-* One of the following roles in Azure Active Directory (if you're accessing Log Analytics through Azure portal):
-    - Security Administrator
-    - Security Reader
-    - Reports Reader
-    - Global Administrator
-* A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
-*  An Azure [Role-based access control](../../azure-monitor/logs/manage-access.md#azure-rbac) role for the Log Analytics workspace.
+- Troubleshooting
+- Long-term storage
+- Monitoring, insights, and integrations
+
+### Troubleshooting
+
+If you're performing troubleshooting tasks but you don't need to retain the logs for more than 30 days, we recommend using the Azure Portal or Microsoft Graph to access activity logs. You can filter the logs for your scenario and export or download them as needed.
+
+If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, take a look at the long-term storage options.
+
+### Long-term storage
+
+If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, you can export your logs to an Azure storage account. This option is ideal of you don't plan on querying that data often.
+
+If you need to query the data that you're retaining for more than 30 days, take a look at the monitoring, insights, and integrations options.
+
+### Monitoring, insights, and integrations
+
+If your scenario requires that you retain data for more than 30 days *and* you plan on querying that data on a regular basis, you've got a few options to integrate your data with SIEM tools for analysis and monitoring.
+
+If you have a 3rd party SIEM tool, we recommend setting up an Event Hub namespace and event hub that you can stream your data through. With an event hub, you can stream logs to one of the supported SIEM tools.
+
+If you don't plan on using a third-party SIEM tool, we recommend sending your Azure AD activity logs to Azure Monitor logs. With this integration, you can query your activity logs with Log Analytics. In Addition to Azure Monitor logs, Microsoft Sentinel provides near real-time security detection and thread hunting. If you decide to integrate with SIEM tools later, you can stream your Azure AD activity logs along with your other Azure data through an event hub. 
 
 ## Cost considerations
 

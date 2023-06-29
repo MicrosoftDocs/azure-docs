@@ -44,6 +44,7 @@ The required roles and licenses may vary based on the report. Global Administrat
 *The level of access and capabilities for Identity Protection varies with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
 
 Activity reports are available for features that you've licensed. To access the sign-ins activity logs, your tenant must have an Azure AD Premium license associated with it.
+
 ## Stream logs to an event hub to integrate with SIEM tools
 
 Streaming your activity logs to an event hub is required to integrate your activity logs with Security Information and Event Management (SIEM) tools, such as Splunk and SumoLogic. Before you can stream logs to an event hub, you need to [set up an Event Hubs namespace and an event hub](../../event-hubs/event-hubs-create.md) in your Azure subscription. 
@@ -212,34 +213,6 @@ Use the following basic steps to archive or download your activity logs.
 1. Go to **Azure AD** and select **Audit logs**, **Sign-in logs**, or **Provisioning logs** from the **Monitoring** menu.
 1. Select **Download**.
     - [Learn more about how to download logs](howto-download-logs.md).
-
-## Help me choose the right method
-
-To help choose the right method for accessing Azure AD activity logs, think about the overall task you're trying to accomplish. We've grouped the tasks and options into three main categories:
-
-- Troubleshooting
-- Long-term storage
-- Monitoring, insights, and integrations
-
-### Troubleshooting
-
-If you're performing troubleshooting tasks but you don't need to retain the logs for more than 30 days, we recommend using the Azure Portal or Microsoft Graph to access activity logs. You can filter the logs for your scenario and export or download them as needed.
-
-If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, take a look at the long-term storage options.
-
-### Long-term storage
-
-If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, you can export your logs to an Azure storage account. This option is ideal of you don't plan on querying that data often.
-
-If you need to query the data that you're retaining for more than 30 days, take a look at the monitoring, insights, and integrations options.
-
-### Monitoring, insights, and integrations
-
-If your scenario requires that you retain data for more than 30 days *and* you plan on querying that data on a regular basis, you've got a few options to integrate your data with SIEM tools for analysis and monitoring.
-
-If you have a 3rd party SIEM tool, we recommend setting up an Event Hub namespace and event hub that you can stream your data through. With an event hub, you can stream logs to one of the supported SIEM tools.
-
-If you don't plan on using a third-party SIEM tool, we recommend sending your Azure AD activity logs to Azure Monitor logs. With this integration, you can query your activity logs with Log Analytics. If you decide to integrate with SIEM tools later, you can stream your Azure AD activity logs along with your other Azure data through an event hub. 
 
 ## Next steps
 
