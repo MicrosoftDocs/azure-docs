@@ -45,7 +45,7 @@ Direct mode can be customized through the *CosmosClientOptions* passed to the *C
 
 | Configuration option       | Default          | Recommended   | Details |
 | :------------------:       | :-----:          | :---------:   | :-----: |
-| EnableTcpConnectionEndpointRediscovery        | true           | true        | This represents the flag to enable address cache refresh on TCP connection reset notification. |
+| EnableTcpConnectionEndpointRediscovery        | true           | true        | This represents the flag to enable detection of connections closing from the server. |
 | IdleTcpConnectionTimeout        | By default, idle connections are kept open indefinitely.          | 20h-24h        | This represents the amount of idle time after which unused connections are closed. Recommended values are between 20 minutes and 24 hours. |
 | MaxRequestsPerTcpConnection        | 30           | 30        | This represents the number of requests allowed simultaneously over a single TCP connection. When more requests are in flight simultaneously, the direct/TCP client opens extra connections. Don't set this value lower than four requests per connection or higher than 50-100 requests per connection. Applications with a high degree of parallelism per connection, with large requests or responses, or with tight latency requirements might get better performance with 8-16 requests per connection. |
 | MaxTcpConnectionsPerEndpoint        | 65535           | 65535        | This represents the maximum number of TCP connections that may be opened to each Cosmos DB back-end. Together with MaxRequestsPerTcpConnection, this setting limits the number of requests that are simultaneously sent to a single Cosmos DB back-end(MaxRequestsPerTcpConnection x MaxTcpConnectionPerEndpoint). Value must be greater than or equal to 16. |
@@ -57,7 +57,7 @@ Direct mode can be customized through the *CosmosClientOptions* passed to the *C
 
 #### Customizing gateway connection mode
 
-The nondefault Gateway mode can be customized through the *CosmosClientOptions* passed to the *CosmosClient* constructor. We recommend users avoid modifying these unless they feel comfortable in understanding the tradeoffs and it's necessary.
+The Gateway mode can be customized through the *CosmosClientOptions* passed to the *CosmosClient* constructor. We recommend users avoid modifying these unless they feel comfortable in understanding the tradeoffs and it's necessary.
 
 | Configuration option       | Default          | Recommended   | Details |
 | :------------------:       | :-----:          | :---------:   | :-----: |
@@ -71,8 +71,5 @@ The nondefault Gateway mode can be customized through the *CosmosClientOptions* 
 
 To learn more about performance tips for .NET SDK, see [Performance tips for Azure Cosmos DB NET SDK v3](performance-tips-dotnet-sdk-v3.md).
 
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).
-
-Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
