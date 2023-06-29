@@ -43,7 +43,7 @@ highlightedContent:
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
     # Card
     - title: Azure.com Blogs
-      itemType: thought leadership
+      itemType: thought-leadership
       url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
 # Azure Services
