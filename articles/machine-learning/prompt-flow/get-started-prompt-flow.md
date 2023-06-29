@@ -114,7 +114,7 @@ The input schema (name: url; type: string) and value are already set when clonin
 
 For each LLM node, you need to select a connection to set your LLM API keys.
 
-:::image type="content" source="./media/get-started-prompt-flow/select-a-connection.png" alt-text="Screenshot of Web classification showing the connection drop-down." lightbox = "./media/get-started-prompt-flow/select-a-connection.png:::
+:::image type="content" source="./media/get-started-prompt-flow/select-a-connection.png" alt-text="Screenshot of Web classification showing the connection drop-down." lightbox = "./media/get-started-prompt-flow/select-a-connection.png":::
 
 For this example, the API type should be **completion**.
 
@@ -126,7 +126,7 @@ We have two LLM nodes (summarize_text_content and classify_with_llm) in the flow
 
 To test and debug a single node, select the **Run** icon on node in flatten view. Run status is shown at the very top, once running completed, check output in node output section.
 
-:::image type="content" source="./media/get-started-prompt-flow/run-single-node.png" alt-text="Screenshot of Web classification showing first you run the python node then check the output, next you run the LLM node then check its output." lightbox = "./media/get-started-prompt-flow/run-single-node.png:::
+:::image type="content" source="./media/get-started-prompt-flow/run-single-node.png" alt-text="Screenshot of Web classification showing first you run the python node then check the output, next you run the LLM node then check its output." lightbox = "./media/get-started-prompt-flow/run-single-node.png":::
 
 Run fetch_text_content_from_url then summarize_text_content, check if the flow can successfully fetch content from web, and summarize the web content.
 
@@ -136,7 +136,7 @@ The single node status is shown in the graph view as well. You can also change t
 
 To test and debug the whole flow, select the **Run** button at the right top.
 
-:::image type="content" source="./media/get-started-prompt-flow/run-flow.png" alt-text="Screenshot of Web classification showing a whole run and highlighting the run button." lightbox = "./media/get-started-prompt-flow/run-flow.png:::
+:::image type="content" source="./media/get-started-prompt-flow/run-flow.png" alt-text="Screenshot of Web classification showing a whole run and highlighting the run button." lightbox = "./media/get-started-prompt-flow/run-flow.png":::
 
 Then you can check the run status and output of each node. The node statuses are shown in the graph view as well. Similarly, you can change the flow input URL to test how the flow behaves for different URLs.
 
@@ -150,9 +150,9 @@ When the flow is complicated, instead of checking outputs on each node, you can 
 
 When you clone the sample, the flow outputs (category and evidence) are already set. You can select **View outputs** to check the outputs in a table.
 
-:::image type="content" source="./media/get-started-prompt-flow/view-outputs-entry-point.png" alt-text="Screenshot of Web classification showing the view outputs button." lightbox = "./media/get-started-prompt-flow/view-outputs-entry-point.png:::
+:::image type="content" source="./media/get-started-prompt-flow/view-outputs-entry-point.png" alt-text="Screenshot of Web classification showing the view outputs button." lightbox = "./media/get-started-prompt-flow/view-outputs-entry-point.png":::
 
-:::image type="content" source="./media/get-started-prompt-flow/view-outputs.png" alt-text="Screenshot of Web classification showing outputs tab." lightbox = "./media/get-started-prompt-flow/view-outputs.png:::
+:::image type="content" source="./media/get-started-prompt-flow/view-outputs.png" alt-text="Screenshot of Web classification showing outputs tab." lightbox = "./media/get-started-prompt-flow/view-outputs.png":::
 
 ## Test and evaluation
 
@@ -168,13 +168,13 @@ Go to [GitHub](https://aka.ms/web-classification-data) to download raw file for 
 
 Select **Bulk test** button, then a right panel pops up. It's a wizard that guides you to submit a bulk test and to select the evaluation method (optional).​​​​​​​
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-entry-point.png" alt-text="Screenshot of Web classification showing the bulk test button." lightbox = "./media/get-started-prompt-flow/bulk-test-entry-point.png:::
+:::image type="content" source="./media/get-started-prompt-flow/bulk-test-entry-point.png" alt-text="Screenshot of Web classification showing the bulk test button." lightbox = "./media/get-started-prompt-flow/bulk-test-entry-point.png":::
 
 You need to set a bulk test name, description, then select a runtime first.
 
 Then select **Upload new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first 50 rows.
 
-:::image type="content" source="./media/get-started-prompt-flow/upload-new-data-bulk-test.png" alt-text="Screenshot of Bulk test and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-bulk-test.png:::
+:::image type="content" source="./media/get-started-prompt-flow/upload-new-data-bulk-test.png" alt-text="Screenshot of Bulk test and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-bulk-test.png":::
 
 The dataset selection drop down supports search and autosuggestion.
 
@@ -182,7 +182,7 @@ The dataset selection drop down supports search and autosuggestion.
 
 Select **Next**, then you can use an evaluation method to evaluate your flow. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the drop-down.
 
-:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the bulk test and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy.png:::
+:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the bulk test and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
 
 Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Evaluation** to evaluate.
 
@@ -196,19 +196,19 @@ Then select **Submit** to submit a bulk test and the selected evaluation.
 
 When completed, select the link, go to bulk test detail page.
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media//get-started-prompt-flow/get-started-prompt-flow/bulk-test-status.png:::
+:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media//get-started-prompt-flow/get-started-prompt-flow/bulk-test-status.png":::
 
 Select **Refresh** until the evaluation run is completed.
 
-:::image type="content" source="./media/get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png" alt-text="Screenshot of Web classification bulk test detail page." lightbox = "./media//get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png:::
+:::image type="content" source="./media/get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png" alt-text="Screenshot of Web classification bulk test detail page." lightbox = "./media//get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png":::
 
 Then go to the **Metrics** tab, check accuracy.
 
-:::image type="content" source="./media/get-started-prompt-flow/check-metrics.png" alt-text="Screenshot of Web classification bulk test detail page on the metrics tab." lightbox = "./media/get-started-prompt-flow/check-metrics.png:::
+:::image type="content" source="./media/get-started-prompt-flow/check-metrics.png" alt-text="Screenshot of Web classification bulk test detail page on the metrics tab." lightbox = "./media/get-started-prompt-flow/check-metrics.png":::
 
 To understand in which case the flow classifies incorrectly, you need to see the evaluation results for each row of data. Go to **Outputs** tab, select the evaluation run, you can see in the table below for most cases the flow classifies correctly except for few rows.
 
-:::image type="content" source="./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png" alt-text="Screenshot of Web classification bulk test detail page on the output tab." lightbox = "./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png:::
+:::image type="content" source="./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png" alt-text="Screenshot of Web classification bulk test detail page on the output tab." lightbox = "./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png":::
 
 You can adjust column width, hide/unhide columns, and export table to csv file for further investigation. 
 
@@ -222,11 +222,11 @@ After you build a flow and test it properly, you may want to deploy it as an end
 
 When you are in the bulk test **Overview** tab, select bulk test link.
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-run.png" alt-text="Screenshot of Web classification bulk test detail page highlighting the bulk test link." lightbox = "./media/get-started-prompt-flow/bulk-test-run.png:::
+:::image type="content" source="./media/get-started-prompt-flow/bulk-test-run.png" alt-text="Screenshot of Web classification bulk test detail page highlighting the bulk test link." lightbox = "./media/get-started-prompt-flow/bulk-test-run.png":::
 
 Then you're directed to the bulk test detail page, select **Deploy**. A wizard pops up to allow you to configure the endpoint. Specify an endpoint name, use the default settings, set connections, and select a virtual machine, select **Deploy** to start the deployment.
 
-:::image type="content" source="./media/get-started-prompt-flow/endpoint-creation.png" alt-text="Screenshot of endpoint configuration wizard." lightbox = "./media/get-started-prompt-flow/endpoint-creation.png:::
+:::image type="content" source="./media/get-started-prompt-flow/endpoint-creation.png" alt-text="Screenshot of endpoint configuration wizard." lightbox = "./media/get-started-prompt-flow/endpoint-creation.png":::
 
 If you're a Workspace Owner or Subscription Owner, see [Deploy a flow as a managed online endpoint for real-time inference](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) to grant permissions to the endpoint. If not, go ask your Workspace Owner or Subscription Owner to it for you.
 
@@ -242,7 +242,7 @@ Copy following sample input data, paste to the input box, and select **Test**, t
 }
 ```
 
-:::image type="content" source="./media/get-started-prompt-flow/test-endpoint.png" alt-text="Screenshot of the endpoint on the test tab." lightbox = "./media/get-started-prompt-flow/test-endpoint.png:::
+:::image type="content" source="./media/get-started-prompt-flow/test-endpoint.png" alt-text="Screenshot of the endpoint on the test tab." lightbox = "./media/get-started-prompt-flow/test-endpoint.png":::
 
 
 ## Clean up resources
