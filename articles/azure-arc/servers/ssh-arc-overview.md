@@ -19,7 +19,7 @@ SSH access to Arc-enabled servers provides the following key benefits:
  - Support for other OpenSSH based tooling with config file support
 
 ## Prerequisites
-To leverage this functionality, please ensure the following: 
+To enable this functionality, please ensure the following: 
  - Ensure the Arc-enabled server has a hybrid agent version of "1.31.xxxx" or higher.  Run: ```azcmagent show``` on your Arc-enabled Server.
  - Ensure the Arc-enabled server has the "sshd" service enabled. For Linux machines `openssh-server` can be installed via a package manager and will need to be enabled.  SSHD will need to be [enabled on Windows](/windows-server/administration/openssh/openssh_install_firstuse).
  - Ensure you have the Owner or Contributer role assigned.
