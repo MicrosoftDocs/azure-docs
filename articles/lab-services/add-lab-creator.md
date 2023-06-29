@@ -45,7 +45,7 @@ Many educators might already have a Microsoft account linked to their non-Micros
 
 When educators sign in to the Lab Services portal, they are prompted for their email address and password. If the educator attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the educator will receive the following error message:
 
-![Error message](./media/how-to-configure-student-usage/cant-find-account.png)
+![Error message](./media/how-to-access-and-manage-lab/cant-find-account.png)
 
 To sign up for a Microsoft account, educators should go to [https://signup.live.com](https://signup.live.com).  
 
@@ -53,11 +53,11 @@ To sign up for a Microsoft account, educators should go to [https://signup.live.
 
 Educators can also use an existing GitHub account to register and sign in to a  lab. If the educator already has a Microsoft account linked to their GitHub account, then they can sign in and provide their password as shown in the previous section. If they have not yet linked their GitHub account to a Microsoft account, they should select **Sign-in options**:
 
-![Sign-in options link](./media/how-to-configure-student-usage/signin-options.png)
+![Sign-in options link](./media/how-to-access-and-manage-lab/signin-options.png)
 
 On the **Sign-in options** page, select **Sign in with GitHub**.
 
-![Sign in with GitHub link](./media/how-to-configure-student-usage/signin-github.png)
+![Sign in with GitHub link](./media/how-to-access-and-manage-lab/signin-github.png)
 
 Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the educator selects **Next**.  The educator is then immediately signed in and connected to the lab.
 
