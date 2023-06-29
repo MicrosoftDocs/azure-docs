@@ -271,6 +271,6 @@ when the metric pattern matches the condition, the alert rule is triggered, and 
 
    :::image type="content" source="../../media/tutorial-applications-observability/alert-rule-list.png" alt-text="Screenshot of the Azure portal with alert rule list." lightbox="../../media/tutorial-applications-observability/alert-rule-list.png":::
 
-### Pin Alert to dashboard
+### Pin alerts to the dashboard
 
 Go to the Azure Spring Apps instance overview page, select **Alert** in the left navigation menu, and select the **Pin blade to dashboard** icon in this page header to pin the quickstart chart to the dashboard.
