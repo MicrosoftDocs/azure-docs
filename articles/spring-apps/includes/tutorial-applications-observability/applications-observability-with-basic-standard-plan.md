@@ -21,7 +21,7 @@ Azure Spring Apps provides several metrics by default, see [Metrics for Azure Sp
 
 This section provides the steps to use the default metrics defined by Spring Boot and custom metrics defined in application code, they all are available for applications running on Azure Spring Apps. 
 
-1. Use core metrics registered by Spring Boot
+#### Add metrics defined by Spring Boot
 
    Spring Boot registers several core metrics, including JVM, CPU, Tomcat, and Logback. 
 
