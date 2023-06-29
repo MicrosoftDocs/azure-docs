@@ -46,7 +46,8 @@ Before subscribing to the custom topic, create a function to handle the events.
     
 1. On the **Create Function** page, follow these steps:
     1. This step is optional. For **Development environment**, select the development environment that you want to use to work with the function code. 
-    1. In the **Select a template** section, search for **Azure Event Grid trigger**, and select **Azure Event Grid Trigger** template. 
+    1. In the **Select a template** section, in the filter or search box, type **Azure Event Grid trigger**.
+    1. Select **Azure Event Grid Trigger** template in the template list. 
     1. In the **Template details** section in the bottom pane, enter a name for the function. In this example, it's **HandleEventsFunc**. 
     1. Select **Create**.
 
