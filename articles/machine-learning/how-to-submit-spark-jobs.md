@@ -708,7 +708,7 @@ To troubleshoot a Spark job, you can access the logs generated for that job in A
 1. Access the Spark job logs inside the **driver** and **library manager** folders
 
 > [!NOTE]
-> To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. 
+> To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. A Spark jobs from interactive notebook session is created under the experiment name **notebook-runs**.
 
 ## Next steps
 
