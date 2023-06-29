@@ -101,14 +101,14 @@ To use NSG with your application gateway, you will need to create or retain some
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
-|&lt;as per need&gt;|Any|&lt;Subnet IP Prefix&gt;|&lt;listener ports&gt;|TCP|Allow|
+|`<as per need>`|Any|`<Subnet IP Prefix>`|`<listener ports>`|TCP|Allow|
 
 Upon configuring **active public and private listeners** (with Rules) **with the same port number** (in Preview), your application gateway changes the "Destination" of all inbound flows to the frontend IPs of your gateway. This is true even for the listeners not sharing any port. You must thus include your gateway's frontend Public and Private IP addresses in the Destination of the inbound rule when using the same port configuration.
 
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
-|&lt;as per need&gt;|Any|&lt;Public and Private<br/>frontend IPs&gt;|&lt;listener ports&gt;|TCP|Allow|
+|`<as per need>`|Any|`<Public and Private<br/>frontend IPs>`|`<listener ports>`|TCP|Allow|
 
 2. **Infrastructure ports** - Allow incoming requests from the source as GatewayManager service tag and any destination. The destination port range differs based on SKU and is required for communicating the status of the Backend Health. (These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place).
 	- V2: Ports 65200-65535
@@ -116,7 +116,7 @@ Upon configuring **active public and private listeners** (with Rules) **with the
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
-|GatewayManager|Any|Any|&lt;as per SKU given above&gt;|TCP|Allow|
+|GatewayManager|Any|Any|`<as per SKU given above>`|TCP|Allow|
 
 3. **Azure Load Balancer probes** - Allow incoming traffic from the source as AzureLoadBalancer service tag. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
 
