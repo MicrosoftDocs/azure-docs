@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 06/28/2023
+ms.date: 06/29/2023
 ms.author: jasteppe
 ---
 
@@ -19,7 +19,7 @@ By using the FHIR Converter `$convert-data` endpoint in the FHIR service, you ca
 
 * HL7v2 to FHIR R4
 * C-CDA to FHIR R4
-* JSON to FHIR R4 (intended for custom conversion mapping)
+* JSON to FHIR R4 (intended for custom conversion mappings)
 * FHIR STU3 to FHIR R4
 
 > [!NOTE]
@@ -27,25 +27,25 @@ By using the FHIR Converter `$convert-data` endpoint in the FHIR service, you ca
 
 ## Use the $convert-data endpoint
 
-The `$convert-data` operation is integrated into the FHIR service as a RESTful API action. You can call the `$convert-data` endpoint as follows:
+The `$convert-data` operation is integrated into the FHIR service as a [REST API](https://learn.microsoft.com/rest/api/azure/) action. You can call the `$convert-data` endpoint as follows:
 
 `POST {{fhirurl}}/$convert-data`
 
-The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service returns a [FHIR Bundle](https://www.hl7.org/fhir/R4/bundle.html) response with the data converted to FHIR.
+The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service returns a [FHIR Bundle](https://www.hl7.org/fhir/R4/bundle.html) response with the data converted to FHIR R4.
 
 ###  Parameters
 
-A `$convert-data` API call packages the health data for conversion inside a JSON-formatted [parameters](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table: 
+A `$convert-data` operation call packages the health data for conversion inside a JSON-formatted [parameters](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table: 
 
 | Parameter name | Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Accepted values |
 | -------------- | ----------------------------------------------------------------------- | --------------- |
-| `inputData`      | Data payload to be converted to FHIR. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON <br> For `FHIR STU3`: JSON|
-| `inputDataType`   | Type of data input. | `Hl7v2`, `Ccda`, `Json`, `Fhir` |
-| `templateCollectionReference` | Reference to an [OCI image](https://github.com/opencontainers/image-spec) template collection in [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). The reference is to an image that contains Liquid templates to use for conversion. It can refer either to default templates or to a custom template image that's registered within the FHIR service. The following sections cover customizing the templates, hosting them on Azure Container Registry, and registering to the FHIR service. | For **default/sample** templates: <br> **HL7v2** templates: <br>`microsofthealth/fhirconverter:default` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br> **FHIR STU3** templates: <br> ``microsofthealth/stu3tor4templates:default`` <br><br> For **custom** templates: <br> `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>` |
-| `rootTemplate` | The root template to use while transforming the data. | For **HL7v2**:<br> ADT_A01, ADT_A02, ADT_A03, ADT_A04, ADT_A05, ADT_A08, ADT_A11,  ADT_A13, ADT_A14, ADT_A15, ADT_A16, ADT_A25, ADT_A26, ADT_A27, ADT_A28, ADT_A29, ADT_A31, ADT_A47, ADT_A60, OML_O21, ORU_R01, ORM_O01, VXU_V04, SIU_S12, SIU_S13, SIU_S14, SIU_S15, SIU_S16, SIU_S17, SIU_S26, MDM_T01, MDM_T02 <br><br> For **C-CDA**:<br> CCD, ConsultationNote, DischargeSummary, HistoryandPhysical, OperativeNote, ProcedureNote, ProgressNote, ReferralNote, TransferSummary <br><br> For **JSON**: <br> ExamplePatient, Stu3ChargeItem <br><br> For **FHIR STU3**: <br> STU3 Resource Name (for example: Patient, Observation, Organization) <br> |
+| inputData      | Data payload to be converted to FHIR. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON <br> For `FHIR STU3`: JSON|
+| inputDataType   | Type of data input. | `Hl7v2`, `Ccda`, `Json`, `Fhir` |
+| templateCollectionReference | Reference to an [OCI image](https://github.com/opencontainers/image-spec) template collection in [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). The reference is to an image that contains Liquid templates to use for conversion. It can refer either to default templates or to a custom template image that's registered within the FHIR service. The following sections cover customizing the templates, hosting them on Azure Container Registry, and registering to the FHIR service. | For **default/sample** templates: <br> **HL7v2** templates: <br>`microsofthealth/fhirconverter:default` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br> **FHIR STU3** templates: <br> ``microsofthealth/stu3tor4templates:default`` <br><br> For **custom** templates: <br> `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>` |
+| rootTemplate | The root template to use while transforming the data. | For **HL7v2**:<br> ADT_A01, ADT_A02, ADT_A03, ADT_A04, ADT_A05, ADT_A08, ADT_A11,  ADT_A13, ADT_A14, ADT_A15, ADT_A16, ADT_A25, ADT_A26, ADT_A27, ADT_A28, ADT_A29, ADT_A31, ADT_A47, ADT_A60, OML_O21, ORU_R01, ORM_O01, VXU_V04, SIU_S12, SIU_S13, SIU_S14, SIU_S15, SIU_S16, SIU_S17, SIU_S26, MDM_T01, MDM_T02 <br><br> For **C-CDA**:<br> CCD, ConsultationNote, DischargeSummary, HistoryandPhysical, OperativeNote, ProcedureNote, ProgressNote, ReferralNote, TransferSummary <br><br> For **JSON**: <br> ExamplePatient, Stu3ChargeItem <br><br> For **FHIR STU3**: <br> FHIR STU3 resource name (for example: Patient, Observation, Organization) <br> |
 
 > [!NOTE]
-> FHIR STU3 to FHIR R4 templates are Liquid templates that provide mappings of field differences only between a FHIR STU3 resource and its equivalent resource in the FHIR R4 standard. Some of the FHIR STU3 resources are renamed or removed from FHIR R4. Please refer to [Resource differences and constraints for STU3 to R4 conversion](https://github.com/microsoft/FHIR-Converter/blob/main/docs/Stu3R4-resources-differences.md).
+> FHIR STU3 to FHIR R4 templates are Liquid templates that provide mappings of field differences only between a FHIR STU3 resource and its equivalent resource in the FHIR R4 specification. Some of the FHIR STU3 resources are renamed or removed from FHIR R4. For more information about the resource differences and constraints for FHIR STU3 to FHIR R4 conversion, see [Resource differences and constraints for FHIR STU3 to FHIR R4 conversion](https://github.com/microsoft/FHIR-Converter/blob/main/docs/Stu3R4-resources-differences.md).
 
 > [!NOTE]
 > JSON templates are sample templates for use in building your own conversion mappings. They are *not* default templates that adhere to any pre-defined health data message types. JSON itself is not specified as a health data format, unlike HL7v2 or C-CDA. Therefore, instead of providing default JSON templates, we provide some sample JSON templates that you can use as a starting point for your own customized mappings.
@@ -113,12 +113,12 @@ A `$convert-data` API call packages the health data for conversion inside a JSON
 ```
 
 The outcome of FHIR conversion is a FHIR Bundle as a batch. 
-*	The FHIR Bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
-*	If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
+* The FHIR Bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
+* If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
 
 ## Next steps
 
-In this article, you learned about the FHIR Converter, the `$convert-data` operation, and the `$convert-data` endpoint for converting health data to FHIR R4 by using the FHIR service in the Azure Health Data Service. 
+In this article, you learned about the FHIR Converter, the `$convert-data` operation and the `$convert-data` endpoint for converting health data to FHIR R4 by using the FHIR service in the Azure Health Data Service. 
 
 To learn how to deploy and configure the FHIR Converter, see:
  

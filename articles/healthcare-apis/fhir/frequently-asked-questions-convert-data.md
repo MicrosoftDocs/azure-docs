@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 06/28/2023
+ms.date: 06/29/2023
 ms.author: jasteppe
 ---
 
@@ -52,11 +52,11 @@ The `$convert-data` endpoint outputs a FHIR bundle as a transaction per the [FHI
 
 ## Can I customize a default Liquid template? 
 
-Yes. You may customize templates according to your specific requirements. See [Configure the FHIR Converter](deploy-and-configure-convert-data.md) for instructions to set up custom templates.
+Yes. You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. For more information about setting up custom templates, see [Deploy and configure the FHIR Converter](deploy-and-configure-convert-data.md).
 
 ## Once I customize a template, is it possible to reference and store various versions of the template?
 
-Yes. It’s possible to store and reference custom templates. See [Configure the FHIR Converter](deploy-and-configure-convert-data.md) for instructions to reference and store various versions of custom templates.
+Yes. It’s possible to store and reference custom templates. See [Deploy and configure the FHIR Converter](deploy-and-configure-convert-data.md) for instructions to reference and store various versions of custom templates.
 
 ## If I need support in troubleshooting issues, where can I go?
 

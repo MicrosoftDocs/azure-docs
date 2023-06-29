@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 06/29/2022
 ms.author: jasteppe
 ---
 
@@ -37,7 +37,7 @@ We need verbiage for this section.
 You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data.
 
 > [!NOTE]
-> The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported.
+> The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported.
 
 The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following these guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for a FHIR Bundle resource. 
 
