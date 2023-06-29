@@ -179,9 +179,10 @@ With PIM for Groups, you can provide just-in-time access to groups in Amazon Web
 
 
 **Enable PIM for groups**
-1. Create a group in Azure AD that will be used to manage access to a set of permissions in AWS. 
+1. Create a second group in Azure AD. This group will provide access to admin permissions in AWS. 
 1. Bring the group under [management in Azure AD PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-discover-groups).
 1. Assign your test user as [eligible for the group in PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
+1. Assign the second group to the AWS IAM Identity Center application.
 
 
 Now any end user that was made eligible for the group in PIM can get JIT access to the group in AWS by [activating their group membership](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
