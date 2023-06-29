@@ -482,7 +482,7 @@ If you switch from the designer to code view, the following example shows how th
 
 ## Set variable
 
-To assign a different value to an existing variable, follow the steps for [incrementing a variable](#increment-value) except that you:
+To assign a different value to an existing variable, follow the steps for [incrementing a variable](#increment-value) with the following exceptions:
 
 1. Find and select the **Set variable** action instead.
 
@@ -547,7 +547,7 @@ The following example changes the **`Count`** variable's current value to anothe
 
 ## Append to variable
 
-For variables that store strings or arrays, you can insert or *append* a variable's value as the last item in those strings or arrays. You can follow the steps for [increasing a variable](#increment-value) except that you follow these steps instead: 
+For variables that store strings or arrays, you can insert or *append* a variable's value as the last item in those strings or arrays. You can follow the steps for [incrementing a variable](#increment-value) with the following exceptions:
 
 1. Find and select one of these actions based on whether your variable is a string or an array: 
 
@@ -556,14 +556,17 @@ For variables that store strings or arrays, you can insert or *append* a variabl
 
 1. Provide the value to append as the last item in the string or array. This value is required.
 
-Here are the properties for the **Append to...** actions:
+The following table describes the information for the **Append to...** actions:
 
 | Property | Required | Value |  Description |
 |----------|----------|-------|--------------|
 | **Name** | Yes | <*variable-name*> | The name for the variable to change |
 | **Value** | Yes | <*append-value*> | The value you want to append, which can have any type |
 
-If you switch from the designer to the code view editor, here is the way that the **Append to array variable** action appears inside your logic app definition, which is in JSON format. This example creates an array variable, and adds another value as the last item in the array. Your result is an updated variable that contains this array: `[1,2,3,"red"]`
+
+If you switch from the designer to code view, the following example shows how the **Append to array variable** action appears in your workflow definition, which is in JSON format.
+
+The following example creates an array variable, and adds another value as the last item in the array. Your result is an updated variable that contains this array: `[1,2,3,"red"]`
 
 ```json
 "actions": {
