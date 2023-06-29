@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 06/29/2023
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,32 @@ This article provides an overview of how to use IotJsonPathContent templates wit
 
 ## IotJsonPathContent template basics
 
-IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression aren't required.
+The MedTech service IotJsonPathContent templates support the JSON expression language JSONPath. Expressions are used to identify which template to use with a given JSON device message (for example: TypeMatchExpression) and to extract specific values that are required to create a normalized message (for example: TimestampExpression, DeviceIdExpression, etc.). IotJsonPathContent templates are similar to the CalculatedContent templates except the DeviceIdExpression and TimestampExpression aren't required.
+
+> [!IMPORTANT]
+> JMESPath is not supported by IotJsonPathContent templates.
+
+An expression is defined as:
+
+```json
+<name of expression> : {
+   "value" : <the expression>,
+   "language": <the expression language>
+}
+```
+
+In the following example, `typeMatchExpression` is defined as:
+
+```json
+"templateType": "IotJsonPathContent",
+"template": {
+   "typeName": "heartrate",
+   "typeMatchExpression": {
+      "value" : "$..[?(@heartRate)]",
+      "language": "JsonPath"
+   },
+...
+}
 
 It is recommended that IotJsonPathContent templates are used when the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
 
@@ -28,9 +53,6 @@ When you're using these SDKs, the device identity and the timestamp of the messa
 > Make sure that you're using a device identifier from Azure IoT Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
 
 If you're using Azure IoT Hub Device SDKs, you can still use CalculatedContent templates, assuming that you're using custom properties in the device message body for the device identity or measurement timestamp.
-
-> [!IMPORTANT]
-> JMESPath is not supported by IotJsonPathContent templates.
 
 The IotJsonPathContent templates allow matching on and extracting values from a device message read from an Azure Event Hubs event hub through the following expressions:
 
@@ -60,14 +82,8 @@ In this example, we're using a device message that is capturing `heartRate` data
 {“heartRate” : “78”}
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before routing them to the event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties). 
->
-> You do not want to send the following example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. The following example demonstrates how your device messages are enriched by the IoT hub. Example:
->
-> Example:
->
-> :::image type="content" source="media\how-to-use-iotjsonpathcontent-templates\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\how-to-use-iotjsonpathcontent-templates\iot-hub-enriched-device-message.png":::
 >
 > `patientIdExpression` is only required for MedTech services in the **Create** mode; however, if **Lookup** is being used, a device resource with a matching device identifier must exist in the destination FHIR service. These examples assume your MedTech service is in the **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-manual-portal.md#configure-the-destination-tab).
 
@@ -86,10 +102,6 @@ The IoT hub enriches and routes the device message to the event hub before the M
   }
 }    
 ```
-
-> [!NOTE]
-> When using `IotJsonPathContent`, the `typeMatchExpression` should resolve to the entire device message as a token.
-
 We're using this device mapping for the normalization stage:
 
 ```json
@@ -121,6 +133,9 @@ We're using this device mapping for the normalization stage:
 > The MedTech service evaluates all later expressions against a new token value. This new token value contains both the original device data payload and the extracted token value matched here.
 >
 > In this way, the original device data payload and the matched object are available to each later expression. The extracted token value is available as the property `matchedToken`.
+
+> [!NOTE]
+> When using `IotJsonPathContent`, the `typeMatchExpression` should resolve to the entire device message as a token.
 
 ```json
 {
