@@ -7144,21 +7144,7 @@ For more information, see the [Azure AD breaking changes notices](../develop/ref
 
 ---
 
-## July 2019
 
-### Plan for change: Application Proxy service update to support only TLS 1.2
-
-**Type:** Plan for change
-**Service category:** App Proxy
-**Product capability:** Access Control
-
-To help provide you with our strongest encryption, we're going to begin limiting Application Proxy service access to only TLS 1.2 protocols. This limitation will initially be rolled out to customers who are already using TLS 1.2 protocols, so you won't see the impact. Complete deprecation of the TLS 1.0 and TLS 1.1 protocols will be complete on August 31, 2019. Customers still using TLS 1.0 and TLS 1.1 will receive advanced notice to prepare for this change.
-
-To maintain the connection to the Application Proxy service throughout this change, we recommend that you make sure your client-server and browser-server combinations are updated to use TLS 1.2. We also recommend that you make sure to include any client systems used by your employees to access apps published through the Application Proxy service.
-
-For more information, see [Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
-
----
 
 
 
