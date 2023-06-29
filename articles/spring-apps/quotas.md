@@ -1,7 +1,7 @@
 ---
 title: Service plans and quotas for Azure Spring Apps
 description: Learn about service quotas and service plans for Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 05/15/2023

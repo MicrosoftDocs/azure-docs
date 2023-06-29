@@ -2,7 +2,7 @@
 title: "How to monitor Spring Boot apps using New Relic Java agent"
 titleSuffix: Azure Spring Apps
 description: Learn how to monitor Spring Boot applications using the New Relic Java agent.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
