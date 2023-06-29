@@ -25,7 +25,7 @@ To leverage this functionality, please ensure the following:
  - Ensure you have the Owner or Contributer role assigned.
 
 Authenticating with Azure AD credentials has additional requirements:
- - `aadsshlogin` and `aadsshlogin-selinux` (as appropriate) must be installed on the Arc-enabled server. These packages are installed with the AADSSHLoginForLinux VM extension. 
+ - `aadsshlogin` and `aadsshlogin-selinux` (as appropriate) must be installed on the Arc-enabled server. These packages are installed with the `Azure AD based SSH Login – Azure Arc` VM extension. 
  - Configure role assignments for the VM.  Two Azure roles are used to authorize VM login:
    - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
    - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
@@ -55,13 +55,10 @@ If the RP hasn't been registered, run the following:
 
 This operation can take 2-5 minutes to complete.  Before moving on, check that the RP has been registered.
 
-> [!NOTE]
-> The following step will not need to be run for most users as it should complete automatically at first connection.
-
 ### Create default connectivity endpoint
 > [!NOTE]
-> The following actions must be completed for each Arc-enabled server.
-
+> The following step will not need to be run for most users as it should complete automatically at first connection.
+> This step must be completed for each Arc-enabled server.
 
 #### [Create the default endpoint with Azure CLI:](#tab/azure-cli)
 ```bash
@@ -124,6 +121,9 @@ In order to use the SSH connect feature, you must update the Service Configurati
 ---
 
 If you're using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
+
+### Optional: Install AAD login extension
+The `Azure AD based SSH Login – Azure Arc` VM extension can be added from the extensions menu of the Arc server. The AAD login extension can also be installed locally via a package manager via: `apt-get install aadsshlogin`.
 
 ## Examples
 To view examples, view the Az CLI documentation page for [az ssh](/cli/azure/ssh) or the Azure PowerShell documentation page for [Az.Ssh](/powershell/module/az.ssh).
