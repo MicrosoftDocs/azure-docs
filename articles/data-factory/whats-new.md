@@ -28,7 +28,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ### Data Factory in Microsoft Fabric
 
-[Data factory in Microsoft Fabric](https://learn.microsoft.com/fabric/data-factory/) provides cloud-scale data movement and data transformation services that allow you to solve the most complex data factory and ETL scenarios. It's intended to make your data factory experience easy to use, powerful, and truly enterprise-grade.
+[Data factory in Microsoft Fabric](/fabric/data-factory/) provides cloud-scale data movement and data transformation services that allow you to solve the most complex data factory and ETL scenarios. It's intended to make your data factory experience easy to use, powerful, and truly enterprise-grade.
 
 ## April 2023
 
