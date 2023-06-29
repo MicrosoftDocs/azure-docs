@@ -65,7 +65,7 @@ When you are done creating the resource in the Azure portal, return to the QnA M
 
 1. Add the answer formatted with _markdown_:
 
-    ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
+    ` * Azure AI QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Add the question as text and the answer formatted with markdown.":::
 
@@ -115,7 +115,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     ![Screenshot of creating a bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service. The bot and QnA Maker can share the web app service plan, but can't share the web app. This means the **app name** for the bot must be different from the app name for the QnA Maker service.
+1. A new browser tab opens for the Azure portal, with the Azure AI Bot Service's creation page. Configure the Azure AI Bot Service. The bot and QnA Maker can share the web app service plan, but can't share the web app. This means the **app name** for the bot must be different from the app name for the QnA Maker service.
 
     * **Do**
         * Change bot handle - if it is not unique.

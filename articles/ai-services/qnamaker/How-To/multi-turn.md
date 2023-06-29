@@ -40,7 +40,7 @@ When the user selects an option (#3), the next list of refining options (#4) is 
 
 ### Use multi-turn in a bot
 
-After publishing your KB, you can select the **Create Bot** button to deploy your QnA Maker bot to Azure Bot service. The prompts will appear in the chat clients that you have enabled for your bot.
+After publishing your KB, you can select the **Create Bot** button to deploy your QnA Maker bot to Azure AI Bot Service. The prompts will appear in the chat clients that you have enabled for your bot.
 
 ## Create a multi-turn conversation from a document's structure
 

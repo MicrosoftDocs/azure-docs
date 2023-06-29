@@ -59,7 +59,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
    ![Resource created a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
 
-    The resource with the _Cognitive Services_ type has your _subscription_ keys.
+    The resource with the _Azure AI services_ type has your _subscription_ keys.
 
 ## Upgrade Azure resources
 

@@ -11,7 +11,7 @@
   - name: What's new
     href: whats-new.md
   - name: Migrate to custom question answering
-    href: ../language-service/question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
+    href: ../language-service/question-answering/how-to/migrate-qnamaker.md?context=/azure/ai-services/qnamaker/context/context
 - name: Quickstarts
   items:
   - name: Create and Query Knowledgebase
@@ -27,13 +27,13 @@
   - name: Transparency notes
     items:
     - name: Use cases for QnA Maker
-      href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+      href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/ai-services/qnamaker/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+      href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/ai-services/qnamaker/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/ai-services/qnamaker/context/context
   - name: Data, privacy and security
-    href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/ai-services/qnamaker/context/context
 - name: How-to guides
   items:
   - name: Manage QnA Maker resources
@@ -88,11 +88,11 @@
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/qnamaker/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
-      href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../authentication.md?context=/azure/ai-services/qnamaker/context/context
 - name: Concepts
   items:
   - name: Plan your knowledge base
@@ -120,22 +120,22 @@
     href: choose-natural-language-processing-service.md
 - name: Tutorials
   items:
-  - name: Create FAQ Bot with Azure Bot Service
+  - name: Create FAQ Bot with Azure AI Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
   - name: Integrate with Power Virtual Agents
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Customize your FAQ bot
     items:
     - name: Create guided conversations with multi-turn prompts
-      href: ../language-service/question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/question-answering/tutorials/guided-conversations.md?context=/azure/ai-services/qnamaker/context/context
     - name: Add multiple domains to bot
-      href: ../language-service/question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/question-answering/tutorials/multiple-domains.md?context=/azure/ai-services/qnamaker/context/context
     - name: Enhance knowledge bases with active learning
-      href: ../language-service/question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/question-answering/tutorials/active-learning.md?context=/azure/ai-services/qnamaker/context/context
     - name: Add synonyms to improve relevance
-      href: ../language-service/question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/question-answering/tutorials/adding-synonyms.md?context=/azure/ai-services/qnamaker/context/context
     - name: Add knowledge bases in multiple languages
-      href: ../language-service/question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language-service/question-answering/tutorials/multiple-languages.md?context=/azure/ai-services/qnamaker/context/context
 - name: Reference
   items:
   - name: REST API
@@ -216,7 +216,7 @@
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
+    href: ../cognitive-services-support-options.md?context=/azure/ai-services/qnamaker/context/context
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Search

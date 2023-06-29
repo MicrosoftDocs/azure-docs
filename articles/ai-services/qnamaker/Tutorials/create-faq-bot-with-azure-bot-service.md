@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create an FAQ bot with Azure Bot Service"
-description: In this tutorial, create a no code FAQ Bot with QnA Maker and Azure Bot Service.
+title: "Tutorial: Create an FAQ bot with Azure AI Bot Service"
+description: In this tutorial, create a no code FAQ Bot with QnA Maker and Azure AI Bot Service.
 ms.service: cognitive-services
 manager: nitinme
 ms.author: jboback
@@ -11,14 +11,14 @@ ms.date: 08/31/2020
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Create a FAQ bot with Azure Bot Service
+# Tutorial: Create a FAQ bot with Azure AI Bot Service
 Create an FAQ Bot with QnA Maker and Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) with no code.
 
 In this tutorial, you learn how to:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Link a QnA Maker knowledge base to an Azure Bot Service
+> * Link a QnA Maker knowledge base to an Azure AI Bot Service
 > * Deploy the Bot
 > * Chat with the Bot in web chat
 > * Light up the Bot in the supported channels
@@ -47,7 +47,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
     > [!div class="mx-imgBorder"]
     > ![Screenshot of creating a bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service. The bot and QnA Maker can share the web app service plan, but can't share the web app. This means the **app name** for the bot must be different from the app name for the QnA Maker service.
+1. A new browser tab opens for the Azure portal, with the Azure AI Bot Service's creation page. Configure the Azure AI Bot Service. The bot and QnA Maker can share the web app service plan, but can't share the web app. This means the **app name** for the bot must be different from the app name for the QnA Maker service.
 
     * **Do**
         * Change bot handle - if it is not unique.

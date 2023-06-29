@@ -1,7 +1,7 @@
 ---
 title: QnA Maker encryption of data at rest
-titleSuffix: Azure Cognitive Services
-description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for QnA Maker, and how to enable and manage CMK.
+titleSuffix: Azure AI services
+description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Azure AI services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for QnA Maker, and how to enable and manage CMK.
 author: erindormier
 manager: nitinme
 ms.service: cognitive-services

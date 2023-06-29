@@ -104,7 +104,7 @@ Knowledge base authoring supports several role-based access permissions you appl
 
 Integration with client applications is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific knowledge base with an SDK or REST-based request to your QnA Maker's web app endpoint.
 
-To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure Bot Service, configure these settings as part of the bot configuration in the Azure portal.
+To authenticate a client request correctly, the client application must send the correct credentials and knowledge base ID. If you're using an Azure AI Bot Service, configure these settings as part of the bot configuration in the Azure portal.
 
 ### Conversation flow in a client application
 

@@ -1,6 +1,6 @@
 ---
 title: Confidence score - QnA Maker
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score.
 services: cognitive-services
 manager: nitinme

@@ -94,7 +94,7 @@ landingContent:
       - linkListType: get-started
         links:
 
-          - text: "Portal: Create an Azure Bot service bot"
+          - text: "Portal: Create an Azure AI Bot Service bot"
             url: ./quickstarts/create-publish-knowledge-base.md#create-a-bot
           - text: "Power apps: Create a QnA Maker powered bot"
             url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
@@ -125,6 +125,6 @@ landingContent:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/qnamaker/context/context
         - text: Troubleshooting
           url: troubleshooting.md
