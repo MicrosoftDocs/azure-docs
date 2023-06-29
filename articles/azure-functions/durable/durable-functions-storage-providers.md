@@ -195,7 +195,7 @@ There are many significant tradeoffs between the various supported storage provi
 | Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported |
-| Identity-based connections | ✅ Yes (preview) |❌ No | ⚠️ Requires runtime-driven scaling |
+| Identity-based connections | ✅ Fully supported |❌ No | ⚠️ Requires runtime-driven scaling |
 
 ## Next steps
 
