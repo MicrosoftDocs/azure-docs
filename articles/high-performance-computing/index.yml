@@ -38,9 +38,13 @@ highlightedContent:
       itemType: learn
       url: /training/paths/run-high-performance-computing-applications-azure/
     # Card
-    - title: Azure HPC Blog
+    - title: Azure HPC Technical Blog
       itemType: whats-new
       url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+    # Card
+    - title: Azure.com Blogs
+      itemType: thought leadership
+      url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
 # Azure Services
 productDirectory:
@@ -101,11 +105,11 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-      #title: # < 60 chars (optional)
+      #title: HPC Documentation # < 60 chars (optional)
       #summary: # < 160 chars (optional)
     - items:
         # Card
-        - title: Compute
+        - title: HPC Compute
           links:
             - url: ../virtual-machines/sizes-hpc.md
               itemType: concept
@@ -116,9 +120,19 @@ conceptualContent:
             - url: ../virtual-machines/hx-series.md
               itemType: concept
               text: Memory Optimized VMs
+            - url: ../virtual-machines/whats-new.md
+              itemType: whats-new
+              text: What is new for Azure VMs             
             - url: ../virtual-machines/configure.md#ubuntu-hpc-vm-images
               itemType: concept
-              text: HPC VM Images      
+              text: HPC VM Images
+            - url: ../virtual-machines/extensions/enable-infiniband.md
+              itemType: concept
+              text: Enable Infiniband
+            - url: /azure/expressroute/
+              itemType: overview
+              text: Azure ExpressRoute
+              
         # Card
         - title: Storage
           links:
@@ -150,6 +164,13 @@ conceptualContent:
             - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
               itemType: overview
               text: Cloud Adoption Framework
+            - url: /azure/architecture/guide/hpc/hpc-deployments/
+              itemType: overview
+              text: HPC Deployments
+            - url: /azure/architecture/browse/?terms=HPC
+              itemType: overview
+              text: HPC Architectures
+                    
 
 
 # Video Playlists and other links
