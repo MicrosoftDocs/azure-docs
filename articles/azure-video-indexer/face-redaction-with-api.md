@@ -114,7 +114,7 @@ To retrieve the Face ID, you can go to the indexed video and retrieve the [artif
 To create a Redactor job, you can invoke the following API call: 
 
 ```json
-POST https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/redact[?name][&priority][&privacy][&externalId][&streamingPreset][&callbackUrl][&accessToken] 
+POST https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/redact[?name][&priority][&privacy][&externalId][&streamingPreset][&callbackUrl][&accessToken]
 ```
 
 The following values are mandatory: 
@@ -152,7 +152,7 @@ When successful you receive an HTTP 202 ACCEPTED
 In the response of the job creation request you receive an HTTP header `Location` with a URL to the job. You can perform a GET request to this url with the same token to see the status of the redaction job. An example url would be: 
 
 ```
-https://api.videoindexer.ai/westeurope/Accounts/<accountid>/Jobs/<jobid>
+https://api.videoindexer.ai/westeurope/Accounts/<id>/Jobs/<id>
 ``` 
 
 Response 
@@ -170,7 +170,7 @@ Response
 Calling the same url once the redaction job has completed you get a Storage SAS url to the redacted video again in the `Location` header. For instance: 
 
 ```
-https://api.videoindexer.ai/westeurope/Accounts/<accountid>/Videos/<videoid>/SourceFile/DownloadUrl 
+https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/SourceFile/DownloadUrl 
 ```
 
 This will redirect to the mp4 stored on the Azure Storage Account connected to the Media Services account. 
@@ -180,13 +180,13 @@ This will redirect to the mp4 stored on the Azure Storage Account connected to t
 |Question|Answer|
 |---|---|
 |Can I upload a video and redact in one operation? |No, you need to first upload and analyze a video using the Index Video API and reference the indexed video in your redaction job.|
-|Can I use the [Azure Video Indexer website](https://www.videoindexer.ai/) to redact a video? |No, Currently you can only use the API to create Redaction jobs.|
+|Can I use the [Azure Video Indexer website](https://www.videoindexer.ai/) to redact a video? |No, Currently you can only use the API to create redaction jobs.|
 |Can I play back the redacted video using the Video Indexer [website](https://www.videoindexer.ai/)?|Yes, the redacted video is visible in the Video Indexer like any other indexed video, however it doesn't contain any insights. |
 |How do I delete a redacted video? |You can use the [Delete Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) API and provide the `Videoid` of the redacted video. |
 |Do I need to pass Facial Identification gating to use Redactor? |Unless you're a US Police Department, no, even when you’re gated we continue to offer Face Detection. We don't offer Face Identification when gated. You can however redact all faces in a video with just the Face Detection. |
 |Not all faces are properly redacted. What can I do? |Redaction relies on the initial Face Detection and tracking output of the Analysis pipeline. While we detect all faces most of the time there can be circumstances where we haven't detected a face. This can have several reasons like face angle, number of frames the face was present and quality of the source video. See our [Face insights](face-detection.md) documentation for more information. |
 |Can I redact other objects than faces? |No, currently we only have face redaction. If you have the need for other objects, provide feedback to our product in the [Azure User Voice](https://feedback.azure.com/d365community/forum/8952b9e3-e03b-ec11-8c62-00224825aadf) channel. |
-<!--|How Long is a SAS URL valid to download the Redacted Video? |The SAS URL is valid for xxxx. To download the redacted video after the SAS url expired, you need to call the initial Job status URL. It's best to keep these `Jobstatus` URLs in a database in your backend for future reference. |-->
+|How Long is a SAS URL valid to download the redacted video? |<!--The SAS URL is valid for xxxx. -->To download the redacted video after the SAS url expired, you need to call the initial Job status URL. It's best to keep these `Jobstatus` URLs in a database in your backend for future reference. |
 
 ## Error codes 
 
