@@ -17,7 +17,7 @@ Before you begin an in-place upgrade:
 
 - Review the upgrade requirements for the target operating system:
 
-   - Upgrade options for Windows Server 2012 from Windows Server 2008 or Windows Server 2008 R2
+   - Upgrade options for Windows Server 2012 from Windows Server 2008 (64-bit) or Windows Server 2008 R2
 
    - Upgrade options for Windows Server 2016 from Windows Server 2012 or Windows Server 2012 R2
    
