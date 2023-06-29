@@ -4,6 +4,7 @@ description: Configure NAT gateway for Azure Container Instances workloads that 
 author: tomvcassidy
 ms.topic: how-to
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.author: tomcassidy
 ms.date: 05/03/2022

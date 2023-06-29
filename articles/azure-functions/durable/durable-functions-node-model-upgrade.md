@@ -5,6 +5,7 @@ author: hossam-nasr
 ms.service: azure-functions
 ms.date: 04/06/2023
 ms.devlang: javascript, typescript
+ms.custom: devx-track-extended-java, devx-track-js
 ms.author: azfuncdf
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-functions-nodejs

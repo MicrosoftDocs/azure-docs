@@ -3,6 +3,7 @@ title: Quickstart - Install software for a distributed non-HA SAP system with Az
 description: Learn how to  install software for a distributed non-HA SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 05/04/2023
 ms.author: sagarkeswani
@@ -57,4 +58,3 @@ New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Na
 In this quickstart, you installed SAP software on the deployed infrastructure in Azure for an SAP system using Azure Center for SAP solutions. Continue to the next article to learn how to Manage your SAP system on Azure using [Virtual Instance for SAP solutions]()
 > [!div class="nextstepaction"]
 > [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)
-

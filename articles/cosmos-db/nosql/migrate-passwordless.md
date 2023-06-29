@@ -8,7 +8,7 @@ ms.reviewer: randolphwest
 ms.date: 06/01/2023
 ms.service: cosmos-db
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli
 ---
 
 # Migrate an application to use passwordless connections with Azure Cosmos DB for NoSQL

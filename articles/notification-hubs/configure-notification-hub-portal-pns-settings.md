@@ -11,7 +11,7 @@ ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.custom: mode-ui
+ms.custom: mode-ui, devx-track-azurecli
 ---
 
 # Quickstart: Set up push notifications in a notification hub
