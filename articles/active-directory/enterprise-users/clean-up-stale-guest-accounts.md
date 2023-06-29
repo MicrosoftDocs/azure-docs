@@ -4,7 +4,7 @@ description: Monitor and Clean up stale guest accounts using access reviews
 services: active-directory 
 author: billmath
 ms.author: billmath
-manager: martinco
+manager: amycolannino
 ms.date: 06/29/2023
 ms.reviewer: gasinh
 ms.topic: how-to
