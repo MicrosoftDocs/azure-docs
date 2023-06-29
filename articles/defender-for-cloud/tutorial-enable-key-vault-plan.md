@@ -40,10 +40,6 @@ Microsoft Defender for Key Vault detects unusual and potentially harmful attempt
 
 1. Select **Save**.
 
-## Clean up resources
-
-There's no need to clean up any resources for this tutorial.
-
 ## Next steps
 
 [Overview of Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md)
