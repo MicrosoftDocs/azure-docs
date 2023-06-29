@@ -14,27 +14,6 @@ For general information, see [SSH access to Arc-enabled servers overview](./ssh-
 
 These issues are due to errors that occur on the machine that the user is connecting from.
 
-### Incorrect Azure subscription
-
-This problem occurs when the active subscription for Azure CLI isn't the same as the server that is being connected to. Possible errors:
-
-- `Unable to determine the target machine type as Azure VM or Arc Server`
-- `Unable to determine that the target machine is an Arc Server`
-- `Unable to determine that the target machine is an Azure VM`
-- `The resource \<name\> in the resource group \<resource group\> was not found`
-
-Resolution:
-
-#### [Azure CLI](#tab/azure-cli)
-
-- Run ```az account set -s <AzureSubscriptionId>``` where `AzureSubscriptionId` corresponds to the subscription that contains the target resource.
-
-#### [Azure PowerShell](#tab/azure-powershell)
-
-- Run ```Set-AzContext -Subscription <AzureSubscriptionId>``` where `AzureSubscriptionId` corresponds to the subscription that contains the target resource.
-
----
-
 ### Unable to locate client binaries
 
 This issue occurs when the client side SSH binaries required to connect aren't found. Possible errors:
@@ -48,10 +27,11 @@ This issue occurs when the client side SSH binaries required to connect aren't f
 Resolution:
 
 - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
-- Ensure that the folder is tin the PATH environment variable for Azure PowerShell
+- Ensure that the folder is in the PATH environment variable for Azure PowerShell
 
 ### Azure PowerShell module version mis-match 
 This issue occurs when the installed Azure PowerShell sub-module, Az.Ssh.ArcProxy, is not supported by the installed version of Az.Ssh. Error:
+
 - `This version of Az.Ssh only supports version 1.x.x of the Az.Ssh.ArcProxy PowerShell Module. The Az.Ssh.ArcProxy module {ModulePath} version is {ModuleVersion}, and it is not supported by this version of the Az.Ssh module. Check that this version of Az.Ssh is the latest available.`
 
 Resolution:
@@ -59,11 +39,23 @@ Resolution:
 - Update the Az.Ssh and Az.Ssh.ArcProxy modules
 
 ### Az.Ssh.ArcProxy not installed
-This issue occurs when the proxy module is not found on the client machine.
+This issue occurs when the proxy module is not found on the client machine. Error:
+
+- `Failed to find the PowerShell module Az.Ssh.ArcProxy installed in this machine. You must have the Az.Ssh.Proxy PowerShell module installed in the client machine in order to connect to Azure Arc resources. You can find the module in the PowerShell Gallery (see: https://aka.ms/PowerShellGallery-Az.Ssh.ArcProxy).`
 
 Resolution:
 
 - Install the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Ssh.ArcProxy): `Install-Module -Name Az.Ssh.ArcProxy`
+
+### User does not have permissions to execute proxy
+This issue happends when the user does not have permissions to execute the SSH proxy that is used to connect.  Errors:
+
+- `/bin/bash: line 1: exec: /usr/local/share/powershell/Modules/Az.Ssh.ArcProxy/1.0.0/sshProxy_linux_amd64_1.3.022941: cannot execute: Permission denied`
+- `CreateProcessW failed error:5 posix_spawnp: Input/output error`
+
+Resolution:
+
+- Ensure that the user has permissions to execute the proxy file.
 
 ## Server-side issues
 
@@ -101,8 +93,7 @@ This issue occurs when the current user doesn't have the proper role assignment 
 - `Client is not authorized to create a Default connectivity endpoint for {Name} in the Resource Group {ResourceGroupName}. This is a one-time operation that must be performed by an account with Owner or Contributor role to allow connections to target resource`
 
 Resolution:
-- Ensure that you have Contributor or Owner permissions on the resource you're connecting to.
-- If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles and that the AAD SSH Login extension is installed on the Arc-Enabled Server.
+- Ensure that you have the Virtual Machine Local user Login role on the resource you're connecting to. If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles and that the AAD SSH Login extension is installed on the Arc-Enabled Server.
 
 ### HybridConnectivity RP not registered
 
