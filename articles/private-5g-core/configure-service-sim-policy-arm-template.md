@@ -53,7 +53,7 @@ Two Azure resources are defined in the template.
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
     - **Region:** select the region in which you deployed the private mobile network.
-    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network. For the East US region, this is *eastus*; for West Europe, this is *westeurope*.
+    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **Existing Slice Name:** enter the name of the Slice resource representing your network slice.
     - **Existing Data Network Name:** enter the name of the data network. This value must match the name you used when creating the data network.

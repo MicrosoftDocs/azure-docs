@@ -9,7 +9,7 @@ ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.custom: devx-track-java, devx-track-js
+ms.custom: devx-track-java
 ms.author: rwaller
 ---
 

@@ -99,7 +99,7 @@ If the majority of your data comes from one of these following tables:
 - KubeServices
 - KubeEvents
 
-You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the Prometheus metrics addon (../essentials/prometheus-metrics-overview.md)
+You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the [Prometheus metrics addon](container-insights-prometheus.md)
 
 Otherwise, the majority of your data belongs to the ContainerLog table. and you can follow the steps below to reduce your ContainerLog costs.
 

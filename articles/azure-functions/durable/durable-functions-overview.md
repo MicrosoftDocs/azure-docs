@@ -518,7 +518,7 @@ public static async Task Run(
         if (jobStatus == "Completed")
         {
             // Perform an action when a condition is met.
-            await context.CallActivityAsync("SendAlert", machineId);
+            await context.CallActivityAsync("SendAlert", jobId);
             break;
         }
 
@@ -547,7 +547,7 @@ public static async Task Run(
         if (jobStatus == "Completed")
         {
             // Perform an action when a condition is met.
-            await context.CallActivityAsync("SendAlert", machineId);
+            await context.CallActivityAsync("SendAlert", jobId);
             break;
         }
 
@@ -575,7 +575,7 @@ module.exports = df.orchestrator(function*(context) {
         const jobStatus = yield context.df.callActivity("GetJobStatus", jobId);
         if (jobStatus === "Completed") {
             // Perform an action when a condition is met.
-            yield context.df.callActivity("SendAlert", machineId);
+            yield context.df.callActivity("SendAlert", jobId);
             break;
         }
 

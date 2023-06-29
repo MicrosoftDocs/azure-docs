@@ -3,7 +3,7 @@ title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/04/2022
+ms.date: 04/26/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -23,7 +23,7 @@ There are several different ways to install and run Azurite on your local system
 
 ### [Visual Studio](#tab/visual-studio)
 
-Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you're running an earlier version of Visual Studio, you can install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
+Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). The Azurite executable is updated as part of Visual Studio new version releases. If you're running an earlier version of Visual Studio, you can install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -105,14 +105,18 @@ To learn more about configuring **Azure Functions** projects and **ASP.NET** pro
 - [Running Azurite from an Azure Functions project](#running-azurite-from-an-azure-functions-project)
 - [Running Azurite from an ASP.NET project](#running-azurite-from-an-aspnet-project)
 
-#### Running Azurite from the command line
+#### Azurite executable file location
 
-You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location varies based on which version of Visual Studio is installed. The following table shows the location of the Azurite executable for different versions of Visual Studio running on a Windows machine:
+The following table shows the location of the Azurite executable for different versions of Visual Studio running on a Windows machine:
 
 | Visual Studio version | Azurite executable location |
 | --- | --- |
 | Visual Studio Professional 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` |
 | Visual Studio Enterprise 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` | 
+
+#### Running Azurite from the command line
+
+You can find the Azurite executable file in the extensions folder of your Visual Studio installation, as detailed in the [Azurite executable file location table](#azurite-executable-file-location).
 
 Navigate to the appropriate location and start `azurite.exe`. After you run the executable file, Azurite listens for connections. 
 
@@ -127,9 +131,11 @@ In Visual Studio 2022, create an **Azure Functions** project. While setting the 
 
 :::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing how to set Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions.png":::
 
-After you create the project, Azurite starts automatically. The output looks similar to the following screenshot:
+After you create the project, Azurite starts automatically. The location of the Azurite executable file is detailed in the [Azurite executable file location table](#azurite-executable-file-location). The output looks similar to the following screenshot:
 
 :::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-output.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions-output.png":::
+
+This configuration option can be changed later by modifying the project's **Connected Services** dependencies.
 
 #### Running Azurite from an ASP.NET project
 
@@ -141,9 +147,11 @@ In the **Configure Storage Azurite emulator** dialog box, set the **Connection s
 
 :::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connection-string.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connection-string.png":::
 
-When the configuration completes, select **Close**, and the Azurite emulator starts automatically. The output looks similar to the following screenshot:
+When the configuration completes, select **Close**, and the Azurite emulator starts automatically. The location of the Azurite executable file is detailed in the [Azurite executable file location table](#azurite-executable-file-location). The output looks similar to the following screenshot:
 
 :::image type="content" source="./media/storage-use-azurite/azurite-aspnet-output.png" alt-text="A screenshot showing output after connecting an ASP.NET project to the Azurite emulator." lightbox="media/storage-use-azurite/azurite-aspnet-output.png":::
+
+This configuration option can be changed later by modifying the project's **Connected Services** dependencies.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 

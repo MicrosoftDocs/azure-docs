@@ -5,7 +5,7 @@ metadata:
   author: vicancy
   ms.service: signalr
   ms.topic: faq
-  ms.custom: devx-track-dotnet
+  ms.custom:
   ms.date: 03/21/2023
   ms.author: lianwei
 title: Azure SignalR Service FAQ

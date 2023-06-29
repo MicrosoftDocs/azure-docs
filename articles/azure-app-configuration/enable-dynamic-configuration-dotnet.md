@@ -5,11 +5,10 @@ services: azure-app-configuration
 author: mcleanbyron
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
 ms.date: 03/20/2023
 ms.author: mcleans
-
 #Customer intent: I want to dynamically update my .NET Framework app to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in a .NET Framework app

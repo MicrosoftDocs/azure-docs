@@ -26,9 +26,9 @@ The steps in this article detail the process to:
 ## Differences between using BYOIPv4 and BYOIPv6
 
 > [!IMPORTANT]
-> Onboarded custom IPv6 address prefixes are have several unique attributes which make them different than custom IPv4 address prefixes.
+> Onboarded custom IPv6 address prefixes have several unique attributes which make them different than custom IPv4 address prefixes.
 
-* Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Note that global ranges must be /48 in size, while regional ranges must always be /64 size.
+* Custom IPv6 prefixes use a "parent"/"child" model, where the global (parent) range is advertised by the Microsoft Wide Area Network (WAN) and the regional (child) range(s) are advertised by their respective region(s).  Global ranges must be /48 in size, while regional ranges must always be /64 size.
 
 * Only the global range needs to be validated using the steps detailed in the [Create Custom IP Address Prefix](create-custom-ip-address-prefix-portal.md) articles.  The regional ranges are derived from the global range in a similar manner to the way public IP prefixes are derived from custom IP prefixes.
 
@@ -39,7 +39,7 @@ The steps in this article detail the process to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - This tutorial requires version 2.37 or later of the Azure CLI (you can run az version to determine which you have). If using Azure Cloud Shell, the latest version is already installed.
 - Sign in to Azure CLI and ensure you've selected the subscription with which you want to use this feature using `az account`.
-- A customer owned IPv4 range to provision in Azure.
+- A customer owned IPv6 range to provision in Azure. A sample customer range (2a05:f500:2::/48) is used for this example, but would not be validated by Azure; you will need to replace the example range with yours.
     - A sample customer range (2a05:f500:2::/48) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
 > [!NOTE]
@@ -47,11 +47,11 @@ The steps in this article detail the process to:
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-cli.md#pre-provisioning-steps) for details.  Note that all these steps should be completed for the IPv6 global (parent) range.
+To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Refer to the [IPv4 instructions](create-custom-ip-address-prefix-cli.md#pre-provisioning-steps) for details.  Note that all these steps should be completed for the IPv6 global (parent) range.
 
 ## Provisioning for IPv6
 
-The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges.  Note that some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-cli.md) to focus on the differences between IPv4 and IPv6.
+The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges.  Some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-cli.md) to focus on the differences between IPv4 and IPv6.
 
 ### Create a resource group and specify the prefix and authorization messages
 
@@ -68,7 +68,7 @@ Create a resource group in the desired location for provisioning the global rang
 
 ### Provision a global custom IPv6 address prefix
 
-The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-authorization-message` and `-signed-message` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - CLI](create-custom-ip-address-prefix-cli.md).)  Note that no zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
+The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-authorization-message` and `-signed-message` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - CLI](create-custom-ip-address-prefix-cli.md).)   No zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
 
 ```azurecli-interactive
   byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|2a05:f500:2::/48|yyyymmdd"
@@ -129,7 +129,13 @@ az network custom-ip prefix update \
     --state commission 
 ```
 
-It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, note that this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
+> [!NOTE]
+> The estimated time to fully complete the commissioning process for a custom IPv6 global prefix is 3-4 hours.  The estimated time to fully complete the commissioning process for a custom IPv6 regional prefix is 30 minutes.
+
+It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
+
+> [!IMPORTANT]
+> As the global custom IPv6 prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
 
 ## Next steps
 

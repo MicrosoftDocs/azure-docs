@@ -3,7 +3,7 @@ title: "Box (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Box (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -57,7 +57,7 @@ To integrate with Box (using Azure Functions) make sure you have:
 
 **STEP 1 - Configuration of the Box events collection**
 
-See documentation to [setup JWT authentication](https://developer.box.com/guides/applications/custom-apps/jwt-setup/) and [obtain JSON file with credentials](https://developer.box.com/guides/authentication/jwt/with-sdk/#prerequisites).
+See documentation to [setup JWT authentication](https://developer.box.com/guides/authentication/jwt/jwt-setup/) and [obtain JSON file with credentials](https://developer.box.com/guides/authentication/jwt/with-sdk/#prerequisites).
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**

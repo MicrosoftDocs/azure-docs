@@ -1,6 +1,6 @@
 ---
-title: Profile Azure Containers with Application Insights Profiler
-description: Enable Application Insights Profiler for Azure Containers.
+title: Profile Azure containers with Application Insights Profiler
+description: Enable Application Insights Profiler for Azure containers.
 ms.contributor: charles.weininger
 ms.topic: conceptual
 ms.date: 07/15/2022
@@ -9,20 +9,21 @@ ms.reviewer: jogrima
 
 # Profile live Azure containers with Application Insights
 
-You can enable the Application Insights Profiler for ASP.NET Core application running in your container almost without code. To enable the Application Insights Profiler on your container instance, you'll need to:
+You can enable the Application Insights Profiler for ASP.NET Core application running in your container almost without code. To enable the Application Insights Profiler on your container instance, you need to:
 
 * Add the reference to the `Microsoft.ApplicationInsights.Profiler.AspNetCore` NuGet package.
 * Set the environment variables to enable it.
 
-In this article, you'll learn the various ways you can:
-- Install the NuGet package in the project. 
-- Set the environment variable via the orchestrator (like Kubernetes). 
-- Learn security considerations around production deployment, like protecting your Application Insights Instrumentation key.
+In this article, you learn about the various ways that you can:
 
-## Pre-requisites
+- Install the NuGet package in the project.
+- Set the environment variable via the orchestrator (like Kubernetes).
+- Learn security considerations around production deployment, like protecting your Application Insights instrumentation key.
+
+## Prerequisites
 
 - [An Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Make note of the instrumentation key.
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) to build docker images.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) to build Docker images.
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) installed.
 
 ## Set up the environment
@@ -33,13 +34,13 @@ In this article, you'll learn the various ways you can:
       git clone https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore.git
       ```
 
-1. Navigate to the Container App example: 
+1. Go to the Container App example:
 
    ```bash
    cd examples/EnableServiceProfilerForContainerAppNet6
    ```
 
-1. This example is a bare bone project created by calling the following CLI command:
+1. This example is a barebones project created by calling the following CLI command:
 
    ```powershell
    dotnet new mvc -n EnableServiceProfilerForContainerApp
@@ -68,8 +69,8 @@ In this article, you'll learn the various ways you can:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Enable Application Insights and Profiler:
-   
+1. Enable Application Insights and Profiler.
+
    ### [ASP.NET Core 6 and later](#tab/net-core-new)
    
    Add `builder.Services.AddApplicationInsightsTelemetry()` and `builder.Services.AddServiceProfiler()` after the `WebApplication.CreateBuilder()` method in `Program.cs`:
@@ -83,7 +84,7 @@ In this article, you'll learn the various ways you can:
 
    var app = builder.Build();
    ```   
-   
+
    ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
    
    Add `services.AddApplicationInsightsTelemetry()` and `services.AddServiceProfiler()` to the `ConfigureServices()` method in `Startup.cs`:
@@ -101,13 +102,13 @@ In this article, you'll learn the various ways you can:
 
 ## Pull the latest ASP.NET Core build/runtime images
 
-1. Navigate to the .NET Core 6.0 example directory.
+1. Go to the .NET Core 6.0 example directory:
 
    ```bash
    cd examples/EnableServiceProfilerForContainerAppNet6
    ```
 
-1. Pull the latest ASP.NET Core images
+1. Pull the latest ASP.NET Core images:
 
    ```shell
    docker pull mcr.microsoft.com/dotnet/sdk:6.0
@@ -115,13 +116,13 @@ In this article, you'll learn the various ways you can:
    ```
 
 > [!TIP]
-> Find the official images for Docker [SDK](https://hub.docker.com/_/microsoft-dotnet-sdk) and [runtime](https://hub.docker.com/_/microsoft-dotnet-aspnet).
+> Find the official images for the Docker [SDK](https://hub.docker.com/_/microsoft-dotnet-sdk) and [runtime](https://hub.docker.com/_/microsoft-dotnet-aspnet).
 
 ## Add your Application Insights key
 
 1. Via your Application Insights resource in the Azure portal, take note of your Application Insights instrumentation key.
 
-   :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Screenshot of finding instrumentation key in Azure portal.":::
+   :::image type="content" source="./media/profiler-containerinstances/application-insights-key.png" alt-text="Screenshot that shows finding the instrumentation key in the Azure portal.":::
 
 1. Open `appsettings.json` and add your Application Insights instrumentation key to this code section:
 
@@ -136,7 +137,7 @@ In this article, you'll learn the various ways you can:
 
 ## Build and run the Docker image
 
-1. Review the `Dockerfile`.
+1. Review the Docker file.
 
 1. Build the example image:
 
@@ -152,15 +153,14 @@ In this article, you'll learn the various ways you can:
 
 ## View the container via your browser
 
-To hit the endpoint, either:
+To hit the endpoint, you have two options:
 
-- Visit `http://localhost:8080/weatherforecast` in your browser, or
+- Visit `http://localhost:8080/weatherforecast` in your browser.
 - Use curl:
    
   ```terraform
   curl http://localhost:8080/weatherforecast
   ```
-
 
 ## Inspect the logs
 
@@ -181,13 +181,11 @@ Service Profiler session finished.              # A profiling session is complet
 
 ## View the Service Profiler traces
 
-1. Wait for 2-5 minutes so the events can be aggregated to Application Insights.
-1. Open the **Performance** pane in your Application Insights resource. 
-1. Once the trace process is complete, you'll see the Profiler Traces button like it below:
+1. Wait for 2 to 5 minutes so that the events can be aggregated to Application Insights.
+1. Open the **Performance** pane in your Application Insights resource.
+1. After the trace process is finished, the **Profiler Traces** button appears.
 
-      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot of Profile traces in the performance pane.":::
-
-
+      :::image type="content" source="./media/profiler-containerinstances/profiler-traces.png" alt-text="Screenshot that shows the Profiler traces button in the Performance pane.":::
 
 ## Clean up resources
 
@@ -197,7 +195,7 @@ Run the following command to stop the example project:
 docker rm -f testapp
 ```
 
-## Next Steps
-Learn how to...
+## Next steps
+
 > [!div class="nextstepaction"]
 > [Generate load and view Profiler traces](./profiler-data.md)

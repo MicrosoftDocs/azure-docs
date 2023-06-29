@@ -4,7 +4,7 @@ description: Sign in Azure AD users by using the Microsoft identity platform's i
 author: OwenRichards1
 manager: CelesteDG
 ms.custom: aaddev, identityplatformtop40
-ms.date: 02/14/2023
+ms.date: 05/30/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.service: active-directory
@@ -133,7 +133,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | `tenant` | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](active-directory-v2-protocols.md#endpoints). Critically, for guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to correctly sign them into the resource tenant.|
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
-| `response_type` | Required | Must include `code` for OpenID Connect sign-in. |
+| `response_type` | Required | Must include `id_token` for OpenID Connect sign-in. |
 | `redirect_uri` | Recommended | The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL-encoded. If not present, the endpoint will pick one registered `redirect_uri` at random to send the user back to. |
 | `scope` | Required | A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the **Sign you in** permission in the consent UI. You might also include other scopes in this request for requesting consent. |
 | `nonce` | Required | A value generated and sent by your app in its request for an ID token. The same `nonce` value is included in the ID token returned to your app by the Microsoft identity platform. To mitigate token replay attacks, your app should verify the `nonce` value in the ID token is the same value it sent when requesting the token. The value is typically a unique, random string. |
@@ -161,7 +161,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Description |
 | --- | --- |
-| `id_token` | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [ID token reference](id-tokens.md). |
+| `id_token` | The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more information about ID tokens and their contents, see the [ID token reference](id-token-claims-reference.md). |
 | `state` | If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
@@ -210,7 +210,7 @@ If you validate ID tokens in your application, we recommend *not* doing so manua
 
 ### What to validate in an ID token
 
-In addition to validating ID token's signature, you should validate several of its claims as described in [Validating an ID token](id-tokens.md#validating-an-id-token) in the [ID token reference](id-tokens.md). Also see [Important information about signing key-rollover](active-directory-signing-key-rollover.md).
+In addition to validating ID token's signature, you should validate several of its claims as described in [Validating an ID token](id-tokens.md#validate-tokens). Also see [Important information about signing key-rollover](active-directory-signing-key-rollover.md).
 
 Several other validations are common and vary by application scenario, including:
 
@@ -280,7 +280,7 @@ Response parameters mean the same thing regardless of the flow used to acquire t
 | `token_type` | Always "Bearer" |
 | `expires_in`| How long until the access token expires, in seconds. |
 | `scope` | The permissions granted on the access token. Because the UserInfo endpoint is hosted on Microsoft Graph, it's possible for `scope` to contain others previously granted to the application (for example, `User.Read`). |
-| `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [ID token reference](id-tokens.md). |
+| `id_token` | The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [ID token reference](id-token-claims-reference.md). |
 | `state` | If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 [!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
@@ -304,7 +304,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](id-tokens.md#validating-an-id-token). To get access tokens, follow the steps described in [OAuth code flow documentation](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
+When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token as described in the [validate tokens](id-tokens.md#validate-tokens). To get access tokens, follow the steps described in [OAuth code flow documentation](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
 
 ### Calling the UserInfo endpoint
 

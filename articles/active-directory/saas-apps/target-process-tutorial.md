@@ -114,17 +114,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure TargetProcess SSO
-
-1. To automate the configuration within **TargetProcess**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![image](./media/target-process-tutorial/install-extension.png)
-
-1. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 3-7.
-
-	![Setup configuration](common/setup-sso.png)
-
-	**If you want to configure the application manually perform the following steps:**
-
 1. Sign-on to your TargetProcess application as an administrator.
 
 1. In the menu on the top, click **Setup**.

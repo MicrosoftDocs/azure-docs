@@ -4,7 +4,7 @@ description: Define the SAP system properties for the SAP on Azure Deployment Au
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 04/21/2023
+ms.date: 05/04/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -336,7 +336,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         |
 > | ---------------------------------- | ----------------------------------------------------------------------- | ----------- |
-> | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account for Azure Files | Optional    |
+> | `azure_files_storage_account_id`   | If provided the Azure resource ID of the storage account used for sapmnt | Optional    |
 
 ### Azure NetApp Files Support
 
@@ -403,9 +403,23 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 ## High availability configuration
 
-The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags.
+The high availability configuration for the database tier and the SCS tier is configured using the `database_high_availability` and `scs_high_availability`	flags. For Red Hat and SUSE should use the appropriate 'HA' version of the virtual machine images (RHEL-SAP-HA, sles-sap-15-sp?). 
 
-High availability configurations use Pacemaker with Azure fencing agents. The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device)
+High availability configurations use Pacemaker with Azure fencing agents. 
+
+> [!NOTE]
+> The highly available Central Services deployment requires using a shared file system for sap_mnt. This can be achieved by using Azure Files or Azure NetApp Files, using the NFS_provider attribute. The default is Azure Files. To use Azure NetApp Files, set the NFS_provider attribute to ANF.
+   
+
+### Fencing agent configuration 
+
+SDAF supports using either managed identities or service principals for fencing agents. The following section describe how to configure each option.
+
+By defining the variable 'use_msi_for_clusters' to true the fencing agent will use managed identities. This is the recommended option.
+
+If you want to use a service principal for the fencing agent set that variable to false.
+
+The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create Fencing Agent](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device)
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"

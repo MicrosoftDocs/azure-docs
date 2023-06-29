@@ -81,7 +81,7 @@ Only charge the battery pack when it is a part of the Azure Stack Edge Mini R de
 
 ![Warning Icon 8](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
-* In lieu of using the provided AC/DC power supply, this system also has the option to use a field provided Type 2590 Battery. In this case, the end user shall verify that it meets all applicable safety, transportation, environmental, and any other national/local regulations.
+* In lieu of using the provided AC/DC power supply, this system also has the option to use a field provided Type 2590 Battery. In this case, the end user shall verify that it meets all applicable safety, transportation, environmental, and any other national/regional and local regulations.
 * When operating the system with Type 2590 Battery, operate the battery within the conditions of use specified by the battery manufacturer.
 
 ![Warning Icon 9](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
@@ -129,7 +129,7 @@ The following contains regulatory information for Azure Stack Edge Mini R device
 
 The Azure Stack Edge Mini R device is designed for use with NRTL Listed (UL, CSA, ETL, etc.), and IEC/EN 60950-1 or IEC/EN 62368-1 compliant (CE marked) Information Technology equipment.
 
-In countries other than the USA and Canada, network cables (not provided with the equipment) shall not be installed with this equipment if their length is greater than 3 meters.
+In countries/regions other than the USA and Canada, network cables (not provided with the equipment) shall not be installed with this equipment if their length is greater than 3 meters.
 
 The equipment is designed to operate in the following environments:
 
@@ -221,9 +221,9 @@ The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to 
 **Netgear A6150 Specific Absorption Rate (SAR):** 0.54 W/kg averaged over 10g of tissue
 
  
-This device may operate in all member states of the EU. Observe national and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries:  
+This device may operate in all member states of the EU. Observe national/regional and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries/regions:  
 
-![EU countries that require indoor use only](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
+![EU countries/regions that require indoor use only](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
 
 In accordance with Article 10.8(a) and 10.8(b) of the RED, the following table provides information on the frequency bands used and the maximum RF transmit power of Netgear wireless products for sale in the EU:
 

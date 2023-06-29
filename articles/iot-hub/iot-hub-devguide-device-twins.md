@@ -352,7 +352,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * The [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) article describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
-* The [IoT Hub MQTT support](iot-hub-mqtt-support.md) article provides more information about IoT Hub support for the MQTT protocol.
+* The [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) article provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 

@@ -13,7 +13,9 @@ ms.date: 11/30/2021
 
 # Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
-[! INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 
@@ -66,6 +68,30 @@ az postgres flexible-server restore \
 ```
 
 Time taken to restore will depend on the size of the data stored in the server.
+
+## Geo-Restore a server from geo-backup to a new server
+
+You can run the following command to restore a server to an earliest existing backup.
+
+**Usage**
+```azurecli
+az postgres flexible-server geo-restore --source-server
+                                 --location
+                                 [--name]
+                                 [--no-wait]
+                                 [--resource-group]
+                                 [--subscription]
+                                 
+```
+**Example:** To perform a geo-restore of a source server 'mydemoserver' which is located in region East US to a new server 'mydemoserver-restored' in it’s geo-paired location West US with the same network setting you can run following command.
+
+```azurecli
+az postgres flexible-server geo-restore \
+--name mydemoserver-restored \
+--resource-group myresourcegroup \
+--location "West US" \
+--source-server mydemoserver
+```
 
 ## Perform post-restore tasks
 After the restore is completed, you should perform the following tasks to get your users and applications back up and running:

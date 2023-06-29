@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 06/23/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
@@ -27,8 +27,9 @@ Use a Managed IR if:
 - You are planning to scan any of the [supported data sources](catalog-managed-vnet.md#supported-data-sources) by Managed IR.
 
 Use a self-hosted integration runtime if:
-- You are planning to scan any Azure IaaS, SaaS on-premises data sources.
+- You are planning to scan data sources in Azure IaaS, SaaS services behind private network or in your on-premises network.
 - Managed VNet is not available in the region where your Microsoft Purview account is deployed.
+- You are planning to scan any sources that are not listed under [Managed VNet IR supported sources](catalog-managed-vnet.md#supported-data-sources). 
 
 ### Can I use both self-hosted integration runtime and Managed IR inside a Microsoft Purview account?
 
@@ -166,6 +167,10 @@ If you're connecting from a VM behind a hybrid network or using a jump machine c
 1. Verify your cross-premises DNS configuration if you use your own DNS resolution infrastructure.
 
 For more information about DNS settings for private endpoints, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+## Can I move private endpoints associated with Microsoft Purview account or its managed resources to another Azure subscription or resource group?
+
+No. Move operations for Account, Portal or Ingestion private endpoints are not supported. For more information, see [Move networking resources to new resource group or subscription](../azure-resource-manager/management/move-limitations/networking-move-limitations.md#private-endpoints).
 
 ## Next steps
 

@@ -115,6 +115,7 @@ To learn about compliance, privacy and security in Azure Video Indexer please vi
 
 You're ready to get started with Azure Video Indexer. For more information, see the following articles:
 
+- [Indexing and configuration guide](indexing-configuration-guide.md)
 - [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/)
 - [Get started with the Azure Video Indexer website](video-indexer-get-started.md).
 - [Process content with Azure Video Indexer REST API](video-indexer-use-apis.md).

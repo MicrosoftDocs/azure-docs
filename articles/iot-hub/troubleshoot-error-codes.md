@@ -55,7 +55,7 @@ For device developers, if the volume of errors is a concern, switch to the C SDK
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
 * The SAS or other security token you use isn't expired.
-* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Set up X.509 security in your Azure IoT hub](tutorial-x509-prove-possession.md).
+* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Tutorial: Create and upload certificates for testing](tutorial-x509-test-certs.md).
 * For X.509 certificate thumbprint authentication, the thumbprint of the device certificate is registered with IoT Hub.
 * The authorization credential is well formed for the protocol that you use. To learn more, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 * The authorization rule used has the permission for the operation requested.
@@ -76,7 +76,7 @@ This error typically occurs when the daily message quota for the IoT hub is exce
 * To understand how operations are counted toward the quota, such as twin queries and direct methods, see [Understand IoT Hub pricing](iot-hub-devguide-pricing.md#charges-per-operation).
 * To set up monitoring for daily quota usage, set up an alert with the metric *Total number of messages used*. For step-by-step instructions, see [Set up metrics and alerts with IoT Hub](tutorial-use-metrics-and-diags.md#set-up-metrics).
 
-This error may also be returned by a bulk import job when the number of devices registered to your IoT hub approaches or exceeds the quota limit for an IoT Hub. To learn more, see [Troubleshoot import jobs](iot-hub-bulk-identity-mgmt.md#import-troubleshooting).
+This error may also be returned by a bulk import job when the number of devices registered to your IoT hub approaches or exceeds the quota limit for an IoT hub. To learn more, see [Troubleshoot import jobs](iot-hub-bulk-identity-mgmt.md#import-troubleshooting).
 
 ## 403004 DeviceMaximumQueueDepthExceeded
 
@@ -128,7 +128,7 @@ This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-
 
 Some other possibilities include:
 
-* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-hub-mqtt-support.md#default-keep-alive-timeout), resulting in a remote idle timeout. The MQTT keep-alive setting can be different per device.
+* The device lost underlying network connectivity longer than the [MQTT keep-alive](../iot/iot-mqtt-connect-to-iot-hub.md#default-keep-alive-timeout), resulting in a remote idle timeout. The MQTT keep-alive setting can be different per device.
 * The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, this issue is caused by bugs in older versions of the Azure IoT SDK.
 * The device side application crashed.
 

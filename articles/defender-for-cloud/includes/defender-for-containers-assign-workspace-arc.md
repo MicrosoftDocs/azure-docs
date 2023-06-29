@@ -2,8 +2,8 @@
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/14/2022
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 ## Default Log Analytics workspace for Arc

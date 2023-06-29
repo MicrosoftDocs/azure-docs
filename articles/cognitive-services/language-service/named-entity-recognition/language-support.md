@@ -77,7 +77,7 @@ Use this article to learn which natural languages are supported by the NER featu
 |Mongolian|`mn`| | |
 |Nepali|`ne`| | |
 |Norwegian (Bokmal)|`no`| |`nb` also accepted|
-|Oriya|`or`| | |
+|Odia|`or`| | |
 |Pashto|`ps`| | |
 |Persian|`fa`| | |
 |Polish|`pl`| | |

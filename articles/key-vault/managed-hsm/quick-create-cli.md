@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 03/24/2023
+ms.date: 05/23/2023
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -64,6 +64,9 @@ The following example creates an HSM named **ContosoMHSM**, in the resource grou
 oid=$(az ad signed-in-user show --query id -o tsv)
 az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "eastus2" --administrators $oid --retention-days 7
 ```
+
+> [!NOTE]
+> If you are using Managed Identities as the initial admins of your Managed HSM, you should input the OID/PrincipalID of the Managed Identities after '--administrators' and not the ClientID.
 
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.

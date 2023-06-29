@@ -408,7 +408,7 @@ Formats multiple claims according to a provided localized format string. This tr
 | OutputClaim | outputClaim | string | The claim that is produced after this claims transformation has been invoked. |
 
 > [!NOTE]
-> String format maximum allowed size is 4000.
+> There is no limit to the number of input claims that you can specify, but the maximum length of the formatted string is 4000.
 
 To use the FormatLocalizedString claims transformation:
 

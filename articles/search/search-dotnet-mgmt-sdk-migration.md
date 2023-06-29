@@ -8,7 +8,7 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.devlang: csharp
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ms.topic: conceptual
 ms.date: 10/03/2022
 ---

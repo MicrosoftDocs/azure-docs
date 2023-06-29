@@ -8,6 +8,7 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3

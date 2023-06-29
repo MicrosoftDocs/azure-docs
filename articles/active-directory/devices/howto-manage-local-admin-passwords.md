@@ -93,13 +93,25 @@ To enable Windows LAPS with Azure AD, you must take actions in Azure AD and the 
    - If you're using Microsoft Intune to manage client side policies, see [Manage Windows LAPS using Microsoft Intune](/mem/intune/protect/windows-laps-policy)
    - If you're using Group Policy Objects (GPO) to manage client side policies, see [Windows LAPS Group Policy](/windows-server/identity/laps/laps-management-policy-settings#windows-laps-group-policy)
 
-## Recovering local administrator password
+## Recovering local administrator password and password metadata
 
-To view the local administrator password for a Windows device joined to Azure AD, you must be granted the *deviceLocalCredentials.Read.All* permission, and you must be assigned one of the following roles:
+To view the local administrator password for a Windows device joined to Azure AD, you must be granted the *microsoft.directory/deviceLocalCredentials/password/read* action.
 
-- [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator)
-- [Intune Service Administrator](../roles/permissions-reference.md#intune-administrator)
-- [Global Administrator](../roles/permissions-reference.md#global-administrator)
+To view the local administrator password metadata for a Windows device joined to Azure AD,  you must be granted the *microsoft.directory/deviceLocalCredentials/standard/read* action.
+
+The following built-in roles are granted these actions by default:
+
+|Built-in role|microsoft.directory/deviceLocalCredentials/standard/read and microsoft.directory/deviceLocalCredentials/password/read|microsoft.directory/deviceLocalCredentials/standard/read|
+|---|---|---|
+|[Global Administrator](../roles/permissions-reference.md#global-administrator)|Yes|Yes|
+|[Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator)|Yes|Yes|
+|[Intune Service Administrator](../roles/permissions-reference.md#intune-administrator)|Yes|Yes|
+|[Global Reader](../roles/permissions-reference.md#global-reader)|No|Yes|
+|[Helpdesk Administrator](../roles/permissions-reference.md#helpdesk-administrator)|No|Yes|
+|[Security Administrator](../roles/permissions-reference.md#security-administrator)|No|Yes|
+|[Security Reader](../roles/permissions-reference.md#security-reader)|No|Yes|
+
+Any roles not listed are granted neither action.
 
 You can also use Microsoft Graph API [Get deviceLocalCredentialInfo](/graph/api/devicelocalcredentialinfo-get?view=graph-rest-beta&preserve-view=true) to recover local administrative password. If you use the Microsoft Graph API, the password returned is in Base64 encoded value that you need to decode before using it.
 

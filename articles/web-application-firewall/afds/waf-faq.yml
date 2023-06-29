@@ -78,7 +78,7 @@ sections:
       - question: |
           Do you support same WAF features in all integrated platforms?
         answer: |
-          Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with WAF on Application Gateway. Rate limiting, geo-filtering, and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
+          Currently, ModSec CRS 3.0, CRS 3.1 and CRS 3.2 rules are only supported with WAF on Application Gateway. Rate limiting and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
 
       - question: |
           Is DDoS protection integrated with Front Door? 

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 04/19/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
-ms.custom: contperf-fy21q2, contperf-fy22q2
+ms.custom: contperf-fy21q2, contperf-fy22q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
 
 
@@ -25,6 +25,8 @@ In this article, you'll learn how to configure the way users consent to applicat
 Before an application can access your organization's data, a user must grant the application permissions to do so. Different permissions allow different levels of access. By default, all users are allowed to consent to applications for permissions that don't require administrator consent. For example, by default, a user can consent to allow an app to access their mailbox but can't consent to allow an app unfettered access to read and write to all files in your organization.
 
 To reduce the risk of malicious applications attempting to trick users into granting them access to your organization's data, we recommend that you allow user consent only for applications that have been published by a [verified publisher](../develop/publisher-verification-overview.md).
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 

@@ -37,7 +37,7 @@ Some of these features require you to install additional components to customize
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1.  Download and install [Azure PowerShell](/powershell/azure/install-az-ps).
+1.  Download and install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 2.  When you provision or reconfigure the Azure-SSIS IR with PowerShell, run `Set-AzDataFactoryV2IntegrationRuntime` with **Enterprise** as the value for the **Edition** parameter before you start the Azure-SSIS IR. Here is a sample script:
 

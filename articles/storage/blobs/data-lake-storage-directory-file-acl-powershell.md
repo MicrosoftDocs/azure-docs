@@ -48,7 +48,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## Connect to the account
 

@@ -13,24 +13,6 @@
     href: tutorial-site-to-site-portal.md
   - name: Deploy VPN gateway with DDoS protection
     href: tutorial-protect-vpn-gateway.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    items:
-    - name: Sample scripts
-      href: powershell-samples.md
-    - name: Create a VPN gateway
-      href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
-    - name: VPN gateway + P2S RADIUS
-      href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
-    - name: VPN gateway + P2S certificate authentication
-      href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
-    - name: VPN gateway + Site-to-Site
-      href: scripts/vpn-gateway-sample-site-to-site-powershell.md
-    - name: VNet-to-VNet
-      href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
-    - name: Download VPN device template
-      href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
 - name: Concepts
   items:
   - name: Work remotely
@@ -341,8 +323,6 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
-  - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure.service/#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)

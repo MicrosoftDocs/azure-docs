@@ -70,5 +70,3 @@ The *published project* is the version that's used in your chat bot or applicati
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Active learning suggestions](../tutorials/active-learning.md)

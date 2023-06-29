@@ -25,11 +25,17 @@ landingContent:
         links:
           - text: Deploy using the portal
             url: deploy-portal.md
-  - title: Onco Phenotype
+      - linkListType: how-to-guide
+        links:
+          - text: How to Use Project Health Insights with containers 
+            url: use-containers.md
+          - text: How to configure the containers 
+            url: configure-containers.md
+  - title: OncoPhenotype
     linkLists:
       - linkListType: overview
         links:
-          - text: About Onco Phenotype
+          - text: About OncoPhenotype
             url: oncophenotype/overview.md
       - linkListType: concept
         links:

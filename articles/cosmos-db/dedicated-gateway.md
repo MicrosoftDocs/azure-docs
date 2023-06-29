@@ -75,7 +75,7 @@ The dedicated gateway is available in the following sizes. The integrated cache 
 There are many different ways to provision a dedicated gateway:
 
 - [Provision a dedicated gateway using the Azure portal](how-to-configure-integrated-cache.md#provision-the-dedicated-gateway)
-- [Use Azure Cosmos DB's REST API](/rest/api/cosmos-db-resource-provider/2022-05-15/service/create#sqldedicatedgatewayservicecreate)
+- [Use Azure Cosmos DB's REST API](/rest/api/cosmos-db-resource-provider/2022-11-15/service/create#sqldedicatedgatewayservicecreate)
 - [Azure CLI](/cli/azure/cosmosdb/service?view=azure-cli-latest&preserve-view=true#az-cosmosdb-service-create)
 - [ARM template](/azure/templates/microsoft.documentdb/databaseaccounts/services?tabs=bicep)
     - Note: You cannot deprovision a dedicated gateway using ARM templates

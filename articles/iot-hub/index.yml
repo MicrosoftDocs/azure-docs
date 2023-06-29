@@ -72,12 +72,12 @@ landingContent:
    linkLists:
    - linkListType: tutorial
      links:
-     - text: Use X.509 certificates to authenticate
-       url: tutorial-x509-prove-possession.md
+     - text: Create and upload certificates for testing
+       url: tutorial-x509-test-certs.md
    - linkListType: concept
      links:
      - text: Security best practices
-       url: ../iot/iot-security-best-practices.md?context=/azure/iot-hub/rc/rc
+       url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
      - text: Control access to IoT Hub
        url: iot-hub-devguide-security.md
 

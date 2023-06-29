@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 05/01/2023
 
 ms.author: justinha
 author: justinha
-manager: martinco
+manager: amycolannino
 ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
@@ -24,6 +24,12 @@ This topic covers how to migrate MFA settings for Azure Active Directory (Azure 
 The MFA Server Migration Utility helps synchronize multifactor authentication data stored in the on-premises Azure MFA Server directly to Azure AD MFA. 
 After the authentication data is migrated to Azure AD, users can perform cloud-based MFA seamlessly without having to register again or confirm authentication methods. 
 Admins can use the MFA Server Migration Utility to target single users or groups of users for testing and controlled rollout without having to make any tenant-wide changes.
+
+## Video: How to use the MFA Server Migration Utility
+
+Take a look at our video for an overview of the MFA Server Migration Utility and how it works.
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RW11N1N]
 
 ## Limitations and requirements
 
