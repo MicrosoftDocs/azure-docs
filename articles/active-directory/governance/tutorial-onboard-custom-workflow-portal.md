@@ -24,7 +24,7 @@ This prehire scenario generates a temporary access pass for our new employee and
 
 ## Prerequisites
 
-The Lifecycle Workflows preview requires Microsoft Entra ID Governance or Azure Active Directory (Azure AD) Premium P2 licenses. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+ Using Lifecycle Workflows requires Microsoft Entra ID Governance licenses. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ##  Before you begin
 

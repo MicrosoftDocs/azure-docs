@@ -71,7 +71,7 @@ You can use lifecycle workflows to address any of the following conditions:
 
 ## License requirements
 
-[!INCLUDE [Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license](../../../includes/active-directory-p2-governance-license.md)]
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 During this preview, you can:
 

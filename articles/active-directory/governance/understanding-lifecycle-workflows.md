@@ -21,7 +21,7 @@ The following document provides an overview of a workflow created using Lifecycl
 ## License requirements 
 
 
-[!INCLUDE [Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license](../../../includes/active-directory-p2-governance-license.md)]
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Permissions and Roles
 
