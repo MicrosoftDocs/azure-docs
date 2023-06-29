@@ -164,10 +164,11 @@ To create a geo-replica of the database:
 
 1. The replica is seeded, and the time taken for seeding the data depends upon size of source database. You can monitor the status of seeding in the Azure portal or by running the following TSQL queries on the replica database:
 
-    ```tsql
-        select * from sys.dm_geo_replication_link_status 
-        select * from sys.dm_operation_status 
+    ```sql
+        SELECT * FROM sys.dm_geo_replication_link_status;
+        SELECT * FROM sys.dm_operation_status;
     ```
+
 1. Once the database seeding is finished, perform a planned (no data loss) failover to make the zone redundant target database as primary.  
 
 1. Update the server name in the connection strings for the application to reflect the new zone redundant database.
