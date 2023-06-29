@@ -265,7 +265,7 @@ Charges and credits balance prior to transition can be viewed in your Enterprise
 
 ### When should the setup be completed?
 
-Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires, services in your Azure subscriptions continue to run without disruption. However, are charged pay-as-you-go rates for the services.
+Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires, services in your Azure subscriptions continue to run without disruption. However, you are charged pay-as-you-go rates for the services.
 
 ### Changes to the Enterprise Agreement enrollment after the setup
 
