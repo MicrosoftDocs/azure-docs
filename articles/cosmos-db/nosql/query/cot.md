@@ -1,18 +1,22 @@
 ---
-title: COT in Azure Cosmos DB query language
-description: Learn about how the Cotangent(COT) SQL system function in Azure Cosmos DB returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression
-author: ginamr
+title: COT
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the trigonometric cotangent of the specified angle.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# COT (Azure Cosmos DB)
+
+# COT (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.  
+Returns the trigonometric cotangent of the specified angle in radians.
   
 ## Syntax
   
@@ -21,34 +25,38 @@ COT(<numeric_expr>)
 ```  
   
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
   
 ## Return types
   
-  Returns a numeric expression.  
+Returns a numeric expression.  
   
 ## Examples
   
-  The following example calculates the `COT` of the specified angle.  
+The following example calculates the cotangent of the specified angle using the function.
   
 ```sql
-SELECT COT(124.1332) AS cot  
+SELECT VALUE {
+    cotangent: COT(124.1332)
+} 
 ```  
   
- Here is the result set.  
-  
 ```json
-[{"cot": -0.040311998371148884}]  
+[
+  {
+    "cotangent": -0.040311998371148884
+  }
+]
 ```  
 
 ## Remarks
 
-This system function will not utilize the index.
+- This system function doesn't utilize the index.
 
 ## Next steps
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`TAN`](tan.md)

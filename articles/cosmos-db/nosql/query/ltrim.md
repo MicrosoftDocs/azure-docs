@@ -1,71 +1,77 @@
 ---
-title: LTRIM in Azure Cosmos DB query language
-description: Learn about the LTRIM SQL system function in Azure Cosmos DB to return a string expression after it removes leading blanks
-author: ginamr
+title: LTRIM
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a string expression with leading whitespace or specified characters removed.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/14/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# LTRIM (Azure Cosmos DB)
+
+# LTRIM (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a string expression after it removes leading whitespace or specified characters.   
-  
+Returns a string expression after it removes leading whitespace or specified characters.
+
 ## Syntax
   
 ```sql
-LTRIM(<str_expr1>[, <str_expr2>])  
+LTRIM(<string_expr_1> [, <string_expr_2>])  
 ```  
   
 ## Arguments
-  
-*str_expr1*  
-   Is a string expression
 
-*str_expr2*  
-   Is an optional string expression to be trimmed from str_expr1. If not set, the default is whitespace.
-  
+| | Description |
+| --- | --- |
+| **`string_expr_1`** | A string expression. |
+| **`string_expr_2` *(Optional)*** | An optional string expression to be trimmed from `string_expr_1`. If not set, the default is to trim whitespace. |
+
 ## Return types
-  
-  Returns a string expression.  
+
+Returns a string expression.  
   
 ## Examples
-  
-  The following example shows how to use `LTRIM` inside a query.  
+
+The following example shows how to use this function with various parameters inside a query.  
   
 ```sql
-SELECT LTRIM("   abc") AS t1, 
-LTRIM("   abc   ") AS t2, 
-LTRIM("abc   ") AS t3, 
-LTRIM("abc") AS t4,
-LTRIM("abc", "ab") AS t5,
-LTRIM("abc", "abc") AS t6
+SELECT VALUE {
+    whitespaceStart: LTRIM("  AdventureWorks"), 
+    whitespaceStartEnd: LTRIM("  AdventureWorks  "), 
+    whitespaceEnd: LTRIM("AdventureWorks  "), 
+    noWhitespace: LTRIM("AdventureWorks"),
+    trimSuffix: LTRIM("AdventureWorks", "Works"),
+    trimPrefix: LTRIM("AdventureWorks", "Adventure"),
+    trimEntireTerm: LTRIM("AdventureWorks", "AdventureWorks"),
+    trimEmptyString: LTRIM("AdventureWorks", "")
+}
 ```  
-  
- Here is the result set.  
   
 ```json
 [
-    {
-        "t1": "abc",
-        "t2": "abc   ",
-        "t3": "abc   ",
-        "t4": "abc",
-        "t5": "c",
-        "t6": ""
-    }
+  {
+    "whitespaceStart": "AdventureWorks",
+    "whitespaceStartEnd": "AdventureWorks  ",
+    "whitespaceEnd": "AdventureWorks  ",
+    "noWhitespace": "AdventureWorks",
+    "trimSuffix": "AdventureWorks",
+    "trimPrefix": "Works",
+    "trimEntireTerm": "",
+    "trimEmptyString": "AdventureWorks"
+  }
 ]
-``` 
+```
 
 ## Remarks
 
-This system function will not utilize the index.
+- This system function doesn't use the index.
 
 ## Next steps
 
-- [String functions Azure Cosmos DB](string-functions.md)
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`RTRIM`](rtrim.md)

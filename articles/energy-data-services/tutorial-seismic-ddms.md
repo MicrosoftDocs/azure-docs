@@ -42,7 +42,7 @@ In this tutorial, you will learn how to:
   * [Smoke test Postman collection](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/raw/master/source/ddms-smoke-tests/Azure%20DDMS%20OSDU%20Smoke%20Tests.postman_collection.json)
   * [Smoke Test Environment](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/raw/master/source/ddms-smoke-tests/%5BShip%5D%20osdu-glab.msft-osdu-test.org.postman_environment.json)
   
-3. Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Azure Data Manager for Energy instance details](#azure-data-manager-for-energy-instance-details)
+3. Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in Azure Data Manager for Energy instance details
 
 ## Register data partition to seismic
 

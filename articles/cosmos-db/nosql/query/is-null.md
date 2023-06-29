@@ -1,18 +1,22 @@
 ---
-title: IS_NULL in Azure Cosmos DB query language
-description: Learn about SQL system function IS_NULL in Azure Cosmos DB.
-author: ginamr
+title: IS_NULL
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a boolean indicating whether an expression evaluates to null.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# IS_NULL (Azure Cosmos DB)
+
+# IS_NULL (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a Boolean value indicating if the type of the specified expression is null.  
+Returns a boolean value indicating if the type of the specified expression is `null`.  
   
 ## Syntax
   
@@ -21,41 +25,54 @@ IS_NULL(<expr>)
 ```  
   
 ## Arguments
-  
-*expr*  
-   Is any expression.  
+
+| | Description |
+| --- | --- |
+| **`expr`** | Any expression. |
   
 ## Return types
   
-  Returns a Boolean expression.  
+Returns a boolean expression.  
   
 ## Examples
-  
-  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_NULL` function.  
+
+The following example checks objects of various types using the function.  
   
 ```sql
-SELECT   
-    IS_NULL(true) AS isNull1,   
-    IS_NULL(1) AS isNull2,  
-    IS_NULL("value") AS isNull3,   
-    IS_NULL(null) AS isNull4,  
-    IS_NULL({prop: "value"}) AS isNull5,   
-    IS_NULL([1, 2, 3]) AS isNull6,  
-    IS_NULL({prop: "value"}.prop2) AS isNull7  
+SELECT VALUE {
+    booleanIsNull: IS_NULL(true),
+    numberIsNull: IS_NULL(15),  
+    stringIsNull: IS_NULL("AdventureWorks"),   
+    nullIsNull: IS_NULL(null),  
+    objectIsNull: IS_NULL({price: 85.23}),   
+    arrayIsNull: IS_NULL(["red", "blue", "yellow"]),  
+    populatedObjectPropertyIsNull: IS_NULL({quantity: 25, vendor: null}.quantity),
+    invalidObjectPropertyIsNull: IS_NULL({quantity: 25, vendor: null}.size),
+    nullObjectPropertyIsNull: IS_NULL({quantity: 25, vendor: null}.vendor)
+}
 ```  
   
- Here is the result set.  
-  
 ```json
-[{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
+[
+  {
+    "booleanIsNull": false,
+    "numberIsNull": false,
+    "stringIsNull": false,
+    "nullIsNull": true,
+    "objectIsNull": false,
+    "arrayIsNull": false,
+    "populatedObjectPropertyIsNull": false,
+    "invalidObjectPropertyIsNull": false,
+    "nullObjectPropertyIsNull": true
+  }
+]
 ```  
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
-- [Type checking functions Azure Cosmos DB](type-checking-functions.md)
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`IS_OBJECT`](is-object.md)

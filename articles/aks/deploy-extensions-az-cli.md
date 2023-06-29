@@ -3,6 +3,7 @@ title: Deploy and manage cluster extensions by using the Azure CLI
 description: Learn how to use Azure CLI to deploy and manage extensions for Azure Kubernetes Service clusters.
 ms.date: 05/15/2023
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: JnHs
 ms.author: jenhayes
 ---
@@ -174,4 +175,3 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [use-managed-identity]: ./use-managed-identity.md
 [workload-identity-overview]: workload-identity-overview.md
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
-

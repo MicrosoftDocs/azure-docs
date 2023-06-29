@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 06/19/2023
 ms.author: rolyon
-ms.custom: seohack1, devx-track-azurecli
+ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Troubleshoot Azure RBAC
 
