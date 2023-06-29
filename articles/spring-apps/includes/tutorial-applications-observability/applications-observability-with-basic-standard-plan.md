@@ -164,7 +164,7 @@ save the **Request count** chart to the dashboard.
 
 :::image type="content" source="../../media/tutorial-applications-observability/chart-request-count.png" alt-text="Screenshot of the Azure portal with server requests to dashboard." lightbox="../../media/tutorial-applications-observability/chart-request-count.png":::
 
-#### Add Response time chart
+#### Pin the "Response time" chart
 
 Repeat with the previous section steps for the **Server response time** metric under the **Application Insights standard metrics** namespace, 
 add a filter to filter the **Cloud role name** with **api-gateway**, 
