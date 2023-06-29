@@ -40,7 +40,7 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 ### Create the project
 
-Create a .NET Core application named `QueuesQuickstart`.
+Create a .NET application named `QueuesQuickstart`.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `QueuesQuickstart`. This command creates a simple "hello world" C# project with a single source file named *Program.cs*.
 
