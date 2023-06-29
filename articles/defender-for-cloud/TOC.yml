@@ -16,16 +16,16 @@
   - name: Common questions
     items:
     - name: Common questions about Defender for Cloud
-      displayName: defender for cloud, common questions
+      displayName: defender for cloud, common questions, faq, frequently asked questions
       href: faq-general.yml
     - name: Common questions about permissions
-      displayName: permissions, common questions
+      displayName: permissions, common questions, faq, frequently asked questions
       href: faq-permissions.yml
     - name: Common questions about data collection, agents, agentless and workspaces
-      displayName: data collection, agents, workspaces, common questions, agentless
+      displayName: data collection, agents, workspaces, common questions, agentless, faq, frequently asked questions
       href: faq-data-collection-agents.yml
     - name: Common questions about regulatory compliance
-      displayName: regulatory, compliance, regulatory compliance, common questions
+      displayName: regulatory, compliance, regulatory compliance, common questions, faq, frequently asked questions
       href: faq-regulatory-compliance.yml
 - name: Quickstarts
   items:
@@ -172,7 +172,7 @@
         displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
         href: concept-agentless-data-collection.md
       - name: Common questions about CSPM and agentless scanning
-        displayName: questions, common, CSPM, agentless scanning
+        displayName: questions, common, CSPM, agentless scanning, faq, frequently asked questions
         href: faq-cspm.yml
   - name: Improve your data security posture
     items:
@@ -414,6 +414,7 @@
     - name: Manage Defender for APIs
       href: defender-for-apis-manage.md
     - name: Common questions about Defender for APIs
+      displayName: common questions, api, apis, faq, frequently asked questions
       href: faq-defender-for-apis.yml
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
@@ -445,7 +446,7 @@
         displayName: qualys, rapid7, va
         href: remediate-vulnerability-findings-vm.md#disable-specific-findings
       - name: Common questions about vulnerability assessments
-        displayName: common questions, VA, vulnerability, assessment
+        displayName: common questions, VA, vulnerability, assessment, faq, frequently asked questions
         href: faq-vulnerability-assessments.yml
     - name: Secure management ports with just-in-time VM access
       items:
@@ -487,8 +488,10 @@
     - name: Common questions  
       Items:
       - name: Common questions about Defender for Servers
+        displayName: common questions, faq, frequently asked questions
         href: faq-defender-for-servers.yml
       - name: Common questions about Azure Virtual Machines
+        displayName: common questions, faq, frequently asked questions
         href: faq-vms.yml
   - name: Defender for Containers
     items:
@@ -517,7 +520,7 @@
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
     - name: Common questions about Defender for Containers
-      displayName: containers, common questions
+      displayName: containers, common questions, faq, frequently asked questions
       href: faq-defender-for-containers.yml
   - name: Database protection
     items:
@@ -592,7 +595,7 @@
         displayName: Cosmos, DB, Cosmos db
         href: defender-for-databases-enable-cosmos-protections.md
     - name: Common questions about Defender for Databases
-      displayName: database, common questions, databases, sql, express configuration
+      displayName: database, common questions, databases, sql, express configuration, faq, frequently asked questions
       href: faq-defender-for-databases.yml
   - name: Defender for App Service
     items:
@@ -624,7 +627,7 @@
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
     - name: Common questions about Defender for Storage
-      displayName: storage, common questions, defender for storage, storage
+      displayName: storage, common questions, defender for storage, storage, faq, frequently asked questions
       href: faq-defender-for-storage.yml
     - name: Defender for Storage (classic)
       items:
@@ -635,7 +638,7 @@
       - name: Migrating to the new plan
         href: defender-for-storage-classic-migrate.md
       - name: Common questions about Defender for Storage (classic)
-        displayName: storage, common questions, defender for storage, storage
+        displayName: storage, common questions, defender for storage, storage, faq, frequently asked questions
         href: faq-defender-for-storage-classic.yml
   - name: Defender for Key Vault
     items:
@@ -690,7 +693,7 @@
       displayName: PR annotations, annotations, DevOps, GitHub, pull request
       href: enable-pull-request-annotations.md
     - name: Common questions about Defender for DevOps
-      displayName: DevOps, FAQ
+      displayName: DevOps, FAQ, common questions, frequently asked questions
       href: faq-defender-for-devops.yml
     - name: Credential scanner rules
       displayName: credential, scanner, rules, DevOps

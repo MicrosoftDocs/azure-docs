@@ -4,6 +4,7 @@ description: This article provides configuration guidance for .NET, Java, Node.j
 ms.topic: conceptual
 ms.date: 06/23/2023
 ms.devlang: csharp, javascript, typescript, python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 

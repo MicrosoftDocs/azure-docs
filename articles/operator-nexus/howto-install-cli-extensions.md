@@ -123,11 +123,11 @@ Example output:
 Name                     Version
 -----------------------  -------------
 arcappliance             0.2.31
-monitor-control-service  0.3.1
+monitor-control-service  0.2.0
 connectedmachine         0.5.1
-connectedk8s             1.3.19
-k8s-extension            1.4.1
-networkcloud             0.3.0.post311
+connectedk8s             1.3.20
+k8s-extension            1.4.2
+networkcloud             0.4.0.post94
 k8s-configuration        1.7.0
 managednetworkfabric     0.1.0.post45
 customlocation           0.1.3
