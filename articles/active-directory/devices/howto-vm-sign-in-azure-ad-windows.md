@@ -167,7 +167,7 @@ Now that you've created the VM, you need to configure an Azure RBAC policy to de
 - **Virtual Machine Administrator Login**: Users who have this role assigned can log in to an Azure virtual machine with administrator privileges.
 - **Virtual Machine User Login**: Users who have this role assigned can log in to an Azure virtual machine with regular user privileges.
 
-To allow a user to log in to the VM over RDP, you must assign the Virtual Machine Administrator Login or Virtual Machine User Login role to the resource group that contains the VM and its associated virtual network, network interface, public IP address, or load balancer resources. 
+To allow a user to log in to the VM over RDP, you must assign the Virtual Machine Administrator Login or Virtual Machine User Login role to the Virtual Machine resource.
 
 > [!NOTE]
 > Manually elevating a user to become a local administrator on the VM by adding the user to a member of the local administrators group or by running `net localgroup administrators /add "AzureAD\UserUpn"` command is not supported. You need to use Azure roles above to authorize VM login.

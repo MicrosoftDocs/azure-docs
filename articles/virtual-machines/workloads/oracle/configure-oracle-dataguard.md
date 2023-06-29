@@ -4,6 +4,7 @@ description: Quickly get Oracle Data Guard up and running in your Azure environm
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.custom: devx-track-azurecli
 ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2023
