@@ -4,7 +4,7 @@ description: Learn how to create assessment for Azure SQL in Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 03/15/2023
+ms.date: 06/29/2023
 ms.custom: engagement-fy23
 ---
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Run an assessment
 Run an assessment as follows:
-1. On the **Overview** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
+1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
     
     :::image type="content" source="./media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/tutorial-assess-sql/assess-migrate-expanded.png":::
 

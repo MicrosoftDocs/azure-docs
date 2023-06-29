@@ -4,7 +4,7 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 06/29/2023
 ms.custom: engagement-fy23
 ---
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
 

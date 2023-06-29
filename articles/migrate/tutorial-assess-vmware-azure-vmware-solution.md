@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/15/2023
-ms.custom: MVC
+ms.date: 06/29/2023
+ms.custom: MVC, engagement-fy23
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure VMware Solution (AVS)
 ---
 
@@ -53,7 +53,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1.  In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**.
+1.  In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. 
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess**.
 
