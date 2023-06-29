@@ -29,16 +29,36 @@ landingContent:
             url: array-length.md
           - text: ARRAY_SLICE
             url: array-slice.md
+          - text: CHOOSE
+            url: choose.md
+          - text: ObjectToArray
+            url: objecttoarray.md
+          - text: SetIntersect
+            url: setintersect.md
+          - text: SetUnion
+            url: setunion.md
+  - title: Conditional functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: IIF
+            url: iif.md
   - title: Date and time functions
     linkLists:
       - linkListType: reference
         links:
           - text: GetCurrentDateTime
             url: getcurrentdatetime.md
-          - text: GetCurrentTimestamp
-            url: getcurrenttimestamp.md
+          - text: GetCurrentDateTimeStatic
+            url: getcurrentdatetimestatic.md
           - text: GetCurrentTicks
             url: getcurrentticks.md
+          - text: GetCurrentTicksStatic
+            url: getcurrentticksstatic.md
+          - text: GetCurrentTimestamp
+            url: getcurrenttimestamp.md
+          - text: GetCurrentTimestampStatic
+            url: getcurrenttimestampstatic.md
       - linkListType: reference
         links:
           - text: DateTimeAdd
@@ -59,6 +79,12 @@ landingContent:
             url: tickstodatetime.md
           - text: TimestampToDateTime
             url: timestamptodatetime.md
+  - title: Item functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: DocumentId
+            url: documentid.md
   - title: Mathematical functions
     linkLists:
       - linkListType: reference
@@ -79,30 +105,56 @@ landingContent:
             url: cos.md
           - text: COT
             url: cot.md
-      - linkListType: reference
-        links:
           - text: DEGREES
             url: degrees.md
           - text: EXP
             url: exp.md
+      - linkListType: reference
+        links:
           - text: FLOOR
             url: floor.md
+          - text: IntAdd
+            url: intadd.md
+          - text: IntBitAnd
+            url: intbitand.md
+          - text: IntBitLeftShift
+            url: intbitleftshift.md
+          - text: IntBitNot
+            url: intbitnot.md
+          - text: IntBitOr
+            url: intbitor.md
+          - text: IntBitRightShift
+            url: intbitrightshift.md
+          - text: IntBitXor
+            url: intbitxor.md
+          - text: IntDiv
+            url: intdiv.md
+          - text: IntMod
+            url: intmod.md
+      - linkListType: reference
+        links:
+          - text: IntMul
+            url: intmul.md
+          - text: IntSub
+            url: intsub.md
           - text: LOG
             url: log.md
           - text: LOG10
             url: log10.md
+          - text: NumberBin
+            url: numberbin.md
           - text: PI
             url: pi.md
           - text: POWER
             url: power.md
           - text: RADIANS
             url: radians.md
-      - linkListType: reference
-        links:
           - text: RAND
             url: rand.md
           - text: ROUND
             url: round.md
+      - linkListType: reference
+        links:
           - text: SIGN
             url: sign.md
           - text: SIN
@@ -145,8 +197,6 @@ landingContent:
             url: index-of.md
           - text: LEFT
             url: left.md
-      - linkListType: reference
-        links:
           - text: LENGTH
             url: length.md
           - text: LOWER
@@ -169,8 +219,6 @@ landingContent:
             url: rtrim.md
           - text: STARTSWITH
             url: startswith.md
-      - linkListType: reference
-        links:
           - text: STRINGEQUALS
             url: stringequals.md
           - text: StringToArray
@@ -203,6 +251,10 @@ landingContent:
             url: is-bool.md
           - text: IS_DEFINED
             url: is-defined.md
+          - text: IS_FINITE_NUMBER
+            url: is-finite-number.md
+          - text: IS_INTEGER
+            url: is-integer.md
           - text: IS_NULL
             url: is-null.md
           - text: IS_NUMBER
