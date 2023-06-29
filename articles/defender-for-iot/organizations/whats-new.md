@@ -29,11 +29,12 @@ In version 23.1.x we've updated the OT sensor installation and setup wizards to 
 - **Installation wizard**: If you're installing software on your own physical or virtual machines, the Linux installation wizard now goes directly through the installation process without requiring any input or details from you.
 
     - The installation uses default values for your network settings, which you fine-tune only afterwards, either in the CLI as before, or in a new GUI-based wizard.
-    - All sensors are installed with a default *support* user, who's password you change immediately with the first sign-in.
+
+    - All sensors are installed with a default *support* user and password. You'll change the default password immediately with the first sign-in.
 
 - **Configure initial setup in the GUI**: After installing software, configure initial network settings in a new GUI wizard. Continue with the same wizard to activate your sensor and define SSL/TLS certificate settings.
 
-For more information, see [Install and set up your OT sensor](ot-deploy/install-software-ot-sensor.md).
+For more information, see [Install and set up your OT sensor](ot-deploy/install-software-ot-sensor.md) and [Configure and activate your OT sensor](ot-deploy/activate-deploy-sensor.md).
 
 ### Sensor network analysis
 
