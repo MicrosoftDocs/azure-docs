@@ -13460,7 +13460,7 @@
         },
         {
             "source_path_from_root": "/articles/security/fundamentals/iot-best-practices.md",
-            "redirect_url": "/azure/iot/iot-security-best-practices",
+            "redirect_url": "/azure/iot/iot-overview-security",
             "redirect_document_id": false
         },
         {
@@ -14036,6 +14036,56 @@
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-standard-public-availability-zones-portal.md",
             "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md",
+            "redirect_url": "/azure/load-balancer/tutorial-multi-availability-sets-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
+            "redirect_document_id": false 
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-nlb.md",
+            "redirect_url": "/azure/load-balancer/tutorial-multi-availability-sets-portal",
+            "redirect_document_id": false 
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-zonal-frontend.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal",
+            "redirect_document_id": false 
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-windows-powershell-sample-nlb.md",
+            "redirect_url": "/azure/load-balancer/tutorial-multi-availability-sets-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/cli-samples.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/powershell-samples.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/python-samples.md",
+            "redirect_url": "/samples/azure-samples/azure-samples-python-management/network-python-manage-loadbalancer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip-powershell",
             "redirect_document_id": false
         },
         {

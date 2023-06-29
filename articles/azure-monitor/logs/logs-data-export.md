@@ -33,13 +33,13 @@ Log Analytics workspace data export continuously exports data that's sent to you
 
 ## Limitations
 
-- Custom logs created using the [HTTP Data Collector API](./data-collector-api.md) and the dataSources API can't be exported. This includes text logs consumed by Log Analytics agent. You can export custom logs created using [data collection rules](./logs-ingestion-api-overview.md), including text-based logs.
-- Data export will gradually support more tables, but is currently limited to the tables specified in the [supported tables](#supported-tables) section.
+- Custom logs created using the [HTTP Data Collector API](./data-collector-api.md) can't be exported, including text-based logs consumed by Log Analytics agent. Custom logs created using [data collection rules](./logs-ingestion-api-overview.md), including text-based logs can be can be exported. 
+- Data export will gradually support more tables, but is currently limited to tables specified in the [supported tables](#supported-tables) section.
 - You can define up to 10 enabled rules in your workspace, each can include multiple tables. You can create more rules in workspace in disabled state. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - The storage account must be unique across rules in the workspace.
 - Table names can be 60 characters long when you're exporting to a storage account. They can be 47 characters when you're exporting to event hubs. Tables with longer names won't be exported.
-- Currently, data export isn't supported in China.
+- Export to Premium Storage Account isn't supported.
 
 ## Data completeness
 Data export is optimized to move large data volume to your destinations. The export operation might fail if the destination doesn't have sufficient capacity or is unavailable. In the event of failure, the retry process continues for up to 12 hours. For more information about destination limits and recommended alerts, see [Create or update a data export rule](#create-or-update-a-data-export-rule). If the destinations are still unavailable after the retry period, the data is discarded. In certain cases, retry can cause duplication of a fraction of the exported records.
@@ -61,7 +61,7 @@ Don't use an existing storage account that has other non-monitoring data to bett
 
 To send data to an immutable storage account, set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this article, including enabling protected append blobs writes.
 
-The storage account must be StorageV1 or later and in the same region as your workspace. If you need to replicate your data to other storage accounts in other regions, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), including GRS and GZRS.
+The Storage Account can't be Premium, must be StorageV1 or later, and located in the same region as your workspace. If you need to replicate your data to other storage accounts in other regions, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), including GRS and GZRS.
 
 Data is sent to storage accounts as it reaches Azure Monitor and exported to destinations located in a workspace region. A container is created for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would send to a container named *am-SecurityEvent*.
 

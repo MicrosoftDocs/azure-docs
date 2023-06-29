@@ -72,7 +72,7 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
 ## Use Private DNS Zone
 
-- If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to set up your own private DNS zone with the flexible server, see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
+- If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone ending with `mysql.database.azure.com` is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to set up your own private DNS zone with the flexible server, see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
 - If you use Azure API, an Azure Resource Manager template (ARM template), or Terraform, create private DNS zones that end with `mysql.database.azure.com` and use them while configuring flexible servers with private access. For more information, see the [private DNS zone overview](../../dns/private-dns-overview.md).
 
    > [!IMPORTANT]  

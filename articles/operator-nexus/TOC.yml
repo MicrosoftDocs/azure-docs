@@ -70,6 +70,8 @@
       href: howto-track-async-operations-cli.md
     - name: Cluster Upgrades
       href: howto-cluster-runtime-upgrade.md
+    - name: Install CLI Extension
+      href: howto-install-cli-extensions.md
 - name: Troubleshooting
   items:
     - name: Troubleshoot Bare Metal Machine
