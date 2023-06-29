@@ -42,10 +42,10 @@ This section provides the steps to use the default metrics defined by Spring Boo
 
 #### Add custom metrics defined in application code
 
-   The REST controllers can be instrumented through the custom metrics, they are already marked by the Micrometer annotation `@Timed` as the class level, 
-   the below are the three custom metrics details: 
-   - `petclinic.owner` and `petclinic.pet` in the `customers-service` application.
-   - `petclinic.visit` in the `visits-service` application.
+   In the PetClinic's source code, the REST controllers are annotated with the Micrometer `@Timed` annotation. This annotation will collect metrics like the number of times a method is called or the execution time of a method. 
+   The following are the three custom metrics details: 
+   - `petclinic.owner` and `petclinic.pet` defined in the `customers-service` application.
+   - `petclinic.visit` defined in the `visits-service` application.
 
    As in the previous section, you can define a chart `REST Controller` with custom metrics, and update the **Aggregation** to `Count` for each metrics.
 
