@@ -1818,7 +1818,7 @@
         {
             "source_path_from_root": "/articles/storage/storage-python-how-to-use-queue-storage.md",
             "redirect_url": "/articles/storage/queues/storage-quickstart-queues-python",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-redundancy.md",
