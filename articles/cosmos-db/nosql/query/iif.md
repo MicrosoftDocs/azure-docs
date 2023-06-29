@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IIF (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Evaluates a boolean expression and returns the result of one of two expressions depending on the result of the boolean expression. If the boolean expression evaluates to `true`, return the first expression option. Otherwise, return the second expression option.
 
 ## Syntax

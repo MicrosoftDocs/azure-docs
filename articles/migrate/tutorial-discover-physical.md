@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/15/2023
+ms.date: 06/29/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
@@ -140,7 +140,7 @@ Set up a new project.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Create project**.
+3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
