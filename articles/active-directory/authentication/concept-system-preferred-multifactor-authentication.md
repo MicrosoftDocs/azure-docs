@@ -25,7 +25,7 @@ System-preferred MFA is a Microsoft managed setting, which is a [tristate policy
 After system-preferred MFA is enabled, the authentication system does all the work. Users don't need to set any authentication method as their default because the system always determines and presents the most secure method they registered. 
 
 >[!NOTE]
->System-preferredc MFA is an important security enhancement for users authenticating by using telecom transports. Starting July 07, 2023, the Microsoft managed value of system-preferred MFA will change from **Disabled** to **Enabled**. If you don't want to enable system-peeferred MFA, change the state from **Default** to **Disabled**, or exclude users and groups from the policy.
+>System-preferred MFA is an important security enhancement for users authenticating by using telecom transports. Starting July 07, 2023, the Microsoft managed value of system-preferred MFA will change from **Disabled** to **Enabled**. If you don't want to enable system-peeferred MFA, change the state from **Default** to **Disabled**, or exclude users and groups from the policy.
 
 ## Enable system-preferred MFA in the Azure portal
 
@@ -101,7 +101,7 @@ Content-Type: application/json
 
 ## Known issue
 
-A fix for [FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) is being rolled out with the change. As part of the rollout, we are adjusting the preferred methods list, which involves moving certificate-based authentication (CBA) lower on the list of preferred methods. This change is necessary due to a known issue where users within the scope of CBA can't use any other available authentication method. We are actively working to address this issue, and once the fix is rolled out, CBA will return to its appropriate position on the list of preferred methods. However, tenants that use a Conditional Access policy that mandates CBA will have the ability to bypass this downgrade and be unaffected by the change.
+A fix for [FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) is being rolled out with the change of the Microsoft managed setting to **Enabled**. As part of the rollout, we adjusted the preferred methods list, which moved certificate-based authentication (CBA) lower on the list of preferred methods. This change is necessary due to a known issue where users within the scope of CBA can't use any other available authentication method. We are actively working to address this issue, and once the fix is rolled out, CBA will return to its appropriate position on the list of preferred methods. However, tenants that use a Conditional Access policy that mandates CBA will have the ability to bypass this downgrade and be unaffected by the change.
 
 ## FAQ
 
