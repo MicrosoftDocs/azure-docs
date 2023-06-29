@@ -69,4 +69,3 @@ Azure Machine Learning allows you to incorporate RAG in your AI using the Azure 
 [Use Vector Stores](concept-vector-stores.md) with Azure Machine Learning (preview)
 
 [How to create vector index](how-to-create-vector-index.md) in Azure Machine Learning prompt flow (preview)
-
