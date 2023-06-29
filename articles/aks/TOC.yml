@@ -40,6 +40,8 @@
         - name: Use ARM template
           displayName: Resource Manager
           href: learn/quick-kubernetes-deploy-rm-template.md
+        - name: Use Terraform
+          href: learn/quick-kubernetes-deploy-terraform.md
     - name: Deploy a Windows-based AKS Cluster
       items:
         - name: Use the Azure CLI
@@ -105,12 +107,18 @@
       href: concepts-identity.md
     - name: Networking
       href: concepts-network.md
+    - Name: Network observability
+      href: network-observability-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
       href: concepts-scale.md
-    - name: Node auto-repair
-      href: node-auto-repair.md
+    - name: Node Health
+      items:
+        - name: Node auto-repair
+          href: node-auto-repair.md
+        - name: Node Problem Detector (NPD)
+          href: node-problem-detector.md  
     - name: Multi-instance GPU Node pool
       href: gpu-multi-instance.md
     - name: Service meshes
@@ -283,16 +291,12 @@
               href: resize-node-pool.md
         - name: Use the Azure Linux container host for AKS
           href: use-azure-linux.md
-        - name: Deploy AKS with Terraform
-          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
-          maintainContext: true
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
         - name: Use tags
           href: use-tags.md
         - name: Use labels
           href: use-labels.md
-        - name: Enforce best practices with Guardrails
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -360,8 +364,6 @@
               href: use-cvm.md
             - name: Use Dedicated Hosts with AKS
               href: use-azure-dedicated-hosts.md
-            - name: BYOK for disks
-              href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
             - name: Enable FIPS
@@ -422,8 +424,6 @@
               href: configure-azure-cni-dynamic-ip-allocation.md
             - name: Use Azure CNI Overlay
               href: azure-cni-overlay.md
-            - name: Deploy Isovalent Cilium Enterprise
-              href: cilium-enterprise-marketplace.md
         - name: DNS
           items:
             - name: Use a static IP address and DNS label
@@ -471,6 +471,12 @@
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
               href: configure-kube-proxy.md
+        - name: Network Observability
+          items:
+          - name: Setup of Network Observability - BYO
+            href: network-observability-byo-cli.md
+          - name: Setup of Network Observability - Azure Managed
+            href: network-observability-managed-cli.md
         - name: Security
           items:
             - name: Use API Server VNet Integration
@@ -521,6 +527,8 @@
               href: use-premium-v2-disks.md
             - name: Use Azure ultra disks
               href: use-ultra-disks.md
+            - name: Bring your own keys for disks
+              href: azure-disk-customer-managed-keys.md
         - name: Other storage options
           items:
             - name: Azure HPC Cache
@@ -580,6 +588,8 @@
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
         - name: Build Java app with WebSphere Liberty or Open Liberty
           href: howto-deploy-java-liberty-app.md
+        - name: Build Java app with WebLogic Server
+          href: howto-deploy-java-wls-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true

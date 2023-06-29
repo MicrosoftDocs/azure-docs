@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/24/2023
+ms.date: 06/06/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -45,9 +45,7 @@ output <output-name> <output-data-type> = <output-value>
 The following example shows an implementation of these elements.
 
 ```bicep
-metadata description = {
-  description: 'Creates a storage account and a web app'
-}
+metadata description = 'Creates a storage account and a web app'
 
 @description('The prefix to use for the storage account name.')
 @minLength(3)

@@ -1,7 +1,8 @@
 ---
 title: Run your Stream Analytics in Azure virtual network
 description: This article describes how to run an Azure Stream Analytics job in an Azure virtual network.
-
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/23/2023
@@ -89,7 +90,8 @@ Several ASA jobs may utilize the same subnet.  The last job here refers to no ot
     
 > [!IMPORTANT]
 > - To authenticate with connection string, you must disable the storage account firewall settings. 
-> - To authenticate with Managed Identity, you must add your Stream Analytics job to the storage account's access control list with the Storage Blob Data Contributor role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see Use Azure RBAC to assign a managed identity access to another resource. 
+> - To authenticate with Managed Identity, you must add your Stream Analytics job to the storage account's access control list for Storage Blob Data Contributor role and 
+Storage Table Data Contributor role. If you do not give your job access, the job will not be able to perform any operations. For more information on how to grant access, see Use Azure RBAC to assign a managed identity access to another resource. 
 
 ## Permissions 
 You must have at least the following Role-based access control permissions on the subnet or at a higher level to configure virtual network integration through Azure portal, CLI or when setting the virtualNetworkSubnetId site property directly: 

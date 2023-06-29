@@ -282,7 +282,7 @@ The following resources can use Basic Load Balancers which means you cannot reac
 - Logic Apps
 - HDInsight
 -    Azure Batch
-- App Service Environment
+- App Service Environment v1 and v2
 
 You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 

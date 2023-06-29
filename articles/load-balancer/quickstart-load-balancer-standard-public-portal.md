@@ -5,15 +5,17 @@ description: This quickstart shows how to create a load balancer using the Azure
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 12/27/2022
+ms.date: 06/06/2023
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart
+ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create a public load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure portal to create a public load balancer for a backend pool with two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 ## Prerequisites
 
@@ -50,6 +52,11 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     |--------------------|----------------------------|
     | Azure Bastion name | Enter **myBastionHost** |
     
+    > [!IMPORTANT]
+
+    > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+    >
 
 1. Select the **IP addresses** tab or select the **Next: IP addresses** button at the bottom of the page.
 

@@ -5,8 +5,8 @@ author: karlerickson
 ms.author: haojianzhong
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/21/2023
-ms.custom: devx-track-java
+ms.date: 06/21/2023
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Quickstart: Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan

@@ -16,9 +16,6 @@ ms.date: 10/13/2021
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-automl-images-schema.md)
-> * [v2 (current version)](../reference-automl-images-schema.md?view=azureml-api-2&preserve-view=true)
     
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
@@ -243,7 +240,7 @@ In this section, we document the input data format required to make predictions 
 
 ### Input format
 
-The following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models-v1.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
+The following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
 
 ```python
 # input image for inference
@@ -409,5 +406,5 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 ## Next steps
 
 * Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images.md).
-* [Set up computer vision tasks in AutoML](how-to-auto-train-image-models-v1.md)
+* [Set up computer vision tasks in AutoML](how-to-auto-train-image-models.md)
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).

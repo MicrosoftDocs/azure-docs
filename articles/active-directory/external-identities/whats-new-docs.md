@@ -33,7 +33,7 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Allow or block domains](allow-deny-list.md) Screenshots were updated. 
 - [Authentication and Conditional Access](authentication-conditional-access.md) Links to other articles were updated.
 - [Code and Azure PowerShell samples](code-samples.md) Minor text updates.
-- [Azure Active Directory](azure-ad-account.md) Minor text updates.
+- [Azure Active Directory](default-account.md) Minor text updates.
 
 ## March 2023
 
@@ -41,7 +41,7 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 
 - [Invite internal users to B2B collaboration](invite-internal-users.md)
 - [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
-- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](azure-ad-account.md)
+- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](default-account.md)
 - [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
 - [Billing model for Azure AD External Identities](external-identities-pricing.md)
 - [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)

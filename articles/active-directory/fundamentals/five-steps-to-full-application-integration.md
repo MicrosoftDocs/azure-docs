@@ -147,7 +147,7 @@ For the following services, there are Azure AD integration tutorials.
 * [Tutorial: Azure AD SSO integration with Akamai](../saas-apps/akamai-tutorial.md)
 * [Tutorial: Azure AD SSO integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)](../saas-apps/citrix-netscaler-tutorial.md)
   * Formerly known as Citrix Netscaler
-* [Integrate F5 BIG-IP with Azure AD](../manage-apps/f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](../manage-apps/f5-integration.md)
 * [Tutorial: Integrate Zscaler Private Access (ZPA) with Azure AD](../saas-apps/zscalerprivateaccess-tutorial.md)
 
 ## Integrate apps your developers build

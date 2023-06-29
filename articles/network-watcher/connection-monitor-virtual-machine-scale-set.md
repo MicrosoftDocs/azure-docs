@@ -111,7 +111,7 @@ After the scale set has been created, enable the Network Watcher extension in th
 
 ## Create the VM
 
-Complete the steps in the "Create the first VM" section of [Tutorial: Monitor network communication between two virtual machines by using the Azure portal](./connection-monitor.md#create-the-first-vm), but **with the following changes**:
+Complete the steps in the "Create the first virtual machine" section of [Tutorial: Monitor network communication between two virtual machines by using the Azure portal](./connection-monitor.md), but **with the following changes**:
 
 |Step|Setting|Value|
 |---:|---|---|

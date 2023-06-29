@@ -7,7 +7,7 @@ ms.service: purview
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/17/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-python
 ---
 
 # Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using Python
@@ -207,4 +207,3 @@ Follow these next articles to learn how to navigate the Microsoft Purview govern
 * [How to use the Microsoft Purview governance portal](use-azure-purview-studio.md)
 * [Grant users permissions to the governance portal](catalog-permissions.md)
 * [Create a collection](quickstart-create-collection.md)
-

@@ -146,15 +146,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure AWS IAM Identity Center SSO
 
-1. To automate the configuration within AWS IAM Identity Center, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After adding extension to the browser, click on **Set up AWS IAM Identity Center** will direct you to the AWS IAM Identity Center application. From there, provide the admin credentials to sign into AWS IAM Identity Center. The browser extension will automatically configure the application for you and automate steps 3-10.
 
-	![Setup configuration](common/setup-sso.png)
-
-3. If you want to setup AWS IAM Identity Center manually, in a different web browser window, sign in to your AWS IAM Identity Center company site as an administrator.
+1. In a different web browser window, sign in to your AWS IAM Identity Center company site as an administrator
 
 1. Go to the **Services -> Security, Identity, & Compliance -> AWS IAM Identity Center**.
 2. In the left navigation pane, choose **Settings**.

@@ -8,18 +8,23 @@ ms.date: 04/20/2023
 
 ---
 
-# workspace() expression in Azure Monitor log query
+# Using the workspace() expression in Azure Monitor log query
 
-The `workspace` expression is used in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. This is useful to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
+Use the `workspace` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-query-permissions.md)]
 
 ## Syntax
 
 `workspace(`*Identifier*`)`
 
-## Arguments
+### Arguments
 
-- *Identifier*: Identifies the workspace using one of the formats in the table below.
+The `workspace` expression takes the following arguments.
+
+#### Identifier 
+
+Identifies the workspace by using one of the formats in the following table.
 
 | Identifier | Description | Example
 |:---|:---|:---|
@@ -27,11 +32,8 @@ The `workspace` expression is used in an Azure Monitor query to retrieve data fr
 | Azure Resource ID | Identifier for the Azure resource | workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
-## Notes
-
-* You must have read access to the workspace.
-* Identifying a workspace by its ID or Azure Resource ID is strongly recommended since unique, removes ambiguity, and more performant.
-* A related expression is `app` that allows you to query across Application Insights applications.
+> [!NOTE]
+> We strongly recommend identifying a workspace by its unique ID or Azure Resource ID because they remove ambiguity and are more performant.
 
 ## Examples
 
@@ -54,6 +56,6 @@ union
 
 ## Next steps
 
-- See the [app expression](./app-expression.md) to refer to an Application Insights app.
+- See the [app expression](./app-expression.md), which allows you to query across Application Insights applications.
 - Read about how [Azure Monitor data](./log-query-overview.md) is stored.
 - Access full documentation for the [Kusto query language](/azure/kusto/query/).

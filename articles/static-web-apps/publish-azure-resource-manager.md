@@ -249,18 +249,18 @@ Connect-AzAccount
 
 ---
 
-If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID>` with your subscription information:
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+az account set --subscription <SUBSCRIPTION-ID>
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+Set-AzContext <SUBSCRIPTION-ID>
 ```
 
 ---

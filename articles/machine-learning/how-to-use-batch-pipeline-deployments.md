@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create a batch deploy a pipeline component and invoke it.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia

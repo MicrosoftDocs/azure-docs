@@ -15,9 +15,6 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"] 
-> * [v1](how-to-inference-onnx-automl-image-models.md) 
-> * [v2 (current version)](../how-to-inference-onnx-automl-image-models.md?view=azureml-api-2&preserve-view=true) 
 
   
 
@@ -43,7 +40,7 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 ## Prerequisites
 
-* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models-v1.md).
+* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models.md).
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
@@ -124,7 +121,7 @@ automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models-v1.md#supported-model-algorithms).
+Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models.md#supported-model-algorithms).
 
 To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the AutoML training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
 
@@ -1437,5 +1434,5 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 ---
 
 ## Next steps
-* [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models-v1.md)
+* [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models.md)
 * [Troubleshoot AutoML experiments](how-to-troubleshoot-auto-ml.md)

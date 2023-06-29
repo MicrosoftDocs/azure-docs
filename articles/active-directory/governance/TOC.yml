@@ -13,7 +13,7 @@
     href: what-is-identity-lifecycle-management.md
   - name: What is provisioning?
     href: what-is-provisioning.md
-  - name: What are Lifecycle Workflows? (Preview)
+  - name: What are Lifecycle Workflows? 
     href: what-are-lifecycle-workflows.md  
 - name: Tutorials
   expanded: true
@@ -54,7 +54,7 @@
         href: /graph/tutorial-accessreviews-securitygroup?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Review access to privileged roles - Microsoft Graph
         href: /graph/tutorial-accessreviews-roleassignments?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
-    - name: Lifecycle Workflows (Preview)
+    - name: Lifecycle Workflows
       items:
       - name: Automate employee onboarding tasks - Azure portal
         href: tutorial-onboard-custom-workflow-portal.md 
@@ -89,7 +89,7 @@
       href: review-recommendations-access-reviews.md
     - name:  Review and remove users from external organizations
       href: access-reviews-external-users.md
-  - name: Lifecycle Workflows (Preview) 
+  - name: Lifecycle Workflows
     items:
     - name: Understanding Lifecycle Workflows
       href: understanding-lifecycle-workflows.md
@@ -144,6 +144,8 @@
         href: entitlement-management-logic-apps-integration.md
       - name: Delegate to access package managers
         href: entitlement-management-delegate-managers.md
+      - name: Set up group writeback
+        href: entitlement-management-group-writeback.md  
     - name: Access package managers and Access package assignment managers
       items:
       - name: Create a new access package
@@ -154,7 +156,7 @@
         href: entitlement-management-access-package-resources.md
       - name: Change request settings
         href: entitlement-management-access-package-request-policy.md
-      - name: Configure verified ID settings (Preview)
+      - name: Configure verified ID settings
         href: entitlement-management-verified-id-settings.md  
       - name: Change approval settings
         href: entitlement-management-access-package-approval-policy.md
@@ -216,11 +218,11 @@
         href: ../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
         href: ../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-    - name: Azure AD PIM for Groups (Preview)
+    - name: Azure AD PIM for Groups
       items:
       - name: Create an access review
         href: create-access-review-pim-for-groups.md
-  - name: Lifecycle Workflows (Preview)
+  - name: Lifecycle Workflows
     items:
       - name: Deployment
         href: lifecycle-workflows-deployment.md   
@@ -255,13 +257,15 @@
 - name: Reference
   expanded: true
   items:
+  - name: Services and integration partners
+    href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell
     href: /powershell/module/microsoft.graph.identity.governance/?view=graph-powershell-beta&preserve-view=true
   - name: Access reviews - Microsoft Graph API
     href: /graph/api/resources/accessreviewsv2-overview
   - name: Entitlement management - Microsoft Graph API
     href: /graph/api/resources/entitlementmanagement-overview
-  - name: Lifecycle Workflows (Preview)
+  - name: Lifecycle Workflows
     items:
     - name: Lifecycle Workflows - Microsoft Graph API
       href: /graph/api/resources/identitygovernance-lifecycleworkflows-overview

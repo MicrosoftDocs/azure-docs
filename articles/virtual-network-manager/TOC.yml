@@ -14,6 +14,8 @@
     href: create-virtual-network-manager-powershell.md
   - name: Create Virtual Network Manager - CLI
     href: create-virtual-network-manager-cli.md
+  - name: Create Virtual Network Manager - Terraform
+    href: create-virtual-network-manager-terraform.md
   expanded: true
 - name: Tutorials
   items:

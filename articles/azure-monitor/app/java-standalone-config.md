@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 05/20/2023
+ms.date: 06/19/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -31,14 +31,14 @@ More information and configuration options are provided in the following section
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.13.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.14.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.13.jar` is located.
+If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.14.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -61,7 +61,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.13.jar` is located.
+If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.14.jar` is located.
 
 ```json
 {
@@ -237,12 +237,14 @@ and have it inherited by dependency and log telemetry, which are captured in the
 
 ```json
 {
-  "inheritedAttributes": [
-    {
-      "key": "mycustomer",
-      "type": "string"
-    }
-  ]
+  "preview": {
+    "inheritedAttributes": [
+      {
+        "key": "mycustomer",
+        "type": "string"
+      }
+    ]
+  }
 }
 ```
 
@@ -252,7 +254,7 @@ and then at the beginning of each request, call:
 Span.current().setAttribute("mycustomer", "xyz");
 ```
 
-Also see: [Add a custom property to a Span](./opentelemetry-enable.md?tabs=java#add-a-custom-property-to-a-span).
+Also see: [Add a custom property to a Span](./opentelemetry-add-modify.md?tabs=java#add-a-custom-property-to-a-span).
 
 ## Connection string overrides (preview)
 
@@ -323,7 +325,7 @@ and add `applicationinsights-core` to your application:
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>3.4.13</version>
+  <version>3.4.14</version>
 </dependency>
 ```
 
@@ -346,9 +348,56 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 }
 ```
 
+## Browser SDK Loader (preview)
+
+This feature automatically injects the [Browser SDK Loader](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
+
+For example, when your java application returns a response like:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+Then it will be automatically modified to return:
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript">
+    !function(v,y,T){var S=v.location,k="script"
+    <!-- Removed for brevity -->
+    connectionString: "YOUR_CONNECTION_STRING"
+    <!-- Removed for brevity --> }});
+    </script>
+    <title>Title</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+The script is aiming at helping customers to track the web user data, and sent the collecting server-side telemetry back to users' Azure portal. Details can be found at [ApplicationInsights-JS](https://github.com/microsoft/ApplicationInsights-JS)
+
+If you want to enable this feature, add the below configuration option:
+
+```json
+"preview": {
+  "browserSdkLoader": {
+     "enabled": true
+   }
+}
+```
+
 ## Telemetry processors (preview)
 
-Yu can use telemetry processors to configure rules that are applied to request, dependency, and trace telemetry. For example, you can:
+You can use telemetry processors to configure rules that are applied to request, dependency, and trace telemetry. For example, you can:
 
  * Mask sensitive data.
  * Conditionally add custom dimensions.
@@ -470,7 +519,7 @@ To send custom metrics using micrometer:
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+1. Use the Micrometer [global registry](https://micrometer.io/?/docs/concepts#_global_registry) to create a meter:
 
     ```java
     static final Counter counter = Metrics.counter("test.counter");
@@ -797,7 +846,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.13.jar` is located.
+`applicationinsights-agent-3.4.14.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.

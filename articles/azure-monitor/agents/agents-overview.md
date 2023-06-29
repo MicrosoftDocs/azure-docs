@@ -104,8 +104,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 
 ### Windows agents
 
-|		|		|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (WAD)	|
-|	-	|	-	|	-	|	-	|	-	|
+|	Category |	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (WAD)	|
+|:---|:---|:---|:---|:---|
 |	**Environments supported**	|		|		|		|		|
 |		|	Azure	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|
@@ -137,8 +137,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 
 ### Linux agents
 
-|		|		|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
-|	-	|	-	|	-	|	-	|	-	|	-	|
+|	Category	|	Area	|	Azure Monitor Agent	|	Log Analytics Agent	|	Diagnostics extension (LAD)	|	Telegraf agent	|
+|:---|:---|:---|:---|:---|:---|
 |	**Environments supported**	|		|		|		|		|		|
 |		|	Azure	|	X	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|	X	|
@@ -182,7 +182,8 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows Server 2008 R2 SP1                               | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X |
 | Windows Server 2008 SP2                                  |   | X |   |
-| Windows 11 Client Enterprise and Pro                     | X<sup>2</sup>, <sup>3</sup> |  |  |
+| Windows 11 Client and Pro                                | X<sup>2</sup>, <sup>3</sup> |  |  |
+| Windows 11 Enterprise<br>(including multi-session)       | X<sup>1</sup> |  |  |
 | Windows 10 1803 (RS4) and higher                         | X<sup>2</sup> |  |  |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | 
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X |   |

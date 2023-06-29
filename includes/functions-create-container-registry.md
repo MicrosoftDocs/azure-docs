@@ -2,44 +2,43 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/12/2023
+ms.date: 06/05/2023
 ms.author: glenga
 ---
 
-## Create a function app in a container
+## Choose your development language
 
 First, you use Azure Functions tools to create your project code as a function app in a Docker container using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
 
-[!INCLUDE [functions-linux-custom-container-note](functions-linux-custom-container-note.md)]
+Core Tools automatically generates a Dockerfile for your project that uses the most up-to-date version of the correct base image for your functions language. You should regularly update your container from the latest base image and redeploy from the updated version of your container. For more information, see [Creating containerized function apps](../articles/azure-functions/functions-how-to-custom-container.md#creating-containerized-function-apps).
 
-### Configure your local environment
+## Prerequisites 
 
 Before you begin, you must have the following requirements in place:
 
 ::: zone pivot="programming-language-csharp"
-+ The [.NET 6 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
++ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.0.5198, or a later version.
 ::: zone-end  
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
++ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ A version of [Node.js](https://nodejs.org/) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
++ Install a version of [Node.js](https://nodejs.org/) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ A version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#python-version). 
++ Install a version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#python-version). 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ The [.NET 6 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ A version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
++ Install a version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
 
-+ [Apache Maven](https://maven.apache.org) version 3.0 or above.
-
++ Install [Apache Maven](https://maven.apache.org) version 3.0 or above.
 ::: zone-end
 <!---removing the other pivot until we camn get ACA tested with custom handlers
 ::: zone pivot="programming-language-other"
@@ -65,7 +64,7 @@ You should be all set.
 
 [!INCLUDE [functions-cli-create-venv](functions-cli-create-venv.md)]
 
-### Create and test the local functions project
+## Create and test the local functions project
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
@@ -285,9 +284,9 @@ After you see the `HttpExample` endpoint written to the output, navigate to that
 After you see the `HttpExample` endpoint written to the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 ::: zone-end
 
-Press **Ctrl**+**C** to stop the host.
+Press **Ctrl**+**C** (**Command**+**C** on macOS) to stop the host.
 
-### Build the container image and test locally
+## Build the container image and verify locally
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
 (Optional) Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
@@ -319,10 +318,10 @@ docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 
 When the command completes, you can run the new container locally.
 
-To test the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, replace `<docker_id>` again with your Docker Hub account ID, and add the ports argument as `-p 8080:80`:
+To verify the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, replace `<DOCKER_ID>` again with your Docker Hub account ID, and add the ports argument as `-p 8080:80`:
 
 ```console
-docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
+docker run -p 8080:80 -it <DOCKER_ID>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp"
@@ -333,7 +332,7 @@ After the image starts in the local container, browse to `http://localhost:8080/
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
 
-After verifying the function app in the container, press **Ctrl**+**C** to stop the docker.
+After verifying the function app in the container, press **Ctrl**+**C** (**Command**+**C** on macOS) to stop execution.
 
 ## Publish the container image to a registry 
 

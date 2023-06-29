@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
 ms.service: machine-learning
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.reviewer: ssalgado
 author: ManojBableshwar
@@ -98,7 +99,7 @@ scoring_file = "./sample_score.json"
 with open(scoring_file, "w") as outfile:
     outfile.write('{"inputs": ["Paris is the [MASK] of France.", "The goal of life is [MASK]."]}')   
 response = workspace_ml_client.online_endpoints.invoke(
-    endpoint_name=online_endpoint_name,
+    endpoint_name=endpoint_name,
     deployment_name="demo",
     request_file=scoring_file,
 )

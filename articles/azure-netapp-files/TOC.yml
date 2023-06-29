@@ -115,6 +115,8 @@
         href: cross-zone-replication-introduction.md
       - name: Requirements and considerations for cross-zone replication 
         href: cross-zone-replication-requirements-considerations.md
+    - name: Double encryption at rest 
+      href: double-encryption-at-rest.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -267,6 +269,8 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
+    - name: Delete a volume
+      href: volume-delete.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -397,6 +401,8 @@
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
+  - name: Feature availability
+    href: https://azure.github.io/azure-netapp-files/map/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

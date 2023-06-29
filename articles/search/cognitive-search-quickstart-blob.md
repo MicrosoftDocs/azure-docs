@@ -10,9 +10,9 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 05/31/2023
 ---
-# Quickstart: Create an Azure Cognitive Search skillset in the Azure portal
+# Quickstart: Create a skillset in the Azure portal
 
-In this quickstart, you'll learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create text-searchable content in a search index. 
+In this Azure Cognitive Search quickstart, you'll learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create text-searchable content in a search index. 
 
 You'll run the **Import data** wizard in the Azure portal to apply skills that transform and enrich content during indexing. Output is a searchable index containing AI-generated image text, captions, and entities. Enriched content is queryable in the portal using [**Search explorer**](search-explorer.md).
 

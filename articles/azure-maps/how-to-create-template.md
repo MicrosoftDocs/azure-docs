@@ -50,7 +50,7 @@ The Azure Maps account resource is defined in this template:
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
     * **Location**: select a location.
     * **Account Name**: enter a name for your Azure Maps account, which must be globally unique.
-    * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is S0.
+    * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is G2.
 
 3. Select **Review + create**.
 4. Confirm your settings on the review page and select **Create**. Once deployed successfully, you get a notification:

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Load Balancer documentation
-summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, how-to's, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 
 metadata:
   title: Load Balancer
-  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, how-to's, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
   services: load-balancer
   ms.service: load-balancer
   ms.topic: landing-page
@@ -69,25 +69,6 @@ landingContent:
             url: tutorial-load-balancer-port-forwarding-portal.md
 
   # Card
-  - title: Manage features and options
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Load Balancer health probes
-            url: load-balancer-custom-probe-overview.md
-          - text: Outbound connections in Azure
-            url: load-balancer-outbound-connections.md
-          - text: Multiple Frontends for Azure Load Balancer
-            url: load-balancer-multivip-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
-            url: load-balancer-ipv6-internet-ps.md
-          - text: Configure the distribution mode
-            url: load-balancer-distribution-mode.md
-          - text: Upgrade from Basic to Standard
-            url: upgrade-basic-standard.md
-  # Card
   - title: Deploy
     linkLists:
       - linkListType: concept
@@ -112,6 +93,8 @@ landingContent:
         links:
           - text: Standard Load Balancer diagnostics with metrics, alerts and resource health
             url: load-balancer-standard-diagnostics.md
+          - text: Test reachability of Azure Load Balancer front-ends
+            url: load-balancer-test-frontend-reachability.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md
           - text: Common Azure Load Balancer errors
@@ -126,7 +109,27 @@ landingContent:
         links:
           - text: Build & monitor highly available apps with Azure Load Balancer
             url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
-      
+
+    # Card
+  - title: Manage features and options
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load Balancer health probes
+            url: load-balancer-custom-probe-overview.md
+          - text: Outbound connections in Azure
+            url: load-balancer-outbound-connections.md
+          - text: Multiple Frontends for Azure Load Balancer
+            url: load-balancer-multivip-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
+            url: load-balancer-ipv6-internet-ps.md
+          - text: Configure the distribution mode
+            url: load-balancer-distribution-mode.md
+          - text: Upgrade from Basic to Standard
+            url: upgrade-basic-standard.md
+                 
      # Card
   - title: Reference
     linkLists:

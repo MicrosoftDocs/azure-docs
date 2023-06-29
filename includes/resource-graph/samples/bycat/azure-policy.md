@@ -123,10 +123,10 @@ Search-AzGraph -Query "PolicyResources | where type =~ 'Microsoft.PolicyInsights
 Provides a list of all resources types that are in a `NonCompliant` state.
 
 ```kusto
-"PolicyResources
+PolicyResources
 | where type == 'microsoft.policyinsights/policystates'
 | where properties.complianceState == 'NonCompliant'
-| extend NonCompliantResourceId = properties.resourceId, PolicyAssignmentName = properties.policyAssignmentName"
+| extend NonCompliantResourceId = properties.resourceId, PolicyAssignmentName = properties.policyAssignmentName
 ```
 
 # [Azure CLI](#tab/azure-cli)

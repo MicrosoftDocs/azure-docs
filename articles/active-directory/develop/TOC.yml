@@ -14,10 +14,14 @@
     - name: Basics of the identity platform
       displayName: introduction, basics, overview
       items:
+        - name: Identity fundamentals
+          href: ../fundamentals/identity-fundamental-concepts.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: Introduction to identity and access management
+          href: ../fundamentals/introduction-identity-access-management.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Authentication vs. authorization
           href: authentication-vs-authorization.md
         - name: OAuth 2.0 and OpenID Connect
-          href: active-directory-v2-protocols.md
+          href: v2-protocols.md
         - name: App types and authentication flows
           displayName: Auth flows
           href: authentication-flows-app-scenarios.md
@@ -73,8 +77,8 @@
           href: ../workload-identities/workload-identities-overview.md
         - name: Applications and service principals
           href: app-objects-and-service-principals.md
-        - name: How and why apps are added to Azure AD
-          href: active-directory-how-applications-are-added.md
+        - name: How and why apps are added
+          href: how-applications-are-added.md
         - name: Single-tenant and multi-tenant apps
           href: single-and-multi-tenant-apps.md
     - name: Custom Authentication Extensions
@@ -445,7 +449,7 @@
             - name: Restrict your app to a set of users
               href: howto-restrict-your-app-to-a-set-of-users.md
             - name: Add app roles in your application
-              href: howto-add-app-roles-in-azure-ad-apps.md
+              href: howto-add-app-roles-in-apps.md
             - name: Implement RBAC in your application
               href: howto-implement-rbac-for-apps.md
             - name: Support FIDO2 authentication
@@ -461,11 +465,9 @@
             - name: Customize SAML claims
               href: saml-claims-customization.md
             - name: Set an access token lifetime policy
-              href: configure-token-lifetimes.md
-            
-            - name: SAML app multi-instancing
-              displayName: Configure SAML app multi-instancing for an application
-              href: reference-app-multi-instancing.md
+              href: configure-token-lifetimes.md    
+            - name: Configure app multi-instancing
+              href: configure-app-multi-instancing.md
         - name: Custom claims provider
           items:
             - name: Token issuance start event
@@ -569,6 +571,8 @@
           href: msal-migration.md
         - name: List all apps using ADAL
           href: howto-get-list-of-all-auth-library-apps.md
+        - name: Migrate off email-based authorization
+          href: migrate-off-email-claim-authorization.md
     - name: Deprecate
       items:
         - name: Remove an app registration
@@ -580,7 +584,13 @@
     - name: Token claims reference
       items:
         - name: Access token
-          href: access-token-claims-reference.md            
+          href: access-token-claims-reference.md
+        - name: Claims mapping policy type
+          href: reference-claims-mapping-policy-type.md
+        - name: ID token
+          href: id-token-claims-reference.md 
+        - name: Optional claims
+          href: optional-claims-reference.md           
         - name: SAML token
           href: reference-saml-tokens.md
     - name: Microsoft Authentication Library (MSAL) reference
@@ -752,7 +762,7 @@
                 - name: Integrate with AD FS
                   href: msal-net-adfs-support.md
                 - name: Integrate with Azure AD B2C
-                  href: msal-net-aad-b2c-considerations.md
+                  href: msal-net-b2c-considerations.md
             - name: Logging and error handling
               displayName: MSAL.NET
               items:
@@ -818,7 +828,7 @@
               displayName: App types, OAuth
               href: v2-app-types.md
             - name: Certificate credentials
-              href: active-directory-certificate-credentials.md
+              href: certificate-credentials.md
             - name: Signing key rollover
               href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
@@ -826,7 +836,7 @@
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol
-              href: active-directory-saml-protocol-reference.md
+              href: saml-protocol-reference.md
             - name: SAML single sign-on (SSO)
               displayName: SSO
               href: single-sign-on-saml-protocol.md
@@ -847,8 +857,6 @@
       href: msal-v1-app-scopes.md
     - name: Spring Cloud Azure
       href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support    
-    - name: Claims mapping policy type
-      href: reference-claims-mapping-policy-type.md
     - name: Configured permissions limits troubleshooting
       href: troubleshoot-required-resource-access-limits.md
     - name: Microsoft auth libraries by app type

@@ -16,9 +16,6 @@ ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, automl, contper
 # Set up AutoML training with Python
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
-> * [v1](how-to-configure-auto-train.md)
-> * [v2 (current version)](../how-to-configure-auto-train.md?view=azureml-api-2&preserve-view=true)
 
 In this guide, learn how to set up an automated machine learning, AutoML, training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
 
