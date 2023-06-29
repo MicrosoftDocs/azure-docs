@@ -29,7 +29,7 @@ ENDSWITH(<str_expr_1>, <str_expr_2> [, <bool_expr>])
 | | Description |
 | --- | --- |
 | **`str_expr_1`** | A string expression. |
-| **`str_expr_2`** | A string expression to be compared to the end of `str_expr1`. |
+| **`str_expr_2`** | A string expression to be compared to the end of `str_expr_1`. |
 | **`bool_expr`** *(Optional)* | Optional value for ignoring case. When set to `true`, `ENDSWITH` does a case-insensitive search. When unspecified, this default value is `false`. |
   
 ## Return types
