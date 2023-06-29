@@ -97,7 +97,7 @@ You're set to register your OS licenses (BYOL), configure the OS, and install th
 You'll see all the Azure Large instance resources, and their state and attributes, in the Azure portal.
 You can also operate the instances and open service requests and support tickets from there.
 
-## ALI stamp 
+## ALI stamp
 
 The Azure Large instance stamp itself combines the following components:
 
@@ -109,6 +109,7 @@ A unified high-speed network fabric interconnects computing, storage, and LAN co
 
 * **Storage**
 An infrastructure accessed through a unified network fabric.
+
 Within the multi-tenant infrastructure of the Azure Large instance stamp, customers are deployed in isolated tenants.
 When deploying a tenant, you name an Azure subscription within your Azure enrollment. 
 This Azure subscription is the one billed for your implementation of ALI.
@@ -129,7 +130,7 @@ The available Linux OS version is Red Hat Enterprise Linux (RHEL)8.4.
 
 Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.
 
-## Storage 
+## Storage
 
 ALI provides highly redundant Fiber Channel storage.
 The infrastructure offers deep integration for enterprise workloads like SAP, SQL, and others.
@@ -185,6 +186,8 @@ Shows using your ExpressRoute Gateway enabled with ExpressRoute FastPath for ALI
 
 > [!Note]
 >To support this configuration, your ExpressRoute Gateway should be UltraPerformance. For more information, [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
+
+
 
 ## Next steps
 
