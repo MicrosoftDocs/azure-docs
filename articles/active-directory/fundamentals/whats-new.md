@@ -382,7 +382,7 @@ As part of ongoing service improvements, we're making updates to the per-user MF
 **Service category:** Terms of Use                  
 **Product capability:** AuthZ/Access Delegation          
 
-Due to a technical issue, we have recently started to emit additional audit logs for terms of use. The additional audit logs will be turned off by the May 1 and are tagged with the core directory service and the agreement category. If you have built a dependency on the additional audit logs, you must switch to the regular audit logs tagged with the terms of use service.
+Due to a technical issue, we have recently started to emit additional audit logs for terms of use. The additional audit logs will be turned off by May 1 and are tagged with the core directory service and the agreement category. If you have built a dependency on the additional audit logs, you must switch to the regular audit logs tagged with the terms of use service.
 
 ---
 
