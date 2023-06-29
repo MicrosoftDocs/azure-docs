@@ -23,7 +23,7 @@ This section provides the steps to use the default metrics defined by Spring Boo
 
 #### Add metrics defined by Spring Boot
 
-   Spring Boot registers several core metrics, including JVM, CPU, Tomcat, and Logback. 
+   Spring Boot registers several metrics, such as JVM, web server related, and logging related. The following instruction will use `JVM Memory` as an example, you can add other interested metrics following the same steps.
 
     1. Go to the Azure Spring Apps instance overview page.
     
