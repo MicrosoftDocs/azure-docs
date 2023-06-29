@@ -51,7 +51,7 @@ Before subscribing to the custom topic, create a function to handle the events.
     1. In the **Template details** section in the bottom pane, enter a name for the function. In this example, it's **HandleEventsFunc**. 
     1. Select **Create**.
 
-        :::image type="content" source="./media/custom-event-to-function/function-trigger.png" lightbox="./media/custom-event-to-function/function-trigger.png" alt-text="Select Event Grid trigger.":::
+        :::image type="content" source="./media/custom-event-to-function/function-trigger.png" lightbox="./media/custom-event-to-function/function-trigger.png" alt-text="Screenshot showing select Event Grid trigger.":::
 4. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu. 
 
     :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
