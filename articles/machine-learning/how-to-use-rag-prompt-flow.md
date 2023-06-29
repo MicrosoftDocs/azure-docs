@@ -24,7 +24,7 @@ In this tutorial, you'll learn how to use RAG by creating a prompt flow. A promp
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. [Follow this link to register](../cognitive-services/openai/limited-access#registration-process)
+* Access to Azure Open AI. 
 
 * Enable prompt flow in your Azure Machine Learning workspace
 
