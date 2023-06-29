@@ -15,9 +15,7 @@
   items:
   - name: Plan and prepare
     items: 
-    - name: Overview
-      href: deployment-plan-prepare-overview.md
-    - name: Deployment prerequisites
+    - name: Overview and prerequisites      
       href: prerequisites.md
     - name: Plan workspace architecture
       items:
