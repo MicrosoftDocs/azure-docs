@@ -50,7 +50,7 @@ There are two ways to allow Defender for Cloud to authenticate to AWS:
 
 1. From your Amazon Web Services console, under **Security, Identity & Compliance**, select **IAM**.
 
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Screenshot of the AWS services.":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Screenshot of the AWS services."  lightbox="./media/quickstart-onboard-aws/aws-identity-and-compliance.png":::
 
 1. Select **Roles** and **Create role**.
 
@@ -119,11 +119,11 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
 1. From Defender for Cloud's menu, open **Environment settings** and select the option to switch back to the classic connectors experience.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Screenshot that shows how to switch back to the classic cloud connectors experience in Defender for Cloud.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Screenshot that shows how to switch back to the classic cloud connectors experience in Defender for Cloud." lightbox="media/quickstart-onboard-gcp/classic-connectors-experience.png":::
 
 1. Select **Add AWS account**.
 
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Screenshot that shows how to add AWS account button on Defender for Cloud's multicloud connectors page.":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Screenshot that shows how to add AWS account button on Defender for Cloud's multicloud connectors page." lightbox="./media/quickstart-onboard-aws/add-aws-account.png":::
 
 1. Configure the options in the **AWS authentication** tab:
 
@@ -134,7 +134,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
     1. Depending on the authentication option, you chose in [Set up authentication for Defender for Cloud in AWS](#set-up-authentication-for-defender-for-cloud-in-aws):
         - Select  **Assume Role** and paste the ARN from [Create an IAM role for Defender for Cloud](#create-an-iam-role-for-defender-for-cloud).
 
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Screenshot that shows how to paste the ARN file in the relevant field of the AWS connection wizard in the Azure portal.":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Screenshot that shows how to paste the ARN file in the relevant field of the AWS connection wizard in the Azure portal." lightbox="./media/quickstart-onboard-aws/paste-arn-in-portal.png":::
 
             OR
 
@@ -187,7 +187,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 1. Select the option to switch back to the classic connectors experience.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Screenshot of switching back to the classic cloud connectors experience in Defender for Cloud." lightbox="media/quickstart-onboard-gcp/classic-connectors-experience.png":::
 
 1. For each connector, select the three dots button **…** at the end of the row, and select **Delete**.
 
@@ -273,7 +273,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
     
     1. Specify the role as **Defender for Cloud Admin Viewer** and then select **Save**.
 
-    :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Screenshot that shows how to set the relevant GCP permissions.":::
+    :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Screenshot that shows how to set the relevant GCP permissions." lightbox="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png":::
 
 ### Create a private key for the dedicated service account
 
@@ -293,7 +293,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 1. From Defender for Cloud's menu, open **Environment settings** and select the option to switch back to the classic connectors experience.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Screenshot that shows how to switch back to the classic cloud connectors experience in Defender for Cloud.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Screenshot that shows how to switch back to the classic cloud connectors experience in Defender for Cloud." lightbox="media/quickstart-onboard-gcp/classic-connectors-experience.png" :::
 
 1. Select add GCP project.
 
@@ -317,7 +317,7 @@ When the connector is successfully created, and GCP Security Command Center has 
 
 - Security recommendations for your GCP resources will appear in the Defender for Cloud portal and the regulatory compliance dashboard 5-10 minutes after onboard completes:
 
-    :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Screenshot that shows the GCP resources and recommendations in Defender for Cloud's recommendations page.":::
+    :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Screenshot that shows the GCP resources and recommendations in Defender for Cloud's recommendations page." lightbox="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" :::
 
 ## Remove classic GCP connectors
 
@@ -329,7 +329,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 1. Select the option to switch back to the classic connectors experience.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="A screenshot that shows how to switch back to the classic cloud connectors experience in Defender for Cloud.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="A screenshot that shows how to switch back to the classic cloud connectors experience in Defender for Cloud." lightbox="media/quickstart-onboard-gcp/classic-connectors-experience.png":::
 
 1. For each connector, select the three dot button at the end of the row, and select **Delete**.
 

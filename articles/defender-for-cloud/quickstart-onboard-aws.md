@@ -105,11 +105,11 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 
 1. Select **Add environment** > **Amazon Web Services**.
 
-    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-environment-settings.png" alt-text="Connecting an AWS account to an Azure subscription." lightbox="media/quickstart-onboard-aws/add-aws-account-environment-settings.png":::
+    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-environment-settings.png" alt-text="Screenshot of connecting an AWS account to an Azure subscription." lightbox="media/quickstart-onboard-aws/add-aws-account-environment-settings.png":::
 
 1. Enter the details of the AWS account, including the location where you store the connector resource.
 
-    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Step 1 of the add AWS account wizard: Enter the account details." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
+    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot of step 1 of the add AWS account wizard: Enter the account details." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
 
    (Optional) Select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Autoprovisioning is enabled for all of the newly onboarded accounts.
 

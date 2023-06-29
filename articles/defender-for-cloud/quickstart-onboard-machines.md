@@ -62,7 +62,7 @@ Once Defender for Cloud has been connected to your Azure subscription, you can s
 
 1. Locate the Add on-premises servers and select **Configure** .
 
-    :::image type="content" source="./media/quickstart-onboard-machines/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page." lightbox="./media/quickstart-onboard-machines/onboarding-get-started-tab.png":::
+    :::image type="content" source="./media/quickstart-onboard-machines/onboarding-get-started-tab.png" alt-text="Screenshot of the Get Started tab in the Getting started page." lightbox="./media/quickstart-onboard-machines/onboarding-get-started-tab.png":::
 
     A list of your Log Analytics workspaces is shown.
 
