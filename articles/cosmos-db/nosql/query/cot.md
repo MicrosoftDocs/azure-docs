@@ -1,7 +1,7 @@
 ---
 title: COT
 titleSuffix: Azure Cosmos DB for NoSQL
-description: An Azure Cosmos DB for NoSQL system function that returns the trigonometric cotangent of the specified angle in the specified numeric expression.
+description: An Azure Cosmos DB for NoSQL system function that returns the trigonometric cotangent of the specified angle.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
