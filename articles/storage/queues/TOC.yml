@@ -222,7 +222,6 @@
       href: ../common/storage-use-azurite.md?toc=/azure/storage/queues/toc.json
     - name: Use the Azure Storage emulator (deprecated)
       href: ../common/storage-use-emulator.md?toc=/azure/storage/queues/toc.json
-  - name: Develop with queues
   - name: Manage queues
     items:
     - name: PowerShell for Azure Queues
