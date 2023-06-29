@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > - Create a .NET MAUI shell app.
-> - Add MSAL SDK support via MSALClient helper.
+> - Add MSAL SDK support using MSAL helper classes.
 > - Install required packages.
 > - Add image resource.
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
   - [Instructions for Windows](/dotnet/maui/get-started/installation?tabs=vswin)
   - [Instructions for macOS](/dotnet/maui/get-started/installation?tabs=vsmac)
 
-## Create .NET MAUI shell app
+## Create .NET MAUI app
 
 1. In the start window of Visual Studio 2022, select **Create a new project**.
 1. In the **Create a new project** window, select **MAUI** in the All project types drop-down, select the **.NET MAUI App** template, and select **Next**.
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Wait for the project to be created and its dependencies to be restored.
 
-## Add MSALClient
+## Add MSAL SDK support using MSAL helper classes
 
 MSAL client enables developers to acquire security tokens from Azure Active Directory (Azure AD) for customers tenant to authenticate and access secured web APIs. In this section, you download files that makes up MSALClient.
 
