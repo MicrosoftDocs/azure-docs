@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network
 description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
