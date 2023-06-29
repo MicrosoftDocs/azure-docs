@@ -191,11 +191,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/anomaly-detector/toc.yml",
-      "redirect_url": "/azure/ai-services/anomaly-detector/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/anomaly-detector/whats-new.md",
       "redirect_url": "/azure/ai-services/anomaly-detector/whats-new",
       "redirect_document_id": true
@@ -233,11 +228,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/bing-autosuggest/language-support.md",
       "redirect_url": "/azure/ai-services/bing-autosuggest/language-support",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/bing-autosuggest/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-autosuggest/toc",
       "redirect_document_id": true
     },
     {
@@ -316,11 +306,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/bing-custom-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-custom-search/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/bing-entities-search/entity-search-endpoint.md",
       "redirect_url": "/azure/ai-services/bing-entities-search/entity-search-endpoint",
       "redirect_document_id": true
@@ -333,11 +318,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/bing-entities-search/rank-results.md",
       "redirect_url": "/azure/ai-services/bing-entities-search/rank-results",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/bing-entities-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-entities-search/toc",
       "redirect_document_id": true
     },
     {
@@ -381,11 +361,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/bing-image-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-image-search/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/bing-image-search/trending-images.md",
       "redirect_url": "/azure/ai-services/bing-image-search/trending-images",
       "redirect_document_id": true
@@ -423,11 +398,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/bing-local-business-search/specify-geographic-search.md",
       "redirect_url": "/azure/ai-services/bing-local-business-search/specify-geographic-search",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/bing-local-business-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-local-business-search/toc",
       "redirect_document_id": true
     },
     {
@@ -486,11 +456,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/bing-news-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-news-search/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/bing-news-search/tutorial-bing-news-search-single-page-app.md",
       "redirect_url": "/azure/ai-services/bing-news-search/tutorial-bing-news-search-single-page-app",
       "redirect_document_id": true
@@ -516,11 +481,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/bing-spell-check/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-spell-check/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/bing-video-search/bing-video-upgrade-guide-v5-to-v7.md",
       "redirect_url": "/azure/ai-services/bing-video-search/bing-video-upgrade-guide-v5-to-v7",
       "redirect_document_id": true
@@ -528,11 +488,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/bing-video-search/overview.md",
       "redirect_url": "/azure/ai-services/bing-video-search/overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/bing-video-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-video-search/toc",
       "redirect_document_id": true
     },
     {
@@ -568,11 +523,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/bing-visual-search/overview.md",
       "redirect_url": "/azure/ai-services/bing-visual-search/overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/bing-visual-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-visual-search/toc",
       "redirect_document_id": true
     },
     {
@@ -678,11 +628,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/bing-web-search/throttling-requests.md",
       "redirect_url": "/azure/ai-services/bing-web-search/throttling-requests",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/bing-web-search/toc.yml",
-      "redirect_url": "/azure/ai-services/bing-web-search/toc",
       "redirect_document_id": true
     },
     {
@@ -941,11 +886,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/computer-vision/toc.yml",
-      "redirect_url": "/azure/ai-services/computer-vision/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/computer-vision/upgrade-api-versions.md",
       "redirect_url": "/azure/ai-services/computer-vision/upgrade-api-versions",
       "redirect_document_id": true
@@ -1091,11 +1031,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/content-moderator/toc.yml",
-      "redirect_url": "/azure/ai-services/content-moderator/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/content-moderator/try-image-api.md",
       "redirect_url": "/azure/ai-services/content-moderator/try-image-api",
       "redirect_document_id": true
@@ -1143,11 +1078,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/content-safety/studio-quickstart.md",
       "redirect_url": "/azure/ai-services/content-safety/studio-quickstart",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/content-safety/toc.yml",
-      "redirect_url": "/azure/ai-services/content-safety/toc",
       "redirect_document_id": true
     },
     {
@@ -1266,11 +1196,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/custom-vision-service/toc.yml",
-      "redirect_url": "/azure/ai-services/custom-vision-service/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/custom-vision-service/update-application-to-3.0-sdk.md",
       "redirect_url": "/azure/ai-services/custom-vision-service/update-application-to-3.0-sdk",
       "redirect_document_id": true
@@ -1303,11 +1228,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/overview.md",
       "redirect_url": "/azure/ai-services/language-service/overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/language-service/toc.yml",
-      "redirect_url": "/azure/ai-services/language-service/toc",
       "redirect_document_id": true
     },
     {
@@ -1686,11 +1606,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/luis/toc.yml",
-      "redirect_url": "/azure/ai-services/luis/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/luis/what-is-luis.md",
       "redirect_url": "/azure/ai-services/luis/what-is-luis",
       "redirect_document_id": true
@@ -1743,11 +1658,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/openai/reference.md",
       "redirect_url": "/azure/ai-services/openai/reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/openai/toc.yml",
-      "redirect_url": "/azure/ai-services/openai/toc",
       "redirect_document_id": true
     },
     {
@@ -1911,11 +1821,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/personalizer/toc.yml",
-      "redirect_url": "/azure/ai-services/personalizer/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/personalizer/tutorial-use-azure-notebook-generate-loop-data.md",
       "redirect_url": "/azure/ai-services/personalizer/tutorial-use-azure-notebook-generate-loop-data",
       "redirect_document_id": true
@@ -1991,11 +1896,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/qnamaker/toc.yml",
-      "redirect_url": "/azure/ai-services/qnamaker/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/qnamaker/troubleshooting.md",
       "redirect_url": "/azure/ai-services/qnamaker/troubleshooting",
       "redirect_document_id": true
@@ -2003,11 +1903,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/qnamaker/whats-new.md",
       "redirect_url": "/azure/ai-services/qnamaker/whats-new",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/speaker-recognition/toc.yml",
-      "redirect_url": "/azure/ai-services/speaker-recognition/toc",
       "redirect_document_id": true
     },
     {
@@ -2776,11 +2671,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/speech-service/toc.yml",
-      "redirect_url": "/azure/ai-services/speech-service/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/troubleshooting.md",
       "redirect_url": "/azure/ai-services/speech-service/troubleshooting",
       "redirect_document_id": true
@@ -2901,11 +2791,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/translator/toc.yml",
-      "redirect_url": "/azure/ai-services/translator/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/translator/translator-faq.md",
       "redirect_url": "/azure/ai-services/translator/translator-faq",
       "redirect_document_id": true
@@ -2928,11 +2813,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/word-alignment.md",
       "redirect_url": "/azure/ai-services/translator/word-alignment",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/video-indexer/toc.yml",
-      "redirect_url": "/azure/ai-services/video-indexer/toc",
       "redirect_document_id": true
     },
     {

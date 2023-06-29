@@ -16,11 +16,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/toc.yml",
-      "redirect_url": "/azure/ai-services/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/applied-ai-services/what-are-applied-ai-services.md",
       "redirect_url": "/azure/ai-services/what-are-applied-ai-services",
       "redirect_document_id": true
@@ -241,11 +236,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/toc.yml",
-      "redirect_url": "/azure/ai-services/document-intelligence/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-azure-function.md",
       "redirect_url": "/azure/ai-services/document-intelligence/tutorial-azure-function",
       "redirect_document_id": true
@@ -346,11 +336,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/toc.yml",
-      "redirect_url": "/azure/ai-services/immersive-reader/toc",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/applied-ai-services/immersive-reader/tutorial-ios-picture-immersive-reader.md",
       "redirect_url": "/azure/ai-services/immersive-reader/tutorial-ios-picture-immersive-reader",
       "redirect_document_id": true
@@ -388,11 +373,6 @@
     {
       "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/overview.md",
       "redirect_url": "/azure/ai-services/metrics-advisor/overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/toc.yml",
-      "redirect_url": "/azure/ai-services/metrics-advisor/toc",
       "redirect_document_id": true
     },
     {
