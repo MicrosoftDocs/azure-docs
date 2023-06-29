@@ -17,7 +17,7 @@ Enabling zone redundancy for Azure SQL Database guarantees high availability as 
 
 ## Prerequisites
 
-Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones].
+Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](/azure/reliability/availability-zones-service-support).
 
 | Service tier | Deployment model | Zone redundancy availability |
 |-----|-----|-----|
