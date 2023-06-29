@@ -44,6 +44,7 @@ In the following example, `typeMatchExpression` is defined as:
    },
 ...
 }
+```
 
 It is recommended that IotJsonPathContent templates are used when the device messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or [Export Data (legacy)](../../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../../iot-central/core/overview-iot-central.md). 
 
@@ -63,6 +64,37 @@ The IotJsonPathContent templates allow matching on and extracting values from a 
 |encounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|
 |correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.matchedToken.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|
+
+## Expression languages
+
+When you're specifying the language to use for the expression, the following values are valid:
+
+| Expression language |Value       |
+|---------------------|------------|
+| JSONPath            | `JsonPath` |
+
+Because JSONPath is the default expression language, it's not required to include the expression language within a CalculatedContent template:
+
+```json
+"templateType": "IotJsonPathContent",
+   "template": {
+      "typeName": "heartrate",
+      "typeMatchExpression": "$..[?(@heartRate)]",
+...
+}
+```
+
+You can also explicitly set the default expression language for a IotJsonPathContent template by using the `defaultExpressionLanguage` parameter:
+
+```json
+"templateType": "IotJsonPathContent",
+   "template": {
+      "typeName": "heartrate",
+      "defaultExpressionLanguage": "JsonPath",
+      "typeMatchExpression": "[Body][?contains(keys(@), `heartRate`)] | @[0]",
+...
+}
+```
 
 > [!TIP]
 > For more information on JSONPath, see [JSONPath - XPath for JSON](https://goessner.net/articles/JsonPath/). IotJsonPathContent templates use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
