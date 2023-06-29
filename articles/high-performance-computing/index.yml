@@ -19,7 +19,7 @@ metadata:
 # Main Items (Icons)
 # Maximum of 8 items
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new | thought-leadership
   items:
     # Card
     - title: What is Azure HPC?
