@@ -265,6 +265,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
+
 ---
 
 You can also exclude the `User-Agent` header from evaluation just by rule 942270:
@@ -402,6 +403,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
+
 ---
 
 ### Global exclusions
@@ -505,6 +507,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
   }
 }
 ```
+
 
 ---
 
