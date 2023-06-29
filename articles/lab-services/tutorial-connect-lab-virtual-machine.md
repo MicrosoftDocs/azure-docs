@@ -7,7 +7,7 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: tutorial
-ms.date: 02/17/2023
+ms.date: 06/29/2023
 ---
 
 # Tutorial: Register and access a lab in the Azure Lab Services website
