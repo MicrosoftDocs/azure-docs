@@ -1,9 +1,10 @@
 ---
-title: Use the Azure Maps Services module | Microsoft Azure Maps
+title: Use the Azure Maps Services module
+titleSuffix:  Microsoft Azure Maps
 description: Learn about the Azure Maps services module. See how to load and use this helper library to access Azure Maps REST services in web or Node.js applications.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 03/25/2019
+author: dubiety
+ms.author: yuchungchen
+ms.date: 06/26/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -34,7 +35,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
       import * as service from "azure-maps-rest";
       ```
 
-1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client will be created. 
+1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client will be created.
 
     If you use a subscription key for authentication:
 
@@ -150,16 +151,85 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
     });
     ```
 
-    Here's the full, running code sample:
+Here's the full, running code sample:
 
-<br/>
+```javascript
+<html>
+ <head>
 
+  <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+
+  <script type="text/javascript">
+    
+    // Get an Azure Maps key at https://azure.com/maps.
+    var subscriptionKey = '{Your-Azure-Maps-Subscription-key}';
+
+    // Use SubscriptionKeyCredential with a subscription key.
+    var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(subscriptionKey);
+
+    // Use subscriptionKeyCredential to create a pipeline.
+    var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
+      retryOptions: { maxTries: 4 } // Retry options
+    });
+
+    // Create an instance of the SearchURL client.
+    var searchURL = new atlas.service.SearchURL(pipeline);
+
+    // Search for "1 microsoft way, redmond, wa".
+    searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa')
+      .then(response => {
+      var html = [];
+
+      // Display the total results.
+      html.push('Total results: ', response.summary.numResults, '<br/><br/>');
+
+      // Create a table of the results.
+      html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
+
+      for(var i=0;i<response.results.length;i++){
+        html.push('<tr><td>', (i+1), '.</td><td>', 
+        response.results[i].address.freeformAddress, 
+        '</td><td>', 
+        response.results[i].position.lat,
+        '</td><td>', 
+        response.results[i].position.lon,
+        '</td></tr>');
+      }
+
+      html.push('</table>');
+
+      // Add the resulting HTML to the body of the page.
+      document.body.innerHTML = html.join('');
+    });
+
+  </script>
+</head>
+
+<style>
+  table {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  td, th {
+    border: 1px solid black;
+    padding: 5px;
+  }
+</style>
+
+<body> </body>
+
+</html>
+```
+
+The following image is a screenshot showing the results of this sample code, a table with the address searched for, along with the resulting coordinates.
+
+:::image type="content" source="./media/how-to-use-services-module/services-module-in-webpage.png"alt-text="A screenshot of an HTML table showing the address searched and the resulting coordinates.":::
+
+<!-------------------------------------------------------
 <iframe height="500" scrolling="no" title="Using the Services Module" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Using the Services Module</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-<br/>
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+--------------------------------------------------------->
 
 ## Azure Government cloud support
 

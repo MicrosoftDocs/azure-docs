@@ -1,21 +1,15 @@
 ---
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
+description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services Call Automation
 author: anujb-msft
 ms.author: anujb-msft
-ms.date: 05/26/2023
+ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: callautomation
+ms.subservice: call-automation
 ms.custom: mode-other
 ---
-
-Azure Communication Services (ACS) Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start, we cover a way to make an outbound call and recognize various events in the call.
-
-## Sample code
-
-Find the complete sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling)
 
 ## Prerequisites
 
@@ -26,6 +20,10 @@ Find the complete sample code for this quick start on [GitHub](https://github.co
 - [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
+## Sample code
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling). 
+
+Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
 ## Setup and host your Azure DevTunnel
 

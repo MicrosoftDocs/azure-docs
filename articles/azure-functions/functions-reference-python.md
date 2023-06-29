@@ -174,7 +174,7 @@ The main project folder, *<project_root>*, can contain the following files:
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.vscode/*: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
-* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
+* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](./functions-how-to-custom-container.md).
 * *tests/*: (Optional) Contains the test cases of your function app.
 * *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *.venv/* to ignore the local Python virtual environment, *tests/* to ignore test cases, and *local.settings.json* to prevent local app settings from being published.
 
@@ -210,7 +210,7 @@ The main project folder, *<project_root>*, can contain the following files:
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *local.settings.json*: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of Python packages the system installs when it publishes to Azure.
-* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
+* *Dockerfile*: (Optional) Used when publishing your project in a [custom container](./functions-how-to-custom-container.md).
 ::: zone-end
 
 When you deploy your project to a function app in Azure, the entire contents of the main project folder, *<project_root>*, should be included in the package, but not the folder itself, which means that *host.json* should be in the package root. We recommend that you maintain your tests in a folder along with other functions (in this example, *tests/*). For more information, see [Unit testing](#unit-testing).

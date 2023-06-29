@@ -3,7 +3,7 @@ title: Query logs from Container insights
 description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 08/29/2022
+ms.date: 06/06/2023
 ms.reviewer: viviandiec
 ---
 
@@ -238,6 +238,424 @@ KubePodInventory
     ContainerUnavailable = strcat("Unavailable Percentage: ", containerNotrunningPercent),
     PodStatus = strcat("PodStatus: ", PodStatus), 
     ContainerStatus = strcat("Container Status: ", ContainerStatus)
+```
+
+## Container logs
+
+Container logs for AKS are stored in [the ContainerLogV2 table](./container-insights-logging-v2.md). You can run the following sample queries to look for the stderr/stdout log output from target pods, deployments, or namespaces.
+
+### Container logs for a specific pod, namespace, and container
+
+```kusto
+ContainerLogV2
+| where _ResourceId =~ "clusterResourceID" //update with resource ID
+| where PodNamespace == "podNameSpace" //update with target namespace
+| where PodName == "podName" //update with target pod
+| where ContainerName == "containerName" //update with target container
+| project TimeGenerated, Computer, ContainerId, LogMessage, LogSource
+```
+
+### Container logs for a specific deployment
+
+``` kusto
+let KubePodInv = KubePodInventory
+| where _ResourceId =~ "clusterResourceID" //update with resource ID
+| where Namespace == "deploymentNamespace" //update with target namespace
+| where ControllerKind == "ReplicaSet"
+| extend deployment = reverse(substring(reverse(ControllerName), indexof(reverse(ControllerName), "-") + 1))
+| where deployment == "deploymentName" //update with target deployment
+| extend ContainerId = ContainerID
+| summarize arg_max(TimeGenerated, *)  by deployment, ContainerId, PodStatus, ContainerStatus
+| project deployment, ContainerId, PodStatus, ContainerStatus;
+
+KubePodInv
+| join
+(
+    ContainerLogV2
+  | where TimeGenerated >= startTime and TimeGenerated < endTime
+  | where PodNamespace == "deploymentNamespace" //update with target namespace
+  | where PodName startswith "deploymentName" //update with target deployment
+) on ContainerId
+| project TimeGenerated, deployment, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
+
+```
+
+### Container logs for any failed pod in a specific namespace
+
+``` kusto
+    let KubePodInv = KubePodInventory
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where _ResourceId =~ "clustereResourceID" //update with resource ID
+    | where Namespace == "podNamespace" //update with target namespace
+    | where PodStatus == "Failed"
+    | extend ContainerId = ContainerID
+    | summarize arg_max(TimeGenerated, *)  by  ContainerId, PodStatus, ContainerStatus
+    | project ContainerId, PodStatus, ContainerStatus;
+
+    KubePodInv
+    | join
+    (
+        ContainerLogV2
+    | where TimeGenerated >= startTime and TimeGenerated < endTime
+    | where PodNamespace == "podNamespace" //update with target namespace
+    ) on ContainerId
+    | project TimeGenerated, PodName, PodStatus, ContainerName, ContainerId, ContainerStatus, LogMessage, LogSource
+
+```
+
+## Container insights default visualization queries
+
+These queries are generated from the [out of the box visualizations](./container-insights-analyze.md) from container insights. You can choose to use these if you have enabled custom [cost optimization settings](./container-insights-cost-config.md), in lieu of the default charts.
+
+### Node CPU and memory utilization
+
+The required tables for this chart include Perf and KubeNodeInventory.
+
+```kusto
+ let trendBinSize = 5m;
+ let MaxListSize = 1000;
+ let clusterId = 'clusterResourceID'; //update with resource ID
+ let clusterIdToken = strcat(clusterId, "/");
+ 
+ let materializedPerfData = materialize(Perf 
+| where InstanceName startswith clusterIdToken 
+| where ObjectName == 'K8SNode' 
+| summarize arg_max(TimeGenerated, *) by CounterName, Computer, bin(TimeGenerated, trendBinSize) 
+| where CounterName == 'cpuCapacityNanoCores' or CounterName == 'memoryCapacityBytes' or CounterName == 'cpuUsageNanoCores' or CounterName == 'memoryRssBytes' 
+| project TimeGenerated, Computer, CounterName, CounterValue 
+| summarize StoredValue = max(CounterValue) by Computer, CounterName, bin(TimeGenerated, trendBinSize));
+
+ let rawData = KubeNodeInventory 
+| where ClusterId =~ clusterId 
+| summarize arg_max(TimeGenerated, *) by Computer, bin(TimeGenerated, trendBinSize) 
+| join( materializedPerfData 
+| where CounterName == 'cpuCapacityNanoCores' or CounterName == 'memoryCapacityBytes' 
+| project Computer, CounterName = iif(CounterName == 'cpuCapacityNanoCores', 'cpu', 'memory'), CapacityValue = StoredValue, TimeGenerated ) on Computer, TimeGenerated 
+| join kind=inner( materializedPerfData 
+| where CounterName == 'cpuUsageNanoCores' or CounterName == 'memoryRssBytes' 
+| project Computer, CounterName = iif(CounterName == 'cpuUsageNanoCores', 'cpu', 'memory'), UsageValue = StoredValue, TimeGenerated ) on Computer, CounterName, TimeGenerated 
+| project Computer, CounterName, TimeGenerated, UsagePercent = UsageValue * 100.0 / CapacityValue;
+
+ rawData 
+| summarize Min = min(UsagePercent), Avg = avg(UsagePercent), Max = max(UsagePercent), percentiles(UsagePercent, 50, 90, 95) by bin(TimeGenerated, trendBinSize), CounterName 
+| sort by TimeGenerated asc 
+| project CounterName, TimeGenerated, Min, Avg, Max, P50 = percentile_UsagePercent_50, P90 = percentile_UsagePercent_90, P95 = percentile_UsagePercent_95 
+| summarize makelist(TimeGenerated, MaxListSize), makelist(Min, MaxListSize), makelist(Avg, MaxListSize), makelist(Max, MaxListSize), makelist(P50, MaxListSize), makelist(P90, MaxListSize), makelist(P95, MaxListSize) by CounterName 
+| join ( rawData 
+| summarize Min = min(UsagePercent), Avg = avg(UsagePercent), Max = max(UsagePercent), percentiles(UsagePercent, 50, 90, 95) by CounterName ) on CounterName 
+| project ClusterId = clusterId, CounterName, Min, Avg, Max, P50 = percentile_UsagePercent_50, P90 = percentile_UsagePercent_90, P95 = percentile_UsagePercent_95, list_TimeGenerated, list_Min, list_Avg, list_Max, list_P50, list_P90, list_P95 
+```
+### Node count by status
+
+The required tables for this chart include KubeNodeInventory.
+
+```kusto
+ let trendBinSize = 5m;
+ let maxListSize = 1000;
+ let clusterId = 'clusterResourceID'; //update with resource ID
+ 
+ let rawData = KubeNodeInventory 
+| where ClusterId =~ clusterId 
+| distinct ClusterId, TimeGenerated 
+| summarize ClusterSnapshotCount = count() by Timestamp = bin(TimeGenerated, trendBinSize), ClusterId 
+| join hint.strategy=broadcast ( KubeNodeInventory 
+| where ClusterId =~ clusterId 
+| summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready')) by ClusterId, Timestamp = bin(TimeGenerated, trendBinSize) 
+| extend NotReadyCount = TotalCount - ReadyCount ) on ClusterId, Timestamp 
+| project ClusterId, Timestamp, TotalCount = todouble(TotalCount) / ClusterSnapshotCount, ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount, NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount;
+
+ rawData 
+| order by Timestamp asc 
+| summarize makelist(Timestamp, maxListSize), makelist(TotalCount, maxListSize), makelist(ReadyCount, maxListSize), makelist(NotReadyCount, maxListSize) by ClusterId 
+| join ( rawData 
+| summarize Avg_TotalCount = avg(TotalCount), Avg_ReadyCount = avg(ReadyCount), Avg_NotReadyCount = avg(NotReadyCount) by ClusterId ) on ClusterId 
+| project ClusterId, Avg_TotalCount, Avg_ReadyCount, Avg_NotReadyCount, list_Timestamp, list_TotalCount, list_ReadyCount, list_NotReadyCount 
+```
+
+### Pod count by status
+
+The required tables for this chart include KubePodInventory.
+
+```kusto
+ let trendBinSize = 5m;
+ let maxListSize = 1000;
+ let clusterId = 'clusterResourceID'; //update with resource ID
+ 
+ let rawData = KubePodInventory 
+| where ClusterId =~ clusterId 
+| distinct ClusterId, TimeGenerated 
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterId 
+| join hint.strategy=broadcast ( KubePodInventory 
+| where ClusterId =~ clusterId 
+| summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId 
+| summarize TotalCount = count(), PendingCount = sumif(1, PodStatus =~ 'Pending'), RunningCount = sumif(1, PodStatus =~ 'Running'), SucceededCount = sumif(1, PodStatus =~ 'Succeeded'), FailedCount = sumif(1, PodStatus =~ 'Failed'), TerminatingCount = sumif(1, PodStatus =~ 'Terminating') by ClusterId, bin(TimeGenerated, trendBinSize) ) on ClusterId, TimeGenerated 
+| extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount - TerminatingCount 
+| project ClusterId, Timestamp = TimeGenerated, TotalCount = todouble(TotalCount) / ClusterSnapshotCount, PendingCount = todouble(PendingCount) / ClusterSnapshotCount, RunningCount = todouble(RunningCount) / ClusterSnapshotCount, SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount, FailedCount = todouble(FailedCount) / ClusterSnapshotCount, TerminatingCount = todouble(TerminatingCount) / ClusterSnapshotCount, UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount;
+
+ let rawDataCached = rawData;
+ 
+ rawDataCached 
+| order by Timestamp asc 
+| summarize makelist(Timestamp, maxListSize), makelist(TotalCount, maxListSize), makelist(PendingCount, maxListSize), makelist(RunningCount, maxListSize), makelist(SucceededCount, maxListSize), makelist(FailedCount, maxListSize), makelist(TerminatingCount, maxListSize), makelist(UnknownCount, maxListSize) by ClusterId 
+| join ( rawDataCached 
+| summarize Avg_TotalCount = avg(TotalCount), Avg_PendingCount = avg(PendingCount), Avg_RunningCount = avg(RunningCount), Avg_SucceededCount = avg(SucceededCount), Avg_FailedCount = avg(FailedCount), Avg_TerminatingCount = avg(TerminatingCount), Avg_UnknownCount = avg(UnknownCount) by ClusterId ) on ClusterId 
+| project ClusterId, Avg_TotalCount, Avg_PendingCount, Avg_RunningCount, Avg_SucceededCount, Avg_FailedCount, Avg_TerminatingCount, Avg_UnknownCount, list_Timestamp, list_TotalCount, list_PendingCount, list_RunningCount, list_SucceededCount, list_FailedCount, list_TerminatingCount, list_UnknownCount 
+```
+### List of containers by status
+
+The required tables for this chart include KubePodInventory and Perf.
+
+```kusto
+ let startDateTime = datetime('start time');
+ let endDateTime = datetime('end time');
+ let trendBinSize = 15m;
+ let maxResultCount = 10000;
+ let metricUsageCounterName = 'cpuUsageNanoCores';
+ let metricLimitCounterName = 'cpuLimitNanoCores';
+ 
+ let KubePodInventoryTable = KubePodInventory 
+| where TimeGenerated >= startDateTime 
+| where TimeGenerated < endDateTime 
+| where isnotempty(ClusterName) 
+| where isnotempty(Namespace) 
+| where isnotempty(Computer) 
+| project TimeGenerated, ClusterId, ClusterName, Namespace, ServiceName, ControllerName, Node = Computer, Pod = Name, ContainerInstance = ContainerName, ContainerID, ReadySinceNow = format_timespan(endDateTime - ContainerCreationTimeStamp , 'ddd.hh:mm:ss.fff'), Restarts = ContainerRestartCount, Status = ContainerStatus, ContainerStatusReason = columnifexists('ContainerStatusReason', ''), ControllerKind = ControllerKind, PodStatus;
+
+ let startRestart = KubePodInventoryTable 
+| summarize arg_min(TimeGenerated, *) by Node, ContainerInstance 
+| where ClusterId =~ 'clusterResourceID' //update with resource ID
+| project Node, ContainerInstance, InstanceName = strcat(ClusterId, '/', ContainerInstance), StartRestart = Restarts;
+
+ let IdentityTable = KubePodInventoryTable 
+| summarize arg_max(TimeGenerated, *) by Node, ContainerInstance 
+| where ClusterId =~ 'clusterResourceID' //update with resource ID
+| project ClusterName, Namespace, ServiceName, ControllerName, Node, Pod, ContainerInstance, InstanceName = strcat(ClusterId, '/', ContainerInstance), ContainerID, ReadySinceNow, Restarts, Status = iff(Status =~ 'running', 0, iff(Status=~'waiting', 1, iff(Status =~'terminated', 2, 3))), ContainerStatusReason, ControllerKind, Containers = 1, ContainerName = tostring(split(ContainerInstance, '/')[1]), PodStatus, LastPodInventoryTimeGenerated = TimeGenerated, ClusterId;
+
+ let CachedIdentityTable = IdentityTable;
+ 
+ let FilteredPerfTable = Perf 
+| where TimeGenerated >= startDateTime 
+| where TimeGenerated < endDateTime 
+| where ObjectName == 'K8SContainer' 
+| where InstanceName startswith 'clusterResourceID' 
+| project Node = Computer, TimeGenerated, CounterName, CounterValue, InstanceName ;
+
+ let CachedFilteredPerfTable = FilteredPerfTable;
+ 
+ let LimitsTable = CachedFilteredPerfTable 
+| where CounterName =~ metricLimitCounterName 
+| summarize arg_max(TimeGenerated, *) by Node, InstanceName 
+| project Node, InstanceName, LimitsValue = iff(CounterName =~ 'cpuLimitNanoCores', CounterValue/1000000, CounterValue), TimeGenerated;
+ let MetaDataTable = CachedIdentityTable 
+| join kind=leftouter ( LimitsTable ) on Node, InstanceName 
+| join kind= leftouter ( startRestart ) on Node, InstanceName 
+| project ClusterName, Namespace, ServiceName, ControllerName, Node, Pod, InstanceName, ContainerID, ReadySinceNow, Restarts, LimitsValue, Status, ContainerStatusReason = columnifexists('ContainerStatusReason', ''), ControllerKind, Containers, ContainerName, ContainerInstance, StartRestart, PodStatus, LastPodInventoryTimeGenerated, ClusterId;
+
+ let UsagePerfTable = CachedFilteredPerfTable 
+| where CounterName =~ metricUsageCounterName 
+| project TimeGenerated, Node, InstanceName, CounterValue = iff(CounterName =~ 'cpuUsageNanoCores', CounterValue/1000000, CounterValue);
+
+ let LastRestartPerfTable = CachedFilteredPerfTable 
+| where CounterName =~ 'restartTimeEpoch' 
+| summarize arg_max(TimeGenerated, *) by Node, InstanceName 
+| project Node, InstanceName, UpTime = CounterValue, LastReported = TimeGenerated;
+
+ let AggregationTable = UsagePerfTable 
+| summarize Aggregation = max(CounterValue) by Node, InstanceName 
+| project Node, InstanceName, Aggregation;
+
+ let TrendTable = UsagePerfTable 
+| summarize TrendAggregation = max(CounterValue) by bin(TimeGenerated, trendBinSize), Node, InstanceName 
+| project TrendTimeGenerated = TimeGenerated, Node, InstanceName , TrendAggregation 
+| summarize TrendList = makelist(pack("timestamp", TrendTimeGenerated, "value", TrendAggregation)) by Node, InstanceName;
+
+ let containerFinalTable = MetaDataTable 
+| join kind= leftouter( AggregationTable ) on Node, InstanceName 
+| join kind = leftouter (LastRestartPerfTable) on Node, InstanceName 
+| order by Aggregation desc, ContainerName 
+| join kind = leftouter ( TrendTable) on Node, InstanceName 
+| extend ContainerIdentity = strcat(ContainerName, ' ', Pod) 
+| project ContainerIdentity, Status, ContainerStatusReason = columnifexists('ContainerStatusReason', ''), Aggregation, Node, Restarts, ReadySinceNow, TrendList = iif(isempty(TrendList), parse_json('[]'), TrendList), LimitsValue, ControllerName, ControllerKind, ContainerID, Containers, UpTimeNow = datetime_diff('Millisecond', endDateTime, datetime_add('second', toint(UpTime), make_datetime(1970,1,1))), ContainerInstance, StartRestart, LastReportedDelta = datetime_diff('Millisecond', endDateTime, LastReported), PodStatus, InstanceName, Namespace, LastPodInventoryTimeGenerated, ClusterId;
+containerFinalTable 
+| limit 200
+```
+
+### List of Controllers by status
+
+The required tables for this chart include KubePodInventory and Perf.
+
+```kusto
+ let endDateTime = datetime('start time');
+ let startDateTime = datetime('end time');
+ let trendBinSize = 15m;
+ let metricLimitCounterName = 'cpuLimitNanoCores';
+ let metricUsageCounterName = 'cpuUsageNanoCores';
+ 
+ let primaryInventory = KubePodInventory 
+| where TimeGenerated >= startDateTime 
+| where TimeGenerated < endDateTime 
+| where isnotempty(ClusterName) 
+| where isnotempty(Namespace) 
+| extend Node = Computer 
+| where ClusterId =~ 'clusterResourceID' //update with resource ID
+| project TimeGenerated, ClusterId, ClusterName, Namespace, ServiceName, Node = Computer, ControllerName, Pod = Name, ContainerInstance = ContainerName, ContainerID, InstanceName, PerfJoinKey = strcat(ClusterId, '/', ContainerName), ReadySinceNow = format_timespan(endDateTime - ContainerCreationTimeStamp, 'ddd.hh:mm:ss.fff'), Restarts = ContainerRestartCount, Status = ContainerStatus, ContainerStatusReason = columnifexists('ContainerStatusReason', ''), ControllerKind = ControllerKind, PodStatus, ControllerId = strcat(ClusterId, '/', Namespace, '/', ControllerName);
+
+let podStatusRollup = primaryInventory 
+| summarize arg_max(TimeGenerated, *) by Pod 
+| project ControllerId, PodStatus, TimeGenerated 
+| summarize count() by ControllerId, PodStatus = iif(TimeGenerated < ago(30m), 'Unknown', PodStatus) 
+| summarize PodStatusList = makelist(pack('Status', PodStatus, 'Count', count_)) by ControllerId;
+
+let latestContainersByController = primaryInventory 
+| where isnotempty(Node) 
+| summarize arg_max(TimeGenerated, *) by PerfJoinKey 
+| project ControllerId, PerfJoinKey;
+
+let filteredPerformance = Perf 
+| where TimeGenerated >= startDateTime 
+| where TimeGenerated < endDateTime 
+| where ObjectName == 'K8SContainer' 
+| where InstanceName startswith 'clusterResourceID' //update with resource ID
+| project TimeGenerated, CounterName, CounterValue, InstanceName, Node = Computer ;
+
+let metricByController = filteredPerformance 
+| where CounterName =~ metricUsageCounterName 
+| extend PerfJoinKey = InstanceName 
+| summarize Value = percentile(CounterValue, 95) by PerfJoinKey, CounterName 
+| join (latestContainersByController) on PerfJoinKey 
+| summarize Value = sum(Value) by ControllerId, CounterName 
+| project ControllerId, CounterName, AggregationValue = iff(CounterName =~ 'cpuUsageNanoCores', Value/1000000, Value);
+
+let containerCountByController = latestContainersByController 
+| summarize ContainerCount = count() by ControllerId;
+
+let restartCountsByController = primaryInventory 
+| summarize Restarts = max(Restarts) by ControllerId;
+
+let oldestRestart = primaryInventory 
+| summarize ReadySinceNow = min(ReadySinceNow) by ControllerId;
+
+let trendLineByController = filteredPerformance 
+| where CounterName =~ metricUsageCounterName 
+| extend PerfJoinKey = InstanceName 
+| summarize Value = percentile(CounterValue, 95) by bin(TimeGenerated, trendBinSize), PerfJoinKey, CounterName 
+| order by TimeGenerated asc 
+| join kind=leftouter (latestContainersByController) on PerfJoinKey 
+| summarize Value=sum(Value) by ControllerId, TimeGenerated, CounterName 
+| project TimeGenerated, Value = iff(CounterName =~ 'cpuUsageNanoCores', Value/1000000, Value), ControllerId 
+| summarize TrendList = makelist(pack("timestamp", TimeGenerated, "value", Value)) by ControllerId;
+
+let latestLimit = filteredPerformance 
+| where CounterName =~ metricLimitCounterName 
+| extend PerfJoinKey = InstanceName 
+| summarize arg_max(TimeGenerated, *) by PerfJoinKey 
+| join kind=leftouter (latestContainersByController) on PerfJoinKey 
+| summarize Value = sum(CounterValue) by ControllerId, CounterName 
+| project ControllerId, LimitValue = iff(CounterName =~ 'cpuLimitNanoCores', Value/1000000, Value);
+
+let latestTimeGeneratedByController = primaryInventory 
+| summarize arg_max(TimeGenerated, *) by ControllerId 
+| project ControllerId, LastTimeGenerated = TimeGenerated;
+
+primaryInventory 
+| distinct ControllerId, ControllerName, ControllerKind, Namespace 
+| join kind=leftouter (podStatusRollup) on ControllerId 
+| join kind=leftouter (metricByController) on ControllerId 
+| join kind=leftouter (containerCountByController) on ControllerId 
+| join kind=leftouter (restartCountsByController) on ControllerId 
+| join kind=leftouter (oldestRestart) on ControllerId 
+| join kind=leftouter (trendLineByController) on ControllerId 
+| join kind=leftouter (latestLimit) on ControllerId 
+| join kind=leftouter (latestTimeGeneratedByController) on ControllerId 
+| project ControllerId, ControllerName, ControllerKind, PodStatusList, AggregationValue, ContainerCount = iif(isempty(ContainerCount), 0, ContainerCount), Restarts, ReadySinceNow, Node = '-', TrendList, LimitValue, LastTimeGenerated, Namespace 
+| limit 250;
+```
+
+### List of Nodes by status
+
+The required tables for this chart include KubeNodeInventory, KubePodInventory, and Perf.
+
+```kusto
+ let endDateTime = datetime('start time');
+ let startDateTime = datetime('end time');
+ let binSize = 15m;
+ let limitMetricName = 'cpuCapacityNanoCores';
+ let usedMetricName = 'cpuUsageNanoCores'; 
+ 
+ let materializedNodeInventory = KubeNodeInventory 
+| where TimeGenerated < endDateTime 
+| where TimeGenerated >= startDateTime 
+| project ClusterName, ClusterId, Node = Computer, TimeGenerated, Status, NodeName = Computer, NodeId = strcat(ClusterId, '/', Computer), Labels 
+| where ClusterId =~ 'clusterResourceID'; //update with resource ID
+
+ let materializedPerf = Perf 
+| where TimeGenerated < endDateTime 
+| where TimeGenerated >= startDateTime 
+| where ObjectName == 'K8SNode' 
+| extend NodeId = InstanceName;
+
+ let materializedPodInventory = KubePodInventory 
+| where TimeGenerated < endDateTime 
+| where TimeGenerated >= startDateTime 
+| where isnotempty(ClusterName) 
+| where isnotempty(Namespace) 
+| where ClusterId =~ 'clusterResourceID'; //update with resource ID
+
+ let inventoryOfCluster = materializedNodeInventory 
+| summarize arg_max(TimeGenerated, Status) by ClusterName, ClusterId, NodeName, NodeId;
+
+ let labelsByNode = materializedNodeInventory 
+| summarize arg_max(TimeGenerated, Labels) by ClusterName, ClusterId, NodeName, NodeId;
+
+ let countainerCountByNode = materializedPodInventory 
+| project ContainerName, NodeId = strcat(ClusterId, '/', Computer) 
+| distinct NodeId, ContainerName 
+| summarize ContainerCount = count() by NodeId;
+
+ let latestUptime = materializedPerf 
+| where CounterName == 'restartTimeEpoch' 
+| summarize arg_max(TimeGenerated, CounterValue) by NodeId 
+| extend UpTimeMs = datetime_diff('Millisecond', endDateTime, datetime_add('second', toint(CounterValue), make_datetime(1970,1,1))) 
+| project NodeId, UpTimeMs;
+
+ let latestLimitOfNodes = materializedPerf 
+| where CounterName == limitMetricName 
+| summarize CounterValue = max(CounterValue) by NodeId 
+| project NodeId, LimitValue = CounterValue;
+
+ let actualUsageAggregated = materializedPerf 
+| where CounterName == usedMetricName 
+| summarize Aggregation = percentile(CounterValue, 95) by NodeId //This line updates to the desired aggregation
+| project NodeId, Aggregation;
+
+ let aggregateTrendsOverTime = materializedPerf 
+| where CounterName == usedMetricName 
+| summarize TrendAggregation = percentile(CounterValue, 95) by NodeId, bin(TimeGenerated, binSize) //This line updates to the desired aggregation
+| project NodeId, TrendAggregation, TrendDateTime = TimeGenerated;
+
+ let unscheduledPods = materializedPodInventory 
+| where isempty(Computer) 
+| extend Node = Computer 
+| where isempty(ContainerStatus) 
+| where PodStatus == 'Pending' 
+| order by TimeGenerated desc 
+| take 1 
+| project ClusterName, NodeName = 'unscheduled', LastReceivedDateTime = TimeGenerated, Status = 'unscheduled', ContainerCount = 0, UpTimeMs = '0', Aggregation = '0', LimitValue = '0', ClusterId;
+
+ let scheduledPods = inventoryOfCluster 
+| join kind=leftouter (aggregateTrendsOverTime) on NodeId 
+| extend TrendPoint = pack("TrendTime", TrendDateTime, "TrendAggregation", TrendAggregation) 
+| summarize make_list(TrendPoint) by NodeId, NodeName, Status 
+| join kind=leftouter (labelsByNode) on NodeId 
+| join kind=leftouter (countainerCountByNode) on NodeId 
+| join kind=leftouter (latestUptime) on NodeId 
+| join kind=leftouter (latestLimitOfNodes) on NodeId 
+| join kind=leftouter (actualUsageAggregated) on NodeId 
+| project ClusterName, NodeName, ClusterId, list_TrendPoint, LastReceivedDateTime = TimeGenerated, Status, ContainerCount, UpTimeMs, Aggregation, LimitValue, Labels 
+| limit 250;
+
+ union (scheduledPods), (unscheduledPods) 
+| project ClusterName, NodeName, LastReceivedDateTime, Status, ContainerCount, UpTimeMs = UpTimeMs_long, Aggregation = Aggregation_real, LimitValue = LimitValue_real, list_TrendPoint, Labels, ClusterId 
 ```
 
 ## Resource logs

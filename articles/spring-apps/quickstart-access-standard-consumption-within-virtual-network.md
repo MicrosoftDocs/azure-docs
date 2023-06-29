@@ -5,8 +5,8 @@ author: karlerickson
 ms.author: haojianzhong
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/21/2023
-ms.custom: devx-track-java
+ms.date: 06/21/2023
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Quickstart: Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network

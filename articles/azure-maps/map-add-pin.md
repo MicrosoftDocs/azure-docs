@@ -10,7 +10,7 @@ ms.service: azure-maps
 
 # Add a symbol layer to a map
 
-Connect a symbol to a data source, and use it to render an icon or a text at a given point. 
+Connect a symbol to a data source, and use it to render an icon or a text at a given point.
 
 Symbol layers are rendered using WebGL. Use a symbol layer to render large collections of points on the map. Compared to HTML marker, the symbol layer renders a large number of point data on the map, with better performance. However, the symbol layer doesn't support traditional CSS and HTML elements for styling.  
 
@@ -170,7 +170,7 @@ function InitMap()
 
 ## Customize a symbol layer
 
-The symbol layer has many styling options available. The [Symbol Layer Options] sample shows how the different options of the symbol layer that affects rendering.
+The symbol layer has many styling options available. The [Symbol Layer Options] sample shows how the different options of the symbol layer that affects rendering. For the source code for this sample, see [Symbol Layer Options source code].
 
 :::image type="content" source="./media/map-add-pin/symbol-layer-options.png" alt-text="A screenshot of map with a panel on the left side of the map with the various symbol options that can be interactively set.":::
 
@@ -225,3 +225,4 @@ See the following articles for more code samples to add to your maps:
 > [Add HTML Makers](map-add-bubble-layer.md)
 
 [Symbol Layer Options]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-options
+[Symbol Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20Layer%20Options/Symbol%20Layer%20Options.html
