@@ -5,6 +5,7 @@ author: hossam-nasr
 ms.service: azure-functions
 ms.date: 04/06/2023
 ms.devlang: javascript, typescript
+ms.custom: devx-track-extended-java, devx-track-js
 ms.author: azfuncdf
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-functions-nodejs
@@ -856,7 +857,7 @@ const response = yield context.df.callHttp(
 
 :::zone pivot="programming-language-typescript"
 
-## Leverage New Types
+## Leverage new types
 
 The `durable-functions` package now exposes new types that weren't previously exported! This allows you to more strongly type your functions and provide stronger type safety for your orchestrations, entities, and activities! This also improves intellisense for authoring these functions.
 

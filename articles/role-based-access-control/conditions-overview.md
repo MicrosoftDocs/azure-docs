@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/19/2023
+ms.date: 04/11/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -16,7 +16,7 @@ ms.author: rolyon
 
 # What is Azure attribute-based access control (Azure ABAC)?
 
-Attribute-based access control (ABAC) is an authorization system that defines access based on attributes associated with security principals, resources, and environment. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
+Attribute-based access control (ABAC) is an authorization system that defines access based on attributes associated with security principals, resources, and the environment of an access request. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
 
 ## What are role assignment conditions?
 
@@ -45,6 +45,8 @@ There are several scenarios where you might want to add a condition to your role
 - Write access to blobs in containers named Contosocorp with a path of uploads/contoso
 - Read access to blobs with the tag Program=Alpine and a path of logs
 - Read access to blobs with the tag Project=Baker and the user has a matching attribute Project=Baker
+- Read access to blobs during a specific date/time range.
+- Write access to blobs only over a private link or from a specific subnet.
 
 For more information about how to create these examples, see [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md).
 
@@ -62,7 +64,9 @@ Here are some of the [blob storage attributes](../storage/blobs/storage-auth-aba
 - Encryption scope name
 - Is Current Version
 - Is hierarchical namespace enabled
+- Is private link
 - Snapshot
+- UTC now (the current date and time in Coordinated Universal Time)
 - Version ID
 
 ## What does a condition look like?
@@ -103,10 +107,11 @@ Some features of conditions are still in preview. The following table lists the 
 
 | Feature | Status | Date |
 | --- | --- | --- |
+| Use [environment attributes](conditions-format.md#environment-attributes) in a condition | Preview | April 2023 |
 | Add conditions using the [condition editor in the Azure portal](conditions-role-assignments-portal.md) | GA | October 2022 |
 | Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), or [REST API](conditions-role-assignments-rest.md) | GA | October 2022 |
-| Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
-| Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
+| Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/blobs/storage-auth-abac.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
+| Use [custom security attributes on a principal](conditions-format.md#principal-attributes) in a condition | Preview | November 2021 |
 
 ## Conditions and Azure AD PIM
 

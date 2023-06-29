@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/15/2023
+ms.date: 05/09/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,6 +16,49 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## June 13, 2023
+
+### Image tag
+
+`v1.20.0_2023-06-13`
+
+For complete release version information, review [Version log](version-log.md#june-13-2023).
+
+### Release notes
+
+- Azure Arc-enabled SQL Managed Instance
+    -  [Added Azure CLI support to manage transparent data encryption (TDE)](configure-transparent-data-encryption-sql-managed-instance.md).
+
+## May 9, 2023
+
+### Image tag
+
+`v1.19.0_2023-05-09`
+
+For complete release version information, review [Version log](version-log.md#may-9-2023).
+
+New for this release:
+
+### Release notes
+
+- Arc data services
+  - OpenSearch replaces Elasticsearch for log database
+  - OpenSearch Dashboards replaces Kibana for logs interface
+    - There is a known issue with user settings migration to OpenSearch Dashboards for some versions of Elasticsearch, including the version used in Arc data services. 
+    
+      > [!IMPORTANT]
+      > Before upgrade, save any Kibana configuration externally so that it can be re-created in OpenSearch Dashboards.
+
+  - Automatic upgrade is disabled for the Arc data services extension
+  - Error-handling in the `az` CLI is improved during data controller upgrade
+  - Fixed a bug to preserve the resource limits for Azure Arc Data Controller where the resource limits could get reset during an upgrade.
+
+- Azure Arc-enabled SQL Managed Instance
+  - General Purpose: Customer-managed TDE encryption keys (preview). For information, review [Enable transparent data encryption on Azure Arc-enabled SQL Managed Instance](configure-transparent-data-encryption-sql-managed-instance.md).
+  - Support for customer-managed keytab rotation. For information, review [Rotate Azure Arc-enabled SQL Managed Instance customer-managed keytab](rotate-customer-managed-keytab.md).
+  - Support for `sp_configure` to manage configuration. For information, review [Configure Azure Arc-enabled SQL managed instance](configure-managed-instance.md).
+  - Service-managed credential rotation. For information, review [How to rotate service-managed credentials in a managed instance](rotate-sql-managed-instance-credentials.md#how-to-rotate-service-managed-credentials-in-a-managed-instance).
 
 ## April 12, 2023
 
@@ -52,7 +95,7 @@ New for this release:
   - [Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)](rotate-sql-managed-instance-credentials.md) 
 - Azure Arc-enabled PostgreSQL 
   - Require client connections to use SSL
-  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgresSQL
+  - Extended Azure Arc-enabled SQL Managed Instance authentication control plane to PostgreSQL
 
 ## February 14, 2023
 
@@ -196,8 +239,8 @@ New for this release:
   - Added support for specifying multiple encryption types for AD connectors using the Azure CLI extension or Azure portal.
 
 - Arc-enabled PostgreSQL server
-  - Removed Hyperscale/Citus scale-out capabilities. Focus will be on providing a single node Postgres server service. All user experiences have had terms and concepts like `Hyperscale`, `server groups`, `worker nodes`, `coordinator nodes`, and so forth. removed.  **BREAKING CHANGE**
-  - The postgresql container image is based on [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) base OS image.
+   - Removed Hyperscale/Citus scale-out capabilities. Focus will be on providing a single node Postgres server service. All user experiences have had terms and concepts like `Hyperscale`, `server groups`, `worker nodes`, `coordinator nodes`, and so forth. removed.  **BREAKING CHANGE**
+
   - Only PostgreSQL version 14 is supported for now. Versions 11 and 12 have been removed.  Two new images are introduced: `arc-postgres-14` and `arc-postgresql-agent`.  The `arc-postgres-11` and `arc-postgres-12` container images are removed going forward.
   - The postgresql CRD version has been updated to v1beta3.  Some properties such as `workers` have been removed or changed.  Update any scripts or automation you have as needed to align to the new CRD schema. **BREAKING CHANGE**
 
@@ -336,7 +379,7 @@ Data controller sends controller logs to the Log Analytics Workspace if logs upl
 
 Removed the `--ad-connector-namespace` parameter from `az sql mi-arc create` command because for now the AD connector resource must always be in the same namespace as the SQL Managed Instance resource.
 
-Updated ElasticSearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluent Bit, Go.
+Updated Elasticsearch to latest version `7.9.1-36fefbab37-205465`.  Also Grafana, Kibana, Telegraf, Fluent Bit, Go.
 
 All container image sizes were reduced by approximately 40% on average.
 
@@ -684,7 +727,7 @@ Use the following tools:
 
 - Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
 
-- Currently, modifying the configuration of ElasticSearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
+- Currently, modifying the configuration of Elasticsearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
 	
 - Custom metrics in Azure portal - preview.
 
@@ -962,4 +1005,5 @@ This section describes the new features introduced or enabled for this release.
 - [Create an Azure SQL Managed Instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 - [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)
 - [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)
+
 

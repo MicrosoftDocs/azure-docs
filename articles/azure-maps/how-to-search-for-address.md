@@ -51,7 +51,7 @@ The example in this section uses [Get Search Address] to convert an address into
 
 5. Next, try setting the `query` key to `400 Broa`.
 
-6. Select the **Send** button. The response includes results from multiple countries. To geobias results to the relevant area for your users, always add as many location details as possible to the request.
+6. Select the **Send** button. The response includes results from multiple countries/regions. To geobias results to the relevant area for your users, always add as many location details as possible to the request.
 
 ## Fuzzy Search
 
@@ -62,7 +62,7 @@ The example in this section uses [Get Search Address] to convert an address into
 
 ### Search for an address using Fuzzy Search
 
-The example in this section uses `Fuzzy Search` to search the entire world for *pizza*, then searches over the scope of a specific country. Finally, it demonstrates how to use a coordinate location and radius to scope a search over a specific area, and limit the number of returned results.
+The example in this section uses `Fuzzy Search` to search the entire world for *pizza*, then searches over the scope of a specific country/region. Finally, it demonstrates how to use a coordinate location and radius to scope a search over a specific area, and limit the number of returned results.
 
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].

@@ -10,15 +10,15 @@ ms.custom: ignite-fall-2021
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.3.0b1/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python&preserve-view=true) | [More samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.3.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-[Reference documentation](/python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python-preview) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b3/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md) | [Package (PyPi)](https://pypi.org/project/azure-ai-language-conversations/1.1.0b3/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b3/sdk/cognitivelanguage/azure-ai-language-conversations) 
+[Reference documentation](/python/api/overview/azure/ai-language-conversations-readme?preserve-view=true&view=azure-python) | [More samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md) | [Package (PyPi)](https://pypi.org/project/azure-ai-language-conversations/1.1.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0/sdk/cognitivelanguage/azure-ai-language-conversations) 
 
 ---
 
-Use this quickstart to create a text summarization application with the client library for Python. In the following example, you will create a Python application that can summarize documents or text-based customer service conversations.
+Use this quickstart to create a text summarization application with the client library for Python. In the following example, you'll create a Python application that can summarize documents or text-based customer service conversations.
 
 [!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
@@ -27,20 +27,16 @@ Use this quickstart to create a text summarization application with the client l
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You'll need the key and endpoint from the resource you create to connect your application to the API. You paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
+* To use the Analyze feature, you'll need a Language resource with the standard (S) pricing tier.
 
-> [!div class="nextstepaction"]
-> <a href="> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>" target="_target">I ran into an issue</a>
 
 ## Setting up
 
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 
 ### Install the client library
 
@@ -49,19 +45,18 @@ After installing Python, you can install the client library with:
 # [Document summarization](#tab/document-summarization)
 
 ```console
-pip install azure-ai-textanalytics==5.3.0b1
+pip install azure-ai-textanalytics==5.3.0
 ```
 
 # [Conversation summarization](#tab/conversation-summarization)
 
 ```console
-pip install azure-ai-language-conversations==1.1.0b3
+pip install azure-ai-language-conversations==1.1.0
 ```
 
 ---
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+
 
 
 ## Code example
@@ -102,7 +97,7 @@ def sample_extractive_summarization(client):
         "The extractive summarization feature uses natural language processing techniques to locate key sentences in an unstructured text document. "
         "These sentences collectively convey the main idea of the document. This feature is provided as an API for developers. " 
         "They can use it to build intelligent solutions based on the relevant information extracted to support various use cases. "
-        "In the public preview, extractive summarization supports several languages. It is based on pretrained multilingual transformer models, part of our quest for holistic representations. "
+        "Extractive summarization supports several languages. It is based on pretrained multilingual transformer models, part of our quest for holistic representations. "
         "It draws its strength from transfer learning across monolingual and harness the shared nature of languages to produce models of improved quality and efficiency. "
     ]
 
@@ -128,8 +123,7 @@ def sample_extractive_summarization(client):
 sample_extractive_summarization(client)
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 ### Output
 
@@ -245,8 +239,7 @@ with client:
 
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 ### Output
 

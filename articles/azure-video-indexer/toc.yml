@@ -102,9 +102,6 @@
   - name: Slate detection
     href: slate-detection-insight.md
     displayName: Slate detection insights description, following slate detection insights, Textless slate detection, movie post-production process, advanced indexing option, Digital patterns detection, The Timeline tab, The Insight tab, indexing process, post-production insights, slate insight, audio indexing, Advanced** presets, advanced setting, slate metadata, post-production checkmark, clapper board, color bars, metadata extraction, scene matching, clapperboard instances, title, topic, article, video, customers, wikipedia, org, information, example, SMPTE_color_bars, order, image, media/slate-detection-process, advanced-setting, file, list, post-production-checkmark, details, color-bars
-  - name: Compare Azure Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md
-    displayName: Azure Media Services v3 presets, Azure Video Indexer Video Analysis, Microsoft%20Azure%20Compliance%20Offerings, capabilities, APIs, Audio Analyzer Presets, Cognitive Services availability, Media Services availability, current compliance updates, Video Analyzer, presets description, Microsoft.Media, video insights, Media Insights, current guideline, following table, full list, East US, Region availability, title, Comparison, article, conceptual, overlap, features, github, api-specs, specification, resource-manager, json, deprecation, media-services, release, notes, retirement, azure-media-redactor-video-analyzer, september, functionality, differences, similarities, Fundamentals, video-audio-files, Experiences, Pricing, details, analytics, technet, certificate, interest, Trial, global-infrastructure/services, cognitive-services, overview
 - name: How to guides
   items:
   - name: Manage accounts
@@ -261,6 +258,8 @@
   - name: Switch between tenants in portal
     href: switch-tenants-portal.md
     displayName: Azure Video Indexer Azure Resource Manager, Azure Video Indexer website description, current Azure subscription, Azure Active Directory, same subscription tenant, Azure AD account, correct domain name, Azure environment, AVI website, Azure portal, same problem, tenant switching, tenant list, relevant accounts, Trial accounts, Classic accounts, ARM accounts, right-top corner, last step, top-right corner, current directory, account name, two options, ARM) account, AAD account, other options, default directory, different directory, new directory, user name, following section, multiple tenants, different directories, title, article, Note, users, videoindexer, Screenshot, credentials, Hover, account-attributes, domains, preferences, button, organization, domain-name
+  - name: Resource health
+    href: resource-health.md
 - name: Reference
   items:
   - name: Azure Video Indexer API

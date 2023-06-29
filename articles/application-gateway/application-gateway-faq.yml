@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 02/26/2023
+  ms.date: 05/19/2023
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -60,7 +60,7 @@ sections:
       - question: Where do I find the Application Gateway IP and DNS?
         answer: |
           If you're using a public IP address as an endpoint, you find the IP and DNS information on the public IP address resource. Or find it in the portal, on the overview page for the application gateway. If you're using internal IP addresses, find the information on the overview page.
-          
+          For the V1 SKU, gateways created after May 1, 2023, won't have default DNS name automatically associated with the public IP resource.
           For the v2 SKU, open the public IP resource and select **Configuration**. The **DNS name label (optional)** field is available to configure the DNS name.
           
       - question: What are the settings for Keep-Alive timeout and TCP idle timeout?
@@ -136,8 +136,8 @@ sections:
         answer: |
           Yes. The Application Gateway v1 SKU continues to be supported. However, it's strongly recommended to move to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 sku deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
           
-      - question: Does Application Gateway V2 support proxying requests with NTLM authentication?
-        answer: No. Application Gateway V2 doesn't support proxying requests with NTLM authentication.
+      - question: Does Application Gateway V2 support proxying requests with NTLM or Kerberos authentication?
+        answer: No. Application Gateway V2 doesn't support proxying requests with NTLM or Kerberos authentication.
         
       - question: Why are some header values not present when requests are forwarded to my application?
         answer: Request header names can contain alphanumeric characters and hyphens. Request header names containing other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), except for underscores (\_).
@@ -247,7 +247,7 @@ sections:
         answer: Yes, as long as traffic is allowed.
 
       - question: Can one backend pool serve many applications on different ports?
-        answer: Microservice architecture is supported. To probe on different ports, you need to configure multiple HTTP settings.
+        answer: Microservice architecture is supported. To probe on different ports, you need to configure multiple backend settings.
 
       - question: Do custom probes support wildcards or regex on response data?
         answer: No. 
@@ -262,7 +262,7 @@ sections:
           
       - question: Can I allow Application Gateway access to only a few source IP addresses?
         answer: |
-          Yes. See [restrict access to specific source IPs](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
+          Yes. See [restrict access to specific source IPs](./configuration-infrastructure.md#required-security-rules).
           
       - question: Can I use the same port for both public-facing and private-facing listeners?
         answer: |
@@ -402,7 +402,7 @@ sections:
         answer: |
           Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
           
-      - question: How do I configure HTTPS listeners for .com and .NET sites? 
+      - question: How do I configure HTTPS listeners for .com and .net sites? 
         answer: |
           For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](./multiple-site-overview.md).
           

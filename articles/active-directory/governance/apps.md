@@ -24,20 +24,23 @@ ms.reviewer: amycolannino
 | :--- | :--- |
 | HR | [SuccessFactors - User Provisioning](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
 | HR | [Workday - User Provisioning](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md)|
-|[LDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
-| [SQL](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
+|[LDAP directory](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
+| [SQL database](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
 | Cloud platform| [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) |
 | Cloud platform| [Google Cloud Platform - User Provisioning](../../active-directory/saas-apps/g-suite-provisioning-tutorial.md) |
-| Cloud platform|[SAP Cloud Identity Platform - Provisioning](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
+| Business applications|[SAP Cloud Identity Platform - Provisioning](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 | CRM| [Salesforce - User Provisioning](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md) |
 | ITSM| [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md)|
 
 
-## Entra Identity Governance Integrations
+## Entra Identity Governance integrations
 The list below provides key integrations between Entra Identity Governance and various applications, including both provisioning and SSO integrations. For a full list of applications that Microsoft Entra integrates with specifically for SSO, see [here](../../active-directory/saas-apps/tutorial-list.md). 
+
+Microsoft Entra identity governance can be integrated with many other applications, using standards such as OpenID Connect, SAML, SCIM, SQL and LDAP. If you're using a SaaS application which isn't listed, then [ask the SaaS vendor to onboard](../manage-apps/v2-howto-app-gallery-listing.md).  For integration with other applications, see [integrating applications with Azure AD](identity-governance-applications-integrate.md).
 
 | Application | Automated provisioning | Single Sign On (SSO)|
 | :--- | :-:  | :-: |
+| 389 directory server ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [4me](../../active-directory/saas-apps/4me-provisioning-tutorial.md) | ● | ●| 
 | [8x8](../../active-directory/saas-apps/8x8-provisioning-tutorial.md) | ● | ● |
 | [15five](../../active-directory/saas-apps/15five-provisioning-tutorial.md) | ● | ● |
@@ -52,6 +55,7 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Alinto Protect (renamed Cleanmail)](../../active-directory/saas-apps/alinto-protect-provisioning-tutorial.md) | ● | |
 | [Alvao](../../active-directory/saas-apps/alvao-provisioning-tutorial.md) | ● |  |
 | [Amazon Web Services (AWS) - Role Provisioning](../../active-directory/saas-apps/amazon-web-service-tutorial.md) | ● | ● |
+| Apache Directory Server ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Appaegis Isolation Access Cloud](../../active-directory/saas-apps/appaegis-isolation-access-cloud-provisioning-tutorial.md) | ● | ● |
 | [Apple School Manager](../../active-directory/saas-apps/apple-school-manager-provision-tutorial.md) | ● |  |
 | [Apple Business Manager](../../active-directory/saas-apps/apple-business-manager-provision-tutorial.md) | ● |  |
@@ -154,7 +158,7 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Howspace](../../active-directory/saas-apps/howspace-provisioning-tutorial.md) | ● |  |
 | [H5mag](../../active-directory/saas-apps/h5mag-provisioning-tutorial.md) | ● |  |
 | IBM DB2 ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
-| IBM Tivoli Directory Server ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
+| IBM Tivoli Directory Server ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Ideo](../../active-directory/saas-apps/ideo-provisioning-tutorial.md) | ● | ● |
 | [Ideagen Cloud](../../active-directory/saas-apps/ideagen-cloud-provisioning-tutorial.md) | ● |  |
 | [Infor CloudSuite](../../active-directory/saas-apps/infor-cloudsuite-provisioning-tutorial.md) | ● | ● |
@@ -165,6 +169,7 @@ The list below provides key integrations between Entra Identity Governance and v
 | [introDus Pre and Onboarding Platform](../../active-directory/saas-apps/introdus-pre-and-onboarding-platform-provisioning-tutorial.md) | ● |  |
 | [Invision](../../active-directory/saas-apps/invision-provisioning-tutorial.md) | ● | ● |
 | [InviteDesk](../../active-directory/saas-apps/invitedesk-provisioning-tutorial.md) | ● |  |
+| Isode directory server ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Jive](../../active-directory/saas-apps/jive-provisioning-tutorial.md) | ● | ● |
 | [Jostle](../../active-directory/saas-apps/jostle-provisioning-tutorial.md) | ● | ● |
 | [Joyn FSM](../../active-directory/saas-apps/joyn-fsm-provisioning-tutorial.md) | ● |  |
@@ -195,6 +200,11 @@ The list below provides key integrations between Entra Identity Governance and v
 | [MerchLogix](../../active-directory/saas-apps/merchlogix-provisioning-tutorial.md) | ● | ● |
 | [Meta Networks Connector](../../active-directory/saas-apps/meta-networks-connector-provisioning-tutorial.md) | ● | ● |
 | MicroFocus Novell eDirectory ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
+| Microsoft 365 | ● | ● |
+| Microsoft Active Directory Domain Services | | ● |
+| Microsoft Azure | ● | ● |
+| [Microsoft Azure Active Directory Domain Services](../../active-directory-domain-services/synchronization.md) | ● | ● |
+| Microsoft Azure SQL ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
 | Microsoft Lightweight Directory Server (ADAM) ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | Microsoft SharePoint Server (SharePoint) | ● |  |
 | Microsoft SQL Server ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
@@ -206,7 +216,8 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Mural Identity](../../active-directory/saas-apps/mural-identity-provisioning-tutorial.md) | ● | ● |
 | [MX3 Diagnostics](../../active-directory/saas-apps/mx3-diagnostics-connector-provisioning-tutorial.md) | ● |  |
 | [myPolicies](../../active-directory/saas-apps/mypolicies-provisioning-tutorial.md) | ● | ● |
-| Net IQ eDirectory ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
+| MySQL ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
+| NetIQ eDirectory ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Netpresenter Next](../../active-directory/saas-apps/netpresenter-provisioning-tutorial.md) | ● |  |
 | [Netskope User Authentication](../../active-directory/saas-apps/netskope-administrator-console-provisioning-tutorial.md) | ● | ● |
 | [Netsparker Enterprise](../../active-directory/saas-apps/netsparker-enterprise-provisioning-tutorial.md) | ● | ● |
@@ -215,15 +226,17 @@ The list below provides key integrations between Entra Identity Governance and v
 | Novell eDirectory ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Office Space Software](../../active-directory/saas-apps/officespace-software-provisioning-tutorial.md) | ● | ● |
 | [Olfeo SAAS](../../active-directory/saas-apps/olfeo-saas-provisioning-tutorial.md) | ● | ● |
-| [Open LDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) | ● |  |
+| Open DJ ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
+| Open DS ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
+| [OpenLDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) | ● |  |
 | [OpenText Directory Services](../../active-directory/saas-apps/open-text-directory-services-provisioning-tutorial.md) | ● | ● |
 | [Oracle Cloud Infrastructure Console](../../active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial.md) | ● | ● |
-| Oracle Database | ● |  |
+| Oracle Database ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
 | Oracle E-Business Suite | ● | ● |
 | [Oracle Fusion ERP](../../active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial.md) | ● | ● |
 | Oracle Internet Directory | ● |  |
 | Oracle PeopleSoft ERP | ● | ● |
-| Oracle SunOne | ● |  |
+| Oracle SunONE Directory Server ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [PagerDuty](../../active-directory/saas-apps/pagerduty-tutorial.md) |  | ● |
 | [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service](../../active-directory/saas-apps/palo-alto-networks-cloud-identity-engine-provisioning-tutorial.md) | ● | ● |
 | [Palo Alto Networks SCIM Connector](../../active-directory/saas-apps/palo-alto-networks-scim-connector-provisioning-tutorial.md) | ● | ● |
@@ -241,6 +254,7 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Proxyclick](../../active-directory/saas-apps/proxyclick-provisioning-tutorial.md) | ● | ● |
 | [Peakon](../../active-directory/saas-apps/peakon-provisioning-tutorial.md) | ● | ● |
 | [Proware](../../active-directory/saas-apps/proware-provisioning-tutorial.md) | ● | ● |
+| RadiantOne Virtual Directory Server (VDS) ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Real Links](../../active-directory/saas-apps/real-links-provisioning-tutorial.md) | ● | ● |
 | [Reward Gateway](../../active-directory/saas-apps/reward-gateway-provisioning-tutorial.md) | ● | ● |
 | [RFPIO](../../active-directory/saas-apps/rfpio-provisioning-tutorial.md) | ● | ● |
@@ -251,14 +265,17 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md) | ● | ● |
 | [Salesforce Sandbox](../../active-directory/saas-apps/salesforce-sandbox-provisioning-tutorial.md) | ● | ● |
 | [Samanage](../../active-directory/saas-apps/samanage-provisioning-tutorial.md) | ● | ● |
+| SAML-based apps | | ●  |
 | [SAP Analytics Cloud](../../active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial.md) | ● | ● |
-| [SAP Cloud Platform Identity Authentication](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) | ● | ● |
+| [SAP Cloud Platform](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) | ● | ● |
 | SAP R/3 | ● |  |
 | [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Azure Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) | ● | ● |
 | [SAP SuccessFactors Writeback ](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● | ● |
 | [SchoolStream ASA](../../active-directory/saas-apps/schoolstream-asa-provisioning-tutorial.md) | ● | ● |
+| [SCIM-based apps in the cloud](../app-provisioning/use-scim-to-provision-users-and-groups.md) | ● |  |
+| [SCIM-based apps on-premises](../app-provisioning/on-premises-scim-provisioning.md) | ● |  |
 | [Secure Deliver](../../active-directory/saas-apps/secure-deliver-provisioning-tutorial.md) | ● | ● |
 | [SecureLogin](../../active-directory/saas-apps/secure-login-provisioning-tutorial.md) | ● |  |
 | [Sentry](../../active-directory/saas-apps/sentry-provisioning-tutorial.md) | ● | ● |
@@ -333,7 +350,7 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Zscaler ZSCloud](../../active-directory/saas-apps/zscaler-zscloud-provisioning-tutorial.md) | ● | ● |
 
 ## Partner driven integrations
-There is also a healthy partner ecosystem, further expanding the breadth and depth of integrations available with Entra Identity Governance. Explore the [partner integrations](../../active-directory/app-provisioning/partner-driven-integrations.md) available, including:
+There is also a healthy partner ecosystem, further expanding the breadth and depth of integrations available with Microsoft Entra Identity Governance. Explore the [partner integrations](../../active-directory/app-provisioning/partner-driven-integrations.md) available, including connectors for:
 * Epic
 * Cerner
 * IBM RACF

@@ -71,7 +71,7 @@ Azure Event Hubs can look at incoming data from sources like Azure AD Identity P
 
 Organizations can choose to [connect Azure AD data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md) as well for further processing.
 
-Organizations can use the [Microsoft Graph API to programatically interact with risk events](howto-identity-protection-graph-api.md).
+Organizations can use the [Microsoft Graph API to programmatically interact with risk events](howto-identity-protection-graph-api.md).
 
 ## Next steps
 

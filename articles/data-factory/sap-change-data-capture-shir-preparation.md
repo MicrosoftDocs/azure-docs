@@ -5,7 +5,7 @@ description: Learn how to create and set up a self-hosted integration runtime fo
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: ulrichchrist

@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 04/18/2023
+ms.date: 05/16/2023
 ms.topic: how-to
 ---
 # How to create custom machine configuration package artifacts
@@ -43,14 +43,66 @@ Before you create a configuration package, author and compile a DSC configuratio
 configurations are available for Windows and Linux.
 
 > [!IMPORTANT]
-> When compiling configurations for Windows, use **PSDesiredStateConfiguration** version 2.0.5 (the
+> When compiling configurations for Windows, use **PSDesiredStateConfiguration** version 2.0.7 (the
 > stable release). When compiling configurations for Linux install the prerelease version 3.0.0.
 
-An example is provided in the DSC [Getting started document][04] for Windows.
+This example configuration is for Windows machines. It configures the machine to create the
+`MC_ENV_EXAMPLE` environment variable in the `Process` and `Machine` scopes. The value of the
+variable sets to `'This was set by machine configuration'`.
 
-For Linux, you need to create a custom DSC resource module using [PowerShell classes][05]. The
-article [Writing a custom DSC resource with PowerShell classes][05] includes a full example of a
-custom resource and configuration tested with machine configuration.
+```powershell
+Configuration MyConfig {
+    Import-DscResource -Name 'Environment' -ModuleName 'PSDscResources'
+    Environment MachineConfigurationExample {
+        Name   = 'MC_ENV_EXAMPLE'
+        Value  = 'This was set by machine configuration'
+        Ensure = 'Present'
+        Target = @('Process', 'Machine')
+    }
+}
+
+MyConfig
+```
+
+With that definition saved in the `MyConfig.ps1` script file, you can run the script to compile the
+configuration.
+
+```powershell
+. .\MyConfig.ps1
+```
+
+```output
+    Directory: C:\dsc\MyConfig
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---           5/16/2023 10:39 AM           1080 localhost.mof
+```
+
+The configuration is compiled into the `localhost.mof` file in the `MyConfig` folder in the current
+working directory. Rename `localhost.mof` to the name you want to use as the package name, such as
+`MyConfig.mof`.
+
+```powershell
+Rename-Item -Path .\MyConfig\localhost.mof -NewName MyConfig.mof -PassThru
+```
+
+```output
+    Directory: C:\dsc\MyConfig
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---           5/16/2023 10:40 AM           1080 MyConfig.mof
+```
+
+> [!NOTE]
+> This example shows how to author and compile a configuration for a Windows machine. For Linux,
+> you need to create a custom DSC resource module using [PowerShell classes][05]. The  article
+> [Writing a custom DSC resource with PowerShell classes][05] includes a full example of a
+> custom resource and configuration, tested with machine configuration.
+>
+> The rest of this article applies to configurations defined for Linux and Windows machines except
+> where it mentions platform-specific considerations.
 
 ## Create a configuration package artifact
 
@@ -68,7 +120,8 @@ Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Windows c
 - **Path**: Output folder path. This parameter is optional. If not specified, the package is
   created in current directory.
 - **Type**: (`Audit`, `AuditandSet`) Determines whether the configuration should only audit or if
-  the configuration should be applied and change the state of the machine. The default is `Audit`.
+  the configuration should change the state of the machine if it's out of the desired state. The
+  default is `Audit`.
 
 This step doesn't require elevation. The **Force** parameter is used to overwrite existing
 packages, if you run the command more than once.
@@ -79,7 +132,7 @@ The following commands create a package artifact:
 # Create a package that will only audit compliance
 $params = @{
     Name          = 'MyConfig'
-    Configuration = './Config/MyConfig.mof'
+    Configuration = './MyConfig/MyConfig.mof'
     Type          = 'Audit'
     Force         = $true
 }
@@ -90,19 +143,19 @@ New-GuestConfigurationPackage @params
 # Create a package that will audit and apply the configuration (Set)
 $params = @{
     Name          = 'MyConfig'
-    Configuration = './Config/MyConfig.mof'
+    Configuration = './MyConfig/MyConfig.mof'
     Type          = 'AuditAndSet'
     Force         = $true
 }
 New-GuestConfigurationPackage @params
 ```
 
-An object is returned with the Name and Path of the created package.
+An object is returned with the **Name** and **Path** of the created package.
 
 ```Output
-Name      Path
-----      ----
-MyConfig  /Users/.../MyConfig/MyConfig.zip
+Name     Path
+----     ----
+MyConfig C:\dsc\MyConfig.zip
 ```
 
 ### Expected contents of a machine configuration artifact
@@ -120,6 +173,23 @@ package consists of:
 The PowerShell cmdlet creates the package `.zip` file. No root level folder or version folder is
 required. The package format must be a `.zip` file and can't exceed a total size of 100 MB when
 uncompressed.
+
+You can expand the archive to inspect it by using the `Expand-Archive` cmdlet.
+
+```powershell
+Expand-Archive -Path .\MyConfig.zip -DestinationPath MyConfigZip
+```
+
+You can get the total size of the uncompressed package with PowerShell.
+
+```powershell
+Get-ChildItem -Recurse -Path .\MyConfigZip |
+    Measure-Object -Sum Length |
+    ForEach-Object -Process {
+        $Size = [math]::Round(($_.Sum / 1MB), 2)
+        "$Size MB"
+    }
+```
 
 ## Extending machine configuration with third-party tools
 

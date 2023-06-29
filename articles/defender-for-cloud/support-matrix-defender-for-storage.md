@@ -2,8 +2,8 @@
 title: Permissions required to enable Defender for Storage and its features
 description: Learn about the permissions required to enable Defender for Storage and its features - Malware Scanning and Sensitive data threat detection.
 ms.topic: reference
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.date: 03/26/2023
 ---
 

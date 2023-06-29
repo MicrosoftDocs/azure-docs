@@ -254,7 +254,7 @@ To view and work with data actions, you must have the correct versions of the to
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
+| [Azure PowerShell](/powershell/azure/install-azure-powershell) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 or later |

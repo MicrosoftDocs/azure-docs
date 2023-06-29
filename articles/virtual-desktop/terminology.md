@@ -21,6 +21,7 @@ A host pool is a collection of Azure virtual machines that register to Azure Vir
 A host pool can be one of two types:
 
 - Personal, where each session host is assigned to an individual user. Personal host pools provide dedicated desktops to end-users that optimize environments for performance and data separation. 
+
 - Pooled, where user sessions can be load balanced to any session host in the host pool. There can be multiple different users on a single session host at the same time. Pooled host pools provide a shared remote experience to end-users, which ensures lower costs and greater efficiency. 
 
 The following table goes into more detail about the differences between each type of host pool:
@@ -34,6 +35,12 @@ The following table goes into more detail about the differences between each typ
 |Windows Updates|Updated with Windows Updates, [System Center Configuration Manager (SCCM)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
 |User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/configure-profile-container-tutorial). |
 
+### Validation environment
+
+You can set a host pool to be a *validation environment*. Validation environments let you monitor service updates before the service applies them to your production or non-validation environment. Without a validation environment, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
+
+To ensure your apps work with the latest updates, the validation environment should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation environment as they do to the production environment. If you have automated testing on your host pool, you should include automated testing on the validation environment.
+
 ## Application groups
 
 An application group is a logical grouping of applications installed on session hosts in the host pool.
@@ -41,6 +48,7 @@ An application group is a logical grouping of applications installed on session 
 An application group can be one of two types: 
 
 - RemoteApp, where users access the RemoteApps you individually select and publish to the application group. Available with pooled host pools only.
+
 - Desktop, where users access the full desktop. Available with pooled or personal host pools.
  
 Pooled host pools have a preferred application group type that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop application group with the friendly name **Default Desktop** whenever you create a host pool and sets the host pool's preferred application group type to **Desktop**. You can remove the Desktop application group at any time. If you want your users to only see RemoteApps in their feed, you should set the **preferred application group type** value to **RemoteApp**. If you want your users to only see session desktops in their feed, you should set the **preferred application group type** value to **Desktop**. You can't create another Desktop application group in a host pool while a Desktop application group exists.
@@ -48,13 +56,16 @@ Pooled host pools have a preferred application group type that dictates whether 
 To publish resources to users, you must assign them to application groups. When assigning users to application groups, consider the following things:
 
 - We don't support assigning both the RemoteApp and desktop application groups in a single host pool to the same user. Doing so will cause a single user to have two user sessions in a single host pool. Users aren't supposed to have two active user sessions at the same time, as this can cause the following things to happen:
+
     - The session hosts become overloaded
     - Users get stuck when trying to login
     - Connections won't work
     - The screen turns black
     - The application crashes
     - Other negative effects on end-user experience and session performance
+
 - A user can be assigned to multiple application groups within the same host pool, and their feed will be an accumulation of both application groups.
+
 - Personal host pools only allow and support Desktop application groups.
 
 >[!NOTE]

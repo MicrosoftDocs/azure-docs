@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # How to use Queue Storage from Java

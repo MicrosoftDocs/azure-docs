@@ -68,5 +68,4 @@ There is no way to move chat logs with projects. If diagnostic logs are enabled,
 ## Next steps
 
 <!-- TODO: Replace Link-->
-> [!div class="nextstepaction"]
-> [Edit a project](../../../qnamaker/How-To/edit-knowledge-base.md)
+

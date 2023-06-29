@@ -46,7 +46,7 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
    > [!NOTE]
    > Before you can enable predictive autoscale or forecast-only mode, you must set up the standard reactive autoscale conditions.
 
-1. To enable forecast-only mode, select it from the dropdown. Define a scale-up trigger based on *Percentage CPU*. Then select **Save**. The same process applies to enable predictive autoscale. To disable predictive autoscale or forecast-only mode, select **Disable** from the dropdown.
+1. To enable forecast-only mode, select it from the dropdown. Define a scale-out trigger based on *Percentage CPU*. Then select **Save**. The same process applies to enable predictive autoscale. To disable predictive autoscale or forecast-only mode, select **Disable** from the dropdown.
 
    :::image type="content" source="media/autoscale-predictive/enable-forecast-only-mode-3.png" alt-text="Screenshot that shows enabling forecast-only mode.":::
 
@@ -168,7 +168,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 	"resources": [{
 			"type": "Microsoft.Insights/autoscalesettings",
 			"name": "cpuPredictiveAutoscale",
-			"apiVersion": "2015-04-01",
+			"apiVersion": "2022-10-01",
 			"location": "[parameters('location')]",
 			"properties": {
 				"profiles": [{
@@ -243,7 +243,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 }
 ```
 
-**autoscale-only-parameters.json**
+**autoscale_only_parameters.json**
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -325,7 +325,7 @@ This section addresses common errors and warnings.
 
 You receive the following error message:
 
-   *Predictive autoscale is based on the metric percentage CPU of the current resource. Choose this metric in the scale up trigger rules*.
+   *To enable predictive autoscale, create a scale out rule based on 'Percentage CPU' metric. Click here to go to the 'Configure' tab to set an autoscale rule.*
 
 :::image type="content" source="media/autoscale-predictive/error-not-enabled.png" alt-text="Screenshot that shows error message predictive autoscale is based on the metric percentage CPU of the current resource.":::
 

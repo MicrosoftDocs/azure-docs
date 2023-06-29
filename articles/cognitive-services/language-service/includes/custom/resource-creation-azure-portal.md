@@ -14,7 +14,7 @@ ms.author: aahi
 
 1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. 
 
-1. In the window that appears, select **Custom text classification & custom named entity recognition** from the custom features. Click **Continue to create your resource** at the bottom of the screen. 
+1. In the window that appears, select this service from the custom features. Click **Continue to create your resource** at the bottom of the screen. 
 
     :::image type="content" source="../../media/select-custom-feature-azure-portal.png" alt-text="A screenshot showing custom text classification & custom named entity recognition in the Azure portal." lightbox="../../media/select-custom-feature-azure-portal.png":::
 
@@ -31,7 +31,7 @@ ms.author: aahi
     > [!NOTE]
     > If you get a message saying "*your login account is not an owner of the selected storage account's resource group*", your account needs to have an owner role assigned on the resource group before you can create a Language resource. Contact your Azure subscription owner for assistance.
 
-1. In the **Custom text classification & custom named entity recognition** section, select an existing storage account or select **New storage account**. These values are to help you get started, and not necessarily the [storage account values](../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
+1. In this service's section, select an existing storage account or select **New storage account**. These values are to help you get started, and not necessarily the [storage account values](../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
 
     |Storage account value  |Recommended value  |
     |---------|---------|

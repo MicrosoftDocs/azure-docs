@@ -10,7 +10,7 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: rwaller
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # How to display math in the Immersive Reader

@@ -51,7 +51,7 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
 * Routes from NVA in a virtual network that are more specific than the virtual network address space, when advertised to the virtual hub through BGP are not propagated further to on-premises.
 * Currently we only support 4,000 routes from the NVA to the virtual hub.
 * Traffic destined for addresses in the virtual network directly connected to the virtual hub cannot be configured to route through the NVA using BGP peering between the hub and NVA. This is because the virtual hub automatically learns about system routes associated with addresses in the spoke virtual network when the spoke virtual network connection is created. These automatically learned system routes are preferred over routes learned by the hub through BGP.
-* This feature is not supported for setting up BGP peering between an NVA in a spoke VNet and a virtual hub with Azure Firewall.
+* BGP peering between an NVA in a spoke VNet and a secured virtual hub (hub with an integrated security solution) is supported if Routing Intent **is** configured on the hub. BGP peering feature is not supported for secured virtual hubs where routing intent is **not** configured. 
 * In order for the NVA to exchange routes with VPN and ER connected sites, branch to branch routing must be turned on.
 
 * When configuring BGP peering with the hub, you will see two IP addresses. Peering with both these addresses is required. Not peering with both addresses can cause routing issues. The same routes must be advertised to both of these addresses. Advertising different routes will cause routing issues. 

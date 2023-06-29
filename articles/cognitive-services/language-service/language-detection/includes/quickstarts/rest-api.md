@@ -10,7 +10,7 @@ ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/2023-04-01/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify the language that a text sample was written in.
 
@@ -41,8 +41,7 @@ To call the API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Language-detection&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 
 ## Language detection
@@ -72,8 +71,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 '
 ```
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Language-detection&Page=quickstart&Section=Language-detection" target="_target">I ran into an issue</a>
+
 
 
 ### JSON response

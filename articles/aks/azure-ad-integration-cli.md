@@ -1,17 +1,17 @@
 ---
-title: Integrate Azure Active Directory with Azure Kubernetes Service (legacy)
+title: Integrate Azure Active Directory with Azure Kubernetes Service (AKS) (legacy)
 description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster (legacy)
 author: TomGeske
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 11/11/2021
+ms.date: 06/05/2023
 ms.author: miwithro
 ---
 
-# Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
+# Integrate Azure Active Directory with Azure Kubernetes Service (AKS) using the Azure CLI (legacy)
 
 > [!WARNING]
-> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on June 1st, 2023.
+> The feature described in this document, Azure AD Integration (legacy) was **deprecated on June 1st, 2023**. At this time, no new clusters can be created with Azure AD Integration (legacy). All Azure AD Integration (legacy) AKS clusters will be migrated to AKS-managed Azure AD automatically starting from August 1st, 2023.
 >
 > AKS has a new improved [AKS-managed Azure AD][managed-aad] experience that doesn't require you to manage server or client applications. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
@@ -19,9 +19,7 @@ Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (
 
 This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic Kubernetes role in the AKS cluster.
 
-For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
-
-## The following limitations apply:
+## Limitations
 
 - Azure AD can only be enabled on Kubernetes RBAC-enabled cluster.
 - Azure AD legacy integration can only be enabled during cluster creation.

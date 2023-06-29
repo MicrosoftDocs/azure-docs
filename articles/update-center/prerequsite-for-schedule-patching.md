@@ -2,7 +2,7 @@
 title: Configure schedule patching on Azure VMs to ensure business continuity in update management center (preview).
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Update management center (preview).
 ms.service: update-management-center
-ms.date: 04/26/2023
+ms.date: 05/09/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -21,7 +21,7 @@ For customizing control over your patch installation, you can use [schedule patc
 Additionally, in some instances, when you remove the schedule from a VM, there is a possibility that the VM may be auto patched and rebooted. To overcome the limitations, we have introduced a new prerequisite - **ByPassPlatformSafetyChecksOnUserSchedule**, which can now be set to *true* to identify a VM using schedule patching. It means that VMs with this property set to *true* will no longer be auto patched when the VMs don't have an associated maintenance configuration.
 
 > [!IMPORTANT]
-> For a continued scheduled patching experience, you must ensure that the new VM property, *BypassPlatformSafetyChecksOnUserSchedule*, is enabled on all your Azure VMs (existing or new) that have schedules attached to them. This setting will ensure machines are patched using your configured schedules and not auto patched. Failing to enable will give an error that the prerequisites aren't met.
+> For a continued scheduled patching experience, you must ensure that the new VM property, *BypassPlatformSafetyChecksOnUserSchedule*, is enabled on all your Azure VMs (existing or new) that have schedules attached to them by **30th June 2023**. This setting will ensure machines are patched using your configured schedules and not auto patched. Failing to enable by **30th June 2023** will give an error that the prerequisites aren't met.
 
 ## Find VMs with associated schedules
 
@@ -106,10 +106,10 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
         "provisionVMAgent": true, 
         "enableAutomaticUpdates": true, 
         "patchSettings": { 
-        "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":true 
-  } 
+          "patchMode": "AutomaticByPlatform", 
+          "automaticByPlatformSettings":{ 
+            "bypassPlatformSafetyChecksOnUserSchedule":true 
+          } 
         } 
       } 
     } 
@@ -129,15 +129,14 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
   "location":"<location>", 
   "properties": { 
     "osProfile": { 
-      " linuxConfiguration": { 
+      "linuxConfiguration": { 
         "provisionVMAgent": true, 
-        "enableAutomaticUpdates": true, 
-        "patchSettings": { 
-          "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":true 
-  } 
-        } 
+         "patchSettings": { 
+           "patchMode": "AutomaticByPlatform", 
+           "automaticByPlatformSettings":{ 
+             "bypassPlatformSafetyChecksOnUserSchedule":true 
+            } 
+         } 
       } 
     } 
   } 
@@ -208,9 +207,9 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
         "enableAutomaticUpdates": true, 
         "patchSettings": { 
           "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":false 
-  } 
+          "automaticByPlatformSettings":{ 
+            "bypassPlatformSafetyChecksOnUserSchedule":false 
+          } 
         } 
       } 
     } 
@@ -229,14 +228,13 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
   "location":"<location>", 
   "properties": { 
     "osProfile": { 
-      " linuxConfiguration": { 
-        "provisionVMAgent": true, 
-        "enableAutomaticUpdates": true, 
+      "linuxConfiguration": { 
+        "provisionVMAgent": true,  
         "patchSettings": { 
           "patchMode": "AutomaticByPlatform", 
-  "automaticByPlatformSettings":{ 
-"bypassPlatformSafetyChecksOnUserSchedule":false 
-  } 
+          "automaticByPlatformSettings":{ 
+            "bypassPlatformSafetyChecksOnUserSchedule":false 
+          } 
         } 
       } 
     } 

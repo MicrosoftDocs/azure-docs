@@ -29,7 +29,7 @@ The factors that define the data you can access are described in the following t
 | [Access mode](#access-mode) | Method used to access the workspace. Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
 | [Azure role-based access control (RBAC)](#azure-rbac) | Permissions applied to individuals or groups of users for the workspace or resource sending data to the workspace. Defines what data you have access to. |
-| [Table-level Azure RBAC](#set-table-level-read-access) | Optional permissions that define specific data types in the workspace that you can access. Apply to all users no matter your access mode or access control mode. |
+| [Table-level Azure RBAC](#set-table-level-read-access) | Optional permissions that define specific data types in the workspace that you can access. Can be applies to all access modes or access control modes. |
 
 ## Access mode
 
@@ -37,7 +37,7 @@ The *access mode* refers to how you access a Log Analytics workspace and defines
 
 There are two access modes:
 
-- **Workspace-context**: You can view all logs in the workspace for which you have permission. Queries in this mode are scoped to all data in all tables in the workspace. This access mode is used when logs are accessed with the workspace as the scope, such as when you select **Logs** on the **Azure Monitor** menu in the Azure portal.
+- **Workspace-context**: You can view all logs in the workspace for which you have permission. Queries in this mode are scoped to all data in tables that you have access to in the workspace. This access mode is used when logs are accessed with the workspace as the scope, such as when you select **Logs** on the **Azure Monitor** menu in the Azure portal.
  - **Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only resources in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular Azure RBAC. Workspaces use a resource-context log model where every log record emitted by an Azure resource is automatically associated with this resource.
 
 Records are only available in resource-context queries if they're associated with the relevant resource. To check this association, run a query and verify that the [_ResourceId](./log-standard-columns.md#_resourceid) column is populated.
@@ -159,7 +159,7 @@ Each workspace can have multiple accounts associated with it. Each account can h
 | View workspace basic properties and enter the workspace pane in the portal. | `Microsoft.OperationalInsights/workspaces/read` |
 | Query logs by using any interface. | `Microsoft.OperationalInsights/workspaces/query/read` |
 | Access all log types by using queries. | `Microsoft.OperationalInsights/workspaces/query/*/read` |
-| Access a specific log table. | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` |
+| Access a specific log table - legacy method | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` |
 | Read the workspace keys to allow sending logs to this workspace. | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` |
 | Add and remove monitoring solutions. | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write`<br><br>These permissions need to be granted at resource group or subscription level. |
 | View data in the **Backup** and **Site Recovery** solution tiles. | Administrator/Co-administrator<br><br>Accesses resources deployed by using the classic deployment model. |
@@ -238,7 +238,8 @@ When users query logs from a workspace by using [resource-context access](#acces
 
 | Permission | Description |
 | ---------- | ----------- |
-| `Microsoft.Insights/logs/<tableName>/read`<br><br>Examples:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Ability to view all log data for the resource  |
+| `Microsoft.Insights/logs/*/read` | Ability to view all log data for the resource  |
+| `Microsoft.Insights/logs/<tableName>/read`<br>Example:<br>`Microsoft.Insights/logs/Heartbeat/read` | Ability to view specific table for this resource - legacy method  |
 | `Microsoft.Insights/diagnosticSettings/write` | Ability to configure diagnostics setting to allow setting up logs for this resource |
 
 The `/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions, such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Custom roles that include specific actions or dedicated built-in roles might not include this permission.
@@ -297,7 +298,119 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 
 ## Set table-level read access
 
-[Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant specific users or groups access to specific tables in the workspace. Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
+Table-level access allows you to let specific people read data only from a specific set of tables. It applies both for workspace-context and resource-context. There are two methods to define table-level permissions:
+* By assigning permissions to the table sub-resource under the workspace resource - this is the recommended method that is described in this section. This method is currently in **preview**.
+* By assigning special actions that contain table name to the workspace resource - this is the legacy method that is described in the next section. It has some limitations around custom log tables.
+
+Table-level RBAC is applied during query execution. It does not apply to metadata retrieval calls. For that reason, tables will appear in the list of tables even if they are not available to the user.
+
+> [!NOTE]
+> The recommended table-level access method described here does not apply during preview to Microsoft Sentinel Detection Rules. These rules might have access to more tables than intended.
+
+In order to apply table-level RBAC for a user, two assignments shall be made:
+
+1. Assign the user the ability to read the workspace details and to run a query without granting the ability to run a query on tables. This is done by assigning a special custom role on the workspace that has only the following actions:
+            - `Microsoft.OperationalInsights/workspaces/read`
+            - `Microsoft.OperationalInsights/workspaces/query/read`
+            - `Microsoft.OperationalInsights/workspaces/analytics/query/action`
+            - `Microsoft.OperationalInsights/workspaces/search/action`
+        
+2. Assign the user a read permissions on the specific table sub-resource. Any role that has */read will be sufficient such as **Reader** role or **Log Analytics Reader** role. As table is a sub-resource of workspace, the workspace admins can also perform action on a specific table.
+
+> [!WARNING]
+> If the user has other assignments on the workspace, directly or via inheritence (e.g. user has Reader on the subscription that contains the workspace), the user will be able to access all tables in the workspace.
+
+
+
+To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
+
+1. Create a custom role that grants users permission to execute queries in the Log Analytics workspace, based on the built-in Azure Monitor Logs **Reader** role:
+
+    1. Navigate to your workspace and select **Access control (IAM)** > **Roles**.
+
+    1. Right-click the **Reader** role and select **Clone**.
+
+       :::image type="content" source="media/manage-access/access-control-clone-role.png" alt-text="Screenshot that shows the Roles tab of the Access control screen with the clone button highlighted for the Reader role." lightbox="media/manage-access/access-control-clone-role.png":::        
+
+       This opens the **Create a custom role** screen.
+
+    1. On the **Basics** tab of the screen, enter a **Custom role name** value and, optionally, provide a description.
+
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
+
+    1. Select the **JSON** tab > **Edit**::
+
+        1. In the `"actions"` section, add:
+
+            - `Microsoft.OperationalInsights/workspaces/read`
+            - `Microsoft.OperationalInsights/workspaces/query/read`
+            - `Microsoft.OperationalInsights/workspaces/analytics/query/action`
+            - `Microsoft.OperationalInsights/workspaces/search/action`
+
+        1. In the `"not actions"` section, add `Microsoft.OperationalInsights/workspaces/sharedKeys/read`.
+
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
+
+    1. Select **Save** > **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
+
+1. Assign your custom role to the relevant users or groups:
+    1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
+
+       :::image type="content" source="media/manage-access/manage-access-add-role-assignment-button.png" alt-text="Screenshot that shows the Access control screen with the Add role assignment button highlighted." lightbox="media/manage-access/manage-access-add-role-assignment-button.png":::
+
+    1. Select the custom role you created and select **Next**.
+
+       :::image type="content" source="media/manage-access/manage-access-add-role-assignment-screen.png" alt-text="Screenshot that shows the Add role assignment screen with a custom role and the Next button highlighted." lightbox="media/manage-access/manage-access-add-role-assignment-screen.png":::
+
+
+       This opens the **Members** tab of the **Add custom role assignment** screen.   
+
+    1. Click **+ Select members** to open the **Select members** screen.
+
+        :::image type="content" source="media/manage-access/manage-access-add-role-assignment-select-members.png" alt-text="Screenshot that shows the Select members screen." lightbox="media/manage-access/manage-access-add-role-assignment-select-members.png":::
+
+    1. Search for and select the relevant user or group and click **Select**.
+    1. Select **Review and assign**.
+
+1. Grant the users or groups read access to specific tables in a workspace by calling the `https://management.azure.com/batch?api-version=2020-06-01` POST API and sending the following details in the request body:
+
+    ```json
+    {
+        "requests": [
+            {
+                "content": {
+                    "Id": "<GUID_1>",
+                    "Properties": {
+                        "PrincipalId": "<user_object_ID>",
+                        "PrincipalType": "User",
+                        "RoleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                        "Scope": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>",
+                        "Condition": null,
+                        "ConditionVersion": null
+                    }
+                },
+                "httpMethod": "PUT",
+                "name": "<GUID_2>",
+                "requestHeaderDetails": {
+                    "commandName": "Microsoft_Azure_AD."
+                },
+                "url": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>/providers/Microsoft.Authorization/roleAssignments/<GUID_1>?api-version=2020-04-01-preview"
+            }
+        ]
+    }
+    ```
+
+    Where:
+    - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
+    - `<user_object_ID>` is the object ID of the user to which you want to grant table read access.
+    - `<subscription_ID>` is the ID of the subscription related to the workspace.
+    - `<resource_group_name>` is the resource group of the workspace.
+    - `<workspace_name>` is the name of the workspace.
+    - `<table_name>` is the name of the table to which you want to assign the user or group permission to read data from.
+
+### Legacy method of setting table-level read access
+
+The legacy method of table-level also uses [Azure custom roles](../../role-based-access-control/custom-roles.md) to let you grant specific users or groups access to specific tables in the workspace. Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
 
 To define access to a particular table, create a [custom role](../../role-based-access-control/custom-roles.md):
 
@@ -305,7 +418,7 @@ To define access to a particular table, create a [custom role](../../role-based-
 * Use `Microsoft.OperationalInsights/workspaces/query/*` to grant access to all tables.
 * To exclude access to specific tables when you use a wildcard in **Actions**, list the tables excluded tables in the **NotActions** section of the role definition.
 
-### Examples
+#### Examples
 
 Here are examples of custom role actions to grant and deny access to specific tables.
 
@@ -344,14 +457,14 @@ Grant access to all tables except the _SecurityAlert_ table:
 ],
 ```
 
-### Custom tables
+#### Custom tables
 
 Custom tables store data you collect from data sources such as [text logs](../agents/data-sources-custom-logs.md) and the [HTTP Data Collector API](data-collector-api.md). To identify the table type, [view table information in Log Analytics](./log-analytics-tutorial.md#view-table-information).
 
 > [!NOTE]
 > Tables created by the [Logs ingestion API](../essentials/../logs/logs-ingestion-api-overview.md) don't yet support table-level RBAC.
 
-You can't grant access to individual custom log tables at the table level, but you can grant access to all custom log tables. To create a role with access to all custom log tables, create a custom role by using the following actions:
+Using the legacy method of table-level access, you can't grant access to individual custom log tables at the table level, but you can grant access to all custom log tables. To create a role with access to all custom log tables, create a custom role by using the following actions:
 
 ```
 "Actions":  [
@@ -361,13 +474,7 @@ You can't grant access to individual custom log tables at the table level, but y
 ],
 ```
 
-An alternative approach to managing access to custom logs is to assign them to an Azure resource and manage access by using resource-context access control. Include the resource ID by specifying it in the [x-ms-AzureResourceId](../logs/data-collector-api.md#request-headers) header when data is ingested to Log Analytics via the [HTTP Data Collector API](../logs/data-collector-api.md). The resource ID must be valid and have access rules applied to it. After the logs are ingested, they're accessible to users with read access to the resource.
-
-Some custom logs come from sources that aren't directly associated to a specific resource. In this case, create a resource group to manage access to these logs. The resource group doesn't incur any cost, but it gives you a valid resource ID to control access to the custom logs.
-
-For example, if a specific firewall is sending custom logs, create a resource group called *MyFireWallLogs*. Make sure that the API requests contain the resource ID of *MyFireWallLogs*. The firewall log records are then accessible only to users who were granted access to *MyFireWallLogs* or those users with full workspace access.
-
-### Considerations
+### Considerations regarding table-level access
 
 - If a user is granted global read permission with the standard Reader or Contributor roles that include the _\*/read_ action, it will override the per-table access control and give them access to all log data.
 - If a user is granted per-table access but no other permissions, they can access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.

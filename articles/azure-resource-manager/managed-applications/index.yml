@@ -39,8 +39,12 @@ landingContent:
             url: publish-service-catalog-app.md
           - text: Publish definition with bring your own storage
             url: publish-service-catalog-bring-your-own-storage.md
+          - text: Publish managed app definition with Bicep
+            url: publish-bicep-definition.md
           - text: Deploy service catalog managed app
             url: deploy-service-catalog-quickstart.md
+          - text: Deploy managed app definition with Bicep
+            url: deploy-bicep-definition.md
           - text: Deploy Azure Marketplace managed app
             url: deploy-marketplace-app-quickstart.md
       - linkListType: tutorial

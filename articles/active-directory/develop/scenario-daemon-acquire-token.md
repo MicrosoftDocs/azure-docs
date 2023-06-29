@@ -99,7 +99,7 @@ using Microsoft.Identity.Web;
 
 var tokenAcquirerFactory = TokenAcquirerFactory.GetDefaultInstance();
 ITokenAcquirer acquirer = tokenAcquirerFactory.GetTokenAcquirer();
-AcquireTokenResult tokenResult = await acquirer.GetTokenForUserAsync(new[] { https://graph.microsoft.com/.default" });
+AcquireTokenResult tokenResult = await acquirer.GetTokenForUserAsync(new[] { "https://graph.microsoft.com/.default" });
 string accessToken = tokenResult.AccessToken;
 ```
 

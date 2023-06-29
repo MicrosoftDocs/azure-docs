@@ -23,6 +23,9 @@ keywords:
 - The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
+
 ## Set up
 
 Install the OpenAI Python client library with:
@@ -83,6 +86,8 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ```
 ---
 
+> [!div class="nextstepaction"]
+> [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
 
 ## Create a new Python application
 
@@ -99,7 +104,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
     openai.api_key = os.getenv("AZURE_OPENAI_KEY")
     openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     openai.api_type = 'azure'
-    openai.api_version = '2022-12-01' # this may change in the future
+    openai.api_version = '2023-05-15' # this may change in the future
 
     deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
@@ -130,6 +135,9 @@ Write a tagline for an ice cream shop. The coldest ice cream in town!
 ```
 
 Run the code a few more times to see what other types of responses you get as the response won't always be the same.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue when running the code sample.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Create-python-application)
 
 ### Understanding your results
 

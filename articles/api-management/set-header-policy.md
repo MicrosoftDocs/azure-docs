@@ -48,7 +48,7 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
 
 ### Usage notes
 
- Multiple values of a header are concatenated to a CSV string, for example: 
+Multiple values of a header are concatenated to a CSV string, for example: 
 
 `headerName: value1,value2,value3`
 
@@ -64,6 +64,10 @@ User-Agent: value1
 User-Agent: value2
 User-Agent: value3
 ```
+
+The following limitations apply:
+
+- Removal of `Server` header is not supported.
 
 ## Examples
 

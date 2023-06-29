@@ -6,7 +6,7 @@ ms.author: felixsong
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 12/09/2021
-ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, fasttrack-edit, mode-other, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 This quickstart explains how to set up a Log Analytics workspace in Azure Spring Apps for application development.
 

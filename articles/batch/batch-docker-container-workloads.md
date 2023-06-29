@@ -96,7 +96,7 @@ To configure a container-enabled pool without prefetched container images, defin
 image_ref_to_use = batch.models.ImageReference(
     publisher='microsoft-azure-batch',
     offer='ubuntu-server-container',
-    sku='16-04-lts',
+    sku='20-04-lts',
     version='latest')
 
 """
@@ -110,7 +110,7 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         container_configuration=container_conf,
-        node_agent_sku_id='batch.node.ubuntu 16.04'),
+        node_agent_sku_id='batch.node.ubuntu 20.04'),
     vm_size='STANDARD_D1_V2',
     target_dedicated_nodes=1)
 ...
@@ -120,7 +120,7 @@ new_pool = batch.models.PoolAddParameter(
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
-    sku: "16-04-lts",
+    sku: "20-04-lts",
     version: "latest");
 
 // Specify container configuration. This is required even though there are no prefetched images.
@@ -129,7 +129,7 @@ ContainerConfiguration containerConfig = new ContainerConfiguration();
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
@@ -150,7 +150,7 @@ The following basic Python example shows how to prefetch a standard Ubuntu conta
 image_ref_to_use = batch.models.ImageReference(
     publisher='microsoft-azure-batch',
     offer='ubuntu-server-container',
-    sku='16-04-lts',
+    sku='20-04-lts',
     version='latest')
 
 """
@@ -165,7 +165,7 @@ new_pool = batch.models.PoolAddParameter(
     virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         container_configuration=container_conf,
-        node_agent_sku_id='batch.node.ubuntu 16.04'),
+        node_agent_sku_id='batch.node.ubuntu 20.04'),
     vm_size='STANDARD_D1_V2',
     target_dedicated_nodes=1)
 ...
@@ -177,7 +177,7 @@ The following C# example assumes that you want to prefetch a TensorFlow image fr
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
-    sku: "16-04-lts",
+    sku: "20-04-lts",
     version: "latest");
 
 ContainerRegistry containerRegistry = new ContainerRegistry(
@@ -194,7 +194,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
@@ -219,7 +219,7 @@ You can also prefetch container images by authenticating to a private container 
 image_ref_to_use = batch.models.ImageReference(
         publisher='microsoft-azure-batch',
         offer='ubuntu-server-container',
-        sku='16-04-lts',
+        sku='20-04-lts',
         version='latest')
 
 # Specify a container registry
@@ -238,7 +238,7 @@ new_pool = batch.models.PoolAddParameter(
             virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
                 image_reference=image_ref_to_use,
                 container_configuration=container_conf,
-                node_agent_sku_id='batch.node.ubuntu 16.04'),
+                node_agent_sku_id='batch.node.ubuntu 20.04'),
             vm_size='STANDARD_D1_V2',
             target_dedicated_nodes=1)
 ```
@@ -259,7 +259,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
@@ -290,7 +290,7 @@ containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerReg
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+    nodeAgentSkuId: "batch.node.ubuntu 20.04");
 virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool

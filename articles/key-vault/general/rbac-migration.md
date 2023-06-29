@@ -12,21 +12,9 @@ ms.author: mbaldwin
 ---
 # Migrate from vault access policy to an Azure role-based access control permission model
 
-The vault access policy model is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (user, group, service principal, managed identity) at Key Vault scope. 
+Azure Key Vault offers two authorization systems: Azure role-based access control (Azure RBAC), and an access policy model. Azure RBAC is the default and recommended authorization system for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
-Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
-
-Before migrating to Azure RBAC, it's important to understand its benefits and limitations.
-
-Azure RBAC key benefits over vault access policies:
-- Provides a unified access control model for Azure resources by using the same API across Azure services
-- Centralized access management for administrators - manage all Azure resources in one view
-- Integrated with [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) for time-based access control
-- Deny assignments - ability to exclude security principals at a particular scope. For information, see [Understand Azure Deny Assignments](../../role-based-access-control/deny-assignments.md)
-
-Azure RBAC disadvantages:
-- Latency for role assignments - it can take several minutes for role assignments to be applied. Vault access policies are assigned instantly.
-- Limited number of role assignments - Azure RBAC allows only 2000 roles assignments across all services per subscription versus 1024 access policies per Key Vault
+This article provide the information necessary to migrate from a key vault from access policy authorization to an Azure RBAC model.
 
 ## Access policies to Azure roles mapping
 

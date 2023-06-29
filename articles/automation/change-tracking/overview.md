@@ -81,7 +81,7 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 - Ubuntu, Debian:
  
 ```bash
-   sudo apt-get udpate
+   sudo apt-get update
    sudo apt-get install -y python2
 ```
 - SUSE:

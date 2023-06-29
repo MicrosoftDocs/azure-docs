@@ -3,12 +3,14 @@ title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/03/2023
+ms.date: 05/23/2023
 ---
 
 # Migrate from pod managed-identity to workload identity
 
 This article focuses on migrating from a pod-managed identity to Azure Active Directory (Azure AD) workload identity for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
+
+If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
 
 ## Before you begin
 

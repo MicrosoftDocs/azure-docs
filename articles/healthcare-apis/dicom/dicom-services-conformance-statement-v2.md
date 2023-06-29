@@ -86,7 +86,7 @@ The following DICOM elements are required to be present in every DICOM file atte
 * `PatientID`
 
 > [!NOTE]
-> All identifiers must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`.
+> All UIDs must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`. `PatientID` is validated based on its `LO` `VR` type.
 
 Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID`. The warning code `45070` is returned if a file with the same identifiers already exists.
 
@@ -100,6 +100,8 @@ In previous versions, a Store request would fail if any of the [required](#store
 
 Failed validation of attributes not required by the API results in the file being stored with a warning. A warning is given about each failing attribute per instance.
 When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
+
+If an attribute is padded with nulls, the attribute is indexed when searchable and is stored as is in dicom+json metadata. No validation warning is provided.
 
 #### Store response status codes
 
@@ -294,7 +296,9 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 | GET    | ../studies/{study}/series/{series}/metadata                             | Retrieves the metadata for all instances within a series. |
 | GET    | ../studies/{study}/series/{series}/instances/{instance}                 | Retrieves a single instance. |
 | GET    | ../studies/{study}/series/{series}/instances/{instance}/metadata        | Retrieves the metadata for a single instance. |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, a comma separate each frame to return. For example, /studies/1/series/2/instance/3/frames/4,5,6 |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}/rendered        | Retrieves an instance rendered into an image format |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, a comma separate each frame to return. For example, `/studies/1/series/2/instance/3/frames/4,5,6`. |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frame}/rendered | Retrieves a single frame rendered into an image format. |
 
 #### Retrieve instances within study or series
 
@@ -362,12 +366,28 @@ Retrieving metadata won't return attributes with the following value representat
 | OW      | Other Word             |
 | UN      | Unknown                |
 
-### Retrieve metadata cache validation for (study, series, or instance)
+Retrieved metadata includes the null character when the attribute was padded with nulls and stored as is.
+
+### Retrieve metadata cache validation (for study, series, or instance)
 
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
 * Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response is sent with no response body.
 * Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data is returned as part of the body.
+
+### Retrieve rendered image (for instance or frame)
+The following `Accept` header(s) are supported for retrieving a rendered image an instance or a frame:
+
+- `image/jpeg`
+- `image/png`
+
+In the case that no `Accept` header is specified the service renders an `image/jpeg` by default.
+
+The service only supports rendering of a single frame. If rendering is requested for an instance with multiple frames, then only the first frame is rendered as an image by default.
+
+When specifying a particular frame to return, frame indexing starts at 1.
+
+The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) may be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
 
 ### Retrieve response status codes
 
@@ -378,8 +398,8 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
-| `404 (Not Found)`              | The specified DICOM resource couldn't be found. |
-| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
+| `404 (Not Found)`              | The specified DICOM resource couldn't be found, or for rendered request the instance didn't contain pixel data. |
+| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported, or for rendered and transcodes requests the file requested was too large. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 ### Search (QIDO-RS)
@@ -403,7 +423,7 @@ The following `Accept` header(s) are supported for searching:
 * `application/dicom+json`
 
 ### Search changes from v1
-In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag will return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags won't consider any DICOM SOP instance that produced a warning. This behavior may result in incomplete search results.
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag returns `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags won't consider any DICOM SOP instance that produced a warning. This behavior may result in incomplete search results.
 To correct an attribute, delete the stored instance and upload the corrected data.
 
 ### Supported search parameters
@@ -578,6 +598,7 @@ The query API returns one of the following status codes in the response:
 * Matching is case in-sensitive and accent sensitive for other string VR types.
 * Only the first value is indexed of a single valued data element that incorrectly has multiple values.
 * Using the default attributes or limiting the number of results requested maximizes performance.
+* When an attribute was stored using null padding, it can be searched for with or without the null padding in uri encoding. Results retrieved will be for attributes stored both with and without null padding.
 
 ### Delete
 

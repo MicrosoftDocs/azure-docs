@@ -14,9 +14,9 @@ ms.date: 03/09/2023
 
 # Power automate batch transcription
 
-This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use it. If the connector doesn't meet your requirements, you can still use the [REST API](rest-speech-to-text.md#transcriptions) directly.
+This article describes how to use [Power Automate](/power-automate/getting-started) and the [Azure Cognitive Services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) to transcribe audio files from an Azure Storage container. The connector uses the [Batch Transcription REST API](batch-transcription.md), but you don't need to write any code to use it. If the connector doesn't meet your requirements, you can still use the [REST API](rest-speech-to-text.md#transcriptions) directly.
 
-In addition to [Power Automate](/power-automate/getting-started), you can use the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/) with [Power Apps](/power-apps) and [Logic Apps](../../logic-apps/index.yml).
+In addition to [Power Automate](/power-automate/getting-started), you can use the [Azure Cognitive Services for Batch Speech to text connector](/connectors/cognitiveservicesspe/) with [Power Apps](/power-apps) and [Logic Apps](../../logic-apps/index.yml).
 
 > [!TIP]
 > Try more Speech features in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
@@ -90,9 +90,9 @@ By now, you should have a flow that looks like this:
 
 ### Create transcription
 
-1. Select **+ New step** to begin adding a new operation for the [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/). 
-1. Enter "batch speech-to-text" in the search connectors and actions box to narrow the results. 
-1. Select the **Azure Cognitive Services for Batch Speech-to-text** connector.
+1. Select **+ New step** to begin adding a new operation for the [Azure Cognitive Services for Batch Speech to text connector](/connectors/cognitiveservicesspe/). 
+1. Enter "batch speech to text" in the search connectors and actions box to narrow the results. 
+1. Select the **Azure Cognitive Services for Batch Speech to text** connector.
 1. Select the **Create transcription** action.
 1. Create a new connection to the Speech resource that you [created previously](#prerequisites). The connection will be available throughout the Power Automate environment. For more information, see [Manage connections in Power Automate](/power-automate/add-manage-connections). 
     1. Enter a name for the connection such as "speech-resource-key". You can choose any name that you like. 
@@ -108,7 +108,7 @@ By now, you should have a flow that looks like this:
     1. Select `Web Url` as dynamic content for the **contentUrls Item - 1** field. This is the SAS URI output from the [Create SAS URI by path](#create-sas-uri-by-path) action. 
     
     > [!TIP]
-    > For more information about create transcription parameters, see the [Azure Cognitive Services for Batch Speech-to-text](/connectors/cognitiveservicesspe/#create-transcription) documentation.
+    > For more information about create transcription parameters, see the [Azure Cognitive Services for Batch Speech to text](/connectors/cognitiveservicesspe/#create-transcription) documentation.
 
 1. From the top navigation menu, select **Save**.
 
@@ -147,6 +147,6 @@ You can select and expand the **Create transcription** to see detailed input and
 
 ## Next steps
 
-- [Azure Cognitive Services for Batch Speech-to-text connector](/connectors/cognitiveservicesspe/)
+- [Azure Cognitive Services for Batch Speech to text connector](/connectors/cognitiveservicesspe/)
 - [Azure Blob Storage connector](/connectors/azureblob/)
 - [Power Platform](/power-platform/)

@@ -26,7 +26,7 @@ Before you can access your resources, you'll need to meet the prerequisites:
 - Download and install the Remote Desktop client from the [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12).
 
 >[!NOTE]
->The macOS Remote Desktop client currently isn't distributed in the Mainland China region in the App Store.
+>The macOS Remote Desktop client currently isn't distributed in the China region in the App Store.
 
 ## Subscribe to a workspace
 
@@ -65,4 +65,6 @@ If you want to help us test new builds before they're released, you should downl
 
 ## Next steps
 
-To learn more about the features of the Remote Desktop client for macOS, check out [Use features of the Remote Desktop client for macOS when connecting to Azure Virtual Desktop](client-features-macos.md).
+- To learn more about the features of the Remote Desktop client for macOS, check out [Use features of the Remote Desktop client for macOS when connecting to Azure Virtual Desktop](client-features-macos.md).
+
+- If you want to use Teams on Azure Virtual Desktop with media optimization, see [Use Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).

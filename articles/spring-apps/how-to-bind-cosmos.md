@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022, service-connector
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, ignite-2022, service-connector
 ---
 
 # Connect an Azure Cosmos DB database to your application in Azure Spring Apps
@@ -92,7 +92,7 @@ az spring connection create cosmos-sql \
 
 #### Use the Azure portal
 
-Alternately, you can use the Azure portal to configure this connection by completing the following steps. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
+Alternatively, you can use the Azure portal to configure this connection by completing the following steps. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
 
 1. Select your Azure Spring Apps instance in the Azure portal and select **Apps** from the navigation menu. Choose the app you want to connect and select **Service Connector** on the navigation menu.
 

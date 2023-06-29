@@ -201,7 +201,9 @@ sections:
       - question: |
           What types of resources can send Prometheus metrics to managed service for Prometheus?
         answer: |
-          Our agent can be used on Azure Kubernetes Service clusters. It's installed as a managed add-on and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.  
+          Our agent can be used on Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. It's installed as a managed add-on for AKS clusters and an extension for Azure Arc-enabled Kubernetes clusters and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.
+
+          If you use the Azure portal to enable Prometheus metrics collection and install the AKS add-on or Azure Arc-enabled Kubernetes extension from the Insights page of your cluster, it enables logs collection into Log Analytics and Prometheus metrics collection into managed service for Prometheus.
       - question: |
           Does enabling managed service for Prometheus on my Azure Kubernetes Service cluster also enable Container insights?
         answer: |
@@ -216,7 +218,11 @@ sections:
           Why am I missing metrics that have two labels with the same name but different casing?
         answer: |
           Metrics that have two label names that are the same except for their casing will be treated as having duplicate label names. These time series will be dropped upon ingestion since the two labels are seen as the same. For example, the time series `my_metric{ExampleLabel="label_value_0", examplelabel="label_value_1}` will be dropped due to duplicate labels since `ExampleLabel` and `examplelabel` will be seen as the same label name.
-
+      - question: |
+           I see some gaps in metric data, why is this occurring?   
+        answer: |
+           During node updates you may see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collectors because the node that it runs on is being updated as part of a normal update process. This affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. This occurs when your cluster is updated manually or via auto-update. This is expected behavior that occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
+           
   - name: Change Analysis
     questions:
       - question: |
@@ -376,10 +382,9 @@ sections:
       - question: |
           How can I collect Windows security events by using the new Azure Monitor Agent?
         answer: |
-          There are two ways you can collect security events by using the new agent when it sends to a Log Analytics workspace:
-          - You can use Azure Monitor Agent to natively collect security events, the same as other Windows events. These events flow to the [`Event`](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace.
+          There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
+          - You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. If you want Security Events to flow into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead, you can [create the required DCR with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
           - If you have Microsoft Sentinel enabled on the workspace, the security events flow via Azure Monitor Agent into the [`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (the same as using the Log Analytics agent). This scenario always requires the solution to be enabled first.
-          
           
       - question: |
           Can Azure Monitor Agent and the Log Analytics agent coexist side by side?
@@ -484,6 +489,7 @@ sections:
           * [.NET app](app/asp-net-troubleshoot-no-data.md).
           * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md).
           * [Java web app](app/java-2x-troubleshoot.md).
+          * [JavaScript web app](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
           
           I get no data from my server:
           
@@ -584,14 +590,28 @@ sections:
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
-          From [client webpages](app/javascript.md):
+          From [client webpages](app/javascript-sdk.md):
           
-          * [Page view counts](app/usage-overview.md)
-          * [AJAX calls](app/asp-net-dependencies.md): Requests made from a running script
-          * Page view load data
-          * Configurable page [visit time](./app/data-model-complete.md#pageview)
-          * User and session counts
-          * [Authenticated user IDs](app/api-custom-events-metrics.md#authenticated-users)
+          * Uncaught exceptions in your app, including information on
+            * Stack trace
+            * Exception details and message accompanying the error
+            * Line & column number of error
+            * URL where error was raised
+          * Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on:
+            * Url of dependency source
+            * Command & Method used to request the dependency
+            * Duration of the request
+            * Result code and success status of the request
+            * ID (if any) of user making the request
+            * Correlation context (if any) where request is made
+          * User information (for example, Location, network, IP)
+          * Device information (for example, Browser, OS, version, language, model)
+          * Session information
+
+            > [!Note]
+            > For some applications, such as single-page applications (SPAs), the duration may not be recorded and will default to 0.
+
+            For more information, see [Data collection, retention, and storage in Application Insights](./app/data-retention-privacy.md).
           
           From other sources, if you configure them:
           
@@ -599,16 +619,6 @@ sections:
           * [Import to Log Analytics](logs/data-collector-api.md)
           * [Log Analytics](logs/data-collector-api.md)
           * [Logstash](logs/data-collector-api.md)
-          
-      - question: |
-          Can I filter out or modify some telemetry?
-        answer: |
-          Yes. In the server, you can write:
-          
-          * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
-          * Telemetry Initializer to add properties to all items of telemetry.
-          
-          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
           
       - question: |
           How is city, country/region, and other geolocation data calculated?
@@ -641,19 +651,6 @@ sections:
           
           The [Application Insights JavaScript SDK](app/javascript.md) doesn't include any personal data in its autocompletion, by default. However, some personal data used in your application might be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
           
-      - question: |
-          Why is my instrumentation key visible in my webpage source?
-        answer: |
-          * This visibility is common practice in monitoring solutions.
-          * It can't be used to steal your data.
-          * It could be used to skew your data or trigger alerts.
-          * We haven't heard that any customer has had such problems.
-          
-          You can:
-          
-          * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data.
-          * Write a proxy that runs in your server and have the web client send data through that proxy.
-          
       - question: How do I see POST data in Diagnostic Search?
         answer: |
           We don't log POST data automatically, but you can use a `TrackTrace` call. To do so, put the data in the message parameter. Message parameters have a longer size limit than the limits on string properties, although you can't filter on it.
@@ -671,7 +668,17 @@ sections:
         answer: |
           * See [How many Application Insights resources should I deploy?](app/separate-resources.md).
           * [Example: Cloud service with worker and web roles](app/azure-web-apps-net-core.md).
+
+      - question: |
+          Can I filter out or modify some telemetry?
+        answer: |
+          Yes. In the server, you can write:
           
+          * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
+          * Telemetry Initializer to add properties to all items of telemetry.
+          
+          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).    
+      
       - question: |
           What are the user and session counts?
         answer: |
@@ -679,7 +686,70 @@ sections:
           * If there's no client-side script, you can [set cookies at the server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
           * If one real user uses your site in different browsers, or by using in-private/incognito browsing, or different machines, they're counted more than once.
           * To identify a signed-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
+
+      - question: |
+          Why is my instrumentation key visible in my webpage source?
+        answer: |
+          * This visibility is common practice in monitoring solutions.
+          * It can't be used to steal your data.
+          * It could be used to skew your data or trigger alerts.
+          * We haven't heard that any customer has had such problems.
           
+          You can:
+          
+          * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data.
+          * Write a proxy that runs in your server and have the web client send data through that proxy.    
+      
+      - question: |
+          What is the JavaScript SDK performance/overhead?
+        answer: |
+          The Application Insights JavaScript SDK has a minimal overhead on your website. At just 36 KB gzipped, and taking only ~15 ms to initialize, the SDK adds a negligible amount of load time to your website. The minimal components of the library are quickly loaded when you use the SDK, and the full script is downloaded in the background.
+
+           Additionally, while the script is downloading from the CDN, all tracking of your page is queued, so you don't lose any telemetry during the entire life cycle of your page. This setup process provides your page with a seamless analytics system that's invisible to your users.
+      
+      - question: |
+          What browsers are supported by the JavaScript SDK?
+        answer: |
+          ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+          --- | --- | --- | --- | --- |
+          Chrome Latest ✔ |  Firefox Latest ✔ | IE 9+ & Microsoft Edge ✔<br>IE 8- Compatible | Opera Latest ✔ | Safari Latest ✔ |
+
+      - question: |
+          Where can I find code examples for the JavaScript SDK?
+        answer: |
+          For runnable examples, see [Application Insights JavaScript SDK samples](https://github.com/microsoft/ApplicationInsights-JS/tree/master/examples).
+      
+      - question: |
+          How can I upgrade from the old version of the Application Insights JavaScript SDK?
+        answer: |
+          For more information, see [Upgrade from old versions of the Application Insights JavaScript SDK](./app/javascript-sdk-upgrade.md).
+      
+      - question: |
+          What is the ES3/Internet Explorer 8 compatibility with the JavaScript SDK?
+        answer: |
+          We need to take necessary measures to ensure that this SDK continues to "work" and doesn't break the JavaScript execution when loaded by an older browser. It would be ideal to not support older browsers, but numerous large customers can't control which browser their users choose to use.
+
+           This statement doesn't mean that we only support the lowest common set of features. We need to maintain ES3 code compatibility. New features need to be added in a manner that wouldn't break ES3 JavaScript parsing and added as an optional feature.
+
+           See GitHub for full details on [Internet Explorer 8 support](https://github.com/Microsoft/ApplicationInsights-JS#es3ie8-compatibility).
+      
+      - question: |
+          Is the JavaScript SDK open-source?
+        answer: |
+          Yes, the Application Insights JavaScript SDK is open source. To view the source code or to contribute to the project, see the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS).
+      
+      - question: |
+          How can I update my third-party server configuration for the JavaScript SDK?
+        answer: |
+          The server side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server side, it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context`, and `traceparent` (W3C distributed header).
+
+          Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
+      
+      - question: |
+          How can I disable distributed tracing for the JavaScript SDK?
+        answer: |
+          Distributed tracing can be disabled in configuration.
+      
       - question: |
           How does Application Insights generate device information like browser, OS, language, and model?
         answer: |
@@ -690,7 +760,7 @@ sections:
       - question: |
           How would I measure the impact of a monitoring campaign?
         answer: |
-          PageView Telemetry includes URL and you could parse the UTM parameter using a [regex function](/azure/data-explorer/kusto/query/re2.md) in Kusto.
+          PageView Telemetry includes URL and you could parse the UTM parameter using a regex function in Kusto.
           
           Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
                     
@@ -932,7 +1002,7 @@ sections:
           |Feature                                                                                                             | .NET      | Node.js   | Python    | Java               |
           |--------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
           | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                            | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Custom metrics](app/opentelemetry-add-modify.md#add-custom-metrics)                                                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                              | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-rate sampling](app/sampling.md)                                                                             | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :warning: | :warning: | :warning: | :white_check_mark: |
@@ -985,7 +1055,7 @@ sections:
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrument-your-application).
+          See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrumentation-options).
           
       - question: |
           Can I use the OpenTelemetry Collector?
@@ -1157,6 +1227,11 @@ sections:
         answer:
           By default, Normal event types aren't collected unless the *collect_all_kube_events* ConfigMap setting is enabled. If you need to collect Normal events, enable *collect_all_kube_events setting* in the *container-azm-ms-agentconfig* ConfigMap. See [Configure agent data collection for Container insights](containers/container-insights-agent-config.md) for information on how to configure the ConfigMap.
 
+      - question: |
+          Does Container Insights support pod sandboxing?
+        answer: |
+          Yes, Container Insights supports pod sandboxing through support for Kata Containers. For more details on pod sandboxing in AKS, [refer to the AKS docs](https://learn.microsoft.com/azure/aks/use-pod-sandboxing).
+          
 
       
   - name: VM insights

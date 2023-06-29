@@ -87,42 +87,49 @@ The following example output shows the resource group created successfully:
 
 ## Create an AKS cluster
 
-To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
+To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
 
 * The cluster is configured with two nodes.
-* The `--windows-admin-password` and `--windows-admin-username` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet [Windows Server password requirements][windows-server-password]. If you don't specify the `--windows-admin-password` parameter, you will be prompted to provide a value.
+* The `--windows-admin-password` and `--windows-admin-username` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet [Windows Server password requirements][windows-server-password].
 * The node pool uses `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
 
-Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it to *WINDOWS_USERNAME* for use in a later command (remember that the commands in this article are entered into a BASH shell).
+1. Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it to *WINDOWS_USERNAME* for use in a later command (remember that the commands in this article are entered into a BASH shell).
 
-```azurecli-interactive
-echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
-```
+    ```azurecli-interactive
+    echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
+    ```
 
-Create your cluster ensuring you specify `--windows-admin-username` parameter. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*. The following command will also prompt you to create a password for the administrator credentials for the Windows Server nodes on your cluster. Alternatively, you can use the `--windows-admin-password` parameter and specify your own value there.
+2. Create a password for the administrator username that you created in the previous step.
 
-```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-count 2 \
-    --enable-addons monitoring \
-    --generate-ssh-keys \
-    --windows-admin-username $WINDOWS_USERNAME \
-    --vm-set-type VirtualMachineScaleSets \
-    --network-plugin azure
-```
+    ```azurecli-interactive
+    echo "Please enter the password to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_PASSWORD
+    ```
 
-> [!NOTE]
-> If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
->
-> If you do not specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
->
-> The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more details, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
+3. Create your cluster ensuring you specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
 
+    ```azurecli-interactive
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --node-count 2 \
+        --enable-addons monitoring \
+        --generate-ssh-keys \
+        --windows-admin-username $WINDOWS_USERNAME \
+        --windows-admin-password $WINDOWS_PASSWORD \
+        --vm-set-type VirtualMachineScaleSets \
+        --network-plugin azure
+    ```
+    
+    > [!NOTE]
+    > If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+    >
+    > If you do not specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
+    >
+    > The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more details, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
+    
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
 ## Add a Windows node pool
@@ -143,32 +150,15 @@ az aks nodepool add \
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. The OS SKU was not specified so the nodepool will be set to the default operating system based on the Kubernetes version of the cluster. 
 
+## Add a Windows Server 2019 or Windows Server 2022 node pool
 
-## Add a Windows Server 2019 node pool
-
-> [!NOTE]
-> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
-
-When creating a Windows node pool, on Kubernetes version 1.24 or earlier, the default operating system will be Windows Server 2019. To use Windows Server 2019 node pools when not the default option, you need to specify an OS SKU type of `Windows2019`.
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --os-type Windows \
-    --os-sku Windows2019 \ 
-    --name npwin \
-    --node-count 1
-```
-
-The above command creates a new Windows Server 2019 node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`. 
-
-## Add a Windows Server 2022 node pool
-
-When creating a Windows node pool, for Kubernetes 1.25 and higher the default operating system will be Windows Server 2022. To use Windows Server 2022 nodes when not default, you need to specify an OS SKU type of `Windows2022`.
+AKS supports Windows Server 2019 and 2022 node pools. For Kubernetes version 1.25.0 and higher, Windows Server 2022 is the default operating system. For earlier Kubernetes versions, Windows Server 2019 is the default OS. To use Windows Server 2019, you need to specify the following parameters:
+- `os-type` set the value to `Windows`
+- `os-sku` set the value to `Windows2019`
 
 > [!NOTE]
-> Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
+> - Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
+> - Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 Use the `az aks nodepool add` command to add a Windows Server 2022 node pool:
 
@@ -177,7 +167,7 @@ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --os-type Windows \
-    --os-sku Windows2022 \ 
+    --os-sku Windows2022 \
     --name npwin \
     --node-count 1
 ```
@@ -266,11 +256,10 @@ kubectl get nodes -o wide
 The following example output shows all nodes in the cluster. Make sure that the status of all nodes is *Ready*:
 
 ```output
-NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
-aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.7   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.7   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
-aksnpwcd123456                      Ready    agent   9m6s   v1.20.7   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
-aksnpwin987654                      Ready    agent   25m    v1.20.7   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-90538373-vmss000000   Ready    agent   54m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1035-azure   containerd://1.6.18+azure-1
+aks-nodepool1-90538373-vmss000001   Ready    agent   55m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1035-azure   containerd://1.6.18+azure-1
+aksnpwin000000                      Ready    agent   40m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1668     containerd://1.6.14+azure
 ```
 
 > [!NOTE]
@@ -416,13 +405,11 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-cli-install]: /cli/azure/install-azure-cli
-[azure-cni-about]: ../concepts-network.md#azure-cni-advanced-networking
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [restricted-vm-sizes]: ../quotas-skus-regions.md#restricted-vm-sizes
-[use-advanced-networking]: ../configure-azure-cni.md
 [aks-support-policies]: ../support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
