@@ -18,9 +18,9 @@
       href: quick-create-connect-lab.md
 - name: Tutorials
   items:
-  - name: Set up a lab for classroom training (Lab Services website)
+  - name: Set up a lab in the Lab Services website
     items:
-    - name: Set up a lab for classroom training
+    - name: Create a lab for classroom training
       displayName: get started, lab, tutorial, lab VM, virtual machine, getting started, admin, lab creator, create lab
       href: tutorial-setup-lab.md
     - name: Regsiter & access a lab from the Lab Services website
