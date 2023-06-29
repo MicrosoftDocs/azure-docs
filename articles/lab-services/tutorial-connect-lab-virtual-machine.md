@@ -24,6 +24,11 @@ If you're using Microsoft Teams or Canvas with Azure Lab Services, learn more in
 > * Start the lab VM
 > * Connect to the lab VM
 
+## Prerequisites
+
+- A lab that was created in the Azure Lab Services website.
+- You've received a lab registration link.
+
 ## Register for the lab
 
 When you're invited to a lab based on your email address, you first need to register for the lab by using the registration link. You receive this link from the lab creator. After you register for the lab, you can then access the lab details in the Azure Lab Services website.
