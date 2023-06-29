@@ -3,6 +3,8 @@ title: Speech SDK logging - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn about how to enable logging in the Speech SDK (C++, C#, Python, Objective-C, Java).
 services: cognitive-services
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service

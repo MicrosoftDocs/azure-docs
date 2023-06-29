@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to convert text to speech. Learn about object construction and design patterns, supported audio output formats, and custom configuration options for speech synthesis.
 services: cognitive-services
 author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
