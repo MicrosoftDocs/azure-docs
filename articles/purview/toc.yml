@@ -461,6 +461,8 @@ items:
     href: tutorial-using-python-sdk.md
 - name: Reference
   items:
+    - name: Account upgrades
+      href: account-upgrades.md
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
     - name: Supported browsers

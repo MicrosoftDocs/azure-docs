@@ -13,6 +13,8 @@ items:
   items: 
     - name: Set up a free trial
       href: quickstart-trial-setup.md 
+    - name: Set up a tenant
+      href: quickstart-tenant-setup.md
 - name: Samples
   expanded: true
   items: 
@@ -25,37 +27,37 @@ items:
             - name: JavaScript
               items:
                 - name: Sign in users
-                  href: how-to-single-page-app-vanillajs-sample-sign-in.md
+                  href: sample-single-page-app-vanillajs-sign-in.md
             - name: Angular
               items:
                 - name: Sign in users
-                  href: how-to-single-page-application-angular-sample.md
+                  href: sample-single-page-application-angular.md
             - name: React
               items:
                 - name: Sign in users
-                  href: how-to-single-page-application-react-sample.md
+                  href: sample-single-page-application-react.md
         - name: Web app
           items:
             - name: Node.js
               items:
                 - name: Sign in users
-                  href: how-to-web-app-node-sample-sign-in.md
+                  href: sample-web-app-node-sign-in.md
                 - name: Sign in users and call an API
-                  href: how-to-web-app-node-sample-sign-in-call-api.md
+                  href: sample-web-app-node-sign-in-call-api.md
             - name: ASP.NET
               items:
                 - name: Sign in users
-                  href: how-to-web-app-dotnet-sample-sign-in.md
+                  href: sample-web-app-dotnet-sign-in.md
         - name: Browserless app
           items: 
           - name: Node.js - sign in users
-            href: how-to-browserless-app-node-sample-sign-in.md
+            href: sample-browserless-app-node-sign-in.md
           - name: .NET - sign in users
-            href: how-to-browserless-app-dotnet-sample-sign-in.md
+            href: sample-browserless-app-dotnet-sign-in.md
         - name: Daemon, service
           items:
             - name: Node.js - call an API
-              href: how-to-daemon-node-sample-call-api.md
+              href: sample-daemon-node-call-api.md
               displayName: client credentials grant
         - name: Desktop app
           items:
@@ -188,6 +190,16 @@ items:
                     href: how-to-daemon-node-call-api-prepare-app.md 
                   - name: Acquire access token and call API
                     href: how-to-daemon-node-call-api-call-api.md 
+      - name: Mobile
+        items: 
+        - name: .NET MAUI
+          items:
+          - name: Prepare tenant
+            href: tutorial-mobile-app-maui-sign-in-prepare-tenant.md
+          - name: Prepare app
+            href: tutorial-mobile-app-maui-sign-in-prepare-app.md
+          - name: Sign in and sign out
+            href: tutorial-mobile-app-maui-sign-in-sign-out.md
 - name: Concepts
   items: 
     - name: Planning for customer identity and access

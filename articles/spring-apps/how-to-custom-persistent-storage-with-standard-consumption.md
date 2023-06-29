@@ -122,7 +122,7 @@ az spring app append-persistent-storage \
     --name $APP_NAME \
     --persistent-storage-type AzureFileVolume \
     --mount-path /var/log/nginx \
-    --storage-name STORAGE_MOUNT_NAME
+    --storage-name $STORAGE_MOUNT_NAME
 ```
 
 ## Clean up resources

@@ -24,7 +24,7 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 
 > [!WARNING]
 > KMS supports Konnectivity or [API Server Vnet Integration][api-server-vnet-integration]. 
-> You can use `kubectl get po -n kube-system` to verify the results show that a konnectivity-agent-xxx pod is running. If there is, it means the AKS cluster is using Konnectivity. When using VNet integration, you can run the command `az aks cluster show -g -n` to verify the setting `enableVnetIntegration` is set to **true**.
+> You can use `kubectl get po -n kube-system` to verify the results show that a konnectivity-agent-xxx pod is running. If there is, it means the AKS cluster is using Konnectivity. When using VNet integration, you can run the command `az aks show -g -n` to verify the setting `enableVnetIntegration` is set to **true**.
 
 ## Limitations
 

@@ -206,7 +206,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 | **Dallas** | Equinix<br/>Megaport | Axtel<br/>C3ntro Telecom<br/>Cox Business<br/>Crown Castle<br/>Data Foundry<br/>Spectrum Enterprise<br/>Transtelco |
 | **Frankfurt** | Interxion | BICS<br/>Cinia<br/>Equinix<br/>Nianet<br/>QSC AG<br/>Telekom Deutschland GmbH |
 | **Hamburg** | Equinix | Cinia |
-| **Hong Kong SAR** | Equinix | Chief<br/>Macroview Telecom |
+| **Hong Kong** | Equinix | Chief<br/>Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |
 | **London** | BICS<br/>Equinix<br/>euNetworks | Bezeq International Ltd.<br/>CoreAzure<br/>Epsilon Telecommunications Limited<br/>Exponential E<br/>HSO<br/>NexGen Networks<br/>Proximus<br/>Tamares Telecom<br/>Zain |
 | **Los Angeles** | Equinix | Crown Castle<br/>Spectrum Enterprise<br/>Transtelco |

@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 06/22/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -24,10 +24,17 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## June 2023
 
+- [Content Hub is now generally available](#content-hub-is-now-generally-available)
 - [Windows Forwarded Events connector is now generally available](#windows-forwarded-events-connector-is-now-generally-available)
 - [Connect multiple SAP System Identifiers via the UI](#connect-multiple-sap-system-identifiers-via-the-ui-preview)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
 - [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap-applications-new-systemconfigjson-file)
+
+### Content Hub is now generally available
+
+Along with the general availability (GA) of content hub, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) have also taken effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
+
+As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. For more information on the content hub GA, see this [blog post](https://aka.ms/sentinelcontenthubga-blogpost).
 
 ### Windows Forwarded Events connector is now generally available
 

@@ -195,7 +195,7 @@ az spring application-accelerator predefined-accelerator enable \
 
 ### Manage your own accelerators
 
-In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in GitHub, GitLab, or BitBucket.
+In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure Devops, GitHub, GitLab, or BitBucket.
 
 Use to following steps to create and maintain your own accelerators:
 
