@@ -25,6 +25,14 @@ This tutorial walks you through how to create an RAG pipeline. For advanced scen
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
+* Access to Azure Open AI. [Follow this link to register](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access#registration-process)
+
+* Enable prompt flow in your Azure Machine Learning workspace
+
+In your Azure Machine Learning workspace, you can enable prompt flow by turn-on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
+
+* Complete the tutorial [Train and Deploy Large Language Models (LLMs) with Azure Machine Learning prompt flow (preview)](how-to-train-promptflow.md)
+
 ## Prompt Flow pipeline notebook sample repository
 
 Azure Machine Learning offers notebook tutorials for several usecases with prompt flow pipelines. 
