@@ -55,7 +55,9 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
 
       To begin, install style-loader and css-loader:
 
-      `npm install --save-dev style-loader css-loader`
+      ```powershell
+      npm install --save-dev style-loader css-loader
+      ```
 
       Inside your source file, import atlas-indoor.min.css:
       ```js
