@@ -38,7 +38,7 @@ Azure Data Manager for Energy is now compliant with the M16 OSDU&trade; mileston
 Azure Data Manager for Energy (Standard tier only) now supports cross-region disaster recovery in a multi-region geography (data residency boundary). The service replicates your critical data (in near real time) and infrastructure across another Azure region within the same geography, ensuring data redundancy and enabling swift failover to a secondary region in the event of an outage. [Learn more](./reliability-energy-data-services.md).
 
 ### Support for file uploads greater than 5 GB up to 10 GB
-Azure Data Manager for Energy now supports uploading dataset files greater than 5 GB using Azcopy. [Learn more](https://learn.microsoft.com/azure/energy-data-services/how-to-upload-large-files-using-file-service)
+Azure Data Manager for Energy now supports uploading dataset files greater than 5 GB using Azcopy. [Learn more](./how-to-upload-large-files-using-file-service.md)
 
 ### Partition names without resource name prefix
 July 2023 onwards, all data partitions created in your Azure Data Manager for Energy resource discontinues having the resource name as a prefix. For example, if your resource is called `myadmeresource` and you create a data partition called `mydata`, the partition name/ID will be `mydata`, while previously it used to be `myadmeresource-mydata`. This change won't affect existing data partitions.
