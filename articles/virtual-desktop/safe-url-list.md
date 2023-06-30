@@ -139,7 +139,7 @@ Any [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop
 | `aka.ms` | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | 443 | Download MSI to update the client. Required for auto-updates. | [Windows Desktop](users/connect-windows.md) |
+| `query.prod.cms.rt.microsoft.com` | 443 | Download an MSI to update the client. Required for auto-updates. | [Windows Desktop](users/connect-windows.md) |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
@@ -152,7 +152,7 @@ Any [Remote Desktop clients](users/connect-windows.md?toc=/azure/virtual-desktop
 | `aka.ms` | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | 443 | Download MSI to update the client. Required for auto-updates. | [Windows Desktop](users/connect-windows.md) |
+| `query.prod.cms.rt.microsoft.com` | 443 | Download an MSI to update the client. Required for auto-updates. | [Windows Desktop](users/connect-windows.md) |
 
 ---
 
