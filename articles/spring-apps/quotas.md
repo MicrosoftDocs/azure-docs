@@ -35,10 +35,13 @@ The following table defines limits for the pricing plans in Azure Spring Apps.
 | Inbound Public Endpoints            | per Azure Spring Apps service instance | 10 <sup>1</sup>    | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                       |
 | Outbound Public IPs                 | per Azure Spring Apps service instance | 1 <sup>2</sup>     | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup>       |
 | User-assigned managed identities    | per app instance                       | 20                 | 20                                              | 20                                              | Not available during preview                    | Not available during preview                          |
+| Requests per second/Throughput                 | per Azure Spring Apps service instance | 5000 <sup>3</sup>              | 10000 <sup>3</sup>                                          | 20000 <sup>3</sup>                                             | Not available during preview                    | Not available during preview                          |
 
 <sup>1</sup> You can increase this limit via support request to a maximum of 1 per app.
 
 <sup>2</sup> You can increase this limit via support request to a maximum of 10.
+
+<sup>3</sup> This limit only applies to customers without a Enterprise Agreement subscription. You can increase this limit based on your workload via support request. For customers with a Enterprise Agreement subscription, the max throuput depends on app instances you deployed.
 
 > [!TIP]
 > Limits listed apply for apps and deployments in any state, including apps in a stopped state. These limits include total app instances and per service instances. Be sure to delete apps and deployments that aren't being used.
