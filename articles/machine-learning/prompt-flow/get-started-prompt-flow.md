@@ -54,7 +54,7 @@ After inputting the required fields, select **Save** to create the runtime.
 
 Runtime serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. So, we suggest before starting flow authoring, you should set up your runtime.
 
-In this article, we recommend creating a runtime from Compute Instance. If you're a subscription owner, you have all the permissions needed. If not, please first go [ask your subscription owner to grant you permissions](how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime).
+In this article, we recommend creating a runtime from Compute Instance. If you're a subscription owner or resource group owner, you have all the permissions needed. If not, please first go [ask your subscription owner or resource group owner to grant you permissions](how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime).
 
 Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not,follow [How to create a managed compute instance](../how-to-create-manage-compute-instance.md) to create one. A memory optimized compute is recommended.
 
@@ -78,7 +78,7 @@ In this guide, we'll use **Web Classification** sample to walk you through the m
 
 :::image type="content" source="./media/get-started-prompt-flow/sample-in-gallery.png" alt-text="Screenshot of create from galley highlighting web classification. " lightbox = "./media/get-started-prompt-flow/sample-in-gallery.png":::
 
-Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. The samples are stored in a GitHub repo. You can select Clone to clone the sample, then check the flow, test it, modify it.
+Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. You can select Clone to clone the sample, then check the flow, test it, modify it.
 
 ### Authoring page
 
