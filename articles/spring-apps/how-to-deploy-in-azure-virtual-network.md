@@ -282,6 +282,9 @@ For subnets, Azure reserves five IP addresses, and Azure Spring Apps requires at
 
 For a service runtime subnet, the minimum size is /28.
 
+> [!NOTE]
+   > Small subnet range will also impact the underlying resource you can use for system components like ingress controller.
+
 ## Bring your own route table
 
 Azure Spring Apps supports using existing subnets and route tables.
