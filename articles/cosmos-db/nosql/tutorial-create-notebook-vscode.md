@@ -1,8 +1,8 @@
 ---
 title: |
-  Tutorial: Create a Jupyter Notebook to analyze and visualize data in your Azure Cosmos DB for NoSQL account
+  Tutorial: Create a Jupyter Notebook to analyze data in your Azure Cosmos DB for NoSQL account
 description: |
-  Learn how to use Visual Studio Code Jupyter notebooks to import data to Azure Cosmos DB for NoSQL, analyze the data, and visualize the output.
+  Learn how to use Visual Studio Code Jupyter notebooks to import data to Azure Cosmos DB for NoSQL and analyze the data.
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: overview 
@@ -54,7 +54,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 ---
 
 > [!TIP]
-> Now that the new notebook has been created, you can save it and name it something like **VisualizeRetailData.ipynb**.
+> Now that the new notebook has been created, you can save it and name it something like **AnalyzeRetailData.ipynb**.
 
 ## Create a database and container using the SDK
 
@@ -255,12 +255,14 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Observe the output of running the command.
 
-    | | Item | 0 |
+    | | Item | Test |
     | --- | --- | --- |
     | **0** | Flip Flop Shoes | 66 |
     | **1** | Necklace | 55 |
     | **2** | Athletic Shoes | 111 |
-    ...
+    | **...** | ... | ... |
+    | **45** | Windbreaker Jacket| 56 |
+
 
 
 ### [C#](#tab/csharp)
