@@ -1,7 +1,7 @@
 ---
 title: Document Intelligence quotas and limits
 titleSuffix: Azure AI services
-description: Quick reference, detailed description, and best practices on Azure AI Document Intelligence service Quotas and Limits
+description: Quick reference, detailed description, and best practices for working within Azure AI Document Intelligence service Quotas and Limits
 services: cognitive-services
 author: laujan
 manager: nitinme
