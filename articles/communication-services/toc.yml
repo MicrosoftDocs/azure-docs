@@ -522,7 +522,7 @@ items:
       - name: SMS logs
         href: concepts/analytics/logs/sms-logs.md
       - name: SMS metrics overview
-        href: concepts/sms-metrics.md
+        href: concepts/analytics/sms-metrics.md
     - name: SMS FAQ
       href: concepts/sms/sms-faq.md
   - name: Voice and Video Calling
@@ -644,9 +644,9 @@ items:
       - name: Rooms logs
         href: concepts/analytics/logs/rooms-logs.md
       - name: Call automation metrics overview
-        href: concepts/call-automation-metrics.md
+        href: concepts/analytics/call-automation-metrics.md
       - name: Rooms metrics overview
-        href: concepts/rooms-metrics.md
+        href: concepts/analytics/rooms-metrics.md
     - name: UI Library
       items:
       - name: UI Library overview
@@ -682,7 +682,7 @@ items:
       - name: Chat logs
         href: concepts/analytics/logs/chat-logs.md
       - name: Chat metrics overview
-        href: concepts/chat-metrics.md
+        href: concepts/analytics/chat-metrics.md
   - name: Phone calling
     items:
     - name: Telephony
@@ -750,9 +750,9 @@ items:
       - name: Recording logs
         href: concepts/analytics/logs/recording-logs.md
       - name: Call automation metrics overview
-        href: concepts/call-automation-metrics.md
+        href: concepts/analytics/call-automation-metrics.md
       - name: Rooms metrics overview
-        href: concepts/rooms-metrics.md
+        href: concepts/analytics/rooms-metrics.md
   - name: Email
     items:
     - name: Overview
@@ -784,7 +784,7 @@ items:
       - name: Email logs
         href: concepts/analytics/logs/email-logs.md
       - name: Email metrics overview
-        href: concepts/email-metrics.md
+        href: concepts/metrics.md
   - name: Network Traversal
     items:
     - name: Overview
@@ -794,7 +794,7 @@ items:
       - name: Network Traversal logs
         href: concepts/analytics/logs/network-traversal-logs.md    
       - name: Network Traversal metrics
-        href: concepts/turn-metrics.md  
+        href: concepts/analytics/turn-metrics.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Azure Advisor
