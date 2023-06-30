@@ -6,7 +6,7 @@ ms.author: htaubenfeld
 ms.editor: schaffererin
 ms.service: microsoft-linux
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 06/30/2023
 ms.custom: template-how-to-pattern
 ---
 
@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern
 
 By default, the Azure Linux Container Host for AKS image has a minimal set of root certs to trust certain Microsoft resources, such as packages.microsoft.com. All Microsoft certificates aren't automatically included in our image, which is consistent with the least-privilege principle and gives you the flexibility to opt in to just the root certificates you need and to customize your image.
 
-The `ca-certificates-base` is preinstalled in the container host image and contains no root CA certificates. Instead, it consists of certificates for Microsoft's intermediate CAs. This package allows your container host to trust a minimal set of servers, all of which were verified and had their certificates issued by Microsoft.
+The `ca-certificates-base` is preinstalled in the container host image and contains certificates from a small set of Microsoft-owned CAs. It consists of certificates from Microsoft's root and intermediate CAs. This package allows your container host to trust a minimal set of servers, all of which were verified and had their certificates issued by Microsoft.
 
 The `ca-certificates` cover the root CAs trust by Microsoft through the [Microsoft Trusted Root Program](/security/trusted-root/participants-list).
 
@@ -24,7 +24,7 @@ For more information on the Azure Linux Container Host for AKS image certificati
 
 ## Add a certificate in the PEM or DER file format
 
-By using a package manager, you can add individual or multiple certificates to your Azure Linux Container Host for AKS image. To add a certificate in the simple PEM or DER file format to the list of CAs trusted on the system, follow these steps:
+You can add individual or multiple certificates to your Azure Linux Container Host for AKS image. To add a certificate in the simple PEM or DER file format to the list of CAs trusted on the system, follow these steps:
 
 1. Save your certificate under `etc/pki/ca-trust/source/anchors/`.
 1. Run `update-ca-trust` to consolidate CA certificates and associated trust.
