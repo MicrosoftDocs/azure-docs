@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 06/27/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb
+ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
@@ -141,6 +141,21 @@ For more information on how to set up a sample policy for Microsoft Azure Manage
 > [!TIP]
 > For Azure Government, you should target the Azure Government Cloud Management API application.
 
+### Microsoft Admin Portals (preview)
+
+When a Conditional Access policy targets the Microsoft Admin Portals cloud app, the policy is enforced for tokens issued to application IDs of the following Microsoft administrative portals:
+
+- Microsoft 365 Admin Center
+- Exchange admin center
+- Azure portal
+- Microsoft Entra admin center
+- Security and Microsoft Purview compliance portal
+
+Other Microsoft admin portals will be added over time.
+
+> [!NOTE]
+> The Microsoft Admin Portals app applies to interactive sign-ins to the listed admin portals only. Sign-ins to the underlying resources or services like Microsoft Graph or Azure Resource Manager APIs are not covered by this application. Those resources are protected by the [Microsoft Azure Management](#microsoft-azure-management) app. This enables customers to move along the MFA adoption journey for admins without impacting automation that relies on APIs and PowerShell. When you are ready, Microsoft recommends using a [policy requiring administrators perform MFA always](howto-conditional-access-policy-admin-mfa.md) for comprehensive protection.
+
 ### Other applications
 
 Administrators can add any Azure AD registered application to Conditional Access policies. These applications may include: 
@@ -158,7 +173,7 @@ Some applications don't appear in the picker at all. The only way to include the
 
 ### All cloud apps
 
-Applying a Conditional Access policy to **All cloud apps** will result in the policy being enforced for all tokens issued to web sites and services. This option includes applications that aren't individually targetable in Conditional Access policy, such as Azure Active Directory. 
+Applying a Conditional Access policy to **All cloud apps** results in the policy being enforced for all tokens issued to web sites and services. This option includes applications that aren't individually targetable in Conditional Access policy, such as Azure Active Directory. 
 
 In some cases, an **All cloud apps** policy could inadvertently block user access. These cases are excluded from policy enforcement and include:
 
