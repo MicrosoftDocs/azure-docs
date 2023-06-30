@@ -36,7 +36,7 @@ To configure Application Gateway in front of Azure Spring Apps, use the followin
 1. Follow the instructions in [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
 1. Follow the instructions in [Access your application in a private network](./access-app-virtual-network.md).
 1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
-1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md).
+1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md).
 1. Deploy Application Gateway in a virtual network configured according to the following list:
    - Use Azure Spring Apps in the backend pool, referenced by the domain suffixed with `private.azuremicroservices.io`.
    - Include an HTTPS listener using the same certificate from Key Vault.
