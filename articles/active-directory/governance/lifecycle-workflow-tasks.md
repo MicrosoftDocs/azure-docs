@@ -305,9 +305,9 @@ For Microsoft Graph the parameters for the **Send email to notify manager of use
 
 ### Request user access package assignment
 
-Allows you to request an access package assignment for users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+Allows you to request an access package assignment for users. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
 
-You're able to customize the task name and task description for this task. You must also select an access package that is provided to the user, and the access package policy.
+You're able to customize the task name and task description for this task. You must also select the access package and policy that is being requested for the user.
 :::image type="content" source="media/lifecycle-workflow-task/request-user-access-package-assignment-task.png" alt-text="Screenshot of the request user access package assignment task.":::
 
 For Microsoft Graph, the parameters for the **Request user access package assignment** task are as follows:
@@ -663,9 +663,9 @@ For Microsoft Graph, the parameters for the **Remove users from all teams** task
 
 ### Remove access package assignment for user
 
-Allows you to remove an access package assignment from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+Allows you to remove an access package assignment for users. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
 
-You're able to customize the task name and description for this task in the Azure portal. You must also select the access package which you want to unassign from users.
+You're able to customize the task name and description for this task in the Azure portal. You also need to select the access package for which you want to remove the assignment.
 :::image type="content" source="media/lifecycle-workflow-task/remove-access-package-assignment-user-task.png" alt-text="Screenshot of the remove access package assignment for user task.":::
 
 For Microsoft Graph, the parameters for the **Remove access package assignment for user** task are as follows:
@@ -697,7 +697,7 @@ For Microsoft Graph, the parameters for the **Remove access package assignment f
 
 ### Remove all access package assignments for user
 
-Allows you to remove all access package assignments from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+Allows you to remove all access package assignments for users. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
 
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/remove-all-access-package-assignment-user-task.png" alt-text="Screenshot of the remove all user access package assignment task.":::
@@ -725,7 +725,7 @@ For Microsoft Graph, the parameters for the **Remove all access package assignme
 
 ### Cancel all pending access package assignment requests for user
 
-Allows you to remove all access package assignments from users. Access packages are bundles of resources, with specific access, that a user would need to accomplish tasks. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
+Allows you to cancel all pending access package assignment requests for user. For more information on access packages, see [What are access packages and what resources can I manage with them?](entitlement-management-overview.md#what-are-access-packages-and-what-resources-can-i-manage-with-them).
 
 You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/cancel-all-pending-access-package-assignments-task.png" alt-text="Screenshot of the cancel all pending access package assignments requests for a user task.":::
