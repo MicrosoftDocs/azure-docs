@@ -70,6 +70,6 @@ If you're not going to continue to use dev box limits, remove the limit with the
 
 ## Next steps
 
-- [Use the CLI to configure dev box limits](/cli/azure/devcenter/admin/project?view=azure-cli-latest)
+- [Use the CLI to configure dev box limits](/cli/azure/devcenter/admin/project)
 - [Manage a dev box project](how-to-manage-dev-box-projects.md)
 - [Microsoft Dev Box pricing](https://azure.microsoft.com/pricing/details/dev-box/)
