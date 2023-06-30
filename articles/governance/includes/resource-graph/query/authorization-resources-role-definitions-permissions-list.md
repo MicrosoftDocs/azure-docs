@@ -6,7 +6,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ---
 
-### Get Role Definitions with permissions listed out
+### Get role definitions with permissions listed out
 
 Displays a summary of the `Actions` and `notActions` for each unique role definition.
 
