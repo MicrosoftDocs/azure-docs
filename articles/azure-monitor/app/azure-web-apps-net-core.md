@@ -14,26 +14,26 @@ Enabling monitoring on your ASP.NET Core-based web applications running on [Azur
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## Enable auto-instrumentation monitoring
+## Enable autoinstrumentation monitoring
 
-For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 # [Windows](#tab/Windows)
 
 > [!IMPORTANT]
-> Only .NET Core [Long Term Support](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) is supported for auto-instrumentation on Windows.
+> Only .NET Core [Long Term Support](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) is supported for autoinstrumentation on Windows.
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is *not supported*. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
 > [!NOTE]
-> Auto-instrumentation used to be known as "codeless attach" before October 2021.
+> Autoinstrumentation used to be known as "codeless attach" before October 2021.
 
 See the following [Enable monitoring](#enable-monitoring) section to begin setting up Application Insights with your App Service resource.
 
 # [Linux](#tab/Linux)
 
 > [!IMPORTANT]
-> Only ASP.NET Core 6.0 is supported for auto-instrumentation on Linux.
+> Only ASP.NET Core 6.0 is supported for autoinstrumentation on Linux.
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is *not supported*. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
@@ -158,7 +158,7 @@ What follows is our step-by-step troubleshooting guide for extension/agent-based
    * The value `Auto-Instrumentation enabled successfully` is displayed. If a similar value isn't present, it means the application isn't running or isn't supported. To ensure that the application is running, try manually visiting the application URL/application endpoints, which will allow the runtime information to become available.
    * **IKeyExists** is `True`. If it's `False`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey GUID to your application settings.
 
-   :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot that shows the auto-instrumentation status webpage." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
+   :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot that shows the autoinstrumentation status webpage." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
 
 ---
 ### Default website deployed with web apps doesn't support automatic client-side monitoring
