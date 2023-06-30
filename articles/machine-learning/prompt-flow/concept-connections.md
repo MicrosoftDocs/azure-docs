@@ -31,10 +31,10 @@ Prompt flow provides various prebuilt connections, including Azure Open AI, Open
 
 | Connection type                                              | Built-in tools                  |
 | ------------------------------------------------------------ | ------------------------------- |
-| [Azure Open AI](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service) | LLM or Python                   |
+| [Azure Open AI](https://azure.microsoft.com/products/cognitive-services/openai-service) | LLM or Python                   |
 | [Open AI](https://openai.com/)                               | LLM or Python                   |
 | [Azure Content Safety](https://aka.ms/acs-doc)               | Content Safety (Text) or Python |
-| [Cognitive Search](https://azure.microsoft.com/en-us/products/search) | Vector DB Lookup or Python      |
+| [Cognitive Search](https://azure.microsoft.com/products/search) | Vector DB Lookup or Python      |
 | [Serp](https://serpapi.com/)                                 | Serp API or Python              |
 | Custom                                                       | Python                          |
 
@@ -42,4 +42,4 @@ By leveraging connections in prompt flow, users can easily establish and manage 
 
 ## Next steps
 
-- [Create connections](../quick-start.md)
+- [Get started with Prompt flow](get-started-prompt-flow.md)

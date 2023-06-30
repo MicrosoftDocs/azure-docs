@@ -34,9 +34,9 @@ Prompt flow offers two types of runtimes to customers: *Managed Online Deploymen
 
 The table below outlines the key differences between these runtime types:
 
-|                       | Managed online deployment runtime                            | Compute instance runtime                                     |
+|Capabilities    | Managed online deployment runtime                            | Compute instance runtime                                     |
 | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Underlying resource   | [Azure Machine Learning managed online endpoints](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints-online) | [Azure Machine Learning compute instance](https://learn.microsoft.com/en-us/azure/machine-learning/concept-compute-instance) |
+| Underlying resource   | [Azure Machine Learning managed online endpoints](../../concept-endpoints-online) | [Azure Machine Learning compute instance](../../concept-compute-instance) |
 | Scalability           | Multi-nodes                                                  | Single node                                                  |
 | Resource sharing      | Yes                                                          | No                                                           |
 | User identity support | No                                                           | Yes                                                          |
@@ -44,4 +44,4 @@ The table below outlines the key differences between these runtime types:
 
 ## Next steps
 
-- [Create runtimes](../how-to-guides/how-to-create-manage-runtime.md)
+- [Create runtimes](how-to-create-manage-runtime.md)

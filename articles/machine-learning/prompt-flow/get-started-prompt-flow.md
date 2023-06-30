@@ -196,7 +196,7 @@ Then select **Submit** to submit a bulk test and the selected evaluation.
 
 When completed, select the link, go to bulk test detail page.
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media/get-started-prompt-flow/get-started-prompt-flow/bulk-test-status.png":::
+:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media/get-started-prompt-flow/bulk-test-status.png":::
 
 Select **Refresh** until the evaluation run is completed.
 

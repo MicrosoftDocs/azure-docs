@@ -42,6 +42,6 @@ Azure Machine Learning prompt flow offers three different flow types to cater to
 ## Next steps
 
 - [Get started with Prompt flow](get-started-prompt-flow.md)
-- [Create standard flows](../how-to-guides/how-to-develop-a-standard-flow.md)
-- [Create chat flows](../how-to-guides/how-to-develop-a-chat-flow.md)
-- [Create evaluation flows](../how-to-guides/how-to-develop-an-evaluation-flow.md)
+- [Create standard flows](how-to-develop-a-standard-flow.md)
+- [Create chat flows](how-to-develop-a-chat-flow.md)
+- [Create evaluation flows](how-to-develop-an-evaluation-flow.md)

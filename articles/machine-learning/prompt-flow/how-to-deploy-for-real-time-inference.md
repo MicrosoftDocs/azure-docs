@@ -33,7 +33,7 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 1. Learn [how to build and test a flow in the prompt flow](get-started-prompt-flow.md).
 
-1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints-online?view=azureml-api-2#managed-online-endpoints).
+1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](../concept-endpoints-online?view=azureml-api-2#managed-online-endpoints).
 1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
 
 

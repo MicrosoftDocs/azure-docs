@@ -75,7 +75,7 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
         > - To build your custom environment, please use an image from public docker hub. We do not support custom environments built with images from ACR at this time.
 
     1. To use an existing custom application as a runtime, choose the option "existing".
-        This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#create-custom-appliction-on-compute-instance-which-can-be-used-as-prompt-flow-runtime).
+        This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#Create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-runtime).
 
        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of add compute instance runtime with custom application dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
 
@@ -97,7 +97,7 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
     
             You need [assign sufficient permission](#grant-sufficient-permissions-to-use-the-runtime) to system assigned identity or user assigned identity.
     
-            To learn more, see [Access Azure resources from an online endpoint with a managed identity](how-to-access-resources-from-endpoints-managed-identities.md?view=azureml-api-2&tabs=system-identity-cli)
+            To learn more, see [Access Azure resources from an online endpoint with a managed identity](../how-to-access-resources-from-endpoints-managed-identities.md)
 
         - Select environment used for this runtime.
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-env.png" alt-text="Screenshot of add managed online deployment runtime wizard on the environment page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-env.png":::
@@ -107,7 +107,7 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
         - Choose the appropriate SKU and instance count.
         
             > [!NOTE]
-            > For **Virtual machine**, since the prompt flow runtime is memory-bound, it’s better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md?view=azureml-api-2).
+            > For **Virtual machine**, since the prompt flow runtime is memory-bound, it’s better to select a virtual machine SKU with more than 8GB of memory. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
     
              :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png" alt-text="Screenshot of add managed online deployment runtime wizard on the compute page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png":::
 
@@ -128,7 +128,7 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
 
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png" alt-text="Screenshot of add managed online deployment runtime on the deployment page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png":::
 
-    To learn, see [[how to create managed online deployment, which can be used as prompt flow runtime](how-to-customize-environment-runtime.md#create-managed-online-deployment-which-can-be-used-as-prompt-flow-runtime).]
+    To learn, see [[how to create managed online deployment, which can be used as prompt flow runtime](how-to-customize-environment-runtime.md#create-managed-online-deployment-that-can-be-used-as-prompt-flow-runtime).]
 
 ## Grant sufficient permissions to use the Runtime
 
@@ -172,9 +172,9 @@ You can also assign these permissions manually through the UI.
     > This operation may take several minutes to take effect.
 
 To learn more:
-- [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md?view=azureml-api-2&tabs=labeler)
-- [Assign an Azure role for access to blob data](../../../storage/blobs/assign-azure-role-data-access?tabs=portal)
-- [Azure Container Registry roles and permissions](container-registry/container-registry-roles.md?tabs=azure-cli)
+- [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
+- [Assign an Azure role for access to blob data](../../../storage/blobs/assign-azure-role-data-access.md?tabs=portal)
+- [Azure Container Registry roles and permissions](../../../container-registry/container-registry-roles.md?tabs=azure-cli)
 
 ## Using runtime in prompt flow authoring
 
