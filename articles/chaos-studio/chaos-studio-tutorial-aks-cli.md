@@ -197,7 +197,7 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 Give the experiment access to your resources by using the following command. Replace `$EXPERIMENT_PRINCIPAL_ID` with the principal ID from the previous step. Replace `$RESOURCE_ID` with the resource ID of the target resource. In this case, it's the AKS cluster resource ID. Run this command for each resource targeted in your experiment.
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
+az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
 ```
 
 ## Run your experiment
