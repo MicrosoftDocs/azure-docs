@@ -30,7 +30,7 @@ For more information on these customizable parameters, see [Common email task pa
 
 ## Prerequisites
 
-- Microsoft Entra ID Governance or Azure Active Directory (Azure AD) Premium P2 licenses. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Customize email by using the Azure portal
 
