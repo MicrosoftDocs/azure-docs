@@ -248,9 +248,7 @@ Create a VM from the image version that you created with VM Image Builder.
    -ResourceGroupName $imageResourceGroup `
    -GalleryName $sigGalleryName `
    -GalleryImageDefinitionName $imageDefName
-
-# Access the Id property of the image version
-$imageVersionId = $imageVersion.Id
+   $imageVersionId = $imageVersion.Id
    ```
 
 1. Create the VM in the second region, where the image was replicated:
