@@ -20,6 +20,7 @@ This section lists the platform metrics that are collected for Azure virtual mac
 | Virtual machines | [Microsoft.Compute/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 | Virtual Machine Scale Sets | [Microsoft.Compute/virtualMachineScaleSets](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 | Virtual Machine Scale Sets and virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+
 For more information, see a list of [platform metrics that are supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric dimensions
