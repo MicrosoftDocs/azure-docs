@@ -120,7 +120,7 @@ In the developer portal, sign-in with Azure Active Directory B2C is possible wit
 1. On the **Sign in** page, select **Azure Active Directory B2C**.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-sign-in.png" alt-text="Screenshot of signing in to developer portal.":::
-1. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address in the Active Directory B2C tenant
+1. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address in the Active Directory B2C tenant.
 
 When the signup is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
 
