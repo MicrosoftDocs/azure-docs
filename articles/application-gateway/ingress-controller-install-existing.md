@@ -124,7 +124,7 @@ looks like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/appli
     ```
 
 >[!NOTE]
-> If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in _Network Contributor_ role, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
+> If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in **Network Contributor** role, which contains the **Microsoft.Network/virtualNetworks/subnets/join/action** permission.
 
 ## Using a Service Principal
 
@@ -164,7 +164,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     ```
 
     Or copy the following YAML file:
-    
+
     ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -252,6 +252,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
 Refer to [this how-to guide](ingress-controller-expose-service-over-http-https.md) to understand how you can expose an AKS service over HTTP or HTTPS, to the internet, using an Azure Application Gateway.
 
 ## Shared Application Gateway
+
 By default AGIC assumes full ownership of the Application Gateway it's linked to. AGIC version 0.8.0 and later can
 share a single Application Gateway with other Azure components. For instance, we could use the same Application Gateway for an app
 hosted on Virtual Machine Scale Set and an AKS cluster.
