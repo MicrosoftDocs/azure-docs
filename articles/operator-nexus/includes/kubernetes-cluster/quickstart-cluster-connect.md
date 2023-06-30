@@ -19,7 +19,7 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
     ```
     CLUSTER_NAME="myNexusAKSCluster"
     RESOURCE_GROUP_NAME="myResourceGroup"
-    MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --output tsv --query managedResourceGroup)
+    MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --output tsv --query managedResourceGroupConfiguration.name)
     ```
 2. The following command starts a connectedk8s proxy that allows you to connect to the Kubernetes API server for the specified Nexus Kubernetes cluster.
     ```azurecli
