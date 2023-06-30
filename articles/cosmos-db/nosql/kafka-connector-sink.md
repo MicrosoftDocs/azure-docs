@@ -274,6 +274,13 @@ This error is likely caused by data in the source topic being serialized in eith
 "value.converter.schema.registry.url": "http://schema-registry:8081",
 ```
 
+### Gateway mode support
+```connect.cosmos.connection.gateway.enabled``` is a configuration option for the Cosmos DB Kafka Sink Connector that enhances data ingestion by utilizing the Cosmos DB gateway service. This service acts as a front-end for Cosmos DB, offering benefits such as load balancing, request routing, and protocol translation. By leveraging the gateway service, the connector achieves improved throughput and scalability when writing data to Cosmos DB. For more information, see [connectivity modes] (https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/sdk-connection-modes)
+
+```json
+"connect.cosmos.connection.gateway.enabled": true
+```
+
 ### Bulk mode support
 ```connect.cosmos.sink.bulk.enabled``` property determines whether the bulk write feature is enabled for writing data from Kafka topics to Azure Cosmos DB. 
 
