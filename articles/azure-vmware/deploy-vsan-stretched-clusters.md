@@ -3,7 +3,7 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/23/2023
+ms.date: 06/24/2023
 ms.custom: references_regions
 ---
 
@@ -45,9 +45,11 @@ It's important to understand that stretched cluster private clouds only offer an
     - If the secondary site partitioning progressed into the failure of the primary site instead, or resulted in a complete partitioning, vSphere HA would attempt to restart the workload VMs on the secondary site. If vSphere HA attempted to restart the workload VMs on the secondary site, it would put the workload VMs in an unsteady state. 
     
 
-        The following diagram shows the preferred site failure or complete partitioning scenario.
+        The following diagrams show the preferred site failure and complete network partitioning scenarios.
 
         :::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure occurs." border="false" lightbox="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png":::
+
+        :::image type="content" source="media/stretch-clusters/diagram-4-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when complete network isolation occurs." border="false" lightbox="media/stretch-clusters/diagram-4-restart-workload-secondary-site.png":::
 
 It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of those types of rare failures, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. It's important you understand that a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX-T Manager cluster, one NSX-T Data Center Edge VM pair.
 

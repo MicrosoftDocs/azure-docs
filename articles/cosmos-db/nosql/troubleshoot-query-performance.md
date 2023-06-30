@@ -291,7 +291,7 @@ Here are additional examples of aggregate queries that will not fully use the in
 
 #### Queries with system functions that don't use the index
 
-You should refer to the relevant [system function's page](query/system-functions.md) to see if it uses the index.
+You should refer to the relevant [system function's page](query/system-functions.yml) to see if it uses the index.
 
 ```sql
 SELECT MAX(c._ts)

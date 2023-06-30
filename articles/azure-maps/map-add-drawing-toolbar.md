@@ -7,7 +7,6 @@ ms.date: 06/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.custom:
 ---
 
 # Add a drawing tools toolbar to a map
@@ -28,20 +27,19 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-For a complete working sample that demonstrates how to add a drawing toolbar to your map, see [Add drawing toolbar to map] in the [Azure Maps Samples].
+For a complete working sample that demonstrates how to add a drawing toolbar to your map, see [Add drawing toolbar to map] in the [Azure Maps Samples]. For the source code for this sample, see [Add drawing toolbar to map source code].
 
 :::image type="content" source="./media/map-add-drawing-toolbar/add-drawing-toolbar.png" alt-text="Screenshot showing the drawing toolbar on a map.":::
 
 <!------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Add drawing toolbar" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Add drawing toolbar</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
 ------------------------------------------------------------------------>
 
 ## Limit displayed toolbar options
 
-The following code creates an instance of the drawing manager and displays the toolbar with just a polygon drawing tool on the map. 
+The following code creates an instance of the drawing manager and displays the toolbar with just a polygon drawing tool on the map.
 
 ```javascript
 //Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
@@ -61,8 +59,7 @@ The following screenshot shows a sample of an instance of the drawing manager th
 <!------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Add a polygon drawing  tool" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Add a polygon drawing  tool</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
 ------------------------------------------------------------------------>
 
 ## Change drawing rendering style
@@ -122,15 +119,14 @@ drawingManager.setOptions({
 });  
 ```
 
-For a complete working sample that demonstrates how to customize the rendering of the drawing shapes in the drawing manager by accessing the rendering layers, see [Change drawing rendering style] in the [Azure Maps Samples].
+For a complete working sample that demonstrates how to customize the rendering of the drawing shapes in the drawing manager by accessing the rendering layers, see [Change drawing rendering style] in the [Azure Maps Samples]. For the source code for this sample, see [Change drawing rendering style source code].
 
 :::image type="content" source="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" alt-text="Screenshot showing different drawing shaped rendered on a map.":::
 
 <!------------------------------------------------------------------------
 <iframe height="500" scrolling="no" title="Change drawing rendering style" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Change drawing rendering style</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
 ------------------------------------------------------------------------>
 
 > [!NOTE]
@@ -163,3 +159,6 @@ Learn more about the classes and methods used in this article:
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Add drawing toolbar to map]: https://samples.azuremaps.com/drawing-tools-module/add-drawing-toolbar-to-map
 [Change drawing rendering style]: https://samples.azuremaps.com/drawing-tools-module/change-drawing-rendering-style
+
+[Add drawing toolbar to map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Add%20drawing%20toolbar%20to%20map/Add%20drawing%20toolbar%20to%20map.html
+[Change drawing rendering style source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Change%20drawing%20rendering%20style/Change%20drawing%20rendering%20style.html

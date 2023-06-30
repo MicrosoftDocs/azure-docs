@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/27/2023
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -98,6 +98,8 @@ The Twin Graph panel also provides several abilities to customize your graph vie
 * [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
 * [Filter and highlight twin graph elements](#filter-and-highlight-twin-graph-elements)
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+
 ### Explore twin data
 
 Run a query using the [Query Explorer](#query-your-digital-twin-graph) to see the twins and relationships in the query result displayed in the **Twin Graph** panel.
@@ -115,21 +117,21 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. You can hover over an icon to display the associated type.
 
-The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#schema).
+The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md).
 
 | Icon | Data type |
 | --- | --- |
-| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.svg) | [boolean](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
-| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.svg) | [component](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#component) |
-| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.svg) | [date](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
-| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/datetime.svg) | [dateTime](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
-| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.svg) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
-| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.svg) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#enum) |
-| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.svg) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#map) |
-| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | Numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
-| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.svg) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#object) |
-| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.svg) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
-| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.svg) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#primitive-schema) |
+| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.svg) | [boolean](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#primitive-schema) |
+| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.svg) | [component](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#component) |
+| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.svg) | [date](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#primitive-schema) |
+| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/datetime.svg) | [dateTime](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#primitive-schema) |
+| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.svg) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#primitive-schema) |
+| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.svg) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#enum) |
+| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.svg) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#map) |
+| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | Numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#primitive-schema) |
+| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.svg) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#object) |
+| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.svg) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#primitive-schema) |
+| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.svg) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#primitive-schema) |
 
 ##### Errors
 
@@ -178,7 +180,7 @@ The **Chart** view of historized properties shows property values as points on a
 You can use the icons above the chart to control the chart settings, including...
 * changing the time range for the data that's included in the chart.
 * selecting whether multiple time series are shown independently or on a shared y-axis. Selecting **Independent** for the axes means that each time series will scale to the chart and maintain their own axis for scale. Selecting **Shared** axes means that all time series data will be scaled to the same axis. 
-* choosing the aggregation logic for the chart. When the property has more data points than can be shown on the chart, the data will be aggregated into a finite amount of data points using either average, minimum or maximum functions.
+* choosing the aggregation logic for the chart. When the property has more data points than can be shown on the chart, the data will be aggregated into a finite number of data points using either average, minimum or maximum functions.
 
 There's also a button to **Open query in Azure Data Explorer**, where you can view and modify the current query to further explore the time series data.
 
@@ -269,6 +271,8 @@ This section describes how to perform the following management activities:
 
 For information about the viewing experience for twins and relationships, see [Explore twins and the Twin Graph](#explore-the-twin-graph).
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+
 ### View flat list of twins and relationships
 
 The **Twins** panel shows a flat list of your twins and their associated relationships. You can search for twins by name, and expand them for details about their incoming and outgoing relationships.
@@ -278,6 +282,8 @@ The **Twins** panel shows a flat list of your twins and their associated relatio
 ### Create twins
 
 You can create a new digital twin from its model definition in the **Models** panel.
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
@@ -321,6 +327,8 @@ You can also choose to delete all of the twins in your instance at the same time
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/delete-all-twins.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Delete All Twins icon is selected." lightbox="media/how-to-use-azure-digital-twins-explorer/delete-all-twins.png":::
 
 ## Explore models and the Model Graph
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 Models can be viewed both in the **Models** panel on the left side of the Azure Digital Twins Explorer screen, and in the **Model Graph** panel in the middle of the screen.
 
@@ -402,6 +410,8 @@ Then, to upload the images at the same time, use the **Upload Model Images** ico
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-images.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The Upload Model Images icon is highlighted.":::
 
 ## Manage models
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 You can use the **Models** panel on the left side of the Azure Digital Twins Explorer screen to perform management activities on the entire set of models, or on individual models. 
 

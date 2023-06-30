@@ -3,7 +3,7 @@ title: Manage user access with access reviews
 description: Learn how to manage users' access as membership of a group or assignment to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/21/2018
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -26,11 +26,11 @@ With Microsoft Entra, you can easily ensure that users have appropriate access. 
 
 ## Prerequisites
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
-If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
+If you're reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
 
 ## Create and perform an access review
 
