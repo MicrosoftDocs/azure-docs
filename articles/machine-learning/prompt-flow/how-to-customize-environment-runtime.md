@@ -372,3 +372,6 @@ Use following CLI command `az ml online-deployment create -f <yaml_file> -g <res
 Follow [Create managed online endpoint runtime in UI](how-to-create-manage-runtime.md#create-managed-online-endpoint-runtime-in-ui) to select this deployment as prompt flow runtime.
 
 ## Next steps
+
+- [Develop a standard flow](how-to-develop-a-standard-flow.md)
+- [Develop a chat flow](how-to-develop-a-chat-flow.md)
