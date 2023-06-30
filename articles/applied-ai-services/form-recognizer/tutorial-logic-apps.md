@@ -4,7 +4,7 @@ titleSuffix: Azure AI services
 description: A tutorial outlining how to use Document intelligence with Logic Apps.
 author: laujan
 manager: nitinme
-ms.service: ai-applied-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 06/29/2023
@@ -61,9 +61,9 @@ To complete this tutorial, you need the following resources:
 
 * **A Document intelligence resource**.  Once you have your Azure subscription, [create a Document intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Document intelligence resource, navigate directly to your resource page. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
-  1. After the resource deploys, select **Go to resource**.
+  * After the resource deploys, select **Go to resource**.
 
-  1. Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document intelligence API.
+  * Copy the **Keys and Endpoint** values from your resource in the Azure portal and paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document intelligence API.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL.":::
 
@@ -94,7 +94,7 @@ Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 1. You should see the new folder in your files. For now, we're done with OneDrive, but you need to access this folder later.
 
-:::image border="true" type="content" source="media/logic-apps-tutorial/onedrive-setup.gif" alt-text="GIF showing steps to create a folder in OneDrive.":::
+IMAGE here
 
 ## Create a Logic App resource
 
@@ -106,7 +106,7 @@ At this point, you should have a Document intelligence resource and a OneDrive f
 
 1. Select the create button
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-five.gif" alt-text="GIF showing how to create a Logic App resource.":::
+    IMAGE here
 
 1. Next, you're going to fill out the **Create Logic App** fields with the following values:
 
@@ -126,7 +126,7 @@ At this point, you should have a Document intelligence resource and a OneDrive f
 
 1. Next, you're redirected to a screen that says **Deployment in progress**. Give Azure some time to deploy; it can take a few minutes. After the deployment is complete, you should see a banner that says, **Your deployment is complete**. When you reach this screen, select **Go to resource**.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-seven.gif" alt-text="GIF showing how to get to newly created Logic App resource.":::
+    IMAGE here
 
 1. Next, you're redirected to the **Logic Apps Designer** page. There's a short video for a quick introduction to Logic Apps available on the home screen. When you're ready to begin designing your Logic App, select the **Blank Logic App** button.
 
@@ -156,8 +156,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. After your account is connected, select the folder you created earlier in your OneDrive or OneDrive for Business account. Leave the other default values in place. Your window should look similar to the following image:
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-ten.gif" alt-text="GIF showing how to add the first node to workflow.":::
-
+    IMAGE here
 1. Next, we're going to add a new step to the workflow. Select the plus button underneath the newly created OneDrive node.
 
 1. A new node should be added to the Logic App designer view. Search for "Document intelligence" in the search bar and select **Analyze Document for Prebuilt or Custom (v3.0 API)** from the list.
@@ -167,7 +166,7 @@ Now that you have the Logic App connector resource set up and configured, the on
     * Enter a **Connection name**. It should be something easy to remember.
     * Enter the Document intelligence resource **Endpoint URL** and **Account Key** that you copied previously. If you skipped this step earlier or lost the strings, you can navigate back to your Document intelligence resource and copy them again. When you're done, select **Create**.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-eleven.gif" alt-text="GIF showing how to add second node to workflow.":::
+   IMAGE here
 
 1. You should see the parameters tab for the **Analyze Document for Prebuilt or Custom Models (v3.0 API)** connector.
 
@@ -177,7 +176,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Select **File content** from the pop-up list. This step is essentially sending the file(s) to be analyzed to the Document intelligence prebuilt-invoice model. Once you see the **File content** badge show in the **Document /Image file content** field, you've completed this step correctly.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-twelve.gif" alt-text="GIF showing how to add dynamic content to second node.":::
+    IMAGE here
 
 1. We need to add the last step. Once again, select the **➕ New step** button to add another action.
 
@@ -187,7 +186,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 
 1. Just like with OneDrive, you're asked to sign into your Outlook or Office 365 Outlook account. After you sign in, you should see a window like the following image. In this window, we're going to format the email to be sent with the dynamic content that Document intelligence extracts from the invoice.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-thirteen.gif" alt-text="GIF showing how to add final step to workflow.":::
+    IMAGE here
 
    In order to access particular fields, we use the following formula:
 
