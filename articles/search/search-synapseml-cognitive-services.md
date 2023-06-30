@@ -133,11 +133,11 @@ df2 = (spark.read.format("binaryFile")
 display(df2)
 ```
 
-## 4 - Add form recognition
+## 4 - Add document intelligence
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../ai-services/document-intelligence/concept-invoice.md) of Azure Forms Analyzer.
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../ai-services/document-intelligence/concept-invoice.md) of Azure AI Document Intelligence to extract information from the invoices..
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
@@ -159,7 +159,7 @@ The output from this step should look similar to the next screenshot. Notice how
 
 :::image type="content" source="media/search-synapseml-cognitive-services/analyze-forms-output.png" alt-text="Screenshot of the AnalyzeInvoices output." border="true":::
 
-## 5 - Restructure form recognition output
+## 5 - Restructure document intelligence output
 
 Paste the following code into the fourth cell and run it. No modifications are required.
 
