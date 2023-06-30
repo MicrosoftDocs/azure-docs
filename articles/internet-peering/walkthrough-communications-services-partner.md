@@ -52,15 +52,15 @@ Follow the instructions here: [Associate peer ASN to Azure subscription using th
 
 To create a peering resource for Communications Services, search for **Peerings** in the Azure portal, and click on it:
 
-:::image type="content" source="./media/create-maps-peering-search" alt-text=Azure portal search for Peering resources" :::
+:::image type="content" source="./media/create-maps-peering-search.png" alt-text="Azure portal search for Peering resources" :::
 
 Click Create in the page that opens:
 
-:::image type="content" source="./media/create-maps-peering-create" alt-text="Click create in the Peering resources page" :::
+:::image type="content" source="./media/create-maps-peering-create.png" alt-text="Click create in the Peering resources page" :::
 
 Enter the subscription, resource group, name, and ASN of the peering:
 
-:::image type="content" source="./media/create-maps-peering-basics" alt-text="Specify the subscription, resource group, name, and peer ASN of the peering" :::
+:::image type="content" source="./media/create-maps-peering-basics.png" alt-text="Specify the subscription, resource group, name, and peer ASN of the peering" :::
 
 > [!NOTE] 
 > These details CANNOT be changed after the peering is created. Please confirm they are correct before creating the peering.
@@ -77,7 +77,7 @@ These are mandatory configurations when creating a peering for Communications Se
 
 In the peering connections section, click Create new to add a connection to your peering.
 
-:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-bgp-session.png" alt-text="Configure a peering connection" :::
+:::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-bgp-session.png" alt-text="Configure a peering connection" :::
 
 Peerings configured for Communications Services MUST have **Microsoft** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically. Microsoft must be the IP provider for Communications Services, you cannot provide your own IPs.
 
@@ -162,7 +162,7 @@ Review the settings, and then select **Create**.
 
 After you create a peering service prefix, it will be queued for validation. The validation state of the prefix can be found in the Peering Service Prefixes page.
 
-:::image type="content" source="./media/walkthrough-communications-services-partner/activate-prefixes-prefixes-age.png" alt-text="Peering service prefixes blade showing prefixes that have passed validation." :::
+:::image type="content" source="./media/walkthrough-communications-services-partner/activate-prefixes-prefixes-page.png" alt-text="Peering service prefixes blade showing prefixes that have passed validation." :::
 
 For a peering service prefix to become validated, the following checks MUST pass:
 
