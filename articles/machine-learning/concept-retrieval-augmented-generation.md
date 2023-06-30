@@ -34,7 +34,7 @@ Data is trained on a broader range of data. More intensive training resources ar
 
 RAG is a feature that enables you to harness the power of LLMs with your own data. Enabling an LLM to access custom data involves the following steps. Firstly, the large data should be chunked into manageable pieces. Secondly, the chunks need to be converted into a searchable format. Thirdly, the converted data should be stored in a location that allows efficient access. Additionally, it's important to store relevant metadata for citations or references when the LLM provides responses. 
 
-:::image type="content" source="./media/concept-retrieval-augmented-generation-promptflow/retrieval-augmented-generation-walkthrough.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="./media/concept-retrieval-augmented-generation-promptflow/retrieval-augmented-generation-walkthrough.png":::
+:::image type="content" source="./media/concept-retrieval-augmented-generation/retrieval-augmented-generation-walkthrough.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="./media/concept-retrieval-augmented-generation/retrieval-augmented-generation-walkthrough.png":::
 
 Let us look at the diagram in more detail. 
 

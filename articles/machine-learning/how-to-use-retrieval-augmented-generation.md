@@ -1,7 +1,7 @@
 ---
 title: Get started with RAG using a prompt flow sample (preview)
 titleSuffix: Azure Machine Learning
-description: Set up a prompt flow using the samples gallery
+description: Set up a prompt flow using the samples gallery.
 services: machine-learning
 ms.author: balapv
 author: balapv
@@ -35,21 +35,21 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 1.  Select **Prompt flow** on the left menu.
 
-:::image type="content" source="./media/how-to-use-rag-prompt-flow/prompt.png" alt-text="Screenshot showing prompt flow location.":::
+:::image type="content" source="./media/how-to-use-retrieval-augmented-generation/prompt.png" alt-text="Screenshot showing prompt flow location.":::
 
 2.  Select **Create**.
 
 3. In the **Create from gallery** section, select **View Detail** on the Bring your own data Q&A sample.
 
-:::image type="content" source="./media/how-to-use-rag-prompt-flow/view-detail.png" alt-text="Screenshot showing view details button on the prompt flow sample.":::
+:::image type="content" source="./media/how-to-use-retrieval-augmented-generation/view-detail.png" alt-text="Screenshot showing view details button on the prompt flow sample.":::
 
 4. Read the instructions and select **Clone** to create a Prompt flow in your workspace.
 
-:::image type="content" source="./media/how-to-use-rag-prompt-flow/clone.png" alt-text="Screenshot showing instructions and clone button on the prompt flow sample.":::
+:::image type="content" source="./media/how-to-use-retrieval-augmented-generation/clone.png" alt-text="Screenshot showing instructions and clone button on the prompt flow sample.":::
 
 5. This opens a prompt flow, which you can run in your workspace and explore.
 
-:::image type="content" source="./media/how-to-use-rag-prompt-flow/flow.png" alt-text="Screenshot showing the prompt flow sample.":::
+:::image type="content" source="./media/how-to-use-retrieval-augmented-generation/flow.png" alt-text="Screenshot showing the prompt flow sample.":::
 
 
 ## Next steps

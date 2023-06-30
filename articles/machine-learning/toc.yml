@@ -571,7 +571,7 @@
     - name: What is a vector store
       href: concept-vector-stores.md
     - name: How to use RAG in Prompt flow
-      href: how-to-use-rag-prompt-flow.md
+      href: how-to-use-retrieval-augmented-generation.md
     - name: How to create a vector index
       href: how-to-create-vector-index.md
     - name: How to create an RAG pipeline
