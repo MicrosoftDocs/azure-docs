@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 06/29/2023
+ms.date: 06/30/2023
 ms.author: jasteppe
 ---
 
@@ -18,13 +18,7 @@ ms.author: jasteppe
 
 ## Does your service create/manage the entire ETL pipeline for me?
 
-You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine that's based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md).  
-
-As an example, a workflow might include:
-
-* Data ingestion, reading, and validation.
-* Making `$convert-data` operation calls.
-* Data pre/post processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
+You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine that's based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). As an example, a workflow might include: data ingestion, performing `$convert-data` operations, validation, data pre/post processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
 
 However, the `$convert-data` operation itself isn't an ETL pipeline.
 
@@ -74,13 +68,13 @@ In this article, you learned about the frequently asked questions (FAQs) about t
 
 For information about how to import FHIR data into the FHIR service, see:
  
->[!div class="nextstepaction"]
->[Import operation](import-data.md)
+> [!div class="nextstepaction"]
+> [Import operation](import-data.md)
 
 For information about how to export FHIR data from the FHIR service, see:
  
->[!div class="nextstepaction"]
->[Export operation](export-data.md)
+> [!div class="nextstepaction"]
+> [Export operation](export-data.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
  

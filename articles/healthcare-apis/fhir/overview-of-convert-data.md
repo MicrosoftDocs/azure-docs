@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 06/29/2023
+ms.date: 06/30/2023
 ms.author: jasteppe
 ---
 
@@ -23,13 +23,7 @@ By using the `$convert-data` operation in the FHIR service, you can convert heal
 * FHIR STU3 to FHIR R4
 
 > [!NOTE]
-> You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine that's based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md).
->
->As an example, a workflow might include:
->
-> * Data ingestion, reading, and validation.
-> * Making `$convert-data` operation calls.
-> * Data pre/post processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md).
+> You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine that's based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). As an example, a workflow might include: data ingestion, performing `$convert-data` operations, validation, data pre/post processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
 
 ## Use the $convert-data endpoint
 
@@ -128,13 +122,13 @@ In this article, you learned about the `$convert-data` operation and how to use 
 
 To learn how to configure settings for `$convert-data` using the Azure portal, see:
  
->[!div class="nextstepaction"]
->[Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
+> [!div class="nextstepaction"]
+> [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
 
 To learn about the frequently asked questions (FAQs) for the `$convert-data` operation, see
  
->[!div class="nextstepaction"]
->[Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
+> [!div class="nextstepaction"]
+> [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
  

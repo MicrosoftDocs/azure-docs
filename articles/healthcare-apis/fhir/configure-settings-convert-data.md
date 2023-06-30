@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/29/2022
+ms.date: 06/30/2022
 ms.author: jasteppe
 ---
 
@@ -240,17 +240,17 @@ In this article, you've learned how to configure settings for `$convert-data` fo
 
 To learn about the frequently asked questions (FAQs) for `$convert-data`, see
  
->[!div class="nextstepaction"]
->[Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
+> [!div class="nextstepaction"]
+> [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)
 
 For information about how to import FHIR data into the FHIR service, see:
  
->[!div class="nextstepaction"]
->[Import operation](import-data.md)
+> [!div class="nextstepaction"]
+> [Import operation](import-data.md)
 
 For information about how to export FHIR data from the FHIR service, see:
  
->[!div class="nextstepaction"]
->[Export operation](export-data.md)
+> [!div class="nextstepaction"]
+> [Export operation](export-data.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
