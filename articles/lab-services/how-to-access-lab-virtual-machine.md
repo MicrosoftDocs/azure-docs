@@ -125,7 +125,7 @@ In addition, you can also perform specific actions on the lab VM:
 
 Quota hours are the extra time allotted to you outside of the [scheduled time](./classroom-labs-concepts.md#schedule) for the lab. For example, the time outside of classroom time, to complete homework.
 
-On the lab VM tile, you can view your consumption of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) in the progress bar. The progress bar color and the message give an indication of the usage:
+On the lab VM tile, you can view your consumption of [quota hours](how-to-manage-lab-users.md#set-quotas-for-users) in the progress bar. The progress bar color and the message give an indication of the usage:
 
 | Status    | Description |
 | --------- | ----------- |

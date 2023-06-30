@@ -47,7 +47,7 @@ To use Lab Services for your hackathon, ensure that both lab plan and your lab a
 
 - **Decide whether to restrict lab access**.
 
-    By default, access to the lab is restricted. This feature requires you to add all of your hackathon participants’ emails to the list before they can register and access the lab using the registration link. If you have a hackathon where you don’t know the specific participants, you can choose to disable the restrict access option. In this case, anyone can register directly to the lab by using the registration link. For more information, see the [how-to guide on adding users](how-to-configure-student-usage.md).
+    By default, access to the lab is restricted. This feature requires you to add all of your hackathon participants’ emails to the list before they can register and access the lab using the registration link. If you have a hackathon where you don’t know the specific participants, you can choose to disable the restrict access option. In this case, anyone can register directly to the lab by using the registration link. For more information, see the [how-to guide on adding users](how-to-manage-lab-users.md).
 
 - **Verify schedule, quota, and autoshutdown settings**.
 
@@ -55,7 +55,7 @@ To use Lab Services for your hackathon, ensure that both lab plan and your lab a
 
     **Schedule**: A [schedule](how-to-create-schedules.md) allows you to automatically control when your labs’ machines are started and shut down. By default, no schedule is configured when you create a new lab. However, you should ensure that your lab’s schedule is set according to what makes sense for your hackathon.  For example, if your hackathon starts on Saturday at 8:00 AM and ends on Sunday at 5:00 PM, create a schedule that automatically starts the machine at 7:30 AM on Saturday (about 30 minutes before the start of the hackathon) and shuts it down at 5:00 PM on Sunday. You might also decide not to use a schedule at all and rely on quota time.
 
-    **Quota**: The [quota](how-to-configure-student-usage.md#set-quotas-for-users) controls the number of hours that participants have access to a lab virtual machine outside of the scheduled hours. If the quota is reached while a participant is using it, the machine is automatically shut down and the participant is unable to restart it, unless the quota is increased. By default, when you create a lab, the quota is set to 10 hours. Configure the quota to allow enough time for the duration of the hackathon, especially if you haven't created a schedule.
+    **Quota**: The [quota](how-to-manage-lab-users.md#set-quotas-for-users) controls the number of hours that participants have access to a lab virtual machine outside of the scheduled hours. If the quota is reached while a participant is using it, the machine is automatically shut down and the participant is unable to restart it, unless the quota is increased. By default, when you create a lab, the quota is set to 10 hours. Configure the quota to allow enough time for the duration of the hackathon, especially if you haven't created a schedule.
 
     **Autoshutdown**: When enabled, the [autoshutdown](how-to-enable-shutdown-disconnect.md) setting causes Windows virtual machines to automatically shut down after a certain period of time once a participant has disconnected from their RDP session. By default, this setting is disabled.
 
@@ -87,7 +87,7 @@ This section outlines the steps to complete the day of your hackathon.
 
     Provide your participants with the following information so that participants can access their lab VMs.
 
-    - The lab’s registration link.  For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md#send-invitations-to-users).
+    - The lab’s registration link.  For more information, See [how-to guide on sending invitations to users](how-to-manage-lab-users.md#send-invitations-to-users).
     - Credentials to use for connecting to the machine. This step only applies if the lab was configured with the same credentials for all lab VMs.
     - Instructions on how to connect to the lab VM. For OS-specific instructions, see [Connect to a lab VM](connect-virtual-machine.md).
 

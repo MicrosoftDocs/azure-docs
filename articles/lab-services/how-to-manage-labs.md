@@ -60,5 +60,5 @@ To switch to a different group, select the left drop-down and choose the lab pla
 See the following articles:
 
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab owner, configure and control usage of a lab](how-to-manage-lab-users.md)
 - [As a lab user, access labs](how-to-use-lab.md)

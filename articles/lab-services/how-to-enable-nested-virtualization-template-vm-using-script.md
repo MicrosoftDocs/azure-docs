@@ -236,6 +236,6 @@ Now your template machine is ready to create Hyper-V virtual machines. See [Crea
 Next steps are common to setting up any lab.
 
 - [Add users](tutorial-setup-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Set quota](how-to-manage-lab-users.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-lab.md#add-a-lab-schedule)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Email registration links to students](how-to-manage-lab-users.md#send-invitations-to-users)
