@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: This tutorial covers how to deploy a model to production using Azure Machine Learning Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: tutorial
 author: dem108
 ms.author: sehan
