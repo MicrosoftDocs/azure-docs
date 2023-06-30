@@ -27,11 +27,11 @@ Current doc score: 100 (1332 words and 0 issues)
 
 # Manage Azure Storage Mover endpoints
 
-While the term `endpoint` is often used in networking, it's used in the context of Storage Mover to describe a storage location with a high level of detail. An endpoint contains the path to the storage location and additional information. Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively.
+While the term *endpoint* is often used in networking, it's used in the context of the Storage Mover service to describe a storage location with a high level of detail. An endpoint contains the path to the storage location and additional information. Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively.
 
 This article guides you through the creation and management of Azure Storage Mover endpoints. To follow these examples, you need a top-level storage mover resource. If you haven't yet created one, follow the steps within the [Create a Storage Mover resource](storage-mover-create.md) article before continuing.
 
-After you complete the steps within this article, you'll be able to create and manage job definitions using the Azure portal and Azure PowerShell.
+After you complete the steps within this article, you'll be able to create and manage endpoints using the Azure portal and Azure PowerShell.
 
 ## Endpoint resource overview
 
@@ -47,8 +47,8 @@ In addition to Key Vault secrets, your agents must be granted access to your Key
 
 |Role                                        |Resource                                                   |
 |--------------------------------------------|-----------------------------------------------------------|
-|Key Vault Secrets User                      | Key Vault resource used to store your SMB credentials     |
-|Storage File Data Privileged Contributor    | Storage Account resource to containing your migrated data |
+|*Key Vault Secrets User*                    | Key Vault resource used to store your SMB credentials     |
+|*Storage File Data Privileged Contributor*  | Storage Account resource to containing your migrated data |
 
 ## Create endpoints
 
