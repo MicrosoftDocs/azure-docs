@@ -116,7 +116,6 @@ Once you configured and reviewed all the steps above, you can select **Create** 
 
 ## Check the status of the endpoint
 
-
 There will be notifications after you finish the deploy wizard. After the endpoint and deployment are created successfully, you can select **Deploy details** in the notification to endpoint detail page.
 
 You can also directly go to the **Endpoints** page in the studio, and check the status of the endpoint you deployed.
