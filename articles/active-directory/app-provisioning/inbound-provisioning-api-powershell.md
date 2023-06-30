@@ -93,8 +93,33 @@ The following steps successfully configure out-of-the-box provisioning job with 
 
 ## Download the CSV2SCIM script
 
+Download the CSV2SCIM PowerShell script and samples.
+
+1. Extract the contents to your local folder. It has the following directory structure
+1. azure-activedirectory-inbound-provisioning
+   - src
+     - CSV2SCIM.ps1 (main script)
+     - ScimSchemaRepresentations (folder containing standard SCIM schema definitions for validating AttributeMapping.psd1 files)
+     - EnterpriseUser.json, Group.json, Schema.json, User.json
+   - Samples
+     - AttributeMapping.psd1 (sample mapping of columns in CSV file to standard SCIM attributes)
+     - csv-with-2-records.csv (sample CSV file with two records)
+     - csv-with-1000-records.csv (sample CSV file with 1000 records
+     - Test-ScriptCommands.ps1 (sample usage commands)
+     - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow
+     - Sample1 (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
+1. Download and install the latest version of PowerShell. 
+1. Run the command to enable execution of remote signed scripts: set-executionpolicy remotesigned
+1. Install the following pre-requisite modules
+1. Install-Module -Name Microsoft.Graph.Applications,Microsoft.Graph.Reports
+
 ## Generate SCIM payload with standard schema
 
+In this section, we will explore how to generate a SCIM payload with standard Core User and Enterprise User attribute from a CSV file. 
+To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records.csv present in the azure-activedirectory-inbound-provisioning folder. 
+
+
+1. Open the CSV file Samples/csv-with-2-records.csv in Notepad/Excel/TextPad to check the columns present in the file. 
 ## Generate and upload SCIM payload with standard schema
 
 ## Get provisioning logs of the latest Sync Cycles
