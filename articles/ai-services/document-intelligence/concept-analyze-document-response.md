@@ -171,7 +171,7 @@ A language element describes the detected language for content specified via spa
 A document is a semantically complete unit.  A file may contain multiple documents, such as multiple tax forms within a PDF file, or multiple receipts within a single page.  However, the ordering of documents within the file doesn't fundamentally affect the information it conveys.
 
 > [!NOTE]
-> Current Document Intelligence does not support multiple documents on a single page.
+> Currently, Document Intelligence does not support multiple documents on a single page.
 
 The document type describes documents sharing a common set of semantic fields, represented by a structured schema, independent of its visual template or layout.  For example, all documents of type "receipt" may contain the merchant name, transaction date, and transaction total, although restaurant and hotel receipts often differ in appearance.
 
