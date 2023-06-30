@@ -148,6 +148,6 @@ Check to see if the Azure Cosmos DB account has its access restricted to select 
 
 ## See also
 
-* [Indexing vian Azure Cosmos DB for NoSQL](search-howto-index-cosmosdb.md)
-* [Indexing vian Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md)
-* [Indexing vian Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md)
+* [Indexing via an Azure Cosmos DB for NoSQL](search-howto-index-cosmosdb.md)
+* [Indexing via an Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md)
+* [Indexing via an Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md)

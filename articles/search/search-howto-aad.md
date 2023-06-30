@@ -21,7 +21,7 @@ This article shows you how to configure your client for Azure AD:
 
 + For authorization, you'll assign an Azure role to the managed identity that grants permissions to run queries or manage indexing jobs.
 
-+ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate vian Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
++ Update your client code to call [`TokenCredential()`](/dotnet/api/azure.core.tokencredential).  For example, you can get started with new SearchClient(endpoint, new `DefaultAzureCredential()`) to authenticate via an Azure AD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
 
 ## Configure role-based access for data plane
 

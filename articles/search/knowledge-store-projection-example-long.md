@@ -182,7 +182,7 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
     ],
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "A Azure AI services resource in the same region as Search.",
+        "description": "An Azure AI services resource in the same region as Search.",
         "key": "<Azure AI services All-in-ONE KEY>"
     },
     "knowledgeStore": null

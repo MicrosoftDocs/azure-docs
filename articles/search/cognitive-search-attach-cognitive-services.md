@@ -1,7 +1,7 @@
 ---
 title: Attach Azure AI services to a skillset
 titleSuffix: Azure Cognitive Search
-description: Learn how to attach a Azure AI multi-service resource to an AI enrichment pipeline in Azure Cognitive Search.
+description: Learn how to attach an Azure AI multi-service resource to an AI enrichment pipeline in Azure Cognitive Search.
 
 author: HeidiSteen
 ms.author: heidist
@@ -34,7 +34,7 @@ If you leave the property unspecified, your search service will attempt to use t
 
 1. [Sign in to Azure portal](https://portal.azure.com).
 
-1. Create a [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create an [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Add the key to a skillset definition:
 
@@ -46,7 +46,7 @@ If you leave the property unspecified, your search service will attempt to use t
 
 ### [**REST**](#tab/cogkey-rest)
 
-1. Create a [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create an [Azure AI multi-service resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
 
