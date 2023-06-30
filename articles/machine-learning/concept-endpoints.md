@@ -16,7 +16,6 @@ ms.date: 02/07/2023
 ---
 
 # Endpoints for inference in production
-Inference
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -52,7 +51,7 @@ To function properly, __each endpoint must have at least one deployment__. Endpo
 
 Azure Machine Learning allows you to implement [online endpoints](concept-endpoints-online.md) and [batch endpoints](concept-endpoints-batch.md). Online endpoints are designed for real-time inference—when you invoke the endpoint, the results are returned in the endpoint's response. Batch endpoints, on the other hand, are designed for long-running batch inference. Each time you invoke a batch endpoint you generate a batch job that performs the actual work.
 
-### Choosing the right endpoint for your use-case
+### Online vs. batch endpoint for your use-case
 
 Use [online endpoints](concept-endpoints-online.md) to operationalize models for real-time inference in synchronous low-latency requests. We recommend using them when:
 
@@ -72,7 +71,7 @@ Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pi
 > * Your model's inputs are stored in a storage account or in an Azure Machine Learning data asset.
 > * You can take advantage of parallelization.
 
-### Comparing online and batch endpoints
+### Comparison of online and batch endpoints
 
 Both online and batch endpoints are based on the idea of endpoints and deployments, which help you transition easily from one to the other. However, when moving from one to another, there are some differences that are important to take into account. Some of these differences are due to the nature of the work:
 
