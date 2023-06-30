@@ -105,7 +105,7 @@ Start configuring secure communications by navigating to the **Networking** tab 
 
 ## Enable access to storage from Document Intelligence
 
-To ensure that the Document Intelligence resource can access the training dataset, you need to add a role assignment for your [managed identity](#setup-managed-identity-for-form-recognizer).
+To ensure that the Document Intelligence resource can access the training dataset, you need to add a role assignment for your [managed identity](#setup-managed-identity-for-document-intelligence).
 
 1. Staying on the storage account window in the Azure portal, navigate to the **Access Control (IAM)** tab in the left navigation bar.
 

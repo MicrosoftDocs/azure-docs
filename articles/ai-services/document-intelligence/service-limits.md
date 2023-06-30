@@ -130,7 +130,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
 
-If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#form-recognizer-service-quotas-and-limits))
+If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but hasn't yet reached the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long. For more information, *see* [Quotas and Limits quick reference](#document-intelligence-service-quotas-and-limits))
 
 ### General best practices to mitigate throttling during autoscaling
 
