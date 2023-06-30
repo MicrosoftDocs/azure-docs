@@ -107,7 +107,7 @@ The result returned informs you that access is denied because of a security rule
 
 ## View details of a security rule
 
-To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+To determine why the rules in the previous section are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -115,7 +115,7 @@ az network nic list-effective-nsg \
   --name myVmVMNic
 ```
 
-The output includes the following text for the **AllowInternetOutbound** rule that allowed outbound access to www.bing.com in a previous step under [Use IP flow verify](#use-ip-flow-verify):
+The output includes the following text for the **AllowInternetOutbound** rule that allowed outbound access to www.bing.com in a previous step under [Test network communication using IP flow verify](#test-network-communication-using-ip-flow-verify) section:
 
 ```console
 {
@@ -156,7 +156,7 @@ The output includes the following text for the **AllowInternetOutbound** rule th
 
 You can see in the previous output that **destinationAddressPrefix** is **Internet**. It's not clear how 13.107.21.200 relates to **Internet** though. You see several address prefixes listed under **expandedDestinationAddressPrefix**. One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the previous output that override this rule. To deny outbound communication to an IP address, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
 
-When you ran the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DenyAllOutBound** rule denied the communication. The **DenyAllOutBound** rule equates to the **DenyAllOutBound** rule listed in the following output from the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+When you ran the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command to test outbound communication to 172.131.0.100 in [Test network communication using IP flow verify](#test-network-communication-using-ip-flow-verify) section, the output informed you that the **DenyAllOutBound** rule denied the communication. The **DenyAllOutBound** rule equates to the **DenyAllOutBound** rule listed in the following output from the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
 
 ```console
 {
@@ -189,7 +189,7 @@ When you ran the [az network watcher test-ip-flow](/cli/azure/network/watcher#az
 
 The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100 because the address is not within the **destinationAddressPrefix** of any of the other outbound rules in the output from the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
 
-When you ran the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DenyAllInBound** rule denied the communication. The **DenyAllInBound** rule equates to the **DenyAllInBound** rule listed in the following output from the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+When you ran the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command in [Test network communication using IP flow verify](#test-network-communication-using-ip-flow-verify) section to test inbound communication from 172.131.0.100, the output informed you that the **DenyAllInBound** rule denied the communication. The **DenyAllInBound** rule equates to the **DenyAllInBound** rule listed in the following output from the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
 
 ```console
 {
