@@ -33,7 +33,7 @@ trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 ```
 
 > [!IMPORTANT]
-> Remember to remove the keys from your code when youre done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Azure AI services [security](../cognitive-services-security.md) article.
+> Remember to remove the keys from your code when youre done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Azure AI services [security](../security-features.md) article.
 
 ## Call the export method
 
