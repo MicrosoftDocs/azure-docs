@@ -299,7 +299,7 @@ items:
             href: event-schema-data-box.md
           - name: Azure Data Manager for Agriculture
             href: event-schema-data-manager-for-agriculture.md
-          - name: Azure Event Grid Namespace
+          - name: Azure Event Grid 
             href: event-schema-event-grid-namespace.md
           - name: Azure Event Hubs
             href: event-schema-event-hubs.md
