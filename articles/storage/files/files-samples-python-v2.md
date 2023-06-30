@@ -6,6 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.service: storage
 ms.subservice: files
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 05/05/2023
 ms.author: pauljewell

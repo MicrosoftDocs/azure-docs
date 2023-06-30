@@ -9,7 +9,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up SAP HANA System Replication databases on Azure VMs
+# Back up SAP HANA System Replication databases on Azure VMs (preview)
 
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using [Azure Backup](backup-overview.md).
 
@@ -230,5 +230,5 @@ You can run an on-demand backup using SAP HANA native clients to local file-syst
 
 ## Next steps
 
-- [Restore SAP HANA System Replication databases on Azure VMs](sap-hana-database-restore.md)
-- [About backing up SAP HANA System Replication databases on Azure VMs](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled)
+- [Restore SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-restore.md)
+- [About backing up SAP HANA System Replication databases on Azure VMs (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview)

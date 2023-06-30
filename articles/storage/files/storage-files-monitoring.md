@@ -495,4 +495,4 @@ The following table lists some example scenarios to monitor and the proper metri
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [How to deploy Azure Files](storage-how-to-create-file-share.md)
-- [Troubleshoot Azure Files](files-troubleshoot.md)
+- [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
