@@ -26,11 +26,11 @@ Before reading this article, it's recommended that you first learn [Develop a st
 
 To create a chat flow, you can **either** clone an existing chat flow sample from the Prompt Flow Gallery **or** create a new chat flow from scratch. For a quick start, you can clone a chat flow sample and learn how it works.
 
-:::image type="content" source="./media/how-to-develop-a-chat-flow/create-chat-flow.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-chat-flow/create-chat-flow.png":::
+:::image type="content" source="./media/how-to-develop-a-chat-flow/create-chat-flow.png" alt-text="Screenshot of the Prompt flow gallery highlighting chat flow and Chat with Wikipedia. " lightbox = "./media/how-to-develop-a-chat-flow/create-chat-flow.png":::
 
 In chat flow authoring page, the chat flow is tagged with a "chat" label to distinguish it from standard flow and evaluation flow. To test the chat flow, select "Chat" button to trigger a chat box for conversation.
 
-:::image type="content" source="./media/how-to-develop-a-chat-flow/chat-input-output.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-chat-flow/chat-input-output.png":::
+:::image type="content" source="./media/how-to-develop-a-chat-flow/chat-input-output.png" alt-text="Screenshot of Chat with Wikipedia with the chat button highlighted. " lightbox = "./media/how-to-develop-a-chat-flow/chat-input-output.png":::
 
 ## Develop a chat flow
 
@@ -46,7 +46,7 @@ A chat flow can have multiple inputs, but Chat History and Chat Input are **requ
 
 - In the chat flow Inputs section, the selected flow input serves as the Chat Input. The most recent chat input message in the chat box is backfilled to the Chat Input value.
 
-    :::image type="content" source="./media/how-to-develop-a-chat-flow/chat-input.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-chat-flow/chat-input.png":::
+    :::image type="content" source="./media/how-to-develop-a-chat-flow/chat-input.png" alt-text="Screenshot of Chat with Wikipedia with the chat input highlighted. " lightbox = "./media/how-to-develop-a-chat-flow/chat-input.png":::
 
 - The `chat_history` input field in the Inputs section is reserved for representing Chat History. All interactions in the chat box, including user chat inputs, generated chat outputs, and other flow inputs and outputs, are stored in  `chat_history`. It's structured as a list of inputs and outputs:
 
@@ -81,7 +81,7 @@ A chat flow can have multiple inputs, but Chat History and Chat Input are **requ
 
     In this chat flow example, the Chat History is generated as shown:
 
-    :::image type="content" source="./media/how-to-develop-a-chat-flow/chat-history.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-chat-flow/chat-history.png":::
+    :::image type="content" source="./media/how-to-develop-a-chat-flow/chat-history.png" alt-text="Screenshot of chat history from the chat flow example. " lightbox = "./media/how-to-develop-a-chat-flow/chat-history.png":::
 
 
 A chat flow can have multiple flow outputs, but Chat Output is a **required** output for a chat flow. In the chat flow Outputs section, the selected output is used as the Chat Output.
