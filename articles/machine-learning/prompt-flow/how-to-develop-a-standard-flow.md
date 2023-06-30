@@ -28,7 +28,7 @@ A quick video tutorial can be found here: [standard flow video tutorial](https:/
 
 In the prompt flow​​​​​​​ homepage, you can create a standard flow from scratch. Select **Create** button.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-create-standard.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-create-standard.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-create-standard.png" alt-text="Screenshot of the Prompt flow home page showing create a new flow with standard flow highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-create-standard.png":::
 
 ## Authoring page - flatten view and graph view
 
@@ -36,14 +36,14 @@ After the creation, you'll enter the authoring page for flow developing.
 
 At the left, it's the flatten view, the main working area where you can author the flow, for example add tools in your flow, edit the prompt, set the flow input data, run your flow, view the output, etc.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-flatten-view.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-flatten-view.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-flatten-view.png" alt-text="Screenshot of Web Classification highlighting the main working area. " lightbox = "./media/how-to-develop-a-standard-flow/flow-flatten-view.png":::
 
 At the right, it's the graph view for visualization only. It shows the flow structure you're developing, including the tools and their links. You can zoom in, zoom out, auto layout, etc.
 
 > [!NOTE]
 > You cannot edit the graph view. To edit one tool node, you can double-click the node to locate to the corresponding tool card in the flatten view the do the inline edit.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of Web Classification highlighting highlighting the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
 
 ## Select runtime
 
@@ -52,7 +52,7 @@ Before you start authoring to develop your flow, you should first select a runti
 > [!IMPORTANT]
 > You cannot save your inline edit of tool without a runtime!
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-runtime-setting.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-runtime-setting.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-runtime-setting.png" alt-text="Screenshot of the runtime dropdown menu showing two different runtimes. " lightbox = "./media/how-to-develop-a-standard-flow/flow-runtime-setting.png":::
 
 ## Flow input data
 
@@ -60,28 +60,28 @@ The flow input data is the data that you want to process in your flow. When unfo
 
 For Web Classification sample as shown the screenshot below, the flow input is a URL of string type.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input.png" alt-text="Screenshot of Web Classification highlighting the input node and add input button. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input.png":::
 
 We also support the input type of int, bool, double, list and object.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-datatype.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-datatype.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-datatype.png" alt-text="Screenshot of inputs showing the type drop down menu with string selected. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-datatype.png":::
 
 You should first set the input schema (name: url; type: string), then set a value manually or by:
 
 1. Inputting data manually in the value field.
 2. Selecting a row of existing dataset in **fill value from data**.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-value-from-data.gif" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-value-from-data.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-value-from-data.gif" alt-text="Gif of selecting fill value from data button and selecting rows of data. " lightbox = "./media/how-to-develop-a-standard-flow/flow-value-from-data.gif":::
 
 The dataset selection supports search and autosuggestion.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-dataerror.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-dataerror.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-dataerror.png" alt-text="Screenshot of fill value from data with the dataset warning highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-dataerror.png":::
 
 After selecting a row, the url is backfilled to the value field.
 
 If the existing datasets don't meet your needs, upload new data from files. We support **.csv** and **.txt** for now.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-content.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-content.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-content.png" alt-text="Screenshot of fill value from data with the upload new data button highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-content.png":::
 
 ## Develop tool in your flow
 
@@ -91,31 +91,31 @@ In one flow, you can consume different kinds of tools. We now support LLM, Pytho
 
 By selecting the tool card on the very top, you'll add a new tool node to flow.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool.png" alt-text="Screenshot of of the tool card showing the dropdown menu from selecting more tools. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool.png":::
 
 ### Edit tool
 
 When a new tool node is added to flow, it will be appended at the bottom of flatten view with a random name by default. The new added tool appears at the top of the graph view as well.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-new-tool.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-new-tool.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-new-tool.png" alt-text="Screenshot of Python node and it's location in the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-new-tool.png":::
 
 At the top of each tool node card, there's a toolbar for adjusting the tool node. You can **move it up or down**, you can **delete** or **rename** it too.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool-edit.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool-edit.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool-edit.png" alt-text="Screenshot of the Python tool node highlighting the toolbar buttons. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool-edit.png":::
 
 ### Select connection
 
 In the LLM tool, select Connection to select one to set the LLM key or credential.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-llm-conn.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-llm-conn.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-llm-conn.png" alt-text="Screenshot of the summarize text content node with connection highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-llm-conn.png":::
 
 ### Prompt and python code inline edit
 
 In the LLM tool and python tool, it's available to inline edit the prompt or code. Go to the card in the flatten view, select the prompt section or code section, then you can make your change there.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.gif" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.gif" alt-text="Gif of inline editing the prompt in the LLM tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit-prompt.gif":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit.gif" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-inline-edit.gif" alt-text="Gif of inline editing the code in the Python tool." lightbox = "./media/how-to-develop-a-standard-flow/flow-inline-edit.gif":::
 
 ### Validate and run
 
@@ -123,7 +123,7 @@ To test and debug a single node, select the **Run** icon on node in flatten view
 
 The single node status is shown in the graph view as well.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-step-run.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-step-run.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-step-run.png" alt-text="Screenshot of showing where the run icon on the node is located and the view full output button. " lightbox = "./media/how-to-develop-a-standard-flow/flow-step-run.png":::
 
 You can also change the flow input url to test the node behavior for different URLs.
 
@@ -139,13 +139,13 @@ As for inputs, we offer a templating strategy that can help you create parametri
 
 Select **Edit** next to prompt box to define inputs using `{{input_name}}`.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-interface.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-interface.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-interface.png" alt-text="Screenshot of editing the prompt box to define inputs. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-interface.png":::
 
 ### Define Python node interface
 
 Python node might have multiple inputs and outputs. Define inputs and outputs as shown below. If you have multiple outputs, remember to make it a dictionary so that the downstream node can call each key separately.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-python.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-python.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-python.png" alt-text="Screenshot of Python code highlighting the place to define inputs and outputs. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-python.png":::
 
 ### Link nodes together
 
@@ -163,22 +163,22 @@ Below are common scenarios for linking nodes together.
 2. Select **Edit** next to the prompt box, add an input by `{{url}}`, then you'll see an input called url is created in inputs section.
 3. In the value drop-down, select ${inputs.url}, then you'll see in the graph view that the newly created LLM node is linked to the flow input. When running the flow, the url input of the node will be replaced by flow input on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif" alt-text="Gif of scenario one showing the LLM tool and editing the prompt. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif":::
 
 ### SCENARIO 2 - Link LLM node with single-output upstream node
 
 1. Select **Edit** next to the prompt box, add another input by `{{summary}}`, then you'll see an input called summary is created in inputs section.
 2. In the value drop-down, select ${summarize_text_content.output}, then you'll see in the graph view that the newly created LLM node is linked to the upstream summarize_text_content node. When running the flow, the summary input of the node will be replaced by summarize_text_content node output on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.gif" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-2.gif" alt-text="Gif of scenario two editing the prompt and inputs. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-2.gif":::
 
 We support search and autosuggestion here in the drop-down. You can search by node name if you have many nodes in the flow.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png" alt-text="Screenshot of showing the value drop down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png":::
 
 You can also navigate to the node you want to link with, copy the node name, navigate back to the newly created LLM node, paste in the input value field.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif" alt-text="Gif of the LLM node showing how copying the node name works. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif":::
 
 ### SCENARIO 3 - Link LLM node with multi-output upstream node
 
@@ -187,20 +187,20 @@ Suppose we want to link the newly created LLM node with covert_to_dict Python no
 1. Select Edit next to the prompt box, add another input by `{{category}}`, then you'll see an input called category is created in inputs section.
 2. In the value drop-down, select ${convert_to_dict.output}, then manually append category, then you'll see in the graph view that the newly created LLM node is linked to the upstream convert_to_dict node. When running the flow, the category input of the node will be replaced by category value from convert_to_dict node output dictionary on the fly.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-3.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-3.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-3.png" alt-text="Screenshot of the LLM tool highlighting the category value. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-3.png":::
 
 ### SCENARIO 4 - Link Python node with upstream node/flow input
 
 1. First you need to edit the code, add an input in python function.
 1. The linkage is the same as LLM node, using \${flow.input_name\} to link with flow input or \${upstream_node_name.output1\} to link with upstream node.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/new-python-node-input.gif" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/new-python-node-input.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/new-python-node-input.gif" alt-text="Gif of the Python node showing editing the code and selecting a value from the value drop down menu. " lightbox = "./media/how-to-develop-a-standard-flow/new-python-node-input.gif":::
 
 ## Flow run
 
 To test and debug the whole flow, select the Run button at the right top.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-run-all.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-run-all.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-run-all.png" alt-text="Screenshot of the flow page with the run button highlighted.. " lightbox = "./media/how-to-develop-a-standard-flow/flow-run-all.png":::
 
 ## Set and check flow output
 
@@ -212,12 +212,12 @@ When the flow is complicated, instead of checking outputs on each node, you can 
 
 First define flow output schema, then select in drop-down the node whose output you want to set as flow output. Since convert_to_dict has a dictionary output with two keys: category and evidence, you need to manually append category and evidence to each. Then run flow, after a while, you can check flow output in a table.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output.png" alt-text="Screenshot of outputs showing the value drop down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output.png":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/low-output-check.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/low-output-check.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/low-output-check.png" alt-text="Screenshot of Web Classification highlighting the view outputs button. " lightbox = "./media/how-to-develop-a-standard-flow/low-output-check.png":::
 
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of outputs which shows the status is completed and infomation for that output. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
 
 # Next steps
 
