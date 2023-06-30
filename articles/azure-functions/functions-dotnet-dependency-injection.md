@@ -35,6 +35,11 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
+> [!WARNING]
+> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
+>
+> Injection of `IConfiguration` can lead to unexpected behavior. To learn more about adding configuration sources, see [Customizing configuration sources](#customizing-configuration-sources).
+
 To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
 
 ```csharp
@@ -276,9 +281,6 @@ To access user secrets values in your function app code, use `IConfiguration` or
 
 ## Customizing configuration sources
 
-> [!NOTE]
-> Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
-
 To specify additional configuration sources, override the `ConfigureAppConfiguration` method in your function app's `StartUp` class.
 
 The following sample adds configuration values from a base and an optional environment-specific app settings files.
@@ -327,9 +329,6 @@ By default, configuration files such as *appsettings.json* are not automatically
     <CopyToPublishDirectory>Never</CopyToPublishDirectory>
 </None>
 ```
-
-> [!IMPORTANT]
-> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
 
 ## Next steps
 

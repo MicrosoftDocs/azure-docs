@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: dem108
 ms.author: sehan
