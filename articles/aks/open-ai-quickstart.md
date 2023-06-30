@@ -6,25 +6,25 @@ ms.date: 6/29/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Deploy an Application that uses OpenAI on Azure Kubernetes Service (AKS) 
+# Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
 
-In this article, you learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, you can easily adapt different AI models, such as content generation, summarization, semantic search, and natural language to code generation, to your specific tasks. 
+In this article, you will learn how to deploy an application that uses Azure OpenAI or OpenAI on AKS. With OpenAI, you can easily adapt different AI models, such as content generation, summarization, semantic search, and natural language to code generation, for your specific tasks. 
 
 This article also walks you through how to run a sample multi-container solution representative of real-world implementations. The multi-container solution is comprised of applications written in multiple languages and frameworks, including: 
 - Golang with Gin
 - Rust with Actix-Web
 - JavaScript with Vue.js and Fastify
 - Python with FastAPI
+
 These applications provide front ends for customers and store admins, REST APIs for sending data to RabbitMQ message queue and MongoDB database, and console apps to simulate traffic.
 
-- The codebase for [AKS Store Demo][aks-store-demo] can be found on GitHub
+The codebase for [AKS Store Demo][aks-store-demo] can be found on GitHub.
 
 ## Before you begin
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - For this demo, you can either use Azure OpenAI service or OpenAI service. If you plan on using Azure OpenAI service, you need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
 - If you plan on using OpenAI, sign up on the [OpenAI website][open-ai-landing].
-- If you already have Azure CLI installed, update to the latest version by using the [az upgrade][az-upgrade] command.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
@@ -75,7 +75,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     ```azurecli
     az aks install-cli
     ```
-    Use `sudo az aks install-cli` if elevated permission is required, for example, when using a development container.
+    Use `sudo az aks install-cli` if elevated permission is required on Linux-based system.
 
 2. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
@@ -90,7 +90,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 3. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```azurecli-interactive
+    ```bash
     kubectl get nodes
     ```
 
@@ -115,10 +115,10 @@ For the [AKS Store application][aks-store-demo], this manifest includes the foll
 - Store Admin: Web application for store employees to view orders in the queue and manage product information
 - Virtual Customer: Simulates order creation on a scheduled basis
 - Virtual Worker: Simulates order completion on a scheduled basis
-- Mongo DB: MongoDB instance for persisted data
-- Rabbit MQ: RabbitMQ for an order queue
+- Mongo DB: NoSQL instance for persisted data
+- Rabbit MQ: Message queue for an order queue
 
-1. Create a file named `azure-store.yaml` and copy the following manifest.
+1. Create a file named `aks-store.yaml` and copy the following manifest.
     ```yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -476,8 +476,8 @@ For the [AKS Store application][aks-store-demo], this manifest includes the foll
     ```
 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
-    ```console
-    kubectl apply -f azure-store.yaml
+    ```bash
+    kubectl apply -f aks-store.yaml
     ```
 
     The following example resembles output showing successfully created deployments and services.
@@ -511,6 +511,7 @@ You can either use Azure OpenAI or OpenAI and run your application on AKS.
 1. Select **Keys and Endpoints** to generate a key.
 1. Select **Model Deployments** > **Managed Deployments** to open the [Azure OpenAI studio][aoai-studio].
 1. Create a new deployment using the **text-davinci-003** model. 
+
 For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
 
 ### [OpenAI](#tab/openai)
@@ -520,7 +521,7 @@ For more information on how to create a deployment in Azure OpenAI, check out [G
 
 ## Deploy the AI service
 
-Now that the application is deployed, you can deploy the Python based microservice that uses OpenAI to automatically generate descriptions for new products being added to the store's catalog. 
+Now that the application is deployed, you can deploy the Python-based microservice that uses OpenAI to automatically generate descriptions for new products being added to the store's catalog. 
 ### [Azure OpenAI](#tab/aoai)
 1. Create a file named `ai-service.yaml` and copy the following manifest into it.
     ```yaml
@@ -546,15 +547,13 @@ Now that the application is deployed, you can deploy the Python based microservi
             ports:
             - containerPort: 5001
             env:
-            - name: USE_AZURE_OPENAI # set to "True" in quote if you are using Azure OpenAI, set to "False" if you are using public OpenAI
+            - name: USE_AZURE_OPENAI 
+              value: "True"
+            - name: AZURE_OPENAI_DEPLOYMENT_NAME 
               value: ""
-            - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
+            - name: AZURE_OPENAI_ENDPOINT 
               value: ""
-            - name: AZURE_OPENAI_ENDPOINT # required if using Azure OpenAI
-              value: ""
-            - name: OPENAI_API_KEY # always required
-              value: ""
-            - name: OPENAI_ORG_ID # required if using public OpenAI
+            - name: OPENAI_API_KEY 
               value: ""
             resources: {}
     ---
@@ -571,10 +570,9 @@ Now that the application is deployed, you can deploy the Python based microservi
       selector:
         app: ai-service
     ```
-1. Set the environment variable *USE_AZURE_OPENAI* to "True"
-1. Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
-1. Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on **Keys and Endpoint** in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
-1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
+1. Set the environment variable `USE_AZURE_OPENAI` to `"True"`
+1. Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the `AZURE_OPENAI_DEPLOYMENT_NAME` value. 
+1. Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on **Keys and Endpoint** in the left blade of the resource. Fill in your `AZURE_OPENAI_ENDPOINT` and `OPENAI_API_KEY` in the yaml accordingly. 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
     kubectl apply -f ai-service.yaml
@@ -609,15 +607,11 @@ Now that the application is deployed, you can deploy the Python based microservi
             ports:
             - containerPort: 5001
             env:
-            - name: USE_AZURE_OPENAI # set to "True" in quote if you are using Azure OpenAI, set to "False" if you are using public OpenAI
+            - name: USE_AZURE_OPENAI
+              value: "False"
+            - name: OPENAI_API_KEY 
               value: ""
-            - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
-              value: ""
-            - name: AZURE_OPENAI_ENDPOINT # required if using Azure OpenAI
-              value: ""
-            - name: OPENAI_API_KEY # always required
-              value: ""
-            - name: OPENAI_ORG_ID # required if using public OpenAI
+            - name: OPENAI_ORG_ID 
               value: ""
             resources: {}
     ---
@@ -634,9 +628,9 @@ Now that the application is deployed, you can deploy the Python based microservi
       selector:
         app: ai-service
     ```
-1. Set the environment variable *USE_AZURE_OPENAI* to "False"
-1. Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
-1. [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
+1. Set the environment variable `USE_AZURE_OPENAI` to `"False"`
+1. Set the environment variable `OPENAI_API_KEY` by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
+1. [Find your OpenAI organization ID][open-ai-org-id], copy the value, and set the `OPENAI_ORG_ID` environment variable. 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
     kubectl apply -f ai-service.yaml
@@ -652,44 +646,44 @@ Now that the application is deployed, you can deploy the Python based microservi
 > Directly adding sensitive information, such as API keys, to your Kubernetes manifest files isn't secure and may accidentally get committed to code repositories. We added it here for simplicity. For production workloads, use [Managed Identity][managed-identity] to authenticate to Azure OpenAI service instead or store your secrets in [Azure Key Vault][key-vault].
 
 ## Test the application
-1. See the status of the deployed pods using the [kubectl get pod][kubectl-get] command. 
+1. See the status of the deployed pods using the [kubectl get pods][kubectl-get] command. 
 
     ```bash
     kubectl get pods
     ```
-    Make sure all the pods are **running** before continuing to the next step. 
+    Make sure all the pods are *Running* before continuing to the next step. 
     ```output
-    NAME                                READY   STATUS    RESTARTS      AGE
-    makeline-service-7db94dc7d4-s6r95   1/1     Running   0             16m
-    mongodb-78f6d95f8-h4k76             1/1     Running   0             16m
-    order-service-55cbd784bb-4zxlz      1/1     Running   0             16m
-    product-service-6bf4d65f74-cgj9s    1/1     Running   0             16m
-    rabbitmq-9855984f9-674ss            1/1     Running   0             16m
-    store-admin-7f7d768c48-g4x8q        1/1     Running   0             16m
-    store-front-6786c64d97-6wb8v        1/1     Running   0             16m
-    virtual-customer-79498f8667-nxz4k   1/1     Running   3 (15m ago)   16m
-    virtual-worker-6d77fff4b5-dhl7k     1/1     Running   4 (15m ago)   16m
+    NAME                                READY   STATUS    RESTARTS   AGE
+    makeline-service-7db94dc7d4-8g28l   1/1     Running   0          99s
+    mongodb-78f6d95f8-nptbz             1/1     Running   0          99s
+    order-service-55cbd784bb-6bmfb      1/1     Running   0          99s
+    product-service-6bf4d65f74-7cbvk    1/1     Running   0          99s
+    rabbitmq-9855984f9-94nlm            1/1     Running   0          99s
+    store-admin-7f7d768c48-9hn8l        1/1     Running   0          99s
+    store-front-6786c64d97-xq5s9        1/1     Running   0          99s
+    virtual-customer-79498f8667-xzsb7   1/1     Running   0          99s
+    virtual-worker-6d77fff4b5-7g7rj     1/1     Running   0          99s
     ```
 
-1. To get the IP of the store admin web application and store front web application, use the kubectl get service command.
+1. To get the IP of the store admin web application and store front web application, use the `kubectl get service` command.
     
     ```bash
     kubectl get service store-admin
     ```
-    When the application runs, a Kubernetes service exposes the application's front end to the internet. This process can take a few minutes to complete. **EXTERNAL IP** initially shows *pending*, until the service comes up and shows the IP address. 
+    The application exposes the Store Admin site to the internet via a public load balancer provisioned by the Kubernetes service. This process can take a few minutes to complete. **EXTERNAL IP** initially shows *pending*, until the service comes up and shows the IP address. 
     ```output
     NAME          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
     store-admin   LoadBalancer   10.0.142.228   40.64.86.161    80:32494/TCP   50m    
     ```
     Repeat the same step for the service named store-front. 
     
-1. Open a web browser to the external IP address of your service. In the example shown here, open 40.64.86.161 to see store admin in the browser. Repeat the same step for store front. 
+1. Open a web browser and browse to the external IP address of your service. In the example shown here, open 40.64.86.161 to see Store Admin in the browser. Repeat the same step for Store Front. 
 1. In store admin, click on the products tab, then select **Add Products**. 
 1. When the ai-service is running successfully, you should see the Ask OpenAI button next to the description field. Fill in the name, price, and keywords, then click Ask OpenAI to generate a product description. Then click save product. See the picture for an example of adding a new product. 
 :::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="use openAI to generate a product description":::
-1. You can now see the new product you created on the store admin web app for sellers. In the picture, you can see Jungle Monkey Chew Toy is added.
+1. You can now see the new product you created on Store Admin used by sellers. In the picture, you can see Jungle Monkey Chew Toy is added.
 :::image type="content" source="media/ai-walkthrough/new-product-store-admin.png" alt-text="view the new product in the store admin page":::
-1. You can also see the new product you created on the store front web app for buyers. In the picture, you can see Jungle Monkey Chew Toy is added. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
+1. You can also see the new product you created on Store Front used by buyers. In the picture, you can see Jungle Monkey Chew Toy is added. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
 :::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="view the new product in the store front page":::
 
 ## Next steps
@@ -723,6 +717,5 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 [aoai-get-started]: ../cognitive-services/openai/quickstart.md
 [managed-identity]: /azure/cognitive-services/openai/how-to/managed-identity#authorize-access-to-managed-identities
 [key-vault]: csi-secrets-store-driver.md
-[az-upgrade]: /cli/azure/update-azure-cli
 [aoai]: ../cognitive-services/openai/index.yml
 [learn-aoai]: /training/modules/explore-azure-openai
