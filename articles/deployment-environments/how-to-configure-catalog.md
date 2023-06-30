@@ -12,16 +12,16 @@ ms.topic: how-to
 
 # Add and configure a catalog from GitHub or Azure DevOps
 
-Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments dev center. You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [catalog items](./concept-environments-key-concepts.md#catalog-items). Your catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which are managed by Microsoft for Azure Services.
+Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments dev center. You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). Your catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which are managed by Microsoft for Azure Services.
 
-For more information about catalog items, see [Add and configure a catalog item](./configure-catalog-item.md).
+For more information about environment definitions, see [Add and configure an environment definition](./configure-environment-definition.md).
 
 A catalog is a repository that's hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com/).
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
 
-We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the catalog items in the sample catalog.
+We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
 In this article, you learn how to:
 
@@ -148,7 +148,7 @@ Get the path to the secret you created in the key vault.
     | **Name** | Enter a name for the catalog. |
     | **Git clone URI**  | Enter or paste the [clone URL](#get-the-clone-url-for-your-repository) for either your GitHub repository or your Azure DevOps repository.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br />*Sample catalog example:* `main`|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your catalog items. <br /> The folder path is for the folder with subfolders containing catalog item manifests, not for the folder with the catalog item manifest itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br /> The folder path is for the folder with subfolders containing environment definition manifests, not for the folder with the environment definition manifest itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
     | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
    :::image type="content" source="media/how-to-configure-catalog/add-catalog-form-inline.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-catalog-form-expanded.png":::
@@ -157,16 +157,16 @@ Get the path to the secret you created in the key vault.
 
 ## Update a catalog
 
-If you update the Azure Resource Manager template (ARM template) contents or definition in the attached repository, you can provide the latest set of catalog items to your development teams by syncing the catalog.
+If you update the Azure Resource Manager template (ARM template) contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
 
 To sync an updated catalog:
 
 1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**,
-1. Select the specific catalog, and then select **Sync**. The service scans through the repository and makes the latest list of catalog items available to all the associated projects in the dev center.
+1. Select the specific catalog, and then select **Sync**. The service scans through the repository and makes the latest list of environment definitions available to all the associated projects in the dev center.
 
 ## Delete a catalog
 
-You can delete a catalog to remove it from the dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the catalog item reference for any existing environments that were created by using the catalog items in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
+You can delete a catalog to remove it from the dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 To delete a catalog:
 
@@ -176,26 +176,26 @@ To delete a catalog:
 
 ## Catalog sync errors
 
-When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all the catalog items have errors. Use the Azure CLI or the REST API to GET the catalog. The GET response shows you the type of errors:
+When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all the environment definitions have errors. Use the Azure CLI or the REST API to GET the catalog. The GET response shows you the type of errors:
 
-- Ignored catalog items that were detected to be duplicates.
-- Invalid catalog items that failed due to schema, reference, or validation errors.
+- Ignored environment definitions that were detected to be duplicates.
+- Invalid environment definitions that failed due to schema, reference, or validation errors.
 
-### Resolve ignored catalog item errors
+### Resolve ignored environment definition errors
 
-An ignored catalog item error occurs if you add two or more catalog items that have the same name. You can resolve this issue by renaming catalog items so that each catalog item has a unique name within the catalog.
+An ignored environment definition error occurs if you add two or more environment definitions that have the same name. You can resolve this issue by renaming environment definitions so that each environment definition has a unique name within the catalog.
 
-### Resolve invalid catalog item errors
+### Resolve invalid environment definition errors
 
-An invalid catalog item error might occur for various reasons:
+An invalid environment definition error might occur for various reasons:
 
-- **Manifest schema errors**. Ensure that your catalog item manifest matches the [required schema](./configure-catalog-item.md#add-a-catalog-item).
+- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](./configure-environment-definition.md#add-an-environment-definition).
 
 - **Validation errors**. Check the following items to resolve validation errors:
 
   - Ensure that the manifest's engine type is correctly configured as `ARM`.
-  - Ensure that the catalog item name is between 3 and 63 characters.
-  - Ensure that the catalog item name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
+  - Ensure that the environment definition name is between 3 and 63 characters.
+  - Ensure that the environment definition name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
   
 - **Reference errors**. Ensure that the template path that the manifest references is a valid relative path to a file in the repository.
 

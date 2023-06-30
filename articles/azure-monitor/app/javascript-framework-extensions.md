@@ -1,33 +1,79 @@
 ---
-title: Framework extensions for Application Insights JavaScript SDK
+title: Enable a framework extension for Application Insights JavaScript SDK
 description: Learn how to install and use JavaScript framework extensions for the Application Insights JavaScript SDK. 
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 06/23/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
 ---
 
-# Framework extensions for Application Insights JavaScript SDK
+# Enable a framework extension for Application Insights JavaScript SDK
 
 In addition to the core SDK, there are also plugins available for specific frameworks, such as the [React plugin](javascript-framework-extensions.md?tabs=react), the [React Native plugin](javascript-framework-extensions.md?tabs=reactnative), and the [Angular plugin](javascript-framework-extensions.md?tabs=angular).
 
 These plugins provide extra functionality and integration with the specific framework.
 
-## [React](#tab/react)
+> [!IMPORTANT]
+> If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
 
-### React Application Insights JavaScript SDK plug-in
+## Prerequisites
+
+### [React](#tab/react)
+
+None.
+
+### [React Native](#tab/reactnative)
+
+You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
+
+### [Angular](#tab/angular)
+
+None.
+
+---
+
+## What does the plug-in enable?
+
+### [React](#tab/react)
 
 The React plug-in for the Application Insights JavaScript SDK enables:
 
 - Tracking of router changes
 - React components usage statistics
 
-### Get started
+### [React Native](#tab/reactnative)
 
-Install the npm package:
+The React Native plugin for Application Insights JavaScript SDK collects device information. By default, this plugin automatically collects:
+
+- **Unique Device ID** (Also known as Installation ID.)
+- **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
+- **Device Type** (For example, handset, tablet, etc.)
+
+### [Angular](#tab/angular)
+
+The Angular plugin for the Application Insights JavaScript SDK, enables:
+
+- Tracking of router changes
+- Tracking uncaught exceptions
+
+> [!WARNING]
+> Angular plugin is NOT ECMAScript 3 (ES3) compatible.
+
+> [!IMPORTANT]
+> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
+
+---
+
+## Add a plug-in
+
+To add a plug-in, follow the steps in this section.
+
+### 1. Install the package
+
+#### [React](#tab/react)
 
 ```bash
 
@@ -35,11 +81,35 @@ npm install @microsoft/applicationinsights-react-js
 
 ```
 
-### Basic usage
+#### [React Native](#tab/reactnative)
 
-Initialize a connection to Application Insights:
+By default, this plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
+
+Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
+
+```zsh
+
+npm install --save @microsoft/applicationinsights-react-native @microsoft/applicationinsights-web
+npm install --save react-native-device-info
+react-native link react-native-device-info
+
+```
+
+#### [Angular](#tab/angular)
+
+```bash
+npm install @microsoft/applicationinsights-angularplugin-js
+```
+
+---
+
+### 2. Add the extension to your code
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+#### [React](#tab/react)
+
+Initialize a connection to Application Insights:
 
 > [!TIP]
 > If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [reactPlugin],`.
@@ -47,7 +117,7 @@ Initialize a connection to Application Insights:
 ```javascript
 import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
 import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
@@ -107,13 +177,200 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-### Configuration
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
-| Name    | Default | Description                                                                                                    |
-|---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main). |
+#### [React Native](#tab/reactnative)
 
-#### React components usage tracking
+To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
+
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
+// Add the Click Analytics plug-in.
+// import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+var RNPlugin = new ReactNativePlugin();
+// Add the Click Analytics plug-in.
+/* var clickPluginInstance = new ClickAnalyticsPlugin();
+var clickPluginConfig = {
+  autoCapture: true
+}; */
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        // If you're adding the Click Analytics plug-in, delete the next line.
+        extensions: [RNPlugin]
+     // Add the Click Analytics plug-in.
+     /* extensions: [RNPlugin, clickPluginInstance],
+             extensionConfig: {
+                 [clickPluginInstance.identifier]: clickPluginConfig
+          } */
+    }
+});
+appInsights.loadAppInsights();
+
+```
+
+#### Disabling automatic device info collection
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        disableDeviceCollection: true,
+        extensions: [RNPlugin]
+    }
+});
+appInsights.loadAppInsights();
+```
+
+#### Using your own device info collection class
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+// Simple inline constant implementation
+const myDeviceInfoModule = {
+    getModel: () => "deviceModel",
+    getDeviceType: () => "deviceType",
+    // v5 returns a string while latest returns a promise
+    getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
+};
+
+var RNPlugin = new ReactNativePlugin();
+RNPlugin.setDeviceInfoModule(myDeviceInfoModule);
+
+var appInsights = new ApplicationInsights({
+    config: {
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        extensions: [RNPlugin]
+    }
+});
+
+appInsights.loadAppInsights();
+```
+
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+
+#### [Angular](#tab/angular)
+
+Set up an instance of Application Insights in the entry component in your app:
+
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
+
+> [!TIP]
+> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [angularPlugin],`.
+
+```js
+import { Component } from '@angular/core';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
+// Add the Click Analytics plug-in.
+// import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(
+        private router: Router
+    ){
+        var angularPlugin = new AngularPlugin();
+     // Add the Click Analytics plug-in.
+     /* var clickPluginInstance = new ClickAnalyticsPlugin();
+        var clickPluginConfig = {
+          autoCapture: true
+        }; */
+        const appInsights = new ApplicationInsights({
+            config: {
+                connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+                // If you're adding the Click Analytics plug-in, delete the next line.        
+                extensions: [angularPlugin],
+             // Add the Click Analytics plug-in.
+             // extensions: [angularPlugin, clickPluginInstance],
+                extensionConfig: {
+                    [angularPlugin.identifier]: { router: this.router }
+                 // Add the Click Analytics plug-in.
+                 // [clickPluginInstance.identifier]: clickPluginConfig
+                }
+            } 
+         });
+        appInsights.loadAppInsights();
+    }
+}
+```
+
+To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
+
+```js
+import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationinsightsAngularpluginErrorService
+    }
+  ]
+  ...
+})
+export class AppModule { }
+```
+
+To chain more custom error handlers, create custom error handlers that implement IErrorService:
+
+```javascript
+import { IErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+export class CustomErrorHandler implements IErrorService {
+    handleError(error: any) {
+        ...
+    }
+}
+```
+
+And pass errorServices array through extensionConfig:
+
+```javascript
+extensionConfig: {
+        [angularPlugin.identifier]: {
+          router: this.router,
+          errorServices: [new CustomErrorHandler()]
+        }
+      }
+```
+
+> [!TIP]
+> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+
+---
+
+## Add configuration
+
+### [React](#tab/react)
+
+### React router configuration
+
+| Name    | Type   | Required? | Default | Description |
+|---------|--------|-----------|---------|------------------|
+| history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object. Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
+
+### React components usage tracking
 
 To instrument various React components usage tracking, apply the `withAITracking` higher-order component function.
 
@@ -261,136 +518,7 @@ const App = () => {
 
 The `AppInsightsErrorBoundary` requires two props to be passed to it. They're the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the error boundary, and the `onError` component appears.
 
-### Enable correlation
-
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
-
-In JavaScript, correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
-
-#### Route tracking
-
-The React plug-in automatically tracks route changes and collects other React-specific telemetry.
-
-> [!NOTE]
-> `enableAutoRouteTracking` should be set to `false`. If it's set to `true`, then when the route changes, duplicate `PageViews` can be sent.
-
-For `react-router v6` or other scenarios where router history isn't exposed, you can add `enableAutoRouteTracking: true` to your [setup configuration](#basic-usage).
-
-#### PageView
-
-If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of `0`.
-
-### Sample app
-
-Check out the [Application Insights React demo](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
-
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
-
-## [React Native](#tab/reactnative)
-
-### React Native plugin for Application Insights JavaScript SDK
-
-The React Native plugin for Application Insights JavaScript SDK collects device information. By default, this plugin automatically collects:
-
-- **Unique Device ID** (Also known as Installation ID.)
-- **Device Model Name** (Such as iPhone XS, Samsung Galaxy Fold, Huawei P30 Pro etc.)
-- **Device Type** (For example, handset, tablet, etc.)
-
-### Requirements
-
-You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
-
-### Getting started
-
-By default, this plugin relies on the [`react-native-device-info` package](https://www.npmjs.com/package/react-native-device-info). You must install and link to this package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
-
-Since v3, support for accessing the DeviceInfo has been abstracted into an interface `IDeviceInfoModule` to enable you to use / set your own device info module. This interface uses the same function names and result `react-native-device-info`.
-
-```zsh
-
-npm install --save @microsoft/applicationinsights-react-native @microsoft/applicationinsights-web
-npm install --save react-native-device-info
-react-native link react-native-device-info
-
-```
-
-### Initializing the plugin
-
-To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
-> [!TIP]
-> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
-
-```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-
-var RNPlugin = new ReactNativePlugin();
-// Add the Click Analytics plug-in.
-/* var clickPluginInstance = new ClickAnalyticsPlugin();
-var clickPluginConfig = {
-  autoCapture: true
-}; */
-var appInsights = new ApplicationInsights({
-    config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        // If you're adding the Click Analytics plug-in, delete the next line.
-        extensions: [RNPlugin]
-     // Add the Click Analytics plug-in.
-     /* extensions: [RNPlugin, clickPluginInstance],
-             extensionConfig: {
-                 [clickPluginInstance.identifier]: clickPluginConfig
-          } */
-    }
-});
-appInsights.loadAppInsights();
-
-```
-
-#### Disabling automatic device info collection
-
-```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
-var RNPlugin = new ReactNativePlugin();
-var appInsights = new ApplicationInsights({
-    config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-        disableDeviceCollection: true,
-        extensions: [RNPlugin]
-    }
-});
-appInsights.loadAppInsights();
-```
-
-#### Using your own device info collection class
-
-```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
-// Simple inline constant implementation
-const myDeviceInfoModule = {
-    getModel: () => "deviceModel",
-    getDeviceType: () => "deviceType",
-    // v5 returns a string while latest returns a promise
-    getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
-};
-
-var RNPlugin = new ReactNativePlugin();
-RNPlugin.setDeviceInfoModule(myDeviceInfoModule);
-
-var appInsights = new ApplicationInsights({
-    config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-        extensions: [RNPlugin]
-    }
-});
-
-appInsights.loadAppInsights();
-```
+### [React Native](#tab/reactnative)
 
 ### IDeviceInfoModule
 
@@ -423,163 +551,28 @@ export interface IDeviceInfoModule {
 
 If events are getting "blocked" because the `Promise` returned via `getUniqueId` is never resolved / rejected, you can call `setDeviceId()` on the plugin to "unblock" this waiting state. There is also an automatic timeout configured via `uniqueIdPromiseTimeout` (defaults to 5 seconds), which will internally call `setDeviceId()` with any previously configured value.
 
-### Enable Correlation
+### [Angular](#tab/angular)
 
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+None.
 
-JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+---
 
-#### PageView
+## Sample app
 
-If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0.
+### [React](#tab/react)
 
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+Check out the [Application Insights React demo](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
 
- 
-## [Angular](#tab/angular)
+### [React Native](#tab/reactnative)
 
-## Angular plugin for Application Insights JavaScript SDK
+Currently unavailable.
 
-The Angular plugin for the Application Insights JavaScript SDK, enables:
+### [Angular](#tab/angular)
 
-- Tracking of router changes
-- Tracking uncaught exceptions
-
-> [!WARNING]
-> Angular plugin is NOT ECMAScript 3 (ES3) compatible.
-
-> [!IMPORTANT]
-> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
-
-### Getting started
-
-Install npm package:
-
-```bash
-npm install @microsoft/applicationinsights-angularplugin-js
-```
-
-### Basic usage
-
-Set up an instance of Application Insights in the entry component in your app:
-
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
-> [!IMPORTANT]
-> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
-
-> [!TIP]
-> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [angularPlugin],`.
-
-```js
-import { Component } from '@angular/core';
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
-import { Router } from '@angular/router';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-    constructor(
-        private router: Router
-    ){
-        var angularPlugin = new AngularPlugin();
-     // Add the Click Analytics plug-in.
-     /* var clickPluginInstance = new ClickAnalyticsPlugin();
-        var clickPluginConfig = {
-          autoCapture: true
-        }; */
-        const appInsights = new ApplicationInsights({
-            config: {
-                connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-                // If you're adding the Click Analytics plug-in, delete the next line.        
-                extensions: [angularPlugin],
-             // Add the Click Analytics plug-in.
-             // extensions: [angularPlugin, clickPluginInstance],
-                extensionConfig: {
-                    [angularPlugin.identifier]: { router: this.router }
-                 // Add the Click Analytics plug-in.
-                 // [clickPluginInstance.identifier]: clickPluginConfig
-                }
-            } 
-         });
-        appInsights.loadAppInsights();
-    }
-}
-```
-
-To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
-
-> [!IMPORTANT]
-> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
-
-```js
-import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
-
-@NgModule({
-  ...
-  providers: [
-    {
-      provide: ErrorHandler,
-      useClass: ApplicationinsightsAngularpluginErrorService
-    }
-  ]
-  ...
-})
-export class AppModule { }
-```
-
-To chain more custom error handlers, create custom error handlers that implement IErrorService:
-
-```javascript
-import { IErrorService } from '@microsoft/applicationinsights-angularplugin-js';
-
-export class CustomErrorHandler implements IErrorService {
-    handleError(error: any) {
-        ...
-    }
-}
-```
-
-And pass errorServices array through extensionConfig:
-
-```javascript
-extensionConfig: {
-        [angularPlugin.identifier]: {
-          router: this.router,
-          errorServices: [new CustomErrorHandler()]
-        }
-      }
-```
-
-### Enable Correlation
-
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
-
-JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
-
-#### Route tracking
-
-The Angular Plugin automatically tracks route changes and collects other Angular specific telemetry. 
-
-> [!NOTE]
-> `enableAutoRouteTracking` should be set to `false` if it set to true then when the route changes duplicate PageViews may be sent.
-
-#### PageView
-
-If a custom `PageView` duration isn't provided, `PageView` duration defaults to a value of 0. 
-
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
+Check out the [Application Insights Angular demo](https://github.com/microsoft/applicationinsights-angularplugin-js/tree/main/sample/applicationinsights-angularplugin-sample).
 
 ---
 
 ## Next steps
 
-- To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
-- To learn about the Kusto Query Language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).
+- [Confirm data is flowing](javascript-sdk.md#5-confirm-data-is-flowing).

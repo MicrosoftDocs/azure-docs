@@ -22,7 +22,7 @@ With **ExpressRoute Global Reach**, you can link ExpressRoute circuits together 
 
 ## Use case
 
-ExpressRoute Global Reach is designed to complement your service provider’s WAN implementation and connect your branch offices across the world. For example, if your service provider primarily operates in the United States and has linked all of your branches in the U.S.. But your service provider doesn’t operate in Japan and Hong Kong, with ExpressRoute Global Reach you can connect your branches to the ones in the U.S. using ExpressRoute and our global network.
+ExpressRoute Global Reach is designed to complement your service provider’s WAN implementation and connect your branch offices across the world. For example, if your service provider primarily operates in the United States and has linked all of your branches in the U.S., but the service provider doesn’t operate in Japan and Hong Kong Special Administrative Region, with ExpressRoute Global Reach you can work with a local service provider and Microsoft to connect your branches there to the ones in the U.S. using ExpressRoute and our global network.
 
 :::image type="content" source="./media/expressroute-global-reach/global-reach-infrastructure.png" alt-text="Diagram that shows a use case for Express Route Global Reach.":::
 

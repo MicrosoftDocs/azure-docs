@@ -264,7 +264,8 @@ You can also delete the resource group, which deletes the workspace and all othe
 az group delete -g <resource-group-name>
 ```
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+> [!TIP]
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](../concept-soft-delete.md).
 
 ## Troubleshooting
 

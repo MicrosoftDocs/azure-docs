@@ -31,6 +31,8 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
     * Learn about [cluster node availability zones](./concepts-cluster.md#node-availability-zone) and [how to set preferred availability zone](./howto-scale-grow.md#choose-preferred-availability-zone).
 * General availability: The new domain name and FQDN format for cluster nodes. The change applies to newly provisioned clusters only. 
     * See [details](./concepts-node-domain-name.md).
+* Preview: Audit logging of database activities in Azure Cosmos DB for PostgreSQL is available through the PostgreSQL Audit extension.
+    *See [details](./how-to-enable-audit.md).
 
 ### May  2023
 

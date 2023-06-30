@@ -35,10 +35,18 @@ sections:
           4. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`.   
 
           For more information, see: [Compute gallery image requirements](how-to-configure-azure-compute-gallery.md#compute-gallery-image-requirements).
-      
+
+      - question: How can I check my Dev Box quota? # Question.
+        answer: |
+                You can check your Dev Box quota using either: 
+                - REST API - [Usages - List By Location - REST API (Azure Dev Center) | Microsoft Learn](/rest/api/devcenter/administrator/usages/list-by-location?tabs=HTTP)
+                - CLI - [az devcenter admin usage | Microsoft Learn |](/cli/azure/devcenter/admin/usage?view=azure-cli-latest) 
 
 additionalContent: |
     ## Next steps
 
     To learn more, see [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md).
+
+
+    
     

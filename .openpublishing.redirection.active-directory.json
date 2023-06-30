@@ -4576,6 +4576,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-sign-in-diagnostics.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-sign-in-diagnostics",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-data-download.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
       "redirect_document_id": false
@@ -11214,6 +11219,11 @@
     {
       "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/user-manage-inactive.md",
+      "redirect_url": "/azure/active-directory-b2c/manage-users-portal",
       "redirect_document_id": false
     },
     {

@@ -5,15 +5,15 @@ author: owinfreyATL
 ms.author: owinfrey
 ms.service: active-directory
 ms.topic: reference
-ms.date: 05/31/2023
+ms.date: 06/22/2023
 ms.custom: template-how-to
 ---
 
 
 
-# Configure a Logic App for Lifecycle Workflow use (Preview)
+# Configure a Logic App for Lifecycle Workflow use
 
-Before you can use an existing Azure Logic App with the custom task extension feature of Lifecycle Workflows, it must first be made compatible. This reference guide provides a list of steps that must be taken to make the Azure Logic App compatible. For a guide on creating a new compatible Logic App via the Lifecycle Workflows portal, see [Trigger Logic Apps based on custom task extensions (preview)](trigger-custom-task.md).
+Before you can use an existing Azure Logic App with the custom task extension feature of Lifecycle Workflows, it must first be made compatible. This reference guide provides a list of steps that must be taken to make the Azure Logic App compatible. For a guide on creating a new compatible Logic App via the Lifecycle Workflows portal, see [Trigger Logic Apps based on custom task extensions](trigger-custom-task.md).
 
 ## Determine type of token security of your custom task extension
 
@@ -23,7 +23,7 @@ Before configuring your Azure Logic App custom extension for use with Lifecycle 
 - Proof of Possession(POP)
 
 
-To determine the security token type of your custom task extension, you'd check the **Custom extensions (Preview)** page:
+To determine the security token type of your custom task extension, you'd check the **Custom extensions** page:
 
 :::image type="content" source="media/configure-logic-app-lifecycle-workflows/custom-task-extension-token-type.png" alt-text="Screenshot of custom task extension and token type.":::
 
@@ -229,7 +229,7 @@ If the security token type is **Proof of Possession (POP)** for your custom task
 
     Policy name: POP-Policy
     
-    Policy type: (Preview) AADPOP   
+    Policy type: AADPOP   
     
     |Claim  |Value  |
     |---------|---------|
@@ -292,5 +292,5 @@ Now that your Logic app is configured for use with Lifecycle Workflows, you can 
 
 ## Next steps
 
-- [Lifecycle workflow extensibility (Preview)](lifecycle-workflow-extensibility.md)
+- [Lifecycle workflow extensibility](lifecycle-workflow-extensibility.md)
 - [Manage Workflow Versions](manage-workflow-tasks.md)

@@ -68,7 +68,7 @@ Use the following table to find the correct cord specifications for your region:
 |Greece|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Guatemala|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Honduras|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Hong Kong|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
+|Hong Kong Special Administrative Region|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Hungary|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Iceland|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |India|250|10|IS694 3x0.75|IS 1293|C13|1830|
@@ -88,7 +88,7 @@ Use the following table to find the correct cord specifications for your region:
 |Liechtenstein|250|10|H05VV-F 3x0.75|SEV 1011|C13|1800|
 |Lithuania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Luxembourg|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Macau|2250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
+|Macao Special Administrative Region|2250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Macedonia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Malaysia|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Malta|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|

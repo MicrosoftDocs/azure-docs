@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 06/13/2023
 ms.author: jfields
 ---
 
 # View a list and description of system reports
 
-Permissions Management has various types of system reports that capture specific sets of data. These reports allow management, auditors, and administrators to:
+Microsoft Entra Permissions Management has various types of system reports that capture specific sets of data. These reports allow management, auditors, and administrators to:
 
 - Make timely decisions.
 - Analyze trends and system/user performance.
