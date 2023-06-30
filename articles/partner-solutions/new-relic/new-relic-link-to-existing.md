@@ -73,7 +73,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
    > Linking requires:
    >
    > - The account and the New Relic resource reside in the same Azure region
-   > - The user who is the linking the account and resource must have Global administrator permissions on the New Relic account being linked
+   > - The user who is linking the account and resource must have Global administrator permissions on the New Relic account being linked
    >
    > If the account that you want to link to does not appear in the dropdown list, verify that these conditions are satisfied.
 
