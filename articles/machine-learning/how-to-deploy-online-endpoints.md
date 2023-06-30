@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as an online endpoint in Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
