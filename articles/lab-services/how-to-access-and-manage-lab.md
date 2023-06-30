@@ -14,8 +14,6 @@ ms.date: 06/29/2023
 
 This article describes how you can access labs in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
 
-Before you can access a lab in Azure Lab Services, you need to first register to the lab. In this article, you learn how to register for a lab, connect to a lab virtual machine (VM), start and stop the lab VM, and how to monitor your quota hours.
-
 ## Prerequisites
 
 - To register for a lab, you need a lab registration link.
@@ -84,7 +82,7 @@ To access your lab in Teams:
 
     :::image type="content" source="./media/how-to-access-and-manage-lab/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
 
-You might see a message that the lab isn't available if the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
+You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
 
 :::image type="content" source="./media/how-to-access-and-manage-lab/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/how-to-access-and-manage-lab/not-published-lab.png":::
 
@@ -100,7 +98,7 @@ To access your lab in Canvas:
 
     :::image type="content" source="./media/how-to-access-and-manage-lab/canvas-view-lab.png" alt-text="Screenshot of a lab in the Canvas portal.":::
 
-You might see a message that the lab isn't available if the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
+You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the course assignment information still needs to synchronize.
 
 :::image type="content" source="./media/how-to-access-and-manage-lab/troubleshooting-lab-isnt-available-yet.png" alt-text="Screenshot that shows the lab isn't available yet.":::
 
