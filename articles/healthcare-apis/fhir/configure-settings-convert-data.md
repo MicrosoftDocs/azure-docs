@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to configure settings for $convert-data using the Azure portal to convert your existing health data into [FHIR R4](https://www.hl7.org/fhir/R4/index.html).
+In this article, learn how to configure settings for `$convert-data` using the Azure portal to convert your existing health data into [FHIR R4](https://www.hl7.org/fhir/R4/index.html).
 
 ## Default templates
 
@@ -161,7 +161,7 @@ For more information about assigning roles in the Azure portal, see [Azure built
 
 ### Step 5: Register the Azure Container Registry server in the FHIR service
 
-You can register the Azure Container Registry server by using the Azure portal or the Azure CLI.
+You can register the Azure Container Registry server by using the Azure portal.
 
 To use the Azure portal:
 
