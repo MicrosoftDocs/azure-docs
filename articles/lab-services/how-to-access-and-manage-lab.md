@@ -104,24 +104,22 @@ To access your lab in Canvas:
 
 ## View lab VM details
 
-When you access your lab, either through the Azure Lab Services website, Microsoft Teams, or Canvas, you
+When you access your lab, either through the Azure Lab Services website, Microsoft Teams, or Canvas, you get the list of lab virtual machines that are assigned to you.
 
-You can view 
+:::image type="content" source="./media/how-to-access-and-manage-lab/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
 
-You can view all your assigned lab virtual machines to you in the Azure Lab Services website. Alternately, if your organization uses Azure Lab Services with Microsoft Teams or Canvas, learn how you can [access your lab VMs in Microsoft Teams](./how-to-access-vm-for-students-within-teams.md) or [access your lab VMs in Canvas](./how-to-access-vm-for-students-within-canvas.md).
+For each lab VM, you can view the following information:
 
-1. Go to the [Azure Lab Services website](https://labs.azure.com).
+- Lab name: this name is assigned by the lab creator when creating the lab.
+- Operating system: an icon represents the operating system of the lab VM.
+- Quota hours: a progress bar shows your assigned and consumed number of quota hours. Learn more about the [quota hours](#view-quota-hours).
+- Lab VM status: indicates whether the lab VM is starting, running, or stopped.
 
-1. The page has a tile for each lab VM that you have access to. The VM tile shows the VM details and provides access to functionality for controlling the lab VM:
+In addition, you can also perform specific actions on the lab VM:
 
-    - In the top-left, notice the name of the lab. The lab creator specifies the lab name when creating the lab.
-    - In the top-right, you can see an icon that represents the operating system (OS) of the VM.
-    - In the center, you can see a progress bar that shows your [quota hours consumption](#view-quota-hours).
-    - In the bottom-left, you can see the status of the lab VM and a control to [start or stop the VM](#start-or-stop-the-lab-vm).
-    - In the bottom-right, you have the control to [connect to the lab VM](./connect-virtual-machine.md) with remote desktop (RDP) or secure shell (SSH).
-    - Also in the bottom-right, you can [reset or troubleshoot the lab VM](./how-to-reset-and-redeploy-vm.md), if you experience problems with the VM.
-
-    :::image type="content" source="./media/how-to-access-and-manage-lab/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services, highlighting the VM tile sections.":::
+- Start or stop the lab VM: learn more about [starting and stopping a lab VM](#start-or-stop-the-lab-vm).
+- Connect to the lab VM: select the computer icon to connect to the lab VM with remote desktop or SSH. Learn more about [connecting to the lab VM](./connect-virtual-machine.md).
+- Reset or troubleshoot the lab VM: learn more how you [reset or troubleshoot the lab VM](./how-to-reset-and-redeploy-vm.md) when you experience problems.
 
 ## View quota hours
 
