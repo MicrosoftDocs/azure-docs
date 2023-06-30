@@ -24,7 +24,7 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## View detailed metrics
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Click the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
 
