@@ -140,8 +140,8 @@
       href: reservation-utilization.md
     - name: View reservation transactions
       href: view-purchase-refunds.md
-    - name: View amortized reservation costs
-      href: reservation-amortization.md
+    - name: View amortized costs
+      href: view-amortized-costs.md
     - name: Charge back reservation costs
       href: charge-back-usage.md
     - name: Calculate EA cost savings
