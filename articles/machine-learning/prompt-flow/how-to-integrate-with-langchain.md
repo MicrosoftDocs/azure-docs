@@ -118,6 +118,6 @@ Before running the flow, configure the **node input and output**, as well as the
 
 ## Next steps
 
-- [Langchain ](https://langchain.com)
+- [Langchain](https://langchain.com)
 - [Create a Custom Environment](./how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime)
 - [Create a Runtime](./how-to-create-manage-runtime.md)

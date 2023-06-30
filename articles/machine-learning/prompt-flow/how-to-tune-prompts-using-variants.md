@@ -1,5 +1,5 @@
 ---
-title: Tune prompts using variants Prompt flow (preview)
+title: Tune prompts using variants in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to tune prompts using variants in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
@@ -168,7 +168,7 @@ You can submit a bulk test, which allows you test the variants with a large amou
 
 1. To further investigate how different variants predict, you can go to **Outputs** tab, select an evaluation run, check prediction results for each row of data.
 
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png":::
 
 1. After you identify that which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
 1. You can repeat the above steps to evaluate the variants of **summarize_text_content** node as well.
@@ -176,3 +176,7 @@ You can submit a bulk test, which allows you test the variants with a large amou
 Now, you've finished the process of tuning prompts using variants. You can apply this technique to your own prompt flow to find the best variant for the LLM node.
 
 ## Next steps
+
+- [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
+- [Integrate with LangChain](how-to-integrate-with-langchain.md)
+- [Deploy a flow](how-to-deploy-for-real-time-inference.md)
