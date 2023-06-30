@@ -19,7 +19,7 @@ This article describes the steps you need to take to migrate from the deprecated
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
 
-![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
+![API Management developer portal](media/developer-portal-overview/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

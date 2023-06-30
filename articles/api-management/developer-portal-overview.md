@@ -18,7 +18,7 @@ The API Management developer portal is an automatically generated, fully customi
 
 As introduced in this article, you can customize and extend the developer portal for your specific scenarios. 
 
-![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
+![API Management developer portal](media/developer-portal-overview/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -49,7 +49,7 @@ In some cases you might need functionality beyond the customization and styling 
 
 ## Migrate from the legacy portal
 
-An earlier version of the developer portal ("legacy portal") is also provided with your API Management service. The legacy portal is deprecated, and if you've previously customized that version nof the portal, we recommend that you plan to migrate to the new developer portal.
+An earlier version of the developer portal ("legacy portal") is also provided with your API Management service. The legacy portal is deprecated, and if you've previously customized that version of the portal, we recommend that you plan to migrate to the new developer portal.
 
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
@@ -84,7 +84,7 @@ Content is divided into two subcategories: *portal content* and *API Management 
 
     Portal content, except for media, is expressed as JSON documents.
 
-*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
+*API Management content* includes data from your API Management instance such as your APIs, Operations, Products, and Subscriptions.
 
 ## Understand the portal's administrative interface
 
@@ -153,7 +153,7 @@ To make your portal and its latest changes available to visitors, you need to *p
 
 To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see the [Azure API Management developer portal FAQ](developer-portal-faq.md#cors).
 
-[Consider moving all the CORS content to a dedicate topic and remove from the FAQ]
+[Consider moving all the CORS content to a dedicated topic and remove from the FAQ]
 
 ## Next steps
 
