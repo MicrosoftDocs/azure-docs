@@ -1,0 +1,32 @@
+### YamlMime:Landing
+
+title: Azure Operator Service Manager documentation
+summary: Azure Operator Service Manager is an Azure Service for the management of Network Services for telecom operators.
+
+metadata:
+  title: Azure Operator Service Manager documentation
+  description: Learn about Azure Operator Service Manager
+  ms.service: operator-service-manager
+  ms.topic: landing-page
+  author: CoolDoctorJ
+  ms.author: jefrankl
+  ms.date: 03/28/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Operator
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Operator overview
+            url: ./operator/operator-workflow.md
+      - linkListType: tutorial
+        links:
+          - text: How to create a site
+            url: ./operator/tutorial/create-site.md
+          - text: Create a site network service
+            url: ./operator/tutorial/create-site-network-service.md

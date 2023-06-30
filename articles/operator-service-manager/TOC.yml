@@ -1,0 +1,14 @@
+- name: Azure Operator Service Manager documentation
+  href: index.yml
+- name: Operator
+  expanded: true
+  items:
+  - name: Operator workflow
+    href: ./operator/operator-workflow.md
+  - name: Tutorials
+    expanded: true
+    items:
+    - name: Create a site
+      href: ./operator/tutorial/create-site.md
+    - name: Create a site network service
+      href: ./operator/tutorial/create-site-network-service.md
