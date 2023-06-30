@@ -14,8 +14,9 @@
           href: quickstart-azure-cli.md
         - name: Use the ARM template
           href: quickstart-azure-resource-manager-template.md
-        #- name: Use Terraform
-        #  href: quickstart-terraform.md
+        - name: Use Terraform
+          href: quickstart-terraform.md
+
 - name: Tutorials
   items:
     - name: 1 - Create a cluster with Azure Linux
