@@ -37,7 +37,7 @@ The Speech SDK supports the following languages and platforms:
 <sup>2 C isn't a supported programming language for the Speech SDK.</sup>  
 <sup>3 The Speech SDK for Swift shares client libraries and reference documentation with the Speech SDK for Objective-C.</sup>  
 
-[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/articles/ai-services/speech-service/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Speech SDK demo
 
