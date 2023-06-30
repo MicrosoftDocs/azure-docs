@@ -23,82 +23,57 @@ A storage task performs operations on containers and blobs in an Azure Storage a
 
 ## Defining conditions and operations
 
-A condition contains a property, a value, and an operator. The storage tasks uses the operator to compare a property with a value to determine whether the condition is met by the target object. An operation is the action a storage task performs on each object that meets the defined conditions.
+A _condition_ contains a property, a value, and an operator. The storage tasks uses the operator to compare a property with a value to determine whether the condition is met by the target object. An _operation_ is the action a storage task performs on each object that meets the defined conditions.
 
 You can define conditions and operations by using a visual designer in the Azure portal. The following image shows the visual designer that you can use to define the conditions and operations of a storage task.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions button and the Conditions editor.](./media/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
 
-Conditions and operations are stored as a JSON document that is generated based on selections that you make in the visual designer. You can view that JSON by selecting the **Code** tab that appears in the designer.  This article refers to all properties, operators, and operations by the JSON names that appear in the generated document.
+Conditions and operations are stored as a JSON document that is generated based on selections that you make in the visual designer. You can view that JSON by selecting the **Code** tab that appears in the designer.  
 
 For more information about how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
-## Conditions
+## Supported properties in conditions
 
-Any conceptual information about conditions goes here.
+The following table shows the properties that you can use to compose a condition. A condition can contain string, boolean, numeric, as well as date and time properties. 
 
-Describe constraints such as the number of conditions allowed.
+| String                         | Date and time        | Numeric        | Boolean          |
+|--------------------------------|----------------------|----------------|------------------|
+| AccessTier<sup>1</sup>         | AccessTierChangeTime | Content-Length | IsCurrentVersion |
+| Metadata.Value                 | Creation-Time        | TagCount       |                  |
+| Name                           | LastAccessTime       |                |                  |
+| BlobType<sup>2</sup>           | Last-Modified        |                |                  |
+| Container.Metadata.Value[Name] |                      |                |                  |
+| Container.Name                 |                      |                |                  |
+| Container.Metadata.Value[Name] |                      |                |                  |
+| Container.Name                 |                      |                |                  |
+| Tags.Value[Name]               |                      |                |                  |
 
-Some mention here on the ability to set conditions to a parameter along with a link to the how to or tutorial for doing that.
+<sup>1</sup>    Allowed values are `Hot`, `Cool`, or `Archive`.
 
-### Blob properties
+<sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`
 
-The following table shows the available properties, the data type of each property, and any constraints on allowed values.
+### Supported operators in conditions
 
-#### Boolean properties
+The following table shows the operators that you can use in a condition to evaluate the value of each type of property.
 
-These property values must be either `True` or `False`.
-
-- IsCurrentVersion
-
-You can evaluate property these values by using the `equals` or the `not` operator.
-
-#### Date time properties
-
-These property values must be a valid DateTime.
-
-- AccessTierChangeTime
-- Creation-Time
-- LastAccessTime
-- Last-Modified
-
-You can evaluate property these values by using the following operators: `equals`, `greater`, `greaterOrEquals`, `less`, `lessOrEquals`, and `addToTime`.
-
-#### Numeric properties
-
-These property values must be a valid number.
-
-- Content-Length
-- TagCount
-
-You can evaluate property these values by using the following operators: `equals`, `greater`, `greaterOrEquals`, `less`, and `lessOrEquals`.
-
-#### String properties
-
-These property values must be a string.
-
-- AccessTier (either `Hot`, `Cool`, or `Archive`)
-- Metadata.Value
-- Name
-- BlobType (either `BlockBlob`, `PageBlob`, or `AppendBlob`
-- Container.Metadata.Value[Name]
-- Container.Name
-- Tags.Value[Name]
-
-You can evaluate these property values by using the following operators: `contains`, `empty`, `equals`, `endsWith`, `length`, and `startsWith`.
+| String | Date and time | Numeric | Boolean |
+|---|---|---|---|
+| contains | equals |equals | equals |
+| empty | greater | greater | not |
+| equals | greaterOrEquals |greaterOrEquals ||
+| endWith | less | less ||
+| length | lessOrEquals | lessOrEquals ||
+| startsWith | addToTime | ||
 
 #### String matching in property values
 
 Explain matching and wild card patterns.
 
-## Operations
+## Supported operations
 
-Any conceptual information about operations goes here. Includes constraints, limits on the number of conditions etc.
-
-### Supported operations
-
-Supported operations, operation parameters, and parameter values appear in the table below:
+The following table shows the supported operations, parameters, and parameter values:
 
 | Operation | Parameters | Values |
 |---|---|---|
@@ -114,8 +89,6 @@ Supported operations, operation parameters, and parameter values appear in the t
 - The order of operations and what order means to users.
 
 - Include information here about onSucceed and onFailure if those capabilities make into the public preview.
-
-
 
 ## Preview
 
