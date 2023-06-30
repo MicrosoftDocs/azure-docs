@@ -119,7 +119,7 @@ For the configuration, you can use the [Azure Active Directory PowerShell Versio
 1. List CertificateUserIds attribute of a given user
 
    ```powershell
-     $results = Invoke-MGGraphRequest -Method get -Uri 'https://graph.microsoft.com/v1.0/users/<userId>?$select=authorizationinfo' -OutputType PSObject -   Headers @{'ConsistencyLevel' = 'eventual' }
+     $results = Invoke-MGGraphRequest -Method get -Uri 'https://graph.microsoft.com/v1.0/users/<userId>?$select=authorizationinfo' -OutputType PSObject -Headers @{'ConsistencyLevel' = 'eventual' }
      #list certificateUserIds
      $results.authorizationInfo
    ```
@@ -139,7 +139,7 @@ For the configuration, you can use the [Azure Active Directory PowerShell Versio
 1. Update CertificateUserIds attribute
 
    ```powershell
-      $results = Invoke-MGGraphRequest -Method patch -Uri 'https://graph.microsoft.com/v1.0/users/<UserId>/?$select=authorizationinfo' -OutputType PSObject -Headers @{'ConsistencyLevel'        = 'eventual' } -Body $params
+      $results = Invoke-MGGraphRequest -Method patch -Uri 'https://graph.microsoft.com/v1.0/users/<UserId>/?$select=authorizationinfo' -OutputType PSObject -Headers @{'ConsistencyLevel' = 'eventual' } -Body $params
    ```
 
 **Update CertificateUserIds using user object**
