@@ -53,7 +53,7 @@ In the developer portal, select a project to see the number of dev boxes you hav
 
 If you’ve used all your available dev boxes in a project, you see an error message and you can't create a new dev box:
 
-*Your project administrator has set a limit on the number of 3 dev boxes per user in Contoso-software-dev. Please delete a dev box in this project, or contact your administrator to increase your limit.* 
+*Your project administrator has set a limit of 3 dev boxes per user in Contoso-software-dev. Please delete a dev box in this project, or contact your administrator to increase your limit.* 
 
 :::image type="content" source="media/tutorial-dev-box-limits/dev-box-limit-exceeded.png" alt-text="Screenshot showing the developer portal add new dev box pane with a project selected, and an error message.":::
 
