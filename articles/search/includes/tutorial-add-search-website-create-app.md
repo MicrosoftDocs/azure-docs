@@ -59,7 +59,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     The _part_ of the YAML file relevant to the static web app is shown below:
 
-    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml":::
+    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action-v4.yml":::
 
 1. Edit your action file to contain the `api_location` property. If your local file doesn't have the property, add it below the `app_location` property.
 
