@@ -575,14 +575,15 @@ Now that the application is deployed, you can deploy the Python based microservi
 1. Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
 1. Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on **Keys and Endpoint** in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
-  ```bash
-  kubectl apply -f ai-service.yaml
-  ```
-  The following example resembles output showing successfully created deployments and services.
-  ```output
-    deployment.apps/ai-service created
-    service/ai-service created
-  ```
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
+    ```bash
+    kubectl apply -f ai-service.yaml
+    ```
+    The following example resembles output showing successfully created deployments and services.
+    ```output
+      deployment.apps/ai-service created
+      service/ai-service created
+    ```
 ### [OpenAI](#tab/openai)
 1. Create a file named `ai-service.yaml` and copy the following manifest into it.
     ```yaml
@@ -640,7 +641,7 @@ Now that the application is deployed, you can deploy the Python based microservi
     ```bash
     kubectl apply -f ai-service.yaml
     ```
-   The following example resembles output showing successfully created deployments and services.
+    The following example resembles output showing successfully created deployments and services.
     ```output
       deployment.apps/ai-service created
       service/ai-service created
