@@ -91,9 +91,13 @@ Allow time for the resource to finish deploying. When deployment is successful, 
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-deploy.png" alt-text="Successfully deployed peering resource" :::
 
-### 3. Register your prefixes
+## Configure optimized routing for your prefixes
 
-For optimized routing for your Communication services infrastructure prefixes, register all your prefixes with your peering interconnects.
+To get optimized routing for your prefixes with your Communications Services interconnects, follow these instructions:
+
+### 1. Register your prefixes
+
+For optimized routing for a Communication Services infrastructure prefixes, you must register them.
 
 > [!NOTE] 
 > The Connection State of your peering connections must be **Active** before registering any prefixes.
@@ -128,7 +132,7 @@ For a registered prefix to become validated, the following checks must pass:
 
 For more information on registered prefix requirements and how to troubleshoot validation errors, refer to [Peering Registered Prefix Requirements](./peering-registered-prefix-requirements.md).
 
-### 4. Activate your prefixes for Optimized Routing
+### 2. Activate your prefixes
 
 In the previous section, you registered prefixes and generated prefix keys. Prefix registration DOES NOT activate the prefix for optimized routing (and doesn't accept <\/24 prefixes). Prefix activation and appropriate interconnect location are requirements for optimized routing (to ensure cold potato routing).
 
