@@ -645,7 +645,7 @@ items:
         href: concepts/analytics/logs/rooms-logs.md
       - name: Call automation metrics overview
         href: concepts/call-automation-metrics.md
-     - name: Rooms metrics overview
+      - name: Rooms metrics overview
         href: concepts/rooms-metrics.md
     - name: UI Library
       items:
