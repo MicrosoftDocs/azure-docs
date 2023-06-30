@@ -32,7 +32,7 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
 > [!NOTE]
 > If you see the error message "Failed to post access token to client proxyFailed to connect to MSI", you may need to perform an `az login` to re-authenticate with Azure.
 
-3. Use `kubectl` to send requests to the cluster:
+4. Use `kubectl` to send requests to the cluster:
 
    ```console
    kubectl get nodes
