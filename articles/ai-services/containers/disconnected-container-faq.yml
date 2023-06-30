@@ -19,7 +19,7 @@ sections:
         answer: |
           Azure AI services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. 
           Disconnected containers are offered through commitment tier pricing, each offering a discounted rate compared to the pay-as-you-go pricing model. With commitment tier pricing, you can commit to using the following Azure AI services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
-          * Speech Services
+          * Azure AI Speech
             *	Speech to text
             *	Custom Speech to text
             * Neural Text to speech
@@ -29,9 +29,6 @@ sections:
             *	Key Phrase Extraction
             *	Language Detection
           *	Azure AI Vision - Read
-
-          Commitment tier pricing is also available for the following Applied AI service:
-
           *	Document Intelligence
 
           For more information about commitment tier pricing, reach out to your Microsoft account team or contact at Microsoft. You can also email csgate@microsoft.com.
