@@ -482,7 +482,7 @@ sections:
 
           - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
-          - [Authenticate](../../cognitive-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../ai-services/authentication.md?context=%2fazure%2fai-services%2fdocument-intelligence%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 
           - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 

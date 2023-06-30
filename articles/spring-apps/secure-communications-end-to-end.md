@@ -2,12 +2,12 @@
 title: Secure communications end-to-end for Spring Boot apps in a Zero Trust environment
 titleSuffix: Azure Spring Apps
 description: Describes how to secure communications end-to-end or terminate transport-level security at any communication point for Spring Boot apps.
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 08/15/2022
 ms.author: asirveda
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Secure communications end-to-end for Spring Boot apps in a Zero Trust environment

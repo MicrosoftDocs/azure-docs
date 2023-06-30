@@ -1,12 +1,12 @@
 ---
 title: "Tutorial: Map an existing custom domain to Azure Spring Apps"
 description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Map an existing custom domain to Azure Spring Apps
