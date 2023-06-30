@@ -6,12 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 5/30/2023
+ms.date: 7/5/2023
 
-ms.author: v-dele
+ms.author: v-leedennis
 author: DennisLee-DennisLee
 editor: v-jsitser
-manager: amycolannino
 ms.reviewer: azureidcic, gudlapreethi
 ---
 # Troubleshoot primary refresh token issues on Windows devices
@@ -123,7 +122,7 @@ To get the PRT error code, run the `dsregcmd` command, and then locate the `SSO 
 <summary>STATUS_LOGON_FAILURE (-1073741715&nbsp;/&nbsp;0xc000006d),<br/>
 STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
 
-##### Causes
+##### Cause
 
 - The device can't connect to the Azure AD authentication service.
 - The device received a `400 Bad Request` HTTP error response from one of the following sources:
@@ -131,7 +130,7 @@ STATUS_WRONG_PASSWORD (-1073741718&nbsp;/&nbsp;0xc000006a)</summary>
   - The Azure AD authentication service
   - An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
 
-##### Solutions
+##### Solution
 
 - If the on-premises environment requires an outbound proxy, make sure that the computer account of the device can discover and silently authenticate to the outbound proxy.
 
@@ -166,7 +165,7 @@ To view Event IDs in the Azure AD operational and analytic logs, refer to the [M
 STATUS_BAD_NETWORK_PATH (-1073741634&nbsp;/&nbsp;0xc00000be),<br/>
 STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
 
-##### Causes
+##### Cause
 
 - The device received a `4xx` HTTP error response from one of the following sources:
 
@@ -174,7 +173,7 @@ STATUS_UNEXPECTED_NETWORK_ERROR (-1073741628&nbsp;/&nbsp;0xc00000c4)</summary>
   - An endpoint for the [WS-Trust protocol][WS-Trust] (which is required for federated authentication)
 - There's a network connectivity issue to a required endpoint.
 
-##### Solutions
+##### Solution
 
 - Get the server error code and error description, and then go to the [Common server error codes ("AADSTS" prefix)][server-errors] section to find the cause of that server error code and the solution details.
 
@@ -192,7 +191,7 @@ To view Event IDs in the Azure AD operational and analytic logs, refer to the [M
 
 The user realm discovery failed, because the Azure AD authentication service can't find the user's domain.
 
-##### Solutions
+##### Solution
 
 - Add the domain of the user principal name (UPN) of the user as a custom domain in Azure AD. To find the provided UPN, look for Event ID 1144 in the Azure AD analytic logs.
 
@@ -215,7 +214,7 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
 | Azure AD-joined devices        | The text that's entered when the user signs in                        |
 | Hybrid Azure AD-joined devices | The UPN that the domain controller returns during the sign-in process |
 
-##### Solutions
+##### Solution
 
 - Set the UPN of the user to an internet-style sign-in name, based on internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). To find the current UPN, look for event ID 1144 in the Azure AD analytic logs.
 
@@ -227,7 +226,7 @@ The UPN for the user isn't in the expected format. The UPN value varies accordin
   whoami /upn
   ```
 
-  If Active Directory is configured with the correct UPN, [collect time travel traces](#time-travel-traces) for the Local Security Authority Subsystem Service (*lsass.exe*).
+  If Active Directory is configured with the correct UPN, [collect time travel traces](#time-travel-traces) for the Local Security Authority Subsystem Service (LSASS or *lsass.exe*).
 
 - If the on-premises domain name can't be routed (for example, if the UPN is something like `jdoe@contoso.local`), [configure the Alternate Login ID][alt-login-id] (AltID). (To view the prerequisites, see [Plan your hybrid Azure Active Directory join implementation][hybrid-azure-ad-join-plan].)
 </details>
@@ -251,7 +250,7 @@ Make sure that the network proxy doesn't interfere with or modify the server res
 
 You received an error from the [WS-Trust protocol][WS-Trust] endpoint (which is required for federated authentication).
 
-##### Solutions
+##### Solution
 
 - Make sure that the network proxy doesn't interfere with or modify the server response.
 
@@ -267,7 +266,7 @@ You received an error from the [WS-Trust protocol][WS-Trust] endpoint (which is 
 
 The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response doesn't contain any password URLs.
 
-##### Solutions
+##### Solution
 
 - Make sure that the network proxy doesn't interfere with or modify the server response.
 
@@ -281,7 +280,7 @@ The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response
 
 The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response doesn't contain any certificate endpoint URLs.
 
-##### Solutions
+##### Solution
 
 - Make sure that the network proxy doesn't interfere with or modify the server response.
 
@@ -297,7 +296,7 @@ The Metadata Exchange (MEX) endpoint is configured incorrectly. The MEX response
 
 The XML response from the [WS-Trust protocol][WS-Trust] endpoint (which is required for federated authentication) included a document type definition (DTD). The DTD isn't expected in the XML response, and response parsing fails if the DTD is included.
 
-##### Solutions
+##### Solution
 
 - Fix the configuration in the identity provider to avoid sending the DTD in the XML response.
 
@@ -313,7 +312,7 @@ You can find the full list and description of server error codes in [Azure AD au
 <details>
 <summary>AADSTS50155: Device authentication failed</summary>
 
-##### Causes
+##### Cause
 
 - Azure AD can't authenticate the device to issue a PRT.
 
@@ -331,7 +330,7 @@ Re-register the device based on the device join type. For instructions, see [I d
 
 Azure AD can't find the user account in the tenant.
 
-##### Solutions
+##### Solution
 
 - Make sure that the user is entering the correct UPN.
 - Make sure that the on-premises user account is being synchronized to Azure AD.
@@ -343,7 +342,7 @@ Azure AD can't find the user account in the tenant.
 <details>
 <summary>AADSTS50126: Error validating credentials due to invalid username or password</summary>
 
-##### Causes
+##### Cause
 
 - The user entered an incorrect user name or password in the sign-in UI.
 - The password hasn't been synchronized to Azure AD because of the following scenario:
@@ -367,11 +366,11 @@ ERROR_WINHTTP_NAME_NOT_RESOLVED (12007),<br/>
 ERROR_WINHTTP_CANNOT_CONNECT (12029),<br/>
 ERROR_WINHTTP_CONNECTION_ERROR (12030)</summary>
 
-##### Causes
+##### Cause
 
 Common general network-related issues.
 
-##### Solutions
+##### Solution
 
 - Get the URL that's being accessed. You can find the URL in Event ID 1084 of the Azure AD operational log or Event ID 1022 of the Azure AD analytic log.
 
@@ -443,18 +442,21 @@ Common general network-related issues.
    ```
 
 1. In the `tasklist` command output, find the process identifier (`PID`) of the Local Security Authority Subsystem Service (*lsass.exe*).
-1. Run the following command to begin a time travel tracing session of the *lsass.exe* process:
+1. Run the following time travel debugging (TTD) command to begin a time travel tracing session of the *lsass.exe* process:
+
+   > [!WARNING]  
+   > Time travel traces contain personal data. In addition, LSASS traces contain extremely sensitive information. When you handle these traces, make sure that you use best practices for the storage and sharing of this type of information.
 
    ```cmd
-   tttracer.exe -dumpfull -attach <lsass-pid> -out c:\temp
+   TTD.exe -attach <lsass-pid> -out c:\temp
    ```
 
 1. Lock the device that's signed in under the domain account.
 1. Unlock the device.
-1. Run the following command to end the time travel tracing session:
+1. Run the following TTD command to end the time travel tracing session:
 
    ```cmd
-   tttracer.exe -stop all
+   TTD.exe -stop all
    ```
 
 1. Get the latest *lsass##.run* file.
