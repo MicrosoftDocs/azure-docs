@@ -8,7 +8,7 @@ manager: tracsman
 ms.service: expressroute
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/12/2022
+ms.date: 6/30/2023
 ms.author: rambala
 
 ---
@@ -24,7 +24,7 @@ For more information about ExpressRoute, see the [Introduction to ExpressRoute][
 
 Often time there's confusion about whether or not ExpressRoute can be used for routing Microsoft 365 SaaS traffic. ExpressRoute offers Microsoft peering, which allows you to access most public endpoints in the Microsoft network. With the use of a *Route Filter*, you can select Microsoft 365 service prefixes that you want to advertise over Microsoft peering to your on-premises network. These routes enable routing Microsoft 365 service traffic over the ExpressRoute circuit.
 
-In this article, you'll learn about when it's necessary to use ExpressRoute to route Microsoft 365 traffic.
+In this article, you learn about when it's necessary to use ExpressRoute to route Microsoft 365 traffic.
 
 ## Network requirements of Microsoft 365 traffic
 
@@ -38,11 +38,11 @@ To address the stringent network latency requirements, Microsoft 365 shortens ro
 * Dynamically routing the end-user connection to the nearest Microsoft 365 entry point. 
 * From the entry point, traffic is efficiently routed within the Microsoft's global network to the nearest Microsoft 365 data center.
 
-Microsoft 365 entry points are serviced by Azure Front Door. Azure Front Door is a widely distributed service present at Microsoft global edge network that creates a fast, secure, and highly scalable SaaS applications. For more information about how Azure Front Door accelerates web application performance, see [What is Azure Front Door?][AFD]. When choosing the nearest Microsoft 365 data center, Microsoft takes into consideration data sovereignty regulations within the geo-political region.
+Microsoft 365 entry points get serviced by Azure Front Door. Azure Front Door is a widely distributed service present at Microsoft global edge network that creates a fast, secure, and highly scalable SaaS applications. For more information about how Azure Front Door accelerates web application performance, see [What is Azure Front Door?][AFD]. When selecting the nearest Microsoft 365 data center, Microsoft takes into consideration data sovereignty regulations within the geo-political region.
 
 ## What is geo-pinning connections?
 
-When you force a client-server to pass traffic through certain network device(s) located in a geographical location, that is referred to as geo-pinning the network connection. In a traditional network architecture, the underlying design principle is that the clients-servers are statically located which commonly geo-pins connections.
+When you force a client-server to pass traffic through certain network device(s) located in a geographical location that is referred to as geo-pinning the network connection. In a traditional network architecture, the underlying design principle is that the clients-servers are statically located which commonly geo-pins connections.
 
 For example, when you force your enterprise Internet connections to traverse through your corporate network. The egress is from a central location, typically via a set of proxy-servers or firewalls, you're geo-pinning the Internet connections. Another example of geo-pinning is when you have a SaaS application architecture that you force traffic through an intermediate datacenter in a region or using one or more intermediate network devices.
 
