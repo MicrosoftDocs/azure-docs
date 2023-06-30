@@ -75,6 +75,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     ```azurecli
     az aks install-cli
     ```
+    Use `sudo az aks install-cli` if elevated permission is required, for example, when using a development container.
 
 2. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
@@ -515,6 +516,7 @@ For more information on how to create a deployment in Azure OpenAI, check out [G
 ### [OpenAI](#tab/openai)
 1. [Generate an OpenAI key][open-ai-new-key] by selecting **Create new secret key** and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
 1. [Start a paid plan][openai-paid] to use OpenAI API.
+--- 
 
 ## Deploy the AI service
 
@@ -569,14 +571,15 @@ Now that the application is deployed, you can deploy the Python based microservi
       selector:
         app: ai-service
     ```
-1. ### [Azure OpenAI](#tab/aoai)
+### [Azure OpenAI](#tab/aoai)
     * Set the environment variable *USE_AZURE_OPENAI* to "True"
     * Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
     * Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
-1. ### [OpenAI](#tab/openai)
+### [OpenAI](#tab/openai)
     * Set the environment variable *USE_AZURE_OPENAI* to "False"
     * Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
     * [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
+---
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
     kubectl apply -f ai-service.yaml
@@ -588,7 +591,7 @@ Now that the application is deployed, you can deploy the Python based microservi
     ```
 
 > [!NOTE]
-> Adding sensitive information like API keys directly to Kubernetes manifest files like this is not secure and can accidentally get committed to code repositories. We have done it that way here for simplicity. For production workloads, use [Managed Identity][managed-identity] to authenticate to Azure OpenAI service instead or store your secrets in [Azure Key Vault][key-vault].
+> Directly adding sensitive information, such as API keys, to your Kubernetes manifest files isn't secure and may accidentally get committed to code repositories. We added it here for simplicity. For production workloads, use [Managed Identity][managed-identity] to authenticate to Azure OpenAI service instead or store your secrets in [Azure Key Vault][key-vault].
 
 ## Test the application
 1. See the status of the deployed pods using the [kubectl get pod][kubectl-get] command. 
@@ -650,7 +653,6 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
 [aoai-access]: https://aka.ms/oai/access
 [openai-paid]: https://platform.openai.com/account/billing/overview
-[learn-aoai]: https://learn.microsoft.com/training/modules/explore-azure-openai/
 [openai-platform]: https://platform.openai.com/
 [miyagi]: https://github.com/Azure-Samples/miyagi
 
@@ -665,3 +667,4 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 [key-vault]: csi-secrets-store-driver.md
 [az-upgrade]: /cli/azure/update-azure-cli
 [aoai]: ../cognitive-services/openai/index.yml
+[learn-aoai]: /training/modules/explore-azure-openai
