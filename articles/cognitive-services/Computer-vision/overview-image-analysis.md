@@ -21,10 +21,10 @@ The Computer Vision Image Analysis service can extract a wide variety of visual 
 
 The latest version of Image Analysis, 4.0, which is now in public preview, has new features like synchronous OCR and people detection. We recommend you use this version going forward.
 
-You can use Image Analysis through a client library SDK or by calling the [REST API](https://aka.ms/vision-4-0-ref) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
+You can use Image Analysis through a client library SDK or by calling the [REST API](https://aka.ms/vision-4-0-ref) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library-40.md) to get started.
 
 > [!div class="nextstepaction"]
-> [Quickstart](quickstarts-sdk/image-analysis-client-library.md)
+> [Quickstart](quickstarts-sdk/image-analysis-client-library-40.md)
 
 Or, you can try out the capabilities of Image Analysis quickly and easily in your browser using Vision Studio.
 
