@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 06/26/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
@@ -20,7 +20,7 @@ This configuration allows hybrid users to access Azure file shares using Kerbero
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). For more information about Azure AD Kerberos, see [Deep dive: How Azure AD Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
 > [!IMPORTANT]
-> You can only use one AD source for identity-based authentication with Azure Files. If Azure AD Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-auth-active-directory-enable.md) or [Azure Active Directory Domain Services (Azure AD DS)](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
+> You can only use one AD method for identity-based authentication with Azure Files. If Azure AD Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-auth-active-directory-enable.md) or [Azure Active Directory Domain Services (Azure AD DS)](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -34,7 +34,7 @@ For more information on supported options and considerations, see [Overview of A
 Before you enable Azure AD Kerberos authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
 > [!NOTE]
-> Your Azure storage account can't authenticate with both Azure AD and a second method like AD DS or Azure AD DS. If you've already chosen another AD source for your storage account, you must disable it before enabling Azure AD Kerberos.
+> Your Azure storage account can't authenticate with both Azure AD and a second method like AD DS or Azure AD DS. If you've already chosen another AD method for your storage account, you must disable it before enabling Azure AD Kerberos.
 
 The Azure AD Kerberos functionality for hybrid identities is only available on the following operating systems:
 
@@ -130,7 +130,7 @@ az storage account update --name <storageAccountName> --resource-group <resource
 ---
 
 > [!WARNING]
-> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
+> If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Azure AD-joined VMs, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Azure AD" under [Potential errors when enabling Azure AD Kerberos authentication for hybrid users](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
 
 ## Grant admin consent to the new service principal
 
@@ -148,7 +148,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 7. Select **Yes** to confirm.
 
   > [!IMPORTANT]
-  > If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Azure AD application. For instructions, see the entry in our [troubleshooting guide](files-troubleshoot-smb-authentication.md#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
+  > If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Azure AD application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
 
 ## Disable multi-factor authentication on the storage account
 
@@ -182,6 +182,9 @@ There are two options for configuring directory and file-level permissions with 
 - **icacls utility:** If you choose this option, then the client doesn't need to be domain-joined, but needs line-of-sight to the on-premises AD.
 
 To configure directory and file-level permissions through Windows File Explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step is not required.
+
+> [!TIP]
+> If Azure AD hybrid joined users from two different forests will be accessing the share, it's best to use icacls to configure directory and file-level permissions. This is because Windows File Explorer ACL configuration requires the client to be domain joined to the Active Directory domain that the storage account is joined to.
 
 To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 

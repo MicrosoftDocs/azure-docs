@@ -209,7 +209,7 @@ To use the restore command, you must have Bicep CLI version **0.4.1008 or later*
 To manually restore the external modules for a file, use:
 
 ```azurecli
-az bicep restore <bicep-file> [--force]
+az bicep restore --file <bicep-file> [--force]
 ```
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
