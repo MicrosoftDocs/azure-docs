@@ -51,7 +51,7 @@ If you don't have a GitHub account, see [Prerequisites](#prerequisites).
     ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub repository](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-github-repository.png)
 
 1. Select **New**, a green button.
-1. In **Repository name**, enter a repository name.  For example, **AzureRmPipeline-repo**. Remember to replace any of **AzureRmPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
+1. In **Repository name**, enter a repository name.  For example, **ARMPipeline-repo**. Remember to replace any of **ARMPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
 1. Write down the URL. The repository URL is the following format - `https://github.com/[YourAccountName]/[YourRepositoryName]`.
 
 This repository is referred to as a *remote repository*. Each of the developers of the same project can clone their own *local repository*, and merge the changes to the remote repository.
@@ -112,18 +112,16 @@ So far, you have created a GitHub repository, and uploaded the templates to the 
 A DevOps organization is needed before you can proceed to the next procedure. If you don't have one, see [Prerequisites](#prerequisites).
 
 1. Sign in to [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=307137).
-1. Select a DevOps organization from the left.
+1. Select a DevOps organization from the left, and then select **New project**. If you don't have any projects, the create project page is opened automatically.
+1. Enter the following values:
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
-
-1. Select **New project**. If you don't have any projects, the create project page is opened automatically.
-1. Enter the following values:
 
     * **Project name**: enter a project name. You can use the project name you picked at the very beginning of the tutorial.
     * **visibility**: Select **Private**.
 
     Use the default value for the other properties.
-1. Select **Create project**.
+1. Select **Create**.
 
 Create a service connection that is used to deploy projects to Azure.
 
@@ -136,7 +134,7 @@ Create a service connection that is used to deploy projects to Azure.
     * **Scope level**: select **Subscription**.
     * **Subscription**: select your subscription.
     * **Resource Group**: Leave it blank.
-    * **Connection name**: enter a connection name. For example, **AzureRmPipeline-conn**. Write down this name, you need the name when you create your pipeline.
+    * **Connection name**: enter a connection name. For example, **ARMPipeline-conn**. Write down this name, you need the name when you create your pipeline.
     * **Grant access permission to all pipelines**. (selected)
 1. Select **Save**.
 
@@ -167,7 +165,7 @@ To create a pipeline with a step to deploy a template:
     * **Azure Resource Manager connection**: Select the service connection name that you created earlier.
     * **Subscription**:  Specify the target subscription ID.
     * **Action**: Select the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
-    * **Resource group**: Enter a new resource group name. For example, **AzureRmPipeline-rg**.
+    * **Resource group**: Enter a new resource group name. For example, **ARMPipeline-rg**.
     * **Location**: Select a location for the resource group, for example, **Central US**.
     * **Template location**: Select **URL of the file**, which means the task looks for the template file by using the URL. Because _relativePath_ is used in the main template and _relativePath_ is only supported on URI-based deployments, you must use URL here.
     * **Template link**: Enter the URL that you got at the end of the [Prepare a GitHub repository](#prepare-a-github-repository) section. It starts with `https://raw.githubusercontent.com`.
