@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 06/30/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -114,14 +114,16 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
 
+### Additional components
+
 The script also requires Python and bash components to execute and connect securely to the recovery point.
 
-|Component | Version  |
-| --------------- | ---- |
-| bash | 4 and above |
-| Python | 2.6.6 and above  |
-| .NET | 4.6.2 and above |
-| TLS | 1.2 should be supported  |
+|Component | Version  | OS type |
+| --------------- | ---- | --- |
+| bash | 4 and above | Linux |
+| Python | 2.6.6 and above  | Linux |
+| .NET | 4.6.2 and above | Windows |
+| TLS | 1.2 should be supported  | Linux/ Windows |
 
 Also, ensure that you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [access requirements](#step-4-access-requirements-to-successfully-run-the-script).
 
