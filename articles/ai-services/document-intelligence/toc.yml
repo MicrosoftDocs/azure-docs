@@ -137,7 +137,7 @@ items:
   items:
   - name: Transparency notes
     items:
-    - name: Azure AI Document Intelligence scenarios
+    - name: Document Intelligence scenarios
       href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/document-intelligence/context/context
     - name: Characteristics and limitations
       href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/ai-services/document-intelligence/context/context
