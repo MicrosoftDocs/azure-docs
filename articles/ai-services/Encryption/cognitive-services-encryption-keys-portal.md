@@ -18,7 +18,7 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Azure AI se
 ## Vision
 
 * [Custom Vision encryption of data at rest](../custom-vision-service/encrypt-data-at-rest.md)
-* [Face Services encryption of data at rest](../face/encrypt-data-at-rest.md)
+* [Face Services encryption of data at rest](../computer-vision/identity-encrypt-data-at-rest.md)
 * [Document Intelligence encryption of data at rest](../../ai-services/document-intelligence/encrypt-data-at-rest.md)
 
 ## Language
