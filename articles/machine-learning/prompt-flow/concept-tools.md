@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# What are tools in Prompt flow (preview)?
+# Tools in Prompt flow (preview)?
 
 Tools are the fundamental building blocks of a flow in Azure Machine Learning prompt flow.
 
