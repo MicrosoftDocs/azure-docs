@@ -7,7 +7,7 @@ ms.date: 06/10/2023
 ms.author: kengaderdus
 ---
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Make sure you're using the directory that contains your Azure AD customer tenant: Select the **Directories + subscriptions** icon for switching directories in the toolbar, and then find your customer tenant in the list. If it's not the current directory, select **Switch**.
 1. In the left menu, under **Applications**, select **App registrations**, and then select the application you want to define app roles in.
 1. Select **App roles**, and then select **Create app role**.

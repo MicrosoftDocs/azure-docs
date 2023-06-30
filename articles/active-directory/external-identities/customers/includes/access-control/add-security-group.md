@@ -9,9 +9,9 @@ ms.author: henrymbugua
 
 Security groups manage user and computer access to shared resources. You can create a security group so that all group members have the same set of security permissions.
 
-To create the `Contoso_App_Administrators` security group, follow these steps:
+To create a security group with a name like `Contoso_App_Administrators`, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to your Azure AD customer tenant in which you want to create the security group.
 1. On the sidebar menu, select **Azure Active Directory**.
 1. Select **Groups** > **All groups** > **New group**.
