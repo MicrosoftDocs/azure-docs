@@ -1,6 +1,6 @@
 ---
-title: Monitor and Clean up stale guest accounts
-description: Monitor and Clean up stale guest accounts using access reviews 
+title: Monitor and clean up stale guest accounts
+description: Monitor and clean up stale guest accounts using access reviews 
 services: active-directory 
 author: billmath
 ms.author: billmath
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Monitor and Clean up stale guest accounts using access reviews 
+# Monitor and clean up stale guest accounts using access reviews 
 
 As users collaborate with external partners, it’s possible that many guest accounts get created in Azure Active Directory (Azure AD) tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Administrators can monitor guest accounts at scale using inactive guest insights. Administrators can also use Access Reviews to automatically review inactive guest users, block them from signing in, and, delete them from the directory.
 
@@ -41,13 +41,13 @@ Use the following instructions to learn how to enhance monitoring of inactive gu
 4. The following insights are provided as part of this report:
    
    - Guest account overview (total guests and inactive guests with further categorization of guests who have never signed in or signed in at least once)
-   - Guest inactvitiy distribution (Percentage distribution of guest users based on days since last sign in)
+   - Guest inactivity distribution (Percentage distribution of guest users based on days since last sign in)
    - Guest inactivity overview (Guest inactivity guidance to configure inactivity threshold)
    - Guest accounts summary (A tabular view with details of all guest accounts with insights into their activity state. The Activity state could be active or inactive based on the configured inactivity threshold)
 
 5. The inactive days are calculated based on last sign in date if the user has signed in atleast once. For users who have never signed in, the inactive days are calculated based on creation date.
 
- ### License Requirements
+ ### License requirements
 [!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 > [!NOTE]

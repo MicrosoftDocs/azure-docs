@@ -31,7 +31,7 @@ This article describes how to create one or more access reviews for group member
 ## Prerequisites
 
 - Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance licenses.  
-- Creating a review on [inactive user](review-recommendations-access-reviews.md#inactive-user-recommendations) and with [use-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations require a Microsoft Entra ID Governance license.
+- Creating a review on [inactive user](review-recommendations-access-reviews.md#inactive-user-recommendations) and with [use-to-group affiliation](review-recommendations-access-reviews.md#user-to-group-affiliation) recommendations requires a Microsoft Entra ID Governance license.
 - Global administrator, User administrator, or Identity Governance administrator to create reviews on groups or applications.
 - Global administrators and Privileged Role administrators can create reviews on role-assignable groups. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 - Microsoft 365 and Security group owner.
@@ -202,7 +202,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
     ![Screenshot that shows duration and show previous stages setting enabled for multi-stage review.](./media/create-access-review/reveal-multi-stage-results-and-duration.png)
 
-1. The duration of each recurrence are set to the sum of the duration day(s) you specified in each stage.
+1. The duration of each recurrence is set to the sum of the duration day(s) you specified in each stage.
 
 1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. The recurrence type must be at least as long as the total duration of the recurrence (i.e., the max duration for a weekly review recurrence is 7 days).
 

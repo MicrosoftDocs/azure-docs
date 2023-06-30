@@ -32,7 +32,7 @@ This article describes how to create an access package automatic assignment poli
 
 You'll need to have attributes populated on the users who will be in scope for being assigned access.  The attributes you can use in the rules criteria of an access package assignment policy are those attributes listed in [supported properties](../enterprise-users/groups-dynamic-membership.md#supported-properties), along with [extension attributes and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).  These attributes can be brought into Azure AD from [Graph](/graph/api/resources/user), an HR system such as [SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md), [Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md) or [Azure AD Connect sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md).  The rules can include up to 5000 users per policy.
 
-## License Requirements
+## License requirements
 
 [!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 

@@ -84,7 +84,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. In the left menu, select **Identity Governance**
 
-1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that an Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
+1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
 
 1. Select **New access package**.
 
