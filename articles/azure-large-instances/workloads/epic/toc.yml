@@ -1,5 +1,3 @@
-- name: Azure Large Instances for Epic
-  items:
   - name: Architecture
     href: architecture.md
   - name: Onboarding requirements  
