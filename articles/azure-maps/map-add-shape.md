@@ -134,7 +134,7 @@ function InitMap()
 
 In addition to filling a polygon with a color, you may use an image pattern to fill the polygon. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.
 
-For a fully functional sample that shows how to use an image template as a fill pattern in a polygon layer, see [Fill polygon with built-in icon template] in the [Azure Maps Samples].
+For a fully functional sample that shows how to use an image template as a fill pattern in a polygon layer, see [Fill polygon with built-in icon template] in the [Azure Maps Samples]. For the source code for this sample, see [Fill polygon with built-in icon template source code].
 
 :::image type="content" source="./media/map-add-shape/fill-polygon-with-built-in-icon-template.png" alt-text="A screenshot of a map of the world with red dots forming a triangle in the center of the map.":::
 
@@ -238,7 +238,7 @@ var shape1 = new atlas.Shape(new atlas.data.Point[0,0], { myProperty: 1 });
 var shape2 = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point[0,0], { myProperty: 1 });
 ```
 
-The [Make a geometry easy to update] sample shows how to wrap a circle GeoJSON object with a shape class. As the value of the radius changes in the shape, the circle renders automatically on the map.
+The [Make a geometry easy to update] sample shows how to wrap a circle GeoJSON object with a shape class. As the value of the radius changes in the shape, the circle renders automatically on the map. For the source code for this sample, see [Make a geometry easy to update source code].
 
 :::image type="content" source="./media/map-add-shape/easy-to-update-geometry.png" alt-text="A screenshot of a map showing a red circle in New York City with a slider bar titled Circle Radius and as you slide the bar to the right or left, the value of the radius changes and the circle size adjusts automatically on the map.":::
 
@@ -285,3 +285,5 @@ Additional resources:
 [Fill polygon with built-in icon template]: https://samples.azuremaps.com/?sample=fill-polygon-with-built-in-icon-template
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Make a geometry easy to update]: https://samples.azuremaps.com/?sample=make-a-geometry-easy-to-update
+[Fill polygon with built-in icon template source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Fill%20polygon%20with%20built-in%20icon%20template/Fill%20polygon%20with%20built-in%20icon%20template.html
+[Make a geometry easy to update source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Make%20a%20geometry%20easy%20to%20update/Make%20a%20geometry%20easy%20to%20update.html

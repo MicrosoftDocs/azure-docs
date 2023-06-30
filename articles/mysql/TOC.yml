@@ -97,7 +97,7 @@
       - name: Public Access
         href: flexible-server/concepts-networking-public.md
         displayName: Public access
-      - name: Provate Link
+      - name: Private Link
         href: flexible-server/concepts-networking-private-link.md
         displayName: Private Link
     - name: Service Maintenance
