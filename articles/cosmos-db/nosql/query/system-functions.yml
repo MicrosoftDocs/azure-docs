@@ -31,6 +31,8 @@ landingContent:
             url: array-slice.md
           - text: CHOOSE
             url: choose.md
+          - text: ObjectToArray
+            url: objecttoarray.md
           - text: SetIntersect
             url: setintersect.md
           - text: SetUnion
@@ -77,6 +79,12 @@ landingContent:
             url: tickstodatetime.md
           - text: TimestampToDateTime
             url: timestamptodatetime.md
+  - title: Item functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: DocumentId
+            url: documentid.md
   - title: Mathematical functions
     linkLists:
       - linkListType: reference
@@ -105,6 +113,30 @@ landingContent:
         links:
           - text: FLOOR
             url: floor.md
+          - text: IntAdd
+            url: intadd.md
+          - text: IntBitAnd
+            url: intbitand.md
+          - text: IntBitLeftShift
+            url: intbitleftshift.md
+          - text: IntBitNot
+            url: intbitnot.md
+          - text: IntBitOr
+            url: intbitor.md
+          - text: IntBitRightShift
+            url: intbitrightshift.md
+          - text: IntBitXor
+            url: intbitxor.md
+          - text: IntDiv
+            url: intdiv.md
+          - text: IntMod
+            url: intmod.md
+      - linkListType: reference
+        links:
+          - text: IntMul
+            url: intmul.md
+          - text: IntSub
+            url: intsub.md
           - text: LOG
             url: log.md
           - text: LOG10
@@ -121,10 +153,10 @@ landingContent:
             url: rand.md
           - text: ROUND
             url: round.md
-          - text: SIGN
-            url: sign.md
       - linkListType: reference
         links:
+          - text: SIGN
+            url: sign.md
           - text: SIN
             url: sin.md
           - text: SQRT
@@ -219,6 +251,10 @@ landingContent:
             url: is-bool.md
           - text: IS_DEFINED
             url: is-defined.md
+          - text: IS_FINITE_NUMBER
+            url: is-finite-number.md
+          - text: IS_INTEGER
+            url: is-integer.md
           - text: IS_NULL
             url: is-null.md
           - text: IS_NUMBER
