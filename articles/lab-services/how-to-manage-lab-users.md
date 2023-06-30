@@ -281,8 +281,6 @@ To export the list of users for a lab:
 
 ## Next steps
 
-See the following articles:
-
-- For administrators: [Create and manage lab plans](how-to-manage-lab-plans.md)
-- For lab owners: [Create and manage labs](how-to-manage-labs.md) and [Set up and publish templates](how-to-create-manage-template.md)
-- For lab users: [Access labs](how-to-use-lab.md)
+- Learn how to [add lab schedules](./how-to-create-schedules.md)
+- Learn how to [manage lab VM pools](./how-to-manage-vm-pool.md)
+- Learn how to [access a lab VM](./how-to-access-lab-virtual-machine.md)
