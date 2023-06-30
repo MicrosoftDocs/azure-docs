@@ -171,7 +171,7 @@ Also, ensure that you have the [right machine to execute the ILR script](#step-2
 
 After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), copy the script from the downloaded location (usually the Downloads folder), see [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Right-click the executable file and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press Enter. Once the valid password is entered, the script connects to the recovery point.
 
-  ![Executable output](./media/backup-azure-restore-files-from-vm/executable-output.png)
+  :::image type="content" source="./media/backup-azure-restore-files-from-vm/executable-output.png" alt-text="Screenshot shows the executable output for file restore from VM." lightbox="./media/backup-azure-restore-files-from-vm/executable-output.png":::
 
 
 When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine. However, the volume name is preserved. For example, if the volume on the original virtual machine was "Data Disk (E:`\`)", that volume can be attached on the local computer as "Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files or folder.  
