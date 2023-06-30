@@ -37,7 +37,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ## April 2023
 
-**Announcing the latest Azure AI Document Intelligence client-library public preview release**
+**Announcing the latest Document Intelligence client-library public preview release**
 
 * Document Intelligence REST API Version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument) supports the public preview release SDKs. This release includes the following new features and capabilities available for .NET/C# (4.1.0-beta-1), Java (4.1.0-beta-1), JavaScript (4.1.0-beta-1), and Python (3.3.0b.1) SDKs:
 
