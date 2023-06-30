@@ -11,7 +11,7 @@ ms.date: 06/30/2023
 | Number of routes each BGP peer can advertise to Azure Route Server <sup>1</sup> | 1,000 |
 | Number of VMs in the virtual network (including peered virtual networks) that Azure Route Server can support <sup>2</sup> | 4,000 |
 
-<sup>1</sup> If your NVA advertises more routes than the limit, the BGP session will get dropped.
+<sup>1</sup> If your NVA advertises more routes than the limit, the BGP session gets dropped.
 
 <sup>2</sup> The number of VMs that Azure Route Server can support isn’t a hard limit and it depends on the availability and performance of the underlying infrastructure.
 
