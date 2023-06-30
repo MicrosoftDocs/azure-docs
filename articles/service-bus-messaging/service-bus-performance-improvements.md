@@ -43,7 +43,7 @@ As expected, throughput is higher for smaller message payloads that can be batch
 
 Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
-The benchmarking sample doesn't use any advanced features, so the throughput your applications observe is different based on your scenarios.
+The benchmarking sample doesn't use any advanced features, so the throughput your applications observe is different, based on your scenarios.
 
 #### Compute considerations
 
@@ -55,7 +55,7 @@ Using certain Service Bus features may require compute utilization that may decr
 4. Scheduled messages.
 5. Deferred messages.
 6. Transactions.
-7. De-duplication & look back time window.
+7. Deduplication & look back time window.
 8. Forward to (forwarding from one entity to another).
 
 If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace.
@@ -97,7 +97,7 @@ The Service Bus clients that interact with the service, such as [ServiceBusClien
 
 We recommend that you don't close or dispose these clients after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
 
-This guidance doesn't apply to the [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), as its lifetime is the same as the session itself.  For applications working with the `ServiceBusSessionReceiver`, it's recommended to use a singleton instance of the `ServiceBusClient` to accept each session, which will spawn a new `ServiceBusSessionReceiver` bound to that session.  Once the application finishes processing that session, it should dispose the associated `ServiceBusSessionReceiver`.
+This guidance doesn't apply to the [ServiceBusSessionReceiver](/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver), as its lifetime is the same as the session itself.  For applications working with the `ServiceBusSessionReceiver`, it's recommended to use a singleton instance of the `ServiceBusClient` to accept each session, which spans a new `ServiceBusSessionReceiver` bound to that session.  Once the application finishes processing that session, it should dispose the associated `ServiceBusSessionReceiver`.
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
@@ -234,7 +234,7 @@ Service Bus doesn't support transactions for receive-and-delete operations. Also
 
 To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. 
 
-- When you enable batching on a queue, writing messages into the store, and deleting messages from the store will be batched. 
+- When you enable batching on a queue, writing messages into the store, and deleting messages from the store are batched. 
 - When you enable batching on a topic, writing messages into the store are batched. 
 - When you enable batching on a subscription, deleting messages from the store are batched. 
 - When batched store access is enabled for an entity, Service Bus delays a store write operation for that entity by up to 20 ms.
@@ -288,7 +288,7 @@ When a message is prefetched, the service locks the prefetched message. With the
 
 When you use the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count shouldn't exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no additional messages are fetched from the service.
 
-Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (because of the increased message size). Receiving prefetched messages from the cache will be faster because these messages have already been downloaded by the client.
+Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. The fetch of the first message, however, takes longer (because of the increased message size). Receiving prefetched messages from the cache is faster because these messages have already been downloaded by the client.
 
 The time-to-live (TTL) property of a message is checked by the server at the time the server sends the message to the client. The client doesn't check the message's TTL property when the message is received. Instead, the message can be received even if the message's TTL has passed while the message was cached by the client.
 
@@ -321,7 +321,7 @@ While using these approaches together, consider the following cases -
 * Prefetch should be greater than or equal to the number of messages you're expecting to receive from `ReceiveBatch`.
 * Prefetch can be up to n/3 times the number of messages processed per second, where n is the default lock duration.
 
-There are some challenges with having a greedy approach, that is, keeping the prefetch count high, because it implies that the message is locked to a particular receiver. The recommendation is to try out prefetch values between the thresholds mentioned above and empirically identify what fits.
+There are some challenges with having a greedy approach, that is, keeping the prefetch count high, because it implies that the message is locked to a particular receiver. We recommend that you try out prefetch values that are between the thresholds mentioned above, and identify what fits.
 
 ## Multiple queues or topics
 
