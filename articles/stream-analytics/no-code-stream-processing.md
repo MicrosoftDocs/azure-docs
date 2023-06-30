@@ -63,7 +63,7 @@ To access the no-code editor for building your stream analytics job, there are t
     - [Transform and store data to Azure SQL database](./no-code-transform-filter-ingest-sql.md)
     - [Filter and ingest to Azure Data Explorer](./no-code-filter-ingest-data-explorer.md)
 
-The following screenshot shows a finished Stream Analytics job. It highlights all the sections available to you while you author.
+The following screenshot shows a completed Stream Analytics job. It highlights all the sections available to you while you author.
 
 :::image type="content" source="./media/no-code-stream-processing/created-stream-analytics-job.png" alt-text="Screenshot that shows the authoring interface sections." lightbox="./media/no-code-stream-processing/created-stream-analytics-job.png" :::
 
@@ -74,7 +74,7 @@ The following screenshot shows a finished Stream Analytics job. It highlights al
 
 ## Streaming data input
 
-The no-code editor supports the streaming data input from three kinds of resources:
+The no-code editor supports streaming data input from three types of resources:
 
 - Azure Event Hubs
 - Azure IoT Hub
@@ -87,7 +87,7 @@ For more information about the streaming data inputs, see [Stream data as input 
 
 :::image type="content" source="./media/no-code-stream-processing/streaming-input-type.png" alt-text="Screenshot that shows the streaming inputtype." lightbox="./media/no-code-stream-processing/streaming-input-type.png" :::
 
-### Azure event Hubs as streaming input
+### Azure Event Hubs as streaming input
 
 Azure Event Hubs is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored through any real-time analytics provider or batching/storage adapter.
 
@@ -133,7 +133,7 @@ Azure IoT Hub is a managed service hosted in the cloud that acts as a central me
 > [!NOTE]
 > Azure IoT Hub input is available in the no-code editor on Azure Stream Analytics portal.
 
-To add an IoT hub as a streaming input for your job, select the **IoT Hub** under **Inputs** from the ribbon. Then fill in the needed information in the right panel to connect IoT hub to your job. To learm more about the details about each fields, see [Stream data from IoT Hub to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+To add an IoT hub as a streaming input for your job, select the **IoT Hub** under **Inputs** from the ribbon. Then fill in the needed information in the right panel to connect IoT hub to your job. To learn more about the details of each field, see [Stream data from IoT Hub to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-iot-hub).
 
 :::image type="content" source="./media/no-code-stream-processing/iot-hub-input.png" alt-text="Screenshot that shows iot hub configuration." lightbox= "./media/no-code-stream-processing/iot-hub-input.png" :::
 
@@ -144,7 +144,7 @@ Azure Data Lake Storage Gen2 (ADLS Gen2) is a cloud-based, enterprise data lake 
 > [!NOTE]
 > Azure Data Lake Storage Gen2 input is available in the no-code editor on Azure Stream Analytics portal.
 
-To add an ADLS Gen2 as a streaming input for your job, select the **ADLS Gen2** under **Inputs** from the ribbon. Then fill in the needed information in the right panel to connect ADLS Gen2 to your job. To learm more about the details about each fields, see [Stream data from ADLS Gen2 to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-blob-storage-or-data-lake-storage-gen2)
+To add an ADLS Gen2 as a streaming input for your job, select the **ADLS Gen2** under **Inputs** from the ribbon. Then fill in the needed information in the right panel to connect ADLS Gen2 to your job. To learn more about the details of each field, see [Stream data from ADLS Gen2 to Stream Analytics job](./stream-analytics-define-inputs.md#stream-data-from-blob-storage-or-data-lake-storage-gen2)
 
 :::image type="content" source="./media/no-code-stream-processing/adls-gen2-input.png" alt-text="Screenshot that shows adls gen2 input configuration." lightbox= "./media/no-code-stream-processing/adls-gen2-input.png" :::
 
@@ -201,9 +201,9 @@ The **Manage fields** transformation allows you to add, remove, or rename fields
 
 :::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="Screenshot that shows selections for managing fields." lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
 
-You can also add new field with the **Build-in Functions** to aggregate the data from upstream. Currently, the build-in functions we support are some functions in **String Functions**, **Date and Time Functions**, **Mathematical Functions**. To learn more about the definitions of these functions, see [Built-in Functions (Azure Stream Analytics)](/stream-analytics-query/built-in-functions-azure-stream-analytics).
+You can also add new field with the **Built-in Functions** to aggregate the data from upstream. Currently, the built-in functions we support are some functions in **String Functions**, **Date and Time Functions**, **Mathematical Functions**. To learn more about the definitions of these functions, see [Built-in Functions (Azure Stream Analytics)](/stream-analytics-query/built-in-functions-azure-stream-analytics).
 
-:::image type="content" source="./media/no-code-stream-processing/build-in-functions-managed-fields.png" alt-text="Screenshot that shows the build-in functions." lightbox="./media/no-code-stream-processing/build-in-functions-managed-fields.png" :::
+:::image type="content" source="./media/no-code-stream-processing/build-in-functions-managed-fields.png" alt-text="Screenshot that shows the built-in functions." lightbox="./media/no-code-stream-processing/build-in-functions-managed-fields.png" :::
 
 > [!TIP]
 > After you configure a tile, the diagram view gives you a glimpse of the settings within the tile. For example, in the **Manage fields** area of the preceding image, you can see the first three fields being managed and the new names assigned to them. Each tile has information that's relevant to it.
@@ -352,7 +352,7 @@ For more information about Azure Data Explorer output for a Stream Analytics job
 
 [Power BI](https://powerbi.microsoft.com/) offers a comprehensive visualization experience for your data analysis result. With Power BI output to Stream Analytics, the processed streaming data is written to Power BI streaming dataset, then it can be used to build the near real-time Power BI dashboard. To learn more about how to build the near real-time dashboard, see [Build real-time dashboard with Power BI dataset produced from Stream Analytics no code editor](./no-code-build-power-bi-dashboard.md).
 
-To configure Power BI as output, select **Power BI** under the **Outputs** section on the ribbon. Then fill in the needed information to connect your Power BI workspace and provide the names for the streaming dataset and table that you want to write the data to. To learm more about the details about each fields, see [Power BI output from Azure Stream Analytics](./power-bi-output.md).
+To configure Power BI as output, select **Power BI** under the **Outputs** section on the ribbon. Then fill in the needed information to connect your Power BI workspace and provide the names for the streaming dataset and table that you want to write the data to. To learn more about the details of each field, see [Power BI output from Azure Stream Analytics](./power-bi-output.md).
 
 
 ## Data preview, authoring errors, runtime logs, and metrics
@@ -361,7 +361,7 @@ The no-code drag-and-drop experience provides tools to help you author, troubles
 
 ### Live data preview for inputs
 
-When you're connecting to an event hub and selecting its tile in the diagram view (the **Data Preview** tab), you'll get a live preview of data coming in if all the following are true:
+When you're connecting to an input source, for example: event hub, and selecting its tile in the diagram view (the **Data Preview** tab), you'll get a live preview of data coming in if all the following are true:
 
 - Data is being pushed.
 - The input is configured correctly.
@@ -430,9 +430,9 @@ You can configure these options:
 
 :::image type="content" source="./media/no-code-stream-processing/start-job.png" alt-text="Screenshot that shows the dialog for reviewing the Stream Analytics job configuration and starting the job." lightbox="./media/no-code-stream-processing/start-job.png" :::
 
-### Stream Analytics jobs list in Azure Event Hubs portal
+### Stream Analytics job list in Azure Event Hubs portal
 
-To see a list of all Stream Analytics jobs that you created by using the no-code drag-and-drop experience in Azure Event Hubs portal, select **Process data** > **Stream Analytics jobs**.
+To see a list of all Stream Analytics jobs that you created by using the no-code drag-and-drop experience in **Azure Event Hubs portal**, select **Process data** > **Stream Analytics jobs**.
 
 :::image type="content" source="./media/no-code-stream-processing/jobs-list.png" alt-text="Screenshot that shows the Stream Analytics job list where you review job status." lightbox="./media/no-code-stream-processing/jobs-list.png" :::
 
