@@ -1,54 +1,62 @@
 ---
-title: ATAN in Azure Cosmos DB query language
-description: Learn about how the ATAN (arctangent) SQL system function in Azure Cosmos DB returns the angle, in radians, whose tangent is the specified numeric expression
-author: ginamr
+title: ATAN
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the trigonometric arctangent of the specified angle.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# ATAN (Azure Cosmos DB)
+
+# ATAN (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the angle, in radians, whose tangent is the specified numeric expression. This value is also called arctangent.  
-  
+Returns the trigonometric arctangent of the specified numeric value. The arcsine is the angle, in radians, whose tangent is the specified numeric expression.
+
 ## Syntax
-  
+
 ```sql
 ATAN(<numeric_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. | 
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
+
+Returns a numeric expression.  
+
 ## Examples
-  
-  The following example returns the `ATAN` of the specified value.  
-  
+
+The following example calculates the arctangent of the specified angle using the function.
+
 ```sql
-SELECT ATAN(-45.01) AS atan  
-```  
-  
- Here's the result set.  
-  
+SELECT VALUE {
+  arctangent: ATAN(-45.01)
+}
+``` 
+
 ```json
-[{"atan": -1.5485826962062663}]  
+[
+  {
+    "arctangent": -1.5485826962062663
+  }
+]
 ```  
-  
+
 ## Remarks
 
-This system function won't utilize the index.
+- This system function doesn't use the index.
 
 ## Next steps
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`TAN`](tan.md)

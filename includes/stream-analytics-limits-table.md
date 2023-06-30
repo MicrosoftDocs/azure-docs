@@ -9,4 +9,3 @@
 | Maximum number of jobs per region |1,500 |Each subscription can have up to 1,500 jobs per geographical region. |
 | Reference data blob MB | 5 GB | Up to 5 GB when using 1 or more SUs. |
 | Maximum number of characters in a query | 512000 | There's a hard limit of 512k characters in an Azure Stream Analytics job query.|
-
