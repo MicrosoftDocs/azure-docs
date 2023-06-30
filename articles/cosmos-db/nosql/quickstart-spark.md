@@ -332,12 +332,7 @@ For more information related to schema inference, see the full [schema inference
             "tag_id": "arrays",
             "tags": "tag1,tag2,tag3"
         }
-    ],
-    "_rid": "YIxyALj1qc4DAAAAAAAAAA==",
-    "_self": "dbs/YIxyAA==/colls/YIxyALj1qc4=/docs/YIxyALj1qc4DAAAAAAAAAA==/",
-    "_etag": "\"c70058f2-0000-0100-0000-649e98400000\"",
-    "_attachments": "attachments/",
-    "_ts": 1688115264
+    ]
 }
 ```
 
