@@ -14,7 +14,7 @@ This article provides answers to frequently asked questions about Azure Large In
 
 ## In which regions is this service available?
 
-ALI on Epic is available in the following regions:
+ALI for Epic is available in the following regions:
 
 * East US
 * US West2
