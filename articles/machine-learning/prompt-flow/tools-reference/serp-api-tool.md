@@ -53,6 +53,7 @@ The **serp api** tool supports following parameters:
 
 
 ## Outputs
+
 The json representation from serpapi query.
 
 | Engine   | Return Type | Output                                                |

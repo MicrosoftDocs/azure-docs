@@ -33,7 +33,7 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 1. Learn [how to build and test a flow in the prompt flow](get-started-prompt-flow.md).
 
-1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](../concept-endpoints-online?view=azureml-api-2#managed-online-endpoints).
+1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](../concept-endpoints-online.md#managed-online-endpoints).
 1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
 
 
@@ -68,7 +68,7 @@ The prompt flow supports you to deploy endpoints from a flow, or a bulk test run
 
 ### Endpoint
 
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard.png" alt-text="Screenshot of the deploy wizard on the endpoint page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard.png" alt-text="Screenshot of the deploy wizard on the endpoint page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard.png":::
 
 This step allows you to configure the basic settings of an endpoint.
 
@@ -78,13 +78,13 @@ You can also add description and tags for you to better identify the endpoint.
 
 #### Authentication type
 
-The authentication method for the endpoint. Key-based authentication provides a primary and secondary key that doesn't expire. Azure Machine Learning token-based authentication provides a token that periodically refreshes automatically. For more information on authenticating, see [Authenticate to an online endpoint](../how-to-authenticate-online-endpoint.md?view=azureml-api-2&tabs=azure-cli).
+The authentication method for the endpoint. Key-based authentication provides a primary and secondary key that doesn't expire. Azure Machine Learning token-based authentication provides a token that periodically refreshes automatically. For more information on authenticating, see [Authenticate to an online endpoint](../how-to-authenticate-online-endpoint.md).
 
 #### Identity type
 
 The endpoint needs to access Azure resources such as the Azure Container Registry or your workspace connections for inferencing. You can allow the endpoint permission to access Azure resources via giving permission to its managed identity.
 
-System-assigned identity will be autocreated after your endpoint is created, while user-assigned identity is created by user. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md?view=azureml-api-2)
+System-assigned identity will be autocreated after your endpoint is created, while user-assigned identity is created by user. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 Select the identity you want to use, and you'll notice a warning message to remind you to grant correct permissions to the identity after the endpoint is created.
 
@@ -105,9 +105,9 @@ In this step, you can view all connections within your flow, and change connecti
 In this step, you can select the virtual machine size and instance count for your deployment.
 
 > [!NOTE]
-> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it’s better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](https://learn.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list?view=azureml-api-2).
+> For **Virtual machine**, to ensure that your endpoint can serve smoothly, it’s better to select a virtual machine SKU with more than 8GB of memory.  For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 >
-> For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md?view=azureml-api-2#azure-machine-learning-managed-online-endpoints)
+> For **Instance count**, Base the value on the workload you expect. For high availability, we recommend that you set the value to at least 3. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoints quotas](../how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
 
 Once you configured and reviewed all the steps above, you can select **Create** to finish the creation.
 
@@ -214,7 +214,7 @@ You can view various metrics (request numbers, request latency, network bytes, C
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/view-metrics.png" alt-text="Screenshot of the endpoint detail page with view metrics highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/view-metrics.png":::
 
-For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md?view=azureml-api-2#metrics).
+For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md#metrics).
 
 ## Clean up resources
 
@@ -227,4 +227,4 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 ## Next Steps
 
 - [Iterate and optimize your flow by tuning prompts using variants](how-to-tune-prompts-using-variants.md)
-- [View costs for an Azure Machine Learning managed online endpoint](../how-to-view-online-endpoints-costs.md?view=azureml-api-2)
+- [View costs for an Azure Machine Learning managed online endpoint](../how-to-view-online-endpoints-costs.md)

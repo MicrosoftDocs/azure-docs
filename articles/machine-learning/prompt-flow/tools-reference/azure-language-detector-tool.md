@@ -41,11 +41,6 @@ The following is an example output returned by the tool:
 
 input_text = "Is this a leap year?"
 
-
-<details>
-  <summary>Output</summary>
-
 ```
 en
 ```
-</details>

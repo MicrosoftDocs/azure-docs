@@ -57,7 +57,7 @@ The following are available input parameters:
 
 ## Outputs
 
-The following is an example JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by our EmbeddingStore SDK. 
+The following is an example JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by our EmbeddingStore SDK.
 - **Azure Cognitive Search:**
 
   For the Azure Cognitive Search, the following fields are populated:
@@ -68,9 +68,7 @@ The following is an example JSON format response returned by the tool, which inc
   | score | float |  computed by the BM25 similarity algorithm |
   | original_entity | dict | the original response json from search REST API|
 
-  <details>
-    <summary>Output</summary>
-    
+
   ```json
   [
     {
@@ -88,4 +86,3 @@ The following is an example JSON format response returned by the tool, which inc
     }
   ]
   ```
-  </details>

@@ -75,7 +75,7 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
         > - To build your custom environment, please use an image from public docker hub. We do not support custom environments built with images from ACR at this time.
 
     1. To use an existing custom application as a runtime, choose the option "existing".
-        This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#Create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-runtime).
+        This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-runtime).
 
        :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of add compute instance runtime with custom application dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
 

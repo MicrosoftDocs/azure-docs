@@ -43,10 +43,6 @@ For more information, please refer to [Azure Content Safety](https://aka.ms/acs-
 
 The following is an example JSON format response returned by the tool:
 
-```
-<details>
-  <summary>Output</summary>
-```
   
 ```json
 {
@@ -59,8 +55,6 @@ The following is an example JSON format response returned by the tool:
     "suggested_action": "Accept"
   }
 ```
-
-`</details>`
 
 The `action_by_category` field gives you a binary value for each category: *Accept* or *Reject*. This value shows if the text meets the sensitivity level that you set in the request parameters for that category.
 

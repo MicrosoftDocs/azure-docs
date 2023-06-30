@@ -44,17 +44,10 @@ For more information, please refer to [Translator 3.0: Translate](../../../cogni
 
 The following is an example output returned by the tool:
 
-```
 input_text = "Is this a leap year?"
 source_language = "en"
 target_language = "hi"
-```
 
 ```
-<details>
-  <summary>Output</summary>
-
 क्या यह एक छलांग वर्ष है?
-
-</details>
 ```

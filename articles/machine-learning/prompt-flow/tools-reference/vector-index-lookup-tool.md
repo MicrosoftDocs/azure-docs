@@ -52,11 +52,6 @@ The following is an example for JSON format response returned by the tool, which
 | metadata | dict | Customized key-value pairs provided by user when creating the index |
 | original_entity | dict | Depends on index type defined in Vector Index. The original response json from search REST API|
 
-```
-
-<details>
-  <summary>Output</summary>
-```
   
 ```json
 [
@@ -93,5 +88,3 @@ The following is an example for JSON format response returned by the tool, which
 ]
 
 ```
-
-`</details>`

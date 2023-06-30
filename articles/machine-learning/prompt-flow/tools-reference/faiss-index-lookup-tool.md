@@ -52,9 +52,7 @@ The following is an example for JSON format response returned by the tool, which
 | score | float |  Distance between the entity and the query vector |
 | metadata | dict | Customized key-value pairs provided by user when creating the index |
 
-<details>
-  <summary>Output</summary>
-  
+
 ```json
 [
   {
@@ -90,4 +88,3 @@ The following is an example for JSON format response returned by the tool, which
 ]
 
 ```
-</details>
