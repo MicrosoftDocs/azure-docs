@@ -281,16 +281,16 @@ When this property is set to `true` (by default), it enables the bulk write mode
 
 Bulk mode is enabled by default, to disable the `connect.cosmos.sink.bulk.enabled` property, you need to set it to `false` in the configuration for the Cosmos DB sink connector. Here's an example configuration property file:
 
-```properties
-name=my-cosmosdb-connector
-connector.class=io.confluent.connect.azure.cosmosdb.CosmosDBSinkConnector
-tasks.max=1
-topics=my-topic
-connect.cosmos.endpoint=https://<cosmosdb-account>.documents.azure.com:443/
-connect.cosmos.master.key=<cosmosdb-master-key>
-connect.cosmos.database=my-database
-connect.cosmos.collection=my-collection
-connect.cosmos.sink.bulk.enabled=false
+```json
+"name": "my-cosmosdb-connector",
+"connector.class": "io.confluent.connect.azure.cosmosdb.CosmosDBSinkConnector",
+"tasks.max": 1,
+"topics": "my-topic"
+"connect.cosmos.endpoint": "https://<cosmosdb-account>.documents.azure.com:443/"
+"connect.cosmos.master.key": "<cosmosdb-master-key>"
+"connect.cosmos.database": "my-database"
+"connect.cosmos.collection": "my-collection"
+"connect.cosmos.sink.bulk.enabled": false
 ```
 
 By enabling the `connect.cosmos.sink.bulk.enabled` property, you can leverage the bulk write functionality in Kafka Connect for Azure Cosmos DB to achieve improved write performance when replicating data from Kafka topics to Azure Cosmos DB.
