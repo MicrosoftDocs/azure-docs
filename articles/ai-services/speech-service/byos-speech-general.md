@@ -31,7 +31,7 @@ This article describes how to create and maintain BYOS-enabled Speech resource a
 
 ## BYOS-enabled Speech resource. Basic rules
 
-Please consider the following rules when planning BYOS-enabled Speech resource configuration:
+Consider the following rules when planning BYOS-enabled Speech resource configuration:
 
 1. Speech resource can be BYOS-enabled only during creation. Existing Speech resource can't be converted to BYOS-enabled. BYOS-enabled Speech resource can't be converted to the “conventional” (non-BYOS) one.
 1. Storage account association with the Speech resource is declared during the Speech resource creation. It can't be changed later. That is, you can't change what Storage account is associated with the existing BYOS-enabled Speech resource. To use another Storage account, you have to create another BYOS-enabled Speech resource.
@@ -203,7 +203,7 @@ To check BYOS configuration of a Speech resource with Azure portal, you need to 
 1.  Navigate to the Speech resource you want to check.
 1.  Select *Storage* menu in the *Resource Management* group.
 1.  Check that:
-    1. *Attached storage* field contains the Azure resource Id of the BYOS-associated Storage account.
+    1. *Attached storage* field contains the Azure resource ID of the BYOS-associated Storage account.
     1. *Identity type* has *System Assigned* selected.
 
 If *Storage* menu item is missing in the *Resource Management* group, the selected Speech resource isn't BYOS-enabled.
@@ -215,7 +215,7 @@ Use the [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices
 ```azurepowershell
 Get-AzCognitiveServicesAccount -ResourceGroupName "myResourceGroup" -name "myBYOSSpeechResource"
 ```
-In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
+In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource ID of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -224,11 +224,11 @@ Use the [az cognitiveservices account show](/cli/azure/cognitiveservices/account
 az cognitiveservices account show -g "myResourceGroup" -n "myBYOSSpeechResource"
 ```
 
-In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
+In the command output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource ID of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
 
 # [REST](#tab/rest)
 
-Use the [Accounts - Get](/rest/api/cognitiveservices/accountmanagement/accounts/get) request. In the request output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource Id of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
+Use the [Accounts - Get](/rest/api/cognitiveservices/accountmanagement/accounts/get) request. In the request output, look for `userOwnedStorage` parameter group. If the Speech resource is BYOS-enabled, the group has Azure resource ID of the associated Storage account. If the `userOwnedStorage` group is empty or missing, the selected Speech resource isn't BYOS-enabled.
 
 ***
 
@@ -277,7 +277,7 @@ For example, you may allow traffic from selected public IP addresses and Azure V
 > [!NOTE] 
 > Using [private endpoints for Speech](speech-services-private-link.md) isn't required to secure the Storage account. Private endpoints for Speech secure the channels for Speech API requests, and can be use as an extra component in your solution.
 
-**Restrict access to the storage account**
+**Restrict access to the Storage account**
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Storage account.
@@ -304,6 +304,42 @@ Having restricted access to the Storage account, you need to grant networking ac
     > [!NOTE]
     > It may take up to 5 min for the network changes to propagate.
 
+## Configure BYOS-associated Storage account for use with Speech Studio
+
+Many [Speech Studio](https://speech.microsoft.com/) operations like dataset upload, or custom model training and testing don't require any special configuration in the case of BYOS-enabled Speech resource.
+
+However if you would like to perform actions, like View data of a dataset, in other words read data stored withing BYOS-associated Storage account through Speech Studio Web interface, you need to configure these settings at your BYOS-associated Storage account.
+
+However if you need to read data stored withing BYOS-associated Storage account through Speech Studio Web interface, you need to configure additional settings of your BYOS-associated Storage account. For example, it's required to view contents of a dataset.
+
+### Configure Cross-Origin Resource Sharing (CORS)
+
+Speech Studio needs permission to make requests to the Blob storage of the BYOS-associated Storage account. To grant such permission, you use [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services). Follow these steps.
+
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Storage account.
+1. In the *Settings* group in the left pane, select *Resource sharing (CORS)*.
+1. Ensure, that *Blob storage* tab is selected. 
+1. Configure the following record:
+    - *Allowed origins*: `https://speech.microsoft.com`
+    - *Allowed methods*: `GET`, `OPTIONS`
+    - *Allowed headers*: `*`
+    - *Exposed headers*: `*`
+    - *Max age*: `1000`
+1. Select *Save*.
+
+> [!WARNING]
+> *Allowed origins* field should contain URL **without** trailing slash. That is it should be `https://speech.microsoft.com`, and not `https://speech.microsoft.com/`. Adding trailing slash will result in Speech Studio not showing the details of datasets and model tests.
+
+### Configure Azure Storage firewall
+
+You need to allow access for the machine, where you run the browser accessing Speech Studio. If your Storage account firewall settings allow public access from all networks, you may skip this subsection. Otherwise, follow these steps.
+
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Storage account.
+1. In the *Security + networking* group in the left pane, select *Networking*.
+1. In the *Firewall* section, enter either IP address of the machine where you run the web browser or IP subnet, to which the IP address of the machine belongs.
+1. Select *Save*.
 
 ## Next steps
 
