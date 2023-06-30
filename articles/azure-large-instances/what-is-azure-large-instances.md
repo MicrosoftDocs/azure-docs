@@ -120,12 +120,12 @@ Storage and compute units assigned to different tenants cannot see each other or
 
 ## Operating system
 
-During the provisioning of the ALI, you can select the OS you want to install on the machines.
+The Linux OS version for ALI is Red Hat Enterprise Linux (RHEL) 8.4.  
 
 >[!Note}
 > Remember, ALI is a BYOL model.
 
-The available Linux OS version is Red Hat Enterprise Linux (RHEL)8.4.  
+
 
 Microsoft loads base image with RHEL 8.4, but customers can choose to upgrade to newer versions in collaboration with Microsoft team.
 
@@ -146,10 +146,7 @@ The storage infrastructure offers:
 * Scales up to 4 PB of raw storage.
 * Up to 11 million IOPS.
 
-These Data access protocols are supported:
-
-* iSCSI
-* NVMe over FC
+Fiber Channel Protocol (FCP) is supported.
 
 ## Networking
 
