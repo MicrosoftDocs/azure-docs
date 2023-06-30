@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to submit bulk test and use built-in evaluation methods in prompt flow to evaluate how well your flow performs with a large dataset with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: prompt-flow
+ms.subservice: core
 ms.topic: tutorial
 author: ZikeiWong
 ms.author: ziqiwang
@@ -174,3 +174,6 @@ System message, sometimes referred to as a metaprompt or [system prompt](../../c
 
 In this document, you learned how to run a bulk test and use a built-in evaluation method to measure the quality of your flow output. You also learned how to view the evaluation result and metrics, and how to start a new round of evaluation with a different method or subset of variants. We hope this document helps you improve your flow performance and achieve your goals with prompt flow.
 
+- [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
+- [Tune prompts using variants](how-to-tune-prompts-using-variants.md)
+- [Deploy a flow](how-to-deploy-for-real-time-inference.md)

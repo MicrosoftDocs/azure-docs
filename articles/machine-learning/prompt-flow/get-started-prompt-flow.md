@@ -3,7 +3,7 @@ title: Get started in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Prompt flow in Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: core
 ms.subservice: prompt-flow
 ms.topic: tutorial
 author: ishinzhang
@@ -64,7 +64,7 @@ We support 2 types of runtimes, for this tutorial use **Compute Instance**. Then
 
 :::image type="content" source="./media/get-started-prompt-flow/create-runtime.png" alt-text="Screenshot of add compute instance runtime tab. " lightbox = "./media/get-started-prompt-flow/create-runtime.png":::
 
-If you want to learn more about runtime type, how to customize conda packages in runtime, limitations, etc., see [how to create and manage runtime](./how-to-guides/how-to-create-manage-runtime.md).
+If you want to learn more about runtime type, how to customize conda packages in runtime, limitations, etc., see [how to create and manage runtime](how-to-create-manage-runtime.md).
 
 ## Create and develop your prompt flow
 
@@ -196,7 +196,7 @@ Then select **Submit** to submit a bulk test and the selected evaluation.
 
 When completed, select the link, go to bulk test detail page.
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media//get-started-prompt-flow/get-started-prompt-flow/bulk-test-status.png":::
+:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media/get-started-prompt-flow/get-started-prompt-flow/bulk-test-status.png":::
 
 Select **Refresh** until the evaluation run is completed.
 
@@ -266,12 +266,12 @@ If you don't plan to use any of the resources that you created, delete them so y
 1. From the list, select the resource group that you created.
 1. Select **Delete resource group**.
 
-## Next step
+## Next steps
 
 Now that you have an idea of what's involved in flow developing, testing, evaluating and deploying, learn more about the process in these tutorials:
 
-* [Create and manage runtimes](./how-to-guides/how-to-create-manage-runtime.md)
-* [Develop a standard flow](./how-to-guides/how-to-develop-a-standard-flow.md)
-* [Submit bulk test and evaluate a flow](./how-to-guides/how-to-develop-a-standard-flow.md)
-* [Tune prompts using variants](./how-to-guides/how-to-tune-prompts-using-variants.md)
-* [Deploy a flow](./how-to-guides/how-to-deploy-for-real-time-inference.md)
+- [Create and manage runtimes](how-to-create-manage-runtime.md)
+- [Develop a standard flow](how-to-develop-a-standard-flow.md)
+- [Submit bulk test and evaluate a flow](how-to-develop-a-standard-flow.md)
+- [Tune prompts using variants](how-to-tune-prompts-using-variants.md)
+- [Deploy a flow](how-to-deploy-for-real-time-inference.md)

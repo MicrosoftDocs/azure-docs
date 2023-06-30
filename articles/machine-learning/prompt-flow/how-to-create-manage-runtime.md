@@ -3,7 +3,7 @@ title: Create and manage runtimes in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to create and manage runtimes in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: core
 ms.subservice: prompt-flow
 ms.topic: tutorial
 author: cloga
@@ -22,7 +22,7 @@ Prompt flow's runtime provides the computing resources required for the applicat
 
 ## Runtime type
 
-You can choose between two types of runtimes for Prompt flow: [managed online endpoint/deployment](https://learn.microsoft.com/en-us/azure/machine-learning/concept-endpoints-online) and [compute instance (CI)](https://learn.microsoft.com/en-us/azure/machine-learning/concept-compute-instance). Here are some differences between them to help you decide which one suits your needs.
+You can choose between two types of runtimes for Prompt flow: [managed online endpoint/deployment](../concept-endpoints-online.md) and [compute instance (CI)](../concept-compute-instance.md). Here are some differences between them to help you decide which one suits your needs.
 
 | Runtime type                                 | Managed online deployment runtime | Compute instance runtime |
 |----------------------------------------------|-----------------------------------|--------------------------|
@@ -277,3 +277,5 @@ Delete the failed managed endpoint runtime and create a new one to test.
 If you encounter with this issue, please check the deployment status and make sure it's build on top of runtime base image. 
 
 ## Next steps
+
+- [Develop a standard flow](how-to-develop-a-standard-flow.md)

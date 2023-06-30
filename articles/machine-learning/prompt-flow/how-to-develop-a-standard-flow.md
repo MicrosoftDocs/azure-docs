@@ -3,7 +3,7 @@ title: Develop a standard flow in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: learn how to develop the standard flow in the authoring page in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: core
 ms.subservice: prompt-flow
 ms.topic: tutorial
 author: jiaochenlu
@@ -220,3 +220,7 @@ First define flow output schema, then select in drop-down the node whose output 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
 
 # Next steps
+
+- [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
+- [Tune prompts using variants](how-to-tune-prompts-using-variants.md)
+- [Deploy a flow](how-to-deploy-for-real-time-inference.md)

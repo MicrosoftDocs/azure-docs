@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to deploy a flow as a managed online endpoint for real-time inference with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: prompt-flow
+ms.subservice: core
 ms.topic: tutorial
 author: likebupt
 ms.author: keli19

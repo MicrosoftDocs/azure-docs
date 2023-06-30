@@ -3,7 +3,7 @@ title: Develop a chat flow in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to develop a chat flow in Prompt flow that can easily create a chatbot that handles chat input and output with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: core
 ms.subservice: prompt-flow
 ms.topic: tutorial
 author: Zhong-J
@@ -120,3 +120,7 @@ Bulk test enables you to test your chat flow using a larger dataset, ensuring yo
 To create a bulk test for your chat flow, you should prepare a dataset containing multiple data samples. Ensure that each data sample includes all the fields defined in the flow input, such as chat_input, chat_history, etc.   This dataset should be in a structured format, such as a CSV, TSV or JSON file. JSONL format is recommended for test data with chat_history. For more information about how to create bulk test, see [Submit Bulk Test and Evaluate a Flow](./how-to-bulk-test-evaluate-flow.md).
 
 ## Next steps
+
+- [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
+- [Tune prompts using variants](how-to-tune-prompts-using-variants.md)
+- [Deploy a flow](how-to-deploy-for-real-time-inference.md)
