@@ -342,7 +342,7 @@ These models can only be used with the Chat Completion API.
 | `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
-<sup>2</sup> Version `0301` of gpt-4 and gpt-4-32k will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
+<sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
 
 ### Dall-E Models
 
