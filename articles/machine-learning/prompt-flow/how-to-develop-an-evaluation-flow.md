@@ -16,7 +16,7 @@ ms.date: 06/30/2023
 
 Evaluation flows are special types of flows that assess how well the outputs of a flow align with specific criteria and goals.
 
-In Prompt flow, you can customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a bulk test as an evaluation method. This document you will learn:
+In Prompt flow, you can customize or create your own evaluation flow tailored to your tasks and objectives, and then use in a bulk test as an evaluation method. This document you'll learn:
 
 - How to develop an evaluation method
   - Customize built-in evaluation Method
@@ -48,7 +48,7 @@ If you want to customize this evaluation method, you can select the **"Clone"** 
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/customize-built-in.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/customize-built-in.png":::
 
-By the name of the flow, you can see an **"evaluation"** tag, indicating you are building an evaluation flow. Similar to cloning a sample flow from gallery, you will be able to view and edit the flow and the codes and prompts of the evaluation method.
+By the name of the flow, you can see an **"evaluation"** tag, indicating you're building an evaluation flow. Similar to cloning a sample flow from gallery, you'll be able to view and edit the flow and the codes and prompts of the evaluation method.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-tag.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-tag.png":::
 
@@ -58,7 +58,7 @@ Alternatively, you can customize a built-in evaluation method used in a bulk tes
 
 ### Create New Evaluation Flow from Scratch
 
-To create your evaluation method from scratch, select the  **"Create"** button on the homepage and select  **"Evaluation"** as the flow type. You will enter the flow authoring page.
+To create your evaluation method from scratch, select the  **"Create"** button on the homepage and select  **"Evaluation"** as the flow type. You'll enter the flow authoring page.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-by-type.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-by-type.png":::
 
@@ -69,10 +69,10 @@ In Prompt flow, a flow is a sequence of nodes that process an input and generate
 Some special features of evaluation methods are:
 
 1. They need to handle outputs from flows that contain multiple variants.
-2. They usually run after a flow being tested, so there is a field mapping process when submitting an evaluation.
+2. They usually run after a flow being tested, so there's a field mapping process when submitting an evaluation.
 3. They may have an aggregation node that calculates the overall performance of the flow being tested based on the individual scores.
 
-We will introduce how the inputs and outputs should be defined in developing evaluation methods.
+We'll introduce how the inputs and outputs should be defined in developing evaluation methods.
 
 ### Inputs
 
@@ -81,7 +81,7 @@ Different from a standard flow, evaluation methods run after a flow being tested
 To build an evaluation method that can be used in a bulk test, two additional inputs are required: line\_number and variant\_id(s).
 
 - **line\_number:**  the index of the sample in the test dataset
-- **variant\_id(s):** the variant id that indicates the source variant of the output
+- **variant\_id(s):** the variant ID that indicates the source variant of the output
 
 There are two types of evaluation methods based on how to process outputs from different variants:
 
@@ -94,7 +94,7 @@ There are two types of evaluation methods based on how to process outputs from d
 
 - The built-in evaluation methods in the gallery are mostly this type of evaluation methods, except "QnA Relevance Scores Pairwise Evaluation".
 
-- **Collection-based/Pair-wise evaluation method:**  This type of evaluation flow calculates metrics based on the outputs from different variants  **collectively.** "line\_number" and  **"variant\_ids"**  are the required flow inputs. This evaluation method receives a list of outputs of a flow from multiple variants. Therefore, the evaluation input "variant\_ids" is a **list of strings** indicating the source variants of the outputs. This type of evaluation method can process the outputs from multiple variant at a time, and calculate **relative metrics**, comparing to a baseline variant: variant\_0. This is useful when you want to know how other variants are performing compared to that of variant\_0 (baseline), allowing for the calculation of relative metrics.
+- **Collection-based/Pair-wise evaluation method:**  This type of evaluation flow calculates metrics based on the outputs from different variants  **collectively.** "line\_number" and  **"variant\_ids"**  are the required flow inputs. This evaluation method receives a list of outputs of a flow from multiple variants. Therefore, the evaluation input "variant\_ids" is a **list of strings** indicating the source variants of the outputs. This type of evaluation method can process the outputs from multiple variants at a time, and calculate **relative metrics**, comparing to a baseline variant: variant\_0. This is useful when you want to know how other variants are performing compared to that of variant\_0 (baseline), allowing for the calculation of relative metrics.
 
 | Field name | Type | Description | Examples |
 | --- | --- | --- | --- |
@@ -105,18 +105,18 @@ See "QnA Relevance Scores Pairwise Evaluation" flow in "Create from gallery" for
 
 #### Input Mapping
 
-In this context, the inputs are the subjects of evaluation, which are the outputs of a flow. Other inputs may also be required, such as ground truth, which may come from the test dataset you provided. Therefore, to run an evaluation, you need to indicate the sources of these required input test data. To do so, when submitting an evaluation, you will see an  **"input mapping"**  section.
+In this context, the inputs are the subjects of evaluation, which are the outputs of a flow. Other inputs may also be required, such as ground truth, which may come from the test dataset you provided. Therefore, to run an evaluation, you need to indicate the sources of these required input test data. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
 
 - If the data source is from your test dataset, the source is indicated as "data.[ColumnName]"
 - If the data source is from your flow output, the source is indicated as "output.[OutputName]"
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png":::
 
-To demonstrate the relationship of how the inputs and outputs are passed between flow and evaluation methods, here is a diagram showing the schema:
+To demonstrate the relationship of how the inputs and outputs are passed between flow and evaluation methods, here's a diagram showing the schema:
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-relationship.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-relationship.png":::
 
-Here is a diagram showing the example how data are passed between test dataset and flow outputs:
+Here's a diagram showing the example how data are passed between test dataset and flow outputs:
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-sample.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-sample.png":::
 
@@ -126,7 +126,7 @@ To remind what inputs are needed to calculate metrics, you can add a description
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-description.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-description.png":::
 
-To add descriptions for each input, select **Show description** in the input section when developing your evaluation method. And you can click "Hide description" to hide the description.
+To add descriptions for each input, select **Show description** in the input section when developing your evaluation method. And you can select "Hide description" to hide the description.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/add-description.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/add-description.png":::
 
@@ -136,7 +136,7 @@ Then this description will be displayed to when using this evaluation method in 
 
 The outputs of an evaluation are the results that measure the performance of the flow being tested. The output usually contains metrics such as scores, and may also include text for reasoning and suggestions.
 
-#### Instance-level Metrics —— Outputs
+#### Instance-level Metrics—Outputs
 
 In Prompt flow, the flow processes each sample dataset one at a time and generates an output record. Similarly, in most evaluation cases, there will be a metric for each flow output, allowing you to check how the flow performs on each individual data input.
 
@@ -150,13 +150,13 @@ When this evaluation method is used in a bulk test, the instance-level score can
 
 #### Metrics Logging and Aggregation Node
 
-In addition, it is also important to provide an overall score for the run. You can check the  **"set as aggregation"** of a Python node to turn it into  into a "reduce" node, allowing the node to take in the inputs **as a list** and process them in batch.
+In addition, it's also important to provide an overall score for the run. You can check the  **"set as aggregation"** of a Python node to turn it into a "reduce" node, allowing the node to take in the inputs **as a list** and process them in batch.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/set-as-aggregation.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/set-as-aggregation.png":::
 
 In this way, you can calculate and process all the scores of each flow output and compute an overall result for each variant.
 
-You can log metrics in an aggregation node using **Prompt flow_sdk.log_metrics()**. The metrics should be numerical (float/int). String type metrics logging is not supported.
+You can log metrics in an aggregation node using **Prompt flow_sdk.log_metrics()**. The metrics should be numerical (float/int). String type metrics logging isn't supported.
 
 See the following example for using the log_metric API:
 
