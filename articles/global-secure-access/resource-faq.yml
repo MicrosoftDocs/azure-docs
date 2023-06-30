@@ -7,11 +7,11 @@ metadata:
   manager: amycolannino
   ms.service: network-access
   ms.topic: faq
-  ms.date: 06/23/2023
+  ms.date: 06/30/2023
   ms.custom: references_regions
-title: Global Secure Access Frequently Asked Questions (FAQ).
+title: Global Secure Access Frequently Asked Question
 summary: |
-  Frequently asked questions related to Global Secure Access.
+  Frequently asked questions related to Microsoft Entra Internet Access and Microsoft Entra Private Access, which are part of Global Secure Access.
 
 sections:
   - name: Common platform questions
@@ -19,11 +19,11 @@ sections:
       - question: | 
           Does Global Secure Access allow B2B logins?
         answer: |
-          At this time, B2B logins are not supported.
+          At this time, B2B logins are only supported when the user is accessing the service from a device that is Azure AD joined to the tenant that matches their sign-in credentials. For example, a Contoso guest user has B2B credentials from their home tenant. To access Global Secure Access with a Contoso B2B login, the device must be Azure AD joined or hybrid Azure AD joined to Contoso.
       - question: | 
           Does Global Secure Access support IPv6?
         answer: |
-          At this time, IPv4 is preferred over IPv6. If you encounter issues, disable IPv6. For information, see [Use registry key to configure IPv6](https://learn.microsoft.com/troubleshoot/windows-server/networking/configure-ipv6-in-windows#use-registry-key-to-configure-ipv6)
+          At this time, IPv4 is preferred over IPv6. If you encounter issues, disable IPv6. For more information, see the [Disable IPv6 section of the [Install Windows client](how-to-install-windows-client.md#disable-ipv6-and-secure-dns) article.
   - name: Private Access
     questions:
         - question: |

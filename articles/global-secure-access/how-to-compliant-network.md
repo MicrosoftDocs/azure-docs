@@ -34,6 +34,9 @@ The compliant network is different than [IPv4, IPv6, or geographic locations](/a
 * A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
 * You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to manage the Microsoft 365 profile](how-to-manage-microsoft-365-profile.md).
 
+### Known limitations
+
+- Continuous access evaluation is not currently supported for compliant network check.
 ## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow the compliant network check, an administrator must take the following steps.

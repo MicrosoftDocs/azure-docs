@@ -23,7 +23,6 @@ A working Microsoft Entra ID tenant with the appropriate license is required. If
 
 ### Known limitations
 
-- Global Secure Access is currently available in North America and Europe.
 - At this time, only IPv4 addresses are supported.
 
 ## Microsoft Entra Internet Access
@@ -37,12 +36,15 @@ To set up Microsoft Entra Internet Access, complete the following steps:
 1. [Enable universal tenant restrictions](how-to-universal-tenant-restrictions.md).
 1. [Enable enhanced Global Secure Access signaling](how-to-source-ip-restoration.md#enable-global-secure-access-signaling-for-conditional-access).
 
+<!---  After completing these four steps, users with the Global Secure Access Client installed on their Windows device can access Microsoft 365 resources. Their IP address appears in the traffic logs for Microsoft Entra Internet Access. --->
+
 Optionally: 
 
 - [Create a remote network](how-to-manage-remote-networks.md).
 - [Target the Microsoft 365 traffic profile with Conditional Access policy](how-to-target-resource-microsoft-365-profile.md).
 - [Review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md).
 
+<!--- After completing these option steps, users can connect to Microsoft 365 services without the Global Secure Access client, if they're connecting through the remote network you created and if they meet the conditions you added to the Conditional Access policy. --->
 ## Microsoft Entra Private Access
 
 Microsoft Entra Private Access provides a secure, zero-trust access solution for accessing internal resources without requiring a VPN. Configure Quick Access and enable the Private access traffic forwarding profile to specify the sites and apps you want routed through Microsoft Entra Private Access. At this time, the Global Secure Access Client must be installed on end-user devices to use Microsoft Entra Private Access.
@@ -54,6 +56,8 @@ To set up Quick Access for broader access to your network using Microsoft Entra 
 1. [Enable the Private Access traffic forwarding profile](how-to-manage-private-access-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
 
+
+<!--- After completing these four steps, users with the Global Secure Access  --->
 To create specific private apps for granular segmented access to private access resources using Microsoft Entra Private Access, complete the following steps:
 
 1. [Configure an App Proxy connector and connector group](how-to-configure-connectors.md).

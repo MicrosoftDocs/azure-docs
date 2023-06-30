@@ -18,6 +18,7 @@ With a cloud based network proxy between users and their resources, the IP addre
 
 Microsoft’s existing solutions such as Conditional Access and continuous access evaluation (CAE) enforcement for Microsoft 365 apps rely on source IP information. With the Global Secure Access preview and source IP restoration, organizations can continue using IP location-based Conditional Access policies, including CAE enforcement.
 
+<!--- CA isn't a service. EDR isn't supported. Add value props. Be precise on workloads that are supported.--->
 Source IP restoration allows services to see the real source IP address, these services include: [Conditional Access](/azure/active-directory/conditional-access/overview), [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
 
 ## Prerequisites
@@ -26,7 +27,10 @@ Source IP restoration allows services to see the real source IP address, these s
    * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
+ 
+### Known limitations
 
+- When source IP restoration is enabled you can only see the source IP. The IP address of the Global Secure Access service is not visible. If you want to see the Global Secure Access service IP address, disable source IP restoration.
 ## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration, an administrator must take the following steps.

@@ -34,21 +34,24 @@ items:
         href: how-to-manage-remote-networks.md
       - name: Assign a traffic forwarding profile to remote networks
         href: how-to-assign-traffic-profile-to-remote-network.md
-  - name: Conditional Access
+  - name: Access controls
     expanded: false
     items:
-      - name: About Universal Conditional Access through Global Secure Access 
-        href: concept-universal-conditional-access.md
-      - name: Private Access apps
-        href: how-to-target-resource-private-access-apps.md
-      - name: Microsoft 365 traffic profile
-        href: how-to-target-resource-microsoft-365-profile.md
-      - name: Source IP restoration
-        href: how-to-source-ip-restoration.md
+      - name: Universal Conditional Access
+        expanded: false
+        items:
+          - name: About Universal Conditional Access through Global Secure Access 
+            href: concept-universal-conditional-access.md
+          - name: Microsoft 365 traffic
+            href: how-to-target-resource-microsoft-365-profile.md
       - name: Compliant network check
         href: how-to-compliant-network.md
       - name: Enable universal tenant restrictions
         href: how-to-universal-tenant-restrictions.md
+      - name: Private Access apps
+        href: how-to-target-resource-private-access-apps.md
+      - name: Source IP restoration
+        href: how-to-source-ip-restoration.md
   - name: Traffic forwarding profiles
     expanded: false
     items:

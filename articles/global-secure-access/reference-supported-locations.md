@@ -13,6 +13,7 @@ ms.custom: references_regions
 # Global Secure Access (preview) supported locations
 
 During the preview, Global Secure Access (preview) is supported in select locations, with new locations added periodically.
+<!--- Points of presence.  If you're NOT in one of these locations, you can still use the service but the traffic will flow through a different location--->
 
 ## Microsoft Entra Internet Access
 
