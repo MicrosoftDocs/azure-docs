@@ -19,7 +19,7 @@ This article walks you through the process for using a Bicep file to deploy an A
 Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can update the service as a post-deployment task. To customize an existing service with the fewest steps, use [Azure CLI](search-manage-azure-cli.md) or [Azure PowerShell](search-manage-powershell.md). If you're evaluating preview features, use the [Management REST API](search-manage-rest.md).
 
 > [!TIP]
-> For an alternative Bicep template that deploys Cognitive Seach and Cosmos DB for NoSQL in tandem. The template creates an indexer, index, and data source. The indexer runs on a schedule that refreshes from Cosmos DB on a 5-minute interval. For more information, see [Bicep deployment of Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-deployment-template).
+> For an alternative Bicep template that deploys Cognitive Search with a pre-configured indexer to Cosmos DB for NoSQL, see [Bicep deployment of Azure Cognitive Search](https://github.com/Azure-Samples/azure-search-deployment-template). The template creates an indexer, index, and data source. The indexer runs on a schedule that refreshes from Cosmos DB on a 5-minute interval.
 
 ## Prerequisites
 

@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 # Tutorial: Use Python and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitie Search can extract information and create new content for full-text search or knowledge mining scenarios. 
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can extract information and create new content for full-text search or knowledge mining scenarios. 
 
 In this Python tutorial, you learn how to:
 
