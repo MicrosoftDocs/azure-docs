@@ -28,9 +28,9 @@ In practice however, this attack or exploit is not likely to occur or may not ev
 
 The real concern comes when or if any customer were to acquire tokens from Azure AD directly in client code. We strongly advise against this, but since customers are free to implement as they see fit, it is possible that some customers are doing this.
 
-To mitigate the concerns about any possibility of using the Azure AD access token to `list keys`, we have created a new built-in Azure role called `Azure AI Immersive Reader User` that does not have the permissions to `list keys`. This new role is not a shared role for the Azure AI services platform like `Azure AI services User` role is. This new role is specific to Immersive Reader and will only allow calls to Immersive Reader APIs.
+To mitigate the concerns about any possibility of using the Azure AD access token to `list keys`, we have created a new built-in Azure role called `Cognitive Services Immersive Reader User` that does not have the permissions to `list keys`. This new role is not a shared role for the Azure AI services platform like `Azure AI services User` role is. This new role is specific to Immersive Reader and will only allow calls to Immersive Reader APIs.
 
-We are advising that ALL customers migrate to using the new `Azure AI Immersive Reader User` role instead of the original `Azure AI services User` role. We have provided a script below that you can run on each of your resources to switch over the role assignment permissions.
+We are advising that ALL customers migrate to using the new `Cognitive Services Immersive Reader User` role instead of the original `Azure AI services User` role. We have provided a script below that you can run on each of your resources to switch over the role assignment permissions.
 
 This recommendation applies to ALL customers, to ensure that this vulnerability is patched for everyone, no matter what the implementation scenario or likelihood of attack.
 
@@ -90,7 +90,7 @@ You can rotate the subscription keys on the [Azure portal](https://portal.azure.
             throw "Error: Failed to find Azure AD application service principal"
         }
 
-        $newRoleName = "Azure AI Immersive Reader User"
+        $newRoleName = "Cognitive Services Immersive Reader User"
         $newRoleExists = az role assignment list --assignee $principalId --scope $resourceId --role $newRoleName --query "[].id" -o tsv
         if ($newRoleExists) {
             Write-Host "New role assignment for '$newRoleName' role already exists on resource"

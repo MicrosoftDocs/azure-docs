@@ -139,7 +139,7 @@ For more information, _see_ [Azure AD built-in roles](../../active-directory/rol
         }
 
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
-        $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Azure AI Immersive Reader User"
+        $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services Immersive Reader User"
         if (-not $accessResult) {
             throw "Error: Failed to grant service principal access"
         }
