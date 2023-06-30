@@ -37,7 +37,7 @@ In this article, we'll use **Web Classification** sample flow as example.
 
 1. Open the sample flow and remove the **prepare_examples** node as a start.
 
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/flow-graph.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/flow-graph.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/flow-graph.png" alt-text="Screenshot of the graph view of a Web Classification sample flow. " lightbox = "./media/how-to-tune-prompts-using-variants/flow-graph.png":::
 
 1. Use the following prompt as a baseline prompt in the **classify_with_llm** node.
 
@@ -64,9 +64,9 @@ To optimize this flow, there can be multiple ways, and following are two directi
 ### Create variants
 
 1. Select **Show variants** button on the top right of the LLM node. The existing LLM node is variant_0 and is the default variant.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/show-variants.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/show-variants.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/show-variants.png" alt-text="Screenshot of Web Classification highlighting the show variants button. " lightbox = "./media/how-to-tune-prompts-using-variants/show-variants.png":::
 1. Select the **Clone** button on variant_0 to generate variant_1, then you can configure parameters to different values, or update the prompt on variant_1.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/clone-variant.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/clone-variant.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/clone-variant.png" alt-text="Screenshot of Web Classification highlighting the clone button. " lightbox = "./media/how-to-tune-prompts-using-variants/clone-variant.png":::
 1. Repeat the step to create more variants.
 1. Select **Hide variants** to stop adding more variants. And all variants are folded. The default variant is shown for the node.
 
@@ -108,7 +108,7 @@ For **summarize_text_content** node, based on variant_0, you can create variant_
 
 Now, the flow looks as following, 2 variants for **summarize_text_content** node and 3 for **classify_with_llm** node.
 
-:::image type="content" source="./media/how-to-tune-prompts-using-variants/3-2-variants.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
+:::image type="content" source="./media/how-to-tune-prompts-using-variants/3-2-variants.png" alt-text="Screenshot of Web Classification highlighting the variants. " lightbox = "./media/how-to-tune-prompts-using-variants/3-2-variants.png":::
 
 ### Run all variants with a single row of data and check outputs
 
@@ -121,10 +121,10 @@ In this example, we configure variants for both **summarize_text_content** node 
 
 1. Select the **Run** button on the top right.
 1. Select an LLM node with variants. The other LLM nodes will use the default variant.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/run-select-variants.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/run-select-variants.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/run-select-variants.png" alt-text="Screenshot of Submit flow run where you can select an LLM node. " lightbox = "./media/how-to-tune-prompts-using-variants/run-select-variants.png":::
 1. Submit the flow run.
 1. After the flow run is completed, you can check the corresponding result for each variant.
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/run-variant-output.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/run-variant-output.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/run-variant-output.png" alt-text="Screenshot of Web Classification showing a completed run. " lightbox = "./media/how-to-tune-prompts-using-variants/run-variant-output.png":::
 1. Submit another flow run with the other LLM node with variants, and check the outputs.
 1. You can change another input data (for example, use a Wikipedia page URL) and repeat the steps above to test variants for different data.​​​​​​​
 
@@ -161,14 +161,14 @@ You can submit a bulk test, which allows you test the variants with a large amou
 
 1. After the bulk run and evaluation run complete, in the bulk run detail page, switch to **Metrics** tab, you can see the metrics of 3 variants for the **classify_with_llm** node. It validates the hypothesis that lower temperature and few-shot examples can improve classification accuracy.
 
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-metrics.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-metrics.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-metrics.png" alt-text="Screenshot of the bulk detail page on the metrics tab. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-metrics.png":::
 
     > [!NOTE]
     > You may fail to reproduce the same results as shown in the screenshots, it is because of the randomness of LLM output and the limited 30 records of data.
 
 1. To further investigate how different variants predict, you can go to **Outputs** tab, select an evaluation run, check prediction results for each row of data.
 
-    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png" alt-text="Screenshot of. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png":::
+    :::image type="content" source="./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png" alt-text="Screenshot of the bulk detail page on the outputs tab. " lightbox = "./media/how-to-tune-prompts-using-variants/bulk-test-outputs.png":::
 
 1. After you identify that which variant is the best, you can go back to the flow authoring page and set that variant as default variant of the node
 1. You can repeat the above steps to evaluate the variants of **summarize_text_content** node as well.
