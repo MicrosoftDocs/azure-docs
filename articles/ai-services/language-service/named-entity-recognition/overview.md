@@ -1,7 +1,7 @@
 ---
 title: What is the Named Entity Recognition (NER) feature in Azure AI Language?
 titleSuffix: Azure AI services
-description: An overview of the Named Entity Recognition feature in Azure Azure AI services, which helps you extract categories of entities in text.
+description: An overview of the Named Entity Recognition feature in Azure AI services, which helps you extract categories of entities in text.
 services: cognitive-services
 author: jboback
 manager: nitinme

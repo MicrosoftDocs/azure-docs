@@ -27,7 +27,7 @@ This procedure requires several tools that must be installed and run locally. Do
 * The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
     * **Azure AI Language** resource with F0 or standard pricing tiers only.
-    * **Azure Azure AI services** resource with the S0 pricing tier.
+    * **Azure AI services** resource with the S0 pricing tier.
 
 [!INCLUDE [Create a Azure AI Language resource](../includes/containers/create-text-analytics-resource.md)]
 
