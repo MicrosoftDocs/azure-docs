@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in a sample WPF desktop application 
 
-This guide uses a sample Windows Presentation Foundation (WPF) application to show you how to add authentication to a desktop application. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library for dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
+This guide uses a sample Windows Presentation Foundation (WPF) application to show you how to add authentication to a desktop application. The sample application enables users to sign in and sign out. The sample desktop application uses [Microsoft Authentication Library for dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) for .NET to handle authentication.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Since this app signs-in users, add delegated permissions:
 
 To get the WPF desktop app sample code, you can do either of the following tasks:
 
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip) or clone the sample desktop application from GitHub by running the following command:
 
     ```console
         git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
@@ -66,7 +66,7 @@ If you choose to download the *.zip* file, extract the sample app file to a fold
 
 1. Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
 
-1. In your code editor, open the *appsettings.json* file in the **1-Authentication** > **4-sign-in-device-code** folder.
+1. In your code editor, open the *appsettings.json* file in the **1-Authentication** > **5-sign-in-dotnet-wpf** folder.
 
 1. Replace `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
  
