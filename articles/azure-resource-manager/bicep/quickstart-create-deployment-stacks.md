@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
-ms.date: 06/12/2023
+ms.date: 06/30/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack.
@@ -14,7 +14,7 @@ This quickstart describes how to create a [deployment stack](deployment-stacks.m
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell [version xxx or later](/powershell/azure/install-az-ps) or Azure CLI [version xxx or later](/cli/azure/install-azure-cli).
+- Azure PowerShell [version 10.1.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.50.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
 ## Create a Bicep file
@@ -72,28 +72,28 @@ In this quickstart, you'll create the deployment stack at the resource group sco
 
 ```azurecli
 az group create \
-  --name demoRg \
-  --location centralus
+  --name 'demoRg' \
+  --location 'centralus'
 
 az stack group create \
   --name demoStack \
   --resource-group 'demoRg' \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
-  -Name demoRg `
-  -Location eastus
+  -Name "demoRg" `
+  -Location "eastus"
 
 New-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupName 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 ---
@@ -105,7 +105,9 @@ To list the deployed deployment stacks at the resource group level:
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --resource-group demoRg --name demoStack
+az stack group show \
+  --resource-group 'demoRg' \
+  --name 'demoStack'
 ```
 
 The output shows two managed resources - one storage account and one virtual network:
@@ -172,7 +174,9 @@ The output shows two managed resources - one storage account and one virtual net
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzResourceGroupDeploymentStack -ResourceGroupName demoRg -Name demoStack
+Get-AzResourceGroupDeploymentStack `
+  -ResourceGroupName "demoRg" `
+  -Name "demoStack"
 ```
 
 The output shows two managed resources - one storage account and one virtual network:
@@ -197,7 +201,10 @@ You can also verify the deployment by list the managed resources in the deployme
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name demoStack --resource-group demoRg --output json
+az stack group show \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --output 'json'
 ```
 
 The output is similar to:
@@ -264,7 +271,7 @@ The output is similar to:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name "demoStack" -ResourceGroupName "demoRg").Resources
 ```
 
 The output is similar to:
@@ -278,6 +285,10 @@ managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceG
 
 ---
 
+Once a stack is created, you have the option to easily access and view both the stack itself and the managed resources associated with it through the Azure portal. Simply navigate to the resource group where the stack has been deployed, and you will be able to access all the relevant information and settings.
+
+:::image type="content" source="./media/quickstart-create-template-stacks/deployment-stack-portal.png" alt-text="Screenshot of a deployment stack in the Azure portal.":::
+
 ## Update the deployment stack
 
 To update a deployment stack, you can modify the underlying Bicep file and re-running the create deployment stack command.
@@ -290,20 +301,20 @@ Run the following command:
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupname "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 ---
@@ -320,8 +331,8 @@ To delete the deployment stack, and the managed resources:
 
 ```azurecli
 az stack group delete \
-  --name demoStack \
-  --resource-group demoRg \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
   --delete-all
 ```
 
@@ -329,8 +340,8 @@ If you run the delete commands without the **delete all** parameters, the manage
 
 ```azurecli
 az stack group delete \
-  --name demoStack \
-  --resource-group demoRg
+  --name 'demoStack' \
+  --resource-group 'demoRg'
 ```
 
 The following parameters can be used to control between detach and delete.
@@ -345,8 +356,8 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
-  -Name demoStack `
-  -ResourceGroupName demoRg `
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
   -DeleteAll
 ```
 
@@ -354,8 +365,8 @@ If you run the delete commands without the **delete all** parameters, the manage
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
-  -Name demoStack `
-  -ResourceGroupName demoRg
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg"
 ```
 
 The following parameters can be used to control between detach and delete.

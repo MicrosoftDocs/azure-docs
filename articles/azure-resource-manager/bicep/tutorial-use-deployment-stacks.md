@@ -1,7 +1,7 @@
 ---
 title: Use deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack.
-ms.date: 06/26/2023
+ms.date: 06/30/2023
 ms.topic: tutorial
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 ---
@@ -13,7 +13,7 @@ In this tutorial, you will learn the process of creating and managing a deployme
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell [version xxx or later](/powershell/azure/install-az-ps) or Azure CLI [version xxx or later](/cli/azure/install-azure-cli).
+- Azure PowerShell [version 10.1.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.50.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
 jgao: specify the versions here.
@@ -73,14 +73,14 @@ To create a resource group and a deployment stack, execute the following command
 
 ```azurecli
 az group create \
-  --name demoRg \
-  --location centralus
+  --name 'demoRg' \
+  --location 'centralus'
 
 az stack group create \
-  --name demoStack \
+  --name 'demoStack' \
   --resource-group 'demoRg' \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 The `deny-settings-mode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
@@ -89,14 +89,14 @@ The `deny-settings-mode` switch assigns a specific type of permissions to the ma
 
 ```azurepowershell
 New-AzResourceGroup `
-  -Name demoRg `
-  -Location eastus
+  -Name "demoRg" `
+  -Location "centralus"
 
 New-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupName 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 The `DenySettingsMode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
@@ -112,7 +112,9 @@ To list the deployed deployment stack:
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --resource-group demoRg --name demoStack
+az stack group show \
+  --resource-group 'demoRg' \
+  --name 'demoStack'
 ```
 
 The output shows two managed resources - one storage account and one virtual network:
@@ -179,7 +181,9 @@ The output shows two managed resources - one storage account and one virtual net
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzResourceGroupDeploymentStack -ResourceGroupName demoRg -Name demoStack
+Get-AzResourceGroupDeploymentStack `
+  -ResourceGroupName "demoRg" `
+  -Name "demoStack"
 ```
 
 The output shows two managed resources - one storage account and one virtual network:
@@ -204,7 +208,10 @@ You can also verify the deployment by listing the managed resources in the deplo
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name demoStack --resource-group demoRg --output json
+az stack group show \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --output 'json'
 ```
 
 The output is similar to:
@@ -271,7 +278,7 @@ The output is similar to:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name "demoStack" -ResourceGroupName "demoRg").Resources
 ```
 
 The output is similar to:
@@ -320,10 +327,10 @@ Update the managed resource by running the following command:
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -332,10 +339,10 @@ The following sample shows the set command. You can also use the `Create-AzResou
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupName 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 ---
@@ -344,11 +351,11 @@ You can verify the SKU property by running the following command:
 
 # [CLI](#tab/azure-cli)
 
-az resource list --resource-group demoRg
+az resource list --resource-group 'demoRg'
 
 # [PowerShell](#tab/azure-powershell)
 
-Get-azStorageAccount -ResourceGroupName demoRg
+Get-azStorageAccount -ResourceGroupName "demoRg"
 
 ---
 
@@ -375,20 +382,20 @@ Update the deployment stack by running the following command:
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 ---
@@ -398,13 +405,16 @@ You can verify the deployment by listing the managed resources in the deployment
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name demoStack --resource-group demoRg --output json
+az stack group show \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --output 'json'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name "demoStack" -ResourceGroupName "demoRg").Resources
 ```
 
 ---
@@ -434,20 +444,20 @@ Update the deployment stack by running the following command:
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 ---
@@ -457,13 +467,16 @@ You can verify the deployment by listing the managed resources in the deployment
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name demoStack --resource-group demoRg --output json
+az stack group show \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --output 'json'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name "demoStack" -ResourceGroupName "demoRg").Resources
 ```
 
 ---
@@ -473,13 +486,13 @@ You shall see two managed resources in the stack. However, the detached the reso
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az resource list --resource-group demoRg
+az resource list --resource-group 'demoRg'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-azResource -ResourceGroupName demoRg
+Get-azResource -ResourceGroupName "demoRg"
 ```
 
 There are three resources in the resource group, even though the stack only contains two resources.
@@ -509,20 +522,20 @@ Update the deployment stack by running the following command:
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 ---
@@ -532,13 +545,16 @@ You can verify the deployment by listing the managed resources in the deployment
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name demoStack --resource-group demoRg --output json
+az stack group show \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --output 'json'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name "demoStack" -ResourceGroupName "demoRg").Resources
 ```
 
 ---
@@ -568,10 +584,10 @@ Run the following command with the delete-resources switch:
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none' \
   --delete-resources
 ```
 
@@ -581,10 +597,10 @@ In addition to the `delete-resources` switch, there are two other switches avail
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none `
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none" `
   -DeleteResources
 ```
 
@@ -597,13 +613,16 @@ You can verify the deployment by listing the managed resources in the deployment
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name demoStack --resource-group demoRg --output json
+az stack group show \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --output 'json'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name "demoStack" -ResourceGroupName "demoRg").Resources
 ```
 
 ---
@@ -613,18 +632,18 @@ You shall see two managed resources in the stack. The resource is also removed f
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az resource list --resource-group demoRg
+az resource list --resource-group 'demoRg'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-azResource -ResourceGroupName demoRg
+Get-azResource -ResourceGroupName "demoRg"
 ```
 
 ---
 
-## Deny assignment
+## Configure deny settings
 
 When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings.
 
@@ -658,20 +677,20 @@ Run the following command with the deny settings mode switch set to deny delete:
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode denyDelete
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'denyDelete'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode DenyDelete
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "DenyDelete"
 ```
 
 ---
@@ -682,17 +701,17 @@ The following delete command shall fail because the deny settings mode is set to
 
 ```azurecli
 az resource delete \
-  --resource-group demoRg \
-  --name <storage-account-name> \
-  --resource-type Microsoft.Storage/storageAccounts
+  --resource-group 'demoRg' \
+  --name '<storage-account-name>' \
+  --resource-type 'Microsoft.Storage/storageAccounts'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 Remove-AzResource `
-  -ResourceGroupName demoRg `
-  -ResourceName $lt;storage-account-name> `
-  -ResourceType Microsoft.Storage/storageAccounts
+  -ResourceGroupName "demoRg" `
+  -ResourceName "<storage-account-name>" `
+  -ResourceType "Microsoft.Storage/storageAccounts"
 
 ---
 
@@ -702,20 +721,20 @@ Update the stack with the deny settings mode to none, so you can complete the re
 
 ```azurecli
 az stack group create \
-  --name demoStack \
-  --resource-group demoRg \
-  --template-file ./main.bicep \
-  --deny-settings-mode none
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
+  --template-file './main.bicep' \
+  --deny-settings-mode 'none'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzResourceGroupDeploymentStack `
-  -Name 'demoStack' `
-  -ResourceGroupname 'demoRg' `
-  -TemplateFile './main.bicep' `
-  -DenySettingsMode none
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
+  -TemplateFile "./main.bicep" `
+  -DenySettingsMode "none"
 ```
 
 ---
@@ -728,16 +747,16 @@ By exporting a deployment stack, you can generate a Bicep file. This Bicep file 
 
 ```azurecli
 az stack group export \
-  --name demoStack \
-  --resource-group demoRg
+  --name 'demoStack' \
+  --resource-group 'demoRg'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Export-AzResourceGroupDeploymentStack `
-   -Name demoStack `
-   -ResourceGroupName demoRg `
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
 ```
 
 ---
@@ -752,8 +771,8 @@ To delete the deployment stack, and the managed resources, run the following com
 
 ```azurecli
 az stack group delete \
-  --name demoStack \
-  --resource-group demoRg \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
   --delete-all
 ```
 
@@ -761,8 +780,8 @@ If you run the delete commands without the **delete all** parameters, the manage
 
 ```azurecli
 az stack group delete \
-  --name demoStack \
-  --resource-group demoRg
+  --name 'demoStack' \
+  --resource-group 'demoRg'
 ```
 
 The following parameters can be used to control between detach and delete.
@@ -777,8 +796,8 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
-  -Name demoStack `
-  -ResourceGroupName demoRg `
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg" `
   -DeleteAll
 ```
 
@@ -786,8 +805,8 @@ If you run the delete commands without the **delete all** parameters, the manage
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
-  -Name demoStack `
-  -ResourceGroupName demoRg
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg"
 ```
 
 The following parameters can be used to control between detach and delete.

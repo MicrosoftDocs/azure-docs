@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep from template specs
 description: Learn how to use Bicep to create and deploy a deployment stack from template specs.
-ms.date: 06/08/2023
+ms.date: 06/30/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack from a template spec.
@@ -14,7 +14,7 @@ This quickstart describes how to create a [deployment stack](deployment-stacks.m
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell [version xxx or later](/powershell/azure/install-az-ps) or Azure CLI [version xxx or later](/cli/azure/install-azure-cli).
+- Azure PowerShell [version 10.1.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.50.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
 ## Create a Bicep file
@@ -72,29 +72,29 @@ Create a template spec with the following command.
 
 ```azurecli
 az group create \
-  --name templateSpecRG \
-  --location centralus
+  --name 'templateSpecRG' \
+  --location 'centralus'
 
 az ts create \
-  --name stackSpec \
-  --version "1.0" \
-  --resource-group templateSpecRG \
-  --location centralus \
-  --template-file "main.bicep"
+  --name 'stackSpec' \
+  --version '1.0' \
+  --resource-group 'templateSpecRG' \
+  --location 'centralus' \
+  --template-file 'main.bicep'
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
-  -Name templateSpecRG `
-  -Location centralus
+  -Name "templateSpecRG" `
+  -Location "centralus"
 
 New-AzTemplateSpec `
-  -Name stackSpec `
+  -Name "stackSpec" `
   -Version "1.0" `
-  -ResourceGroupName templateSpecRG `
-  -Location centralus `
+  -ResourceGroupName "templateSpecRG" `
+  -Location "centralus" `
   -TemplateFile "main.bicep"
 ```
 
@@ -108,8 +108,8 @@ Create a deployment stack from the template spec.
 
 ```azurecli
 az group create \
-  --name demoRg \
-  --location centralus
+  --name 'demoRg' \
+  --location 'centralus'
 
 id=$(az ts show --name stackSpec --resource-group templateSpecRG --version "1.0" --query "id")
 
@@ -117,7 +117,7 @@ az stack group create \
   --name demoStack \
   --resource-group 'demoRg' \
   --template-spec $id \
-  --deny-settings-mode none
+  --deny-settings-mode 'none'
 ```
 
 jgao: test --deny-settings-mode none when it is available.
@@ -126,8 +126,8 @@ jgao: test --deny-settings-mode none when it is available.
 
 ```azurepowershell
 New-AzResourceGroup `
-  -Name demoRg `
-  -Location eastus
+  -Name "demoRg" `
+  -Location "eastus"
 
 $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name stackSpec -Version "1.0").Versions.Id
 
@@ -147,7 +147,9 @@ To list the deployed deployment stacks at the subscription level:
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --resource-group demoRg --name demoStack
+az stack group show \
+  --resource-group 'demoRg' \
+  --name 'demoStack'
 ```
 
 The output shows two managed resources - one storage account and one virtual network:
@@ -239,7 +241,10 @@ You can also verify the deployment by list the managed resources in the deployme
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack group show --name demoStack --resource-group myStackRg --output json
+az stack group show \
+  --name 'demoStack'
+  --resource-group 'demoRg'
+  --output 'json'
 ```
 
 The output is similar to:
@@ -259,32 +264,32 @@ The output is similar to:
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09",
+  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2023-06-05-20-55-48-38d09",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
   "duration": "PT29.006353S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
   "name": "demoStack",
   "outputs": null,
   "parameters": {},
   "parametersLink": null,
   "provisioningState": "succeeded",
-  "resourceGroup": "myStackRg",
+  "resourceGroup": "demoRg",
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm",
-      "resourceGroup": "myStackRg",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm",
+      "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm",
-      "resourceGroup": "myStackRg",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm",
+      "resourceGroup": "demoRg",
       "status": "managed"
     }
   ],
@@ -306,7 +311,7 @@ The output is similar to:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name demoStack -ResourceGroupName demoRg).Resources
+(Get-AzResourceGroupDeploymentStack -Name "demoStack" -ResourceGroupName "demoRg").Resources
 ```
 
 The output is similar to:
@@ -314,8 +319,8 @@ The output is similar to:
 ```output
 Status  DenyStatus Id
 ------  ---------- --
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myStackRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetzu6pnx54hqubm
+managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storezu6pnx54hqubm
 ```
 
 ---
@@ -328,8 +333,8 @@ To delete the deployment stack, and the managed resources:
 
 ```azurecli
 az stack group delete \
-  --name demoStack \
-  --resource-group demoRg \
+  --name 'demoStack' \
+  --resource-group 'demoRg' \
   --delete-all
 ```
 
@@ -337,8 +342,8 @@ If you run the delete commands without the **delete all** parameters, the manage
 
 ```azurecli
 az stack group delete \
-  --name demoStack \
-  --resource-group demoRg
+  --name 'demoStack' \
+  --resource-group 'demoRg'
 ```
 
 The following parameters can be used to control between detach and delete.
@@ -362,8 +367,8 @@ If you run the delete commands without the **delete all** parameters, the manage
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
-  -Name demoStack `
-  -ResourceGroupName demoRg
+  -Name "demoStack" `
+  -ResourceGroupName "demoRg"
 ```
 
 The following parameters can be used to control between detach and delete.
