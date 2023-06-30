@@ -16,7 +16,7 @@ Cloud Solution Providers can access reservations that are purchased for their cu
 
 Roles assigned with Azure Lighthouse aren't supported by reservations. To view reservations, you need to be a global admin or an admin agent in the customer's tenant.
 
-## View reservations in the Azure portal
+## View reservations
 
 1. Contact your global admin to get yourself added as an **admin agent** in your tenant.
     The option is available to global admins in the Partner Center. It's under **Settings** (the gear symbol on the top right of the page) > **User management**.  
