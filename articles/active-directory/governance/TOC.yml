@@ -258,7 +258,11 @@
   expanded: true
   items:
   - name: Identity Governance Dashboard
+<<<<<<< HEAD
     href: governance-dashboard.md
+=======
+    href: iga-dashboard.md
+>>>>>>> 845a65a66bc3d94127ef19e70e257b91ba458b9b
   - name: Services and integration partners
     href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell

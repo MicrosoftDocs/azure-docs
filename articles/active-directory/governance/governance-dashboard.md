@@ -42,7 +42,7 @@ The dashboard experience is made up of the following main components:
 You may see two types of errors on the dashboard: 
 
 * **Service error**: This error indicates that the dashboard was unable to retrieve data due to a backend service error. The service error could be intermittent. Try refreshing the dashboard to see if the issue resolves automatically. If the issue persists, contact Microsoft support. 
-* **User error**: This error indicates that the dashboard was unable to retrieve data due to insufficient permissions or data access issues. Check the role assigned to the logged in user. To view the dashboard with full fidelity, at a minimum we recommend assigning the Global reader role. 
+* **Permission error**: This error indicates that the dashboard was unable to retrieve data either due to insufficient permissions or data access issues or license issues. Check the role assigned to the logged in user and ensure your tenant has the right license. To view the dashboard with full fidelity, at a minimum we recommend assigning the Global reader role. 
 
 
 ## Next steps
