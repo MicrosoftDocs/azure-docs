@@ -30,6 +30,8 @@ Quick Access and Per-app Access are similar, but there are a few key concepts to
 
 Quick Access is the primary group of FQDNs and IP addresses that you want to secure. As you're planning your Global Secure Access deployment, review your list of private resources and determine which resources you *always* want to tunnel through the service. This primary group of FQDNs, IP addresses, and IP ranges is what you add to Quick Access.
 
+![Diagram of the Quick Access app process with traffic flowing through the service to the app, and granting access through App Proxy.](media/concept-private-access/quick-access-diagram.png)
+
 ### Global Secure Access app
 
 A Global Secure Access app could be configured if any of the following scenarios sound familiar:
@@ -37,6 +39,8 @@ A Global Secure Access app could be configured if any of the following scenarios
 - I need to apply a different set of Conditional Access policies to a subset of users.
 - I have a few private resources that I want to secure, but they should have a different set of access policies.
 - I have a subset of private resources that I only want to secure for a specific time frame.
+
+![Diagram of the Global Secure Access app process with traffic flowing through the service to the app, and granting access through App Proxy.](media/concept-private-access/private-access-diagram.png)
 
 The Global Secure Access app takes a more detailed approach to securing your private resources. You can create multiple per-app access apps to secure different private resources. Paired with Conditional Access policies, you have a powerful yet fine-grained way to secure your private resources.
 

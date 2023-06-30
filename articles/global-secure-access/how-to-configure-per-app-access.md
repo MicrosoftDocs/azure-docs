@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/29/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -82,7 +82,7 @@ Global Secure Access apps can be configured using Microsoft Graph on the `/beta`
 ```http
 POST applicationTemplates/{templateId}/instantiate​
 {​
-    "displayName": "foobar"​
+    "displayName": "Global Secure Access app 1"​
     }​
     
     PATCH applications/{objectId}​
