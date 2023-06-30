@@ -31,7 +31,7 @@ and the target volume of the Azure CVO followed by initial data transfer from so
 
 5. Create read/writable snap-mirrored target volumes using Flxclone technology
 1. Map the volumes to Azure VM host via ISCSI protocol to support various use cases (backup, testing, training/reporting).
-1. Perform data update/restore between source Azure BMI NETAPP storage and target Azure CVO 
+1. Perform data update/restore between source ALI NETAPP storage and target Azure CVO 
 when needed. 
 1. Complete Compute host setup and source data LUNs mapping from NETAPP storage array followed by LVM (logical volume manager) setup over data LUNs and logical volume mounting for data access.
 

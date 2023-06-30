@@ -33,8 +33,8 @@ Azure Large Instances (ALI) for Epic has limited availability currently in the f
 
 | Name            | Type              | Availability     |
 |------------------- |-------------------|---------------|
-|4S Compute v1 | S224SE |Available |
-|8S Compute v1 | S448SE |Available |
+|4S Compute v1 | S224SE - 4 x  Intel® Xeon® Platinum 8380HL processor  112 CPU cores |Available |
+|8S Compute v1 | S448SE - 8 x Intel® Xeon® Platinum 8276L processor 224 CPU cores  |Available |
 |100TB v1      | <Engineering SKU name used for 100 TB Storage SKU>|Available|
 |10TB v1|<Engineering SKU name used for 10 TB Storage SKU>|Available|
 
