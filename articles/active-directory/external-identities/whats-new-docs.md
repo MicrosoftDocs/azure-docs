@@ -15,6 +15,12 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## June 2023
+
+### Updated articles
+
+- [Set up tenant restrictions V2 (Preview)](tenant-restrictions-v2.md) Microsoft Teams updates.
+
 ## May 2023
 
 ### New article
@@ -34,15 +40,4 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Authentication and Conditional Access](authentication-conditional-access.md) Links to other articles were updated.
 - [Code and Azure PowerShell samples](code-samples.md) Minor text updates.
 - [Azure Active Directory](default-account.md) Minor text updates.
-
-## March 2023
-
-### Updated articles
-
-- [Invite internal users to B2B collaboration](invite-internal-users.md)
-- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
-- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](default-account.md)
-- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
-- [Billing model for Azure AD External Identities](external-identities-pricing.md)
-- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
 
