@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/23/2023
-ms.author: netahw
+ms.author: nitinme
 monikerRange: 'form-recog-3.0.0'
 ---
 
