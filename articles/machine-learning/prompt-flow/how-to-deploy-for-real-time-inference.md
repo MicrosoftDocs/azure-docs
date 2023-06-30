@@ -58,17 +58,17 @@ The prompt flow supports you to deploy endpoints from a flow, or a bulk test run
 
     **Flow authoring page**:
     
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png":::
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png" alt-text="Screenshot of Web Classification on the flow authoring page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-flow-authoring-page.png":::
     
     **Run detail page**:
     
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png":::
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png" alt-text="Screenshot of Web Classification on the run detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-run-detail-page.png":::
 
 1. A wizard for you to configure the endpoint occurs and include following steps.
 
 ### Endpoint
 
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard.png":::
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard.png" alt-text="Screenshot of the deploy wizard on the endpoint page. " lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard.png":::
 
 This step allows you to configure the basic settings of an endpoint.
 
@@ -98,7 +98,7 @@ If the checkbox is selected, the first row of your input data will be used as sa
 
 In this step, you can view all connections within your flow, and change connections used by the endpoint when it performs inference later.
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/connection.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/connection.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/connection.png" alt-text="Screenshot of the deploy wizard on the connections page. " lightbox = "./media/how-to-deploy-for-real-time-inference/connection.png":::
 
 ### Compute
 
@@ -120,7 +120,7 @@ There will be notifications after you finish the deploy wizard. After the endpoi
 
 You can also directly go to the **Endpoints** page in the studio, and check the status of the endpoint you deployed.
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/successful-deployment.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/successful-deployment.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/successful-deployment.png" alt-text="Screenshot of the endpoint details page showing a successfully deployment." lightbox = "./media/how-to-deploy-for-real-time-inference/successful-deployment.png":::
 
 ## Grant permissions to the endpoint
 
@@ -158,7 +158,7 @@ To grant permissions to the endpoint identity, there are two ways:
 
     1. Go to the Azure Machine Learning workspace overview page in [Azure portal](https://ms.portal.azure.com/#home).
     1. Select **Access control**, and select **Add role assignment**.
-        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/access-control.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/access-control.png":::
+        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/access-control.png" alt-text="Screenshot of Access control with add role assignment highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/access-control.png":::
 
     1. Select **AzureML Data Scientist**, go to **Next**.
         > [!NOTE]
@@ -169,15 +169,15 @@ To grant permissions to the endpoint identity, there are two ways:
     1. Select **Managed identity** and select members.
         For **system-assigned identity**, select **Machine learning online endpoint** under **System-assigned managed identity**, and search by endpoint name.
 
-        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/select-si.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/select-si.png":::
+        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/select-si.png" alt-text="Screenshot of add role assignment and select managed identities. " lightbox = "./media/how-to-deploy-for-real-time-inference/select-si.png":::
 
         For **user-assigned identity**, select **User-assigned managed identity**, and search by identity name.
 
-        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/select-ui.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/select-ui.png":::
+        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/select-ui.png" alt-text="Screenshot of add role assignment and select managed identities with user-assigned managed identity highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/select-ui.png":::
 
     1. For user-assigned identity, you need to grant permissions to the workspace container registry as well. Go to the workspace container registry overview page, select **Access control**, and select **Add role assignment**, and assign **Acr pull |Pull container image** to the endpoint identity.
     
-        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/storage-container-registry.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/storage-container-registry.png":::
+        :::image type="content" source="./media/how-to-deploy-for-real-time-inference/storage-container-registry.png" alt-text="Screenshot of the overview page with storage and container registry highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/storage-container-registry.png":::
 
     1. Currently the permissions on workspace default storage isn't required. If you want to enable tracing data including node level outputs/trace/logs when performing inference, you can grant permissions to the workspace default storage as well. Go to the workspace default storage overview page, select **Access control**, and select **Add role assignment**, and assign *Storage Blob Data Contributor* and *Storage Table Data Contributor* to the endpoint identity respectively.
 
@@ -191,13 +191,13 @@ If there's no sample value, you'll need to input a URL.
 
 The **Test result** shows as following: 
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/test-endpoint.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/test-endpoint.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/test-endpoint.png" alt-text="Screenshot of end point detail page on the test tab. " lightbox = "./media/how-to-deploy-for-real-time-inference/test-endpoint.png":::
 
 ### Test the endpoint deployed from a chat flow
 
 For endpoints deployed from chat flow, you can test it in an immersive chat window.
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/test-chat-endpoint.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/test-chat-endpoint.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/test-chat-endpoint.png" alt-text="Screenshot of an endpoint deployed from chat flow. " lightbox = "./media/how-to-deploy-for-real-time-inference/test-chat-endpoint.png":::
 
 The `chat_input` was set during development of the chat flow. You can input the `chat_input` message in the input box. The **Inputs** panel on the right side is for you to specify the values for other inputs besides the `chat_input`. Learn more about [how to develop a chat flow](./how-to-develop-a-chat-flow.md).
 
@@ -212,7 +212,7 @@ You can view various metrics (request numbers, request latency, network bytes, C
 > [!NOTE]
 > If you specify user-assigned identity for your endpoint, make sure that you have assigned **Workspace metrics writer** of **Azure Machine Learning Workspace** to your user-assigned identity. Otherwise, the endpoint will not be able to log the metrics.
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/view-metrics.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/view-metrics.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/view-metrics.png" alt-text="Screenshot of the endpoint detail page with view metrics highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/view-metrics.png":::
 
 For more information on how to view online endpoint metrics, see [Monitor online endpoints](../how-to-monitor-online-endpoints.md?view=azureml-api-2#metrics).
 
