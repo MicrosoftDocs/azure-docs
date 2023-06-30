@@ -151,7 +151,7 @@ In DTDL v2, semantic types are natively supported. For more information on seman
 
 The following example shows a DTDL v2 Sensor model with a semantic type telemetry for Temperature, and a semantic type property for Humidity. 
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor.json" highlight="7-18":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor-DTDL-v2.json" highlight="7-18":::
 
 > [!NOTE]
 > *"Property"* or *"Telemetry"* must be the first element of the `@type` array, followed by the semantic type. Otherwise, the field may not be visible in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
