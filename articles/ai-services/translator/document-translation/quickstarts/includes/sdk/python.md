@@ -82,7 +82,7 @@ targetUri = "<your-container-targetUrl>"
 targetLanguage = "<target-language-code>"
 
 
-# initialize a new instance of the DocumentTranslationClient object to interact with the Azure AI Translator Document Translation Service
+# initialize a new instance of the DocumentTranslationClient object to interact with the Document Translation feature
 client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 # include source and target locations and target language code for the begin translation operation

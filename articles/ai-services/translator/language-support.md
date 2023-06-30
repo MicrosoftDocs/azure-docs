@@ -356,7 +356,6 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 | Turkish (tr-tr)     | English (en-us) |
 | Vietnamese (vi-vn)     | English (en-us) |
 | Chinese Simplified (zh-cn)     | English (en-us) |
-||
 
 ## Other Azure AI services
 

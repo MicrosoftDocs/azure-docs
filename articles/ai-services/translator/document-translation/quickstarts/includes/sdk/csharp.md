@@ -116,7 +116,7 @@ class Program {
     Uri targetUri = new Uri("<targetUrl>");
     string targetLanguage = "<targetLanguageCode>"
 
-    // initialize a new instance  of the DocumentTranslationClient object to interact with the Azure AI Translator Document Translation Service
+    // initialize a new instance  of the DocumentTranslationClient object to interact with the Document Translation feature
     DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
     // initialize a new instance of the `DocumentTranslationInput` object to provide the location of input for the translation operation
@@ -273,7 +273,7 @@ class Program {
     Uri targetUri = new Uri("<targetUrl>");
     string targetLanguage = "<targetLanguageCode>";
 
-    // initialize a new instance  of the DocumentTranslationClient object to interact with the Azure AI Translator Document Translation Service
+    // initialize a new instance  of the DocumentTranslationClient object to interact with the Document Translation feature
     DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(key));
 
     // initialize a new instance of the `DocumentTranslationInput` object to provide source and target locations and target language for the translation operation

@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Azure AI Translator Document Translation?
+title: What is Document Translation?
 description: An overview of the cloud-based batch Document Translation service and process.
 services: cognitive-services
 author: laujan
