@@ -84,7 +84,7 @@ To see the learned routes from ALI, one of the options is looking at the Effecti
 > A storage snapshot should only be set up after all data-intensive work (for example, Endian conversions) are complete in order to avoid creating unnecessary snapshots while build work is in progress
 
 The Azure subscription you use for ALI deployments is already registered with the ALI resource provider by the Microsoft Operations team during the provisioning process.
-If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see [Register the ALI resource provider](register-the-ali-resource-provider.md).
+If you don't see your deployed Azure Large Instances under your subscription, register the resource provider with your subscription. For more information, see Register the resource provider in [What is Azure Large Instances](what-is-azure-large-instances.md).
 
 ### Enable ExpressRoute Fast Path
 
