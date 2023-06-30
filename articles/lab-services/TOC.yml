@@ -55,7 +55,7 @@
     href: concept-lab-services-supported-networking-scenarios.md
   - name: Migrate from physical labs
     href: concept-migrating-physical-labs.md
-  - name: Nested virtualization on a template VM
+  - name: Nested virtualization
     href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits
     href: capacity-limits.md  

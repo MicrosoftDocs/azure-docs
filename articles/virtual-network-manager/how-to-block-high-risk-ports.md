@@ -23,10 +23,11 @@ While this article focuses on a single port, SSH, you can protect any high-risk 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
-* You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
-* You understand each element in a [Security admin rule](concept-security-admins.md).
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A group of virtual networks that can be split into network groups for applying granular security admin rules.
+- You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
+- You understand each element in a [Security admin rule](concept-security-admins.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A group of virtual networks that can be split into network groups for applying granular security admin rules.
+- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
 
 ## Deploy virtual network environment
 You need a virtual network environment that includes virtual networks that can be segregated for allowing and blocking specific network traffic. You may use the following table or your own configuration of virtual networks:
