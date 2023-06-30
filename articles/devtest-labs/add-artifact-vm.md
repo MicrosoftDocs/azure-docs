@@ -4,8 +4,8 @@ description: Learn how to add an artifact to a virtual machine in a lab in Azure
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/11/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 06/30/2023
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Add artifacts to DevTest Labs VMs
