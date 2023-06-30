@@ -1,5 +1,5 @@
 ---
-title: Enroll in simplified billing for Microsoft Sentinel pricing tiers
+title: Enroll in a simplified pricing tier for Microsoft Sentinel
 description: Learn how to enroll in simplified billing, the impact of the switch, and frequently asked questions about enrollment.
 author: austinmccollum
 ms.topic: how-to
@@ -7,20 +7,14 @@ ms.date: 06/29/2023
 ms.author: austinmc
 ---
 
-# Combine Microsoft Sentinel and Azure Monitor Log Analytics pricing with simplified billing
+# Enroll in a simplified pricing tier for Microsoft Sentinel
 
-For some Microsoft Sentinel workspaces, there is a separate pricing tier for Azure Monitor Log Analytics in addition to a classic pricing tier for Microsoft Sentinel. Simplified billing combines the data ingestion costs for Microsoft Sentinel and Log Analytics into a single pricing tier. 
+For some Microsoft Sentinel workspaces, there is a separate pricing tier for Azure Monitor Log Analytics in addition to a classic pricing tier for Microsoft Sentinel. To combine the data ingestion costs for Log Analytics and the data analysis costs of Microsoft Sentinel, enroll your workspace in a simplified pricing tier. 
 
 ## Prerequisites
-If LA is on legacy tier, to enable sentinel on a workspace the tier must be changed to Pay-as-You-Go or a commitment tier
-They need to switch to non legacy tier before switching from dual to unified if a workspace already exists (to confirm)
-Only tenants that had Sentinel prior to July 2023 are able to revert back to dual-pricing
+- If Log Analytics is on legacy tier, the tier must be changed to Pay-as-You-Go or a commitment tier before enrolling in a simplified pricing tier.
+- Only tenants that had Sentinel prior to July 2023 are able to revert back to classic pricing tiers.
 
-### Advantages with simplified billing
-Combining the pricing tiers offers a simplification to the overall billing experience, including visualization in the pricing page, and less steps in the Azure calculator. As an incentive to existing customers to make the switch, the current Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day security data ingestion into Log Analytics is extended to the simplified pricing tiers. This effectively doubles the amount of no-cost eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
-
-### Change to free trials
-A slight change to how free trials are offered was necessary for billing simplification. There used to be a 31 day period where Microsoft Sentinel data charges were waived when enabled on an existing Log Analytics workspace older than 3 days. After July 2023, the only trial option is to enable Microsoft Sentinel on *new* Log Analytics workspaces, providing 10 GB/day at no cost for the combined ingestion.
 
 ## Change pricing tier to simplified
 Classic pricing tiers are when Microsoft Sentinel and Log Analytics pricing tiers are configured separately and show up as different meters on your invoice. To move to the simplified pricing tier where Microsoft Sentinel and Log Analytics billing are combined for the same pricing meter, enroll in the **New pricing**.
@@ -135,5 +129,14 @@ Classic - In the dual mode billing experience (pre July 2023) Sentinel is always
 Simplified - In the simplified billing experience for Sentinel, when a Sentinel-enabled workspace is attached to a Log Analytics cluster, the same Commitment Tier level is used for the Sentinel workspace as is set for the cluster. Sentinel usage will be billed at the effective per GB price of that Sentinel commitment tier meter, and all usage would be counted against the total allocation for dedicated cluster, either at the cluster or proportionately at the workspace level depending on the billing mode of the cluster as described here: Azure Monitor Logs cost calculations and options - Azure Monitor | Microsoft Learn. The ability to have the Sentinel pricing tier match that of the cluster is advantageous to customers and allows them to avail the effective per GB discount offered by the  Sentinel commitment tier matching the cluster level commitment.
 			
 Unlinking from a cluster??
+
+## Offboard behavior
+If Microsoft Sentinel is removed from a workspace while simplified pricing is enabled, the Log Analytics workspace defaults to the pricing tier that was configured for the dual mode. For example, if the simplified pricing was configured for 100 GB/day commitment tier in Microsoft Sentinel, the Log Analytics workspace changes to 100 GB/day commitment tier once Microsoft Sentinel is offboarded from the workspace.
+
+### will this reduce my costs?
+Maybe, the combined defender benefit may result in a total cost savings. Another possibility is if one of the Log A or Sentinel pricing tiers was inappropriately mismatched. This might happen if a commitment tier was increased in Sentinel, but not LA. In this case, the simplified pricing tier would result in cost saving.
+
+### is there ever a reason NOT to switch?
+It's possible your Microsoft sales team has negotiated a discounted price for Log Analytics or Microsoft Sentinel charges. You won't be able to tell if this is the case from the UI. It may be possible to calculate the expected cost vs. actual charge in cost analysis to see if there's a discount included.
 
 ## Next steps

@@ -32,6 +32,9 @@ Follow this process to remove Microsoft Sentinel from your workspace:
     
     :::image type="content" source="media/offboard/remove-sentinel-reasons.png" alt-text="Screenshot to remove the Microsoft Sentinel solution from your workspace and specify reasons.":::
 
+## Consider pricing changes
+When Microsoft Sentinel is removed from a workspace, there may still be costs associated with the data in Azure Monitor Log Analytics. For more information on the effect to commitment tier costs, see [Simplified billing offboard behavior](simplified-billing.md#offboard-behavior).
+
 ## What happens behind the scenes?
 
 When you remove the solution, Microsoft Sentinel takes up to 48 hours to complete the first phase of the deletion process.
@@ -67,8 +70,6 @@ After you remove the service, there is a grace period of 30 days during which yo
 
 > [!NOTE]
 > If you remove the solution, your subscription will continue to be registered with the Microsoft Sentinel resource provider. **You can remove it manually.**
-
-
 
 
 ## Next steps

@@ -11,7 +11,7 @@ ms.date: 10/04/2022
 
 # Plan costs and understand Microsoft Sentinel pricing and billing
 
-As you plan your Microsoft Sentinel deployment, you typically want to understand the Microsoft Sentinel pricing and billing models, so you can optimize your costs. Microsoft Sentinel security analytics data is stored in an Azure Monitor Log Analytics workspace. Billing is based on the volume of that data *analyzed* in Microsoft Sentinel and *stored* in the Azure Monitor Log Analytics workspace. The cost of data in Microsoft Sentinel and Log Analytics is combined with the simplified pricing tier. Learn more about [simplified billing](#simplified-billing) or learn more about [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/) in general.
+As you plan your Microsoft Sentinel deployment, you typically want to understand the Microsoft Sentinel pricing and billing models, so you can optimize your costs. Microsoft Sentinel security analytics data is stored in an Azure Monitor Log Analytics workspace. Billing is based on the volume of that data *analyzed* in Microsoft Sentinel and *stored* in the Azure Monitor Log Analytics workspace. The cost of both is combined in the simplified pricing tiers. Learn more about the [simplified pricing tier](#simplified-pricing-tier) or learn more about [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/) in general.
 
 Before you add any resources for Microsoft Sentinel, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate your costs.
 
@@ -69,12 +69,13 @@ Basic logs are best suited for use in playbook automation, ad-hoc querying, inve
 
 ## Simplified pricing tier
 
-Simplified billing combines the data ingestion costs for Microsoft Sentinel and Log Analytics into a single pricing tier. Starting July 1st, 2023, Microsoft Sentinel specific pricing tiers are named, *classic*. Workspaces configured with *classic* pricing tiers have the option to enroll in simplified billing, but all new workspaces use simplified billing.
+Simplified pricing tiers combine the data ingestion costs for Microsoft Sentinel and Log Analytics into a single pricing tier. Starting July 1st, 2023, Microsoft Sentinel specific pricing tiers are prefixed with **Classic** in the invoice details of Microsoft cost management. Workspaces configured with classic pricing tiers have the option to enroll in a simplified pricing tier, but all new workspaces use a simplified pricing tier.
 
 [insert screenshot of simplified billing tiers]
 
-For more information on how to make the switch, see [Enroll in simplified billing](enroll-simplified-billing.md).
+For more information on how to make the switch, see [Enroll in a simplified pricing tier](enroll-simplified-pricing-tier.md).
 
+Combining the pricing tiers offers a simplification to the overall billing experience, including visualization in the pricing page, and less steps in the Azure calculator. As an incentive to existing customers to make the switch, the current Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day security data ingestion into Log Analytics is extended to the simplified pricing tiers. This effectively doubles the amount of no-cost eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
 
 ### Understand your Microsoft Sentinel bill
 
@@ -164,7 +165,7 @@ Removing Microsoft Sentinel doesn't remove the Log Analytics workspace Microsoft
 
 ## Free trial
 
-Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day is free for 31 days. This trial is only used with a simplified pricing tier. Both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to 10 GB/day are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
+Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day is free for 31 days. The cost for both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to the 10 GB/day limit are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
 Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
 
