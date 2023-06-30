@@ -46,7 +46,7 @@ By default, cost analysis shows charges as they appear on your bill. The charges
 > [!NOTE]
 > You can buy a reservation with a pay-as-you-go (MS-AZR-0003P) subscription. However, Cost Analysis doesn't support viewing amortized reservation costs for a pay-as-you-go subscription.
 
-Amortized costs are available only for reservations and savings plans. They aren't available for Azure Marketplace purchases. However, virtual machine software usage reservations available in the Azure Marketplace reservations are supported.
+Amortized costs are available only for reservations and savings plans. They aren't available for Azure Marketplace purchases. However, virtual machine software usage reservations available in the Azure Marketplace are supported.
 
 Depending on the view you use in cost analysis, you'll see different benefit costs. For example:
 
