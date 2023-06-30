@@ -521,7 +521,7 @@ For more information on how to create a deployment in Azure OpenAI, check out [G
 ## Deploy the AI service
 
 Now that the application is deployed, you can deploy the Python based microservice that uses OpenAI to automatically generate descriptions for new products being added to the store's catalog. 
-
+### [Azure OpenAI](#tab/aoai)
 1. Create a file named `ai-service.yaml` and copy the following manifest into it.
     ```yaml
     apiVersion: apps/v1
@@ -571,15 +571,71 @@ Now that the application is deployed, you can deploy the Python based microservi
       selector:
         app: ai-service
     ```
-### [Azure OpenAI](#tab/aoai)
 1. Set the environment variable *USE_AZURE_OPENAI* to "True"
 1. Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
-1. Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
+1. Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on **Keys and Endpoint** in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
+  ```bash
+  kubectl apply -f ai-service.yaml
+  ```
+  The following example resembles output showing successfully created deployments and services.
+  ```output
+    deployment.apps/ai-service created
+    service/ai-service created
+  ```
 ### [OpenAI](#tab/openai)
+1. Create a file named `ai-service.yaml` and copy the following manifest into it.
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: ai-service
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: ai-service
+      template:
+        metadata:
+          labels:
+            app: ai-service
+        spec:
+          nodeSelector:
+            "kubernetes.io/os": linux
+          containers:
+          - name: order-service
+            image: ghcr.io/azure-samples/aks-store-demo/ai-service:latest
+            ports:
+            - containerPort: 5001
+            env:
+            - name: USE_AZURE_OPENAI # set to "True" in quote if you are using Azure OpenAI, set to "False" if you are using public OpenAI
+              value: ""
+            - name: AZURE_OPENAI_DEPLOYMENT_NAME # required if using Azure OpenAI
+              value: ""
+            - name: AZURE_OPENAI_ENDPOINT # required if using Azure OpenAI
+              value: ""
+            - name: OPENAI_API_KEY # always required
+              value: ""
+            - name: OPENAI_ORG_ID # required if using public OpenAI
+              value: ""
+            resources: {}
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: ai-service
+    spec:
+      type: ClusterIP
+      ports:
+      - name: http
+        port: 5001
+        targetPort: 5001
+      selector:
+        app: ai-service
+    ```
 1. Set the environment variable *USE_AZURE_OPENAI* to "False"
 1. Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
 1. [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
----
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
     kubectl apply -f ai-service.yaml
@@ -589,6 +645,7 @@ Now that the application is deployed, you can deploy the Python based microservi
       deployment.apps/ai-service created
       service/ai-service created
     ```
+---
 
 > [!NOTE]
 > Directly adding sensitive information, such as API keys, to your Kubernetes manifest files isn't secure and may accidentally get committed to code repositories. We added it here for simplicity. For production workloads, use [Managed Identity][managed-identity] to authenticate to Azure OpenAI service instead or store your secrets in [Azure Key Vault][key-vault].
