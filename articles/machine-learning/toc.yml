@@ -574,7 +574,7 @@
           items: 
             - name: Connections
               href: ./prompt-flow/concept-connections.md
-            - name: Runetime
+            - name: Runtimes
               href: ./prompt-flow/concept-runtime.md
             - name: Flows
               href: ./prompt-flow/concept-flows.md

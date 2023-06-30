@@ -16,7 +16,7 @@ ms.date: 06/30/2023
 
 Prompt Flow can also be used together with the [LangChain](https://python.langchain.com) python library, which is the framework for developing applications powered by LLMs, agents and dependency tools. In this document, we'll show you how to supercharge your LangChain development on our Prompt Flow.
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/flow.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/flow.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/flow.png" alt-text="Screenshot of flows with the LangChain python library. " lightbox = "./media/how-to-integrate-with-langchain/flow.png":::
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -46,7 +46,7 @@ For more libraries import, you need to customize environment based on our base i
 
 Then you can create a [Prompt flow runtime](./how-to-create-manage-runtime.md) based on this custom environment.
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/runtime-custom-env.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/runtime-custom-env.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/runtime-custom-env.png" alt-text="Screenshot of flows on the runtime tab with the add compute instance runtime popup. " lightbox = "./media/how-to-integrate-with-langchain/runtime-custom-env.png":::
 
 ### Convert credentials to custom connection
 
@@ -58,9 +58,9 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 1. Go to prompt flow in your workspace, then go to **connections** tab.
 2. Select **Create** and select **Custom**.
-    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-1.png":::
+    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the create dropdown menu. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-1.png":::
 1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
-    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-2.png":::
+    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of add custom connection point to the add key-value pairs button. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-2.png":::
 
 > [!NOTE]
 > - You can set one Key-Value pair as **secret** by **is secret** checked, which will be encrypted and stored in your key value.
@@ -74,12 +74,13 @@ All LangChain code can directly run in the python tools in your flow as long as 
 
 #### Create a flow with prompt tools and python tools
 
-**Note:** There are two ways to convert your LangChain code into a flow.
+> [!NOTE]
+> There are two ways to convert your LangChain code into a flow.
 
 - To simplify the conversion process, you can directly initialize the LLM model for invocation in a Python node by utilizing the LangChain integrated LLM library.
 - Another approach is converting your LLM consuming from LangChain code to our LLM tools in the flow, for better further experimental management.
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-llm.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-llm.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-llm.png" alt-text="Screenshot of of LangChain code in Prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-llm.png":::
 
 For quick conversion of LangChain code into a flow, we recommend two types of flow structures, based on the use case:
 
@@ -90,13 +91,13 @@ For quick conversion of LangChain code into a flow, we recommend two types of fl
 
 For example the type A flow from the chart is like:
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/flow-node-a-1.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/flow-node-a-1.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/flow-node-a-1.png" alt-text="Screenshot of flows highlighting the prompt button and system template. " lightbox = "./media/how-to-integrate-with-langchain/flow-node-a-1.png":::
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/flow-node-a-2.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/flow-node-a-2.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/flow-node-a-2.png" alt-text="Screenshot of system template showing variant one and zero with the finish tuning button highlighted. " lightbox = "./media/how-to-integrate-with-langchain/flow-node-a-2.png":::
 
 While the type B flow would look like:
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/flow-node-b.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/flow-node-b.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/flow-node-b.png" alt-text="Screenshot of flows showing the LangChain code node and graph. " lightbox = "./media/how-to-integrate-with-langchain/flow-node-b.png":::
 
 
 To create a flow in Azure Machine Learning, you can go to your workspace, then select **Prompt flow** in the left navigation, then select **Create** to create a new flow. More detailed guidance on how to create a flow is introduced in [Create a Flow](how-to-develop-a-standard-flow.md).
@@ -108,9 +109,9 @@ After you have a properly structured flow and are done moving the code to specif
 To utilize a [custom connection](#create-a-custom-connection) that stores all the required keys and credentials, follow these steps:
 
 1. In the python tools, need to access LLM Key and other credentials, import custom connection library `from promptflow.connections import CustomConnection`.
-    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
+    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
 1. Add an input parameter of type `connection` to the tool function.
-    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
+    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
 1. Replace the environment variables that originally defined the key and credential with the corresponding key added in the connection.
 1. Save and return to authoring page, and configure the connection parameter in the node input.
 
