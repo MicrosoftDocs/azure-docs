@@ -15,7 +15,7 @@ Microsoft Purview provides a variety of ways to annotate and organize your data.
 
 But it may not always be obvious when to use which feature. If you want to show that a data set is published by your accounting team, should you tag it? Assign a managed attribute called account team? What about using a term called accounting? Or maybe you should create a relationship to a department asset called accounting?
 
-Adding context to your data is both art and science, but here are some best practices for tags, managed attributes, business terms, and business assets.
+There's no one right way to add context to your data, but here are some best practices for tags, managed attributes, business terms, and business assets.
 
 ## Best practices for using tags 
 
@@ -23,14 +23,14 @@ Use tags when you want to quickly label your data assets without the need for co
 
 In the following example, I've tagged a few assets with Q4 Revenue so I can easily find the data assets I plan to use for a new report with this information. Searching the keyword returns all data with that tag applied:
 
-:::image type="content" source="media/concept-annotations/01-tags.png" alt-text="Screen shot showing Microsoft Purview search results showing assets tagged with Q4_Revenue.":::
+:::image type="content" source="media/concept-annotations/01-tag.png" alt-text="Screen shot showing Microsoft Purview search results showing assets tagged with Q4_Revenue.":::
 
 ## Best practices for using managed attributes
 Use managed attributes to extend the fields available for an asset in Purview. Managed attributes are key-value pairs that add structured metadata to your data catalog. When Purview scans data, it adds technical information about the data like data type, classification, etc. If you want to add more fields, you’ll need to define managed attributes. 
 
 In the following example, I add a managed attribute that lets me tag tables with the department that publishes them. I use a managed attribute because I want to make sure assets are always tagged in exactly the same way with this information. I also want to filter by the publisher field when I search for data.
 
-:::image type="content" source="media/concept-annotations/02-managed-attributes.png" alt-text="Screen shot showing an asset detail page with a managed attribute key-value pair of publisher: supply chain.":::
+:::image type="content" source="media/concept-annotations/02-managed-attribute.png" alt-text="Screen shot showing an asset detail page with a managed attribute key-value pair of publisher: supply chain.":::
 
 The managed attribute in this example helps people quickly find all data published by the supply chain team, but doesn't help someone understand the definition of a publisher or what it means if supply chain is the publisher of the data. For any information that needs a business explanation, we use terms.
 
@@ -40,19 +40,19 @@ Use business terms to define a shared vocabulary for your organization. By creat
 
 I assign the term order to this table, because it contains order information.
 
-:::image type="content" source="media/concept-annotations/03-terms.png" alt-text="Screen shot showing an asset detail page with an assigned term of order.":::
+:::image type="content" source="media/concept-annotations/03-term.png" alt-text="Screen shot showing an asset detail page with an assigned term of order.":::
 
 I use a term so that anyone who finds this data can go to the term to explore the business definition of an order:
 
-:::image type="content" source="media/concept-annotations/04-term-detail.png" alt-text="Screen shot showing a term detail page for order.":::
+:::image type="content" source="media/concept-annotations/04-term-details.png" alt-text="Screen shot showing a term detail page for order.":::
 
 ## Best practice for using business assets
 
-Finally, you can extend Purview's metamodel by creating additional asset types for describing real-world things in your organization such as departments, projects, products, and lines of business. When you look at your data estate, it's often helpful to understand how your data fits into your business. Use business assets whenever you want to associate data assets to specific organizational structures, business processes, or other anything else that could be convincingly modeled as entities.
+Finally, you can extend Purview's metamodel by creating additional asset types for describing real-world things in your organization such as departments, projects, products, and lines of business. When you look at your data estate, it's often helpful to understand how your data fits into your business. Use business assets whenever you want to associate data assets to specific organizational structures, business processes, or other anything else that could be convincingly modeled as an entity.
 
 In the example below, I describe more business context for the SalesOrderDetail table by showing that the Supply chain department (a business asset) manages the order fulfillment business process (a business asset) which uses the SalesOrderDetail table. Visualizing business context in this way can help others identify the “official” dataset that's used for a particular business purpose and understand whether data is being used compliantly. 
 
-:::image type="content" source="media/concept-annotations/04-term-detail.png" alt-text="Screen shot showing relationships between the supply chain department, order fulfillment business process, and SalesOrderDetail table.":::
+:::image type="content" source="media/concept-annotations/05-business-assets.png" alt-text="Screen shot showing relationships between the supply chain department, order fulfillment business process, and SalesOrderDetail table.":::
 
 ## Next steps
 
