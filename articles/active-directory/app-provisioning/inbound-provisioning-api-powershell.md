@@ -86,7 +86,7 @@ The following steps successfully configure out-of-the-box provisioning job with 
    |---------|-------------|
    | **Start provisioning** | Place the provisioning job in "listen mode". In the "Start" state, the provisioning job wakes up every 40 minutes and checks if any SCIM bulk request payloads need to be processed. |
    | **Stop provisioning** | Pause or stop the provisioning job. |
-   - **Restart provisioning** | Purge any SCIM payloads that are pending processing, and start a new provisioning cycle. |
+   | **Restart provisioning** | Purge any SCIM payloads that are pending processing, and start a new provisioning cycle. |
    | **Edit provisioning** | Edit the job settings, attribute mappings, and customize the SCIM schema. |
    | **Provision on demand** | Not yet enabled. |
    | **Provisioning API endpoint** | Copy the HTTPS URL value shown here and save it in Notepad or OneNote for use later with the API client.|
