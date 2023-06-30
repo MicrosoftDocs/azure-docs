@@ -61,7 +61,7 @@ The lifecycle consists of the following stages:
 
 By following this structured and methodical approach, prompt flow empowers you to develop, rigorously test, fine-tune, and deploy flows with confidence, resulting in the creation of robust and sophisticated AI applications.
 
-:::image type="content" source="./media/overview-what-is-prompt-flow.md/prompt_flow_lifecycle.png" alt-text="Diagram of the Prompt flow lifecycle starting from initialization to experimentation then evaluation and refinement and finally production. " lightbox = "./media/overview-what-is-prompt-flow.md/prompt_flow_lifecycle.png":::
+:::image type="content" source="./media/overview-what-is-prompt-flow.md/prompt-flow-lifecycle.png" alt-text="Diagram of the Prompt flow lifecycle starting from initialization to experimentation then evaluation and refinement and finally production. " lightbox = "./media/overview-what-is-prompt-flow.md/prompt-flow-lifecycle.png":::
 
 ## Next steps
 
