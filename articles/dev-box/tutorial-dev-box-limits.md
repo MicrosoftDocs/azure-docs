@@ -20,8 +20,6 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set a dev box limit for your project by using the Azure portal
-> * Prevent Dev Box Users creating new dev boxes
-> * Set a dev box limit for your project by using command line
 > * View dev box Limits in the developer portal
  
 ## Prerequisites
