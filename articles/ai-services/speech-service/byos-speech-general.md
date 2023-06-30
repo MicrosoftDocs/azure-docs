@@ -308,9 +308,7 @@ Having restricted access to the Storage account, you need to grant networking ac
 
 Many [Speech Studio](https://speech.microsoft.com/) operations like dataset upload, or custom model training and testing don't require any special configuration in the case of BYOS-enabled Speech resource.
 
-However if you would like to perform actions, like View data of a dataset, in other words read data stored withing BYOS-associated Storage account through Speech Studio Web interface, you need to configure these settings at your BYOS-associated Storage account.
-
-However if you need to read data stored withing BYOS-associated Storage account through Speech Studio Web interface, you need to configure additional settings of your BYOS-associated Storage account. For example, it's required to view contents of a dataset.
+However, if you need to read data stored withing BYOS-associated Storage account through Speech Studio Web interface, you need to configure additional settings of your BYOS-associated Storage account. For example, it's required to view the contents of a dataset.
 
 ### Configure Cross-Origin Resource Sharing (CORS)
 
@@ -333,7 +331,7 @@ Speech Studio needs permission to make requests to the Blob storage of the BYOS-
 
 ### Configure Azure Storage firewall
 
-You need to allow access for the machine, where you run the browser accessing Speech Studio. If your Storage account firewall settings allow public access from all networks, you may skip this subsection. Otherwise, follow these steps.
+You need to allow access for the machine, where you run the browser using Speech Studio. If your Storage account firewall settings allow public access from all networks, you may skip this subsection. Otherwise, follow these steps.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Storage account.
