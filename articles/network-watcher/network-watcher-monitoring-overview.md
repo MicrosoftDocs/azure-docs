@@ -19,21 +19,21 @@ Azure Network Watcher provides a suite of tools to monitor, diagnose, view metri
 
 Network Watcher consists of three major sets of tools and capabilities:
 
-- [Monitoring](#monitoring).
-- [Network diagnostics tools](#network-diagnostics-tools).
-- [Traffic](#traffic).
+- [Monitoring](#monitoring)
+- [Network diagnostics tools](#network-diagnostics-tools)
+- [Traffic](#traffic)
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
 > [!NOTE] 
-> When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your Virtual Network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
+> When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
 
 ## Monitoring
 
 Network Watcher offers two monitoring tools that help you view and monitor resources:
 
-- **[Topology](#topology)**
-- **[Connection monitor](#connection-monitor)**
+- [Topology](#topology)
+- [Connection monitor](#connection-monitor)
 
 ### Topology
 
@@ -61,11 +61,11 @@ Network Watcher offers seven network diagnostics tools that help troubleshoot an
 
 ### NSG diagnostics
 
-**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic and it allows you to add a new security rule with higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](network-watcher-network-configuration-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules).
+**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](network-watcher-network-configuration-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
 
-## Next hop
+### Next hop
 
-**Next hop** allows you to detect routing issues. It checks if traffic is routed correctly to the intended destination. It provides you information about the Next hop type, IP address, and Route table ID for a specific destination IP address. For more information, see [Next hop overview](network-watcher-next-hop-overview.md) and [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
+**Next hop** allows you to detect routing issues. It checks if traffic is routed correctly to the intended destination. It provides you with information about the Next hop type, IP address, and Route table ID for a specific destination IP address. For more information, see [Next hop overview](network-watcher-next-hop-overview.md) and [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).
 
 ### Effective security rules
 
@@ -73,7 +73,7 @@ Network Watcher offers seven network diagnostics tools that help troubleshoot an
 
 ### Connection troubleshoot
 
-**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time, rather than monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](network-watcher-connectivity-overview.md) [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
+**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](network-watcher-connectivity-overview.md) and [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md). 
 
 ### Packet capture
 
@@ -104,12 +104,34 @@ For more information about traffic analytics, see [traffic analytics](traffic-an
 
 ## Usage + quotas
 
-The **Usage + quotas** capability of Network Watcher provides a summary of how many of each network resource you've deployed in a subscription and region and what the limit is for the resource. For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/network-watcher/toc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. This information is helpful when planning future resource deployments as you won't be able to create more resources if you reach their limits within the subscription or region.
+The **Usage + quotas** capability of Network Watcher provides a summary of how many of each network resource you've deployed in a subscription and region and what the limit is for the resource. For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/network-watcher/toc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. This information is helpful when planning future resource deployments as you can't create more resources if you reach their limits within the subscription or region.
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/subscription-limits.png" alt-text="Screenshot showing Networking resources usage and limits per subscription in the Azure portal.":::
+
+## Network Watcher limits
+
+Network Watcher has the following limits:
+
+[!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
+
+## Pricing
+
+For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
+
+## Service Level Agreement (SLA)
+
+For service level agreement details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
+## Frequently asked questions (FAQ)
+
+To get answers to most frequently asked questions about Network Watcher, see [Azure Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml).
+
+## What's new? 
+
+To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?query=network%20watcher).
 
 ## Next steps
 
 - To get started using Network Watcher diagnostics tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
-- To get answers to most frequently asked questions about Network Watcher, see [Azure Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.md).
+- 
 - [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
