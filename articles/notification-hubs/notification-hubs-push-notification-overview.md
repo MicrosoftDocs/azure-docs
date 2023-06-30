@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/12/2021
+ms.date: 06/30/2023
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
@@ -48,6 +48,8 @@ For more information on push notifications for a few popular platforms, see the 
 ## How do push notifications work?
 
 Push notifications are delivered through platform-specific infrastructures called *Platform Notification Systems* (PNSes). They offer basic push functionalities to deliver a message to a device with a provided handle, and have no common interface. To send a notification to all customers across the Android, iOS, and Windows versions of an app, the developer must work separately with Apple Push Notification Service (APNS), Firebase Cloud Messaging (FCM), and Windows Notification Service (WNS).
+
+[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
 
 At a high level, here is how push works:
 
