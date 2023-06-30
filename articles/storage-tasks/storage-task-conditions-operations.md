@@ -36,7 +36,7 @@ For more information about how to define conditions and operations, see [Define 
 
 ## Supported properties in conditions
 
-The following table shows the properties that you can use to compose a condition. A condition can contain string, boolean, numeric, as well as date and time properties. 
+The following table shows the properties that you can use to compose a condition. A condition can contain string, boolean, numeric, as well as date and time properties.
 
 | String                         | Date and time        | Numeric        | Boolean          |
 |--------------------------------|----------------------|----------------|------------------|
@@ -69,7 +69,7 @@ The following table shows the operators that you can use in a condition to evalu
 
 #### String matching in property values
 
-Explain matching and wild card patterns.
+Explain matching and wild card patterns. At the time of this draft, it appears that `*` and `?` are supported with the addition of a "matches" operator soon which enables the escaping of these characters in a name. This section is TBD pending the addition of the "matches" operator.
 
 ## Supported operations
 
