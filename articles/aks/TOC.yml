@@ -619,7 +619,7 @@
               href: deploy-application-az-cli.md
     - name: Deploy Intelligent Apps on AKS
       items:
-        - name: Deploy OpenAI Workload on AKS 
+        - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
           href: open-ai-quickstart.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
