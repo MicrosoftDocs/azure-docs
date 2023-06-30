@@ -36,7 +36,7 @@ Azure Lab Services supports up to 400 users per lab.
 
 ## Manage lab users
 
-# [Add users manually](#tab/als-website)
+# [Add users manually](#tab/manual)
 
 You can add lab users manually by providing their email address in the lab configuration or by uploading a CSV file.
 
@@ -164,7 +164,7 @@ To view the list of lab users that have already registered for the lab by using 
     > [!NOTE]
     > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reset VMs](how-to-manage-vm-pool.md#reset-vms), the users remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
-# [Azure AD group](#tab/als-website)
+# [Azure AD group](#tab/aad)
 
 You can sync a lab user list to an existing Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings.
 
@@ -209,7 +209,7 @@ When a user is added to the Azure AD group, Azure Lab Services automatically add
 
 You can't manually add or remove lab users, or update the lab capacity when synchronizing with an Azure AD group.
 
-# [Teams/Canvas](#tab/als-website)
+# [Teams/Canvas](#tab/teams-canvas)
 
 When you use Teams or Canvas, Azure Lab Services automatically grants users access to the lab based on their membership in Microsoft or Canvas. In this case, you can't update the lab user list manually. 
 
