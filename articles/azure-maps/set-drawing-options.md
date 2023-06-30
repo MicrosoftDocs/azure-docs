@@ -117,7 +117,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 
 The previous examples demonstrated how to customize drawing options while instantiating the Drawing Manager. You can also set the Drawing Manager options by using the `drawingManager.setOptions()` function.
 
-The [Drawing manager options] can be used to test out customization of all options for the drawing manager using the `setOptions` function.
+The [Drawing manager options] can be used to test out customization of all options for the drawing manager using the `setOptions` function. For the source code for this sample, see [Drawing manager options source code].
 
 :::image type="content" source="./media/set-drawing-options/drawing-manager-options.png"alt-text="A screenshot of a map of Seattle with a panel on the left showing the drawing manager options that can be selected to see the effects they make to the map.":::
 
@@ -214,3 +214,4 @@ Learn more about the classes and methods used in this article:
 [Drawing manager options]: https://samples.azuremaps.com/drawing-tools-module/drawing-manager-options
 [Webpack]: https://webpack.js.org/
 [style-loader]: https://webpack.js.org/loaders/style-loader/
+[Drawing manager options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20manager%20options/Drawing%20manager%20options.html
