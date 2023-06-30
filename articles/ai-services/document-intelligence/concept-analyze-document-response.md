@@ -71,7 +71,7 @@ Bounding regions describe the visual position of each element in the file. Since
 :::image type="content" source="media/bounding-regions.png" alt-text="Screenshot of detected bounding regions example.":::
 
 > [!NOTE]
-> Current Document Intelligence only returns 4-vertex quadrilaterals as bounding polygons.  Future versions may return different number of points to describe more complex shapes, such as curved lines or non-rectangular images. Bounding regions applied only to rendered files, if the file is not rendered, bounding regions are not returned. Currently files of docx/xlsx/pptx/html format are not rendered.
+> Currently, Document Intelligence only returns 4-vertex quadrilaterals as bounding polygons.  Future versions may return different number of points to describe more complex shapes, such as curved lines or non-rectangular images. Bounding regions applied only to rendered files, if the file is not rendered, bounding regions are not returned. Currently files of docx/xlsx/pptx/html format are not rendered.
 
 ### Content elements
 
