@@ -29,23 +29,23 @@ Meanwhile, you can also create custom application on compute instance and manage
 
 1. Go to runtime list page find the compute instance linked with runtime.
 
-    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-link.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-link.png":::
+    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-link.png" alt-text="Screenshot of flows highlighting the linked compute column. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-link.png":::
 
 1. Under `applications` in the detail page of the compute instance, select `terminal`.
 
-     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal.png":::
+     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal.png" alt-text="Screenshot of compute detail page with terminal highlighted. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal.png":::
 
 1. Jump to terminal on this compute instance
 
-     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-jump-to-terminal.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-jump-to-terminal.png":::
+     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-jump-to-terminal.png" alt-text="Screenshot of notebooks with the compute highlighted. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-jump-to-terminal.png":::
 
 1. Retrieve the container name of the runtime using the command `docker ps`.
 
-    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png":::
+    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png" alt-text="Screenshot of notebooks highlighting the container name of the runtime. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png":::
 
 1. Jump into the container using the command `docker exec -it <container_id/container_name> /bin/bash`.
 1
-    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png":::
+    :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png" alt-text="Screenshot of notebooks showing the docker command. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png":::
 
 1. You can now install packages using `conda install` or `pip install` in this conda environment.
 
@@ -139,13 +139,13 @@ az ml environment create -f environment_build.yaml --subscription <sub-id> -g <r
 
 #### Locate the image in ACR
 
-Go to the environment page to find the built image in your workspace ACR.
+Go to the environment page to find the built image in your workspace Azure Container Registry (ACR).
 
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-list.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-list.png":::
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-list.png" alt-text="Screenshot of environments on the custom tab. " lightbox = "./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-list.png":::
 
 Find the image in ACR.
 
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-acr.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-acr.png":::
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-acr.png" alt-text="Screenshot of environments showing the details tab of the image. " lightbox = "./media/how-to-customize-environment-runtime/runtime-update-env-custom-environment-acr.png":::
 
 > [!IMPORTANT]
 > Make sure the `Environment image build status` is `Succeeded`  before using it in the next step.
@@ -288,7 +288,7 @@ To learn more, see [Azure Resource Manager template for custom application as pr
 
 Follow [this document to add custom application](../how-to-create-manage-compute-instance.md?view=azureml-api-2&tabs=python#setup-other-custom-applications).
 
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of compute showing custom applications. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
 
 ## Create managed online deployment that can be used as prompt flow runtime
 
