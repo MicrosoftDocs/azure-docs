@@ -133,8 +133,6 @@ In the Application Insights portal, filter and split your data on the property v
 
 To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
-**ASP.NET apps**
-
 ```csharp
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
@@ -152,7 +150,19 @@ To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#ad
     }
 ```
 
-In the web app initializer, such as Global.asax.cs:
+# [NET 6.0+](#tab/aspnetcore)
+
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+
+builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+```
+
+# [.NET Framework 4.8](#tab/aspnet-framework)
+
+In the web app initializer, such as `Global.asax.cs`:
 
 ```csharp
 
@@ -164,21 +174,7 @@ In the web app initializer, such as Global.asax.cs:
     }
 ```
 
-**ASP.NET Core apps**
-
-> [!NOTE]
-> Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications.
-
-For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility;
-
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
-}
-```
+---
 
 ## Next steps
 
