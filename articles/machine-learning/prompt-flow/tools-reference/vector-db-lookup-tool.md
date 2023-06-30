@@ -35,7 +35,7 @@ This tool adds support for more vector databases, including Pinecone, Weaviete, 
 The tool searches data from a third-party vector database. To use it, you should create resources in advance and establish connections between the tool and the resource.
 
   - **Azure Cognitive Search:**
-    - Create resource [Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-create-service-portal).
+    - Create resource [Azure Cognitive Search](../../../search/search-create-service-portal).
     - Add "CognitiveSearchConnection" connection. Fill "API key" field with "Primary admin key" from "Keys" section of created resource, and fill "Api Base" field with the Url, the Url format is `https://{your_serive_name}.search.windows.net`.
 
 ## Inputs

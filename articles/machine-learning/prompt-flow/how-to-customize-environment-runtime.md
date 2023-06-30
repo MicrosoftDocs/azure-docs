@@ -54,7 +54,7 @@ Meanwhile, you can also create custom application on compute instance and manage
 
 ## Customize environment with docker context for runtime
 
-This section assumes you have knowledge of [Docker](https://www.docker.com/) and [Azure Machine Learning environments](../concept-environments.md?view=azureml-api-2).
+This section assumes you have knowledge of [Docker](https://www.docker.com/) and [Azure Machine Learning environments](../concept-environments.md).
 
 ### Step-1: Prepare the docker context
 
@@ -108,8 +108,8 @@ RUN pip install -r requirements.txt
 In your local compute, you can use the CLI (v2) to create a customized environment based on your docker image.
 
 > [!NOTE]
-> - Make sure to meet the [prerequisites](../how-to-manage-environments-v2.md?view=azureml-api-2&tabs=cli#prerequisites) for creating environment.
-> - Ensure you have [connected to your workspace](../how-to-manage-environments-v2.md?view=azureml-api-2&tabs=cli#connect-to-the-workspace).
+> - Make sure to meet the [prerequisites](../how-to-manage-environments-v2.md#prerequisites) for creating environment.
+> - Ensure you have [connected to your workspace](../how-to-manage-environments-v2.md?#connect-to-the-workspace).
 
 ```shell
 az login(optional)
@@ -224,7 +224,7 @@ Go to your workspace UI page, go to the `environment` page,  and locate the cust
 - [Create compute instance runtime in UI](how-to-create-manage-runtime.md#create-compute-instance-runtime-in-ui)
 - [Create managed online endpoint runtime in UI](how-to-create-manage-runtime.md#create-managed-online-endpoint-runtime-in-ui)
 
-To Learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md?view=azureml-api-2&tabs=cli#manage-environments).
+To Learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
 ## Create a custom application on compute instance that can be used as prompt flow runtime
 
@@ -286,7 +286,7 @@ To learn more, see [Azure Resource Manager template for custom application as pr
 
 ## Create custom application as prompt flow runtime via Compute instance UI
 
-Follow [this document to add custom application](../how-to-create-manage-compute-instance.md?view=azureml-api-2&tabs=python#setup-other-custom-applications).
+Follow [this document to add custom application](../how-to-create-manage-compute-instance.md#setup-other-custom-applications).
 
 :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png" alt-text="Screenshot of compute showing custom applications. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-add-custom-application-ui.png":::
 
@@ -294,7 +294,7 @@ Follow [this document to add custom application](../how-to-create-manage-compute
 
 ### Create managed online deployment that can be used as prompt flow runtime via CLI v2
 
-Learn more about [deploy and score a machine learning model by using an online endpoint](../how-to-deploy-online-endpoints.md?view=azureml-api-2&tabs=azure-cli)
+Learn more about [deploy and score a machine learning model by using an online endpoint](../how-to-deploy-online-endpoints.md)
 
 #### Create managed online  endpoint
 
@@ -307,7 +307,7 @@ description: this is a sample promptflow endpoint
 auth_mode: key
 ```
 
-Use following CLI command `az ml online-endpoint create -f <yaml_file> -g <resource_group> -w <workspace_name>` to create managed online endpoint. To learn more, see [Deploy and score a machine learning model by using an online endpoint](../how-to-deploy-online-endpoints.md?view=azureml-api-2&tabs=azure-cli).
+Use following CLI command `az ml online-endpoint create -f <yaml_file> -g <resource_group> -w <workspace_name>` to create managed online endpoint. To learn more, see [Deploy and score a machine learning model by using an online endpoint](../how-to-deploy-online-endpoints.md).
 
 #### Create Prompt flow runtime image config file
 
