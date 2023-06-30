@@ -48,11 +48,37 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
       >npm install azure-maps-indoor
       ```
 
-  2. Import the *Azure Maps Indoor* module JavaScript and Style Sheet in a source file:
+  2. Import the *Azure Maps Indoor* module JavaScript in a source file:
 
       ```js
       import * as indoor from "azure-maps-indoor";
+      ```
+
+      You would also need to embed the CSS Style Sheet for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [Webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
+
+      To begin, install style-loader and css-loader:
+
+      ```powershell
+      npm install --save-dev style-loader css-loader
+      ```
+
+      Inside your source file, import atlas-indoor.min.css:
+      ```js
       import "azure-maps-indoor/dist/atlas-indoor.min.css";
+      ```
+
+      Then add loaders to the module rules portion of the Webpack config:
+      ```js
+      module.exports = {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: ["style-loader", "css-loader"]
+            }
+          ]
+        }
+      };
       ```
 
 ## Set the domain and instantiate the Map object
@@ -294,3 +320,5 @@ Learn more about how to add more data to your map:
 [Tileset List API]: /rest/api/maps/v2/tileset/list
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor/
+[Webpack]: https://webpack.js.org/
+[style-loader]: https://webpack.js.org/loaders/style-loader/
