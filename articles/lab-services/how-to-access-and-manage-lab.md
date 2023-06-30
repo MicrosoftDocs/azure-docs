@@ -78,13 +78,13 @@ To access your lab in Teams:
 
 1. Sign into Microsoft Teams with your organizational account.
 
-1. Go to the Teams channel, and then select the **Azure Lab Services** tab.
+1. Select the team and channel that contain the lab.
 
-    :::image type="content" source="./media/how-to-access-and-manage-lab/published-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
+1. Select the **Azure Lab Services** tab to view your lab virtual machines.
 
-You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
+    :::image type="content" source="./media/how-to-access-and-manage-lab/teams-view-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
 
-:::image type="content" source="./media/how-to-access-and-manage-lab/not-published-lab.png" alt-text="Screenshot of lab before it's published." lightbox="./media/how-to-access-and-manage-lab/not-published-lab.png":::
+    You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
 
 # [Canvas](#tab/canvas)
 
@@ -98,13 +98,15 @@ To access your lab in Canvas:
 
     :::image type="content" source="./media/how-to-access-and-manage-lab/canvas-view-lab.png" alt-text="Screenshot of a lab in the Canvas portal.":::
 
-You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the course assignment information still needs to synchronize.
-
-:::image type="content" source="./media/how-to-access-and-manage-lab/troubleshooting-lab-isnt-available-yet.png" alt-text="Screenshot that shows the lab isn't available yet.":::
+    You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the Canvas course membership still needs to synchronize.
 
 ---
 
-## View the lab virtual machines
+## View lab VM details
+
+When you access your lab, either through the Azure Lab Services website, Microsoft Teams, or Canvas, you
+
+You can view 
 
 You can view all your assigned lab virtual machines to you in the Azure Lab Services website. Alternately, if your organization uses Azure Lab Services with Microsoft Teams or Canvas, learn how you can [access your lab VMs in Microsoft Teams](./how-to-access-vm-for-students-within-teams.md) or [access your lab VMs in Canvas](./how-to-access-vm-for-students-within-canvas.md).
 
