@@ -312,7 +312,7 @@ Delete the resource group template first. Otherwise, the staging resource group 
 1. Get the ResourceID of the image template. 
 
    ```powerShell
-   $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14"
+   $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2022-02-14"
    ```
 
 1. Delete image template.
