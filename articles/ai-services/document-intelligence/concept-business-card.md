@@ -83,7 +83,7 @@ See how data, including name, job title, address, email, and company name, is ex
 > [!NOTE]
 > Document Intelligence Studio is available with the v3.0 API.
 
-1. On the Document Intelligence Studio home page, select **Business cards**
+1. On the Document Intelligence Studio home page, select **Business cards**.
 
 1. You can analyze the sample business card or select the **+ Add** button to upload your own sample.
 
