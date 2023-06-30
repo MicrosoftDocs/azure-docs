@@ -942,7 +942,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.10<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.11 (preview) <br/>3.10<br/>3.9<br/> 3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
 | 2.x | 3.7 |
 
@@ -1242,10 +1242,10 @@ The Python standard library contains a list of built-in Python modules that are 
 To view the library for your Python version, go to:
 
 
-* [Python 3.7 standard library](https://docs.python.org/3.7/library/)
 * [Python 3.8 standard library](https://docs.python.org/3.8/library/)
 * [Python 3.9 standard library](https://docs.python.org/3.9/library/)
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
+* [Python 3.11 standard library](https://docs.python.org/3.11/library/)
 
 ### Azure Functions Python worker dependencies
 
