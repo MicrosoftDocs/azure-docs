@@ -82,7 +82,7 @@ Resolution:
    
 ## Azure permissions issues
 ### Incorrect role assignments to enable SSH connectivity
-This issue occurs when the current user doesn't have the proper role assignment on the target resource, specifically a lack of `read` permissions. Error:
+This issue occurs when the current user doesn't have the proper role assignment to make contributions to the target resource. Error:
 
 - `Client is not authorized to create a Default connectivity endpoint for {Name} in the Resource Group {ResourceGroupName}. This is a one-time operation that must be performed by an account with Owner or Contributor role to allow connections to target resource`
 
