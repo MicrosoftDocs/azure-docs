@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 06/22/2023
 ms.topic: how-to
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ---
 
 # Workspace managed network isolation (preview)

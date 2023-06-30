@@ -141,7 +141,7 @@ This code will create a map that appears as follows:
 
 You may apply a single stroke color to a line. You can also fill a line with a gradient of colors to show transition from one line segment to the next line segment. For example, line gradients can be used to represent changes over time and distance, or different temperatures across a connected line of objects. In order to apply this feature to a line, the data source must have the `lineMetrics` option set to `true`, and then a color gradient expression can be passed to the `strokeColor` option of the line. The stroke gradient expression has to reference the `['line-progress']` data expression that exposes the calculated line metrics to the expression.
 
-For a fully functional sample that shows how to apply a stroke gradient to a line on the map, see [Line with Stroke Gradient] in the [Azure Maps Samples].
+For a fully functional sample that shows how to apply a stroke gradient to a line on the map, see [Line with Stroke Gradient] in the [Azure Maps Samples]. For the source code for this sample, see [Line with Stroke Gradient source code].
 
 :::image type="content" source="./media/map-add-line-layer/line-with-stroke-gradient.png"alt-text="A screenshot showing a line with a stroke gradient on the map.":::
 
@@ -154,7 +154,7 @@ For a fully functional sample that shows how to apply a stroke gradient to a lin
 
 ## Customize a line layer
 
-The Line layer has several styling options. For a fully functional sample that interactively demonstrates the line options, see [Line Layer Options] in the [Azure Maps Samples].
+The Line layer has several styling options. For a fully functional sample that interactively demonstrates the line options, see [Line Layer Options] in the [Azure Maps Samples]. For the source code for this sample, see [Line Layer Options source code].
 
 :::image type="content" source="./media/map-add-line-layer/line-layer-options.png"alt-text="A screenshot showing the Line Layer Options sample that shows how the different options of the line layer affect rendering.":::
 
@@ -193,3 +193,6 @@ See the following articles for more code samples to add to your maps:
 [Line with Stroke Gradient]: https://samples.azuremaps.com/line-layer/line-with-stroke-gradient
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Line Layer Options]: https://samples.azuremaps.com/line-layer/line-layer-options
+
+[Line with Stroke Gradient source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Line%20Layer/Line%20with%20Stroke%20Gradient/Line%20with%20Stroke%20Gradient.html
+[Line Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Line%20Layer/Line%20Layer%20Options/Line%20Layer%20Options.html

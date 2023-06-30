@@ -807,7 +807,7 @@ items:
             href: storage-blob-properties-metadata-javascript.md
           - name: Get blob URL
             href: storage-blob-get-url-javascript.md
-          - name: Use access tiers
+          - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-javascript.md
       - name: TypeScript
         items: 
@@ -875,7 +875,7 @@ items:
             href: storage-blob-properties-metadata-typescript.md
           - name: Get blob URL
             href: storage-blob-get-url-typescript.md
-          - name: Use access tiers
+          - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-typescript.md
       - name: Python
         items:

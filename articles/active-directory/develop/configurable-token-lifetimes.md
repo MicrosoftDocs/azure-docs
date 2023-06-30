@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 06/27/2023
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
-ms.reviewer: ludwignick, sreyanthmora
+ms.reviewer: joroja
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
 
@@ -117,16 +117,6 @@ All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api
 ## REST API reference
 
 You can configure token lifetime policies and assign them to apps using Microsoft Graph. For more information, see the [tokenLifetimePolicy resource type](/graph/api/resources/tokenlifetimepolicy) and its associated methods.
-
-### Service principal policies
-
-You can use the following Microsoft Graph REST API commands for service principal policies.</br></br>
-
-| Command | Description |
-| --- | --- |
-| [Assign tokenLifetimePolicy](/graph/api/application-post-tokenlifetimepolicies) | Specify the service principal object ID to link the specified policy to a service principal. |
-| [List assigned tokenLifetimePolicy](/graph/api/application-list-tokenlifetimepolicies) | Specify the service principal object ID to get the policies that are assigned to a service principal. |
-| [Remove tokenLifetimePolicy](/graph/api/application-delete-tokenlifetimepolicies) | Specify the service principal object ID to remove a policy from the service principal. |
 
 ## Cmdlet reference
 

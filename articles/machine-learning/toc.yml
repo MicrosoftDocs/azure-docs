@@ -40,7 +40,7 @@
 - name: Quickstart
   expanded: true
   items:
-    - name: Get started with Azure ML
+    - name: Get started with Azure Machine Learning
       href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
   expanded: true
@@ -548,6 +548,10 @@
     items:
     - name: Monitor and analyze jobs in studio
       href: how-to-track-monitor-analyze-runs.md
+    - name: Organize & manage jobs (preview)
+      href: how-to-track-monitor-organize-jobs.md
+    - name: Visualize training results (preview)
+      href: how-to-visualize-jobs.md
   - name: Debug jobs
     href: how-to-interactive-jobs.md
   - name: Schedule jobs
@@ -619,7 +623,7 @@
       href: concept-ml-pipelines.md
     - name: What is a component
       href: concept-component.md
-    - name: What is the Azure MaChine Learning Designer (v2)?
+    - name: What is the Azure Machine Learning Designer (v2)?
       href: concept-designer.md
   # v1
   - name: Designer (drag-n-drop ML)
@@ -751,10 +755,6 @@
       items:
         - name: Batch endpoints
           href: concept-endpoints-batch.md
-        - name: Perform batch scoring with batch endpoints
-          href: how-to-use-batch-endpoints.md	
-        - name: Create jobs and input data for batch endpoints	
-          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Deploy models
           items:
             - name: Deploy models for scoring in batch endpoints
@@ -779,6 +779,8 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
+        - name: Create jobs and input data for batch endpoints	
+          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
           href: how-to-troubleshoot-batch-endpoints.md	
         - name: Security
@@ -890,22 +892,21 @@
           href: concept-ml-pipelines.md
         - name: Work with Assets
           href: concept-component.md
-        - name: System and Community Registry
         - name: How to manage models
           href: how-to-manage-models.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+    - name: Share assets across workspaces using registries
+      items:
+        - name: Share models, components, and environments
+          displayName: collaborate share
+          href: how-to-share-models-pipelines-across-workspaces-with-registries.md
+        - name: Share data assets
+          displayName: collaborate share
+          href: how-to-share-data-across-workspaces-with-registries.md
     - name: Model Deployment
       items:
-        - name: How to share assets across workspaces using registries
-          items:
-            - name: Share models, components, and environments
-              displayName: collaborate share
-              href: how-to-share-models-pipelines-across-workspaces-with-registries.md
-            - name: Share data assets
-              displayName: collaborate share
-              href: how-to-share-data-across-workspaces-with-registries.md
         - name: Endpoints
           href: concept-endpoints.md
     - name: Automation
@@ -915,7 +916,7 @@
         - name: Intro to Azure Pipelines for CI/CD
           displayName: continuous, integration, delivery
           href: how-to-devops-machine-learning.md
-        - name: Intro to Github Actions for CI/CD
+        - name: Intro to GitHub Actions for CI/CD
           href: how-to-github-actions-machine-learning.md
         - name: Custom CI/CD and Event-driven workflows
           displayName: event grid
@@ -924,7 +925,7 @@
       items:
       - name: Set up MLOps with Azure DevOps
         href: how-to-setup-mlops-azureml.md
-      - name: Set up MLOps with Github Actions
+      - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
 - name: Monitor your models
   items:
@@ -1154,6 +1155,12 @@
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
+    - name: Manage resource quotas
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md
     - name: Monitor Azure Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure coding
