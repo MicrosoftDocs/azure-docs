@@ -22,7 +22,7 @@ Azure Language Detector is a cloud-based service, which you can use to identify 
 
 ## Prerequisites
 
-- [Create a Translator resource](../../../cognitive-services/translator/create-translator-resource).
+- [Create a Translator resource](../../../cognitive-services/translator/create-translator-resource.md).
 
 ## Inputs
 
@@ -32,7 +32,7 @@ The following are available input parameters:
 | ---- | ---- | ----------- | -------- |
 | input_text | string | Identify the language of the input text. | Yes |
 
-For more information, see to [Translator 3.0: Detect](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-detect)
+For more information, see to [Translator 3.0: Detect](../../../cognitive-services/translator/reference/v3-0-detect.md)
 
 
 ## Outputs

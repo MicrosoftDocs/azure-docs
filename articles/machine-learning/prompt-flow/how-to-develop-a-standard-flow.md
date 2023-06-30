@@ -214,12 +214,11 @@ First define flow output schema, then select in drop-down the node whose output 
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output.png" alt-text="Screenshot of outputs showing the value drop down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output.png":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/low-output-check.png" alt-text="Screenshot of Web Classification highlighting the view outputs button. " lightbox = "./media/how-to-develop-a-standard-flow/low-output-check.png":::
-
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check.png" alt-text="Screenshot of Web Classification highlighting the view outputs button. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check.png":::
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of outputs which shows the status is completed and infomation for that output. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
 
-# Next steps
+## Next steps
 
 - [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
 - [Tune prompts using variants](how-to-tune-prompts-using-variants.md)

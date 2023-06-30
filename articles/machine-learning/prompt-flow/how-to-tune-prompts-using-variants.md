@@ -16,7 +16,7 @@ ms.date: 06/30/2023
 
 Crafting a good prompt is a challenging task that requires a lot of creativity, clarity, and relevance. A good prompt can elicit the desired output from a pretrained language model, while a bad prompt can lead to inaccurate, irrelevant, or nonsensical outputs. Therefore, it's necessary to tune prompts to optimize their performance and robustness for different tasks and domains.
 
-So, we introduce [the concept of variants](../concepts/concept-variants.md) which can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k, compare and find the best prompt and configuration that maximizes the model’s accuracy, diversity, or coherence.
+So, we introduce [the concept of variants](concept-variants.md) which can help you test the model’s behavior under different conditions, such as different wording, formatting, context, temperature, or top-k, compare and find the best prompt and configuration that maximizes the model’s accuracy, diversity, or coherence.
 
 In this article, we'll show you how to use variants to tune prompts and evaluate the performance of different variants.
 
@@ -28,7 +28,7 @@ In this article, we'll show you how to use variants to tune prompts and evaluate
 
 Before reading this article, it's better to go through:
 
-- [Quick Start Guide](../quick-start.md)
+- [Quick Start Guide](get-started-prompt-flow.md)
 - [How to bulk test and evaluate a flow](how-to-bulk-test-evaluate-flow.md)
 
 ## How to tune prompts using variants?

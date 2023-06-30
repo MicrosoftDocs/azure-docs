@@ -173,8 +173,8 @@ You can also assign these permissions manually through the UI.
 
 To learn more:
 - [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
-- [Assign an Azure role for access to blob data](../../../storage/blobs/assign-azure-role-data-access.md?tabs=portal)
-- [Azure Container Registry roles and permissions](../../../container-registry/container-registry-roles.md?tabs=azure-cli)
+- [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md?tabs=portal)
+- [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md?tabs=azure-cli)
 
 ## Using runtime in prompt flow authoring
 

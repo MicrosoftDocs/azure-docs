@@ -36,7 +36,7 @@ The table below outlines the key differences between these runtime types:
 
 |Capabilities    | Managed online deployment runtime                            | Compute instance runtime                                     |
 | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Underlying resource   | [Azure Machine Learning managed online endpoints](../../concept-endpoints-online) | [Azure Machine Learning compute instance](../../concept-compute-instance) |
+| Underlying resource   | [Azure Machine Learning managed online endpoints](../concept-endpoints-online) | [Azure Machine Learning compute instance](../concept-compute-instance) |
 | Scalability           | Multi-nodes                                                  | Single node                                                  |
 | Resource sharing      | Yes                                                          | No                                                           |
 | User identity support | No                                                           | Yes                                                          |

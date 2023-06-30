@@ -38,7 +38,7 @@ The following are available input parameters:
 | source_language | string | The language (code) of the input text. | Yes |
 | target_language | string | The language (code) you want the text to be translated too. | Yes |
 
-For more information, please refer to [Translator 3.0: Translate](https://learn.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-translate#required-parameters)
+For more information, please refer to [Translator 3.0: Translate](../../../cognitive-services/translator/reference/v3-0-translate.md#required-parameters)
 
 ## Outputs
 

@@ -24,7 +24,7 @@ We could use the tool to retrieve search results from many different search engi
 
 ## Prerequisite
 
-Sign up at [SERP API homepage](https://serpapi.com/) 
+Sign up at [SERP API homepage](https://serpapi.com/)
 
 
 ## Connection

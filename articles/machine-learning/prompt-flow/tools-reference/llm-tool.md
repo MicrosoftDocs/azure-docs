@@ -14,7 +14,7 @@ ms.date: 06/30/2023
 
 # LLM tool (preivew)
 
-Prompt flow LLM tool enables you to leverage widely used large language models like [OpenAI](https://platform.openai.com/) or [Azure OpenAI (AOAI)](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) for natural language processing. 
+Prompt flow LLM tool enables you to leverage widely used large language models like [OpenAI](https://platform.openai.com/) or [Azure OpenAI (AOAI)](../../../cognitive-services/openai/overview.md) for natural language processing.
 
 Prompt flow provides a few different LLM APIs:
 - **[Completion](https://platform.openai.com/docs/api-reference/completions)**: OpenAI's completion models generate text based on provided prompts.
