@@ -31,17 +31,15 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a configuration file
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/config.js":::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/src/lib/config.js":::
 
 ## Azure Function: Search the catalog
 
-The `Search` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/Search/index.js) takes a search term and searches across the documents in the Search Index, returning a list of matches. 
-
-Routing for the Search API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/Search/function.json) bindings.
+The `Search` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/src/functions/search.js) takes a search term and searches across the documents in the Search Index, returning a list of matches. 
 
 The Azure Function pulls in the Search configuration information, and fulfills the query.
 
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/Search/index.js" highlight="4-9, 75" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/src/functions/search.js" :::
 
 ## Client: Search from the catalog
 
@@ -51,13 +49,11 @@ Call the Azure Function in the React client with the following code.
 
 ## Azure Function: Suggestions from the catalog
 
-The `Suggest` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/Suggest/index.js) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
+The `Suggest` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/src/functions/suggest.js) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
 
 The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/bulk-insert-v4/good-books-index.json) used during bulk upload.
 
-Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/Suggest/function.json) bindings.
-
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/Suggest/index.js" highlight="4-9, 21" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/src/functions/suggest.js" :::
 
 ## Client: Suggestions from the catalog
 
@@ -67,11 +63,9 @@ The Suggest function API is called in the React app at `\src\components\SearchBa
 
 ## Azure Function: Get specific document 
 
-The `Lookup` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/Lookup/index.js) takes an ID and returns the document object from the Search Index. 
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website-functions-v4/api-v4/src/functions/lookup.js) takes an ID and returns the document object from the Search Index. 
 
-Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/api-v4/Lookup/function.json) bindings.
-
-:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/Lookup/index.js" highlight="4-9, 17" :::
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website-functions-v4/api-v4/src/functions/lookup.js" :::
 
 ## Client: Get specific document 
 
