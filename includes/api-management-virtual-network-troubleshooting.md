@@ -23,7 +23,7 @@ ms.author: danlep
   * After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies, such as Azure Storage. 
   * In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network** > **Network status**.
 
-   :::image type="content" source="../articles/api-management/media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Screenshot of verify network connectivity status in the portal" lightbox="../articles/api-management/media/api-management-using-with-vnet/verify-network-connectivity-status.png":::
+   :::image type="content" source="../articles/api-management/media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Screenshot of verify network connectivity status in the portal." lightbox="../articles/api-management/media/api-management-using-with-vnet/verify-network-connectivity-status.png":::
 
   | Filter | Description |
   | ----- | ----- |
