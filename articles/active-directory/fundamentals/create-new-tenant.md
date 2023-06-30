@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 11/14/2022
+ms.date: 06/28/2023
 ms.author: barclayn
 ms.custom: it-pro, seodec18, fasttrack-edit, mode-other
 ms.collection: M365-identity-device-management
