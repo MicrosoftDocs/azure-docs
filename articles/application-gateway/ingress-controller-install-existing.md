@@ -17,16 +17,19 @@ AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/servi
 resources, and creates and applies Application Gateway config based on the status of the Kubernetes cluster.
 
 ## Outline
+
 - [Prerequisites](#prerequisites)
 - [Azure Resource Manager Authentication (ARM)](#azure-resource-manager-authentication)
-    - Option 1: [Set up Azure AD workload identity](#set-up-aad-workload-identity) and create Azure Identity on ARMs
+    - Option 1: [Set up Azure AD workload identity](#set-up-azure-ad-workload-identity) and create Azure Identity on ARMs
     - Option 2: [Set up a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
 - [Shared Application Gateway](#shared-application-gateway): Install AGIC in an environment, where Application Gateway is
-shared between one AKS clusters and/or other Azure components.
+shared between one AKS cluster and/or other Azure components.
 
 ## Prerequisites
+
 This document assumes you already have the following tools and infrastructure installed:
+
 - [An AKS cluster](../aks/intro-kubernetes.md) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as the AKS cluster
 - [Azure AD workload identity](../aks/workload-identity-overview.md) configured for your AKS cluster
@@ -41,6 +44,7 @@ The zip file you downloaded contains JSON templates, bash, and PowerShell script
 Gateway should that become necessary
 
 ## Install Helm
+
 [Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
 Use [Cloud Shell](https://shell.azure.com/) to install Helm:
 
