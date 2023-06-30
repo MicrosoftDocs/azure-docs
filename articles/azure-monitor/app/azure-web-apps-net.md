@@ -108,7 +108,7 @@ To check which version of the extension you're running, go to `https://yoursiten
 
 Starting with version 2.8.9, the preinstalled site extension is used. If you're on an earlier version, you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](#enable-auto-instrumentation-monitoring): Even if you have the Application Insights extension for App Service installed. The UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.
+* [Upgrade by enabling via the portal](#enable-autoinstrumentation-monitoring): Even if you have the Application Insights extension for App Service installed. The UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.
 * [Upgrade through PowerShell](#enable-through-powershell):
 
     1. Set the application settings to enable the preinstalled site extension `ApplicationInsightsAgent`. For more information, see [Enable through PowerShell](#enable-through-powershell).
@@ -130,7 +130,7 @@ Here's our step-by-step troubleshooting guide for extension/agent-based monitori
 
     - Confirm that `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx` and is running.
 
-         If it isn't running, follow the instructions to [enable Application Insights monitoring](#enable-auto-instrumentation-monitoring).
+         If it isn't running, follow the instructions to [enable Application Insights monitoring](#enable-autoinstrumentation-monitoring).
 
     - Confirm that the status source exists and looks like `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`.
 
