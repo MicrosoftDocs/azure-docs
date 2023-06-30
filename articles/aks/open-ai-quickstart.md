@@ -25,7 +25,6 @@ These applications provide front ends for customers and store admins, REST APIs 
 - For this demo, you can either use Azure OpenAI service or OpenAI service. If you plan on using Azure OpenAI service, you need to enable it for your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
 - If you plan on using OpenAI, sign up on the [OpenAI website][open-ai-landing].
 - If you already have Azure CLI installed, update to the latest version by using the [az upgrade][az-upgrade] command.
-- todo: any flag needs to be enabled in the CLI? <!--todo-->
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
@@ -62,7 +61,7 @@ The following example creates a cluster named *myAKSCluster* in the resource gro
 * Create an AKS cluster using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create --resource-group myResourceGroup --name myAKSCluster
+    az aks create --resource-group myResourceGroup --name myAKSCluster --generate-ssh-keys
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -504,7 +503,7 @@ For the [AKS Store application][aks-store-demo], this manifest includes the foll
 ## Deploy OpenAI
 You can either use Azure OpenAI or OpenAI and run your application on AKS.
 
-### Azure OpenAI
+### [Azure OpenAI](#tab/aoai)
 1. Enable Azure OpenAI on your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
 1. In the Azure Portal, create an Azure OpenAI instance. 
 1. Select the Azure OpenAI instance you created.
@@ -513,7 +512,7 @@ You can either use Azure OpenAI or OpenAI and run your application on AKS.
 1. Create a new deployment using the **text-davinci-003** model. 
 For more information on how to create a deployment in Azure OpenAI, check out [Get started generating text using Azure OpenAI Service][aoai-get-started].
 
-### OpenAI
+### [OpenAI](#tab/openai)
 1. [Generate an OpenAI key][open-ai-new-key] by selecting **Create new secret key** and save the key. You will need this key in the [next step](#deploy-the-ai-service). 
 1. [Start a paid plan][openai-paid] to use OpenAI API.
 
@@ -570,13 +569,13 @@ Now that the application is deployed, you can deploy the Python based microservi
       selector:
         app: ai-service
     ```
-1. If you're using Azure OpenAI: 
+1. ### [Azure OpenAI](#tab/aoai)
     * Set the environment variable *USE_AZURE_OPENAI* to "True"
     * Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
     * Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
-1. If you're using OpenAI: 
+1. ### [OpenAI](#tab/openai)
     * Set the environment variable *USE_AZURE_OPENAI* to "False"
-    * Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-azure-openai-or-openai).
+    * Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
     * [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
@@ -592,7 +591,26 @@ Now that the application is deployed, you can deploy the Python based microservi
 > Adding sensitive information like API keys directly to Kubernetes manifest files like this is not secure and can accidentally get committed to code repositories. We have done it that way here for simplicity. For production workloads, use [Managed Identity][managed-identity] to authenticate to Azure OpenAI service instead or store your secrets in [Azure Key Vault][key-vault].
 
 ## Test the application
-1. See the status of the deployed Kubernetes objects using the [kubectl get all][kubectl-get] command. To get the IP of the store admin web application and store front web application, use the kubectl get service command.
+1. See the status of the deployed pods using the [kubectl get pod][kubectl-get] command. 
+
+    ```bash
+    kubectl get pods
+    ```
+    Make sure all the pods are **running** before continuing to the next step. 
+    ```output
+    NAME                                READY   STATUS    RESTARTS      AGE
+    makeline-service-7db94dc7d4-s6r95   1/1     Running   0             16m
+    mongodb-78f6d95f8-h4k76             1/1     Running   0             16m
+    order-service-55cbd784bb-4zxlz      1/1     Running   0             16m
+    product-service-6bf4d65f74-cgj9s    1/1     Running   0             16m
+    rabbitmq-9855984f9-674ss            1/1     Running   0             16m
+    store-admin-7f7d768c48-g4x8q        1/1     Running   0             16m
+    store-front-6786c64d97-6wb8v        1/1     Running   0             16m
+    virtual-customer-79498f8667-nxz4k   1/1     Running   3 (15m ago)   16m
+    virtual-worker-6d77fff4b5-dhl7k     1/1     Running   4 (15m ago)   16m
+    ```
+
+1. To get the IP of the store admin web application and store front web application, use the kubectl get service command.
     
     ```bash
     kubectl get service store-admin
@@ -632,7 +650,7 @@ Now that you've seen how to add OpenAI functionality to an AKS application, lear
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
 [aoai-access]: https://aka.ms/oai/access
 [openai-paid]: https://platform.openai.com/account/billing/overview
-[learn-aoai]: https://learn.microsoft.com/en-us/training/modules/explore-azure-openai/
+[learn-aoai]: https://learn.microsoft.com/training/modules/explore-azure-openai/
 [openai-platform]: https://platform.openai.com/
 [miyagi]: https://github.com/Azure-Samples/miyagi
 
