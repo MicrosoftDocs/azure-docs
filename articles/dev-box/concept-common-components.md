@@ -6,7 +6,7 @@ ms.custom: ignite-2022
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 04/25/2023
+ms.date: 06/23/2023
 ---
 # Components common to Microsoft Dev Box and Azure Deployment Environments  
 

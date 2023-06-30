@@ -163,7 +163,7 @@ spec:
        storage: 1Gi
 ```
 > [!IMPORTANT]
-> Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
+> Only training job pods and batch-deployment pods will have access to the PVC(s); managed and Kubernetes online-deployment pods will not. In addition, only the pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
 
 ## Supported Azure Machine Learning taints and tolerations

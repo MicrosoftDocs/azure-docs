@@ -33,10 +33,10 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 |:--- |:--- |:--- |
 | [General Purpose](sizes-general.md) |B-series, DCsv2-series, DCsv3-series, DCdsv3-series, Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series, Dav4-series, Dasv4-series, Ddv4-series, Ddsv4-series, Dv5-series, Dsv5-series, Ddv5-series, Ddsv5-series, Dasv5-series, Dadsv5-series, Dlsv5-series, Dldsv5-series | Dpsv5-series, Dpdsv5-series, Dplsv5-series, Dpldsv5-series
 | [Compute optimized](sizes-compute.md) |FX-series, Fsv2-series | All sizes supported.
-| [Memory optimized](sizes-memory.md) |Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series, Easv5-series, Eadsv5-series, Ebsv5-series, Edv5-series, Edsv5-series | Ebdsv5-series, Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
+| [Memory optimized](sizes-memory.md) |Dsv2-series, Esv3-series, Ev4-series, Esv4-series, Edv4-series, Edsv4-series, Eav4-series, Easv4-series, Easv5-series, Eadsv5-series, Ebsv5-series, Edv5-series, Edsv5-series, Ebdsv5-series | Epsv5-series, Epdsv5-series, M-series, Msv2-series and Mdsv2 Medium Memory series, Mv2-series
 | [Storage optimized](sizes-storage.md) |Ls-series, Lsv2-series, Lsv3-series, Lasv3-series | All sizes supported.
 | [GPU](sizes-gpu.md) |NCv2-series, NCv3-series, NCasT4_v3-series, NVv3-series, NVv4-series, NDv2-series, NC_A100_v4-series, NCadsA10 v4-series, NVadsA10 v5-series | NDasrA100_v4-series, NDm_A100_v4-series, ND-series
-| [High Performance Compute](sizes-hpc.md) |HB-series, HBv2-series, HBv3-series, HC-series | HBv4-series, HX-series
+| [High Performance Compute](sizes-hpc.md) |HB-series, HBv2-series, HBv3-series, HC-series, HBv4-series, HX-series | All sizes supported.
 
 > [!NOTE]
 > - Installation of the **CUDA & GRID drivers on Secure Boot enabled Windows VMs** does not require any additional steps.

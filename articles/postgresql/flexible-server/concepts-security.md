@@ -160,6 +160,9 @@ CREATE POLICY account_managers ON accounts TO managers
     USING (manager = current_user);
 ```
 The USING clause implicitly adds a `WITH CHECK` clause, ensuring that members of the manager role cannot perform SELECT, DELETE, or UPDATE operations on rows that belong to other managers, and cannot INSERT new rows belonging to another manager.
+> [!NOTE]
+>  In [PostgreSQL it is possible for a user to be assigned the *BYPASSRLS* attribute by another superuser](https://www.postgresql.org/docs/current/ddl-rowsecurity.html). With this permission, a user can bypass RLS for all tables in Postgres, as is superuser. That permission cannot  be assigned in Azure Database for PostgreSQL - Flexible Server, since administrator role has no superuser privileges, as common in cloud based PaaS PostgreSQL service.
+
 
 ## Updating passwords
 

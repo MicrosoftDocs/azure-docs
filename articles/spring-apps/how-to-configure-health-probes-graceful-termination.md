@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 07/02/2022
 ms.author: xuycao
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps
