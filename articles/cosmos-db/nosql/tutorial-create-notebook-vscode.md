@@ -96,7 +96,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Select **Run** to create the database and container resource.
 
-    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-python.png" alt-text="Screenshot of "Execute cell" in Visual Studio Code Jupyter notebook":::
+    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-python.png" alt-text="Screenshot of Execute cell in Visual Studio Code Jupyter notebook":::
     
 ### [C#](#tab/csharp)
 
@@ -137,7 +137,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Select **Execute Cell** to create the database and container resource.
 
-    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-csharp.png" alt-text="Screenshot of "Execute cell" in Visual Studio Code Jupyter C# notebook":::
+    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-csharp.png" alt-text="Screenshot of Execute cell in Visual Studio Code Jupyter C# notebook":::
 
 ---
 
