@@ -35,7 +35,7 @@ Option 1: Stream logs to local console
 You can run the following command to stream system-generated logs to your console. Only logs in the `azureml-logs` folder will be streamed.
 
 ```azurecli
-az ml job stream -name <job_name>
+az ml job stream --name <job_name>
 ```
 
 Option 2: View logs in studio 
