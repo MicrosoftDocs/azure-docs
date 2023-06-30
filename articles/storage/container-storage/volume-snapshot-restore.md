@@ -73,7 +73,7 @@ Next, you'll create a snapshot of an existing persistent volume claim and apply 
    spec:
      volumeSnapshotClassName: csi-acstor-vsc
      source:
-       persistentVolumeClaimName: diskpvc
+       persistentVolumeClaimName: azurediskpvc
    ```
 
 1. Apply the YAML manifest file to create the volume snapshot.

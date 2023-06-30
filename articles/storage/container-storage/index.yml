@@ -48,8 +48,6 @@ landingContent:
             url: use-container-storage-with-local-disk.md
           - text: Use Azure Container Storage with Azure Elastic SAN Preview
             url: use-container-storage-with-elastic-san.md
-          - text: Use volume snapshot and restore
-            url: volume-snapshot-restore.md
 
 # Card (optional)
   - title: Frequently asked questions
