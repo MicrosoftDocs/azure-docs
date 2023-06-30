@@ -105,7 +105,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ## Deploy the application 
 
-:::image type="content" source="media/ai-walkthrough/aks-ai-demo-architecture.png" alt-text="Architecture diagram of AKS AI demo":::
+:::image type="content" source="media/ai-walkthrough/aks-ai-demo-architecture.png" alt-text="Architecture diagram of AKS AI demo." lightbox="media/ai-walkthrough/aks-ai-demo-architecture.png":::
 
 For the [AKS Store application][aks-store-demo], this manifest includes the following Kubernetes deployments and services:
 - Product Service: Shows product information
@@ -506,7 +506,7 @@ You can either use Azure OpenAI or OpenAI and run your application on AKS.
 
 ### [Azure OpenAI](#tab/aoai)
 1. Enable Azure OpenAI on your Azure subscription by filling out the [Request Access to Azure OpenAI Service][aoai-access] form.
-1. In the Azure Portal, create an Azure OpenAI instance. 
+1. In the Azure portal, create an Azure OpenAI instance. 
 1. Select the Azure OpenAI instance you created.
 1. Select **Keys and Endpoints** to generate a key.
 1. Select **Model Deployments** > **Managed Deployments** to open the [Azure OpenAI studio][aoai-studio].
@@ -680,11 +680,11 @@ Now that the application is deployed, you can deploy the Python-based microservi
 1. Open a web browser and browse to the external IP address of your service. In the example shown here, open 40.64.86.161 to see Store Admin in the browser. Repeat the same step for Store Front. 
 1. In store admin, click on the products tab, then select **Add Products**. 
 1. When the ai-service is running successfully, you should see the Ask OpenAI button next to the description field. Fill in the name, price, and keywords, then click Ask OpenAI to generate a product description. Then click save product. See the picture for an example of adding a new product. 
-:::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="use openAI to generate a product description":::
+:::image type="content" source="media/ai-walkthrough/ai-generate-description.png" alt-text="Screenshot of how to use openAI to generate a product description.":::
 1. You can now see the new product you created on Store Admin used by sellers. In the picture, you can see Jungle Monkey Chew Toy is added.
-:::image type="content" source="media/ai-walkthrough/new-product-store-admin.png" alt-text="view the new product in the store admin page":::
+:::image type="content" source="media/ai-walkthrough/new-product-store-admin.png" alt-text="Screenshot viewing the new product in the store admin page.":::
 1. You can also see the new product you created on Store Front used by buyers. In the picture, you can see Jungle Monkey Chew Toy is added. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
-:::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="view the new product in the store front page":::
+:::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="Screenshot viewing the new product in the store front page.":::
 
 ## Next steps
 Now that you've seen how to add OpenAI functionality to an AKS application, learn more about what you can do with generative AI for your use cases. Here are some resources to get started:
