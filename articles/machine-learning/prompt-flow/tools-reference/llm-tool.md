@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-# LLM tool (preivew)
+# LLM tool (preview)
 
 Prompt flow LLM tool enables you to leverage widely used large language models like [OpenAI](https://platform.openai.com/) or [Azure OpenAI (AOAI)](../../../cognitive-services/openai/overview.md) for natural language processing.
 
@@ -22,7 +22,7 @@ Prompt flow provides a few different LLM APIs:
 - **[Embedding](https://platform.openai.com/docs/api-reference/embeddings)**: OpenAI's embedding models convert text into dense vector representations for various NLP tasks.
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisite
@@ -39,12 +39,12 @@ Create OpenAI resources:
 
 ## **Connections**
 
-Setup connections to provisioned resources in prompt flow.
+Set up connections to provisioned resources in prompt flow.
 
 | Type        | Name     | API KEY  | API Type | API Version |
 |-------------|----------|----------|----------|-------------|
 | OpenAI      | Required | Required | -        | -           |
-| AzureOpenAI | Required | Requried | Required | Required    |
+| AzureOpenAI | Required | Required | Required | Required    |
 
 ## Inputs
 

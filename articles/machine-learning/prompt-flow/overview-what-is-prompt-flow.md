@@ -26,7 +26,7 @@ With Azure Machine Learning prompt flow, you'll be able to:
 If you're looking for a versatile and intuitive development tool that will streamline your LLM-based AI application development, then Azure Machine Learning prompt flow is the perfect solution for you. Get started today and experience the power of streamlined development with Azure Machine Learning prompt flow.
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Benefits of using Azure Machine Learning prompt flow

@@ -17,7 +17,7 @@ ms.date: 06/30/2023
 Users are empowered by the Python Tool to offer customized code snippets as self-contained executable nodes in Prompt flow. Users can effortlessly create Python tools, edit code, and verify results with ease.
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Inputs

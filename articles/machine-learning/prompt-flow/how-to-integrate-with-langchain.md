@@ -19,7 +19,7 @@ Prompt Flow can also be used together with the [LangChain](https://python.langch
 :::image type="content" source="./media/how-to-integrate-with-langchain/flow.png" alt-text="Screenshot of flows with the LangChain python library. " lightbox = "./media/how-to-integrate-with-langchain/flow.png":::
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Benefits of LangChain integration
@@ -80,7 +80,7 @@ All LangChain code can directly run in the python tools in your flow as long as 
 - To simplify the conversion process, you can directly initialize the LLM model for invocation in a Python node by utilizing the LangChain integrated LLM library.
 - Another approach is converting your LLM consuming from LangChain code to our LLM tools in the flow, for better further experimental management.
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-llm.png" alt-text="Screenshot of of LangChain code in Prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-llm.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-llm.png" alt-text="Screenshot of LangChain code in Prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-llm.png":::
 
 For quick conversion of LangChain code into a flow, we recommend two types of flow structures, based on the use case:
 
@@ -111,7 +111,7 @@ To utilize a [custom connection](#create-a-custom-connection) that stores all th
 1. In the python tools, need to access LLM Key and other credentials, import custom connection library `from promptflow.connections import CustomConnection`.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
 1. Add an input parameter of type `connection` to the tool function.
-    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
+    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
 1. Replace the environment variables that originally defined the key and credential with the corresponding key added in the connection.
 1. Save and return to authoring page, and configure the connection parameter in the node input.
 

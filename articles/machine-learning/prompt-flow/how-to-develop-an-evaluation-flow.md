@@ -26,7 +26,7 @@ In Prompt flow, you can customize or create your own evaluation flow tailored to
   - Outputs and Metrics Logging
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Starting to develop an evaluation method
@@ -114,7 +114,7 @@ In this context, the inputs are the subjects of evaluation, which are the output
 
 To demonstrate the relationship of how the inputs and outputs are passed between flow and evaluation methods, here's a diagram showing the schema:
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-relationship.png" alt-text="Diagram of of different input and output screenshots showing the flow between them. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-relationship.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-relationship.png" alt-text="Diagram of different input and output screenshots showing the flow between them. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-relationship.png":::
 
 Here's a diagram showing the example how data are passed between test dataset and flow outputs:
 

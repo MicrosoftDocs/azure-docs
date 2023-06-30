@@ -120,7 +120,7 @@ There will be notifications after you finish the deploy wizard. After the endpoi
 
 You can also directly go to the **Endpoints** page in the studio, and check the status of the endpoint you deployed.
 
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/successful-deployment.png" alt-text="Screenshot of the endpoint details page showing a successfully deployment." lightbox = "./media/how-to-deploy-for-real-time-inference/successful-deployment.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/successful-deployment.png" alt-text="Screenshot of the endpoint details page showing a successful deployment." lightbox = "./media/how-to-deploy-for-real-time-inference/successful-deployment.png":::
 
 ## Grant permissions to the endpoint
 
@@ -179,7 +179,7 @@ To grant permissions to the endpoint identity, there are two ways:
     
         :::image type="content" source="./media/how-to-deploy-for-real-time-inference/storage-container-registry.png" alt-text="Screenshot of the overview page with storage and container registry highlighted. " lightbox = "./media/how-to-deploy-for-real-time-inference/storage-container-registry.png":::
 
-    1. Currently the permissions on workspace default storage isn't required. If you want to enable tracing data including node level outputs/trace/logs when performing inference, you can grant permissions to the workspace default storage as well. Go to the workspace default storage overview page, select **Access control**, and select **Add role assignment**, and assign *Storage Blob Data Contributor* and *Storage Table Data Contributor* to the endpoint identity respectively.
+    1. Currently the permissions on workspace default storage aren't required. If you want to enable tracing data including node level outputs/trace/logs when performing inference, you can grant permissions to the workspace default storage as well. Go to the workspace default storage overview page, select **Access control**, and select **Add role assignment**, and assign *Storage Blob Data Contributor* and *Storage Table Data Contributor* to the endpoint identity respectively.
 
 ## Test the endpoint with sample data
 

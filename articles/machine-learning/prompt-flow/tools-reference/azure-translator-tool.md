@@ -17,7 +17,7 @@ ms.date: 06/30/2023
 Azure Cognitive Services Translator is a cloud-based machine translation service you can use to translate text in with a simple REST API call. See the [Azure Translator API](../../../cognitive-services/translator/index.yml) for more information.
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements

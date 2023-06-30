@@ -249,7 +249,7 @@ This is known limitation, currently compute instance runtime didn't support vent
 - Runtime status shows as failed with an internal server error.
     :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png" alt-text="Screenshot of the runtime status showing failed on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png":::
 - Check the related endpoint.
-    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png" alt-text="Screenshot of the runtime detail page, highlighting the managed endpoint.. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png":::
+    :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png" alt-text="Screenshot of the runtime detail page, highlighting the managed endpoint. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-endpoint.png":::
 - Endpoint was created successfully, but there are no deployments created.
     :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-endpoint-detail.png" alt-text="Screenshot of the endpoint detail page with successful creation. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-endpoint-detail.png":::
 

@@ -43,7 +43,7 @@ At the right, it's the graph view for visualization only. It shows the flow stru
 > [!NOTE]
 > You cannot edit the graph view. To edit one tool node, you can double-click the node to locate to the corresponding tool card in the flatten view the do the inline edit.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of Web Classification highlighting highlighting the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-graph-view.png" alt-text="Screenshot of Web Classification highlighting the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-graph-view.png":::
 
 ## Select runtime
 
@@ -91,13 +91,13 @@ In one flow, you can consume different kinds of tools. We now support LLM, Pytho
 
 By selecting the tool card on the very top, you'll add a new tool node to flow.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool.png" alt-text="Screenshot of of the tool card showing the dropdown menu from selecting more tools. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool.png" alt-text="Screenshot of the tool card showing the dropdown menu from selecting more tools. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool.png":::
 
 ### Edit tool
 
 When a new tool node is added to flow, it will be appended at the bottom of flatten view with a random name by default. The new added tool appears at the top of the graph view as well.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-new-tool.png" alt-text="Screenshot of Python node and it's location in the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-new-tool.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-new-tool.png" alt-text="Screenshot of Python node and its location in the graph view. " lightbox = "./media/how-to-develop-a-standard-flow/flow-new-tool.png":::
 
 At the top of each tool node card, there's a toolbar for adjusting the tool node. You can **move it up or down**, you can **delete** or **rename** it too.
 
@@ -200,7 +200,7 @@ Suppose we want to link the newly created LLM node with covert_to_dict Python no
 
 To test and debug the whole flow, select the Run button at the right top.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-run-all.png" alt-text="Screenshot of the flow page with the run button highlighted.. " lightbox = "./media/how-to-develop-a-standard-flow/flow-run-all.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-run-all.png" alt-text="Screenshot of the flow page with the run button highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-run-all.png":::
 
 ## Set and check flow output
 
@@ -216,7 +216,7 @@ First define flow output schema, then select in drop-down the node whose output 
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check.png" alt-text="Screenshot of Web Classification highlighting the view outputs button. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check.png":::
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of outputs which shows the status is completed and infomation for that output. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check-2.png" alt-text="Screenshot of outputs which shows the status is completed and information for that output. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check-2.png":::
 
 ## Next steps
 
