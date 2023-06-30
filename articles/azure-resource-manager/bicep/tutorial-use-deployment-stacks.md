@@ -665,11 +665,11 @@ The Azure CLI includes these parameters to customize the deny assignment:
 
 ---
 
-In this tutorial, you will configure the deny settings mode. For more information about other deny settings, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+In this tutorial, you configure the deny settings mode. For more information about other deny settings, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
 
 At the end of the previous step, you have one stack with two managed resources.
 
-Run the following command with the deny settings mode switch set to deny delete:
+Run the following command with the deny settings mode switch set to deny-delete:
 
 # [CLI](#tab/azure-cli)
 
@@ -693,7 +693,7 @@ Set-AzResourceGroupDeploymentStack `
 
 ---
 
-The following delete command shall fail because the deny settings mode is set to deny delete:
+The following delete command shall fail because the deny settings mode is set to deny-delete:
 
 # [CLI](#tab/azure-cli)
 
@@ -774,7 +774,7 @@ az stack group delete \
   --delete-all
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources is detached but not deleted. For example:
 
 ```azurecli
 az stack group delete \
@@ -799,7 +799,7 @@ Remove-AzResourceGroupDeploymentStack `
   -DeleteAll
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources is detached but not deleted. For example:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
