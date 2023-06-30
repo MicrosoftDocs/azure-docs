@@ -108,9 +108,17 @@ Download the CSV2SCIM PowerShell script and samples.
      - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow)
      - Sample1 (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
 1. Download and install the latest version of PowerShell. 
-1. Run the command to enable execution of remote signed scripts: set-executionpolicy remotesigned
-1. Install the following pre-requisite modules
-1. Install-Module -Name Microsoft.Graph.Applications,Microsoft.Graph.Reports
+1. Run the command to enable execution of remote signed scripts: 
+
+   ```powershell
+   set-executionpolicy remotesigned
+   ```
+   
+1. Install the following pre-requisite modules:
+   
+   ```powershell
+   Install-Module -Name Microsoft.Graph.Applications,Microsoft.Graph.Reports
+   ```
 
 ## Generate SCIM payload with standard schema
 
