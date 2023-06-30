@@ -215,7 +215,7 @@ You can't manually add or remove lab users, or update the lab capacity when sync
 
 # [Teams/Canvas](#tab/teams-canvas)
 
-When you use Teams or Canvas, Azure Lab Services automatically grants users access to the lab based on their membership in Microsoft or Canvas. In this case, you can't update the lab user list manually. 
+When you use Teams or Canvas, Azure Lab Services automatically grants users access to the lab based on their membership in Microsoft or Canvas. In this case, you can't update the lab user list manually. Add or remove users in Teams or Canvas to assign a lab VM to a user or remove access.
 
 Lab users don't have to register for their lab and can [access the lab directly from within Teams or Canvas](./how-to-access-lab-virtual-machine.md).
 
@@ -230,7 +230,7 @@ Before you can use labs in Teams or Canvas:
 
 ### Automatic VM management based on Teams/Canvas membership
 
-When you create labs in Teams or Canvas, Azure Lab Services automatically also manages the number of lab VMs based on the number of users in the team (Teams) or course (Canvas).
+When you create labs in Teams or Canvas, Azure Lab Services also automatically manages the number of lab VMs based on the number of users in the team (Teams) or course (Canvas).
 
 When a user is added in Teams or Canvas, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member, the lab VM for that user is automatically deleted from the lab.
 
