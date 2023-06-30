@@ -5,7 +5,7 @@ description: Learn about how tools are the fundamental building blocks of a flow
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: concept
+ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar

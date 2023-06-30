@@ -5,7 +5,7 @@ description: Azure Machine Learning prompt flow is a development tool designed t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: concept
+ms.topic: conceptual
 author: henry-zeng
 ms.author: yozen
 ms.reviewer: lagayhar

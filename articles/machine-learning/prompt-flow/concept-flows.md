@@ -5,7 +5,7 @@ description: Learn about how a flow in Prompt flow serves as an executable workf
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: concept
+ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
