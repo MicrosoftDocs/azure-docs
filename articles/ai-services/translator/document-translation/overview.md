@@ -23,7 +23,7 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../tr
 | **Translate large files**| Translate whole documents asynchronously.|
 |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
-|**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
+|**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
 |**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|

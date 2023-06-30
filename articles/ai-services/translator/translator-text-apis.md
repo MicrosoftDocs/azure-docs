@@ -3124,4 +3124,4 @@ If you're encountering connection issues, it may be that your TLS/SSL certificat
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize and improve translation](customization.md)
+> [Customize and improve translation](custom-translator/concepts/customization.md)
