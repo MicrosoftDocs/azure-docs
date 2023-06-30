@@ -470,7 +470,7 @@ If events are getting "blocked" because the `Promise` returned via `getUniqueId`
 
 ### Disable automatic device info collection
 
-If you don’t want to collect the device inforomation, you can set `disableDeviceCollection` to `true`. 
+If you don’t want to collect the device information, you can set `disableDeviceCollection` to `true`. 
 
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
