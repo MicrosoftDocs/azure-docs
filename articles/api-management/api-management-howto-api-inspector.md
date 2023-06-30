@@ -48,6 +48,12 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 1. Select  **Demo Conference API** from your API list.
 1. Select the **Test** tab.
 1. Select the **GetSpeakers** operation.
+1. Select **+ Add header** and enter the following values.
+
+| NAME           | VALUE  |
+|----------------|--------|
+| Ocp-Apim-Trace | true   |
+
 1. Optionally check the value for the **Ocp-Apim-Subscription-Key** header used in the request by selecting the "eye" icon.
     > [!TIP]
     > You can override the value of **Ocp-Apim-Subscription-Key** by retrieving a key for another subscription in the portal. Select **Subscriptions**, and open the context menu (**...**) for another subscription. Select **Show/hide keys** and copy one of the keys. You can also regenerate keys if needed. Then, in the test console, select **+ Add header** to add an **Ocp-Apim-Subscription-Key** header with the new key value.
