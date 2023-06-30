@@ -15,16 +15,21 @@ Now that the Nexus Kubernetes cluster has been successfully created and connecte
 
 To access your cluster, you need to set up the cluster connect `kubeconfig`. After logging into Azure CLI with the relevant Azure AD entity, you can obtain the `kubeconfig` necessary to communicate with the cluster from anywhere, even outside the firewall that surrounds it.
 
-1. Set `CLUSTER_NAME` and `RESOURCE_GROUP_NAME` variables, then query managed resource group with `az` and store in `MANAGED_RESOURCE_GROUP`.
+1. Set `CLUSTER_NAME` and `RESOURCE_GROUP` variables, then query managed resource group with `az` and store in `MANAGED_RESOURCE_GROUP`.
     ```
     CLUSTER_NAME="myNexusAKSCluster"
-    RESOURCE_GROUP_NAME="myResourceGroup"
-    MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --output tsv --query managedResourceGroupConfiguration.name)
+    RESOURCE_GROUP="myResourceGroup"
+    SUBSCRIPTION_ID=<set the correct subscription_id>
+    az account set -s $SUBSCRIPTION_ID
+    MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP --output tsv --query managedResourceGroupConfiguration.name)
     ```
 2. The following command starts a connectedk8s proxy that allows you to connect to the Kubernetes API server for the specified Nexus Kubernetes cluster.
     ```azurecli
     az connectedk8s proxy -n $CLUSTER_NAME  -g $MANAGED_RESOURCE_GROUP &
     ```
+
+> [!NOTE]
+> If you see the error message "Failed to post access token to client proxyFailed to connect to MSI", you may need to perform an `az login` to re-authenticate with Azure.
 
 3. Use `kubectl` to send requests to the cluster:
 
