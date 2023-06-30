@@ -12,15 +12,15 @@ ms.date: 06/30/2023
 
 # Manage lab users in Azure Lab Services
 
-This article describes how to manage lab users in Azure Lab Services. Learn how to add users to a lab, manage their registration status, and how to specify the number of additional hours they can use the virtual machine (VM).
+This article describes how to manage lab users in Azure Lab Services. Learn how to add users to a lab, manage their registration status, and how to specify the number of hours they can use the virtual machine (VM).
 
 Azure Lab Services supports different options for managing the list of lab users:
 
-- Add users to the lab by specifying their email address. You can manually add users or upload a list of email addresses.
+- Add users manually to the lab by specifying their email address. Optionally, you can upload a CSV file with email addresses.
 - Synchronize the list of users with an Azure Active Directory (Azure AD) group.
 - Integrate with Microsoft Teams or Canvas and synchronize the user list with the team (Teams) or course (Canvas) membership.
 
-When you add users to a lab based on their email address, lab users will first need to register for the lab by using a lab registration link. This registration process is a one-time operation. After registering for the lab, lab users can then access their lab in the Azure Lab Services website.
+When you add users to a lab based on their email address, lab users will first need to register for the lab by using a lab registration link. This registration process is a one-time operation. After a lab users registers for the lab, they can access their lab in the Azure Lab Services website.
 
 When you use Teams, Canvas, or an Azure AD group, Azure Lab Services automatically grants users access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
@@ -33,50 +33,10 @@ Azure Lab Services supports up to 400 users per lab.
 [!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
 [!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
-## Add users to a lab from an Azure AD group
 
-You can sync a lab user list to an existing Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings.
+## Manage lab users
 
-You can create an Azure AD group within your organization's Azure AD to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization already has admins who manage your Azure Active Directory.
-
-### Sync users with Azure AD group
-
-When you sync a lab with an Azure AD group, Azure Lab Services pulls all users inside the Azure AD group into the lab as lab users. Only people in the Azure AD group have access to the lab. The user list automatically refreshes every 24 hours to match the latest membership of the Azure AD group. You can also manually synchronize the list of lab users at any time.
-
-The option to synchronize the list of lab users with an Azure AD group is only available if you haven't added users to the lab manually or through a CSV import yet. Make sure there are no users in the lab user list.
-
-To sync a lab with an existing Azure AD group:
-
-1. Sign in to the [Azure Lab Services website](https://labs.azure.com/).
-
-1. Select the lab you want to work with.
-
-1. In the left pane, select **Users**, and then select **Sync from group**.
-
-    :::image type="content" source="./media/how-to-manage-lab-users/add-users-sync-group.png" alt-text="Screenshot that shows how to add users by syncing from an Azure AD group.":::
-
-1. Select the Azure AD group you want to sync users with from the list of groups.
-
-    If you don't see any Azure AD groups in the list, this could be because of the following reasons:
-
-    - You're a guest user in Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you're not allowed to search for groups inside the Azure AD. In this case, you can't add an Azure AD group to the lab.
-    - Azure AD groups you created through Microsoft Teams don't show up in this list. You can add the Azure Lab Services app inside Microsoft Teams to create and manage labs directly from within Microsoft Teams. Learn more about [managing a lab’s user list from within Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
-
-1. Select **Add** to sync the lab users with the Azure AD group.
-
-    Azure Lab Services automatically pulls the list of users from Azure AD, and refreshes the list every 24 hours.
-
-    Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Azure AD group.
-    
-Users are auto-registered to the lab and VMs are automatically assigned when the VM pool syncs with the Azure AD group. Educators don't need to send invitations and students don't need to register for the lab separately.    
-
-### Automatic management of virtual machines based on changes to the Azure AD group
-
-When you synchronize a lab with an Azure AD group, Azure Lab Services automatically manages the number of lab VMs based on the number of users in the group. You can't manually update the lab capacity in this case.
-
-When a user is added to the Azure AD group, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member of the Azure AD group, the lab VM for that user is automatically deleted from the lab.
-
-## Add users manually
+# [Add users manually](#tab/als-website)
 
 You can add lab users manually by providing their email address in the lab configuration or by uploading a CSV file.
 
@@ -85,7 +45,9 @@ TODO: link to account types information
 > [!IMPORTANT]
 > When you sign into a lab, you aren't given the option to create a new Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
 
-### Add users by email address
+### Add users
+
+#### Add users by email address
 
 1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
@@ -103,7 +65,7 @@ TODO: link to account types information
 
     :::image type="content" source="./media/how-to-manage-lab-users/list-of-added-users.png" alt-text="Screenshot that shows the lab user list in the Lab Services website." lightbox="./media/how-to-manage-lab-users/list-of-added-users.png":::
 
-### Add users by uploading a CSV file
+#### Add users by uploading a CSV file
 
 You can also add users by uploading a CSV file that contains their email addresses.
 
@@ -127,13 +89,13 @@ You use a CSV text file to store comma-separated (CSV) tabular data (numbers and
 
     :::image type="content" source="./media/how-to-manage-lab-users/list-of-added-users.png" alt-text="Screenshot that shows the list of added users in the Users page in the Lab Services website." lightbox="./media/how-to-manage-lab-users/list-of-added-users.png":::
 
-## Send invitations to users
+### Send invitations to users
 
 If the **Restrict access** option is enabled for the lab, only listed users can use the registration link to register to the lab. This option is enabled by default.
 
 To send a registration link to new users, use one of the methods in the following sections.
 
-### Invite all users
+#### Invite all users
 
 You can invite all users to the lab by sending an email via the Azure Lab Services website. The email contains the lab registration link, and an optional message.
 
@@ -153,7 +115,7 @@ To invite all users:
 
     The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to **Sending** and then to **Sent on \<date>**.
 
-### Invite selected users
+#### Invite selected users
 
 Instead of inviting all users, you can also invite specific users and get a registration link that you can share with other people.
 
@@ -173,7 +135,7 @@ To invite selected users:
 
     The **Users** pane displays the status of this operation in the **Invitation** column of the table. The invitation email includes the registration link that users can use to register with the lab.
 
-### Get the registration link
+#### Get the registration link
 
 You can get the lab registration link from the Azure Lab Services website, and send it by using your own email application.
 
@@ -189,7 +151,7 @@ You can get the lab registration link from the Azure Lab Services website, and s
 
     The link is copied to the clipboard. In your email application, paste the registration link, and then send the email to a user so that they can register for the class.
 
-## View registered users
+### View registered users
 
 To view the list of lab users that have already registered for the lab by using the lab registration link:
 
@@ -199,14 +161,82 @@ To view the list of lab users that have already registered for the lab by using 
 
     The list shows the list of lab users with their registration status. The user status should show **Registered**, and their name should also be available after registration.
 
-    :::image type="content" source="./media/tutorial-track-usage/registered-users.png" alt-text="Screenshot that shows the list of registered users for a lab in the Azure Lab Services website." lightbox="./media/tutorial-track-usage/registered-users.png":::
-
     > [!NOTE]
     > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reset VMs](how-to-manage-vm-pool.md#reset-vms), the users remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
+# [Azure AD group](#tab/als-website)
+
+You can sync a lab user list to an existing Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings.
+
+You can create an Azure AD group within your organization's Azure AD to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization already has admins who manage your Azure Active Directory.
+
+### Sync users with Azure AD group
+
+When you sync a lab with an Azure AD group, Azure Lab Services pulls all users inside the Azure AD group into the lab as lab users. Only people in the Azure AD group have access to the lab. The user list automatically refreshes every 24 hours to match the latest membership of the Azure AD group. You can also manually synchronize the list of lab users at any time.
+
+The option to synchronize the list of lab users with an Azure AD group is only available if you haven't added users to the lab manually or through a CSV import yet. Make sure there are no users in the lab user list.
+
+To sync a lab with an existing Azure AD group:
+
+1. Sign in to the [Azure Lab Services website](https://labs.azure.com/).
+
+1. Select your lab.
+
+1. In the left pane, select **Users**, and then select **Sync from group**.
+
+    :::image type="content" source="./media/how-to-manage-lab-users/add-users-sync-group.png" alt-text="Screenshot that shows how to add users by syncing from an Azure AD group.":::
+
+1. Select the Azure AD group you want to sync users with from the list of groups.
+
+    If you don't see any Azure AD groups in the list, this could be because of the following reasons:
+
+    - You're a guest user in Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you're not allowed to search for groups inside the Azure AD. In this case, you can't add an Azure AD group to the lab.
+    - Azure AD groups you created through Microsoft Teams don't show up in this list. You can add the Azure Lab Services app inside Microsoft Teams to create and manage labs directly from within Microsoft Teams. Learn more about [managing a lab’s user list from within Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
+
+1. Select **Add** to sync the lab users with the Azure AD group.
+
+    Azure Lab Services automatically pulls the list of users from Azure AD, and refreshes the list every 24 hours.
+
+    Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Azure AD group.
+    
+Lab users are autoregistered to the lab and VMs are automatically assigned when the VM pool syncs with the Azure AD group. Educators don't need to send invitations and students don't need to register for the lab separately.    
+
+### Automatic VM management based on Azure AD group
+
+When you synchronize a lab with an Azure AD group, Azure Lab Services automatically manages the number of lab VMs based on the number of users in the Azure AD group.
+
+When a user is added to the Azure AD group, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member of the Azure AD group, the lab VM for that user is automatically deleted from the lab.
+
+You can't manually add or remove lab users, or update the lab capacity when synchronizing with an Azure AD group.
+
+# [Teams/Canvas](#tab/als-website)
+
+When you use Teams or Canvas, Azure Lab Services automatically grants users access to the lab based on their membership in Microsoft or Canvas. In this case, you can't update the lab user list manually. 
+
+Lab users don't have to register for their lab and can [access the lab directly from within Teams or Canvas](./how-to-access-lab-virtual-machine.md).
+
+Azure Lab Services automatically synchronizes the membership information with the lab user list every 24 hours. Lab creators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
+
+:::image type="content" source="./media/how-to-manage-lab-users/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Canvas.":::
+
+Before you can use labs in Teams or Canvas:
+
+- [Configure Teams for using Azure Lab Services](./how-to-configure-teams-for-lab-plans.md)
+- [Configure Canvas for using Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md)
+
+### Automatic VM management based on Teams/Canvas membership
+
+When you create labs in Teams or Canvas, Azure Lab Services automatically also manages the number of lab VMs based on the number of users in the team (Teams) or course (Canvas).
+
+When a user is added in Teams or Canvas, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member, the lab VM for that user is automatically deleted from the lab.
+
+You can't manually add or remove lab users, or update the lab capacity when creating labs in Teams or Canvas.
+
+---
+
 ## Set quotas for users
 
-Quotas enable lab users to use the lab for a number of hours outside of scheduled times. For example, users might access the lab to complete their homework. Learn more about [quota hours](./classroom-labs-concepts.md#quota).
+Quota hours enable lab users to use the lab for a number of hours outside of scheduled lab times. For example, users might access the lab to complete their homework. Learn more about [quota hours](./classroom-labs-concepts.md#quota).
 
 You can set an hour quota for a user in one of two ways:
 
@@ -219,15 +249,13 @@ You can set an hour quota for a user in one of two ways:
     > [!IMPORTANT]
     > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a user. The quota is for the time outside of scheduled hours that a user spends on VMs.
 
-1. Select **Save** to save the changes.
-
-    Notice that the user list shows the updated quota hours for all users.
-
 ### Set additional quotas for specific users
 
-You can specify quotas for certain users beyond the common quotas that were set for all users in the preceding section. For example, if you, as a lab creator, set the quota for all users to 10 hours and set an additional quota of 5 hours for a specific user, that user gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a user spends on a lab VM during the scheduled time doesn't count against this quota.
+You can specify extra quota hours for individual users, beyond the quotas you define at the lab level. For example, if you set the quota for all users to 10 hours and set an additional quota of 5 hours for a specific user, that user gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the user gets 20 (15 + 5) hours of quota.
 
-To set additional quotas, do the following:
+Remember that this overall quota is outside the scheduled time. The time that a user spends on a lab VM during the scheduled time doesn't count against this quota.
+
+To set additional quotas for a user:
 
 1. In the **Users** pane, select one or more users from the list, and then select **Adjust quota** on the toolbar.
 
@@ -239,17 +267,17 @@ To set additional quotas, do the following:
 
     Notice that the user list shows the updated quota hours for the users you selected.
 
-## Export a list of users to a CSV file
+## Export the list of users to a CSV file
 
 To export the list of users for a lab:
 
-1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
+1. Select the lab you want to work with.
 
 1. Select **Users**.
 
 1. On the toolbar, select the ellipsis (**...**), and then select **Export CSV**.
 
-    :::image type="content" source="./media/how-to-export-users-virtual-machines-csv/users-export-csv.png" alt-text="Screenshot that shows how to export the list of lab users to a CSV file in the Azure Lab Services website." lightbox="./media/how-to-export-users-virtual-machines-csv/users-export-csv.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/users-export-csv.png" alt-text="Screenshot that shows how to export the list of lab users to a CSV file in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/users-export-csv.png":::
 
 ## Next steps
 
