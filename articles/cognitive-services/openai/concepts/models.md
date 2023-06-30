@@ -328,7 +328,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | gpt-35-turbo (0613) | East US, France Central, UK South | N/A | 4,096 | Sep 2021 |
 | gpt-35-turbo-16k (0613) | East US, France Central, UK South | N/A | 16,384 | Sep 2021 |
 
-<br><sup>1</sup> Version `0301` of gpt-35-turbo will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
+<sup>1</sup> Version `0301` of gpt-35-turbo will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
 
 ### GPT-4 Models
 
