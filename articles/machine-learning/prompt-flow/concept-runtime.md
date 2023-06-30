@@ -12,7 +12,7 @@ ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
 
-## Runtimes in Prompt flow (preivew)
+# Runtimes in Prompt flow (preivew)
 
 In Azure Machine Learning prompt flow, the execution of flows is facilitated by using runtimes.
 
