@@ -1,34 +1,37 @@
 ---
 title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure CLI'
 titleSuffix: Azure Network Watcher
-description: Learn how to use Azure CLI to diagnose a virtual machine network traffic filter problem using the IP flow verify capability of Azure Network Watcher.
-services: network-watcher
-documentationcenter: network-watcher
+description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify capability of Azure Network Watcher in Azure CLI.
 author: halkazwini
-tags: azure-resource-manager
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
-ms.tgt_pltfrm: network-watcher
-ms.workload: infrastructure
-ms.date: 11/02/2022
-ms.author: halkazwini
-ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy23
+ms.date: 06/30/2023
+ms.custom: template-quickstart, devx-track-azurecli, engagement-fy23, mode-api
 #Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 ---
 
-# Quickstart: Diagnose a virtual machine network traffic filter problem - Azure CLI
+# Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure CLI
 
-In this quickstart, you deploy a virtual machine (VM) and then check communications to and from an IP address and to a URL. You determine the cause of a communication failure and how to resolve it.
+Azure allows and denies network traffic to and from a virtual machine based on its [effective security rules](network-watcher-security-group-view-overview.md). These security rules come from the network security groups applied to the virtual machine's network interface and subnet.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the cause of a communication failure and learn how you can resolve it.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- This quickstart requires version 2.0 or later of the Azure CLI. If you are using Azure Cloud Shell, the latest version is already installed. 
+## Prerequisites
 
-- The Azure CLI commands in this quickstart are formatted to run in a Bash shell.
+- An Azure account with an active subscription. 
 
-## Create a VM
+- Azure Cloud Shell or Azure CLI.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This quickstart requires version 2.0 or later of the Azure CLI. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+ 
+## Create a virtual machine
+
+In this section, you create a virtual network and a subnet in the East US region. Then, you create a virtual machine in the subnet with a default network security group.
 
 1. Before you can create a VM, you must create a resource group to contain the VM. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
@@ -48,22 +51,9 @@ az vm create \
 
 The VM takes a few minutes to create. Don't continue with the remaining steps until the VM is created and the Azure CLI returns the output.
 
-## Test network communication
+## Test network communication using IP flow verify
 
-To test network communication with Network Watcher, you must first enable a network watcher in the region the VM that you want to test is in, and then use Network Watcher's IP flow verify capability to test communication.
-
-### Enable network watcher
-
-If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the EastUS region:
-
-```azurecli-interactive
-az network watcher configure \
-  --resource-group NetworkWatcherRG \
-  --locations eastus \
-  --enabled
-```
-
-### Use IP flow verify
+In this section, you use the IP flow verify capability of Network Watcher to test network communication to and from the virtual machine.
 
 When you create a VM, Azure allows and denies network traffic to and from the VM, by default. You might override Azure's defaults later, allowing or denying additional types of traffic. To test whether traffic is allowed or denied to different destinations and from a source IP address, use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command.
 
@@ -244,6 +234,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-- Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
-- Even with the proper network traffic filters in place, communication to a VM can still fail, due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-vm-network-routing-problem-cli.md).
-- [Learn more](network-watcher-connectivity-cli.md) about Connection troubleshoot to diagnose outbound routing, latency, and traffic filtering problems.
+In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+
+Even with the proper network traffic filters in place, communication to a virtual machine can still fail, due to routing configuration. To learn how to diagnose virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem-cli.md). To diagnose outbound routing, latency, and traffic filtering problems with one tool, see [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-cli.md).
