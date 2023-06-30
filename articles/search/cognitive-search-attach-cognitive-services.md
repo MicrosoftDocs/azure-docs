@@ -114,13 +114,13 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ## Remove the key
 
-Follow these instructions to remove the multi-region key and prevent use of the external resource. Without the key, the skillset reverts to the default allocation of 20 free transactions per indexer, per day. Execution of billable skills stops at 20 transactions and a "Time Out" message appears in indexer execution history when the allocation is used up.
+Enrichments are a billable feature. If you no longer need to call Cognitive Services, follow these instructions to remove the multi-region key and prevent use of the external resource. Without the key, the skillset reverts to the default allocation of 20 free transactions per indexer, per day. Execution of billable skills stops at 20 transactions and a "Time Out" message appears in indexer execution history when the allocation is used up.
 
 ### [**Azure portal**](#tab/portal-remove)
 
 1. [Sign in to Azure portal](https://portal.azure.com) and open the search service **Overview** page.
 
-1. Under Skillsets, select the skillset containing the key you want to remove.
+1. Under **Skillsets**, select the skillset containing the key you want to remove.
 
    :::image type="content" source="media/cognitive-search-attach-cognitive-services/select-skillset.png" alt-text="Screenshot of the skillset page." border="true":::
 
@@ -170,11 +170,11 @@ Follow these instructions to remove the multi-region key and prevent use of the 
     }
     ```
 
-Alternatively, you can set "cognitiveServices" to null:
+    Alternatively, you can set "cognitiveServices" to null:
 
-  ```json
-  "cognitiveServices": null,
-  ```
+    ```json
+    "cognitiveServices": null,
+    ```
 
 ---
 
