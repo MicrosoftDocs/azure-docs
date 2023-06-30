@@ -122,13 +122,13 @@ Enrichments are a billable feature. If you no longer need to call Cognitive Serv
 
 1. Under **Skillsets**, select the skillset containing the key you want to remove.
 
-   :::image type="content" source="media/cognitive-search-attach-cognitive-services/select-skillset.png" alt-text="Screenshot of the skillset page." border="true":::
+   :::image type="content" source="media/cognitive-search-attach-cognitive-services/select-skillset.png" alt-text="Screenshot of the skillset page." border="true" lightbox="media/cognitive-search-attach-cognitive-services/select-skillset.png":::
 
 1. Scroll to the end of the file. 
 
 1. Remove the key from the JSON and save the skillset.
 
-   :::image type="content" source="media/cognitive-search-attach-cognitive-services/remove-key-save.png" alt-text="Screenshot of the skillset JSON." border="true":::
+   :::image type="content" source="media/cognitive-search-attach-cognitive-services/remove-key-save.png" alt-text="Screenshot of the skillset JSON." border="true" lightbox="media/cognitive-search-attach-cognitive-services/remove-key-save.png":::
 
 ### [**REST**](#tab/cogkey-rest-remove)
 
