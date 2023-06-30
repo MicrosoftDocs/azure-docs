@@ -127,10 +127,14 @@ items:
     items:
     - name: What are custom security attributes
       href: custom-security-attributes-overview.md
-    - name: Add or deactivate attributes
+    - name: Add or deactivate attribute definitions
       href: custom-security-attributes-add.md
     - name: Manage access to attributes
       href: custom-security-attributes-manage.md
+    - name: Assign attributes to users
+      href: ../enterprise-users/users-custom-security-attributes.md?toc=/azure/active-directory/fundamentals/toc.json
+    - name: Assign attributes to applications
+      href: ../manage-apps/custom-security-attributes-apps.md?toc=/azure/active-directory/fundamentals/toc.json
     - name: Troubleshoot attributes
       href: custom-security-attributes-troubleshoot.md
   - name: Frontline worker management

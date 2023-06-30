@@ -1,5 +1,5 @@
 --- 
-title: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning"
+title: "Configure Apache Spark jobs in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: Learn how to submit Apache Spark jobs with Azure Machine Learning
 author: fbsolo-ms1
@@ -8,16 +8,16 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.custom: build-2023, devx-track-python
-ms.topic: quickstart 
+ms.topic: how-to 
 ms.date: 05/22/2023
 #Customer intent: As a Full Stack ML Pro, I want to submit a Spark job in Azure Machine Learning.
 ---
 
-# Quickstart: Apache Spark jobs in Azure Machine Learning
+# Configure Apache Spark jobs in Azure Machine Learning
 
 The Azure Machine Learning integration, with Azure Synapse Analytics, provides easy access to distributed computing capability - backed by Azure Synapse - for scaling Apache Spark jobs on Azure Machine Learning.
 
-In this quickstart guide, you learn how to submit a Spark job using Azure Machine Learning serverless Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough in a few simple steps.
+In this article, you learn how to submit a Spark job using Azure Machine Learning serverless Spark compute, Azure Data Lake Storage (ADLS) Gen 2 storage account, and user identity passthrough in a few simple steps.
 
 For more information about **Apache Spark in Azure Machine Learning** concepts, see [this resource](./apache-spark-azure-ml-concepts.md).
 

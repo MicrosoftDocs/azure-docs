@@ -11222,6 +11222,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/user-manage-inactive.md",
+      "redirect_url": "/azure/active-directory-b2c/manage-users-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
       "redirect_url": "/azure/active-directory-b2c/troubleshoot",
       "redirect_document_id": false

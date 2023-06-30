@@ -47,7 +47,7 @@ The intent of the table columns is explained by the following items:
 | [Meteor](https://www.meteor.com/) | `bundle` | n/a |
 | [Mithril](https://mithril.js.org/) | `dist` | n/a |
 | [Next.js](https://nextjs.org/) (Static HTML Export) | `out` | n/a |
-| [Next.js](https://nextjs.org/) (Server-Side Rendering/Incremental Server Rendering) | n/a | n/a |
+| [Next.js](https://nextjs.org/) (Hybrid Rendering) | n/a | n/a |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
