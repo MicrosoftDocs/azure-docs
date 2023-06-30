@@ -7,11 +7,11 @@ ms.date: 06/27/2023
 
 # Deployment stacks (Preview)
 
-An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as a atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC).
+An Azure deployment stack is a type of Azure resource that enables the management of a group of Azure resources as an atomic unit. When a Bicep file or an ARM JSON template is submitted to a deployment stack, it defines the resources that are managed by the stack. If a resource that was previously included in the template is removed, it will either be detached or deleted based on the specified _actionOnUnmanage_ behavior of the deployment stack. Similar to other Azure resources, access to the deployment stack can be restricted using Azure role-based access control (Azure RBAC).
 
-To create and update a deployment stack, you can utilize Azure CLI, Azure PowerShell, or the Azure Portal along with Bicep files. These Bicep files are transpiled into ARM JSON templates, which are then deployed as a deployment object by the stack. The deployment stack offers additional capabilities beyond the [familiar deployment resources](./deploy-cli.md), serving as a superset of those capabilities.
+To create and update a deployment stack, you can utilize Azure CLI, Azure PowerShell, or the Azure portal along with Bicep files. These Bicep files are transpiled into ARM JSON templates, which are then deployed as a deployment object by the stack. The deployment stack offers additional capabilities beyond the [familiar deployment resources](./deploy-cli.md), serving as a superset of those capabilities.
 
-`Microsoft.Resources/deploymentStacks` is the resource type for deployment stacks. It consists of a main template that can perform 1-to-many updates across scopes to the resources it describes, as well as block any unwanted changes to those resources.
+`Microsoft.Resources/deploymentStacks` is the resource type for deployment stacks. It consists of a main template that can perform 1-to-many updates across scopes to the resources it describes, and block any unwanted changes to those resources.
 
 When planning your deployment and determining which resource groups should be part of the same stack, it's important to consider the management lifecycle of those resources, which includes creation, updating, and deletion. For instance, suppose you need to provision some test VMs for various application teams across different resource group scopes. In this case, a deployment stack can be utilized to easily create these test environments and update the test VM configurations through subsequent updates to the deployment stack. After completing the project, it may be necessary to remove or delete any resources that were created, such as the test VMs. With a deployment stack, these managed resources can be deleted by specifying the appropriate delete flag, which saves significant time when cleaning up environments since a single update to the stack resource is performed instead of individually updating or removing each test VM across different resource group scopes.
 
@@ -23,14 +23,14 @@ Deployment stacks provide the following benefits:
 
 - The ease of provisioning and managing resources across various [scopes](./deploy-to-resource-group.md) as a single atomic unit.
 - The option to prevent undesirable changes to managed resources using [deny settings](#protect-managed-resources-against-deletion).
-- The ability to rapidly cleanup environments by setting appropriate delete flags on a Deployment stack update.
+- The ability to rapidly clean up environments by setting appropriate delete flags on a Deployment stack update.
 - The ability to use standard templates, including [Bicep](./overview.md), [ARM templates](../templates/overview.md), or [Template specs](./template-specs.md) for your Deployment stacks.
 
 ### Known issues (remove this section)
 
 - Deleting resource groups currently bypasses deny assignments.
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
-- What-if isn't available in the preview. What-if allows you to evaluate changes before actually submitting the deployment to Azure resource manager.
+- What-if isn't available in the preview. What-if allows you to evaluate changes before actually submitting the deployment to Azure Resource Manager.
 - Management group scoped deployment stacks can only deploy the template to subscription.
 
 ## Create deployment stacks
@@ -41,7 +41,7 @@ A deployment stack resource can be created at resource group, subscription, or m
 - A stack at subscription scope can deploy the template passed-in to a resource group scope (if specified) or the same subscription scope where the deployment stack exists.
 - A stack at management group scope can deploy the template passed-in to the subscription scope specified.
 
-It is important to note that where a deployment stack exists, so will the deny assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode 'DenyDelete', you can easily provision managed resources to the specified resource group and block delete attempts to those resources. With this approach you also add an extra layer of security to the deployment stack by separating it into the subscription level rather that resource group level which is visible and writable by developer teams working with the provisioned resources. This minimizes the number of users that can edit a deployment stack and make changes to its deny assignment. For further details, see [Protect managed resource agsinst deletion](#protect-managed-resources-against-deletion).
+It's important to note that where a deployment stack exists, so is the deny assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode 'DenyDelete', you can easily provision managed resources to the specified resource group and block delete attempts to those resources. With this approach you also add an extra layer of security to the deployment stack by separating it into the subscription level rather that resource group level which is visible and writable by developer teams working with the provisioned resources. This minimizes the number of users that can edit a deployment stack and make changes to its deny assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources-against-deletion).
 
 The create-stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
 
@@ -82,7 +82,7 @@ New-AzSubscriptionDeploymentStack `
   -DenySettingsMode none
 ```
 
-The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources. If the parameter is not specified, the managed resources are stored in the subscription scope.
+The `DeploymentResourceGroupName` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
 
 # [CLI](#tab/azure-cli)
 
@@ -95,7 +95,7 @@ az stack sub create \
   --deny-settings-mode none
 ```
 
-The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter is not specified, the managed resources are stored in the subscription scope.
+The `deployment-resource-group-name` parameter specifies the resource group used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the subscription scope.
 
 ---
 
@@ -112,7 +112,7 @@ New-AzManagmentGroupDeploymentStack `
   -DenySettingsMode none
 ```
 
-The `deploymentSubscriptionId` parameter specifies the subscription used to store the managed resources. If the parameter is not specified, the managed resources are stored in the management group scope.
+The `deploymentSubscriptionId` parameter specifies the subscription used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the management group scope.
 
 # [CLI](#tab/azure-cli)
 
@@ -125,7 +125,7 @@ az stack mg create \
   --deny-settings-mode none
 ```
 
-The `deployment-subscription` parameter specifies the subscription used to store the managed resources. If the parameter is not specified, the managed resources are stored in the management group scope.
+The `deployment-subscription` parameter specifies the subscription used to store the managed resources. If the parameter isn't specified, the managed resources are stored in the management group scope.
 
 ---
 
@@ -185,7 +185,7 @@ az stack mg list \
 
 ## Update deployment stacks
 
-To update a deployment stack, which may involve adding or deleting a managed resource, you need to make changes to the underlying Bicep files. Once the modifications are made, you have two options to update the deployment stack: run the update command or re-run the create command.
+To update a deployment stack, which may involve adding or deleting a managed resource, you need to make changes to the underlying Bicep files. Once the modifications are made, you have two options to update the deployment stack: run the update command or rerun the create command.
 
 The list of managed resources can be fully controlled through the infrastructure as code (IaC) design pattern.
 
@@ -284,17 +284,17 @@ For more information, see [Create deployment stacks](#create-deployment-stacks).
 
 ### Control detachment and deletion
 
-A detached resource (or unmanaged resource) refers to a resource that is not tracked or managed by the deployment stack but still exists within Azure.
+A detached resource (or unmanaged resource) refers to a resource that isn't tracked or managed by the deployment stack but still exists within Azure.
 
 To instruct Azure to delete unmanaged resources, update the stack with the create stack command with one of the following parameters. For more information, see [Create deployment stack](#create-deployment-stacks).
 
 # [PowerShell](#tab/azure-powershell)
 
-- `DeleteAll`: Flag to indicate delete rather than detach for managed resources and resource groups.
-- `DeleteResources`: Flag to indicate delete rather than detach for managed resources only.
-- `DeleteResourceGroups`: Flag to indicate delete rather than detach for managed resource groups only.
+- `DeleteAll`: use delete rather than detach for managed resources and resource groups.
+- `DeleteResources`: use delete rather than detach for managed resources only.
+- `DeleteResourceGroups`: use delete rather than detach for managed resource groups only.
 
-`DeleteResourceGroups` must be used together with `DeleteResources`. It is invalid to use `DeleteResourceGroups` by itself.
+`DeleteResourceGroups` must be used together with `DeleteResources`. It's invalid to use `DeleteResourceGroups` by itself.
 
 For example:
 
@@ -309,11 +309,11 @@ New-AzSubscriptionDeploymentStack `
 
 # [CLI](#tab/azure-cli)
 
-- `delete-all`: Flag to indicate delete rather than detach for managed resources and resource groups.
-- `delete-resources`: Flag to indicate delete rather than detach for managed resources only.
-- `delete-resource-groups`: Flag to indicate delete rather than detach for managed resource groups only.
+- `delete-all`: use delete rather than detach for managed resources and resource groups.
+- `delete-resources`: use delete rather than detach for managed resources only.
+- `delete-resource-groups`: use delete rather than detach for managed resource groups only.
 
-`delete-resource-groups` must be used together with `delete-resources`. It is invalid to use `delete-resource-groups` by itself.
+`delete-resource-groups` must be used together with `delete-resources`. It's invalid to use `delete-resource-groups` by itself.
 
 For example:
 
@@ -350,7 +350,7 @@ If you run the delete commands without the delete parameters, the unmanaged reso
 
 ---
 
-Even if you specify the delete all switch, if there are unmanaged resources within the resource group where the deployment stack is located, both the unmanaged resource and the resource group itself will not be deleted.
+Even if you specify the delete all switch, if there are unmanaged resources within the resource group where the deployment stack is located, both the unmanaged resource and the resource group itself won't not be deleted.
 
 To delete deployment stack resources at the resource group scope:
 
@@ -486,7 +486,7 @@ See [Update deployment stacks](#update-deployment-stacks).
 
 ## Protect managed resources against deletion
 
-When creating a deployment stack, it is possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope.
+When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are refereed as deny settings. You want to store the stack at a parent scope.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -550,7 +550,7 @@ New-AzSubscriptionDeploymentStack `
   -DenySettingsExcludedPrincipals <object-id> <object-id>
 ```
 
-Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+Use the `DeploymentResourceGroupName` parameter to specify the resource group name at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
 
 # [CLI](#tab/azure-cli)
 
@@ -564,7 +564,7 @@ az stack sub create \
   --deny-settings-excluded-principals <object-id> <object-id>
 ```
 
-Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+Use the `deployment-resource-group` parameter to specify the resource group at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
 
 ---
 
@@ -582,7 +582,7 @@ New-AzManagmentGroupDeploymentStack `
   -DenySettingsExcludedPrincipals <object-id> <object-id>
 ```
 
-Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+Use the `DeploymentSubscriptionId ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
 
 # [CLI](#tab/azure-cli)
 
@@ -596,7 +596,7 @@ az stack mg create \
   --deny-settings-excluded-principals <object-id> <object-id>
 ```
 
-Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope is not specified, it will default to the scope of the deployment stack.
+Use the `deployment-subscription ` parameter to specify the subscription ID at which the deployment stack is created. If a scope isn't specified, it uses the scope of the deployment stack.
 
 ---
 

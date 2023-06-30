@@ -66,7 +66,7 @@ Save the Bicep file as _main.bicep_.
 
 ## Create a deployment stack
 
-In this quickstart, you'll create the deployment stack at the resource group scope.  You can also create the deployment stack at the subscription scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
+In this quickstart, you create the deployment stack at the resource group scope.  You can also create the deployment stack at the subscription scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
 
 # [CLI](#tab/azure-cli)
 
@@ -285,13 +285,13 @@ managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceG
 
 ---
 
-Once a stack is created, you have the option to easily access and view both the stack itself and the managed resources associated with it through the Azure portal. Simply navigate to the resource group where the stack has been deployed, and you will be able to access all the relevant information and settings.
+Once a stack is created, you can access and view both the stack itself and the managed resources associated with it through the Azure portal. Navigate to the resource group where the stack has been deployed, and you can access all the relevant information and settings.
 
 :::image type="content" source="./media/quickstart-create-template-stacks/deployment-stack-portal.png" alt-text="Screenshot of a deployment stack in the Azure portal.":::
 
 ## Update the deployment stack
 
-To update a deployment stack, you can modify the underlying Bicep file and re-running the create deployment stack command.
+To update a deployment stack, you can modify the underlying Bicep file and rerunning the create deployment stack command.
 
 Edit **main.bicep** to set the sku name to `Standard_GRS` from `Standard_LRS`:
 
@@ -336,7 +336,7 @@ az stack group delete \
   --delete-all
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
 
 ```azurecli
 az stack group delete \
@@ -361,7 +361,7 @@ Remove-AzResourceGroupDeploymentStack `
   -DeleteAll
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `

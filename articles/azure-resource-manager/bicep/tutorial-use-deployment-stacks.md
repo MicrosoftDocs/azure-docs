@@ -8,15 +8,13 @@ ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track
 
 # Tutorial: use deployment stack with Bicep
 
-In this tutorial, you will learn the process of creating and managing a deployment stack. The tutorial focuses on creating the deployment stack at the resource group scope. However, you also have the option to create the deployment stack at either the subscription scope or the management group scope. To gain further insights into creating deployment stacks, see [Create deployment stacks](./deployment-stacks.md).
+In this tutorial, you learn the process of creating and managing a deployment stack. The tutorial focuses on creating the deployment stack at the resource group scope. However, you can also create deployment stacks at either the subscription scope. To gain further insights into creating deployment stacks, see [Create deployment stacks](./deployment-stacks.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell [version 10.1.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.50.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-
-jgao: specify the versions here.
 
 ## Create a Bicep file
 
@@ -296,13 +294,13 @@ managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceG
 
 To update a deployment stack, make the necessary modifications to the underlying Bicep file, and then rerun the command for creating the deployment stack or use the set command in Azure PowerShell.
 
-In this tutorial, you will perform the following activities:
+In this tutorial, you perform the following activities:
 
 - Update a property of a managed resource.
 - Add a resource to the stack.
 - Detach a managed resource.
 - Attach an existing resource to the stack.
-- Delete a managed resoruce.
+- Delete a managed resource.
 
 ### Update a managed resource
 

@@ -120,8 +120,6 @@ az stack group create \
   --deny-settings-mode 'none'
 ```
 
-jgao: test --deny-settings-mode none when it is available.
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -219,7 +217,7 @@ The output shows two managed resources - one storage account and one virtual net
 Get-AzResourceGroupDeploymentStack -ResourceGroupName demoRg -Name demoStack
 ```
 
-The output shows two managed resource - one virtual network, and one storage account:
+The output shows two managed resources - one virtual network, and one storage account:
 
 ```output
 Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
@@ -338,7 +336,7 @@ az stack group delete \
   --delete-all
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
 
 ```azurecli
 az stack group delete \
@@ -363,7 +361,7 @@ Remove-AzResourceGroupDeploymentStack `
   -DeleteAll
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+If you run the delete commands without the **delete all** parameters, the managed resources are detached but not deleted. For example:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
