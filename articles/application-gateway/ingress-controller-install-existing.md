@@ -97,8 +97,8 @@ for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/manage
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Grant the identity **Contributor** access to your Application Gateway. For this you need the ID of the Application Gateway, which
-looks something like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`. To get the list of Application Gateway IDs in your subscription, run the following  command:
+1. Grant the identity **Contributor** access to your Application Gateway. You need the ID of the Application Gateway, which
+looks like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`. First, get the list of Application Gateway IDs in your subscription by running the following command:
 
     ```azurecli
     az network application-gateway list --query '[].id'
@@ -113,7 +113,7 @@ looks something like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Net
         --scope <App-Gateway-ID>
     ```
 
-1. Grant the identity **Reader** access to the Application Gateway resource group. The resource group ID would look like:
+1. Grant the identity **Reader** access to the Application Gateway resource group. The resource group ID looks like:
 `/subscriptions/A/resourceGroups/B`. You can get all resource groups with: `az group list --query '[].id'`
 
     ```azurecli
@@ -271,7 +271,7 @@ Let's look at an imaginary Application Gateway, which manages traffic for two we
   - `prod.contoso.com` - hosted on an [Azure Virtual Machine Scale Set](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
 With default settings, AGIC assumes 100% ownership of the Application Gateway it's pointed to. AGIC overwrites all of App
-Gateway's configuration. If we were to manually create a listener for `prod.contoso.com` (on Application Gateway), without
+Gateway's configuration. If you manually create a listener for `prod.contoso.com` (on Application Gateway) without
 defining it in the Kubernetes Ingress, AGIC deletes the `prod.contoso.com` config within seconds.
 
 To install AGIC and also serve `prod.contoso.com` from our Virtual Machine Scale Set machines, we must constrain AGIC to configuring
@@ -294,7 +294,8 @@ Application Gateway config for `prod.contoso.com` and explicitly instructs it to
 related to that hostname.
 
 ### Enable with new AGIC installation
-To limit AGIC (version 0.8.0 and later) to a subset of the Application Gateway configuration modify the `helm-config.yaml` template.
+
+To limit AGIC (version 0.8.0 and later) to a subset of the Application Gateway configuration, modify the `helm-config.yaml` template.
 Under the `appgw:` section, add `shared` key and set it to `true`.
 
 ```yaml
