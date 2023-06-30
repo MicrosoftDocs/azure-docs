@@ -3,7 +3,7 @@ title: "Document Intelligence Studio"
 titleSuffix: Azure AI services
 description: "Concept: Form and document processing, data extraction, and analysis using Document Intelligence Studio "
 author: laujan
-manager: netahw
+manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
