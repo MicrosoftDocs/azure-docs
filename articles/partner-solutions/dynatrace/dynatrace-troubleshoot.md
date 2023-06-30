@@ -62,3 +62,4 @@ This document contains information about troubleshooting your solutions that use
 ## Next steps
 
 - Learn about [managing your instance](dynatrace-how-to-manage.md) of Dynatrace.
+- Get started with Azure Native Dynatrace Service on [Azure Portal](https://aka.ms/partners/Dynatrace/portal) or [Azure Marketplace](https://aka.ms/partners/Dynatrace/AMPOffer).
