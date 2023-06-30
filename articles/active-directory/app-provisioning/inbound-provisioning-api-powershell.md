@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/26/2023
+ms.date: 06/30/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -96,7 +96,9 @@ The following steps successfully configure out-of-the-box provisioning job with 
 Download the CSV2SCIM PowerShell script and samples.
 
 1. Extract the contents to your local folder. It has the following directory structure
-1. azure-activedirectory-inbound-provisioning
+
+   **azure-activedirectory-inbound-provisioning**
+
    - src
      - CSV2SCIM.ps1 (main script)
      - ScimSchemaRepresentations (folder containing standard SCIM schema definitions for validating AttributeMapping.psd1 files)
@@ -104,9 +106,9 @@ Download the CSV2SCIM PowerShell script and samples.
    - Samples
      - AttributeMapping.psd1 (sample mapping of columns in CSV file to standard SCIM attributes)
      - csv-with-2-records.csv (sample CSV file with two records)
-     - csv-with-1000-records.csv (sample CSV file with 1000 records
+     - csv-with-1000-records.csv (sample CSV file with 1000 records)
      - Test-ScriptCommands.ps1 (sample usage commands)
-     - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow
+     - UseClientCertificate.ps1 (script to generate self-signed certificate and upload it as service principal credential for use in OAuth flow)
      - Sample1 (folder with more examples of how CSV file columns can be mapped to SCIM standard attributes. If you get different CSV files for employees, contractors, interns, you can create a separate AttributeMapping.psd1 file for each entity.)
 1. Download and install the latest version of PowerShell. 
 1. Run the command to enable execution of remote signed scripts: set-executionpolicy remotesigned
@@ -116,10 +118,49 @@ Download the CSV2SCIM PowerShell script and samples.
 ## Generate SCIM payload with standard schema
 
 In this section, we will explore how to generate a SCIM payload with standard Core User and Enterprise User attribute from a CSV file. 
-To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records.csv present in the azure-activedirectory-inbound-provisioning folder. 
+To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records.csv present in the **azure-activedirectory-inbound-provisioning** folder. 
 
 
 1. Open the CSV file Samples/csv-with-2-records.csv in Notepad/Excel/TextPad to check the columns present in the file. 
+
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/columns.png" alt-text="Screenshot of columns in Excel.":::
+
+1. In Notepad++ or a source code editor like Visual Studio Code, open the PowerShell data file Samples/AttributeMapping.psd1 that enables mapping of CSV file columns to SCIM standard schema elements. The file that is shipped out-of-the-box already has pre-configured mapping of CSV file columns to corresponding SCIM elements. We will use it as-is for this execution. 
+1. Open PowerShell and change to the directory **azure-activedirectory-inbound-provisioning\src**.
+1. Run the following command to initialize the AttributeMapping variable. 
+
+   ```powershell
+   $AttributeMapping = Import-PowerShellDataFile '..\Samples\AttributeMapping.psd1'
+   ```
+
+1. Run the following command to validate if the AttributeMapping specified has valid standard SCIM schema attributes. This command will return **True** if the validation is successful. 
+
+   ```powershell
+   .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ValidateAttributeMapping
+   ```
+
+1. Let’s say the AttributeMapping file has an invalid SCIM attribute called **userId**, then the ValidateAttributeMapping mode will display the following error. 
+
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/mapping-error.png" alt-text="Screenshot of a mapping error.":::
+
+
+1. Once you verified that the AttributeMapping is valid, run the following command to generate a SCIM bulk request in the file **SCIMPayload.json** that includes the two records present in the CSV file. 
+
+
+   ```powershell
+   .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping > SCIMPayload.json
+   ```
+
+1. You can open the contents of the file **SCIMPayload.json** to verify if the SCIM attributes have been set as per mapping defined in the file **AttributeMapping.psd1**.
+
+1. You can post this file as-is to the Provisioning API endpoint using Graph Explorer or Postman. Reference: 
+
+   - [Quick start with Graph Explorer]() 
+   - [Quick start with Postman]()
+
+   Or you can refer to the next step and directly upload the generated payload to the API endpoint. 
+
+
 ## Generate and upload SCIM payload with standard schema
 
 ## Get provisioning logs of the latest Sync Cycles
