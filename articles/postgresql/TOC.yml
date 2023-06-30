@@ -620,6 +620,10 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-scale-compute-storage-portal.md
+      - name: Restore a dropped server
+        items:
+        - name: Restore a dropped server
+          href: flexible-server/how-to-restore-dropped-server.md
       - name: Restart a server
         items:
         - name: Azure portal

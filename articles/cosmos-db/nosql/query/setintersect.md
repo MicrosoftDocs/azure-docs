@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # SetIntersect (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Compares expressions in two sets and returns the set of expressions that is contained in both sets with no duplicates.
 
 ## Syntax

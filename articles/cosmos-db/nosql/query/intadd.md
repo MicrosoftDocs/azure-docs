@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntAdd (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Adds the value of the right-hand operand to the left-hand operand. For more information, see [additive operators](/cpp/cpp/additive-operators-plus-and).
 
 ## Syntax
