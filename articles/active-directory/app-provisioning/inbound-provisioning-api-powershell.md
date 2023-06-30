@@ -309,3 +309,31 @@ In the next example, we mapped the following columns in the CSV file to their co
 ```
 
 ### Extending provisioning job schema with CSV2SCIM script
+
+Often the data file sent by HR teams contains additional attributes that don't have a direct representation in the standard SCIM schema. To represent such attributes, we recommend creating a SCIM extension schema and adding attributes under this namespace. 
+
+The CSV2SCIM script provides an execution mode called UpdateSchema which reads all columns in the CSV file, adds them under an extension schema namespace, and updates the provisioning app schema. 
+
+>[!NOTE] 
+>If the attribute extensions are already present in the provisioning app schema, then this mode will only emit a warning that the attribute extension already exists. So, there is no issue running the CSV2SCIM script in the `UpdateSchema` mode if new fields are added to the CSV file and you want to add them as an extension. 
+
+To illustrate the procedure, we will use the CSV file **Samples/csv-with-2-records.csv** present in the **azure-activedirectory-inbound-provisioning** folder. 
+
+1. Open the CSV file Samples/csv-with-2-records.csv in a Notepad/Excel/TextPad to check the columns present in the file. 
+
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/check-columns.png" alt-text="Screenshot of how to check CSV columns.":::
+
+1. Run the following command: 
+
+   ```powershell
+   .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -UpdateSchema -ServicePrincipalId 9fdf10c1-9bd5-4968-8cfa-7c2b63567464 -TenantId "contoso.onmicrosoft.com" -ScimSchemaNamespace "urn:ietf:params:scim:schemas:extension:contoso:1.0:User"
+   ```
+
+1. You can verify the update to your provisioning app schema by opening the **Attribute Mapping** page and accessing the **Edit attribute list for API** option under **Advanced options**. 
+
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/advanced-options.png" alt-text="Screenshot of Attribute Mapping in Advanced options.":::
+
+1. The **Attribute List** will now show attributes under the new namespace. 
+
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/attribute-list.png" alt-text="Screenshot of the attribute list.":::
+
