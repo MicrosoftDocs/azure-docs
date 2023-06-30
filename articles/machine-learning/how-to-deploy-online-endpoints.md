@@ -815,7 +815,7 @@ One way to create a managed online endpoint in the studio is from the **Models**
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
-1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
+1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you to view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
 1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
