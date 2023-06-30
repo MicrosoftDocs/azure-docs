@@ -27,7 +27,7 @@ The Document Intelligence receipt model combines powerful Optical Character Reco
 
 ## Receipt data extraction
 
-Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Azure AI Document Intelligence OCR-powered receipt data extraction helps to automate the conversion and save time and effort.
+Receipt digitization is the process of converting scanned receipts into digital form for downstream processing. Document Intelligence OCR-powered receipt data extraction helps to automate the conversion and save time and effort.
 
 ::: moniker range="form-recog-3.0.0"
 
