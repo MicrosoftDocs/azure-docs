@@ -275,7 +275,7 @@ This error is likely caused by data in the source topic being serialized in eith
 ```
 
 ### Gateway mode support
-```connect.cosmos.connection.gateway.enabled``` is a configuration option for the Cosmos DB Kafka Sink Connector that enhances data ingestion by utilizing the Cosmos DB gateway service. This service acts as a front-end for Cosmos DB, offering benefits such as load balancing, request routing, and protocol translation. By leveraging the gateway service, the connector achieves improved throughput and scalability when writing data to Cosmos DB. For more information, see [connectivity modes] (https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/sdk-connection-modes)
+```connect.cosmos.connection.gateway.enabled``` is a configuration option for the Cosmos DB Kafka Sink Connector that enhances data ingestion by utilizing the Cosmos DB gateway service. This service acts as a front-end for Cosmos DB, offering benefits such as load balancing, request routing, and protocol translation. By leveraging the gateway service, the connector achieves improved throughput and scalability when writing data to Cosmos DB. For more information, see [connectivity modes](/azure/cosmos-db/nosql/sdk-connection-modes).
 
 ```json
 "connect.cosmos.connection.gateway.enabled": true
@@ -286,7 +286,7 @@ This error is likely caused by data in the source topic being serialized in eith
 
 When this property is set to `true` (by default), it enables the bulk write mode, allowing Kafka Connect to use the bulk import API of Azure Cosmos DB for performing efficient batch writes utilizing ```CosmosContainer.executeBulkOperations()``` method. Bulk write mode significantly improves the write performance and reduces the overall latency when ingesting data into Cosmos DB in comparison with non-bulk mode when ```CosmosContainer.upsertItem()``` method is used.
 
-Bulk mode is enabled by default, to disable the `connect.cosmos.sink.bulk.enabled` property, you need to set it to `false` in the configuration for the Cosmos DB sink connector. Here's an example configuration property file:
+Bulk mode is enabled by default. To disable the `connect.cosmos.sink.bulk.enabled` property, you need to set it to `false` in the configuration for the Cosmos DB sink connector. Here's an example configuration property file:
 
 ```json
 "name": "my-cosmosdb-connector",
