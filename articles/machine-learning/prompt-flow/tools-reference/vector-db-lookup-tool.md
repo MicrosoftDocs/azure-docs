@@ -58,15 +58,17 @@ The following are available input parameters:
 ## Outputs
 
 The following is an example JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by our EmbeddingStore SDK.
-- **Azure Cognitive Search:**
+
+**Azure Cognitive Search:**
 
   For the Azure Cognitive Search, the following fields are populated:
-  | Field Name | Type | Description |
-  | ---- | ---- | ----------- |
-  | vector | list | vector of the entity, the vector field name is specified in input |
-  | text | string | text of the entity, the text field name is specified in input|
-  | score | float |  computed by the BM25 similarity algorithm |
-  | original_entity | dict | the original response json from search REST API|
+
+| Field Name      | Type   | Description                                                       |
+|-----------------|--------|-------------------------------------------------------------------|
+| vector          | list   | vector of the entity, the vector field name is specified in input |
+| text            | string | text of the entity, the text field name is specified in input     |
+| score           | float  | computed by the BM25 similarity algorithm                         |
+| original_entity | dict   | the original response json from search REST API                   |
 
 
   ```json
