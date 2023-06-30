@@ -55,6 +55,7 @@ This scope is integrated with [update management center](../update-center/overvi
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
 - A minimum of 1 hour and 10 minutes is required for the maintenance window.
   :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of the upper maintenance window minimum time specification.":::
+- The upper maintenance window is 3.55 hours.
 - There is no limit to the recurrence of your schedule.
 
 To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
