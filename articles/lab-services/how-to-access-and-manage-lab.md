@@ -134,36 +134,22 @@ On the lab VM tile, you can view your consumption of [quota hours](how-to-config
 | The progress bar is blue | No class is currently in progress and you still have quota hours available to access the lab VM.<br/><br/> :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been partially used."::: |
 | The text **Available during classes only** is shown | There are no quota hours allocated to the lab. You can only access the lab VM during the scheduled hours for the lab.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's no quota."::: |
 
-- A class is in progress, based on the lab schedules: the progress bar is grayed out to represent that you don't consume any quota hours.
-
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when a schedule started the VM.":::
-
-- The lab has no quota (zero hours): the text **Available during classes only** shows in place of the progress bar.
-
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's no quota.":::
-
-- You ran out of quota: the color of the progress bar is **red**.
-
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's quota usage.":::
-
-- No class is in progress, according to the lab schedules: the color of the progress bar is **blue** to indicate that it's outside the scheduled time for the lab, and some of the quota time was used.
-
-    :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been partially used.":::
-
 ## Start or stop the lab VM
 
-As a lab user, you can start or stop a lab VM from the Azure Lab Services website. Alternately, you can also stop a lab VM by using the operating system shutdown command from within the lab VM. The preferred method to stop a lab VM is to use the [Azure Lab Services website](https://labs.azure.com) to avoid incurring additional costs.
+You can start and stop a lab virtual machine from the **My virtual machines** page. If the lab creator configured a lab schedule, the lab VM is automatically started and stopped during the scheduled hours.
+
+Alternately, you can also stop a lab VM by using the operating system shutdown command from within the lab VM. The preferred method to stop a lab VM is to use the **My virtual machines** page to avoid incurring additional costs.
 
 > [!TIP]
-> With the [April 2022 Updates](lab-services-whats-new.md), Azure Lab Services will detect when a lab user shuts down a lab VM using the OS shutdown command. After a long delay to ensure the VM wasn't being restarted, the lab VM will be marked as stopped and billing will discontinue.
+> Wheny you use lab plans, Azure Lab Services detects when you shut down a lab VM by using the OS shutdown command. The lab VM is then marked as stopped, and billing stops.
 
-To start or stop a lab VM in the Azure Lab Services website:
+To start or stop a lab VM:
 
-1. Go to the [Azure Lab Services website](https://labs.azure.com).
+1. Go to the **My virtual machines** page in Teams, Canvas, or the [Azure Lab Services website](https://labs.azure.com).
 
-1. Use the toggle control in the bottom-left of the VM tile to start or stop the lab VM.
+1. Use the toggle control next to the lab VM status to start or stop the lab VM.
 
-    Depending on the current status of the lab VM, the toggle control starts or stops the VM. When the VM is in progress of starting or stopping, the control is inactive.
+    When the VM is in progress of starting or stopping, the control is inactive.
 
     Starting or stopping the lab VM might take some time to complete.
 
@@ -175,11 +161,13 @@ To start or stop a lab VM in the Azure Lab Services website:
 
 ## Connect to the lab VM
 
-Depending on the lab VM operating system configuration, you can use remote desktop (RDP) or secure shell (SSH) to connect to your lab VM. Learn more about how to [connect to a lab VM](connect-virtual-machine.md).
+When the lab virtual machine is running, you can remotely connect to the VM. Depending on the lab VM operating system configuration, you can connect by using remote desktop (RDP) or secure shell (SSH).
+
+If there are no quota hours available, you're can't start the lab VM outside the scheduled lab hours and can't connect to the lab VM.
+
+Learn more about how to [connect to a lab VM](connect-virtual-machine.md).
 
 ## Next steps
-
-See the following articles:
 
 - [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
 - [As a lab owner, create and manage labs](how-to-manage-labs.md)
