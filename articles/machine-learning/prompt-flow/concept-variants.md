@@ -11,6 +11,7 @@ ms.author: keli19
 ms.reviewer: lagayhar
 ms.date: 06/30/2023
 ---
+
 # Variants in Prompt flow (preview)
 
 With Azure Machine Learning prompt flow, you can use variants to tune your prompt. In this article, you'll learn the prompt flow variants concept.
