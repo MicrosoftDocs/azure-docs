@@ -48,8 +48,7 @@ You can retain the audit and sign-in activity data for longer than the default r
 | Risky sign-ins | 7 days        | 30 days             | 90 days             |
 
 > [!NOTE]
-> Risky users are not deleted until the risk has been remediated.
-
+> Risky users and workload identities are not deleted until the risk has been remediated.
 ## Can I see last month's data after getting a premium license?
 
 **No**, you can't. Azure stores up to seven days of activity data for a free version. When you switch from a free to a premium version, you can only see up to 7 days of data.
