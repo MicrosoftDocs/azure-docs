@@ -71,7 +71,7 @@ You can't run the executable script on the VM with any of the following characte
 
 ### Windows Storage Spaces
 
-You cannot run the downloaded executable on the same backed-up VM if the backed up VM has Windows Storage Spaces. Choose an alternate machine.
+You can't run the downloaded executable on the same backed-up VM if the backed-up VM has Windows Storage Spaces. Choose an alternate machine.
 
 ### Virtual machine backups having large disks
 
@@ -389,7 +389,7 @@ We use a mutual CHAP authentication mechanism so that each component authenticat
 
 The data flow between the recovery service and the machine is protected by building a secure TLS tunnel over TCP ([TLS 1.2 should be supported](#step-3-os-requirements-to-successfully-run-the-script) in the machine where script is run).
 
-Any file Access Control List (ACL) present in the parent/backed up VM is preserved in the mounted file system as well.
+Any file Access Control List (ACL) present in the parent/backed-up VM is preserved in the mounted file system as well.
 
 The script gives read-only access to a recovery point and is valid for only 12 hours. If you wish to remove the access earlier, then sign into Azure portal/PowerShell/CLI and perform **unmount disks** for that particular recovery point. The script will be invalidated immediately.
 
