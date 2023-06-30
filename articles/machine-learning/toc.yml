@@ -755,10 +755,6 @@
       items:
         - name: Batch endpoints
           href: concept-endpoints-batch.md
-        - name: Perform batch scoring with batch endpoints
-          href: how-to-use-batch-endpoints.md	
-        - name: Create jobs and input data for batch endpoints	
-          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Deploy models
           items:
             - name: Deploy models for scoring in batch endpoints
@@ -783,6 +779,8 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
+        - name: Create jobs and input data for batch endpoints	
+          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
           href: how-to-troubleshoot-batch-endpoints.md	
         - name: Security
