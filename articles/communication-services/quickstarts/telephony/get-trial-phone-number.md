@@ -30,13 +30,11 @@ Azure Communication Services provides powerful communication capabilities for de
 
 2. In the Communication Services resource overview, select on the "Phone numbers" option in the left-hand menu. 
 :::image type="content" source="./media/trial-phone-numbers/trial-empty.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page.":::
-
-If you don’t have any ACS phone numbers yet, you will see an empty list of phone numbers followed by this call to action for trial phone numbers.  
-
-If you already have numbers for your ACS resource, you can also activate a trial phone number: 
+If you don’t have any phone numbers yet, you will see an empty list of phone numbers followed by this call to action for trial phone numbers.  
+If you already have numbers for your Communication Services resource, you can also activate a trial phone number: 
 :::image type="content" source="./media/trial-phone-numbers/trial-empty-with-purchased-numbers.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with already purchased numbers.":::
 
-3. Select on “Activate trial phone number”. This immediately provisions a trial phone number to your ACS resource.  Once the trial phone number is provisioned, you can view it on the Phone numbers page. 
+3. Select on “Activate trial phone number”. This immediately provisions a trial phone number to your Communication Services resource.  Once the trial phone number is provisioned, you can view it on the Phone numbers page. 
 :::image type="content" source="./media/trial-phone-numbers/trial-activated.png" alt-text="Screenshot showing a Communication Services resource's phone numbers page with a trial phone number":::
 
 ## Add a verified phone number to your trial phone number

@@ -36,7 +36,7 @@ The trial phone number is available for 30 days. After the trial period ends, th
 You can use Azure Communication Services APIs or SDKs to make and receive calls using the trial phone number. Microsoft provides comprehensive documentation and code samples to help you integrate the PSTN Calling capabilities into your applications. 
 
 ### What are the calling limitations on my trial phone number? 
-Trial phone numbers have 60 minutes of inbound and 60 minutes of outbound PSTN calling. The max duration of a phone call is 5 minutes.
+Trial phone numbers have 60 minutes of inbound and 60 minutes of outbound PSTN calling. The max duration of a phone call is 5 minutes. The trial phone number may not be used to dial emergency services such as 911, 311, 988 or any emergency numbers.
  
 ### Are there any costs associated with the trial phone number? 
 While the trial phone number itself is provided at no cost during the trial period, there may be associated costs for making and receiving calls or other PSTN Calling services. It's essential to review the pricing details for Azure Communication Services to understand the costs involved.  
@@ -59,7 +59,7 @@ If the verification code is entered incorrectly, the verification process fails.
 Yes, the recipient phone number should be entered in the correct international format, including the country code. Ensure that the phone number is accurate and free of any typos or formatting errors.
 
 ### How long does the verification process take?
-A6: The verification code is typically sent within a few seconds after initiating the verification process. The overall process should be completed quickly, depending on the recipient's ability to receive the SMS and enter the code in the Azure portal. 
+The verification code is typically sent within a few seconds after initiating the verification process. The overall process should be completed quickly, depending on the recipient's ability to receive the SMS and enter the code in the Azure portal. 
 
 
 ## Next steps
