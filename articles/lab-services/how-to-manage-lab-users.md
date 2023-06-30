@@ -53,7 +53,7 @@ To sync a lab with an existing Azure AD group:
 
 1. In the left pane, select **Users**, and then select **Sync from group**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Screenshot that shows how to add users by syncing from an Azure AD group.":::
+    :::image type="content" source="./media/how-to-manage-lab-users/add-users-sync-group.png" alt-text="Screenshot that shows how to add users by syncing from an Azure AD group.":::
 
 1. Select the Azure AD group you want to sync users with from the list of groups.
 
@@ -91,17 +91,17 @@ TODO: link to account types information
 
 1. Select **Users**, and then select **Add users manually**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Screenshot that shows how to add users manually.":::
+    :::image type="content" source="./media/how-to-manage-lab-users/add-users-manually.png" alt-text="Screenshot that shows how to add users manually.":::
 
 1. Select **Add by email address**, enter the users' email addresses on separate lines or on a single line separated by semicolons.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Screenshot that shows how to add users' email addresses in the Lab Services website." lightbox="./media/how-to-configure-student-usage/add-users-email-addresses.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/add-users-email-addresses.png" alt-text="Screenshot that shows how to add users' email addresses in the Lab Services website." lightbox="./media/how-to-manage-lab-users/add-users-email-addresses.png":::
 
 1. Select **Add**.
 
     The list displays the email addresses and registration status of the lab users. After a user registers for the lab, the list also displays the user's name.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Screenshot that shows the lab user list in the Lab Services website." lightbox="./media/how-to-configure-student-usage/list-of-added-users.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/list-of-added-users.png" alt-text="Screenshot that shows the lab user list in the Lab Services website." lightbox="./media/how-to-manage-lab-users/list-of-added-users.png":::
 
 ### Add users by uploading a CSV file
 
@@ -111,7 +111,7 @@ You use a CSV text file to store comma-separated (CSV) tabular data (numbers and
 
 1. Use Microsoft Excel or a text editor of your choice, to create a CSV file with the users' email addresses in one column.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="Screenshot that shows the list of users in a CSV file.":::
+    :::image type="content" source="./media/how-to-manage-lab-users/csv-file-with-users.png" alt-text="Screenshot that shows the list of users in a CSV file.":::
 
 1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
@@ -125,7 +125,7 @@ You use a CSV text file to store comma-separated (CSV) tabular data (numbers and
 
     The **Users** page now shows the list of lab users you uploaded.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Screenshot that shows the list of added users in the Users page in the Lab Services website." lightbox="./media/how-to-configure-student-usage/list-of-added-users.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/list-of-added-users.png" alt-text="Screenshot that shows the list of added users in the Users page in the Lab Services website." lightbox="./media/how-to-manage-lab-users/list-of-added-users.png":::
 
 ## Send invitations to users
 
@@ -143,13 +143,13 @@ To invite all users:
 
 1. Select **Users**, and then select **Invite all**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/invite-all-button.png" alt-text="Screenshot that shows the Users page in the Azure Lab Services website, highlighting the Invite all button." lightbox="./media/how-to-configure-student-usage/invite-all-button.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/invite-all-button.png" alt-text="Screenshot that shows the Users page in the Azure Lab Services website, highlighting the Invite all button." lightbox="./media/how-to-manage-lab-users/invite-all-button.png":::
 
 1. In the **Send invitation by email** window, enter an optional message, and then select **Send**.
 
     The email automatically includes the registration link. To get and save the registration link separately, select the ellipsis (**...**) at the top of the **Users** pane, and then select **Registration link**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/send-email.png" alt-text="Screenshot that shows the Send registration link by email window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/send-email.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/send-email.png" alt-text="Screenshot that shows the Send registration link by email window in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/send-email.png":::
 
     The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to **Sending** and then to **Sent on \<date>**.
 
@@ -165,11 +165,11 @@ To invite selected users:
 
 1. In the row for the user you selected, select the **envelope** icon or, on the toolbar, select **Invite**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/invite-selected-users.png" alt-text="Screenshot that shows how to invite selected users to a lab in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/invite-selected-users.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/invite-selected-users.png" alt-text="Screenshot that shows how to invite selected users to a lab in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/invite-selected-users.png":::
 
 1. In the **Send invitation by email** window, enter an optional **message**, and then select **Send**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/send-invitation-to-selected-users.png" alt-text="Screenshot that shows the Send invitation email for selected users in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/send-invitation-to-selected-users.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/send-invitation-to-selected-users.png" alt-text="Screenshot that shows the Send invitation email for selected users in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/send-invitation-to-selected-users.png":::
 
     The **Users** pane displays the status of this operation in the **Invitation** column of the table. The invitation email includes the registration link that users can use to register with the lab.
 
@@ -181,11 +181,11 @@ You can get the lab registration link from the Azure Lab Services website, and s
 
 1. Select **Users**, and then select **Registration link**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/registration-link-button.png" alt-text="Screenshot that shows how to get the lab registration link in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/registration-link-button.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/registration-link-button.png" alt-text="Screenshot that shows how to get the lab registration link in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/registration-link-button.png":::
 
 1. In the **User registration** window, select **Copy**, and then select **Done**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/registration-link.png" alt-text="Screenshot that shows the User registration window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/registration-link.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/registration-link.png" alt-text="Screenshot that shows the User registration window in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/registration-link.png":::
 
     The link is copied to the clipboard. In your email application, paste the registration link, and then send the email to a user so that they can register for the class.
 
@@ -214,7 +214,7 @@ You can set an hour quota for a user in one of two ways:
 
 1. In the **Quota per user** window, specify the number of hours you want to give to each user outside the scheduled time.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/quota-per-user.png" alt-text="Screenshot that shows the Quota per user window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/quota-per-user.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/quota-per-user.png" alt-text="Screenshot that shows the Quota per user window in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/quota-per-user.png":::
 
     > [!IMPORTANT]
     > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a user. The quota is for the time outside of scheduled hours that a user spends on VMs.
@@ -233,7 +233,7 @@ To set additional quotas, do the following:
 
 1. In the **Adjust quota** window, enter the number of additional lab hours you want to grant to the selected users, and then select **Apply**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/additional-quota.png" alt-text="Screenshot that shows the Adjust quota window in the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/additional-quota.png":::
+    :::image type="content" source="./media/how-to-manage-lab-users/additional-quota.png" alt-text="Screenshot that shows the Adjust quota window in the Azure Lab Services website." lightbox="./media/how-to-manage-lab-users/additional-quota.png":::
 
 1. Select **Apply** to save the changes.
 
