@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/10/2023
+ms.date: 06/21/2023
 
 
 ---
@@ -21,8 +21,12 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 ### Advantages of Private Link
 
 - Supported on Basic, Standard, Premium, Enterprise, and Enterprise Flash tiers of Azure Cache for Redis instances.
-- By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Cache instance from your virtual network via a private endpoint. The endpoint is assigned a private IP address in a subnet within the virtual network. With this private link, cache instances are available from both within the VNet and publicly. Note: Enterprise/Enterprise Flash caches with private link cannot be accessed publicly.
-- Once a private endpoint is created on Basic/Standard/Premium tier caches, access to the public network can be restricted through the `publicNetworkAccess` flag. This flag is set to `Disabled` by default, which will only allow private link access. You can set the value to `Enabled` or `Disabled` with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md). Note: Enterprise/Enterprise Flash tier does not support `publicNetworkAccess` flag.
+- By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Cache instance from your virtual network via a private endpoint. The endpoint is assigned a private IP address in a subnet within the virtual network. With this private link, cache instances are available from both within the VNet and publicly.
+   > [!IMPORTANT]
+   > Enterprise/Enterprise Flash caches with private link cannot be accessed publicly.
+- Once a private endpoint is created on Basic/Standard/Premium tier caches, access to the public network can be restricted through the `publicNetworkAccess` flag. This flag is set to `Disabled` by default, which will only allow private link access. You can set the value to `Enabled` or `Disabled` with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md).
+   > [!IMPORTANT]
+   > Enterprise/Enterprise Flash tier does not support `publicNetworkAccess` flag.
 - All external cache dependencies won't affect the VNet's NSG rules.
 
 ### Limitations of Private Link
@@ -50,7 +54,7 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 
 - VNet injected caches are only available for Premium Azure Cache for Redis.
 - When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
-- You can't inject an Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache. 
+- You can't inject an Azure Cache for Redis instance into a Virtual Network. You can only select this option when you _create_ the cache.
 
 ## Azure Firewall rules
 

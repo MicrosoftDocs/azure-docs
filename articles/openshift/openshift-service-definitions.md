@@ -209,11 +209,11 @@ Application and application data backups aren't an automated part of the Azure R
 ### DaemonSets
 Customers can create and run DaemonSets on Azure Red Hat OpenShift. To restrict DaemonSets to only running on worker nodes, use the following nodeSelector:
 
-...
+```
 spec:
   nodeSelector:
     node-role.kubernetes.io/worker: ""
-...
+```
 
 ### Azure Red Hat OpenShift version
 

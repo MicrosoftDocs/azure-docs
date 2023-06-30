@@ -177,6 +177,8 @@
         - name: Access database logs
           href: howto-logging.md
           displayName: log
+        - name: Audit logging
+          href: how-to-enable-audit.md
         - name: Useful diagnostic queries
           href: howto-useful-diagnostic-queries.md
     - name: Scale

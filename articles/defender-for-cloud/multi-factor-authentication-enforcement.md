@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's security recommendations for MFA
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 06/15/2023
+ms.date: 06/28/2023
 ---
 
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
@@ -11,10 +11,9 @@ If you're using passwords, only to authenticate your users, you're leaving an at
 
 There are multiple ways to enable MFA for your Azure Active Directory (AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Microsoft Defender for Cloud.
 
+## MFA and Microsoft Defender for Cloud
 
-## MFA and Microsoft Defender for Cloud 
-
-Defender for Cloud places a high value on MFA. The security control that contributes the most to your secure score is **Enable MFA**. 
+Defender for Cloud places a high value on MFA. The security control that contributes the most to your secure score is **Enable MFA**.
 
 The recommendations in the Enable MFA control ensure you're meeting the recommended practices for users of your subscriptions:
 
@@ -60,7 +59,7 @@ From the recommendation details page, select a subscription from the **Unhealthy
 
 ### View the accounts without MFA enabled using Azure Resource Graph
 
-To see which accounts don't have MFA enabled, use the following Azure Resource Graph query. The query returns all unhealthy resources - accounts - of the recommendation "MFA should be enabled on accounts with owner permissions on your subscription". 
+To see which accounts don't have MFA enabled, use the following Azure Resource Graph query. The query returns all unhealthy resources - accounts - of the recommendation "Accounts with owner permissions on Azure resources should be MFA enabled".
 
 1. Open **Azure Resource Graph Explorer**.
 
@@ -71,11 +70,11 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     ```kusto
     securityresources
      | where type == "microsoft.security/assessments"
-     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on subscriptions"
+     | where properties.displayName contains "Accounts with owner permissions on Azure resources should be MFA enabled"
      | where properties.status.code == "Unhealthy"
     ```
 
-1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced. 
+1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced.
 
     > [!NOTE]
     > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
@@ -84,6 +83,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 > Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
 
 ## Next steps
+
 To learn more about recommendations that apply to other Azure resource types, see the following article:
 
 - [Protecting your network in Microsoft Defender for Cloud](protect-network-resources.md)

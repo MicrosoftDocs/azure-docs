@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: compliance
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 06/22/2023
 ms.custom: template-howto 
 ---
 
