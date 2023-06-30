@@ -12,7 +12,7 @@ ms.author: sidandrews
 ms.reviewer: dech
 ---
 
-# Tutorial: Create a Jupyter Notebook to analyze data in your Azure Cosmos DB for NoSQL account
+# Tutorial: Create a Jupyter Notebook to analyze data in your Azure Cosmos DB for NoSQL account using Visual Studio Code Jupyter notebooks
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
