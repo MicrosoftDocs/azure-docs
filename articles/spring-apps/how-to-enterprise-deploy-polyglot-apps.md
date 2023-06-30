@@ -572,6 +572,8 @@ For more information, see [Deploy web static files](how-to-enterprise-deploy-sta
 ### Deploy Java Native Image applications (Preview)
 The buildpack for deploying Java Native Image applications is [tanzu-buildpacks/java-native-image](https://network.tanzu.vmware.com/products/tanzu-java-native-image-buildpack/).
 
+You can deploy Spring Boot native image applications using tanzu-buildpacks/java-native-image buildpack. [Spring Native](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) provides support for compiling Spring Boot applications into native executables. The buildpack uses [Liberica Native Image Kit (NIK)](https://tanzu.vmware.com/content/blog/vmware-tanzu-enterprise-support-spring-boot-native-applications-bellsoft-liberica-nik) to create native images of Spring Boot applications and these applications are fully supported.
+
 When build a Java Native Image, set build environment `BP_NATIVE_IMAGE` to `true` is necessary, and the build memory resource should not be less than 8Gi. So the [build service agent pool size](how-to-enterprise-build-service.md#build-agent-pool) should not less than `4 vCPU, 8 Gi`.
 
 If you want to build the native image into a smaller size container image, then use builder with `Jammy Tiny` OS stack is a recommended way. See [OS Stack Recommendations](#os-stack-recommendations)
