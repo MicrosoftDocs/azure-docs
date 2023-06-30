@@ -87,7 +87,7 @@ This issue occurs when the current user doesn't have the proper role assignment 
 - `Client is not authorized to create a Default connectivity endpoint for {Name} in the Resource Group {ResourceGroupName}. This is a one-time operation that must be performed by an account with Owner or Contributor role to allow connections to target resource`
 
 Resolution:
-- Ensure that you have the Owner or Contributor role on the resource.
+- Ensure that you have the Owner or Contributor role on the resource or contact the owner/contributor of the resource to set up SSH connectivity.
 
 ### Incorrect role assignments to connect
 This issue occurs when the current user doesn't have the proper role assignment on the target resource, specifically a lack of `read` permissions. Possible errors:
