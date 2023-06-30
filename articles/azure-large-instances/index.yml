@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure for Large Instances documentation
+title: Azure Large Instances documentation
 summary: Learn how to use Azure Large Instances
 
 metadata:
-  title: Azure for Large Instances documentation
+  title: Azure Large Instances documentation
   description: Learn how to use ALI.
   services: baremetal-infrastructure 
   ms.service: baremetal-infrastructure

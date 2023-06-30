@@ -70,6 +70,6 @@ If you deploy with another Azure subscription in the same Azure region, you also
 Learn how to identify and interact with ALI instances through the Azure portal.
 
 > [!div class="nextstepaction"]
-> [What is Azure for Large Instances?](../../what-is-azure-large-instances.md)
+> [What is Azure Large Instances?](../../what-is-azure-large-instances.md)
 
 A

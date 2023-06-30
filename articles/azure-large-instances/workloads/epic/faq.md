@@ -79,13 +79,13 @@ In the dropdown menu you can look for the Epic key word and then "Azure Large In
 
 ## What resources are available to learn more?
 
-See [What is Azure for Large Instances?](../../what-is-azure-large-instances.md).
+See [What is Azure Large Instances?](../../what-is-azure-large-instances.md).
 
 ## Next steps
 
 Learn how to identify and interact with ALI instances through the Azure portal.
 
 > [!div class="nextstepaction"]
-> [What is Azure for Large Instances?](../../what-is-azure-large-instances.md)
+> [What is Azure Large Instances?](../../what-is-azure-large-instances.md)
 
 
