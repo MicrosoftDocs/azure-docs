@@ -17,7 +17,7 @@ Azure confidential computing supports multiple deployment models. These differen
 
 ## Infrastructure as a Service (IaaS)
 
-For Infrastructure as a Service (IaaS), you can use confidential virtual machines (VMs) in confidential computing. You can use VMs based on [AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP)](confidential-vm-overview.md), [Intel Trust Domain Extensions (TDX)](tdx-confidential-vm-overview) or [Intel Software Guard Extensions (SGX) application enclaves](confidential-computing-enclaves.md).
+Under Infrastructure as a Service (IaaS) deployment model, you can use confidential virtual machines (VMs) in confidential computing. You can use VMs based on [AMD Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP)](confidential-vm-overview.md), [Intel Trust Domain Extensions (TDX)](tdx-confidential-vm-overview) or [Intel Software Guard Extensions (SGX) application enclaves](confidential-computing-enclaves.md).
 
 Infrastructure as a Service (IaaS) is a cloud computing deployment model that grants access to scalable computing resources, such as servers, storage, networking, and virtualization, on demand. By adopting IaaS deployment model, organizations can forego the process of procuring, configuring, and managing their own infrastructure, instead only paying for the resources they utilize. This makes it a cost-effective solution.
 
