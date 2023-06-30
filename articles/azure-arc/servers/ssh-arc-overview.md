@@ -77,7 +77,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/<subscript
  
 #### [Create the default endpoint with Azure PowerShell:](#tab/azure-powershell)
  ```powershell
-Invoke-AzRestMethod -Method put -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 -Payload '{\"properties\": {\"type\": \"default\"}}'
+Invoke-AzRestMethod -Method put -Path /subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2023-03-15 -Payload '{"properties": {"type": "default"}}'
 ```
 
 Validate endpoint creation:
@@ -123,7 +123,16 @@ In order to use the SSH connect feature, you must update the Service Configurati
 If you're using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
 
 ### Optional: Install AAD login extension
-The `Azure AD based SSH Login – Azure Arc` VM extension can be added from the extensions menu of the Arc server. The AAD login extension can also be installed locally via a package manager via: `apt-get install aadsshlogin`.
+The `Azure AD based SSH Login – Azure Arc` VM extension can be added from the extensions menu of the Arc server. The AAD login extension can also be installed locally via a package manager via: `apt-get install aadsshlogin` or the following command.
+
+```az connectedmachine extension create --machine-name <arc enabled server name> --resource-group <resourcegroup> --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLogin --type AADSSHLoginForLinux --location <location>```
+
 
 ## Examples
 To view examples, view the Az CLI documentation page for [az ssh](/cli/azure/ssh) or the Azure PowerShell documentation page for [Az.Ssh](/powershell/module/az.ssh).
+
+## Next steps
+
+- Learn about [OpenSSH for Windows](https://learn.microsoft.com/windows-server/administration/openssh/openssh_overview)
+- Learn about troubleshooting [SSH access to Azure Arc-enabled servers](ssh-arc-troubleshoot.md).
+- Learn about troubleshooting [agent connection issues](troubleshoot-agent-onboard.md).
