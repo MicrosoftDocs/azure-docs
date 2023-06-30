@@ -108,6 +108,8 @@ While there's no perfect solution or recommendation for every customer, the foll
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Securing privileged access](../roles/security-planning.md)
 
+You may also wish to engage with one of Microsoft's [services and integration partners](services-and-integration-partners.md) to plan your deployment or integrate with the applications and other systems in your environment.
+
 ## Simplifying identity governance tasks with automation
 
 Once you've started using these identity governance features, you can easily automate common identity governance scenarios. The following table shows how to get started for each scenario:

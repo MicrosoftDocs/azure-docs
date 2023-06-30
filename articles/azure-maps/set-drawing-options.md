@@ -27,11 +27,37 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
 
       `npm install azure-maps-drawing-tools`
 
-      Then, import the JavaScript and CSS stylesheet in a source file:
+      Then, import the JavaScript in a source file:
 
       ```js
       import * as drawing from "azure-maps-drawing-tools";
+      ```
+
+      You would also need to embed the CSS Style Sheet for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [Webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
+
+      To begin, install style-loader and css-loader:
+
+      ```powershell
+      npm install --save-dev style-loader css-loader
+      ```
+
+      Inside your source file, import atlas-drawing.min.css:
+      ```js
       import "azure-maps-drawing-tools/dist/atlas-drawing.min.css";
+      ```
+
+      Then add loaders to the module rules portion of the Webpack config:
+      ```js
+      module.exports = {
+        module: {
+          rules: [
+            {
+              test: /\.css$/i,
+              use: ["style-loader", "css-loader"]
+            }
+          ]
+        }
+      };
       ```
 
 ## Use the drawing manager directly
@@ -186,4 +212,6 @@ Learn more about the classes and methods used in this article:
 > [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 [Drawing manager options]: https://samples.azuremaps.com/drawing-tools-module/drawing-manager-options
+[Webpack]: https://webpack.js.org/
+[style-loader]: https://webpack.js.org/loaders/style-loader/
 [Drawing manager options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20manager%20options/Drawing%20manager%20options.html
