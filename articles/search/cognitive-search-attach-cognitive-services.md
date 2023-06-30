@@ -114,7 +114,7 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ## Remove the key
 
-Follow these instructions to remove the multi-region key and prevent the use of the resource. Without the key, the skillset reverts to the default allocation of 20 free transactions per indexer, per day. Execution of billable skills stops at 20 transactions per indexer invocation and a "Time Out" message appears in indexer execution history.
+Follow these instructions to remove the multi-region key and prevent use of the external resource. Without the key, the skillset reverts to the default allocation of 20 free transactions per indexer, per day. Execution of billable skills stops at 20 transactions and a "Time Out" message appears in indexer execution history when the allocation is used up.
 
 ### [**Azure portal**](#tab/portal-remove)
 
@@ -138,43 +138,43 @@ Follow these instructions to remove the multi-region key and prevent the use of 
 
 1. Remove the key in the body of the definition, and then send the request:
 
-```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
-api-key: [admin key]
-Content-Type: application/json
-{
-    "name": "skillset name",
-    "skills": 
-    [
-      {
-        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-        "categories": [ "Organization" ],
-        "defaultLanguageCode": "en",
-        "inputs": [
+    ```http
+    PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
+    api-key: [admin key]
+    Content-Type: application/json
+    {
+        "name": "skillset name",
+        "skills": 
+        [
           {
-            "name": "text", "source": "/document/content"
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+            "categories": [ "Organization" ],
+            "defaultLanguageCode": "en",
+            "inputs": [
+              {
+                "name": "text", "source": "/document/content"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "organizations", "targetName": "organizations"
+              }
+            ]
           }
         ],
-        "outputs": [
-          {
-            "name": "organizations", "targetName": "organizations"
-          }
-        ]
-      }
-    ],
-    "cognitiveServices": {
-        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "mycogsvcs",
-        "key": ""
+        "cognitiveServices": {
+            "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+            "description": "mycogsvcs",
+            "key": ""
+        }
     }
-}
-```
+    ```
 
-Alternatively, you can also set "cognitiveServices" to null:
+Alternatively, you can set "cognitiveServices" to null:
 
-```json
-"cognitiveServices": null,
-```
+  ```json
+  "cognitiveServices": null,
+  ```
 
 ---
 
