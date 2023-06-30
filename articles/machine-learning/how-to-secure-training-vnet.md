@@ -92,7 +92,7 @@ In this article you learn how to secure the following training compute resources
 > [!IMPORTANT]
 > You can't create a *compute instance* in a different region/VNet, only a *compute cluster*.
 
-To create a compute cluster in a different Azure Virtual Network than your workspace, need to decide which method you want to use to enable communication between the two VNets.
+To create a compute cluster in an Azure Virtual Network in a different region than your workspace virtual network, you have couple of options to enable communication between the two VNets.
 
 * Use [VNet Peering](/azure/virtual-network/virtual-network-peering-overview).
 * Add a private endpoint for your workspace in the virtual network that will contain the compute cluster.
