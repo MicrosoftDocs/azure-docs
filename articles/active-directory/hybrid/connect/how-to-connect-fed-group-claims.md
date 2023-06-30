@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) can provide a user's group membership informat
 
 - Groups identified by their Azure AD object identifier (OID) attribute
 - Groups identified by the `sAMAccountName` or `GroupSID` attribute for Active Directory-synchronized groups and users
-- Groups identified by their Display Name attribute for cloud-only groups (Preview)
+- Groups identified by their Display Name attribute for cloud-only groups
 
 > [!IMPORTANT]
 > The number of groups emitted in a token is limited to 150 for SAML assertions and 200 for JWT, including nested groups. In larger organizations, the number of groups where a user is a member might exceed the limit that Azure AD will add to a token. Exceeding a limit can lead to unpredictable results. For workarounds to these limits, read more in [Important caveats for this functionality](#important-caveats-for-this-functionality).
@@ -121,7 +121,7 @@ To configure group claims for a gallery or non-gallery SAML application via sing
 
      For more information about managing group assignment to applications, see [Assign a user or group to an enterprise app](../../manage-apps/assign-user-or-group-access-portal.md).
 
-## Emit cloud-only group display name in token (Preview)
+## Emit cloud-only group display name in token
 
 You can configure group claim to include the group display name for the cloud-only groups.
 
@@ -133,11 +133,11 @@ You can configure group claim to include the group display name for the cloud-on
    
    ![Screenshot that shows the Group Claims window, with the option for groups assigned to the application selected.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
-4. To emit group display name just for cloud groups, in the **Source attribute** dropdown select the **Cloud-only group display names (Preview)**:
+4. To emit group display name just for cloud groups, in the **Source attribute** dropdown select the **Cloud-only group display names**:
 
    ![Screenshot that shows the Group Claims source attribute dropdown, with the option for configuring cloud only group names selected.](media/how-to-connect-fed-group-claims/group-claims-ui-8.png)
 
-5. For a hybrid setup, to emit on-premises group attribute for synced groups and display name for cloud groups, you can select the desired on-premises sources attribute and check the checkbox **Emit group name for cloud-only groups (Preview)**:
+5. For a hybrid setup, to emit on-premises group attribute for synced groups and display name for cloud groups, you can select the desired on-premises sources attribute and check the checkbox **Emit group name for cloud-only groups**:
 
    ![Screenshot that shows the configuration to emit on-premises group attribute for synced groups and display name for cloud groups.](media/how-to-connect-fed-group-claims/group-claims-ui-9.png)
 

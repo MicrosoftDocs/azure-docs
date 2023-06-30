@@ -1,15 +1,15 @@
 ---
-title: Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus (preview) as data source using Azure Active Directory.
-description: How to configure Azure Monitor managed service for Prometheus (preview) as data source for both Azure Managed Grafana and self-hosted Grafana using Azure Active Directory.
+title: Configure self-hosted Grafana to use Azure Monitor managed service for Prometheus as data source using Azure Active Directory.
+description: How to configure Azure Monitor managed service for Prometheus as data source for both Azure Managed Grafana and self-hosted Grafana using Azure Active Directory.
 author: EdB-MSFT 
 ms.topic: conceptual
 ms.author: edbaynash
 ms.date: 11/04/2022
 ---
 
-# Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.
+# Configure self-managed Grafana to use Azure Monitor managed service for Prometheus with Azure Active Directory.
 
-[Azure Monitor managed service for Prometheus (preview)](prometheus-metrics-overview.md) allows you to collect and analyze metrics at scale using a [Prometheus](https://aka.ms/azureprometheus-promio)-compatible monitoring solution. The most common way to analyze and present Prometheus data is with a Grafana dashboard. This article explains how to configure Prometheus as a data source for [self-hosted Grafana](https://grafana.com/) using  Azure Active Directory. 
+[Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md) allows you to collect and analyze metrics at scale using a [Prometheus](https://aka.ms/azureprometheus-promio)-compatible monitoring solution. The most common way to analyze and present Prometheus data is with a Grafana dashboard. This article explains how to configure Prometheus as a data source for [self-hosted Grafana](https://grafana.com/) using  Azure Active Directory. 
  
 For information on using Grafana with managed system identity, see [Configure Grafana using managed system identity](./prometheus-grafana.md).
 ## Azure Active Directory authentication

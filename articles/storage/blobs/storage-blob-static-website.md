@@ -8,8 +8,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 09/29/2022
 ms.subservice: blobs
-ms.custom: devx-track-js
-
+ms.custom:
 ---
 
 # Static website hosting in Azure Storage

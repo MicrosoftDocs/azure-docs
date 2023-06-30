@@ -128,6 +128,7 @@ To make sure your app registration has API permissions:
 2. Go to **Azure Active Directory**.
 3. Go to **App registrations** and select **All Applications**.
 4. Look for your Azure AD app registration with the same app name you entered in step 5 of [Create an Azure Active Directory app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
+5. On your Azure subscription, check that app registration has been assigned the *Contributor* role assignment.
 
 ### Review your Log Analytics workspace
 

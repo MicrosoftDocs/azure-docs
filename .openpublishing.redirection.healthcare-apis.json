@@ -694,19 +694,27 @@
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-calculated-functions-mappings.md",
-          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontent-mappings",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontent-templates",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-calculatedcontenttemplate-mappings.md",
-          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontent-mappings",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontent-templates",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-calculatedcontent-mappings.md",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-calculatedcontent-templates",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-iot-jsonpath-content-mappings.md",
-          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iotjsonpathcontent-mappings",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iotjsonpathcontent-templates",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-iotjsonpathcontenttemplate-mappings.md",
-          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iotjsonpathcontent-mappings",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iotjsonpathcontent-templates",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-iotjsonpathcontent-mappings.md",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-iotjsonpathcontent-templates",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-button.md",

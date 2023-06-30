@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: dem108
 ms.author: sehan
@@ -41,7 +41,7 @@ Finally, let's imagine that after running for a couple of months, the organizati
 An **endpoint**, is a stable and durable URL that can be used to request or invoke the model, provide the required inputs, and get the outputs back. An endpoint provides:
 
 - a stable and durable URL (like endpoint-name.region.inference.ml.azure.com).
-- An authentication and authentication mechanism.
+- An authentication and authorization mechanism.
 
 A **deployment** is a set of resources required for hosting the model or component that does the actual inferencing. A single endpoint can contain multiple deployments which can host independent assets and consume different resources based on what the actual assets require. Endpoints have a routing mechanism that can route the request generated for the clients to specific deployments under the endpoint.
 
@@ -84,7 +84,7 @@ The following table shows a summary of the different features in Online and Batc
 | Stable invocation URL                 | Yes                                             | Yes                                           |
 | Multiple deployments support          | Yes                                             | Yes                                           |
 | Deployment's routing                  | Traffic split                                   | Switch to default                             |
-| Mirror traffic to all deployment      | Yes                                             | No                                            |
+| Mirror traffic for safe rollout       | Yes                                             | No                                            |
 | Swagger support                       | Yes                                             | No                                            |
 | Authentication                        | Key and token                                   | Azure AD                                      |
 | Private network support               | Yes                                             | Yes                                           |

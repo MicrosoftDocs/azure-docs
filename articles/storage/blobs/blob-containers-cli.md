@@ -357,6 +357,9 @@ az storage container generate-sas \
     --account-name $storageAccount
 ```
 
+> [!NOTE]
+> The SAS token returned by the Azure CLI does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
+
 ## Next steps
 
 In this how-to article, you learned how to manage containers in Blob Storage. To learn more about working with blob storage by using Azure CLI, select an option below.

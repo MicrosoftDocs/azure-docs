@@ -492,7 +492,7 @@ Now that your attributes are mapped and users are assigned, you can test on-dema
 
 1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
-    [![Screenshot that shows Start provisioning.](.\media\active-directory-app-provisioning-sql\configure-14.png)](.\media\active-directory-app-provisioning-sql\configure-14.png)#lightbox)
+    [![Screenshot that shows Start provisioning.](.\media\active-directory-app-provisioning-sql\configure-14.png)](.\media\active-directory-app-provisioning-sql\configure-14.png#lightbox)
 
 2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, if you're done testing, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
 

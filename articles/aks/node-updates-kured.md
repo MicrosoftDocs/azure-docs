@@ -3,11 +3,10 @@ title: Handle Linux node reboots with kured
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update Linux nodes and automatically reboot them with kured in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: build-2023
 ms.reviewer: mattmcinnes
 ms.date: 04/19/2023
-
-
-#Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance 
+#Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
 ---
 
 # Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)
@@ -27,7 +26,7 @@ You need the Azure CLI version 2.0.59 or later installed and configured. Run `az
 
 ## Understand the AKS node update experience
 
-In an AKS cluster, your Kubernetes nodes run as Azure virtual machines (VMs). These Linux-based VMs use an Ubuntu or Mariner image, with the OS configured to automatically check for updates every day. If security or kernel updates are available, they're automatically downloaded and installed.
+In an AKS cluster, your Kubernetes nodes run as Azure virtual machines (VMs). These Linux-based VMs use an Ubuntu or Azure Linux image, with the OS configured to automatically check for updates every day. If security or kernel updates are available, they're automatically downloaded and installed.
 
 ![AKS node update and reboot process with kured](media/node-updates-kured/node-reboot-process.png)
 

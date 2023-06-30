@@ -8,6 +8,7 @@ ms.author: kgremban
 ms.date: 03/09/2023
 ms.topic: tutorial
 ms.service: iot-dps
+ms.custom: devx-track-extended-java, devx-track-python
 zone_pivot_groups: iot-dps-set1
 ---
 

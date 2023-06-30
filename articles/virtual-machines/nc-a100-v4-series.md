@@ -52,11 +52,11 @@ Note: The Ubuntu-HPC 18.04-ncv4 image is only valid during preview and deprecate
 
 
 
-| Size | vCPU | Memory: GiB | Temp Storage (with NVMe) : GiB  | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (MBps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_NC24ads_A100_v4   | 24  | 220 | 1123 | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
-| Standard_NC48ads_A100_v4   | 48 | 440 | 2246  | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
-| Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
+| Size | vCPU | Memory (GiB) | Temp Disk (GiB)  | NVMe Disks | GPU | GPU Memory (GiB) | Max data disks | Max uncached disk throughput (IOPS / MBps) | Max NICs/network bandwidth (MBps) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NC24ads_A100_v4   | 24  | 220 |64 | 960 GB | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
+| Standard_NC48ads_A100_v4   | 48 | 440 | 128| 2x960 GB| 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
+| Standard_NC96ads_A100_v4   | 96 | 880 | 256| 4x960 GB | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
 1 GPU = one A100 card
 

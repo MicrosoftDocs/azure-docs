@@ -1,19 +1,19 @@
 ---
-title: How to deploy large CPU and memory applications in Azure Spring Apps in the Enterprise tier
-description: Learn how to deploy large CPU and memory applications in the Enterprise tier for Azure Spring Apps.
-author: karlerickson
+title: How to deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan
+description: Learn how to deploy large CPU and memory applications in the Enterprise plan for Azure Spring Apps.
+author: KarlErickson
 ms.author: haital
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 03/17/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
-# Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise tier
+# Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently available only in the Enterprise tier, which supports the CPU and memory combinations as shown in the following table.
+This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently available only in the Enterprise plan, which supports the CPU and memory combinations as shown in the following table.
 
 | CPU (cores) | Memory (GB) |
 | ----------- | ----------- |
@@ -24,7 +24,7 @@ This article shows how to deploy large CPU and memory applications in Azure Spri
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- An Azure Spring Apps service instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](/azure/spring-apps/quickstart-provision-service-instance).
+- An Azure Spring Apps service instance. For more information, see [Quickstart: Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md).
 - The [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`.
 
 ## Create a large CPU and memory application
@@ -104,5 +104,5 @@ az spring app scale \
 
 ## Next steps
 
-- [Build and deploy apps to Azure Spring Apps](/azure/spring-apps/quickstart-deploy-apps)
-- [Scale an application in Azure Spring Apps](/azure/spring-apps/how-to-scale-manual)
+- [Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md)
+- [Scale an application in Azure Spring Apps](how-to-scale-manual.md)

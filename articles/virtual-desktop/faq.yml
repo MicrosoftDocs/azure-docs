@@ -7,7 +7,7 @@ metadata:
   ms.service: virtual-desktop
   ms.date: 04/27/2023
   ms.author: helohr 
-  ms.custom: devx-track-azurepowershell
+  ms.custom:
   manager: femila
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.

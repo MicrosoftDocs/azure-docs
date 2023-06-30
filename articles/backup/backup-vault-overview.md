@@ -2,7 +2,7 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 06/06/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -85,7 +85,7 @@ Ensure that you cycle through the **Datasource type** filter options in **Backup
 ### Proper way to delete a vault
 
 >[!WARNING]
-The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
+>The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
 
 To properly delete a vault, you must follow the steps in this order:
 
@@ -205,6 +205,8 @@ Wait till the move operation is complete to perform any other operations on the 
 >[!Important]
 >If you encounter any error while moving the vault, refer to the [Error codes and troubleshooting section](#error-codes-and-troubleshooting).
 
+
+
 ### Error codes and troubleshooting
 
 Troubleshoot the following common issues you might encounter during Backup vault move:
@@ -226,11 +228,13 @@ Troubleshoot the following common issues you might encounter during Backup vault
 **Cause**: You may face this error if you try to perform any operations on the Backup vault while it’s being moved. 
 
 **Recommendation**: Wait till the move operation is complete, and then retry. 
+
 #### UserErrorBackupVaultResourceMoveNotAllowedForMultipleResources
 
 **Cause**: You may face this error if you try to move multiple Backup vaults  in a single attempt. 
 
 **Recommentation**: Ensure that only one Backup vault is selected for every move operation. 
+
 #### UserErrorBackupVaultResourceMoveNotAllowedUntilResourceProvisioned
 
 **Cause**: You may face this error if the vault is not yet provisioned. 
@@ -241,13 +245,55 @@ Troubleshoot the following common issues you might encounter during Backup vault
 
 **Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
 
-**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions
+**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
 
 #### UserErrorCrossTenantMSIMoveNotSupported 
 
 **Cause**: This error occurs if the subscription with which resource is associated has moved to a different Tenant, but the Managed Identity is still associated with the old Tenant.
 
 **Recommendation**: Remove the Managed Identity from the existing Tenant; move the resource and add it again to the new one.
+
+## Cross Region Restore support for PostgreSQL using Azure Backup (preview)
+
+Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS)  to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
+
+>[!Note]
+>- Cross Region Restore is now available for PostgreSQL backups protected in Backup vaults. 
+>- Backup vaults enabled with Cross Region Restore will be automatically charged at [RA-GRS rates](https://azure.microsoft.com/pricing/details/backup/) for the PostgreSQL backups stored in the vault once the feature is generally available.
+
+### Perform Cross Region Restore using Azure portal
+
+Follow these steps:
+
+1. Sign in to [Azure portal](https://portal.azure.com/).
+
+1. [Create a new Backup vault](backup-vault-overview.md#create-backup-vault) or choose an existing Backup vault, and then enable Cross Region Restore by going to **Properties** > **Cross Region Restore (Preview)**, and choose **Enable**.
+
+   :::image type="content" source="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png" alt-text="Screenshot shows how to enable Cross Region Restore for PostgreSQL database." lightbox="./media/backup-vault-overview/enable-cross-region-restore-for-postgresql-database.png":::
+
+1. Go to the Backup vault’s **Overview** pane, and then [configure a backup for PostgreSQL database](backup-azure-database-postgresql.md).
+
+1. Once the backup is complete in the primary region, it can take up to *12 hours* for the recovery point in the primary region to get replicated to the secondary region.
+
+   To check the availability of recovery point in the secondary region, go to the **Backup center** > **Backup Instances** > **Filter  to Azure Database for PostgreSQL servers**, filter **Instance Region** as *Secondary Region*, and then select the required Backup Instance.
+
+   :::image type="content" source="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png" alt-text="Screenshot shows how to check availability for the recovery points in the secondary region." lightbox="./media/backup-vault-overview/check-availability-of-recovery-point-in-secondary-region.png":::
+
+1. The recovery points available in the secondary region are now listed.
+
+   Choose **Restore to secondary region**.
+
+   :::image type="content" source="./media/backup-vault-overview/initiate-restore-to-secondary-region.png" alt-text="Screenshot shows how to initiate restores to the secondary region." lightbox="./media/backup-vault-overview/initiate-restore-to-secondary-region.png":::
+
+   You can also trigger restores from the respective backup instance.
+
+   :::image type="content" source="./media/backup-vault-overview/trigger-restores-from-respective-backup-instance.png" alt-text="Screenshot shows how to trigger restores from the respective backup instance." lightbox="./media/backup-vault-overview/trigger-restores-from-respective-backup-instance.png":::
+
+1. Select **Restore to secondary region** to review the target region selected, and then select the appropriate recovery point and restore parameters.
+
+1. Once the restore starts, you can monitor the completion of the restore operation under **Backup Jobs** of the Backup vault by filtering **Jobs workload type** to *Azure Database for PostgreSQL servers* and **Instance Region** to *Secondary Region*.
+
+   :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
 
 ## Next steps
 

@@ -102,9 +102,6 @@
   - name: Slate detection
     href: slate-detection-insight.md
     displayName: Slate detection insights description, following slate detection insights, Textless slate detection, movie post-production process, advanced indexing option, Digital patterns detection, The Timeline tab, The Insight tab, indexing process, post-production insights, slate insight, audio indexing, Advanced** presets, advanced setting, slate metadata, post-production checkmark, clapper board, color bars, metadata extraction, scene matching, clapperboard instances, title, topic, article, video, customers, wikipedia, org, information, example, SMPTE_color_bars, order, image, media/slate-detection-process, advanced-setting, file, list, post-production-checkmark, details, color-bars
-  - name: Compare Azure Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md
-    displayName: Azure Media Services v3 presets, Azure Video Indexer Video Analysis, Microsoft%20Azure%20Compliance%20Offerings, capabilities, APIs, Audio Analyzer Presets, Cognitive Services availability, Media Services availability, current compliance updates, Video Analyzer, presets description, Microsoft.Media, video insights, Media Insights, current guideline, following table, full list, East US, Region availability, title, Comparison, article, conceptual, overlap, features, github, api-specs, specification, resource-manager, json, deprecation, media-services, release, notes, retirement, azure-media-redactor-video-analyzer, september, functionality, differences, similarities, Fundamentals, video-audio-files, Experiences, Pricing, details, analytics, technet, certificate, interest, Trial, global-infrastructure/services, cognitive-services, overview
 - name: How to guides
   items:
   - name: Manage accounts
@@ -261,6 +258,8 @@
   - name: Switch between tenants in portal
     href: switch-tenants-portal.md
     displayName: Azure Video Indexer Azure Resource Manager, Azure Video Indexer website description, current Azure subscription, Azure Active Directory, same subscription tenant, Azure AD account, correct domain name, Azure environment, AVI website, Azure portal, same problem, tenant switching, tenant list, relevant accounts, Trial accounts, Classic accounts, ARM accounts, right-top corner, last step, top-right corner, current directory, account name, two options, ARM) account, AAD account, other options, default directory, different directory, new directory, user name, following section, multiple tenants, different directories, title, article, Note, users, videoindexer, Screenshot, credentials, Hover, account-attributes, domains, preferences, button, organization, domain-name
+  - name: Resource health
+    href: resource-health.md
 - name: Reference
   items:
   - name: Azure Video Indexer API
@@ -288,6 +287,8 @@
     href: /answers/topics/azure-video-indexer.html
   - name: FAQ
     href: faq.yml
+  - name: AMS deprecation FAQ
+    href: ams-deprecation-faq.yml
   - name: Release notes
     href: release-notes.md
     displayName: Azure Video Indexer release notes, recent Azure Video Indexer developments, Video Indexer Restricted Viewer, Azure Video Indexer accounts, Azure Video Indexer website, low-quality face detection occurrences, Azure Cost Analysis reports, Network Security Service tag, Video Indexer IPs, Azure Billing statement, Video Analysis SKUs, upload video index, service impacting events, Textual logo detection, Azure AD directories, Network Service Tag, Microsoft Docs description, Detect textual logo, particular transcript line, Network Security Tag, RSS feed reader, Get Supported Languages, Basic Audio Analysis, important product updates, recent developments, new Advanced SKU, Video SKU, Azure discounts, cost savings, Face grouping, network traffic, Switching directories, Advanced Audio, latest updates, Important notice, latest releases, Known issues, Bug fixes, Deprecated functionality, Advanced presets, distinct meter, 40% price reduction, market trends, input minute, deployment scripts, existing configuration, Notification experience, notification panel, new releases, text logos, Language support, grouping algorithm, same capabilities, limited access, New languages, competitive pricing, new pricing, planned changes, indexing operations, Speakers' names, new speakers, AI capabilities, title, article, topic, references_regions, page, URL, search, +Media+Services+, Video+Indexer+release, information, INCLUDE, deprecation, announcement, February, January, order, use, Standard, consideration, feedback, customers, prices, options, costs, features, advantage, addition, AzureVideoAnalyzerForMedia, VideoIndexer, The, videos, tenants, Irish, Bulgarian, Catalan, Greek, Estonian, Croatian, Latvian, Romanian, Slovak, Slovenian, Telugu, Malayalam, Kannada, Icelandic, Armenian, Gujarati, Tamil, API, details, number, UI, json, usability, November, identified, Update-Video-Index, October, role

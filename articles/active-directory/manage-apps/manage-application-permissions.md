@@ -25,6 +25,8 @@ In this article, you learn how to review permissions granted to applications in 
 
 The steps in this article apply to all applications that were added to your Azure AD tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To review permissions granted to applications, you need:

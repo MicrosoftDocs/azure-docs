@@ -21,6 +21,8 @@ In this quickstart, you learn how to use the Azure portal to search for and view
 
 It's recommended that you use a nonproduction environment to test the steps in this quickstart.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 To view applications that have been registered in your Azure AD tenant, you need:

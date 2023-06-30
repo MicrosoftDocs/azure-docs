@@ -4,8 +4,9 @@ description: Find, create, manage, and delete projects in Azure Migrate.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 05/22/2023
 ms.custom: engagement-fy23
 ---
 
@@ -31,7 +32,7 @@ Set up a new project in an Azure subscription.
 
 1. In the Azure portal, search for *Azure Migrate*.
 2. In **Services**, select **Azure Migrate**.
-3. In **Overview**, select **Discover, assess and migrate**.
+3. In **Get started**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/create-manage-projects/assess-migrate-servers-inline.png" alt-text="Screenshot displays the options in Overview." lightbox="./media/create-manage-projects/assess-migrate-servers-expanded.png":::
 
@@ -46,7 +47,7 @@ Set up a new project in an Azure subscription.
 
 
     > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity) 
+    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
 
 7. Select **Create**.
 
@@ -68,7 +69,6 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 If you already have a project and you want to create an additional project, do the following:  
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
-
    
 3. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
 
@@ -106,7 +106,7 @@ If you created the project in the [previous version](migrate-services-overview.m
 To delete a project, follow these steps: 
 
 1. Open the Azure resource group in which the project was created.
-2. In the resource group page, select **Show hidden types**.
+2. In the Resource Groups page, select **Show hidden types**.
 3. Select the project that you want to delete and its associated resources.
     - The resource type is **Microsoft.Migrate/migrateprojects**.
     - If the resource group is exclusively used by the project, you can delete the entire resource group.

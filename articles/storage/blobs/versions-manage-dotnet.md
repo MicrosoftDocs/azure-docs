@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 02/14/2023
 ms.subservice: blobs
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Create and list blob versions in .NET

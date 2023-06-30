@@ -4,7 +4,7 @@ description: Learn about the different methods for deploying the MedTech service
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.topic: quickstart
 ms.date: 04/28/2023
 ms.author: jasteppe

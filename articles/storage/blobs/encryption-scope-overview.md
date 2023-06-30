@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 05/10/2023
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -81,7 +81,7 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 
 ## Billing for encryption scopes
 
-When you configure an encryption scope, you are billed for a minimum of one month (30 days). After the first month, charges for an encryption scope are prorated on an hourly basis.
+When you enable an encryption scope, you are billed for a minimum of one month (30 days). After the first month, charges for an encryption scope are prorated on an hourly basis.
 
 If you disable the encryption scope within the first month, then you are billed for that full month, but not for subsequent months. If you disable the encryption scope after the first month, then you are charged for the first month, plus the number of hours that the encryption scope was in effect after the first month.
 

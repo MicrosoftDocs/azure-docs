@@ -13,13 +13,13 @@ ms.date: 04/27/2023
 <br>
 <iframe src="https://aka.ms/docs/player?id=96a0ecdb-b1c3-423f-9ff1-47fcc5d6ab1b" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [00:00](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=00m0s) - Defender for Cloud integration with Microsoft Entra
+- [00:00](/shows/mdc-in-the-field/integrate-entra#time=00m0s) - Defender for Cloud integration with Microsoft Entra
 
-- [00:55](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=00m55s) - What is Cloud Infrastructure Entitlement Management?
+- [00:55](/shows/mdc-in-the-field/integrate-entra#time=00m55s) - What is Cloud Infrastructure Entitlement Management?
 
-- [02:20](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=02m20s) - How does the integration with MDC work?
+- [02:20](/shows/mdc-in-the-field/integrate-entra#time=02m20s) - How does the integration with MDC work?
 
-- [03:58](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=03m58s) - Demonstration
+- [03:58](/shows/mdc-in-the-field/integrate-entra#time=03m58s) - Demonstration
 
 ## Recommended resources
 

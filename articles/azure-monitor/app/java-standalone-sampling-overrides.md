@@ -4,7 +4,7 @@ description: Learn to configure sampling overrides in Azure Monitor Application 
 ms.topic: conceptual
 ms.date: 04/24/2023
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
 ---
 

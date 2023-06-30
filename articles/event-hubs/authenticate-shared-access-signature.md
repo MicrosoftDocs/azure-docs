@@ -4,7 +4,7 @@ description: This article shows you how to authenticate access to Event Hubs res
 ms.topic: conceptual
 ms.date: 03/13/2023
 ms.devlang: csharp, java, javascript, php
-ms.custom: devx-track-js, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)

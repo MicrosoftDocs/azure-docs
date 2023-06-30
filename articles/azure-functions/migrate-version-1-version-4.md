@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to 
 ms.date: 11/05/2022
-ms.custom: template-how-to-pattern 
+ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -425,5 +425,3 @@ In version 2.x, the following changes were made:
 
 > [!div class="nextstepaction"]
 > [Learn more about Functions versions](functions-versions.md)
-
-

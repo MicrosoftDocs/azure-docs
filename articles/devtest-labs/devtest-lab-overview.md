@@ -5,6 +5,7 @@ ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 04/20/2023
+ms.custom: UpdateFrequency2
 ---
 
 # What is Azure DevTest Labs?

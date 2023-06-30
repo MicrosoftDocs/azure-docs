@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-dotnet
 ---
 
 # Stop or delete your Azure Stream Analytics job
