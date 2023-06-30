@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: larryfr
-ms.custom: devplatv2, devx-track-azurecli
+ms.custom: devplatv2
 ---
 
 # Deploy MLflow models in batch deployments
@@ -94,6 +94,8 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
     # [Azure CLI](#tab/cli)
    
     To create a new endpoint, create a `YAML` configuration like the following:
+
+    __endpoint.yml__
    
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/endpoint.yml" :::
    
@@ -116,6 +118,8 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
     # [Azure CLI](#tab/cli)
    
     To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
+
+    __deployment-simple/deployment.yml__
    
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-simple/deployment.yml" :::
    
@@ -138,7 +142,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
     > [!NOTE]
     > Batch deployments only support deploying MLflow models with a `pyfunc` flavor. To use a different flavor, see [Customizing MLflow models deployments with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script)..
 
-6. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
+7. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
     # [Azure CLI](#tab/cli)
    
@@ -148,7 +152,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=set_default_deployment)]
 
-7. At this point, our batch endpoint is ready to be used. 
+8. At this point, our batch endpoint is ready to be used. 
 
 ## Testing out the deployment
 
@@ -262,7 +266,7 @@ Azure Machine Learning supports no-code deployment for batch inference in [manag
 
 ### How work is distributed on workers
 
-Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets](v1/how-to-create-register-datasets.md#filedataset) or [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
+Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets (v1 API)](v1/how-to-create-register-datasets.md#filedataset) or [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
 
 > [!WARNING]
 > Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.
@@ -364,7 +368,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     # [Azure CLI](#tab/cli)
    
     To create a new deployment under the created endpoint, create a `YAML` configuration like the following. You can check the [full batch endpoint YAML schema](reference-yaml-endpoint-batch.md) for extra properties.
-   
+
+    __deployment-custom/deployment.yml__
+    
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-custom/deployment.yml" :::
    
     # [Python](#tab/python)

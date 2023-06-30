@@ -1,14 +1,13 @@
 ---
 title: Azure Synapse RBAC roles
-description: This article describes the built-in Synapse RBAC (role-based access control) roles, the permissions they grant, and the scopes at which they can be used.  
+description: This article describes the built-in Synapse RBAC (role-based access control) roles, the permissions they grant, and the scopes at which they can be used.
 author: meenalsri
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: security
-ms.date: 04/22/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
-ms.custom: ignite-fall-2021
+ms.date: 06/16/2023
+ms.service: synapse-analytics
+ms.subservice: security
+ms.topic: conceptual
 ---
 
 # Synapse RBAC Roles
@@ -17,20 +16,11 @@ The article describes the built-in Synapse RBAC (role-based access control) role
 
 For more information on reviewing and assigning Synapse role memberships, see [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md) and [how to assign Synapse RBAC roles](./how-to-manage-synapse-rbac-role-assignments.md).
 
-## What's changed since the preview?
-
-For users familiar with the Synapse RBAC roles provided during the preview, the following changes apply:
-- Workspace Admin is renamed **Synapse Administrator**
-- Apache Spark Admin is renamed **Synapse Apache Spark Administrator** and has permission to see all published code artifacts, including SQL scripts.  This role no longer gives permission to use the workspace MSI, which requires the Synapse Credential User role.  This permission is required to run pipelines. 
-- SQL Admin is renamed **Synapse SQL Administrator** and has permission to see all published code artifacts, including Spark notebooks and jobs.  This role no longer gives permission to use the workspace MSI, which requires the Synapse Credential User role. This permission is required to run pipelines.
-- **New finer-grained Synapse RBAC roles** are introduced that focus on supporting development and operations personas rather than specific analytics runtimes.  
-- **New lower-level scopes** are introduced for several roles.  These scopes allow roles to be restricted to specific resources or objects.
-
 ## Built-in Synapse RBAC roles and scopes
 
 The following table describes the built-in roles and the scopes at which they can be used.
 
->[!Note]
+> [!NOTE]
 > Users with any Synapse RBAC role at any scope automatically have the Synapse User role at workspace scope. 
 
 > [!IMPORTANT]
@@ -52,7 +42,7 @@ The following table describes the built-in roles and the scopes at which they ca
 
 ## Synapse RBAC roles and the actions they permit
 
->[!Note]
+> [!NOTE]
 >- All actions listed in the tables below are prefixed, "Microsoft.Synapse/..."</br>
 >- All artifact read, write, and delete actions are with respect to published artifacts in the live service.  These permissions do not affect access to artifacts in a connected Git repo.  
 
@@ -110,7 +100,7 @@ workspaces/credentials/useSecret/action|Synapse Administrator</br>Synapse Creden
 The table below lists Synapse RBAC scopes and the roles that can be assigned at each scope. 
 
 >[!NOTE]
->To create or delete an object you must have permissions at a higher-level scope.
+> To create or delete an object you must have permissions at a higher-level scope.
 
 Scope|Roles
 --|--
@@ -121,7 +111,7 @@ Linked service |Synapse Administrator </br>Synapse Credential User
 Credential |Synapse Administrator </br>Synapse Credential User
  
 >[!NOTE]
->All artifact roles and actions are scoped at the workspace level. 
+> All artifact roles and actions are scoped at the workspace level. 
 
 ## Next steps
 

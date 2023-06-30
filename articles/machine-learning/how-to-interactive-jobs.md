@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
-ms.date: 03/15/2022
+ms.date: 06/15/2023
 #Customer intent: I'm a data scientist with ML knowledge in the machine learning space, looking to build ML models using data in Azure Machine Learning with full control of the model training including debugging and monitoring of live jobs.
 ---
 
@@ -58,7 +58,7 @@ By specifying interactive applications at job creation, you can connect directly
   > [!NOTE]
   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
-5. Select the training applications you want to use to interact with the job.
+5. Select at least one training application you want to use to interact with the job. If you do not select an application, the debug feature will not be available. 
 
   :::image type="content" source="./media/interactive-jobs/select-training-apps.png" alt-text="Screenshot of selecting a training application for the user to use for a job.":::
 

@@ -183,7 +183,7 @@ As the ongoing pandemic continues to require our engineers to work from home, pr
 Stay healthy!
 
 ### 2020-October release
-SPX is the command-line interface to use the Azure Speech service without writing code.
+SPX is the command-line interface to use the Speech service without writing code.
 Download the latest version [here](../../spx-basics.md). <br>
 
 #### New features

@@ -536,4 +536,4 @@ While such cases are uncommon, they're possible and the best way to handle it's 
 ## Next steps
 
 + [Deploy AutoML models to an online (real-time inference) endpoint](how-to-deploy-automl-endpoint.md)
-+ [Troubleshoot automated ML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true)
++ [Hyperparameter tuning a model](how-to-tune-hyperparameters.md)

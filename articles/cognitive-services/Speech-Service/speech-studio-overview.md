@@ -1,7 +1,7 @@
 ---
 title: "Speech Studio overview - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Speech Studio is a set of UI-based tools for building and integrating features from Azure Speech service in your applications.
+description: Speech Studio is a set of UI-based tools for building and integrating features from Speech service in your applications.
 services: cognitive-services
 author: eric-urban
 manager: nitinme

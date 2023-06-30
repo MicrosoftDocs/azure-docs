@@ -43,12 +43,6 @@ If you already registered your application in your customer tenant, you can add 
 
 1. Choose **Select**.
 
-## Update the application code with your tenant information
-
-Now you need to update your application code configuration with the application ID from the application registration, your customer tenant name, and a client secret value.
-
-We have several samples and how-to guides that can help you update your application to integrate with a user flow, based on app type, platform, and language. See [Samples for customer identity and access management (CIAM) in Azure Active Directory](samples-ciam-all.md).
-
 ## Next steps
 
 - If you selected email with password sign-in, [enable password reset](how-to-enable-password-reset-customers.md).

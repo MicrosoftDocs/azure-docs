@@ -179,6 +179,9 @@ Refer to [jobs preview limitations](jobs.md#jobs-preview-restrictions) for a lis
 
 The Azure Container Apps environment acts as a secure boundary around container apps and jobs so they can share the same network and communicate with each other.
 
+> [!NOTE]
+> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an internal Azure Container Apps environment](vnet-custom-internal.md?tabs=bash).
+
 1. Create a resource group using the following command.
 
     # [Bash](#tab/bash)
@@ -387,7 +390,7 @@ You can now create a job that uses to use the container image. In this section, 
     ```bash
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
         --trigger-type Event \
-        --replica-timeout 300 \
+        --replica-timeout 1800 \
         --replica-retry-limit 1 \
         --replica-completion-count 1 \
         --parallelism 1 \
@@ -410,7 +413,7 @@ You can now create a job that uses to use the container image. In this section, 
     ```powershell
     az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
         --trigger-type Event `
-        --replica-timeout 300 `
+        --replica-timeout 1800 `
         --replica-retry-limit 1 `
         --replica-completion-count 1 `
         --parallelism 1 `
@@ -680,7 +683,9 @@ To create a self-hosted agent, you need to build a container image that runs the
 
 ## Create a placeholder self-hosted agent
 
-Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. Pipelines that use the agent pool fail when there's no placeholder agent. You can create a placeholder agent by running a job that registers an offline placeholder agent.
+Before you can run a self-hosted agent in your new agent pool, you need to create a placeholder agent. The placeholder agent ensures the agent pool is available. Pipelines that use the agent pool fail when there's no placeholder agent.
+
+You can run a manual job to register an offline placeholder agent. The job runs once and can be deleted. The placeholder agent doesn't consume any resources in Azure Container Apps or Azure DevOps.
 
 1. Create a manual job in the Container Apps environment that creates the placeholder agent.
 
@@ -772,7 +777,21 @@ Before you can run a self-hosted agent in your new agent pool, you need to creat
 
     1. In Azure DevOps, navigate to your project. 
     1. Select **Project settings** > **Agent pools** > **container-apps** > **Agents**.
-    1. Confirm that a placeholder agent named `placeholder-agent` is listed.
+    1. Confirm that a placeholder agent named `placeholder-agent` is listed and its status is offline.
+
+1. The job isn't needed again. You can delete it.
+    
+    # [Bash](#tab/bash)
+    ```bash
+    az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
+    ```
+
+    # [PowerShell](#tab/powershell)
+    ```powershell
+    az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
+    ```
+
+    ---
 
 ## Create a self-hosted agent as an event-driven job
 
@@ -782,7 +801,7 @@ Now that you have a placeholder agent, you can create a self-hosted agent. In th
 ```bash
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
-    --replica-timeout 300 \
+    --replica-timeout 1800 \
     --replica-retry-limit 1 \
     --replica-completion-count 1 \
     --parallelism 1 \
@@ -805,7 +824,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
 ```powershell
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
     --trigger-type Event \
-    --replica-timeout 300 \
+    --replica-timeout 1800 \
     --replica-retry-limit 1 \
     --replica-completion-count 1 \
     --parallelism 1 \

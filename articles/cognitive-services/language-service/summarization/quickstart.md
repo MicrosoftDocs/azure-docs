@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Document Summarization (preview)"
+title: "Quickstart: Use Document Summarization"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Document Summarization.
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.custom: language-service-summarization, ignite-fall-2021, mode-api, devx-trac
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using document summarization and conversation summarization (preview)
+# Quickstart: using document summarization and conversation summarization
 
 [!INCLUDE [availability](includes/regional-availability.md)]
 
