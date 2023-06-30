@@ -2466,3 +2466,12 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+# Owner: juliakm
+- id: template-type
+  title: Template type
+  prompt: Choose a template type
+  pivots:
+  - id: templates-includes
+    title: Includes templates
+  - id: templates-extends
+    title: Extends templates
