@@ -8,11 +8,11 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
-ms.topic: how-to
-ms.date: 06/26/2023
+ms.topic: tutorial
+ms.date: 06/30/2023
 ---
 
-# Tutorial: Call a protected web API from your dotnet daemon application
+# Tutorial: Call a protected web API from your .NET daemon application
 
 In this tutorial, you build your client daemon app and call a protected web API. You enable the client daemon app to acquire an access token using its own identity, then call the web API.
 
@@ -158,7 +158,7 @@ You have now configured the required items in for your client daemon app. In thi
 
 ## 6. Call the web API
 
-Add code to call your protected web API using the `IDownstreamApi` interface. In this tutorial, you only implement a call to Post a todo and another one to Get all todos.
+Add code to call your protected web API using the `IDownstreamApi` interface. In this tutorial, you only implement a call to Post a todo and another one to Get all todos. See the other implementations such as Delete and Put in the [sample code](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListClient/Program.cs).
 
 Add this line of code to the *program.cs* file:
 
@@ -222,13 +222,15 @@ User ID: f4e54f8b-acec-4ef4-90e9-5bb358c8770b
 Message: Bake bread
 ```
 
+### Troubleshoot
+
 In case you run into errors, 
 
 - Confirm the registration details you added to the appsettings.json file. 
 - Confirm that you're calling the web API via the correct port and over https. 
 - Confirm that your app permissions are configured correctly.
 
-The sample code is [available on GitHub](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/tree/main/2-Authorization/3-call-own-api-dotnet-core-daemon).
+The full sample code is [available on GitHub](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/tree/main/2-Authorization/3-call-own-api-dotnet-core-daemon).
 
 ## 8. Clean up resources
 
@@ -236,4 +238,4 @@ If you don't intend to use the apps you have registered and created in this tuto
 
 ## See also
 
-
+- [Call an API in a sample Node.js daemon application](./sample-daemon-node-call-api.md)

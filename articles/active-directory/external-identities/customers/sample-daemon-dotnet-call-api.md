@@ -9,7 +9,7 @@ ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: sample
-ms.date: 06/23/2023
+ms.date: 06/30/2023
 
 #Customer intent: As a dev, devops, I want to configure a sample dotnet daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
@@ -153,4 +153,7 @@ The dotnet daemon app uses [OAuth 2.0 client credentials grant](../../develop/v2
 
 On the API side, the web API must verify that the access token has the required permissions (application permissions). The web API rejects access tokens that doesn't have the required permissions. 
 
-<!-- Nest steps to be build from scratch. Think about see also section -->
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Build a .NET daemon app that calls an API >](./tutorial-daemon-dotnet-call-api-prepare-tenant.md)
