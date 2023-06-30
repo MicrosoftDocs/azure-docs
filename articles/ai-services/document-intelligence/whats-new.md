@@ -914,7 +914,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
     > [Learn more about Layout extraction](concept-layout.md)
 
-  * **Client library update** - The latest versions of the [client libraries](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true) for .NET, Python, Java, and JavaScript support the Document Intelligence 2.1 API.
+  * **Client library update** - The latest versions of the [client libraries](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true) for .NET, Python, Java, and JavaScript support the Document Intelligence 2.1 API.
   * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
   * **Text line style indication (handwritten/other) (Latin languages only)** - Document Intelligence now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
   * **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -945,7 +945,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 * **v2.0** includes the following update:
 
-  * The [client libraries](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true) for NET, Python, Java, and JavaScript have entered General Availability.
+  * The [client libraries](/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true) for NET, Python, Java, and JavaScript have entered General Availability.
 
   **New samples** are available on GitHub.
 
