@@ -21,7 +21,7 @@ The **SU V2 model(recommended)** is a simplified structure with favorable pricin
 
 The underlying compute power for V1 and V2 streaming units is as follows:
 
-![SU V1 and SU V2 mapping.](/media/stream-analytics-scale-jobs/su-conversion-suv2.png)
+![SU V1 and SU V2 mapping.](./media/stream-analytics-scale-jobs/su-conversion-suv2.png)
 
 > [!Note]
 > If you notice that the SU count in your [Activity log](stream-analytics-job-diagnostic-logs.md) appears to be diffrent than the value that you see on the UI for a particular job, do not be alarmed as long as the mapping is as follows: 1/3 SU V2 = 3, 2/3 SU V2 = 7, 1 SU V2 = 10, 2 SU V2= 20, 3 SU V2 = 30, and so on. This conversion is automatic and has no impact on your job's performance.
