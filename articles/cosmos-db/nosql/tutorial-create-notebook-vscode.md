@@ -62,11 +62,24 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Start in the default code cell.
 
+1. Install the Azure.cosmos package. Run this cell before continuing.
+    ```python
+    %pip install azure.cosmos
+    ```
+
 1. Import any packages you require for this tutorial.
 
     ```python
     import azure.cosmos
     from azure.cosmos.partition_key import PartitionKey
+    from azure.cosmos import CosmosClient
+    ```
+
+1. Create a new instance of of CosmosClient.
+    ```python
+    endpoint = "<FILL ME>"
+    key = "<FILL ME>"
+    cosmos_client = CosmosClient(url=endpoint, credential=key)
     ```
 
 1. Create a database named **RetailIngest** using the built-in SDK.
@@ -83,16 +96,16 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Select **Run** to create the database and container resource.
 
-    :::image type="content" source="media/tutorial-create-notebook/run-cell.png" alt-text="Screenshot of the 'Run' option in the menu.":::
-
+    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-python.png" alt-text="Screenshot of "Execute cell" in Visual Studio Code Jupyter notebook":::
+    
 ### [C#](#tab/csharp)
 
 1. Start in the default code cell.
 
 1. Install the Microsoft.Azure.Cosmos NuGet package. Run this cell before proceeding.
-```csharp
-#r "nuget: Microsoft.Azure.Cosmos"
-```
+    ```csharp
+    #r "nuget: Microsoft.Azure.Cosmos"
+    ```
 1. Create a new code cell.
 
 1. Import any packages you require for this tutorial.
@@ -104,7 +117,6 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 1. Create a new instance of the client type using the built-in SDK. Fill in the URI endpoint and key of your Azure Cosmos DB account. You can find these values in the **Keys** page in your Azure Cosmos DB account.
 
     ```csharp
-
     var endpoint = "<FILL ME>";
     var key = "<FILL ME>";
 
@@ -123,13 +135,32 @@ In this section, you'll create the Azure Cosmos database, container, and import 
     Container container = await database.CreateContainerIfNotExistsAsync("WebsiteMetrics", "/CartID");
     ```
 
-1. Select **Run** to create the database and container resource.
+1. Select **Execute Cell** to create the database and container resource.
 
-    :::image type="content" source="media/tutorial-create-notebook/run-cell.png" alt-text="Screenshot of the 'Run' option in the menu.":::
+    :::image type="content" source="media/tutorial-create-notebook-vscode/run-cell-csharp.png" alt-text="Screenshot of "Execute cell" in Visual Studio Code Jupyter C# notebook":::
 
 ---
 
 ## Import data into container
+
+### [Python](#tab/python)
+
+1. Add a new code cell
+
+1. Within the code cell, add the following code to upload data from this url: <https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json>.
+```python
+    import urllib.request
+    import json
+    
+    with urllib.request.urlopen("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json") as url:
+        docs = json.loads(url.read().decode())
+    
+    for doc in docs:
+        container.upsert_item(doc)
+```
+1. Run the cell. This will take 45 seconds to 1 minute to run.
+
+
 ### [C#](#tab/csharp)
 
 1. Add a new code cell.
@@ -166,9 +197,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
     }
     ```
 
-1. Run the cell.
-
-### [Python](#tab/python)
+1. Run the cell. This will take 45 seconds to 1 minute to run.
 
 ---
 
@@ -178,24 +207,27 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Create another new code cell.
 
-1. In the code cell, use a SQL query to populate a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame).
+1. In the code cell, use a SQL query to populate a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame). Run this cell.
 
     ```python
-    %%sql --database RetailIngest --container WebsiteMetrics --output df_cosmos
-    SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
+    import pandas as pd
+    from pandas import DataFrame
+    
+    QUERY = "SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c"
+    results = container.query_items(
+        query=QUERY, enable_cross_partition_query=True
+    )
+    
+    df_cosmos = pd.DataFrame(results)
     ```
-
-1. Select **Run Active Cell** to only run the command in this specific cell.
 
 1. Create another new code cell.
 
-1. In the code cell, output the top **10** items from the dataframe.
+1. In the code cell, output the top **10** items from the dataframe. Run this cell.
 
     ```python
     df_cosmos.head(10)
     ```
-
-1. Select **Run Active Cell** to only run the command in this specific cell.
 
 1. Observe the output of running the command.
 
@@ -214,21 +246,22 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Create another new code cell.
 
-1. In the code cell, import the **pandas** package to customize the output of the dataframe.
+1. In the code cell, import the **pandas** package to customize the output of the dataframe. Run this cell.
 
     ```python
-    import pandas as pd
-    pd.options.display.html.table_schema = True
-    pd.options.display.max_rows = None
-    
-    df_cosmos.groupby("Item").size()
+    import pandas as pd    
+    df_cosmos.groupby("Item").size().reset_index()
     ```
 
-1. Select **Run Active Cell** to only run the command in this specific cell.
+1. Observe the output of running the command.
 
-1. In the output, select the **Line Chart** option to view a different visualization of the data.
+    | | Item | 0 |
+    | --- | --- | --- |
+    | **0** | Flip Flop Shoes | 66 |
+    | **1** | Necklace | 55 |
+    | **2** | Athletic Shoes | 111 |
+    ...
 
-    :::image type="content" source="media/tutorial-create-notebook/pandas-python-line-chart.png" alt-text="Screenshot of the Pandas dataframe visualization for the data as a line chart.":::
 
 ### [C#](#tab/csharp)
 
