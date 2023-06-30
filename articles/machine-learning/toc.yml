@@ -564,6 +564,18 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
+- name: Retrieval Augmented Generation (RAG)
+  items:
+    - name: What is RAG
+      href: concept-retrieval-augmented-generation.md
+    - name: What is a vector store
+      href: concept-vector-stores.md
+    - name: How to use RAG in Prompt flow
+      href: how-to-use-retrieval-augmented-generation.md
+    - name: How to create a vector index
+      href: how-to-create-vector-index.md
+    - name: How to create an RAG pipeline
+      href: how-to-use-pipelines-prompt-flow.md
 - name: Responsibly develop & monitor
   items: 
   - name: Responsible AI overview
