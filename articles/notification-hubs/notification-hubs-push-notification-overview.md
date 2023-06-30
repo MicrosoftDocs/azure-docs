@@ -30,6 +30,8 @@ Azure Notification Hubs provide an easy-to-use and scaled-out push engine that e
 - Notify users of enterprise events such as new messages and work items.
 - Send codes for multi-factor authentication.
 
+[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
+
 ## What are push notifications?
 
 Push notifications are a form of app-to-user communication where users of mobile apps are notified of certain desired information, usually in a pop-up or dialog box on a mobile device. Users generally choose to view or dismiss the message; choosing the former opens the mobile application that communicated the notification. Some notifications are silent - delivered behind the scenes for the app to process and decide what to do.
@@ -48,8 +50,6 @@ For more information on push notifications for a few popular platforms, see the 
 ## How do push notifications work?
 
 Push notifications are delivered through platform-specific infrastructures called *Platform Notification Systems* (PNSes). They offer basic push functionalities to deliver a message to a device with a provided handle, and have no common interface. To send a notification to all customers across the Android, iOS, and Windows versions of an app, the developer must work separately with Apple Push Notification Service (APNS), Firebase Cloud Messaging (FCM), and Windows Notification Service (WNS).
-
-[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
 
 At a high level, here is how push works:
 
