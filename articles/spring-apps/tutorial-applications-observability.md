@@ -37,22 +37,53 @@ and use Application Insights to investigate production issues.
 
 This section illustrates how to query the application logs and investigate request failures.
 
-This section provides samples of querying your application logs and special error logs, see more from [Kusto Query Language](/azure/data-explorer/kusto/query/).
-
 ### Log queries
 
-Run the following query to review a list of application logs from Azure Spring Apps, sorted by time with the most recent logs shown first.
+This section illustrates how to query application logs from the table `AppPlatformLogsforSpring` hosted by Azure Spring Apps, you can use [Kusto Query Language](/azure/data-explorer/kusto/query/) customize your queries to query application logs.
+
+Open the **Logs** menu of Azure Spring Apps instance, and you can refer to the built-in example query statements or write your own queries.
+
+#### Show the application logs which contain the "error" or "exception" terms
+
+On the opened **Queries** window, select **Alerts** menu in the left panel, then select the **Run** inside **Show the application logs which contain the "error" or "exception" terms** section.
+
+:::image type="content" source="media/tutorial-applications-observability/example-query.png" alt-text="Screenshot of Azure portal showing example queries" lightbox="media/tutorial-applications-observability/example-query.png":::
+
+This query shows the application logs which contain the "error" or "exception" terms in the last hour by default, 
+you may customize the query with any keyword you want to search for.
+
+```sqle
+AppPlatformLogsforSpring
+| where TimeGenerated > ago(1h)
+| where Log contains "error" or Log contains "exception"
+| project TimeGenerated , ServiceName , AppName , InstanceName , Log , _ResourceId 
+```
+
+:::image type="content" source="media/tutorial-applications-observability/show-application-logs-abnormal.png" alt-text="Screenshot of Azure portal showing abnormal logs for Azure Spring Apps instance" lightbox="media/tutorial-applications-observability/show-application-logs-abnormal.png":::
+
+#### Show the error and exception number of each application
+
+Same with previous section, select **Run** inside **Show the error and exception number of each application** section.
+
+This query shows a pie chart of the number of the logs containing the "error" or "exception" terms in the last 24 hours, per application by default, 
+also you can select **Result** tab to view the result in a table.
 
 ```sql
 AppPlatformLogsforSpring
-| project TimeGenerated , ServiceName , AppName , InstanceName , Log
-| sort by TimeGenerated desc
+| where TimeGenerated > ago(24h)
+| where Log contains "error" or Log contains "exception"
+| extend FullAppName = strcat(ServiceName, "/", AppName)
+| summarize count_per_app = count() by FullAppName, ServiceName, AppName, _ResourceId
+| sort by count_per_app desc 
+| render piechart
 ```
 
-:::image type="content" source="media/tutorial-applications-observability/show-application-logs.png" alt-text="Screenshot of Azure portal showing application logs for Azure Spring Apps instance" lightbox="media/tutorial-applications-observability/show-application-logs.png":::
+:::image type="content" source="media/tutorial-applications-observability/show-application-logs-abnormal-num.png" alt-text="Screenshot of Azure portal showing abnormal logs number for Azure Spring Apps instance" lightbox="media/tutorial-applications-observability/show-application-logs-abnormal-num.png":::
 
+#### Query the customers service log with a key word
 
-Run the following query to review a list of error logs from Azure Spring Apps, custom your query script with the keyword which you are looking for, see more from [Kusto Query Language](/azure/data-explorer/kusto/query/).
+Create a new tab and write the following query to review a list of logs with `root cause` in the app `customers-service`,
+update your query with the keyword which you are looking for.
 
 ```sql
 AppPlatformLogsforSpring
@@ -64,6 +95,8 @@ AppPlatformLogsforSpring
 :::image type="content" source="media/tutorial-applications-observability/show-error-logs.png" alt-text="Screenshot of Azure portal showing error logs for Azure Spring Apps instance" lightbox="media/tutorial-applications-observability/show-error-logs.png":::
 
 ### Investigate request failures
+
+This section illustrates how to investigate request failures in the application cluster, view the failed request list leaderboard and specific examples of failed requests, and you can drill down to query failed stack information.
 
 1. Go to the Azure Spring Apps instance overview page.
 

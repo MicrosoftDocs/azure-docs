@@ -97,9 +97,7 @@ you can skip the creation of the dashboard and properly custom the dashboard cha
 > [!NOTE]
 > You can allow other users to view your dashboard via a shared dashboard, see more from [Share an Azure dashboard](../../../azure-portal/azure-portal-dashboard-share-access.md).
 
-### Add metric charts to dashboard
-
-#### Add App CPU Usage chart
+#### Pin the "App CPU Usage" chart
 
 1. Go to the Azure Spring Apps instance overview page.
 
