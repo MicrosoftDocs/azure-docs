@@ -32,7 +32,7 @@ We recommend that the domain name, as seen by the browser, is the same as the ho
 
 ## Prerequisites
 
-* A custom domain to be used to access the application: [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md)
+* A custom domain to be used to access the application: [Tutorial: Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
 * Azure Spring Apps: [How to create an Azure Spring Apps service](./quickstart.md)
 * Azure Traffic Manager: [How to create a traffic manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 * Azure App Gateway: [How to create an application gateway](../application-gateway/quick-create-portal.md)
