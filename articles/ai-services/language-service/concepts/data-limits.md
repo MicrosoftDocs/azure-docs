@@ -18,7 +18,7 @@ ms.author: aahi
 > [!NOTE]
 > This article only describes the limits for preconfigured features in Azure AI Language:
 > To see the service limits for customizable features, see the following articles: 
-> * [Custom classification](../custom-classification/service-limits.md)
+> * [Custom classification](../custom-text-classification/service-limits.md)
 > * [Custom NER](../custom-named-entity-recognition/service-limits.md)
 > * [Conversational language understanding](../conversational-language-understanding/service-limits.md)
 > * [Question answering](../question-answering/concepts/limits.md)

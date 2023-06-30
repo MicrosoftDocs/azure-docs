@@ -25,7 +25,7 @@ In this article, you will learn to how to use the export and import APIs to repl
 
 ##  Prerequisites
 
-* Two Azure AI Language resources in different Azure regions. [Create your resources](./how-to/create-project.md#create-a-language-resource) and connect them to an Azure storage account. It's recommended that you connect each of your Language resources to different storage accounts. Each storage account should be located in the same respective regions that your separate Language resources are in. You can follow the [quickstart](./quickstart.md?pivots=rest-api#create-a-new-azure-language-resource-and-azure-storage-account) to create an additional Language resource and storage account.
+* Two Azure AI Language resources in different Azure regions. [Create your resources](./how-to/create-project.md#create-a-language-resource) and connect them to an Azure storage account. It's recommended that you connect each of your Language resources to different storage accounts. Each storage account should be located in the same respective regions that your separate Language resources are in. You can follow the [quickstart](./quickstart.md?pivots=rest-api#create-a-new-azure-ai-language-resource-and-azure-storage-account) to create an additional Language resource and storage account.
 
 
 ## Get your resource keys endpoint
