@@ -83,7 +83,7 @@ The information is helpful when planning future resource deployments.
 
 ### Analyze traffic to or from a network security group
 
-Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools, such as Power BI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
+Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using various tools, such as Power BI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
 
@@ -95,7 +95,7 @@ You can enable diagnostic logging for Azure networking resources such as network
 
 ## Network Watcher automatic enablement
 
-When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
+When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your Virtual Network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
 
 ## Next steps
 
