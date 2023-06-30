@@ -22,15 +22,15 @@ Network Watcher consists of three major sets of tools and capabilities:
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
-> [!TIP] 
+> [!NOTE] 
 > When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
 
 ## Monitoring
 
 Network Watcher offers two monitoring tools that help you view and monitor resources:
 
-- [Topology](#topology)
-- [Connection monitor](#connection-monitor)
+- Topology
+- Connection monitor
 
 ### Topology
 
