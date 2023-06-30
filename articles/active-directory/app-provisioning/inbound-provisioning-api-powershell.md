@@ -161,18 +161,53 @@ To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records
 
 Building upon the previous section, we will now demonstrate how to send the generated SCIM payload to your Azure AD Inbound Provisioning API endpoint with the script. 
 
-1. Login to your Entra portal as App Admin.
+1. Login to your Entra portal as Application Administrator.
 1. Copy the ServicePrincipalId associated with your provisioning app from **Provisioning App** > **Properties** > **Object ID**.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/object-id.png" alt-text="Screenshot of the Object ID.":::
 
-1. Run the following command. This will prompt you for authentication if an authenticated session does not already exist for this tenant. As long as the authenticated user has “App Admin” or “Global Admin” role, the command below should succeed, and it will post the generated SCIM payload to the API endpoint. 
+1. Run the following command. This will prompt you for authentication if an authenticated session doesn't already exist for this tenant. As long as the authenticated user has Application Administrator or Global Admininistrator role, the command below should succeed, and it will post the generated SCIM payload to the API endpoint. 
 
    ```powershell
    .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ServicePrincipalId <servicePrincipalId> -TenantId "contoso.onmicrosoft.com"
    ```
 
 ## Get provisioning logs of the latest Sync Cycles
+
+After sending the SCIM Request, we can query the logs of the latest sync cycles processed by Azure AD. We can just see the sync statistics from the logs, or we can return the sync details from the logs and save them to a variable for further analysis.
+
+1. To just show the log details and sync statistics on the console, we need to execute the script as the following example:
+
+   ```powershell
+   .\CSV2SCIM.ps1 -ServicePrincipalId <servicePrincipalId> -tenantid "contoso.onmicrosoft.com" -GetPreviousCycleLogs -NumberOfCycles 1
+   ```
+
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/stats.png" alt-text="Screenshot of sync statistics.":::
+
+   >[!NOTE]
+   >NumberOfCycles is 1 by default. Specify a number to retrieve more sync cycles.
+
+1. To just show the sync statistics on the console and save the logs details to a variable, we need to execute the script as the following example:
+
+   ```powershell
+   $logs=.\CSV2SCIM.ps1 -ServicePrincipalId 995aed29-05e3-4f1a-883e-f17b023d5c81 -tenantid ded4600b-620e-486e-b6f1-8b4fc7166a5f -GetPreviousCycleLogs
+   ```
+
+   - To see the details of a specific record we can loop into the collection or select a specific index of it, for example:
+
+     :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/index.png" alt-text="Screenshot of a selected index.":::
+
+   - We can also use the `where-object` statement to search for a specific record using the sourceid or DisplayName:
+
+     :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/index.png" alt-text="Screenshot of a where-object command.":::
+
+   - In the **ProvisioningLogs** property, we can find all the details of the operation done for that specific record:
+
+     :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/logs.png" alt-text="Screenshot of provisioning logs.":::
+
+   - We can see the specific user affected properties on the ModifiedProperties property:
+
+     :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/properties.png" alt-text="Screenshot of properties.":::
 
 ## Appendix
 
