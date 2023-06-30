@@ -23,7 +23,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 ### Known limitations
 
-- At this time, Private Access traffic can only be acquired with the Global Secure Access Client. Private Access traffic cannot be acquired from remote networks.
+- At this time, Private Access traffic can only be acquired with the Global Secure Access Client. Private Access traffic can't be acquired from remote networks.
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 - You must disable DNS over HTTPS (Secure DNS) to tunnel network traffic based on the rules of the fully qualified domain names (FQDNs) in the traffic forwarding profile. 
 

@@ -40,18 +40,18 @@ items:
       - name: Universal Conditional Access
         expanded: false
         items:
-          - name: About Universal Conditional Access through Global Secure Access 
+          - name: About Universal Conditional Access 
             href: concept-universal-conditional-access.md
           - name: Microsoft 365 traffic
             href: how-to-target-resource-microsoft-365-profile.md
       - name: Compliant network check
         href: how-to-compliant-network.md
-      - name: Enable universal tenant restrictions
-        href: how-to-universal-tenant-restrictions.md
       - name: Private Access apps
         href: how-to-target-resource-private-access-apps.md
       - name: Source IP restoration
         href: how-to-source-ip-restoration.md
+      - name: Universal tenant restrictions
+        href: how-to-universal-tenant-restrictions.md
   - name: Traffic forwarding profiles
     expanded: false
     items:

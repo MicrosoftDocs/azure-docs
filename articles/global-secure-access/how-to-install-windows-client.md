@@ -25,7 +25,7 @@ The Global Secure Access Client allows organizations control over network traffi
 - Multiple user sessions on the same device, like those from a Remote Desktop Server (RDP), aren't supported.
 - Connecting to networks that use a captive portal, like some guest wireless network solutions, might fail. As a workaround you can [pause the Global Secure Access Client](#troubleshooting).
 - Virtual machines where both the host and guest Operating Systems have the Global Secure Access Client installed aren't supported. Individual virtual machines with the client installed are supported.
-- If the Global Secure Access client is not able to connect to the service (for example due to to an authorization or Conditional Access failure), the service *bypasses* the traffic. Traffic is sent direct-and-local instead of being blocked. In this scenario, you can create a Conditional Access policy for the [compliant network check](how-to-compliant-network.md), to block traffic if the client isn't able to connect to the service.
+- If the Global Secure Access client isn't able to connect to the service (for example due to an authorization or Conditional Access failure), the service *bypasses* the traffic. Traffic is sent direct-and-local instead of being blocked. In this scenario, you can create a Conditional Access policy for the [compliant network check](how-to-compliant-network.md), to block traffic if the client isn't able to connect to the service.
 
 
 There are several other limitations based on the traffic forwarding profile in use:

@@ -30,7 +30,7 @@ Source IP restoration allows services to see the real source IP address, these s
  
 ### Known limitations
 
-- When source IP restoration is enabled you can only see the source IP. The IP address of the Global Secure Access service is not visible. If you want to see the Global Secure Access service IP address, disable source IP restoration.
+- When source IP restoration is enabled, you can only see the source IP. The IP address of the Global Secure Access service isn't visible. If you want to see the Global Secure Access service IP address, disable source IP restoration.
 ## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration, an administrator must take the following steps.

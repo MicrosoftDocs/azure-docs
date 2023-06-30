@@ -37,18 +37,18 @@ Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applicati
 1. [Enable universal tenant restrictions](how-to-universal-tenant-restrictions.md).
 1. [Enable enhanced Global Secure Access signaling](how-to-source-ip-restoration.md#enable-global-secure-access-signaling-for-conditional-access).
 
-After completing these four steps, users with the Global Secure Access Client installed on their Windows device can securely access Microsoft 365 resources from anywhere. The user's source IP address appears in the traffic logs for Microsoft Entra Internet Access.
+After you complete these four steps, users with the Global Secure Access Client installed on their Windows device can securely access Microsoft 365 resources from anywhere. The user's source IP address appears in the traffic logs for Microsoft Entra Internet Access.
 
 
 ###  Create a remote network, apply Conditional Access, and review the logs
 
-![Diagram of the basic Microsoft Entra Internet Access traffic flow.](media/how-to-get-started-with-global-secure-access/internet-access-remote-networks-option.png)
+![Diagram of the Microsoft Entra Internet Access traffic flow with remote networks and Conditional Access.](media/how-to-get-started-with-global-secure-access/internet-access-remote-networks-option.png)
 
 1. [Create a remote network](how-to-manage-remote-networks.md).
 1. [Target the Microsoft 365 traffic profile with Conditional Access policy](how-to-target-resource-microsoft-365-profile.md).
 1. [Review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md).
 
-After completing these optional steps, users can connect to Microsoft 365 services without the Global Secure Access client, if they're connecting through the remote network you created *and* if they meet the conditions you added to the Conditional Access policy.
+After you complete these optional steps, users can connect to Microsoft 365 services without the Global Secure Access client if they're connecting through the remote network you created *and* if they meet the conditions you added to the Conditional Access policy.
 
 ## Microsoft Entra Private Access
 
@@ -65,7 +65,7 @@ Set up Quick Access for broader access to your network using Microsoft Entra Pri
 1. [Enable the Private Access traffic forwarding profile](how-to-manage-private-access-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
 
-After completing these four steps, users with the Global Secure Access client installed on a Windows device can connect to your primary resources, through a Quick Access app and App Proxy connector. 
+After you complete these four steps, users with the Global Secure Access client installed on a Windows device can connect to your primary resources, through a Quick Access app and App Proxy connector. 
 
 ### Configure Global Secure Access apps for per-app access to private resources
 
@@ -77,6 +77,8 @@ Create specific private apps for granular segmented access to private access res
 1. [Create a private Global Secure Access application](how-to-configure-per-app-access.md).
 1. [Enable the Private Access traffic forwarding profile](how-to-manage-private-access-profile.md).
 1. [Install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
+
+After you complete these steps, users with the Global Secure Access client installed on a Windows device can connect to your private resources through a Global Secure Access app and App Proxy connector.
 
 Optionally:
 
