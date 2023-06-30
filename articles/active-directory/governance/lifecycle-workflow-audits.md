@@ -42,5 +42,5 @@ After filtering this information, you're also able to see other information in t
 ## Next steps
 
 - [Lifecycle Workflow History](lifecycle-workflow-history.md)
-- [Check the status of a workflow (Preview)](check-status-workflow.md)
+- [Check the status of a workflow](check-status-workflow.md)
 - [Azure AD audit activity reference](../reports-monitoring/reference-audit-activities.md)

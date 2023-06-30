@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: dem108
 ms.author: sehan
@@ -84,7 +84,7 @@ The following table shows a summary of the different features in Online and Batc
 | Stable invocation URL                 | Yes                                             | Yes                                           |
 | Multiple deployments support          | Yes                                             | Yes                                           |
 | Deployment's routing                  | Traffic split                                   | Switch to default                             |
-| Mirror traffic to all deployment      | Yes                                             | No                                            |
+| Mirror traffic for safe rollout       | Yes                                             | No                                            |
 | Swagger support                       | Yes                                             | No                                            |
 | Authentication                        | Key and token                                   | Azure AD                                      |
 | Private network support               | Yes                                             | Yes                                           |

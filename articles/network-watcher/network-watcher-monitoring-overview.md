@@ -1,14 +1,12 @@
 ---
-title: Azure Network Watcher
+title: Azure Network Watcher overview
 description: Learn about Azure Network Watcher's monitoring, diagnostics, metrics, and logging capabilities for resources in a virtual network.
 services: network-watcher
 author: halkazwini
-ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.workload: infrastructure-services
 ms.date: 01/23/2023
-ms.author: halkazwini
 ms.custom: template-overview, mvc, engagement-fy23
 # Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -17,10 +15,12 @@ ms.custom: template-overview, mvc, engagement-fy23
 
 Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS (Infrastructure-as-a-Service) products including virtual machines (VMs), virtual networks (VNets), application gateways, load balancers, etc. 
 
-> [!Note] 
+> [!NOTE] 
 > Network Watcher isn't intended for and will not work for PaaS monitoring or Web analytics. 
 
 For information about analyzing traffic from a network security group, see [Network security group flow logging](network-watcher-nsg-flow-logging-overview.md) and [Traffic analytics](traffic-analytics.md).
+
+:::image type="content" source="./media/network-watcher-monitoring-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
 ## Monitoring
 
@@ -83,7 +83,7 @@ The information is helpful when planning future resource deployments.
 
 ### Analyze traffic to or from a network security group
 
-Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools, such as Power BI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
+Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using various tools, such as Power BI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
 
@@ -95,7 +95,7 @@ You can enable diagnostic logging for Azure networking resources such as network
 
 ## Network Watcher automatic enablement
 
-When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
+When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your Virtual Network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Network Watcher create](network-watcher-create.md).
 
 ## Next steps
 

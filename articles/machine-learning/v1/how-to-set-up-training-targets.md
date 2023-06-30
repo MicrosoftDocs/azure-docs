@@ -7,10 +7,10 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5,sdkv1
 ---
 
 # Configure and submit training jobs
