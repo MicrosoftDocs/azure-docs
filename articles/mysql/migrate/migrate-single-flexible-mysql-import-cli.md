@@ -17,9 +17,9 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Azure MySQL Import enables you to seamlessly migrate your Azure Database for MySQL - Single Server to Flexible Server. It leverages snapshot backup and restore technology to offer a simple and fast migration path to restore the source server's physical data files onto the target server. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
+Azure MySQL Import enables you to seamlessly migrate your Azure Database for MySQL - Single Server to Flexible Server. It uses snapshot backup and restore technology to offer a simple and fast migration path to restore the source server's physical data files onto the target server. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
-Azure MySQL Import currently supports offline mode of import and based on user-inputs it takes up the responsibility of provisioning your target Flexible Server and consequently taking the backup of the source server and restoring on the target. In order to perform an online import, post execution of the import CLI command you can set-up data-in replication between your source and target server by following steps [here](../single-server/how-to-data-in-replication.md).
+Azure MySQL Import currently supports offline mode of import and based on user-inputs it takes up the responsibility of provisioning your target Flexible Server and then taking the backup of the source server and restoring on the target. In order to perform an online import, post execution of the import CLI command you can set-up data-in replication between your source and target server by following steps [here](../single-server/how-to-data-in-replication.md).
 
 This tutorial shows how to use the Azure MySQL Import CLI command to migrate your Azure Database for MySQL Single Server to Flexible Server.
 
@@ -33,7 +33,7 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 ## Prerequisites
 
-You'll need to log in to your account using the [az login](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You need to log in to your account using the [az login](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
