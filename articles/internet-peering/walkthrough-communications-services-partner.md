@@ -91,7 +91,7 @@ Allow time for the resource to finish deploying. When deployment is successful, 
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-peering-deploy.png" alt-text="Successfully deployed peering resource" :::
 
-### 3. Register your prefixes for Optimized Routing
+### 3. Register your prefixes
 
 For optimized routing for your Communication services infrastructure prefixes, register all your prefixes with your peering interconnects.
 
@@ -107,7 +107,7 @@ To begin registration, open your Communications Services peering in the Azure po
 Then click **Add registered prefix**
 
 > [!NOTE] 
-> If the Add registered prefix buttin is disabled, that means your peering doesn't have at least one connection that is **Active**. Please wait until this occurs to register your prefix.
+> If the Add registered prefix button is disabled, that means your peering doesn't have at least one connection that is **Active**. Please wait until this occurs to register your prefix.
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/register-prefix-add-prefix.png" alt-text="Registered prefix page with Add button highlighted" :::
 
@@ -115,51 +115,66 @@ Configure your prefix by giving it a name, and the IPv4 prefix string and click 
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/register-prefix-configure.png" alt-text="Registered prefix configuration page" :::
 
+After you create a registered prefix, it will be queued for validation. The validation state of the prefix can be found in the Registered Prefixes page:
 
+:::image type="content" source="./media/walkthrough-communications-services-partner/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
 
-## Register the prefix
+For a registered prefix to become validated, the following checks must pass:
 
-1. If you're an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
+* The prefix can't be in a private range
+* All connections in the parent peering must advertise routes for the prefix
+* Routes must be advertised with the MAPS community string 8075:8007
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
 
-   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefixes-under-direct-peering.png" alt-text="Screenshot of registered prefixes tab under a peering enabled for Peering Service." :::
+For more information on registered prefix requirements and how to troubleshoot validation errors, refer to [Peering Registered Prefix Requirements](./peering-registered-prefix-requirements.md).
 
-2. Register prefixes to access the activation keys.
+### 4. Activate your prefixes for Optimized Routing
 
-   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefixes-blade.png" alt-text="Screenshot of registered prefixes blade with a list of prefixes and keys." :::
+In the previous section, you registered prefixes and generated prefix keys. Prefix registration DOES NOT activate the prefix for optimized routing (and doesn't accept <\/24 prefixes). Prefix activation and appropriate interconnect location are requirements for optimized routing (to ensure cold potato routing).
 
-   :::image type="content" source="./media/walkthrough-communications-services-partner/registered-prefix-example.png" alt-text="Screenshot showing a sample prefix being registered." :::
+To begin activating your prefixes, in the search box at the top of the portal, enter *peering service*. Select **Peering Services** in the search results. 
 
-   :::image type="content" source="./media/walkthrough-communications-services-partner/prefix-after-registration.png" alt-text="Screenshot of registered prefixes blade showing a new prefix added." :::
+:::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
 
-## Activate the prefix
+Select **+ Create** to create a new Peering Service connection.
 
-In the previous section, you registered the prefix and generated the prefix key. The prefix registration DOES NOT activate the prefix for optimized routing (and doesn't accept <\/24 prefixes). Prefix activation, alignment to the right OC partner, and appropriate interconnect location are requirements for optimized routing (to ensure cold potato routing).
+:::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot shows the list of existing Peering Service connections in the Azure portal.":::
 
-In this section, you activate the prefix:
+In the **Basics** tab, enter or select your subscription, resource group, and Peering Service connection name.
 
-1. In the search box at the top of the portal, enter *peering service*. Select **Peering Services** in the search results. 
+:::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
+In the **Configuration** tab, choose your country, state/province, your provider name, the primary peering location, and optionally the backup peering location.
 
-1. Select **+ Create** to create a new Peering Service connection.
+> [!NOTE] 
+> Be careful when choosing "None" as the provider backup peering location when creating a Peering Service. This means your routes will not have geo-redundancy.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot shows the list of existing Peering Service connections in the Azure portal.":::
+In the Prefixes section, create prefixes corresponding to the prefixes you registered in the previous step. Enter the name of the prefix, the prefix string, and the prefix key you obtained when you registered the prefix. Know that you do not have to create all of your peering service prefixes when creating a peering service, you can add them later.
 
-1. In the **Basics** tab, enter or select your subscription, resource group, and Peering Service connection name.
+> [!NOTE] 
+> Ensure that the prefix key you enter when creating a peering service prefix matches the prefix key generated when you registered that prefix.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
+:::image type="content" source="./media/walkthrough-communications-services-partner/activate-prefix-configure-peering-service.png" alt-text="The Configuration tab of creating a Peering Service connection in the Azure portal.":::
 
-1. In the **Configuration** tab, provide details on the location, provider and primary and backup interconnect locations. If the backup location is set to **None**, the traffic will fail over to the internet. 
+Select **Review + create**.
 
-    > [!NOTE]
-    > - If you're an Operator Connect partner, your organization is available as a **Provider**.
-    > - The prefix key should be the same as the one obtained in the [Register the prefix](#register-the-prefix) step. 
+Review the settings, and then select **Create**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-configuration.png" alt-text="Screenshot shows the Configuration tab of creating a Peering Service connection in the Azure portal."::: 
+After you create a peering service prefix, it will be queued for validation. The validation state of the prefix can be found in the Peering Service Prefixes page.
 
-1. Select **Review + create**.
+:::image type="content" source="./media/walkthrough-communications-services-partner/activate-prefixes-prefixes-age.png" alt-text="Peering service prefixes blade showing prefixes that have passed validation." :::
 
-1. Review the settings, and then select **Create**.
+For a peering service prefix to become validated, the following checks MUST pass:
+
+* The prefix can't be in a private range
+* The prefix must be registered, and the prefix key in the peering service prefix must match the prefix key of the corresponding registered prefix
+* All primary and backup sessions (if configured) must advertise routes for the prefix
+* Routes must be advertised with the MAPS community string 8075:8007
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
+
+For more information on peering service prefix prefix requirements and how to troubleshoot validation errors, refer to [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md).
+
+After a prefix passes validation, then activation for that prefix is complete.
 
 ## Frequently asked questions (FAQ):
 

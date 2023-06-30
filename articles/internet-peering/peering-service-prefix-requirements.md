@@ -19,10 +19,10 @@ Ensure the prerequisites in this document are met before you activate your prefi
 For a registered prefix to be validated after creation, the following checks must pass:
 
 * The prefix can't be in a private range
-* If you're an Operator Connect partner, the prefix must be registered
-* If you're an Operator Connect partner, the primary and backup sessions must advertise routes for the prefix
-* If you're an Operator Connect partner, your routes must be advertised with the MAPS community string 8075:8007
-* If you're an Operator Connect partner, AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
+* The prefix must be registered, and the prefix key in the peering service prefix must match the prefix key of the corresponding registered prefix
+* The primary and backup sessions (if configured) must advertise routes for the prefix
+* Routes must be advertised with the MAPS community string 8075:8007
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
 
 ## Troubleshooting
 
