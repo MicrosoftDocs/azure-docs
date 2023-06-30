@@ -14,7 +14,7 @@ ms.date: 11/30/2021
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
  
-You can specify maintenance options for each Flexible Server in your Azure subscription. Options include the maintenance schedule and notification settings for upcoming and finished maintenance events.
+You can specify maintenance options for each flexible server in your Azure subscription. Options include the maintenance schedule and notification settings for upcoming and finished maintenance events.
 
 ## Prerequisites
 To complete this how-to guide, you need:
@@ -27,7 +27,7 @@ To complete this how-to guide, you need:
  
 ## Notifications about scheduled maintenance events
  
-You can use Azure Service Health to [view notifications](../../service-health/service-notifications.md) about upcoming and performed scheduled maintenance on your Flexible Server. You can also [set up](../../service-health/resource-health-alert-monitor-guide.md) alerts in Azure Service Health to get notifications about maintenance events.
+You can use Azure Service Health to [view notifications](../../service-health/service-notifications.md) about upcoming and performed scheduled maintenance on your flexible server. You can also [set up](../../service-health/resource-health-alert-monitor-guide.md) alerts in Azure Service Health to get notifications about maintenance events.
  
 ## Next steps  
  
