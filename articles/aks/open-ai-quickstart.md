@@ -613,9 +613,12 @@ Now that the application is deployed, you can deploy the Python based microservi
 1. You can also see the new product you created on the store front web app for buyers. In the picture, you can see Jungle Monkey Chew Toy is added. Remember to get the IP address of store front by using [kubectl get service][kubectl-get].
 :::image type="content" source="media/ai-walkthrough/new-product-store-front.png" alt-text="view the new product in the store front page":::
 
-<!-- todo -->
 ## Next steps
-- todo
+Now that you've seen how to add OpenAI functionality to an AKS application, learn more about what you can do with generative AI for your use cases. Here are some resources to get started:
+- [Azure OpenAI Service Documentation][aoai]
+- [Microsoft Learn | Introduction to Azure OpenAI Services][learn-aoai]
+- [OpenAI Platform][openai-platform]
+- [Project Miyagi - Envisioning sample for Copilot stack][miyagi]
 
 <!-- Links external -->
 [aks-store-demo]: https://github.com/Azure-Samples/aks-store-demo
@@ -628,8 +631,10 @@ Now that the application is deployed, you can deploy the Python based microservi
 [open-ai-new-key]: https://platform.openai.com/account/api-keys
 [open-ai-org-id]: https://platform.openai.com/account/org-settings
 [aoai-access]: https://aka.ms/oai/access
-[az-upgrade]: https://learn.microsoft.com/cli/azure/update-azure-cli#manual-update
 [openai-paid]: https://platform.openai.com/account/billing/overview
+[learn-aoai]: https://learn.microsoft.com/en-us/training/modules/explore-azure-openai/
+[openai-platform]: https://platform.openai.com/
+[miyagi]: https://github.com/Azure-Samples/miyagi
 
 <!-- Links internal -->
 [azure-resource-group]: ../azure-resource-manager/management/overview.md 
@@ -640,3 +645,5 @@ Now that the application is deployed, you can deploy the Python based microservi
 [aoai-get-started]: ../cognitive-services/openai/quickstart.md
 [managed-identity]: /azure/cognitive-services/openai/how-to/managed-identity#authorize-access-to-managed-identities
 [key-vault]: csi-secrets-store-driver.md
+[az-upgrade]: /cli/azure/update-azure-cli
+[aoai]: ../cognitive-services/openai/index.yml
