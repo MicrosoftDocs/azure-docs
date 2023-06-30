@@ -20,7 +20,7 @@ The types of alerts are:
     - [Service Health alerts](#service-health-alerts)
     - [Resource Health alerts](#resource-health-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
-- [Prometheus alerts](#prometheus-alerts-preview) (preview)
+- [Prometheus alerts](#prometheus-alerts)
 
 ## Choose the right alert type
 
@@ -205,13 +205,14 @@ Although metric alerts tell you there might be a problem, smart detection starts
 
 Smart detection works for web apps hosted in the cloud or on your own servers that generate application requests or dependency data.
 
-## Prometheus alerts (preview)
+## Prometheus alerts
 
-Prometheus alerts are based on metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). They fire when the result of a PromQL query resolves to true. Prometheus alerts are displayed and managed like other alert types when they fire, but they're configured with a Prometheus rule group. For more information, see [Rule groups in Azure Monitor managed service for Prometheus](../essentials/prometheus-rule-groups.md).
+Prometheus alerts are based on Prometheus metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). Prometheus alert rules are configured as part of [Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups). They fire when the result of a PromQL expression resolves to true. Fired Prometheus alerts are displayed and managed like other alert types.
 
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
 - Learn more about [smart detection](proactive-failure-diagnostics.md).
+
 
 
