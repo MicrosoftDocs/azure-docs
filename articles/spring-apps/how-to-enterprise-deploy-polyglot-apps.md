@@ -472,13 +472,13 @@ The following features are not support in Azure Spring Apps due to the limitatio
 
 | Feature                                           | Why it's not support                                         |
 |---------------------------------------------------|--------------------------------------------------------------|
-| Azure Monitor                                     | GraalVM built native images doesn't support JVM metrics well |
-| Scaling – auto scaling                            | GraalVM built native images doesn't support JVM metrics well |
-| Out of box APM integrations                       | APM Vendor & Buildpack doesn't support native image well |
-| Managed identity                                  | Azure SDKs doesn't support native image well |
-| Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump well |
-| Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging well |
-| Integrate service binding with Resource Connector | JDBC driver or resource SDK doesn't support native image well |
+| Azure Monitor                                     | GraalVM built native images doesn't support JVM metrics |
+| Scaling – auto scaling                            | GraalVM built native images doesn't support JVM metrics |
+| Out of box APM integrations                       | APM Vendor & Buildpack doesn't support native image |
+| Managed identity                                  | Azure SDKs doesn't support native image |
+| Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump |
+| Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging |
+| Integrate service binding with Resource Connector | JDBC driver or resource SDK doesn't support native image |
 
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
