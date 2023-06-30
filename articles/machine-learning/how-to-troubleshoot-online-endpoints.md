@@ -421,7 +421,7 @@ You can also check if the blobs are present in the workspace storage account.
   #### [Azure CLI](#tab/cli)
 
   ```azurecli
-  az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
+  az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --resource-group <resource-group-name> --workspace-name <workspace-name> –-container storage-initializer
   ```
 
   #### [Python SDK](#tab/python)
