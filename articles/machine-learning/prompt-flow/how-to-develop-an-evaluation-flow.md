@@ -42,25 +42,25 @@ The process of customizing and creating evaluation methods is similar to that of
 
 Find the built-in evaluation methods by selecting the  **"Create"**  button on the homepage and navigating to the Create from gallery -\> Evaluation tab. View more details about the evaluation method by selecting  **"View details"**.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-from-gallery.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-from-gallery.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-from-gallery.png" alt-text="Screenshot of the Prompt flow gallery with the evaluation tab selected. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-from-gallery.png":::
 
 If you want to customize this evaluation method, you can select the **"Clone"** button.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/customize-built-in.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/customize-built-in.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/customize-built-in.png" alt-text="Screenshot of Classification Accuracy Evaluation with the clone button highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/customize-built-in.png":::
 
 By the name of the flow, you can see an **"evaluation"** tag, indicating you're building an evaluation flow. Similar to cloning a sample flow from gallery, you'll be able to view and edit the flow and the codes and prompts of the evaluation method.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-tag.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-tag.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-tag.png" alt-text="Screenshot of Classification Accuracy Evaluation with the evaluation tag underlined. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-tag.png":::
 
 Alternatively, you can customize a built-in evaluation method used in a bulk test by clicking the  **"Clone"**  icon when viewing its snapshot from the bulk test detail page.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.gif" alt-text="Gif of. " lightbox = "./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.gif":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.gif" alt-text="Gif of cloning a Web Classification bulk test. " lightbox = "./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.gif":::
 
 ### Create New Evaluation Flow from Scratch
 
 To create your evaluation method from scratch, select the  **"Create"** button on the homepage and select  **"Evaluation"** as the flow type. You'll enter the flow authoring page.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-by-type.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-by-type.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-by-type.png" alt-text="Screenshot of tiles from the Prompt flow gallery with the create button highlighted on evaluation flow. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-by-type.png":::
 
 ## Understand Evaluation in Prompt flow
 
@@ -110,25 +110,25 @@ In this context, the inputs are the subjects of evaluation, which are the output
 - If the data source is from your test dataset, the source is indicated as "data.[ColumnName]"
 - If the data source is from your flow output, the source is indicated as "output.[OutputName]"
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-eval-input-mapping.png":::
 
 To demonstrate the relationship of how the inputs and outputs are passed between flow and evaluation methods, here's a diagram showing the schema:
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-relationship.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-relationship.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-relationship.png" alt-text="Diagram of of different input and output screenshots showing the flow between them. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-relationship.png":::
 
 Here's a diagram showing the example how data are passed between test dataset and flow outputs:
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-sample.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-sample.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-sample.png" alt-text="Diagram of how data is passed between test datasets and flow outputs. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-sample.png":::
 
 ### Input description
 
 To remind what inputs are needed to calculate metrics, you can add a description for each required input. The descriptions will be displayed when mapping the sources in bulk test submission.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-description.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-description.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/input-description.png" alt-text="Screenshot of evaluation input mapping with the answers description highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/input-description.png":::
 
 To add descriptions for each input, select **Show description** in the input section when developing your evaluation method. And you can select "Hide description" to hide the description.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/add-description.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/add-description.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/add-description.png" alt-text="Screenshot of Classification Accuracy Evaluation with hide description highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/add-description.png":::
 
 Then this description will be displayed to when using this evaluation method in bulk test submission.
 
@@ -142,17 +142,17 @@ In Prompt flow, the flow processes each sample dataset one at a time and generat
 
 To record the score for each data sample, calculate the score for each output, and log the score **as a flow output** by setting it in the output section. This is the same as defining a standard flow output.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output.png" alt-text="Screenshot of the outputs section showing a name and value. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output.png":::
 
 When this evaluation method is used in a bulk test, the instance-level score can be viewed in the **Output** tab.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png" alt-text="Screenshot of the output tab with gpt coherence highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png":::
 
 #### Metrics Logging and Aggregation Node
 
 In addition, it's also important to provide an overall score for the run. You can check the  **"set as aggregation"** of a Python node to turn it into a "reduce" node, allowing the node to take in the inputs **as a list** and process them in batch.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/set-as-aggregation.png" alt-text="Screenshot of. " lightbox = "./media/how-to-develop-an-evaluation-flow/set-as-aggregation.png":::
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/set-as-aggregation.png" alt-text="Screenshot of the Python node heading pointing to an unchecked checked box. " lightbox = "./media/how-to-develop-an-evaluation-flow/set-as-aggregation.png":::
 
 In this way, you can calculate and process all the scores of each flow output and compute an overall result for each variant.
 
