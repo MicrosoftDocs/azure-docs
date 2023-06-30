@@ -572,13 +572,13 @@ Now that the application is deployed, you can deploy the Python based microservi
         app: ai-service
     ```
 ### [Azure OpenAI](#tab/aoai)
-    * Set the environment variable *USE_AZURE_OPENAI* to "True"
-    * Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
-    * Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
+1. Set the environment variable *USE_AZURE_OPENAI* to "True"
+1. Get your Azure OpenAI Deployment name from [Azure OpenAI studio][aoai-studio], and fill in the *AZURE_OPENAI_DEPLOYMENT_NAME* value. 
+1. Get your Azure OpenAI endpoint and Azure OpenAI API key from the Azure portal by clicking on `Keys and Endpoint` in the left blade of the resource. Fill in your *AZURE_OPENAI_ENDPOINT* and *OPENAI_API_KEY* in the yaml accordingly. 
 ### [OpenAI](#tab/openai)
-    * Set the environment variable *USE_AZURE_OPENAI* to "False"
-    * Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
-    * [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
+1. Set the environment variable *USE_AZURE_OPENAI* to "False"
+1. Set the environment variable *OPENAI_API_KEY* by pasting in the OpenAI key you generated in the [last step](#deploy-openai).
+1. [Find the organization ID][open-ai-org-id] and copy the value into the YAML. 
 ---
 1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your yaml manifest.
     ```bash
