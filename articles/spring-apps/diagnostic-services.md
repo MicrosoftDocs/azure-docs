@@ -1,12 +1,12 @@
 ---
 title: Analyze logs and metrics in Azure Spring Apps | Microsoft Docs
 description: Learn how to analyze diagnostics data in Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Analyze logs and metrics with diagnostics settings

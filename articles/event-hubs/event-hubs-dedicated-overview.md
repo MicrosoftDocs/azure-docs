@@ -68,7 +68,7 @@ Event Hubs Dedicated clusters created prior to the availability of self-serve sc
 
 To use these legacy clusters, direct creation through the Azure portal or ARM templates isn't possible and you must instead [submit a support request](event-hubs-Dedicated-cluster-create-portal.md#submit-a-support-request) to create one. 
 
-Approximately, one capacity unit (CU) in a self-serve scalable cluster provides *ingress capacity ranging from 50 MB/s to 100 MB/s*, although actual throughput may fluctuate depending on various factors. 
+Approximately, one capacity unit (CU) in a legacy cluster provides *ingress capacity ranging from 50 MB/s to 100 MB/s*, although actual throughput may fluctuate depending on various factors. 
 
 With Legacy cluster, you can purchase up to 20 CUs. 
 

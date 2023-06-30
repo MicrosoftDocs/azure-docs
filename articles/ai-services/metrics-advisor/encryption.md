@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 Metrics Advisor service automatically encrypts your data when it is persisted to the cloud. The Metrics Advisor service encryption protects your data and helps you to meet your organizational security and compliance commitments.
 
-[!INCLUDE [cognitive-services-about-encryption](../../cognitive-services/includes/cognitive-services-about-encryption.md)]
+[!INCLUDE [ai-services-about-encryption](../../ai-services/includes/cognitive-services-about-encryption.md)]
 
 Metrics Advisor supports CMK and double encryption by using BYOS (bring your own storage). 
 

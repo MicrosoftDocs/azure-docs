@@ -1,12 +1,12 @@
 ---
 title:  "How to monitor Spring Boot apps with Dynatrace Java OneAgent"
 description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Apps
-author:  karlerickson
+author:  KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/07/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
