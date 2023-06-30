@@ -77,7 +77,7 @@ You can also activate this agent from the Azure portal with the following proced
 
 1. Select **Environment variables** to add or update the variables used by your application.
 
-   :::image type="content" source="media/how-to-new-relic-monitor/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environmental variables tab selected." lightbox="media/how-to-new-relic-monitor/configurations-update-environment.png":::
+   :::image type="content" source="media/how-to-new-relic-monitor/configurations-update-environment.png" alt-text="Screenshot of the Azure portal showing the Configuration page for an app with the Environment variables tab selected." lightbox="media/how-to-new-relic-monitor/configurations-update-environment.png":::
 
 1. View the application api/gateway **Summary** page from the New Relic dashboard.
 
