@@ -77,7 +77,7 @@ Bounding regions describe the visual position of each element in the file. Since
 
 #### Word
 
-A word is a content element composed of a sequence of characters.  In Document Intelligence, a word is defined as a sequence of adjacent characters, with whitespace separating words from one another.  For languages that don't use space separators between words each character is returned as a separate word, even if it doesn't represent a semantic word unit.
+A word is a content element composed of a sequence of characters.  With Document Intelligence, a word is defined as a sequence of adjacent characters, with whitespace separating words from one another.  For languages that don't use space separators between words each character is returned as a separate word, even if it doesn't represent a semantic word unit.
 
 :::image type="content" source="media/word-boundaries.png" alt-text="Screenshot of detected words example.":::
 
