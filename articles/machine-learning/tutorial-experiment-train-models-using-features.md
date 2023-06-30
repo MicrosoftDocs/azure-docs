@@ -110,10 +110,10 @@ To onboard precomputed features, you can create a feature set spec without writi
 
    1. Explore the source data for the accounts
 
-      > [!NOTE]
+   > [!NOTE]
    > This notebook uses sample data hosted in a publicly-accessible blob container. Only a `wasbs` driver can read it in Spark. When you create feature sets using your own source data, please host those feature sets in an adls gen2 account, and use an `abfss` driver in the data path.
 
-      [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=explore-accts-fset-src-data)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/3. Experiment and train models using features.ipynb?name=explore-accts-fset-src-data)]
 
 1. Create the `accounts` feature set spec in local, from these precomputed features
 
