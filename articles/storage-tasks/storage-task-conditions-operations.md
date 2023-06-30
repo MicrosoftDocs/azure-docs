@@ -14,21 +14,33 @@ ms.author: normesta
 
 # Storage task conditions and operations
 
-Put something here.
+A storage task performs operations on containers and blobs in an Azure Storage account based on a set of conditions that you define. This article describes the anatomy of conditions and operations and how to define them.
 
 > [!IMPORTANT]
 > Azure Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-To learn how to add and edit Storage Tasks conditions, see [Define conditions](storage-task-conditions-operations-edit.md).
+## Defining conditions and operations
+
+A condition contains a property, a value, and an operator. The storage tasks uses the operator to compare a property with a value to determine whether the condition is met by the target object. An operation is the action a storage task performs on each object that meets the defined conditions.
+
+You can define conditions and operations by using a visual designer in the Azure portal. The following image shows the visual designer that you can use to define the conditions and operations of a storage task.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the Conditions button and the Conditions editor.](./media/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
+
+Conditions and operations are stored as a JSON document that is generated based on selections that you make in the visual designer. You can view that JSON by selecting the **Code** tab that appears in the designer.  This article refers to all properties, operators, and operations by the JSON names that appear in the generated document.
+
+For more information about how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
 ## Conditions
 
 Any conceptual information about conditions goes here.
+
 Describe constraints such as the number of conditions allowed.
 
-A condition contains a property, a value, and an operator that is used to compare the property with the value.
+Some mention here on the ability to set conditions to a parameter along with a link to the how to or tutorial for doing that.
 
 ### Blob properties
 
@@ -51,7 +63,7 @@ These property values must be a valid DateTime.
 - LastAccessTime
 - Last-Modified
 
-You can evaluate property these values by using the following operators: `equals`, `greater`, `greaterOrEquals`, `less`, `lessOrEquals`, and `addToTime`. 
+You can evaluate property these values by using the following operators: `equals`, `greater`, `greaterOrEquals`, `less`, `lessOrEquals`, and `addToTime`.
 
 #### Numeric properties
 

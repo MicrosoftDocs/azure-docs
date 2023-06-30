@@ -91,6 +91,10 @@ The following example shows two conditions grouped together. In this example, th
 
 To ungroup conditions, select the ungroup icon (:::image type="icon" source="./media/storage-task-conditions-operations-edit/ungroup-icon.png":::) or select each condition in the group, and select **Ungroup**.
 
+### Set a condition to a parameter
+
+Something here that shows how to set a property value to a parameter that is dynamically obtained. This capability has not landed yet in the UI.
+
 ## Define operations
 
 An operation is an that is action taken on each object that meets the conditions defined in the task.  
