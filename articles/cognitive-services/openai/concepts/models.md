@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 06/13/2023
+ms.date: 06/30/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -59,11 +59,11 @@ Azure OpenAI now supports automatic updates for select model deployments. On mod
 
 :::image type="content" source="../media/models/auto-update.png" alt-text="Screenshot of the deploy model UI of Azure OpenAI Studio." lightbox="../media/models/auto-update.png":::
 
-### Auto update to latest
+### Auto update to default
 
-When **Auto-update to latest** is selected your model deployment will be automatically updated within two weeks of a new version being released.
+When **Auto-update to default** is selected your model deployment will be automatically updated within two weeks of a new version being released.
 
-If you are still in the early testing phases for completion and chat completion based models we recommend deploying models with **auto-update to latest** set whenever it is available. For embeddings models while we recommend using the latest model version, you should choose when you want to upgrade since embeddings generated with an earlier model version will not be interchangeable with the new version.
+If you are still in the early testing phases for completion and chat completion based models we recommend deploying models with **auto-update to default** set whenever it is available. For embeddings models while we recommend using the latest model version, you should choose when you want to upgrade since embeddings generated with an earlier model version will not be interchangeable with the new version.
 
 ### Specific model version
 
@@ -73,7 +73,7 @@ When you select a specific model version for a deployment this version will rema
 
 ### GPT-35-Turbo 0301 and GPT-4 0314 expiration
 
-The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than September 30th, 2023. Upon expiration deployments will automatically be upgraded to the default version at the time of expiry. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
+The original `gpt-35-turbo` (`0301`) and both `gpt-4` (`0314`) models will expire no earlier than October 15th, 2023. Upon expiration, deployments will automatically be upgraded to the default version. If you would like your deployment to stop accepting completion requests rather than upgrading, then you will be able to set the model upgrade option to expire through the API. We will publish guidelines on this by September 1.  
 
 ### Viewing deprecation dates
 
@@ -328,7 +328,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | gpt-35-turbo (0613) | East US, France Central, UK South | N/A | 4,096 | Sep 2021 |
 | gpt-35-turbo-16k (0613) | East US, France Central, UK South | N/A | 16,384 | Sep 2021 |
 
-<br><sup>1</sup> Version `0301` of gpt-35-turbo will be deprecated on October 1st, 2023 in favor of version `0613`.
+<br><sup>1</sup> Version `0301` of gpt-35-turbo will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
 
 ### GPT-4 Models
 
@@ -342,7 +342,7 @@ These models can only be used with the Chat Completion API.
 | `gpt-4-32k` <sup>1</sup> (0613)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
 
 <sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
-<sup>2</sup> Version `0301` of gpt-4 and gpt-4-32k will be deprecated on October 1st, 2023 in favor of version `0613`.
+<sup>2</sup> Version `0301` of gpt-4 and gpt-4-32k will be deprecated no earlier than October 15th, 2023 in favor of version `0613`.
 
 ### Dall-E Models
 
