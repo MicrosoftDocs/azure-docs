@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 06/29/2023
 ---
 
-# Access a lab in Azure Lab Services
+# Access a lab virtual machine in Azure Lab Services
 
-This article describes how you can access labs in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
+This article describes how you can access labs in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab virtual machine.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ You might already have a Microsoft account that's linked to your non-Microsoft e
 
 When you use the lab registration link to sign into a lab, you're prompted for your email address and password. If you sign in with a non-Microsoft account that's not linked to a Microsoft account, you receive the following error message:
 
-:::image type="content" source="./media/how-to-access-and-manage-lab/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-access-and-manage-lab/cant-find-account.png":::
+:::image type="content" source="./media/how-to-access-lab-virtual-machine/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-access-lab-virtual-machine/cant-find-account.png":::
 
 Follow these steps to [sign up for a new Microsoft account](https://signup.live.com).
 
@@ -62,11 +62,11 @@ To link your GitHub account to a Microsoft account:
 
 1. Select the **Sign-in options** link:
 
-    :::image type="content" source="./media/how-to-access-and-manage-lab/signin-options.png" alt-text="Screenshot that shows the Microsoft sign in window, highlighting the Sign-in options link.":::
+    :::image type="content" source="./media/how-to-access-lab-virtual-machine/signin-options.png" alt-text="Screenshot that shows the Microsoft sign in window, highlighting the Sign-in options link.":::
 
 1. In the **Sign-in options** window, select **Sign in with GitHub**.
 
-    :::image type="content" source="./media/how-to-access-and-manage-lab/signin-github.png" alt-text="Screenshot that shows the Microsoft sign-in options window, highlighting the option to sign in with GitHub.":::
+    :::image type="content" source="./media/how-to-access-lab-virtual-machine/signin-github.png" alt-text="Screenshot that shows the Microsoft sign-in options window, highlighting the option to sign in with GitHub.":::
 
     At the prompt, you then create a Microsoft account that's linked to your GitHub account. The linking happens automatically when you select **Next**. You're then immediately signed in and connected to the lab.
 
@@ -82,7 +82,7 @@ To access your lab in Teams:
 
 1. Select the **Azure Lab Services** tab to view your lab virtual machines.
 
-    :::image type="content" source="./media/how-to-access-and-manage-lab/teams-view-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
+    :::image type="content" source="./media/how-to-access-lab-virtual-machine/teams-view-lab.png" alt-text="Screenshot of lab in Teams after it's published.":::
 
     You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
 
@@ -96,7 +96,7 @@ To access your lab in Canvas:
 
 1. Go to the course, and then open the **Azure Lab Services** app.
 
-    :::image type="content" source="./media/how-to-access-and-manage-lab/canvas-view-lab.png" alt-text="Screenshot of a lab in the Canvas portal.":::
+    :::image type="content" source="./media/how-to-access-lab-virtual-machine/canvas-view-lab.png" alt-text="Screenshot of a lab in the Canvas portal.":::
 
     You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the Canvas course membership still needs to synchronize.
 
@@ -106,7 +106,7 @@ To access your lab in Canvas:
 
 When you access your lab, either through the Azure Lab Services website, Microsoft Teams, or Canvas, you get the list of lab virtual machines that are assigned to you.
 
-:::image type="content" source="./media/how-to-access-and-manage-lab/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
+:::image type="content" source="./media/how-to-access-lab-virtual-machine/lab-services-virtual-machine-tile.png" alt-text="Screenshot of My virtual machines page for Azure Lab Services.":::
 
 For each lab VM, you can view the following information:
 

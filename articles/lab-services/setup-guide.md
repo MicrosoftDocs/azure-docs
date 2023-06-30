@@ -114,7 +114,7 @@ After you understand the requirements for your class's lab, you're ready to set 
    - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails)
    - [Manage Lab Services user lists in Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams)
 
-    For information about the types of accounts that students can use, see [Student accounts](./how-to-access-and-manage-lab.md#user-account-types).
+    For information about the types of accounts that students can use, see [Student accounts](./how-to-access-lab-virtual-machine.md#user-account-types).
   
 1. **Set cost controls**. To set a schedule, establish quotas, and enable automatic shutdown, see the following tutorials:
 
