@@ -3,8 +3,8 @@ title: Get started in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Prompt flow in Azure Machine Learning studio.
 services: machine-learning
-ms.service: core
-ms.subservice: prompt-flow
+ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 author: ishinzhang
 ms.author: yijunzhang

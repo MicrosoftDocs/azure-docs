@@ -3,8 +3,8 @@ title: Develop a chat flow in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to develop a chat flow in Prompt flow that can easily create a chatbot that handles chat input and output with Azure Machine Learning studio.
 services: machine-learning
-ms.service: core
-ms.subservice: prompt-flow
+ms.service: machine-learning
+ms.subservice: core
 ms.topic: how-to
 author: Zhong-J
 ms.author: jinzhong

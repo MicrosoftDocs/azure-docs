@@ -3,8 +3,8 @@ title: Develop a standard flow in Prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: learn how to develop the standard flow in the authoring page in Prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: core
-ms.subservice: prompt-flow
+ms.service: machine-learning
+ms.subservice: core
 ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
