@@ -33,19 +33,22 @@ Azure Lab Services supports up to 400 users per lab.
 [!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
 [!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
-
 ## Manage lab users
 
 # [Add users manually](#tab/manual)
 
+### Add users
+
 You can add lab users manually by providing their email address in the lab configuration or by uploading a CSV file.
 
-TODO: link to account types information
+Azure Lab Services supports different email account types when registering for a lab:
 
-> [!IMPORTANT]
-> When you sign into a lab, you aren't given the option to create a new Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
+- An organizational email account that's provided by your Azure Active Directory instance.
+- A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
+- A non-Microsoft email account, such as one provided by Yahoo! or Google. You need to link your account with a Microsoft account.
+- A GitHub account. You need to link your account with a Microsoft account.
 
-### Add users
+Learn more about the [supported account types](./how-to-access-lab-virtual-machine.md#user-account-types).
 
 #### Add users by email address
 
@@ -99,6 +102,9 @@ To send a registration link to new users, use one of the methods in the followin
 
 You can invite all users to the lab by sending an email via the Azure Lab Services website. The email contains the lab registration link, and an optional message.
 
+> [!TIP]
+> When you register for a lab, you aren't given the option to create a new Microsoft account. It's recommended that you include this sign-up link, `https://signup.live.com`, in the lab registration email when you invite users who have non-Microsoft accounts.
+
 To invite all users:
 
 1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
@@ -117,9 +123,7 @@ To invite all users:
 
 #### Invite selected users
 
-Instead of inviting all users, you can also invite specific users and get a registration link that you can share with other people.
-
-To invite selected users:
+To invite selected users and send them a lab registration link:
 
 1. In the [Azure Lab Services website](https://labs.azure.com/), select the lab you want to work with.
 
