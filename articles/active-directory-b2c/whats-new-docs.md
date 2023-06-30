@@ -21,7 +21,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Microsoft Azure Active Directory B2C external identity video series](external-identities-videos.md)
 - [Manage directory size quota of your Azure Active Directory B2C tenant](tenant-management-directory-quota.md)
-- [Manage inactive users in your Azure Active Directory B2C tenant](user-manage-inactive.md)
 
 ### Updated articles
 
