@@ -1,7 +1,7 @@
 ---
 title: How to create vector index in Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: How to create vector index in Azure Machine Learning prompt flow
+description: How to create a vector index in Azure Machine Learning and use it in a prompt flow
 services: machine-learning
 ms.author: balapv
 author: balapv
@@ -60,11 +60,8 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 1.  Review the details of your vector index, then select the **Create** button to create the vector index. For more information about how to [use Vector Stores (preview).](concept-vector-stores.md) 
 
-1. This takes you to an overview page from where you can track
-    and view the status of your Vector Index creation. Note: Vector
-    Index creation may take a while depending on the size of data.
+1. This takes you to an overview page from where you can track and view the status of your Vector Index creation. Note: Vector Index creation may take a while depending on the size of data.
 
-    :::image type="content" source="./media/how-to-create-vector-index/UI-6-10.png" alt-text="Screenshot showing the overview page for a vector index.":::
 
 
 ## Add a Vector Index to a prompt flow
@@ -74,17 +71,18 @@ Once you have created a Vector Index, you can add it to a prompt flow from the p
 
 1. Open an existing prompt flow
 
+
 1. On the top menu, select **More Tools** and select Vector Index Lookup
 
-:::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the location of the More Tools button.":::
+    :::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the location of the More Tools button.":::
 
 1. The Vector Index lookup tool gets added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
 
-:::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot showing the vector index lookup tool.":::
+    :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot showing the vector index lookup tool.":::
 
 1. Enter the path to your Vector Index and enter your desired query. Be sure to type in your path directly, or to paste the path.
 
-## Next Steps
+## Next steps
 
 [Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
 

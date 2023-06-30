@@ -567,7 +567,7 @@
 - name: Retrieval Augmented Generation (RAG)
   items:
     - name: What is RAG
-      href: concept-rag-promptflow.md
+      href: concept-retrieval-augmented-generation-prompt-flow.md
     - name: What is a vector store
       href: concept-vector-stores.md
     - name: How to use RAG in Prompt flow

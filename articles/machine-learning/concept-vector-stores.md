@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 ---
 
-# Vector Stores in Azure Machine Learning
+# Vector stores in Azure Machine Learning
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
