@@ -52,8 +52,8 @@ landingContent:
              url: howto-platform-prerequisites.md
       - linkListType: quickstart
         links:
-           - text: Before you start tenant workload deployment
-             url: quickstarts-tenant-workload-prerequisites.md
+           - text: Deploy Nexus Kubernetes cluster
+             url: quickstarts-kubernetes-cluster-deployment-bicep.md
            - text: Tenant workload deployment
              url: quickstarts-tenant-workload-deployment.md
 #
