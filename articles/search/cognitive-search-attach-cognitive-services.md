@@ -170,6 +170,12 @@ Content-Type: application/json
 }
 ```
 
+Alternatively, you can also set "cognitiveServices" to null:
+
+```json
+"cognitiveServices": null,
+```
+
 ---
 
 <a name="same-region-requirement"></a>
