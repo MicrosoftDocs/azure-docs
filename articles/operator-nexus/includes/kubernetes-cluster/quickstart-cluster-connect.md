@@ -15,7 +15,7 @@ Now that the Nexus Kubernetes cluster has been successfully created and connecte
 
 To access your cluster, you need to set up the cluster connect `kubeconfig`. After logging into Azure CLI with the relevant Azure AD entity, you can obtain the `kubeconfig` necessary to communicate with the cluster from anywhere, even outside the firewall that surrounds it.
 
-1. Set `CLUSTER_NAME` and `RESOURCE_GROUP` variables, then query managed resource group with `az` and store in `MANAGED_RESOURCE_GROUP`.
+1. Set `CLUSTER_NAME`, `RESOURCE_GROUP` and `SUBSCRIPTION_ID` variables, then query managed resource group with `az` and store in `MANAGED_RESOURCE_GROUP`.
     ```
     CLUSTER_NAME="myNexusAKSCluster"
     RESOURCE_GROUP="myResourceGroup"
