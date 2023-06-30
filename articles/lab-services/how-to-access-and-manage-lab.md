@@ -123,11 +123,18 @@ In addition, you can also perform specific actions on the lab VM:
 
 ## View quota hours
 
-On the lab VM tile in the [Azure Lab Services website](https://labs.azure.com), you can view your consumption of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) in the progress bar. Quota hours are the extra time allotted to you outside of the [scheduled time](./classroom-labs-concepts.md#schedule) for the lab. For example, the time outside of classroom time, to complete homework.
+Quota hours are the extra time allotted to you outside of the [scheduled time](./classroom-labs-concepts.md#schedule) for the lab. For example, the time outside of classroom time, to complete homework.
 
-The color of the progress bar and the text under the progress bar changes depending on the scenario:
+On the lab VM tile, you can view your consumption of [quota hours](how-to-configure-student-usage.md#set-quotas-for-users) in the progress bar. The progress bar color and the message give an indication of the usage:
 
-- A class is in progress, according to the lab schedules: the progress bar is grayed out to represent that you didn't use quota hours.
+| Status    | Description |
+| --------- | ----------- |
+| The progress bar is grayed out | A class is in progress, based on the lab schedule. You don't consume any quota hours during scheduled hours.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when a schedule started the VM."::: | 
+| The progress bar is red | You've consumed all your quota hours. If there's a lab schedule, then you can only access the lab VM during the scheduled hours.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's quota usage."::: |
+| The progress bar is blue | No class is currently in progress and you still have quota hours available to access the lab VM.<br/><br/> :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when quota has been partially used."::: |
+| The text **Available during classes only** is shown | There are no quota hours allocated to the lab. You can only access the lab VM during the scheduled hours for the lab.<br/><br/>:::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/available-during-class.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when there's no quota."::: |
+
+- A class is in progress, based on the lab schedules: the progress bar is grayed out to represent that you don't consume any quota hours.
 
     :::image type="content" source="./media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png" alt-text="Screenshot of lab VM tile in Azure Lab Services when a schedule started the VM.":::
 
