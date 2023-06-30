@@ -200,7 +200,7 @@
       - name: Create a lab (Python)
         href: how-to-create-lab-python.md
     - name: Add and manage lab users
-      href: how-to-configure-student-usage.md      
+      href: how-to-manage-lab-users.md
     - name: Create and manage schedules
       href: how-to-create-schedules.md
     - name: Manage virtual machine pool
