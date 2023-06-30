@@ -21,7 +21,7 @@ The **SU V2 model(recommended)** is a simplified structure with favorable pricin
 
 The underlying compute power for V1 and V2 streaming units is as follows:
 
-![SU V1 and SU V2 mapping.](https://github.com/MicrosoftDocs/azure-docs-pr/assets/70035300/1480b920-514f-412f-9ea8-1c0b91437931)
+![SU V1 and SU V2 mapping.](./media/stream-analytics-scale-job/su-conversion-suv2.png)
 
 > [!Note]
 > If you notice that the SU count in your [Activity log](stream-analytics-job-diagnostic-logs.md) appears to be diffrent than the value that you see on the UI for a particular job, do not be alarmed as long as the mapping is as follows: 1/3 SU V2 = 3, 2/3 SU V2 = 7, 1 SU V2 = 10, 2 SU V2= 20, 3 SU V2 = 30, and so on. This conversion is automatic and has no impact on your job's performance.
@@ -40,7 +40,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 
 3. In the job page, under the **Configure** heading, select **Scale**. Default number of SUs is 1 when creating a job.
 
-![screen shot of menu on ASA portal.](https://github.com/MicrosoftDocs/azure-docs-pr/assets/70035300/a890aa13-7b12-4ce9-ab69-8c2bf9fb7e5d)
+![screen shot of menu on ASA portal.](./media/stream-analytics-scale-jobs/stream-analytics-preview-portal-job-settings-new-portal.png)
     
 4. Choose the SU option in drop-down list to set the SUs for the job. Notice that you're limited to a specific SU range. 
 
@@ -49,7 +49,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 ## Monitor job performance
 Using the Azure portal, you can track the performance related metrics of a job. To learn about the metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). To learn more about the metrics monitoring in portal, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
 
-![Screenshot of monitor job performance.](https://github.com/MicrosoftDocs/azure-docs-pr/assets/70035300/9b7322f2-57bd-4fa8-b4ad-04a4bb630405)
+![Screenshot of monitor job performance.](./media/stream-analytics-scale-jobs/stream-analytics-job-monitor-new-portal.png)
 
 Calculate the expected throughput of the workload. If the throughput is less than expected, tune the input partition, tune the query, and add SUs to your job.
 
