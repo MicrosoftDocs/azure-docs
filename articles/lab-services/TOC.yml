@@ -199,6 +199,12 @@
         href: how-to-create-lab-bicep.md
       - name: Create a lab (Python)
         href: how-to-create-lab-python.md
+    - name: Add and manage lab users
+      href: how-to-configure-student-usage.md      
+    - name: Create and manage schedules
+      href: how-to-create-schedules.md
+    - name: Manage virtual machine pool
+      href: how-to-manage-vm-pool.md
     - name: Use an Azure compute gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop for Linux
@@ -209,8 +215,6 @@
       href: how-to-create-manage-template.md
     - name: Use lab dashboard
       href: use-dashboard.md
-    - name: Add and manage lab users
-      href: how-to-configure-student-usage.md      
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
     - name: Control Windows shutdown behavior
@@ -219,10 +223,6 @@
       href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Use external file storage
       href: how-to-attach-external-storage.md
-    - name: Create and manage schedules
-      href: how-to-create-schedules.md
-    - name: Manage virtual machine pool
-      href: how-to-manage-vm-pool.md
     - name: Access student VMs from educator view
       href: instructor-access-virtual-machines.md
     - name: Set and reset passwords 
