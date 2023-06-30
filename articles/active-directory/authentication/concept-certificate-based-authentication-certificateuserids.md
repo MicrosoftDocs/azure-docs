@@ -67,38 +67,6 @@ Tenant admins can use the following steps Azure portal to update certificate use
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/save.png" alt-text="Screenshot of a value to enter for CertificateUserId.":::
 
-## Look up certificateUserIds using Microsoft Graph queries
-
-Authorized callers can run Microsoft Graph queries to find all the users with a given certificateUserId value. On the Microsoft Graph [user](/graph/api/resources/user) object, the collection of certificateUserIds are stored in the **authorizationInfo** property.
-          
-To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
-
-```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')&$count=true
-ConsistencyLevel: eventual
-```
-
-You can also use the `not` and `startsWith` operators to match the filter condition. To filter against the certificateUserIds object, the request must include the `$count=true` query string and the **ConsistencyLevel** header set to `eventual`.
-            
-## Update certificateUserIds using Microsoft Graph queries
-
-Run a PATCH request to update the certificateUserIds for a given user.
-
-#### Request body:
-
-```http
-PATCH https://graph.microsoft.com/v1.0/users/{id}
-Content-Type: application/json
-
-{
-    "authorizationInfo": {
-        "certificateUserIds": [
-            "X509:<PN>123456789098765@mil"
-        ]
-    }
-}
-```
-
 ## Update certificateUserIds using Microsoft Graph queries
 
 **Look up certificateUserIds**
@@ -136,27 +104,27 @@ Content-Type: application/json
 For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/microsoftgraph/installation):
 
 1. Start Windows PowerShell with administrator privileges.
-2. Install and Import the Microsoft Graph PowerShell SDK
+1. Install and Import the Microsoft Graph PowerShell SDK
 
    ```powershell
        Install-Module Microsoft.Graph -Scope AllUsers
        Import-Module Microsoft.Graph.Authentication
        Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
    ```
-3. Connect to the tenant and accept all
+1. Connect to the tenant and accept all
 
    ```powershell
       Connect-MGGraph -Scopes "Directory.ReadWrite.All", "User.ReadWrite.All" -TenantId <tenantId>
    ```
-4. List CertificateUserIds attribute of a given user
+1. List CertificateUserIds attribute of a given user
 
    ```powershell
      $results = Invoke-MGGraphRequest -Method get -Uri 'https://graph.microsoft.com/v1.0/users/<userId>?$select=authorizationinfo' -OutputType PSObject -   Headers @{'ConsistencyLevel' = 'eventual' }
      #list certificateUserIds
      $results.authorizationInfo
    ```
-5. To update CertificateUserIds attribute of a given user
-
+1. Create a variable with CertificateUserIds values
+   
    ```powershell
      #Create a new variable to prepare the change. Ensure that you list any existing values you want to keep as this operation will overwrite the existing value
      $params = @{
@@ -168,22 +136,22 @@ For the configuration, you can use the [Azure Active Directory PowerShell Versio
            }
      }
    ```
-   6. Update CertificateUserIds attribute
+1. Update CertificateUserIds attribute
 
    ```powershell
       $results = Invoke-MGGraphRequest -Method patch -Uri 'https://graph.microsoft.com/v1.0/users/<UserId>/?$select=authorizationinfo' -OutputType PSObject -Headers @{'ConsistencyLevel'        = 'eventual' } -Body $params
    ```
 
-   **Update CertificateUserIds using user object**
+**Update CertificateUserIds using user object**
 
-   1. Get the user object
+1. Get the user object
 
    ```powershell
      $userObjectId = "6b2d3bd3-b078-4f46-ac53-f862f35e10b6"
      $user = get-mguser -UserId $userObjectId -Property AuthorizationInfo
    ```
 
-   2. Update the CertificateUserIds attribute of the user object
+1. Update the CertificateUserIds attribute of the user object
 
    ```powershell
       $user.AuthorizationInfo.certificateUserIds = @("X509:<SKI>eec6b88788d2770a01e01775ce71f1125cd6ad0f", "X509:<PN>user1@contoso.com") 
