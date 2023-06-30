@@ -28,7 +28,7 @@ Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-
 
 - Prepare an accessible path on Azure Blob Storage. Here's the guide if a new storage account needs to be created:  [Azure Storage Account](../../../storage/common/storage-account-create.md).
 - Create related Faiss-based index files on Azure Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files, which can be prepared either by employing our EmbeddingStore SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss). Refer to the instructions of `Vector DB QnA Step 1` for building index using EmbeddingStore SDK.
-- The identity used by the Prompt flow runtime should be granted with certain roles to access the vector store, based on which kind of path you provide. Refer to [Steps to assign an Azure role](../.../../role-based-access-control/role-assignments-steps.md):
+- The identity used by the Prompt flow runtime should be granted with certain roles to access the vector store, based on which kind of path you provide. Refer to [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md):
   - Workspace relative path, blob url on workspace default storage, and AML Datastore url: `AzureML Data Scientist`
   - Other blob urls: `Storage Blob Data Reader role`
 
