@@ -18,6 +18,10 @@ Prompt Flow can also be used together with the [LangChain](https://python.langch
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/flow.png" alt-text="Screenshot of. " lightbox = "./media/how-to-integrate-with-langchain/flow.png":::
 
+> [!IMPORTANT]
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Benefits of LangChain integration
 
 We consider the integration of LangChain and Prompt flow as a powerful combination that can help you to build and test your custom language models with ease, especially in the case where you may want to use LangChain modules to initially build your flow and then use our Prompt Flow to easily scale the experiments for bulk testing, evaluating then eventually deploying.
