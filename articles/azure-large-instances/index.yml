@@ -49,8 +49,6 @@ landingContent:
             url: workloads/epic/lun-and-wwid-mapping.md
           - text: Quality checks
             url: workloads/epic/quality-checks.md
-          - text: Register the ALI resource provider
-            url: workloads/epic/register-the-ali-resource-provider.md
       - linkListType: reference
         links:
           - text: Frequently Asked Questions

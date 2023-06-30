@@ -14,8 +14,6 @@
     href: create-a-volume-group.md
   - name: LUN and WWID mapping   
     href: lun-and-wwid-mapping.md
-  - name: Register the Azure Large instance resource provider via the Azure portal or the Azure CLI  
-    href: register-the-ali-resource-provider.md    
   - name: Frequently asked questions  
     href: faq.md
  
