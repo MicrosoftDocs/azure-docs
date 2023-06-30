@@ -323,7 +323,7 @@ For Microsoft Graph, the parameters for the **Request user access package assign
 
 ```Example for usage within the workflow
 {
- "category": "joiner,mover",
+	"category": "joiner,mover",
 	"continueOnError": false,
 	"description": "Request user assignment to selected access package",
 	"displayName": "Request user access package assignment",
