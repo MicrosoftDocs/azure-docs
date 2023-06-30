@@ -6,8 +6,6 @@
     href: notification-hubs-push-notification-overview.md
   - name: Integration with App Service Mobile Apps
     href: notification-hubs-app-service.md
-  - name: Firebase Cloud Messaging (FCM) deprecation
-    href: firebase-cloud-messaging-deprecation.md
 - name: Quickstarts
   expanded: true
   items:
