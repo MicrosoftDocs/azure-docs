@@ -7,26 +7,26 @@ ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 06/30/2023
 ---
 
 # Manage lab users in Azure Lab Services
 
 This article describes how to manage lab users in Azure Lab Services. Learn how to add users to a lab, manage their registration status, and how to specify the number of additional hours they can use the virtual machine (VM).
 
-The workflow for letting lab users access a lab consists of the following steps:
+Azure Lab Services supports different options for managing the list of lab users:
 
-1. Specify the list of lab users that can access the lab
-1. Invite users to the lab by sending a lab registration link
-1. Lab users register for the lab by using the registration link
-1. Specify a lab schedule or quota hours to control when users can access their lab VM
+- Add users to the lab by specifying their email address. You can manually add users or upload a list of email addresses.
+- Synchronize the list of users with an Azure Active Directory (Azure AD) group.
+- Integrate with Microsoft Teams or Canvas and synchronize the user list with the team (Teams) or course (Canvas) membership.
+
+When you add users to a lab based on their email address, lab users will first need to register for the lab by using a lab registration link. This registration process is a one-time operation. After registering for the lab, lab users can then access their lab in the Azure Lab Services website.
+
+When you use Teams, Canvas, or an Azure AD group, Azure Lab Services automatically grants users access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
 By default, access to a lab is restricted. Only users that are in the list of lab users can register for a lab, and get access to the lab virtual machine (VM). You can disable restricted access for a lab, which lets any user register for a lab if they have the registration link.
 
-You can [add users from an Azure Active Directory (Azure AD) group](#add-users-to-a-lab-from-an-azure-ad-group), or [manually add a list of users by email](#add-users-manually). If you enable Azure Lab Services integration with [Microsoft Teams](./how-to-manage-labs-within-teams.md) or [Canvas](./how-to-manage-labs-within-canvas.md), Azure Lab Services automatically grants user access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
-
 Azure Lab Services supports up to 400 users per lab.
-
 ## Prerequisites
 
 [!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
@@ -79,6 +79,11 @@ When a user is added to the Azure AD group, Azure Lab Services automatically add
 ## Add users manually
 
 You can add lab users manually by providing their email address in the lab configuration or by uploading a CSV file.
+
+TODO: link to account types information
+
+> [!IMPORTANT]
+> When you sign into a lab, you aren't given the option to create a new Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
 
 ### Add users by email address
 
