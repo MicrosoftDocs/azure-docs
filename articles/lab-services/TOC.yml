@@ -18,23 +18,19 @@
       href: quick-create-connect-lab.md
 - name: Tutorials
   items:
-  - name: Set up a lab in the Lab Services website
+  - name: Use labs for classroom training
     items:
-    - name: Create a lab for classroom training
+    - name: 1. Create and configure a lab
       displayName: get started, lab, tutorial, lab VM, virtual machine, getting started, admin, lab creator, create lab
       href: tutorial-setup-lab.md
-    - name: Register & access a lab
+    - name: 2. Register & access a lab
       href: tutorial-connect-lab-virtual-machine.md
-  - name: Set up a lab in Teams/Canvas
+  - name: Use labs from Teams/Canvas
     items:
-      - name: Create & manage labs (Canvas)
+      - name: 1. Create a lab in Teams/Canvas
         href: how-to-manage-labs-within-canvas.md
-      - name: Access a lab VM in Canvas
+      - name: 2. Access a lab from Teams/Canvas
         href: how-to-access-vm-for-students-within-canvas.md     
-      - name: Create & manage labs (Teams)
-        href: how-to-manage-labs-within-teams.md
-      - name: Access a lab VM in Teams
-        href: how-to-access-vm-for-students-within-teams.md 
   - name: Set up lab to lab communication
     href: tutorial-create-lab-with-advanced-networking.md
   - name: Track usage of a lab
@@ -237,7 +233,7 @@
       href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)
     items:
-    - name: Access & manage a lab
+    - name: Access a lab
       href: how-to-access-and-manage-lab.md
     - name: Connect to a lab VM
       href: connect-virtual-machine.md
