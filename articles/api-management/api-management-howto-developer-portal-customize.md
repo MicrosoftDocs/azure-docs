@@ -192,11 +192,6 @@ When a user visits the developer portal with visibility and access controls appl
 > Using the administrative interface, you can preview pages as a user associated with any built-in or custom group by selecting the **Impersonate** icon in the menu at the bottom. 
 > 
 
-### Customization example
-
-In the following video, we demonstrate how to edit the content of the portal, customize the website's look, and publish the changes.
-
-> [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
 ## <a name="publish"></a> Publish the portal
 

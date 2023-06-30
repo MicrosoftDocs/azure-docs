@@ -14,7 +14,7 @@ ms.author: danlep
 
 # Migrate to the new developer portal
 
-This article describes the steps you need to take to migrate from the deprecated legacy portal to the new developer portal in API Management.
+This article describes the steps you need to take to migrate from the deprecated (legacy) developer portal to the new developer portal in API Management.
 
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
