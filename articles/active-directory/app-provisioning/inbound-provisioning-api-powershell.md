@@ -33,9 +33,6 @@ The following steps successfully configure out-of-the-box provisioning job with 
 
 1. Type 'API-driven' in the search text box. Select the application **API-driven Inbound User Provisioning to Azure AD**. 
 
-   >[!NOTE]
-   >The application “API-driven Inbound User Provisioning to on-premises AD” isn't supported. 
-
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/select-app.png" alt-text="Screenshot of how to select the inbound provisioning API application.":::
 
 1. You can rename the application to meet your naming requirements and then click **Create**. 
@@ -143,7 +140,6 @@ To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/mapping-error.png" alt-text="Screenshot of a mapping error.":::
 
-
 1. Once you verified that the AttributeMapping is valid, run the following command to generate a SCIM bulk request in the file **SCIMPayload.json** that includes the two records present in the CSV file. 
 
 
@@ -162,6 +158,19 @@ To illustrate the procedure, we will use the CSV file Samples/csv-with-2-records
 
 
 ## Generate and upload SCIM payload with standard schema
+
+Building upon the previous section, we will now demonstrate how to send the generated SCIM payload to your Azure AD Inbound Provisioning API endpoint with the script. 
+
+1. Login to your Entra portal as App Admin.
+1. Copy the ServicePrincipalId associated with your provisioning app from **Provisioning App** > **Properties** > **Object ID**.
+
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/object-id.png" alt-text="Screenshot of the Object ID.":::
+
+1. Run the following command. This will prompt you for authentication if an authenticated session does not already exist for this tenant. As long as the authenticated user has “App Admin” or “Global Admin” role, the command below should succeed, and it will post the generated SCIM payload to the API endpoint. 
+
+   ```powershell
+   .\CSV2SCIM.ps1 -Path '..\Samples\csv-with-2-records.csv' -AttributeMapping $AttributeMapping -ServicePrincipalId <servicePrincipalId> -TenantId "contoso.onmicrosoft.com"
+   ```
 
 ## Get provisioning logs of the latest Sync Cycles
 
