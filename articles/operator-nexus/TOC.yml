@@ -15,6 +15,8 @@
       href: concepts-observability.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
+    - name: Nexus Frequently asked questions
+      href: azure-operator-nexus-faq.md
 - name: Quickstarts
   items:
     - name: Deploy Nexus Kubernetes cluster
@@ -115,3 +117,5 @@
       href: List-of-metrics-collected.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
+    - name: Limits & quotas
+      href: reference-limits-and-quotas.md

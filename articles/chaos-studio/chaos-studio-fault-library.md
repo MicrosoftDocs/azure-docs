@@ -20,7 +20,7 @@ The faults listed in this article are currently available for use. To understand
 |-|-|
 | Fault provider | N/A |
 | Supported OS types | N/A |
-| Description | Adds a time delay before, between, or after other actions. This fault is useful for waiting for the effect of a fault to appear in a service, or for waiting for an activity outside of the experiment to complete. An example is waiting for autohealing to occur before injecting another fault. |
+| Description | Adds a time delay before, between, or after other experiment actions. This is not a fault and is used to synchronize actions within an experiment. Use this action to wait for the impact of a fault to appear in a service, or wait for an activity outside of the experiment to complete. For example, waiting for autohealing to occur before injecting another fault.|
 | Prerequisites | N/A |
 | Urn | urn:csci:microsoft:chaosStudio:timedDelay/1.0 |
 | Duration | The duration of the delay in ISO 8601 format (for example, PT10M). |
