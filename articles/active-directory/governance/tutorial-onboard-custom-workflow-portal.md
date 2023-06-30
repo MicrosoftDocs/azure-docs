@@ -24,7 +24,8 @@ This prehire scenario generates a temporary access pass for our new employee and
 
 ## Prerequisites
 
- Using Lifecycle Workflows requires Microsoft Entra ID Governance licenses. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ##  Before you begin
 
