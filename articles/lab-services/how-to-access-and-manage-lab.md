@@ -169,7 +169,6 @@ Learn more about how to [connect to a lab VM](connect-virtual-machine.md).
 
 ## Next steps
 
-- [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
-- [As a lab owner, create and manage labs](how-to-manage-labs.md)
-- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- Learn how to [change your lab VM password](./how-to-set-virtual-machine-passwords-student.md)
+- Learn how to [reset or troubleshoot your lab VM](./how-to-reset-and-redeploy-vm.md)
+- Learn about [key concepts in Azure Lab Services](./classroom-labs-concepts.md), such as quota hours or lab schedules.
