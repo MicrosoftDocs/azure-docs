@@ -26,8 +26,7 @@ Storage can also be shared across ALI to enable features like scale-out clusters
 This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription.
 The entire environment is represented as a resource group in that subscription.
 
-ALI is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TBs up to 24 TBs. 
-A large set of SKUs is also available with Optane memory.
+A large set of ALI SKUs is available with Optane memory.
 Azure offers the largest range of Azure Large Instances in a hyperscale cloud.
 
 ## Why ALI?
@@ -35,7 +34,7 @@ Azure offers the largest range of Azure Large Instances in a hyperscale cloud.
 Some workloads in the enterprise consist of technologies that just aren't designed to run in a typical virtualized cloud setting.
 They require special architecture, certified hardware, or extraordinarily large sizes.
 Although those technologies have the most sophisticated data protection and business continuity features, those features aren't built for the virtualized cloud.
-They're more sensitive to latencies and noisy neighbors and require more control over change management and maintenance activity. 
+They're more sensitive to latencies and noisy neighbors and require more control over change management and maintenance activity.
 
 ALI is built, certified, and tested for a select set of such applications.
 Azure was the first to offer such solutions and has since led with the largest portfolio and most sophisticated systems.

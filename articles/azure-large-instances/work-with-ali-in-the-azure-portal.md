@@ -18,7 +18,7 @@ In this article, we'll show what you can do in the Azure portal with your implem
 
 ## Register the resource provider
 
-An Azure resource provider for ALI enables to you see the instances in the Azure portal.
+An Azure resource provider for ALI enables you to see the instances in the Azure portal.
 By default, the Azure subscription you use for ALI deployments registers the ALI resource provider.
 If you don't see your deployed ALI, register the resource provider with your subscription.
 
@@ -236,7 +236,7 @@ As a result, after a restart, you can only log into the unit once the state swit
 To restart an ALI instance, use the [az baremetalinstance restart](/cli/azure/baremetalinstance#az-baremetalinstance-restart) command:
 
 ```azurecli
-az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
+az baremetalinstance restart --resource-group --instance-name 
 ```
 
 ---
