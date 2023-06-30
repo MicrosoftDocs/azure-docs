@@ -18,6 +18,7 @@ The data connector sends Defender EASM asset data to two different platforms: Lo
 [Log Analytics](/azure/sentinel/overview) provides security information and event management and security orchestration, automation, and response capabilities. Defender EASM asset or insights information can be used in Log Analytics to enrich existing workflows with other security data. This information can supplement firewall and configuration information, threat intelligence, and compliance data to provide visibility into your external-facing infrastructure on the open internet.
 
 You can:
+
 - Create or enrich security incidents.
 - Build investigation playbooks.
 - Train machine learning algorithms.
@@ -41,13 +42,15 @@ This option doesn't provide any predetermined insights about the assets. Instead
 
 ## Configuration overviews
 
+Here's some general information on configuration.
+
 ### Access data connections
 On the pane on the left in your Defender EASM resource pane, under **Manage**, select **Data Connections**. This page displays the data connectors for both Log Analytics and Azure Data Explorer. It lists any current connections and provides the option to add, edit, or remove connections.
 
 ![Screenshot that shows the Data connections page.](media/data-connections/data-connector-1a.png)
 
 ### Connection prerequisites
-To successfully create a data connection, you must first ensure that you have completed the required steps to grant Defender EASM permission to the tool of your choice. This process enables the application to ingest your exported data. It also provides the authentication credentials needed to configure the connection.
+To successfully create a data connection, you must first ensure that you've completed the required steps to grant Defender EASM permission to the tool of your choice. This process enables the application to ingest your exported data. It also provides the authentication credentials needed to configure the connection.
 
 ## Configure Log Analytics permissions
 
@@ -73,18 +76,18 @@ Ensure that the Defender EASM API service principal has access to the correct ro
 
 1. Name your database, configure retention and cache periods, and select **Create**.
 
-   ![Screenshot that shows Add database.](media/data-connections/data-connector-5.png)
+   ![Screenshot that shows creating a new database.](media/data-connections/data-connector-5.png)
 
 1. After your Defender EASM database is created, select the database name to open the details page. On the pane on the left, under **Overview**, select **Permissions**.
    To successfully export Defender EASM data to Azure Data Explorer, you must create two new permissions for the EASM API: **user** and **ingestor**.
 
    ![Screenshot that shows Azure Data Explorer permissions.](media/data-connections/data-connector-6b.png)
 
-1. Select **Add** and create a user. Search for **EASM API**, select the value, and choose**Select**.
+1. Select **Add** and create a user. Search for **EASM API**, select the value, and choose **Select**.
 
-1. Select **Add** to create an ingestor. Follow the same steps previously outlined to add the **"EASM API"** as an ingestor.
+1. Select **Add** to create an ingestor. Follow the same steps previously outlined to add the **EASM API** as an ingestor.
 
-1. Your database is now ready to connect to Defender EASM. You need the cluster name, database name, and region when you configure your Data Connection.
+1. Your database is now ready to connect to Defender EASM. You need the cluster name, database name, and region when you configure your data connection.
 
 ## Add a data connection
 You can connect your Defender EASM data to either Log Analytics or Azure Data Explorer. To do so, select **Add connection** for the appropriate tool from the **Data Connections** page.
@@ -94,35 +97,36 @@ A configuration pane opens on the right side of the **Data Connections** page. T
 ### Log Analytics
 
 - **Name**: Enter a name for this data connection.
-- **Workspace ID**: The workspace ID for the Log Analytics instance where you want to export Defender EASM data.
-- **Api key**: The API key for the Log Analytics instance.
-- **Content**: You can select to integrate asset data, attack surface insights or both datasets.
-- **Frequency**: Select the frequency that the Defender EASM connection sends updated data to the tool of your choice. Available options are daily, weekly, and monthly.
+- **Workspace ID**: Enter the workspace ID for the Log Analytics instance where you want to export Defender EASM data.
+- **Api key**: Enter the API key for the Log Analytics instance.
+- **Content**: Select to integrate asset data, attack surface insights, or both datasets.
+- **Frequency**: Select the frequency that the Defender EASM connection uses to send updated data to the tool of your choice. Available options are daily, weekly, and monthly.
 
    ![Screenshot that shows the Add data connection screen for Log Analytics.](media/data-connections/data-connector-11.png)
 
 ### Azure Data Explorer
 
 - **Name**: Enter a name for this data connection.
-- **Cluster name**: The name of the Azure Data Explorer cluster where you want to export Defender EASM data.
-- **Region**: The region of the Azure Data Explorer cluster.
-- **Database name**: The name of the desired database.
-- **Content**: You can select to integrate asset data, attack surface insights or both datasets.
-- **Frequency**: Select the frequency that the Defender EASM connection sends updated data to the tool of your choice. Available options are daily, weekly, and monthly.
+- **Cluster name**: Enter the name of the Azure Data Explorer cluster where you want to export Defender EASM data.
+- **Region**: Enter the region of the Azure Data Explorer cluster.
+- **Database name**: Enter the name of the desired database.
+- **Content**: Select to integrate asset data, attack surface insights, or both datasets.
+- **Frequency**: Select the frequency that the Defender EASM connection uses to send updated data to the tool of your choice. Available options are daily, weekly, and monthly.
 
    ![Screenshot that shows the Add data connection screen for Azure Data Explorer.](media/data-connections/data-connector-12.png)
 
    After all fields are configured, select **Add** to create the data connection. At this point, the **Data Connections** page displays a banner that indicates the resource has been successfully created. In 30 minutes, data begins to populate. After connections are created, they're listed under the applicable tool on the main **Data Connections** page.
 
 ## Edit or delete a data connection
-You can edit or delete a data connection. For example, you might notice that a connection is listed as **Disconnected**, so you would need to reenter the configuration details to fix the issue.
+You can edit or delete a data connection. For example, you might notice that a connection is listed as **Disconnected**. In this case, you need to reenter the configuration details to fix the issue.
+
 To edit or delete a data connection:
 
 1. Select the appropriate connection from the list on the main **Data Connections** page.
 
    ![Screenshot that shows disconnected data connections.](media/data-connections/data-connector-8.png)
 
-1. A page opens that provides more data about the connection. It displays the configurations you elected when you created the connection and any error messages. You also see the following data:
+1. A page opens that provides more data about the connection. It displays the configurations you chose when you created the connection and any error messages. You also see the following data:
 
    - **Recurring on**: The day of the week or month that Defender EASM sends updated data to the connected tool.
    - **Created**: The date and time that the data connection was created.
@@ -132,7 +136,7 @@ To edit or delete a data connection:
 
 1. From this page, you can reconnect, edit, or delete your data connection.
 
-   - **Reconnect**: Attempts to validate the data connection without any changes to the configuration. This option is best if you have validated the authentication credentials used for the data connection.
+   - **Reconnect**: Attempts to validate the data connection without any changes to the configuration. This option is best if you validated the authentication credentials used for the data connection.
    - **Edit**: Allows you to change the configuration for the data connection.
    - **Delete**: Deletes the data connection.
 
