@@ -166,7 +166,7 @@ You should get a status HTTP 201 success.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchConfiguration"` properties. See [this article](/rest/api/searchservice/preview-api/create-or-update-index) for property descriptions.
 
-+ The "vectorSearch" object is an array of algorithm configurations used by vector fields. At this time only HNSW is supported which is a graph-based Approximate Nearest Neighbors (ANN) algorithm optimized for high-recall, low-latency applications.
++ The "vectorSearch" object is an array of algorithm configurations used by vector fields. Currently, only HNSW is supported. HNSW is a graph-based Approximate Nearest Neighbors (ANN) algorithm optimized for high-recall, low-latency applications.
 
 + The "semanticSearch" configuration enables semantic reranking of search results. You can semantically rerank results in queries of type "semantic" for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
 
