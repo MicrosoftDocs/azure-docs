@@ -5,7 +5,7 @@ description: Learn how to deploy a flow as a managed online endpoint for real-ti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar

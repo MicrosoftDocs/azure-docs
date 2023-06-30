@@ -5,7 +5,7 @@ description: Learn how to create and manage runtimes in Prompt flow with Azure M
 services: machine-learning
 ms.service: core
 ms.subservice: prompt-flow
-ms.topic: tutorial
+ms.topic: how-to
 author: cloga
 ms.author: lochen
 ms.reviewer: lagayhar

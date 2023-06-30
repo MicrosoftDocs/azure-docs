@@ -5,7 +5,7 @@ description: Learn how to develop a chat flow in Prompt flow that can easily cre
 services: machine-learning
 ms.service: core
 ms.subservice: prompt-flow
-ms.topic: tutorial
+ms.topic: how-to
 author: Zhong-J
 ms.author: jinzhong
 ms.reviewer: lagayhar

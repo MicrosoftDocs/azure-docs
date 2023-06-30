@@ -5,7 +5,7 @@ description: learn how to develop the standard flow in the authoring page in Pro
 services: machine-learning
 ms.service: core
 ms.subservice: prompt-flow
-ms.topic: tutorial
+ms.topic: how-to
 author: jiaochenlu
 ms.author: chenlujiao
 ms.reviewer: lagayhar

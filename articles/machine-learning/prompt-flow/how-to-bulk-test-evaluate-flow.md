@@ -5,7 +5,7 @@ description: Learn how to submit bulk test and use built-in evaluation methods i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
 ms.reviewer: lagayhar
