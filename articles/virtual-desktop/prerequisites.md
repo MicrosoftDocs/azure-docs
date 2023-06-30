@@ -139,7 +139,7 @@ You'll need to enter the following identity parameters when deploying session ho
 
 ## Operating systems and licenses
 
-You have a choice of operating systems that you can use for session hosts to provide virtual desktops and remote apps. You can use different operating systems with different host pools to provide flexibility to your users. We support the following 64-bit versions of these operating systems, where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/).
+You have a choice of operating systems (OS) that you can use for session hosts to provide virtual desktops and remote apps. You can use different operating systems with different host pools to provide flexibility to your users. We support the following 64-bit versions of these operating systems, where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/).
 
 |Operating system |User access rights|
 |---|---|
@@ -148,39 +148,26 @@ You have a choice of operating systems that you can use for session hosts to pro
 
 > [!IMPORTANT]
 > - The following items are not supported:
->   - 32-bit operating systems or SKUs not listed in the previous table.
+>   - 32-bit operating systems, or SKUs not listed in the previous table.
 >   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
 >   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
 >   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
 > 
 > - Support for Windows 7 ended on January 10, 2023.
 
-You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or your own custom images stored in an Azure Compute Gallery, as a managed image, or storage blob. To learn more about how to create custom images, see:
+You can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 
+- [Custom image templates in Azure Virtual Desktop](custom-image-templates.md)
 - [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
 - [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
-- [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-You can deploy virtual machines (VMs) to be used as session hosts from these images with any of the following methods:
+You can deploy a virtual machines (VMs) to be used as session hosts from these images with any of the following methods:
 
-- Automatically, as part of the [host pool setup process](create-host-pools-azure-marketplace.md).
-- Manually, in the Azure portal and [adding to a host pool after you've created it](expand-existing-host-pool.md).
-- Programmatically, with [Azure CLI, PowerShell](create-host-pools-powershell.md), or [REST API](/rest/api/desktopvirtualization/).
+- Automatically, as part of the [host pool setup process](create-host-pool.md?tabs=portal) in the Azure portal.
+- Manually by [adding session hosts to an existing host pool](add-session-hosts-host-pool.md?tabs=portal%2Cgui) in the Azure portal.
+- Programmatically, with [Azure CLI](add-session-hosts-host-pool.md?tabs=cli%2Ccmd) or [Azure PowerShell](add-session-hosts-host-pool.md?tabs=powershell%2Ccmd).
 
 If your license entitles you to use Azure Virtual Desktop, you don't need to install or apply a separate license, however if you're using per-user access pricing for external users, you will need to [enroll an Azure Subscription](remote-app-streaming/per-user-access-pricing.md). You will need to make sure the Windows license used on your session hosts is correctly assigned in Azure and the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
-
-There are different automation and deployment options available depending on which operating system and version you choose, as shown in the following table:
-
-|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Deploy host pools from Azure Marketplace|
-|--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 11 Enterprise multi-session|Yes|Yes|Yes|Yes|
-|Windows 11 Enterprise|Yes|Yes|No|No|
-|Windows 10 Enterprise multi-session|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise|Yes|Yes|No|No|
-|Windows Server 2022|Yes|Yes|No|No|
-|Windows Server 2019|Yes|Yes|Yes|Yes|
-|Windows Server 2016|Yes|Yes|No|No|
-|Windows Server 2012 R2|Yes|Yes|No|No|
 
 > [!TIP]
 > To simplify user access rights during initial development and testing, Azure Virtual Desktop supports [Azure Dev/Test pricing](https://azure.microsoft.com/pricing/dev-test/). If you deploy Azure Virtual Desktop in an Azure Dev/Test subscription, end users may connect to that deployment without separate license entitlement in order to perform acceptance tests or provide feedback.

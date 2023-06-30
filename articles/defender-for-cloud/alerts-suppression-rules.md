@@ -51,7 +51,7 @@ To create a rule for a specific alert in the Azure portal:
     - **Name** - A name for the rule. Rule names must begin with a letter or a number, be between 2 and 50 characters, and contain no symbols other than dashes (-) or underscores (_).
     - **State** - Enabled or disabled.
     - **Reason** - Select one of the built-in reasons or 'other' to specify your own reason in the comment.
-    - **Expiration date** - An end date and time for the rule. Rules can run for up to six months.
+    - **Expiration date** - An end date and time for the rule. Rules can run for without any time limit as set in Expiration date.
 
 1. You select **Simulate** to see the number of previously received alerts that would have been dismissed if the rule was active.
 1. Save the rule.

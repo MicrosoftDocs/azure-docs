@@ -24,6 +24,8 @@
             href: migrate/how-to-migrate-single-to-flexible-cli.md
           - name: Common errors
             href: migrate/common-errors-and-special-scenarios-fms.md
+          - name: Troubleshooting Networking and Connectivity issues
+            href: migrate/troubleshooting-networking-and-connectivity-issues.md  
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
@@ -618,6 +620,10 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-scale-compute-storage-portal.md
+      - name: Restore a dropped server
+        items:
+        - name: Restore a dropped server
+          href: flexible-server/how-to-restore-dropped-server.md
       - name: Restart a server
         items:
         - name: Azure portal

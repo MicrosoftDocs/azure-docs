@@ -228,6 +228,8 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to the VMs in your virtual network. Azure bastion enables connections without exposing a public IP on the VM. Connections are made directly from the Azure portal, without the need of an extra client/agent or piece of software. Azure Bastion supports standard SKU public IP addresses.
 
+ [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 
 This table lists the methods you can use to create an Azure Bastion deployment.

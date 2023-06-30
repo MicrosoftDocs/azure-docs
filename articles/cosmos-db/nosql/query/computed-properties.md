@@ -56,7 +56,7 @@ The constraints on computed property names are:
 
 ### Query constraints
 
-Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation will fail. Queries should evaluate to a deterministic value for all items in a container. 
+Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation will fail. Queries should evaluate to a deterministic value for all items in a container. Queries may evaluate to undefined or null for some items, and computed properties with undefined or null values behave the same as persisted properties with undefined or null values when used in queries.
 
 The constraints on computed property query definitions are:
 
@@ -213,7 +213,7 @@ SELECT c.cp_lowerName FROM c
 
 ### WHERE clause
 
-Computed properties can be referenced in filter predicates like any persisted properties. 
+Computed properties can be referenced in filter predicates like any persisted properties. It's recommended to add any relevant single or composite indexes when using computed properties in filters.
 
 Let's take an example computed property definition to calculate a 20 percent price discount.
 
@@ -232,7 +232,7 @@ SELECT c.price - c.cp_20PercentDiscount as discountedPrice, c.name FROM c WHERE 
 
 ### GROUP BY clause
 
-As with persisted properties, computed properties can be referenced in the GROUP BY clause and use the index whenever possible. 
+As with persisted properties, computed properties can be referenced in the GROUP BY clause and use the index whenever possible. For the best performance, add any relevant single or composite indexes.
 
 Let's take an example computed property definition that finds the primary category for each item from the `categoryName` property.
 
@@ -342,6 +342,10 @@ Add a composite index on two properties where one is computed, `cp_myComputedPro
     ]
 }
 ```
+
+## RU consumption
+
+Adding computed properties to a container does not consume RUs. Write operations on containers that have computed properties defined may see a slight RU increase. If a computed property is indexed, RUs on write operations will increase to reflect the costs for indexing and evaluation of computed property. While in preview, RU charges related to computed properties are subject to change.
 
 ## Next steps
 
