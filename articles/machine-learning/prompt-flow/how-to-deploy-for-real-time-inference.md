@@ -117,11 +117,7 @@ Once you configured and reviewed all the steps above, you can select **Create** 
 ## Check the status of the endpoint
 
 
-There will be notification after you finish the deploy wizard. After the endpoint is created, you can select **Deploy details** in the notification to endpoint detail page.
-
-You can also select **View endpoints** in your flow detail page, and view all endpoints deployed from the flow, or from the runs of this flow.
-
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/view-endpoint-of-flow.png" alt-text="Screenshot of. " lightbox = "./media/how-to-deploy-for-real-time-inference/view-endpoint-of-flow.png":::
+There will be notifications after you finish the deploy wizard. After the endpoint and deployment are created successfully, you can select **Deploy details** in the notification to endpoint detail page.
 
 You can also directly go to the **Endpoints** page in the studio, and check the status of the endpoint you deployed.
 
@@ -133,6 +129,8 @@ You can also directly go to the **Endpoints** page in the studio, and check the 
  > After you finish creating the endpoint and **before you test or consume the endpoint**, make sure you have granted correct permissions by adding role assignment to the managed identity of the endpoint. Otherwise, the endpoint will fail to perform inference due to lacking of permissions.
  >
  > Granting permissions (adding role assignment) is only enabled to the **Owner** of the specific Azure resources. You may need to ask your IT admin for help.
+ > 
+ > It may take more than 15 minutes for the granted permission to take effect.
 
 Following are the roles you need to assign to the managed identity of the endpoint, and why the permission of such role is needed.
 
