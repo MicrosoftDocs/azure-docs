@@ -23,33 +23,33 @@ This section provides the steps to use the default metrics defined by Spring Boo
 
 #### Add metrics defined by Spring Boot
 
-   Spring Boot registers several metrics, such as JVM, web server related, and logging related. The following instruction will use `JVM Memory` as an example, you can add other interested metrics following the same steps.
+Spring Boot registers several metrics, such as JVM, web server related, and logging related. The following instruction will use `JVM Memory` as an example, you can add other interested metrics following the same steps.
 
-    1. Go to the Azure Spring Apps instance overview page.
-    
-    1. Select **Application Insights** in the left navigation menu to go to the Application Insights overview page.
-    
-    1. Select **Metrics** in the left navigation menu. Select the edit icon in the chart title, rename the chart title to `JVM Memory Used`.
-    
-    1. Select **Add metric**, for **Metric**, select the corresponding dropdown list to choose the **jvm_memory_used** metric under the **Log-based metrics** namespace, select `Avg` for **Avg**.
-    
-    1. Select **Apply splitting**, for **Values**, select the corresponding dropdown list to check the **Cloud role name** box.
+1. Go to the Azure Spring Apps instance overview page.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/jvm-memory-used-chart.png" alt-text="Screenshot of the Azure portal with Azure Spring Apps instance jvm memory used chart page." lightbox="../../media/tutorial-applications-observability/jvm-memory-used-chart.png":::
+1. Select **Application Insights** in the left navigation menu to go to the Application Insights overview page.
 
-   > [!NOTE]
-   > The metrics are available after the application is deployed and running.
+1. Select **Metrics** in the left navigation menu. Select the edit icon in the chart title, rename the chart title to `JVM Memory Used`.
+
+1. Select **Add metric**, for **Metric**, select the corresponding dropdown list to choose the **jvm_memory_used** metric under the **Log-based metrics** namespace, select `Avg` for **Avg**.
+
+1. Select **Apply splitting**, for **Values**, select the corresponding dropdown list to check the **Cloud role name** box.
+
+:::image type="content" source="../../media/tutorial-applications-observability/jvm-memory-used-chart.png" alt-text="Screenshot of the Azure portal with Azure Spring Apps instance jvm memory used chart page." lightbox="../../media/tutorial-applications-observability/jvm-memory-used-chart.png":::
+
+> [!NOTE]
+> The metrics are available after the application is deployed and running.
 
 #### Add custom metrics defined in application code
 
-   In the PetClinic's source code, the REST controllers are annotated with the Micrometer `@Timed` annotation. This annotation will collect metrics like the number of times a method is called or the execution time of a method. 
-   The following are the three custom metrics details: 
-   - `petclinic.owner` and `petclinic.pet` defined in the `customers-service` application.
-   - `petclinic.visit` defined in the `visits-service` application.
+In the PetClinic's source code, the REST controllers are annotated with the Micrometer `@Timed` annotation. This annotation will collect metrics like the number of times a method is called or the execution time of a method. 
+The following are the three custom metrics details: 
+- `petclinic.owner` and `petclinic.pet` defined in the `customers-service` application.
+- `petclinic.visit` defined in the `visits-service` application.
 
-   Same as in the previous section, you can define a chart `REST Controller` with custom metrics, and update the **Aggregation** to `Count` for each metrics.
+Same as in the previous section, you can define a chart `REST Controller` with custom metrics, and update the **Aggregation** to `Count` for each metrics.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/custom-metrics.png" alt-text="Screenshot of the Azure portal with Azure Spring Apps instance overview page." lightbox="../../media/tutorial-applications-observability/custom-metrics.png":::
+:::image type="content" source="../../media/tutorial-applications-observability/custom-metrics.png" alt-text="Screenshot of the Azure portal with Azure Spring Apps instance overview page." lightbox="../../media/tutorial-applications-observability/custom-metrics.png":::
 
 ### Monitor the availability of the application
 
@@ -248,22 +248,22 @@ when the metric pattern matches the condition, the alert rule is triggered, and 
 
 1. Create an alert rule for `App Memory Usage` metric signal, and repeat the previous steps, use the below updated inputs:
 
-    - **Signal name**: `App Memory Usage`
-    - **Threshold value**: `90`
-    - **Dimension name**: `App`
-    - **Dimension values**: Select all.
-    - **Action group name**: `email-notification`
-    - **Alert rule name**: `app-memory-high-alert`
+   - **Signal name**: `App Memory Usage`
+   - **Threshold value**: `90`
+   - **Dimension name**: `App`
+   - **Dimension values**: Select all.
+   - **Action group name**: `email-notification`
+   - **Alert rule name**: `app-memory-high-alert`
 
 1. Create an alert rule for `App Network In` metric signal, and repeat the previous steps, use the below updated inputs:
 
-    - **Signal name**: `App Network In`
-    - **Unit**: `GB`
-    - **Threshold value**: `1`
-    - **Dimension name**: `App`
-    - **Dimension values**: `api-gateway`
-    - **Action group name**: `email-notification`
-    - **Alert rule name**: `network-in-high-alert`
+   - **Signal name**: `App Network In`
+   - **Unit**: `GB`
+   - **Threshold value**: `1`
+   - **Dimension name**: `App`
+   - **Dimension values**: `api-gateway`
+   - **Action group name**: `email-notification`
+   - **Alert rule name**: `network-in-high-alert`
 
 1. After all the alert rule creation, you can see the alert rules list below:
 
