@@ -139,7 +139,7 @@ When you activate the staging feature, first the data is copied from the source 
 
 :::image type="content" source="media/copy-activity-performance/staged-copy.png" alt-text="Staged copy":::
 
-You need to grant delete permission to your Azure Data Factory in your staging Azure Blob Storage or Azure Data Lake Storage Gen2, so that the temporary data can be cleaned after the copy activity runs.
+You need to grant delete permission to your Azure Data Factory in your staging storage, so that the temporary data can be cleaned after the copy activity runs.
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before you move data from the source data store to the staging store and then decompressed before you move data from an interim or staging data store to the sink data store.
 
