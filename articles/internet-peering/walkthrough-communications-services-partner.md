@@ -136,7 +136,7 @@ To begin activating your prefixes, in the search box at the top of the portal, e
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
 
-Select **+ Create** to create a new Peering Service connection.
+Select **Create** to create a new Peering Service connection.
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot shows the list of existing Peering Service connections in the Azure portal.":::
 
