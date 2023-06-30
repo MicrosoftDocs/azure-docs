@@ -1,7 +1,7 @@
 ---
 title: Document Translation SDKs 
 titleSuffix: Azure AI services
-description: Azure AI Translator Document Translation software development kits (SDKs) expose Document Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
+description: Document Translation software development kits (SDKs) expose Document Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
