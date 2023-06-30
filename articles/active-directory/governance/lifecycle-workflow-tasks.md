@@ -323,24 +323,23 @@ For Microsoft Graph, the parameters for the **Request user access package assign
 
 ```Example for usage within the workflow
 {
-            "category": "joiner",
-            "description": "Request user assignment to selected access package",
-            "displayName": "Request user access package assignment",
-            "id": "c1ec1e76-f374-4375-aaa6-0bb6bd4c60be",
-            "parameters": [
-                {
-                    "name": "assignmentPolicyId",
-                    "values": [],
-                    "valueType": "string"
-                },
-                {
-                    "name": "accessPackageId",
-                    "values": [],
-                    "valueType": "string"
-                }
-            ]
-        }
-
+ "category": "joiner,mover",
+	"continueOnError": false,
+	"description": "Request user assignment to selected access package",
+	"displayName": "Request user access package assignment",
+	"isEnabled": true,
+	"taskDefinitionId": "c1ec1e76-f374-4375-aaa6-0bb6bd4c60be",
+	"arguments": [
+		{
+			"name": "assignmentPolicyId",
+			"value": "00d6fd25-6695-4f4a-8186-e4c6f901d2c1"
+		},
+		{
+			"name": "accessPackageId",
+			"value": "2ae5d6e5-6cbe-4710-82f2-09ef6ffff0d0"
+		}
+	]
+}
 ```
 
 ### Add user to groups
@@ -681,17 +680,18 @@ For Microsoft Graph, the parameters for the **Remove access package assignment f
 
 ```Example for usage within the workflow
 {
-            "category": "leaver",
-            "description": "Remove user assignment of selected access package",
-            "displayName": "Remove access package assignment for user",
-            "id": "4a0b64f2-c7ec-46ba-b117-18f262946c50",
-            "parameters": [
-                {
-                    "name": "accessPackageId",
-                    "values": [],
-                    "valueType": "string"
-                }
-            ]
+	"category": "leaver,mover",
+	"continueOnError": false,
+	"description": "Remove user assignment of selected access package",
+	"displayName": "Remove access package assignment for user",
+	"isEnabled": true,
+	"taskDefinitionId": "4a0b64f2-c7ec-46ba-b117-18f262946c50",
+	"arguments": [
+		{
+			"name": "accessPackageId",
+			"value": "2ae5d6e5-6cbe-4710-82f2-09ef6ffff0d0"
+		}
+	]
 }
 ```
 
@@ -714,11 +714,13 @@ For Microsoft Graph, the parameters for the **Remove all access package assignme
 
 ```Example for usage within the workflow
 {
-            "category": "leaver",
-            "description": "Remove all access packages assigned to the user",
-            "displayName": "Remove all access package assignments for user",
-            "id": "42ae2956-193d-4f39-be06-691b8ac4fa1d",
-            "parameters": []
+	"category": "leaver",
+	"continueOnError": false,
+	"description": "Remove all access packages assigned to the user",
+	"displayName": "Remove all access package assignments for user",
+	"isEnabled": true,
+	"taskDefinitionId": "42ae2956-193d-4f39-be06-691b8ac4fa1d",
+	"arguments": []
 }
 ```
 
@@ -742,11 +744,13 @@ For Microsoft Graph, the parameters for the **Cancel all pending access package 
 
 ```Example for usage within the workflow
 {
-            "category": "leaver",
-            "description": "Cancel all pending access packages assignment requests for the user",
-            "displayName": "Cancel pending access package assignment requests for user",
-            "id": "498770d9-bab7-4e4c-b73d-5ded82a1d0b3",
-            "parameters": []
+	"category": "leaver",
+	"continueOnError": false,
+	"description": "Cancel all access package assignment requests pending for the user",
+	"displayName": "Cancel all pending access package assignment requests for user",
+	"isEnabled": true,
+	"taskDefinitionId": "498770d9-bab7-4e4c-b73d-5ded82a1d0b3",
+	"arguments": []
 }
 ```
 
