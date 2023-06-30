@@ -20,6 +20,7 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 ### Updated articles
 
 - [Set up tenant restrictions V2 (Preview)](tenant-restrictions-v2.md) Microsoft Teams updates.
+- [Invite guest users to an app](add-users-information-worker.md) Link and structure updates.
 
 ## May 2023
 
