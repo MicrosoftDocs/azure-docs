@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network
 description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/21/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 06/21/2023
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network

@@ -45,6 +45,9 @@ The following examples are the general formats for autoscale resource logs with 
 
 Use these logs to troubleshoot issues in autoscale. For more information, see [Troubleshooting autoscale problems](autoscale-troubleshoot.md).
 
+> [!NOTE]
+> Although the logs may refer to "scale up" and "scale down" actions, the actual action taken is scale in or scale out.  
+
 ## Autoscale evaluations log
 The following schemas appear in the autoscale evaluations log.
 

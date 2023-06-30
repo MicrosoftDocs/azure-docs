@@ -26,7 +26,7 @@ This API returns the summary of your model's evaluation results, including the p
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
 |`{trainedModelLabel}`     | The name for your trained model. This value is case-sensitive.   | `Model1` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-05-01` |
+|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you are calling. | `2023-04-01` |
 
 
 ### Headers
@@ -231,7 +231,7 @@ This API returns the individual results for each utterance including their expec
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
 |`{trainedModelLabel}`     | The name for your trained model. This value is case-sensitive.   | `Model1` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-05-01` |
+|`{API-VERSION}`     | The [version](../../../concepts/model-lifecycle.md#api-versions) of the API you are calling. | `2023-04-01` |
 |`{top}`     | The maximum number of utterances to return from the collection. Optional.  | `100` |
 |`{skip}`     | An offset into the collection of the first utterance to be returned. Optional.   | `100` |
 |`{maxpagesize}`     | The maximum number of utterances to include in a single response. Optional | `100` |

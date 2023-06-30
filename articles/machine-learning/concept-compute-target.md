@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to designate a compute resource or environment to train or deploy your model with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: conceptual
 ms.author: vijetaj
 author: vijetajo
@@ -79,8 +79,8 @@ When created, these compute resources are automatically part of your workspace, 
 
 ### Supported VM series and sizes
 
-> [!NOTE] 
-> H-series virtual machine series will be retired on August 31, 2022. Create compute instance and compute clusters with alternate VM sizes. Existing compute instances and clusters with H-series virtual machines will not work after August 31, 2022.
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 
 When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more, see [VM types and sizes](../virtual-machines/sizes.md).
 

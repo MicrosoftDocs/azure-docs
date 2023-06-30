@@ -1,19 +1,19 @@
 ---
 title: Azure Peering Service locations and partners
-description: Learn about available locations and partners for Azure Peering Service.
+description: Learn about the available locations and partners globally for the Azure Peering Service.
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: conceptual
 ms.workload: Infrastructure-services
-ms.date: 05/18/2023
+ms.date: 06/15/2023
 ms.author: halkazwini
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
 
 # Peering Service partners
 
-Microsoft has partnered with internet service providers (ISPs), internet exchange providers (IXPs), and software-defined cloud interconnect (SDCI) providers globally to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
+Microsoft has formed global partnerships with internet service providers (ISPs), internet exchange providers (IXPs), and software-defined cloud interconnect (SDCI) providers to ensure reliable and high-performance public connectivity with optimal routing to the Microsoft network.
 
 This article provides information on the connectivity providers that are partnered with Microsoft to offer Azure Peering Service connection to customers.
 
@@ -34,7 +34,7 @@ The following table provides information on the Peering Service connectivity par
 | [Colt](https://www.colt.net/product/cloud-prioritisation/)| Asia, Europe |
 | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) | Asia |
 | [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)| Africa |
-| [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/)| Asia, Europe, North America |
+| [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)| Asia, Europe, North America |
 | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) | Asia, North America |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/)| Europe |
@@ -104,20 +104,20 @@ The following table provides information on the Peering Service connectivity par
 | Amsterdam | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |
 | Ashburn | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Atlanta | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
-| Barcelona | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
+| Barcelona | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Chicago | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Cape Town | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |
-| Chennai | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/)|
-| Dallas | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/)), [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
-| Dubai | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
-| Frankfurt | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
+| Chennai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)|
+| Dallas | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)), [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Dubai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
+| Frankfurt | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Johannesburg | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |
-| Kuala Lumpur | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
+| Kuala Lumpur | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | London | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |
-| Madrid | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
-| Marseilles | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
-| Mumbai | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
-| New York | [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service/) |
+| Madrid | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
+| Marseilles | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
+| Mumbai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
+| New York | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | San Jose | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Seattle | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Singapore | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |

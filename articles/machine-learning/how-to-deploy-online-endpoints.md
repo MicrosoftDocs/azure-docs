@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as an online endpoint in Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
@@ -488,7 +488,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 # [ARM template](#tab/arm)
 
-The preceding registration of the environment specifies a non-GPU docker image `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1` by passing the value to the `environment-version.json` template using the `dockerImage` parameter. For a GPU compute, provide a value for a GPU docker image to the template (using the `dockerImage` parameter) and provide a GPU compute type SKU to the `online-endpoint-deployment.json` template (using the `skuName` parameter).
+The preceding registration of the environment specifies a non-GPU docker image `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` by passing the value to the `environment-version.json` template using the `dockerImage` parameter. For a GPU compute, provide a value for a GPU docker image to the template (using the `dockerImage` parameter) and provide a GPU compute type SKU to the `online-endpoint-deployment.json` template (using the `skuName` parameter).
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 

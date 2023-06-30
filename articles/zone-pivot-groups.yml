@@ -100,6 +100,15 @@ groups:
     title: "JavaScript: Node.js"
   - id: programming-language-python
     title: Python
+- id: programming-languages-document-sdk
+  # Owner: lajanuar
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -194,6 +203,20 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-fivedevlangs
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-go
+    title: Go
 - id: programming-languages-set-formre
 # Owner: pafarley
   title: Programming languages
@@ -433,7 +456,7 @@ groups:
   - id: container-apps
     title: Azure Container Apps (preview)
   - id: azure-arc
-    title: Azure Arc (preview)    
+    title: Azure Arc (preview)
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -460,7 +483,7 @@ groups:
     title: JavaScript
   - id: devlang-react
     title: React
-## Web app ##  
+## Web app ##
 - id: web-app-quickstart
   title: web-app-quickstart
   prompt: Choose a language or framework
@@ -487,7 +510,7 @@ groups:
     title: Java Spring
   - id: devlang-blazor-server
     title: Blazor Server
-## WEB API ##  
+## WEB API ##
 - id: web-api-quickstart
   title: web-api-quickstart
   prompt: Choose a language or framework
@@ -499,7 +522,7 @@ groups:
 - id: web-api-howto-prereq
   title: web-api-howto-prereq
   prompt: Make a selection
-  pivots: 
+  pivots:
   - id: no-api
     title: I don't have an API
   - id: api
@@ -1090,7 +1113,7 @@ groups:
   - id: stack-java
     title: Java
   - id: stack-php
-    title: PHP       
+    title: PHP
 - id: programming-languages-spring-apps
 # Owner: karler
   title: Programming languages
@@ -1689,6 +1712,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: aahi
+- id: openai-use-your-data
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Azure OpenAI Studio
+  - id: rest-api
+    title: REST API
 # Owner: pafarley
 - id: openai-quickstart-dall-e
   title: Programming languages
@@ -2019,6 +2051,15 @@ groups:
   - id: container-apps-bicep
     title: Bicep
 # Owner: cshoe
+- id: container-apps-jobs-self-hosted-ci-cd
+  title: CI/CD system
+  prompt: Select a CI/CD system
+  pivots:
+  - id: container-apps-jobs-self-hosted-ci-cd-azure-pipelines
+    title: Azure Pipelines agent
+  - id: container-apps-jobs-self-hosted-ci-cd-github-actions
+    title: GitHub Actions runner
+# Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
   prompt: Select an API protocol
@@ -2102,6 +2143,15 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: ruslany
+- id: azure-cli-bicep
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep    
 # Owner: cshoe
 - id: container-apps-portal-or-cli
   title: Interaction type
@@ -2467,7 +2517,7 @@ groups:
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
   prompt: Choose an option
-  pivots: 
+  pivots:
   - id: method-azure-portal
     title: Azure portal
   - id: method-azure-cli
@@ -2477,7 +2527,7 @@ groups:
 - id: azure-web-pubsub-samples-authenticate-and-connect
   title: Authenticate and connect to your Web PubSub resource(s) using one of the methods
   prompt: Choose an option
-  pivots: 
+  pivots:
   - id: method-sdk-csharp
     title: C#
   - id: method-sdk-javascript
@@ -2489,7 +2539,7 @@ groups:
 - id: azure-web-pubsub-samples-app-scenarios
   title: App scenarios built with Azure Web PubSub
   prompt: Choose an option
-  pivots: 
+  pivots:
   - id: method-csharp
     title: C#
   - id: method-javascript
@@ -2502,7 +2552,7 @@ groups:
 - id: functions-task-versions
   title: Select your version of the Pipelines task
   prompt: Choose an option
-  pivots: 
+  pivots:
   - id: v1
     title: AzureFunctionApp@1
   - id: v2

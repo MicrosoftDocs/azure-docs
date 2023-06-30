@@ -59,9 +59,7 @@ try
 {
     GraphServiceClient graphServiceClient = serviceProvider.GetRequiredService<GraphServiceClient>();
     var users = await graphServiceClient.Users
-        .Request()
-        .WithAppOnly()
-        .GetAsync();
+        .GetAsync(r => r.Options.WithAppOnly());
     Console.WriteLine($"{users.Count} users");
     Console.ReadKey();
 }

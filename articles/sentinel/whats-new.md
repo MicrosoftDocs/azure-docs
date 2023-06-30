@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 06/22/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -24,8 +24,29 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## June 2023
 
+- [Content Hub general availability delayed](#content-hub-general-availability-delayed)
+- [Windows Forwarded Events connector is now generally available](#windows-forwarded-events-connector-is-now-generally-available)
+- [Connect multiple SAP System Identifiers via the UI](#connect-multiple-sap-system-identifiers-via-the-ui-preview)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
 - [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap-applications-new-systemconfigjson-file)
+
+### Content Hub general availability delayed
+
+We had every intention of releasing content hub to general availability this week. Our engineering team recognized some problems just before launch and are taking the time to get it corrected. If you saw this announcement and were eagerly awaiting the updated experience to rollout to your tenant, we apologize for the mismatch here. So, here is the revised announcement in anticipation of general availability soon.
+
+When the general availability (GA) of content hub is released, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) will also take effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
+
+As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. 
+
+### Windows Forwarded Events connector is now generally available
+
+The Windows Forwarded Events connector is now generally available. The connector is available in both the Azure Commercial and Azure Government clouds. Review the [connector information](data-connectors/windows-forwarded-events.md).
+
+### Connect multiple SAP System Identifiers via the UI (Preview)
+
+You can now connect multiple SAP System Identifiers (SID) via the connector page in the UI, and gain insights to the connectivity health status of each. To gain access to this feature, **first [complete the sign-up form](https://aka.ms/SentinelSAPMultiSIDUX)**.
+
+Learn more about how to [deploy the container and SAP systems via the UI](sap/deploy-data-connector-agent-container.md) and how to [monitor the health of your SAP systems](monitor-sap-system-health.md).
 
 ### Microsoft Sentinel solution for SAP® applications: new systemconfig.json file
 
@@ -192,7 +213,7 @@ We strongly encourage you to migrate any remaining playbooks in your **Classic**
 
 The Microsoft Defender for Identity alerts now support the Government Community Cloud (GCC). To enable this support, there is a change to the way alerts are sent to Microsoft Sentinel. 
 
-For customers connecting and disconnecting the MDI alerts connector, the `UniqueExternalId` field is no longer populated. The `UniqueExternalId` represents the alert, and was formerly located in the`ExternalProperties` field. You can now obtain the ID through the `AlertName` field, which contains the alert’s name. 
+For customers connecting and disconnecting the MDI alerts connector, the `UniqueExternalId` field is no longer populated. The `UniqueExternalId` represents the alert, and was formerly located in the`ExtendedProperties` field. You can now obtain the ID through the `AlertName` field, which contains the alert’s name. 
 
 Review the [complete mapping between the alert names and unique external IDs](/defender-for-identity/alerts-overview#security-alert-name-mapping-and-unique-external-ids).
 

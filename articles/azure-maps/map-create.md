@@ -16,7 +16,7 @@ This article shows you ways to create a map and animate a map.
 
 To load a map, create a new instance of the [Map class](/javascript/api/azure-maps-control/atlas.map). When initializing the map, pass a DIV element ID to render the map and pass a set of options to use when loading the map. If default authentication information isn't specified on the `atlas` namespace, this information needs to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map to the event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely.
 
-You can also load multiple maps on the same page, for sample code that demonstrates loading multiple maps on the same page, see [Multiple Maps] in the [Azure Maps Samples].
+You can also load multiple maps on the same page, for sample code that demonstrates loading multiple maps on the same page, see [Multiple Maps] in the [Azure Maps Samples]. For the source code for this sample, see [Multiple Maps source code].
 
 :::image type="content" source="./media/map-create/multiple-maps.png"alt-text="A screenshot that shows the snap grid on map.":::
 
@@ -283,5 +283,6 @@ See code examples to add functionality to your app:
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)
 
-[Multiple Maps]: https://samples.azuremaps.com/?search=multiple%20maps&sample=multiple-maps 
 [Azure Maps Samples]: https://samples.azuremaps.com
+[Multiple Maps]: https://samples.azuremaps.com/map/multiple-maps
+[Multiple Maps source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Map/Multiple%20Maps/Multiple%20Maps.html

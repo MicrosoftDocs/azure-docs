@@ -9,42 +9,6 @@ ms.date: 01/30/2023
 
 This article describes the networking requirements for deploying Azure Arc resource bridge (preview) in your enterprise.
 
-## Configuration requirements
-
-### Static Configuration
-
-Static configuration is recommended for Arc resource bridge because the resource bridge needs three static IPs in the same subnet for the control plane, appliance VM, and reserved appliance VM (for upgrade). The control plane corresponds to the `controlplanenedpoint` parameter, the appliance VM IP to `k8snodeippoolstart`, and reserved appliance VM to `k8snodeippoolend` in the `createconfig` command that creates the resource bridge configuration files. If using DHCP, reserve those IP addresses, ensuring the IPs are outside of the assignable DHCP range of IPs  (i.e. the control plane IP should be treated as a reserved/static IP that no other machine on the network will use or receive from DHCP).
-
-### IP Address Prefix
-
-The subnet of the IP addresses for Arc resource bridge must lie in the IP address prefix that is passed in the `ipaddressprefix` parameter during the configuration creation. The IP address prefix is the IP prefix that is exposed by the network to which Arc resource bridge is connected. It is entered as the subnet's IP address range for the virtual network and subnet mask (IP Mask) in CIDR notation, for example `192.168.7.1/24`. The minimum IP prefix is /29. The IP address prefix should have enough available IP addresses for Gateway IP, Control Plane IP, appliance VM IP, and reserved appliance VM IP. Consult your system or network administrator to obtain the IP address prefix in CIDR notation. An IP Subnet CIDR calculator may be used to obtain this value.
-
-### DNS Server IPs
-
-DNS Server must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three must be able to reach the required URLs for deployment.
-
-
-### Gateway IP
-
-DNS Server must have internal and external endpoint resolution. The appliance VM and control plane need to resolve the management machine and vice versa. All three must be able to reach the required URLs for deployment.
-
-
-### Example minimum configuration for static IP deployment
-
-Below is an example of valid configuration values that can be passed during configuration file creation for Arc resource bridge. It is strongly recommended to use static IP addresses when deploying Arc resource bridge. Notice that the IP addresses for the Gateway, Control Plane, appliance VM and DNS server IP (for internal resolution) are within the IP prefix - this key detail ensures the successful deployment of the appliance VM. 
-
-IP address Prefix (CIDR format): 192.168.0.0/29
-
-Gateway (IP format): 192.168.0.1
-
-VM IP Pool Start (IP format): 192.168.0.2
-
-VM IP Pool End (IP format): 192.168.0.3
-
-Control Plane IP (IP format): 192.168.0.4
-
-DNS servers (IP list format): 192.168.0.1, 10.0.0.5, 10.0.0.6
-
 ## General network requirements
 
 [!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
@@ -60,12 +24,25 @@ In addition, resource bridge (preview) requires connectivity to the [Arc-enabled
 
 ## SSL proxy configuration
 
-If using a proxy, Arc resource bridge must be configured for proxy so that it can connect to the Azure services. To configure the Arc resource bridge with proxy, provide the proxy certificate file path during creation of the configuration files. Only pass the single proxy certificate. If a certificate bundle is passed then the deployment will fail. The proxy server endpoint can't be a .local domain. The proxy server has to also be routable/reachable from IPs within the IP prefix. Proxy configuration of the management machine isn't configured by Arc resource bridge. 
+If using a proxy, Arc resource bridge must be configured for proxy so that it can connect to the Azure services. 
 
-There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the management machine and on-premises appliance VM trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
+- To configure the Arc resource bridge with proxy, provide the proxy certificate file path during creation of the configuration files. 
 
-In order to deploy Arc resource bridge, images need to be downloaded to the management machine and then uploaded to the on-premises private cloud gallery. If your proxy server throttles download speed, this may impact your ability to download the required images (~3 GB) within the allotted time (90 min). 
+- The format of the certificate file is *Base-64 encoded X.509 (.CER)*. 
 
+- Only pass the single proxy certificate. If a certificate bundle is passed then the deployment will fail. 
+
+- The proxy server endpoint can't be a .local domain. 
+
+- The proxy server has to be reachable from all IPs within the IP address prefix, including the control plane and appliance VM IPs. 
+
+There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: 
+
+- SSL certificate for your SSL proxy (so that the management machine and appliance VM trust your proxy FQDN and can establish an SSL connection to it)
+
+- SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
+
+In order to deploy Arc resource bridge, images need to be downloaded to the management machine and then uploaded to the on-premises private cloud gallery. If your proxy server throttles download speed, this may impact your ability to download the required images (~3.5 GB) within the allotted time (90 min). 
 
 ## Exclusion list for no proxy
 
@@ -86,5 +63,7 @@ The default value for `noProxy` is `localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0
 
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+
+
 
 

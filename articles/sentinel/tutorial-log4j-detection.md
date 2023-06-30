@@ -4,7 +4,7 @@ description: In this tutorial, learn how to use analytics rules in Microsoft Sen
 author: yelevin
 ms.author: yelevin
 ms.topic: tutorial
-ms.date: 01/08/2023
+ms.date: 06/21/2023
 ---
 
 # Tutorial: Detect threats by using analytics rules in Microsoft Sentinel
@@ -58,9 +58,18 @@ To complete this tutorial, make sure you have:
 
 1. Search for and select your workspace from the list of available Microsoft Sentinel workspaces.
 
-1. On the **Microsoft Sentinel | Overview** page, select **Analytics** from the navigation menu, under **Configuration**.
+## Install a solution from the content hub
+
+1. In Microsoft Sentinel, on the left-hand side menu under **Content management**, select **Content hub**.
+
+
+1. Search for and select the solution **Log4j Vulnerability Detection**.
+
+1. From the toolbar at the top of the page, select :::image type="icon" source="media/tutorial-log4j-detection/install-update-button.png"::: **Install/Update**.
 
 ## Create a scheduled analytics rule from a template
+
+1. In Microsoft Sentinel, on the left-hand side menu under **Configuration**, select **Analytics**.
 
 1. From the **Analytics** page, select the **Rule templates** tab.
 
@@ -73,6 +82,7 @@ To complete this tutorial, make sure you have:
     The **Analytics rule wizard** will open.
 
 1. In the **General** tab, in the **Name** field, enter **Log4j vulnerability exploit aka Log4Shell IP IOC - Tutorial-1**.
+
 1. Leave the rest of the fields on this page as they are. These are the defaults, but we will add customization to the alert name at a later stage.
 
     If you don’t want the rule to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
@@ -185,7 +195,6 @@ If you're not going to continue to use this analytics rule, delete (or at least 
 1. Mark the check box next to your rule in the list, and select **Delete** from the top banner.  
     (If you don't want to delete it, you can select **Disable** instead.)
 
-<!-- Check that this part doesn't happen automatically when you delete the analytics rule. -->
 1. In the **Automation** page, select the **Automation rules** tab.
 
 1. Enter the name (or part of the name) of the automation rule you created in the **Search** bar.  
