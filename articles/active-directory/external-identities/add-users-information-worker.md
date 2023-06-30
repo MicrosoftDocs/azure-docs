@@ -14,6 +14,8 @@ author: csmulligan
 manager: celestedg
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to learn how can my users invite guest users to an app.
 ---
 
 # How users in your organization can invite guest users to an app
