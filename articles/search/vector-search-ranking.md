@@ -67,7 +67,7 @@ For normalized embedding spaces, dot product is equivalent to the cosine similar
 
 Azure Cognitive Search uses Hierarchical Navigation Small Worlds (HNSW) for Approximate Nearest Neighbors (ANN) indexing and queries.
 
-ANN is a class of algorithms for finding matches in vector space. Depending on the algorithm, it employs techniques such as graph construction, data partitioning, and other methods to significantly reduce the search space to accelerate query processing. While sacrificing some precision, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
+ANN is a class of algorithms for finding matches in vector space. In general, this class of algorithms employs techniques such as graph construction, data partitioning, and other methods to significantly reduce the search space to accelerate query processing. The specific approach will depend on the algorithm. While sacrificing some precision, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 
 Azure Cognitive Search uses _HNSW_, which is a leading algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
 
