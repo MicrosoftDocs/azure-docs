@@ -1,6 +1,6 @@
 ---
 title: Azure Network Watcher overview
-description: Learn about Azure Network Watcher's monitoring, diagnostics, metrics, and logging capabilities for resources in a virtual network.
+description: Learn about Azure Network Watcher's monitoring, diagnostics, logging, and metrics capabilities in a virtual network.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
@@ -12,10 +12,7 @@ ms.custom: template-overview, engagement-fy23
 
 # What is Azure Network Watcher?
 
-Azure Network Watcher provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for Azure IaaS (Infrastructure-as-a-Service) resources. Network Watcher enables you to monitor and repair the network health of IaaS products like virtual machines (VMs), virtual networks (VNets), application gateways, load balancers, etc. 
-
-> [!NOTE] 
-> Network Watcher isn't intended for and will not work for PaaS monitoring or Web analytics. 
+Azure Network Watcher provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for Azure IaaS (Infrastructure-as-a-Service) resources. Network Watcher enables you to monitor and repair the network health of IaaS products like virtual machines (VMs), virtual networks (VNets), application gateways, load balancers, etc. Network Watcher isn't intended for and will not work for PaaS monitoring or Web analytics.
 
 Network Watcher consists of three major sets of tools and capabilities:
 
@@ -25,7 +22,7 @@ Network Watcher consists of three major sets of tools and capabilities:
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
-> [!NOTE] 
+> [!TIP] 
 > When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
 
 ## Monitoring
@@ -96,11 +93,9 @@ Network Watcher offers two traffic tools that help you log and visualize network
 
 ### Traffic analytics
 
-**Traffic analytics** provides rich visualizations of flow logs data. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
+**Traffic analytics** provides rich visualizations of flow logs data. For more information about traffic analytics, see [traffic analytics](traffic-analytics.md) and [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
 
 :::image type="content" source="./media/network-watcher-monitoring-overview/traffic-analytics.png" alt-text="Screenshot showing Traffic analytics feature of Network Watcher.":::
-
-For more information about traffic analytics, see [traffic analytics](traffic-analytics.md) and [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
 
 ## Usage + quotas
 
@@ -133,5 +128,4 @@ To view the latest Network Watcher feature updates, see [Service updates](https:
 ## Next steps
 
 - To get started using Network Watcher diagnostics tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
-- 
 - [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
