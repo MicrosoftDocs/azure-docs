@@ -140,8 +140,8 @@ additionalContent:
           summary: Collaborate with partners using their own external identities (B2B).
           url: ./external-identities/index-b2b.yml
         # Card
-        - title: Customers (CIAM)(preview)
-          summary: Create secure, customized sign-in experiences for your customer-facing apps and services. 
+        - title: Customers (preview)
+          summary: Secure and customize sign-ins for your apps with our new customer identity and access management (CIAM) solution.  
           url: ./external-identities/customers/index.yml
         # Card
         - title: Consumers (B2C)
