@@ -95,6 +95,7 @@ For Microsoft Graph, the parameters for the **Send welcome email to new hire** t
 |displayName     | Send Welcome Email (Customizable by user)        |
 |description     | Send welcome email to new hire (Customizable by user)      |
 |taskDefinitionId     |   70b29d51-b59a-4773-9280-8841dfd3f2ea     |
+|arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 
 
@@ -148,7 +149,7 @@ For Microsoft Graph, the parameters for the **Send onboarding reminder email** t
 |displayName     | Send onboarding reminder email (Customizable by user)        |
 |description     | Send onboarding reminder email to user’s manager (Customizable by user)      |
 |taskDefinitionId     |   3C860712-2D37-42A4-928F-5C93935D26A1     |
-
+|arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 
 ```Example for usage within the workflow
@@ -210,7 +211,7 @@ For Microsoft Graph, the parameters for the **Generate Temporary Access Pass and
 |displayName     | GenerateTAPAndSendEmail (Customizable by user)      |
 |description     | Generate Temporary Access Pass and send via email to user's manager (Customizable by user)       |
 |taskDefinitionId     |   1b555e50-7f65-41d5-b514-5894a026d10d     |
-|arguments     |  Argument contains the name parameter "tapLifetimeInMinutes", which is the lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). The argument also contains the tapIsUsableOnce parameter, which determines whether the passcode is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime.    |
+|arguments     |  Argument contains the name parameter "tapLifetimeInMinutes", which is the lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). The argument also contains the tapIsUsableOnce parameter, which determines whether the passcode is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime. Additionally, the optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 
 ```Example for usage within the workflow
@@ -269,6 +270,7 @@ For Microsoft Graph the parameters for the **Send email to notify manager of use
 |displayName     |  Send email to notify manager of user move (Customizable by user)       |
 |description     |  Send email to notify user’s manager of user move (Customizable by user)        |
 |taskDefinitionId     |   aab41899-9972-422a-9d97-f626014578b7      |
+|arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 ```Example for usage within the workflow
 {
@@ -831,6 +833,7 @@ For Microsoft Graph the parameters for the **Send email before user's last day**
 |displayName     |  Send email before user’s last day (Customizable by user)       |
 |description     |  Send offboarding email to user’s manager before the last day of work (Customizable by user)        |
 |taskDefinitionId     |   52853a3e-f4e5-4eb8-bb24-1ac09a1da935      |
+|arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 ```Example for usage within the workflow
 {
@@ -879,6 +882,7 @@ For Microsoft Graph, the parameters for the **Send email on user last day** task
 |displayName     |  Send email on user’s last day (Customizable by user)       |
 |description     |  Send offboarding email to user’s manager on the last day of work (Customizable by user)        |
 |taskDefinitionId     |   9c0a1eaf-5bda-4392-9d9e-6e155bb57411      |
+|arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 ```Example for usage within the workflow
 {
@@ -928,6 +932,7 @@ For Microsoft Graph, the parameters for the **Send email to users manager after 
 |displayName     |  Send email to users manager after their last day      |
 |description     |  Send offboarding email to user’s manager after the last day of work (Customizable by user)        |
 |taskDefinitionId     |   6f22ddd4-b3a5-47a4-a846-0d7c201a49ce      |
+|arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 ```Example for usage within the workflow
 {
