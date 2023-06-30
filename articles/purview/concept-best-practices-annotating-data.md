@@ -17,7 +17,7 @@ But it may not always be obvious when to use which feature. If you want to show 
 
 Adding context to your data is both art and science, but here are some best practices for tags, managed attributes, business terms, and business assets.
 
-## Best pracitices for using tags 
+## Best practices for using tags 
 
 Use tags when you want to quickly label your data assets without the need for consistency or control. Tags are simple keywords or phrases that can be applied to data assets to provide quick, informal metadata. They’re useful for categorizing data assets, making them easier to discover and understand. They're also a great way to see how your data consumers describe your data so you can incorporate this language into your business glossary over time. 
 
@@ -52,7 +52,7 @@ Finally, you can extend Purview's metamodel by creating additional asset types f
 
 In the example below, I describe more business context for the SalesOrderDetail table by showing that the Supply chain department (a business asset) manages the order fulfillment business process (a business asset) which uses the SalesOrderDetail table. Visualizing business context in this way can help others identify the “official” dataset that's used for a particular business purpose and understand whether data is being used compliantly. 
 
-:::image type="content" source="media/concept-annotations/04-term-detail.png" alt-text="Screen shot showing a relationships between the supply chain department, order fulfillment business process, and SalesOrderDetail table.":::
+:::image type="content" source="media/concept-annotations/04-term-detail.png" alt-text="Screen shot showing relationships between the supply chain department, order fulfillment business process, and SalesOrderDetail table.":::
 
 ## Next steps
 
