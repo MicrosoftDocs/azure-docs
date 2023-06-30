@@ -279,3 +279,4 @@ If you encounter with this issue, please check the deployment status and make su
 ## Next steps
 
 - [Develop a standard flow](how-to-develop-a-standard-flow.md)
+- [Develop a chat flow](how-to-develop-a-chat-flow.md)
