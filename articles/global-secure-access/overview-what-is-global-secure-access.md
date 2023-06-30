@@ -16,7 +16,7 @@ The way people work has changed. Instead of working in traditional offices, peop
 
 Microsoft Entra Internet Access and Microsoft Entra Private Access comprise Microsoft's Security Service Edge solution, coupled with Microsoft Defender for Cloud Apps, our SaaS-security focused Cloud Access Security Broker (CASB). Global Secure Access (preview) is the unifying term used for both Microsoft Entra Internet Access and Microsoft Entra Private Access. Global Secure Access is the unified location in Microsoft Entra and is built upon the core principles of Zero Trust to use least privilege, verify explicitly, and assume breach.
 
-![Diagram of the Global Secure Access solution, illustrating how identies and remote networks can connect to Microsoft 365, private, and public resources through the service.](media/overview-what-is-global-secure-access/global-secure-access-diagram.png)
+![Diagram of the Global Secure Access solution, illustrating how identities and remote networks can connect to Microsoft 365, private, and public resources through the service.](media/overview-what-is-global-secure-access/global-secure-access-diagram.png)
 
 Microsoft Entra Internet Access and Microsoft Entra Private Access are uniquely built as a solution that converges network, identity, and endpoint access controls so you can secure access to any app or resource, from anywhere. With the addition of these Global Secure Access products, Microsoft Entra simplifies access policy management and enables access orchestration for employees, business partners, and digital workloads. You can continuously monitor and adjust user access in real time if permissions or risk level changes.
 
