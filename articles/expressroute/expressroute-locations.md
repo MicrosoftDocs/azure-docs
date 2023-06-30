@@ -56,7 +56,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** | Supported | Supported | Montreal<br/>Toronto<br/>Quebec City<br/>Vancouver |
 | **[Bezeq International](https://selfservice.bezeqint.net/english)** | Supported | Supported | London |
 | **[BICS](https://www.bics.com/cloud-connect/)** | Supported | Supported | Amsterdam2<br/>London2 |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Frankfurt<br/>Hong Kong<br/>Johannesburg<br/>London<br/>London2<br/>Newport(Wales)<br/>Paris<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Washington DC |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Frankfurt<br/>Hong Kong<br/>Johannesburg<br/>London<br/>London2<br/>Mumbai<br/>Newport(Wales)<br/>Paris<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Washington DC |
 | **BSNL** | Supported | Supported | Chennai<br/>Mumbai |
 | **[C3ntro](https://www.c3ntro.com/)** | Supported | Supported | Miami |
 | **CDC** | Supported | Supported | Canberra<br/>Canberra2 |
@@ -223,6 +223,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
 | **China Telecom** |Supported |Not Supported |Beijing<br/>Beijing2<br/>Shanghai<br/>Shanghai2 |
+| **China Mobile** | Supported | Not Supported | Beijing2 |
 | **China Unicom** | Supported | Not Supported | Beijing2<br/>Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |Supported |Not Supported |Beijing2<br/>Shanghai2 |
 

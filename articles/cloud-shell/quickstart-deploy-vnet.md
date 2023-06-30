@@ -1,7 +1,7 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 06/07/2023
+ms.date: 06/29/2023
 ms.topic: article
 title: Deploy Azure Cloud Shell in a VNET with quickstart templates
 ---
@@ -34,7 +34,7 @@ deployment. All resources must be in the same Azure region and contained in the 
 - **Resource Group** - The name of the resource group used for the Azure Cloud Shell VNET deployment
 - **Region** - The location of the resource group
 - **Virtual Network** - The name of the virtual network created for Azure Cloud Shell VNET
-- **Azure Container Instance ID** - The ID of the Azure Container Instance for your resource group
+- **Azure Container Instance OID** - The ID of the Azure Container Instance for your resource group
 - **Azure Relay Namespace** - The name that you want to assign to the Relay resource created by the
   template
 
@@ -93,7 +93,7 @@ register the provider:
 Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance
 ```
 
-### Azure Container Instance Id
+### Azure Container Instance ID
 
 To configure the VNET for Cloud Shell using the quickstarts, retrieve the `Azure Container Instance`
 ID for your organization.
@@ -144,7 +144,7 @@ Fill out the form with the following information:
 | Existing VNET Name              | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `vnet-cloudshell-eastus`.                   |
 | Relay Namespace Name            | Create a name that you want to assign to the Relay resource created by the template.<br>For this example, we're using `arn-cloudshell-eastus`. |
 | Azure Container Instance OID    | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
-| Container Subnet Name           | Defaults to `cloudshellsubnet`. Enter the name of the subnet containing your container.                                                        |
+| Container Subnet Name           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
 | Container Subnet Address Prefix | For this example, we use `10.0.1.0/24`.                                                                                                        |
 | Relay Subnet Name               | Defaults to `relaysubnet`. Enter the name of the subnet containing your relay.                                                                 |
 | Relay Subnet Address Prefix     | For this example, we use `10.0.2.0/24`.                                                                                                        |
@@ -184,16 +184,16 @@ Fill out the form with the following information:
 | Subscription    | Defaults to the current subscription context.<br>For this example, we're using `MyCompany Subscription`                          |
 | Resource group  | Enter the name of the resource group from the prerequisite information.<br>For this example, we're using `rg-cloudshell-eastus`. |
 
-|        Instance details        |                                            Value                                             |
-| ------------------------------ | -------------------------------------------------------------------------------------------- |
-| Region                         | Prefilled with your default region.<br>For this example, we're using `East US`.              |
-| Existing VNET Name             | For this example, we're using `vnet-cloudshell-eastus`.                                      |
-| Existing Storage Subnet Name   | Fill in the name of the resource created by the network template.                            |
-| Existing Container Subnet Name | Fill in the name of the resource created by the network template.                            |
-| Storage Account Name           | Create a name for the new storage account.<br>For this example, we're using `MyVnetStorage`. |
-| File Share Name                | Defaults to `acsshare`. Enter the name of the file share want to create.                     |
-| Resource Tags                  | Defaults to `{"Environment":"cloudshell"}`. Leave unchanged or add more tags.                |
-| Location                       | Defaults to `[resourceGroup().location]`. Leave unchanged.                                   |
+|        Instance details        |                                              Value                                               |
+| ------------------------------ | ------------------------------------------------------------------------------------------------ |
+| Region                         | Prefilled with your default region.<br>For this example, we're using `East US`.                  |
+| Existing VNET Name             | For this example, we're using `vnet-cloudshell-eastus`.                                          |
+| Existing Storage Subnet Name   | Fill in the name of the resource created by the network template.                                |
+| Existing Container Subnet Name | Fill in the name of the resource created by the network template.                                |
+| Storage Account Name           | Create a name for the new storage account.<br>For this example, we're using `myvnetstorage1138`. |
+| File Share Name                | Defaults to `acsshare`. Enter the name of the file share want to create.                         |
+| Resource Tags                  | Defaults to `{"Environment":"cloudshell"}`. Leave unchanged or add more tags.                    |
+| Location                       | Defaults to `[resourceGroup().location]`. Leave unchanged.                                       |
 
 Once the form is complete, select **Review + Create** and deploy the network ARM template to your
 subscription.
