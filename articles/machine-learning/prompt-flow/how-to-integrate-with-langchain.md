@@ -58,7 +58,7 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 1. Go to prompt flow in your workspace, then go to **connections** tab.
 2. Select **Create** and select **Custom**.
-    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the create dropdown menu. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-1.png":::
+    :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the create drop-down menu. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-1.png":::
 1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-2.png" alt-text="Screenshot of add custom connection point to the add key-value pairs button. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-2.png":::
 
@@ -68,7 +68,7 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 
 Then this custom connection is used to replace the key and credential you explicitly defined in LangChain code, if you already have a LangChain integration prompt flow, you can jump to​​​​​​​ [Configure connection, input and output](#configure-connection-input-and-output).
 
-### LangChian code conversion to a runnable flow
+### LangChain code conversion to a runnable flow
 
 All LangChain code can directly run in the python tools in your flow as long as your runtime environment contains the dependency packages, you can easily convert your LangChain code into a flow by following the steps below.
 

@@ -21,7 +21,7 @@ You can quickly start developing your standard flow by following this video tuto
 A quick video tutorial can be found here: [standard flow video tutorial](https://www.youtube.com/watch?v=Y1CPlvQZiBg).
 
 > [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create a standard flow
@@ -52,7 +52,7 @@ Before you start authoring to develop your flow, you should first select a runti
 > [!IMPORTANT]
 > You cannot save your inline edit of tool without a runtime!
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-runtime-setting.png" alt-text="Screenshot of the runtime dropdown menu showing two different runtimes. " lightbox = "./media/how-to-develop-a-standard-flow/flow-runtime-setting.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-runtime-setting.png" alt-text="Screenshot of the runtime drop-down menu showing two different runtimes. " lightbox = "./media/how-to-develop-a-standard-flow/flow-runtime-setting.png":::
 
 ## Flow input data
 
@@ -64,7 +64,7 @@ For Web Classification sample as shown the screenshot below, the flow input is a
 
 We also support the input type of int, bool, double, list and object.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-datatype.png" alt-text="Screenshot of inputs showing the type drop down menu with string selected. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-datatype.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-input-datatype.png" alt-text="Screenshot of inputs showing the type drop-down menu with string selected. " lightbox = "./media/how-to-develop-a-standard-flow/flow-input-datatype.png":::
 
 You should first set the input schema (name: url; type: string), then set a value manually or by:
 
@@ -91,7 +91,7 @@ In one flow, you can consume different kinds of tools. We now support LLM, Pytho
 
 By selecting the tool card on the very top, you'll add a new tool node to flow.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool.png" alt-text="Screenshot of the tool card showing the dropdown menu from selecting more tools. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-tool.png" alt-text="Screenshot of the tool card showing the drop-down menu from selecting more tools. " lightbox = "./media/how-to-develop-a-standard-flow/flow-tool.png":::
 
 ### Edit tool
 
@@ -174,7 +174,7 @@ Below are common scenarios for linking nodes together.
 
 We support search and autosuggestion here in the drop-down. You can search by node name if you have many nodes in the flow.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png" alt-text="Screenshot of showing the value drop down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png" alt-text="Screenshot of showing the value drop-down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-auto-suggestion.png":::
 
 You can also navigate to the node you want to link with, copy the node name, navigate back to the newly created LLM node, paste in the input value field.
 
@@ -194,7 +194,7 @@ Suppose we want to link the newly created LLM node with covert_to_dict Python no
 1. First you need to edit the code, add an input in python function.
 1. The linkage is the same as LLM node, using \${flow.input_name\} to link with flow input or \${upstream_node_name.output1\} to link with upstream node.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/new-python-node-input.gif" alt-text="Gif of the Python node showing editing the code and selecting a value from the value drop down menu. " lightbox = "./media/how-to-develop-a-standard-flow/new-python-node-input.gif":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/new-python-node-input.gif" alt-text="Gif of the Python node showing editing the code and selecting a value from the value drop-down menu. " lightbox = "./media/how-to-develop-a-standard-flow/new-python-node-input.gif":::
 
 ## Flow run
 
@@ -212,7 +212,7 @@ When the flow is complicated, instead of checking outputs on each node, you can 
 
 First define flow output schema, then select in drop-down the node whose output you want to set as flow output. Since convert_to_dict has a dictionary output with two keys: category and evidence, you need to manually append category and evidence to each. Then run flow, after a while, you can check flow output in a table.
 
-:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output.png" alt-text="Screenshot of outputs showing the value drop down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output.png":::
+:::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output.png" alt-text="Screenshot of outputs showing the value drop-down menu. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output.png":::
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-output-check.png" alt-text="Screenshot of Web Classification highlighting the view outputs button. " lightbox = "./media/how-to-develop-a-standard-flow/flow-output-check.png":::
 
