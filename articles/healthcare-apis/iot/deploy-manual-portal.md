@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/27/2023
+ms.date: 06/29/2023
 ms.author: jasteppe
 ---
 
@@ -135,7 +135,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 * Next, select the **Resolution type**.
 
-  **Resolution type** specifies how the MedTech service associates device data with FHIR Device resources and FHIR Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the encounter identifier is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown.
+  **Resolution type** specifies how the MedTech service associates device data with FHIR Device resources and FHIR Patient resources. The MedTech service reads Device and Patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/r4/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/r4/patient-definitions.html#Patient.identifier). If an [encounter identifier](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier) is specified and extracted from the device data payload, it's linked to the observation if an encounter exists on the FHIR service with that identifier.  If the encounter identifier is successfully normalized, but no FHIR Encounter exists with that encounter identifier, a **FhirResourceNotFound** exception is thrown.
 
   Device and Patient resources can be resolved by choosing a **Resolution type** of **Create** and **Lookup**:
 
