@@ -8,7 +8,7 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/javascript.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for JavaScript. 
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for JavaScript. 
 
 The Speech SDK for JavaScript is available as an npm package. See [microsoft-cognitiveservices-speech-sdk](https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk) and its companion GitHub repository [cognitive-services-speech-sdk-js](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
 
@@ -26,7 +26,7 @@ Depending on the target environment, use one of the following guides:
 
 [!INCLUDE [node](javascript-node.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for JavaScript for use with Node.js. 
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for JavaScript for use with Node.js. 
 
 1. Install [Node.js](https://nodejs.org/).
 1. Create a new directory, run `npm init`, and walk through the prompts.
@@ -40,7 +40,7 @@ For more information, see the [Node.js samples](https://github.com/Azure-Samples
 
 #### [Browser-based](#tab/browser)
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for JavaScript for use with a webpage.
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for JavaScript for use with a webpage.
 
 ### Unpack to a folder
 

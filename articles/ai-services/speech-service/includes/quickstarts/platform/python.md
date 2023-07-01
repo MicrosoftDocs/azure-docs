@@ -8,7 +8,7 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/python.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Python. 
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for Python. 
 
 ## Platform requirements
 
@@ -56,7 +56,7 @@ To install the Speech SDK for Python:
    1. Select **File** > **Preferences** > **Extensions**. 
    1. Search for **Python**, find the **Python extension for Visual Studio Code** published by Microsoft, and then select **Install**.
 
-   ![Screenshot that shows selections for installing the Python extension.](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
+   ![Screenshot that shows selections for installing the Python extension.](~/articles/ai-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Select **Terminal** > **New Terminal** to open a terminal within Visual Studio Code. 
 1. At the terminal prompt, run the following command to install the Speech SDK for Python package. 

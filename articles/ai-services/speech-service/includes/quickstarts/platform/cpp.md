@@ -8,7 +8,7 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/cpp.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++. 
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C++. 
 
 ## Platform requirements
 

@@ -8,7 +8,7 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/java.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. 
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for Java. 
 
 ## Platform requirements
 

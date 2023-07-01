@@ -8,7 +8,7 @@ ms.author: eur
 
 [!INCLUDE [Header](../../common/swift.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Swift. 
+This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for Swift. 
 
 > [!TIP]
 > For details about using the Speech SDK for Swift, see [Importing Objective-C into Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift).

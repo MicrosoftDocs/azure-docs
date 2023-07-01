@@ -14,7 +14,7 @@ ms.author: ralphe
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
+> * [Create a Speech resource](~/articles/ai-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## Add sample code
@@ -194,7 +194,7 @@ Before you get started, make sure to:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription.
+1. Replace the string `YourServiceRegion` with the [region](~/articles/ai-services/Speech-Service/regions.md) associated with your subscription.
 
 1. From the menu bar, choose **File** > **Save All**.
 

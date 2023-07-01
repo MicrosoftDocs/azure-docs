@@ -15,7 +15,7 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites-luis.md)]
 
-You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
+You also need to <a href="~/articles/ai-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -45,7 +45,7 @@ Insert this code in `quickstart.py`. Make sure you update these values:
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Azure AI services [security](../../../../cognitive-services-security.md) article for more information.
 
 :::code language="python" source="~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py" id="create_speech_configuration":::
 

@@ -37,7 +37,7 @@ TRANSLATED into 'it': Sono entusiasta di provare la traduzione vocale. (from 'I'
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
-- To get speech from an audio file, use `--file` instead of `--microphone`. For compressed audio files such as MP4, install GStreamer and use `--format`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
+- To get speech from an audio file, use `--file` instead of `--microphone`. For compressed audio files such as MP4, install GStreamer and use `--format`. For more information, see [How to use compressed input audio](~/articles/ai-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
     # [Terminal](#tab/terminal)
     ```console
     spx translate --source en-US --target it --file YourAudioFile.wav
@@ -49,7 +49,7 @@ Now that you've completed the quickstart, here are some additional consideration
     spx translate --source en-US --target it --file YourAudioFile.mp4 --format any
     ```
     ***
-- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You include a phrase list in-line or with a text file:
+- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/ai-services/speech-service/improve-accuracy-phrase-list.md). You include a phrase list in-line or with a text file:
     # [Terminal](#tab/terminal)
     ```console
     spx translate --source en-US --target it --microphone --phrases "Contoso;Jessie;Rehaan;"
@@ -61,11 +61,11 @@ Now that you've completed the quickstart, here are some additional consideration
     spx --% translate --source en-US --target it --microphone --phrases @phrases.txt
     ```
     ***
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/supported-languages.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
     ```console
     spx translate --microphone --source es-ES
     ```
-- To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
+- To change the translation target language, replace `it` with another [supported language](~/articles/ai-services/speech-service/supported-languages.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
     ```console
     spx translate --microphone --target es
     ```
