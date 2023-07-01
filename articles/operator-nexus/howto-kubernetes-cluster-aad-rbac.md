@@ -22,6 +22,8 @@ This article provides a comprehensive guide on how to manage access to Nexus Kub
 
 Nexus creates a Kubernetes cluster role binding with the default Kubernetes role ```cluster-admin``` and the Azure AD groups you specified as `adminGroupObjectIds`. The cluster administrators have full access to the cluster and can perform all operations on the cluster. The cluster administrators can also grant access to other users by assigning them to the appropriate Azure AD group.
 
+[!INCLUDE [cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
+
 ## Role-based access control
 As an administrator, you can provide role-based access control to the cluster by creating a role binding with Azure AD group object ID. For users who only need 'view' permissions, you can accomplish the task by adding them to an Azure AD group that's tied to the 'view' role.
 
