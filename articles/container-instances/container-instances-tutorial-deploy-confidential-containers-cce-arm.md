@@ -224,6 +224,9 @@ Use the Azure portal or a tool such as the [Azure CLI](container-instances-quick
 
     ![Screenshot of browser view of app deployed using Azure Container Instances, PNG.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png)
 
+    The presence of the attestation report below the Azure Container Instances logo confirms that the container is running on hardware that supports a TEE.
+    If you deploy to hardware that does not support a TEE, for example by choosing a region where the ACI Confidential SKU is not available, no attestation report will be shown.
+
 ## Next Steps  
 
 Now that you have deployed a confidential container group on ACI, you can learn more about how policies are enforced. 
