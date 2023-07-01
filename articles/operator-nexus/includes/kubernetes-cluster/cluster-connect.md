@@ -17,11 +17,13 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
     RESOURCE_GROUP="myResourceGroup"
     SUBSCRIPTION_ID=<set the correct subscription_id>
     ```
+
 2. Query managed resource group with `az` and store in `MANAGED_RESOURCE_GROUP`
    ```azurecli
     az account set -s $SUBSCRIPTION_ID
     MANAGED_RESOURCE_GROUP=$(az networkcloud kubernetescluster show -n $CLUSTER_NAME -g $RESOURCE_GROUP --output tsv --query managedResourceGroupConfiguration.name)
    ```
+
 3. The following command starts a connectedk8s proxy that allows you to connect to the Kubernetes API server for the specified Nexus Kubernetes cluster.
     ```azurecli
     az connectedk8s proxy -n $CLUSTER_NAME  -g $MANAGED_RESOURCE_GROUP &
@@ -29,11 +31,10 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
 
 4. Use `kubectl` to send requests to the cluster:
 
-   ```console
-   kubectl get nodes
-   ```
+    ```console
+    kubectl get nodes
+    ```
+    You should now see a response from the cluster containing the list of all nodes.
 
 > [!NOTE]
 > If you see the error message "Failed to post access token to client proxyFailed to connect to MSI", you may need to perform an `az login` to re-authenticate with Azure.
-
-You should now see a response from the cluster containing the list of all nodes.
