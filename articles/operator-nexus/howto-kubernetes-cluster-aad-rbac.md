@@ -16,7 +16,7 @@ This article provides a comprehensive guide on how to manage access to Nexus Kub
 ## Before you begin
 
 1. To begin, create an Azure AD group for your cluster administrators and assign members to it. Azure AD allows access to be granted to the group as a whole, rather than managing permissions for each user individually.
-2. Use the group ID you created as the value for 'adminGroupObjectIds' when creating the Nexus Kubernetes cluster to ensure that the members of the group get permissions to manage the cluster. Refer to the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide for instructions on how to create the Nexus Kubernetes cluster.
+2. Use the group ID you created as the value for 'adminGroupObjectIds' when creating the Nexus Kubernetes cluster to ensure that the members of the group get permissions to manage the cluster. Refer to the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide for instructions on how to create and access the Nexus Kubernetes cluster.
 
 ## Administrator access to the cluster
 
