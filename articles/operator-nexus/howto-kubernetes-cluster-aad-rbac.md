@@ -43,7 +43,7 @@ As an administrator, you can provide role-based access control to the cluster by
     kubectl get clusterrolebinding nexus-read-only-users
     ```
 
-5. Now the users in the Azure AD group have 'view' access to the cluster. They can access the cluster using `az connectedK8s proxy` to view the resources, but cannot make any changes
+5. Now the users in the Azure AD group have 'view' access to the cluster. They can access the cluster using `az connectedk8s proxy` to view the resources, but cannot make any changes
 
 
 ## Next steps
