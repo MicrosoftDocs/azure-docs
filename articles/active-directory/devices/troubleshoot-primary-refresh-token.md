@@ -429,7 +429,7 @@ Common general network-related issues.
 #### Time travel traces
 
 > [!WARNING]  
-> Time travel traces contain personal data. In addition, LSASS traces contain extremely sensitive information. When you handle these traces, make sure that you use best practices for the storage and sharing of this type of information.
+> Time travel traces contain personal data. In addition, Local Security Authority Subsystem Service (LSASS or *lsass.exe*) traces contain extremely sensitive information. When you handle these traces, make sure that you use best practices for the storage and sharing of this type of information.
 
 1. On the Windows **Start** menu, search for **Command Prompt**, and then select **Run as administrator**.
 1. In the command prompt console, create a temporary directory:
@@ -444,7 +444,7 @@ Common general network-related issues.
    tasklist /m lsasrv.dll
    ```
 
-1. In the `tasklist` command output, find the process identifier (`PID`) of the Local Security Authority Subsystem Service (*lsass.exe*).
+1. In the `tasklist` command output, find the process identifier (`PID`) of *lsass.exe*.
 1. Run the following time travel debugging (TTD) command to begin a time travel tracing session of the *lsass.exe* process:
 
    ```cmd
