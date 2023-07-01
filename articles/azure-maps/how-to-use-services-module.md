@@ -35,7 +35,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
       import * as service from "azure-maps-rest";
       ```
 
-1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client will be created.
+1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client is created.
 
     If you use a subscription key for authentication:
 
@@ -118,7 +118,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
     }
     ```
 
-    For more information, see [Authentication with Azure Maps](azure-maps-authentication.md).
+    For more information, see [Authentication with Azure Maps].
 
 1. The following code uses the newly created Azure Maps Search service URL client to geocode an address: "1 Microsoft Way, Redmond, WA". The code uses the `searchAddress` function and displays the results as a table in the body of the page.
 
@@ -233,7 +233,7 @@ The following image is a screenshot showing the results of this sample code, a t
 
 ## Azure Government cloud support
 
-The Azure Maps Web SDK supports the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same, however the following tasks will need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
+The Azure Maps Web SDK supports the Azure Government cloud. All JavaScript and CSS URLs used to access the Azure Maps Web SDK remain the same, however the following tasks need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
 
 When using the interactive map control, add the following line of code before creating an instance of the `Map` class. 
 
@@ -243,7 +243,7 @@ atlas.setDomain('atlas.azure.us');
 
 Be sure to use an Azure Maps authentication details from the Azure Government cloud platform when authenticating the map and services.
 
-When using the services module, the domain for the services needs to be set when creating an instance of an API URL endpoint. For example, the following code creates an instance of the `SearchURL` class and points the domain to the Azure Government cloud.
+The domain for the services needs to be set when creating an instance of an API URL endpoint. For example, the following code creates an instance of the `SearchURL` class and points the domain to the Azure Government cloud.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
@@ -280,3 +280,5 @@ For more code samples that use the services module, see these articles:
 
 > [!div class="nextstepaction"]
 > [Show directions from A to B](./map-route.md)
+
+[Authentication with Azure Maps]: azure-maps-authentication.md
