@@ -102,11 +102,11 @@ ms.author: eur
 
 #### Breaking changes
 
-- Language Identification (preview) APIs have been simplified. If you update to Speech SDK 1.25 and see a build break, please visit the [Language Identification (preview)](/azure/cognitive-services/speech-service/language-identification) page to learn about the new property `SpeechServiceConnection_LanguageIdMode`. This single property replaces the two previous ones `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
+- Language Identification (preview) APIs have been simplified. If you update to Speech SDK 1.25 and see a build break, please visit the [Language Identification (preview)](/azure/ai-services/speech-service/language-identification) page to learn about the new property `SpeechServiceConnection_LanguageIdMode`. This single property replaces the two previous ones `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
 #### New features
 
-- **C#/C++/Java**: Embedded Speech SDK is now released under gated public preview. See [Embedded Speech (preview)](/azure/cognitive-services/speech-service/embedded-speech) documentation. You can now do on-device speech to text and text to speech when cloud connectivity is intermittent or unavailable. Supported on Android, Linux, MacOS and Windows platforms
+- **C#/C++/Java**: Embedded Speech SDK is now released under gated public preview. See [Embedded Speech (preview)](/azure/ai-services/speech-service/embedded-speech) documentation. You can now do on-device speech to text and text to speech when cloud connectivity is intermittent or unavailable. Supported on Android, Linux, MacOS and Windows platforms
 - **C# MAUI**: Support added for iOS and Mac Catalyst targets in Speech SDK NuGet ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1649))
 - **Unity**: Android x86_64 architecture added to Unity package ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1715))
 - **Go**:
@@ -430,7 +430,7 @@ ms.author: eur
 #### Samples
 
 - Updated Unity samples documentation for macOS [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
-- A React Native sample for the Cognitive Services speech recognition service is now available [here](https://github.com/microsoft/cognitive-services-sdk-react-native-example).
+- A React Native sample for the Azure AI Speech recognition service is now available [here](https://github.com/microsoft/cognitive-services-sdk-react-native-example).
 
 
 ### Speech SDK 1.16.0: 2021-March release
@@ -647,7 +647,7 @@ Stay healthy!
 - **Java**: Refactored bindings using direct JNI implementation without SWIG. This change reduces by 10x the bindings size for all Java packages used for Windows, Android, Linux, and Mac and eases further development of the Speech SDK Java implementation.
 - **Linux**: Updated support [documentation](../../speech-sdk.md?tabs=linux) with the latest RHEL 7 specific notes.
 - Improved connection logic to attempt connecting multiple times when service and network errors occur.
-- Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure Cognitive Services Speech journey.
+- Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure AI services Speech journey.
 
 #### Bug fixes
 - **C#, Java**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) with loading SDK libraries on Linux ARM (both 32 bit and 64 bit).
@@ -1079,7 +1079,7 @@ Reliability improvements and bug fixes:
 
 In our [sample repository](https://aka.ms/csspeech/samples), a new sample for JavaScript was added.
 
-### Cognitive Services Speech SDK 1.0.0: 2018-September release
+### Azure AI Speech SDK 1.0.0: 2018-September release
 
 #### New features
 
@@ -1091,7 +1091,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 - With this release, a number of breaking changes are introduced.
   Check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details.
 
-### Cognitive Services Speech SDK 0.6.0: 2018-August release
+### Azure AI Speech SDK 0.6.0: 2018-August release
 
 #### New features
 
@@ -1117,7 +1117,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 - Fixed a problem, where a long-running recognition could terminate in the middle of the transmission.
 - Fixed a race condition in recognizer shutdown.
 
-### Cognitive Services Speech SDK 0.5.0: 2018-July release
+### Azure AI Speech SDK 0.5.0: 2018-July release
 
 #### New features
 
@@ -1154,7 +1154,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 - The Speech SDK for Android doesn't report speech synthesis results for translation. This issue will be fixed in the next release.
 
-### Cognitive Services Speech SDK 0.4.0: 2018-June release
+### Azure AI Speech SDK 0.4.0: 2018-June release
 
 **Functional changes**
 
@@ -1183,6 +1183,6 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 More samples have been added and are constantly being updated. For the latest set of samples, see the [Speech SDK samples GitHub repository](https://aka.ms/csspeech/samples).
 
-### Cognitive Services Speech SDK 0.2.12733: 2018-May release
+### Azure AI Speech SDK 0.2.12733: 2018-May release
 
-This release is the first public preview release of the Cognitive Services Speech SDK.
+This release is the first public preview release of the Azure AI Speech SDK.

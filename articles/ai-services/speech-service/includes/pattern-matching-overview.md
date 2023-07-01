@@ -1,6 +1,6 @@
 ---
 title: Pattern Matching overview
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Pattern Matching with the ``IntentRecognizer`` helps you get started quickly with offline intent matching.
 author: chschrae
 manager: travisw
