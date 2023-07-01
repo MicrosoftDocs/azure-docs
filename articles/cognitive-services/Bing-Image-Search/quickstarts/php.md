@@ -34,7 +34,7 @@ To run this application, follow these steps:
 
 1. Make sure secure HTTP support is enabled in your `php.ini` file. For Windows, this file is located in *C:\windows*.
 2. Create a new PHP project in your favorite IDE or editor.
-3. Define the API endpoint, your subscription key, and search term. The endpoint can be the global endpoint in the following code, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+3. Define the API endpoint, your subscription key, and search term. The endpoint can be the global endpoint in the following code, or the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -132,7 +132,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 ## See also
 
 * [What is the Bing Image Search API?](../overview.md)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-image-search-api/) 
 * [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
 * [Azure Cognitive Services documentation](../../index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

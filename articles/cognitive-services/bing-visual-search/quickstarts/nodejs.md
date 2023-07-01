@@ -36,7 +36,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     var fs = require('fs');
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image. For the `baseUri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API endpoint, subscription key, and the path to your image. For the `baseUri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';

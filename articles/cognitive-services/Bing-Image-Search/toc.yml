@@ -100,7 +100,7 @@
   - name: Get API key
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
-    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
+    href: https://azure.microsoft.com/services/cognitive-services/Bing-image-search-api/
   - name: Bing Image Search endpoints
     href: image-search-endpoint.md
   - name: Language support

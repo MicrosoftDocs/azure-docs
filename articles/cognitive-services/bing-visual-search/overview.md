@@ -51,7 +51,7 @@ The Bing Visual Search API is a RESTful web service, making it easy to call from
 
 ## Next steps
 
-First, try the Bing Visual Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/).
+First, try the Bing Visual Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-visual-search/).
 The demo shows how you can quickly customize a search query and scour the web for images.
 
 To get started quickly with your first request, see the quickstarts:

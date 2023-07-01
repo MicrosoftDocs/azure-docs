@@ -69,7 +69,7 @@
 - name: Resources
   items:
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/Bing-entity-search-api/
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+entity+search
   - name: Regional availability

@@ -43,7 +43,7 @@ The Bing News Search API is a RESTful web service, making it easy to call from a
 
 ## Next steps
 
-First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/) for the Bing News Search API. This demo shows how you can quickly customize a search query and find news on the web.
+First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-news-search-api/) for the Bing News Search API. This demo shows how you can quickly customize a search query and find news on the web.
 
 To quickly get started with your first API request, try a quickstart for the [REST API](./csharp.md) or one of the [SDKs](./quickstarts/client-libraries.md?pivots=programming-language-csharp).
 

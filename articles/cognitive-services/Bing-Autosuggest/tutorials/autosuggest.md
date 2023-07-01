@@ -193,7 +193,7 @@ function bingAutosuggest(query, key) {
 ```
 
 Specify the Bing Autosuggest API endpoint and declare an XMLHttpRequest object, which we will
-use to send requests. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+use to send requests. You can use the global endpoint below, or the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";

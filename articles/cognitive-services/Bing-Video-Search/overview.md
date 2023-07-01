@@ -39,7 +39,7 @@ The Bing Video Search API is a RESTful web service, making it easy to call from 
 
 ## Next steps
 
-The Bing Video Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/) shows how you can customize a search query and search the web for videos.
+The Bing Video Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-video-search-api/) shows how you can customize a search query and search the web for videos.
 
 Use the [quickstart](./quickstarts/csharp.md) to quickly get started with your first API request.
 

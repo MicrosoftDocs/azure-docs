@@ -43,7 +43,7 @@ The Bing Image Search API is a RESTful web service, making it easy to call from 
 
 ## Next steps
 
-First, try the Bing Image Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+First, try the Bing Image Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-image-search-api/).
 This demo shows how you can quickly customize a search query and scour the web for images.
 
 To quickly get started with your first API request, you can learn to:

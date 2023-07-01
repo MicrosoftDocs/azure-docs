@@ -31,7 +31,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
 
 ## Create and initialize a project
 
-1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then, create variables for your API endpoint's host, path, and your subscription key. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require `https`. Then, create variables for your API endpoint's host, path, and your subscription key. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     'use strict';

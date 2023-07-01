@@ -24,7 +24,7 @@ You specify whether to return only custom suggestions or to also include Bing su
 To configure search query suggestions for your instance, click the **Autosuggest** tab.  
 
 > [!NOTE]
-> To use this feature, you must subscribe to Custom Search at the appropriate level (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)).
+> To use this feature, you must subscribe to Custom Search at the appropriate level (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/Bing-custom-search/)).
 
 It can take up to 24 hours for suggestions to be reflected in the serving endpoint (API or hosted UI).
 

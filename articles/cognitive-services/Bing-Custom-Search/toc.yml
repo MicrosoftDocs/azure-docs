@@ -91,7 +91,7 @@
 - name: Resources
   items:
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/Bing-custom-search/
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+custom+search
   - name: Regional availability

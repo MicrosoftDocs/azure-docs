@@ -38,7 +38,7 @@ For more information, see [Cognitive Services Pricing - Bing Search API](https:/
     require 'json'
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term. For `uri`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term. For `uri`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -139,6 +139,6 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 ## See also
 
 * [What is the Bing Image Search API?](../overview.md)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)   
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-image-search-api/)   
 * [Azure Cognitive Services documentation](../../index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

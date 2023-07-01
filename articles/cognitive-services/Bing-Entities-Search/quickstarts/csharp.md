@@ -48,7 +48,7 @@ Although this application is written in C#, the API is a RESTful Web service com
     using System.Text;
     ```
 
-2. Create a new class, and add variables for the API endpoint, your subscription key, and the query you want to search. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create a new class, and add variables for the API endpoint, your subscription key, and the query you want to search. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     namespace EntitySearchSample
