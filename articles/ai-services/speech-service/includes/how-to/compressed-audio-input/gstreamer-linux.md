@@ -34,4 +34,4 @@ gstreamer1-plugins-ugly-free
 
 ---
 
-For more information, see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c) and [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
+For more information, see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c) and [supported Linux distributions and target architectures](~/articles/ai-services/speech-service/speech-sdk.md).
