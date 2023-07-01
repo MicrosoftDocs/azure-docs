@@ -15,7 +15,7 @@ ms.author: rwaller
 * [Git](https://git-scm.com/).
 * [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
 * [Python](https://www.python.org/downloads/) and [pip](https://docs.python.org/3/installing/index.html). Starting with Python 3.4, pip is included by default with the Python binary installers.
-* [Flask](https://pypi.org/project/Flask/).
+* [Flask](https://flask.palletsprojects.com/en/2.3.x/).
 * [Jinja](http://jinja.pocoo.org/docs/2.10/).
 * [virtualenv](https://virtualenv.pypa.io/en/latest/) and [virtualenvwrapper-win for Windows](https://pypi.org/project/virtualenvwrapper-win/) or [virtualenvwrapper for OSX](https://virtualenvwrapper.readthedocs.io/en/latest/).
 * The [requests module](https://pypi.org/project/requests/2.7.0/).

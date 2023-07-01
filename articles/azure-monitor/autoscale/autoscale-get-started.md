@@ -1,12 +1,9 @@
 ---
 title: Get started with autoscale in Azure
 description: "Learn how to scale your resource web app, cloud service, virtual machine, or Virtual Machine Scale Set in Azure."
-author: EdB-MSFT
-ms.author: edbaynash
+ms.author: msangapu
 ms.topic: conceptual
 ms.date: 04/10/2023
-ms.subservice: autoscale
-ms.reviewer: akkumari
 ---
 # Get started with autoscale in Azure
 

@@ -32,6 +32,170 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## June 2023
+
+### Public Preview - Availability of Exchange Hybrid in Azure AD Connect cloud sync
+
+**Type:** New feature   
+**Service category:** Directory Management                       
+**Product capability:** Azure Active Directory Connect Cloud Sync                
+
+
+
+Exchange hybrid capability allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Cloud Sync synchronizes a specific set of Exchange-related attributes from Azure AD back into your on-premises directory and to any forests that's disconnected (no network trust needed between them). With this capability, existing customers who have this feature enabled in Azure AD Connect sync can now migrate and leverage this feature with Azure AD cloud sync. For more information, see: ADD LINK
+
+---
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Headspace](../saas-apps/headspace-provisioning-tutorial.md)
+- [Humbol](../saas-apps/humbol-provisioning-tutorial.md)
+- [LUSID](../saas-apps/lusid-provisioning-tutorial.md)
+- [Markit Procurement Service](../saas-apps/markit-procurement-service-provisioning-tutorial.md)
+- [Moqups](../saas-apps/moqups-provisioning-tutorial.md)
+- [Notion](../saas-apps/notion-provisioning-tutorial.md)
+- [OpenForms](../saas-apps/openforms-provisioning-tutorial.md)
+- [SafeGuard Cyber](../saas-apps/safeguard-cyber-provisioning-tutorial.md)
+- [Uni-tel A/S](../saas-apps/uni-tel-as-provisioning-tutorial.md)
+- [Vault Platform](../saas-apps/vault-platform-provisioning-tutorial.md)
+- [V-Client](../saas-apps/v-client-provisioning-tutorial.md)
+- [Veritas Enterprise Vault.cloud SSO-SCIM](../saas-apps/veritas-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+---
+
+### General Availability - Include/exclude Entitlement Management in Conditional Access policies
+
+**Type:** New feature       
+**Service category:** Entitlement Management                          
+**Product capability:** Entitlement Management                
+
+The Entitlement Management service can now be targeted in the conditional access policy for inclusion or exclusion of applications. To target the Entitlement Management service, select “Azure AD Identity Governance - Entitlement Management” in the cloud apps picker. The Entitlement Management app includes the entitlement management part of My Access, the Entitlement Management part of the Entra and Azure portals, and the Entitlement Management part of MS Graph. For more information, see:  [Review your Conditional Access policies](../governance/entitlement-management-external-users.md#review-your-conditional-access-policies).
+
+---
+
+### General Availability - Azure Active Directory User and Group capabilities on Azure Mobile are now available
+
+**Type:** New feature       
+**Service category:** Azure Mobile App                             
+**Product capability:** End User Experiences                  
+
+The Azure Mobile app now includes a section for Azure Active Directory. Within Azure Active Directory on mobile, user can search for and view more details about user and groups. Additionally, permitted users can invite guest users to their active tenant, assign group memberships and ownerships for users, and view user sign-in logs. For more information, see: [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+
+---
+
+### Plan for change - Modernizing Terms of Use Experiences
+
+**Type:** Plan for change         
+**Service category:** Terms of Use                               
+**Product capability:** AuthZ/Access Delegation                   
+
+Recently we [announced](../fundamentals/whats-new.md#modernizing-terms-of-use-experiences) the modernization of terms of use end-user experiences as part of ongoing service improvements. As previously communicated the end user experiences will be updated with a new PDF viewer and are moving from https://account.activedirectory.windowsazure.com to https://myaccount.microsoft.com. 
+
+Starting today the modernized experience for viewing previously accepted terms of use is available via https://myaccount.microsoft.com/termsofuse/myacceptances. We encourage you to check out the modernized experience, which follows the same updated design pattern as the upcoming modernization of accepting or declining terms of use as part of the sign-in flow. We would appreciate your [feedback](https://forms.microsoft.com/r/NV0msbrqtF) before we begin to modernize the sign-in flow.
+
+---
+
+### General Availability - Privileged Identity Management for Groups
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                               
+**Product capability:** Privileged Identity Management                 
+
+Privileged Identity Management for Groups is now generally available. With this feature, you have the ability to grant users just-in-time membership in a group, which in turn provides access to Azure Active Directory roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, as well as third-party applications. Through one activation, you can conveniently assign a combination of permissions across different applications and RBAC systems.
+
+PIM for Groups offers can also be used for just-in-time ownership. As the owner of the group, you can manage group properties, including membership. For more information, see: [Privileged Identity Management (PIM) for Groups](../privileged-identity-management/concept-pim-for-groups.md).
+
+---
+
+### General Availability - Privileged Identity Management and Conditional Access integration 
+
+**Type:** New feature       
+**Service category:** Privileged Identity Management                               
+**Product capability:** Privileged Identity Management                    
+
+The Privileged Identity Management (PIM) integration with Conditional Access authentication context is generally available. You can require users to meet a variety of requirements during role activation such as:
+
+- Have specific authentication method through [Authentication Strengths](../authentication/concept-authentication-strengths.md)
+- Activate from a compliant device 
+- Validate location based on GPS
+- Not have certain level of sign-in risk identified with Identity Protection
+- Meet other requirements defined in Conditional Access policies
+
+The integration is available for all providers: PIM for Azure AD roles, PIM for Azure resources, PIM for groups. For more information, see:
+- [Configure Azure AD role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
+- [Configure Azure resource role settings in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-role-settings.md)
+- [Configure PIM for Groups settings](../privileged-identity-management/groups-role-settings.md)
+
+---
+
+### General Availability - Updated look and feel for Per-user MFA
+
+**Type:** Plan for change    
+**Service category:** MFA                       
+**Product capability:** Identity Security & Protection              
+
+As part of ongoing service improvements, we're making updates to the per-user MFA admin configuration experience to align with the look and feel of Azure. This change doesn't include any changes to the core functionality and will only include visual improvements. For more information, see: [Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events](../authentication/howto-mfa-userstates.md).
+
+---
+
+### General Availability - Converged Authentication Methods in US Gov cloud
+
+**Type:** New feature   
+**Service category:** MFA                      
+**Product capability:** User Authentication              
+
+The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy, migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in the tenant. Customers should migrate management of authentication methods off the legacy MFA and SSPR policies before September 30, 2024. For more information, see: [Manage authentication methods for Azure AD](../authentication/concept-authentication-methods-manage.md).
+
+---
+
+### General Availability - Support for Directory Extensions using Azure AD Cloud Sync
+
+**Type:** New feature   
+**Service category:** Provisioning                        
+**Product capability:** Azure Active Directory Connect Cloud Sync                
+
+Hybrid IT Admins can now sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure Active Directory, thereby, allowing customers to simply map the needed attributes using Cloud Sync's attribute mapping experience. For more information, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md).
+
+---
+
+### Public Preview - Restricted Management Administrative Units
+
+**Type:** New feature   
+**Service category:** Directory Management                        
+**Product capability:** Access Control               
+
+Restricted Management Administrative Units allow you to restrict modification of users, security groups, and device in Azure AD so that only designated administrators can make changes.  Global Administrators and other tenant-level administrators can't modify the users, security groups, or devices that are added to a restricted management admin unit. For more information, see: [Restricted management administrative units in Azure Active Directory (Preview)](../roles/admin-units-restricted-management.md).
+
+---
+
+### Public Preview - Real-Time Threat Intelligence Detections
+
+**Type:** New feature   
+**Service category:** Identity Protection                        
+**Product capability:** Identity Security & Protection              
+
+To address emerging attacks, Identity Protection now includes Real-Time Threat Intelligence Detections, also referred to as Rapid Response Detections. When emerging attacks occur, Identity Protection will now dynamically issue new detections in response to these attacks. These detections utilize Microsoft’s threat intelligence in real-time, meaning Identity Protection detects emerging patterns of compromise during sign-in and challenge the user accordingly. For more information, see: ADD LINK
+
+---
+
+### General Availability - Report suspicious activity integrated with Identity Protection
+
+**Type:** Changed feature   
+**Service category:** Identity Protection                        
+**Product capability:** Identity Security & Protection              
+
+Report suspicious activity is an updated implementation of the MFA fraud alert, where users can report a voice or phone app MFA prompt as suspicious. If enabled, users reporting prompts have their user risk set to high, enabling admins to use Identity Protection risk based policies or risk detection APIs to take remediation actions.  Report suspicious activity operates in parallel with the legacy MFA fraud alert at this time. For more information, see: [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
+
+---
+
 ## May 2023
 
 ### General Availability - Conditional Access authentication strength for members, external users and FIDO2 restrictions
@@ -89,7 +253,7 @@ Last year we announced the [public preview of custom extensions in Entitlement M
 
 The latest version of MSAL.NET graduates the Managed Identity APIs into the General Availability mode of support, which means that developers can integrate them safely in production workloads.
 
-Managed identities are a part of the Azure infrastructure, simplifying how developers handle credentials and secrets to access cloud resources. With Managed Identities, developers do not need to manually handle credential retrieval and security. Instead, they can rely on an automatically managed set of identities to connect to resources that support Azure Active Directory (AAD) authentication. You can learn more in [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
+Managed identities are a part of the Azure infrastructure, simplifying how developers handle credentials and secrets to access cloud resources. With Managed Identities, developers don't need to manually handle credential retrieval and security. Instead, they can rely on an automatically managed set of identities to connect to resources that support Azure Active Directory authentication. You can learn more in [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
 With MSAL.NET 4.54.0, the Managed Identity APIs are now stable. There are a few changes that we added that make them easier to use and integrate that might require tweaking your code if you’ve used our [experimental implementation](https://den.dev/blog/managed-identity-msal-net/):
 
@@ -382,7 +546,7 @@ As part of ongoing service improvements, we're making updates to the per-user MF
 **Service category:** Terms of Use                  
 **Product capability:** AuthZ/Access Delegation          
 
-Due to a technical issue, we have recently started to emit additional audit logs for terms of use. The additional audit logs will be turned off by the first of May and are tagged with the core directory service and the agreement category. If you have built a dependency on the additional audit logs, you must switch to the regular audit logs tagged with the terms of use service.
+Due to a technical issue, we have recently started to emit additional audit logs for terms of use. The additional audit logs will be turned off by May 1 and are tagged with the core directory service and the agreement category. If you have built a dependency on the additional audit logs, you must switch to the regular audit logs tagged with the terms of use service.
 
 ---
 
@@ -716,19 +880,6 @@ For more information about how to better secure your organization by using autom
 **Product capability:** Collaboration          
 
 Cross-tenant synchronization allows you to set up a scalable and automated solution for users to access applications across tenants in your organization. It builds upon the Azure AD B2B functionality and automates creating, updating, and deleting B2B users. For more information, see: [What is cross-tenant synchronization? (preview)](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
-
-
----
-
-### General Availability - Apple Watch companion app removed from Authenticator for iOS
-
-
-
-**Type:**  Deprecated      
-**Service category:** Identity Protection                
-**Product capability:** Identity Security & Protection          
-
-In the January 2023 release of Authenticator for iOS, there's no companion app for watchOS due to it being incompatible with Authenticator security features, meaning you aren't able to install or use Authenticator on Apple Watch. This change only impacts Apple Watch, so you can still use Authenticator on your other devices. For more information, see: [Common questions about the Microsoft Authenticator app](https://support.microsoft.com/account-billing/common-questions-about-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd).
 
 
 ---

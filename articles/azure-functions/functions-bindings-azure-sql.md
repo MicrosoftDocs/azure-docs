@@ -42,6 +42,9 @@ To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package f
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 ```
 
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
+
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
@@ -57,6 +60,9 @@ To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql 
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
 ```
+
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
 
 # [C# script](#tab/csharp-script)
 
@@ -86,6 +92,9 @@ You can add the preview extension bundle to use the [SQL trigger](functions-bind
   }
 }
 ```
+
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
 
 
 ---
@@ -129,6 +138,8 @@ You can add the preview extension bundle by adding or replacing the following co
 }
 ```
 
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
 
 ---
 
@@ -176,6 +187,9 @@ You can add the preview extension bundle by adding or replacing the following co
 }
 ```
 
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
+
 ---
 
 ::: zone-end
@@ -216,6 +230,9 @@ You can add the preview extension bundle by adding or replacing the following co
   }
 }
 ```
+
+> [!NOTE]
+> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
 
 ---
 

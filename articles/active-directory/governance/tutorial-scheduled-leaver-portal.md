@@ -25,7 +25,8 @@ This post off-boarding scenario runs a scheduled workflow and accomplishes the f
 
 ## Prerequisites
 
-The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ##  Before you begin
 
