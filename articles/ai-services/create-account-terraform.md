@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create an Azure Cognitive Services resource using Terraform'
-description: 'In this article, you create an Azure Cognitive Services resource using Terraform'
-keywords: cognitive services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
+title: 'Quickstart: Create an Azure AI services resource using Terraform'
+description: 'In this article, you create an Azure AI services resource using Terraform'
+keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 services: cognitive-services
 ms.service: cognitive-services
 ms.topic: quickstart
@@ -11,11 +11,11 @@ author: TomArcherMsft
 ms.author: tarcher
 ---
 
-# Quickstart: Create an Azure Cognitive Services resource using Terraform
+# Quickstart: Create an Azure AI services resource using Terraform
 
-This article shows how to use Terraform to create a [Cognitive Services account](/azure/cognitive-services/cognitive-services-apis-create-account) using [Terraform](/azure/developer/terraform/quickstart-configure).
+This article shows how to use Terraform to create a [Azure AI services account](/azure/ai-services/cognitive-services-apis-create-account) using [Terraform](/azure/developer/terraform/quickstart-configure).
 
-Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
+Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -25,7 +25,7 @@ In this article, you learn how to:
 > * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random string using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
-> * Create a Cognitive Services account using [azurerm_cognitive_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
+> * Create a Azure AI services account using [azurerm_cognitive_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
 
 [!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
@@ -74,19 +74,19 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Get the Azure resource name in which the Cognitive Services account was created.
+1. Get the Azure resource name in which the Azure AI services account was created.
 
     ```console
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Get the Cognitive Services account name.
+1. Get the Azure AI services account name.
 
     ```console
     azurerm_cognitive_account_name=$(terraform output -raw azurerm_cognitive_account_name)
     ```
 
-1. Run [az cognitiveservices account show](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-show) to show the Cognitive Services account you created in this article.
+1. Run [az cognitiveservices account show](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-show) to show the Azure AI services account you created in this article.
 
     ```azurecli
     az cognitiveservices account show --name $azurerm_cognitive_account_name \
@@ -95,13 +95,13 @@ In this article, you learn how to:
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Get the Azure resource name in which the Cognitive Services account was created.
+1. Get the Azure resource name in which the Azure AI services account was created.
 
     ```console
     $resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Get the Cognitive Services account name.
+1. Get the Azure AI services account name.
 
     ```console
     $azurerm_cognitive_account_name=$(terraform output -raw azurerm_cognitive_account_name)
@@ -127,4 +127,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Recover deleted Cognitive Services resources](manage-resources.md)
+> [Recover deleted Azure AI services resources](manage-resources.md)

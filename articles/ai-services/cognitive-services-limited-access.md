@@ -1,7 +1,7 @@
 ---
-title: Limited Access features for Cognitive Services
-titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services that are available with Limited Access are described below.
+title: Limited Access features for Azure AI services
+titleSuffix: Azure AI services
+description: Azure AI services that are available with Limited Access are described below.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 10/27/2022
 ms.author: pafarley
 ---
 
-# Limited Access features for Cognitive Services
+# Limited Access features for Azure AI services
 
 Our vision is to empower developers and organizations to use AI to transform society in positive ways. We encourage responsible AI practices to protect the rights and safety of individuals. To achieve this, Microsoft has implemented a Limited Access policy grounded in our [AI Principles](https://www.microsoft.com/ai/responsible-ai) to support responsible deployment of Azure services. 
 
@@ -25,11 +25,11 @@ Limited Access services are made available to customers under the terms governin
 
 The following services are Limited Access: 
 
-- [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context): Pro features 
-- [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context): All features 
-- [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context): Identify and Verify features, face ID property
-- [Computer Vision](/legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context): Celebrity Recognition feature 
-- [Azure Video Indexer](../azure-video-indexer/limited-access-features.md): Celebrity Recognition and Face Identify features
+- [Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context): Pro features 
+- [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/ai-services/speech-service/context/context): All features 
+- [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/ai-services/computer-vision/context/context): Identify and Verify features, face ID property
+- [Azure AI Vision](/legal/cognitive-services/computer-vision/limited-access?context=/azure/ai-services/computer-vision/context/context): Celebrity Recognition feature 
+- [Azure AI Video Indexer](../azure-video-indexer/limited-access-features.md): Celebrity Recognition and Face Identify features
 - [Azure OpenAI](/legal/cognitive-services/openai/limited-access): Azure OpenAI Service, modified abuse monitoring, and modified content filters
 
 Features of these services that aren't listed above are available without registration. 
@@ -43,8 +43,8 @@ Submit a registration form for each Limited Access service you would like to use
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
-- [Computer Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
-- [Azure Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features 
+- [Azure AI Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
+- [Azure AI Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features 
 - [Azure OpenAI](/legal/cognitive-services/openai/limited-access): Azure OpenAI Service, modified abuse monitoring, and modified content filters 
 
 ### How long will the registration process take? 
@@ -72,8 +72,8 @@ The registration forms can be found here:
 - [Custom Neural Voice](https://aka.ms/customneural): Pro features 
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
-- [Computer Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
-- [Azure Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features
+- [Azure AI Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
+- [Azure AI Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features
 - [Azure OpenAI: [Azure OpenAI service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu), modified abuse monitoring, and modified content filters
 
 ### I'm an existing customer who applied for access to Custom Neural Voice or Speaker Recognition, do I have to register to keep using these services? 

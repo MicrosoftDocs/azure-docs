@@ -1,6 +1,6 @@
 ---
-title: Develop Azure Cognitive Services applications with Key Vault
-description: Learn how to develop Cognitive Services applications securely by using Key Vault.
+title: Develop Azure AI services applications with Key Vault
+description: Learn how to develop Azure AI services applications securely by using Key Vault.
 author: aahill
 ms.author: aahi
 ms.service: cognitive-services
@@ -10,9 +10,9 @@ ms.date: 09/13/2022
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
-# Develop Azure Cognitive Services applications with Key Vault
+# Develop Azure AI services applications with Key Vault
 
-Use this article to learn how to develop Cognitive Services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
+Use this article to learn how to develop Azure AI services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
 
 Key Vault reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application. 
 
@@ -62,16 +62,16 @@ Key Vault reduces the chances that secrets may be accidentally leaked, because y
 > * The credentials and other information you will need to send API calls.
 > * The packages and code you will need to run your application.
 
-## Get your credentials from your Cognitive Services resource
+## Get your credentials from your Azure AI services resource
 
-Before you add your credential information to your Azure key vault, you need to retrieve them from your Cognitive Services resource. For example, if your service needs a key and endpoint you would find them using the following steps:
+Before you add your credential information to your Azure key vault, you need to retrieve them from your Azure AI services resource. For example, if your service needs a key and endpoint you would find them using the following steps:
 
 1. Navigate to your Azure resource in the [Azure portal](https://portal.azure.com/).
 1. From the collapsible menu on the left, select **Keys and Endpoint**.
 
     :::image type="content" source="language-service/custom-text-classification/media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal." lightbox="language-service/custom-text-classification/media/get-endpoint-azure.png":::
 
-Some Cognitive Services require different information to authenticate API calls, such as a key and region. Make sure to retrieve this information before continuing on.
+Some Azure AI services require different information to authenticate API calls, such as a key and region. Make sure to retrieve this information before continuing on.
 
 ## Add your credentials to your key vault
 
@@ -91,7 +91,7 @@ Repeat these steps to generate a secret for each required resource credential. F
     |---------|---------|
     |Upload options     | Manual         |
     |Name     | A secret name for your key or endpoint. For example: "CognitiveServicesKey" or "CognitiveServicesEndpoint"        |
-    |Value     | Your Azure Cognitive Services resource key or endpoint.         |
+    |Value     | Your Azure AI services resource key or endpoint.         |
 
     Later your application will use the secret "Name" to securely access the "Value". 
 
@@ -561,7 +561,7 @@ node index.js
 
 If you're using a multi-service resource or Language resource, you can update [your application](#create-a-new-nodejs-application) by following these steps to send an example Named Entity Recognition call by retrieving a key and endpoint from your key vault.   
 
-1. Install the Azure Cognitive Service for Language library, [@azure/ai-text-analytics](https://www.npmjs.com/package/@azure/ai-text-analytics/) to send API requests to the [Language service](./language-service/overview.md).
+1. Install the Azure AI service for Language library, [@azure/ai-text-analytics](https://www.npmjs.com/package/@azure/ai-text-analytics/) to send API requests to the [Language service](./language-service/overview.md).
 
     ```terminal
     npm install @azure/ai-text-analytics@5.1.0
@@ -595,8 +595,8 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 ## Next steps
 
-* See [What are Cognitive Services](./what-are-cognitive-services.md) for available features you can develop along with [Azure Key Vault](../key-vault/general/index.yml).  
+* See [What are Azure AI services](./what-are-cognitive-services.md) for available features you can develop along with [Azure Key Vault](../key-vault/general/index.yml).  
 * For additional information on secure application development, see:
     * [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md)
-    * [Cognitive Services security](cognitive-services-security.md)
-    * [Azure security baseline for Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json)
+    * [Azure AI services security](cognitive-services-security.md)
+    * [Azure security baseline for Azure AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json)

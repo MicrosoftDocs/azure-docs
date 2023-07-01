@@ -1,7 +1,7 @@
 ---
-title: Create an Azure Cognitive Services resource using ARM templates | Microsoft Docs
-description: Create a Azure Cognitive Service resource with ARM template.
-keywords: cognitive services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
+title: Create an Azure AI services resource using ARM templates | Microsoft Docs
+description: Create an Azure AI service resource with ARM template.
+keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.author: aahi
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Create a Cognitive Services resource using an ARM template
+# Quickstart: Create a Azure AI services resource using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Cognitive Services.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure AI services.
 
-Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
+Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 Create a resource using an Azure Resource Manager template (ARM template). This multi-service resource lets you:
 
-* Access multiple Azure Cognitive Services with a single key and endpoint.
+* Access multiple Azure AI services with a single key and endpoint.
 * Consolidate billing from the services you use.
 * [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
@@ -36,7 +36,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Cognitive Services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
 
 [!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
@@ -68,7 +68,7 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
 > [!NOTE]
 > `az deployment group` create requires Azure CLI version 2.6 or later. To display the version type `az --version`. For more information, see the [documentation](/cli/azure/deployment/group).
 
-Run the following script via the Azure CLI, either from [your local machine](/cli/azure/install-azure-cli), or from a browser by using the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Cognitive Services resource within it. Remember the name you use. You will use it later to validate the deployment.
+Run the following script via the Azure CLI, either from [your local machine](/cli/azure/install-azure-cli), or from a browser by using the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Azure AI services resource within it. Remember the name you use. You will use it later to validate the deployment.
 
 ```azurecli-interactive
 read -p "Enter a name for your new resource group:" resourceGroupName &&
@@ -98,7 +98,7 @@ When your deployment finishes, you will be able to click the **Go to resource** 
 Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier.
 
 ```azurecli-interactive
-echo "Enter the resource group where the Cognitive Services resource exists:" &&
+echo "Enter the resource group where the Azure AI services resource exists:" &&
 read resourceGroupName &&
 az cognitiveservices account list -g $resourceGroupName
 ```
@@ -108,7 +108,7 @@ az cognitiveservices account list -g $resourceGroupName
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
+If you want to clean up and remove a Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 # [Azure portal](#tab/portal)
 
@@ -128,12 +128,12 @@ az group delete --name $resourceGroupName
 
 ---
 
-If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
-* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
+* See **[What are Azure AI services?](./what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
+* See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
+* See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.

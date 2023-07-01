@@ -1,7 +1,7 @@
 ---
-title: Authentication in Azure Cognitive Services
-titleSuffix: Azure Cognitive Services
-description: "There are three ways to authenticate a request to an Azure Cognitive Services resource: a subscription key, a bearer token, or a multi-service subscription. In this article, you'll learn about each method, and how to make a request."
+title: Authentication in Azure AI services
+titleSuffix: Azure AI services
+description: "There are three ways to authenticate a request to an Azure AI services resource: a subscription key, a bearer token, or a multi-service subscription. In this article, you'll learn about each method, and how to make a request."
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 09/01/2022
 ms.author: pafarley
 ---
 
-# Authenticate requests to Azure Cognitive Services
+# Authenticate requests to Azure AI services
 
-Each request to an Azure Cognitive Service must include an authentication header. This header passes along a subscription key or authentication token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
+Each request to an Azure AI service must include an authentication header. This header passes along a subscription key or authentication token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
 * Authenticate with a [single-service](#authenticate-with-a-single-service-subscription-key) or [multi-service](#authenticate-with-a-multi-service-subscription-key) subscription key
 * Authenticate with a [token](#authenticate-with-an-access-token)
@@ -22,13 +22,13 @@ Each request to an Azure Cognitive Service must include an authentication header
 
 ## Prerequisites
 
-Before you make a request, you need an Azure account and an Azure Cognitive Services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a Cognitive Services account for Azure](cognitive-services-apis-create-account.md).
+Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a Azure AI services account for Azure](cognitive-services-apis-create-account.md).
 
 You can get your subscription key from the [Azure portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) after [creating your account](https://azure.microsoft.com/free/cognitive-services/).
 
 ## Authentication headers
 
-Let's quickly review the authentication headers available for use with Azure Cognitive Services.
+Let's quickly review the authentication headers available for use with Azure AI services.
 
 | Header | Description |
 |--------|-------------|
@@ -56,18 +56,18 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-The following video demonstrates using a Cognitive Services key.
+The following video demonstrates using a Azure AI services key.
 
 ## Authenticate with a multi-service subscription key
 
 > [!WARNING]
 > At this time, the multi-service key doesn't support: QnA Maker, Immersive Reader, Personalizer, and Anomaly Detector.
 
-This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Cognitive Services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
+This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Azure AI services. See [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
 The subscription key is provided in each request as the `Ocp-Apim-Subscription-Key` header.
 
-[![Multi-service subscription key demonstration for Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
+[![Multi-service subscription key demonstration for Azure AI services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### Supported regions
 
@@ -121,7 +121,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## Authenticate with an access token
 
-Some Azure Cognitive Services accept, and in some cases require, an access token. Currently, these services support access tokens:
+Some Azure AI services accept, and in some cases require, an access token. Currently, these services support access tokens:
 
 * Text Translation API
 * Speech Services: Speech to text API
@@ -180,12 +180,12 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## Use Azure key vault to securely access credentials
 
-You can [use Azure Key Vault](./use-key-vault.md) to securely develop Cognitive Services applications. Key Vault enables you to store your authentication credentials in the cloud, and reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application.
+You can [use Azure Key Vault](./use-key-vault.md) to securely develop Azure AI services applications. Key Vault enables you to store your authentication credentials in the cloud, and reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application.
 
 Authentication is done via Azure Active Directory. Authorization may be done via Azure role-based access control (Azure RBAC) or Key Vault access policy. Azure RBAC can be used for both management of the vaults and access data stored in a vault, while key vault access policy can only be used when attempting to access data stored in a vault.
 
 ## See also
 
-* [What is Cognitive Services?](./what-are-cognitive-services.md)
-* [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [What is Azure AI services?](./what-are-cognitive-services.md)
+* [Azure AI services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 * [Custom subdomains](cognitive-services-custom-subdomains.md)

@@ -1,12 +1,12 @@
 ---
-title: Create a Cognitive Services resource using the Azure CLI
-titleSuffix: Azure Cognitive Services
-description: Get started with Azure Cognitive Services by using Azure CLI commands to create and subscribe to a resource.
+title: Create a Azure AI services resource using the Azure CLI
+titleSuffix: Azure AI services
+description: Get started with Azure AI services by using Azure CLI commands to create and subscribe to a resource.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
+keywords: Azure AI services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
 ms.date: 06/06/2022
 ms.author: aahi
@@ -14,13 +14,13 @@ ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Quickstart: Create a Cognitive Services resource using the Azure CLI
+# Quickstart: Create a Azure AI services resource using the Azure CLI
 
-Use this quickstart to create a Cognitive Services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After you create the resource, use the keys and endpoint generated for you to authenticate your applications.
+Use this quickstart to create a Azure AI services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After you create the resource, use the keys and endpoint generated for you to authenticate your applications.
 
-Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
+Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
-## Types of Cognitive Services resources
+## Types of Azure AI services resources
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
@@ -41,17 +41,17 @@ az login
 
 You can also use the green **Try It** button to run these commands in your browser.
 
-## Create a new Azure Cognitive Services resource group
+## Create a new Azure AI services resource group
 
-Before you create a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you can either create a new resource group, or use an existing one. This article shows how to create a new resource group.
+Before you create a Azure AI services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you can either create a new resource group, or use an existing one. This article shows how to create a new resource group.
 
 ### Choose your resource group location
 
-To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az-account-list-locations) command. Most Cognitive Services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
+To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az-account-list-locations) command. Most Azure AI services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
 
 > [!IMPORTANT]
-> * Remember your Azure location, as you will need it when calling the Azure Cognitive Services resources.
-> * The availability of some Cognitive Services can vary by region. For more information, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
+> * Remember your Azure location, as you will need it when calling the Azure AI services resources.
+> * The availability of some Azure AI services can vary by region. For more information, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ```azurecli-interactive
 az account list-locations --query "[].{Region:name}" --out table
@@ -63,7 +63,7 @@ After you have your Azure location, create a new resource group in the Azure CLI
 az group create --name cognitive-services-resource-group --location westus2
 ```
 
-## Create a Cognitive Services resource
+## Create a Azure AI services resource
 
 ### Choose a service and pricing tier
 
@@ -82,7 +82,7 @@ az cognitiveservices account list-kinds
 
 ### Add a new resource to your resource group
 
-To create and subscribe to a new Cognitive Services resource, use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location:
+To create and subscribe to a new Azure AI services resource, use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location:
 
 You can create an F0 (free) resource for Anomaly Detector, named `anomaly-detector-resource` with the command below.
 
@@ -125,7 +125,7 @@ az cognitiveservices account list-usage --name anomaly-detector-resource --resou
 
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services resource, you can delete it or the resource group. Deleting the resource group also deletes any other resources contained in the group.
+If you want to clean up and remove a Azure AI services resource, you can delete it or the resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 To remove the resource group and its associated resources, use the az group delete command.
 
@@ -133,12 +133,12 @@ To remove the resource group and its associated resources, use the az group dele
 az group delete --name cognitive-services-resource-group
 ```
 
-If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
-* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
+* See **[What are Azure AI services?](./what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
+* See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
+* See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.

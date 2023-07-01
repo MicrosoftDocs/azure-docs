@@ -1,6 +1,6 @@
 ---
-title: "Recipe: Intelligent Art Exploration with the Cognitive Services for big data"
-titleSuffix: Azure Cognitive Services
+title: "Recipe: Intelligent Art Exploration with the Azure AI services for big data"
+titleSuffix: Azure AI services
 description: This recipe shows how to create a searchable art database using Azure Search and MMLSpark.
 services: cognitive-services
 author: mhamilton723
@@ -14,13 +14,13 @@ ms.devlang: python
 ms.custom: devx-track-python
 ---
 
-# Recipe: Intelligent Art Exploration with the Cognitive Services for big data
+# Recipe: Intelligent Art Exploration with the Azure AI services for big data
 
-In this example, we'll use the Cognitive Services for big data to add intelligent annotations to the Open Access collection from the Metropolitan Museum of Art (MET). This will enable us to create an intelligent search engine using Azure Search even without manual annotations. 
+In this example, we'll use the Azure AI services for big data to add intelligent annotations to the Open Access collection from the Metropolitan Museum of Art (MET). This will enable us to create an intelligent search engine using Azure Search even without manual annotations. 
 
 ## Prerequisites
 
-* You must have a subscription key for Computer Vision and Cognitive Search. Follow the instructions in [Create a Cognitive Services account](../../cognitive-services-apis-create-account.md) to subscribe to Computer Vision and get your key.
+* You must have a subscription key for Azure AI Vision and Cognitive Search. Follow the instructions in [Create a Azure AI services account](../../cognitive-services-apis-create-account.md) to subscribe to Azure AI Vision and get your key.
   > [!NOTE]
   > For pricing information, see [Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
 
@@ -37,7 +37,7 @@ from pyspark.sql.functions import lit, udf, col, split
 
 ## Set up Subscription Keys
 
-Run the following command to set up variables for service keys. Insert your subscription keys for Computer Vision and Azure Cognitive Search.
+Run the following command to set up variables for service keys. Insert your subscription keys for Azure AI Vision and Azure Cognitive Search.
 
 ```python
 VISION_API_KEY = 'INSERT_COMPUTER_VISION_SUBSCRIPTION_KEY'
@@ -65,7 +65,7 @@ data = spark.read\
 
 ## Analyze the Images
 
-Run the following command to use Computer Vision on the MET's Open Access artworks collection. As a result, you'll get visual features from the artworks.
+Run the following command to use Azure AI Vision on the MET's Open Access artworks collection. As a result, you'll get visual features from the artworks.
 
 ```python
 from mmlspark.cognitive import AnalyzeImage
@@ -89,7 +89,7 @@ df2 = describeImage.transform(data)\
 
 ## Create the Search Index
 
-Run the following command to write the results to Azure Search to create a search engine of the artworks with enriched metadata from Computer Vision.
+Run the following command to write the results to Azure Search to create a search engine of the artworks with enriched metadata from Azure AI Vision.
 
 ```python
 from mmlspark.cognitive import *
@@ -113,4 +113,4 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 
 ## Next steps
 
-Learn how to use [Cognitive Services for big data for Anomaly Detection](anomaly-detection.md).
+Learn how to use [Azure AI services for big data for Anomaly Detection](anomaly-detection.md).

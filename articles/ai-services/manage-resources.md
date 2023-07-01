@@ -1,7 +1,7 @@
 ---
-title: Recover deleted Cognitive Services resource
-titleSuffix: Azure Cognitive Services
-description: This article provides instructions on how to recover an already-deleted Cognitive Services resource.
+title: Recover deleted Azure AI services resource
+titleSuffix: Azure AI services
+description: This article provides instructions on how to recover an already-deleted Azure AI services resource.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,22 @@ ms.date: 07/02/2021
 ms.author: aahi
 ---
 
-# Recover deleted Cognitive Services resources
+# Recover deleted Azure AI services resources
 
-This article provides instructions on how to recover a Cognitive Services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
+This article provides instructions on how to recover a Azure AI services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
 
 > [!NOTE]
-> The instructions in this article are applicable to both a multi-service resource and a single-service resource. A multi-service resource enables access to multiple cognitive services using a single key and endpoint. On the other hand, a single-service resource enables access to just that specific cognitive service for which the resource was created.
+> The instructions in this article are applicable to both a multi-service resource and a single-service resource. A multi-service resource enables access to multiple Azure AI services using a single key and endpoint. On the other hand, a single-service resource enables access to just that specific cognitive service for which the resource was created.
 
 ## Prerequisites
 
 * The resource to be recovered must have been deleted within the past 48 hours.
 * The resource to be recovered must not have been purged already. A purged resource cannot be recovered.
 * Before you attempt to recover a deleted resource, make sure that the resource group for that account exists. If the resource group was deleted, you must recreate it. Recovering a resource group is not possible. For more information, see [Manage resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
-* If the deleted resource used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the Cognitive Services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
-* If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Cognitive Services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
+* If the deleted resource used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the Azure AI services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
+* If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Azure AI services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
 
-Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). 
+Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Azure AI services Contributor](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). 
 
 ## Recover a deleted resource 
 
@@ -40,7 +40,7 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 
 # [Azure portal](#tab/azure-portal)
 
-If you need to recover a deleted resource, navigate to the hub of the cognitive services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service to get to the "Anomaly detector" hub which lists deleted resources.
+If you need to recover a deleted resource, navigate to the hub of the Azure AI services API type and select "Manage deleted resources" from the menu. For example, if you would like to recover an "Anomaly detector" resource, search for "Anomaly detector" in the search bar and select the service to get to the "Anomaly detector" hub which lists deleted resources.
 
 :::image type="content" source="media/recovery-deleted-resource.png" alt-text="A screenshot showing the Anomaly detector hub, which lets you recover deleted resources." lightbox="media/recovery-deleted-resource.png":::
 
@@ -111,7 +111,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 
 If you need to purge a deleted resource, the steps are similar to recovering a deleted resource.
 
-Navigate to the hub of the cognitive services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar. Select the service to get to the "Anomaly detector" hub which lists deleted resources.
+Navigate to the hub of the Azure AI services API type of your deleted resource. For example, if you would like to purge an "Anomaly detector" resource, search for "Anomaly detector" in the search bar. Select the service to get to the "Anomaly detector" hub which lists deleted resources.
 
 Select **Manage deleted resources** from the menu. 
 
@@ -119,7 +119,7 @@ Select **Manage deleted resources** from the menu.
 
 Select the subscription in the dropdown list to locate the deleted resource you would like to purge.
 Select one or more deleted resources and click **Purge**.
-Purging will permanently delete a Cognitive Services resource. 
+Purging will permanently delete a Azure AI services resource. 
 
 :::image type="content" source="media/managing-deleted-resource.png" alt-text="A screenshot showing a list of resources that can be purged." lightbox="media/managing-deleted-resource.png":::
 

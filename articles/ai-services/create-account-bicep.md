@@ -1,7 +1,7 @@
 ---
-title: Create an Azure Cognitive Services resource using Bicep | Microsoft Docs
-description: Create an Azure Cognitive Service resource with Bicep.
-keywords: cognitive services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
+title: Create an Azure AI services resource using Bicep | Microsoft Docs
+description: Create an Azure AI service resource with Bicep.
+keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
 services: cognitive-services
 author: aahill
 ms.service: cognitive-services
@@ -11,11 +11,11 @@ ms.author: aahi
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
-# Quickstart: Create a Cognitive Services resource using Bicep
+# Quickstart: Create a Azure AI services resource using Bicep
 
-Follow this quickstart to create Cognitive Services resource using Bicep.
+Follow this quickstart to create Azure AI services resource using Bicep.
 
-Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
+Azure AI services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure AI services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -23,7 +23,7 @@ Azure Cognitive Services are cloud-based artificial intelligence (AI) services t
 
 Using Bicep to create a Cognitive Service resource lets you create a multi-service resource. This enables you to:
 
-* Access multiple Azure Cognitive Services with a single key and endpoint.
+* Access multiple Azure AI services with a single key and endpoint.
 * Consolidate billing from the services you use.
 * [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
@@ -37,13 +37,13 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 > [!NOTE]
 > * If you use a different resource `kind` (listed below), you may need to change the `sku` parameter to match the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) tier you wish to use. For example, the `TextAnalytics` kind uses `S` instead of `S0`.
-> * Many of the Cognitive Services have a free `F0` pricing tier that you can use to try the service.
+> * Many of the Azure AI services have a free `F0` pricing tier that you can use to try the service.
 
 Be sure to change the `sku` parameter to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you are using. For example, `TextAnalytics` 
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/main.bicep":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Cognitive Services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is a Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
 
 [!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
@@ -106,12 +106,12 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
+If you need to recover a deleted resource, see [Recover deleted Azure AI services resources](manage-resources.md).
 
 ## See also
 
-* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
-* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
-* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
-* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
+* See **[What are Azure AI services?](./what-are-cognitive-services.md)** to get a list of different categories within Azure AI services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
+* See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-prem.
+* See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.
