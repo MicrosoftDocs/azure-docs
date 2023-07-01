@@ -1,7 +1,7 @@
 ---
 title: "Quickstart - Provision an Azure Spring Apps service"
 description: Describes creation of an Azure Spring Apps service instance for app deployment.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
