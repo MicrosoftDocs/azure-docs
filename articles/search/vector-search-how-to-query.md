@@ -39,7 +39,7 @@ Search documents containing vector data have fields containing many hundreds of 
 
 To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library that provides this capability.
 
-## Query syntax for vector-only search
+## Query syntax for vector search
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input. The "fields" property specifies which vector fields are searched. The "k" property specifies the number of nearest neighbors to return as top hits.
 
@@ -99,29 +99,9 @@ api-key: {{admin-api-key}}
 }
 ```
 
-## Query syntax for multiple vector fields
+## Query syntax for cross-field vector query
 
-You can query multiple vectors using the `vectors` query parameter:
-
-```json
-vectors: [ 
-    {
-        value: [1.0, 2.0],
-        fields: "myfield1, myfield2",
-        k:5
-    },
-    
-    {
-        value: [1.0, 2.0, 3.0],
-        fields: "myfield3, myfield4",
-        k:5
-    }
-]
-```
-
-## Query syntax for multi-model vectors
-
-You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named TitleVector and ContentVector. Your query can include both TitleVector and ContentVector.
+You can set "vector.fields" property to multiple vector fields. For example, the Postman collection has vector fields named titleVector and contentVector. Your query can include both titleVector and contentVector.
 
 ```json
 {
@@ -140,6 +120,28 @@ You can set "vector.fields" property to multiple vector fields. For example, the
     "select": "title, content, category"
 }
 ```
+
+## Query syntax for multi-vector queries
+
+You can issue a search request with multiple query vectors using the `vectors` query parameter:
+
+```json
+vectors: [ 
+    {
+        value: [1.0, 2.0],
+        fields: "myfield1",
+        k:5
+    },
+    {
+        value: [1.0, 2.0, 3.0],
+        fields: "myfield2",
+        k:5
+    }
+]
+```
+
+The result set is a union of the documents that matched all vector queries.
+
 
 ## Next steps
 
