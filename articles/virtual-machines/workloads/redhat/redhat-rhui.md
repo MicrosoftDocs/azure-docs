@@ -117,7 +117,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Lock the `releasever` variable. Be sure to run the command as `root`.
 
    ```bash
-   sudo echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+   sudo sh -c 'echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever'
    ```
 
    If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  

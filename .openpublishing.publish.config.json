@@ -1055,6 +1055,8 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
   "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
   "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
