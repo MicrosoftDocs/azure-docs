@@ -39,7 +39,7 @@ The following table lists the prerequisites before configuring Azure services to
 | Log Analytics workspace | You require at least one [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) if you enable Container insights or if you collect resource logs.There's no cost for the workspaces, but you do incur ingestion costs when you collect data. See [Azure Monitor pricing](https://aka.ms/azmonpricing) for details. For information on design considerations for a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/workspace-design.md). |
 
 
-### Send Activity log to Log Analytics workspace
+### Send Activity log for AKS clusters to Log Analytics workspace
 Configuration changes to your AKS clusters are stored in the [Activity log](../essentials/activity-log.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with other monitoring data.  There's no cost for this data collection, and you can analyze or alert on the data using Log Analytics.
 
 
@@ -62,26 +62,15 @@ See [Default Prometheus metrics configuration in Azure Monitor](../essentials/pr
 
 When you enable Container Insights for your AKS cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to Azure Monitor. For prerequisites and configuration options, see [Enable Container insights](../containers/container-insights-onboard.md).
 
-Once Container insights is enabled for a cluster, 
+Once Container insights is enabled for a cluster, perform the following actions oto optimize your installation.
 
-To improve your query experience with data Collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logging-v2.md) for each cluster.
-
-
-
+- To improve your query experience with data Collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logging-v2.md) for each cluster. If you only use logs for occasional troublshooting, then consider configuring this table as [basic logs](../logs/basic-logs-configure.md).
 - Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) for details.
 
 
-- Use [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
-- Consider configuring ContainerLogV2 as [basic logs](../logs/basic-logs-configure.md).
+### Collect control plane logs for AKS clusters
 
-
-> [!NOTE]
-> QUESTION
-> - Do we have a formula or specific guidance for when to configure ContainerLogV2 as basic logs?
-
-### Collect control plane logs
-
-The logs for AKS control plane components are implemented in Azure as [resource logs](..//essentials/resource-logs.md). Container Insights doesn't use these logs, so you need to create your own log queries to view and analyze them. For details on log structure and queries, see [How to query logs from Container Insights](container-insights-log-query.md#resource-logs).
+The logs for AKS control plane components are implemented in Azure as [resource logs](../essentials/resource-logs.md). Container Insights doesn't use these logs, so you need to create your own log queries to view and analyze them. For details on log structure and queries, see [How to query logs from Container Insights](container-insights-log-query.md#resource-logs).
 
 - [Create diagnostic setting](../essentials/diagnostic-settings.md) for each AKS cluster to send resource logs to a Log Analytics workspace.
 - For a description of the categories that are available for AKS, see [Resource logs](../../aks/monitor-aks-reference.md#resource-logs). 
