@@ -68,7 +68,7 @@ Open the overview for the container group by navigating to **Resource Groups** >
     :::image type="content" source="media/container-instances-confidential-containers-tutorials/confidential-containers-aci-hello-world.png" alt-text="Screenshot of the hello world application running, PNG.":::
 
     The presence of the attestation report below the Azure Container Instances logo confirms that the container is running on hardware that supports a hardware-based and attested trusted execution environment (TEE).
-    If you deploy to hardware that does not support a TEE, for example by choosing a region where the ACI Confidential SKU is not available, no attestation report will be shown.
+    If you deploy to hardware that does not support a TEE, for example by choosing a region where the [ACI Confidential SKU is not available](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups), no attestation report will be shown.
 
 Congratulations! You have deployed a confidential container on Azure Container Instances which is displaying a hardware attestation report in your browser. 
 
