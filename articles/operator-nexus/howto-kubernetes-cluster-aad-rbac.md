@@ -25,12 +25,14 @@ Nexus creates a Kubernetes cluster role binding with the default Kubernetes role
 ## Role-based access control
 As an administrator, you can provide role-based access control to the cluster by creating a role binding with Azure AD group object ID. For users who only need 'view' permissions, you can accomplish the task by adding them to an Azure AD group that's tied to the 'view' role.
 
-1. Create an Azure AD group for users who need 'view' access. Take note of the group object ID generated upon creation.
+1. Create an Azure AD group for users who need 'view' access, referring to the default Kubernetes role called `view`. This role is just an example, and if necessary, you can create custom roles and use them instead. For more information on user-facing roles in Kubernetes, you can refer to the official documentation at [Kubernetes roll-based access roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles).
 
-2. Use the kubectl command to create a `clusterrolebinding` with the 'view' role and link it to the Azure AD group. Replace <read-only-group-id> with your Azure AD group object ID:
+2. Take note of the Azure AD group object ID generated upon creation.
+
+3. Use the kubectl command to create a clusterrolebinding with the 'view' role and associate it with the Azure AD group. Replace `AZURE_AD_GROUP_OBJECT_ID` with the object ID of your Azure AD group.
 
     ```bash
-    kubectl create clusterrolebinding nexus-read-only-users --clusterrole view --group=<read-only-group-id>
+    kubectl create clusterrolebinding nexus-read-only-users --clusterrole view --group=AZURE_AD_GROUP_OBJECT_ID
     ```
 This command creates a cluster role binding named 'nexus-read-only-users' that assigns the 'view' role to the members of the specified Azure AD group.
 
