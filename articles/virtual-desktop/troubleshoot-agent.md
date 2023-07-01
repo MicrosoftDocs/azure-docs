@@ -308,6 +308,12 @@ If your issue is caused by a web proxy, add an exception for 169.254.169.254 in 
 ```cmd
 netsh winhttp set proxy proxy-server="http=<customerwebproxyhere>" bypass-list="169.254.169.254"
 ```
+If the session host doesn't pass the *MonitoringAgentCheck* health check, this also causes session host to report *Needs Assistance* status on portal, this health check is performed by *Remote Desktop Services Infrastructure Geneva Agent*, you'll need to follow below and validate if this this agent is functioning correctly on the problematic Session Host:
+
+- Verify if "Remote Desktop Services Infrastructure Geneva Agent" is successfully installed on the session host, this can be confirmed from “Program and Features” option, its possible that you may see multiple version of this agent installed on the session host VM, if so, then please uninstall the older version and keep only latest version installed.
+- If you don't find above agent installed on the session host, please review logs located under *C:\Program Files\Microsoft RDInfra\GenevaInstall.txt* and see if agent installation is failing due to some errors. If the agent is installed correctly, please proceed to validate next steps below.
+- Verify if scheduled task *GenevaTask_x_x* (*where x refers to installed agent version*) is created, this scheduled task must be enabled and running.
+- In some situations, you may have to reinstall Geneva Agent manually, this agent installer *Microsoft.RDInfra.Geneva.Installer-x64-x.x.x.msi* is available under *C:\Program Files\Microsoft RDInfra*. You can reinstall this agent manually which should resolve the issue.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
