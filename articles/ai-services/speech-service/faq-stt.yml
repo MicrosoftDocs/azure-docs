@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Speech to text FAQ
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the speech to text service.
   services: cognitive-services
   author: eric-urban
@@ -104,7 +104,7 @@ sections:
       - question: |
           How am I charged for dual channel audio?
         answer: |
-          If you submit each channel separately in their own file, you'll be charged for the duration of each file. If you submit a single file with the channels multiplexed together, you'll be charged for the duration of the single file. For more information about pricing, see the [Azure Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+          If you submit each channel separately in their own file, you'll be charged for the duration of each file. If you submit a single file with the channels multiplexed together, you'll be charged for the duration of the single file. For more information about pricing, see the [Azure AI services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
           
           > [!IMPORTANT]
           > If you have further privacy concerns that prevent you from using the Custom Speech service, contact one of the support channels.

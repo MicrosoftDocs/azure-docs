@@ -1,6 +1,6 @@
 ---
 title: 'Continuous Deployment with Azure DevOps (Preview)'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this article, you learn how to set up continuous deployment for your Custom Commands applications. You create the scripts to support the continuous deployment workflows.
 services: cognitive-services
 author: eric-urban

@@ -1,6 +1,6 @@
 ---
 title: Direct Line Speech - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for Voice assistants using Direct Line Speech with the Speech Software Development Kit (SDK).
 services: cognitive-services
 author: eric-urban
@@ -58,7 +58,7 @@ Direct Line Speech and its associated functionality for voice assistants are an 
 ## Reference docs
 
 * [Speech SDK](./speech-sdk.md)
-* [Azure Bot Service](/azure/bot-service/)
+* [Azure AI Bot Service](/azure/bot-service/)
 
 ## Next steps
 

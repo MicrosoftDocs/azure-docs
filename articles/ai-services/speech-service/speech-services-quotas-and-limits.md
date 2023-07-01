@@ -1,7 +1,7 @@
 ---
 title: Speech service quotas and limits
-titleSuffix: Azure Cognitive Services
-description: Quick reference, detailed description, and best practices on the quotas and limits for the Speech service in Azure Cognitive Services.
+titleSuffix: Azure AI services
+description: Quick reference, detailed description, and best practices on the quotas and limits for the Speech service in Azure AI services.
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: alexeyo
 
 # Speech service quotas and limits
 
-This article contains a quick reference and a detailed description of the quotas and limits for the Speech service in Azure Cognitive Services. The information applies to all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) of the service. It also contains some best practices to avoid request throttling.
+This article contains a quick reference and a detailed description of the quotas and limits for the Speech service in Azure AI services. The information applies to all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) of the service. It also contains some best practices to avoid request throttling.
 
 For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 

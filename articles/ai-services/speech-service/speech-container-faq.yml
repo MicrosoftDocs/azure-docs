@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Speech service containers frequently asked questions (FAQ)
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: Install and run containers for speech to text and text to speech.
   services: cognitive-services
   author: eric-urban
@@ -120,7 +120,7 @@ sections:
           }
           ```
           
-          You reed to create a Speech resource, not a Cognitive Services resource.
+          You reed to create a Speech resource, not a Azure AI services resource.
           
           
       - question: |
@@ -262,4 +262,4 @@ additionalContent: |
   ## Next steps
   
   > [!div class="nextstepaction"]
-  > [Cognitive Services containers](speech-container-howto.md)
+  > [Azure AI containers](speech-container-howto.md)

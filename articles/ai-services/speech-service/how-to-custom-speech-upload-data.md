@@ -1,6 +1,6 @@
 ---
 title: "Upload training and testing datasets for Custom Speech - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn about how to upload data to test or train a Custom Speech model.
 services: cognitive-services
 author: eric-urban

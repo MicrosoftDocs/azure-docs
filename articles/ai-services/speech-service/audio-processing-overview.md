@@ -1,6 +1,6 @@
 ---
 title: Audio processing - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: An overview of audio processing and capabilities of the Microsoft Audio Stack.
 services: cognitive-services
 author: hasyashah

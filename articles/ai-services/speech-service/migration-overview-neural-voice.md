@@ -1,6 +1,6 @@
 ---
 title: Migration to neural voice - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This document summarizes the benefits of migration from non-neural voice to neural voice.
 services: cognitive-services
 author: sally-baolian

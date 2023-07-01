@@ -1,6 +1,6 @@
 ---
 title: "Speaker Recognition quickstart - Speech service"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: In this quickstart, you use speaker recognition to confirm who is speaking. Learn about common design patterns for working with speaker verification and identification. 
 services: cognitive-services
 author: eric-urban

@@ -1,7 +1,7 @@
 ---
-title: Language learning with Azure Cognitive Service for Speech
-titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services for Speech can be used to learn languages.
+title: Language learning with Azure AI Speech
+titleSuffix: Azure AI services
+description: Azure AI services for Speech can be used to learn languages.
 services: cognitive-services
 author: sally-baolian
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 02/23/2023
 ms.author: eur
 ---
 
-# Language learning with Azure Cognitive Service for Speech
+# Language learning with Azure AI Speech
 
-The Azure Cognitive Service for Speech platform is a comprehensive collection of technologies and services aimed at accelerating the incorporation of speech into applications. Azure Cognitive Services for Speech can be used to learn languages.
+the Azure AI service for Speech platform is a comprehensive collection of technologies and services aimed at accelerating the incorporation of speech into applications. Azure AI services for Speech can be used to learn languages.
 
 
 ## Pronunciation Assessment

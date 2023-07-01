@@ -5,8 +5,8 @@ summary: Recognize speech, synthesize speech, get real-time translations, transc
 brand: azure
 
 metadata:
-  title: Speech service documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
-  titleSuffix: Azure Cognitive Services
+  title: Speech service documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
+  titleSuffix: Azure AI services
   services: cognitive-services
   description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
   author: eric-urban
@@ -207,6 +207,6 @@ additionalContent:
       - title: Support
         links:
         - text: Support and help
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/speech-service/context/context
         - text: GitHub issues
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues

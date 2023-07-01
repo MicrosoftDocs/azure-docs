@@ -3,8 +3,8 @@
 title: Speech to text documentation
 summary: Speech to text from the Speech service, also known as speech recognition, enables real-time and batch transcription of audio streams into text. With additional reference text input, it also enables real-time pronunciation assessment and gives speakers feedback on the accuracy and fluency of spoken audio.
 metadata:
-  title: Speech to text documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
-  titleSuffix: Azure Cognitive Services
+  title: Speech to text documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
+  titleSuffix: Azure AI services
   services: cognitive-services
   author: eric-urban
   manager: nitinme
@@ -65,4 +65,4 @@ landingContent:
   - linkListType: reference
     links:
       - text: Support and help options
-        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+        url: ../cognitive-services-support-options.md?context=/azure/ai-services/speech-service/context/context

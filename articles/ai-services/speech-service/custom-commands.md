@@ -1,6 +1,6 @@
 ---
 title: Custom Commands overview - Speech service
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for Custom Commands, a solution for creating voice applications.
 services: cognitive-services
 author: trrwilson
