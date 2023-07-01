@@ -14,7 +14,7 @@ ms.date: 12/18/2019
 ---
 # What is the Bing Video Search API?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Video Search API makes it easy to add video searching capabilities to your services and applications. By sending user search queries with the API, you can get and display relevant and high-quality videos similar to [Bing Video](https://www.bing.com/video). Use this API for search results that only contain videos. The [Bing Web Search API](../bing-web-search/overview.md) can return other types of web content, including webpages, videos, news and images.
 
@@ -39,7 +39,7 @@ The Bing Video Search API is a RESTful web service, making it easy to call from 
 
 ## Next steps
 
-The Bing Video Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-video-search-api/) shows how you can customize a search query and search the web for videos.
+The Bing Video Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/) shows how you can customize a search query and search the web for videos.
 
 Use the [quickstart](./quickstarts/csharp.md) to quickly get started with your first API request.
 

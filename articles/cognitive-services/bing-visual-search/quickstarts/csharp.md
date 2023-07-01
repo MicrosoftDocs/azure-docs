@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, mode-api
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and C#
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 This quickstart demonstrates how to upload an image to the Bing Visual Search API and view the insights that it returns.
 

@@ -15,7 +15,7 @@ ms.custom: seodec2018
 ---
 # What is the Bing News Search API?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing News Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications. The API provides a similar experience to [Bing News](https://www.bing.com/news), letting you send search queries and receive relevant news articles.
 
@@ -43,7 +43,7 @@ The Bing News Search API is a RESTful web service, making it easy to call from a
 
 ## Next steps
 
-First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-news-search-api/) for the Bing News Search API. This demo shows how you can quickly customize a search query and find news on the web.
+First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/) for the Bing News Search API. This demo shows how you can quickly customize a search query and find news on the web.
 
 To quickly get started with your first API request, try a quickstart for the [REST API](./csharp.md) or one of the [SDKs](./quickstarts/client-libraries.md?pivots=programming-language-csharp).
 

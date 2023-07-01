@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create a single-page web app - Bing Image Search API"
-titleSuffix: Azure cognitive services
+titleSuffix: Azure Cognitive Services
 description: The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage.
 services: cognitive-services
 author: aahill
@@ -16,9 +16,9 @@ ms.custom:
 
 # Tutorial: Create a single-page app using the Bing Image Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
-The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
+The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../bing-web-search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
 
 The tutorial app illustrates how to:
 

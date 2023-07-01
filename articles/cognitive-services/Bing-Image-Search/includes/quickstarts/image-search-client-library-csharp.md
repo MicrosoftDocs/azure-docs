@@ -123,7 +123,7 @@ if (imageResults != null)
 ## See also
 
 * [What is Bing Image Search?](../../overview.md)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-image-search-api/)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [.NET samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
 * [Azure Cognitive Services Documentation](../../../index.yml)
 * [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

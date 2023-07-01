@@ -14,7 +14,7 @@ ms.custom: devx-track-js, mode-api
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Node.js
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Visual Search API. This simple JavaScript application uploads an image to the API, and displays the information returned about it. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 

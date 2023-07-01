@@ -16,7 +16,7 @@ ms.custom: seodec2018, devx-track-csharp, mode-api
 
 # Quickstart: Search for news using C# and the Bing News Search REST API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing News Search API. This simple C# application sends a news search query to the API, and displays the JSON response. 
 

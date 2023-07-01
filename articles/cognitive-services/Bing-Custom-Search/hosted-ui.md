@@ -17,7 +17,7 @@ ms.custom:
 
 # Configure your hosted UI experience
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Bing Custom Search provides a hosted UI that you can easily integrate into your webpages and web applications as a JavaScript code snippet. Using the Bing Custom Search portal, you can configure the layout, color, and search options of the UI.
 
@@ -50,7 +50,7 @@ To configure a hosted UI for your web applications, follow these steps. As you m
 
 7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](../cognitive-services-apis-create-account.md).  
 
-8. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/Bing-custom-search/).
+8. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
@@ -95,7 +95,7 @@ You can configure the behavior of your hosted UI by clicking **Additional Config
 ### Web search configurations
 
 - Web results enabled: Determines if web search is enabled (you will see a Web tab at the top of the page)
-- Enable autosuggest: Determines if custom autosuggest is enabled (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/Bing-custom-search/) for additional cost).
+- Enable autosuggest: Determines if custom autosuggest is enabled (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) for additional cost).
 - Web results per page: Number of web search results to display at a time (the maximum is 50 results per page).
 - Image caption: Determines if images are displayed with search results.
 
