@@ -36,7 +36,7 @@ Although this application is written in Python, the API is a RESTful Web service
    import json
    ```
 
-2. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"

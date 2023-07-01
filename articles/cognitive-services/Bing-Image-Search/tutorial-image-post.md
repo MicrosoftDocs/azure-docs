@@ -37,7 +37,7 @@ This tutorial explains how to:
 
 ## Construct an image details search request
 
-The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request. You can use the global endpoint below, or the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```

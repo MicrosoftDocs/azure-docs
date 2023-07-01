@@ -35,7 +35,7 @@ The tutorial app illustrates how to:
 
 ## Manage and store user subscription keys
 
-This application uses web browsers' persistent storage to store API subscription keys. If no key is stored, the webpage will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will remove it from storage. This sample uses the global endpoint. You can also use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+This application uses web browsers' persistent storage to store API subscription keys. If no key is stored, the webpage will prompt the user for their key and store it for later use. If the key is later rejected by the API, The app will remove it from storage. This sample uses the global endpoint. You can also use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 
 Define `storeValue` and `retrieveValue` functions to use either the `localStorage` object (if the browser supports it) or a cookie.

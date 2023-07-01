@@ -38,7 +38,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     require 'json'
     ```
 
-2. Create variables for the API endpoint, video API search path, your subscription key, and search term. For the `url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term. For the `url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"

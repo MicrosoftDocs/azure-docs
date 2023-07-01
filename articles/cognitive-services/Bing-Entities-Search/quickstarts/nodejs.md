@@ -39,7 +39,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';

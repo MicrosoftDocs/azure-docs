@@ -35,14 +35,14 @@ You'll need the `synapseml` library and several Azure resources. If possible, us
 
 + [SynapseML package](https://microsoft.github.io/SynapseML/docs/getting_started/installation/#python) <sup>1</sup> 
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>2</sup> 
-+ [Azure Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>3</sup> 
++ [Azure Cognitive Services](../ai-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#create-a-new-azure-cognitive-services-resource) (any tier) <sup>3</sup> 
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>4</sup>
 
 <sup>1</sup> This link resolves to a tutorial for loading the package.
 
 <sup>2</sup> You can use the free search tier to index the sample data, but [choose a higher tier](search-sku-tier.md) if your data volumes are large. For non-free tiers, you'll need to provide the [search API key](search-security-api-keys.md#find-existing-keys) in the [Set up dependencies](#2---set-up-dependencies) step further on.
 
-<sup>3</sup> This tutorial uses Azure Forms Recognizer and Azure Translator. In the instructions that follow, you'll provide a [Cognitive Services multi-service key](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
+<sup>3</sup> This tutorial uses Azure Forms Recognizer and Azure Translator. In the instructions that follow, you'll provide a [Cognitive Services multi-service key](../ai-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#get-the-keys-for-your-resource) and the region, and it will work for both services.
 
 <sup>4</sup> In this tutorial, Azure Databricks provides the Spark computing platform and the instructions in the link will tell you how to set up the workspace. For this tutorial, we used the portal steps in "Create a workspace".
 
@@ -137,7 +137,7 @@ display(df2)
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../applied-ai-services/form-recognizer/concept-invoice.md) of Azure Forms Analyzer.
+This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../ai-services/form-recognizer/concept-invoice.md) of Azure Forms Analyzer.
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices

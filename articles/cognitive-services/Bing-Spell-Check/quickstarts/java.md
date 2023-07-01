@@ -41,7 +41,7 @@ Although this application is written in Java, the API is a RESTful web service c
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Create variables for the API endpoint's host, path, and your subscription key. Then, create variables for your market, the text you want to spell check, and a string for the spell check mode. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint's host, path, and your subscription key. Then, create variables for your market, the text you want to spell check, and a string for the spell check mode. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";

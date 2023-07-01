@@ -30,7 +30,7 @@ Although this application is written in Python, the API is a RESTful Web service
 
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and add the following imports. Create variables for your subscription key, endpoint, market, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create a new Python file in your favorite IDE or editor, and add the following imports. Create variables for your subscription key, endpoint, market, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     import http.client, urllib.parse

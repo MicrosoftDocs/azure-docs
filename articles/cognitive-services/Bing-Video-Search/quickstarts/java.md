@@ -59,7 +59,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     }
     ```
 
-3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and search term. This method returns a `SearchResults` object. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+3. Create a new method named `SearchVideos()` with variables for your API endpoint host and path, your subscription key, and search term. This method returns a `SearchResults` object. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {

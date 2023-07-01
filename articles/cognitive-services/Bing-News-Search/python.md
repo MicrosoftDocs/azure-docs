@@ -32,7 +32,7 @@ The source code for this sample is also available on [GitHub](https://github.com
 
 ## Create and initialize the application
 
-Create a new Python file in your favorite IDE or editor, and import the request module. Create variables for your subscription key, endpoint, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+Create a new Python file in your favorite IDE or editor, and import the request module. Create variables for your subscription key, endpoint, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```python
 import requests

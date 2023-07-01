@@ -54,7 +54,7 @@ Open-source, third-party, or first-party code can be integrated into the pipelin
 
 ### Use-cases for built-in skills
 
-Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
+Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../ai-services/computer-vision/index.yml) and [Language Service](../ai-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
 A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well suited for the following application scenarios:
 
@@ -68,7 +68,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 [**Custom skills**](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include:
 
-+ [Forms Recognizer](../applied-ai-services/form-recognizer/overview.md)
++ [Forms Recognizer](../ai-services/form-recognizer/overview.md)
 + [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md)
 + [Custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
 

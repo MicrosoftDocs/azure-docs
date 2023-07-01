@@ -50,7 +50,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 ```
 
-Add variables for your subscription key, endpoint, and search term. For the `uriBase` value, you can use the global endpoint in the following code or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+Add variables for your subscription key, endpoint, and search term. For the `uriBase` value, you can use the global endpoint in the following code or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```csharp
 // Replace the accessKey string value with your valid access key.

@@ -112,7 +112,7 @@ type BingAnswer struct {
 
 This code declares the main function and sets the required variables: 
 
-1. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+1. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
 2. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. 
  

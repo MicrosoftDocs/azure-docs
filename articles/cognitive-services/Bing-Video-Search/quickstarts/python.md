@@ -41,7 +41,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
     import requests
     from IPython.display import HTML
     ```
-2.  Create variables for your subscription key, search endpoint, and search term. For the `search_url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2.  Create variables for your subscription key, search endpoint, and search term. For the `search_url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```python
     subscription_key = None

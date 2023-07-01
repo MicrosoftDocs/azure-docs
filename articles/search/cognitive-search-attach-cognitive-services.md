@@ -13,16 +13,16 @@ ms.date: 05/31/2023
 
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search
 
-When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../cognitive-services/cognitive-services-apis-create-account.md). 
+When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../ai-services/cognitive-services-apis-create-account.md). 
 
 A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these APIs:
 
-+ [Computer Vision](../cognitive-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
-+ [Language service](../cognitive-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
-+ [Translator](../cognitive-services/translator/translator-overview.md) for machine text translation
++ [Computer Vision](../ai-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
++ [Language service](../ai-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
++ [Translator](../ai-services/translator/translator-overview.md) for machine text translation
 
 > [!TIP]
-> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md).
+> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../ai-services/plan-manage-costs.md).
 
 ## Set the resource key
 
@@ -34,7 +34,7 @@ If you leave the property unspecified, your search service attempts to use the f
 
 1. [Sign in to Azure portal](https://portal.azure.com).
 
-1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create a [multi-service Cognitive Services resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Add the key to a skillset definition:
 
@@ -46,7 +46,7 @@ If you leave the property unspecified, your search service attempts to use the f
 
 ### [**REST**](#tab/cogkey-rest)
 
-1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
+1. Create a [multi-service Cognitive Services resource](../ai-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
 

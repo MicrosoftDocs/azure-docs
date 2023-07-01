@@ -67,7 +67,7 @@ The HTML also contains the divisions (HTML `<div>` tags) where the search result
 
 To avoid having to include the Bing Search API subscription key in the code, we use the browser's persistent storage to store the key. Before the key is stored, we prompt for the user's key. If the key is later rejected by the API, we invalidate the stored key so the user will be prompted again.
 
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (not all browsers support it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (not all browsers support it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key. You can use the global endpoint below, or the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ``` javascript
 // Cookie names for data we store

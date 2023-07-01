@@ -41,7 +41,7 @@ Use this quickstart to learn how to send search requests to the Bing Image Searc
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term. For `host`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, your subscription key, and search term. For `host`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String subscriptionKey = "enter key here";

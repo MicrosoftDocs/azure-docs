@@ -100,6 +100,6 @@ additionalContent:
         - title: Explore other Azure AI Services
           links:
             - text: Azure Cognitive Services
-              url: ../cognitive-services/index.yml
+              url: ../ai-services/index.yml
             - text: Azure Machine Learning
               url: ../machine-learning/index.yml

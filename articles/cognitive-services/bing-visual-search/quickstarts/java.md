@@ -49,7 +49,7 @@ Use this quickstart to make your first call to the Bing Visual Search API. This 
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Create variables for your API endpoint, subscription key, and the path to your image. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API endpoint, subscription key, and the path to your image. For the `endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";

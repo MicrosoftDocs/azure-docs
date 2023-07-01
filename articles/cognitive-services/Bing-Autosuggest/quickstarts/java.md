@@ -42,7 +42,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for your subscription key, the API host and path, your [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query. Use the global endpoint below, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your subscription key, the API host and path, your [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query. Use the global endpoint below, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```java
     static String subscriptionKey = "enter key here";

@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Tutorial: Computer Vision with Cognitive Service
 
-[Computer Vision](../../cognitive-services/computer-vision/index.yml) is an [Azure Cognitive Service](../../cognitive-services/index.yml) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Computer Vision](../../cognitive-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
+[Computer Vision](../../ai-services/computer-vision/index.yml) is an [Azure Cognitive Service](../../ai-services/index.yml) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Computer Vision](../../ai-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 

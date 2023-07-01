@@ -38,7 +38,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     let https = require('https');
     ```
 
-2. Create variables for your API endpoint, subscription key, and search term. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API endpoint, subscription key, and search term. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'enter key here';

@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 # Tutorial: Sentiment analysis with Cognitive Services
 
-In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../cognitive-services/index.yml). You'll use the [Text Analytics](../../cognitive-services/text-analytics/index.yml) capabilities to perform sentiment analysis. 
+In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure Cognitive Services](../../ai-services/index.yml). You'll use the [Text Analytics](../../ai-services/text-analytics/index.yml) capabilities to perform sentiment analysis. 
 
 A user in Azure Synapse can simply select a table that contains a text column to enrich with sentiments. These sentiments can be positive, negative, mixed, or neutral. A probability will also be returned.
 
@@ -89,7 +89,7 @@ The notebook that you just opened uses the [SynapseML library](https://github.co
 
  You can now run all cells to enrich your data with sentiments. Select **Run all**. 
 
-The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Cognitive Services](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
+The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Cognitive Services](../../ai-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
 ![Screenshot that shows sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-notebook.png)
 

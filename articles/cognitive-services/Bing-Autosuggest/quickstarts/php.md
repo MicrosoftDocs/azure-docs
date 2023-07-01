@@ -31,7 +31,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `subscriptionKey` value with an access key that's valid for your subscription.
-4. Use the global endpoint in the code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+4. Use the global endpoint in the code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 5. Run the program.
 
 ```php

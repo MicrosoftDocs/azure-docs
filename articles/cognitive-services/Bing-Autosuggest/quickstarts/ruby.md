@@ -37,7 +37,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
     require 'json'
     ```
 
-2. Create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     subscriptionKey = 'enter your key here'
