@@ -36,12 +36,12 @@ As an administrator, you can provide role-based access control to the cluster by
     ```
 This command creates a cluster role binding named 'nexus-read-only-users' that assigns the 'view' role to the members of the specified Azure AD group.
 
-1. Verify that the role binding was created successfully.
+4. Verify that the role binding was created successfully.
     ```bash
     kubectl get clusterrolebinding nexus-read-only-users
     ```
 
-2. Now the users in the Azure AD group have 'view' access to the cluster. They can view the cluster resources but can't make any changes to them.
+5. Now the users in the Azure AD group have 'view' access to the cluster. They can view the cluster resources but can't make any changes to them.
 
 ## Next steps
 
