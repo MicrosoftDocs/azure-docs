@@ -4017,7 +4017,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speaker-recognition/index.md",
-            "redirect_url": "/azure/ai-services/Speaker-recognition/Home",
+            "redirect_url": "/azure/ai-services/speech-service/speaker-recognition-overview",
             "redirect_document_id": false
         },
         {
