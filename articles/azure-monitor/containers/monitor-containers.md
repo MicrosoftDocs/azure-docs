@@ -8,87 +8,30 @@ ms.author: bwren
 ms.date: 03/08/2023
 ---
 
-# Monitor Kubernetes with Azure Monitor
+# Monitor Kubernetes clusters using Azure services
 
 This article describes how to monitor the health and performance of your Kubernetes clusters and the workloads running on them using Azure Monitor and related Azure services. This includes clusters running in Azure Kubernetes Service (AKS) or other clouds such as [AWS](https://aws.amazon.com/kubernetes/) and [GCP](https://cloud.google.com/kubernetes-engine). It includes collection of telemetry critical for monitoring, analysis and visualization of collected data to identify trends, and how to configure alerting to be proactively notified of critical issues.
 
-## Cloud native
-
-[Cloud native](https://azure.microsoft.com/blog/accelerate-your-cloudnative-journey-with-azure-monitor/) refers to technologies supporting scalable applications in modern, dynamic cloud environments. This includes container based applications managed by [kubernetes](https://kubernetes.io) and tools used to monitor their performance and health such as [Prometheus]() and [Grafana]().
-
 Your choice of monitoring tools will depend on the requirements of your particular environment in addition to any existing investment in cloud native technologies endorsed by the [Cloud Native Computing Foundation](https://www.cncf.io/). Azure includes managed versions of the most standard tools and features that help you integrate your kubernetes clusters and workloads.
-
-
-## Monitor layers of Kubernetes and monitoring services
-
-Your monitoring approach should be based on your unique workload requirements, and factors such as scale, topology, organizational roles, and multi-cluster tenancy. Following is an illustration of a common bottoms-up approach, starting from infrastructure up through applications. Each layer has distinct monitoring requirements that are addressed by different Azure services. 
-
-:::image type="content" source="media/monitor-containers/layers.png" alt-text="Diagram of AKS layers" lightbox="media/monitor-containers/layers.png"  border="false":::
-
-## Kubernetes telemetry
-
-
-### Metrics
- Sources | Description |
-|:---|:---|
-| Platform metrics | [Platform metrics](../../aks/monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../essentials/metrics-getting-started.md) or use them for [metric alerts](../alerts/alerts-types.md#metric-alerts). Platform metrics are not collected tor hybrid clusters. |
-| Prometheus metrics | Prometheus metrics are stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). Scrape this data from your cluster using the Azure Monitor agent. Use Azure Arc for Kubernetes with the Azure Monitor agent for hybrid clusters. |
-
-
-### Logs
-
- Sources | Description |
-|:---|:---|
-| Activity logs | [Activity log](../../aks/monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Activity logs are not collected for hybrid clusters. |
-| Cluster inventory | Container insights collects  |
-| stderr/stdout logs | Containerized applications in the cluster send their logs to standard output (stdout) and standard error (stderr) streams. Container insights collects these logs and stores them in the **ContainerLogs**  in a Log Analytics workspace. [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs.  |
-| Control plane logs | [Control plane logs](../../aks/monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. These aren't used by Container insights, but you can create a diagnostic setting to send them to Log Analytics workspace. |
-| Application logs | Application usage and traces |
-
-
-> [!NOTE]
-> Check AKS monitor reference.
 
 ## Azure services
 
-Azure has a complete set of services for monitoring your Kubernetes infrastructure and the applications that depend on it as described in the following table.
+Azure has a complete set of services for monitoring your Kubernetes infrastructure and the applications that depend on it as described in the following table. These services work in conjunction with each other to provide a complete monitoring solution, or you may integrate them with your existing monitoring tools.
 
 | Service | Description |
 |:---|:---|
-| Azure Monitor managed service for Prometheus | Prometheus is a project from the Cloud Native Compute Foundation and is the most common tool used for collecting and analyzing metric data from Kubernetes clusters. [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) gives you a fully managed cloud-native metrics solution to ingest, alert on, and query your Prometheus metrics, which provide visibility to the health and performance of your infrastructure and applications. | 
-| Container Insights | [Container Insights](container-insights-overview.md) increases your visibility with a fully managed cloud-native logs solution for advanced troubleshooting by analyzing container stdout, stderr, and infrastructure logs.  |
-| Azure Arc-enabled Kubernetes | [Azure Arc-enabled Kubernetes](container-insights-enable-arc-enabled-clusters.md) allows you to attach Kubernetes clusters running anywhere so that you can manage and configure them in Azure. With the Arc agent installed, you can monitor AKS and hybrid clusters together using the same methods and tools. |
-| Azure Managed Grafana | [Azure Managed Grafana](../../managed-grafana/overview.md) is a data visualization platform built on top of the [Grafana](https://grafana.com/), which is an open-source tool commonly used to present Prometheus data. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.  |
-| Application insights | You can quickly identify and mitigate latency and reliability issues using distributed traces with [Azure Monitor application insights with preview OpenTelemetry-based instrumentation](../app/opentelemetry-overview.md), which is a fully managed application and performance monitoring (APM) solution.  |
-| Network Watcher | Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. |
-
-> [!NOTE]
-> QUESTIONS
-> - Is there an overlap between data collected by Prometheus and Container insights? 
-> - Can/should we disable collection of that data by Container insights?
-> - If we disable metric collection by Container insights, is there any value to Container insights workbooks?
-
-While Azure provides a complete set of services for monitoring your Kubernetes infrastructure and applications, you may have existing investments on other platforms. Use the following guidance if  
-
-| Tool | Criteria |
-|:---|:---|
-| Prometheus | If you have an existing Prometheus environment, use Azure Monitor managed service for Prometheus for your AKS clusters and configure remote-write to send data to your existing environment. |
-| Grafana | If you have an existing Grafana environment, then configure appropriate Prometheus environment as a data source. |
-| Kubernetes and control plane logs | If you have an existing solution for collection of logs, either follow the guidance for that tool or enable Container insights and use the Data Export feature of Log Analytics workspace to send data to Event Hub and forward to alternate system. |
-
-
-
-## Security monitoring
-
-Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](..//vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
->
-> For information on using the security services to monitor AKS, see [Microsoft Defender for Kubernetes - the benefits and features](../../defender-for-cloud/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Microsoft Sentinel](../../sentinel/data-connectors/azure-kubernetes-service-aks.md).
-
+| [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) | Fully managed implementation of [Prometheus](https://prometheus.io) to ingest, alert on, and query metrics, providing visibility to the health and performance of your from your Kubernetes cluster and its applications. Prometheus is a  cloud-native metrics solution  from the Cloud Native Compute Foundation and the most common tool used for collecting and analyzing metric data from Kubernetes clusters. Azure Monitor managed service for Prometheus is compatible with the Prometheus query language (PromQL) and Prometheus alerts in addition to integration with Azure Managed Grafana for visualization. This service supports your investment in open source tools without the complexity of managing your own Prometheus environment. | 
+| [Container Insights](container-insights-overview.md) | Azure service for AKS and Azure Arc-enabled Kubernetes clusters that uses a containerized version of the [Azure Monitor agent](../agents/agents-overview.md) to collect stdout/stderr logs, performance metrics, and Kubernetes events from each node in your cluster and stores them in a Log Analytics workspace. It also collects metrics from the Kubernetes control plane and stores them in the workspace. You can view the data in the Azure portal or query it using [Log Analytics](../logs/log-analytics-overview.md). |
+| [Azure Arc-enabled Kubernetes](container-insights-enable-arc-enabled-clusters.md) | Allows you to attach Kubernetes clusters running anywhere so that you can manage and configure them in Azure. With the Arc agent installed, you can monitor AKS and hybrid clusters together using the same methods and tools, including Container insights. |
+| [Azure Managed Grafana](../../managed-grafana/overview.md) | Fully managed implementation of [Grafana](https://grafana.com/), which is an open-source data visualization platform commonly used to present Prometheus data. Multiple predefined Grafana dashboards are available for monitoring Kubernetes and full-stack troubleshooting.  |
+| [Application insights](../app/app-insights-overview.md) |  Feature of Azure Monitor that provides application performance monitoring (APM) to monitor applications running on your Kubernetes cluster from development, through test, and into production. Quickly identify and mitigate latency and reliability issues using distributed traces. Supports [OpenTelemetry](../app/opentelemetry-overview.md#opentelemetry) for vendor-neutral instrumentation. |
+| [Network Watcher](../network-watcher/network-watcher-monitoring-overview..md) | Provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in the virtual network used by your Kubernetes clusters. |
 
 
 ## Configure monitoring
 
 ### Prerequisites
+The following table lists the prerequisites before configuring Azure services to monitor Kubernetes. You may already have these prerequisites in place.
 
 | Component | Description |
 |:---|:---|
@@ -96,32 +39,38 @@ Azure Monitor was designed to monitor the availability and performance of cloud 
 | Log Analytics workspace | You require at least one [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) if you enable Container insights or if you collect resource logs.There's no cost for the workspaces, but you do incur ingestion costs when you collect data. See [Azure Monitor pricing](https://aka.ms/azmonpricing) for details. For information on design considerations for a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/workspace-design.md). |
 
 
-| Step | Description |
-|:---|:---q|
-
 ### Send Activity log to Log Analytics workspace
-Configuration changes to your AKS cluster are stored in the [Activity log](../essentials/activity-log.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with other monitoring data.  There is no cost for this data collection.
+Configuration changes to your AKS clusters are stored in the [Activity log](../essentials/activity-log.md). [Send this data to your Log Analytics workspace](../essentials/activity-log.md#send-to-log-analytics-workspace) to analyze it with other monitoring data.  There's no cost for this data collection, and you can analyze or alert on the data using Log Analytics.
 
 
-### Deploy  Prometheus
+### Enable scraping of Prometheus metrics
 
-[Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed service that scrapes metrics from your AKS and Azure-enabled clusters. It's compatible with the Prometheus query language (PromQL) and Prometheus alerts in addition to integration with Azure Managed Grafana for visualization. This service supports your investment in open source tools without the complexity of managing your own Prometheus environment.
+Enable scraping of Prometheus metrics from your AKS cluster using one of the following methods:
 
-- If you're not using Container insights, then see [Collect Prometheus metrics from an AKS cluster](../essentials/prometheus-metrics-enable.md) or [Collect Prometheus metrics from an Arc-enabled Kubernetes cluster (preview)](../essentials/prometheus-metrics-from-arc-enabled-cluster.md) for details on enabling Prometheus on its own.
-- See [Default Prometheus metrics configuration in Azure Monitor](../essentials/prometheus-metrics-scrape-default.md) for details on the metrics that are collected by default and their frequency of collection and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-scrape-configuration.md) for customizing the configuration beyond defaults.
-- If you already have a Prometheus environment that you want to collect metrics from your AKS clusters, then enable Azure Monitor managed service for Prometheus and use remote-write to send data to your existing Prometheus environment.
+- Select the option **Enable Prometheus metrics** when you [create an AKS cluster]().
+- Select the option **Enable Prometheus metrics** when you enable Container insights on an [AKS cluster]() or [Azure Arc-enabled Kubernetes cluster]().
+- Enable for an existing [AKS cluster](../essentials/prometheus-metrics-enable.md) or [Arc-enabled Kubernetes cluster (preview)](../essentials/prometheus-metrics-from-arc-enabled-cluster.md).
+
+
+If you already have a Prometheus environment that you want to use for your AKS clusters, then enable Azure Monitor managed service for Prometheus and then use remote-write to send data to your existing Prometheus environment. 
+
+See [Default Prometheus metrics configuration in Azure Monitor](../essentials/prometheus-metrics-scrape-default.md) for details on the metrics that are collected by default and their frequency of collection. If you want to customize the configuration, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-scrape-configuration.md).
 
 
 
-### Container Insights
+### Enable Container Insights
 
-Container insights is a monitoring solution for AKS and Azure Arc-enabled Kubernetes clusters that provides performance visibility and diagnostics. It collects stdout/stderr logs, performance metrics, and Kubernetes events from each node in your cluster and stores them in a Log Analytics workspace. It also collects metrics from the Kubernetes control plane and stores them in the workspace. You can view the data in the Azure portal or query it using  [Log Analytics](../logs/log-analytics-overview.md).
+When you enable Container Insights for your AKS cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to Azure Monitor. For prerequisites and configuration options, see [Enable Container insights](../containers/container-insights-onboard.md).
 
-When you enable Container Insights for your AKS cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/..//agents/log-analytics-agent.md) that sends data to Azure Monitor. For prerequisites and configuration options, see [Enable cost optimization settings in Container insights (preview)](container-insights-cost-config.md).
+Once Container insights is enabled for a cluster, 
 
-- See [Enable Container insights](../containers/container-insights-onboard.md) for details on the different options for enabling Container insights.
+To improve your query experience with data Collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logging-v2.md) for each cluster.
+
+
+
 - Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. See [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) for details.
-- [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs. 
+
+
 - Use [Enable cost optimization settings in Container insights (preview)](../containers/container-insights-cost-config.md) to remove collection of metrics since these are the same metrics being collection in Prometheus. In this case, you would use Grafana for visualization since the Container insights workbooks use data from the Log Analytics workspace. Container insights in this case would only be used for log collection.
 - Consider configuring ContainerLogV2 as [basic logs](../logs/basic-logs-configure.md).
 
@@ -157,6 +106,45 @@ If you're unsure which resource logs to initially enable, use the following reco
 | AllMetrics              | Disable since metrics are collected in Managed Prometheus | Log Analytics workspace |
 
 The recommendations are based on the most common customer requirements. You can enable other categories later if you need to.
+
+
+## Monitor layers of Kubernetes and monitoring services
+
+Your monitoring approach should be based on your unique workload requirements, and factors such as scale, topology, organizational roles, and multi-cluster tenancy. Following is an illustration of a common bottoms-up approach, starting from infrastructure up through applications. Each layer has distinct monitoring requirements that are addressed by different Azure services. 
+
+:::image type="content" source="media/monitor-containers/layers.png" alt-text="Diagram of AKS layers" lightbox="media/monitor-containers/layers.png"  border="false":::
+
+## Kubernetes telemetry
+
+
+### Metrics
+ Sources | Description |
+|:---|:---|
+| Platform metrics | [Platform metrics](../../aks/monitor-aks-reference.md#metrics) are automatically collected for AKS clusters at no cost. You can analyze these metrics with [metrics explorer](../essentials/metrics-getting-started.md) or use them for [metric alerts](../alerts/alerts-types.md#metric-alerts). Platform metrics are not collected tor hybrid clusters. |
+| Prometheus metrics | Prometheus metrics are stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). Scrape this data from your cluster using the Azure Monitor agent. Use Azure Arc for Kubernetes with the Azure Monitor agent for hybrid clusters. |
+
+
+### Logs
+
+ Sources | Description |
+|:---|:---|
+| Activity logs | [Activity log](../../aks/monitor-aks-reference.md) is collected automatically for  AKS clusters at no cost. These logs track information such as when a cluster is created or has a configuration change. Activity logs are not collected for hybrid clusters. |
+| Cluster inventory | Container insights collects  |
+| stderr/stdout logs | Containerized applications in the cluster send their logs to standard output (stdout) and standard error (stderr) streams. Container insights collects these logs and stores them in the **ContainerLogs**  in a Log Analytics workspace. [Enable the ContainerLogV2](container-insights-logging-v2.md) schema for improved query experience and reduce collection costs.  |
+| Control plane logs | [Control plane logs](../../aks/monitor-aks-reference.md#resource-logs) for AKS are implemented as resource logs. These aren't used by Container insights, but you can create a diagnostic setting to send them to Log Analytics workspace. |
+| Application logs | Application usage and traces |
+
+
+
+## Security monitoring
+
+Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](..//vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
+>
+> For information on using the security services to monitor AKS, see [Microsoft Defender for Kubernetes - the benefits and features](../../defender-for-cloud/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Microsoft Sentinel](../../sentinel/data-connectors/azure-kubernetes-service-aks.md).
+
+
+
+
 
 ## Access Container insights
 
@@ -326,3 +314,8 @@ Start with a set of recommended Prometheus alerts from [Metric alert rules in Co
 
 - For more information about AKS metrics, logs, and other important values, see [Monitoring AKS data reference](../../aks/monitor-aks-reference.md).
 
+
+
+## Extra
+
+[Cloud native](https://azure.microsoft.com/blog/accelerate-your-cloudnative-journey-with-azure-monitor/) refers to technologies supporting scalable applications in modern, dynamic cloud environments. This includes container based applications managed by [kubernetes](https://kubernetes.io) and tools used to monitor their performance and health such as [Prometheus]() and [Grafana]().

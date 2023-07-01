@@ -128,3 +128,15 @@ Use Network Watcher to collect flow logs and traffic analytics to visualize.
 
 - For more information about AKS metrics, logs, and other important values, see [Monitoring AKS data reference](../../aks/monitor-aks-reference.md).
 
+
+
+
+## Criteria
+
+While Azure provides a complete set of services for monitoring your Kubernetes infrastructure and applications, you may have existing investments on other platforms. Use the following guidance if  
+
+| Tool | Criteria |
+|:---|:---|
+| Prometheus | If you have an existing Prometheus environment, use Azure Monitor managed service for Prometheus for your AKS clusters and configure remote-write to send data to your existing environment. |
+| Grafana | If you have an existing Grafana environment, then configure appropriate Prometheus environment as a data source. |
+| Kubernetes and control plane logs | If you have an existing solution for collection of logs, either follow the guidance for that tool or enable Container insights and use the Data Export feature of Log Analytics workspace to send data to Event Hub and forward to alternate system. |
