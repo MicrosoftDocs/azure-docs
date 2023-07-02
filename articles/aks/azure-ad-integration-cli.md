@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to create and Azure Active Directory
 author: TomGeske
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 06/05/2023
+ms.date: 07/02/2023
 ms.author: miwithro
 ---
 
@@ -242,6 +242,22 @@ error: You must be logged in to the server (Unauthorized)
 * The user is not a member of more than 200 groups.
 * Secret defined in the application registration for server matches the value configured using `--aad-server-app-secret`
 * Be sure that only one version of kubectl is installed on your machine at a time. Conflicting versions can cause issues during authorization. To install the latest version, use [az aks install-cli][az-aks-install-cli].
+
+## Frequently asked questions about migration from Azure Active Directory Integration to AKS-managed Azure Active Directory
+1. What is the plan for migration?
+Azure Active Directory Integration (legacy) will be deprecated on 1st June 2023. After this date, you won't be able to create new clusters with Azure Active Directory (legacy). We'll migrate all Azure Active Directory Integration (legacy) AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023.
+We send notification emails to impacted cluster admins biweekly to remind them of migration.
+
+2. What will happen if I don't take any action?
+Your AKS clusters with Azure Active Directory integration will keep working after 1 June 2023. We'll migrate your AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023 and you may experience API server downtime during the migration.
+We recommend updating your AKS cluster to [AKS-managed Azure Active Directory][managed-aad-migrate] manually before 1st August. This way you can manage the downtime during non-business hours when it's more convenient.
+
+3. Why do I still receive the notification email after manual migration?
+It takes several days to send the email. So your cluster may be Azure Active Directory Integration before the email is sent and it is collected by us as impacted. You migrate it during the email-sending process.
+
+4. How to check whether the cluster is impacted?
+
+
 
 ## Next steps
 
