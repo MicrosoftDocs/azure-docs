@@ -26,7 +26,7 @@ Updates in July include:
 
 |Date |Update  |
 |---------|---------|
-| July 5 | [General Availability (GA) release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) |(#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm)
+| July 5 | [General Availability (GA) release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) |
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available)
 
 ### General Availability (GA) release of Agentless Container Posture in Defender CSPM
