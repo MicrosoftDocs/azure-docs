@@ -27,7 +27,7 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png" alt-text="Screenshot showing where to select the specific cluster." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png":::
 
- 1. The cluster details page opens. It lists the vulnerable images together with an assessment of the severity of the findings. To learn more about a finding, select the finding; the findings details pane opens.
+ 1. The cluster details page opens. It lists all currently running containers categorized into three tabs based on the vulnerability assesment of the images used by those containers.
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/finding-details.png" alt-text="Screenshot showing the list of findings on the specific image." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/finding-details.png":::
 
