@@ -33,7 +33,7 @@ Follow this process to remove Microsoft Sentinel from your workspace:
     :::image type="content" source="media/offboard/remove-sentinel-reasons.png" alt-text="Screenshot to remove the Microsoft Sentinel solution from your workspace and specify reasons.":::
 
 ## Consider pricing changes
-When Microsoft Sentinel is removed from a workspace, there may still be costs associated with the data in Azure Monitor Log Analytics. For more information on the effect to commitment tier costs, see [Simplified billing offboard behavior](simplified-billing.md#offboard-behavior).
+When Microsoft Sentinel is removed from a workspace, there may still be costs associated with the data in Azure Monitor Log Analytics. For more information on the effect to commitment tier costs, see [Simplified billing offboard behavior](enroll-simplified-pricing-tier.md#offboard-behavior).
 
 ## What happens behind the scenes?
 
