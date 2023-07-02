@@ -38,23 +38,23 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. Select an **identifier** for the entity. Identifiers are attributes of an entity that can sufficiently identify it. Choose one from the **Identifier** drop-down list, and then choose a data field from the **Value** drop-down list that will correspond to the identifier. With some exceptions, the **Value** list is populated by the data fields in the table defined as the subject of the rule query.
 
-    You can define **up to three identifiers** for a given entity. Some identifiers are required, others are optional. You must choose at least one required identifier. If you don't, a warning message will instruct you which identifiers are required. For best results - for maximum unique identification - you should use **strong identifiers** whenever possible, and using multiple strong identifiers will enable greater correlation between data sources. See the full list of available [entities and identifiers](entities-reference.md).
+    You can define **up to three identifiers** for a given entity mapping. Some identifiers are required, others are optional. You must choose at least one required identifier. If you don't, a warning message will instruct you which identifiers are required. For best results - for maximum unique identification - you should use **strong identifiers** whenever possible, and using multiple strong identifiers will enable greater correlation between data sources. See the full list of available [entities and identifiers](entities-reference.md).
 
     :::image type="content" source="media/map-data-fields-to-entities/map-entities.png" alt-text="Map fields to entities":::
 
-1. Click **Add new entity** to map more entities. You can map **up to five entities** in a single analytics rule. You can also map more than one of the same type. For example, you can map two **IP** entities, one from a *source IP address* field and one from a *destination IP address* field. This way you can track them both.
+1. Click **Add new entity** to map more entities. You can define **up to ten entity mappings** in a single analytics rule. You can also map more than one of the same type. For example, you can map two **IP** entities, one from a *source IP address* field and one from a *destination IP address* field. This way you can track them both.
 
     If you change your mind, or if you made a mistake, you can remove an entity mapping by clicking the trash can icon next to the entity drop-down list.
 
 1. When you have finished mapping entities, click the **Review and create** tab. Once the rule validation is successful, click **Save**.
 
 > [!NOTE]
-> - **Each mapped entity can identify *up to ten entities***.  
->   - If an alert contains more than ten items that correspond to a single entity mapping, only the first ten will be recognized as entities and be able to be analyzed as such.
->   - This limitation applies to actual mappings, not to entity types. So if you have three different mapped entities for IP addresses (say, source, destination, and gateway), each of those mappings can accommodate ten entities.
+> - **A maximum of 500 entities can be identified for a single alert accross all mappings**.
+>   - This maximum amount of 500 is split equally across the defined mappings - e.g., if two mappings are defined, each mapping can identify up to 250 entities; if 5 mappings are defined then each can identify up to 100 entities, etc. This applies to actual mappings and not to mapping types, so if you have three different mappings for IP addresses (say, source, destination, and gateway), each of those mappings counts.
+>   - If an alert contains more items than the allowed maximum, excessive items will not be extraced as entities. Because of the inner logic of entities extraction, having an alert contain less than the maximum amount of entities does not necessarily mean that no excessive entities were skipped.
 >
-> - **The size limit for an entire alert is *64 KB***.
->   - Alerts that grow larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until the alert size reaches 64 KB, and any remaining entities are dropped from the alert.
+> - **The size limit for entities is *64 KB***.
+>   - Alerts with entities larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until reaching 64 KB, and any remaining entities are dropped from the alert.
 
 ## Notes on the new version
 
