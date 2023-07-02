@@ -1,11 +1,11 @@
 ---
-title: Integrate Palo Alto with Microsoft Defender for IoT (legacy)
-description: This article describes how to integrate Palo Alto with Microsoft Defender for IoT using Defender for IoT's legacy integration.
+title: Integrate Palo Alto with Microsoft Defender for IoT
+description: This article describes how to integrate Palo Alto with Microsoft Defender for IoT using Defender for IoT's integration.
 ms.date: 06/26/2023
 ms.topic: how-to
 ---
 
-# Integrate Palo-Alto with Microsoft Defender for IoT (legacy)
+# Integrate Palo-Alto with Microsoft Defender for IoT
 
 > [!IMPORTANT]
 > Defender for IoT plans to end support for the legacy Palo Alto integration with the upcoming version 23.1.

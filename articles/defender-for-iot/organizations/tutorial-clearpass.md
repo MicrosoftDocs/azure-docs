@@ -1,12 +1,12 @@
 ---
-title: Integrate ClearPass with Microsoft Defender for IoT (legacy)
-description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass using Defender for IoT's legacy integration.
+title: Integrate ClearPass with Microsoft Defender for IoT
+description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass using Defender for IoT's integration.
 ms.topic: how-to
 ms.date: 06/26/2023
 ms.custom: how-to
 ---
 
-# Integrate ClearPass with Microsoft Defender for IoT (legacy)
+# Integrate ClearPass with Microsoft Defender for IoT
 
 
 > [!IMPORTANT]

@@ -229,7 +229,7 @@
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.md
       displayName: Splunk
-    - name: Aruba ClearPass (legacy)
+    - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
@@ -245,11 +245,11 @@
       href: integrations/arcsight.md
     - name: Microsoft Sentinel (on-premises data)
       href: integrations/on-premises-sentinel.md
-    - name: Palo Alto (legacy)
+    - name: Palo Alto
       href: tutorial-palo-alto.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
-    - name: Splunk (legacy)
+    - name: Splunk
       href: tutorial-splunk.md
     - name: ServiceNow
       items:
