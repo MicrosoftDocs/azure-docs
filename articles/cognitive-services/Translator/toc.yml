@@ -221,6 +221,10 @@ items:
     - name: Copy a custom model
       displayName: copy, publish, move, workspace
       href: custom-translator/how-to/copy-model.md
+    - name: Enable Private link
+      displayName: Enable VNET, Private link
+      href: custom-translator/how-to/enable-vnet-service-endpoint.md
+
   - name: Concepts
     items:
     - name: Customization
