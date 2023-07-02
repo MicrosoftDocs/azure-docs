@@ -20,7 +20,7 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 ## July 2023
 
-You can now redact faces with Azure Video Indexer API. For more information see [Redact faces with Azure Video Indexer API](face-redaction-with-api.mdF).
+You can now redact faces with Azure Video Indexer API. For more information see [Redact faces with Azure Video Indexer API](face-redaction-with-api.md).
 
 ## June 2023
 
