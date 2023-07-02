@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/07/2023
+ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -27,13 +27,14 @@ To manage access to custom security attributes, you must have:
 
 - Azure AD Premium P1 or P2 license
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
+- Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
 ## Step 1: Figure out how to organize your attributes
 
-Every custom security attribute must be part of an attribute set. An attribute set is a way to group and manage related custom security attributes. You'll need to figure out how you want to add attributes sets for your organization. For example, you might want to add attribute sets based on departments, teams, or projects. Your ability to grant access to custom security attributes will depend on how you organize your attribute sets.
+Every custom security attribute definition must be part of an attribute set. An attribute set is a way to group and manage related custom security attributes. You'll need to figure out how you want to add attributes sets for your organization. For example, you might want to add attribute sets based on departments, teams, or projects. Your ability to grant access to custom security attributes will depend on how you organize your attribute sets.
 
 ![Diagram showing an attribute set by department.](./media/custom-security-attributes-manage/attribute-set-department.png)
 
@@ -111,7 +112,9 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
 ### Assign roles at attribute set scope
 
-#### Azure portal
+The following examples show how to assign a custom security attribute role to a principal at an attribute set scope named Engineering.
+
+# [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -130,20 +133,20 @@ To grant access to the appropriate people, follow these steps to assign one of t
     > [!NOTE]
     > If you are using Azure AD Privileged Identity Management (PIM), eligible role assignments at attribute set scope currently aren't supported. Permanent role assignments at attribute set scope are supported, but the **Assigned roles** page for a user doesn't list the role assignments.
 
-#### PowerShell
+# [PowerShell](#tab/ms-powershell)
 
-Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment)
 
 ```powershell
 $roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
-$directoryScope = "/attributeSets/Engineering"
 $principalId = "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
-$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinitionId -PrincipalId $principalId
+$directoryScopeId = "/attributeSets/Engineering"
+$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -RoleDefinitionId $roleDefinitionId -PrincipalId $principalId -DirectoryScopeId $directoryScopeId
 ```
 
-#### Microsoft Graph API
+# [Microsoft Graph](#tab/ms-graph)
 
-Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
+[Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments)
 
 ```http
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
@@ -157,9 +160,24 @@ Content-type: application/json
 }
 ```
 
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment)
+
+```powershell
+$roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
+$principalId = "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
+$directoryScope = "/attributeSets/Engineering"
+$roleAssignment = New-AzureADMSRoleAssignment -RoleDefinitionId $roleDefinitionId -PrincipalId $principalId -DirectoryScopeId $directoryScope
+```
+
+---
+
 ### Assign roles at tenant scope
 
-#### Azure portal
+The following examples show how to assign a custom security attribute role to a principal at tenant scope.
+
+# [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -171,13 +189,45 @@ Content-type: application/json
 
 1. Add assignments for the custom security attribute roles.
 
-#### PowerShell
+# [PowerShell](#tab/ms-powershell)
 
-Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
+[New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment)
 
-#### Microsoft Graph API
+```powershell
+$roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
+$principalId = "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
+$directoryScopeId = "/"
+$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -RoleDefinitionId $roleDefinitionId -PrincipalId $principalId -DirectoryScopeId $directoryScopeId
+```
 
-Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
+# [Microsoft Graph](#tab/ms-graph)
+
+[Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments)
+
+```http
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+Content-type: application/json
+
+{
+    "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
+    "roleDefinitionId": "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d",
+    "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d",
+    "directoryScopeId": "/"
+}
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+[New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment)
+
+```powershell
+$roleDefinitionId = "58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d"
+$principalId = "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
+$directoryScope = "/"
+$roleAssignment = New-AzureADMSRoleAssignment -RoleDefinitionId $roleDefinitionId -PrincipalId $principalId -DirectoryScopeId $directoryScope
+```
+
+---
 
 ## View audit logs for attribute changes
 
@@ -198,6 +248,6 @@ The following screenshot shows an example of the audit log. To filter the logs f
 
 ## Next steps
 
-- [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Troubleshoot custom security attributes in Azure AD](custom-security-attributes-troubleshoot.md)

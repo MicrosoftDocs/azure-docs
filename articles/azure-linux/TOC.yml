@@ -49,6 +49,8 @@
     #  href: concepts-certs.md
 - name: How-to guides
   items:
+    - name: Install certificates
+      href: how-to-install-certs.md
     - name: Troubleshoot
       items:
         - name: Package upgrade
