@@ -132,7 +132,7 @@ If you're currently using the sub-assesment API or Azure Resource Graph or conti
 
 If you are also using our public preview offering for Windows containers vulnerability assessment powered by Qualys, and you would like to continue using it, you need to [disable Linux findings](defender-for-containers-vulnerability-assessment-azure.md#disable-specific-findings) using disable rules rather than disable the runtime recommendation.
 
-earn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
+Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
 ### Change to the Log Analytics daily cap
 
