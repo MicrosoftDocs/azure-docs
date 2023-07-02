@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page 
   author: jyothisuri
   ms.author: jsuri 
-  ms.date: 03/14/2023
+  ms.date: 07/05/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -61,16 +61,6 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Soft Delete for Azure Backup
-            url: backup-azure-security-feature-cloud.md
-          - text: Enhanced soft delete for Azure Backup (preview)
-            url: backup-azure-enhanced-soft-delete-about.md
-          - text: Multi-user authorization (MUA) for Recovery Services vault
-            url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
-          - text: Multi-user authorization (MUA) for Backup vault
-            url: ./multi-user-authorization-concept.md?tabs=backup-vault
-          - text: Immutable vault
-            url: backup-azure-immutable-vault-concept.md
           - text: Multiple backups per day for Azure VMs
             url: backup-azure-vms-enhanced-policy.md
           - text: Azure Kubernetes Service backup (preview)
@@ -79,8 +69,8 @@ landingContent:
             url: blob-backup-overview.md
           - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
             url: selective-disk-backup-restore.md
-          - text: SAP HANA System Replication backup
-            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled
+          - text: SAP HANA System Replication backup (preview)
+            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview
   # Card
   - title: Back up Azure VMs
     linkLists:
@@ -129,7 +119,7 @@ landingContent:
         links:
           - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
-          - text: Back up SAP HSR databases on Azure VMs
+          - text: Back up SAP HSR databases on Azure VMs (preview)
             url: sap-hana-database-with-hana-system-replication-backup.md
           - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
             url: sap-hana-database-instances-backup.md

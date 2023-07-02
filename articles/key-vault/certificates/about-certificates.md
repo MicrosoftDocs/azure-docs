@@ -76,7 +76,7 @@ A response includes these additional read-only attributes:
 - `nbf`: `IntDate` contains the value of the "not before" date of the X.509 certificate.  
 
 > [!Note] 
-> If a Key Vault certificate expires, its addressable key and secret become inoperable.  
+> If a Key Vault certificate expires it can still be retrieved, but certificate may become inoperable in scenarios like TLS protection where expiration of certificate is validated.  
 
 ### Tags
 
