@@ -194,7 +194,7 @@ With the ARM template that you've crafted and the Azure CLI confcom extension, y
 
    * **Subscription**: select an Azure subscription.
    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
-   * **Location**: select a location for the resource group. Choose a region where the [Confidential SKU is supported](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-region-availability#linux-container-groups). Example: **North Europe**.
+   * **Location**: select a location for the resource group. Choose a region where the [Confidential SKU is supported](./container-instances-region-availability.md#linux-container-groups). Example: **North Europe**.
    * **Name**: accept the generated name for the instance, or enter a name.
    * **Image**: accept the default image name. This sample Linux image displays a hardware attestation.
 
