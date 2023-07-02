@@ -285,6 +285,8 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     #### [Metric alert](#tab/metric)
 
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
+
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. (Optional) If you're creating a metric alert rule that monitors a custom metric with the scope defined as one of the following regions and you want to make sure that the data processing for the alert rule takes place within that region, you can select to process the alert rule in one of these regions:
@@ -297,8 +299,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     1. (Optional) In the **Advanced options** section, you can set several options.
 
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
-
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
@@ -306,12 +306,12 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     #### [Log alert](#tab/log)
 
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
+
     1. Select the **Severity**.
     1. Enter values for the **Alert rule name** and the **Alert rule description**.
     1. Select the **Region**.
     1. <a name="managed-id"></a>In the **Identity** section, select which identity is used by the log alert rule to send the log query. This identity is used for authentication when the alert rule executes the log query.
-
-        :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new log alert rule.":::
 
         Keep these things in mind when selecting an identity:
         - A managed identity is required if you're sending a query to Azure Data Explorer.
