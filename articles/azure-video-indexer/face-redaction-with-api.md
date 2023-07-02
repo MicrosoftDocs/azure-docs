@@ -203,7 +203,7 @@ x-ms-request-id
 false  
 string  
 
-A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID so a client can provide this request ID in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request ID never repeats itself. 
+A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. 
 
 application/json  
 ErrorResponse  
@@ -313,7 +313,7 @@ x-ms-request-id
 false  
 string 
 
-A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID so a client can provide this request ID in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request ID never repeats itself. 
+A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. 
 
 application/json  
 ErrorResponse  
@@ -390,7 +390,7 @@ x-ms-request-id
 false  
 string  
 
-A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID so a client can provide this request ID in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request ID never repeats itself. 
+A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. 
 
 ### Response: 504 Gateway Timeout  
 
@@ -405,7 +405,7 @@ x-ms-request-id
 false  
 string  
 
-A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID so a client can provide this request ID in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request ID never repeats itself. 
+A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. 
 
 application/json  
 *default*  
