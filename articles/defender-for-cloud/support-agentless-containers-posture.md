@@ -39,7 +39,7 @@ This feature uses trusted access. Learn more about [AKS trusted access prerequis
 
 Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
-### Are attack paths triggered on workloads that are running on Azure Container Instances?
+### Are attack paths triggered on workloads that are running on Azure container instances?
 
 Attack paths are currently not triggered for workloads running on[ Azure Container Instances](/azure/container-instances/).
 

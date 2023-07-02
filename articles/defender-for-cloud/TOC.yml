@@ -224,7 +224,7 @@
       href: concept-data-security-posture-prepare.md
   - name: Improve your container security posture
     items:
-    - name: Agentless Container Posture (Preview)
+    - name: Agentless container posture
       href: concept-agentless-containers.md
     - name: Support and prerequisites
       href: support-agentless-containers-posture.md
@@ -334,7 +334,7 @@
     - name: Disable a recommendation
       displayName: recommendation, disable, security, policy, 
       href: tutorial-security-policy.md#disable-a-security-recommendation
-    - name: Exempt recommendations per resource, subscription, or management group
+    - name: Exempt recommendations
       displayName: disable, resource, exempt, recommendation
       href: exempt-resource.md
   - name: Built-in security protections
