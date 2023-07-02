@@ -22,11 +22,16 @@ A quick video tutorial can be found here: [Prompt flow get started video tutoria
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites: Enable prompt flow in your Azure Machine Learning workspace
+## Prerequisites: Enable Prompt flow in your Azure Machine Learning workspace
+
+> [!IMPORTANT]
+> Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
+>
+>Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
 In your Azure Machine Learning workspace, you can enable Prompt flow by turning on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
 
-:::image type="content" source="./media/get-started-prompt-flow/preview-panel.png" alt-text="Screenshot of manage preview features highlighting build AI solutions with prompt flow button.":::
+:::image type="content" source="./media/get-started-prompt-flow/preview-panel.png" alt-text="Screenshot of manage preview features highlighting build AI solutions with Prompt flow button." lightbox ="./media/get-started-prompt-flow/preview-panel.png":::
 
 ## Setup
 
@@ -54,7 +59,7 @@ After inputting the required fields, select **Save** to create the runtime.
 
 Runtime serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. So, we suggest before starting flow authoring, you should set up your runtime.
 
-In this article, we recommend creating a runtime from Compute Instance. If you're a subscription owner or resource group owner, you have all the permissions needed. If not, please first go [ask your subscription owner or resource group owner to grant you permissions](how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime).
+In this article, we recommend creating a runtime from Compute Instance. If you're a subscription owner or resource group owner, you have all the permissions needed. If not, first go [ask your subscription owner or resource group owner to grant you permissions](how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime).
 
 Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow [How to create a managed compute instance](../how-to-create-manage-compute-instance.md) to create one. A memory optimized compute is recommended.
 
@@ -66,9 +71,9 @@ We support 2 types of runtimes, for this tutorial use **Compute Instance**. Then
 
 If you want to learn more about runtime type, how to customize conda packages in runtime, limitations, etc., see [how to create and manage runtime](how-to-create-manage-runtime.md).
 
-## Create and develop your prompt flow
+## Create and develop your Prompt flow
 
-In **Flows** tab of prompt flow home page, select **Create** to create your first prompt flow. You can create a flow by cloning the samples in the gallery.
+In **Flows** tab of Prompt flow home page, select **Create** to create your first Prompt flow. You can create a flow by cloning the samples in the gallery.
 
 ### Clone from sample
 
@@ -243,7 +248,6 @@ Copy following sample input data, paste to the input box, and select **Test**, t
 ```
 
 :::image type="content" source="./media/get-started-prompt-flow/test-endpoint.png" alt-text="Screenshot of the endpoint on the test tab." lightbox = "./media/get-started-prompt-flow/test-endpoint.png":::
-
 
 ## Clean up resources
 

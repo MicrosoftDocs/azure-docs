@@ -14,7 +14,7 @@ ms.date: 06/30/2023
 
 # Create and manage runtimes (preview)
 
-Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
+Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables Prompt flow to efficiently execute its tasks and functions, ensuring a seamless user experience for users.
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -32,21 +32,26 @@ You can choose between two types of runtimes for Prompt flow: [managed online en
 | Easily manually customization of environment | N                                 | Y                        |
 | Multiple runtimes on single resource         | N                                 | Y                        |
 
-If you're new to prompt flow, we recommend you to start with compute instance runtime first.
+If you're new to Prompt flow, we recommend you to start with compute instance runtime first.
 
 ## Permissions/roles need to use runtime
 
-You need to assign enough permission to use runtime in prompt flow. To assign a role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on resource.
+You need to assign enough permission to use runtime in Prompt flow. To assign a role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on resource.
 
-- To create runtime, you need to have `AzureML Data Scientist` role of the workspace. To learn more, see [Prerequisites](#prerequisite)
+- To create runtime, you need to have `AzureML Data Scientist` role of the workspace. To learn more, see [Prerequisites](#prerequisites)
 - To use a runtime in flow authoring, you or identity associate with managed online endpoint need to have `AzureML Data Scientist` role of workspace, `Storage Blob Data Contributor` and `Storage Table Data Contributor` role of workspace default storage. To learn more, see [Grant sufficient permissions to use the runtime](#grant-sufficient-permissions-to-use-the-runtime).
 
 ## Create runtime in UI
 
-### Prerequisite
+### Prerequisites
 
 - Make sure your workspace linked with ACR, you can link an existing ACR when you're creating a new workspace, or you can trigger environment build, which may auto link ACR to Azure Machine Learning workspace. To learn more, see [How to trigger environment build in workspace](#potential-root-cause-and-solution).
 - You need `AzureML Data Scientist` role of the workspace to create a runtime.
+
+> [!IMPORTANT]
+> Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
+>
+>Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
 ### Create compute instance runtime in UI
 
@@ -90,7 +95,7 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
 
         There are two options for deployment as runtime: `new` and `existing`. If you choose `new`, we'll create a new deployment for you. If you choose `existing`, you need to provide the name of an existing deployment as runtime.
 
-        If you're new to prompt flow, select `new` and we'll create a new deployment for you.
+        If you're new to Prompt flow, select `new` and we'll create a new deployment for you.
 
         - Select identity type of endpoint.
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-identity.png" alt-text="Screenshot of add managed online deployment runtime with endpoint identity type highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-identity.png":::
@@ -107,7 +112,7 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
         - Choose the appropriate SKU and instance count.
         
             > [!NOTE]
-            > For **Virtual machine**, since the prompt flow runtime is memory-bound, it’s better to select a virtual machine SKU with more than 8GB of memory. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
+            > For **Virtual machine**, since the Prompt flow runtime is memory-bound, it’s better to select a virtual machine SKU with more than 8GB of memory. For the list of supported sizes, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
     
              :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png" alt-text="Screenshot of add managed online deployment runtime wizard on the compute page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-compute.png":::
 
@@ -128,9 +133,9 @@ If you didn't have compute instance, create a new one: [Create and manage an Azu
 
             :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png" alt-text="Screenshot of add managed online deployment runtime on the deployment page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-mir-runtime-existing-deployment-select-deployment.png":::
 
-    To learn, see [[how to create managed online deployment, which can be used as prompt flow runtime](how-to-customize-environment-runtime.md#create-managed-online-deployment-that-can-be-used-as-prompt-flow-runtime).]
+    To learn, see [[how to create managed online deployment, which can be used as Prompt flow runtime](how-to-customize-environment-runtime.md#create-managed-online-deployment-that-can-be-used-as-prompt-flow-runtime).]
 
-## Grant sufficient permissions to use the Runtime
+## Grant sufficient permissions to use the runtime
 
 After creating the runtime, you need to grant the necessary permissions to use it.
 
@@ -176,9 +181,9 @@ To learn more:
 - [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md?tabs=portal)
 - [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md?tabs=azure-cli)
 
-## Using runtime in prompt flow authoring
+## Using runtime in Prompt flow authoring
 
-When you're authoring your prompt flow, you can select and change the runtime from left top corner of the flow page.
+When you're authoring your Prompt flow, you can select and change the runtime from left top corner of the flow page.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png" alt-text="Screenshot of Chat with Wikipedia with the runtime dropdown highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png":::
 
@@ -200,7 +205,7 @@ Go to runtime detail page and select update button at the top. You can change ne
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env.png" alt-text="Screenshot of the runtime detail page with updated selected. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env.png":::
 
-If you used a custom environment, you need to rebuild it using latest prompt flow image first, and then update your runtime with the new custom environment.
+If you used a custom environment, you need to rebuild it using latest Prompt flow image first, and then update your runtime with the new custom environment.
 
 ## Troubleshooting guide for runtime
 
@@ -224,7 +229,7 @@ Use  `docker images`  to check if the image was pulled successfully. If your ima
 
 #### Run failed due to "No module named XXX"
 
-This type error usually related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+This type error usually related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
 ### Compute instance runtime related
 
@@ -244,7 +249,7 @@ This is known limitation, currently compute instance runtime didn't support vent
 
 ### Managed endpoint runtime related
 
-#### Managed Endpoint failed with an internal server error. Endpoint creation was successful, but failed to create deployment for the newly created workspace.
+#### Managed endpoint failed with an internal server error. Endpoint creation was successful, but failed to create deployment for the newly created workspace.
 
 - Runtime status shows as failed with an internal server error.
     :::image type="content" source="./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png" alt-text="Screenshot of the runtime status showing failed on the runtime detail page. " lightbox = "./media/how-to-create-manage-runtime/mir-without-acr-runtime-detail-error.png":::

@@ -20,10 +20,9 @@ In Azure Machine Learning prompt flow, you can utilize connections to effectivel
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
 ## Connections
 
-Connections in prompt flow play a crucial role in establishing connections to remote APIs or data sources. They encapsulate essential information such as endpoints and secrets, ensuring secure and reliable communication.
+Connections in Prompt flow play a crucial role in establishing connections to remote APIs or data sources. They encapsulate essential information such as endpoints and secrets, ensuring secure and reliable communication.
 
 In the Azure Machine Learning workspace, connections can be configured to be shared across the entire workspace or limited to the creator. Secrets associated with connections are securely persisted in the corresponding Azure Key Vault, adhering to robust security and compliance standards.
 
@@ -38,7 +37,7 @@ Prompt flow provides various prebuilt connections, including Azure Open AI, Open
 | [Serp](https://serpapi.com/)                                 | Serp API or Python              |
 | Custom                                                       | Python                          |
 
-By leveraging connections in prompt flow, users can easily establish and manage connections to external APIs and data sources, facilitating efficient data exchange and interaction within their AI applications.
+By leveraging connections in Prompt flow, users can easily establish and manage connections to external APIs and data sources, facilitating efficient data exchange and interaction within their AI applications.
 
 ## Next steps
 

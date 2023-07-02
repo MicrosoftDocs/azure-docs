@@ -31,11 +31,10 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 
 ## Prerequisites
 
-1. Learn [how to build and test a flow in the prompt flow](get-started-prompt-flow.md).
+1. Learn [how to build and test a flow in the Prompt flow](get-started-prompt-flow.md).
 
 1. Have basic understanding on managed online endpoints. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way that frees you from the overhead of setting up and managing the underlying deployment infrastructure. For more information on managed online endpoints, see [What are Azure Machine Learning endpoints?](../concept-endpoints-online.md#managed-online-endpoints).
-1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
-
+1. Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To be able to deploy an endpoint in Prompt flow, your user account must be assigned the **AzureML Data scientist** or role with more privileges for the **Azure Machine Learning workspace**.
 
 ## Build the flow and get it ready for deployment
 
@@ -46,13 +45,13 @@ If you didn't complete the tutorial, you'll need to build a flow. Testing the fl
 We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
 
 > [!NOTE]
-> Currently prompt flow only supports **single deployment** of managed online endpoints, so we will simplify the *deployment* configuration in the UI.
+> Currently Prompt flow only supports **single deployment** of managed online endpoints, so we will simplify the *deployment* configuration in the UI.
 
 ## Create an online endpoint
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
 
-The prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
+The Prompt flow supports you to deploy endpoints from a flow, or a bulk test run. Testing your flow before deployment is recommended best practice.
 
 1. In the flow authoring page or run detail page, select **Deploy**.
 
@@ -205,7 +204,7 @@ The `chat_input` was set during development of the chat flow. You can input the 
 
 In the endpoint detail page, switch to the **Consume** tab. You can find the REST endpoint and key/token to consume your endpoint. There is also sample code for you to consume the endpoint in different languages.
 
-## View metrics using Azure Monitor (optional) 
+## View metrics using Azure Monitor (optional)
 
 You can view various metrics (request numbers, request latency, network bytes, CPU/GPU/Disk/Memory utilization, and more) for an online endpoint and its deployments by following links from the endpoint's **Details** page in the studio. Following these links take you to the exact metrics page in the Azure portal for the endpoint or deployment.
 

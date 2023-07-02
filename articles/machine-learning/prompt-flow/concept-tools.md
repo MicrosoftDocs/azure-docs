@@ -19,7 +19,7 @@ Tools are the fundamental building blocks of a flow in Azure Machine Learning pr
 Each tool is a simple, executable unit with a specific function, allowing users to perform various tasks.
 By combining different tools, users can create a flow that accomplishes a wide range of goals.
 
-One of the key benefit of prompt flow tools is their seamless integration with third-party APIs and python open source packages.
+One of the key benefit of Prompt flow tools is their seamless integration with third-party APIs and python open source packages.
 This not only improves the functionality of large language models but also makes the development process more efficient for developers.
 
 > [!IMPORTANT]

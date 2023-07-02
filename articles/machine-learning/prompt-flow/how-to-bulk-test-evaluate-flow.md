@@ -14,7 +14,7 @@ ms.date: 06/30/2023
 
 # Submit bulk test and evaluate a flow (preview)
 
-To evaluate how well your flow performs with a large dataset, you can submit bulk test and use built-in evaluation methods in prompt flow.
+To evaluate how well your flow performs with a large dataset, you can submit bulk test and use built-in evaluation methods in Prompt flow.
 
 In this article you'll learn to:
 
@@ -38,7 +38,7 @@ To run a bulk test and use an evaluation method, you need to have the following 
 - A test dataset for bulk test. Your dataset should be in one of these formats: `.csv`, `.tsv`, `.jsonl`, or `.parquet`. Your data should also include headers that match the input names of your flow.
 - An available runtime to run your bulk test. A runtime is a cloud-based resource that executes your flow and generates outputs. To learn more about runtime, see [Runtime](./how-to-create-manage-runtime.md).
 
-## Submit a bulk test and use a built-in evaluation method 
+## Submit a bulk test and use a built-in evaluation method
 
 A bulk test allows you to run your flow with a large dataset and generate outputs for each data row. You can also choose an evaluation method to compare the output of your flow with certain criteria and goals. An evaluation method  **is a special type of flow**  that calculates metrics for your flow output based on different aspects. An evaluation run will be executed to calculate the metrics when submitted with the bulk test.
 
@@ -100,7 +100,7 @@ To view the overall performance, you can select the **"Metrics"** tab, and you c
 
 To learn more about the metrics calculated by the built-in evaluation methods, please navigate to [understand the built-in evaluation metrics](#understand-the-built-in-evaluation-metrics).
 
-## Start A New Round of Evaluation
+## Start a new round of evaluation
 
 
 If you have already completed a bulk test, you can start another round of evaluation to submit a new evaluation run to calculate metrics for the outputs **without running your flow again**. This is helpful and can save your cost to rerun your flow when:
@@ -137,10 +137,9 @@ You can select on each bulk test to check the detail. You can also select multip
 
 :::image type="content" source="./media/how-to-bulk-test-evaluate-flow/bulk-test-compare.png" alt-text="Screenshot of metrics compare of multiple bulk tests." lightbox = "./media/how-to-bulk-test-evaluate-flow/bulk-test-compare.png":::
 
-
 ## Understand the built-in evaluation metrics
 
-In prompt flow, we provide multiple built-in evaluation methods to help you measure the performance of your flow output. Each evaluation method calculates different metrics. Now we provide nine built-in evaluation methods available, you can check the following table for a quick reference:
+In Prompt flow, we provide multiple built-in evaluation methods to help you measure the performance of your flow output. Each evaluation method calculates different metrics. Now we provide nine built-in evaluation methods available, you can check the following table for a quick reference:
 
 | Evaluation Method | Metrics  | Description | Connection Required | Required Input  | Score Value |
 |---|---|---|---|---|---|
@@ -153,7 +152,6 @@ In prompt flow, we provide multiple built-in evaluation methods to help you meas
 | QnA Fluency Evaluation | Fluency  | Measures how grammatically and linguistically correct the model's predicted answer is.  | Yes | question, answer (no ground truth or context)  | 1 to 5, with 1 being the worst and 5 being the best |
 | QnA f1 scores Evaluation | F1 score   | Measures the ratio of the number of shared words between the model prediction and the ground truth.  | No | question, answer, ground truth (context not needed)  | in the range [0, 1]. |
 | QnA Ada Similarity Evaluation | Ada Similarity  | Computes sentence (document) level embeddings using Ada embeddings API for both ground truth and prediction. Then computes cosine similarity between them (one floating point number)  | Yes | question, answer, ground truth (context not needed)  | in the range [0, 1]. |
-
 
 ## Ways to improve flow performance
 
@@ -172,7 +170,7 @@ System message, sometimes referred to as a metaprompt or [system prompt](../../c
 
 ## Next steps
 
-In this document, you learned how to run a bulk test and use a built-in evaluation method to measure the quality of your flow output. You also learned how to view the evaluation result and metrics, and how to start a new round of evaluation with a different method or subset of variants. We hope this document helps you improve your flow performance and achieve your goals with prompt flow.
+In this document, you learned how to run a bulk test and use a built-in evaluation method to measure the quality of your flow output. You also learned how to view the evaluation result and metrics, and how to start a new round of evaluation with a different method or subset of variants. We hope this document helps you improve your flow performance and achieve your goals with Prompt flow.
 
 - [Develop a customized evaluation flow](how-to-develop-an-evaluation-flow.md)
 - [Tune prompts using variants](how-to-tune-prompts-using-variants.md)

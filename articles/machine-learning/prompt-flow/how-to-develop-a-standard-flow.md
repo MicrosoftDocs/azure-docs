@@ -26,7 +26,7 @@ A quick video tutorial can be found here: [standard flow video tutorial](https:/
 
 ## Create a standard flow
 
-In the prompt flow​​​​​​​ homepage, you can create a standard flow from scratch. Select **Create** button.
+In the Prompt flow​​​​​​​ homepage, you can create a standard flow from scratch. Select **Create** button.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-create-standard.png" alt-text="Screenshot of the Prompt flow home page showing create a new flow with standard flow highlighted. " lightbox = "./media/how-to-develop-a-standard-flow/flow-create-standard.png":::
 
@@ -125,7 +125,7 @@ The single node status is shown in the graph view as well.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/flow-step-run.png" alt-text="Screenshot of showing where the run icon on the node is located and the view full output button. " lightbox = "./media/how-to-develop-a-standard-flow/flow-step-run.png":::
 
-You can also change the flow input url to test the node behavior for different URLs.
+You can also change the flow input URL to test the node behavior for different URLs.
 
 ## Chain your flow - link nodes together
 
@@ -157,15 +157,15 @@ After the interface is defined, you can use:
 
 Below are common scenarios for linking nodes together.
 
-### SCENARIO 1 - Link LLM node with flow input
+### Scenario 1 - Link LLM node with flow input
 
-1. Add a new LLM node, rename it with a meaningful name, specify the connection and api type.
-2. Select **Edit** next to the prompt box, add an input by `{{url}}`, then you'll see an input called url is created in inputs section.
-3. In the value drop-down, select ${inputs.url}, then you'll see in the graph view that the newly created LLM node is linked to the flow input. When running the flow, the url input of the node will be replaced by flow input on the fly.
+1. Add a new LLM node, rename it with a meaningful name, specify the connection and API type.
+2. Select **Edit** next to the prompt box, add an input by `{{url}}`, then you'll see an input called URL is created in inputs section.
+3. In the value drop-down, select ${inputs.url}, then you'll see in the graph view that the newly created LLM node is linked to the flow input. When running the flow, the URL input of the node will be replaced by flow input on the fly.
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif" alt-text="Gif of scenario one showing the LLM tool and editing the prompt. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-input-1.gif":::
 
-### SCENARIO 2 - Link LLM node with single-output upstream node
+### Scenario 2 - Link LLM node with single-output upstream node
 
 1. Select **Edit** next to the prompt box, add another input by `{{summary}}`, then you'll see an input called summary is created in inputs section.
 2. In the value drop-down, select ${summarize_text_content.output}, then you'll see in the graph view that the newly created LLM node is linked to the upstream summarize_text_content node. When running the flow, the summary input of the node will be replaced by summarize_text_content node output on the fly.
@@ -180,7 +180,7 @@ You can also navigate to the node you want to link with, copy the node name, nav
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif" alt-text="Gif of the LLM node showing how copying the node name works. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-2.gif":::
 
-### SCENARIO 3 - Link LLM node with multi-output upstream node
+### Scenario 3 - Link LLM node with multi-output upstream node
 
 Suppose we want to link the newly created LLM node with covert_to_dict Python node whose output is a dictionary with two keys: category and evidence.
 
@@ -189,7 +189,7 @@ Suppose we want to link the newly created LLM node with covert_to_dict Python no
 
 :::image type="content" source="./media/how-to-develop-a-standard-flow/link-llm-node-summary-3.png" alt-text="Screenshot of the LLM tool highlighting the category value. " lightbox = "./media/how-to-develop-a-standard-flow/link-llm-node-summary-3.png":::
 
-### SCENARIO 4 - Link Python node with upstream node/flow input
+### Scenario 4 - Link Python node with upstream node/flow input
 
 1. First you need to edit the code, add an input in python function.
 1. The linkage is the same as LLM node, using \${flow.input_name\} to link with flow input or \${upstream_node_name.output1\} to link with upstream node.

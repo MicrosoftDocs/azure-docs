@@ -14,7 +14,7 @@ ms.date: 06/30/2023
 
 # Variants in Prompt flow (preview)
 
-With Azure Machine Learning prompt flow, you can use variants to tune your prompt. In this article, you'll learn the prompt flow variants concept.
+With Azure Machine Learning prompt flow, you can use variants to tune your prompt. In this article, you'll learn the Prompt flow variants concept.
 
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -35,7 +35,7 @@ Suppose you want to generate a summary of a news article. You can set different 
 
 By utilizing different variants of prompts and settings, you can explore how the model responds to various inputs and outputs, enabling you to discover the most suitable combination for your requirements.
 
-## Benefits of using variants 
+## Benefits of using variants
 
 - **Enhance the quality of your LLM generation**: By creating multiple variants of the same LLM node with diverse prompts and configurations, you can identify the optimal combination that produces high-quality content aligned with your needs.
 - **Save time and effort**: Even slight modifications to a prompt can yield significantly different results. It's crucial to track and compare the performance of each prompt version. With variants, you can easily manage the historical versions of your LLM nodes, facilitating updates based on any variant without the risk of forgetting previous iterations. This saves you time and effort in managing prompt tuning history.

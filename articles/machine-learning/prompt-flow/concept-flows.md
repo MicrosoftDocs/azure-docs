@@ -28,8 +28,7 @@ Within a flow, nodes take center stage, representing specific tools with unique 
 
 To facilitate node configuration and fine-tuning, our user interface offers a notebook-like authoring experience. This intuitive interface allows you to effortlessly modify settings and edit code snippets within nodes. Additionally, a visual representation of the workflow structure is provided through a DAG (Directed Acyclic Graph) graph. This graph showcases the connectivity and dependencies between nodes, providing a clear overview of the entire workflow.
 
-With the flow feature in prompt flow, you have the power to design, customize, and optimize the logic of your AI application. The cohesive arrangement of nodes ensures efficient data processing and effective flow management, empowering you to create robust and advanced applications.
-
+With the flow feature in Prompt flow, you have the power to design, customize, and optimize the logic of your AI application. The cohesive arrangement of nodes ensures efficient data processing and effective flow management, empowering you to create robust and advanced applications.
 
 ## Flow types
 

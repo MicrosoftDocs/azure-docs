@@ -56,13 +56,13 @@ Alternatively, you can customize a built-in evaluation method used in a bulk tes
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.gif" alt-text="Gif of cloning a Web Classification bulk test. " lightbox = "./media/how-to-develop-an-evaluation-flow/clone-from-snapshot.gif":::
 
-### Create New Evaluation Flow from Scratch
+### Create new evaluation flow from scratch
 
 To create your evaluation method from scratch, select the  **"Create"** button on the homepage and select  **"Evaluation"** as the flow type. You'll enter the flow authoring page.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-by-type.png" alt-text="Screenshot of tiles from the Prompt flow gallery with the create button highlighted on evaluation flow. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-by-type.png":::
 
-## Understand Evaluation in Prompt flow
+## Understand evaluation in Prompt flow
 
 In Prompt flow, a flow is a sequence of nodes that process an input and generate an output. Evaluation methods also take required inputs and produce corresponding outputs.
 
@@ -103,7 +103,7 @@ There are two types of evaluation methods based on how to process outputs from d
 
 See "QnA Relevance Scores Pairwise Evaluation" flow in "Create from gallery" for reference.
 
-#### Input Mapping
+#### Input mapping
 
 In this context, the inputs are the subjects of evaluation, which are the outputs of a flow. Other inputs may also be required, such as ground truth, which may come from the test dataset you provided. Therefore, to run an evaluation, you need to indicate the sources of these required input test data. To do so, when submitting an evaluation, you'll see an  **"input mapping"**  section.
 
@@ -132,11 +132,11 @@ To add descriptions for each input, select **Show description** in the input sec
 
 Then this description will be displayed to when using this evaluation method in bulk test submission.
 
-### Outputs and Metrics
+### Outputs and metrics
 
 The outputs of an evaluation are the results that measure the performance of the flow being tested. The output usually contains metrics such as scores, and may also include text for reasoning and suggestions.
 
-#### Instance-level Metrics—Outputs
+#### Instance-level metrics—outputs
 
 In Prompt flow, the flow processes each sample dataset one at a time and generates an output record. Similarly, in most evaluation cases, there will be a metric for each flow output, allowing you to check how the flow performs on each individual data input.
 
@@ -148,7 +148,7 @@ When this evaluation method is used in a bulk test, the instance-level score can
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png" alt-text="Screenshot of the output tab with gpt coherence highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/eval-output-bulk.png":::
 
-#### Metrics Logging and Aggregation Node
+#### Metrics logging and aggregation node
 
 In addition, it's also important to provide an overall score for the run. You can check the  **"set as aggregation"** of a Python node to turn it into a "reduce" node, allowing the node to take in the inputs **as a list** and process them in batch.
 

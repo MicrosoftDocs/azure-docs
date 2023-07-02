@@ -56,7 +56,7 @@ Custom connection helps you to securely store and manage secret keys or other se
 
 Create a custom connection that stores all your LLM API KEY or other required credentials.
 
-1. Go to prompt flow in your workspace, then go to **connections** tab.
+1. Go to Prompt flow in your workspace, then go to **connections** tab.
 2. Select **Create** and select **Custom**.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-1.png" alt-text="Screenshot of flows on the connections tab highlighting the custom button in the create drop-down menu. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-1.png":::
 1. In the right panel, you can define your connection name, and you can add multiple *Key-value pairs* to store your credentials and keys by selecting **Add key-value pairs**.
@@ -66,13 +66,13 @@ Create a custom connection that stores all your LLM API KEY or other required cr
 > - You can set one Key-Value pair as **secret** by **is secret** checked, which will be encrypted and stored in your key value.
 > - You can also set the whole connection as **workspace level key**, which will be shared to all members in the workspace. If not set as workspace level key, it can only be accessed by the creator.
 
-Then this custom connection is used to replace the key and credential you explicitly defined in LangChain code, if you already have a LangChain integration prompt flow, you can jump to​​​​​​​ [Configure connection, input and output](#configure-connection-input-and-output).
+Then this custom connection is used to replace the key and credential you explicitly defined in LangChain code, if you already have a LangChain integration Prompt flow, you can jump to​​​​​​​ [Configure connection, input and output](#configure-connection-input-and-output).
 
 ### LangChain code conversion to a runnable flow
 
-All LangChain code can directly run in the python tools in your flow as long as your runtime environment contains the dependency packages, you can easily convert your LangChain code into a flow by following the steps below.
+All LangChain code can directly run in the Python tools in your flow as long as your runtime environment contains the dependency packages, you can easily convert your LangChain code into a flow by following the steps below.
 
-#### Create a flow with prompt tools and python tools
+#### Create a flow with Prompt tools and Python tools
 
 > [!NOTE]
 > There are two ways to convert your LangChain code into a flow.

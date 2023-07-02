@@ -39,7 +39,7 @@ Create OpenAI resources:
 
 ## **Connections**
 
-Set up connections to provisioned resources in prompt flow.
+Set up connections to provisioned resources in Prompt flow.
 
 | Type        | Name     | API KEY  | API Type | API Version |
 |-------------|----------|----------|----------|-------------|
