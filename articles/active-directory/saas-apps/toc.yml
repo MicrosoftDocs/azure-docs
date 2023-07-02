@@ -594,6 +594,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: App Proxy configuration for Confluence SAML SSO
         href: confluence-app-proxy-tutorial.md
+      - name: Connect1
+        href: connect1-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
       - name: Contentful
