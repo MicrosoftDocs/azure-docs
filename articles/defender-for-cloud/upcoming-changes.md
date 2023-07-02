@@ -121,6 +121,7 @@ For more information on all of these plans, check out the [Defender for Cloud pr
 ### Recommendation set to be released for GA: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) 
 
 The recommendation `Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)` is set to be released as GA (General Availability):
+
 |Recommendation | Description | Assessment Key|
 |--|--|--|
 | Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5
