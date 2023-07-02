@@ -82,7 +82,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Aggregation type|Select the aggregation function to apply on the data points: Sum, Count, Average, Min, or Max.|
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic.|
         |Unit|If the selected metric signal supports different units, such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
-        |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There will be fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts.|
+        |Threshold sensitivity|If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern that's required to trigger an alert. <br> - **High**: Thresholds are tight and close to the metric series pattern. An alert rule is triggered on the smallest deviation, resulting in more alerts. <br> - **Medium**: Thresholds are less tight and more balanced. There are fewer alerts than with high sensitivity (default). <br> - **Low**: Thresholds are loose, allowing greater deviation from the metric series pattern. Alert rules are only triggered on large deviations, resulting in fewer alerts.|
         |Aggregation granularity| Select the interval that's used to group the data points by using the aggregation type function. Choose an **Aggregation granularity** (period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
         |Frequency of evaluation|Select how often the alert rule is to be run. Select a frequency that's smaller than the aggregation granularity to generate a sliding window for the evaluation.|
  
@@ -143,7 +143,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         |Field  |Description  |
         |---------|---------|
-        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br> **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
+        |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.      |
         |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are Total, Average, Minimum, or Maximum.    |
         |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
 
@@ -154,17 +154,15 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
         Dimensions are columns from your query results that contain additional data. When you use dimensions, the alert rule groups the query results by the dimension values and evaluates the results of each group separately. If the condition is met, the rule fires an alert for that group. The alert payload includes the combination that triggered the alert.
 
-        You can apply up to six dimensions per alert rule. Dimensions can only be string or numeric columns. If you want to use a column that is not a number or string type as a dimension, you must convert it to a string or numeric value. If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately.
-
-        If your alert rule scope is a workspace, the alerts are fired on the workspace. If the workspace of the alert rule gets data from resources in more than one subscription, alerts are sent about the resources from the other subscriptions.
+        You can apply up to six dimensions per alert rule. Dimensions can only be string or numeric columns. If you want to use a column that isn't a number or string type as a dimension, you must convert it to a string or numeric value. If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately.
 
         For example:
         -  You could use dimensions to monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually, and notifications are sent for each instance where the CPU usage exceeds the configured value.
-        - You could decide not to split by dimensions when you want a condition applied to multiple resources in the scope. For example, you would not use dimensions if you want to fire an alert if at least five machines in the resource group scope have CPU usage above the configured value.
+        - You could decide not to split by dimensions when you want a condition applied to multiple resources in the scope. For example, you wouldn't use dimensions if you want to fire an alert if at least five machines in the resource group scope have CPU usage above the configured value.
 
         Select values for these fields:
 
-        -  **Resource ID column**: If you want a separate alert for each affected Azure resource, you can use the **Azure Resource ID** column as a dimension, which makes the resource the target of the alert.
+        -  **Resource ID column**: If you want a separate alert for each affected Azure resource, you can use the **Azure Resource ID** column as a dimension, which makes the resource the target of the alert. If your alert rule scope is a workspace, the alerts are fired on the workspace. If the workspace of the alert rule gets data from resources in more than one subscription, alerts are sent about the resources from the other subscriptions. As a result, the fired alert can happen in a different subscription than the workspace. 
 
         |Field  |Description  |
         |---------|---------|
@@ -304,7 +302,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the value of the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
 
     #### [Log alert](#tab/log)
 
