@@ -11,7 +11,7 @@ ms.date: 07/02/2023
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462ce) recommendation.
 
-To provide findings for the recommendation, Defender CSPM uses [agentless discovery and visibility](concept-agentless-containers#agentless-discovery-and-visibility-within-kubernetes-components) to create a full inventory of your K8s clusters and their workloads and correlates that inventory with the [Agentless Container registry vulnerability vulnerability assessment](concept-agentless-containers#agentless-container-registry-vulnerability-assessment). The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps. 
+To provide findings for the recommendation, Defender CSPM uses [agentless discovery and visibility](concept-agentless-containers.md#agentless-discovery-and-visibility-within-kubernetes-components) to create a full inventory of your K8s clusters and their workloads and correlates that inventory with the [Agentless Container registry vulnerability vulnerability assessment (concept-agentless-containers#agentless-container-registry-vulnerability-assessment). The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps. 
 
 **To view findings for a specific cluster, do the following:**  
 
@@ -23,7 +23,7 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-images-recommendation.png" alt-text="Screenshot showing the recommendation details for running images." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-images-recommendation.png":::
 
-1. Select the relevant cluster for which you want to remediate vulnerabilities from the unhealthy tab
+1. Select the relevant cluster for which you want to remediate vulnerabilities from the unhealthy tab.
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png" alt-text="Screenshot showing where to select the specific cluster." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png":::
 
@@ -39,7 +39,7 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 1. Follow the steps in the remediation section of the recommendation pane. 
 1. When you've completed the steps required to remediate the security issue, replace the image in your cluster: 
 1. Push the updated image to trigger a scan; it may take up to 24 hours for the previous image to be removed from the results, and for the new image to be included in the results.
-1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c) . 
+1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c). 
     If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again. 
 
     > [!NOTE]
