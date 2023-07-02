@@ -194,8 +194,8 @@ If more than one Datadog resource is mapped to the Datadog organization, deletin
 - For help with troubleshooting, see [Troubleshooting Datadog solutions](troubleshoot.md).
 - Get started with Datadog – An Azure Native ISV Service on
 
-> [!div class="nextstepaction"]​
-> [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)​
+    > [!div class="nextstepaction"]
+    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
 
-> [!div class="nextstepaction"]
-> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
