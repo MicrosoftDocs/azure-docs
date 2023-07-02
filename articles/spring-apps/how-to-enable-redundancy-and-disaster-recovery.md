@@ -150,7 +150,7 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
    | service-sample-a | East US     | gateway / auth-service / account-service |
    | service-sample-b | West Europe | gateway / auth-service / account-service |
 
-1. Set up a custom domain for the service instances. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./tutorial-custom-domain.md). After successful setup, both service instances will bind to the same custom domain, such as `bcdr-test.contoso.com`.
+1. Set up a custom domain for the service instances. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md). After successful setup, both service instances will bind to the same custom domain, such as `bcdr-test.contoso.com`.
 
 1. Create a traffic manager and two endpoints. For instructions, see [Quickstart: Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md), which produces the following Traffic Manager profile:
 
