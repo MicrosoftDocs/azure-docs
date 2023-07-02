@@ -41,6 +41,31 @@ This step is performed by your deployment teams.
 > [!NOTE]
 > There is no need to pre-install an operating system on the VM. The sensor installation includes the operating system image.
 
+### Configure network adapters for a VM deployment
+
+Before deploying an OT sensor on a [virtual appliance](../ot-virtual-appliances.md), configure at least two network adapters on your VM: one to connect to the Azure portal, and another to connect to traffic mirroring ports.
+
+**On your virtual machine**:
+
+1. Open your VM settings for editing.
+
+1. Together with the other hardware defined for your VM, such as memory, CPUs, and hard disk, add the following network adapters:
+
+    - **Network adapter 1**, to connect to the Azure portal for cloud management.
+    - **Network adapter 2**, to connect to a traffic mirroring port that's configured to allow promiscuous mode traffic. If you're connecting your sensor to multiple traffic mirroring ports, make sure there's a network adapter configured for each port.
+
+For more information, see:
+
+- Your virtual machine software documentation
+- [OT network sensor VM (VMware ESXi)](../appliance-catalog/virtual-sensor-vmware.md)
+- [OT network sensor VM (Microsoft Hyper-V)](../appliance-catalog/virtual-sensor-hyper-v.md)
+- [Networking requirements](../networking-requirements.md)
+
+> [!NOTE]
+> If you're working with an air-gapped sensor and are [deploying an on-premises management console](air-gapped-deploy.md), configure **Network adapter 1** to connect to the on-premises management console UI instead of the Azure portal.
+>
+
+
 ## Download software files from the Azure portal
 
 Download the OT sensor software from Defender for IoT in the Azure portal.
@@ -70,9 +95,9 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
     > [!NOTE]
     > If you're using a legacy BIOS version, you're prompted to select a language and the installation options are presented at the top left instead of in the center. When prompted, select `English` and then the the **Install iot-sensor-<version number> option to continue.
 
-    The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes.
+    The installation begins, giving you updated status messages as it goes. The entire installation process takes up to 20-30 minutes, and may vary depending on the type of media you're using.
 
-    When the installation is complete, you're shown a set of default networking details. For example:
+    When the installation is complete, you're shown the following set of default networking details.
 
     ```bash
     IP: 172.23.41.83,
@@ -83,29 +108,6 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 
 You'll use the default IP address provided to access your sensor for [initial setup and activation](activate-deploy-sensor.md).
 
-## Configure network adapters for a VM deployment
-
-After deploying an OT sensor on a [virtual appliance](../ot-virtual-appliances.md), configure at least two network adapters on your VM: one to connect to the Azure portal, and another to connect to traffic mirroring ports.
-
-**On your virtual machine**:
-
-1. Open your VM settings for editing.
-
-1. Together with the other hardware defined for your VM, such as memory, CPUs, and hard disk, add the following network adapters:
-
-    - **Network adapter 1**, to connect to the Azure portal for cloud management.
-    - **Network adapter 2**, to connect to a traffic mirroring port that's configured to allow promiscuous mode traffic. If you're connecting your sensor to multiple traffic mirroring ports, make sure there's a network adapter configured for each port.
-
-For more information, see:
-
-- Your virtual machine software documentation
-- [OT network sensor VM (VMware ESXi)](../appliance-catalog/virtual-sensor-vmware.md)
-- [OT network sensor VM (Microsoft Hyper-V)](../appliance-catalog/virtual-sensor-hyper-v.md)
-- [Networking requirements](../networking-requirements.md)
-
-> [!NOTE]
-> If you're working with an air-gapped sensor and are [deploying an on-premises management console](air-gapped-deploy.md), configure **Network adapter 1** to connect to the on-premises management console UI instead of the Azure portal.
->
 
 ## Next steps
 

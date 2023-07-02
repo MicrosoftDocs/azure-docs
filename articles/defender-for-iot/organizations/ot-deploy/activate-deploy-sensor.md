@@ -13,8 +13,8 @@ This article is one in a series of articles describing the [deployment path](ot-
 
 Several initial setup steps can be performed by the GUI or the CLI.
 
-- Use the GUI if you can connect physical cables from your switch to the sensor to identify your interfaces correctly.
-- Use the CLI if you know your networking details without needing to connect physical cables.
+- Use the GUI if you can connect physical cables from your switch to the sensor to identify your interfaces correctly.         Make sure to reconfigure your network adapter to match the default settings on the sensor.
+- Use the CLI if you know your networking details without needing to connect physical cables.      Use the CLI if you can only connect to the sensor via iLo / iDrac
 
 Configuring your setup via the CLI still requires you to complete the last few steps in the browser.
 
@@ -50,7 +50,7 @@ This procedure describes how to sign into the OT sensor console for the first ti
 
 **To sign in to your sensor**:
 
-1. In a browser, go to the default IP address provided for your sensor at the end of the installation. If you've purchased a pre-configured appliance, this IP address is provided with the appliance. 
+1. In a browser, go the `192.168.0.101` IP address, which is the default IP address provided for your sensor at the end of the installation.
 
     The initial sign-in page appears. For example:
 
@@ -77,19 +77,23 @@ In the **Management interface** tab, use the following fields to define network 
 
 |Name  |Description  |
 |---------|---------|
-|**Management interface**     |  Select the interface you want to use as the management interface, to connect to either the Azure portal or an on-premises management console.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interfacelights up so that you can connect your cable correctly.        |
-|<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team will use to connect to the sensor via the browseror CLI. |
+|**Management interface**     |  Select the interface you want to use as the management interface, to connect to either the Azure portal or an on-premises management console.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
+|<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team will use to connect to the sensor via the browser CLI. |
 |**Subnet Mask**     | Enter the address you want to use as the sensor's subnet mask.        |
 |**Default Gateway**     | Enter the address you want to use as the sensor's default gateway.        |
 |**DNS**     |   Enter the sensor's DNS server IP address.      |
 |**Hostname**     |  Enter the hostname you want to assign to the sensor. Make sure that you use the same hostname as is defined in the DNS server.       |
-|**Enable proxy for cloud connectivity (Optional)**     | Select to define a proxy server for your sensor.  <br><br>If you use an SSL/TSL certificate to access the proxyserver, select **Client certificate** and upload your certificate.      |
+|**Enable proxy for cloud connectivity (Optional)**     | Select to define a proxy server for your sensor.  <br><br>If you use an SSL/TSL certificate to access the proxy server, select **Client certificate** and upload your certificate.      |
 
 When you're done, select **Next: Interface configurations** to continue.
 
 ### Define the interfaces you want to monitor
 
-The **Interface connections** tab shows all interfaces detected by the sensor by default. You may or may not want to monitor all detected interfaces, or you may want to define specific settings for each interfaces.
+The **Interface connections** tab shows all interfaces detected by the sensor by default. Use this tab to turn monitoring on or off per interface, or define specific settings for each interface.
+
+> [!TIP]
+> We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use. 
+> 
 
 In the **Interface configurations** tab, do the following to configure settings for your monitored interfaces:
 
