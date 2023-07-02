@@ -50,9 +50,9 @@ To trace request processing, you must enable the **Allow tracing** setting for t
 1. Select the **GetSpeakers** operation.
 1. Select **+ Add header** and enter the following values.
 
-| NAME           | VALUE  |
-|----------------|--------|
-| Ocp-Apim-Trace | true   |
+   | NAME           | VALUE  |
+   |----------------|--------|
+   | Ocp-Apim-Trace | true   |
 
 1. Optionally check the value for the **Ocp-Apim-Subscription-Key** header used in the request by selecting the "eye" icon.
     > [!TIP]
