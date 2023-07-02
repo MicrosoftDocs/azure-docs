@@ -129,7 +129,7 @@ Values in training cases should be diverse and representative. For example, if a
 * The model doesn't recognize values split across page boundaries.
 * Custom neural models are only trained in English. Model performance is lower for documents in other languages.
 * If a dataset labeled for custom template models is used to train a custom neural model, the unsupported field types are ignored.
-* Custom neural models are limited to 20 build operations per month. Open a support request if you need the limit increased. For more information, see [Form Recognizer service quotas and limits](service-limits.md)
+* Custom neural models are limited to 20 build operations per month. Open a support request if you need the limit increased. For more information, see [Document Intelligence service quotas and limits](service-limits.md)
 
 ## Training a model
 
