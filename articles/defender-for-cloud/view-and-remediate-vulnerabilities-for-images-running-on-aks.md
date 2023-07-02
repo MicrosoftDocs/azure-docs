@@ -19,7 +19,7 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/find-running-images-recommendation.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/find-running-images-recommendation.png"::: 
 
-1. Select the recommendation; the recommendation details page opens showing the list of Kubernetes clusters with the running images ("affected resources") and the remediation steps.
+1. Select the recommendation; the recommendation details page opens showing the list of Kubernetes clusters  ("affected resources") and categorize the as healthy, unhealthy and not applicable, based on the images used by your workloads. 
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-images-recommendation.png" alt-text="Screenshot showing the recommendation details for running images." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-images-recommendation.png":::
 
