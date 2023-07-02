@@ -22,7 +22,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
-| [Recommendation set to be released for GA: Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](#recommendation-set-to-be-released-for-ga-running-container-images-should-have-vulnerability-findings-resolved-powered-by-microsoft-defender-vulnerability-management) | July 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 
 ### Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled". 
