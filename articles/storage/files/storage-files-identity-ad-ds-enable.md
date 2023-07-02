@@ -39,7 +39,7 @@ The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuri
 
 ### Download AzFilesHybrid module
 
-- [Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above, and is the default encryption method beginning in v0.2.5. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [troubleshoot Azure Files authentication](files-troubleshoot-smb-authentication.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+- [Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above, and is the default encryption method beginning in v0.2.5. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [troubleshoot Azure Files SMB authentication](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
 - Install and execute the module on a device that's domain joined to on-premises AD DS with AD DS credentials that have permissions to create a computer account or service logon account in the target AD (such as domain admin).
 
 ### Run Join-AzStorageAccount
@@ -229,7 +229,7 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 
 ### Debugging
 
-If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](files-troubleshoot-smb-authentication.md#unable-to-mount-azure-file-shares-with-ad-credentials).
+If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose

@@ -14,9 +14,9 @@ ms.date: 05/23/2023
 
 # What is managed feature store?
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 Our vision for managed feature store is to empower machine learning professionals to develop and productionize features independently. You simply provide a feature set specification and let the system handle serving, securing, and monitoring of your features, freeing you from the overhead of setting up and managing the underlying feature engineering pipelines. 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 By integrating with our feature store across the machine learning life cycle, you're able to experiment and ship models faster, increase reliability of your models and reduce your operational costs. This is achieved by redefining the machine learning DevOps experience.
 

@@ -233,7 +233,7 @@ In this section, you create a virtual machine and a network security group appli
 1. Create a default network security group using [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
     ```azurepowershell-interactive
-    # Create 
+    # Create a network security group
     New-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup' -Location  eastus
     ```
 
