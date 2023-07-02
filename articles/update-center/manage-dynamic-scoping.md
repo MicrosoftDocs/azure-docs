@@ -14,24 +14,14 @@ ms.topic: how-to
 
 This article describes how to view, add, edit and delete a dynamic scope (preview).
 
-## View Dynamic scope (preview)
-
-To view the list of Dynamic scopes (preview) associated to a given maintenance configuration, follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (Preview).
-1. Select **Machines** > **Browse maintenance configurations** > **Maintenance configurations**.
-1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to view the Dynamic scope.
-1. In the given maintenance configuration page, select **Dynamic scopes** to view all the Dynamic scopes that are associated to the maintenance configuration.
-
-
 ## Add a Dynamic scope (preview)
-To add a Dynamic scope to an existing configuration, follow the steps:
+To add a Dynamic scope to an existing configuration, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview). 
 1. Select **Machines** > **Browse maintenance configurations** > **Maintenance configurations**. 
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to add a Dynamic scope. 
 1. In the given maintenance configuration page > select **Dynamic scopes** > **Add a dynamic scope**.
-1. In the **Add a dynamic scope** page, select **subscriptions** which is a mandatory field for creating a scope.
+1. In the **Add a dynamic scope** page, select **subscriptions**(mandatory).
 1. In **Filter by**, choose **Select** and in the **Select Filter by**, specify the Resource group, Resource type, Location, Tags and OS type and then select **Ok**. These filters are optional fields.
 1. In the **Preview of machines based on above scope**, you can view the list of machines for the selected criteria and then select **Add**.
    > [!NOTE]
@@ -47,6 +37,15 @@ To add a Dynamic scope to an existing configuration, follow the steps:
     > In the **Preview of machines based on above scope** page, you can view only the machines that don't have patch orchestration set to *Customer Managed Schedules (Preview)*.
 
 1. Select **Save** to go back to the Dynamic scopes tab. In this tab, you can view and edit the Dynamic scope that you have created.
+
+## View Dynamic scope (preview)
+
+To view the list of Dynamic scopes (preview) associated to a given maintenance configuration, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Update management center (preview)**.
+1. Select **Machines** > **Browse maintenance configurations** > **Maintenance configurations**.
+1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to view the Dynamic scope.
+1. In the given maintenance configuration page, select **Dynamic scopes** to view all the Dynamic scopes that are associated with the maintenance configuration.
 
 ## Edit a Dynamic scope (preview)
 

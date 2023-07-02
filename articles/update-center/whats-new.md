@@ -16,7 +16,7 @@ ms.date: 06/27/2023
 
 ### Dynamic scoping (preview)
 
-You can now include virtual machines based on the scope and schedule updates at scale. You also have the flexibility to modify the scope and the patching requirements are applied at scale without any changes to your deployment schedule.
+You can now include [virtual machines based on the scope and schedule updates](dynamic-scope-overview.md) at scale. You also have the flexibility to modify the scope and the patching requirements are applied at scale without any changes to your deployment schedule.
 
 ## May 2023
 
@@ -42,7 +42,7 @@ A new patch orchestration - **Customer Managed Schedules (Preview)** is introduc
 
 ### New region support
 
-Update management center (Preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Update management center now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
 ## October 2022
 

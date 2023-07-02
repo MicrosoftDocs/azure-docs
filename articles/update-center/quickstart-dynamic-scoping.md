@@ -87,7 +87,7 @@ Obtaining consent to apply updates is an important step in the workflow of sched
    The selection made in this workflow automatically applies the update settings and no consent is explicitly obtained.  
 ---
 
-## Create schedule
+## Create a schedule
 
 >[!NOTE]
 >You can use one schedule to link to a single machine or a multiple dynamic groups or a combination of dynamic and static groups. However, one dynamic group cannot have more than one schedule.
