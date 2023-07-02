@@ -44,7 +44,7 @@ Meanwhile, you can also create custom application on compute instance and manage
     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png" alt-text="Screenshot of notebooks highlighting the container name of the runtime. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-ps.png":::
 
 1. Jump into the container using the command `docker exec -it <container_id/container_name> /bin/bash`.
-1
+
     :::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png" alt-text="Screenshot of notebooks showing the docker command. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-ci-runtime-list-compute-terminal-docker-exec.png":::
 
 1. You can now install packages using `conda install` or `pip install` in this conda environment.
