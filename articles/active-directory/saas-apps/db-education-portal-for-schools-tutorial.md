@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with DB Education Portal for Schools
 
-In this article, you'll learn how to integrate DB Education Portal for Schools with Azure Active Directory (Azure AD). Providing single sign on access through Azure AD, for the DB Education Portal, available for Schools and Multi Academy Trusts across the United Kingdom. When you integrate DB Education Portal for Schools with Azure AD, you can:
+In this article, you'll learn how to integrate DB Education Portal for Schools with Azure Active Directory (Azure AD). Providing single sign-on access through Azure AD, for the DB Education Portal, available for Schools and Multi Academy Trusts across the United Kingdom. When you integrate DB Education Portal for Schools with Azure AD, you can:
 
 * Control in Azure AD who has access to DB Education Portal for Schools.
 * Enable your users to be automatically signed-in to DB Education Portal for Schools with their Azure AD accounts.
