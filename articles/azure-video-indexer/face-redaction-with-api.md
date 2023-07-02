@@ -145,7 +145,7 @@ Additionally we need to add a request body in json format with the redaction job
 } 
 ```
 
-When successful you receive an HTTP 202 ACCEPTED 
+When successful you receive an HTTP 202 ACCEPTED. 
 
 ## Monitor job status 
 
@@ -173,7 +173,7 @@ Calling the same url once the redaction job has completed you get a Storage SAS 
 https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/SourceFile/DownloadUrl 
 ```
 
-This will redirect to the mp4 stored on the Azure Storage Account connected to the Media Services account. 
+This will redirect to the mp4 stored on the Azure Storage Account. 
 
 ## FAQ 
 
@@ -192,7 +192,7 @@ This will redirect to the mp4 stored on the Azure Storage Account connected to t
 
 ### Response: 404 Not Found  
 
-Account not found or video not found  
+Account not found or video not found.  
 
 Response headers  
 Name  
@@ -266,7 +266,7 @@ string
 
 ### Response: 409 Conflict  
 
-Video is already being indexed  
+Video is already being indexed.  
 
 Response headers  
 Name  
@@ -374,7 +374,7 @@ string
 
 ### Response: 429 Too many requests  
 
-Too many requests were sent, use Retry-After response header to decide when to send the next request  
+Too many requests were sent, use Retry-After response header to decide when to send the next request.  
 
 Response headers  
 
@@ -394,7 +394,7 @@ A globally unique identifier (GUID) for the request which is assigned by the ser
 
 ### Response: 504 Gateway Timeout  
 
-Server didn't respond to gateway within expected time  
+Server didn't respond to gateway within expected time.  
 
 Response headers  
 Name  
