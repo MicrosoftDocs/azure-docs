@@ -29,15 +29,15 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png" alt-text="Screenshot showing where to select the specific cluster." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png":::
 
- 1. The cluster details page opens. It lists all currently running containers categorized into three tabs based on the vulnerability assessments of the images used by those containers.
+1. The cluster details page opens. It lists all currently running containers categorized into three tabs based on the vulnerability assessments of the images used by those containers.
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/finding-details.png" alt-text="Screenshot showing the list of findings on the specific image." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/finding-details.png":::
 
-  1. Select the relevant image to view the vulnerabilities on that image.
+1. Select the relevant image to view the vulnerabilities on that image.
   
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-image.png" alt-text="Screenshot showing where to select a specific image." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-image.png":::
 
-  1. This pane includes a detailed description of the issue and links to external resources to help mitigate the threats, and information on the software version that contributes to resolving the vulnerability.  
+1. This pane includes a detailed description of the issue and links to external resources to help mitigate the threats, and information on the software version that contributes to resolving the vulnerability.  
   
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/remediate-image.png" alt-text="Screenshot showing where to finding remediation steps for image vulnerabilities." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/remediate-image.png":::
 
