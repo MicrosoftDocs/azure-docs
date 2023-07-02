@@ -1,4 +1,4 @@
-- name: Microsoft Entra Identity Governance documentation
+- name: Microsoft Entra ID Governance documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -257,6 +257,8 @@
 - name: Reference
   expanded: true
   items:
+  - name: Identity Governance Dashboard
+    href: governance-dashboard.md
   - name: Services and integration partners
     href: services-and-integration-partners.md
   - name: Identity Governance - PowerShell
