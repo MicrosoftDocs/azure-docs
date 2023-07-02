@@ -38,9 +38,9 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
 1. Follow the steps in the remediation section of the recommendation pane. 
 1. When you've completed the steps required to remediate the security issue, replace the image in your cluster: 
-1. Push the updated image to trigger a scan; it may take up to 24 hours for the previous image to be removed from the results, and for the new image to be included in the results.
-1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c). 
-    If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again. 
+1. Push the updated image to trigger a scan; 
+1. Use the new image across all workloads where it is currently being used, or on the specific cluster you are currently addressing vulnerabilities for.
+1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c) . 
 
     > [!NOTE]
     > It may take up to 24 hours for the recommendation to be updated with the scan results for the new image. 
