@@ -26,7 +26,8 @@ Updates in July include:
 
 |Date |Update  |
 |---------|---------|
-| July 5 |  [General Availability (GA) release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) |(#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm)
+| July 5 | [General Availability (GA) release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) |(#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm)
+| July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available)
 
 ### General Availability (GA) release of Agentless Container Posture in Defender CSPM
 
@@ -38,9 +39,22 @@ With this release, the following recommendation is released for General Availabi
 
 |Recommendation | Description | Assessment Key|
 |--|--|--|
-| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
+| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
 
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
+
+### Data Aware Security Posture is now Generally Available
+
+July 1, 2023
+
+Data-aware security posture in Microsoft Defender for Cloud is now Generally Available. It helps customers to reduce data risk, and respond to data breaches. Using data-aware security posture you can:
+
+- Automatically discover sensitive data resources across Azure and AWS.
+- Evaluate data sensitivity, data exposure, and how data flows across the organization.
+- Proactively and continuously uncover risks that might lead to data breaches.
+- Detect suspicious activities that might indicate ongoing threats to sensitive data resources
+
+For more information, see [Data-aware security posture in Microsoft Defender for Cloud](concept-data-security-posture.md).
 
 ## June 2023
 
@@ -49,7 +63,7 @@ Updates in June include:
 |Date |Update  |
 |---------|---------|
 | June 26 | [Streamlined multicloud account onboarding with enhanced settings](#streamlined-multicloud-account-onboarding-with-enhanced-settings) |
- June 25 | [Private Endpoint support for Malware Scanning in Defender for Storage](#private-endpoint-support-for-malware-scanning-in-defender-for-storage)
+| June 25 | [Private Endpoint support for Malware Scanning in Defender for Storage](#private-endpoint-support-for-malware-scanning-in-defender-for-storage)
 | June 15 | [Control updates were made to the NIST 800-53 standards in regulatory compliance](#control-updates-were-made-to-the-nist-800-53-standards-in-regulatory-compliance) |
 |June 11 | [Planning of cloud migration with an Azure Migrate business case now includes Defender for Cloud](#planning-of-cloud-migration-with-an-azure-migrate-business-case-now-includes-defender-for-cloud) |
 |June 7 | [Express configuration for vulnerability assessments in Defender for SQL is now Generally Available](#express-configuration-for-vulnerability-assessments-in-defender-for-sql-is-now-generally-available) |
