@@ -19,11 +19,11 @@ ms.custom: references_regions, ignite-fall-2021
 
 Before you start, you must install the Speech SDK. Depending on your platform, use the following instructions:
 
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
+* <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
 
 ### Import dependencies
 

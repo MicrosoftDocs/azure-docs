@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service provides speech to text and text to speech capabilities with an [Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. 
+The Speech service provides speech to text and text to speech capabilities with an [Speech resource](~/articles/ai-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
 :::image type="content" border="false" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::
 

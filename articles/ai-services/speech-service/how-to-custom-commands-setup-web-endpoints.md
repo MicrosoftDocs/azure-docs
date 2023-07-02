@@ -29,7 +29,7 @@ In this article, you'll learn how to set up web endpoints in a Custom Commands a
 
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * An Azure Cognitive Services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
+> * An Azure Cognitive Services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/ai-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 > * A Custom Commands app (see [Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md))
 > * A Speech SDK enabled client app (see [Integrate with a client application using Speech SDK](how-to-custom-commands-setup-speech-sdk.md))
 

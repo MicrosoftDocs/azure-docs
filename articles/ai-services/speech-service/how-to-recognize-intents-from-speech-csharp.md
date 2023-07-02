@@ -82,7 +82,7 @@ To start, create the project in Visual Studio, and make sure that Visual Studio 
 
    If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
 
-   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+   ![Enable .NET desktop development](~/articles/ai-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
 1. Close Visual Studio Installer.
 
@@ -92,7 +92,7 @@ The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspee
 
 1. In the Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
 
-   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![NuGet Package Manager](~/articles/ai-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **nuget.org** is selected.
 
@@ -102,7 +102,7 @@ The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspee
 
 1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
 
-   ![Install Microsoft.CognitiveServices.Speech NuGet package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+   ![Install Microsoft.CognitiveServices.Speech NuGet package](~/articles/ai-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
 1. Accept all agreements and licenses to start the installation.
 
@@ -114,7 +114,7 @@ Now, to build and run the console application, create a platform configuration m
 
 1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog box appears.
 
-   ![Configuration Manager dialog box](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+   ![Configuration Manager dialog box](~/articles/ai-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 
 1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog box appears.
 

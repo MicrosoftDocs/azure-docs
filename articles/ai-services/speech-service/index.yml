@@ -207,6 +207,6 @@ additionalContent:
       - title: Support
         links:
         - text: Support and help
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/speech-service/context/context
         - text: GitHub issues
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
