@@ -122,7 +122,7 @@ A few checks to start with:
 
     The LUIS recognition accuracy may get affected when two commands share similar intents and examples sentences. You can try to make commands functionality and example sentences as distinct as possible.
 
-    For best practice of improving recognition accuracy, refer [LUIS best practice](../luis/luis-concept-best-practices.md).
+    For best practice of improving recognition accuracy, refer [LUIS best practice](../luis/faq.md).
 
 - Dialog is canceled
     
