@@ -13,7 +13,7 @@ Defender for Cloud gives its customers the ability to prioritize the remediation
 
 To provide findings for the recommendation, Defender CSPM uses [agentless discovery and visibility](concept-agentless-containers#agentless-discovery-and-visibility-within-kubernetes-components) to create a full inventory of your K8s clusters and their workloads and correlates that inventory with the [Agentless Container registry vulnerability vulnerability assessment (concept-agentless-containers#agentless-container-registry-vulnerability-assessment). The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps. 
 
-**To view the findings, do the following:**  
+**To view findings for a specific cluster, do the following:**  
 
 1. Open the **Recommendations** page. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). 
 
