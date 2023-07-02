@@ -23,7 +23,7 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-images-recommendation.png" alt-text="Screenshot showing the recommendation details for running images." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-images-recommendation.png":::
 
-1. Select a specific cluster with vulnerable images. 
+1. Select the relevant cluster for which you want to remediate vulnerabilities from the unhealthy tab
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png" alt-text="Screenshot showing where to select the specific cluster." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-a-finding.png":::
 
