@@ -122,7 +122,7 @@ The tools that you will use to train and configure models are different from tho
 | Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](./personalizer/quickstart-personalizer-sdk.md) |
 | Language | Language Understanding (LUIS) | https://www.luis.ai/ | |
 | Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
-| Language | Translator/Custom Translator | https://portal.customtranslator.azure.ai/ | [Quickstart](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| Language | Translator/Custom Translator | https://portal.customtranslator.azure.ai/ | [Quickstart](./translator/custom-translator/quickstart.md) |
 | Speech | Custom Commands | https://speech.microsoft.com/ | [Quickstart](./speech-service/custom-commands.md) |
 | Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](./speech-service/custom-speech-overview.md) |
 | Speech | Custom Voice | https://speech.microsoft.com/ | [Quickstart](./speech-service/how-to-custom-voice.md) |  

@@ -55,7 +55,7 @@ conceptualContent:
         - url: ./custom-vision-service/index.yml
           itemType: overview
           text: Custom Vision
-        - url: ./computer-vision/index-identity.yml
+        - url: ./computer-vision/overview-identity.md
           itemType: overview
           text: Face
     - title: Language

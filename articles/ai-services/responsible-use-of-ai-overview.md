@@ -181,8 +181,8 @@ Azure AI services provides information and guidelines on how to responsibly use 
 * [Limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context)
 * [Responsible deployment of synthetic speech](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/ai-services/speech-service/context/context)
 * [Disclosure of voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context)
-* [Disclosure of design guidelines](./speech-service/concepts-disclosure-guidelines.md)
-* [Disclosure of design patterns](./speech-service/concepts-disclosure-patterns.md)
+* [Disclosure of design guidelines](/legal/cognitive-services/speech-service/concepts-disclosure-guidelines?context=/azure/ai-services/speech-service/context/context)
+* [Disclosure of design patterns](/legal/cognitive-services/speech-service/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context)
 * [Code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/ai-services/speech-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context)
 

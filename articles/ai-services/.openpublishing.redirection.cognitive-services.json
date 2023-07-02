@@ -1967,7 +1967,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md",
-            "redirect_url": "/azure/ai-services/face/QuickStarts/client-libraries",
+            "redirect_url": "/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library",
             "redirect_document_id": false
         },
         {
@@ -2037,7 +2037,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Quickstarts/csharp-sdk.md",
-            "redirect_url": "/azure/ai-services/Face/Quickstarts/client-libraries?pivots=programming-language-csharp",
+            "redirect_url": "/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library",
             "redirect_document_id": false
         },
         {
@@ -2047,12 +2047,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/QuickStarts/curl.md",
-            "redirect_url": "/azure/ai-services/face/QuickStarts/client-libraries?pivots=programming-language-rest-api",
+            "redirect_url": "/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Quickstarts/go-sdk.md",
-            "redirect_url": "/azure/ai-services/Face/Quickstarts/client-libraries?pivots=programming-language-go",
+            "redirect_url": "/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library",
             "redirect_document_id": false
         },
         {
@@ -2082,7 +2082,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Quickstarts/python-sdk.md",
-            "redirect_url": "/azure/ai-services/Face/Quickstarts/client-libraries?pivots=programming-language-python",
+            "redirect_url": "/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library",
             "redirect_document_id": false
         },
         {
@@ -2102,7 +2102,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial.md",
-            "redirect_url": "/azure/ai-services/Face/quickstarts/client-libraries?pivots=programming-language-csharp",
+            "redirect_url": "/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library",
             "redirect_document_id": false
         },
         {
@@ -5237,7 +5237,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-supported-languages.md",
-            "redirect_url": "/azure/ai-services/text-analytics/language-support",
+            "redirect_url": "/azure/ai-services/language-service/language-detection/overview",
             "redirect_document_id": false
         },
         {

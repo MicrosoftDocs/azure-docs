@@ -35,7 +35,7 @@ See the tables below to learn about the services offered within those categories
 |:-----------|:------------------|--|
 |[Azure AI Vision](./computer-vision/index.yml "Azure AI Vision")|The Azure AI Vision service provides you with access to advanced cognitive algorithms for processing images and returning information.| [Azure AI Vision quickstart](./computer-vision/quickstarts-sdk/client-library.md)|
 |[Custom Vision](./custom-vision-service/index.yml "Custom Vision Service")|The Custom Vision Service lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels to images, based on their visual characteristics. | [Custom Vision quickstart](./custom-vision-service/getting-started-build-a-classifier.md)|
-|[Face](./computer-vision/index-identity.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.| [Face quickstart](./face/quickstarts/client-libraries.md)|
+|[Face](./computer-vision/overview-identity.md "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.| [Face quickstart](./computer-vision/quickstarts-sdk/identity-client-library.md)|
 
 ## Speech APIs
 
@@ -53,7 +53,7 @@ See the tables below to learn about the services offered within those categories
 |Service Name|Service Description| Quickstart|
 |:-----------|:------------------|--|
 |[Language service](./language-service/index.yml "Language service")| Azure AI Language service provides several Natural Language Processing (NLP) features to understand and analyze text.| Go to the [Language documentation](./language-service/index.yml) to choose a subservice quickstart.|
-|[Translator](./translator/index.yml "Translator")|Translator provides machine-based text translation in near real time.| [Translator quickstart](./translator/quickstart-translator.md)|
+|[Translator](./translator/index.yml "Translator")|Translator provides machine-based text translation in near real time.| [Translator quickstart](./translator/quickstart-text-rest-api.md)|
 |[Language Understanding LUIS](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational or natural language text to predict overall meaning and pull out relevant information. |[LUIS quickstart](./luis/luis-get-started-create-app.md)|
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content.| [QnA Maker quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
 

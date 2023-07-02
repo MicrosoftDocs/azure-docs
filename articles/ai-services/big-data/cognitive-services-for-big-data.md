@@ -31,14 +31,14 @@ Azure AI services for big data can use resources from any [supported region](htt
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Azure AI Vision](../computer-vision/index.yml "Azure AI Vision")| The Azure AI Vision service provides you with access to advanced algorithms for processing images and returning information. |
-|[Face](../computer-vision/index-identity.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
+|[Vision](../computer-vision/index.yml "Vision")| The Azure AI Vision service provides you with access to advanced algorithms for processing images and returning information. |
+|[Face](../computer-vision/overview-identity.md "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
 
 ### Speech
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Speech service](../speech-service/index.yml "Speech service")|The Speech service provides access to features like speech recognition, speech synthesis, speech translation, and speaker verification and identification.|
+|[Speech](../speech-service/index.yml "Speech")|The Speech service provides access to features like speech recognition, speech synthesis, speech translation, and speaker verification and identification.|
 
 ### Decision
 
@@ -50,13 +50,13 @@ Azure AI services for big data can use resources from any [supported region](htt
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Language service](../language-service/index.yml "Language service")| The Language service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
+|[Language](../language-service/index.yml "Language")| The Language service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
 
 ### Search
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Bing Image Search](/azure/ai-services/bing-image-search "Bing Image Search")|The Bing Image Search service returns a display of images determined to be relevant to the user's query.|
+|[Bing Image Search](/azure/cognitive-services/bing-image-search "Bing Image Search")|The Bing Image Search service returns a display of images determined to be relevant to the user's query.|
 
 ## Supported programming languages for Azure AI services for big data
 

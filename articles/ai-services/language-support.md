@@ -20,20 +20,19 @@ These Azure AI services are language agnostic and don't have limitations based o
 
 * [Anomaly Detector](./anomaly-detector/index.yml)
 * [Custom Vision](./custom-vision-service/index.yml)
-* [Face](./computer-vision/index-identity.yml)
+* [Face](./computer-vision/overview-identity.md)
 * [Personalizer](./personalizer/index.yml)
 
 ## Vision
 
-* [Azure AI Vision](./computer-vision/language-support.md)
-* [Ink Recognizer (Preview)](/previous-versions/azure/ai-services/Ink-Recognizer/language-support)
+* [Vision](./computer-vision/language-support.md)
 * [Video Indexer](../azure-video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## Language
 
 * [Language Understanding (LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
-* [Language service](./text-analytics/language-support.md)
+* [Language service](./language-service/language-detection/overview.md)
 * [Translator](./translator/language-support.md)
 
 ## Speech
