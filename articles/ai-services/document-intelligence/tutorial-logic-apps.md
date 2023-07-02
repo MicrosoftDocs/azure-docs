@@ -224,4 +224,4 @@ Congratulations! You've officially completed this tutorial.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json)
+> [Use the invoice processing prebuilt model in Power Automate](/ai-builder/flow-invoice-processing?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)
