@@ -58,7 +58,7 @@ Now that you've completed the quickstart, here are some additional consideration
     spx --% recognize --microphone --phrases @phrases.txt
     ```
     ***
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
     ```console
     spx recognize --microphone --source es-ES
     ```

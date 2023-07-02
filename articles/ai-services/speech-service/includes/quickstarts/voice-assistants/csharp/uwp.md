@@ -368,11 +368,11 @@ Now you're ready to build your app and test your custom voice assistant using th
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP voice assistant application in C# - quickstart](~/articles/ai-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Sample UWP voice assistant application in C# - quickstart](~/articles/ai-services/speech-service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
-   ![Microphone access permission request](~/articles/ai-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Microphone access permission request](~/articles/ai-services/speech-service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. Select **Talk to your bot**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
 

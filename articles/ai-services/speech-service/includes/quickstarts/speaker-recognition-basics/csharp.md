@@ -19,11 +19,11 @@ ms.custom: references_regions, ignite-fall-2021
 
 Before you start, you must install the Speech SDK. Depending on your platform, use the following instructions:
 
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
-* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
+* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
+* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
+* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
+* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
+* <a href="/azure/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
 
 ### Import dependencies
 
@@ -42,7 +42,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance. In this example, you create a `SpeechConfig` instance by using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Azure AI services [security](../../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Azure AI services [security](../../../../security-features.md) article for more information.
 
 ```csharp
 public class Program 

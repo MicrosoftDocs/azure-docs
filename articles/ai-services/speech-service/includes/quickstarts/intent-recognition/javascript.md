@@ -15,7 +15,7 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites-luis.md)]
 
-You also need to <a href="~/articles/ai-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
+You also need to <a href="~/articles/ai-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -41,7 +41,7 @@ Let's add some code that works as a skeleton for our project.
 Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScript, and grab an authorization token if available.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Azure AI services [security](../../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Azure AI services [security](../../../../security-features.md) article for more information.
 
 ```html
 <body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">

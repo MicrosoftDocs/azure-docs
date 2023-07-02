@@ -433,7 +433,7 @@ Select F11, or select **Run** > **Debug**.
 The console displays the message "Say something."
 At this point, speak an English phrase or sentence that your bot can understand. Your speech is transmitted to your bot through the Direct Line Speech channel where it's recognized and processed by your bot. The response is returned as an activity. If your bot returns speech as a response, the audio is played back by using the `AudioPlayer` class.
 
-![Screenshot of console output after successful recognition](~/articles/ai-services/Speech-Service/media/sdk/qs-java-jre-08-console-output.png)
+![Screenshot of console output after successful recognition](~/articles/ai-services/speech-service/media/sdk/qs-java-jre-08-console-output.png)
 
 ## Next steps
 

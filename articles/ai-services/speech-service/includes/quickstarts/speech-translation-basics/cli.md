@@ -61,11 +61,11 @@ Now that you've completed the quickstart, here are some additional consideration
     spx --% translate --source en-US --target it --microphone --phrases @phrases.txt
     ```
     ***
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/supported-languages.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/ai-services/speech-service/language-support.md#speech-to-text). Specify the full locale with a dash (`-`) separator. For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
     ```console
     spx translate --microphone --source es-ES
     ```
-- To change the translation target language, replace `it` with another [supported language](~/articles/ai-services/speech-service/supported-languages.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
+- To change the translation target language, replace `it` with another [supported language](~/articles/ai-services/speech-service/language-support.md#speech-translation). With few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. The default language is `en` if you don't specify a language.
     ```console
     spx translate --microphone --target es
     ```
