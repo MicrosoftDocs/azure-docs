@@ -2449,6 +2449,8 @@
         href: superannotate-tutorial.md
       - name: Supermood
         href: supermood-tutorial.md
+      - name: SURFconext
+        href: surfconext-tutorial.md
       - name: SURFsecureID - Azure MFA
         href: surfsecureid-azure-mfa-tutorial.md  
       - name: SurveyMonkey Enterprise
