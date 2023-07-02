@@ -64,9 +64,9 @@ Within the first 48 hours, the data and analytics rules (including real-time aut
 
 -   Bookmarks
 
-Your playbooks, saved workbooks, saved hunting queries, and notebooks are not removed. **Some may break due to the removed data. You can remove those manually.**
+Your playbooks, saved workbooks, saved hunting queries, and notebooks are not removed. **Some may break due to the removed data. Remove those manually.**
 
-After you remove the service, there is a grace period of 30 days during which you can re-enable the solution. Your data and analytics rules will be restored, but the configured connectors that were disconnected must be reconnected.
+After you remove the service, there is a grace period of 30 days to re-enable the solution. Your data and analytics rules will be restored, but the configured connectors that were disconnected must be reconnected.
 
 > [!NOTE]
 > If you remove the solution, your subscription will continue to be registered with the Microsoft Sentinel resource provider. **You can remove it manually.**

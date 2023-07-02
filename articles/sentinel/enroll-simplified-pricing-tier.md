@@ -17,17 +17,18 @@ For some Microsoft Sentinel workspaces, there is a separate pricing tier for Azu
 
 
 ## Change pricing tier to simplified
-Classic pricing tiers are when Microsoft Sentinel and Log Analytics pricing tiers are configured separately and show up as different meters on your invoice. To move to the simplified pricing tier where Microsoft Sentinel and Log Analytics billing are combined for the same pricing meter, enroll in the **New pricing**.
+Classic pricing tiers are when Microsoft Sentinel and Log Analytics pricing tiers are configured separately and show up as different meters on your invoice. To move to the simplified pricing tier where Microsoft Sentinel and Log Analytics billing are combined for the same pricing meter, **Switch to new pricing**.
 
 # [Microsoft Sentinel portal](#tab/microsoft-sentinel-portal)
-Use the following steps to change the pricing tier of your workspace using the Microsoft Sentinel portal. Once you've made the switch, you can't revert to a classic pricing tier using this interface.  
+Use the following steps to change the pricing tier of your workspace using the Microsoft Sentinel portal. Once you've made the switch, reverting back to a classic pricing tier can't be performed using this interface.  
 
-1. From the **Settings** menu, select the **New pricing** switch. 
-1. Review your current tiers and the **Recommended** tier.
+1. From the **Settings** menu, select **Switch to new pricing**. 
+
+    :::image type="content" source="media/enroll-simplified-pricing-tier/switch-to-new-pricing.png" alt-text="Screenshot showing setting option to switch to new pricing tier.":::
+
+1. Review your current tiers and consider the **Recommended** tier if there's a mismatch in tiers.
 1. Choose a selection from the **Unified pricing tiers** pull-down menu based on your typical ingestion.
-1. **Select and switch** to confirm.
-
-:::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
+1. **Ok** to confirm.
     
 # [Azure Resource Manager](#tab/azure-resource-manager)
 To set the pricing tier using an [Azure Resource Manager](./resource-manager-workspace.md), set the `Microsoft.OperationsManagement/solutions` `sku` name to `Unified` and set the `capacityReservationLevel` to the pricing tier. For details on this template format, see [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces).
@@ -117,26 +118,34 @@ The following sample template sets Microsoft Sentinel to the classic pricing tie
 } 
 ```
 
-See [Deploying the sample templates](../resource-manager-samples.md) if you're not familiar with using Resource Manager templates.
+See [Deploying the sample templates](../resource-manager-samples.md) to learn more about using Resource Manager templates.
 
 ---
 
-## Simplified billing for dedicated clusters
-Expected behavior for Sentinel unified vs dual:
+## Simplified pricing tier for dedicated clusters
+In classic pricing tiers, Microsoft Sentinel was always billed as a secondary meter at the workspace level. The meter for Microsoft Sentinel could differ from that of the workspace. 
 
-Classic - In the dual mode billing experience (pre July 2023) Sentinel is always billed as a second meter,  at the workspace level. The meter for Sentinel can be different from that of the workspace.
+With simplified pricing tiers, the same Commitment Tier used by the cluster is set for the Microsoft Sentinel workspace. Microsoft Sentinel usage will be billed at the effective per GB price of that tier meter, and all usage is counted towards the total allocation for the dedicated cluster. This allocation is either at the cluster level or proportionately at the workspace level depending on the billing mode of the cluster as described here, [Cost details - Dedicated cluster](../azure-monitor/logs/cost-logs.md#dedicated-clusters).
 			
-Simplified - In the simplified billing experience for Sentinel, when a Sentinel-enabled workspace is attached to a Log Analytics cluster, the same Commitment Tier level is used for the Sentinel workspace as is set for the cluster. Sentinel usage will be billed at the effective per GB price of that Sentinel commitment tier meter, and all usage would be counted against the total allocation for dedicated cluster, either at the cluster or proportionately at the workspace level depending on the billing mode of the cluster as described here: Azure Monitor Logs cost calculations and options - Azure Monitor | Microsoft Learn. The ability to have the Sentinel pricing tier match that of the cluster is advantageous to customers and allows them to avail the effective per GB discount offered by the  Sentinel commitment tier matching the cluster level commitment.
-			
-Unlinking from a cluster??
-
 ## Offboard behavior
-If Microsoft Sentinel is removed from a workspace while simplified pricing is enabled, the Log Analytics workspace defaults to the pricing tier that was configured for the dual mode. For example, if the simplified pricing was configured for 100 GB/day commitment tier in Microsoft Sentinel, the Log Analytics workspace changes to 100 GB/day commitment tier once Microsoft Sentinel is offboarded from the workspace.
+If Microsoft Sentinel is removed from a workspace while simplified pricing is enabled, the Log Analytics workspace defaults to the pricing tier that was configured. For example, if the simplified pricing was configured for 100 GB/day commitment tier in Microsoft Sentinel, the Log Analytics workspace changes to 100 GB/day commitment tier once Microsoft Sentinel is removed from the workspace.
 
-### will this reduce my costs?
-Maybe, the combined defender benefit may result in a total cost savings. Another possibility is if one of the Log A or Sentinel pricing tiers was inappropriately mismatched. This might happen if a commitment tier was increased in Sentinel, but not LA. In this case, the simplified pricing tier would result in cost saving.
+### Will switching reduce my costs?
+Two primary scenarios exist for a cost reduction when switching to a simplified pricing tier.
 
-### is there ever a reason NOT to switch?
-It's possible your Microsoft sales team has negotiated a discounted price for Log Analytics or Microsoft Sentinel charges. You won't be able to tell if this is the case from the UI. It may be possible to calculate the expected cost vs. actual charge in cost analysis to see if there's a discount included.
+1. The combined [Defender for Servers](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) benefit may result in a total cost savings. 
+1. If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier results in cost saving.
+
+### Is there ever a reason NOT to switch?
+It's possible your Microsoft sales team has negotiated a discounted price for Log Analytics or Microsoft Sentinel charges. You won't be able to tell if this is the case from the Microsoft Sentinel pricing interface alone. It might be possible to calculate the expected cost vs. actual charge in Microsoft Cost Management to see if there's a discount included. We recommend contacting your Microsoft account team if you have questions.
 
 ## Next steps
+
+- [Plan costs, understand Microsoft Sentinel pricing and billing](billing.md)
+- [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
+- [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
+- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
+- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).

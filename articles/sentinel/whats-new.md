@@ -202,7 +202,10 @@ To give you more flexibility in scheduling your analytics rule execution times a
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
 
 ### Simplified pricing tier
-Microsoft Sentinel is billed for the volume of data *analyzed* in Microsoft Sentinel and *stored* in Azure Monitor Log Analytics. Today there is a separate pricing tier for both. Starting July 1st, 2023, the separate Microsoft Sentinel pricing tiers are prefixed as *Classic* when viewing meters in Microsoft Cost Management invoice details. A new, simplified pricing tier is rolling out a combined billing experience for Microsoft Sentinel customers starting July 5th, 2023.
+Microsoft Sentinel is billed for the volume of data *analyzed* in Microsoft Sentinel and *stored* in Azure Monitor Log Analytics. Today there is a separate pricing tier for both. Two things are happening:
+
+1. Starting July 1st, 2023, the separate Microsoft Sentinel pricing tiers are prefixed as *Classic* when viewing meters in Microsoft Cost Management invoice details. 
+1. A new, simplified pricing tier is rolling out a combined billing experience for Microsoft Sentinel customers starting July 5th, 2023.
 
 ##### Switch to new pricing 
 Combining the pricing tiers offers a simplification to the overall billing experience, including visualization in the pricing page, and less steps in the Azure calculator. As an incentive to existing customers to make the switch, the current [Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) security data ingestion into Log Analytics is extended to the simplified pricing tiers. This effectively doubles the amount of no-cost eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
@@ -211,7 +214,7 @@ Combining the pricing tiers offers a simplification to the overall billing exper
 A slight change to how free trials are offered was necessary to provide this simplification. There used to be a 31 day period where Microsoft Sentinel data charges were waived when enabled on a Log Analytics workspace older than 3 days. As simplified pricing tiers roll out, all new Microsoft Sentinel enablements will result in a 31 day free trial of 10 GB/day for the combined ingestion and analysis costs.
 
 ##### How do I get started with the simplified pricing tier?
-All new Microsoft Sentinel workspaces will automatically experience the simplified pricing tier. Existing workspaces will have the choice to enroll, switching from classic pricing tiers to the new simplified pricing tier. For more information, see the [simplified pricing tier](billing.md#simplified-pricing-tier) section of our cost planning documentation and [this featured blog post](https://aka.ms/SentinelSimplifiedPricing).
+All new Microsoft Sentinel workspaces will automatically experience the simplified pricing tier. Existing workspaces will have the choice to enroll. For more information, see the [simplified pricing tier](billing.md#simplified-pricing-tier) section of our cost planning documentation and [this featured blog post](https://aka.ms/SentinelSimplifiedPricing).
 
 ### Classic alert automation due for deprecation
 
