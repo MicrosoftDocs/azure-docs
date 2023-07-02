@@ -3,11 +3,11 @@ title: Agentless Container Posture for Microsoft Defender for Cloud
 description: Learn how Agentless Container Posture offers discovery, visibility, and vulnerability assessment for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 07/02/2023
 ms.custom: template-concept
 ---
 
-# Agentless Container Posture (Preview)
+# Agentless Container Posture
 
 Agentless Container Posture provides a holistic approach to improving your container posture within Defender CSPM (Cloud Security Posture Management). You can visualize and hunt for risks and threats to Kubernetes environments with attack path analysis and the cloud security explorer, and leverage agentless discovery and visibility within Kubernetes components.
 
@@ -81,7 +81,7 @@ Container vulnerability assessment powered by MDVM (Microsoft Defender Vulnerabi
  
     | Recommendation | Description | Assessment Key
     |--|--|--|          
-    | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)-Preview | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5 |
+    | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5 |
     | Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5 |
 
 - **Query vulnerability information via the Azure Resource Graph** - Ability to query vulnerability information via the [Azure Resource Graph](/azure/governance/resource-graph/overview#how-resource-graph-complements-azure-resource-manager). Learn how to [query recommendations via the ARG](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-arg). 

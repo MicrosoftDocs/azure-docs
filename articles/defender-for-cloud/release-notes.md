@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/25/2023
+ms.date: 07/02/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,6 +19,29 @@ This page is updated frequently with the latest updates in Defender for Cloud.
 To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## July 2023
+
+Updates in July include:
+
+|Date |Update  |
+|---------|---------|
+| July 5 |  [General Availability (GA) release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) |(#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm)
+
+### General Availability (GA) release of Agentless Container Posture in Defender CSPM
+
+**July 5, 2023**
+
+The new Agentless Container Posture capabilities are released for General Availability (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
+
+With this release, the following recommendations are released for General Availability:
+
+|Recommendation | Description | Assessment Key|
+|--|--|--|
+| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |dbd0cb49-b563-45e7-9724-889e799fa648 <br> is replaced by  c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
+| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management) | Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing the attack surface for your containerized workloads. | c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5
+
+Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
 ## June 2023
 
