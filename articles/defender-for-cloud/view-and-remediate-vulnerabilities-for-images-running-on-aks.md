@@ -17,7 +17,7 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
 **To view findings for a specific cluster, do the following:**  
 
-1. Open the **Recommendations** page. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). 
+1. Open the **Recommendations** page, using the **>** arrow to open the sub-levels. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). 
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/find-running-images-recommendation.png" alt-text="Screenshot showing the recommendation line for running container images should have vulnerability findings resolved." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/find-running-images-recommendation.png"::: 
 
@@ -39,11 +39,25 @@ To provide findings for the recommendation, Defender CSPM uses [agentless discov
 
 For each vulnerability you want to remediate, do the following:
 
+1. Open the **Recommendations** page, using the **>** arrow to open the sub-levels. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5).
+1. This page lists all the vulnerability findings.
+
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/view-vulnerabilities.png" alt-text="Screenshot showing the list of vulnerabilities for the recommendation." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/view-vulnerabilities.png":::
+
+1. Select a vulnerability finding. This opens a pane of detailed information of that finding, the affected resources.
+
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/vulnerability-details.png" alt-text="Screenshot showing the selected vulnerability and its details." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/vulnerability-details.png":::
 
 
+1. Select the resource image.
+1. Select the vulnerability.
+    
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-vulnerability.png" alt-text="Screenshot showing the selected vulnerability." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/select-vulnerability.png":::
 
+1. Select the image and follow the steps in the remediation section of the image details pane. 
 
-1. Follow the steps in the remediation section of the recommendation pane. 
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/remediate-vulnerability.png" alt-text="Screenshot showing the open pane with remediation information." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/remediate-vulnerability.png":::
+
 1. When you've completed the steps required to remediate the security issue, replace the image in your cluster. 
 1. Push the updated image to trigger a scan.
 1. Use the new image across all workloads where it's currently being used, or on the specific cluster you're currently addressing vulnerabilities for.
