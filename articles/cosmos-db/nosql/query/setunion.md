@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # SetUnion (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Gathers expressions in two sets and returns a set of expressions containing all expressions in both sets with no duplicates.
 
 ## Syntax

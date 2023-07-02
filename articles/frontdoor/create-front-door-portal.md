@@ -19,6 +19,8 @@ In this quickstart, you'll learn how to create an Azure Front Door profile using
 
 With *Custom create*, you deploy two App services. Then, you create the Azure Front Door profile using the two App services as your origin. Lastly, you'll verify connectivity to your App services using the Azure Front Door frontend hostname.
 
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
+
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Prerequisites

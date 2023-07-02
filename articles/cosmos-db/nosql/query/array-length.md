@@ -1,53 +1,65 @@
 ---
-title: ARRAY_LENGTH in Azure Cosmos DB query language
-description: Learn about how the Array length SQL system function in Azure Cosmos DB returns the number of elements of the specified array expression
-author: ginamr
+title: ARRAY_LENGTH
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the number of items in an array.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/01/2023
+ms.custom: query-reference
 ---
-# ARRAY_LENGTH (Azure Cosmos DB)
+
+# ARRAY_LENGTH (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the number of elements of the specified array expression.  
+Returns the number of elements in the specified array expression.
   
 ## Syntax
   
 ```sql
-ARRAY_LENGTH(<arr_expr>)  
+ARRAY_LENGTH(<array_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*arr_expr*  
-   Is an array expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`array_expr`** | An array expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
+
+Returns a numeric expression.  
+
 ## Examples
   
-  The following example how to get the length of an array using `ARRAY_LENGTH`.  
-  
+The following example illustrates how to get the length of an array using the function.
+
 ```sql
-SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
-```  
-  
- Here is the result set.  
-  
+SELECT VALUE {
+    length: ARRAY_LENGTH([70, 86, 92, 99, 85, 90, 82]),
+    emptyLength: ARRAY_LENGTH([]),
+    nullLength: ARRAY_LENGTH(null)
+}
+```
+
 ```json
-[{"len": 3}]  
+[
+  {
+    "length": 7,
+    "emptyLength": 0
+  }
+]
 ```  
-  
+
 ## Remarks
 
-This system function will not utilize the index.
+- This system function doesn't use the index.
 
 ## Next steps
 
 - [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [`ARRAY_SLICE`](array-slice.md)
