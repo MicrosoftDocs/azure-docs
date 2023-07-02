@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 07/14/2023
 ---
 
 # Semantic ranking in Azure Cognitive Search
@@ -63,6 +63,9 @@ A [semantic answer](semantic-answers.md) will also be returned if you specified 
 1. The @search.rerankerScore is assigned to each document based on the semantic relevance of the caption. Scores range from 4 to 0 (high to low), where a higher score indicates a stronger match.
 
 1. After all documents are scored, they're listed in descending order by score and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
+
+> [!NOTE]
+> Beginning on July 14, 2023, the @search.rerankerScore distribution is changing. The effect on scores can't be determined except through testing. If you have a hard threshold dependency on this response property, rerun your tests to understand what the new values should be for your threshold.
 
 ## Next steps
 
