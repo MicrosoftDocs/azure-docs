@@ -30,7 +30,7 @@ Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-c
 
 A notification message pops up in the top right corner that will verify that the settings were saved successfully.
 
-## What are the extensions for agentless aontainer posture management?
+## What are the extensions for agentless container posture management?
 
 There are two extensions that provide agentless CSPM functionality:
 
