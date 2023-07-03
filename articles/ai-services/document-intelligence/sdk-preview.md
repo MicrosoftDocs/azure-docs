@@ -214,7 +214,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.ide
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret in the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -243,7 +243,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -271,7 +271,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -298,7 +298,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
 
 1. [Register an Azure AD application and create a new service principal](../../ai-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Document Intelligence by assigning the **`Azure AI services User`** role to your service principal.
+1. Grant access to Document Intelligence by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 

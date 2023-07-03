@@ -424,9 +424,6 @@
     - name: Answer Search
       tocHref: /azure/cognitive-services/labs/answer-search/
       topicHref: /azure/cognitive-services/labs/answer-search/overview
-    - name: Face
-      tocHref: /azure/ai-services/computer-vision/
-      topicHref: /azure/ai-services/computer-vision/
     - name: Knowledge Exploration
       tocHref: /azure/cognitive-services/kes/
       topicHref: /azure/cognitive-services/kes/overview
@@ -469,10 +466,7 @@
     - name: Document Intelligence
       tocHref: /azure/ai-services/document-intelligence/
       topicHref: /azure/ai-services/document-intelligence/
-    - name: Video Analyzer
-      tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
-      topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
-    - name: Azure Video Indexer
+    - name: Azure AI Video Indexer
       tocHref: /azure/azure-video-indexer/
       topicHref: /azure/azure-video-indexer/
   - name: Communication Services

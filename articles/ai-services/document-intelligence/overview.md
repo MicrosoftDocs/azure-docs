@@ -19,6 +19,8 @@ ms.author: lajanuar
 
 # What is Azure AI Document Intelligence?
 
+[!INCLUDE [document-intelligence-rebrand](includes/document-intelligence-rebrand.md)]
+
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end
