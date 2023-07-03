@@ -92,7 +92,7 @@ The page under **Operations** > **Snapshots (preview)** displays two tabs: **Act
 
 In the **Active snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
-   :::image type="content" source="./media/snapshot-details-view.png" alt-text="Screenshot of the detailed view of an active snapshots.":::
+   :::image type="content" source="./media/snapshot-details-view.png" alt-text="Screenshot of the detailed view of an active snapshot.":::
 
 ### Archive a snapshot
 
@@ -110,7 +110,7 @@ Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view 
 
 Detailed view of snapshot is available in the archive state as well. In the **Archived snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
-   :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the archived snapshot detailed view.":::
+   :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the detailed view of an archived snapshot.":::
 
 ### Recover an archived snapshot
 
