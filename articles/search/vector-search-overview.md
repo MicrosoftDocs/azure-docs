@@ -71,7 +71,7 @@ Scenarios for vector search include:
 + [Semantic kernel](https://github.com/microsoft/semantic-kernel/blob/main/README.md) is a lightweight SDK enabling integration of AI Large Language Models (LLMs) with conventional programming languages.
 
 
-# About vector search
+## About vector search
 
 Vector search is a method of information retrieval that aims to overcome the limitations of traditional keyword-based search. Rather than relying solely on lexical analysis and matching of individual query terms, vector search uses machine learning models to capture the meaning of words and phrases in context. This is done by representing documents and queries as vectors in a high-dimensional space, called an embedding. By capturing the intent of the query with the embedding, vector search can return more relevant results that match the user's needs, even if the exact terms aren't present in the document. Additionally, vector search can be applied to different types of content, such as images and videos, not just text. This enables new search experiences such as multi-modal search or cross-language search.
 
