@@ -17,6 +17,12 @@
 # - name: Samples
 - name: Concepts
   items:
+  - name: NAS volumes as a service 
+    items: 
+      - name: Understand NAS
+        href: understand-network-attached-storage.md 
+      - name: Understand NAS protocols
+        href: network-attached-storage-protocols.md
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -93,6 +99,8 @@
           href: application-volume-group-considerations.md
   - name: Data protection and resiliency
     items:
+    - name: Understand data protection and disaster recovery options
+      href: data-protection-disaster-recovery-options.md
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
     - name: Azure NetApp Files backup
@@ -115,8 +123,6 @@
         href: cross-zone-replication-introduction.md
       - name: Requirements and considerations for cross-zone replication 
         href: cross-zone-replication-requirements-considerations.md
-    - name: Double encryption at rest 
-      href: double-encryption-at-rest.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -269,8 +275,6 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
-    - name: Delete a volume
-      href: volume-delete.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
