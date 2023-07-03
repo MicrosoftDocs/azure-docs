@@ -136,3 +136,10 @@ If you map more than one New Relic resource to the New Relic account by using th
 
 - [Troubleshoot Azure Native New Relic Service](new-relic-troubleshoot.md)
 - [Quickstart: Get started with New Relic](new-relic-create.md)
+- Get started with Azure Native New Relic Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview)
