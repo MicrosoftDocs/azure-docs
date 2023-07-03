@@ -86,7 +86,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../security-features.md).
 
 ### November 4, 2019 - Ignite
 
