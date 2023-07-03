@@ -94,7 +94,7 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 
 #### [From Schedule updates tab](#tab/sc)
 
-1. Follow the steps from 1 to 5 listed in [Create groups](#create-groups).
+1. Follow the steps from 1 to 5 listed in [Add a Dynamic scope (preview)](#add-a-dynamic-scope-preview).
 1. In **Machines** tab, select **Add machine**, In **Select resources** page, select the machines and select **Add**
 1. In **Configure Azure VMs for schedule updates**, select **Continue  to schedule updates** option to confirm that:
 

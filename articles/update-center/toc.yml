@@ -29,7 +29,7 @@
   - name: Assessment options
     href: assessment-options.md
   - name: Dynamic scope (preview)
-    href: dynamic-group-overview.md
+    href: dynamic-scope-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
