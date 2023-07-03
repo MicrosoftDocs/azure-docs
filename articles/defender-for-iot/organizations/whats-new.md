@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ## Deprecation notice for legacy Splunk, Aruba ClearPass, and Palo Alto integrations
 
-Defender for IoT plans to end support for the legacy Splunk, Aruba ClearPass, and Palo Alto integrations with the upcoming version 23.1. We recommend that you transition to more updated integration methods before you upgrade your Defender for IoT system to version 23.1.
+Defender for IoT plans to end support for the legacy Splunk, Aruba ClearPass, and Palo Alto integrations with an upcoming patch version of 23.1.x. We recommend that you transition to more updated integration methods instead.
 
 We recommend using the following integration methods instead of the legacy integrations:
 

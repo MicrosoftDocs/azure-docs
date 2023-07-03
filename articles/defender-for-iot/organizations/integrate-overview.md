@@ -17,7 +17,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |**Aruba ClearPass**      |   Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles     |   Microsoft      |  [Integrate ClearPass with Microsoft Defender for IoT (legacy)](tutorial-clearpass.md)  |
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with the upcoming version 23.1.
+> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with an upcoming patch version of 23.1.x.
 >
 > We recommend transitioning your integration connecting to [Microsoft Sentinel](concept-sentinel-integration.md), and installing the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview) instead.
 >
@@ -90,7 +90,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |**Palo Alto**     |   Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.      |  - OT networks<br>- Locally managed sensors and on-premises management consoles       |     Microsoft    | [Integrate Palo-Alto with Microsoft Defender for IoT (legacy)](tutorial-palo-alto.md)   |
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Palo Alto integration with the upcoming version 23.1.
+> Defender for IoT plans to end support for the legacy Palo Alto Panorama integration with an upcoming patch version of 23.1.x.
 >
 > We recommend transitioning your integration connecting to [Microsoft Sentinel](concept-sentinel-integration.md), and installing one or more of the following solutions instead:
 >- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)
@@ -132,7 +132,7 @@ Integrate Microsoft Defender for Iot with partner services to view partner data 
 |**Splunk**     |  Send Defender for IoT alerts to Splunk       |   - OT networks<br>- Locally managed sensors and on-premises management consoles       |  Microsoft       | [Integrate Splunk with Microsoft Defender for IoT (legacy)](tutorial-splunk.md)   |
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Splunk integration with the upcoming version 23.1.
+> Defender for IoT plans to end support for the legacy Splunk integration with an upcoming patch version of 23.1.x.
 >
 > We recommend transitioning any legacy integrations to the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151) instead. For more information, see:
 >
