@@ -17,6 +17,12 @@
 # - name: Samples
 - name: Concepts
   items:
+  - name: NAS volumes as a service 
+    items: 
+      - name: Understand NAS
+        href: understand-nas-concept.md 
+      - name: Understand NAS protocols
+        href: understand-nas-protocols.md
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -49,12 +55,6 @@
       href: default-individual-user-group-quotas-introduction.md
     - name: Requirements and considerations for large volumes
       href: large-volumes-requirements-considerations.md
-  - name: NAS volumes as a service 
-    items: 
-      - name: Understand NAS
-        href: understand-nas-concept.md 
-      - name: Understand NAS protocols
-        href: understand-nas-protocols.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
