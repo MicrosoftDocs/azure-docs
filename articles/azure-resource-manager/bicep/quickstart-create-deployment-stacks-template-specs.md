@@ -100,6 +100,8 @@ New-AzTemplateSpec `
 
 ---
 
+The format of the template spec id is `/subscriptions/<subscription-id>/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/stackSpec/versions/1.0`.
+
 ## Create a deployment stack
 
 Create a deployment stack from the template spec.
@@ -376,6 +378,24 @@ The following parameters can be used to control between detach and delete.
 - `DeleteResourceGroups`: delete the resource groups only.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
+
+---
+
+## Clean up resources
+
+The remove command only remove the managed resources and managed resource groups. You still need to delete the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+az group delete --name 'demoRg'
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name "demoRg"
+```
 
 ---
 

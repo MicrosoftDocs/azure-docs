@@ -287,7 +287,7 @@ managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceG
 
 Once a stack is created, you can access and view both the stack itself and the managed resources associated with it through the Azure portal. Navigate to the resource group where the stack has been deployed, and you can access all the relevant information and settings.
 
-:::image type="content" source="./media/quickstart-create-template-stacks/deployment-stack-portal.png" alt-text="Screenshot of a deployment stack in the Azure portal.":::
+:::image type="content" source="./media/quickstart-create-deployment-stacks/deployment-stack-portal.png" alt-text="Screenshot of a deployment stack in the Azure portal.":::
 
 ## Update the deployment stack
 
@@ -376,6 +376,24 @@ The following parameters can be used to control between detach and delete.
 - `DeleteResourceGroups`: delete the resource groups only.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
+
+---
+
+## Clean up resources
+
+The remove command only remove the managed resources and managed resource groups. You still need to delete the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+az group delete --name 'demoRg'
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name "demoRg"
+```
 
 ---
 

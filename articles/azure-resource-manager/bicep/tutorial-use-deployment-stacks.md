@@ -708,7 +708,7 @@ az resource delete \
 
 Remove-AzResource `
   -ResourceGroupName "demoRg" `
-  -ResourceName "<storage-account-name>" `
+  -ResourceName "\<storage-account-name\>" `
   -ResourceType "Microsoft.Storage/storageAccounts"
 
 ---
