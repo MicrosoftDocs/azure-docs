@@ -244,40 +244,45 @@ error: You must be logged in to the server (Unauthorized)
 * Be sure that only one version of kubectl is installed on your machine at a time. Conflicting versions can cause issues during authorization. To install the latest version, use [az aks install-cli][az-aks-install-cli].
 
 ## Frequently asked questions about migration from Azure Active Directory Integration to AKS-managed Azure Active Directory
-1. What is the plan for migration?
+
+**1. What is the plan for migration?**
+
 Azure Active Directory Integration (legacy) will be deprecated on 1st June 2023. After this date, you won't be able to create new clusters with Azure Active Directory (legacy). We'll migrate all Azure Active Directory Integration (legacy) AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023.
 We send notification emails to impacted cluster admins biweekly to remind them of migration.
 
-2. What will happen if I don't take any action?
+**2. What will happen if I don't take any action?**
+
 Your AKS clusters with Azure Active Directory integration will keep working after 1 June 2023. We'll migrate your AKS clusters to AKS-managed Azure Active Directory automatically beginning 1st August 2023 and you may experience API server downtime during the migration.
 We recommend updating your AKS cluster to [AKS-managed Azure Active Directory][managed-aad-migrate] manually before 1st August. This way you can manage the downtime during non-business hours when it's more convenient.
 
-3. Why do I still receive the notification email after manual migration?
+**3. Why do I still receive the notification email after manual migration?**
+
 It takes several days to send the email. So your cluster may be Azure Active Directory Integration before the email is sent and it is collected by us as impacted. You migrate it during the email-sending process.
 
-4. How to check whether the cluster is migrated to AKS-managed Azure Active Directory?
+**4. How to check whether the cluster is migrated to AKS-managed Azure Active Directory?**
+
 Confirm your AKS cluster is migrated to the AKS-managed Azure Active Directory using the [`az aks show`][az-aks-show] command.
 
- ```azurecli-interactive
-az aks show -g <RGName> -n <ClusterName>  --query "aadProfile"
-```
+    ```azurecli-interactive
+    az aks show -g <RGName> -n <ClusterName>  --query "aadProfile"
+    ```
 
-If your cluster is using the AKS-managed Azure Active Directory, the output shows `adminGroupObjectIDs` with a value, `clientAppId` is `null`, `managed` is `true`.  For example:
+    If your cluster is using the AKS-managed Azure Active Directory, the output shows `adminGroupObjectIDs` with a value, `clientAppId` is `null`, `managed` is `true`.  For example:
 
-```output
-{
-  "adminGroupObjectIDs": [
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  ],
-  "adminUsers": null,
-  "clientAppId": null,
-  "enableAzureRbac": null,
-  "managed": true,
-  "serverAppId": null,
-  "serverAppSecret": null,
-  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-}
-```
+    ```output
+    {
+      "adminGroupObjectIDs": [
+        "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      ],
+      "adminUsers": null,
+      "clientAppId": null,
+      "enableAzureRbac": null,
+      "managed": true,
+      "serverAppId": null,
+      "serverAppSecret": null,
+      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+    ```
 
 
 ## Next steps
@@ -319,3 +324,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-azure-ad.md
 [managed-aad-migrate]: managed-azure-ad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration
+[az-aks-show]: /cli/azure/aks#az_aks_show
