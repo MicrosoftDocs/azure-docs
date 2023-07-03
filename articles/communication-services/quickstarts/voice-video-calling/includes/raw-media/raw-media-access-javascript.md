@@ -215,7 +215,7 @@ Use the following code to stop sending a custom video stream after it has been s
 await call.stopVideo();
 ```
 
-When switching cameras from a camera that has custome effects applied, to another camera device, first stop the video, switch the source on the `LocalVideoStream` and the start video again.
+When switching from a camera that has custom effects applied to another camera device, first stop the video, switch the source on the `LocalVideoStream`, and the start video again.
 ```js
 const cameras = await this.deviceManager.getCameras();
 const newCameraDeviceInfo = cameras.find(cameraDeviceInfo => { return cameraDeviceInfo.id === '<another camera that you want to switch to>' });
@@ -275,7 +275,7 @@ Raw screen share media gives access specifically to the `MediaStream` object for
 
 Processed raw screen share frames can be sent as an outgoing screen share of the sender. Processed raw incoming screen share frames can be rendered on the receiver side.
 
-### Start screen sharing with a custom screen share stream stream
+### Start screen sharing with a custom screen share stream 
 ```js
 const createVideoMediaStreamToSend = () => {
     const canvas = document.createElement('canvas');
@@ -351,11 +351,11 @@ const applyBlackAndWhiteEffect = function (stream) {
 await call.startScreenSharing();
 const localScreenSharingStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing' });
 console.log(localScreenSharingStream.mediaStreamType); // 'ScreenSharing'
-// Get the raw media stream from the screen, brwoser tab, or application
+// Get the raw media stream from the screen, browser tab, or application
 const rawMediaStream = await localScreenSharingStream.getMediaStream();
 // Apply effects to the media stream as you wish
 const blackAndWhiteMediaStream = applyBlackAndWhiteEffect(rawMediaStream);
-// Set the media stream with effects no the local screen sharing sctream
+// Set the media stream with effects no the local screen sharing stream
 await localScreenSharingStream.setMediaStream(blackAndWhiteMediaStream);
 
 // Stop screen screen sharing and clean up the black and white video filter
