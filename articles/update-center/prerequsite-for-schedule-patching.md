@@ -26,7 +26,7 @@ Additionally, in some instances, when you remove the schedule from a VM, there i
 ## Schedule patching in an availability set
 
 1. All VMs in a common availability set aren't updated concurrently.
-1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
+1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently. For more information, see [Availability sets](../virtual-machines/availability-set-overview.md).
 
 ## Find VMs with associated schedules
 
