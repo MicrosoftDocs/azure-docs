@@ -17,6 +17,9 @@ If you're using pre-configured appliances, skip this step and continue directly 
 
 [!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
 
+> [!IMPORTANT]
+> Removing packages from your sensor without Microsoft approval can cause unexpected results. All packages installed on the sensor are required for correct sensor functionality.
+
 ## Prerequisites
 
 Before installing Microsoft Defender for IoT, make sure that you have:
