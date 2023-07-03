@@ -7,7 +7,7 @@ author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 07/07/2023
 ---
 
 # Vector index size limit

@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/07/2023
 ---
 
 # Query vector data in a search index
@@ -141,7 +141,6 @@ vectors: [
 ```
 
 The result set is a union of the documents that matched all vector queries.
-
 
 ## Next steps
 

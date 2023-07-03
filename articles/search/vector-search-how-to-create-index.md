@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/07/2023
 ---
 
 # Add vector fields to a search index
@@ -41,7 +41,7 @@ Use the [Create or Update Index Preview REST API](/rest/api/searchservice/previe
 > + Updating an existing index to add vector fields requires `allowIndexDowntime` query parameter to be `true`.
 
 ```http
-PUT https://my-search-service.search.windows.net/indexes/my-index?api-version=2023-07-01-Preview
+PUT https://my-search-service.search.windows.net/indexes/my-index?api-version=2023-07-01-Preview&allowIndexDowntime=true
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
