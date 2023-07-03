@@ -14,12 +14,12 @@ ms.topic: how-to
 
 # Use Custom Translator service through a Virtual Network service endpoint
 
-[Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) help to provide secure and direct connectivity to Azure services over an optimized route on the Azure backbone network. Endpoints help you secure your critical Azure service resources to only your virtual networks. Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
+[Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) [service endpoints](../../../../virtual-network/virtual-network-service-endpoints-overview.md) help to provide secure and direct connectivity to Azure services over an optimized route on the Azure backbone network. Endpoints help you secure your critical Azure service resources to only your virtual networks. Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
 
 This article explains how to set up and use Virtual Network service endpoints with Custom Translator service in Azure Cognitive Services.
 
 > [!NOTE]
-> Before you start, review [how to use virtual networks with Cognitive Services](../../cognitive-services-virtual-networks.md).
+> Before you start, review [how to use virtual networks with Cognitive Services](../../../cognitive-services-virtual-networks.md).
 
 To set up a Translator resource for Virtual Network service endpoint scenarios, you need to:
 1. [Create a regional Translator resource - Global is not supported](../../create-translator-resource.md).
