@@ -161,7 +161,7 @@ By default, the App Service resource provider doesn't have access to your key va
 
    When the operation completes, the certificate appears in the **Bring your own certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for App Service](#private-certificate-requirements).
 
-    :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" border="false" alt-text="Screenshot of 'Bring your own certificates (.pfx)' pane with imported certificate listed.":::
+    :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot of 'Bring your own certificates (.pfx)' pane with imported certificate listed.":::
 
    > [!NOTE]
    > If you update your certificate in Key Vault with a new certificate, App Service automatically syncs your certificate within 24 hours.
