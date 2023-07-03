@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 06/26/2023
+ms.date: 07/03/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,8 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.8.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.8.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.8.4         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.8.4         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
 
 ## Updates for Version 10.8.4
 
