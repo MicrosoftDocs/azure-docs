@@ -40,7 +40,7 @@
 - name: Quickstart
   expanded: true
   items:
-    - name: Get started with Azure ML
+    - name: Get started with Azure Machine Learning
       href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
   expanded: true
@@ -564,6 +564,84 @@
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
+- name: Use Generative AI
+  items:
+    - name: Build AI solutions with Prompt flow 
+      items:
+        - name: What is Prompt flow? 
+          href: ./prompt-flow/overview-what-is-prompt-flow.md
+        - name: Concepts
+          items: 
+            - name: Connections
+              href: ./prompt-flow/concept-connections.md
+            - name: Runtimes
+              href: ./prompt-flow/concept-runtime.md
+            - name: Flows
+              href: ./prompt-flow/concept-flows.md
+            - name: Tools
+              href: ./prompt-flow/concept-tools.md
+            - name: Variants
+              href: ./prompt-flow/concept-variants.md
+        - name: Get started in Prompt flow
+          href: ./prompt-flow/get-started-prompt-flow.md
+        - name: Set up infrastructure
+          items: 
+            - name: Create and manage runtime
+              href: ./prompt-flow/how-to-create-manage-runtime.md
+            - name: Customize environment for runtime
+              href: ./prompt-flow/how-to-customize-environment-runtime.md
+        - name: Develop flows
+          items:
+            - name: Develop a standard flow
+              href: ./prompt-flow/how-to-develop-a-standard-flow.md
+            - name: Develop a chat flow
+              href: ./prompt-flow/how-to-develop-a-chat-flow.md
+            - name: Integrate Langchain in prompt flow
+              href: ./prompt-flow/how-to-integrate-with-langchain.md
+            - name: Tune prompts using variants
+              href: ./prompt-flow/how-to-tune-prompts-using-variants.md
+        - name: Evaluate flows
+          items:
+            - name: Bulk test and evaluate a flow
+              href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
+            - name: Develop a customized evaluation flow
+              href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
+        - name: Deploy flows for real-time inference
+          href: ./prompt-flow/how-to-deploy-for-real-time-inference.md
+        - name: Tools Reference
+          items:
+            - name: LLM tool
+              href: ./prompt-flow/tools-reference/llm-tool.md
+            - name: Prompt tool
+              href: ./prompt-flow/tools-reference/prompt-tool.md
+            - name: Python tool
+              href: ./prompt-flow/tools-reference/python-tool.md
+            - name: Azure Translator tool
+              href: ./prompt-flow/tools-reference/azure-translator-tool.md
+            - name: Vector Index Lookup tool
+              href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
+            - name: Content Safety (text) tool
+              href: ./prompt-flow/tools-reference/content-safety-text-tool.md
+            - name: Faiss Index Lookup tool
+              href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
+            - name: Azure Language Detector tool
+              href: ./prompt-flow/tools-reference/azure-language-detector-tool.md
+            - name: Vector DB Lookup tool
+              href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
+            - name: SERP API tool
+              href: ./prompt-flow/tools-reference/serp-api-tool.md
+    - name: Retrieval Augmented Generation (RAG)
+      items:
+        - name: What is RAG
+          href: concept-retrieval-augmented-generation.md
+        - name: What is a vector store
+          href: concept-vector-stores.md
+        - name: How to use RAG in Prompt flow
+          href: how-to-use-retrieval-augmented-generation.md
+        - name: How to create a vector index
+          href: how-to-create-vector-index.md
+        - name: How to create an RAG pipeline
+          href: how-to-use-pipelines-prompt-flow.md
 - name: Responsibly develop & monitor
   items: 
   - name: Responsible AI overview
@@ -755,10 +833,6 @@
       items:
         - name: Batch endpoints
           href: concept-endpoints-batch.md
-        - name: Perform batch scoring with batch endpoints
-          href: how-to-use-batch-endpoints.md	
-        - name: Create jobs and input data for batch endpoints	
-          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Deploy models
           items:
             - name: Deploy models for scoring in batch endpoints
@@ -783,6 +857,8 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
+        - name: Create jobs and input data for batch endpoints	
+          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
           href: how-to-troubleshoot-batch-endpoints.md	
         - name: Security
@@ -894,22 +970,21 @@
           href: concept-ml-pipelines.md
         - name: Work with Assets
           href: concept-component.md
-        - name: System and Community Registry
         - name: How to manage models
           href: how-to-manage-models.md
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+    - name: Share assets across workspaces using registries
+      items:
+        - name: Share models, components, and environments
+          displayName: collaborate share
+          href: how-to-share-models-pipelines-across-workspaces-with-registries.md
+        - name: Share data assets
+          displayName: collaborate share
+          href: how-to-share-data-across-workspaces-with-registries.md
     - name: Model Deployment
       items:
-        - name: How to share assets across workspaces using registries
-          items:
-            - name: Share models, components, and environments
-              displayName: collaborate share
-              href: how-to-share-models-pipelines-across-workspaces-with-registries.md
-            - name: Share data assets
-              displayName: collaborate share
-              href: how-to-share-data-across-workspaces-with-registries.md
         - name: Endpoints
           href: concept-endpoints.md
     - name: Automation
@@ -919,7 +994,7 @@
         - name: Intro to Azure Pipelines for CI/CD
           displayName: continuous, integration, delivery
           href: how-to-devops-machine-learning.md
-        - name: Intro to Github Actions for CI/CD
+        - name: Intro to GitHub Actions for CI/CD
           href: how-to-github-actions-machine-learning.md
         - name: Custom CI/CD and Event-driven workflows
           displayName: event grid
@@ -928,7 +1003,7 @@
       items:
       - name: Set up MLOps with Azure DevOps
         href: how-to-setup-mlops-azureml.md
-      - name: Set up MLOps with Github Actions
+      - name: Set up MLOps with GitHub Actions
         href: how-to-setup-mlops-github-azure-ml.md
 - name: Monitor your models
   items:
@@ -1158,6 +1233,12 @@
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
+    - name: Manage resource quotas
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Manage and optimize cost
+      displayName: cost-management,cost-optimization
+      href: how-to-manage-optimize-cost.md
     - name: Monitor Azure Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure coding

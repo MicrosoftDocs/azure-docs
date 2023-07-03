@@ -99,7 +99,7 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 The following private cloud environments and their versions are officially supported for Arc resource bridge:
 
-* VMware vSphere version 6.7, 7.0
+* VMware vSphere version 6.7, 7.0, 8.0
 * Azure Stack HCI
 * SCVMM
 
