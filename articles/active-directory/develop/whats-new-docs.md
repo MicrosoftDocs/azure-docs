@@ -18,6 +18,28 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## June 2023
+
+### New articles
+
+- [Configure app multi-instancing](configure-app-multi-instancing.md) - Appmultiinstancingupdate1
+- [Optional claims reference](optional-claims-reference.md) - Split of optional claims reference
+- [Migrate away from using email claims for user identification or authorization](migrate-off-email-claim-authorization.md) - Identity migration guidance for insecure authorization pattern
+
+### Updated articles
+
+- [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md) - Adding clarity : Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app
+- [Configure token lifetime policies (preview)](configure-token-lifetimes.md) - Adding service principal policy commands
+- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md) - update nodejs web app tutorial, add nodejs sample to webapp how-to
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Editorial review of claims mapping policy type
+- [Customize SAML token claims](saml-claims-customization.md) - Editorial review of claims mapping policy type
+- [What's new for authentication?](reference-breaking-changes.md)
+  - Email claim breaking change
+  - Identity breaking change: omission of unverified emails by default.
+- [Tokens and claims overview](security-tokens.md) - Editorial review of security tokens
+- [Refresh tokens in the Microsoft identity platform](refresh-tokens.md) - editorial review of refresh tokens
+- [Microsoft identity platform code samples](sample-v2-code.md) - Reworking code samples file to add extra tab
+
 ## May 2023
 
 ### New articles
