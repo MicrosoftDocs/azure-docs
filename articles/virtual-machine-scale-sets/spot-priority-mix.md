@@ -228,7 +228,7 @@ Spot Priority Mix applies for scale actions on the scale set. Changing the perce
 Spot Priority Mix is only available on Virtual Machine Scale Sets with Flexible orchestration mode.
 
 ### Q: Which regions is Spot Priority Mix enabled in?
-Spot VMs, and therefore Spot Priority Mix, are available in all Public Azure regions. 
+Spot VMs, and therefore Spot Priority Mix, are available in all global Azure regions. 
 
 ## Next steps
 
