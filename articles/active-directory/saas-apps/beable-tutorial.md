@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 04/11/2023
 ms.author: jeedes
 
 ---
@@ -22,7 +22,7 @@ In this article, you learn how to integrate Beable with Azure Active Directory (
 * Enable your users to be automatically signed-in to Beable with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for Beable in a test environment. Beable supports **IDP** initiated single sign-on.
+You configure and test Azure AD single sign-on for Beable in a test environment. Beable supports **IDP** initiated single sign-on.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	`https://<SUBDOMAIN>.beable.com` 
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
-	`https://prod-literacy-backend-alb-12049610218161332941.beable.com/login/ssoVerification/?providerId=1466658d-11ae-11ed-b1a0-b9e58c7ef6cc&identifier=<DOMAIN>`
+	`https://prod-literacy-backend-alb-<ID>.beable.com/login/ssoVerification/?providerId=<ProviderID>&identifier=<DOMAIN>`
 
 	> [!Note]
     > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Beable support team](https://beable.com/contact/) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.

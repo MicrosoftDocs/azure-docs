@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.author: rayoflores
 ms.date: 05/20/2022
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) using Bicep

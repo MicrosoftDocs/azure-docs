@@ -139,7 +139,7 @@ Use the following steps to run the emulator on Linux:
     For Java-based applications, the certificate must be imported to the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
     ```bash
-    keytool -keystore ~/cacerts -importcert -alias  emulator_cert -file ~/emulatorcert.crt
+    keytool -import -alias emulator_cert -keystore -file ~/emulatorcert.crt -storepass changeit -noprompt
     java -ea -Djavax.net.ssl.trustStore=~/cacerts -Djavax.net.ssl.trustStorePassword="changeit" $APPLICATION_ARGUMENTS
     ```
 

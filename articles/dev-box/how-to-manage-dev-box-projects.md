@@ -1,12 +1,12 @@
 ---
-title: How to manage a dev box project
-titleSuffix: Microsoft Dev Box Preview
-description: This article describes how to create, and delete Microsoft Dev Box Preview dev box projects.
+title: Manage a dev box project
+titleSuffix: Microsoft Dev Box
+description: Microsoft Dev Box projects give developers access to create their dev boxes. Learn how to create and delete dev box projects.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/26/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
@@ -115,5 +115,5 @@ To assign administrative access to a project, select the DevCenter Project Admin
 ## Next steps
 
 - [Manage dev box pools](./how-to-manage-dev-box-pools.md)
-- [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)
 - [Configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

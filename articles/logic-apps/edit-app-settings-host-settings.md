@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 05/23/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -157,7 +157,6 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
-| `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time duration before a job is declared as stuck. If you have an action that requires more than 60 minutes to run, you might need to increase this setting's default value and also the [`functionTimeout` property](../azure-functions/functions-scale.md#timeout) value in the same **host.json** file to the same value. |
 
 <a name="recurrence-triggers"></a>
 
@@ -200,8 +199,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Microsoft.Azure.Workflows.TemplateLimits.InputParametersLimit` | `50` | Change the default limit on [cross-environment workflow parameters](create-parameters-workflows.md) up to 500 for Standard logic apps created by [exporting Consumption logic apps](export-from-consumption-to-standard-logic-app.md). |
-| `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a trigger or action. |
-| `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in an action. |
+| `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a single trigger or action. |
+| `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in a single action. |
 
 <a name="pagination"></a>
 

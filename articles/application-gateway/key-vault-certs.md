@@ -40,7 +40,7 @@ Application Gateway uses a secret identifier in Key Vault to reference the certi
 
 The Azure portal supports only Key Vault certificates, not secrets. Application Gateway still supports referencing secrets from Key Vault, but only through non-portal resources like PowerShell, the Azure CLI, APIs, and Azure Resource Manager templates (ARM templates).
 
-References to Key Vaults in other Azure subscriptions is supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure Portal today.
+References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal today.
 
 ## Certificate settings in Key Vault
 
@@ -85,7 +85,7 @@ When you're using a restricted Key Vault, use the following steps to configure A
 
 1. In the Azure portal, in your Key Vault, select **Networking**.
 1. On the **Firewalls and virtual networks** tab, select **Selected networks**.
-1. For **Virtual networks**, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. During the process, also configure the `Microsoft.KeyVault` service endpoint by selecting its checkbox.
+1. For **Virtual networks**, select **+ Add existing virtual networks**, and then add the virtual network and subnet for your Application Gateway instance. If prompted, ensure the _Do not configure 'Microsoft.KeyVault' service endpoint(s) at this time_ checkbox is unchecked to ensure the `Microsoft.KeyVault` service endpoint is enabled on the subnet.
 1. Select **Yes** to allow trusted services to bypass the Key Vault's firewall.
 
    ![Screenshot that shows selections for configuring Application Gateway to use firewalls and virtual networks.](media/key-vault-certs/key-vault-firewall.png)

@@ -3,7 +3,7 @@ title: Operator Nexus Operator PE configuration
 description: Interconnectivity parameters to configure PE for PE-CE connectivity in Operator Nexus
 author: osamazia
 ms.author: osamaz
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: reference #Required. A value that depends on the article but is usually "how-to," "tutorial," or "conceptual."
 ms.date: 02/02/2023 #Required. The publish date in mm/dd/yyyy format.
 ---

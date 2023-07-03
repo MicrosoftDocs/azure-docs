@@ -82,5 +82,4 @@ Select the **manage sources** pane, and choose your chitchat source. Your specif
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Import a project](./migrate-knowledge-base.md)
+

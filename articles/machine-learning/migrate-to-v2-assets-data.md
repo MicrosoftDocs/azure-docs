@@ -11,6 +11,7 @@ ms.author: xunwan
 ms.date: 02/13/2023
 ms.reviewer: franksolomon
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade data management to SDK v2

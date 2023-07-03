@@ -1,0 +1,44 @@
+### YamlMime:Landing
+
+title: Onco Phenotype documentation
+summary: Onco Phenotype is offered within the context of the broader Project Health Insights, augments traditional clinical NLP tools by enabling healthcare partners to rapidly identify key cancer attributes within their patient populations.
+
+metadata:
+  title: Onco Phenotype documentation
+  titleSuffix: Project Health Insights
+  description: enable healthcare organizations to rapidly identify key cancer attributes within their patient populations.
+  ms.service: Project Health Insights
+  ms.topic: landing-page 
+  author: iBoonZ
+  ms.collection: collection
+  ms.author: behoorne
+  ms.date: 01/26/2023
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
+
+landingContent:
+  - title: About Onco Phenotype
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Onco Phenotype?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: model-configuration.md
+          - text: Inference information
+            url: inferences.md
+  - title: Use the Onco Phenotype model
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the Portal
+            url: get-started.md   
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Support and help options
+            url: support-and-help.md

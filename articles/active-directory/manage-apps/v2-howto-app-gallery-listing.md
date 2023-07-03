@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 6/2/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
-ms.custom: kr2b-contr-experiment, contperf-fy22q4
+ms.custom: kr2b-contr-experiment, contperf-fy22q4, enterprise-apps-article
 ---
 
 # Submit a request to publish your application in Azure Active Directory application gallery
@@ -84,15 +84,15 @@ You can track application requests by customer name at the Microsoft Application
 
 ### Timelines
 
-Listing an SAML 2.0 or WS-Fed application in the gallery takes 7 to 10 business days.
+Listing an **SAML 2.0 or WS-Fed application** in the gallery takes 7 to 10 business days.
 
 :::image type="content" source="./media/howto-app-gallery-listing/timeline.png" alt-text="Screenshot that shows the timeline for listing a SAML application.":::
 
-Listing an OpenID Connect application in the gallery takes 2 to 5 business days.
+Listing an **OpenID Connect application** in the gallery takes 2 to 5 business days.
 
 :::image type="content" source="./media/howto-app-gallery-listing/timeline2.png" alt-text="Screenshot that shows the timeline for listing an OpenID Connect application.":::
 
-Listing an SCIM provisioning application in the gallery varies, depending on numerous factors.
+Listing an **SCIM provisioning application** in the gallery varies, depending on numerous factors.
 
 Not all applications are onboarded. Per the terms and conditions, a decision can be made not to list an application. Onboarding applications is at the sole discretion of the onboarding team.
 

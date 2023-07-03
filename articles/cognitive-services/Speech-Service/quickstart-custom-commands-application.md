@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech, references_regions
 
 # Quickstart: Create a voice assistant with Custom Commands
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability
@@ -23,7 +25,7 @@ At this time, Custom Commands supports speech resources created in regions that 
 ## Prerequisites
 
 > [!div class="checklist"]
-> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.</a> Refer to the **Region Availability** section above for list of supported regions.
+> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create a Speech resource in a region that supports Custom Commands.</a> Refer to the **Region Availability** section above for list of supported regions.
 > * Download the sample
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).

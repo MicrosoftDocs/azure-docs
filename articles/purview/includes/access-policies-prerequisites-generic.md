@@ -8,4 +8,4 @@ ms.date: 11/23/2022
 ms.custom:
 ---
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](../create-catalog-portal.md).
+- A new or existing Microsoft Purview account. [Follow this quickstart guide to create one](../create-catalog-portal.md).

@@ -8,10 +8,11 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/28/2022
+ms.date: 04/04/2023
 ms.author: jomondi
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # User and admin consent in Azure Active Directory
@@ -48,13 +49,13 @@ For most organizations, one of the built-in options will be appropriate. Some ad
 
 ## Admin consent
 
-During admin consent, a Privileged Administrator may grant an application access on behalf of other users (usually, on behalf of the entire organization). Also during admin consent, applications or services provide direct access to an API, which can be used by the application if there's no signed-in user.
+During admin consent, a Privileged Administrator may grant an application access on behalf of other users (usually, on behalf of the entire organization). Also during admin consent, applications or services provide direct access to an API, which can be used by the application if there's no signed-in user. The specific role needed to grant admin consent differs based on the permissions requested, which are outlined [here.](grant-admin-consent.md#prerequisites)
 
 When your organization purchases a license or subscription for a new application, you might proactively want to set up the application so that all users in the organization can use it. To avoid the need for user consent, an administrator can grant consent for the application on behalf of all users in the organization.
 
 After an administrator grants admin consent on behalf of the organization, users aren't usually prompted for consent for that application. In certain cases, a user might be prompted for consent even after consent was granted by an administrator. An example might be if an application requests another permission that the administrator hasn't already granted.
 
-Granting admin consent on behalf of an organization is a sensitive operation, potentially allowing the application's publisher access to significant portions of the organization's data, or the permission to do highly privileged operations. Examples of such operations might be role management, full access to all mailboxes or all sites, and full user impersonation.
+Granting admin consent on behalf of an organization is a sensitive operation, potentially allowing the application's publisher access to significant portions of the organization's data, or the permission to do highly privileged operations. Examples of such operations might be role management, full access to all mailboxes or all sites, and full user impersonation. 
 
 Before you grant tenant-wide admin consent, ensure that you trust the application and the application publisher, for the level of access you're granting. If you aren't confident that you understand who controls the application and why the application is requesting the permissions, do *not* grant consent.
 

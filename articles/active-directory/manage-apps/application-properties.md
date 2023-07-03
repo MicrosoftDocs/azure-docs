@@ -11,6 +11,8 @@ ms.workload: identity
 ms.date: 09/06/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
+
 #Customer intent: As an administrator of an Azure AD tenant, I want to learn more about the properties of an enterprise application that I can configure.
 ---
 

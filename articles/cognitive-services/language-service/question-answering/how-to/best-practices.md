@@ -94,5 +94,3 @@ Punctuation is ignored in user query before sending it to the ranking stack. Ide
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get started with Question Answering](../quickstart/sdk.md)

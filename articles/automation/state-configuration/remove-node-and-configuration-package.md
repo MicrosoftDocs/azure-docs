@@ -89,7 +89,7 @@ To find the package names and other relevant details, see the [PowerShell Desire
 ### RPM-based systems
 
 ```bash
-RPM -e <package name>
+rpm -e <package name>
 ``` 
 
 ### dpkg-based systems

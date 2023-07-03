@@ -13,6 +13,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Learn how to prepare for planned maintenance events on your Azure Database for PostgreSQL.
 
 ## What is a planned maintenance?

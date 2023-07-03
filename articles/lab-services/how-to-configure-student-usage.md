@@ -25,12 +25,13 @@ By default, access to a lab is restricted. Only users that are in the list of la
 
 You can [add users from an Azure Active Directory (Azure AD) group](#add-users-to-a-lab-from-an-azure-ad-group), or [manually add a list of users by email](#add-users-manually). If you enable Azure Lab Services integration with [Microsoft Teams](./how-to-manage-labs-within-teams.md) or [Canvas](./how-to-manage-labs-within-canvas.md), Azure Lab Services automatically grants user access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
+Azure Lab Services supports up to 400 users per lab.
+
 ## Prerequisites
 
-- To manage users for the lab, your Azure account needs one of the following permissions:
-
-    - [Lab Creator](/azure/role-based-access-control/built-in-roles#lab-creator), [Lab Contributor](/azure/role-based-access-control/built-in-roles#lab-contributor), or [Lab Operator](/azure/role-based-access-control/built-in-roles#lab-operator) role at the lab plan or resource group level. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
-    - [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) at the lab plan or resource group level.
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
 
 ## Add users to a lab from an Azure AD group
 
@@ -66,8 +67,8 @@ To sync a lab with an existing Azure AD group:
     Azure Lab Services automatically pulls the list of users from Azure AD, and refreshes the list every 24 hours.
 
     Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Azure AD group.
-
-You can now start inviting users to your lab. Learn how to [send invitations to lab users](#send-invitations-to-users).
+    
+Users are auto-registered to the lab and VMs are automatically assigned when the VM pool syncs with the Azure AD group. Educators don't need to send invitations and students don't need to register for the lab separately.    
 
 ### Automatic management of virtual machines based on changes to the Azure AD group
 

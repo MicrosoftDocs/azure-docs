@@ -46,7 +46,7 @@ The Translator service can be accessed through two different resource types:
    * Each subscription has a free tier.
    * The free tier has the same features and functionality as the paid plans and doesn't expire.
    * Only one free tier is available per subscription.
-   * Document Translation isn't supported in the free tier. Select Standard S1 to try that feature.
+   * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. We suggest you select the Standard S1 instance tier to try Document Translation. 
 
 1. If you've created a multi-service resource, you need to confirm more usage details via the check boxes.
 

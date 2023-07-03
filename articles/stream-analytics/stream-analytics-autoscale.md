@@ -1,15 +1,15 @@
 ---
 title: Azure Stream Analytics autoscale streaming units
 description: This article explains how you can use different scaling methods for your Stream Analytics job to make sure you have the right number of streaming units.
-author: ajetasin
-ms.author: ajetasi
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/10/2022
 ---
 
-# Autoscale streaming units (Preview)
+# Autoscale streaming units 
 
 Streaming units (SUs) represent the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated to your job. Stream Analytics offers two types of scaling, which allows you to have the right number of [Streaming Units](stream-analytics-streaming-unit-consumption.md) (SUs) running to handle the load of your job.
 

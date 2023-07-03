@@ -7,7 +7,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 04/14/2023
 ---
 
 # Changes to the Azure reservation exchange policy
@@ -16,7 +16,7 @@ Exchanges will be unavailable for all compute reservations - Azure Reserved Virt
 
 Microsoft launched Azure savings plan for compute and it's designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plans providing the flexibility automatically, we’re adjusting our reservations exchange policy.
 
-You can continue to exchange VM sizes (with instance size flexibility). However, Microsoft is ending exchanges for regions and instance series for these Azure compute reservations.
+You can continue to use instance size flexibility for VM sizes, but Microsoft is ending exchanges for regions and instance series for these Azure compute reservations.
 
 The current cancellation policy for reserved instances isn't changing. The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
 

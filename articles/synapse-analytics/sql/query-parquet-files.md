@@ -30,7 +30,7 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
@@ -89,7 +89,7 @@ Your first step is to **create a database** with a datasource that references [N
 
 ## Dataset
 
-[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. You can query Parquet files the same way you [read CSV files](query-parquet-files.md). The only difference is that the `FILEFORMAT` parameter should be set to `PARQUET`. Examples in this article show the specifics of reading Parquet files.
+[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. You can query Parquet files the same way you [read CSV files](query-single-csv-file.md). The only difference is that the `FILEFORMAT` parameter should be set to `PARQUET`. Examples in this article show the specifics of reading Parquet files.
 
 ## Query set of parquet files
 

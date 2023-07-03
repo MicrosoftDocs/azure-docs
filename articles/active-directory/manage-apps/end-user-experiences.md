@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 12/08/2022
 ms.author: jomondi
 ms.reviewer: lenalepa
+ms.custom: enterprise-apps
 ---
 
 # End-user experiences for applications
@@ -63,6 +64,8 @@ Similar to organization-specific URLs for My Apps, you can further customize dir
 When an authorized user selects one of these application-specific links, they first see their organizational sign-in page (assuming they aren't already signed in). After sign-in, they're redirected to their app without stopping at My Apps first. If the user is missing pre-requisites to access the application, such as the password-based single sign browser extension, then the link will prompt the user to install the missing extension. The link URL also remains constant if the single sign-on configuration for the application changes.
 
 These links use the same access control mechanisms as My Apps and Microsoft 365. Only those users or groups who have been assigned to the application in the Azure portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they haven't been granted access. The unauthorized user is given a link to load My Apps to view available applications that they do have access to.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Manage preview settings
 

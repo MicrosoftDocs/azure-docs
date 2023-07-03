@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 03/23/2023
 ms.author: saraic
-ms.reviewer: cynthn
+ms.reviewer: cynthn, mattmcinnes
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -393,6 +393,13 @@ New-AzVM `
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
+
+## Reporting issues with a community image 
+Using community-submitted virtual machine images has several risks. Images could contain malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images when you see these issues.
+
+Use the following links to report issues:
+- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
+- Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
 
 
 ### [CLI](#tab/cli4)

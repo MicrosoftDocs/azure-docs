@@ -5,7 +5,7 @@ description: Learn how to reprovision devices with your Device Provisioning Serv
 author: kgremban
 
 ms.author: kgremban
-ms.date: 01/25/2021
+ms.date: 03/10/2023
 ms.topic: how-to
 ms.service: iot-dps
 ---
@@ -16,6 +16,26 @@ During the lifecycle of an IoT solution, it's common to move devices between IoT
 
 For more a more detailed overview of reprovisioning scenarios, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
 
+## Set the reprovision policy
+
+The following steps configure the reprovision policy for an individual enrollment or enrollment group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
+
+2. Select **Manage enrollments**, and then select either the **Enrollment groups** or **Individual enrollments** tabs.
+
+3. Select the name of the enrollment group or individual enrollment that you want to configure for reprovisioning.
+
+4. Use the dropdown menu under **Reprovision policy** to choose one of the following reprovisioning policies:
+
+   * **Never reprovision device**.
+
+   * **Reprovision device and reset to initial state**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub. During migration, the device's status will be reported as **Assigning**.
+
+   * **Reprovision device and migrate current state**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. All device state information from that initial IoT hub will be migrated over to the new IoT hub. During migration, the device's status will be reported as **Assigning**
+
+5. Select **Save** to enable the reprovisioning of the device based on your changes.
+
 ## Configure the enrollment allocation policy
 
 The allocation policy determines how the devices associated with the enrollment will be allocated, or assigned, to an IoT hub once reprovisioned. To learn more about allocation polices, see [How to use allocation policies](how-to-use-allocation-policies.md).
@@ -24,47 +44,33 @@ The following steps configure the allocation policy for a device's enrollment:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
-2. Select **Manage enrollments**, and then select the enrollment group or individual enrollment that you want to configure for reprovisioning.
+2. Select **Manage enrollments**, and then select either the **Enrollment groups** or **Individual enrollments** tabs.
 
-3. Under **Select how you want to assign devices to hubs**, select one of the following allocation policies:
+3. Select the name of the enrollment group or individual enrollment that you want to configure for reprovisioning.
 
-    * **Lowest latency**: This policy assigns devices to the IoT hub that will result in the lowest latency communications between the device and IoT Hub. This option enables the device to communicate with the closest IoT hub based on location.
+4. On the **Enrollment details** page, select the **IoT hubs** tab.
+
+5. Select one of the following allocation policies:
+
+    * **Static**: This policy requires a desired IoT hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single IoT hub that you want to assign devices to.
 
     * **Evenly weighted distribution**: This policy distributes devices across IoT hubs based on the allocation weight configured on each IoT hub. IoT hubs with a higher allocation weight are more likely to be assigned. If you're provisioning devices to only one IoT Hub, we recommend this setting. This setting is the default.
 
-    * **Static configuration**: This policy requires a desired IoT hub be listed in the enrollment entry for a device to be provisioned. This policy allows you to designate a single IoT hub that you want to assign devices to.
+    * **Lowest latency**: This policy assigns devices to the IoT hub that will result in the lowest latency communications between the device and IoT Hub. This option enables the device to communicate with the closest IoT hub based on location.
 
-    * **Custom (Use Azure Function)**: This policy uses a custom webhook hosted in Azure Functions to assign devices to one or more IoT hubs. Custom allocation policies give you more control over how devices are assigned to your IoT hubs. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
+    * **Custom (use Azure Function)**: This policy uses a custom webhook hosted in Azure Functions to assign devices to one or more IoT hubs. Custom allocation policies give you more control over how devices are assigned to your IoT hubs. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
 
-4. Under **Select the IoT hubs this group can be assigned to**, select the linked IoT hubs that you want included in your allocation policy. Optionally, add a new linked Iot hub using the **Link a new IoT Hub** button.
-
-    * With the **Lowest latency** allocation policy, the IoT hubs you select will be included in the latency evaluation to determine the closest IoT hub for device assignment.
-
-    * With the **Evenly weighted distribution** allocation policy, devices will be hashed across the IoT hubs you select based on their configured allocation weights.
+6. Under **Target IoT hubs**, select the linked IoT hubs that you want included in your allocation policy. Optionally, add a new linked Iot hub using the **Add link to IoT hub** button.
 
     * With the **Static configuration** allocation policy, select the IoT hub you want devices assigned to.
 
+    * With the **Evenly weighted distribution** allocation policy, devices will be hashed across the IoT hubs you select based on their configured allocation weights.
+
+    * With the **Lowest latency** allocation policy, the IoT hubs you select will be included in the latency evaluation to determine the closest IoT hub for device assignment.
+
     * With the **Custom** allocation policy, select the IoT hubs you want evaluated for assignment by your custom allocation webhook.
 
-5. Select **Save**, or proceed to the next section to set the reprovisioning policy.
-
-    ![Screenshot that shows setting the enrollment allocation policy and IoT hubs in the Azure portal.](./media/how-to-reprovision/enrollment-allocation-policy.png)
-
-## Set the reprovisioning policy
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
-
-2. Select **Manage enrollments**, and the select the enrollment group or individual enrollment that you want to configure for reprovisioning.
-
-3. Under **Select how you want device data to be handled on re-provision to a different IoT hub**, choose one of the following reprovisioning policies:
-
-    * **Re-provision and migrate data**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. All device state information from that initial IoT hub will be migrated over to the new IoT hub. During migration, the device's status will be reported as **Assigning**
-
-    * **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request. Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub. During migration, the device's status will be reported as **Assigning**.
-
-4. Select **Save** to enable the reprovisioning of the device based on your changes.
-
-    ![Screenshot that shows setting the enrollment reprovisioning policy in the Azure portal.](./media/how-to-reprovision/reprovisioning-policy.png)
+7. Select **Save**.
 
 ## Send a provisioning request from the device
 

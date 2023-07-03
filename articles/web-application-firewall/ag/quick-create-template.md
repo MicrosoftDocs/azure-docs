@@ -8,7 +8,7 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 09/20/2022
 ms.author: victorh
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, template-quickstart
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, template-quickstart, devx-track-arm-template
 # Customer intent: As a cloud administrator, I want to quickly deploy a Web Application Firewall v2 on Azure Application Gateway for production environments or to evaluate WAF v2 functionality.
 ---
 

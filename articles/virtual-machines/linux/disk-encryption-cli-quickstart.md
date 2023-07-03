@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
-ms.date: 01/04/2023
+ms.date: 03/29/2023
 ms.custom: devx-track-azurecli, mode-api
 ---
 
@@ -37,14 +37,17 @@ Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following examp
 az vm create \
     --resource-group "myResourceGroup" \
     --name "myVM" \
-    --image "Canonical:UbuntuServer:16.04-LTS:latest" \
+    --image "Canonical:UbuntuServer:20.04-LTS:latest" \
     --size "Standard_D2S_V3"\
     --generate-ssh-keys
 ```
 
+> [!NOTE]
+> Any [ADE supported Linux image version](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems) could be used instead of an Ubuntu VM. Replace `Canonical:UbuntuServer:20.04-LTS:latest` accordingly.
+
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
-```
+```json
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -84,7 +87,7 @@ az vm encryption show --name "myVM" -g "MyResourceGroup"
 
 When encryption is enabled, you will see "EnableEncryption" in the returned output:
 
-```
+```output
 "EncryptionOperation": "EnableEncryption"
 ```
 

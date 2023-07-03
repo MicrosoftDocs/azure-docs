@@ -3,7 +3,7 @@ title: What's New - Anomaly Detector
 description: This article is regularly updated with news about the Azure Cognitive Services Anomaly Detector.
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: overview
+ms.topic: whats-new
 ms.date: 12/15/2022
 ---
 
@@ -11,15 +11,15 @@ ms.date: 12/15/2022
 
 Learn what's new in the service. These items include release notes, videos, blog posts, papers, and other types of information. Bookmark this page to keep up to date with the service.
 
-We've also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft is not responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
+We have also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft isn't responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
 
 ## Release notes
 
 ### Jan 2023
-* Multivariate Anomaly Detection will begin charging as of January 10th, 2023. For pricing details see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).
+* Multivariate Anomaly Detection will begin charging as of January 10th, 2023. For pricing details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).
 
 ### Dec 2022
-* Multivariate Anomaly Detection SDK is updated to match with GA API for four languages.
+* The following SDKs for Multivariate Anomaly Detection are updated to match with the generally available REST API.
 
     |SDK Package  |Sample Code  |
     |---------|---------|
@@ -36,7 +36,7 @@ We've also added links to some user-generated content. Those items will be marke
 
 ### June 2022
 
-* New blog released: [4 sets of best practices to use Multivariate Anomaly Detector when monitoring your equipment](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/4-sets-of-best-practices-to-use-multivariate-anomaly-detector/ba-p/3490848#footerContent).
+* New blog released: [Four sets of best practices to use Multivariate Anomaly Detector when monitoring your equipment](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/4-sets-of-best-practices-to-use-multivariate-anomaly-detector/ba-p/3490848#footerContent).
 
 ### May 2022
 
@@ -60,21 +60,21 @@ We've also added links to some user-generated content. Those items will be marke
 
 ### September 2021
 * Anomaly Detector (univariate) available in Jio India West.
-* Multivariate anomaly detection APIs deployed in five more regions: East Asia, West US, Central India, Korea Central, Germany West Central.
+* Multivariate anomaly detector APIs deployed in five more regions: East Asia, West US, Central India, Korea Central, Germany West Central.
 
 ### August 2021
 
-* Multivariate anomaly detection APIs deployed in five more regions: West US 3, Japan East, Brazil South, Central US, Norway East. Now in total 15 regions are supported.
+* Multivariate anomaly detector APIs deployed in five more regions: West US 3, Japan East, Brazil South, Central US, Norway East. Now in total 15 regions are supported.
 
 ### July 2021
 
-* Multivariate anomaly detection APIs deployed in four more regions: Australia East, Canada Central, North Europe, and Southeast Asia. Now in total 10 regions are supported.
+* Multivariate anomaly detector APIs deployed in four more regions: Australia East, Canada Central, North Europe, and Southeast Asia. Now in total 10 regions are supported.
 * Anomaly Detector (univariate) available in West US 3 and Norway East.
 
 
 ### June 2021
 
-* Multivariate anomaly detection APIs available in more regions: West US 2, West Europe, East US 2, South Central US, East US, and UK South.
+* Multivariate anomaly detector APIs available in more regions: West US 2, West Europe, East US 2, South Central US, East US, and UK South.
 * Anomaly Detector (univariate) available in Azure cloud for US Government.
 * Anomaly Detector (univariate) available in Azure China (China North 2).
 
@@ -82,7 +82,7 @@ We've also added links to some user-generated content. Those items will be marke
 
 * [IoT Edge module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-cognitive-service.edge-anomaly-detector) (univariate) published.
 * Anomaly Detector (univariate) available in Azure China (China East 2).
-* Multivariate anomaly detection APIs preview in selected regions (West US 2, West Europe).
+* Multivariate anomaly detector APIs preview in selected regions (West US 2, West Europe).
 
 ### September 2020
 
@@ -104,7 +104,7 @@ We've also added links to some user-generated content. Those items will be marke
 ## Videos
 
 * Nov 12, 2022 AI Show: [Multivariate Anomaly Detection is GA](/shows/ai-show/ep-70-the-latest-from-azure-multivariate-anomaly-detection) (Seth with Louise Han).
-* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](/shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
+* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](/shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detector APIs with Tony Xing and Seth Juarez
 * April 20, 2021 AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities - AI Show live recording with Tony Xing and Seth Juarez
 * May 18, 2020 [Inside Anomaly Detector](/shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez
 * September 19, 2019 **[UGC]** [Detect Anomalies in Your Data with the Anomaly Detector](https://www.youtube.com/watch?v=gfb63wvjnYQ) - Video by Jon Wood

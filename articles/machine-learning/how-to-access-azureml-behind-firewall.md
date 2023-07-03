@@ -9,9 +9,10 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 01/10/2023
-ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
+ms.date: 04/14/2023
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Configure inbound and outbound network traffic
@@ -145,7 +146,7 @@ For more information on the `hbi_workspace` flag, see the [data encryption](conc
 [Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
 
 * For Kubernetes with Azure Arc connection, configure the [Azure Arc network requirements](../azure-arc/kubernetes/network-requirements.md) needed by Azure Arc agents. 
-* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/limit-egress-traffic.md#cluster-extensions). 
+* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/outbound-rules-control-egress.md#cluster-extensions). 
 
 Besides above requirements, the following outbound URLs are also required for Azure Machine Learning,
 
@@ -189,9 +190,16 @@ The hosts in this section are used to install Visual Studio Code packages to est
 | `marketplace.visualstudio.com`<br>`vscode.blob.core.windows.net`<br>`*.gallerycdn.vsassets.io` | Required to download and install VS Code extensions. These hosts enable the remote connection to compute instances using the Azure Machine Learning extension for VS Code. For more information, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code](./how-to-set-up-vs-code-remote.md) |
 | `raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/*` | Used to retrieve websocket server bits that are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
-## Scenario: Third party firewall
+## Scenario: Third party firewall or Azure Firewall without service tags
 
 The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions, check the documentation for the firewall you're using.
+
+> [!TIP]
+> If you're using __Azure Firewall__, and want to use the FQDNs listed in this section instead of using service tags, use the following guidance:
+> * FQDNs that use HTTP/S ports (80 and 443) should be configured as __application rules__.
+> * FQDNs that use other ports should be configured as __network rules__.
+> 
+> For more information, see [Differences in application rules vs. network rules](/azure/firewall/fqdn-filtering-network-rules#differences-in-application-rules-vs-network-rules).
 
 If not configured correctly, the firewall can cause problems using your workspace. There are various host names that are used both by the Azure Machine Learning workspace. The following sections list hosts that are required for Azure Machine Learning.
 
@@ -369,8 +377,8 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Compute instance | `*.instances.azureml.net` | TCP | 443 |
 | Compute instance | `*.instances.azureml.ms` | TCP | 443, 8787, 18881 |
 | Compute instance | `<region>.tundra.azureml.ms` | UDP | 5831 |
-| Compute instance | `*.batch.azure.com` | ANY | 443 |
-| Compute instance | `*.service.batch.com` | ANY | 443 | 
+| Compute instance | `*.<region>.batch.azure.com` | ANY | 443 |
+| Compute instance | `*.<region>.service.batch.azure.com` | ANY | 443 | 
 | Microsoft storage access | `*.blob.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.table.core.windows.net` | TCP | 443 |
 | Microsoft storage access | `*.queue.core.windows.net` | TCP | 443 |
@@ -427,7 +435,12 @@ For information on restricting access to models deployed to AKS, see [Restrict e
 
 __Monitoring, metrics, and diagnostics__
 
+:::moniker range="azureml-api-2"
 If you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace, you must allow outbound traffic to the following hosts:
+:::moniker-end
+:::moniker range="azureml-api-1"
+If you haven't [secured Azure Monitor](./v1/how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace, you must allow outbound traffic to the following hosts:
+:::moniker-end
 
 > [!NOTE]
 > The information logged to these hosts is also used by Microsoft Support to be able to diagnose any problems you run into with your workspace.
@@ -444,9 +457,16 @@ For a list of IP addresses for these hosts, see [IP addresses used by Azure Moni
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 * [Virtual network overview](how-to-network-security-overview.md)
+:::moniker range="azureml-api-2"
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+* [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+* [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+:::moniker-end
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 

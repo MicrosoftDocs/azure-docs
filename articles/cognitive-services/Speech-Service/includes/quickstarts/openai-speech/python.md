@@ -20,7 +20,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 - You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 - On Linux, you must use the x64 target architecture.
 
-Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
+Install a version of [Python from 3.7 or later](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
 
 Install the following Python libraries: `os`, `requests`, `json`
 
@@ -70,21 +70,21 @@ Follow these steps to create a new console application.
     
     # Should be the locale for the speaker's language.
     speech_config.speech_recognition_language="en-US"
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_output_config)
+    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
     
     # The language of the voice that responds on behalf of Azure OpenAI.
     speech_config.speech_synthesis_voice_name='en-US-JennyMultilingualNeural'
-    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
     
     # Prompts Azure OpenAI with a request and synthesizes the response.
     def ask_openai(prompt):
     
         # Ask Azure OpenAI
         response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=100)
-        text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
+        text = response['choices'][0]['text'].replace('\n', ' ').replace(' .', '.').strip()
         print('Azure OpenAI response:' + text)
         
-        # Azure text-to-speech output
+        # Azure text to speech output
         speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
     
         # Check result
@@ -119,7 +119,6 @@ Follow these steps to create a new console application.
                     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
                     if cancellation_details.reason == speechsdk.CancellationReason.Error:
                         print("Error details: {}".format(cancellation_details.error_details))
-                        print("Did you set the speech resource key and region values?")
             except EOFError:
                 break
     

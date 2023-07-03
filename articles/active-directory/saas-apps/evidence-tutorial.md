@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/03/2023
 ms.author: jeedes
 ---
 
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<your tenant>.evidence.com/?class=UIX&proc=Login`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Evidence.com Client support team](https://communities.taser.com/support/SupportContactUs?typ=LE) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Evidence.com Client support team](https://my.axon.com/s/contactsupport) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

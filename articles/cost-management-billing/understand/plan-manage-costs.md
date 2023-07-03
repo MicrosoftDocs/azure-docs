@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 04/05/2023
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---

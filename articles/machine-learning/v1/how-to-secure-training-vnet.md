@@ -10,16 +10,13 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 08/29/2022
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, event-tier1-build-2022, build-2023
 ---
 
 # Secure an Azure Machine Learning training environment with virtual networks (SDKv1)
 
 [!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [SDK v1](how-to-secure-training-vnet.md)
-> * [SDK v2 (current version)](../how-to-secure-training-vnet.md)
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
 
@@ -38,7 +35,9 @@ The following table contains the differences between these configurations:
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
 
-> [!TIP]
+[!INCLUDE [managed-vnet-note](../includes/managed-vnet-note.md)]
+
+> [!NOTE]
 > For information on using the Azure Machine Learning __studio__ and the Python SDK __v2__, see [Secure training environment (v2)](../how-to-secure-training-vnet.md).
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace in Azure portal](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).
@@ -57,7 +56,7 @@ In this article you learn how to secure the following training compute resources
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## Prerequisites
 
-+ Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
++ Read the [Network security overview](../how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
 + An existing virtual network and subnet to use with your compute resources. This VNet must be in the same subscription as your Azure Machine Learning workspace.
 
@@ -71,12 +70,7 @@ In this article you learn how to secure the following training compute resources
 
 + If you have your own DNS server, we recommend using DNS forwarding to resolve the fully qualified domain names (FQDN) of compute instances and clusters. For more information, see [Use a custom DNS with Azure Machine Learning](../how-to-custom-dns.md).
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This permission isn't needed for Azure Resource Manager (ARM) template deployments.
-    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
 ## Limitations
 
@@ -93,6 +87,8 @@ In this article you learn how to secure the following training compute resources
     > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
+
+* __Port 445__ must be open for _private_ network communications between your compute instances and the default storage account during training. For example, if your computes are in one VNet and the storage account is in another, don't block port 445 to the storage account VNet.
 
 ### Azure Databricks
 
@@ -138,8 +134,8 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. |
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
-    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
-    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.service.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
@@ -210,8 +206,8 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. |
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
-    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
-    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.service.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
@@ -314,7 +310,7 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Virtual network overview (v1)](how-to-network-security-overview.md)
+* [Virtual network overview (v1)](../how-to-network-security-overview.md)
 * [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
 * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)

@@ -7,7 +7,7 @@ ms.service: virtual-wan
 ms.topic: quickstart
 ms.date: 03/03/2023
 ms.author: cherylmc
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Route to shared services VNets using an ARM template

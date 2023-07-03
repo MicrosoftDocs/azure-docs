@@ -1,14 +1,14 @@
 ---
-title: "Azure Operator Nexus: Creation of L3 isolation domain"
-description: Learn how create L3 isolation domain.
-author: jaredr80 #Required; your GitHub user alias, with correct capitalization.
-ms.author: jaredro #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required;
-ms.topic: include #Required; leave this attribute/value as-is.
-ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
+title: "Azure Operator Nexus: Create an L3 isolation domain"
+description: Learn how to create an L3 isolation domain.
+author: jaredr80
+ms.author: jaredro
+ms.service: azure-operator-nexus
+ms.topic: include
+ms.date: 01/26/2023
 ---
 
-- Create a L3 isolation domain
+Create an L3 isolation domain:
 
 ```azurecli
   az nf l3domain create \
@@ -19,12 +19,10 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
     --location "<ClusterAzureRegion>"
 ```
 
-- Create an `internalnetwork` resource for every VLAN/subnet that you need to include in your L3 isolation domain
-
+Create an `internalnetwork` resource for every VLAN or subnet that you need to include in your L3 isolation domain.
 
 > [!NOTE]
-> The following example uses the minimal configuration you will need to create a valid internal network.
-> The optional parameters are not shown.
+> The following example uses the minimal configuration for creating a valid internal network. It doesn't show optional parameters.
 
 ```azurecli
   az nf internalnetwork create \
@@ -41,8 +39,9 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
         "ipv4NeighborAddress":[{"address": "<YourSubetInfoHere> "}]}'
 ```
 
-- (Optional) Repeat, as needed, for any other `internalnetwork(s)` that have to be added to this L3 isolation domain
-- Enable the L3 isolation-domain after all `internalnetworks` have been created
+Repeat, as needed, for any other `internalnetwork` resources that you have to add to this L3 isolation domain.
+
+Enable the L3 isolation domain after you've created all `internalnetwork` resources.
 
 ```azurecli
   az nf l3domain update-admin-state \
@@ -52,4 +51,4 @@ ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
     --state Enable
 ```
 
-- Repeat to create more L3 isolation domain(s).
+Repeat to create more L3 isolation domains.

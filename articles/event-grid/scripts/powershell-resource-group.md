@@ -2,6 +2,7 @@
 title: Azure PowerShell script sample - Subscribe to resource group | Microsoft Docs
 description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for a resource group. 
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 09/15/2021
 ---

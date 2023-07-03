@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/21/2023
 ms.author: jeedes
 
 ---
 
 # Tutorial: Azure AD SSO integration with Contentkalender
 
-In this tutorial, you'll learn how to integrate Contentkalender with Azure Active Directory (Azure AD). When you integrate Contentkalender with Azure AD, you can:
+In this tutorial, you learn how to integrate Contentkalender with Azure Active Directory (Azure AD). When you integrate Contentkalender with Azure AD, you can:
 
 * Control in Azure AD who has access to Contentkalender.
 * Enable your users to be automatically signed-in to Contentkalender with their Azure AD accounts.
@@ -79,20 +79,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-   a. In the **Identifier** text box, type one of the following URLs:
+   a. In the **Identifier** text box, type the URL:
+    `https://login.contentkalender.nl` 
+
+   b. In the **Reply URL** text box, type the URL:
+   `https://login.contentkalender.nl/sso/saml/callback`
    
-   | **Identifier** |
-   |------------|
-   | `https://login.contentkalender.nl` |
-   | `https://contentkalender-acc.bettywebblocks.com/` (only for testing purposes)|
-
-   b. In the **Reply URL** text box, type one of the following URLs:
-
-   | **Reply URL** |
-   |-----------|
-   | `https://login.contentkalender.nl/sso/saml/callback` |
-   | `https://contentkalender-acc.bettywebblocks.com/sso/saml/callback` (only for testing purposes)|
-
    c. In the **Sign-on URL** text box, type the URL:
    `https://login.contentkalender.nl/v2/login`
 

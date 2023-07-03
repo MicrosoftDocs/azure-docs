@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 01/31/2023
-ms.custom: template-how-to-pattern
+ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
 # Measure Azure Cosmos DB for NoSQL performance with a benchmarking framework

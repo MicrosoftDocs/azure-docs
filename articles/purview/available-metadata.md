@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 01/31/2023
 ---
 
-# Available metadata
+# Available metadata for Power BI in the Microsoft Purview Data Catalog
 
 This article has a list of the metadata that is available for a Power BI tenant in the Microsoft Purview governance portal.
 
@@ -78,7 +78,6 @@ This article has a list of the metadata that is available for a Power BI tenant 
 | IsReadOnly            | Automatic         | Power BI          | Power BI Workspace | No       | workspace.IsReadOnly            |
 | IsOnDedicatedCapacity | Automatic         | Power BI          | Power BI Workspace | No       | workspace.IsOnDedicatedCapacity |
 | users                 | Automatic         | Power BI          | Power BI Workspace | No       | workspace.Users                 |
-
 
 ## Next steps
 

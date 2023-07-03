@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/14/2023
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: devx-track-azurepowershell
 ---
 
 # Preview - Increase IOPS and throughput limits for Azure Premium SSDs and Standard SSD/HDDs
@@ -25,7 +26,7 @@ Once enabled, the IOPS and throughput limits for an eligible disk increase to th
 
 ## Prerequisites
 
-Either use the Azure Cloud Shell to run your commands or install a version of the [Azure PowerShell module](/powershell/azure/install-az-ps) 9.5 or newer, or a version of the [Azure CLI](/cli/azure/install-azure-cli) that is 2.44.0 or newer.
+Either use the Azure Cloud Shell to run your commands or install a version of the [Azure PowerShell module](/powershell/azure/install-azure-powershell) 9.5 or newer, or a version of the [Azure CLI](/cli/azure/install-azure-cli) that is 2.44.0 or newer.
 
 
 ## Enable performance plus
@@ -99,9 +100,9 @@ $sourceURI=diskOrSnapshotURI
 
 Set-AzContext -SubscriptionName <<yourSubscriptionName>> 
 
-$diskConfig = New-AzDiskConfig -Location $region -CreateOption Copy -DiskSizeGB $size -SkuName $sku -PerfromancePlus $true -SourceResourceID $sourceURI
+$diskConfig = New-AzDiskConfig -Location $region -CreateOption Copy -DiskSizeGB $size -SkuName $sku -PerformancePlus $true -SourceResourceID $sourceURI
 
-$dataDisk = New-AzDisk -ResourceGroupName $myRG  -DiskName $myDisk 
+$dataDisk = New-AzDisk -ResourceGroupName $myRG  -DiskName $myDisk -Disk $diskconfig
 ```
 ---
 

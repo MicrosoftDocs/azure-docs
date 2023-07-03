@@ -4,7 +4,7 @@ description: Learn how to back up your virtual machines with Azure Resource Mana
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri

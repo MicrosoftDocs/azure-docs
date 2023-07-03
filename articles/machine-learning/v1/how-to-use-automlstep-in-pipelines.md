@@ -65,7 +65,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Create a workspace configuration file](how-to-configure-environment-v1.md). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
+The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Create a workspace configuration file](how-to-configure-environment.md). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
 
 ### Configure your storage and compute target
 
@@ -365,6 +365,10 @@ print("Registered version {0} of model {1}".format(model.version, model.name))
 ```
 
 ### Write the PythonScriptStep code
+
+
+> [!WARNING]
+> If you are using the Azure Machine Learning SDK v1, and your workspace is configured for network isolation (VNet), you may receive an error when running this step. For more information, see [HyperdriveStep and AutoMLStep fail with network isolation](how-to-debug-pipelines.md#hyperdrivestep-and-automlstep-fail-with-network-isolation).
 
 The model-registering `PythonScriptStep` uses a `PipelineParameter` for one of its arguments. Pipeline parameters are arguments to pipelines that can be easily set at run-submission time. Once declared, they're passed as normal arguments. 
 

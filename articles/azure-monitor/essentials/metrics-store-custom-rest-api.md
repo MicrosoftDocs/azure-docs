@@ -108,13 +108,13 @@ Save the access token from the response for use in the following HTTP requests.
    - **accessToken**: The authorization token acquired from the previous step.
     
     ```Shell
-    curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
+    curl -X POST 'https://<location>.monitoring.azure.com<resourceId>/metrics' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <accessToken>' \
     -d @custommetric.json 
     ```
 
-1. Change the timestamp and values in the JSON file.
+1. Change the timestamp and values in the JSON file. Note that the 'time' value in the JSON file is expected to be in UTC.
 1. Repeat the previous two steps a few times to create data for several minutes.
 
 ## Troubleshooting

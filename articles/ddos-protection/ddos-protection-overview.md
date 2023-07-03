@@ -19,6 +19,8 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 
+Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+
 ## Key benefits
 
 ### Always-on traffic monitoring
@@ -35,7 +37,7 @@ Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP
  
 ## SKU
 
-Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection Preview and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
+Azure DDoS Protection is offered in two available SKUs, DDoS IP Protection and DDoS Network Protection. For more information about the SKUs, see [SKU comparison](ddos-protection-sku-comparison.md).
 
 
 ### Native platform integration
@@ -82,3 +84,5 @@ For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
 
 * [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
 * [Learn module: Introduction to Azure DDoS Protection](/training/modules/introduction-azure-ddos-protection/)
+* [Learn more about Azure network security](../networking/security/index.yml)
+

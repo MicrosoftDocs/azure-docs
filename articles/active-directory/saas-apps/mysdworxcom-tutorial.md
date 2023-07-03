@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/16/2023
+ms.date: 05/03/2023
 ms.author: jeedes
 
 ---
 
 # Azure Active Directory SSO integration with my.sdworx.com
 
-In this article, you'll learn how to integrate my.sdworx.com with Azure Active Directory (Azure AD). my.sdworx.com is an SD Worx portal. When you integrate my.sdworx.com with Azure AD, you can:
+In this article, you learn how to integrate my.sdworx.com with Azure Active Directory (Azure AD). my.sdworx.com is an SD Worx portal. When you integrate my.sdworx.com with Azure AD, you can:
 
 * Control in Azure AD who has access to my.sdworx.com.
 * Enable your users to be automatically signed-in to my.sdworx.com with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for my.sdworx.com in a test environment. my.sdworx.com supports **IDP** initiated single sign-on.
+You configure and test Azure AD single sign-on for my.sdworx.com in a test environment. my.sdworx.com supports **IDP** initiated single sign-on.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -31,6 +31,7 @@ You'll configure and test Azure AD single sign-on for my.sdworx.com in a test en
 
 To integrate Azure Active Directory with my.sdworx.com, you need:
 
+* Before adding the application in your Azure AD tenant, please contact your SD Worx consultant first to start up the track to activate the SSO for your company. The SSO won’t work before it's implemented and activated on the SD Worx Service Provider.
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).

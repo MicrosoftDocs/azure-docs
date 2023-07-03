@@ -33,6 +33,18 @@ The table below illustrates the features that Flexible server offers.
 | **Geo redundant backup** | Flexible server backups are copied to a remote region. that helps with disaster recovery situation in the event of the primary server region is down. | This feature is currently enabled in selected regions. It takes a longer RTO and a higher RPO depending on the size of the data to restore and amount of recovery to perform.  |
 | **Read Replica** | Cross Region read replicas can be deployed to protect your databases from region-level failures. Read replicas are updated asynchronously using PostgreSQL's physical replication technology, and may lag the primary. For more information, see [Concepts - Read Replicas](./concepts-read-replicas.md).| Supported in general purpose and memory optimized compute tiers. |
 
+
+The following table compares RTO and RPO in a **typical workload** scenario:
+
+| **Capability** | **Burstable** | **General Purpose** | **Memory optimized** |
+| :------------: | :-------: | :-----------------: | :------------------: |
+| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min |
+| Geo-restore from geo-replicated backups | RTO - Varies <br/>RPO < 1 h  | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
+| Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
+
+\* RTO and RPO **can be much higher** in some cases depending on various factors including latency between sites, the amount of data to be transmitted, and importantly primary database write workload. 
+
+
 ## Planned downtime events
 
 Below are some planned maintenance scenarios. These events typically incur up to few minutes of downtime, and without data loss.
@@ -64,6 +76,12 @@ When you create support ticket from **Help + support** or **Support + troublesho
 *  **Service Help**
 The **Service Health** page in the Azure portal contains information about Azure data center status globally. Search for "service health" in the search bar in the Azure portal, then view Service issues in the Active events category. You can also view the health of individual resources in the **Resource health** page of any resource under the Help menu. A sample screenshot of the Service Health page follows, with information about an active service issue in Southeast Asia.
 :::image type="content" source="./media/business-continuity/service-health-service-issues-example-map.png" alt-text=" Screenshot showing service outage in Service Health portal.":::
+
+
+> [!IMPORTANT]
+> As the name implies, temporary tablespaces in PostgreSQL are used for temporary objects, as well as other internal database operations, such as sorting. Therefore we do not recommend creating user schema objects in temporary tablespace, as we dont guarantee durability of such objects after Server restarts, HA failovers, etc.
+
+
 ### Unplanned downtime: failure scenarios and service recovery
 
 Below are some unplanned failure scenarios and the recovery process. 

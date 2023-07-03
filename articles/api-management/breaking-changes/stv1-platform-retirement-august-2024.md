@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 08/26/2022
+ms.date: 01/10/2023
 ms.author: danlep
 ---
 
@@ -40,7 +40,7 @@ After 31 August 2024, any instance hosted on the `stv1` platform won't be suppor
 
 **Migrate all your existing instances hosted on the `stv1` compute platform to the `stv2` compute platform by 31 August 2024.**  
 
-If you have existing instances hosted on the `stv1` platform, you can follow our [migration guide](../compute-infrastructure.md#how-do-i-migrate-to-the-stv2-platform) which provides all the details to ensure a successful migration. 
+If you have existing instances hosted on the `stv1` platform, you can follow our [migration guide](../migrate-stv1-to-stv2.md) which provides all the details to ensure a successful migration. 
 
 ## Help and support
 

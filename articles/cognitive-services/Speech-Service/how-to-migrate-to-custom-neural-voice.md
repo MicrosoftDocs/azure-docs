@@ -17,7 +17,7 @@ ms.author: v-baolianzou
 > [!IMPORTANT]
 > We are retiring the standard non-neural training tier of custom voice from March 1, 2021 through February 29, 2024. If you used a non-neural custom voice with your Speech resource prior to March 1, 2021 then you can continue to do so until February 29, 2024. All other Speech resources can only use custom neural voice. After February 29, 2024, the non-neural custom voices won't be supported with any Speech resource. 
 
-The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users will benefit from the latest Text-to-Speech technology, in a responsible way. 
+The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users will benefit from the latest Text to speech technology, in a responsible way. 
 
 |Custom voice |Custom neural voice | 
 |--|--|

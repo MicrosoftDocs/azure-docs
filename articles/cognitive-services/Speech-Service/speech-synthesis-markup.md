@@ -1,7 +1,7 @@
 ---
 title: Speech Synthesis Markup Language (SSML) overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: Use the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
+description: Use the Speech Synthesis Markup Language to control pronunciation and prosody in text to speech.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: eur
 
 # Speech Synthesis Markup Language (SSML) overview
 
-Speech Synthesis Markup Language (SSML) is an XML-based markup language that can be used to fine-tune the text-to-speech output attributes such as pitch, pronunciation, speaking rate, volume, and more. You have more control and flexibility compared to plain text input. 
+Speech Synthesis Markup Language (SSML) is an XML-based markup language that can be used to fine-tune the text to speech output attributes such as pitch, pronunciation, speaking rate, volume, and more. You have more control and flexibility compared to plain text input. 
 
 > [!TIP]
 > You can hear voices in different styles and pitches reading example text via the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
@@ -23,14 +23,14 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that can
 
 You can use SSML to:
 
-- [Define the input text structure](speech-synthesis-markup-structure.md) that determines the structure, content, and other characteristics of the text-to-speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
+- [Define the input text structure](speech-synthesis-markup-structure.md) that determines the structure, content, and other characteristics of the text to speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
 - [Choose the voice](speech-synthesis-markup-voice.md), language, name, style, and role. You can use multiple voices in a single SSML document. Adjust the emphasis, speaking rate, pitch, and volume. You can also use SSML to insert pre-recorded audio, such as a sound effect or a musical note.
 - [Control pronunciation](speech-synthesis-markup-pronunciation.md) of the output audio. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
 
 ## Use SSML
 
 > [!IMPORTANT]
-> You're billed for each character that's converted to speech, including punctuation. Although the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. For more information, see [text-to-speech pricing notes](text-to-speech.md#pricing-note).
+> You're billed for each character that's converted to speech, including punctuation. Although the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. For more information, see [text to speech pricing notes](text-to-speech.md#pricing-note).
 
 You can use SSML in the following ways:
 

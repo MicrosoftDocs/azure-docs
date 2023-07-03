@@ -10,7 +10,11 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2302 - Current
+    - name: 2305 - Current
+      href: azure-private-5g-core-release-notes-2305.md  
+    - name: 2303
+      href: azure-private-5g-core-release-notes-2303.md  
+    - name: 2302
       href: azure-private-5g-core-release-notes-2302.md
     - name: 2301
       href: azure-private-5g-core-release-notes-2301.md
@@ -20,7 +24,7 @@ items:
       href: azure-private-5g-core-release-notes-2210.md
     - name: 2209
       href: azure-private-5g-core-release-notes-2209.md
-    - name: 2208 
+    - name: 2208
       href: azure-private-5g-core-release-notes-2208.md
   - name: Packet core and Azure Stack Edge compatibility
     href: azure-stack-edge-packet-core-compatibility.md
@@ -28,6 +32,10 @@ items:
   items:
   - name: Deploy a private mobile network and site - ARM template
     href: deploy-private-mobile-network-with-site-arm-template.md
+  - name: Deploy a private mobile network and site - command line
+    href: deploy-private-mobile-network-with-site-command-line.md
+  - name: Deploy a private mobile network and site - PowerShell
+    href: deploy-private-mobile-network-with-site-powershell.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
@@ -42,21 +50,23 @@ items:
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
-  - name: Default service and SIM policy
+  - name: Default service and allow-all SIM policy
     href: default-service-sim-policy.md
-  - name: Monitor Azure Private 5G Core using Log Analytics
-    href: monitor-private-5g-core-with-log-analytics.md  
-  - name: Local monitoring tools
+  - name: Monitor Azure Private 5G Core
     items:
-    - name: Distributed tracing
+    - name: Cloud monitoring with Azure Monitor platform metrics
+      href: monitor-private-5g-core-with-platform-metrics.md
+    - name: Local monitoring with distributed tracing
       href: distributed-tracing.md
-    - name: Packet core dashboards
+    - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
+    - name: Monitoring UE usage with Event Hubs (preview)
+      href: ue-usage-event-hub.md  
   - name: Reliability
     href: reliability-private-5g-core.md
   - name: Security
     href: security.md
-  - name: Azure Stack Edge disconnects 
+  - name: Azure Stack Edge disconnects
     href: azure-stack-edge-disconnects.md
 - name: How-to guides
   items:
@@ -66,6 +76,10 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
+  - name: Request support
+    items:
+    - name: How to open a support request 
+      href: open-support-request.md
   - name: Private mobile networks
     items:
     - name: Collect the required information to deploy a private mobile network
@@ -81,11 +95,11 @@ items:
   - name: Sites
     items:
     - name: Collect the required information for a site
-      href: collect-required-information-for-a-site.md    
+      href: collect-required-information-for-a-site.md
     - name: Create a site - Azure portal
       href: create-a-site.md
     - name: Create a site - ARM template
-      href: create-site-arm-template.md    
+      href: create-site-arm-template.md
     - name: Create additional Packet Core instances for a site - Azure portal
       href: create-additional-packet-core.md
     - name: Modify a service plan
@@ -114,6 +128,8 @@ items:
       href: configure-sim-policy-azure-portal.md
     - name: Configure a service and SIM policy - ARM template
       href: configure-service-sim-policy-arm-template.md
+    - name: Configure UE to UE internal forwarding - Azure portal
+      href: configure-internal-forwarding.md
   - name: SIMs
     items:
     - name: Provision new SIMs - Azure portal
@@ -124,12 +140,6 @@ items:
       href: manage-existing-sims.md
     - name: Manage SIM groups
       href: manage-sim-groups.md
-  - name: Log Analytics
-    items:
-    - name: Enable Log Analytics for a packet core instance
-      href: enable-log-analytics-for-private-5g-core.md
-    - name: Create an overview Log Analytics dashboard - ARM template
-      href: create-overview-dashboard.md
   - name: Packet capture
     items:
     - name: Perform data plane packet capture for a packet core instance
@@ -158,6 +168,8 @@ items:
      href: azure-stack-edge-virtual-machine-sizing.md
    - name: 5QI to DSCP mapping
      href: differentiated-services-codepoint-5qi-mapping.md
+   - name: Support lifetime
+     href: support-lifetime.md
 - name: Resources
   items:
   - name: Azure Private 5G Core product page

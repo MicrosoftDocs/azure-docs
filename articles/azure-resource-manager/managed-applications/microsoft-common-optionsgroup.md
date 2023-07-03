@@ -1,13 +1,10 @@
 ---
 title: OptionsGroup UI element
 description: Describes the Microsoft.Common.OptionsGroup UI element for Azure portal. Enables users to select from available options when deploying a managed application.
-author: davidsmatlak
-
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: davidsmatlak
-
 ---
+
 # Microsoft.Common.OptionsGroup UI element
 
 The OptionsGroup control lets users select one option from two or more choices. A user can select only one option.

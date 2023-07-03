@@ -95,5 +95,3 @@ We offer quickstarts in most popular programming languages, each designed to tea
 ## Next steps
 Question answering provides everything you need to build, manage, and deploy your custom project.
 
-> [!div class="nextstepaction"]
-> [Review the latest changes](../whats-new.md)

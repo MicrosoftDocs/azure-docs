@@ -1,5 +1,5 @@
 ---
-title: Join a new Windows 10 device with Azure AD during the out of box experience
+title: Join a new Windows 11 device with Azure AD during the out of box experience
 description: How users can set up Azure AD Join during OOBE.
 
 services: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD join a new Windows device during the out of box experience
 
-Starting in Windows 10 users can join new Windows devices to Azure AD during the first-run out-of-box experience (OOBE). This functionality enables you to distribute shrink-wrapped devices to your employees or students. 
+Windows 11 users can join new Windows devices to Azure AD during the first-run out-of-box experience (OOBE). This functionality enables you to distribute shrink-wrapped devices to your employees or students. 
 
 This functionality pairs well with mobile device management platforms like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) and tools like [Windows Autopilot](/mem/autopilot/windows-autopilot) to ensure devices are configured according to your standards.
 

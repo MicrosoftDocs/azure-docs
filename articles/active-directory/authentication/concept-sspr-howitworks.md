@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/19/2023
 
 ms.author: justinha
 author: justinha
@@ -121,7 +121,7 @@ If a user doesn't have the minimum number of required methods registered when th
 
 #### Mobile app and SSPR
 
-When using a mobile app as a method for password reset, like the Microsoft Authenticator app, the following considerations apply:
+When using a mobile app as a method for password reset, like the Microsoft Authenticator app, the following considerations apply if an organization has not [migrated to the centralized Authentication methods policy](how-to-authentication-methods-manage.md):
 
 * When administrators require one method be used to reset a password, verification code is the only option available.
 * When administrators require two methods be used to reset a password, users are able to use notification **OR** verification code in addition to any other enabled methods.
@@ -130,16 +130,12 @@ When using a mobile app as a method for password reset, like the Microsoft Authe
 | :---: | :---: | :---: |
 | Mobile app features available | Code | Code or Notification |
 
-Users don't have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> The Authenticator app can't be selected as the only authentication method when only one method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
+> If The Authenticator app can't be selected as the only authentication method when only one method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
 >
 > When configuring SSPR policies that include the Authenticator app as a method, at least one additional method should be selected when one method is required, and at least two additional methods should be selected when configuring two methods are required.
->
-> This requirement is because the current SSPR registration experience doesn't include the option to register the authenticator app. The option to register the authenticator app is included with the new [combined registration experience](./concept-registration-mfa-sspr-combined.md).
->
-> Allowing policies that only use the Authenticator app (when one method is required), or the Authenticator app and only one additional method (when two methods are required), could lead to users being blocked from registering for  SSPR until they're configured to use the new combined registration experience.
 
 ### Change authentication methods
 
@@ -241,9 +237,3 @@ To get started with SSPR, complete the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
-
-The following articles provide additional information regarding password reset through Azure AD:
-
-[Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Azure AD authentication methods available and quantity required"
-[Registration]: ./media/concept-sspr-howitworks/configure-registration-options.png "Configure SSPR registration options in the Azure portal"
-[Writeback]: ./media/concept-sspr-howitworks/on-premises-integration.png "On-premises integration for SSPR in the Azure portal"

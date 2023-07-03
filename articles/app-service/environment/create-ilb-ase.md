@@ -6,7 +6,7 @@ ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
 ms.date: 03/27/2023
 ms.author: madsd
-ms.custom: mvc, seodec18, mode-other
+ms.custom: mvc, seodec18, mode-other, devx-track-arm-template
 ---
 
 # Create and use an Internal Load Balancer App Service Environment 

@@ -8,7 +8,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 10/25/2022
 ---
 

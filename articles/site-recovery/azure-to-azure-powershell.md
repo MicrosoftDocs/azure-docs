@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: article
 ms.date: 12/07/2022
-ms.author: v-pgaddala 
+ms.author: ankitadutta 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -37,7 +37,7 @@ You learn how to:
 Before you start:
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
-- You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+- You have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Sign in to your Microsoft Azure subscription
 

@@ -1,12 +1,12 @@
 ---
 title: Azure Files monitoring data reference
 description: Log and metrics reference for monitoring data from Azure Files.
-author: normesta
+author: khdownie
 services: storage
 ms.service: storage
 ms.topic: reference
-ms.date: 10/02/2020
-ms.author: normesta
+ms.date: 03/29/2023
+ms.author: kendownie
 ms.subservice: files
 ms.custom: monitoring
 ---
@@ -28,7 +28,7 @@ The following tables list the platform metrics collected for Azure Files.
 
 ### Capacity metrics
 
-Capacity metrics values are refreshed daily (up to 24 Hours). The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
+Capacity metrics values are refreshed daily (up to 24 hours). The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Files provides the following capacity metrics in Azure Monitor.
 

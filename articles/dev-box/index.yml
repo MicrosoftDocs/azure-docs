@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 07/11/2022
+  ms.date: 06/06/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -35,9 +35,16 @@ landingContent:
           - text: Configure Microsoft Dev Box
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
-            url: quickstart-create-dev-box.md  
-          - text: Use the Remote Desktop client to connect to a dev box
-            url: quickstart-connect-to-dev-box-with-remote-desktop-app.md
+            url: quickstart-create-dev-box.md
+
+  # Card
+  - title: Connect to a dev box
+    linkLists:
+      - linkListType: tutorial
+        links:              
+          - text: Configure the Remote Desktop client to connect to a dev box with multiple monitors
+            url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+
   # Card
   - title: Provide access to Microsoft Dev Box
     linkLists:

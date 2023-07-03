@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 05/18/2023
 ---
 
 # Index data from Azure Blob Storage
@@ -61,6 +61,11 @@ If you don't set up inclusion or exclusion criteria, the indexer will report an 
 
 An indexer typically creates one search document per blob, where the text content and metadata are captured as searchable fields in an index. If blobs are whole files, you can potentially parse them into [multiple search documents](search-howto-index-one-to-many-blobs.md). For example, you can parse rows in a [CSV file](search-howto-index-csv-blobs.md) to create one search document per row.
 
+A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or an .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
+
+Textual content of a document is extracted into a string field named "content". You can also extract standard and user-defined metadata.
+
+
 <a name="indexing-blob-metadata"></a>
 
 ### Indexing blob metadata
@@ -90,6 +95,9 @@ You still have to add the underscored fields to the index definition, but you ca
 Lastly, any metadata properties specific to the document format of the blobs you're indexing can also be represented in the index schema. For more information about content-specific metadata, see [Content metadata properties](search-blob-metadata-properties.md).
 
 It's important to point out that you don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
+
+Currently, indexing [blob index tags](../storage/blobs/storage-blob-index-how-to.md) is not supported by this indexer. 
+
 
 ## Define the data source
 

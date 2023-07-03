@@ -10,8 +10,6 @@ ms.topic: tutorial
 ms.date: 08/22/2022
 ms.author: bemabonsu
 monikerRange: 'form-recog-2.1.0'
-recommendations: false
-#Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
 ---
 
 # Tutorial: Use Azure Logic Apps with Form Recognizer

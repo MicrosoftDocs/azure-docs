@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: how-to
+ms.topic: include
 ms.date: 06/30/2022
 author: ChrisHMSFT
 ms.author: chrhoder
@@ -132,7 +132,7 @@ api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE"
 api_type = 'azure'
 # The API version may change in the future.
-api_version = '2022-06-01-preview'
+api_version = '2023-05-15'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'
@@ -196,8 +196,7 @@ fine_tune_headers = {'api-key': api_key}
 fine_tune_data = "{ \"model\": \"curie\", " + \
   "\"training_file\": \"" + training_id + "\", " + \
   "\"validation_file\": \"" + validation_id + "\", " + \
-  "\"hyperparams\": " + \
-  "{ \"batch_size\": 1, \"learning_rate_multiplier\": 0.1, \"n_epochs\": 4 } }"
+  "\"batch_size\": 1, \"learning_rate_multiplier\": 0.1, \"n_epochs\": 4 }"
 
 # Start the fine-tune job using the REST API
 r = requests.post(api_base + 'openai/fine-tunes', 
@@ -244,6 +243,8 @@ print(f'Found {len((r.json())["data"])} fine-tune jobs.')
 ## Deploy a customized model
 
 When the fine-tune job has succeeded, the value of `fine_tuned_model` in the response body of the `FineTune.retrieve()` method is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
@@ -379,6 +380,8 @@ The result file is a CSV file containing a header row and a row for each trainin
 When you're done with your customized model, you can delete the deployment and model. You can also delete the training and validation files you uploaded to the service, if needed. 
 
 ### Delete your model deployment
+
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 You can use various methods to delete the deployment for your customized model:
 

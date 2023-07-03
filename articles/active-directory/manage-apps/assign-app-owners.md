@@ -13,6 +13,7 @@ ms.date: 01/26/2023
 ms.author: jomondi
 ms.reviewer: saibandaru
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
+ms.custom: enterprise-apps
 
 #Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
 ---
@@ -20,6 +21,8 @@ zone_pivot_groups: enterprise-apps-minus-aad-powershell
 # Assign enterprise application owners
 
 An [owner of an enterprise application](overview-assign-app-owners.md) in Azure Active Directory (Azure AD) can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own. In this article, you learn how to assign an owner of an application.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Assign an owner
 

@@ -23,6 +23,24 @@ If you plan to deploy large-file packages, with file size larger than 100 MB, it
 
 The Device Update for IoT Hub service utilizes Content Delivery Networks (CDNs) that work optimally with range requests of 1 MB in size. Range requests larger than 100 MB are not supported.
 
+## Throttling limits
+
+The following table shows the enforced throttles for operations that are available in all Device Update for IoT Hub tiers. Values refer to an individual Device Update instance.
+
+|Device Update service API | Throttling Rate |
+|-------------------------|------------------|
+|GetGroups |30/min|
+|GetGroupDetails| 30/min|
+|GetBestUpdates per group| 30/min|
+|GetUpdateCompliance per group| 30/min|
+|GetAllUpdateCompliance |30/min|
+|GetSubgroupUpdateCompliance| 30/min|
+|GetSubgroupBestUpdates| 30/min|
+|CreateOrUpdateDeployment| 7/min |
+|DeleteDeployment| 7/min |
+|ProcessSubgroupDeployment | 7/min|
+
+
 ## Next steps
 
 - [Create a Device Update for IoT Hub account](create-device-update-account.md)

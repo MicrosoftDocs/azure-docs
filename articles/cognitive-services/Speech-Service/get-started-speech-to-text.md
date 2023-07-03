@@ -1,5 +1,5 @@
 ---
-title: "Speech-to-text quickstart - Speech service"
+title: "Speech to text quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert speech to text with recognition from a microphone.
 services: cognitive-services
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/16/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
 zone_pivot_groups: programming-languages-speech-services
 keywords: speech to text, speech to text software
 ---

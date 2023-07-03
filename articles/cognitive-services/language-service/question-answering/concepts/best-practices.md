@@ -196,5 +196,4 @@ Question answering allows users to collaborate on a project. Users need access t
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Edit a project](../How-to/manage-knowledge-base.md)
+

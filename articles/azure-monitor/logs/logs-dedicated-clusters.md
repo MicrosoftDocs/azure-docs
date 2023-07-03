@@ -2,8 +2,7 @@
 title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
-author: yossi-y
-ms.author: yossiy
+ms.reviewer: yossiy
 ms.date: 01/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -16,7 +15,7 @@ Linking a Log Analytics workspace to a dedicated cluster in Azure Monitor provid
 Capabilities that require dedicated clusters:
 
 - **[Customer-managed keys](../logs/customer-managed-keys.md)** - Encrypt cluster data using keys that you provide and control.
-- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineer access requests to your data.
+- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox)** - Control Microsoft support engineer access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - Protect against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the extra layer of encryption continues to protect your data.
 - **[Cross-query optimization](../logs/cross-workspace-query.md)** - Cross-workspace queries run faster when workspaces are on the same cluster.
 - **Cost optimization** - Link your workspaces in same region to cluster to get commitment tier discount to all workspaces, even to ones with low ingestion that 
@@ -206,7 +205,9 @@ The managed identity service generates the *principalId* GUID when you create th
 
 ## Link a workspace to a cluster
 
-When a Log Analytics workspace is linked to a dedicated cluster, new data ingested to the workspace, is routed to the cluster while existing data remains in the existing Log Analytics cluster. If the dedicated cluster is configured with customer-managed keys (CMK), new ingested data is encrypted with your key. The system abstracts the data location, you can query data as usual while the system performs cross-cluster queries in the background.
+When a Log Analytics workspace is linked to a dedicated cluster, the workspace billing plan in workspace is changed to cluster plan, new data ingested to the workspace is routed to your dedicated cluster, and existing data remains in Log Analytics cluster. Linking a workspace has no effect on data ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete and accurate. 
+ 
+When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
 A cluster can be linked to up to 1,000 workspaces. Linked workspaces can be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
@@ -545,7 +546,7 @@ Content-type: application/json
 
 ### Unlink a workspace from cluster
 
-You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. 
+You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics.
 
 > [!WARNING]
 > Unlinking a workspace does not move workspace data out of the cluster. Any data collected for workspace while linked to cluster, remains in cluster for the retention period defined in workspace, and accessible as long as cluster isn't deleted.

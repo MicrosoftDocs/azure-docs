@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.service: event-hubs
 ms.date: 03/09/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, contperf-fy22q3, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Send events to and receive events from Azure Event Hubs using .NET
@@ -193,19 +193,15 @@ This section shows you how to create a .NET Core console application to send eve
 ## Receive events from the event hub
 This section shows how to write a .NET Core console application that receives events from an event hub using an event processor. The event processor simplifies receiving events from event hubs. 
 
-> [!WARNING]
-> If you run this code on **Azure Stack Hub**, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than those typically available on Azure. If you are using Azure Blob Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
->
-> For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
-
-
-
 ### Create an Azure Storage Account and a blob container
 In this quickstart, you use Azure Storage as the checkpoint store. Follow these steps to create an Azure Storage account. 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. Authenticate to the blob container using either Azure AD (passwordless) authentication or a connection string to the namespace.
+
+[!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
+
     
 ## [Passwordless (Recommended)](#tab/passwordless)
 
@@ -412,5 +408,4 @@ For complete .NET library reference, see our [SDK documentation](/dotnet/api/ove
 See the following tutorial: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
-
+> [Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs](../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=%2Fazure%2Fevent-hubs%2FTOC.json)

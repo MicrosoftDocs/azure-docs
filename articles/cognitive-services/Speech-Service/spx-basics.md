@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: The Speech CLI - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this Azure Speech CLI quickstart, you interact with speech-to-text, text-to-speech, and speech translation without having to write code.
+description: In this Azure AI Speech CLI quickstart, you interact with speech to text, text to speech, and speech translation without having to write code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: eur
 ms.custom: mode-api
 ---
 
-# Quickstart: Get started with the Azure Speech CLI
+# Quickstart: Get started with the Azure AI Speech CLI
 
-In this article, you'll learn how to use the Azure Speech CLI (also called SPX) to access Speech services such as speech-to-text, text-to-speech, and speech translation, without having to write any code. The Speech CLI is production ready, and you can use it to automate simple workflows in the Speech service by using `.bat` or shell scripts.
+In this article, you'll learn how to use the Azure AI Speech CLI (also called SPX) to access Speech services such as speech to text, text to speech, and speech translation, without having to write any code. The Speech CLI is production ready, and you can use it to automate simple workflows in the Speech service by using `.bat` or shell scripts.
 
 This article assumes that you have working knowledge of the Command Prompt window, terminal, or PowerShell.
 
@@ -24,7 +24,7 @@ This article assumes that you have working knowledge of the Command Prompt windo
  
 ## Download and install
 
-[!INCLUDE [](includes/spx-setup.md)]
+[!INCLUDE [spx-setup](includes/spx-setup.md)]
 
 ## Create a resource configuration
 
@@ -82,6 +82,9 @@ spx --% config @region --clear
 
 ## Basic usage
 
+> [!IMPORTANT]
+> When you use the Speech CLI in a container, include the `--host` option. You must also specify `--key none` to ensure that the CLI doesn't try to use a Speech key for authentication. For example, run `spx recognize --key none --host wss://localhost:5000/ --file myaudio.wav` to recognize speech from an audio file in a [speech to text container](speech-container-stt.md).
+
 This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by viewing the help that's built into the tool by running the following command:
 
 ```console
@@ -102,7 +105,10 @@ spx help recognize
 
 Additional help commands are listed in the console output. You can enter these commands to get detailed help about subcommands.
 
-## Speech-to-text (speech recognition)
+## Speech to text (speech recognition)
+
+> [!NOTE]
+> You can't use your computer's microphone when you run the Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
 To convert speech to text (speech recognition) by using your system's default microphone, run the following command: 
 
@@ -118,15 +124,10 @@ With the Speech CLI, you can also recognize speech from an audio file. Run the f
 spx recognize --file /path/to/file.wav
 ```
 
-> [!NOTE]
-> If you're using a Docker container, `--microphone` will not work.
-> 
-> If you're recognizing speech from an audio file in a Docker container, make sure that the audio file is located in the directory that you mounted previously.
-
 > [!TIP]
 > If you get stuck or want to learn more about the Speech CLI recognition options, you can run ```spx help recognize```.
 
-## Text-to-speech (speech synthesis)
+## Text to speech (speech synthesis)
 
 The following command takes text as input and then outputs the synthesized speech to the current active output device (for example, your computer speakers).
 
@@ -155,9 +156,9 @@ spx synthesize --text "Bienvenue chez moi." --voice fr-FR-AlainNeural --speakers
 > [!TIP]
 > If you get stuck or want to learn more about the Speech CLI recognition options, you can run ```spx help synthesize```.
 
-## Speech-to-text translation
+## Speech to text translation
 
-With the Speech CLI, you can also do speech-to-text translation. Run the following command to capture audio from your default microphone and output the translation as text. Keep in mind that you need to supply the `source` and `target` language with the `translate` command.
+With the Speech CLI, you can also do speech to text translation. Run the following command to capture audio from your default microphone and output the translation as text. Keep in mind that you need to supply the `source` and `target` language with the `translate` command.
 
 ```console
 spx translate --microphone --source en-US --target ru-RU
@@ -174,9 +175,6 @@ If you want to save the output of your translation, use the `--output` flag. In 
 ```console
 spx translate --file /some/file/path/input.wav --source en-US --target ru-RU --output file /some/file/path/russian_translation.txt
 ```
-
-> [!NOTE]
-> For a list of all supported languages and their corresponding locale codes, see [Language and voice support for the Speech service](language-support.md?tabs=tts).
 
 > [!TIP]
 > If you get stuck or want to learn more about the Speech CLI recognition options, you can run ```spx help translate```.

@@ -14,6 +14,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 [Azure Database for PostgreSQL](./overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
 - [Single Server](./overview-single-server.md)

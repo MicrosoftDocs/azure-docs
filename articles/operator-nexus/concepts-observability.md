@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: observability using Azure Monitor"
 description: Operator Nexus uses Azure Monitor and collects and aggregates data in Azure Log Analytics Workspace (LAW). The analysis, visualization, and alerting is performed on this collected data.
-author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
-ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 03/06/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+author: mukesh-dua
+ms.author: mukeshdua
+ms.service: azure-operator-nexus
+ms.topic: conceptual
+ms.date: 03/06/2023
+ms.custom: template-concept
 ---
 
 # Azure Operator Nexus observability
@@ -109,11 +109,11 @@ See **[Getting Started with Azure Metrics Explorer](../azure-monitor/essentials/
 #### Workbooks
 
 Workbooks combine text, log queries, metrics, and parameters for data analysis and the creation of multiple kinds of rich visualizations.
-You can use the sample Azure Resource Manager workbook templates for [Operator Nexus Logging and Monitoring](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services) to deploy Azure Workbooks within your Azure LAW.
+You can use the sample Azure Resource Manager workbook templates for [Operator Nexus Logging and Monitoring](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Nexus) to deploy Azure Workbooks within your Azure LAW.
 
 #### Alerts
 
-You can use the sample Azure Resource Manager alarm templates for [Operator Nexus alerting rules](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services#alert-rules). You should specify thresholds and conditions for the alerts. You can then deploy these alert templates on your on-premises environment.
+You can use the sample Azure Resource Manager alarm templates for [Operator Nexus alerting rules](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Nexus#alert-rules). You should specify thresholds and conditions for the alerts. You can then deploy these alert templates on your on-premises environment.
 
 ## Log Analytic Workspace
 

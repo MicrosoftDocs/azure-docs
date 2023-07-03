@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 03/12/2023
+ms.date: 07/03/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 03/12/2023.
+Date list was last updated: 07/03/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface).  
 
@@ -58,7 +58,6 @@ The Azure Monitor agent replaces the Azure Diagnostics extension and Log Analyti
 
 This latest update adds a new column and reorders the metrics to be alphabetical. The additional information means that the tables might have a horizontal scroll bar at the bottom, depending on the width of your browser window. If you seem to be missing information, use the scroll bar to see the entirety of the table.
 
-
 ## Microsoft.AAD/DomainServices  
 <!-- Data source : naam-->
 
@@ -74,21 +73,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |\Processor(_Total)\% Processor Time |Yes |Total Processor Time |Percent |Average |This metric indicates the percentage of elapsed time that the processor spends to execute a non-Idle thread. It is calculated by measuring the percentage of time that the processor spends executing the idle thread and then subtracting that value from 100%. (Each processor has an idle thread that consumes cycles when no other threads are ready to run). This counter is the primary indicator of processor activity, and displays the average percentage of busy time observed during the sample interval. It should be noted that the accounting calculation of whether the processor is idle is performed at an internal sampling interval of the system clock (10ms). On todays fast processors, % Processor Time can therefore underestimate the processor utilization as the processor may be spending a lot of time servicing threads between the system clock sampling interval. Workload based timer applications are one example  of applications  which are more likely to be measured inaccurately as timers are signaled just after the sample is taken. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance. |DataCenter, Tenant, Role, RoleInstance, ScaleUnit |
 |\Security System-Wide Statistics\Kerberos Authentications |Yes |Kerberos Authentications |CountPerSecond |Average |This metric indicates the number of times that clients use a ticket to authenticate to this computer per second. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance. |DataCenter, Tenant, Role, RoleInstance, ScaleUnit |
 |\Security System-Wide Statistics\NTLM Authentications |Yes |NTLM Authentications |CountPerSecond |Average |This metric indicates the number of NTLM authentications processed per second for the Active Directory on this domain contrller or for local accounts on this member server. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance. |DataCenter, Tenant, Role, RoleInstance, ScaleUnit |
-
-
-## microsoft.aadiam/azureADMetrics  
-<!-- Data source : naam-->
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|CACompliantDeviceSuccessCount |Yes |CACompliantDeviceSuccessCount |Count |Count |CA comliant device scuccess count for Azure AD |No Dimensions |
-|CAManagedDeviceSuccessCount |No |CAManagedDeviceSuccessCount |Count |Count |CA domain join device success count for Azure AD |No Dimensions |
-|MFAAttemptCount |No |MFAAttemptCount |Count |Count |MFA attempt count for Azure AD |No Dimensions |
-|MFAFailureCount |No |MFAFailureCount |Count |Count |MFA failure count for Azure AD |No Dimensions |
-|MFASuccessCount |No |MFASuccessCount |Count |Count |MFA success count for Azure AD |No Dimensions |
-|SamlFailureCount |Yes |SamlFailureCount |Count |Count |Saml token failure count for relying party scenario |No Dimensions |
-|SamlSuccessCount |Yes |SamlSuccessCount |Count |Count |Saml token scuccess count for relying party scenario |No Dimensions |
-
 
 ## Microsoft.AnalysisServices/servers  
 <!-- Data source : arm-->
@@ -143,7 +127,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VertiPaqPaged |Yes |Memory: VertiPaq Paged |Bytes |Average |Bytes of paged memory in use for in-memory data. |ServerResourceType |
 |virtual_bytes_metric |Yes |Virtual Bytes |Bytes |Average |Virtual bytes. |ServerResourceType |
 
-
 ## Microsoft.ApiManagement/service  
 <!-- Data source : naam-->
 
@@ -170,7 +153,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnauthorizedRequests |Yes |Unauthorized Gateway Requests (Deprecated) |Count |Total |Number of unauthorized gateway requests - Use multi-dimension request metric with GatewayResponseCodeCategory dimension instead |Location, Hostname |
 |WebSocketMessages |Yes |WebSocket Messages (Preview) |Count |Total |Count of WebSocket messages based on selected source and destination |Location, Source, Destination |
 
-
 ## Microsoft.App/containerapps  
 <!-- Data source : naam-->
 
@@ -186,7 +168,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UsageNanoCores |Yes |CPU Usage |NanoCores |Average |CPU consumed by the container app, in nano cores. 1,000,000,000 nano cores = 1 core |revisionName, podName |
 |WorkingSetBytes |Yes |Memory Working Set Bytes |Bytes |Average |Container App working set memory used in bytes. |revisionName, podName |
 
-
 ## Microsoft.App/managedEnvironments  
 <!-- Data source : naam-->
 
@@ -194,7 +175,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |EnvCoresQuotaLimit |Yes |Cores Quota Limit |Count |Average |The cores quota limit of managed environment |No Dimensions |
 |EnvCoresQuotaUtilization |Yes |Percentage Cores Used Out Of Limit |Percent |Average |The cores quota utilization of managed environment |No Dimensions |
-
 
 ## Microsoft.AppConfiguration/configurationStores  
 <!-- Data source : naam-->
@@ -205,7 +185,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |HttpIncomingRequestCount |Yes |HttpIncomingRequestCount |Count |Total |Total number of incoming http requests. |StatusCode, Authentication, Endpoint |
 |HttpIncomingRequestDuration |Yes |HttpIncomingRequestDuration |Count |Average |Latency on an http request. |StatusCode, Authentication, Endpoint |
 |ThrottledHttpRequestCount |Yes |ThrottledHttpRequestCount |Count |Total |Throttled http requests. |Endpoint |
-
 
 ## Microsoft.AppPlatform/Spring  
 <!-- Data source : arm-->
@@ -296,7 +275,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |working-set |Yes |working-set |Count |Average |Amount of working set used by the process (MB) |Deployment, AppName, Pod |
 |WorkingSetBytes |Yes |Memory Working Set Bytes |Bytes |Average |Spring App working set memory used in bytes. |containerAppName, podName |
 
-
 ## Microsoft.Automation/automationAccounts  
 <!-- Data source : naam-->
 
@@ -306,7 +284,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalJob |Yes |Total Jobs |Count |Total |The total number of jobs |Runbook, Status |
 |TotalUpdateDeploymentMachineRuns |Yes |Total Update Deployment Machine Runs |Count |Total |Total software update deployment machine runs in a software update deployment run |Status, TargetComputer, SoftwareUpdateConfigurationName, SoftwareUpdateConfigurationRunId |
 |TotalUpdateDeploymentRuns |Yes |Total Update Deployment Runs |Count |Total |Total software update deployment runs |Status, SoftwareUpdateConfigurationName |
-
 
 ## microsoft.avs/privateClouds  
 <!-- Data source : naam-->
@@ -322,15 +299,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UsageAverage |Yes |Average Memory Usage |Percent |Average |Memory usage as percentage of total configured or available memory |clustername |
 |UsedLatest |Yes |Datastore Disk Used |Bytes |Average |The total amount of disk used in the datastore |dsname |
 
-
 ## microsoft.azuresphere/catalogs  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|DeviceAttestationCount |Yes |Device Attestation Requests |Count |Count |Count of all the requests sent by an Azure Sphere device for authentication and attestation. |DeviceId, CatalogId, StatusCodeClass |
-|DeviceErrorCount |Yes |Device Errors |Count |Count |Count of all the errors encountered by an Azure Sphere device. |DeviceId, CatalogId, ErrorCategory, ErrorClass, ErrorType |
-
+|DeviceEventsCount |Yes |Device Events |Count |Count |Count of all the events generated by an Azure Sphere device. |DeviceId, EventCategory, EventClass, EventType |
+|DeviceRequestsCount |Yes |Device Requests |Count |Count |Count of all the requests sent by an Azure Sphere device. |DeviceId, OperationName, ResultType |
 
 ## Microsoft.Batch/batchaccounts  
 <!-- Data source : naam-->
@@ -369,7 +344,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UnusableNodeCount |No |Unusable Node Count |Count |Total |Number of unusable nodes |No Dimensions |
 |WaitingForStartTaskNodeCount |No |Waiting For Start Task Node Count |Count |Total |Number of nodes waiting for the Start Task to complete |No Dimensions |
 
-
 ## microsoft.bing/accounts  
 <!-- Data source : naam-->
 
@@ -385,7 +359,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalCalls |Yes |Total Calls |Count |Total |Total number of calls |ApiName, ServingRegion, StatusCode |
 |TotalErrors |Yes |Total Errors |Count |Total |Number of calls with any error (HTTP status code 4xx or 5xx) |ApiName, ServingRegion, StatusCode |
 
-
 ## microsoft.botservice/botservices  
 <!-- Data source : naam-->
 
@@ -393,7 +366,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |RequestLatency |Yes |Request Latency |Milliseconds |Total |Time taken by the server to process the request |Operation, Authentication, Protocol, DataCenter |
 |RequestsTraffic |Yes |Requests Traffic |Percent |Count |Number of Requests Made |Operation, Authentication, Protocol, StatusCode, StatusCodeClass, DataCenter |
-
 
 ## Microsoft.BotService/botServices/channels  
 <!-- Data source : arm-->
@@ -403,7 +375,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestLatency |Yes |Requests Latencies |Milliseconds |Average |How long it takes to get request response |Operation, Authentication, Protocol, ResourceId, Region |
 |RequestsTraffic |Yes |Requests Traffic |Count |Average |Number of requests within a given period of time |Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText |
 
-
 ## Microsoft.BotService/botServices/connections  
 <!-- Data source : arm-->
 
@@ -411,7 +382,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |RequestLatency |Yes |Requests Latencies |Milliseconds |Average |How long it takes to get request response |Operation, Authentication, Protocol, ResourceId, Region |
 |RequestsTraffic |Yes |Requests Traffic |Count |Average |Number of requests within a given period of time |Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText |
-
 
 ## Microsoft.BotService/checknameavailability  
 <!-- Data source : arm-->
@@ -421,7 +391,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestLatency |Yes |Requests Latencies |Milliseconds |Average |How long it takes to get request response |Operation, Authentication, Protocol, ResourceId, Region |
 |RequestsTraffic |Yes |Requests Traffic |Count |Average |Number of requests within a given period of time |Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText |
 
-
 ## Microsoft.BotService/hostsettings  
 <!-- Data source : arm-->
 
@@ -429,7 +398,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |RequestLatency |Yes |Requests Latencies |Milliseconds |Average |How long it takes to get request response |Operation, Authentication, Protocol, ResourceId, Region |
 |RequestsTraffic |Yes |Requests Traffic |Count |Average |Number of requests within a given period of time |Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText |
-
 
 ## Microsoft.BotService/listauthserviceproviders  
 <!-- Data source : arm-->
@@ -439,7 +407,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestLatency |Yes |Requests Latencies |Milliseconds |Average |How long it takes to get request response |Operation, Authentication, Protocol, ResourceId, Region |
 |RequestsTraffic |Yes |Requests Traffic |Count |Average |Number of requests within a given period of time |Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText |
 
-
 ## Microsoft.BotService/listqnamakerendpointkeys  
 <!-- Data source : arm-->
 
@@ -447,7 +414,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |RequestLatency |Yes |Requests Latencies |Milliseconds |Average |How long it takes to get request response |Operation, Authentication, Protocol, ResourceId, Region |
 |RequestsTraffic |Yes |Requests Traffic |Count |Average |Number of requests within a given period of time |Operation, Authentication, Protocol, ResourceId, Region, StatusCode, StatusCodeClass, StatusText |
-
 
 ## Microsoft.Cache/redis  
 <!-- Data source : naam-->
@@ -530,6 +496,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |connectedclients7 |Yes |Connected Clients (Shard 7) |Count |Maximum |The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
 |connectedclients8 |Yes |Connected Clients (Shard 8) |Count |Maximum |The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
 |connectedclients9 |Yes |Connected Clients (Shard 9) |Count |Maximum |The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
+|ConnectedClientsUsingAADToken |Yes |Connected Clients using AAD Token (Instance Based) |Count |Maximum |The number of client connections to the cache using AAD Token. For more details, see https://aka.ms/redis/metrics. |ShardId, Port, Primary |
 |errors |Yes |Errors |Count |Maximum |The number errors that occured on the cache. For more details, see https://aka.ms/redis/metrics. |ShardId, ErrorType |
 |evictedkeys |Yes |Evicted Keys |Count |Total |The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics. |ShardId |
 |evictedkeys0 |Yes |Evicted Keys (Shard 0) |Count |Total |The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
@@ -569,6 +536,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |getcommands7 |Yes |Gets (Shard 7) |Count |Total |The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
 |getcommands8 |Yes |Gets (Shard 8) |Count |Total |The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
 |getcommands9 |Yes |Gets (Shard 9) |Count |Total |The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
+|LatencyP99 |Yes |99th percentile latency |Count |Maximum |Measures the worst-case (99th percentile) latency of server-side commands in microseconds. Measured by issuing PING commands from the load balancer to the Redis server and tracking the time to respond. |No Dimensions |
 |operationsPerSecond |Yes |Operations Per Second |Count |Maximum |The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics. |ShardId |
 |operationsPerSecond0 |Yes |Operations Per Second (Shard 0) |Count |Maximum |The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
 |operationsPerSecond1 |Yes |Operations Per Second (Shard 1) |Count |Maximum |The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
@@ -659,7 +627,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |usedmemoryRss8 |Yes |Used Memory RSS (Shard 8) |Bytes |Maximum |The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
 |usedmemoryRss9 |Yes |Used Memory RSS (Shard 9) |Bytes |Maximum |The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics. |No Dimensions |
 
-
 ## Microsoft.Cache/redisEnterprise  
 <!-- Data source : arm-->
 
@@ -685,14 +652,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |usedmemory |Yes |Used Memory |Bytes |Maximum |The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/enterprise/metrics. |No Dimensions |
 |usedmemorypercentage |Yes |Used Memory Percentage |Percent |Maximum |The percentage of cache memory used for key/value pairs. For more details, see https://aka.ms/redis/enterprise/metrics. |InstanceId |
 
-
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |WebApplicationFirewallRequestCount |Yes |Web Application Firewall Request Count |Count |Total |The number of client requests processed by the Web Application Firewall |PolicyName, RuleName, Action |
-
 
 ## Microsoft.Cdn/profiles  
 <!-- Data source : naam-->
@@ -711,7 +676,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalLatency |Yes |Total Latency |MilliSeconds |Average |The time calculated from when the client request was received by the HTTP/S proxy until the client acknowledged the last response byte from the HTTP/S proxy |HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry, Endpoint |
 |WebApplicationFirewallRequestCount |Yes |Web Application Firewall Request Count |Count |Total |The number of client requests processed by the Web Application Firewall |PolicyName, RuleName, Action |
 
-
 ## Microsoft.ClassicCompute/domainNames/slots/roles  
 <!-- Data source : arm-->
 
@@ -724,7 +688,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Network In |Yes |Network In |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic). |RoleInstanceId |
 |Network Out |Yes |Network Out |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic). |RoleInstanceId |
 |Percentage CPU |Yes |Percentage CPU |Percent |Average |The percentage of allocated compute units that are currently in use by the Virtual Machine(s). |RoleInstanceId |
-
 
 ## Microsoft.ClassicCompute/virtualMachines  
 <!-- Data source : arm-->
@@ -739,7 +702,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Network Out |Yes |Network Out |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic). |No Dimensions |
 |Percentage CPU |Yes |Percentage CPU |Percent |Average |The percentage of allocated compute units that are currently in use by the Virtual Machine(s). |No Dimensions |
 
-
 ## Microsoft.ClassicStorage/storageAccounts  
 <!-- Data source : arm-->
 
@@ -752,7 +714,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessServerLatency |Yes |Success Server Latency |Milliseconds |Average |The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication |
 |UsedCapacity |No |Used capacity |Bytes |Average |Account used capacity |No Dimensions |
-
 
 ## Microsoft.ClassicStorage/storageAccounts/blobServices  
 <!-- Data source : arm-->
@@ -769,7 +730,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency |Yes |Success E2E Latency |Milliseconds |Average |The end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. |GeoType, ApiName, Authentication |
 |SuccessServerLatency |Yes |Success Server Latency |Milliseconds |Average |The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication |
-
 
 ## Microsoft.ClassicStorage/storageAccounts/fileServices  
 <!-- Data source : arm-->
@@ -789,7 +749,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessServerLatency |Yes |Success Server Latency |Milliseconds |Average |The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication, FileShare |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication, FileShare |
 
-
 ## Microsoft.ClassicStorage/storageAccounts/queueServices  
 <!-- Data source : arm-->
 
@@ -805,7 +764,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessServerLatency |Yes |Success Server Latency |Milliseconds |Average |The latency used by Azure Storage to process a successful request, in milliseconds. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication |
 
-
 ## Microsoft.ClassicStorage/storageAccounts/tableServices  
 <!-- Data source : arm-->
 
@@ -820,7 +778,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TableCount |No |Table Count |Count |Average |The number of table in the storage account's Table service. |No Dimensions |
 |TableEntityCount |No |Table Entity Count |Count |Average |The number of table entities in the storage account's Table service. |No Dimensions |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication |
-
 
 ## Microsoft.Cloudtest/hostedpools  
 <!-- Data source : naam-->
@@ -838,7 +795,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Starting |Yes |Starting |Count |Average |Resources that are starting |PoolId, SKU, Images, ProviderName |
 |Total |Yes |Total |Count |Average |Total Number of Resources |PoolId, SKU, Images, ProviderName |
 
-
 ## Microsoft.Cloudtest/pools  
 <!-- Data source : naam-->
 
@@ -855,7 +811,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Starting |Yes |Starting |Count |Average |Resources that are starting |PoolId, SKU, Images, ProviderName |
 |Total |Yes |Total |Count |Average |Total Number of Resources |PoolId, SKU, Images, ProviderName |
 
-
 ## Microsoft.ClusterStor/nodes  
 <!-- Data source : naam-->
 
@@ -866,15 +821,24 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalRead |No |TotalRead |BytesPerSecond |Average |The total lustre file system read per second |filesystem_name, category, system |
 |TotalWrite |No |TotalWrite |BytesPerSecond |Average |The total lustre file system write per second |filesystem_name, category, system |
 
-
 ## Microsoft.CodeSigning/codesigningaccounts  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |SignCompleted |Yes |SignCompleted |Count |Count |Completed Sign Request |CertType, Region, TenantId |
-|SignFailed |Yes |SignFailed |Count |Count |Failed Sign Request |CertType, Region, TenantId |
 
+## Microsoft.CognitiveSearch/indexes  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|IndexReadVCoreAllocationCurrent |No |Query Capacity Current vCore |Cores |Maximum |The currently allocated vCore capacity for querying an index |IndexSin |
+|IndexReadVCoreAllocationMaximum |No |Query Capacity Maximum vCore |Cores |Maximum |The upper bound of vCore usage for querying an index |IndexSin |
+|IndexReadVCoreAllocationMinimum |No |Query Capacity Minimum vCore |Cores |Maximum |The lower bound of vCore capacity for querying an index |IndexSin |
+|IndexWriteVCoreAllocationCurrent |No |Indexing Capacity Current vCore |Cores |Maximum |The currently allocated vCore consumption for indexing documents |IndexSin |
+|IndexWriteVCoreAllocationMaximum |No |Indexing Capacity Maximum vCore |Cores |Maximum |The upper bound of vCore usage for indexing documents |IndexSin |
+|IndexWriteVCoreAllocationMinimum |No |Indexing Capacity Minimum vCore |Cores |Maximum |The lower bound of vCore usage for indexing documents |IndexSin |
 
 ## Microsoft.CognitiveServices/accounts  
 <!-- Data source : naam-->
@@ -886,14 +850,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ActionIdOccurrences |Yes |Action Occurences |Count |Total |Number of times each action appears. |ActionId, Mode, RunId |
 |ActionNamespacesPerEvent |Yes |Action Namespaces Per Event |Count |Average |Average number of action namespaces per event. |Mode, RunId |
 |ActionsPerEvent |Yes |Actions Per Event |Count |Average |Number of actions per event. |Mode, RunId |
-|AdaFineTunedTokenTransaction |Yes |Processed Ada FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on an Ada FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|AdaFineTunedTrainingHours |Yes |Processed Ada FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on an Ada FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|AdaTokenTransaction |Yes |Processed Ada Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on an Ada Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |AudioSecondsTranscribed |Yes |Audio Seconds Transcribed |Count |Total |Number of seconds transcribed |ApiName, FeatureName, UsageChannel, Region |
 |AudioSecondsTranslated |Yes |Audio Seconds Translated |Count |Total |Number of seconds translated |ApiName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTokenTransaction |Yes |Processed Babbage FineFuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a Babbage FineFuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTrainingHours |Yes |Processed Babbage FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Babbage FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|BabbageTokenTransaction |Yes |Processed Babbage Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Babbage Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |BaselineEstimatorOverallReward |Yes |Baseline Estimator Overall Reward |Count |Average |Baseline Estimator Overall Reward. |Mode, RunId |
 |BaselineEstimatorSlotReward |Yes |Baseline Estimator Slot Reward |Count |Average |Baseline Estimator Reward by slot. |SlotId, SlotIndex, Mode, RunId |
 |BaselineRandomEstimatorOverallReward |Yes |Baseline Random Estimator Overall Reward |Count |Average |Baseline Random Estimator Overall Reward. |Mode, RunId |
@@ -901,26 +859,20 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BaselineRandomEventCount |Yes |Baseline Random Event count |Count |Total |Estimation for baseline random event count. |Mode, RunId |
 |BaselineRandomReward |Yes |Baseline Random Reward |Count |Total |Estimation for baseline random reward. |Mode, RunId |
 |BlockedCalls |Yes |Blocked Calls |Count |Total |Number of calls that exceeded rate or quota limit. |ApiName, OperationName, Region, RatelimitKey |
+|CarnegieInferenceCount |Yes |Inference Count |Count |Total |Inference Count of Carnegie Frontdoor Service |Region, Modality, Category, Language, SeverityLevel, UseCustomList |
 |CharactersTrained |Yes |Characters Trained (Deprecated) |Count |Total |Total number of characters trained. |ApiName, OperationName, Region |
 |CharactersTranslated |Yes |Characters Translated (Deprecated) |Count |Total |Total number of characters in incoming text request. |ApiName, OperationName, Region |
 |ClientErrors |Yes |Client Errors |Count |Total |Number of calls with client side error (HTTP response code 4xx). |ApiName, OperationName, Region, RatelimitKey |
-|CodeCushman001FineTunedTokenTransaction |Yes |Processed Code-Cushman-001 FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CodeCushman001FineTunedTrainingHours |Yes |Processed Code-Cushman-001 FineTuned Traning Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Code-Cushman-001 FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CodeCushman001TokenTransaction |Yes |Processed Code-Cushman-001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |ComputerVisionTransactions |Yes |Computer Vision Transactions |Count |Total |Number of Computer Vision Transactions |ApiName, FeatureName, UsageChannel, Region |
+|ContentSafetyImageAnalyzeRequestCount |Yes |Call Count for Image Moderation |Count |Total |Number of calls for image moderation. |ApiVersion |
+|ContentSafetyTextAnalyzeRequestCount |Yes |Call Count for Text Moderation |Count |Total |Number of calls for text moderation. |ApiVersion |
 |ContextFeatureIdOccurrences |Yes |Context Feature Occurrences |Count |Total |Number of times each context feature appears. |FeatureId, Mode, RunId |
 |ContextFeaturesPerEvent |Yes |Context Features Per Event |Count |Average |Number of context features per event. |Mode, RunId |
 |ContextNamespacesPerEvent |Yes |Context Namespaces Per Event |Count |Average |Number of context namespaces per event. |Mode, RunId |
-|CurieFineTunedTokenTransaction |Yes |Processed Curie FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a Curie FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CurieFineTunedTrainingHours |Yes |Processed Curie FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Curie FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CurieTokenTransaction |Yes |Processed Curie Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Curie Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |CustomVisionTrainingTime |Yes |Custom Vision Training Time |Seconds |Total |Custom Vision training time |ApiName, FeatureName, UsageChannel, Region |
 |CustomVisionTransactions |Yes |Custom Vision Transactions |Count |Total |Number of Custom Vision prediction transactions |ApiName, FeatureName, UsageChannel, Region |
 |DataIn |Yes |Data In |Bytes |Total |Size of incoming data in bytes. |ApiName, OperationName, Region |
 |DataOut |Yes |Data Out |Bytes |Total |Size of outgoing data in bytes. |ApiName, OperationName, Region |
-|DavinciFineTunedTokenTransaction |Yes |Processed Davinci FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Davinci FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|DavinciFineTunedTrainingHours |Yes |Processed Davinci FineTuned Traning Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Davinci FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|DavinciTokenTransaction |Yes |Processed Davinci Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Davinci Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |DocumentCharactersTranslated |Yes |Document Characters Translated |Count |Total |Number of characters in document translation request. |ApiName, FeatureName, UsageChannel, Region |
 |DocumentCustomCharactersTranslated |Yes |Document Custom Characters Translated |Count |Total |Number of characters in custom document translation request. |ApiName, FeatureName, UsageChannel, Region |
 |FaceImagesTrained |Yes |Face Images Trained |Count |Total |Number of images trained. 1,000 images trained per transaction. |ApiName, FeatureName, UsageChannel, Region |
@@ -930,6 +882,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |FeatureCardinality_Context |Yes |Feature Cardinality by Context |Count |Average |Feature Cardinality based on Context. |FeatureId, Mode, RunId |
 |FeatureCardinality_Slot |Yes |Feature Cardinality by Slot |Count |Average |Feature Cardinality based on Slot. |FeatureId, Mode, RunId |
 |FineTunedTrainingHours |Yes |Processed FineTuned Training Hours |Count |Total |Number of Training Hours Processed on an OpenAI FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|GeneratedTokens |Yes |Generated Completion Tokens |Count |Total |Number of Generated Tokens from an OpenAI Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |ImagesStored |Yes |Images Stored |Count |Total |Number of Custom Vision images stored. |ApiName, FeatureName, UsageChannel, Region |
 |Latency |Yes |Latency |MilliSeconds |Average |Latency in milliseconds. |ApiName, OperationName, Region, RatelimitKey |
 |LearnedEvents |Yes |Learned Events |Count |Total |Number of Learned Events. |IsMatchBaseline, Mode, RunId |
@@ -948,6 +901,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ProcessedHealthTextRecords |Yes |Processed Health Text Records |Count |Total |Number of health text records processed |ApiName, FeatureName, UsageChannel, Region |
 |ProcessedImages |Yes |Processed Images |Count |Total |Number of images processed |ApiName, FeatureName, UsageChannel, Region |
 |ProcessedPages |Yes |Processed Pages |Count |Total |Number of pages processed |ApiName, FeatureName, UsageChannel, Region |
+|ProcessedPromptTokens |Yes |Processed Prompt Tokens |Count |Total |Number of Prompt Tokens Processed on an OpenAI Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |ProcessedTextRecords |Yes |Processed Text Records |Count |Total |Count of Text Records. |ApiName, FeatureName, UsageChannel, Region |
 |QuestionAnsweringTextRecords |Yes |QA Text Records |Count |Total |Number of text records processed |ApiName, FeatureName, UsageChannel, Region |
 |Ratelimit |Yes |Ratelimit |Count |Total |The current ratelimit of the ratelimit key. |Region, RatelimitKey |
@@ -962,15 +916,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SpeechModelHostingHours |Yes |Speech Model Hosting Hours |Count |Total |Number of speech model hosting hours |ApiName, FeatureName, UsageChannel, Region |
 |SpeechSessionDuration |Yes |Speech Session Duration (Deprecated) |Seconds |Total |Total duration of speech session in seconds. |ApiName, OperationName, Region |
 |SuccessfulCalls |Yes |Successful Calls |Count |Total |Number of successful calls. |ApiName, OperationName, Region, RatelimitKey |
-|SuccessRate |No |Availability |Percent |Average |Availability percentage with the following calculation: (Total Calls - Server Errors)/Total Calls. Server Errors include any HTTP responses >=500. |ApiName, OperationName, Region, RatelimitKey |
+|SuccessRate |No |AvailabilityRate |Percent |Average |Availability percentage with the following calculation: (Total Calls - Server Errors)/Total Calls. Server Errors include any HTTP responses >=500. |ApiName, OperationName, Region, RatelimitKey |
 |SynthesizedCharacters |Yes |Synthesized Characters |Count |Total |Number of Characters. |ApiName, FeatureName, UsageChannel, Region |
-|TextAda001TokenTransaction |Yes |Processed Text Ada 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a text-ada-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextBabbage001TokenTransaction |Yes |Processed Text Babbage 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a text-babbage-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextCharactersTranslated |Yes |Text Characters Translated |Count |Total |Number of characters in incoming text translation request. |ApiName, FeatureName, UsageChannel, Region |
-|TextCurie001TokenTransaction |Yes |Processed Text Curie 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-curie-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextCustomCharactersTranslated |Yes |Text Custom Characters Translated |Count |Total |Number of characters in incoming custom text translation request. |ApiName, FeatureName, UsageChannel, Region |
-|TextDavinci001TokenTransaction |Yes |Processed Text Davinci 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-davinci-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextDavinci002TokenTransaction |Yes |Processed Text Davinci 002 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-davinci-002 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextTrainedCharacters |Yes |Text Trained Characters |Count |Total |Number of characters trained using text translation. |ApiName, FeatureName, UsageChannel, Region |
 |TokenTransaction |Yes |Processed Inference Tokens |Count |Total |Number of Inference Tokens Processed on an OpenAI Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TotalCalls |Yes |Total Calls |Count |Total |Total number of calls. |ApiName, OperationName, Region, RatelimitKey |
@@ -983,7 +932,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VoiceModelHostingHours |Yes |Voice Model Hosting Hours |Count |Total |Number of Hours. |ApiName, FeatureName, UsageChannel, Region |
 |VoiceModelTrainingMinutes |Yes |Voice Model Training Minutes |Count |Total |Number of Minutes. |ApiName, FeatureName, UsageChannel, Region |
 
-
 ## Microsoft.Communication/CommunicationServices  
 <!-- Data source : naam-->
 
@@ -995,11 +943,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |APIRequestChat |Yes |Chat API Requests |Count |Count |Count of all requests against the Communication Services Chat endpoint. |Operation, StatusCode, StatusCodeClass |
 |APIRequestNetworkTraversal |No |Network Traversal API Requests |Count |Count |Count of all requests against the Communication Services Network Traversal endpoint. |Operation, StatusCode, StatusCodeClass |
 |ApiRequestRooms |Yes |Rooms API Requests |Count |Count |Count of all requests against the Communication Services Rooms endpoint. |Operation, StatusCode, StatusCodeClass |
+|ApiRequestRouter |Yes |Job Router API Requests |Count |Count |Count of all requests against the Communication Services Job Router endpoint. |OperationName, StatusCode, StatusCodeSubClass, ApiVersion |
 |ApiRequests |Yes |Email Service API Requests |Count |Count |Email Communication Services API request metric for the data-plane API surface. |Operation, StatusCode, StatusCodeClass, StatusCodeReason |
-|APIRequestSMS |Yes |SMS API Requests |Count |Count |Count of all requests against the Communication Services SMS endpoint. |Operation, StatusCode, StatusCodeClass, ErrorCode, NumberType |
-|DeliveryStatusUpdate |Yes |Email Service Delivery Status Updates |Count |Count |Email Communication Services message delivery results. |MessageStatus, Result |
+|APIRequestSMS |Yes |SMS API Requests |Count |Count |Count of all requests against the Communication Services SMS endpoint. |Operation, StatusCode, StatusCodeClass, ErrorCode, NumberType, Country, OptAction |
+|DeliveryStatusUpdate |Yes |Email Service Delivery Status Updates |Count |Count |Email Communication Services message delivery results. |MessageStatus, Result, SmtpStatusCode, EnhancedSmtpStatusCode, SenderDomain, IsHardBounce |
 |UserEngagement |Yes |Email Service User Engagement |Count |Count |Email Communication Services user engagement metrics. |EngagementType |
-
 
 ## Microsoft.Compute/cloudservices  
 <!-- Data source : naam-->
@@ -1015,7 +963,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |RoleInstanceId, RoleId |
 |Percentage CPU |Yes |Percentage CPU |Percent |Average |The percentage of allocated compute units that are currently in use by the Virtual Machine(s) |RoleInstanceId, RoleId |
 
-
 ## Microsoft.Compute/cloudServices/roles  
 <!-- Data source : arm-->
 
@@ -1030,7 +977,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |RoleInstanceId, RoleId |
 |Percentage CPU |Yes |Percentage CPU |Percent |Average |The percentage of allocated compute units that are currently in use by the Virtual Machine(s) |RoleInstanceId, RoleId |
 
-
 ## microsoft.compute/disks  
 <!-- Data source : naam-->
 
@@ -1041,7 +987,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Composite Disk Write Bytes/sec |No |Disk Write Bytes/sec(Preview) |BytesPerSecond |Average |Bytes/sec written to disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available |No Dimensions |
 |Composite Disk Write Operations/sec |No |Disk Write Operations/sec(Preview) |CountPerSecond |Average |Number of Write IOs performed on a disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available |No Dimensions |
 |DiskPaidBurstIOPS |No |Disk On-demand Burst Operations(Preview) |Count |Average |The accumulated operations of burst transactions used for disks with on-demand burst enabled. Emitted on an hour interval |No Dimensions |
-
 
 ## Microsoft.Compute/virtualMachines  
 <!-- Data source : naam-->
@@ -1104,7 +1049,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VM Uncached IOPS Consumed Percentage |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
 |VmAvailabilityMetric |Yes |VM Availability Metric (Preview) |Count |Average |Measure of Availability of Virtual machines over time. |No Dimensions |
 
-
 ## Microsoft.Compute/virtualmachineScaleSets  
 <!-- Data source : naam-->
 
@@ -1166,7 +1110,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VM Uncached IOPS Consumed Percentage |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM |VMName |
 |VmAvailabilityMetric |Yes |VM Availability Metric (Preview) |Count |Average |Measure of Availability of Virtual machines over time. |VMName |
 
-
 ## Microsoft.Compute/virtualMachineScaleSets/virtualMachines  
 <!-- Data source : arm-->
 
@@ -1223,7 +1166,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VM Uncached Bandwidth Consumed Percentage |Yes |VM Uncached Bandwidth Consumed Percentage |Percent |Average |Percentage of uncached disk bandwidth consumed by the VM |No Dimensions |
 |VM Uncached IOPS Consumed Percentage |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM |No Dimensions |
 
-
 ## Microsoft.ConnectedCache/CacheNodes  
 <!-- Data source : naam-->
 
@@ -1235,7 +1177,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |hitsbps |Yes |Hit Mbps |BitsPerSecond |Average |Hit Throughput |cachenodeid |
 |misses |Yes |Misses |Count |Count |Count of misses |cachenodeid |
 |missesbps |Yes |Miss Mbps |BitsPerSecond |Average |Miss Throughput |cachenodeid |
-
 
 ## Microsoft.ConnectedCache/ispCustomers  
 <!-- Data source : naam-->
@@ -1250,7 +1191,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |misses |Yes |Misses |Count |Count |Count of misses |cachenodeid |
 |missesbps |Yes |Miss Mbps |BitsPerSecond |Average |Miss Throughput |cachenodeid |
 |outboundbps |Yes |Outbound |BitsPerSecond |Average |Outbound Throughput |cachenodeid |
-
 
 ## Microsoft.ConnectedVehicle/platformAccounts  
 <!-- Data source : naam-->
@@ -1273,7 +1213,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StateStoreWriteRequestLatency |Yes |State store write execution time |Milliseconds |Average |State store write request execution time average in milliseconds. |ExtensionName, IsSuccessful, FailureCategory |
 |StateStoreWriteRequests |Yes |State store write requests |Count |Total |Number of write requests to state store |ExtensionName, IsSuccessful, FailureCategory |
 
-
 ## Microsoft.ContainerInstance/containerGroups  
 <!-- Data source : arm-->
 
@@ -1283,7 +1222,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MemoryUsage |Yes |Memory Usage |Bytes |Average |Total memory usage in byte. |containerName |
 |NetworkBytesReceivedPerSecond |Yes |Network Bytes Received Per Second |Bytes |Average |The network bytes received per second. |No Dimensions |
 |NetworkBytesTransmittedPerSecond |Yes |Network Bytes Transmitted Per Second |Bytes |Average |The network bytes transmitted per second. |No Dimensions |
-
 
 ## Microsoft.ContainerRegistry/registries  
 <!-- Data source : naam-->
@@ -1297,7 +1235,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessfulPushCount |Yes |Successful Push Count |Count |Total |Number of successful image pushes |No Dimensions |
 |TotalPullCount |Yes |Total Pull Count |Count |Total |Number of image pulls in total |No Dimensions |
 |TotalPushCount |Yes |Total Push Count |Count |Total |Number of image pushes in total |No Dimensions |
-
 
 ## Microsoft.ContainerService/managedClusters  
 <!-- Data source : naam-->
@@ -1325,7 +1262,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |node_network_in_bytes |Yes |Network In Bytes |Bytes |Average |Network received bytes |node, nodepool |
 |node_network_out_bytes |Yes |Network Out Bytes |Bytes |Average |Network transmitted bytes |node, nodepool |
 
-
 ## Microsoft.CustomProviders/resourceproviders  
 <!-- Data source : arm-->
 
@@ -1334,14 +1270,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |FailedRequests |Yes |Failed Requests |Count |Total |Gets the available logs for Custom Resource Providers |HttpMethod, CallPath, StatusCode |
 |SuccessfullRequests |Yes |Successful Requests |Count |Total |Successful requests made by the custom provider |HttpMethod, CallPath, StatusCode |
 
-
 ## Microsoft.Dashboard/grafana  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |HttpRequestCount |No |HttpRequestCount |Count |Count |Number of HTTP requests to Azure Managed Grafana server |No Dimensions |
-
 
 ## Microsoft.DataBoxEdge/dataBoxEdgeDevices  
 <!-- Data source : arm-->
@@ -1361,7 +1295,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NICWriteThroughput |Yes |Write Throughput (Network) |BytesPerSecond |Average |The write throughput of the network interface on the device in the reporting period for all volumes in the gateway. |InstanceName |
 |TotalCapacity |Yes |Total Capacity |Bytes |Average |The total capacity of the device in bytes during the reporting period. |No Dimensions |
 
-
 ## Microsoft.DataCollaboration/workspaces  
 <!-- Data source : arm-->
 
@@ -1374,7 +1307,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ProposalCount |Yes |Created Proposals |Count |Maximum |Number of created proposals |ProposalName |
 |ScriptCount |Yes |Created Scripts |Count |Maximum |Number of created scripts |ScriptName |
 
-
 ## Microsoft.DataFactory/datafactories  
 <!-- Data source : arm-->
 
@@ -1382,7 +1314,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |FailedRuns |Yes |Failed Runs |Count |Total |Failed Runs |pipelineName, activityName |
 |SuccessfulRuns |Yes |Successful Runs |Count |Total |Successful Runs |pipelineName, activityName |
-
 
 ## Microsoft.DataFactory/factories  
 <!-- Data source : arm-->
@@ -1452,14 +1383,23 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IntegrationRuntimeAvailableMemory |Yes |Integration runtime available memory |Bytes |Average |Integration runtime available memory |IntegrationRuntimeName, NodeName |
 |IntegrationRuntimeAvailableNodeNumber |Yes |Integration runtime available node count |Count |Average |Integration runtime available node count |IntegrationRuntimeName |
 |IntegrationRuntimeAverageTaskPickupDelay |Yes |Integration runtime queue duration |Seconds |Average |Integration runtime queue duration |IntegrationRuntimeName |
+|IntegrationRuntimeCopyAvailableCapacityPercentage |Yes |Integration runtime copy available capacity percentage |Percent |Maximum |Integration runtime copy available capacity percentage |IntegrationRuntimeName |
+|IntegrationRuntimeCopyCapacityUtilization |Yes |Integration runtime copy capacity utilization |Percent |Maximum |Integration runtime copy capacity utilization |IntegrationRuntimeName |
+|IntegrationRuntimeCopyWaitingQueueLength |Yes |Integration runtime copy waiting queue length |Count |Average |Integration runtime copy waiting queue length |IntegrationRuntimeName |
 |IntegrationRuntimeCpuPercentage |Yes |Integration runtime CPU utilization |Percent |Average |Integration runtime CPU utilization |IntegrationRuntimeName, NodeName |
+|IntegrationRuntimeExternalAvailableCapacityPercentage |Yes |Integration runtime external available capacity percentage |Percent |Maximum |Integration runtime external available capacity percentage |IntegrationRuntimeName |
+|IntegrationRuntimeExternalCapacityUtilization |Yes |Integration runtime external capacity utilization |Percent |Maximum |Integration runtime external capacity utilization |IntegrationRuntimeName |
+|IntegrationRuntimeExternalWaitingQueueLength |Yes |Integration runtime external waiting queue length |Count |Average |Integration runtime external waiting queue length |IntegrationRuntimeName |
+|IntegrationRuntimePipelineAvailableCapacityPercentage |Yes |Integration runtime pipeline available capacity percentage |Percent |Maximum |Integration runtime pipeline available capacity percentage |IntegrationRuntimeName |
+|IntegrationRuntimePipelineCapacityUtilization |Yes |Integration runtime pipeline capacity utilization |Percent |Maximum |Integration runtime pipeline capacity utilization |IntegrationRuntimeName |
+|IntegrationRuntimePipelineWaitingQueueLength |Yes |Integration runtime pipeline waiting queue length |Count |Average |Integration runtime pipeline waiting queue length |IntegrationRuntimeName |
 |IntegrationRuntimeQueueLength |Yes |Integration runtime queue length |Count |Average |Integration runtime queue length |IntegrationRuntimeName |
 |MaxAllowedFactorySizeInGbUnits |Yes |Maximum allowed factory size (GB unit) |Count |Maximum |Maximum allowed factory size (GB unit) |No Dimensions |
 |MaxAllowedResourceCount |Yes |Maximum allowed entities count |Count |Maximum |Maximum allowed entities count |No Dimensions |
 |PipelineCancelledRuns |Yes |Cancelled pipeline runs metrics |Count |Total |Cancelled pipeline runs metrics |FailureType, CancelledBy, Name |
 |PipelineElapsedTimeRuns |Yes |Elapsed Time Pipeline Runs Metrics |Count |Total |Elapsed Time Pipeline Runs Metrics |RunId, Name |
-|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Pipeline |
-|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Pipeline |
+|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Name |
+|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Name |
 |ResourceCount |Yes |Total entities count |Count |Maximum |Total entities count |No Dimensions |
 |SSISIntegrationRuntimeStartCancel |Yes |Cancelled SSIS integration runtime start metrics |Count |Total |Cancelled SSIS integration runtime start metrics |IntegrationRuntimeName |
 |SSISIntegrationRuntimeStartFailed |Yes |Failed SSIS integration runtime start metrics |Count |Total |Failed SSIS integration runtime start metrics |IntegrationRuntimeName |
@@ -1469,10 +1409,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SSISPackageExecutionCancel |Yes |Cancelled SSIS package execution metrics |Count |Total |Cancelled SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionFailed |Yes |Failed SSIS package execution metrics |Count |Total |Failed SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionSucceeded |Yes |Succeeded SSIS package execution metrics |Count |Total |Succeeded SSIS package execution metrics |IntegrationRuntimeName |
-|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Pipeline, FailureType |
-|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Pipeline, FailureType |
-|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Pipeline, FailureType |
-
+|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Name, FailureType |
+|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Name, FailureType |
+|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Name, FailureType |
 
 ## Microsoft.DataLakeAnalytics/accounts  
 <!-- Data source : naam-->
@@ -1487,7 +1426,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |JobEndedSuccess |Yes |Successful Jobs |Count |Total |Count of successful jobs. |No Dimensions |
 |JobStage |Yes |Jobs in Stage |Count |Total |Number of jobs in each stage. |No Dimensions |
 
-
 ## Microsoft.DataLakeStore/accounts  
 <!-- Data source : arm-->
 
@@ -1499,7 +1437,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalStorage |Yes |Total Storage |Bytes |Maximum |Total amount of data stored in the account. |No Dimensions |
 |WriteRequests |Yes |Write Requests |Count |Total |Count of data write requests to the account. |No Dimensions |
 
-
 ## Microsoft.DataProtection/BackupVaults  
 <!-- Data source : naam-->
 
@@ -1507,7 +1444,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |BackupHealthEvent |Yes |Backup Health Events (preview) |Count |Count |The count of health events pertaining to backup job health |dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName |
 |RestoreHealthEvent |Yes |Restore Health Events (preview) |Count |Count |The count of health events pertaining to restore job health |dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName |
-
 
 ## Microsoft.DataShare/accounts  
 <!-- Data source : arm-->
@@ -1520,7 +1456,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ShareSubscriptionCount |Yes |Received Shares |Count |Maximum |Number of received shares in the account |ShareSubscriptionName |
 |SucceededShareSubscriptionSynchronizations |Yes |Received Share Succeeded Snapshots |Count |Count |Number of received share succeeded snapshots in the account |No Dimensions |
 |SucceededShareSynchronizations |Yes |Sent Share Succeeded Snapshots |Count |Count |Number of sent share succeeded snapshots in the account |No Dimensions |
-
 
 ## Microsoft.DBforMariaDB/servers  
 <!-- Data source : arm-->
@@ -1543,7 +1478,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_percent |Yes |Storage percent |Percent |Average |Storage percent |No Dimensions |
 |storage_used |Yes |Storage used |Bytes |Average |Storage used |No Dimensions |
 
-
 ## Microsoft.DBforMySQL/flexibleServers  
 <!-- Data source : naam-->
 
@@ -1551,6 +1485,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |aborted_connections |Yes |Aborted Connections |Count |Total |Aborted Connections |No Dimensions |
 |active_connections |Yes |Active Connections |Count |Maximum |Active Connections |No Dimensions |
+|available_memory_bytes |Yes |Available Memory Bytes |Bytes |Average |Amount of physical memory, in bytes. |No Dimensions |
 |backup_storage_used |Yes |Backup Storage Used |Bytes |Maximum |Backup Storage Used |No Dimensions |
 |Com_alter_table |Yes |Com Alter Table |Count |Total |The number of times ALTER TABLE statement has been executed. |No Dimensions |
 |Com_create_db |Yes |Com Create DB |Count |Total |The number of times CREATE DB statement has been executed. |No Dimensions |
@@ -1572,6 +1507,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Innodb_buffer_pool_pages_free |Yes |InnoDB Buffer Pool Pages Free |Count |Total |The number of free pages in the InnoDB buffer pool. |No Dimensions |
 |Innodb_buffer_pool_read_requests |Yes |InnoDB Buffer Pool Read Requests |Count |Total |The number of logical read requests. |No Dimensions |
 |Innodb_buffer_pool_reads |Yes |InnoDB Buffer Pool Reads |Count |Total |The number of logical reads that InnoDB could not satisfy from the buffer pool, and had to read directly from disk. |No Dimensions |
+|Innodb_data_writes |Yes |Innodb Data Writes |Count |Total |The total number of data writes. |No Dimensions |
+|Innodb_row_lock_time |Yes |Innodb Row Lock Time |Milliseconds |Average |The total time spent in acquiring row locks for InnoDB tables, in milliseconds. |No Dimensions |
 |io_consumption_percent |Yes |Storage IO Percent |Percent |Maximum |Storage I/O consumption percent |No Dimensions |
 |memory_percent |Yes |Host Memory Percent |Percent |Maximum |Host Memory Percent |No Dimensions |
 |network_bytes_egress |Yes |Host Network Out |Bytes |Total |Host Network egress in bytes |No Dimensions |
@@ -1584,13 +1521,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |serverlog_storage_percent |Yes |Serverlog Storage Percent |Percent |Maximum |Serverlog Storage Percent |No Dimensions |
 |serverlog_storage_usage |Yes |Serverlog Storage Used |Bytes |Maximum |Serverlog Storage Used |No Dimensions |
 |Slow_queries |Yes |Slow Queries |Count |Total |The number of queries that have taken more than long_query_time seconds. |No Dimensions |
-|storage_io_count |Yes |IO Count |Count |Total |The number of I/O consumed. |No Dimensions |
+|storage_io_count |No |Storage IO Count |Count |Total |The number of storage I/O consumed. |No Dimensions |
 |storage_limit |Yes |Storage Limit |Bytes |Maximum |Storage Limit |No Dimensions |
 |storage_percent |Yes |Storage Percent |Percent |Maximum |Storage Percent |No Dimensions |
-|storage_throttle_count |Yes |Storage Throttle Count |Count |Maximum |Storage IO requests throttled in the selected time range. |No Dimensions |
+|storage_throttle_count |Yes |Storage Throttle Count (deprecated) |Count |Maximum |Storage IO requests throttled in the selected time range. Deprecated, please check Storage IO Percent for throttling. |No Dimensions |
 |storage_used |Yes |Storage Used |Bytes |Maximum |Storage Used |No Dimensions |
+|Threads_running |Yes |Threads Running |Count |Total |The number of threads that are not sleeping. |No Dimensions |
 |total_connections |Yes |Total Connections |Count |Total |Total Connections |No Dimensions |
-
 
 ## Microsoft.DBforMySQL/servers  
 <!-- Data source : arm-->
@@ -1612,7 +1549,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_limit |Yes |Storage limit |Bytes |Maximum |Storage limit |No Dimensions |
 |storage_percent |Yes |Storage percent |Percent |Average |Storage percent |No Dimensions |
 |storage_used |Yes |Storage used |Bytes |Average |Storage used |No Dimensions |
-
 
 ## Microsoft.DBforPostgreSQL/flexibleServers  
 <!-- Data source : naam-->
@@ -1638,6 +1574,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |disk_iops_consumed_percentage |Yes |Disk IOPS Consumed Percentage (Preview) |Percent |Average |Percentage of disk I/Os consumed per minute |No Dimensions |
 |disk_queue_depth |Yes |Disk Queue Depth |Count |Average |Number of outstanding I/O operations to the data disk |No Dimensions |
 |iops |Yes |IOPS |Count |Average |IO Operations per second |No Dimensions |
+|is_db_alive |Yes |Database Is Alive (Preview) |Count |Maximum |Indicates if the database is up or not |No Dimensions |
 |logical_replication_delay_in_bytes |Yes |Max Logical Replication Lag (Preview) |Bytes |Maximum |Maximum lag across all logical replication slots |No Dimensions |
 |longest_query_time_sec |Yes |Oldest Query (Preview) |Seconds |Maximum |The age in seconds of the longest query that is currently running |No Dimensions |
 |longest_transaction_time_sec |Yes |Oldest Transaction (Preview) |Seconds |Maximum |The age in seconds of the longest transaction (including idle transactions) |No Dimensions |
@@ -1686,7 +1623,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |xact_rollback |Yes |Transactions Rolled Back (Preview) |Count |Total |Number of transactions in this database that have been rolled back |DatabaseName |
 |xact_total |Yes |Total Transactions (Preview) |Count |Total |Number of total transactions executed in this database |DatabaseName |
 
-
 ## Microsoft.DBForPostgreSQL/serverGroupsv2  
 <!-- Data source : naam-->
 
@@ -1708,7 +1644,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |vm_cached_iops_percent |Yes |VM Cached IOPS Consumed Percentage |Percent |Average |Percentage of cached disk IOPS consumed by the VM |ServerName |
 |vm_uncached_bandwidth_percent |Yes |VM Uncached Bandwidth Consumed Percentage |Percent |Average |Percentage of uncached disk bandwidth consumed by the VM |ServerName |
 |vm_uncached_iops_percent |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM |ServerName |
-
 
 ## Microsoft.DBforPostgreSQL/servers  
 <!-- Data source : arm-->
@@ -1732,7 +1667,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_percent |Yes |Storage percent |Percent |Average |Storage percent |No Dimensions |
 |storage_used |Yes |Storage used |Bytes |Average |Storage used |No Dimensions |
 
-
 ## Microsoft.DBforPostgreSQL/serversv2  
 <!-- Data source : arm-->
 
@@ -1746,7 +1680,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |network_bytes_ingress |Yes |Network In |Bytes |Total |Network In across active connections |No Dimensions |
 |storage_percent |Yes |Storage percent |Percent |Average |Storage percent |No Dimensions |
 |storage_used |Yes |Storage used |Bytes |Average |Storage used |No Dimensions |
-
 
 ## Microsoft.Devices/IotHubs  
 <!-- Data source : naam-->
@@ -1822,7 +1755,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |twinQueries.resultSize |Yes |Twin queries result size |Bytes |Average |The average, min, and max of the result size of all successful twin queries. |No Dimensions |
 |twinQueries.success |Yes |Successful twin queries |Count |Total |The count of all successful twin queries. |No Dimensions |
 
-
 ## Microsoft.Devices/provisioningServices  
 <!-- Data source : arm-->
 
@@ -1831,7 +1763,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AttestationAttempts |Yes |Attestation attempts |Count |Total |Number of device attestations attempted |ProvisioningServiceName, Status, Protocol |
 |DeviceAssignments |Yes |Devices assigned |Count |Total |Number of devices assigned to an IoT hub |ProvisioningServiceName, IotHubName |
 |RegistrationAttempts |Yes |Registration attempts |Count |Total |Number of device registrations attempted |ProvisioningServiceName, IotHubName, Status |
-
 
 ## Microsoft.DigitalTwins/digitalTwinsInstances  
 <!-- Data source : arm-->
@@ -1857,7 +1788,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RoutingFailureRate |Yes |Routing Failure Rate |Percent |Average |The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus or Event Grid. |EndpointType |
 |RoutingLatency |Yes |Routing Latency |Milliseconds |Average |Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus or Event Grid. |EndpointType, Result |
 |TwinCount |Yes |Twin Count |Count |Total |Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the service limit for max number of twins allowed per instance. |No Dimensions |
-
 
 ## Microsoft.DocumentDB/cassandraClusters  
 <!-- Data source : naam-->
@@ -1981,7 +1911,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ethtool_tx_packets |No |network transmitted packets |Count |Total |network transmitted packets |ClusterResourceName, DataCenterResourceName, Address, Kind |
 |percent_mem |Yes |memory utilization |Percent |Average |Memory utilization rate |ClusterResourceName, DataCenterResourceName, Address |
 
-
 ## Microsoft.DocumentDB/DatabaseAccounts  
 <!-- Data source : naam-->
 
@@ -2073,12 +2002,23 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalRequests |Yes |Total Requests |Count |Count |Number of requests made |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
 |TotalRequestsPreview |No |Total Requests (Preview) |Count |Count |Number of SQL requests |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, IsExternal |
 |TotalRequestUnits |Yes |Total Request Units |Count |Total |SQL Request Units consumed |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
-|TotalRequestUnitsPreview |No |Total Request Units (Preview) |Count |Total |Request Units consumed with CapacityType |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
+|TotalRequestUnitsPreview |No |Total Request Units (Preview) |Count |Total |Request Units consumed with CapacityType |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType, PriorityLevel |
 |UpdateAccountKeys |Yes |Account Keys Updated |Count |Count |Account Keys Updated |KeyType |
 |UpdateAccountNetworkSettings |Yes |Account Network Settings Updated |Count |Count |Account Network Settings Updated |No Dimensions |
 |UpdateAccountReplicationSettings |Yes |Account Replication Settings Updated |Count |Count |Account Replication Settings Updated |No Dimensions |
 |UpdateDiagnosticsSettings |No |Account Diagnostic Settings Updated |Count |Count |Account Diagnostic Settings Updated |DiagnosticSettingsName, ResourceGroupName |
 
+## Microsoft.DocumentDB/mongoClusters  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|CommittedMemoryPercent |No |Committed Memory percent |Percent |Average |Percentage of Commit Memory Limit allocated by applications on node |ServerName |
+|CpuPercent |No |CPU percent |Percent |Average |Percent CPU utilization on node |ServerName |
+|IOPS |Yes |IOPS |Count |Average |Disk IO operations per second on node |ServerName |
+|MemoryPercent |No |Memory percent |Percent |Average |Percent memory utilization on node |ServerName |
+|StoragePercent |No |Storage percent |Percent |Average |Percent of available storage used on node |ServerName |
+|StorageUsed |No |Storage used |Bytes |Average |Quantity of available storage used on node |ServerName |
 
 ## microsoft.edgezones/edgezones  
 <!-- Data source : naam-->
@@ -2091,7 +2031,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalDiskStorageSizeCapacity |Yes |Total Disk Capacity |Bytes |Average |The total capacity of Managed Disk in Azure Edge Zone Enterprise site. |No Dimensions |
 |TotalVcoreCapacity |Yes |Total VCore Capacity |Count |Average |The total capacity of the General-Purpose Compute vcore in Edge Zone Enterprise site.  |No Dimensions |
 |VcoresUsage |Yes |Vcore Usage Percentage |Percent |Average |The utilization of the General-Purpose Compute vcores in Edge Zone Enterprise site  |No Dimensions |
-
 
 ## Microsoft.EventGrid/domains  
 <!-- Data source : naam-->
@@ -2109,7 +2048,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PublishSuccessCount |Yes |Published Events |Count |Total |Total events published to this topic |Topic |
 |PublishSuccessLatencyInMs |Yes |Publish Success Latency |MilliSeconds |Total |Publish success latency in milliseconds |No Dimensions |
 
-
 ## Microsoft.EventGrid/eventSubscriptions  
 <!-- Data source : arm-->
 
@@ -2122,7 +2060,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |DroppedEventCount |Yes |Dropped Events |Count |Total |Total dropped events matching to this event subscription |DropReason |
 |MatchedEventCount |Yes |Matched Events |Count |Total |Total events matched to this event subscription |No Dimensions |
 
-
 ## Microsoft.EventGrid/extensionTopics  
 <!-- Data source : arm-->
 
@@ -2133,6 +2070,31 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PublishSuccessLatencyInMs |Yes |Publish Success Latency |Milliseconds |Total |Publish success latency in milliseconds |No Dimensions |
 |UnmatchedEventCount |Yes |Unmatched Events |Count |Total |Total events not matching any of the event subscriptions for this topic |No Dimensions |
 
+## Microsoft.EventGrid/namespaces  
+<!-- Data source : arm-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|AcknowledgeLatencyInMilliseconds |No |Acknowledge Operations Latency |Milliseconds |Total |The observed latency in milliseconds for acknowledge events operation. |Topic, EventSubscriptionName |
+|FailedAcknowledgedEvents |No |Failed Acknowledged Events |Count |Total |The number of events for which acknowledgements from clients failed. |Topic, EventSubscriptionName, Error, ErrorType |
+|FailedPublishedEvents |No |Failed Publish Events |Count |Total |The number of events that weren't accepted by Event Grid. This count excludes events that were published but failed to reach Event Grid due to a network issue, for example. |Topic, Error, ErrorType |
+|FailedReceivedEvents |No |Failed Received Events |Count |Total |The number of events that were requested by clients but weren't delivered successfully by Event Grid. |Topic, EventSubscriptionName, Error, ErrorType |
+|FailedReleasedEvents |No |Failed Released Events |Count |Total |The number of events for which release failed. |Topic, EventSubscriptionName, Error, ErrorType |
+|Mqtt.Connections |Yes |MQTT: Connections |Count |Total |The number of active connections in the namespace. |Protocol |
+|Mqtt.FailedPublishedMessages |Yes |MQTT: Failed Published Messages |Count |Total |The number of MQTT messages that failed to be published into the namespace. |QoS, Protocol, Error |
+|Mqtt.FailedSubscriptionOperations |Yes |MQTT: Failed Subscription Operations |Count |Total |The number of failed subscription operations (Subscribe, Unsubscribe). This metric is incremented for every topic filter within a subscription request. |Protocol, OperationType, Error |
+|Mqtt.RequestCount |Yes |MQTT: Request Count |Count |Total |The number of MQTT requests. |OperationType, Protocol, Error, Result |
+|Mqtt.SuccessfulDeliveredMessages |Yes |MQTT: Successful Delivered Messages |Count |Total |The number of messages delivered by the namespace. There are no failures for this operation. |QoS, Protocol |
+|Mqtt.SuccessfulPublishedMessages |Yes |MQTT: Successful Published Messages |Count |Total |The number of  MQTT messages that were published successfully into the namespace. |QoS, Protocol |
+|Mqtt.SuccessfulSubscriptionOperations |Yes |MQTT: Successful Subscription Operations |Count |Total |The number of successful subscription operations (Subscribe, Unsubscribe). This metric is incremented for every topic filter within a subscription request. |Protocol, OperationType |
+|Mqtt.Throughput |Yes |MQTT: Throughput |Bytes |Total |The number of bytes published to or delivered by the namespace. |Direction |
+|PublishLatencyInMilliseconds |No |Publish Operations Latency |Milliseconds |Total |The observed latency in milliseconds for publish events operation. |Topic |
+|ReceiveLatencyInMilliseconds |No |Receive Operations Latency |Milliseconds |Total |The observed latency in milliseconds for receive events operation. |Topic, EventSubscriptionName |
+|RejectLatencyInMilliseconds |No |Reject Operations Latency |Milliseconds |Total |The observed latency in milliseconds for reject events operation. |Topic, EventSubscriptionName |
+|SuccessfulAcknowledgedEvents |No |Successful Acknowledged Events |Count |Total |The number of events for which delivery was successfully acknowledged by clients. |Topic, EventSubscriptionName |
+|SuccessfulPublishedEvents |No |Successful Publish Events |Count |Total |The number of events published successfully to a topic or topic space within a namespace. |Topic |
+|SuccessfulReceivedEvents |No |Successful Received Events |Count |Total |The total number of events that were successfully returned to (received by) clients by Event Grid. |Topic, EventSubscriptionName |
+|SuccessfulReleasedEvents |No |Successful Released Events |Count |Total |The number of events that were released successfully by queue subscriber clients. |Topic, EventSubscriptionName |
 
 ## Microsoft.EventGrid/partnerNamespaces  
 <!-- Data source : naam-->
@@ -2143,7 +2105,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PublishSuccessCount |Yes |Published Events |Count |Total |Total events published to this partner namespace |No Dimensions |
 |PublishSuccessLatencyInMs |Yes |Publish Success Latency |MilliSeconds |Total |Publish success latency in milliseconds |No Dimensions |
 |UnmatchedEventCount |Yes |Unmatched Events |Count |Total |Total events not matching any of the partner topics |No Dimensions |
-
 
 ## Microsoft.EventGrid/partnerTopics  
 <!-- Data source : naam-->
@@ -2160,7 +2121,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PublishSuccessCount |Yes |Published Events |Count |Total |Total events published to this partner topic |No Dimensions |
 |UnmatchedEventCount |Yes |Unmatched Events |Count |Total |Total events not matching any of the event subscriptions for this partner topic |No Dimensions |
 
-
 ## Microsoft.EventGrid/systemTopics  
 <!-- Data source : arm-->
 
@@ -2176,8 +2136,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PublishFailCount |Yes |Publish Failed Events |Count |Total |Total events failed to publish to this topic |ErrorType, Error |
 |PublishSuccessCount |Yes |Published Events |Count |Total |Total events published to this topic |No Dimensions |
 |PublishSuccessLatencyInMs |Yes |Publish Success Latency |Milliseconds |Total |Publish success latency in milliseconds |No Dimensions |
+|ServerDeliverySuccessRate |Yes |Server Delivery Success Rate |Count |Total |Success rate of events delivered to this event subscription where failure is caused due to server errors |EventSubscriptionName |
 |UnmatchedEventCount |Yes |Unmatched Events |Count |Total |Total events not matching any of the event subscriptions for this topic |No Dimensions |
-
 
 ## Microsoft.EventGrid/topics  
 <!-- Data source : naam-->
@@ -2195,7 +2155,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PublishSuccessCount |Yes |Published Events |Count |Total |Total events published to this topic |No Dimensions |
 |PublishSuccessLatencyInMs |Yes |Publish Success Latency |MilliSeconds |Total |Publish success latency in milliseconds |No Dimensions |
 |UnmatchedEventCount |Yes |Unmatched Events |Count |Total |Total events not matching any of the event subscriptions for this topic |No Dimensions |
-
 
 ## Microsoft.EventHub/clusters  
 <!-- Data source : naam-->
@@ -2221,7 +2180,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessfulRequests |No |Successful Requests |Count |Total |Successful Requests for Microsoft.EventHub. |OperationResult |
 |ThrottledRequests |No |Throttled Requests. |Count |Total |Throttled Requests for Microsoft.EventHub. |OperationResult |
 |UserErrors |No |User Errors. |Count |Total |User Errors for Microsoft.EventHub. |OperationResult |
-
 
 ## Microsoft.EventHub/Namespaces  
 <!-- Data source : naam-->
@@ -2265,7 +2223,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ThrottledRequests |No |Throttled Requests. |Count |Total |Throttled Requests for Microsoft.EventHub. |EntityName, OperationResult |
 |UserErrors |No |User Errors. |Count |Total |User Errors for Microsoft.EventHub. |EntityName, OperationResult |
 
-
 ## Microsoft.HDInsight/clusters  
 <!-- Data source : arm-->
 
@@ -2287,7 +2244,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NumActiveWorkers |Yes |Number of Active Workers |Count |Maximum |Number of Active Workers |MetricName |
 |PendingCPU |Yes |Pending CPU |Count |Maximum |Pending CPU Requests in YARN |No Dimensions |
 |PendingMemory |Yes |Pending Memory |Count |Maximum |Pending Memory Requests in YARN |No Dimensions |
-
 
 ## Microsoft.HealthcareApis/services  
 <!-- Data source : arm-->
@@ -2311,19 +2267,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalLatency |Yes |Total Latency |Milliseconds |Average |The response latency of the service. |Protocol |
 |TotalRequests |Yes |Total Requests |Count |Sum |The total number of requests received by the service. |Protocol |
 
-
-## Microsoft.HealthcareApis/workspaces/analyticsconnectors  
-<!-- Data source : arm-->
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|AnalyticsConnectorHealthStatus |Yes |Analytics Connector Health Status |Count |Sum |The health status of analytics connector |Operation, Component |
-|AnalyticsConnectorResourceLatency |Yes |Analytics Connector Process Latency |Milliseconds |Average |The response latency of the service. |No Dimensions |
-|AnalyticsConnectorSuccessfulDataSize |Yes |Analytics Connector Successful Data Size |Count |Sum |The size of data successfully processed by the analytics connector |No Dimensions |
-|AnalyticsConnectorSuccessfulResourceCount |Yes |Analytics Connector Successful Resource Count |Count |Sum |The amount of data successfully processed by the analytics connector |No Dimensions |
-|AnalyticsConnectorTotalError |Yes |Analytics Connector Total Error Count |Count |Sum |The total number of errors logged by the analytics connector |ErrorType, Operation |
-
-
 ## Microsoft.HealthcareApis/workspaces/fhirservices  
 <!-- Data source : arm-->
 
@@ -2334,7 +2277,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalErrors |Yes |Total Errors |Count |Sum |The total number of internal server errors encountered by the service. |Protocol, StatusCode, StatusCodeClass, StatusCodeText |
 |TotalLatency |Yes |Total Latency |Milliseconds |Average |The response latency of the service. |Protocol |
 |TotalRequests |Yes |Total Requests |Count |Sum |The total number of requests received by the service. |Protocol |
-
 
 ## Microsoft.HealthcareApis/workspaces/iotconnectors  
 <!-- Data source : arm-->
@@ -2352,14 +2294,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NormalizedEvent |Yes |Number of Normalized Messages |Count |Sum |The total number of mapped normalized values outputted from the normalization stage of the MedTech service |Operation, ResourceName |
 |TotalErrors |Yes |Total Error Count |Count |Sum |The total number of errors logged by the MedTech service |Name, Operation, ErrorType, ErrorSeverity, ResourceName |
 
-
 ## Microsoft.HybridContainerService/provisionedClusters  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |capacity_cpu_cores |Yes |Total number of cpu cores in a provisioned cluster |Count |Average |Total number of cpu cores in a provisioned cluster |No Dimensions |
-
 
 ## microsoft.hybridnetwork/networkfunctions  
 <!-- Data source : naam-->
@@ -2368,14 +2308,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |HyperVVirtualProcessorUtilization |Yes |Average CPU Utilization |Percent |Average |Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU. |InstanceName |
 
-
 ## microsoft.hybridnetwork/virtualnetworkfunctions  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |HyperVVirtualProcessorUtilization |Yes |Average CPU Utilization |Percent |Average |Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU. |InstanceName |
-
 
 ## microsoft.insights/autoscalesettings  
 <!-- Data source : naam-->
@@ -2386,7 +2324,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ObservedCapacity |Yes |Observed Capacity |Count |Average |The capacity reported to autoscale when it executed. |No Dimensions |
 |ObservedMetricValue |Yes |Observed Metric Value |Count |Average |The value computed by autoscale when executed |MetricTriggerSource |
 |ScaleActionsInitiated |Yes |Scale Actions Initiated |Count |Total |The direction of the scale operation. |ScaleDirection |
-
 
 ## microsoft.insights/components  
 <!-- Data source : naam-->
@@ -2424,19 +2361,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |requests/rate |No |Server request rate |CountPerSecond |Average |Rate of server requests per second |request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName |
 |traces/count |Yes |Traces |Count |Count |Trace document count |trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance |
 
-
-## Microsoft.Insights/datacollectionrules  
-<!-- Data source : naam-->
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|ApiCallReceived_Count |Yes |Call Received |Count |Count |Number of requests received via Log Ingestion API or from the agent |InputStreamId, ResponseCode |
-|RowsDropped_Count |Yes |Rows Dropped |Count |Count |Number of rows dropped while running transformation. |InputStreamId |
-|RowsReceived_Count |Yes |Rows Received |Count |Count |Total number of rows recevied for transformation. |InputStreamId |
-|TransformationErrors_Count |Yes |Transformation Errors |Count |Count |The number of times when execution of KQL transformation resulted in an error, e.g. KQL syntax error or going over a service limit. |InputStreamId, ErrorType |
-|TransformationRuntime_DurationMs |Yes |Transformation Runtime Duration |Count |Count |Total time taken to transform given set of records, measured in milliseconds. |InputStreamId |
-
-
 ## Microsoft.IoTCentral/IoTApps  
 <!-- Data source : arm-->
 
@@ -2465,7 +2389,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |deviceDataUsage |Yes |Total Device Data Usage |Bytes |Total |Bytes transferred to and from any devices connected to IoT Central application |No Dimensions |
 |provisionedDeviceCount |No |Total Provisioned Devices |Count |Average |Number of devices provisioned in IoT Central application |No Dimensions |
 
-
 ## microsoft.keyvault/managedhsms  
 <!-- Data source : naam-->
 
@@ -2474,7 +2397,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Availability |No |Overall Service Availability |Percent |Average |Service requests availability |ActivityType, ActivityName, StatusCode, StatusCodeClass |
 |ServiceApiHit |Yes |Total Service Api Hits |Count |Count |Number of total service api hits |ActivityType, ActivityName |
 |ServiceApiLatency |No |Overall Service Api Latency |Milliseconds |Average |Overall latency of service api requests |ActivityType, ActivityName, StatusCode, StatusCodeClass |
-
 
 ## Microsoft.KeyVault/vaults  
 <!-- Data source : naam-->
@@ -2487,7 +2409,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ServiceApiLatency |Yes |Overall Service Api Latency |MilliSeconds |Average |Overall latency of service api requests |ActivityType, ActivityName, StatusCode, StatusCodeClass |
 |ServiceApiResult |Yes |Total Service Api Results |Count |Count |Number of total service api results |ActivityType, ActivityName, StatusCode, StatusCodeClass |
 
-
 ## microsoft.kubernetes/connectedClusters  
 <!-- Data source : naam-->
 
@@ -2495,6 +2416,46 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |capacity_cpu_cores |Yes |Total number of cpu cores in a connected cluster |Count |Total |Total number of cpu cores in a connected cluster |No Dimensions |
 
+## microsoft.kubernetesconfiguration/extensions  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ActiveSessionCount |No |Active PDU Sessions |Count |Total |Number of Active PDU Sessions |3gppGen, PccpId, SiteId |
+|AuthAttempt |Yes |Authentication Attempts |Count |Total |Authentication attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|AuthFailure |Yes |Authentication Failures |Count |Total |Authentication failure rate (per minute) |3gppGen, PccpId, SiteId, Result |
+|AuthSuccess |Yes |Authentication Successes |Count |Total |Authentication success rate (per minute) |3gppGen, PccpId, SiteId |
+|ConnectedNodebs |Yes |Connected NodeBs |Count |Total |Number of connected gNodeBs or eNodeBs |3gppGen, PccpId, SiteId |
+|DeRegistrationAttempt |Yes |DeRegistration Attempts |Count |Total |UE deregistration attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|DeRegistrationSuccess |Yes |DeRegistration Successes |Count |Total |UE deregistration success rate (per minute) |3gppGen, PccpId, SiteId |
+|PagingAttempt |Yes |Paging Attempts |Count |Total |Paging attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|PagingFailure |Yes |Paging Failures |Count |Total |Paging failure rate (per minute) |3gppGen, PccpId, SiteId |
+|ProvisionedSubscribers |No |Provisioned Subscribers |Count |Total |Number of provisioned subscribers |PccpId, SiteId |
+|RanSetupFailure |Yes |RAN Setup Failures |Count |Total |RAN setup failure rate (per minute) |3gppGen, PccpId, SiteId, Cause |
+|RanSetupRequest |Yes |RAN Setup Requests |Count |Total |RAN setup reuests rate (per minute) |3gppGen, PccpId, SiteId |
+|RanSetupResponse |Yes |RAN Setup Responses |Count |Total |RAN setup response rate (per minute) |3gppGen, PccpId, SiteId |
+|RegisteredSubscribers |Yes |Registered Subscribers |Count |Total |Number of registered subscribers |3gppGen, PccpId, SiteId |
+|RegisteredSubscribersConnected |Yes |Registered Subscribers Connected |Count |Total |Number of registered and connected subscribers |3gppGen, PccpId, SiteId |
+|RegisteredSubscribersIdle |Yes |Registered Subscribers Idle |Count |Total |Number of registered and idle subscribers |3gppGen, PccpId, SiteId |
+|RegistrationAttempt |Yes |Registration Attempts |Count |Total |Registration attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|RegistrationFailure |Yes |Registration Failures |Count |Total |Registration failure rate (per minute) |3gppGen, PccpId, SiteId, Result |
+|RegistrationSuccess |Yes |Registration Successes |Count |Total |Registration success rate (per minute) |3gppGen, PccpId, SiteId |
+|ServiceRequestAttempt |Yes |Service Request Attempts |Count |Total |Service request attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|ServiceRequestFailure |Yes |Service Request Failures |Count |Total |Service request failure rate (per minute) |3gppGen, PccpId, SiteId, Result, Tai |
+|ServiceRequestSuccess |Yes |Service Request Successes |Count |Total |Service request success rate (per minute) |3gppGen, PccpId, SiteId |
+|SessionEstablishmentAttempt |Yes |Session Establishment Attempts |Count |Total |PDU session establishment attempts rate (per minute) |3gppGen, PccpId, SiteId, Dnn |
+|SessionEstablishmentFailure |Yes |Session Establishment Failures |Count |Total |PDU session establishment failure rate (per minute) |3gppGen, PccpId, SiteId, Dnn |
+|SessionEstablishmentSuccess |Yes |Session Establishment Successes |Count |Total |PDU session establishment success rate (per minute) |3gppGen, PccpId, SiteId, Dnn |
+|SessionRelease |Yes |Session Releases |Count |Total |Session release rate (per minute) |3gppGen, PccpId, SiteId |
+|UeContextReleaseCommand |Yes |UE Context Release Commands |Count |Total |UE context release command message rate (per minute) |3gppGen, PccpId, SiteId |
+|UeContextReleaseComplete |Yes |UE Context Release Completes |Count |Total |UE context release complete message rate (per minute) |3gppGen, PccpId, SiteId |
+|UeContextReleaseRequest |Yes |UE Context Release Requests |Count |Total |UE context release request message rate (per minute) |3gppGen, PccpId, SiteId |
+|UserPlaneBandwidth |No |User Plane Bandwidth |BitsPerSecond |Total |User plane bandwidth in bits/second. |PcdpId, SiteId, Direction, Interface |
+|UserPlanePacketDropRate |No |User Plane Packet Drop Rate |CountPerSecond |Total |User plane packet drop rate (packets/sec) |PcdpId, SiteId, Cause, Direction, Interface |
+|UserPlanePacketRate |No |User Plane Packet Rate |CountPerSecond |Total |User plane packet rate (packets/sec) |PcdpId, SiteId, Direction, Interface |
+|XnHandoverAttempt |Yes |Xn Handover Attempts |Count |Total |Handover attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|XnHandoverFailure |Yes |Xn Handover Failures |Count |Total |Handover failure rate (per minute) |3gppGen, PccpId, SiteId |
+|XnHandoverSuccess |Yes |Xn Handover Successes |Count |Total |Handover success rate (per minute) |3gppGen, PccpId, SiteId |
 
 ## Microsoft.Kusto/clusters  
 <!-- Data source : naam-->
@@ -2508,10 +2469,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BlobsDropped |Yes |Blobs Dropped |Count |Total |Number of blobs permanently rejected by a component. |Database, ComponentType, ComponentName |
 |BlobsProcessed |Yes |Blobs Processed |Count |Total |Number of blobs processed by a component. |Database, ComponentType, ComponentName |
 |BlobsReceived |Yes |Blobs Received |Count |Total |Number of blobs received from input stream by a component. |Database, ComponentType, ComponentName |
-|CacheUtilization |Yes |Cache utilization (deprecated) |Percent |Average |Utilization level in the cluster scope. The metric is deprecated and presented for backward compatibility only, you should use the ‘Cache utilization factor' metric instead. |No Dimensions |
+|CacheUtilization |Yes |Cache utilization (deprecated) |Percent |Average |Utilization level in the cluster scope. The metric is deprecated and presented for backward compatibility only, you should use the 'Cache utilization factor' metric instead. |No Dimensions |
 |CacheUtilizationFactor |Yes |Cache utilization factor |Percent |Average |Percentage of utilized disk space dedicated for hot cache in the cluster. 100% means that the disk space assigned to hot data is optimally utilized. No action is needed in terms of the cache size. More than 100% means that the cluster's disk space is not large enough to accommodate the hot data, as defined by your caching policies. To ensure that sufficient space is available for all the hot data, the amount of hot data needs to be reduced or the cluster needs to be scaled out. Enabling auto scale is recommended. |No Dimensions |
 |ContinuousExportMaxLatenessMinutes |Yes |Continuous Export Max Lateness |Count |Maximum |The lateness (in minutes) reported by the continuous export jobs in the cluster |No Dimensions |
-|ContinuousExportNumOfRecordsExported |Yes |Continuous export – num of exported records |Count |Total |Number of records exported, fired for every storage artifact written during the export operation |ContinuousExportName, Database |
+|ContinuousExportNumOfRecordsExported |Yes |Continuous export - num of exported records |Count |Total |Number of records exported, fired for every storage artifact written during the export operation |ContinuousExportName, Database |
 |ContinuousExportPendingCount |Yes |Continuous Export Pending Count |Count |Maximum |The number of pending continuous export jobs ready for execution |No Dimensions |
 |ContinuousExportResult |Yes |Continuous Export Result |Count |Count |Indicates whether Continuous Export succeeded or failed |ContinuousExportName, Result, Database |
 |CPU |Yes |CPU |Percent |Average |CPU utilization level |No Dimensions |
@@ -2535,7 +2496,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaterializedViewHealth |Yes |Materialized View Health |Count |Average |The health of the materialized view (1 for healthy, 0 for non-healthy) |Database, MaterializedViewName |
 |MaterializedViewRecordsInDelta |Yes |Materialized View Records In Delta |Count |Average |The number of records in the non-materialized part of the view |Database, MaterializedViewName |
 |MaterializedViewResult |Yes |Materialized View Result |Count |Average |The result of the materialization process |Database, MaterializedViewName, Result |
-|QueryDuration |Yes |Query duration |MilliSeconds |Average |Queries' duration in seconds |QueryStatus |
+|QueryDuration |Yes |Query duration |MilliSeconds |Average |Queries duration in seconds |QueryStatus |
 |QueryResult |No |Query Result |Count |Count |Total number of queries. |QueryStatus |
 |QueueLength |Yes |Queue Length |Count |Average |Number of pending messages in a component's queue. |ComponentType |
 |QueueOldestMessage |Yes |Queue Oldest Message |Count |Average |Time in seconds from when the oldest message in queue was inserted. |ComponentType |
@@ -2549,7 +2510,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalNumberOfThrottledCommands |Yes |Total number of throttled commands |Count |Total |Total number of throttled commands |CommandType |
 |TotalNumberOfThrottledQueries |Yes |Total number of throttled queries |Count |Maximum |Total number of throttled queries |No Dimensions |
 |WeakConsistencyLatency |Yes |Weak consistency latency |Seconds |Average |The max latency between the previous metadata sync and the next one (in DB/node scope) |Database, RoleInstance |
-
 
 ## Microsoft.Logic/IntegrationServiceEnvironments  
 <!-- Data source : naam-->
@@ -2583,7 +2543,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TriggersStarted |Yes |Triggers Started  |Count |Total |Number of workflow triggers started. |No Dimensions |
 |TriggersSucceeded |Yes |Triggers Succeeded  |Count |Total |Number of workflow triggers succeeded. |No Dimensions |
 |TriggerSuccessLatency |Yes |Trigger Success Latency  |Seconds |Average |Latency of succeeded workflow triggers. |No Dimensions |
-
 
 ## Microsoft.Logic/Workflows  
 <!-- Data source : naam-->
@@ -2624,7 +2583,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TriggersSucceeded |Yes |Triggers Succeeded  |Count |Total |Number of workflow triggers succeeded. |No Dimensions |
 |TriggerSuccessLatency |Yes |Trigger Success Latency  |Seconds |Average |Latency of succeeded workflow triggers. |No Dimensions |
 |TriggerThrottledEvents |Yes |Trigger Throttled Events |Count |Total |Number of workflow trigger throttled events. |No Dimensions |
-
 
 ## Microsoft.MachineLearningServices/workspaces  
 <!-- Data source : arm-->
@@ -2690,7 +2648,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Unusable Nodes |Yes |Unusable Nodes |Count |Average |Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes. |Scenario, ClusterName |
 |Warnings |Yes |Warnings |Count |Total |Number of run warnings in this workspace. Count is updated whenever a run encounters a warning. |Scenario |
 
-
 ## Microsoft.MachineLearningServices/workspaces/onlineEndpoints  
 <!-- Data source : naam-->
 
@@ -2708,7 +2665,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestLatency_P99 |Yes |Request Latency P99 |Milliseconds |Average |The average P99 request latency aggregated by all request latency values collected over the selected time period |deployment |
 |RequestsPerMinute |No |Requests Per Minute |Count |Average |The number of requests sent to online endpoint within a minute |deployment, statusCode, statusCodeClass, modelStatusCode |
 
-
 ## Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments  
 <!-- Data source : naam-->
 
@@ -2724,58 +2680,60 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |GpuMemoryUtilizationPercentage |Yes |GPU Memory Utilization Percentage |Percent |Average |Percentage of GPU memory utilization on an instance. Utilization is reported at one minute intervals. |instanceId |
 |GpuUtilizationPercentage |Yes |GPU Utilization Percentage |Percent |Average |Percentage of GPU utilization on an instance. Utilization is reported at one minute intervals. |instanceId |
 
-
 ## Microsoft.ManagedNetworkFabric/networkDevices  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|BgpPeerStatus |Yes |BGP Peer Status |Unspecified |Minimum |Operational state of the BGP peer. State is represented in numerical form. Idle : 1, Connect : 2, Active : 3, Opensent : 4, Openconfirm : 5, Established : 6 |FabricId, RegionName, IpAddress |
-|CpuUtilizationMax |Yes |Cpu Utilization Max |Percent |Average |Max cpu utilization. The maximum value of the percentage measure of the statistic over the time interval. |FabricId, RegionName, ComponentName |
-|CpuUtilizationMin |Yes |Cpu Utilization Min |Percent |Average |Min cpu utilization. The minimum value of the percentage measure of the statistic over the time interval. |FabricId, RegionName, ComponentName |
-|FanSpeed |Yes |Fan Speed |Unspecified |Average |Current fan speed. |FabricId, RegionName, ComponentName |
-|IfEthInCrcErrors |Yes |Ethernet Interface In CRC Errors |Count |Average |The total number of frames received that had a length (excluding framing bits, but including FCS octets) of between 64 and 1518 octets, inclusive, but had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error) |FabricId, RegionName, InterfaceName |
-|IfEthInFragmentFrames |Yes |Ethernet Interface In Fragment Frames |Count |Average |The total number of frames received that were less than 64 octets in length (excluding framing bits but including FCS octets) and had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error). |FabricId, RegionName, InterfaceName |
-|IfEthInJabberFrames |Yes |Ethernet Interface In Jabber Frames |Count |Average |Number of jabber frames received on the interface. Jabber frames are typically defined as oversize frames which also have a bad CRC. |FabricId, RegionName, InterfaceName |
-|IfEthInMacControlFrames |Yes |Ethernet Interface In MAC Control Frames |Count |Average |MAC layer control frames received on the interface |FabricId, RegionName, InterfaceName |
-|IfEthInMacPauseFrames |Yes |Ethernet Interface In MAC Pause Frames |Count |Average |MAC layer PAUSE frames received on the interface |FabricId, RegionName, InterfaceName |
-|IfEthInOversizeFrames |Yes |Ethernet Interface In Oversize Frames |Count |Average |The total number of frames received that were longer than 1518 octets (excluding framing bits, but including FCS octets) and were otherwise well formed. |FabricId, RegionName, InterfaceName |
-|IfEthOutMacControlFrames |Yes |Ethernet Interface Out MAC Control Frames |Count |Average |MAC layer control frames sent on the interface. |FabricId, RegionName, InterfaceName |
-|IfEthOutMacPauseFrames |Yes |Ethernet Interface Out MAC Pause Frames |Count |Average |MAC layer PAUSE frames sent on the interface. |FabricId, RegionName, InterfaceName |
-|IfInBroadcastPkts |Yes |Interface In Broadcast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer. |FabricId, RegionName, InterfaceName |
-|IfInDiscards |Yes |Interface In Discards |Count |Average |The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. |FabricId, RegionName, InterfaceName |
-|IfInErrors |Yes |Interface In Errors |Count |Average |For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol. |FabricId, RegionName, InterfaceName |
-|IfInFcsErrors |Yes |Interface In FCS Errors |Count |Average |Number of received packets which had errors in the frame check sequence (FCS), i.e., framing errors. |FabricId, RegionName, InterfaceName |
-|IfInMulticastPkts |Yes |Interface In Multicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, RegionName, InterfaceName |
-|IfInOctets |Yes |Interface In Octets |Count |Average |The total number of octets received on the interface, including framing characters. |FabricId, RegionName, InterfaceName |
-|IfInPkts |Yes |Interface In Pkts |Count |Average |The total number of packets received on the interface, including all unicast, multicast, broadcast and bad packets etc. |FabricId, RegionName, InterfaceName |
-|IfInUnicastPkts |Yes |Interface In Unicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were not addressed to a multicast or broadcast address at this sub-layer. |FabricId, RegionName, InterfaceName |
-|IfOutBroadcastPkts |Yes |Interface Out Broadcast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, RegionName, InterfaceName |
-|IfOutDiscards |Yes |Interface Out Discards |Count |Average |The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. |FabricId, RegionName, InterfaceName |
-|IfOutErrors |Yes |Interface Out Errors |Count |Average |For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. |FabricId, RegionName, InterfaceName |
-|IfOutMulticastPkts |Yes |Interface Out Multicast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a multicast address at this sub-layer, including those that were discarded or not sent. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, RegionName, InterfaceName |
-|IfOutOctets |Yes |Interface Out Octets |Count |Average |The total number of octets transmitted out of the interface, including framing characters. |FabricId, RegionName, InterfaceName |
-|IfOutPkts |Yes |Interface Out Pkts |Count |Average |The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets etc. |FabricId, RegionName, InterfaceName |
-|IfOutUnicastPkts |Yes |Interface Out Unicast Pkts |Count |Average |The total number of packets that higher-level requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, RegionName, InterfaceName |
-|InterfaceOperStatus |Yes |Interface Operational State |Unspecified |Minimum |The current operational state of the interface. State is represented in numerical form. Up: 0, Down: 1, Lower_layer_down: 2, Testing: 3, Unknown: 4, Dormant: 5, Not_present: 6. |FabricId, RegionName, InterfaceName |
-|LacpErrors |Yes |Lacp Errors |Count |Average |Number of LACPDU illegal packet errors. |FabricId, RegionName, InterfaceName |
-|LacpInPkts |Yes |Lacp In Pkts |Count |Average |Number of LACPDUs received. |FabricId, RegionName, InterfaceName |
-|LacpOutPkts |Yes |Lacp Out Pkts |Count |Average |Number of LACPDUs transmitted. |FabricId, RegionName, InterfaceName |
-|LacpRxErrors |Yes |Lacp Rx Errors |Count |Average |Number of LACPDU receive packet errors. |FabricId, RegionName, InterfaceName |
-|LacpTxErrors |Yes |Lacp Tx Errors |Count |Average |Number of LACPDU transmit packet errors. |FabricId, RegionName, InterfaceName |
-|LacpUnknownErrors |Yes |Lacp Unknown Errors |Count |Average |Number of LACPDU unknown packet errors. |FabricId, RegionName, InterfaceName |
-|LldpFrameIn |Yes |Lldp Frame In |Count |Average |The number of lldp frames received. |FabricId, RegionName, InterfaceName |
-|LldpFrameOut |Yes |Lldp Frame Out |Count |Average |The number of frames transmitted out. |FabricId, RegionName, InterfaceName |
-|LldpTlvUnknown |Yes |Lldp Tlv Unknown |Count |Average |The number of frames received with unknown TLV. |FabricId, RegionName, InterfaceName |
-|MemoryAvailable |Yes |Memory Available |Bytes |Average |The available memory physically installed, or logically allocated to the component. |FabricId, RegionName, ComponentName |
-|MemoryUtilized |Yes |Memory Utilized |Bytes |Average |The memory currently in use by processes running on the component, not considering reserved memory that is not available for use. |FabricId, RegionName, ComponentName |
-|PowerSupplyCapacity |Yes |Power Supply Maximum Power Capacity |Unspecified |Average |Maximum power capacity of the power supply (watts). |FabricId, RegionName, ComponentName |
-|PowerSupplyInputCurrent |Yes |Power Supply Input Current |Unspecified |Average |The input current draw of the power supply (amps). |FabricId, RegionName, ComponentName |
-|PowerSupplyInputVoltage |Yes |Power Supply Input Voltage |Unspecified |Average |Input voltage to the power supply (volts). |FabricId, RegionName, ComponentName |
-|PowerSupplyOutputCurrent |Yes |Power Supply Output Current |Unspecified |Average |The output current supplied by the power supply (amps) |FabricId, RegionName, ComponentName |
-|PowerSupplyOutputPower |Yes |Power Supply Output Power |Unspecified |Average |Output power supplied by the power supply (watts) |FabricId, RegionName, ComponentName |
-|PowerSupplyOutputVoltage |Yes |Power Supply Output Voltage |Unspecified |Average |Output voltage supplied by the power supply (volts). |FabricId, RegionName, ComponentName |
-
+|AclMatchedPackets |Yes |Acl Matched Packets |Count |Average |Count of the number of packets matching the current ACL entry. |FabricId, AclSetName, AclEntrySequenceId, AclSetType |
+|BgpPeerStatus |Yes |BGP Peer Status |Unspecified |Minimum |Operational state of the BGP peer. State is represented in numerical form. Idle : 1, Connect : 2, Active : 3, Opensent : 4, Openconfirm : 5, Established : 6 |FabricId, IpAddress |
+|ComponentOperStatus |Yes |Component Operational State |Unspecified |Minimum |The current operational status of the component. |FabricId, ComponentName |
+|CpuUtilizationMax |Yes |Cpu Utilization Max |Percent |Average |Max cpu utilization. The maximum value of the percentage measure of the statistic over the time interval. |FabricId, ComponentName |
+|CpuUtilizationMin |Yes |Cpu Utilization Min |Percent |Average |Min cpu utilization. The minimum value of the percentage measure of the statistic over the time interval. |FabricId, ComponentName |
+|FanSpeed |Yes |Fan Speed |Unspecified |Average |Current fan speed. |FabricId, ComponentName |
+|IfEthInCrcErrors |Yes |Ethernet Interface In CRC Errors |Count |Average |The total number of frames received that had a length (excluding framing bits, but including FCS octets) of between 64 and 1518 octets, inclusive, but had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error) |FabricId, InterfaceName |
+|IfEthInFragmentFrames |Yes |Ethernet Interface In Fragment Frames |Count |Average |The total number of frames received that were less than 64 octets in length (excluding framing bits but including FCS octets) and had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error). |FabricId, InterfaceName |
+|IfEthInJabberFrames |Yes |Ethernet Interface In Jabber Frames |Count |Average |Number of jabber frames received on the interface. Jabber frames are typically defined as oversize frames which also have a bad CRC. |FabricId, InterfaceName |
+|IfEthInMacControlFrames |Yes |Ethernet Interface In MAC Control Frames |Count |Average |MAC layer control frames received on the interface |FabricId, InterfaceName |
+|IfEthInMacPauseFrames |Yes |Ethernet Interface In MAC Pause Frames |Count |Average |MAC layer PAUSE frames received on the interface |FabricId, InterfaceName |
+|IfEthInMaxsizeExceeded |Yes |Ethernet Interface In Maxsize Exceeded |Count |Average |The total number frames received that are well-formed dropped due to exceeding the maximum frame size on the interface. |FabricId, InterfaceName |
+|IfEthInOversizeFrames |Yes |Ethernet Interface In Oversize Frames |Count |Average |The total number of frames received that were longer than 1518 octets (excluding framing bits, but including FCS octets) and were otherwise well formed. |FabricId, InterfaceName |
+|IfEthOutMacControlFrames |Yes |Ethernet Interface Out MAC Control Frames |Count |Average |MAC layer control frames sent on the interface. |FabricId, InterfaceName |
+|IfEthOutMacPauseFrames |Yes |Ethernet Interface Out MAC Pause Frames |Count |Average |MAC layer PAUSE frames sent on the interface. |FabricId, InterfaceName |
+|IfInBroadcastPkts |Yes |Interface In Broadcast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer. |FabricId, InterfaceName |
+|IfInDiscards |Yes |Interface In Discards |Count |Average |The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. |FabricId, InterfaceName |
+|IfInErrors |Yes |Interface In Errors |Count |Average |For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol. |FabricId, InterfaceName |
+|IfInFcsErrors |Yes |Interface In FCS Errors |Count |Average |Number of received packets which had errors in the frame check sequence (FCS), i.e., framing errors. |FabricId, InterfaceName |
+|IfInMulticastPkts |Yes |Interface In Multicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, InterfaceName |
+|IfInOctets |Yes |Interface In Octets |Count |Average |The total number of octets received on the interface, including framing characters. |FabricId, InterfaceName |
+|IfInPkts |Yes |Interface In Pkts |Count |Average |The total number of packets received on the interface, including all unicast, multicast, broadcast and bad packets etc. |FabricId, InterfaceName |
+|IfInUnicastPkts |Yes |Interface In Unicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were not addressed to a multicast or broadcast address at this sub-layer. |FabricId, InterfaceName |
+|IfOutBroadcastPkts |Yes |Interface Out Broadcast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, InterfaceName |
+|IfOutDiscards |Yes |Interface Out Discards |Count |Average |The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. |FabricId, InterfaceName |
+|IfOutErrors |Yes |Interface Out Errors |Count |Average |For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. |FabricId, InterfaceName |
+|IfOutMulticastPkts |Yes |Interface Out Multicast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a multicast address at this sub-layer, including those that were discarded or not sent. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, InterfaceName |
+|IfOutOctets |Yes |Interface Out Octets |Count |Average |The total number of octets transmitted out of the interface, including framing characters. |FabricId, InterfaceName |
+|IfOutPkts |Yes |Interface Out Pkts |Count |Average |The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets etc. |FabricId, InterfaceName |
+|IfOutUnicastPkts |Yes |Interface Out Unicast Pkts |Count |Average |The total number of packets that higher-level requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, InterfaceName |
+|InterfaceOperStatus |Yes |Interface Operational State |Unspecified |Minimum |The current operational state of the interface. State is represented in numerical form. Up: 0, Down: 1, Lower_layer_down: 2, Testing: 3, Unknown: 4, Dormant: 5, Not_present: 6. |FabricId, InterfaceName |
+|LacpErrors |Yes |Lacp Errors |Count |Average |Number of LACPDU illegal packet errors. |FabricId, InterfaceName |
+|LacpInPkts |Yes |Lacp In Pkts |Count |Average |Number of LACPDUs received. |FabricId, InterfaceName |
+|LacpOutPkts |Yes |Lacp Out Pkts |Count |Average |Number of LACPDUs transmitted. |FabricId, InterfaceName |
+|LacpRxErrors |Yes |Lacp Rx Errors |Count |Average |Number of LACPDU receive packet errors. |FabricId, InterfaceName |
+|LacpTxErrors |Yes |Lacp Tx Errors |Count |Average |Number of LACPDU transmit packet errors. |FabricId, InterfaceName |
+|LacpUnknownErrors |Yes |Lacp Unknown Errors |Count |Average |Number of LACPDU unknown packet errors. |FabricId, InterfaceName |
+|LldpFrameIn |Yes |Lldp Frame In |Count |Average |The number of lldp frames received. |FabricId, InterfaceName |
+|LldpFrameOut |Yes |Lldp Frame Out |Count |Average |The number of frames transmitted out. |FabricId, InterfaceName |
+|LldpTlvUnknown |Yes |Lldp Tlv Unknown |Count |Average |The number of frames received with unknown TLV. |FabricId, InterfaceName |
+|MemoryAvailable |Yes |Memory Available |Bytes |Average |The available memory physically installed, or logically allocated to the component. |FabricId, ComponentName |
+|MemoryUtilized |Yes |Memory Utilized |Bytes |Average |The memory currently in use by processes running on the component, not considering reserved memory that is not available for use. |FabricId, ComponentName |
+|PowerSupplyCapacity |Yes |Power Supply Maximum Power Capacity |Unspecified |Average |Maximum power capacity of the power supply (watts). |FabricId, ComponentName |
+|PowerSupplyInputCurrent |Yes |Power Supply Input Current |Unspecified |Average |The input current draw of the power supply (amps). |FabricId, ComponentName |
+|PowerSupplyInputVoltage |Yes |Power Supply Input Voltage |Unspecified |Average |Input voltage to the power supply (volts). |FabricId, ComponentName |
+|PowerSupplyOutputCurrent |Yes |Power Supply Output Current |Unspecified |Average |The output current supplied by the power supply (amps) |FabricId, ComponentName |
+|PowerSupplyOutputPower |Yes |Power Supply Output Power |Unspecified |Average |Output power supplied by the power supply (watts) |FabricId, ComponentName |
+|PowerSupplyOutputVoltage |Yes |Power Supply Output Voltage |Unspecified |Average |Output voltage supplied by the power supply (volts). |FabricId, ComponentName |
+|TemperatureMax |Yes |Temperature Max |Unspecified |Average |Max temperature in degrees Celsius of the component. The maximum value of the statistic over the sampling period. |FabricId, ComponentName |
 
 ## Microsoft.Maps/accounts  
 <!-- Data source : arm-->
@@ -2783,9 +2741,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |Availability |Yes |Availability |Percent |Average |Availability of the APIs |ApiCategory, ApiName |
-|CreatorUsage |No |Creator Usage |Bytes |Average |Azure Maps Creator usage statistics |ServiceName |
 |Usage |No |Usage |Count |Count |Count of API calls |ApiCategory, ApiName, ResultType, ResponseCode |
-
 
 ## Microsoft.Media/mediaservices  
 <!-- Data source : naam-->
@@ -2810,7 +2766,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StreamingPolicyQuotaUsedPercentage |Yes |Streaming Policy quota used percentage |Percent |Average |Streaming Policy used percentage in current media service account |No Dimensions |
 |TransformQuota |Yes |Transform quota |Count |Average |The Transform quota for the current media service account. |No Dimensions |
 
-
 ## Microsoft.Media/mediaservices/liveEvents  
 <!-- Data source : naam-->
 
@@ -2820,7 +2775,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IngestDriftValue |Yes |Live Event ingest drift value |Seconds |Maximum |Drift between the timestamp of the ingested content and the system clock, measured in seconds per minute. A non zero value indicates that the ingested content is arriving slower than system clock time. |TrackName |
 |IngestLastTimestamp |Yes |Live Event ingest last timestamp |Milliseconds |Maximum |Last timestamp ingested for a live event. |TrackName |
 |LiveOutputLastTimestamp |Yes |Last output timestamp |Milliseconds |Maximum |Timestamp of the last fragment uploaded to storage for a live event output. |TrackName |
-
 
 ## Microsoft.Media/mediaservices/streamingEndpoints  
 <!-- Data source : naam-->
@@ -2833,7 +2787,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Requests |Yes |Requests |Count |Total |Requests to a Streaming Endpoint. |OutputFormat, HttpStatusCode, ErrorCode |
 |SuccessE2ELatency |Yes |Success end to end Latency |MilliSeconds |Average |The average latency for successful requests in milliseconds. |OutputFormat |
 
-
 ## Microsoft.Media/videoanalyzers  
 <!-- Data source : naam-->
 
@@ -2842,7 +2795,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IngressBytes |Yes |Ingress Bytes |Bytes |Total |The number of bytes ingressed by the pipeline node. |PipelineKind, PipelineTopology, Pipeline, Node |
 |Pipelines |Yes |Pipelines |Count |Total |The number of pipelines of each kind and state |PipelineKind, PipelineTopology, PipelineState |
 
-
 ## Microsoft.MixedReality/remoteRenderingAccounts  
 <!-- Data source : arm-->
 
@@ -2850,7 +2802,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |ActiveRenderingSessions |Yes |Active Rendering Sessions |Count |Average |Total number of active rendering sessions |SessionType, SDKVersion |
 |AssetsConverted |Yes |Assets Converted |Count |Total |Total number of assets converted |SDKVersion |
-
 
 ## Microsoft.MixedReality/spatialAnchorsAccounts  
 <!-- Data source : arm-->
@@ -2863,7 +2814,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AnchorsUpdated |Yes |Anchors Updated |Count |Total |Number of Anchors updated |DeviceFamily, SDKVersion |
 |PosesFound |Yes |Poses Found |Count |Total |Number of Poses returned |DeviceFamily, SDKVersion |
 |TotalDailyAnchors |Yes |Total Daily Anchors |Count |Average |Total number of Anchors - Daily |DeviceFamily, SDKVersion |
-
 
 ## Microsoft.Monitor/accounts  
 <!-- Data source : naam-->
@@ -2878,7 +2828,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |EventsPerMinuteIngestedPercentUtilization |No |Events Per Minute Ingested % Utilization |Percent |Average |The percentage of the current metric ingestion rate limit being utilized |StampColor |
 |SimpleSamplesStored |No |Simple Data Samples Stored |Count |Maximum |The total number of samples stored for simple sampling types (like sum, count). For Prometheus this is equivalent to the number of samples scraped and ingested. |StampColor |
 
-
 ## Microsoft.NetApp/netAppAccounts/capacityPools  
 <!-- Data source : arm-->
 
@@ -2890,7 +2839,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VolumePoolProvisionedThroughput |Yes |Provisioned throughput for the pool |BytesPerSecond |Average |Provisioned throughput of this pool |No Dimensions |
 |VolumePoolTotalLogicalSize |Yes |Pool Consumed Size |Bytes |Average |Sum of the logical size of all the volumes belonging to the pool |No Dimensions |
 |VolumePoolTotalSnapshotSize |Yes |Total Snapshot size for the pool |Bytes |Average |Sum of snapshot size of all volumes in this pool |No Dimensions |
-
 
 ## Microsoft.NetApp/netAppAccounts/capacityPools/volumes  
 <!-- Data source : arm-->
@@ -2927,13 +2875,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |XregionReplicationRelationshipTransferring |Yes |Is volume replication transferring |Count |Average |Whether the status of the Volume Replication is 'transferring'. |No Dimensions |
 |XregionReplicationTotalTransferBytes |Yes |Volume replication total transfer |Bytes |Average |Cumulative bytes transferred for the relationship. |No Dimensions |
 
-
 ## Microsoft.Network/applicationgateways  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ApplicationGatewayTotalTime |No |Application Gateway Total Time |MilliSeconds |Average |Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that this usually includes the Application Gateway processing time, time that the request and response packets are traveling over the network and the time the backend server took to respond. |Listener |
+|ApplicationGatewayTotalTime |No |Application Gateway Total Time |MilliSeconds |Average |Time that it takes for a request to be processed and its response to be sent. This is the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that this usually includes the Application Gateway processing time, time that the request and response packets are traveling over the network and the time the backend server took to respond. |Listener |
 |AvgRequestCountPerHealthyHost |No |Requests per minute per Healthy Host |Count |Average |Average request count per minute per healthy backend host in a pool |BackendSettingsPool |
 |AzwafBotProtection |Yes |WAF Bot Protection Matches |Count |Total |Matched Bot Rules |Action, Category, Mode, CountryCode, PolicyName, PolicyScope |
 |AzwafCustomRule |Yes |WAF Custom Rule Matches |Count |Total |Matched Custom Rules |Action, CustomRuleID, Mode, CountryCode, PolicyName, PolicyScope |
@@ -2943,30 +2890,25 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BackendFirstByteResponseTime |No |Backend First Byte Response Time |MilliSeconds |Average |Time interval between start of establishing a connection to backend server and receiving the first byte of the response header, approximating processing time of backend server |Listener, BackendServer, BackendPool, BackendHttpSetting |
 |BackendLastByteResponseTime |No |Backend Last Byte Response Time |MilliSeconds |Average |Time interval between start of establishing a connection to backend server and receiving the last byte of the response body |Listener, BackendServer, BackendPool, BackendHttpSetting |
 |BackendResponseStatus |Yes |Backend Response Status |Count |Total |The number of HTTP response codes generated by the backend members. This does not include any response codes generated by the Application Gateway. |BackendServer, BackendPool, BackendHttpSetting, HttpStatusGroup |
-|BackendTlsNegotiationError |Yes |Backend TLS Connection Errors |Count |Total |TLS Connection Errors for Application Gateway Backend |BackendHttpSetting, BackendPool, ErrorType |
 |BlockedCount |Yes |Web Application Firewall Blocked Requests Rule Distribution |Count |Total |Web Application Firewall blocked requests rule distribution |RuleGroup, RuleId |
 |BytesReceived |Yes |Bytes Received |Bytes |Total |The total number of bytes received by the Application Gateway from the clients |Listener |
 |BytesSent |Yes |Bytes Sent |Bytes |Total |The total number of bytes sent by the Application Gateway to the clients |Listener |
 |CapacityUnits |No |Current Capacity Units |Count |Average |Capacity Units consumed |No Dimensions |
-|ClientRtt |No |Client RTT |MilliSeconds |Average |Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgements |Listener |
+|ClientRtt |No |Client RTT |MilliSeconds |Average |Round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgements |Listener |
 |ComputeUnits |No |Current Compute Units |Count |Average |Compute Units consumed |No Dimensions |
-|ConnectionLifetime |No |Connection Lifetime |MilliSeconds |Average |Average time duration from the start of a new connection to its termination |Listener |
 |CpuUtilization |No |CPU Utilization |Percent |Average |Current CPU utilization of the Application Gateway |No Dimensions |
 |CurrentConnections |Yes |Current Connections |Count |Total |Count of current connections established with Application Gateway |No Dimensions |
 |EstimatedBilledCapacityUnits |No |Estimated Billed Capacity Units |Count |Average |Estimated capacity units that will be charged |No Dimensions |
 |FailedRequests |Yes |Failed Requests |Count |Total |Count of failed requests that Application Gateway has served |BackendSettingsPool |
 |FixedBillableCapacityUnits |No |Fixed Billable Capacity Units |Count |Average |Minimum capacity units that will be charged |No Dimensions |
-|GatewayUtilization |No |Gateway Utilization |Percent |Average |Denotes the current utilization status of the Application Gateway resource. The metric is an aggregate report of your gateway's running instances. As a recommendation, one should consider scaling out when the value exceeds 70%. However, the threshold could differ for different workloads. Hence, choose a limit that suits your requirements. |No Dimensions |
 |HealthyHostCount |Yes |Healthy Host Count |Count |Average |Number of healthy backend hosts |BackendSettingsPool |
 |MatchedCount |Yes |Web Application Firewall Total Rule Distribution |Count |Total |Web Application Firewall Total Rule Distribution for the incoming traffic |RuleGroup, RuleId |
 |NewConnectionsPerSecond |No |New connections per second |CountPerSecond |Average |New connections per second established with Application Gateway |No Dimensions |
-|RejectedConnections |Yes |Rejected Connections |Count |Total |Count of rejected connections for Application Gateway Frontend |No Dimensions |
 |ResponseStatus |Yes |Response Status |Count |Total |Http response status returned by Application Gateway |HttpStatusGroup |
 |Throughput |No |Throughput |BytesPerSecond |Average |Number of bytes per second the Application Gateway has served |No Dimensions |
 |TlsProtocol |Yes |Client TLS Protocol |Count |Total |The number of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the dimension TLS Protocol. |Listener, TlsProtocol |
 |TotalRequests |Yes |Total Requests |Count |Total |Count of successful requests that Application Gateway has served |BackendSettingsPool |
 |UnhealthyHostCount |Yes |Unhealthy Host Count |Count |Average |Number of unhealthy backend hosts |BackendSettingsPool |
-
 
 ## Microsoft.Network/azureFirewalls  
 <!-- Data source : naam-->
@@ -2981,7 +2923,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SNATPortUtilization |Yes |SNAT port utilization |Percent |Average |Percentage of outbound SNAT ports currently in use |Protocol |
 |Throughput |No |Throughput |BitsPerSecond |Average |Throughput processed by this firewall |No Dimensions |
 
-
 ## microsoft.network/bastionHosts  
 <!-- Data source : naam-->
 
@@ -2993,7 +2934,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |usage_user |No |CPU Usage |Count |Average |CPU Usage stats. |cpu, host |
 |used |Yes |Memory Usage |Count |Average |Memory Usage stats. |host |
 
-
 ## Microsoft.Network/connections  
 <!-- Data source : naam-->
 
@@ -3002,7 +2942,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BitsInPerSecond |Yes |BitsInPerSecond |BitsPerSecond |Average |Bits ingressing Azure per second |No Dimensions |
 |BitsOutPerSecond |Yes |BitsOutPerSecond |BitsPerSecond |Average |Bits egressing Azure per second |No Dimensions |
 
-
 ## Microsoft.Network/dnsForwardingRulesets  
 <!-- Data source : naam-->
 
@@ -3010,7 +2949,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |ForwardingRuleCount |No |Forwarding Rule Count |Count |Maximum |This metric indicates the number of forwarding rules present in each DNS forwarding ruleset. |No Dimensions |
 |VirtualNetworkLinkCount |No |Virtual Network Link Count |Count |Maximum |This metric indicates the number of associated virtual network links to a DNS forwarding ruleset. |No Dimensions |
-
 
 ## Microsoft.Network/dnsResolvers  
 <!-- Data source : naam-->
@@ -3021,7 +2959,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |OutboundEndpointCount |No |Outbound Endpoint Count |Count |Maximum |This metric indicates the number of outbound endpoints created for a DNS Resolver. |No Dimensions |
 |QPS |No |Queries Per Second |Count |Average |This metric indicates the queries per second for a DNS Resolver. (Can be aggregated per EndpointId) |EndpointId |
 
-
 ## Microsoft.Network/dnszones  
 <!-- Data source : arm-->
 
@@ -3030,7 +2967,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |QueryVolume |No |Query Volume |Count |Total |Number of queries served for a DNS zone |No Dimensions |
 |RecordSetCapacityUtilization |No |Record Set Capacity Utilization |Percent |Maximum |Percent of Record Set capacity utilized by a DNS zone |No Dimensions |
 |RecordSetCount |No |Record Set Count |Count |Maximum |Number of Record Sets in a DNS zone |No Dimensions |
-
 
 ## Microsoft.Network/expressRouteCircuits  
 <!-- Data source : naam-->
@@ -3047,7 +2983,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |QosDropBitsInPerSecond |Yes |DroppedInBitsPerSecond |BitsPerSecond |Average |Ingress bits of data dropped per second |No Dimensions |
 |QosDropBitsOutPerSecond |Yes |DroppedOutBitsPerSecond |BitsPerSecond |Average |Egress bits of data dropped per second |No Dimensions |
 
-
 ## Microsoft.Network/expressRouteCircuits/peerings  
 <!-- Data source : arm-->
 
@@ -3056,7 +2991,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BitsInPerSecond |Yes |BitsInPerSecond |BitsPerSecond |Average |Bits ingressing Azure per second |No Dimensions |
 |BitsOutPerSecond |Yes |BitsOutPerSecond |BitsPerSecond |Average |Bits egressing Azure per second |No Dimensions |
 
-
 ## microsoft.network/expressroutegateways  
 <!-- Data source : naam-->
 
@@ -3064,14 +2998,15 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |ErGatewayConnectionBitsInPerSecond |No |Bits In Per Second |BitsPerSecond |Average |Bits per second ingressing Azure via ExpressRoute Gateway which can be further split for specific connections |ConnectionName |
 |ErGatewayConnectionBitsOutPerSecond |No |Bits Out Per Second |BitsPerSecond |Average |Bits per second egressing Azure via ExpressRoute Gateway which can be further split for specific connections |ConnectionName |
+|ExpressRouteGatewayActiveFlows |No |Active Flows |Count |Average |Number of Active Flows on ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayBitsPerSecond |No |Bits Received Per second |BitsPerSecond |Average |Total Bits received on ExpressRoute Gateway per second |roleInstance |
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer |Yes |Count Of Routes Advertised to Peer |Count |Maximum |Count Of Routes Advertised To Peer by ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer |Yes |Count Of Routes Learned from Peer |Count |Maximum |Count Of Routes Learned From Peer by ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayCpuUtilization |Yes |CPU utilization |Percent |Average |CPU Utilization of the ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayFrequencyOfRoutesChanged |No |Frequency of Routes change |Count |Total |Frequency of Routes change in ExpressRoute Gateway |roleInstance |
+|ExpressRouteGatewayMaxFlowsCreationRate |No |Max Flows Created Per Second |CountPerSecond |Maximum |Maximum Number of Flows Created Per Second on ExpressRoute Gateway |roleInstance, direction |
 |ExpressRouteGatewayNumberOfVmInVnet |No |Number of VMs in the Virtual Network |Count |Maximum |Number of VMs in the Virtual Network |No Dimensions |
 |ExpressRouteGatewayPacketsPerSecond |No |Packets received per second |CountPerSecond |Average |Total Packets received on ExpressRoute Gateway per second |roleInstance |
-
 
 ## Microsoft.Network/expressRoutePorts  
 <!-- Data source : naam-->
@@ -3085,7 +3020,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PortBitsOutPerSecond |No |BitsOutPerSecond |BitsPerSecond |Average |Bits egressing Azure per second |Link |
 |RxLightLevel |Yes |RxLightLevel |Count |Average |Rx Light level in dBm |Link, Lane |
 |TxLightLevel |Yes |TxLightLevel |Count |Average |Tx light level in dBm |Link, Lane |
-
 
 ## Microsoft.Network/frontdoors  
 <!-- Data source : naam-->
@@ -3102,7 +3036,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalLatency |Yes |Total Latency |MilliSeconds |Average |The time calculated from when the client request was received by the HTTP/S proxy until the client acknowledged the last response byte from the HTTP/S proxy |HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry |
 |WebApplicationFirewallRequestCount |Yes |Web Application Firewall Request Count |Count |Total |The number of client requests processed by the Web Application Firewall |PolicyName, RuleName, Action |
 
-
 ## Microsoft.Network/loadBalancers  
 <!-- Data source : naam-->
 
@@ -3118,7 +3051,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UsedSnatPorts |No |Used SNAT Ports |Count |Average |Total number of SNAT ports used within time period |FrontendIPAddress, BackendIPAddress, ProtocolType, IsAwaitingRemoval |
 |VipAvailability |Yes |Data Path Availability |Count |Average |Average Load Balancer data path availability per time duration |FrontendIPAddress, FrontendPort |
 
-
 ## Microsoft.Network/natGateways  
 <!-- Data source : arm-->
 
@@ -3131,7 +3063,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SNATConnectionCount |No |SNAT Connection Count |Count |Total |Total concurrent active connections |Protocol, ConnectionState |
 |TotalConnectionCount |No |Total SNAT Connection Count |Count |Total |Total number of active SNAT connections |Protocol |
 
-
 ## Microsoft.Network/networkInterfaces  
 <!-- Data source : arm-->
 
@@ -3141,7 +3072,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BytesSentRate |Yes |Bytes Sent |Bytes |Total |Number of bytes the Network Interface sent |No Dimensions |
 |PacketsReceivedRate |Yes |Packets Received |Count |Total |Number of packets the Network Interface received |No Dimensions |
 |PacketsSentRate |Yes |Packets Sent |Count |Total |Number of packets the Network Interface sent |No Dimensions |
-
 
 ## Microsoft.Network/networkWatchers/connectionMonitors  
 <!-- Data source : arm-->
@@ -3154,7 +3084,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RoundTripTimeMs |Yes |Round-Trip Time (ms) |MilliSeconds |Average |Round-trip time in milliseconds for the connectivity monitoring checks |SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName, SourceIP, DestinationIP, SourceSubnet, DestinationSubnet |
 |TestResult |Yes |Test Result |Count |Average |Connection monitor test result |SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName, TestResultCriterion, SourceIP, DestinationIP, SourceSubnet, DestinationSubnet |
 
-
 ## microsoft.network/p2svpngateways  
 <!-- Data source : naam-->
 
@@ -3163,7 +3092,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |P2SBandwidth |Yes |Gateway P2S Bandwidth |BytesPerSecond |Average |Point-to-site bandwidth of a gateway in bytes per second |Instance |
 |P2SConnectionCount |Yes |P2S Connection Count |Count |Total |Point-to-site connection count of a gateway |Protocol, Instance |
 |UserVpnRouteCount |No |User Vpn Route Count |Count |Total |Count of P2S User Vpn routes learned by gateway |RouteType, Instance |
-
 
 ## Microsoft.Network/privateDnsZones  
 <!-- Data source : arm-->
@@ -3178,15 +3106,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VirtualNetworkWithRegistrationCapacityUtilization |No |Virtual Network Registration Link Capacity Utilization |Percent |Maximum |Percent of Virtual Network Link with auto-registration capacity utilized by a Private DNS zone |No Dimensions |
 |VirtualNetworkWithRegistrationLinkCount |No |Virtual Network Registration Link Count |Count |Maximum |Number of Virtual Networks linked to a Private DNS zone with auto-registration enabled |No Dimensions |
 
-
 ## Microsoft.Network/privateEndpoints  
 <!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn |Yes |Bytes In |Count |Total |Total number of Bytes Out |No Dimensions |
-|PEBytesOut |Yes |Bytes Out |Count |Total |Total number of Bytes Out |No Dimensions |
-
+|PEBytesIn |No |Bytes In |Count |Total |Total number of Bytes Out |No Dimensions |
+|PEBytesOut |No |Bytes Out |Count |Total |Total number of Bytes Out |No Dimensions |
 
 ## Microsoft.Network/privateLinkServices  
 <!-- Data source : arm-->
@@ -3196,7 +3122,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PLSBytesIn |Yes |Bytes In |Count |Total |Total number of Bytes Out |PrivateLinkServiceId |
 |PLSBytesOut |Yes |Bytes Out |Count |Total |Total number of Bytes Out |PrivateLinkServiceId |
 |PLSNatPortsUsage |Yes |Nat Ports Usage |Percent |Average |Nat Ports Usage |PrivateLinkServiceId, PrivateLinkServiceIPAddress |
-
 
 ## Microsoft.Network/publicIPAddresses  
 <!-- Data source : naam-->
@@ -3230,7 +3155,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UDPPacketsInDDoS |Yes |Inbound UDP packets DDoS |CountPerSecond |Maximum |Inbound UDP packets DDoS |No Dimensions |
 |VipAvailability |Yes |Data Path Availability |Count |Average |Average IP Address availability per time duration |Port |
 
-
 ## Microsoft.Network/trafficManagerProfiles  
 <!-- Data source : arm-->
 
@@ -3238,7 +3162,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |ProbeAgentCurrentEndpointStateByProfileResourceId |Yes |Endpoint Status by Endpoint |Count |Maximum |1 if an endpoint's probe status is "Enabled", 0 otherwise. |EndpointName |
 |QpsByEndpoint |Yes |Queries by Endpoint Returned |Count |Total |Number of times a Traffic Manager endpoint was returned in the given time frame |EndpointName |
-
 
 ## Microsoft.Network/virtualHubs  
 <!-- Data source : naam-->
@@ -3250,7 +3173,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |CountOfRoutesLearnedFromPeer |No |Count Of Routes Learned From Peer |Count |Maximum |Total number of routes learned from peer |routeserviceinstance, bgppeerip, bgppeertype |
 |VirtualHubDataProcessed |No |Data Processed by the Virtual Hub Router |Bytes |Total |Data Processed by the Virtual Hub Router |No Dimensions |
 
-
 ## microsoft.network/virtualnetworkgateways  
 <!-- Data source : naam-->
 
@@ -3260,11 +3182,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BgpPeerStatus |No |BGP Peer Status |Count |Average |Status of BGP peer |BgpPeerAddress, Instance |
 |BgpRoutesAdvertised |Yes |BGP Routes Advertised |Count |Total |Count of Bgp Routes Advertised through tunnel |BgpPeerAddress, Instance |
 |BgpRoutesLearned |Yes |BGP Routes Learned |Count |Total |Count of Bgp Routes Learned through tunnel |BgpPeerAddress, Instance |
+|ExpressRouteGatewayActiveFlows |No |Active Flows |Count |Average |Number of Active Flows on ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayBitsPerSecond |No |Bits Received Per second |BitsPerSecond |Average |Total Bits received on ExpressRoute Gateway per second |roleInstance |
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer |Yes |Count Of Routes Advertised to Peer |Count |Maximum |Count Of Routes Advertised To Peer by ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer |Yes |Count Of Routes Learned from Peer |Count |Maximum |Count Of Routes Learned From Peer by ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayCpuUtilization |Yes |CPU utilization |Percent |Average |CPU Utilization of the ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayFrequencyOfRoutesChanged |No |Frequency of Routes change |Count |Total |Frequency of Routes change in ExpressRoute Gateway |roleInstance |
+|ExpressRouteGatewayMaxFlowsCreationRate |No |Max Flows Created Per Second |CountPerSecond |Maximum |Maximum Number of Flows Created Per Second on ExpressRoute Gateway |roleInstance, direction |
 |ExpressRouteGatewayNumberOfVmInVnet |No |Number of VMs in the Virtual Network |Count |Maximum |Number of VMs in the Virtual Network |roleInstance |
 |ExpressRouteGatewayPacketsPerSecond |No |Packets received per second |CountPerSecond |Average |Total Packets received on ExpressRoute Gateway per second |roleInstance |
 |MmsaCount |Yes |Tunnel MMSA Count |Count |Total |MMSA Count |ConnectionName, RemoteIP, Instance |
@@ -3291,7 +3215,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TunnelTotalFlowCount |Yes |Tunnel Total Flow Count |Count |Total |Total flow count on a tunnel |ConnectionName, RemoteIP, Instance |
 |UserVpnRouteCount |No |User Vpn Route Count |Count |Total |Count of P2S User Vpn routes learned by gateway |RouteType, Instance |
 |VnetAddressPrefixCount |Yes |VNet Address Prefix Count |Count |Total |Count of Vnet address prefixes behind gateway |Instance |
-
 
 ## Microsoft.Network/virtualNetworks  
 <!-- Data source : arm-->
@@ -3323,14 +3246,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UDPPacketsForwardedDDoS |Yes |Inbound UDP packets forwarded DDoS |CountPerSecond |Maximum |Inbound UDP packets forwarded DDoS |ProtectedIPAddress |
 |UDPPacketsInDDoS |Yes |Inbound UDP packets DDoS |CountPerSecond |Maximum |Inbound UDP packets DDoS |ProtectedIPAddress |
 
-
 ## Microsoft.Network/virtualRouters  
 <!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |PeeringAvailability |Yes |Bgp Availability |Percent |Average |BGP Availability between VirtualRouter and remote peers |Peer |
-
 
 ## microsoft.network/vpngateways  
 <!-- Data source : naam-->
@@ -3363,6 +3284,219 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TunnelTotalFlowCount |Yes |Tunnel Total Flow Count |Count |Total |Total flow count on a tunnel |ConnectionName, RemoteIP, Instance |
 |VnetAddressPrefixCount |Yes |VNet Address Prefix Count |Count |Total |Count of Vnet address prefixes behind gateway |Instance |
 
+## Microsoft.NetworkAnalytics/DataConnectors  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|DataIngested |No |Data Ingested |Bytes |Total |The volume of data ingested by the pipeline (bytes). |No Dimensions |
+|MalformedData |Yes |Malformed Data |Count |Total |The number of files unable to be processed by the pipeline. |No Dimensions |
+|MalformedRecords |No |Malformed Records |Count |Total |The number of records unable to be processed by the pipeline. |No Dimensions |
+|ProcessedFileCount |Yes |Processed File Count |Count |Total |The number of files processed by the data connector. |No Dimensions |
+|Running |Yes |Running |Unspecified |Count |Values greater than 0 indicate that the pipeline is ready to process data. |No Dimensions |
+
+## Microsoft.NetworkCloud/bareMetalMachines  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|HostBootTimeSeconds |No |Host Boot Seconds (Preview) |Seconds |Average |Unix time of last boot |Host |
+|HostDiskReadCompleted |No |Host Disk Reads Completed |Count |Average |Disk reads completed by node |Device, Host |
+|HostDiskReadSeconds |No |Host Disk Read Seconds (Preview) |Seconds |Average |Disk read time by node |Device, Host |
+|HostDiskWriteCompleted |No |Total Number of Writes Completed |Count |Average |Disk writes completed by node |Device, Host |
+|HostDiskWriteSeconds |No |Host Disk Write Seconds (Preview) |Seconds |Average |Disk write time by node |Device, Host |
+|HostDmiInfo |No |Host DMI Info (Preview) |Unspecified |Count |Host Desktop Management Interface (DMI) environment information |BiosDate, BiosRelease, BiosVendor, BiosVersion, BoardAssetTag, BoardName, BoardVendor, BoardVersion, ChassisAssetTag, ChassisVendor, ChassisVersion, Host, ProductFamily, ProductName, ProductSku, ProductUuid, ProductVersion, SystemVendor |
+|HostEntropyAvailableBits |No |Host Entropy Available Bits (Preview) |Count |Average |Available bits in node entropy |Host |
+|HostFilesystemAvailBytes |No |Host Filesystem Available Bytes |Count |Average |Available filesystem size by node |Device, FSType, Host, Mountpoint |
+|HostFilesystemDeviceError |No |Host Filesystem Device Errors |Count |Average |Indicates if there was a problem getting information for the filesystem |Device, FSType, Host, Mountpoint |
+|HostFilesystemFiles |No |Host Filesystem Files |Count |Average |Total number of permitted inodes |Device, FSType, Host, Mountpoint |
+|HostFilesystemFilesFree |No |Total Number of Free inodes |Count |Average |Total number of free inodes |Device, FSType, Host, Mountpoint |
+|HostFilesystemReadOnly |No |Host Filesystem Read Only |Unspecified |Count |Indicates if the filesystem is readonly |Device, FSType, Host, Mountpoint |
+|HostFilesystemSizeBytes |No |Host Filesystem Size In Bytes |Count |Average |Filesystem size by node |Device, FSType, Host, Mountpoint |
+|HostHwmonTempCelsius |No |Host Hardware Monitor Temp |Count |Average |Hardware monitor for temperature (celsius) |Chip, Host, Sensor |
+|HostHwmonTempMax |No |Host Hardware Monitor Temp Max |Count |Average |Hardware monitor for maximum temperature (celsius) |Chip, Host, Sensor |
+|HostLoad1 |No |Average Load In 1 Minute (Preview) |Count |Average |1 minute load average |Host |
+|HostLoad15 |No |Average Load In 15 Minutes (Preview) |Count |Average |15 minute load average |Host |
+|HostLoad5 |No |Average load in 5 minutes (Preview) |Count |Average |5 minute load average |Host |
+|HostMemAvailBytes |No |Host Memory Available Bytes |Count |Average |Available memory in bytes by node |Host |
+|HostMemHWCorruptedBytes |No |Total Amount of Memory In Corrupted Pages |Count |Average |Corrupted bytes in hardware by node |Host |
+|HostMemTotalBytes |No |Host Memory Total Bytes |Bytes |Average |Total bytes of memory by node |Host |
+|HostSpecificCPUUtilization |No |Host Specific CPU Utilization (Preview) |Seconds |Average |A counter metric that counts the number of seconds the CPU has been running in a particular mode |Cpu, Host, Mode |
+|IdracPowerCapacityWatts |No |IDRAC Power Capacity Watts |Unspecified |Average |Power Capacity |Host, PSU |
+|IdracPowerInputWatts |No |IDRAC Power Input Watts |Unspecified |Average |Power Input |Host, PSU |
+|IdracPowerOn |No |IDRAC Power On |Unspecified |Count |IDRAC Power On Status |Host |
+|IdracPowerOutputWatts |No |IDRAC Power Output Watts |Unspecified |Average |Power Output |Host, PSU |
+|IdracSensorsTemperature |No |IDRAC Sensors Temperature |Unspecified |Average |IDRAC sensor temperature |Host, Name, Units |
+|NcNodeNetworkReceiveErrsTotal |No |Network Device Receive Errors |Count |Average |Total network device errors received |Hostname, Interface Name |
+|NcNodeNetworkTransmitErrsTotal |No |Network Device Transmit Errors |Count |Average |Total network device errors transmitted |Hostname, Interface Name |
+|NcTotalCpusPerNuma |No |Total CPUs Available to Nexus per NUMA |Count |Average |Total number of CPUs available to Nexus per NUMA |Hostname, NUMA Node |
+|NcTotalWorkloadCpusAllocatedPerNuma |No |CPUs per NUMA Allocated for Nexus Kubernetes |Count |Average |Total number of CPUs per NUMA allocated for Nexus Kubernetes and Tenant Workloads |Hostname, NUMA Node |
+|NcTotalWorkloadCpusAvailablePerNuma |No |CPUs per NUMA Available for Nexus Kubernetes |Count |Average |Total number of CPUs per NUMA available to Nexus Kubernetes and Tenant Workloads |Hostname, NUMA Node |
+|NodeBondingActive |No |Node Bonding Active (Preview) |Count |Average |Number of active interfaces per bonding interface |Master |
+|NodeMemHugePagesFree |No |Node Memory Huge Pages Free (Preview) |Bytes |Average |NUMA hugepages free by node |Host, Node |
+|NodeMemHugePagesTotal |No |Node Memory Huge Pages Total |Bytes |Average |NUMA huge pages total by node |Host, Node |
+|NodeMemNumaFree |No |Node Memory NUMA (Free Memory) |Bytes |Average |NUMA memory free |Name, Host |
+|NodeMemNumaShem |No |Node Memory NUMA (Shared Memory) |Bytes |Average |NUMA shared memory |Host, Node |
+|NodeMemNumaUsed |No |Node Memory NUMA (Used Memory) |Bytes |Average |NUMA memory used |Host, Node |
+|NodeNetworkCarrierChanges |No |Node Network Carrier Changes |Count |Average |Node network carrier changes |Device, Host |
+|NodeNetworkMtuBytes |No |Node Network Maximum Transmission Unit Bytes |Bytes |Average |Node network Maximum Transmission Unit (mtu_bytes) value of /sys/class/net/\<iface\> |Device, Host |
+|NodeNetworkReceiveMulticastTotal |No |Node Network Received Multicast Total |Bytes |Average |Network device statistic receive_multicast |Device, Host |
+|NodeNetworkReceivePackets |No |Node Network Received Packets |Count |Average |Network device statistic receive_packets |Device, Host |
+|NodeNetworkSpeedBytes |No |Node Network Speed Bytes |Bytes |Average |speed_bytes value of /sys/class/net/\<iface\> |Device, Host |
+|NodeNetworkTransmitPackets |No |Node Network Transmited Packets |Count |Average |Network device statistic transmit_packets |Device, Host |
+|NodeNetworkUp |No |Node Network Up |Count |Count |Value is 1 if operstate is 'up', 0 otherwise. |Device, Host |
+|NodeNvmeInfo |No |Node NVMe Info (Preview) |Count |Count |Non-numeric data from /sys/class/nvme/\<device\>, value is always 1. Provides firmware, model, state and serial for a device |Device, State |
+|NodeOsInfo |No |Node OS Info |Count |Count |Node OS information |Host, Name, Version |
+|NodeTimexMaxErrorSeconds |No |Node Timex Max Error Seconds |Seconds |Average |Maximum time error between the local system and reference clock |Host |
+|NodeTimexOffsetSeconds |No |Node Timex Offset Seconds |Seconds |Average |Time offset in between the local system and reference clock |Host |
+|NodeTimexSyncStatus |No |Node Timex Sync Status |Count |Average |Is clock synchronized to a reliable server (1 = yes, 0 = no) |Host |
+|NodeVmOomKill |No |Node VM Out Of Memory Kill |Count |Average |Information in /proc/vmstat pertaining to the field oom_kill |Host |
+|NodeVmstatPswpIn |No |Node VM PSWP In |Count |Average |Information in /proc/vmstat pertaining to the field pswpin |Host |
+|NodeVmstatPswpout |No |Node VM PSWP Out |Count |Average |Information in /proc/vmstat pertaining to the field pswpout |Host |
+
+## Microsoft.NetworkCloud/clusters  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ApiserverAuditRequestsRejectedTotal |No |API Server Audit Requests Rejected Total |Count |Average |Counter of API server requests rejected due to an error in the audit logging backend |Component, Pod Name |
+|ApiserverClientCertificateExpirationSecondsSum |No |API Server Client Certificate Expiration Seconds Sum (Preview) |Seconds |Average |Sum of API server client certificate expiration (seconds) |Component, Pod Name |
+|ApiserverStorageDataKeyGenerationFailuresTotal |No |API Server Storage Data Key Generation Failures Total |Count |Average |Total number of operations that failed Data Encryption Key (DEK) generation |Component, Pod Name |
+|ApiserverTlsHandshakeErrorsTotal |No |API Server TLS Handshake Errors Total (Preview) |Count |Average |Number of requests dropped with 'TLS handshake' error |Component, Pod Name |
+|ContainerFsIoTimeSecondsTotal |No |Container FS I/O Time Seconds Total (Preview) |Seconds |Average |Time taken for container Input/Output (I/O) operations |Device, Host |
+|ContainerMemoryFailcnt |No |Container Memory Fail Count |Count |Average |Number of times a container's memory usage limit is hit |Container, Host, Namespace, Pod |
+|ContainerMemoryUsageBytes |No |Container Memory Usage Bytes |Bytes |Average |Current memory usage, including all memory regardless of when it was accessed |Container, Host, Namespace, Pod |
+|ContainerNetworkReceiveErrorsTotal |No |Container Network Receive Errors Total (Preview) |Count |Average |Number of errors encountered while receiving bytes over the network |Interface, Namespace, Pod |
+|ContainerNetworkTransmitErrorsTotal |No |Container Network Transmit Errors Total (Preview) |Count |Average |Count of errors that happened while transmitting |Interface, Namespace, Pod |
+|ContainerScrapeError |No |Container Scrape Error |Unspecified |Average |Indicates whether there was an error while getting container metrics |Host |
+|ContainerTasksState |No |Container Tasks State |Count |Average |Number of tasks or processes in a given state (sleeping, running, stopped, uninterruptible, or waiting) in a container |Container, Host, Namespace, Pod, State |
+|ControllerRuntimeReconcileErrorsTotal |No |Controller Reconcile Errors Total |Count |Average |Total number of reconciliation errors per controller |Controller, Namespace, Pod Name |
+|ControllerRuntimeReconcileTotal |No |Controller Reconciliations Total |Count |Average |Total number of reconciliations per controller |Controller, Namespace, Pod Name |
+|CorednsDnsRequestsTotal |No |CoreDNS Requests Total |Count |Average |Total number of DNS requests |Family, Pod Name, Proto, Server, Type |
+|CorednsDnsResponsesTotal |No |CoreDNS Responses Total |Count |Average |Total number of DNS responses |Pod Name, Server, Rcode |
+|CorednsForwardHealthcheckBrokenTotal |No |CoreDNS Forward Healthcheck Broken Total (Preview) |Count |Average |Total number of times all upstreams are unhealthy |Pod Name, Namespace |
+|CorednsForwardMaxConcurrentRejectsTotal |No |CoreDNS Forward Max Concurrent Rejects Total (Preview) |Count |Average |Total number of rejected queries because concurrent queries were at the maximum limit |Pod Name, Namespace |
+|CorednsHealthRequestFailuresTotal |No |CoreDNS Health Request Failures Total |Count |Average |The number of times the self health check failed |Pod Name |
+|CorednsPanicsTotal |No |CoreDNS Panics Total |Count |Average |Total number of panics |Pod Name |
+|CorednsReloadFailedTotal |No |CoreDNS Reload Failed Total |Count |Average |Total number of failed reload attempts |Pod Name, Namespace |
+|EtcdDiskBackendCommitDurationSecondsSum |No |Etcd Disk Backend Commit Duration Seconds Sum |Seconds |Total |The latency distribution of commits called by the backend |Component, Pod Name, Tier |
+|EtcdDiskWalFsyncDurationSecondsSum |No |Etcd Disk WAL Fsync Duration Seconds Sum |Seconds |Total |The sum of latency distributions of 'fsync' called by the write-ahead log (WAL) |Component, Pod Name, Tier |
+|EtcdServerHealthFailures |No |Etcd Server Health Failures |Count |Average |Total server health failures |Pod Name |
+|EtcdServerIsLeader |No |Etcd Server Is Leader |Unspecified |Count |Whether or not this member is a leader; 1 if is, 0 otherwise |Component, Pod Name, Tier |
+|EtcdServerIsLearner |No |Etcd Server Is Learner |Unspecified |Count |Whether or not this member is a learner; 1 if is, 0 otherwise |Component, Pod Name, Tier |
+|EtcdServerLeaderChangesSeenTotal |No |Etcd Server Leader Changes Seen Total |Count |Average |The number of leader changes seen |Component, Pod Name, Tier |
+|EtcdServerProposalsAppliedTotal |No |Etcd Server Proposals Applied Total |Count |Average |The total number of consensus proposals applied |Component, Pod Name, Tier |
+|EtcdServerProposalsCommittedTotal |No |Etcd Server Proposals Committed Total |Count |Average |The total number of consensus proposals committed |Component, Pod Name, Tier |
+|EtcdServerProposalsFailedTotal |No |Etcd Server Proposals Failed Total |Count |Average |The total number of failed proposals |Component, Pod Name, Tier |
+|EtcdServerSlowApplyTotal |No |Etcd Server Slow Apply Total (Preview) |Count |Average |The total number of slow apply requests |Pod Name, Tier |
+|FelixActiveLocalEndpoints |No |Felix Active Local Endpoints |Count |Average |Number of active endpoints on this host |Host |
+|FelixClusterNumHostEndpoints |No |Felix Cluster Num Host Endpoints |Count |Average |Total number of host endpoints cluster-wide |Host |
+|FelixClusterNumHosts |No |Felix Cluster Number of Hosts |Count |Average |Total number of Calico hosts in the cluster |Host |
+|FelixClusterNumWorkloadEndpoints |No |Felix Cluster Number of Workload Endpoints |Count |Average |Total number of workload endpoints cluster-wide |Host |
+|FelixIntDataplaneFailures |No |Felix Interface Dataplane Failures |Count |Average |Number of times dataplane updates failed and will be retried |Host |
+|FelixIpsetErrors |No |Felix Ipset Errors |Count |Average |Number of 'ipset' command failures |Host |
+|FelixIpsetsCalico |No |Felix Ipsets Calico |Count |Average |Number of active Calico IP sets |Host |
+|FelixIptablesRestoreErrors |No |Felix IP Tables Restore Errors |Count |Average |Number of 'iptables-restore' errors |Host |
+|FelixIptablesSaveErrors |No |Felix IP Tables Save Errors |Count |Average |Number of 'iptables-save' errors |Host |
+|FelixResyncsStarted |No |Felix Resyncs Started |Count |Average |Number of times Felix has started resyncing with the datastore |Host |
+|FelixResyncState |No |Felix Resync State |Unspecified |Average |Current datastore state |Host |
+|KubeDaemonsetStatusCurrentNumberScheduled |No |Daemonsets Current Number Scheduled |Count |Average |Number of daemonsets currently scheduled |Daemonset, Namespace |
+|KubeDaemonsetStatusDesiredNumberScheduled |No |Daemonsets Desired Number Scheduled |Count |Average |Number of daemonsets desired scheduled |Daemonset, Namespace |
+|KubeDeploymentStatusReplicasAvailable |No |Deployment Replicas Available |Count |Average |Number of deployment replicas available |Deployment, Namespace |
+|KubeDeploymentStatusReplicasReady |No |Deployment Replicas Ready |Count |Average |Number of deployment replicas ready |Deployment, Namespace |
+|KubeJobStatusActive |No |Jobs Active |Count |Average |Number of jobs active |Job, Namespace |
+|KubeJobStatusFailed |No |Jobs Failed |Count |Average |Number and reason of jobs failed |Job, Namespace, Reason |
+|KubeJobStatusSucceeded |No |Jobs Succeeded |Count |Average |Number of jobs succeeded |Job, Namespace |
+|KubeletRunningContainers |No |Kubelet Running Containers |Count |Average |Number of containers currently running |Container State, Host |
+|KubeletRunningPods |No |Kubelet Running Pods |Count |Average |Number of pods running on the node |Host |
+|KubeletRuntimeOperationsErrorsTotal |No |Kubelet Runtime Operations Errors Total |Count |Average |Cumulative number of runtime operation errors by operation type |Host, Operation Type |
+|KubeletStartedPodsErrorsTotal |No |Kubelet Started Pods Errors Total |Count |Average |Cumulative number of errors when starting pods |Host |
+|KubeletVolumeStatsAvailableBytes |No |Volume Available Bytes |Bytes |Average |Number of available bytes in the volume |Host, Namespace, Persistent Volume Claim |
+|KubeletVolumeStatsCapacityBytes |No |Volume Capacity Bytes |Bytes |Average |Capacity (in bytes) of the volume |Host, Namespace, Persistent Volume Claim |
+|KubeletVolumeStatsUsedBytes |No |Volume Used Bytes |Bytes |Average |Number of used bytes in the volume |Host, Namespace, Persistent Volume Claim |
+|KubeNodeStatusAllocatable |No |Node Resources Allocatable |Count |Average |Node resources allocatable for pods |Node, Resource, Unit |
+|KubeNodeStatusCapacity |No |Node Resources Capacity |Count |Average |Total amount of node resources available |Node, Resource, Unit |
+|KubeNodeStatusCondition |No |Node Status Condition |Count |Average |The condition of a node |Condition, Node, Status |
+|KubePodContainerResourceLimits |No |Container Resources Limits |Count |Average |The container's resources limits |Container, Namespace, Node, Pod, Resource, Unit |
+|KubePodContainerResourceRequests |No |Container Resources Requests |Count |Average |The container's resources requested |Container, Namespace, Node, Pod, Resource, Unit |
+|KubePodContainerStateStarted |No |Container State Started (Preview) |Count |Average |Unix timestamp start time of a container |Container, Namespace, Pod |
+|KubePodContainerStatusLastTerminatedReason |No |Container Status Last Terminated Reason |Count |Average |The reason of a container's last terminated status |Container, Namespace, Pod, Reason |
+|KubePodContainerStatusReady |No |Container Status Ready |Count |Average |Describes whether the container's readiness check succeeded |Container, Namespace, Pod |
+|KubePodContainerStatusRestartsTotal |No |Container Restarts |Count |Average |The number of container restarts |Container, Namespace, Pod |
+|KubePodContainerStatusRunning |No |Container Status Running |Count |Average |The number of containers with a status of 'running' |Container, Namespace, Pod |
+|KubePodContainerStatusTerminated |No |Container Status Terminated |Count |Average |The number of containers with a status of 'terminated' |Container, Namespace, Pod |
+|KubePodContainerStatusTerminatedReason |No |Container Status Terminated Reason |Count |Average |The number and reason of containers with a status of 'terminated' |Container, Namespace, Pod, Reason |
+|KubePodContainerStatusWaiting |No |Container Status Waiting |Count |Average |The number of containers with a status of 'waiting' |Container, Namespace, Pod |
+|KubePodContainerStatusWaitingReason |No |Container Status Waiting Reason |Count |Average |The number and reason of containers with a status of 'waiting' |Container, Namespace, Pod, Reason |
+|KubePodDeletionTimestamp |No |Pod Deletion Timestamp (Preview) |Count |Average |The timestamp of the pod's deletion |Namespace, Pod |
+|KubePodInitContainerStatusReady |No |Pod Init Container Ready |Count |Average |The number of ready pod init containers |Namespace, Container, Pod |
+|KubePodInitContainerStatusRestartsTotal |No |Pod Init Container Restarts |Count |Average |The number of pod init containers restarts |Namespace, Container, Pod |
+|KubePodInitContainerStatusRunning |No |Pod Init Container Running |Count |Average |The number of running pod init containers |Namespace, Container, Pod |
+|KubePodInitContainerStatusTerminated |No |Pod Init Container Terminated |Count |Average |The number of terminated pod init containers |Namespace, Container, Pod |
+|KubePodInitContainerStatusTerminatedReason |No |Pod Init Container Terminated Reason |Count |Average |The number of pod init containers with terminated reason |Namespace, Container, Pod, Reason |
+|KubePodInitContainerStatusWaiting |No |Pod Init Container Waiting |Count |Average |The number of pod init containers waiting |Namespace, Container, Pod |
+|KubePodInitContainerStatusWaitingReason |No |Pod Init Container Waiting Reason |Count |Average |The reason the pod init container is waiting |Namespace, Container, Pod, Reason |
+|KubePodStatusPhase |No |Pod Status Phase |Count |Average |The pod status phase |Namespace, Pod, Phase |
+|KubePodStatusReady |No |Pod Ready State |Count |Average |Signifies if the pod is in ready state |Namespace, Pod |
+|KubePodStatusReason |No |Pod Status Reason |Count |Average |NodeAffinity |Namespace, Pod, Reason |
+|KubeStatefulsetReplicas |No |Statefulset Desired Replicas Number |Count |Average |The desired number of statefulset replicas |Namespace, Statefulset |
+|KubeStatefulsetStatusReplicas |No |Statefulset Replicas Number |Count |Average |The number of replicas per statefulset |Namespace, Statefulset |
+|KubevirtInfo |No |Kubevirt Info |Unspecified |Average |Kubevirt version information |Kube Version |
+|KubevirtVirtControllerLeading |No |Kubevirt Virt Controller Leading |Unspecified |Average |Indication for an operating virt-controller |Pod Name |
+|KubevirtVirtControllerReady |No |Kubevirt Virt Controller Ready |Unspecified |Average |Indication for a virt-controller that is ready to take the lead |Pod Name |
+|KubevirtVirtOperatorReady |No |Kubevirt Virt Operator Ready |Unspecified |Average |Indication for a virt operator being ready |Pod Name |
+|KubevirtVmiMemoryActualBalloonBytes |No |Kubevirt VMI Memory Actual BalloonBytes |Bytes |Average |Current balloon size (in bytes) |Name, Node |
+|KubevirtVmiMemoryAvailableBytes |No |Kubevirt VMI Memory Available Bytes |Bytes |Average |Amount of usable memory as seen by the domain. This value may not be accurate if a balloon driver is in use or if the guest OS does not initialize all assigned pages |Name, Node |
+|KubevirtVmiMemoryDomainBytesTotal |No |Kubevirt VMI Memory Domain Bytes Total (Preview) |Bytes |Average |The amount of memory (in bytes) allocated to the domain. The memory value in domain XML file |Node |
+|KubevirtVmiMemorySwapInTrafficBytesTotal |No |Kubevirt VMI Memory Swap In Traffic Bytes Total |Bytes |Average |The total amount of data read from swap space of the guest (in bytes) |Name, Node |
+|KubevirtVmiMemorySwapOutTrafficBytesTotal |No |Kubevirt VMI Memory Swap Out Traffic Bytes Total |Bytes |Average |The total amount of memory written out to swap space of the guest (in bytes) |Name, Node |
+|KubevirtVmiMemoryUnusedBytes |No |Kubevirt VMI Memory Unused Bytes |Bytes |Average |The amount of memory left completely unused by the system. Memory that is available but used for reclaimable caches should NOT be reported as free |Name, Node |
+|KubevirtVmiNetworkReceivePacketsTotal |No |Kubevirt VMI Network Receive Packets Total |Bytes |Average |Total network traffic received packets |Interface, Name, Node |
+|KubevirtVmiNetworkTransmitPacketsDroppedTotal |No |Kubevirt VMI Network Transmit Packets Dropped Total |Bytes |Average |The total number of transmit packets dropped on virtual NIC (vNIC) interfaces |Interface, Name, Node |
+|KubevirtVmiNetworkTransmitPacketsTotal |No |Kubevirt VMI Network Transmit Packets Total |Bytes |Average |Total network traffic transmitted packets |Interface, Name, Node |
+|KubevirtVmiOutdatedCount |No |Kubevirt VMI Outdated Count |Count |Average |Indication for the total number of VirtualMachineInstance (VMI) workloads that are not running within the most up-to-date version of the virt-launcher environment |Name |
+|KubevirtVmiPhaseCount |No |Kubevirt VMI Phase Count |Count |Average |Sum of VirtualMachineInstances (VMIs) per phase and node |Node, Phase, Workload |
+|KubevirtVmiStorageIopsReadTotal |No |Kubevirt VMI Storage IOPS Read Total |Count |Average |Total number of Input/Output (I/O) read operations |Drive, Name, Node |
+|KubevirtVmiStorageIopsWriteTotal |No |Kubevirt VMI Storage IOPS Write Total |Count |Average |Total number of Input/Output (I/O) write operations |Drive, Name, Node |
+|KubevirtVmiStorageReadTimesMsTotal |No |Kubevirt VMI Storage Read Times Total (Preview) |Milliseconds |Average |Total time in milliseconds (ms) spent on read operations |Drive, Name, Node |
+|KubevirtVmiStorageWriteTimesMsTotal |No |Kubevirt VMI Storage Write Times Total (Preview) |Milliseconds |Average |Total time in milliseconds (ms) spent on write operations |Drive, Name, Node |
+|NcVmiCpuAffinity |No |CPU Pinning Map (Preview) |Count |Average |Pinning map of virtual CPUs (vCPUs) to CPUs |CPU, NUMA Node, VMI Namespace, VMI Node, VMI Name |
+|TyphaClientLatencySecsCount |No |Typha Client Latency Secs |Count |Average |Per-client latency. I.e. how far behind the current state each client is. |Pod Name |
+|TyphaConnectionsAccepted |No |Typha Connections Accepted |Count |Average |Total number of connections accepted over time |Pod Name |
+|TyphaConnectionsDropped |No |Typha Connections Dropped |Count |Average |Total number of connections dropped due to rebalancing |Pod Name |
+|TyphaPingLatencyCount |No |Typha Ping Latency |Count |Average |Round-trip ping/pong latency to client. Typha's protocol includes a regular ping/pong keepalive to verify that the connection is still up |Pod Name |
+
+## Microsoft.NetworkCloud/storageAppliances  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|PurefaAlertsTotal |No |Nexus Storage Alerts Total |Count |Average |Number of alert events |Severity |
+|PurefaArrayPerformanceAvgBlockBytes |No |Nexus Storage Array Avg Block Bytes |Bytes |Average |Average block size |Dimension |
+|PurefaArrayPerformanceBandwidthBytes |No |Nexus Storage Array Bandwidth Bytes |Bytes |Average |Array throughput in bytes per second |Dimension |
+|PurefaArrayPerformanceIOPS |No |Nexus Storage Array IOPS |Count |Average |Storage array IOPS |Dimension |
+|PurefaArrayPerformanceLatencyUsec |No |Nexus Storage Array Latency (Microseconds) |MilliSeconds |Average |Storage array latency in microseconds |Dimension |
+|PurefaArrayPerformanceQdepth |No |Nexus Storage Array Queue Depth |Bytes |Average |Storage array queue depth |No Dimensions |
+|PurefaArraySpaceCapacityBytes |No |Nexus Storage Array Capacity Bytes |Bytes |Average |Storage array overall space capacity |No Dimensions |
+|PurefaArraySpaceDatareductionRatio |No |Nexus Storage Array Space Datareduction Ratio |Percent |Average |Storage array overall data reduction |No Dimensions |
+|PurefaArraySpaceProvisionedBytes |No |Nexus Storage Array Space Provisioned Bytes |Bytes |Average |Storage array overall provisioned space |No Dimensions |
+|PurefaArraySpaceUsedBytes |No |Nexus Storage Array Space Used Bytes |Bytes |Average |Storage Array overall used space |Dimension |
+|PurefaHardwareComponentHealth |No |Nexus Storage Hardware Component Health |Count |Average |Storage array hardware component health status |Component, Controller, Index |
+|PurefaHardwarePowerVolts |No |Nexus Storage Hardware Power Volts |Unspecified |Average |Storage array hardware power supply voltage |Power Supply |
+|PurefaHardwareTemperatureCelsius |No |Nexus Storage Hardware Temperature Celsius |Unspecified |Average |Storage array hardware temperature sensors |Controller, Sensor |
+|PurefaHostPerformanceBandwidthBytes |No |Nexus Storage Host Bandwidth Bytes |Bytes |Average |Storage array host bandwidth in bytes per second |Dimension, Host |
+|PurefaHostPerformanceIOPS |No |Nexus Storage Host IOPS |Count |Average |Storage array host IOPS |Dimension, Host |
+|PurefaHostPerformanceLatencyUsec |No |Nexus Storage Host Latency (Microseconds) |MilliSeconds |Average |Storage array host latency in microseconds |Dimension, Host |
+|PurefaHostSpaceBytes |No |Nexus Storage Host Space Bytes |Bytes |Average |Storage array host space in bytes |Dimension, Host |
+|PurefaHostSpaceDatareductionRatio |No |Nexus Storage Host Space Datareduction Ratio |Percent |Average |Storage array host volumes data reduction ratio |Host |
+|PurefaHostSpaceSizeBytes |No |Nexus Storage Host Space Size Bytes |Bytes |Average |Storage array host volumes size |Host |
+|PurefaInfo |No |Nexus Storage Info (Preview) |Unspecified |Average |Storage array system information |Array Name |
+|PurefaVolumePerformanceIOPS |No |Nexus Storage Volume Performance IOPS |Count |Average |Storage array volume IOPS |Dimension, Volume |
+|PurefaVolumePerformanceLatencyUsec |No |Nexus Storage Volume Performance Latency (Microseconds) |MilliSeconds |Average |Storage array volume latency in microseconds |Dimension, Volume |
+|PurefaVolumePerformanceThroughputBytes |No |Nexus Storage Volume Performance Throughput Bytes |Bytes |Average |Storage array volume throughput |Dimension, Volume |
+|PurefaVolumeSpaceBytes |No |Nexus Storage Volume Space Bytes |Bytes |Average |Storage array volume space in bytes |Dimension, Volume |
+|PurefaVolumeSpaceDatareductionRatio |No |Nexus Storage Volume Space Datareduction Ratio |Percent |Average |Storage array overall data reduction |Volume |
+|PurefaVolumeSpaceSizeBytes |No |Nexus Storage Volume Space Size Bytes |Bytes |Average |Storage array volumes size |Volume |
 
 ## Microsoft.NetworkFunction/azureTrafficCollectors  
 <!-- Data source : naam-->
@@ -3372,7 +3506,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |count |Yes |Flow Records |Count |Total |Flow Records Processed by ATC. |RoleInstance |
 |usage_active |Yes |CPU Usage |Percent |Average |CPU Usage Percentage. |Hostname |
 |used_percent |Yes |Memory Usage |Percent |Average |Memory Usage Percentage. |Hostname |
-
 
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs  
 <!-- Data source : arm-->
@@ -3442,12 +3575,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |registration.update |Yes |Registration Update Operations |Count |Total |The count of all successful registration updates. |No Dimensions |
 |scheduled.pending |Yes |Pending Scheduled Notifications |Count |Total |Pending Scheduled Notifications |No Dimensions |
 
-
 ## Microsoft.OperationalInsights/workspaces  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|AvailabilityRate_Query |No |AvailabilityRate_Query |Percent |Average |User query success rate for this workspace. |IsUserQuery |
 |Average_% Available Memory |Yes |% Available Memory |Count |Average |Average_% Available Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem |
 |Average_% Available Swap Space |Yes |% Available Swap Space |Count |Average |Average_% Available Swap Space. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem |
 |Average_% Committed Bytes In Use |Yes |% Committed Bytes In Use |Count |Average |Average_% Committed Bytes In Use. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem |
@@ -3512,9 +3645,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Heartbeat |Yes |Heartbeat |Count |Total |Heartbeat. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, OSType, Version, SourceComputerId |
 |Query Count |No |Query Count |Count |Count |Total number of user queries for this workspace. |IsUserQuery |
 |Query Failure Count |No |Query Failure Count |Count |Count |Total number of failed user queries for this workspace. |IsUserQuery |
-|Query Success Rate |No |Query Success Rate |Percent |Average |User query success rate for this workspace. |IsUserQuery |
 |Update |Yes |Update |Count |Average |Update. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, Product, Classification, UpdateState, Optional, Approved |
-
 
 ## Microsoft.Orbital/contactProfiles  
 <!-- Data source : naam-->
@@ -3524,32 +3655,43 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ContactFailure |Yes |Contact Failure Count |Count |Count |Denotes the number of failed Contacts for a specific Contact Profile |No Dimensions |
 |ContactSuccess |Yes |Contact Success Count |Count |Count |Denotes the number of successful Contacts for a specific Contact Profile |No Dimensions |
 
-
 ## Microsoft.Orbital/l2Connections  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|InBitsRate |Yes |In Bits Rate |BitsPerSecond |Average |Ingress Bit Rate for the L2 connection |No Dimensions |
-|InBroadcastPktCount |Yes |In Broadcast Packet Count |Count |Average |Ingress Broadcast Packet Count for the L2 connection |No Dimensions |
-|InBytesPerVLAN |Yes |In Bytes Count Per Vlan |Count |Average |Ingress Subinterface Byte Count for the L2 connection |VLANID |
-|InInterfaceBytes |Yes |In Bytes Count |Count |Average |Ingress Bytes Count for the L2 connection |No Dimensions |
-|InMulticastPktCount |Yes |In Multicast Packet Count |Count |Average |Ingress Multicast Packet Count for the L2 connection |No Dimensions |
-|InPktErrorCount |Yes |In Packet Error Count |Count |Average |Ingress Packet Error Count for the L2 connection |No Dimensions |
-|InPktsRate |Yes |In Packets Rate |CountPerSecond |Average |Ingress Packet Rate for the L2 connection |No Dimensions |
-|InTotalPktCount |Yes |In Packet Count |Count |Average |Ingress Packet Count for the L2 connection |No Dimensions |
-|InUcastPktCount |Yes |In Unicast Packet Count |Count |Average |Ingress Unicast Packet Count for the L2 connection |No Dimensions |
-|InUCastPktsPerVLAN |Yes |In Unicast Packet Count Per Vlan |Count |Average |Ingress Subinterface Unicast Packet Count for the L2 connection |VLANID |
-|OutBitsRate |Yes |Out Bits Rate |BitsPerSecond |Average |Egress Bit Rate for the L2 connection |No Dimensions |
-|OutBroadcastPktCount |Yes |Out Broadcast Packet Count Per Vlan |Count |Average |Egress Broadcast Packet Count for the L2 connection |No Dimensions |
-|OutBytesPerVLAN |Yes |Out Bytes Count Per Vlan |Count |Average |Egress Subinterface Byte Count for the L2 connection |VLANID |
-|OutInterfaceBytes |Yes |Out Bytes Count |Count |Average |Egress Bytes Count for the L2 connection |No Dimensions |
-|OutMulticastPktCount |Yes |Out Multicast Packet Count |Count |Average |Egress Multicast Packet Count for the L2 connection |No Dimensions |
-|OutPktErrorCount |Yes |Out Packet Error Count |Count |Average |Egress Packet Error Count for the L2 connection |No Dimensions |
-|OutPktsRate |Yes |Out Packets Rate |CountPerSecond |Average |Egress Packet Rate for the L2 connection |No Dimensions |
-|OutUcastPktCount |Yes |Out Unicast Packet Count |Count |Average |Egress Unicast Packet Count for the L2 connection |No Dimensions |
-|OutUCastPktsPerVLAN |Yes |Out Unicast Packet Count Per Vlan |Count |Average |Egress Subinterface Unicast Packet Count for the L2 connection |VLANID |
-
+|InEdgeSiteBitsRate |Yes |In Edge Site Bit Rate |BitsPerSecond |Average |Ingress Edge Site Bit Rate for the L2 connection |No Dimensions |
+|InEdgeSiteBroadcastPkts |Yes |In Edge Site Broadcast Packet Count |Count |Average |Ingress Edge Site Broadcast Packet Count for the L2 connection |No Dimensions |
+|InEdgeSiteBytes |Yes |In Edge Site Byte Count |Count |Average |Ingress Edge Site Byte Count for the L2 connection |No Dimensions |
+|InEdgeSiteDiscards |Yes |In Edge Site Packet Discard Count |Count |Average |Ingress Edge Site Packet Discard Count for the L2 connection |No Dimensions |
+|InEdgeSiteMulticastPkts |Yes |In Edge Site Multicast Packet Count |Count |Average |Ingress Edge Site Multicast Packet Count for the L2 connection |No Dimensions |
+|InEdgeSitePktErrors |Yes |In Edge Site Packet Error Count |Count |Average |Ingress Edge Site Packet Error Count for the L2 connection |No Dimensions |
+|InEdgeSitePktsRate |Yes |In Edge Site Packet Rate |CountPerSecond |Average |Ingress Edge Site Packet Rate for the L2 connection |No Dimensions |
+|InEdgeSiteUnicastPkts |Yes |In Edge Site Unicast Packet Count |Count |Average |Ingress Edge Site Unicast Packet Count for the L2 connection |No Dimensions |
+|InGroundStationBitsRate |Yes |In Ground Station Bit Rate |BitsPerSecond |Average |Ingress Ground Station Bit Rate for the L2 connection |No Dimensions |
+|InGroundStationBroadcastPkts |Yes |In Ground Station Broadcast Packet Count |Count |Average |Ingress Ground Station Broadcast Packet Count for the L2 connection |No Dimensions |
+|InGroundStationBytes |Yes |In Ground Station Byte Count |Count |Average |Ingress Ground Station Byte Count for the L2 connection |No Dimensions |
+|InGroundStationDiscards |Yes |In Ground Station Packet Discard Count |Count |Average |Ingress Ground Station Packet Discard Count for the L2 connection |No Dimensions |
+|InGroundStationMulticastPkts |Yes |In Ground Station Multicast Packet Count |Count |Average |Ingress Ground Station Multicast Packet Count for the L2 connection |No Dimensions |
+|InGroundStationPktErrors |Yes |In Ground Station Packet Error Count |Count |Average |Ingress Ground Station Packet Error Count for the L2 connection |No Dimensions |
+|InGroundStationPktsRate |Yes |In Ground Station Packet Rate |CountPerSecond |Average |Ingress Ground Station Packet Rate for the L2 connection |No Dimensions |
+|InGroundStationUnicastPkts |Yes |In Ground Station Unicast Packet Count |Count |Average |Ingress Ground Station Unicast Packet Count for the L2 connection |No Dimensions |
+|OutEdgeSiteBitsRate |Yes |Out Edge Site Bit Rate |BitsPerSecond |Average |Egress Edge Site Bit Rate for the L2 connection |No Dimensions |
+|OutEdgeSiteBroadcastPkts |Yes |Out Edge Site Broadcast Packet Count |Count |Average |Egress Edge Site Broadcast Packet Count for the L2 connection |No Dimensions |
+|OutEdgeSiteBytes |Yes |Out Edge Site Byte Count |Count |Average |Egress Edge Site Byte Count for the L2 connection |No Dimensions |
+|OutEdgeSiteDiscards |Yes |Out Edge Site Packet Discard Count |Count |Average |Egress Edge Site Packet Discard Count for the L2 connection |No Dimensions |
+|OutEdgeSiteMulticastPkts |Yes |Out Edge Site Multicast Packet Count |Count |Average |Egress Edge Site Multicast Packet Count for the L2 connection |No Dimensions |
+|OutEdgeSitePktErrors |Yes |Out Edge Site Packet Error Count |Count |Average |Egress Edge Site Packet Error Count for the L2 connection |No Dimensions |
+|OutEdgeSitePktsRate |Yes |Out Edge Site Packet Rate |CountPerSecond |Average |Egress Edge Site Packet Rate for the L2 connection |No Dimensions |
+|OutEdgeSiteUnicastPkts |Yes |Out Edge Site Unicast Packet Count |Count |Average |Egress Edge Site Unicast Packet Count for the L2 connection |No Dimensions |
+|OutGroundStationBitsRate |Yes |Out Ground Station Bit Rate |BitsPerSecond |Average |Egress Ground Station Bit Rate for the L2 connection |No Dimensions |
+|OutGroundStationBroadcastPkts |Yes |Out Ground Station Broadcast Packet Count |Count |Average |Egress Ground Station Broadcast Packet Count for the L2 connection |No Dimensions |
+|OutGroundStationBytes |Yes |Out Ground Station Byte Count |Count |Average |Egress Ground Station Byte Count for the L2 connection |No Dimensions |
+|OutGroundStationDiscards |Yes |Out Ground Station Packet Discard Count |Count |Average |Egress Ground Station Packet Discard Count for the L2 connection |No Dimensions |
+|OutGroundStationMulticastPkts |Yes |Out Ground Station Multicast Packet Count |Count |Average |Egress Ground Station Multicast Packet Count for the L2 connection |No Dimensions |
+|OutGroundStationPktErrors |Yes |Out Ground Station Packet Error Count |Count |Average |Egress Ground Station Packet Error Count for the L2 connection |No Dimensions |
+|OutGroundStationPktsRate |Yes |Out Ground Station Packet Rate |CountPerSecond |Average |Egress Ground Station Packet Rate for the L2 connection |No Dimensions |
+|OutGroundStationUnicastPkts |Yes |Out Ground Station Unicast Packet Count |Count |Average |Egress Ground Station Unicast Packet Count for the L2 connection |No Dimensions |
 
 ## Microsoft.Orbital/spacecrafts  
 <!-- Data source : naam-->
@@ -3559,18 +3701,18 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ContactFailure |Yes |Contact Failure Count |Count |Count |Denotes the number of failed Contacts for a specific Spacecraft |No Dimensions |
 |ContactSuccess |Yes |Contact Success Count |Count |Count |Denotes the number of successful Contacts for a specific Spacecraft |No Dimensions |
 
-
 ## Microsoft.Peering/peerings  
 <!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|AverageCustomerPrefixLatency |Yes |Average Customer Prefix Latency |Milliseconds |Average |Average of median Customer prefix latency |RegisteredAsnName |
 |EgressTrafficRate |Yes |Egress Traffic Rate |BitsPerSecond |Average |Egress traffic rate in bits per second |ConnectionId, SessionIp, TrafficClass |
 |FlapCounts |Yes |Connection Flap Events Count |Count |Sum |Flap Events Count in all the connection |ConnectionId, SessionIp |
 |IngressTrafficRate |Yes |Ingress Traffic Rate |BitsPerSecond |Average |Ingress traffic rate in bits per second |ConnectionId, SessionIp, TrafficClass |
 |PacketDropRate |Yes |Packets Drop Rate |BitsPerSecond |Average |Packets Drop rate in bits per second |ConnectionId, SessionIp, TrafficClass |
+|RegisteredPrefixLatency |Yes |Prefix Latency |Milliseconds |Average |Median prefix latency |RegisteredPrefixName |
 |SessionAvailability |Yes |Session Availability |Count |Average |Availability of the peering session |ConnectionId, SessionIp |
-
 
 ## Microsoft.Peering/peeringServices  
 <!-- Data source : arm-->
@@ -3579,14 +3721,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |RoundTripTime |Yes |Round Trip Time |Milliseconds |Average |Average round trip time |ConnectionMonitorTestName |
 
-
 ## Microsoft.PlayFab/titles  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |PlayerLoggedInCount |Yes |PlayerLoggedInCount |Count |Count |Number of logins by any player in a given title |TitleId |
-
 
 ## Microsoft.PowerBIDedicated/capacities  
 <!-- Data source : arm-->
@@ -3595,7 +3735,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |cpu_metric |Yes |CPU (Gen2) |Percent |Average |CPU Utilization. Supported only for Power BI Embedded Generation 2 resources. |No Dimensions |
 |overload_metric |Yes |Overload (Gen2) |Count |Average |Resource Overload, 1 if resource is overloaded, otherwise 0. Supported only for Power BI Embedded Generation 2 resources. |No Dimensions |
-
 
 ## microsoft.purview/accounts  
 <!-- Data source : naam-->
@@ -3609,7 +3748,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ScanFailed |Yes |Scan Failed |Count |Total |Indicates the number of scans failed. |No Dimensions |
 |ScanTimeTaken |Yes |Scan time taken |Seconds |Total |Indicates the total scan time in seconds. |No Dimensions |
 
-
 ## Microsoft.RecoveryServices/Vaults  
 <!-- Data source : naam-->
 
@@ -3617,7 +3755,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |BackupHealthEvent |Yes |Backup Health Events (preview) |Count |Count |The count of health events pertaining to backup job health |dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName |
 |RestoreHealthEvent |Yes |Restore Health Events (preview) |Count |Count |The count of health events pertaining to restore job health |dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName |
-
 
 ## Microsoft.Relay/namespaces  
 <!-- Data source : naam-->
@@ -3638,7 +3775,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SenderConnections-TotalRequests |No |SenderConnections-TotalRequests |Count |Total |Total SenderConnections requests for Microsoft.Relay. |EntityName |
 |SenderDisconnects |No |SenderDisconnects |Count |Total |Total SenderDisconnects for Microsoft.Relay. |EntityName |
 
-
 ## microsoft.resources/subscriptions  
 <!-- Data source : naam-->
 
@@ -3646,7 +3782,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |Latency |No |Latency |Seconds |Average |Latency data for all requests to Azure Resource Manager |IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft.SubscriptionId |
 |Traffic |No |Traffic |Count |Count |Traffic data for all requests to Azure Resource Manager |IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft.SubscriptionId |
-
 
 ## Microsoft.Search/searchServices  
 <!-- Data source : naam-->
@@ -3658,7 +3793,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SearchQueriesPerSecond |Yes |Search queries per second |CountPerSecond |Average |Search queries per second for the search service |No Dimensions |
 |SkillExecutionCount |Yes |Skill execution invocation count |Count |Total |Number of skill executions |DataSourceName, Failed, IndexerName, SkillName, SkillsetName, SkillType |
 |ThrottledSearchQueriesPercentage |Yes |Throttled search queries percentage |Percent |Average |Percentage of search queries that were throttled for the search service |No Dimensions |
-
 
 ## microsoft.securitydetonation/chambers  
 <!-- Data source : naam-->
@@ -3675,14 +3809,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SubmissionsOutstanding |No |Outstanding Submissions |Count |Average |The average number of outstanding submissions that are queued for processing. |Region |
 |SubmissionsSucceeded |No |Successful Submissions / Hr |Count |Maximum |The number of successful submissions / Hr. |Region |
 
-
 ## Microsoft.SecurityDetonation/SecurityDetonationChambers  
 <!-- Data source : arm-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |% Processor Time |Yes |% CPU |Percent |Average |Percent CPU utilization |No Dimensions |
-
 
 ## Microsoft.ServiceBus/Namespaces  
 <!-- Data source : naam-->
@@ -3713,6 +3845,18 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UserErrors |No |User Errors. |Count |Total |User Errors for Microsoft.ServiceBus. |EntityName, OperationResult |
 |WSXNS |No |Memory Usage (Deprecated) |Percent |Maximum |Service bus premium namespace memory usage metric. This metric is deprecated. Please use the  Memory Usage (NamespaceMemoryUsage) metric instead. |Replica |
 
+## Microsoft.ServiceNetworking/trafficControllers  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BackendConnectionTimeouts |Yes |Backend Connection Timeouts |Count |Total |Count of requests that timed out waiting for a response from the backend target (includes all retry requests initiated from Traffic Controller to the backend target) |Microsoft.regionName, BackendService |
+|BackendHealthyTargets |Yes |Backend Healthy Targets |Count |Average |Count of healthy backend targets |Microsoft.regionName, BackendService |
+|BackendHTTPResponseStatus |Yes |Backend HTTP Response Status |Count |Total |HTTP response status returned by the backend target to Traffic Controller |Microsoft.regionName, BackendService, HttpResponseCode |
+|ClientConnectionIdleTimeouts |Yes |Total Connection Idle Timeouts |Count |Total |Count of connections closed, between client and Traffic Controller frontend, due to exceeding idle timeout |Microsoft.regionName, Frontend |
+|ConnectionTimeouts |Yes |Connection Timeouts |Count |Total |Count of connections closed due to timeout between clients and Traffic Controller |Microsoft.regionName, Frontend |
+|HTTPResponseStatus |Yes |HTTP Response Status |Count |Total |HTTP response status returned by Traffic Controller |Microsoft.regionName, Frontend, HttpResponseCode |
+|TotalRequests |Yes |Total Requests |Count |Total |Count of requests Traffic Controller has served |Microsoft.regionName, Frontend |
 
 ## Microsoft.SignalRService/SignalR  
 <!-- Data source : naam-->
@@ -3730,6 +3874,21 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SystemErrors |Yes |System Errors |Percent |Maximum |The percentage of system errors |No Dimensions |
 |UserErrors |Yes |User Errors |Percent |Maximum |The percentage of user errors |No Dimensions |
 
+## Microsoft.SignalRService/SignalR/replicas  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ConnectionCloseCount |Yes |Connection Close Count |Count |Total |The count of connections closed by various reasons. |Endpoint, ConnectionCloseCategory |
+|ConnectionCount |Yes |Connection Count |Count |Maximum |The amount of user connection. |Endpoint |
+|ConnectionOpenCount |Yes |Connection Open Count |Count |Total |The count of new connections opened. |Endpoint |
+|ConnectionQuotaUtilization |Yes |Connection Quota Utilization |Percent |Maximum |The percentage of connection connected relative to connection quota. |No Dimensions |
+|InboundTraffic |Yes |Inbound Traffic |Bytes |Total |The inbound traffic of service |No Dimensions |
+|MessageCount |Yes |Message Count |Count |Total |The total amount of messages. |No Dimensions |
+|OutboundTraffic |Yes |Outbound Traffic |Bytes |Total |The outbound traffic of service |No Dimensions |
+|ServerLoad |No |Server Load |Percent |Maximum |SignalR server load. |No Dimensions |
+|SystemErrors |Yes |System Errors |Percent |Maximum |The percentage of system errors |No Dimensions |
+|UserErrors |Yes |User Errors |Percent |Maximum |The percentage of user errors |No Dimensions |
 
 ## Microsoft.SignalRService/WebPubSub  
 <!-- Data source : naam-->
@@ -3744,6 +3903,18 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ServerLoad |No |Server Load |Percent |Maximum |SignalR server load. |No Dimensions |
 |TotalConnectionCount |Yes |Connection Count |Count |Maximum |The number of user connections established to the service. It is aggregated by adding all the online connections. |No Dimensions |
 
+## Microsoft.SignalRService/WebPubSub/replicas  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ConnectionCloseCount |Yes |Connection Close Count |Count |Total |The count of connections closed by various reasons. |ConnectionCloseCategory |
+|ConnectionOpenCount |Yes |Connection Open Count |Count |Total |The count of new connections opened. |No Dimensions |
+|ConnectionQuotaUtilization |Yes |Connection Quota Utilization |Percent |Maximum |The percentage of connection connected relative to connection quota. |No Dimensions |
+|InboundTraffic |Yes |Inbound Traffic |Bytes |Total |The traffic originating from outside to inside of the service. It is aggregated by adding all the bytes of the traffic. |No Dimensions |
+|OutboundTraffic |Yes |Outbound Traffic |Bytes |Total |The traffic originating from inside to outside of the service. It is aggregated by adding all the bytes of the traffic. |No Dimensions |
+|ServerLoad |No |Server Load |Percent |Maximum |WebPubSub server load. |No Dimensions |
+|TotalConnectionCount |Yes |Connection Count |Count |Maximum |The number of user connections established to the service. It is aggregated by adding all the online connections. |No Dimensions |
 
 ## microsoft.singularity/accounts  
 <!-- Data source : naam-->
@@ -3751,7 +3922,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |GpuUtilizationPercentage |Yes |GpuUtilizationPercentage |Percent |Average |GPU utilization percentage |accountname, ClusterName, Environment, instance, jobContainerId, jobInstanceId, jobname, Region |
-
 
 ## Microsoft.Sql/managedInstances  
 <!-- Data source : naam-->
@@ -3765,7 +3935,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |reserved_storage_mb |Yes |Storage space reserved |Count |Average |Storage space reserved |No Dimensions |
 |storage_space_used_mb |Yes |Storage space used |Count |Average |Storage space used |No Dimensions |
 |virtual_core_count |Yes |Virtual core count |Count |Average |Virtual core count |No Dimensions |
-
 
 ## Microsoft.Sql/servers/databases  
 <!-- Data source : naam-->
@@ -3784,7 +3953,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |cache_used_percent |Yes |Cache used percentage |Percent |Maximum |Cache used percentage. Applies only to data warehouses. |No Dimensions |
 |connection_failed |Yes |Failed Connections : System Errors |Count |Total |Failed Connections |Error |
 |connection_failed_user_error |Yes |Failed Connections : User Errors |Count |Total |Failed Connections : User Errors |Error |
-|connection_successful |Yes |Successful Connections |Count |Total |Successful Connections |SslProtocol |
+|connection_successful |Yes |Successful Connections |Count |Total |Successful Connections |SslProtocol, ConnectionPolicyResult |
 |cpu_limit |Yes |CPU limit |Count |Average |CPU limit. Applies to vCore-based databases. |No Dimensions |
 |cpu_percent |Yes |CPU percentage |Percent |Average |CPU percentage |No Dimensions |
 |cpu_used |Yes |CPU used |Count |Average |CPU used. Applies to vCore-based databases. |No Dimensions |
@@ -3796,6 +3965,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |dwu_consumption_percent |Yes |DWU percentage |Percent |Maximum |DWU percentage. Applies only to data warehouses. |No Dimensions |
 |dwu_limit |Yes |DWU limit |Count |Maximum |DWU limit. Applies only to data warehouses. |No Dimensions |
 |dwu_used |Yes |DWU used |Count |Maximum |DWU used. Applies only to data warehouses. |No Dimensions |
+|free_amount_consumed |Yes |Free amount consumed |Count |Maximum |Free amount of vCore seconds consumed this month. Applies only to free database offer. |No Dimensions |
+|free_amount_remaining |Yes |Free amount remaining |Count |Minimum |Free amount of vCore seconds remaining this month. Applies only to free database offer. |No Dimensions |
 |full_backup_size_bytes |Yes |Full backup storage size |Bytes |Maximum |Cumulative full backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases. |No Dimensions |
 |ledger_digest_upload_failed |Yes |Failed Ledger Digest Uploads |Count |Count |Ledger digests that failed to be uploaded. |No Dimensions |
 |ledger_digest_upload_success |Yes |Successful Ledger Digest Uploads |Count |Count |Ledger digests that were successfully uploaded. |No Dimensions |
@@ -3825,14 +3996,16 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |workers_percent |Yes |Workers percentage |Percent |Average |Workers percentage. Not applicable to data warehouses. |No Dimensions |
 |xtp_storage_percent |Yes |In-Memory OLTP storage percent |Percent |Average |In-Memory OLTP storage percent. Not applicable to data warehouses. |No Dimensions |
 
-
 ## Microsoft.Sql/servers/elasticpools  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|allocated_data_storage |Yes |Data space allocated |Bytes |Average |Data space allocated |No Dimensions |
-|allocated_data_storage_percent |Yes |Data space allocated percent |Percent |Maximum |Data space allocated percent |No Dimensions |
+|allocated_data_storage |Yes |Data space allocated |Bytes |Average |Data space allocated. Not applicable to hyperscale |No Dimensions |
+|allocated_data_storage_percent |Yes |Data space allocated percent |Percent |Maximum |Data space allocated percent. Not applicable to hyperscale |No Dimensions |
+|app_cpu_billed |Yes |App CPU billed |Count |Total |App CPU billed. Applies to serverless elastic pools. |No Dimensions |
+|app_cpu_percent |Yes |App CPU percentage |Percent |Average |App CPU percentage. Applies to serverless elastic pools. |No Dimensions |
+|app_memory_percent |Yes |App memory percentage |Percent |Average |App memory percentage. Applies to serverless elastic pools. |No Dimensions |
 |cpu_limit |Yes |CPU limit |Count |Average |CPU limit. Applies to vCore-based elastic pools. |No Dimensions |
 |cpu_percent |Yes |CPU percentage |Percent |Average |CPU percentage |No Dimensions |
 |cpu_used |Yes |CPU used |Count |Average |CPU used. Applies to vCore-based elastic pools. |No Dimensions |
@@ -3845,15 +4018,23 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |sessions_percent |Yes |Sessions percentage |Percent |Average |Sessions percentage |No Dimensions |
 |sqlserver_process_core_percent |Yes |SQL Server process core percent |Percent |Maximum |CPU usage as a percentage of the SQL DB process. Applies to elastic pools. |No Dimensions |
 |sqlserver_process_memory_percent |Yes |SQL Server process memory percent |Percent |Maximum |Memory usage as a percentage of the SQL DB process. Applies to elastic pools. |No Dimensions |
-|storage_limit |Yes |Data max size |Bytes |Average |Data max size |No Dimensions |
-|storage_percent |Yes |Data space used percent |Percent |Average |Data space used percent |No Dimensions |
-|storage_used |Yes |Data space used |Bytes |Average |Data space used |No Dimensions |
+|storage_limit |Yes |Data max size |Bytes |Average |Data max size. Not applicable to hyperscale |No Dimensions |
+|storage_percent |Yes |Data space used percent |Percent |Average |Data space used percent. Not applicable to hyperscale |No Dimensions |
+|storage_used |Yes |Data space used |Bytes |Average |Data space used. Not applicable to hyperscale |No Dimensions |
 |tempdb_data_size |Yes |Tempdb Data File Size Kilobytes |Count |Maximum |Space used in tempdb data files in kilobytes. |No Dimensions |
 |tempdb_log_size |Yes |Tempdb Log File Size Kilobytes |Count |Maximum |Space used in tempdb transaction log file in kilobytes. |No Dimensions |
 |tempdb_log_used_percent |Yes |Tempdb Percent Log Used |Percent |Maximum |Space used percentage in tempdb transaction log file |No Dimensions |
 |workers_percent |Yes |Workers percentage |Percent |Average |Workers percentage |No Dimensions |
-|xtp_storage_percent |Yes |In-Memory OLTP storage percent |Percent |Average |In-Memory OLTP storage percent |No Dimensions |
+|xtp_storage_percent |Yes |In-Memory OLTP storage percent |Percent |Average |In-Memory OLTP storage percent. Not applicable to hyperscale |No Dimensions |
 
+## Microsoft.Sql/servers/jobAgents  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|elastic_jobs_failed |Yes |Elastic Jobs Executions Failed |Count |Total |Number of job executions that failed while trying to execute on target |No Dimensions |
+|elastic_jobs_successful |Yes |Elastic Jobs Executions Successful |Count |Total |Number of job executions that were able to successfully execute on target |No Dimensions |
+|elastic_jobs_timeout |Yes |Elastic Jobs Executions Timed Out |Count |Total |Number of job executions that expired before execution was able to finish on target. |No Dimensions |
 
 ## Microsoft.Storage/storageAccounts  
 <!-- Data source : naam-->
@@ -3867,7 +4048,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessServerLatency |Yes |Success Server Latency |MilliSeconds |Average |The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication, TransactionType |
 |UsedCapacity |No |Used capacity |Bytes |Average |The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity. |No Dimensions |
-
 
 ## Microsoft.Storage/storageAccounts/blobServices  
 <!-- Data source : naam-->
@@ -3885,7 +4065,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessE2ELatency |Yes |Success E2E Latency |MilliSeconds |Average |The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response. |GeoType, ApiName, Authentication |
 |SuccessServerLatency |Yes |Success Server Latency |MilliSeconds |Average |The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication, TransactionType |
-
 
 ## Microsoft.Storage/storageAccounts/fileServices  
 <!-- Data source : naam-->
@@ -3906,7 +4085,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessServerLatency |Yes |Success Server Latency |MilliSeconds |Average |The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication, FileShare |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication, FileShare, TransactionType |
 
-
 ## Microsoft.Storage/storageAccounts/objectReplicationPolicies  
 <!-- Data source : naam-->
 
@@ -3914,7 +4092,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |PendingBytesForReplication |No |Pending Bytes for Replication (PREVIEW) |Bytes |Average |The size in bytes of the blob object pending for replication, please note, this metric is in preview and is subject to change before becoming generally available |TimeBucket |
 |PendingOperationsForReplication |No |Pending Operations for Replication (PREVIEW) |Count |Average |The count of pending operations for replication, please note, this metric is in preview and is subject to change before becoming generally available |TimeBucket |
-
 
 ## Microsoft.Storage/storageAccounts/queueServices  
 <!-- Data source : naam-->
@@ -3931,7 +4108,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessServerLatency |Yes |Success Server Latency |MilliSeconds |Average |The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |GeoType, ApiName, Authentication |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication, TransactionType |
 
-
 ## Microsoft.Storage/storageAccounts/storageTasks  
 <!-- Data source : naam-->
 
@@ -3940,7 +4116,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ObjectsOperatedCount |Yes |Objects operated count |Count |Total |The number of objects operated in storage task |AccountName, TaskAssignmentId |
 |ObjectsOperationFailedCount |Yes |Objects failed count |Count |Total |The number of objects failed in storage task |AccountName, TaskAssignmentId |
 |ObjectsTargetedCount |Yes |Objects targed count |Count |Total |The number of objects targeted in storage task |AccountName, TaskAssignmentId |
-
 
 ## Microsoft.Storage/storageAccounts/tableServices  
 <!-- Data source : naam-->
@@ -3957,7 +4132,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TableEntityCount |Yes |Table Entity Count |Count |Average |The number of table entities in the storage account. |No Dimensions |
 |Transactions |Yes |Transactions |Count |Total |The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response. |ResponseType, GeoType, ApiName, Authentication, TransactionType |
 
-
 ## Microsoft.Storage/storageTasks  
 <!-- Data source : naam-->
 
@@ -3966,7 +4140,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ObjectsOperatedCount |Yes |Objects operated count |Count |Total |The number of objects operated in storage task |AccountName, TaskAssignmentId |
 |ObjectsOperationFailedCount |Yes |Objects failed count |Count |Total |The number of objects failed in storage task |AccountName, TaskAssignmentId |
 |ObjectsTargetedCount |Yes |Objects targed count |Count |Total |The number of objects targeted in storage task |AccountName, TaskAssignmentId |
-
 
 ## Microsoft.StorageCache/amlFilesystems  
 <!-- Data source : naam-->
@@ -3996,7 +4169,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |OSTFilesTotal |No |OST Files Total |Count |Average |Total number of files supported on the OST. |ostnum |
 |OSTFilesUsed |No |OST Files Used |Count |Average |Number of total supported files minus the number of free files on the OST. |ostnum |
 
-
 ## Microsoft.StorageCache/caches  
 <!-- Data source : naam-->
 
@@ -4016,9 +4188,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |FileReads |Yes |File Reads |BytesPerSecond |Average |Number of bytes per second read from a file. |SourceFile, Rank, FileType |
 |FileUpdates |Yes |File Updates |CountPerSecond |Average |Number of directory updates and metadata operations per second. |SourceFile, Rank, FileType |
 |FileWrites |Yes |File Writes |BytesPerSecond |Average |Number of bytes per second written to a file. |SourceFile, Rank, FileType |
+|StorageTargetAccessErrors |Yes |Storage Target Access Errors Received |Count |Total |The rate of access error responses received by the cache from a specific StorageTarget. For more details, see https://www.rfc-editor.org/rfc/rfc1813#section-2.6 (NFS3ERR_ACCES). |StorageTarget |
 |StorageTargetAsyncWriteThroughput |Yes |StorageTarget Asynchronous Write Throughput |BytesPerSecond |Average |The rate the Cache asynchronously writes data to a particular StorageTarget. These are opportunistic writes that do not cause clients to block. |StorageTarget |
 |StorageTargetBlocksRecycled |Yes |Storage Target Blocks Recycled |Count |Average |Total number of 16k cache blocks recycled (freed) per Storage Target. |StorageTarget |
+|StorageTargetFileTooLargeErrors |Yes |Storage Target File Too Large Errors Received |Count |Total |The rate of file too large error responses received by the cache from a specific StorageTarget. For more details, see https://www.rfc-editor.org/rfc/rfc1813#section-2.6 (NFS3ERR_FBIG). |StorageTarget |
 |StorageTargetFillThroughput |Yes |StorageTarget Fill Throughput |BytesPerSecond |Average |The rate the Cache reads data from the StorageTarget to handle a cache miss. |StorageTarget |
+|StorageTargetFlushFailureErrors |Yes |Storage Target Total Flush Failures |Count |Total |The rate of file flush request failures reported by the writeback state machine for a specific StorageTarget. |StorageTarget |
 |StorageTargetFreeReadSpace |Yes |Storage Target Free Read Space |Bytes |Average |Read space available for caching files associated with a storage target. |StorageTarget |
 |StorageTargetFreeWriteSpace |Yes |Storage Target Free Write Space |Bytes |Average |Write space available for changed files associated with a storage target. |StorageTarget |
 |StorageTargetHealth |Yes |Storage Target Health |Count |Average |Boolean results of connectivity test between the Cache and Storage Targets. |No Dimensions |
@@ -4026,17 +4201,29 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StorageTargetLatency |Yes |StorageTarget Latency |MilliSeconds |Average |The average round trip latency of all the file operations the Cache sends to a partricular StorageTarget. |StorageTarget |
 |StorageTargetMetadataReadIOPS |Yes |StorageTarget Metadata Read IOPS |CountPerSecond |Average |The rate of file operations that do not modify persistent state, and excluding the read operation, that the Cache sends to a particular StorageTarget. |StorageTarget |
 |StorageTargetMetadataWriteIOPS |Yes |StorageTarget Metadata Write IOPS |CountPerSecond |Average |The rate of file operations that do modify persistent state and excluding the write operation, that the Cache sends to a particular StorageTarget. |StorageTarget |
+|StorageTargetNoSpaceErrors |Yes |Storage Target No Space Errors Received |Count |Total |The rate of no space available error responses received by the cache from a specific StorageTarget. For more details, see https://www.rfc-editor.org/rfc/rfc1813#section-2.6 (NFS3ERR_NOSPC). |StorageTarget |
+|StorageTargetPermissionErrors |Yes |Storage Target Permission Errors Received |Count |Total |The rate of permission error responses received by the cache from a specific StorageTarget. For more details, see https://www.rfc-editor.org/rfc/rfc1813#section-2.6 (NFS3ERR_PERM). |StorageTarget |
+|StorageTargetQuotaLimitErrors |Yes |Storage Target Quota Limit Errors Received |Count |Total |The rate of quota limit error responses received by the cache from a specific StorageTarget. For more details, see https://www.rfc-editor.org/rfc/rfc1813#section-2.6 (NFS3ERR_DQUOT). |StorageTarget |
 |StorageTargetReadAheadThroughput |Yes |StorageTarget Read Ahead Throughput |BytesPerSecond |Average |The rate the Cache opportunisticly reads data from the StorageTarget. |StorageTarget |
 |StorageTargetReadIOPS |Yes |StorageTarget Read IOPS |CountPerSecond |Average |The rate of file read operations the Cache sends to a particular StorageTarget. |StorageTarget |
+|StorageTargetReadOnlyErrors |Yes |Storage Target Read-Only Filesystem Errors Received |Count |Total |The rate of read-only filesystem error responses received by the cache from a specific StorageTarget. For more details, see https://www.rfc-editor.org/rfc/rfc1813#section-2.6 (NFS3ERR_ROFS). |StorageTarget |
 |StorageTargetRecycleRate |Yes |Storage Target Recycle Rate |BytesPerSecond |Average |Cache space recycle rate associated with a storage target in the HPC Cache. This is the rate at which existing data is cleared from the cache to make room for new data. |StorageTarget |
+|StorageTargetRequestTooSmallErrors |Yes |Storage Target Request Too Small Errors Received |Count |Total |The rate of request too small error responses received by the cache from a specific StorageTarget. For more details, see https://www.rfc-editor.org/rfc/rfc1813#section-2.6 (NFS3ERR_TOOSMALL). |StorageTarget |
+|StorageTargetRetryableFlushErrors |Yes |Storage Target Retryable Flush Request Errors |Count |Total |The rate of retryable file flush errors reported by the writeback state machine for a specific StorageTarget. |StorageTarget |
 |StorageTargetSpaceAllocation |Yes |Storage Target Space Allocation |Bytes |Average |Total space (read and write) allocated for a storage target. |StorageTarget |
 |StorageTargetSyncWriteThroughput |Yes |StorageTarget Synchronous Write Throughput |BytesPerSecond |Average |The rate the Cache synchronously writes data to a particular StorageTarget. These are writes that do cause clients to block. |StorageTarget |
+|StorageTargetTotalCacheOps |Yes |Storage Target Total Cache Ops |Count |Total |The rate of operations the cache is servicing for the namespace represented by a specific StorageTarget. |StorageTarget |
 |StorageTargetTotalReadSpace |Yes |Storage Target Total Read Space |Bytes |Average |Total read space allocated for caching files associated with a storage target. |StorageTarget |
 |StorageTargetTotalReadThroughput |Yes |StorageTarget Total Read Throughput |BytesPerSecond |Average |The total rate that the Cache reads data from a particular StorageTarget. |StorageTarget |
 |StorageTargetTotalWriteSpace |Yes |Storage Target Total Write Space |Bytes |Average |Total write space allocated for changed files associated with a storage target. |StorageTarget |
 |StorageTargetTotalWriteThroughput |Yes |StorageTarget Total Write Throughput |BytesPerSecond |Average |The total rate that the Cache writes data to a particular StorageTarget. |StorageTarget |
+|StorageTargetUnrecoverableFlushErrors |Yes |Storage Target Uncoverable Flush Request Errors |Count |Total |The rate of unrecoverable file flush errors reported by the writeback state machine for a specific StorageTarget. |StorageTarget |
+|StorageTargetUpdateFoundAsyncCacheOps |Yes |Storage Target Update Found Asynchronous Verification Cache Ops |Count |Total |The rate of file updates discovered by asynchronous verification operations sent by the cache to a specific StorageTarget. |StorageTarget |
+|StorageTargetUpdateFoundSyncCacheOps |Yes |Storage Target Update Found Synchronous Verification Cache Ops |Count |Total |The rate of file updates discovered by synchronous verification operations sent by the cache to a specific StorageTarget. |StorageTarget |
 |StorageTargetUsedReadSpace |Yes |Storage Target Used Read Space |Bytes |Average |Read space used by cached files associated with a storage target. |StorageTarget |
 |StorageTargetUsedWriteSpace |Yes |Storage Target Used Write Space |Bytes |Average |Write space used by changed files associated with a storage target. |StorageTarget |
+|StorageTargetVerificationAsyncCacheOps |Yes |Storage Target Asynchronous Verification Cache Ops |Count |Total |The rate of asynchronous verification operations sent by the cache to a specific StorageTarget. |StorageTarget |
+|StorageTargetVerificationSyncCacheOps |Yes |Storage Target Synchronous Verification Cache Ops |Count |Total |The rate of synchronous verification operations sent by the cache to a specific StorageTarget. |StorageTarget |
 |StorageTargetWriteIOPS |Yes |StorageTarget Write IOPS |Count |Average |The rate of the file write operations the Cache sends to a particular StorageTarget. |StorageTarget |
 |TotalBlocksRecycled |Yes |Total Blocks Recycled |Count |Average |Total number of 16k cache blocks recycled (freed) for the HPC Cache. |No Dimensions |
 |TotalFreeReadSpace |Yes |Free Read Space |Bytes |Average |Total space available for caching read files. |No Dimensions |
@@ -4045,7 +4232,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalUsedReadSpace |Yes |Used Read Space |Bytes |Average |Total read space used by changed files for the HPC Cache. |No Dimensions |
 |TotalUsedWriteSpace |Yes |Used Write Space |Bytes |Average |Total write space used by changed files for the HPC Cache. |No Dimensions |
 |Uptime |Yes |Uptime |Count |Average |Boolean results of connectivity test between the Cache and monitoring system. |No Dimensions |
-
 
 ## Microsoft.StorageMover/storageMovers  
 <!-- Data source : naam-->
@@ -4056,7 +4242,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |JobRunTransferThroughputBytes |Yes |Job Run Transfer Throughput Bytes |BytesPerSecond |Average |Job Run transfer throughput in bytes/sec |JobRunName |
 |JobRunTransferThroughputItems |Yes |Job Run Transfer Throughput Items |CountPerSecond |Average |Job Run transfer throughput in items/sec |JobRunName |
 
-
 ## Microsoft.StorageSync/storageSyncServices  
 <!-- Data source : arm-->
 
@@ -4065,6 +4250,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ServerSyncSessionResult |Yes |Sync Session Result |Count |Average |Metric that logs a value of 1 each time the Server Endpoint successfully completes a Sync Session with the Cloud Endpoint |SyncGroupName, ServerEndpointName, SyncDirection |
 |StorageSyncBatchTransferredFileBytes |Yes |Bytes synced |Bytes |Total |Total file size transferred for Sync Sessions |SyncGroupName, ServerEndpointName, SyncDirection |
 |StorageSyncComputedCacheHitRate |Yes |Cloud tiering cache hit rate |Percent |Average |Percentage of bytes that were served from the cache |SyncGroupName, ServerName, ServerEndpointName |
+|StorageSyncDataSizeByAccessPattern |No |Cache data size by last access time |Bytes |Average |Size of data by last access time |SyncGroupName, ServerName, ServerEndpointName, LastAccessTime |
+|StorageSyncIncrementalTieredDataSizeBytes |Yes |Cloud tiering size of data tiered by last maintenance job |Bytes |Total |Size of data tiered during last maintenance job |SyncGroupName, ServerName, ServerEndpointName, TieringReason |
 |StorageSyncRecallComputedSuccessRate |Yes |Cloud tiering recall success rate |Percent |Average |Percentage of all recalls that were successful |SyncGroupName, ServerName, ServerEndpointName |
 |StorageSyncRecalledNetworkBytesByApplication |Yes |Cloud tiering recall size by application |Bytes |Total |Size of data recalled by application |SyncGroupName, ServerName, ApplicationName |
 |StorageSyncRecalledTotalNetworkBytes |Yes |Cloud tiering recall size |Bytes |Total |Size of data recalled |SyncGroupName, ServerName, ServerEndpointName |
@@ -4072,8 +4259,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StorageSyncServerHeartbeat |Yes |Server Online Status |Count |Maximum |Metric that logs a value of 1 each time the resigtered server successfully records a heartbeat with the Cloud Endpoint |ServerName |
 |StorageSyncSyncSessionAppliedFilesCount |Yes |Files Synced |Count |Total |Count of Files synced |SyncGroupName, ServerEndpointName, SyncDirection |
 |StorageSyncSyncSessionPerItemErrorsCount |Yes |Files not syncing |Count |Average |Count of files failed to sync |SyncGroupName, ServerEndpointName, SyncDirection |
+|StorageSyncTieredDataSizeBytes |Yes |Cloud tiering size of data tiered |Bytes |Average |Size of data tiered to Azure file share |SyncGroupName, ServerName, ServerEndpointName |
 |StorageSyncTieringCacheSizeBytes |Yes |Server cache size |Bytes |Average |Size of data cached on the server |SyncGroupName, ServerName, ServerEndpointName |
-
 
 ## Microsoft.StreamAnalytics/streamingjobs  
 <!-- Data source : arm-->
@@ -4097,7 +4284,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |OutputWatermarkDelaySeconds |Yes |Watermark Delay |Seconds |Maximum |Watermark Delay |LogicalName, PartitionId, ProcessorInstance, NodeName |
 |ProcessCPUUsagePercentage |Yes |CPU % Utilization |Percent |Maximum |CPU % Utilization |LogicalName, PartitionId, ProcessorInstance, NodeName |
 |ResourceUtilization |Yes |SU (Memory) % Utilization |Percent |Maximum |SU (Memory) % Utilization |LogicalName, PartitionId, ProcessorInstance, NodeName |
-
 
 ## Microsoft.Synapse/workspaces  
 <!-- Data source : naam-->
@@ -4126,10 +4312,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SQLStreamingOutOfOrderEvents |No |Out of order events (preview) |Count |Total |This is a preview metric available in East US, West Europe. Number of Event Hub Events (serialized messages) received by the Event Hub Input Adapter, received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. |SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance |
 |SQLStreamingOutputEvents |No |Output events (preview) |Count |Total |This is a preview metric available in East US, West Europe. Number of output events. |SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance |
 |SQLStreamingOutputWatermarkDelaySeconds |No |Watermark delay (preview) |Count |Maximum |This is a preview metric available in East US, West Europe. Output watermark delay in seconds. |SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance |
-|SQLStreamingResourceUtilization |No |Resource % utilization (preview) |Percent |Maximum |This is a preview metric available in East US, West Europe.
- Resource utilization expressed as a percentage. High utilization indicates that the job is using close to the maximum allocated resources. |SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance |
+|SQLStreamingResourceUtilization |No |Resource % utilization (preview) |Percent |Maximum |This is a preview metric available in East US, West Europe. Resource utilization expressed as a percentage. High utilization indicates that the job is using close to the maximum allocated resources. |SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance |
 |SQLStreamingRuntimeErrors |No |Runtime errors (preview) |Count |Total |This is a preview metric available in East US, West Europe. Total number of errors related to query processing (excluding errors found while ingesting events or outputting results). |SQLPoolName, SQLDatabaseName, JobName, LogicalName, PartitionId, ProcessorInstance |
-
 
 ## Microsoft.Synapse/workspaces/bigDataPools  
 <!-- Data source : naam-->
@@ -4141,6 +4325,59 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BigDataPoolApplicationsActive |No |Active Apache Spark applications |Count |Maximum |Total Active Apache Spark Pool Applications |JobState |
 |BigDataPoolApplicationsEnded |No |Ended Apache Spark applications |Count |Total |Count of Apache Spark pool applications ended |JobType, JobResult |
 
+## Microsoft.Synapse/workspaces/kustoPools  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BatchBlobCount |Yes |Batch Blob Count |Count |Average |Number of data sources in an aggregated batch for ingestion. |Database |
+|BatchDuration |Yes |Batch Duration |Seconds |Average |The duration of the aggregation phase in the ingestion flow. |Database |
+|BatchesProcessed |Yes |Batches Processed |Count |Total |Number of batches aggregated for ingestion. Batching Type: whether the batch reached batching time, data size or number of files limit set by batching policy |Database, SealReason |
+|BatchSize |Yes |Batch Size |Bytes |Average |Uncompressed expected data size in an aggregated batch for ingestion. |Database |
+|BlobsDropped |Yes |Blobs Dropped |Count |Total |Number of blobs permanently rejected by a component. |Database, ComponentType, ComponentName |
+|BlobsProcessed |Yes |Blobs Processed |Count |Total |Number of blobs processed by a component. |Database, ComponentType, ComponentName |
+|BlobsReceived |Yes |Blobs Received |Count |Total |Number of blobs received from input stream by a component. |Database, ComponentType, ComponentName |
+|CacheUtilization |Yes |Cache utilization (deprecated) |Percent |Average |Utilization level in the cluster scope. The metric is deprecated and presented for backward compatibility only, you should use the 'Cache utilization factor' metric instead. |No Dimensions |
+|CacheUtilizationFactor |Yes |Cache utilization factor |Percent |Average |Percentage of utilized disk space dedicated for hot cache in the cluster. 100% means that the disk space assigned to hot data is optimally utilized. No action is needed in terms of the cache size. More than 100% means that the cluster's disk space is not large enough to accommodate the hot data, as defined by your caching policies. To ensure that sufficient space is available for all the hot data, the amount of hot data needs to be reduced or the cluster needs to be scaled out. Enabling auto scale is recommended. |No Dimensions |
+|ContinuousExportMaxLatenessMinutes |Yes |Continuous Export Max Lateness |Count |Maximum |The lateness (in minutes) reported by the continuous export jobs in the cluster |No Dimensions |
+|ContinuousExportNumOfRecordsExported |Yes |Continuous export - num of exported records |Count |Total |Number of records exported, fired for every storage artifact written during the export operation |ContinuousExportName, Database |
+|ContinuousExportPendingCount |Yes |Continuous Export Pending Count |Count |Maximum |The number of pending continuous export jobs ready for execution |No Dimensions |
+|ContinuousExportResult |Yes |Continuous Export Result |Count |Count |Indicates whether Continuous Export succeeded or failed |ContinuousExportName, Result, Database |
+|CPU |Yes |CPU |Percent |Average |CPU utilization level |No Dimensions |
+|DiscoveryLatency |Yes |Discovery Latency |Seconds |Average |Reported by data connections (if exist). Time in seconds from when a message is enqueued or event is created until it is discovered by data connection. This time is not included in the Azure Data Explorer total ingestion duration. |ComponentType, ComponentName |
+|EventsDropped |Yes |Events Dropped |Count |Total |Number of events dropped permanently by data connection. An Ingestion result metric with a failure reason will be sent. |ComponentType, ComponentName |
+|EventsProcessed |Yes |Events Processed |Count |Total |Number of events processed by the cluster |ComponentType, ComponentName |
+|EventsProcessedForEventHubs |Yes |Events Processed (for Event/IoT Hubs) |Count |Total |Number of events processed by the cluster when ingesting from Event/IoT Hub |EventStatus |
+|EventsReceived |Yes |Events Received |Count |Total |Number of events received by data connection. |ComponentType, ComponentName |
+|ExportUtilization |Yes |Export Utilization |Percent |Maximum |Export utilization |No Dimensions |
+|FollowerLatency |Yes |FollowerLatency |MilliSeconds |Average |The follower databases synchronize changes in the leader databases. Because of the synchronization, there's a data lag of a few seconds to a few minutes in data availability.This metric measures the length of the time lag. The time lag depends on the overall size of the leader database metadata.This is a cluster level metrics: the followers catch metadata of all databases that are followed. This metric represents the latency of the process. |State, RoleInstance |
+|IngestionLatencyInSeconds |Yes |Ingestion Latency |Seconds |Average |Latency of data ingested, from the time the data was received in the cluster until it's ready for query. The ingestion latency period depends on the ingestion scenario. |No Dimensions |
+|IngestionResult |Yes |Ingestion result |Count |Total |Total number of sources that either failed or succeeded to be ingested. Splitting the metric by status, you can get detailed information about the status of the ingestion operations. |IngestionResultDetails, FailureKind |
+|IngestionUtilization |Yes |Ingestion utilization |Percent |Average |Ratio of used ingestion slots in the cluster |No Dimensions |
+|IngestionVolumeInMB |Yes |Ingestion Volume |Bytes |Total |Overall volume of ingested data to the cluster |Database |
+|InstanceCount |Yes |Instance Count |Count |Average |Total instance count |No Dimensions |
+|KeepAlive |Yes |Keep alive |Count |Average |Sanity check indicates the cluster responds to queries |No Dimensions |
+|MaterializedViewAgeMinutes |Yes |Materialized View Age |Count |Average |The materialized view age in minutes |Database, MaterializedViewName |
+|MaterializedViewAgeSeconds |Yes |Materialized View Age |Seconds |Average |The materialized view age in seconds |Database, MaterializedViewName |
+|MaterializedViewDataLoss |Yes |Materialized View Data Loss |Count |Maximum |Indicates potential data loss in materialized view |Database, MaterializedViewName, Kind |
+|MaterializedViewExtentsRebuild |Yes |Materialized View Extents Rebuild |Count |Average |Number of extents rebuild |Database, MaterializedViewName |
+|MaterializedViewHealth |Yes |Materialized View Health |Count |Average |The health of the materialized view (1 for healthy, 0 for non-healthy) |Database, MaterializedViewName |
+|MaterializedViewRecordsInDelta |Yes |Materialized View Records In Delta |Count |Average |The number of records in the non-materialized part of the view |Database, MaterializedViewName |
+|MaterializedViewResult |Yes |Materialized View Result |Count |Average |The result of the materialization process |Database, MaterializedViewName, Result |
+|QueryDuration |Yes |Query duration |MilliSeconds |Average |Queries duration in seconds |QueryStatus |
+|QueryResult |No |Query Result |Count |Count |Total number of queries. |QueryStatus |
+|QueueLength |Yes |Queue Length |Count |Average |Number of pending messages in a component's queue. |ComponentType |
+|QueueOldestMessage |Yes |Queue Oldest Message |Count |Average |Time in seconds from when the oldest message in queue was inserted. |ComponentType |
+|ReceivedDataSizeBytes |Yes |Received Data Size Bytes |Bytes |Average |Size of data received by data connection. This is the size of the data stream, or of raw data size if provided. |ComponentType, ComponentName |
+|StageLatency |Yes |Stage Latency |Seconds |Average |Cumulative time from when a message is discovered until it is received by the reporting component for processing (discovery time is set when message is enqueued for ingestion queue, or when discovered by data connection). |Database, ComponentType |
+|StreamingIngestDataRate |Yes |Streaming Ingest Data Rate |Bytes |Average |Streaming ingest data rate |No Dimensions |
+|StreamingIngestDuration |Yes |Streaming Ingest Duration |MilliSeconds |Average |Streaming ingest duration in milliseconds |No Dimensions |
+|StreamingIngestResults |Yes |Streaming Ingest Result |Count |Count |Streaming ingest result |Result |
+|TotalNumberOfConcurrentQueries |Yes |Total number of concurrent queries |Count |Maximum |Total number of concurrent queries |No Dimensions |
+|TotalNumberOfExtents |Yes |Total number of extents |Count |Average |Total number of data extents |No Dimensions |
+|TotalNumberOfThrottledCommands |Yes |Total number of throttled commands |Count |Total |Total number of throttled commands |CommandType |
+|TotalNumberOfThrottledQueries |Yes |Total number of throttled queries |Count |Maximum |Total number of throttled queries |No Dimensions |
+|WeakConsistencyLatency |Yes |Weak consistency latency |Seconds |Average |The max latency between the previous metadata sync and the next one (in DB/node scope) |Database, RoleInstance |
 
 ## Microsoft.Synapse/workspaces/scopePools  
 <!-- Data source : naam-->
@@ -4150,7 +4387,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ScopePoolJobPNMetric |Yes |PN duration of SCOPE job |Milliseconds |Average |PN (process node) duration (Milliseconds) used by each SCOPE job |JobType, JobResult |
 |ScopePoolJobQueuedDurationMetric |Yes |Queued duration of SCOPE job |Milliseconds |Average |Queued duration (Milliseconds) used by each SCOPE job |JobType |
 |ScopePoolJobRunningDurationMetric |Yes |Running duration of SCOPE job |Milliseconds |Average |Running duration (Milliseconds) used by each SCOPE job |JobType, JobResult |
-
 
 ## Microsoft.Synapse/workspaces/sqlPools  
 <!-- Data source : naam-->
@@ -4177,7 +4413,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WLGEffectiveMinResourcePercent |No |Effective min resource percent |Percent |Maximum |The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels |IsUserDefined, WorkloadGroup |
 |WLGQueuedQueries |No |Workload group queued queries |Count |Total |Cumulative count of requests queued after the max concurrency limit was reached |IsUserDefined, WorkloadGroup |
 
-
 ## Microsoft.TimeSeriesInsights/environments  
 <!-- Data source : arm-->
 
@@ -4192,7 +4427,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IngressStoredEvents |Yes |Ingress Stored Events |Count |Total |Count of flattened events successfully processed and available for query |No Dimensions |
 |WarmStorageMaxProperties |Yes |Warm Storage Max Properties |Count |Maximum |Maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU |No Dimensions |
 |WarmStorageUsedProperties |Yes |Warm Storage Used Properties  |Count |Maximum |Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU |No Dimensions |
-
 
 ## Microsoft.TimeSeriesInsights/environments/eventsources  
 <!-- Data source : arm-->
@@ -4209,6 +4443,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WarmStorageMaxProperties |Yes |Warm Storage Max Properties |Count |Maximum |Maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU |No Dimensions |
 |WarmStorageUsedProperties |Yes |Warm Storage Used Properties  |Count |Maximum |Number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU |No Dimensions |
 
+## Microsoft.VoiceServices/CommunicationsGateways  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ActiveCallFailures |No |Active Call Failures |Percent |Average |Percentage of active call failures |Region |
+|ActiveCalls |No |Active Calls |Count |Average |Count of the total number of active calls (signaling sessions) |Region |
+|ActiveEmergencyCalls |No |Active Emergency Calls |Count |Average |Count of the total number of active emergency calls |Region |
 
 ## Microsoft.Web/containerapps  
 <!-- Data source : naam-->
@@ -4222,7 +4464,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TxBytes |Yes |Network Out Bytes |Bytes |Total |Network transmitted bytes |revisionName, podName |
 |UsageNanoCores |Yes |CPU Usage Nanocores |NanoCores |Average |CPU consumed by the container app, in nano cores. 1,000,000,000 nano cores = 1 core |revisionName, podName |
 |WorkingSetBytes |Yes |Memory Working Set Bytes |Bytes |Average |Container App working set memory used in bytes. |revisionName, podName |
-
 
 ## Microsoft.Web/hostingEnvironments  
 <!-- Data source : naam-->
@@ -4253,7 +4494,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SmallAppServicePlanInstances |Yes |Small App Service Plan Workers |Count |Average |Number of small App Service Plan worker instances |No Dimensions |
 |TotalFrontEnds |Yes |Total Front Ends |Count |Average |Number of front end instances |No Dimensions |
 
-
 ## Microsoft.Web/hostingenvironments/multirolepools  
 <!-- Data source : naam-->
 
@@ -4283,7 +4523,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SmallAppServicePlanInstances |Yes |Small App Service Plan Workers |Count |Average |Small App Service Plan Workers |No Dimensions |
 |TotalFrontEnds |Yes |Total Front Ends |Count |Average |Total Front Ends |No Dimensions |
 
-
 ## Microsoft.Web/hostingenvironments/workerpools  
 <!-- Data source : naam-->
 
@@ -4294,7 +4533,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WorkersAvailable |Yes |Available Workers |Count |Average |Available Workers |No Dimensions |
 |WorkersTotal |Yes |Total Workers |Count |Average |Total Workers |No Dimensions |
 |WorkersUsed |Yes |Used Workers |Count |Average |Used Workers |No Dimensions |
-
 
 ## Microsoft.Web/serverfarms  
 <!-- Data source : naam-->
@@ -4322,7 +4560,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TcpSynSent |Yes |TCP Syn Sent |Count |Average |The average number of sockets in SYN_SENT state across all the instances of the plan. |Instance |
 |TcpTimeWait |Yes |TCP Time Wait |Count |Average |The average number of sockets in TIME_WAIT state across all the instances of the plan. |Instance |
 
-
 ## Microsoft.Web/sites  
 <!-- Data source : naam-->
 
@@ -4344,14 +4581,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Handles |Yes |Handle Count |Count |Average |The total number of handles currently open by the app process. For WebApps and FunctionApps. |Instance |
 |HealthCheckStatus |Yes |Health check status |Count |Average |Health check status. For WebApps and FunctionApps. |Instance |
 |Http101 |Yes |Http 101 |Count |Total |The count of requests resulting in an HTTP status code 101. For WebApps and FunctionApps. |Instance |
-|Http2xx |Yes |Http 2xx |Count |Total |The count of requests resulting in an HTTP status code ≥ 200 but < 300. For WebApps and FunctionApps. |Instance |
-|Http3xx |Yes |Http 3xx |Count |Total |The count of requests resulting in an HTTP status code ≥ 300 but < 400. For WebApps and FunctionApps. |Instance |
+|Http2xx |Yes |Http 2xx |Count |Total |The count of requests resulting in an HTTP status code >= 200 but < 300. For WebApps and FunctionApps. |Instance |
+|Http3xx |Yes |Http 3xx |Count |Total |The count of requests resulting in an HTTP status code >= 300 but < 400. For WebApps and FunctionApps. |Instance |
 |Http401 |Yes |Http 401 |Count |Total |The count of requests resulting in HTTP 401 status code. For WebApps and FunctionApps. |Instance |
 |Http403 |Yes |Http 403 |Count |Total |The count of requests resulting in HTTP 403 status code. For WebApps and FunctionApps. |Instance |
 |Http404 |Yes |Http 404 |Count |Total |The count of requests resulting in HTTP 404 status code. For WebApps and FunctionApps. |Instance |
 |Http406 |Yes |Http 406 |Count |Total |The count of requests resulting in HTTP 406 status code. For WebApps and FunctionApps. |Instance |
-|Http4xx |Yes |Http 4xx |Count |Total |The count of requests resulting in an HTTP status code ≥ 400 but < 500. For WebApps and FunctionApps. |Instance |
-|Http5xx |Yes |Http Server Errors |Count |Total |The count of requests resulting in an HTTP status code ≥ 500 but < 600. For WebApps and FunctionApps. |Instance |
+|Http4xx |Yes |Http 4xx |Count |Total |The count of requests resulting in an HTTP status code >= 400 but < 500. For WebApps and FunctionApps. |Instance |
+|Http5xx |Yes |Http Server Errors |Count |Total |The count of requests resulting in an HTTP status code >= 500 but < 600. For WebApps and FunctionApps. |Instance |
 |HttpResponseTime |Yes |Response Time |Seconds |Average |The time taken for the app to serve requests, in seconds. For WebApps and FunctionApps. |Instance |
 |IoOtherBytesPerSecond |Yes |IO Other Bytes Per Second |BytesPerSecond |Total |The rate at which the app process is issuing bytes to I/O operations that don't involve data, such as control operations. For WebApps and FunctionApps. |Instance |
 |IoOtherOperationsPerSecond |Yes |IO Other Operations Per Second |BytesPerSecond |Total |The rate at which the app process is issuing I/O operations that aren't read or write operations. For WebApps and FunctionApps. |Instance |
@@ -4374,7 +4611,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WorkflowRunsStarted |Yes |Workflow Runs Started Count |Count |Total |Workflow Runs Started Count. For LogicApps only. |workflowName |
 |WorkflowTriggersCompleted |Yes |Workflow Triggers Completed Count |Count |Total |Workflow Triggers Completed Count. For LogicApps only. |workflowName, status |
 
-
 ## Microsoft.Web/sites/slots  
 <!-- Data source : naam-->
 
@@ -4396,14 +4632,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Handles |Yes |Handle Count |Count |Average |The total number of handles currently open by the app process. |Instance |
 |HealthCheckStatus |Yes |Health check status |Count |Average |Health check status |Instance |
 |Http101 |Yes |Http 101 |Count |Total |The count of requests resulting in an HTTP status code 101. |Instance |
-|Http2xx |Yes |Http 2xx |Count |Total |The count of requests resulting in an HTTP status code ≥ 200 but < 300. |Instance |
-|Http3xx |Yes |Http 3xx |Count |Total |The count of requests resulting in an HTTP status code ≥ 300 but < 400. |Instance |
+|Http2xx |Yes |Http 2xx |Count |Total |The count of requests resulting in an HTTP status code >= 200 but < 300. |Instance |
+|Http3xx |Yes |Http 3xx |Count |Total |The count of requests resulting in an HTTP status code >= 300 but < 400. |Instance |
 |Http401 |Yes |Http 401 |Count |Total |The count of requests resulting in HTTP 401 status code. |Instance |
 |Http403 |Yes |Http 403 |Count |Total |The count of requests resulting in HTTP 403 status code. |Instance |
 |Http404 |Yes |Http 404 |Count |Total |The count of requests resulting in HTTP 404 status code. |Instance |
 |Http406 |Yes |Http 406 |Count |Total |The count of requests resulting in HTTP 406 status code. |Instance |
-|Http4xx |Yes |Http 4xx |Count |Total |The count of requests resulting in an HTTP status code ≥ 400 but < 500. |Instance |
-|Http5xx |Yes |Http Server Errors |Count |Total |The count of requests resulting in an HTTP status code ≥ 500 but < 600. |Instance |
+|Http4xx |Yes |Http 4xx |Count |Total |The count of requests resulting in an HTTP status code >= 400 but < 500. |Instance |
+|Http5xx |Yes |Http Server Errors |Count |Total |The count of requests resulting in an HTTP status code >= 500 but < 600. |Instance |
 |HttpResponseTime |Yes |Response Time |Seconds |Average |The time taken for the app to serve requests, in seconds. |Instance |
 |IoOtherBytesPerSecond |Yes |IO Other Bytes Per Second |BytesPerSecond |Total |The rate at which the app process is issuing bytes to I/O operations that don't involve data, such as control operations. |Instance |
 |IoOtherOperationsPerSecond |Yes |IO Other Operations Per Second |BytesPerSecond |Total |The rate at which the app process is issuing I/O operations that aren't read or write operations. |Instance |
@@ -4419,14 +4655,12 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalAppDomains |Yes |Total App Domains |Count |Average |The current number of AppDomains loaded in this application. |Instance |
 |TotalAppDomainsUnloaded |Yes |Total App Domains Unloaded |Count |Average |The total number of AppDomains unloaded since the start of the application. |Instance |
 
-
 ## NGINX.NGINXPLUS/nginxDeployments  
 <!-- Data source : naam-->
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |nginx |Yes |nginx |Count |Total |The NGINX metric. |No Dimensions |
-
 
 ## Wandisco.Fusion/migrators  
 <!-- Data source : naam-->
@@ -4437,7 +4671,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |DirectoriesCreatedCount |Yes |Directories Created Count |Count |Total |This provides a running view of how many directories have been created as part of a migration. |No Dimensions |
 |FileMigrationCount |Yes |Files Migration Count |Count |Total |This provides a running total of how many files have been migrated. |No Dimensions |
 |InitialScanDataMigratedInBytes |Yes |Initial Scan Data Migrated in Bytes |Bytes |Total |This provides the view of the total bytes which have been transferred in a new migrator as a result of the initial scan of the On-Premises file system. Any data which is added to the migration after the initial scan migration, is NOT included in this metric. |No Dimensions |
-|LiveDataMigratedInBytes |Yes |Live Data Migrated in Bytes |Count |Total |Provides a running total of LiveData which has been changed due to Client activity, since the migration started. |No Dimensions |
+|LiveDataMigratedInBytes |Yes |Live Data Migrated in Bytes |Bytes |Total |Provides a running total of LiveData which has been changed due to Client activity, since the migration started. |No Dimensions |
 |MigratorCPULoad |Yes |Migrator CPU Load |Percent |Average |CPU consumption by the migrator process. |No Dimensions |
 |NumberOfExcludedPaths |Yes |Number of Excluded Paths |Count |Total |Provides a running count of the paths which have been excluded from the migration due to Exclusion Rules. |No Dimensions |
 |NumberOfFailedPaths |Yes |Number of Failed Paths |Count |Total |A count of which paths have failed to migrate. |No Dimensions |
@@ -4445,6 +4679,17 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalMigratedDataInBytes |Yes |Total Migrated Data in Bytes |Bytes |Total |This provides a view of the successfully migrated Bytes for a given migrator |No Dimensions |
 |TotalTransactions |Yes |Total Transactions |Count |Total |This provides a running total of the Data Transactions for which the user could be billed. |No Dimensions |
 
+## Wandisco.Fusion/migrators/dataTransferAgents  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BytesPerSecond |Yes |Bytes per Second. |BytesPerSecond |Average |Throughput speed of Bytes/second being utilised for a DTA. |No Dimensions |
+|DtaCPULoad |Yes |DTA CPU Load |Percent |Average |CPU consumption by the DTA process. |No Dimensions |
+|FileMigrationCount |Yes |Files Migration Count |Count |Total |This provides a running total of how many files have been migrated. |No Dimensions |
+|MigratedDataInBytes |Yes |Migrated Data in Bytes |Bytes |Total |This provides a view of the successfully migrated Bytes for a given DTA |No Dimensions |
+|NumberOfFailedPaths |Yes |Number of Failed Paths |Count |Total |A count of which paths have failed to migrate. |No Dimensions |
+|SystemCPULoad |Yes |System CPU Load |Percent |Average |Total CPU consumption. |No Dimensions |
 
 ## Wandisco.Fusion/migrators/liveDataMigrations  
 <!-- Data source : naam-->
@@ -4456,11 +4701,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |DirectoriesCreatedCount |Yes |Directories Created Count |Count |Total |This provides a running view of how many directories have been created as part of a migration. |No Dimensions |
 |FileMigrationCount |Yes |Files Migration Count |Count |Total |This provides a running total of how many files have been migrated. |No Dimensions |
 |InitialScanDataMigratedInBytes |Yes |Initial Scan Data Migrated in Bytes |Bytes |Total |This provides the view of the total bytes which have been transferred in a new migrator as a result of the initial scan of the On-Premises file system. Any data which is added to the migration after the initial scan migration, is NOT included in this metric. |No Dimensions |
-|LiveDataMigratedInBytes |Yes |Live Data Migrated in Bytes |Count |Total |Provides a running total of LiveData which has been changed due to Client activity, since the migration started. |No Dimensions |
+|LiveDataMigratedInBytes |Yes |Live Data Migrated in Bytes |Bytes |Total |Provides a running total of LiveData which has been changed due to Client activity, since the migration started. |No Dimensions |
 |NumberOfExcludedPaths |Yes |Number of Excluded Paths |Count |Total |Provides a running count of the paths which have been excluded from the migration due to Exclusion Rules. |No Dimensions |
 |NumberOfFailedPaths |Yes |Number of Failed Paths |Count |Total |A count of which paths have failed to migrate. |No Dimensions |
 |TotalBytesTransferred |Yes |Total Bytes Transferred |Bytes |Total |This metric covers how many bytes have been transferred (does not reflect how many have successfully migrated, only how much has been transferred). |No Dimensions |
-
 
 ## Wandisco.Fusion/migrators/metadataMigrations  
 <!-- Data source : naam-->
@@ -4481,4 +4725,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Sun Mar 12 2023 11:30:35 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Mon Jul 03 2023 13:34:26 GMT+0800 (China Standard Time)-->

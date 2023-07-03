@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/01/2022
 ms.author: aahi
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a Cognitive Services resource using an ARM template

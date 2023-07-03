@@ -24,10 +24,19 @@
       displayName: Resource Manager
       href: manage-ddos-protection-template.md
       expanded: true
+    - name: Terraform
+      href: manage-ddos-protection-terraform.md
   - name: DDoS IP Protection
     items:
+    - name: Portal
+      href: manage-ddos-ip-protection-portal.md
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
+    - name: CLI
+      href: manage-ddos-ip-protection-cli.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: manage-ddos-ip-protection-template.md           
       expanded: true
 
 - name: Tutorials
@@ -60,6 +69,8 @@
     href: manage-permissions.md   
 - name: How-to guides
   items:
+    - name: Switch tiers
+      href: ddos-switch-ddos-protection-tier.md
     - name: Configure Monitoring and Logging
       items:
         - name: Configure Log Analytics workspace 

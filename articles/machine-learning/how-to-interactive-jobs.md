@@ -3,23 +3,18 @@ title: Interact with your jobs (debug and monitor)
 titleSuffix: Azure Machine Learning
 description: Debug or monitor your Machine Learning job as it runs on Azure Machine Learning compute with your training application of choice. 
 services: machine-learning
-ms.author: shoja
-author: shouryaj
+ms.author: joburges
+author: joburges
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
-ms.date: 03/15/2022
+ms.date: 06/15/2023
 #Customer intent: I'm a data scientist with ML knowledge in the machine learning space, looking to build ML models using data in Azure Machine Learning with full control of the model training including debugging and monitoring of live jobs.
 ---
 
-# Debug jobs and monitor training progress (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Debug jobs and monitor training progress
 
 Machine learning model training is usually an iterative process and requires significant experimentation. With the Azure Machine Learning interactive job experience, data scientists can use the Azure Machine Learning Python SDKv2, Azure Machine Learning CLIv2 or the Azure Studio to access the container where their job is running.  Once the job container is accessed, users can iterate on training scripts, monitor training progress or debug the job remotely like they typically do on their local machines. Jobs can be interacted with via different training applications including **JupyterLab, TensorBoard, VS Code** or by connecting to the job container directly via **SSH**.  
 
@@ -27,7 +22,6 @@ Interactive training is supported on **Azure Machine Learning Compute Clusters**
 
 ## Prerequisites
 - Review [getting started with training on Azure Machine Learning](./how-to-train-model.md).
-- To use this feature in Azure Machine Learning studio, enable the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 - To use **VS Code**, [follow this guide](how-to-setup-vs-code.md) to set up the Azure Machine Learning extension.
 - Make sure your job environment has the `openssh-server` and `ipykernel ~=6.0` packages installed (all Azure Machine Learning curated training environments have these packages installed by default).
 - Interactive applications can't be enabled on distributed training runs where the distribution type is anything other than Pytorch, Tensorflow or MPI. Custom distributed training setup (configuring multi-node training without using the above distribution frameworks) is not currently supported.
@@ -64,13 +58,11 @@ By specifying interactive applications at job creation, you can connect directly
   > [!NOTE]
   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
-5. Select the training applications you want to use to interact with the job.
+5. Select at least one training application you want to use to interact with the job. If you do not select an application, the debug feature will not be available. 
 
   :::image type="content" source="./media/interactive-jobs/select-training-apps.png" alt-text="Screenshot of selecting a training application for the user to use for a job.":::
 
 6. Review and create the job.
-
-If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 
 # [Python SDK](#tab/python)
 1. Define the interactive services you want to use for your job. Make sure to replace `your compute name` with your own value. If you want to use your own custom environment, follow the examples in [this tutorial](how-to-manage-environments-v2.md) to create a custom environment. 
@@ -92,10 +84,10 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
          ),
          "My_tensorboard": TensorBoardJobService(
            nodes="all",
-           log_Dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)         
+           log_dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)         
          ),
          "My_ssh": SshJobService(
-           ssh_Public_Keys="<add-public-key>",
+           ssh_public_keys="<add-public-key>",
            nodes="all"  
          ),
        }
@@ -132,17 +124,17 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
    compute: azureml:<your compute name>
    services:
        my_vs_code:
-         job_service_type: vs_code
+         type: vs_code
          nodes: all # For distributed jobs, use the `nodes` property to pick which node you want to enable interactive services on. If `nodes` are not selected, by default, interactive applications are only enabled on the head node. Values are "all", or compute node index (for ex. "0", "1" etc.)
        my_tensor_board:
-        job_service_type: tensor_board
+         type: tensor_board
          log_dir: "output/tblogs" # relative path of Tensorboard logs (same as in your training script)
          nodes: all
        my_jupyter_lab:
-         job_service_type: jupyter_lab
+         type: jupyter_lab
          nodes: all
        my_ssh:
-         job_service_type: ssh
+         type: ssh
          ssh_public_keys: <paste the entire pub key content>
          nodes: all
    ```
@@ -156,7 +148,7 @@ If you don't see the above options, make sure you have enabled the "Debug & moni
    * sleep 1d
 
    You can also use the `sleep infinity` command that would keep the job alive indefinitely. 
- 
+
    > [!NOTE]
    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
@@ -170,11 +162,49 @@ To interact with your running job, click the button **Debug and monitor** on the
 :::image type="content" source="media/interactive-jobs/debug-and-monitor.png" alt-text="Screenshot of interactive jobs debug and monitor panel location.":::
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Clicking the applications in the panel opens a new tab for the applications. You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with.
 
 :::image type="content" source="media/interactive-jobs/interactive-jobs-application-list.png" alt-text="Screenshot of interactive jobs right panel information. Information content will vary depending on the user's data.":::
 
-It might take a few minutes to start the job and the training applications specified during job creation. If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
+It might take a few minutes to start the job and the training applications specified during job creation.
 
 # [Python SDK](#tab/python)
 - Once the job is submitted, you can use `ml_client.jobs.show_services("<job name>", <compute node index>)` to view the interactive service endpoints.
@@ -211,8 +241,6 @@ When you click on the endpoints to interact when your job, you're taken to the u
 - If you have logged tensorflow events for your job, you can use TensorBoard to monitor the metrics when your job is running.
 
   :::image type="content" source="./media/interactive-jobs/tensorboard-open.png" alt-text="Screenshot of interactive jobs tensorboard panel when first opened. This information will vary depending upon customer data":::
-  
-If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 
 ### End job
 Once you're done with the interactive training, you can also go to the job details page to cancel the job which will release the compute resource. Alternatively, use `az ml job cancel -n <your job name>` in the CLI or `ml_client.job.cancel("<job name>")` in the SDK. 
@@ -240,10 +268,11 @@ To submit a job with a debugger attached and the execution paused, you can use d
    
     :::image type="content" source="./media/interactive-jobs/set-breakpoints.png" alt-text="Screenshot of location of an example breakpoint that is set in the Visual Studio Code editor":::
 
-
 > [!NOTE]
 > If you use debugpy to start your job, your job will **not** execute unless you attach the debugger in VS Code and execute the script. If this is not done, the compute will be reserved until the job is [cancelled](./how-to-interactive-jobs.md#end-job).
 
 ## Next steps
 
 + Learn more about [how and where to deploy a model](./how-to-deploy-online-endpoints.md).
+
+

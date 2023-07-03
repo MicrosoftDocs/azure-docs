@@ -72,6 +72,9 @@ Each recommendation provides the same set of details that explain what the recom
 
 - The **Impacted resources** table contains a list of resources identified by the recommendation. The resource's name, ID, date it was first detected, and status are provided. The resource could be an application or resource service principal, for example. 
 
+> [!NOTE]
+> In the Azure portal the impacted resources are limited to a maximum of 50 resources. To view more resources, you should use the expand query parameter at the end of your API query on Microsoft graph. For example: Get: https://graph.microsoft.com/beta/directory/recommendations?$expand=impactedResources
+
 ## How to update a recommendation
 
 To update the status of a recommendation or a related resource, sign in to Azure using a least-privileged role for updating a recommendation.

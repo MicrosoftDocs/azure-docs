@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!NOTE]
 > HdInsight supports only general-purpose storage accounts with standard tier. Make sure that the account is not a premium or blob only storage account.
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 
 ### Upload the Python script to your Blob storage account

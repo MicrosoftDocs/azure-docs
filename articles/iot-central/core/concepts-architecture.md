@@ -1,6 +1,6 @@
 ---
-title: Architectural concepts in Azure IoT Central | Microsoft Docs
-description: This article introduces key concepts relating the architecture of Azure IoT Central
+title: Architectural concepts in Azure IoT Central
+description: This article introduces key IoT Central architectural concepts such as device management, security, integration, and extensibility.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/28/2022
@@ -60,7 +60,7 @@ A device can use properties to report its state, such as whether a valve is open
 
 IoT Central can also control devices by calling commands on the device. For example, instructing a device to download and install a firmware update.
 
-The [telemetry, properties, and commands](concepts-telemetry-properties-commands.md) that a device implements are collectively known as the device capabilities. You define these capabilities in a model that's shared between the device and the IoT Central application. In IoT Central, this model is part of the device template that defines a specific type of device. To learn more, see [Assign a device to a device template](concepts-device-templates.md#assign-a-device-to-a-device-template).
+The telemetry, properties, and commands that a device implements are collectively known as the device capabilities. You define these capabilities in a model that's shared between the device and the IoT Central application. In IoT Central, this model is part of the device template that defines a specific type of device. To learn more, see [Assign a device to a device template](concepts-device-templates.md#assign-a-device-to-a-device-template).
 
 The [device implementation](tutorial-connect-device.md) should follow the [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot-develop/about-iot-sdks.md).
 

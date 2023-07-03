@@ -11,8 +11,12 @@ In this tutorial, you learn to use Azure Blueprints to do some of the common tas
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
+- To create blueprints, your account needs the following permissions:
+   - Microsoft.Blueprint/blueprints/write - Create a blueprint definition
+   - Microsoft.Blueprint/blueprints/artifacts/write - Create artifacts on a blueprint definition
+   - Microsoft.Blueprint/blueprints/versions/write - Publish a blueprint
 
 ## Create a blueprint
 

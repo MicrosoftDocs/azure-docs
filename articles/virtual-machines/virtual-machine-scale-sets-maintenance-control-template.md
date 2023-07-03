@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/22/2022
 ms.author: jushiman 
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #pmcontact: PPHILLIPS
 ---
 

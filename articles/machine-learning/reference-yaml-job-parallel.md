@@ -17,9 +17,6 @@ ms.date: 09/27/2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/reference-pipeline-yaml.md)
-> * [v2 (current version)](reference-yaml-job-pipeline.md)
 
 > [!IMPORTANT]
 > Parallel job can only be used as a single step inside an Azure Machine Learning pipeline job. Thus, there is no source JSON schema for parallel job at this time. This document lists the valid keys and their values when creating a parallel job in a pipeline.

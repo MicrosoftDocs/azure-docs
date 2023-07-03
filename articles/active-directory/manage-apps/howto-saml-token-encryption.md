@@ -12,6 +12,7 @@ ms.date: 07/21/2022
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # Configure Azure Active Directory SAML token encryption
@@ -28,6 +29,8 @@ Even without token encryption, Azure AD SAML tokens are never passed on the netw
 To configure token encryption, you need to upload an X.509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X.509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
 
 Azure AD uses AES-256 to encrypt the SAML assertion data.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Configure enterprise application SAML token encryption
 
@@ -100,7 +103,7 @@ To configure token encryption, follow these steps:
 
 1. Set the value for the `tokenEncryptionKeyId` attribute.
 
-    The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEnryptionKeyId.
+    The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEncryptionKeyId.
 
     ```json
     { 

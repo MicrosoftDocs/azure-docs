@@ -59,6 +59,9 @@ You can add parameters to a function so that you can provide values for certain 
 
 Parameters are ordered as they're created. Parameters that have no default value are positioned in front of parameters that have a default value.
 
+> [!NOTE] 
+> Classic Application Insights resources don't support parameterized functions. If you have a [workspace-based Application Insights resource](../app/create-workspace-resource.md), you can create parameterized functions from your Log Analytics workspace. For information on migrating your Classic Application Insights resource to a workspace-based resource, see [Migrate to workspace-based Application Insights resources](../app/convert-classic-resource.md).
+
 ## Work with function code
 You can view the code of a function either to gain insight into how it works or to modify the code for a workspace function. Select **Load the function code** to add the function code to the current query in the editor.
 

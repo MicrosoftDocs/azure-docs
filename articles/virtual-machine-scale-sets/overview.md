@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice:
-ms.date: 11/22/2022
+ms.date: 03/09/2023
 ms.reviewer: mimckitt
 
 ---
@@ -31,6 +31,7 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 > [!IMPORTANT]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
+:::image type="content" source="media/overview/azure-virtual-machine-scale-sets-video-thumbnail.jpg" alt-text="YouTube video about Virtual Machine Scale Sets." link="https://youtu.be/lE2xJXYHnB8":::
 
 ## Why use Virtual Machine Scale Sets?
 To provide redundancy and improved performance, applications are typically distributed across multiple instances. Customers may access your application through a load balancer that distributes requests to one of the application instances. If you need to perform maintenance or update an application instance, your customers must be distributed to another available application instance. To keep up with extra customer demand, you may need to increase the number of application instances that run your application.

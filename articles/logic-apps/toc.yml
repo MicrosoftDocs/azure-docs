@@ -96,6 +96,10 @@
       href: ../connectors/compare-built-in-azure-connectors.md
     - name: Edit host and app settings for logic apps in single-tenant
       href: edit-app-settings-host-settings.md
+    - name: Create and run .NET Framework code
+      href: create-run-custom-code-functions.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: DevOps deployment for single-tenant
       href: devops-deployment-single-tenant-azure-logic-apps.md
     - name: Set up DevOps deployment for single-tenant
@@ -272,6 +276,8 @@
       href: logic-apps-enterprise-integration-flatfile.md
     - name: XML and JSON transforms
       items:
+      - name: Create maps in Visual Studio Code
+        href: create-maps-data-transformation-visual-studio-code.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
@@ -282,7 +288,7 @@
         href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-  - name: Connectors - In-depth topics
+  - name: Connectors - How-to guides
     items:
     - name: AS2
       href: logic-apps-enterprise-integration-as2.md
@@ -300,6 +306,10 @@
       href: logic-apps-azure-functions.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
+    - name: Azure Monitor Application Insights
+      href: ../connectors/connectors-azure-application-insights.md
+    - name: Azure Monitor Logs
+      href: ../connectors/connectors-azure-monitor-logs.md
     - name: Azure Service Bus
       href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
@@ -353,7 +363,13 @@
     - name: RosettaNet
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: SAP
-      href: logic-apps-using-sap-connector.md
+      items:
+      - name: Prerequisites and setup
+        href: logic-apps-using-sap-connector.md
+      - name: Create common example workflows
+        href: sap-create-example-scenario-workflows.md
+      - name: Generate schemas for SAP artifacts
+        href: sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window

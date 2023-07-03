@@ -3,10 +3,10 @@ title: Import SOAP API to Azure API Management | Microsoft Docs
 description: Learn how to import a SOAP API to Azure API Management as a WSDL specification using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API in the Azure portal.
 author: dlepow
 ms.service: api-management
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.author: danlep
-
 ---
 # Import SOAP API to API Management
 

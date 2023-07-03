@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 04/14/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
 
 #customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Azure AD.
@@ -28,6 +28,8 @@ By default, granting tenant-wide admin consent to an application will allow all 
 
 Granting tenant-wide admin consent may revoke any permissions that had previously been granted tenant-wide for that application. Permissions that have previously been granted by users on their own behalf won't be affected.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization.
@@ -41,7 +43,7 @@ To grant tenant-wide admin consent, you need:
 
 ## Grant tenant-wide admin consent in Enterprise apps
 
-You can grant tenant-wide admin consent through *Enterprise applications* if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/active-directory-how-applications-are-added.md).
+You can grant tenant-wide admin consent through the **Enterprise applications** panel if the application has already been provisioned in your tenant. For example, an app could be provisioned in your tenant if at least one user has already consented to the application. For more information, see [How and why applications are added to Azure Active Directory](../develop/how-applications-are-added.md).
 
 :::zone pivot="portal"
 
@@ -51,8 +53,6 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 1. Select **Azure Active Directory**, and then select **Enterprise applications**.
 1. Select the application to which you want to grant tenant-wide admin consent, and then select **Permissions**.
    :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant-wide admin consent.":::
-
-1. Add the redirect **URI** (https://entra.microsoft.com/TokenAuthorize) as permitted redirect **URI** to the app.
 1. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
 
 ## Grant admin consent in App registrations

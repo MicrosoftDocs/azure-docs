@@ -2,13 +2,13 @@
 title: Security recommendations for Blob storage
 titleSuffix: Azure Storage
 description: Learn about security recommendations for Blob storage. Implementing this guidance will help you fulfill your security obligations as described in our shared responsibility model.
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 05/12/2022
-ms.author: jammart
+ms.date: 04/06/2023
+ms.author: tamram
 ms.custom: security-recommendations
 ---
 
@@ -24,7 +24,7 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Azure AD-based authentication and authorization for access to Azure Storage data and resources. If possible, migrate existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
+| Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Azure Active Directory (Azure AD) authentication and authorization for access to Azure Storage data and resources. If possible, migrate existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
 | Enable Microsoft Defender for all of your storage accounts | Microsoft Defender for Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Microsoft Defender for Cloud when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Configure Microsoft Defender for Storage](../common/azure-defender-storage-configure.md). | [Yes](../../defender-for-cloud/implement-security-recommendations.md) |
 | Turn on soft delete for blobs | Soft delete for blobs enables you to recover blob data after it has been deleted. For more information on soft delete for blobs, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md). | - |
 | Turn on soft delete for containers | Soft delete for containers enables you to recover a container after it has been deleted. For more information on soft delete for containers, see [Soft delete for containers](./soft-delete-container-overview.md). | - |
@@ -32,6 +32,7 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 | Store business-critical data in immutable blobs | Configure legal holds and time-based retention policies to store blob data in a WORM (Write Once, Read Many) state. Blobs stored immutably can be read, but cannot be modified or deleted for the duration of the retention interval. For more information, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md). | - |
 | Require secure transfer (HTTPS) to the storage account | When you require secure transfer for a storage account, all requests to the storage account must be made over HTTPS. Any requests made over HTTP are rejected. Microsoft recommends that you always require secure transfer for all of your storage accounts. For more information, see [Require secure transfer to ensure secure connections](../common/storage-require-secure-transfer.md). | - |
 | Limit shared access signature (SAS) tokens to HTTPS connections only | Requiring HTTPS when a client uses a SAS token to access blob data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md). | - |
+| Disallow cross-tenant object replication | By default, an authorized user is permitted to configure an object replication policy where the source account is in one Azure AD tenant and the destination account is in a different tenant. Disallow cross-tenant object replication to require that the source and destination accounts participating in an object replication policy are in the same tenant. For more information, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md). | - |
 
 ## Identity and access management
 
@@ -65,7 +66,7 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Track how requests are authorized | Enable Azure Storage logging to track how each request made against Azure Storage was authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using Shared Key, or by using a shared access signature (SAS). For more information, see [Monitoring Azure Blob Storage with Azure Monitor](monitor-blob-storage.md) or [Azure Storage analytics logging with Classic Monitoring](../common/storage-analytics-logging.md). | - |
+| Track how requests are authorized | Enable logging for Azure Storage to track how requests to the service are authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using Shared Key, or by using a shared access signature (SAS). For more information, see [Monitoring Azure Blob Storage with Azure Monitor](monitor-blob-storage.md) or [Azure Storage analytics logging with Classic Monitoring](../common/storage-analytics-logging.md). | - |
 | Set up alerts in Azure Monitor | Configure log alerts to evaluate resources logs at a set frequency and fire an alert based on the results. For more information, see [Log alerts in Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
 ## Next steps

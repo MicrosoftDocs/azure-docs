@@ -5,7 +5,8 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
-ms.date: 11/25/2022
+ms.service: azure-migrate
+ms.date: 06/20/2023
 ms.custom: engagement-fy23
 ---
 
@@ -35,7 +36,7 @@ The table summarizes VMware vSphere hypervisor requirements.
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
 **VMware vSphere ESXi host** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
-**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse** (Datastore -> Browse datastore): Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.FileManagement** (Datastore -> Low level file operations): Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Config.ChangeTracking** (Virtual machine -> Disk change tracking): Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Config.DiskLease** (Virtual machine -> Disk lease): Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** (Virtual machine -> Provisioning -> Allow read-only disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** (Virtual machine -> Provisioning -> Allow disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** (Virtual machine -> Provisioning -> Allow virtual machine download): Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.State.\*** (Virtual machine -> Snapshot management): Allow creation and management of VM snapshots for replication.<br/><br/> - **VirtualMachine.Interact.PowerOff** (Virtual machine > Interaction > Power off): Allow the VM to be powered off during migration to Azure.
+**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse** (Datastore -> Browse datastore): Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.FileManagement** (Datastore -> Low level file operations): Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Config.ChangeTracking** (Virtual machine -> Disk change tracking): Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Config.DiskLease** (Virtual machine -> Disk lease): Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** (Virtual machine -> Provisioning -> Allow read-only disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** (Virtual machine -> Provisioning -> Allow disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** (Virtual machine -> Provisioning -> Allow virtual machine download): Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.State.\*** (Virtual machine -> Snapshot management): Allow creation and management of VM snapshots for replication.<br/><br/> - **VirtualMachine.GuestOperations.\*** (Virtual machine -> Guest operations): Allow Discovery, Software Inventory, and Dependency Mapping on VMs.<br/><br/> -**VirtualMachine.Interact.PowerOff** (Virtual machine > Interaction > Power off): Allow the VM to be powered off during migration to Azure.
 **Multiple vCenter Servers** | A single appliance can connect to up to 10 vCenter Servers.
 
 
@@ -50,13 +51,15 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8.x, 7.x, 6.x <br/> - Cent OS 8.x, 7.x, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/> - Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM.
 **Boot requirements** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
-**Disk size** | Up to 2-TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
+**Disk size** | Up to 2-TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and will not impact ongoing replication cycle.
+**Dynamic disk** | An OS disk as a dynamic disk is not supported. Ongoing replications need to be disabled and re-enabled after converting a dynamic OS disk to basic to start replication of the disk successfully.
 **Disk limits** |  Up to 60 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Not supported.
 **RDM/passthrough disks** | If VMs have RDM or passthrough disks, these disks won't be replicated to Azure.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
+**ReiserFS** | Not supported.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported. 
@@ -146,6 +149,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
+**ReiserFS** | Not supported.
 **iSCSI targets** | Supported.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported

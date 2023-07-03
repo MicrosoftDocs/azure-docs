@@ -2,7 +2,7 @@
 title: Release notes - Map Control
 titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
-author: eriklindeman
+author: dubiety
 ms.author: sipa
 ms.date: 3/15/2023
 ms.topic: reference
@@ -16,7 +16,117 @@ This document contains information about new features and other changes to the M
 
 ## v3 (preview)
 
-### [3.0.0-preview.5](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5) (March 15, 2023)
+### [3.0.0-preview.9] (June 27, 2023)
+
+#### New features (3.0.0-preview.9)
+
+- WebGL2 is used by default.
+
+- Elevation APIs: `atlas.sources.ElevationTileSource`, `map.enableElevation(elevationSource, options)`, `map.disableElevation()`
+
+- ability to customize maxPitch / minPitch in `CameraOptions`
+
+#### Bug fixes (3.0.0-preview.9)
+
+- fixed an issue where accessibility-related duplicated DOM elements may result when `map.setServiceOptions` is called
+
+#### Installation (3.0.0-preview.9)
+
+The preview is available on [npm][3.0.0-preview.9] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.9][3.0.0-preview.9]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.9/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.9/atlas.min.js"></script>
+    ```
+    
+### [3.0.0-preview.8] (June 2, 2023)
+
+#### Bug fixes (3.0.0-preview.8)
+
+- Fixed an exception that occurred while updating the property of a layout that no longer exists.
+
+- Fixed an issue where BubbleLayer's accessible indicators didn't update when the data source was modified.
+
+- Fixed an error in subsequent `map.setStyle()` calls if the raw Maplibre style is retrieved in the `stylechanged` event callback on style serialization.
+
+#### Other changes (3.0.0-preview.8)
+
+- Updated attribution logo and link.
+
+#### Installation (3.0.0-preview.8)
+
+The preview is available on [npm][3.0.0-preview.8] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.8][3.0.0-preview.8]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.8/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.8/atlas.min.js"></script>
+    ```
+
+### [3.0.0-preview.7] (May 2, 2023)
+
+#### New features (3.0.0-preview.7)
+
+- In addition to map configuration, [Map.setServiceOptions()] now supports changing `domain`, `styleAPIVersion`, `styleDefinitionsVersion` on runtime.
+
+#### Bug fixes (3.0.0-preview.7)
+
+- Fixed token expired exception on relaunches when using Azure AD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+
+- Fixed redundant style definition and thumbnail requests 
+
+- Fixed incorrect `aria-label` applied to zoom out control button element
+
+- Fixed the possibility of undefined copyright element container when withRuleBasedAttribution is set to false
+
+- Fixed the possibility of event listener removal called on undefined target in `EventManager.remove()`
+
+#### Installation (3.0.0-preview.7)
+
+The preview is available on [npm][3.0.0-preview.7] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.7][3.0.0-preview.7]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.7/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.7/atlas.min.js"></script>
+    ```
+
+### [3.0.0-preview.6] (March 31, 2023)
+
+#### Installation (3.0.0-preview.6)
+
+The preview is available on [npm][3.0.0-preview.6] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.6][3.0.0-preview.6]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.6/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.6/atlas.min.js"></script>
+    ```
+
+#### New features (3.0.0-preview.6)
+
+- Optimized the internal style transform performance.
+
+#### Bug fixes (3.0.0-preview.6)
+
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
+
+- Eliminated redundant requests during map initialization and on style changed events.
+
+### [3.0.0-preview.5] (March 15, 2023)
 
 #### Installation (3.0.0-preview.5)
 
@@ -176,7 +286,59 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2 (latest)
 
-### [2.2.5](https://www.npmjs.com/package/azure-maps-control/v/2.2.5)
+### [2.3.1] (June 27, 2023)
+
+#### Bug fixes (2.3.1)
+
+- fix `ImageSpriteManager` icon images may get removed during style change 
+
+#### Other changes (2.3.1)
+
+- security: insecure-randomness fix in UUID generation.
+
+### [2.3.0] (June 2, 2023)
+
+#### New features (2.3.0)
+
+- **\[BREAKING\]** Refactored the internal StyleManager to replace `_stylePatch` with `transformStyle`. This change will allow road shield icons to update and render properly after a style switch.
+
+#### Bug fixes (2.3.0)
+
+- Fixed an exception that occurred while updating the property of a layout that that no longer exists.
+
+- Fixed an issue where BubbleLayer's accessible indicators didn't update when the data source was modified.
+
+#### Other changes (2.3.0)
+
+- Updated attribution logo and link.
+
+### [2.2.7] (May 2, 2023)
+
+#### New features (2.2.7)
+
+- In addition to map configuration, [Map.setServiceOptions()] now supports changing `domain`, `styleAPIVersion`, `styleDefinitionsVersion` on runtime.
+
+#### Bug fixes (2.2.7)
+
+- Fixed token expired exception on relaunches when using Azure AD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+
+- Fixed redundant style definition and thumbnail requests 
+
+- Fixed incorrect `aria-label` applied to zoom out control button element
+
+- Fixed the possibility of undefined copyright element container when withRuleBasedAttribution is set to false
+
+- Fixed the possibility of event listener removal called on undefined target in EventManager.remove()
+
+### [2.2.6]
+
+#### Bug fixes (2.2.6)
+
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
+
+- Eliminated redundant requests during map initialization and on style changed events.
+
+### [2.2.5]
 
 #### New features (2.2.5)
 
@@ -241,10 +403,20 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.0-preview.9]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.9
+[3.0.0-preview.8]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.8
+[3.0.0-preview.7]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.7
+[3.0.0-preview.6]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.6
+[3.0.0-preview.5]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5
 [3.0.0-preview.4]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.4
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.1]: https://www.npmjs.com/package/azure-maps-control/v/2.3.1
+[2.3.0]: https://www.npmjs.com/package/azure-maps-control/v/2.3.0
+[2.2.7]: https://www.npmjs.com/package/azure-maps-control/v/2.2.7
+[2.2.6]: https://www.npmjs.com/package/azure-maps-control/v/2.2.6
+[2.2.5]: https://www.npmjs.com/package/azure-maps-control/v/2.2.5
 [2.2.4]: https://www.npmjs.com/package/azure-maps-control/v/2.2.4
 [2.2.3]: https://www.npmjs.com/package/azure-maps-control/v/2.2.3
 [2.2.2]: https://www.npmjs.com/package/azure-maps-control/v/2.2.2
@@ -258,6 +430,7 @@ Stay up to date on Azure Maps:
 [language mapping]: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-maps/supported-languages.md#azure-maps-supported-languages
 [user regions (view)]: /javascript/api/azure-maps-control/atlas.styleoptions?view=azure-maps-typescript-latest#azure-maps-control-atlas-styleoptions-view
 [ImageSpriteManager.add()]: /javascript/api/azure-maps-control/atlas.imagespritemanager?view=azure-maps-typescript-latest#azure-maps-control-atlas-imagespritemanager-add
+[Map.setServiceOptions()]: https://learn.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setserviceoptions
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
 [SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager

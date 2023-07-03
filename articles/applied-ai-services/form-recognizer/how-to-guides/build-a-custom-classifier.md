@@ -7,15 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 04/25/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
-recommendations: false
 ---
 
 # Build and train a custom classification model (preview)
 
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+**This article applies to:** ![Form Recognizer checkmark](../media/yes-icon.png) **The latest [public preview SDK](../sdk-preview.md) supported by Form Recognizer REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
 
 > [!IMPORTANT]
 >
@@ -46,7 +45,7 @@ Once you've put together the set of forms or documents for training, you need to
 
 The Form Recognizer Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-form-recognizer-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom classification model** tile, on the custom models section of the page and select the **Create a project** button.
 
@@ -73,7 +72,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 
 In your project, you only need to label each document with the appropriate class label.
 
-:::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot showing elect the Form Recognizer resource.":::
+:::image type="content" source="../media/how-to/studio-create-label.gif" alt-text="Screenshot showing elect the Form Recognizer resource.":::
 
 You see the files you uploaded to storage in the file list, ready to be labeled. You have a few options to label your dataset.
 
@@ -117,7 +116,7 @@ Congratulations you've trained a custom classification model in the Form Recogni
 
 The [classification model](../concept-custom-classifier.md) requires results from the [layout model](../concept-layout.md) for each training document. If you haven't provided the layout results, the Studio attempts to run the layout model for each document prior to training the classifier. This process is throttled and can result in a 429 response. 
 
-In the Studiio, prior to training with the classification model, run the [layout model](https://formrecognizer.appliedai.azure.com/studio/layout) on each document and upload it to the same location as the original document. Once the layout results are added, you can train the classifier model with your documents. 
+In the Studio, prior to training with the classification model, run the [layout model](https://formrecognizer.appliedai.azure.com/studio/layout) on each document and upload it to the same location as the original document. Once the layout results are added, you can train the classifier model with your documents. 
 
 ## Next steps
 

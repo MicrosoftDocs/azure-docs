@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn to deploy your AutoML model as a web service that's automatically managed by Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
 ms.date: 05/11/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022, devx-track-python
 ms.devlang: azurecli
 ---
 
@@ -168,7 +168,7 @@ After you create a deployment, you can score it as described in [Invoke the endp
 If you haven't installed Python SDK v2 yet, please install with this command:
 
 ```azurecli
-pip install azure-ai-ml
+pip install azure-ai-ml azure-identity
 ```
 
 For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).

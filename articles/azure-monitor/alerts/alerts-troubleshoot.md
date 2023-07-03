@@ -1,8 +1,6 @@
 ---
 title: Troubleshooting Azure Monitor alerts and notifications
 description: Common issues with Azure Monitor alerts and possible solutions. 
-author: ofirmanor
-ms.author: ofmanor
 ms.topic: reference
 ms.date: 2/23/2022
 ms.reviewer: ofmanor
@@ -127,7 +125,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Add the [IP addresses](./action-groups.md#action-specific-information) that the webhook is called from to your allowlist.
+       Add the [IP addresses](../app/ip-addresses.md) that the webhook is called from to your allowlist.
 
     1. **Does your webhook endpoint work correctly?**
 

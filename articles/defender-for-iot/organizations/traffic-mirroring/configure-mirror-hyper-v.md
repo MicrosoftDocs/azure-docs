@@ -2,28 +2,33 @@
 title: Configure a monitoring interface using a Hyper-V vSwitch - Microsoft Defender for IoT
 description: This article describes traffic mirroring with a Hyper-V vSwitch for OT monitoring with Microsoft Defender for IoT.
 ms.date: 09/20/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 
 # Configure traffic mirroring with a Hyper-V vSwitch
 
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
-While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a monitoring port, similar to a [SPAN port](configure-mirror-span.md). A SPAN port on your switch mirrors local traffic from interfaces on the switch to a different interface on the same switch.
+:::image type="content" source="../media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Network level deployment highlighted." border="false" lightbox="../media/deployment-paths/progress-network-level-deployment.png":::
 
-Connect the destination switch to your OT network sensor to monitor traffic with Defender for IoT.
+This article describes how to use *Promiscuous mode* in a Hyper-V Vswitch environment as a workaround for configuring traffic mirroring, similar to a [SPAN port](configure-mirror-span.md). A SPAN port on your switch mirrors local traffic from interfaces on the switch to a different interface on the same switch.
 
-*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
+For more information, see [Traffic mirroring with virtual switches](../best-practices/traffic-mirroring-methods.md#traffic-mirroring-with-virtual-switches).
 
 ## Prerequisites
 
 Before you start:
 
+- Make sure that you understand your plan for network monitoring with Defender for IoT, and the SPAN ports you want to configure.
+
+    For more information, see [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md).
+
 - Ensure that there's no instance of a virtual appliance running.
 
 - Make sure that you've enabled *Ensure SPAN* on your virtual switch's data port, and not the management port.
 
-- Ensure that the data port SPAN configuration is not configured with an IP address.
+- Ensure that the data port SPAN configuration isn't configured with an IP address.
 
 ## Configure a traffic mirroring port with Hyper-V
 
@@ -45,7 +50,7 @@ Before you start:
 
 Use Windows PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v).
 
-If you use PowerShell, you'll define the name of the newly added adapter hardware as `Monitor`. If you use Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
+If you use PowerShell, define the name of the newly added adapter hardware as `Monitor`. If you use Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
 ### Attach a SPAN virtual interface to the virtual switch with PowerShell
 
@@ -129,14 +134,17 @@ To verify the monitoring mode status, run:
 ```PowerShell
 Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
 ```
+
 | Parameter | Description |
 |--|--|
 |**vSwitch_Span** | Newly added SPAN virtual switch name |
 
+[!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
+
 ## Next steps
 
-For more information, see:
+> [!div class="step-by-step"]
+> [« Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
 
-- [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
-- [OT network sensor VM (Microsoft Hyper-V)](../appliance-catalog/virtual-sensor-hyper-v.md)
-- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
+> [!div class="step-by-step"]
+> [Provision OT sensors for cloud management »](../ot-deploy/provision-cloud-management.md)

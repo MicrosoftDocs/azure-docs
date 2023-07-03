@@ -24,7 +24,7 @@ The following table lists the options for you to add certificates in App Service
 | Upload a public certificate | Public certificates aren't used to secure custom domains, but you can load them into your code if you need them to access remote resources. |
 
 > [!NOTE]
-> After you upload a certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group and region combination. 
+> After you upload a certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group and region combination. Certificates uploaded or imported to App Service are shared with App Services in the same deployment unit. 
 
 ## Prerequisites
 
@@ -358,7 +358,7 @@ By default, App Service certificates have a one-year validity period. Before and
 > 
 > Unlike an App Service managed certificate, domain re-verification for App Service certificates *isn't* automated. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 >
-> The renewal process requires that the well-known [service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). These permissions are set up for you when you import an App Service certificate through the Azure portal. Make sure that you don't remove these permisisons from your key vault.
+> The renewal process requires that the well-known [service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). These permissions are set up for you when you import an App Service certificate through the Azure portal. Make sure that you don't remove these permissions from your key vault.
 
 1. To change the automatic renewal setting for your App Service certificate at any time, on the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. 
 

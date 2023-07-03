@@ -151,8 +151,6 @@ Select the minimum log level for each facility that you want to collect.
 
 
 ## Known limitations
-
-- **Onboarding**. Syslog collection can only be enabled from command line during public preview. 
 - **Container restart data loss**. Agent Container restarts can lead to syslog data loss during public preview. 
 
 ## Next steps

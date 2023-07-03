@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/02/2022
 ms.author: pafarley
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Azure Cognitive Services security

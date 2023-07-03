@@ -2,7 +2,7 @@
 title: Use Windows HostProcess containers
 description: Learn how to use HostProcess & Privileged containers for Windows workloads on AKS
 ms.topic: article
-ms.date: 4/6/2022
+ms.date: 05/09/2023
 ms.author: juda
 
 ---
@@ -12,7 +12,6 @@ ms.author: juda
 HostProcess / Privileged containers extend the Windows container model to enable a wider range of Kubernetes cluster management scenarios. HostProcess containers run directly on the host and maintain behavior and access similar to that of a regular process. HostProcess containers allow users to package and distribute management operations and functionalities that require host access while retaining versioning and deployment methods provided by containers.
 
 A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernetes but not Windows hosts. HostProcess containers are the Windows equivalent of host elevation.
-
 
 ## Limitations
 
@@ -25,7 +24,6 @@ A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernet
 * A limited set of host user accounts are available for Host Process containers by default. See Choosing a User Account.
 * Resource limits such as disk, memory, and cpu count, work the same way as fashion as processes on the host.
 * Named pipe mounts and Unix domain sockets aren't directly supported, but can be accessed on their host path, for example `\\.\pipe\*`.
-
 
 ## Run a HostProcess workload
 
@@ -73,7 +71,7 @@ spec:
               hostProcess: true
               runAsUserName: "NT AUTHORITY\\SYSTEM"
           command:
-            - powershell.exe
+            - C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
             - -command
             - |
               $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")
@@ -119,7 +117,6 @@ Process has admin rights:
 ## Next steps
 
 For more information on HostProcess containers and Microsoft's contribution to Kubernetes upstream, see the [Alpha in v1.22: Windows HostProcess Containers][blog-post].
-
 
 <!-- LINKS - External -->
 [blog-post]: https://kubernetes.io/blog/2021/08/16/windows-hostprocess-containers/

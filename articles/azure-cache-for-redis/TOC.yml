@@ -59,13 +59,18 @@
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
     href: cache-ml.md
+  - name: Use Azure Functions
+    items:
+    - name: Create a simple Function app for Redis triggers 
+      href: cache-tutorial-functions-getting-started.md
+    - name: Using Azure Functions to create a write-behind cache
+      href: cache-tutorial-write-behind.md
 - name: Samples
   items:
   - name: PowerShell samples
     items:
     - name: Manage with Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
-
   - name: Azure CLI samples
     items:
     - name: Overview
@@ -181,7 +186,7 @@
       href: cache-configure.md
     - name: Import/Export data
       href: cache-how-to-import-export-data.md
-    - name: Configure active encryption for Enterprise
+    - name: Configure disk encryption 
       href: cache-how-to-encryption.md
     - name: Reboot
       href: cache-administration.md#reboot
@@ -199,6 +204,12 @@
       href: cache-remove-tls-10-11.md
     - name: Management FAQs
       href: cache-management-faq.yml
+    - name: Azure Functions
+      href: cache-how-to-functions.md
+    - name: Role-based access control
+      href: cache-configure-role-based-access-control.md
+    - name: Azure AD for authentication
+      href: cache-azure-active-directory-for-authentication.md
   - name: Monitor
     items:
     - name: Monitor in Azure portal
@@ -211,7 +222,7 @@
       href: cache-insights-overview.md
   - name: Scale
     items:
-    - name: Update to a different size and tier
+    - name: Change the size and tier of a cache
       href: cache-how-to-scale.md
     - name: Use Redis cluster to scale in/out
       href: cache-how-to-premium-clustering.md

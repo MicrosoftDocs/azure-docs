@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix Azure Cosmos DB service unavailable e
 author: kushagrathapar
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-extended-java
 ms.date: 02/03/2022
 ms.author: kuthapar
 ms.topic: troubleshooting

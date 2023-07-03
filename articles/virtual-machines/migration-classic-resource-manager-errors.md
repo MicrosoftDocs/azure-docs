@@ -9,7 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/08/2023
 ms.author: tagore 
-ms.custom: compute-evergreen
+ms.custom: compute-evergreen, devx-track-arm-template
 ---
 
 # Errors that commonly occur during Classic to Azure Resource Manager migration

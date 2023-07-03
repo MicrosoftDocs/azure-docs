@@ -1,12 +1,12 @@
 ---
 title: Limits and limitations – Azure Cosmos DB for PostgreSQL
 description: Current limits for clusters
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 06/07/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -44,7 +44,7 @@ The connection limits above are for *user* connections (`max_connections` minus
 administration and recovery.
 
 The limits apply to both worker nodes and the coordinator node. Attempts to
-connect beyond these limits will fail with an error.
+connect beyond these limits fails with an error.
 
 #### Connection pooling
 
@@ -62,9 +62,8 @@ be scaled down (decreased).
 
 ### Storage size
 
-Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
-available storage options and IOPS calculation [above](resources-compute.md)
-for node and cluster sizes.
+Up to 16 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
+for various node and cluster sizes.
 
 ## Compute
 
@@ -96,9 +95,10 @@ currently **not supported**:
 ### Database creation
 
 The Azure portal provides credentials to connect to exactly one database per
-cluster, the `citus` database. Creating another
-database is currently not allowed, and the CREATE DATABASE command will fail
+cluster. Creating another database is currently not allowed, and the CREATE DATABASE command fails
 with an error.
+
+By default this database is called `citus`. Azure Cosmos DB for PostgreSQL supports custom database names at cluster provisioning time only.  
 
 ## Next steps
 

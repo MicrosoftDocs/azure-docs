@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 05/23/2023
 # As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
 ---
 
@@ -97,7 +97,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
 1. In the **Inputs** box, enter the inputs to use for creating the output.
 
-   For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
+   For this example, select inside the **Inputs** box, which opens the dynamic content list. From that list, select the previously created variables:
 
    ![Screenshot showing the designer for a Consumption workflow, the "Compose" action, and the selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-consumption.png)
 
@@ -121,11 +121,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **compose**.
-
-1. From the actions list, select the action named **Compose**.
-
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "compose" entered, and the "Compose" action selected.](./media/logic-apps-perform-data-operations/select-compose-action-standard.png)
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Compose**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
    > [!NOTE]
    >
@@ -133,9 +129,9 @@ To try the **Compose** action, follow these steps by using the workflow designer
    > you get this result because the connector name is actually **Data Operations**, not **Compose**, 
    > which is the action name.
 
-1. In the **Inputs** box, enter the inputs to use for creating the output.
+1. After the action information box opens, in the **Inputs** box, enter the inputs to use for creating the output.
 
-   For this example, when you click inside the **Inputs** box, the dynamic content list appears so you that can select the previously created variables:
+   For this example, select inside the **Inputs** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variables:
 
    ![Screenshot showing the designer for a Standard workflow, the "Compose" action, and the selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-standard.png)
 
@@ -147,7 +143,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
 ---
 
-### Test your logic app
+### Test your workflow
 
 To confirm whether the **Compose** action creates the expected results, send yourself a notification that includes output from the **Compose** action.
 
@@ -157,7 +153,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
+1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Compose** action, select **Outputs**.
 
    For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
@@ -171,7 +167,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Compose** action, select **Outputs**.
+1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Compose** action, select **Outputs**.
 
    > [!NOTE]
    >
@@ -222,7 +218,7 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
 1. In the **From** box, enter the array or expression to use for creating the table.
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Consumption workflow, the "Create CSV table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png)
 
@@ -252,15 +248,11 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create csv table**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Create CSV table**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Create CSV table**.
+1. After the action information box appears, in the **From** box, enter the array or expression to use for creating the table.
 
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "create csv table" entered, and the "Create CSV table" action selected.](./media/logic-apps-perform-data-operations/select-create-csv-table-action-standard.png)
-
-1. In the **From** box, enter the array or expression to use for creating the table.
-
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Standard workflow, the "Create CSV table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-standard.png)
 
@@ -281,6 +273,8 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 ### Customize table format
 
 By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom headers and values, follow these steps:
+
+1. If the **Columns** property doesn't appear in the action information box, from the **Add new parameters** list, select **Columns**.
 
 1. Open the **Columns** list, and select **Custom**.
 
@@ -305,9 +299,9 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
 ##### [Consumption](#tab/consumption)
 
-1. For each array property that you want, in the **Value** column, click in the edit box so that the dynamic content list appears.
+1. For each array property that you want, in the **Value** column, select inside the edit box, which opens the dynamic content list.
 
-1. In the dynamic content list, select **Expression**.
+1. From that list, select **Expression** to open the expression editor instead.
 
 1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
 
@@ -315,8 +309,8 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
    Examples:
 
-   * `item()?['Product_ID']`
    * `item()?['Description']`
+   * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create CSV table" action in a Consumption workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/csv-table-expression-consumption.png)
 
@@ -332,18 +326,16 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
 ##### [Standard](#tab/standard)
 
-1. For each array property that you want, in the **Value** column, click in the edit box so that the dynamic content list appears.
+1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
-1. In the dynamic content list, select **Expression**.
-
-1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want.
+1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want. When you're done with each expression, select **Add**.
 
    Syntax: `item()?['<array-property-name>']`
 
    Examples:
 
-   * `item()?['Product_ID']`
    * `item()?['Description']`
+   * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create CSV table" action in a Standard workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/csv-table-expression-standard.png)
 
@@ -396,7 +388,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 1. Switch back to designer view to review the results.
 
-### Test your logic app
+### Test your workflow
 
 To confirm whether the **Create CSV table** action creates the expected results, send yourself a notification that includes output from the **Create CSV table** action.
 
@@ -406,7 +398,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create CSV table** action, select **Output**.
+1. In this action, for each box where you want the results to appear, select inside the box, which opens the dynamic content list. Under the **Create CSV table** action, select **Output**.
 
    ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field from the preceding "Create CSV table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-consumption.png)
 
@@ -425,7 +417,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create CSV table** action, select **Output**.
+1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Create CSV table** action, select **Output**.
 
    ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field from the preceding "Create CSV table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action-standard.png)
 
@@ -478,7 +470,7 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
 1. In the **From** box, enter the array or expression to use for creating the table.
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Consumption workflow, the "Create HTML table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-html-table-action-consumption.png)
 
@@ -508,15 +500,11 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create html table**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Create HTML table**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Create HTML table**.
+1. After the action information box appears, in the **From** box, enter the array or expression to use for creating the table.
 
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "create csv table" entered, and the "Create HTML table" action selected.](./media/logic-apps-perform-data-operations/select-create-html-table-action-standard.png)
-
-1. In the **From** box, enter the array or expression to use for creating the table.
-
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Standard workflow, the "Create HTML table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-html-table-action-standard.png)
 
@@ -561,18 +549,18 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 ##### [Consumption](#tab/consumption)
 
-1. For each array property that you want, in the **Value** column, click in the edit box so that the dynamic content list appears.
+1. For each array property that you want, in the **Value** column, select inside the edit box, which opens the dynamic content list.
 
-1. In the dynamic content list, select **Expression**.
+1. From that list, select **Expression** to open the expression editor instead.
 
-1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want, and then select **OK**. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
    Syntax: `item()?['<array-property-name>']`
 
    Examples:
 
-   * `item()?['Product_ID']`
    * `item()?['Description']`
+   * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create HTML table" action in a Consumption workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/html-table-expression-consumption.png)
 
@@ -588,18 +576,16 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 ##### [Standard](#tab/standard)
 
-1. For each array property that you want, in the **Value** column, click in the edit box so that the dynamic content list appears.
+1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor.
 
-1. In the dynamic content list, select **Expression**.
-
-1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want, and then select **Add**. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
    Syntax: `item()?['<array-property-name>']`
 
    Examples:
 
-   * `item()?['Product_ID']`
-   * `item()?['Description']`
+      * `item()?['Description']`
+      * `item()?['Product_ID']`
 
    ![Screenshot showing the "Create HTML table" action in a Standard workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/html-table-expression-standard.png)
 
@@ -652,7 +638,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 1. Switch back to designer view to review the results.
 
-### Test your logic app
+### Test your workflow
 
 To confirm whether the **Create HTML table** action creates the expected results, send yourself a notification that includes output from the **Create HTML table** action.
 
@@ -662,7 +648,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create HTML table** action, select **Output**.
+1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Create HTML table** action, select **Output**.
 
    ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-consumption.png)
 
@@ -685,7 +671,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Create HTML table** action, select **Output**.
+1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Create HTML table** action, select **Output**.
 
    ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-standard.png)
 
@@ -753,7 +739,7 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 1. In the **From** box, enter the array or expression to use as the filter.
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select the **From** box, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Consumption workflow, the "Filter array" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-filter-array-action-consumption.png)
 
@@ -784,15 +770,11 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **filter array**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Filter array**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Filter array**.
+1. After the action information box appears, in the **From** box, enter the array or expression to use as the filter.
 
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "filter array" entered, and the "Filter array" action selected.](./media/logic-apps-perform-data-operations/select-filter-array-action-standard.png)
-
-1. In the **From** box, enter the array or expression to use as the filter.
-
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Standard workflow, the "Filter array" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-filter-array-action-standard.png)
 
@@ -806,7 +788,7 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 ---
 
-### Test your logic app
+### Test your workflow
 
 To confirm whether **Filter array** action creates the expected results, send yourself a notification that includes output from the **Filter array** action.
 
@@ -818,9 +800,9 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In this action, complete the following steps:
 
-   1. Click inside the boxes where you want the results to appear.
+   1. For each box where you want the results to appear, select inside each box, which opens the dynamic content list.
 
-   1. From the dynamic content list that opens, select **Expression**.
+   1. From that list, select **Expression** to open the expression editor instead.
 
    1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
 
@@ -840,9 +822,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In this action, complete the following steps:
 
-   1. Click inside the edit boxes where you want the results to appear.
-
-   1. From the dynamic content list that opens, select **Expression**.
+   1. For each box where you want the results to appear, select inside box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
    1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
 
@@ -892,7 +872,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
 1. In the **From** box, enter the array that has the items you want to join as a string.
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:  
+   For this example, select inside the **From** box, which opens the dynamic content list. From that list, select the previously created variable:  
 
    ![Screenshot showing the designer for a Consumption workflow, the "Join" action, and the selected array output to use join as a string.](./media/logic-apps-perform-data-operations/configure-join-action-consumption.png)
 
@@ -918,15 +898,11 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **join**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Join**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Join**.
+1. After the action information box appears, in the **From** box, enter the array that has the items you want to join as a string.
 
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box with "join" entered, and the "Join" action selected.](./media/logic-apps-perform-data-operations/select-join-action-standard.png)
-
-1. In the **From** box, enter the array that has the items you want to join as a string.
-
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Standard workflow, the "Join" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-join-action-standard.png)
 
@@ -940,7 +916,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
 ---
 
-### Test your logic app
+### Test your workflow
 
 To confirm whether the **Join** action creates the expected results, send yourself a notification that includes output from the **Join** action.
 
@@ -950,7 +926,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Join** action, select **Output**.
+1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Join** action, select **Output**.
 
    ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-complete-consumption.png)
 
@@ -969,7 +945,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the boxes where you want the results to appear. From the dynamic content list that opens, under the **Join** action, select **Output**.
+1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Join** action, select **Output**.
 
    ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-complete-standard.png)
 
@@ -1029,7 +1005,7 @@ For more information about this action in your underlying workflow definition, s
 
 1. In the **Content** box, enter the JSON object that you want to parse.
 
-   For this example, when you click inside the **Content** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **Content** box, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-consumption.png)
 
@@ -1105,15 +1081,11 @@ For more information about this action in your underlying workflow definition, s
    
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Parse JSON**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Parse JSON**.
+1. After the action information box appears, in the **Content** box, enter the JSON object that you want to parse.
 
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box, and the "Parse JSON" action selected.](./media/logic-apps-perform-data-operations/select-parse-json-action-standard.png)
-
-1. In the **Content** box, enter the JSON object that you want to parse.
-
-   For this example, when you click inside the **Content** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **Content** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-standard.png)
 
@@ -1167,7 +1139,7 @@ For more information about this action in your underlying workflow definition, s
 
 ---
 
-### Test your logic app
+### Test your workflow
 
 To confirm whether the **Parse JSON** action creates the expected results, send yourself a notification that includes output from the **Parse JSON** action.
 
@@ -1177,7 +1149,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the edit boxes where you want the results to appear. From the dynamic content list that opens, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
+1. In this action, for each edit box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
 
    This example selects the following properties: **FirstName**, **LastName**, and **Email**
 
@@ -1202,7 +1174,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, click inside the edit boxes where you want the results to appear. From the dynamic content list that opens, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
+1. In this action, for each box where you want the results to appear, select inside each edit box, which opens the dynamic content list. From that list, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
 
    This example selects the following properties: **FirstName**, **LastName**, and **Email**
 
@@ -1259,7 +1231,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 1. In the **From** box, enter the source array that you want to use.
 
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Consumption workflow, the "Select" action, and the selected source array variable to use in the "Select" action.](./media/logic-apps-perform-data-operations/configure-select-action-consumption.png)
 
@@ -1271,7 +1243,9 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    This example uses the [**item()** function](workflow-definition-language-functions-reference.md#item) to iterate through and access each item in the array.
 
-   1. Click inside the right column, and when the dynamic content list that opens, select **Expression**.
+   1. Select inside the right column, which opens the dynamic content list.
+
+   1. From that list, select **Expression** to open the expression editor instead.
 
    1. In the expression editor, enter the function named **item()**, and then select **OK**.
 
@@ -1297,15 +1271,11 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **select**.
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Select**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
 
-1. From the actions list, select the action named **Select**.
+1. After the action information box appears, in the **From** box, enter the source array that you want to use.
 
-   ![Screenshot showing the designer for a Standard workflow, the "Choose an operation" search box, and the "Select" action selected.](./media/logic-apps-perform-data-operations/select-select-action-standard.png)
-
-1. In the **From** box, enter the source array that you want to use.
-
-   For this example, when you click inside the **From** box, the dynamic content list appears so that you can select the previously created variable:
+   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
    ![Screenshot showing the designer for a Standard workflow, the "Select" action, and the selected source array variable to use in the "Select" action.](./media/logic-apps-perform-data-operations/configure-select-action-standard.png)
 
@@ -1317,9 +1287,9 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    This example uses the [`item()` function](workflow-definition-language-functions-reference.md#item) to iterate through and access each item in the array.
 
-   1. Click inside the right column, and when the dynamic content list that opens, select **Expression**.
+   1. Select inside the right column, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
-   1. In the expression editor, enter the function named **item()**, and then select **OK**.
+   1. In the expression editor, enter the function named **item()**, and then select **Add**.
 
    ![Screenshot showing the designer for a Standard workflow, the "Select" action, and the JSON object property and values to create the JSON object array.](./media/logic-apps-perform-data-operations/configure-select-action-2-standard.png)
 
@@ -1331,7 +1301,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 ---
 
-### Test your logic app
+### Test your workflow
 
 To confirm whether the **Select** action creates the expected results, send yourself a notification that includes output from the **Select** action.
 
@@ -1343,9 +1313,9 @@ To confirm whether the **Select** action creates the expected results, send your
 
 1. In this action, complete the following steps:
 
-   1. Click inside the edit boxes where you want the results to appear.
+   1. For each box where you want the results to appear, select inside each box, which opens the dynamic content list.
 
-   1. From the dynamic content list that opens, select **Expression**.
+   1. From that list, select **Expression** to open the expression editor instead.
 
    1. To get the array output from the **Select** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Select** action name, and select **OK**:
 
@@ -1367,9 +1337,7 @@ To confirm whether the **Select** action creates the expected results, send your
 
 1. In this action, complete the following steps:
 
-   1. Click inside the edit boxes where you want the results to appear.
-
-   1. From the dynamic content list that opens, select **Expression**.
+   1. For each box where you want the results to appear, select inside each box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
    1. To get the array output from the **Select** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Select** action name, and select **OK**:
 

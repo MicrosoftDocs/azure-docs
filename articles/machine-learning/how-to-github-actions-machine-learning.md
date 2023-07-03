@@ -109,7 +109,7 @@ Your workflow file is made up of a trigger section and jobs:
         - name: azure login
           uses: azure/login@v1
           with:
-            creds: ${{secrets.AZ_CREDS}}
+            creds: ${{secrets.AZURE_CREDENTIALS}}
         - name: setup
           run: bash setup.sh
           working-directory: cli

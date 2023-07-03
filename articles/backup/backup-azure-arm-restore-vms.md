@@ -2,8 +2,8 @@
 title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
-ms.topic: conceptual
-ms.date: 02/14/2023
+ms.topic: how-to
+ms.date: 06/13/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -196,6 +196,9 @@ To begin using the feature, read the [Before You Begin section](./backup-create-
 
 To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
 
+>[!Note]
+>Cross-region restore is currently not supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
+
 ### View backup items in secondary region
 
 If CRR is enabled, you can view the backup items in the secondary region.
@@ -256,6 +259,19 @@ In summary, the **Availability Zone** will only appear when
 1. Select **Secondary Region** to view the items in the secondary region.
 
     ![Backup jobs filtered](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
+
+## Cross Subscription Restore (preview)
+
+Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you to restore Azure VMs in a subscription that is different from the default one. Default subscription contains the recovery points.
+
+This feature is enabled for Recovery Services vault by default. However, there may be instances when you may need to block Cross Subscription Restore based on your cloud infrastructure. So, you can enable, disable, or permanently disable Cross Subscription Restore for the existing vaults by going to *Vault* > **Properties** > **Cross Subscription Restore**.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/cross-subscription-restore-for-virtual-machines-inline.png" alt-text="Screenshot shows how to modify cross-subscription restore settings." lightbox="./media/backup-azure-arm-restore-vms/cross-subscription-restore-for-virtual-machines-expanded.png":::
+
+>[!Note]
+>- CSR once permanently disabled on a vault can't be re-enabled because it's an irreversible operation. 
+>- If CSR is disabled but not permanently disabled, then you can reverse the operation by selecting *Vault* > **Properties** > **Cross Subscription Restore** > **Enable**.
+>- If a Recovery Services vault is moved to a different subscription when CSR is disabled or permanently disabled, restore to the original subscription fails.
 
 ## Restoring unmanaged VMs and disks as managed
 
@@ -356,7 +372,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 There are a few things to note after restoring a VM:
 
-- Extensions present during the backup configuration are installed, but not enabled. If you see an issue, reinstall the extensions.
+- Extensions present during the backup configuration are installed, but not enabled. If you see an issue, reinstall the extensions. In the case of disk replacement, reinstallation of extensions is not required.
 - If the backed-up VM had a static IP address, the restored VM will have a dynamic IP address to avoid conflict. You can [add a static IP address to the restored VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](../virtual-machines/windows/tutorial-availability-sets.md) when you create a VM from the disk using the provided template or PowerShell.
 - If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons the password is blocked after the restore. Use the VMAccess extension on the restored VM to [reset the password](/troubleshoot/azure/virtual-machines/reset-password). We recommend using SSH keys on these distributions, so you don't need to reset the password after the restore.
