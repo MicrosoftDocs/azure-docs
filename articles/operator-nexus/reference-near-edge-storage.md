@@ -9,7 +9,7 @@ ms.date: 06/29/2023
 ms.custom: template-reference
 ---
 
-# Near-edge Nexus Storage Appliance
+# Near-edge Nexus storage appliance
 
 The architecture of Azure Operator Nexus revolves around core components such as compute servers, storage appliances, and network fabric devices. A single Storage Appliance referred to as the "Nexus Storage Appliance," is attached to each near-edge Nexus instance. These appliances play a vital role as the dedicated and persistent storage solution for the tenant workloads hosted within the Nexus instance.
 
