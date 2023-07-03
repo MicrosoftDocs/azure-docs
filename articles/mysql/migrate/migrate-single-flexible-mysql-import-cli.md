@@ -48,7 +48,7 @@ az account set --subscription <subscription id>
 ## Limitations
 
 * The source Azure Database for MySQL - Single Server and the target Azure Database for MySQL - Flexible Server must be in the same subscription, resource group, region and on the same MySQL version. MySQL Import across subscriptions, resource groups, regions and versions aren't possible.
-* MySQL Import for Single Servers with Legacy Storage architecture (General Purpose storage V1) isn't supported. You must upgrade your storage to latest storage architecture (General Purpose storage V2) to trigger a MySQL Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers#how-can-i-determine-which-storage-type-my-server-is-running-on.md).
+* MySQL Import for Single Servers with Legacy Storage architecture (General Purpose storage V1) isn't supported. You must upgrade your storage to latest storage architecture (General Purpose storage V2) to trigger a MySQL Import operation. Find your storage type and upgrade steps by following directions [here](../single-server/concepts-pricing-tiers.md#how-can-i-determine-which-storage-type-my-server-is-running-on).
 * MySQL Import to an existing Azure MySQL Flexible Server isn’t supported. The CLI command provisions a new Azure MySQL Flexible Server and initiate the import.  
 * If the target flexible server is provisioned as non-HA (High Availability disabled) when updating the CLI command parameters, it can later be switched to Same-Zone HA but not Zone-Redundant HA.
 * Azure Database for MySQL Single Servers with Customer managed key (CMK) aren't supported by MySQL Import currently.
@@ -119,7 +119,7 @@ location | westus | The Azure location for the source Azure Database for MySQL S
 server-name | test-flexible-server | Enter a unique name for your target Azure Database for MySQL Flexible Server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters. Note : This server is deployed in the same subscription, resource group and region as the source.
 admin-user | adminuser | The username for the administrator login for your target Azure Database for MySQL Flexible Server. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *password* | The password of the administrator user for your target Azure Database for MySQL Flexible Server. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration for your target Azure Database for MySQL Flexible Server. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See the [pricing tiers](../flexible-server/concepts-service-tiers-storage#service-tiers-size-and-server-types.md) for more information.
+sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration for your target Azure Database for MySQL Flexible Server. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See the [pricing tiers](../flexible-server/concepts-service-tiers-storage.md#service-tiers-size-and-server-types) for more information.
 tier | Burstable | Compute tier of the target Azure Database for MySQL Flexible Server. Accepted values: Burstable, GeneralPurpose, MemoryOptimized; Default value: Burstable.
 public-access | 0.0.0.0 | Determines the public access for the target Azure Database for MySQL Flexible Server. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Setting it to "None" sets the server in public access mode but doesn't create a firewall rule.
 storage-size | 32 | The storage capacity of the target Azure Database for MySQL Flexible Server. Minimum is 20 GiB and max is 16 TiB.
@@ -142,5 +142,4 @@ iops | 500 | Number of IOPS to be allocated for the target Azure Database for My
 
 ## Next steps
 
-* [Connect and query using Azure CLI](connect-azure-cli.md)
 * [Manage an Azure Database for MySQL - Flexible Server using the Azure portal](../flexible-server/how-to-manage-server-portal.md)
