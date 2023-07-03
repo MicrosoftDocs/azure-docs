@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME
 
-In this article, you'll learn how to integrate CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME with Azure Active Directory (Azure AD). CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME is No. 1 in the attendance management system market share "KING OF TIME" reached 2.77 million active users as of April 2023. It is a cloud attendance management system with high satisfaction, recognition, and the No. 1 market share.  From offices and stores to teleworking and telecommuting in an emergency. Efficient attendance management that has become complicated by paper time cards and Excel is automatically aggregated. When you integrate CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME with Azure AD, you can:
+In this article, you'll learn how to integrate CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME with Azure Active Directory (Azure AD). CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME is No.1 in the attendance management system market share "KING OF TIME" reached 2.77 million active users as of April 2023. It is a cloud attendance management system with high satisfaction, recognition, and the No. 1 market share.  From offices and stores to teleworking and telecommuting in an emergency. Efficient attendance management that has become complicated by paper time cards and Excel is automatically aggregated. When you integrate CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME with Azure AD, you can:
 
 * Control in Azure AD who has access to CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME.
 * Enable your users to be automatically signed-in to CLOUD ATTENDANCE MANAGEMENT SYSTEM KING OF TIME with their Azure AD accounts.
@@ -76,7 +76,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| `https://s2.ta.kingoftime.jp/saml/v2.0/acs` |
 	| `https://s3.ta.kingoftime.jp/saml/v2.0/acs` |
 
-	c. In the **Sign on URL** textbox, type one of the following URL/pattern:
+	c. In the **Sign on URL** textbox, type one of the following URLs:
 
 	| **Sign on URL** |
 	|----------|
