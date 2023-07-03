@@ -67,7 +67,7 @@ Basic logs have a reduced price and are charged at a flat rate per GB. They have
 
 Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see [Configure Basic Logs in Azure Monitor](../azure-monitor/logs/basic-logs-configure.md).
 
-### Simplified pricing tier
+### Simplified pricing tiers
 
 Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel and ingestion storage costs of Log Analytics into a single pricing tier. Here's a screenshot showing the simplified pricing tier that all new workspaces will use.
 
