@@ -303,6 +303,18 @@ metadata:
 ...
 ```
 
+## Disable pod-managed identity on an existing cluster
+
+To disable pod-managed identity on an existing cluster, remove the pod-managed identity from the cluster. Then disable the feature on the cluster.
+
+```azurecli
+az aks pod-identity delete --name ${POD_IDENTITY_NAME} --namespace ${POD_IDENTITY_NAMESPACE} --resource-group myResourceGroup --cluster-name myAKSCluster
+```
+
+```azurecli
+az aks update --resource-group myResourceGroup --cluster-name myAKSCluster --disable-pod-identity
+```
+
 ## Clean up
 
 To remove an Azure AD pod-managed identity from your cluster, remove the sample application and the pod-managed identity from the cluster. Then remove the identity and the role assignment of cluster identity.
