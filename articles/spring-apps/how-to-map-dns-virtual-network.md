@@ -1,6 +1,6 @@
 ---
-title: Map DNS for applications in multiple Azure Spring Apps service instances in the same VNET
-description: Learn how to Map DNS for applications in multiple Azure Spring Apps service instances in the same virtual network.
+title: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
+description: Learn how to map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network.
 author: KarlErickson
 ms.author: wenhaozhang
 ms.service: spring-apps
@@ -9,14 +9,14 @@ ms.date: 6/29/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23
 ---
 
-# Map DNS for applications in multiple Azure Spring Apps service instances in the same VNET
+# Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows how to map DNS entries for applications to access multiple Azure Spring Apps service instances in the same VNET.
+This article shows how to map Domain Name System (DNS) names to applications to access multiple Azure Spring Apps service instances in the same virtual network.
 
 ## Prerequisites
 
@@ -26,34 +26,36 @@ This article shows how to map DNS entries for applications to access multiple Az
 
 ## Overview
 
-This article describes two approaches for mapping DNS:
+This article describes the following two approaches for mapping DNS names to applications:
 
-- Use the Microsoft provided fully qualified domain name (FQDN).
-  Using the Microsoft provided fully qualified domain name (FQDN) is relatively simple and lightweight way to map DNS method compared to the custom domain approach. This approach is recommended if you don't need a wildcard approach in your DNS zone.
+- Using the Microsoft-provided fully qualified domain name (FQDN).
+
+  This approach is a relatively simple and lightweight way to map DNS names compared to the custom domain approach. This approach is recommended if you don't need a wildcard approach in your DNS zone.
 
   This approach requires a DNS record for each application.
 
-- Use the custom domain.
+- Using a custom domain.
+
   If you already have a custom domain or you want a wildcard approach to work in a multi-instance scenario, use this approach.
 
   This approach requires a DNS record for each Azure Spring Apps service instance, and a custom domain configured for each application.
 
-As an example, this article uses `azure-spring-apps-1` and `azure-spring-apps-2` as the names for two instances of Azure Spring Apps in the same VNET.
+As an example, this article uses `azure-spring-apps-1` and `azure-spring-apps-2` as the names of two Azure Spring Apps instances in the same virtual network.
 
 Begin with the [Preliminary steps for DNS mapping](#preliminary-steps-for-dns-mapping) section and then proceed with your preferred approach:
 
-- [DNS mapping with Microsoft provided FQDN](#dns-mapping-with-microsoft-provided-fqdn)
+- [DNS mapping with Microsoft-provided FQDN](#dns-mapping-with-microsoft-provided-fqdn)
 - [DNS mapping with a custom domain](#dns-mapping-with-a-custom-domain)
 
-End with testing the mapping as described in the [Access private FQDN URLs for private applications](#access-private-fqdn-for-applications) section.
+End by testing the mapping as described in the [Access private FQDN URLs for private applications](#access-private-fqdn-for-applications) section.
 
 ## Preliminary steps for DNS mapping
 
-Complete the steps in this section for both the FQDN and the custom domain approaches to mapping DNS.
+Complete the steps in this section for both the FQDN and the custom domain approaches to mapping DNS names.
 
 ### Find application IP addresses
 
-Both approaches require the IP address for each application in the Azure Spring Apps instance you want to map.
+Both approaches require the IP address for each application in the Azure Spring Apps instance you want to map. Use the following steps to find the IP addresses:
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -61,7 +63,7 @@ Both approaches require the IP address for each application in the Azure Spring 
 
 1. On the **Connected devices** page, search for *kubernetes-internal*.
 
-1. In the results, find each **Device** connected to a service runtime **Subnet** of an Azure Spring Apps service instance, and copy its **IP Address**. In the following screenshot example, the IP Address of `azure-spring-apps-1` is `10.1.0.6`, and the IP Address of `azure-spring-apps-2` is `10.1.2.6`.
+1. In the results, find each **Device** connected to a service runtime **Subnet** of an Azure Spring Apps service instance, and copy its **IP Address**. In the following screenshot example, the IP address of `azure-spring-apps-1` is `10.1.0.6`, and the IP address of `azure-spring-apps-2` is `10.1.2.6`.
 
    :::image type="content" source="media/how-to-map-dns-virtual-network/create-dns-record.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network and highlights the devices with a service runtime subnet." lightbox="media/how-to-map-dns-virtual-network/create-dns-record.png":::
 
@@ -70,21 +72,21 @@ Both approaches require the IP address for each application in the Azure Spring 
 1. Define variables for your subscription, resource group, Azure Spring Apps instance, and virtual network. Customize the values based on your environment.
 
    ```azurecli
-   SUBSCRIPTION='<subscription-ID>'
-   RESOURCE_GROUP='<resource group name>'
-   AZURE_SPRING_APPS_NAME='<Azure-Spring-Apps-instance-name>'
-   VIRTUAL_NETWORK_NAME='<Azure-Spring-Apps-VNET-name>'
+   export SUBSCRIPTION='<subscription-ID>'
+   export RESOURCE_GROUP='<resource group name>'
+   export AZURE_SPRING_APPS_NAME='<Azure-Spring-Apps-instance-name>'
+   export VIRTUAL_NETWORK_NAME='<Azure-Spring-Apps-VNET-name>'
    ```
 
 1. Use the following commands to set the variables for the service runtime network resource group and the IP address.
 
    ```azurecli
-   SERVICE_RUNTIME_RG=`az spring show \
+   export SERVICE_RUNTIME_RG=`az spring show \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_SPRING_APPS_NAME \
        --query "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
        --output tsv`
-   IP_ADDRESS=`az network lb frontend-ip list \
+   export IP_ADDRESS=`az network lb frontend-ip list \
        --lb-name kubernetes-internal \
        --resource-group $SERVICE_RUNTIME_RG \
        --query "[0].privateIpAddress" \
@@ -95,10 +97,10 @@ Both approaches require the IP address for each application in the Azure Spring 
 
 ### Create a private DNS zone
 
-Create a private DNS zone for an application in the private network.
+Use the following steps to create a private DNS zone for an application in the private network.
 
 > [!NOTE]
-> If you are using Azure China, replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you're using Azure China, replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -139,6 +141,8 @@ To link the private DNS zone you created to the virtual network, you must create
 
 #### [Azure portal](#tab/azure-portal)
 
+Use the following steps to create this link:
+
 1. Navigate to the private DNS zone you created named `private.azuremicroservices.io`. There might be several with that name, so determine the correct one by its resource group and subscription.
 
 1. On the navigation pane, select **Virtual network links**, then select **Add**.
@@ -153,7 +157,7 @@ To link the private DNS zone you created to the virtual network, you must create
 
 #### [Azure CLI](#tab/azure-CLI)
 
-Use the following command to link the private DNS zone you created to the virtual network that contains your Azure Spring Apps services.
+Use the following command to create this link:
 
    ```azurecli
    az network private-dns link vnet create \
@@ -166,7 +170,7 @@ Use the following command to link the private DNS zone you created to the virtua
 
 ---
 
-### Assign private FQDN for your applications
+### Assign a private FQDN for your applications
 
 Assign a private FQDN for your application.
 
@@ -187,7 +191,7 @@ Assign a private FQDN for your application.
 Use the following command to update your app with an assigned endpoint. Customize the value of your app name based on your real environment.
 
 ```azurecli
-SPRING_CLOUD_APP='<app-name>'
+export SPRING_CLOUD_APP='<app-name>'
 az spring app update \
     --resource-group $RESOURCE_GROUP \
     --name $SPRING_CLOUD_APP \
@@ -291,7 +295,7 @@ When the custom domain is successfully mapped to the app, it appears in the cust
    az spring app custom-domain list \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-instance-name> \
-       --app <app name> \
+       --app <app-name> \
    ```
 
 ---
@@ -328,7 +332,7 @@ az spring app custom-domain update \
     --service <Azure-Spring-Apps-instance-name> \
     --domain-name <domain-name> \
     --certificate <cert-name> \
-    --app <app name> 
+    --app <app-name> 
 ```
 
 ---
@@ -391,11 +395,11 @@ Examples for the Custom domain approach:
 
 The following screenshot shows the URL for a Spring application using an FQDN:
 
-:::image type="content" source="media/how-to-map-dns-virtual-network/access-private-endpoint-1-fqdn.png" alt-text="Screenshot of a Spring application accessed by a URL using an FQDN." lightbox="media/how-to-map-dns-virtual-network/access-private-endpoint-1-fqdn.png":::
+:::image type="content" source="media/how-to-map-dns-virtual-network/access-private-endpoint-fqdn.png" alt-text="Screenshot of a Spring application accessed by a URL using an FQDN." lightbox="media/how-to-map-dns-virtual-network/access-private-endpoint-fqdn.png":::
 
 The following screenshot shows the URL for a Spring application using a custom domain:
 
-:::image type="content" source="media/how-to-map-dns-virtual-network/access-private-endpoint-custom-domain-1.png" alt-text="Screenshot of a Spring application accessed by a URL using a custom domain." lightbox="media/how-to-map-dns-virtual-network/access-private-endpoint-custom-domain-1.png":::
+:::image type="content" source="media/how-to-map-dns-virtual-network/access-private-endpoint-custom-domain.png" alt-text="Screenshot of a Spring application accessed by a URL using a custom domain." lightbox="media/how-to-map-dns-virtual-network/access-private-endpoint-custom-domain.png":::
 
 ## Clean up resources
 
