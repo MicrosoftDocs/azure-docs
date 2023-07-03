@@ -650,6 +650,7 @@ Supported attributes for the *cyberx* user are defined as follows:
 |`-m <MODE>`, `--mode <MODE>`     | Defines an include list mode, and is relevant only when an include list is used. Use one of the following values: <br><br>- `internal`: Includes all communication between the specified source and destination <br>- `all-connected`: Includes all communication between either of the specified endpoints and external endpoints. <br><br>For example, for endpoints A and B, if you use the `internal` mode, included traffic will only include communications between endpoints **A** and **B**. <br>However, if you use the `all-connected` mode, included traffic will include all communications between A *or* B and other, external endpoints. |
 
 **Sample include or exclude file**
+
 For example, an include or exclude **.txt** files might include the following entries:
 
 ```txt
