@@ -44,6 +44,7 @@ You can set your Spot Priority Mix by using a template to add the following prop
 ```
 
 **Parameters:**
+
 - `baseRegularPriorityCount` – Specifies a base number of VMs that are standard, *Regular* priority; if the Scale Set capacity is at or below this number, all VMs are *Regular* priority.
 - `regularPriorityPercentageAboveBase` – Specifies the percentage split of *Regular* and *Spot* priority VMs that are used when the Scale Set capacity is above the *baseRegularPriorityCount*.
 
@@ -109,6 +110,7 @@ Should your ideal percentage split of Spot and Standard VMs change, you can upda
 
 ### [Portal](#tab/portal-2)
 You can update your existing Spot Priority Mix in the Configuration tab of the Virtual Machine Scale Set resource page in the Azure portal. The following steps instruct you on how to access this feature during that process. Note: in Portal, you can only update the Spot Priority Mix for scale sets that already have Spot Priority Mix enabled.
+
 1. Navigate to the specific virtual machine scale set that you're adjusting the Spot Priority Mix on.
 1. In the left side bar, scroll down to and select **Configuration**.
 1. Your current Spot Priority Mix should be visible. Here you can change the **Base VM (uninterruptible) count** and **Instance distribution** of Spot and Standard VMs. 
@@ -151,6 +153,7 @@ Update-AzVmss `
 The following examples have scenario assumptions, a table of actions, and walk-through of results to help you understand how Spot Priority Mix configuration works. 
 
 Some important terminology to notice before referring to these examples:
+
 - **sku.capacity** is the total number of VMs in the Virtual Machine Scale Set
 - **Base (standard) VMs** are the number of standard non-Spot VMs, akin to a minimum VM number
 
@@ -172,7 +175,7 @@ The following scenario assumptions apply to this example:
 | Scale out                         | 40           | 10                  | 15                 | 15                |
 | Scale out                         | 41           | 10                  | 15                 | 16                |
 | Scale out                         | 42           | 10                  | 16                 | 16                |
-| Scale in: Evict-Delete (all Spot instances) | 26           | 10                  | 16                 | 0                 |
+| Scale in - Evict-Delete (all Spot instances) | 26           | 10                  | 16                 | 0                 |
 | Scale out                         | 30           | 10                  | 16                 | 4                 |
 | Scale out                         | 42           | 10                  | 16                 | 16                |
 | Scale out                         | 44           | 10                  | 17                 | 17                |
