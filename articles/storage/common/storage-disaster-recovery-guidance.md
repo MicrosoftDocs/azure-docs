@@ -187,7 +187,8 @@ The following features and services are not supported for account failover:
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - A storage account containing any [WORM immutability policy](../blobs/immutable-storage-overview.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 - Customer-managed failover isn't supported for either the source or the destination account in an [object replication policy](../blobs/object-replication-overview.md).
-- SSH File Transfer Protocol (SFTP) and Network File System (NFS) 3.0 (NFSv3) are not supported for storage account failover.
+- SSH File Transfer Protocol (SFTP) is not supported for storage account failover. To failover an account with SFTP enabled, you must first disable SFTP for the account.
+- Network File System (NFS) 3.0 (NFSv3) is not supported for storage account failover. You cannot create a storage account configured for global-redundancy with NFSv3 enabled.
 
 ## Copying data as an alternative to failover
 
