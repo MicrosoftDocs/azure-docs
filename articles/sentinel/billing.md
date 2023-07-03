@@ -73,7 +73,7 @@ Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel 
 
 :::image type="content" source="media/billing/simplified-pricing-tier.png" alt-text="Screenshot shows simplified pricing tier." lightbox="media/billing/simplified-pricing-tier.png":::
 
-Workspaces configured with classic pricing tiers have the option to enroll in a simplified pricing tier. For more information on how to **Switch to new pricing**, see [Enroll in a simplified pricing tier](enroll-simplified-pricing-tier.md).
+Workspaces configured with classic pricing tiers have the option to switch to the simplified pricing tiers. For more information on how to **Switch to new pricing**, see [Enroll in a simplified pricing tier](enroll-simplified-pricing-tier.md).
 
 Combining the pricing tiers offers a simplification to the overall billing experience, including visualization in the pricing page, and less steps in the Azure calculator. As an incentive to existing customers to make the switch, the current [Microsoft Defender for Servers P2 benefit granting 500 MB/VM/day](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) security data ingestion into Log Analytics is extended to the simplified pricing tiers. This effectively doubles the amount of no-cost eligible data ingested into Microsoft Sentinel for each VM protected in this manner.
 
