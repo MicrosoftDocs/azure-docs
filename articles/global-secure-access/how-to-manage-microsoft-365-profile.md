@@ -15,7 +15,7 @@ With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires
 
 - Exchange Online
 - SharePoint Online and OneDrive for Business
-- Microsoft 365 Common and Office Online
+- Microsoft 365 Common and Office Online (only Microsoft Entra ID and Microsoft Graph)
 
 ## Prerequisites
 
@@ -23,6 +23,10 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
 
+### Known limitations
+
+- Teams is currently not supported as part of the MIcrosoft 365 Common endpoints. Only Microsoft Entra ID and Microsoft Graph are supported.
+- For details on limitations for the Microsoft 365 traffic profile, see [Windows Client known limitations](how-to-install-windows-client.md#known-limitations)
 ## Enable the Microsoft 365 traffic profile
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.

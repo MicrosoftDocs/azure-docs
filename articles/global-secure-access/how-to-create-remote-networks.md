@@ -32,7 +32,7 @@ To configure remote networks, you must have:
     - Internet Key Exchange Version 2 (IKEv2)
     - Border Gateway Protocol (BGP)
 - Remote network connectivity solution uses *RouteBased* and *Responder* modes.
-<!--- validate the above limitation with Sumit--->
+- Microsoft 365 traffic can be accessed through remote network connectivity without the Global Secure Access Client; however the Conditional Access policy isn't enforced. In other words, Conditional Access policies for the Global Secure Access Microsoft 365 traffic are only enforced when a user has the Global Secure Access Client.
 
 ## Onboard your tenant for remote networks
 
