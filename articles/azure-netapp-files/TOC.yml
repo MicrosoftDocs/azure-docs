@@ -20,9 +20,9 @@
   - name: NAS volumes as a service 
     items: 
       - name: Understand NAS
-        href: understand-nas-concept.md 
+        href: network-attached-storage-concept.md 
       - name: Understand NAS protocols
-        href: understand-nas-protocols.md
+        href: network-attached-storage-protocols.md
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
