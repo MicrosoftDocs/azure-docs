@@ -73,7 +73,7 @@ After you connect Defender for Cloud to your Azure subscription, you can start c
 1. On the **Agents management** page, choose one of the following procedures, depending on the type of machines you're onboarding:
 
    - [Onboard your Windows server](#onboard-your-windows-server)
-   - [Onboard your Linux server](#onboard-your-linux-servers)
+   - [Onboard your Linux server](#onboard-your-linux-server)
 
 ## Onboard your Windows server
 
