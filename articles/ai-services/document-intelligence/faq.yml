@@ -25,7 +25,7 @@ sections:
 
           Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
-          Learn more about [Document Intelligence use case](/legal/cognitive-services/document-intelligence/fr-transparency-note?context=~/articles/ai-services/document-intelligence/context/context#example-use-cases-for-form-recognizer) scenarios.
+          Learn more about [Document Intelligence use case](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer) scenarios.
 
       - question: |
           Which Document Intelligence use cases require special consideration?
@@ -35,7 +35,7 @@ sections:
 
           Make certain to comply with all [national/regional and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
-          Learn more about [use case considerations](/legal/cognitive-services/document-intelligence/fr-transparency-note?context=~/articles/ai-services/document-intelligence/context/context#considerations-when-choosing-other-use-cases).
+          Learn more about [use case considerations](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/ai-services/form-recognizer/context/context#considerations-when-choosing-other-use-cases).
 
       - question: |
           What languages does Document Intelligence support?
@@ -493,7 +493,7 @@ sections:
         answer: |
           For all features, Document Intelligence temporarily stores data and results in Azure storage in the same region as the request. Your data is then deleted within 24 hours from the time an analyze request was submitted.
 
-          Learn more about [Data, privacy, and security for Document Intelligence](/legal/cognitive-services/document-intelligence/fr-data-privacy-security?context=~/articles/ai-services/document-intelligence/context/context).
+          Learn more about [Data, privacy, and security for Document Intelligence](/legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/ai-services/document-intelligence/context/context).
 
       - question: |
           How are my trained custom models stored and utilized in Document Intelligence?

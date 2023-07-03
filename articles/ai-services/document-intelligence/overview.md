@@ -403,7 +403,7 @@ Use the links in the table to learn more about each model and browse the API ref
 
 ## Data privacy and security
 
- As with all AI services, developers using the Document Intelligence service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Document Intelligence](/legal/cognitive-services/document-intelligence/fr-data-privacy-security) page.
+ As with all AI services, developers using the Document Intelligence service should be aware of Microsoft policies on customer data. See our [Data, privacy, and security for Document Intelligence](/legal/cognitive-services/form-recognizer/fr-data-privacy-security) page.
 
 ## Next steps
 
