@@ -23,7 +23,7 @@ Azure Storage access tiers include:
 - **Cold tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cold tier should be stored for a minimum of 90 days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
 
-To learn more about access tiers, see [Access tiers for blob data](../../articles/storage/blobs/access-tiers-overview.md)
+To learn more about access tiers, see [Access tiers for blob data](../../articles/storage/blobs/access-tiers-overview.md).
 
 #### Restrictions
 
