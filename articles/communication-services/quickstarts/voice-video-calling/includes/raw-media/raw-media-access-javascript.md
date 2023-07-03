@@ -276,9 +276,6 @@ Raw screen share media gives access specifically to the `MediaStream` object for
 Processed raw screen share frames can be sent as an outgoing screen share of the sender. Processed raw incoming screen share frames can be rendered on the receiver side.
 
 ### Start screen sharing with a custom screen share stream stream
-
-This example sends canvas data to a user as outgoing screen share.
-
 ```js
 const createVideoMediaStreamToSend = () => {
     const canvas = document.createElement('canvas');
@@ -313,35 +310,58 @@ console.log(localScreenSharingStream.mediaStreamType) // 'RawMedia'
 ### Access the raw screen share stream from a screen, browser tab, or app, and apply effects to the stream
 
 ```js
-const createVideoMediaStreamToSend = () => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = 1500;
-    canvas.height = 845;
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+let bwTimeout;
+let bwVideoElem;
 
-    const colors = ['red', 'yellow', 'green'];
-    window.setInterval(() => {
-        if (ctx) {
-            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-            const x = Math.floor(Math.random() * canvas.width);
-            const y = Math.floor(Math.random() * canvas.height);
-            const size = 100;
-            ctx.fillRect(x, y, size, size);
-	 }
-    }, 1000 / 30);
-
-    return canvas.captureStream(30);
-};
+const applyBlackAndWhiteEffect = function (stream) {
+	let width = 1280, height = 720;
+	bwVideoElem = document.createElement("video");
+	bwVideoElem.srcObject = stream;
+	bwVideoElem.height = height;
+	bwVideoElem.width = width;
+	bwVideoElem.play();
+	const canvas = document.createElement('canvas');
+	const bwCtx = canvas.getContext('2d', { willReadFrequently: true });
+	canvas.width = width;
+	canvas.height = height;
+	
+	const FPS = 30;
+	const processVideo = function () {
+	    try {
+		let begin = Date.now();
+		// start processing.
+		bwCtx.filter = "grayscale(1)";
+		bwCtx.drawImage(bwVideoElem, 0, 0, width, height);
+		const imageData = bwCtx.getImageData(0, 0, width, height);
+		bwCtx.putImageData(imageData, 0, 0);
+		// schedule the next one.
+		let delay = Math.abs(1000/FPS - (Date.now() - begin));
+		bwTimeout = setTimeout(processVideo, delay);
+	    } catch (err) {
+		console.error(err);
+	    }
+	}
+	
+	// schedule the first one.
+	bwTimeout = setTimeout(processVideo, 0);
+	return canvas.captureStream(FPS);
+}
 
 // Call startScreenSharing API without passing any stream parameter. Browser will prompt the user to select the screen, browser tab, or app to share in the call.
 await call.startScreenSharing();
 const localScreenSharingStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing' });
 console.log(localScreenSharingStream.mediaStreamType); // 'ScreenSharing'
-const mediaStream = createVideoMediaStreamToSend();
-await localScreenSharingStream.setMediaStream(mediaStream);
+// Get the raw media stream from the screen, brwoser tab, or application
+const rawMediaStream = await localScreenSharingStream.getMediaStream();
+// Apply effects to the media stream as you wish
+const blackAndWhiteMediaStream = applyBlackAndWhiteEffect(rawMediaStream);
+// Set the media stream with effects no the local screen sharing sctream
+await localScreenSharingStream.setMediaStream(blackAndWhiteMediaStream);
 
+// Stop screen screen sharing and clean up the black and white video filter
+clearTimeout(bwTimeout);
+bwVideoElem.srcObject.getVideoTracks().forEach((track) => { track.stop(); });
+bwVideoElem.srcObject = null;
 ```
 
 ### Stop sending screen share stream
