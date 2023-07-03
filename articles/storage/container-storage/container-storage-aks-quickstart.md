@@ -2,11 +2,10 @@
 title: Quickstart for installing Azure Container Storage Preview for use with Azure Kubernetes Service (AKS)
 description: Learn how to install Azure Container Storage Preview for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 06/29/2023
+ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.custom: devx-track-azurecli
 ---
 
