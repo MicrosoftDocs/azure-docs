@@ -37,7 +37,7 @@ We recommend using them when:
 
 ## Batch deployments
 
-A deployment is a set of resources and computes required to implement the functionality the endpoint provides. Each endpoint can host multiple deployments with different configuration, which helps *decouple the interface* indicated by the endpoint, from *the implementation details* indicated by the deployment. Batch endpoints automatically route the client to the default deployment which can be configured and changed at any time.
+A deployment is a set of resources and computes required to implement the functionality the endpoint provides. Each endpoint can host multiple deployments with different configurations, which helps *decouple the interface* indicated by the endpoint, from *the implementation details* indicated by the deployment. Batch endpoints automatically route the client to the default deployment which can be configured and changed at any time.
 
 :::image type="content" source="./media/concept-endpoints/batch-endpoint.png" alt-text="Diagram showing the relationship between endpoints and deployments in batch endpoints.":::
 

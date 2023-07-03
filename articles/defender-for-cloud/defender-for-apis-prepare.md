@@ -1,8 +1,8 @@
 ---
 title: Support and prerequisites for deploying the Defender for APIs plan in Microsoft Defender for Cloud
 description: Learn about the requirements for Defender for APIs deployment in Microsoft Defender for Cloud
-author: elazark
-ms.author: elkrieger
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
