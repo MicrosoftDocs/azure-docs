@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how create deployments that generate custom outputs and files.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: mopeakande
-ms.custom: devplatv2, devx-track-azurecli
+ms.custom: devplatv2
 ---
 
 # Customize outputs in batch deployments

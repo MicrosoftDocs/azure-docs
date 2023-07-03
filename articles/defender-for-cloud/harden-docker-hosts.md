@@ -1,12 +1,12 @@
 ---
-title: Use Microsoft Defender for Cloud to harden your Docker hosts and protect the containers
+title: Review Docker host hardening recommendations
 description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 06/29/2023
 ---
-# Harden your Docker hosts
+# Review Docker host hardening recommendations
 
 Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Defender for Cloud continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 

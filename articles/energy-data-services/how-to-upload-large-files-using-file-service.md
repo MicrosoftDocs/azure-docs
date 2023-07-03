@@ -1,6 +1,6 @@
 ---
-title: How to upload large files using file service API in Microsoft Azure Data Manager for Energy Preview
-description: This article describes how to to upload large files using File service API in Microsoft Azure Data Manager for Energy Preview
+title: How to upload large files using file service API in Microsoft Azure Data Manager for Energy
+description: This article describes how to to upload large files using File service API in Microsoft Azure Data Manager for Energy
 author: harshit283
 ms.author: haaggarw
 ms.service: energy-data-services
@@ -9,11 +9,11 @@ ms.date: 06/13/2023
 ms.custom: template-how-to
 ---
 
-# How to upload files in Azure Data Manager for Energy Preview using File service
-In this article, you know how to upload large files (~5GB) using File service API in Microsoft Azure Data Manager for Energy Preview. The upload process involves fetching a signed URL from [File API](https://community.opengroup.org/osdu/platform/system/file/-/tree/master/) and then using the signed URL to store the file into Azure Blob Storage
+# How to upload files in Azure Data Manager for Energy using File service
+In this article, you know how to upload large files (~5GB) using File service API in Microsoft Azure Data Manager for Energy. The upload process involves fetching a signed URL from [File API](https://community.opengroup.org/osdu/platform/system/file/-/tree/master/) and then using the signed URL to store the file into Azure Blob Storage
 
 ## Generate a signed URL
-Run the below curl command in Azure Cloud Bash to get a signed URL from file service for a given data partition of your Azure Data Manager for Energy Preview resource.
+Run the below curl command in Azure Cloud Bash to get a signed URL from file service for a given data partition of your Azure Data Manager for Energy resource.
 
 ```bash
     curl --location 'https://<URI>/api/file/v2/files/uploadURL' \
@@ -23,7 +23,7 @@ Run the below curl command in Azure Cloud Bash to get a signed URL from file ser
 ```
 
 ### Sample request
-Consider an Azure Data Manager for Energy Preview resource named "medstest" with a data partition named "dp1"
+Consider an Azure Data Manager for Energy resource named "medstest" with a data partition named "dp1"
 
 ```bash
     curl --location --request POST 'https://medstest.energy.azure.com/api/file/v2/files/uploadURL' \
@@ -93,7 +93,7 @@ To upload files with sizes >= 5 GB, we would need [azcopy](https://github.com/Az
 ```
 
 ## Next steps
-Begin your journey by ingesting data into your Azure Data Manager for Energy Preview resource.
+Begin your journey by ingesting data into your Azure Data Manager for Energy resource.
 > [!div class="nextstepaction"]
 > [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
 > [!div class="nextstepaction"]
