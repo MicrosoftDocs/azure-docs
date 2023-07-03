@@ -40,7 +40,7 @@ You can set a blob's access tier on upload by using the [BlobUploadOptions](/dot
 
 To learn more about uploading a blob with .NET, see [Upload a blob with .NET](storage-blob-upload.md).
 
-## Change a blob's access tier after upload
+## Change the access tier for an existing block blob
 
 You can change the access tier of an existing block blob by using one of the following functions:
 
