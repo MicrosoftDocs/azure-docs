@@ -59,14 +59,12 @@ items:
       items:
       - name: Overview
         href: /rest/api/data-manager-for-agri/
-    - name: Resources
-      items:
-      - name: Region availability
-        href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=agri-data-services&regions=all
-      - name: Sample events
-        href: sample-events.md
 
   - name: Resources
     items:
     - name: Create an Azure support request
       href: how-to-create-azure-support-request.md
+    - name: Region availability
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=agri-data-services&regions=all
+    - name: Sample events
+      href: sample-events.md
