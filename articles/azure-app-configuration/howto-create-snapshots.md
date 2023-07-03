@@ -96,7 +96,7 @@ In the **Active snapshots** tab, select the ellipsis **...** on the right of an 
 
 In the **Active snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **Archive** to archive a snapshot. Confirm archival by selecting **Yes** or cancel with **No**. Once a snapshot has been archived, a notification appears to confirm the operation and the list of active snapshots is updated.
 
-  :::image type="content" source="./media/archive-snapshot.png" alt-text="Screenshot of the list of archived snapshots.":::
+  :::image type="content" source="./media/archive-snapshot.png" alt-text="Screenshot of the archive option in the active snapshots.":::
 
 ## Manage archived snapshots
 
@@ -104,17 +104,17 @@ Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view 
 
    :::image type="content" source="./media/archived-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
 
-### View archived snapshots
+### View archived snapshot
 
 Detailed view of snapshot is available in the archive state as well. In the **Archived snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
-   :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the list of archived snapshots.":::
+   :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the  archived snapshot detailed view.":::
 
 ### Recover an archived snapshot
 
 In the **Archived snapshots** tab, select the ellipsis **...** on the right of an archived snapshot and select **Recover** to recover a snapshot. Confirm App Configuration snapshot recovery by selecting **Yes** or cancel with **No**. Once a snapshot has been recovered, a notification appears to confirm the operation and the list of archived snapshots is updated.
 
-   :::image type="content" source="./media/recover-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
+   :::image type="content" source="./media/recover-snapshots.png" alt-text="Screenshot of the recover option in the archived snapshots.":::
 
 ## Next steps
 
