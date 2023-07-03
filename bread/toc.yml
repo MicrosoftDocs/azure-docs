@@ -359,7 +359,7 @@
       topicHref: https://www.microsoft.com/research/project/academic-knowledge/
     - name: Anomaly Detector
       tocHref: /azure/ai-services/anomaly-detector/
-      topicHref: /azure/cognitive-services/anomaly-detector/
+      topicHref: /azure/ai-services/anomaly-detector/
     - name: Bing Search APIs
       tocHref: /azure/cognitive-services/bing-web-search
       topicHref: /azure/cognitive-services/bing-web-search
@@ -425,23 +425,20 @@
       tocHref: /azure/cognitive-services/labs/answer-search/
       topicHref: /azure/cognitive-services/labs/answer-search/overview
     - name: Face
-      tocHref: /azure/ai-services/face/
-      topicHref: /azure/ai-services/face/
+      tocHref: /azure/ai-services/computer-vision/
+      topicHref: /azure/ai-services/computer-vision/
     - name: Knowledge Exploration
       tocHref: /azure/cognitive-services/kes/
       topicHref: /azure/cognitive-services/kes/overview
     - name: Language Understanding (LUIS)
       tocHref: /azure/ai-services/LUIS/
       topicHref: /azure/ai-services/LUIS/
-    - name: Linguistic Analysis
-      tocHref: /azure/cognitive-services/linguisticanalysisapi/
-      topicHref: https://www.programmableweb.com/api/microsoft-cognitive-services-linguistic-analysis
     - name: QnA Maker
       tocHref: /azure/ai-services/qnamaker/
-      topicHref: /azure/ai-services/qnamaker/home
+      topicHref: /azure/ai-services/qnamaker/
     - name: Speech Service
-      tocHref: /azure/ai-services/Speech-Service/
-      topicHref: /azure/ai-services/Speech-Service/
+      tocHref: /azure/ai-services/speech-service/
+      topicHref: /azure/ai-services/speech-service/
     - name: Language Service
       tocHref: /azure/ai-services/language-service/
       topicHref: /azure/ai-services/language-service/
@@ -451,9 +448,6 @@
     - name: Video Indexer
       tocHref: /azure/ai-services/video-indexer/
       topicHref: /azure/azure-video-indexer/video-indexer-overview
-    - name: Web Language Model
-      tocHref: /azure/cognitive-services/web-language-model/
-      topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/qnamaker/overview/overview
