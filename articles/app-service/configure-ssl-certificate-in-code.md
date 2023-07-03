@@ -187,7 +187,7 @@ If you manually upload the [public](configure-ssl-certificate.md#upload-a-public
 - If you list thumbprints explicitly in `WEBSITE_LOAD_CERTIFICATES`, add the new thumbprint to the app setting.
 - If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, restart the app to make the new certificate accessible.
 
-If you renew a certificate [in Key Vault](configure-ssl-certificate.md#renew-a-certificate-imported-from-key-vault), such as with an [App Service certificate](configure-ssl-certificate.md#renew-app-service-certificate), the daily sync from Key Vault makes the necessary update automatically when synchronizing your app with the renewed certificate.
+If you renew a certificate [in Key Vault](configure-ssl-certificate.md#renew-a-certificate-imported-from-key-vault), such as with an [App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate), the daily sync from Key Vault makes the necessary update automatically when synchronizing your app with the renewed certificate.
 
 - If `WEBSITE_LOAD_CERTIFICATES` contains the old thumbprint of your renewed certificate, the daily sync updates the old thumbprint to the new thumbprint automatically.
 - If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, the daily sync makes the new certificate accessible automatically.

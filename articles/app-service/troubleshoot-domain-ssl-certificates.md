@@ -65,7 +65,7 @@ This problem might happen if another app uses the certificate.
 
 #### Symptom
 
-In the Azure portal, you can't purchase an [Azure App Service certificate](./configure-ssl-certificate.md#buy-and-import-app-service-certificate).
+In the Azure portal, you can't purchase an [Azure App Service certificate](configure-ssl-app-service-certificate.md).
 
 #### Cause and solution
 
