@@ -73,6 +73,9 @@ Connectivity to Microsoft online services (Microsoft 365 and Azure PaaS services
 
 For more information on services supported, costs, and configuration details, see the [FAQ page](expressroute-faqs.md). For information on the list of connectivity providers offering Microsoft peering support, see the [ExpressRoute locations](expressroute-locations.md) page.
 
+> [!IMPORTANT]
+> If you're connecting to a service using Microsoft Peering with unlimited data, only egress data won't be charged by ExpressRoute. Egress data will still be charged for services such as compute, storage, or any other services accessed over Microsoft peering even if the destination is a Microsoft peering public IP address.
+
 ## <a name="peeringcompare"></a>Peering comparison
 
 The following table compares the three peerings:

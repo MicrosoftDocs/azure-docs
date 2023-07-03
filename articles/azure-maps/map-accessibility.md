@@ -118,7 +118,7 @@ Any additional information that is placed on the base map should have correspond
 
 A marker or symbol is often used to represent a location on the map. Additional information about the location is typically displayed in a popup when the user interacts with the marker. In most applications, popups appear when a user selects a marker. However, clicking and tapping require the user to use a mouse and a touch screen, respectively. A good practice is to make popups accessible when using a keyboard. This functionality can be achieved by creating a popup for each data point and adding it to the map.
 
-The [Accessible popups] example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point. It can also be retrieved for a marker, such as when a marker is selected. When focused on the map, pressing the tab key allows the user to step through each popup on the map.
+The [Accessible popups] example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point. It can also be retrieved for a marker, such as when a marker is selected. When focused on the map, pressing the tab key allows the user to step through each popup on the map. For the source code for this sample, see [Accessible popups source code].
 
 :::image type="content" source="./media/map-accessibility/accessible-popups.png" alt-text="A screenshot showing a maps with accessible popups.":::
 
@@ -178,6 +178,7 @@ Take a look at these useful accessibility tools:
 > [!div class="nextstepaction"]
 > [No Coffee Vision Simulator](https://uxpro.cc/toolbox/nocoffee/)
 
-[Accessible popups]: https://samples.azuremaps.com/?search=keyboard&sample=accessible-popups
+[Accessible popups]: https://samples.azuremaps.com/popups/accessible-popups
+[Accessible popups source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Popups/Accessible%20popups/Accessible%20popups.html
 [Accessibility Conformance Reports]: https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/
 [Accessible Rich Internet Applications (ARIA)]: https://www.w3.org/WAI/standards-guidelines/aria/

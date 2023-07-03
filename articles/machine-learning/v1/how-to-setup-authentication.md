@@ -17,9 +17,6 @@ ms.custom: UpdateFrequency5, has-adal-ref, contperf-fy21q2, subject-rbac-steps, 
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
     
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](how-to-setup-authentication.md)
-> * [v2 (current version)](../how-to-setup-authentication.md?view=azureml-api-2&preserve-view=true)
 
 Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 

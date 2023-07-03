@@ -1,7 +1,7 @@
 ---
 title: 'How to customize a model with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to create your own customized model with Azure OpenAI by using the Azure AI Studio
+description: Learn how to create your own customized model with Azure OpenAI by using the Azure OpenAI Studio
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -26,10 +26,10 @@ keywords:
 
 ## Fine-tuning workflow
 
-The fine-tuning workflow in Azure AI Studio requires the following steps:
+The fine-tuning workflow in Azure OpenAI Studio requires the following steps:
 
 1. Prepare your training and validation data
-1. Use the **Create customized model** wizard in Azure AI Studio to train your customized model
+1. Use the **Create customized model** wizard in Azure OpenAI Studio to train your customized model
     1. [Select a base model](#select-a-base-model)
     1. [Choose your training data](#choose-your-training-data)
     1. Optionally, [choose your validation data](#choose-your-validation-data)
@@ -91,28 +91,28 @@ The tool reformats your training data and saves output into a JSONL file ready f
 
 ## Use the Create customized model wizard
 
-Azure AI Studio provides the **Create customized model** wizard, so you can interactively create and train a fine-tuned model for your Azure resource. 
+Azure OpenAI Studio provides the **Create customized model** wizard, so you can interactively create and train a fine-tuned model for your Azure resource. 
 
-### Go to the Azure AI Studio
+### Go to the Azure OpenAI Studio
 
-Navigate to the Azure AI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to your Azure OpenAI resource. During the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+Navigate to the Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a>and sign in with credentials that have access to your Azure OpenAI resource. During the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 #### Landing page
 
-You'll first land on our main page for Azure AI Studio. From here, you can start fine-tuning a custom model.
+You'll first land on our main page for Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
 
 Select the **Start fine-tuning a custom model** button under **Manage deployments and models** section of the landing page, highlighted in the following picture, to start fine-tuning a custom model. 
 
 > [!NOTE]
 > If your resource doesn't have a model already deployed in it, a warning is displayed. You can ignore that warning for the purposes of fine-tuning a model, because you'll be fine-tuning and deploying a new customized model.
 
-:::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of Azure AI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
+:::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
 
 ### Start the wizard from the Models page
 
 To create a customized model, select the **Create customized model** button under the **Provided models** section on the **Models** page, highlighted in the following picture, to start the **Create customized model** wizard.
 
-:::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page from Azure AI Studio, with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
+:::image type="content" source="../media/fine-tuning/studio-models.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with sections highlighted." lightbox="../media/fine-tuning/studio-models.png":::
 
 #### Select a base model
 
@@ -227,13 +227,13 @@ If you're ready to train your model, select **Save and close** to start the fine
 
 The **Models** page displays information about your customized model in the **Customized models** tab, as shown in the following picture. The tab includes information about the status and job ID of the fine-tune job for your customized model. When the job is completed, the file ID of the result file is also displayed.
 
-:::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from Azure AI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
+:::image type="content" source="../media/fine-tuning/studio-models-job-running.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
 After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. You can check the status of the fine-tune job for your customized model in the **Status** column of the **Customized models** tab on the **Models** page, and you can select **Refresh** to update the information on that page. 
 
 You can also select the name of the model from the **Model name** column of the **Models** page to display more information about your customized model, including the status of the fine-tune job, training results, training events, and hyperparameters used in the job. You can select the **Refresh** button to refresh the information for your model, as shown in the following picture.
 
-:::image type="content" source="../media/fine-tuning/studio-model-details.png" alt-text="Screenshot of the model page from Azure AI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
+:::image type="content" source="../media/fine-tuning/studio-model-details.png" alt-text="Screenshot of the model page from Azure OpenAI Studio, with a customized model displayed." lightbox="../media/fine-tuning/studio-models-job-running.png":::
 
 From the model page, you can also select **Download training file** to download the training data you used for the model, or select **Download results** to download the result file attached to the fine-tune job for your model and [analyze your customized model](#analyze-your-customized-model) for training and validation performance.
 
@@ -248,26 +248,26 @@ When the fine-tune job has succeeded, you can deploy the customized model from t
 
 To deploy your customized model, select the customized model to be deployed and then select **Deploy model**, as shown in the following picture.
 
-:::image type="content" source="../media/fine-tuning/studio-models-deploy.png" alt-text="Screenshot of the Models page from Azure AI Studio, with the Deploy model button highlighted." lightbox="../media/fine-tuning/studio-models-deploy.png":::
+:::image type="content" source="../media/fine-tuning/studio-models-deploy.png" alt-text="Screenshot of the Models page from Azure OpenAI Studio, with the Deploy model button highlighted." lightbox="../media/fine-tuning/studio-models-deploy.png":::
 
 The **Deploy model** dialog is presented, in which you can provide a name for the deployment of your customized model. Enter a name in **Deployment name** and then select **Create** to start the deployment of your customized model. 
 
-:::image type="content" source="../media/fine-tuning/studio-models-deploy-model.png" alt-text="Screenshot of the Deploy Model dialog from Azure AI Studio." lightbox="../media/fine-tuning/studio-models-deploy-model.png":::
+:::image type="content" source="../media/fine-tuning/studio-models-deploy-model.png" alt-text="Screenshot of the Deploy Model dialog from Azure OpenAI Studio." lightbox="../media/fine-tuning/studio-models-deploy-model.png":::
 
-You can monitor the progress of your deployment from the **Deployments** pane of Azure AI Studio.
+You can monitor the progress of your deployment from the **Deployments** pane of Azure OpenAI Studio.
 
 ## Use a deployed customized model
 
-Once your customized model has been deployed, you can use it like any other deployed model. For example, you can use the **Playground** pane of Azure AI Studio to experiment with your new deployment, as shown in the following picture. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
+Once your customized model has been deployed, you can use it like any other deployed model. For example, you can use the **Playground** pane of Azure OpenAI Studio to experiment with your new deployment, as shown in the following picture. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
 
-:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the Playground page of Azure AI Studio, with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
+:::image type="content" source="../media/quickstarts/playground-load.png" alt-text="Screenshot of the Playground page of Azure OpenAI Studio, with sections highlighted." lightbox="../media/quickstarts/playground-load.png":::
 
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
 
 ## Analyze your customized model
 
-Azure OpenAI attaches a result file, named `results.csv`, to each fine-tune job once it's completed. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model in the **Result file Id** column of the **Models** pane for Azure AI Studio. You can use the file ID to identify and download the result file from the **File Management** pane of Azure AI Studio. 
+Azure OpenAI attaches a result file, named `results.csv`, to each fine-tune job once it's completed. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model in the **Result file Id** column of the **Models** pane for Azure OpenAI Studio. You can use the file ID to identify and download the result file from the **File Management** pane of Azure OpenAI Studio. 
 
 The result file is a CSV file containing a header row and a row for each training step performed by the fine-tune job.  The result file contains the following columns:
 
@@ -291,18 +291,18 @@ When you're done with your customized model, you can delete the deployment and m
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
-You can delete the deployment for your customized model from the **Deployments** page for Azure AI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
+You can delete the deployment for your customized model from the **Deployments** page for Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
 
 ### Delete your customized model
 
-You can delete a customized model from the **Models** page for Azure AI Studio. Select the customized model to delete from the **Customized models** tab, and then select **Delete** to delete the customized model.
+You can delete a customized model from the **Models** page for Azure OpenAI Studio. Select the customized model to delete from the **Customized models** tab, and then select **Delete** to delete the customized model.
 
 > [!NOTE]
 > You cannot delete a customized model if it has an existing deployment. You must first [delete your model deployment](#delete-your-model-deployment) before you can delete your customized model.
 
 ### Delete your training files
 
-You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from the **File Management** page for Azure AI Studio. Select the file to delete, and then select **Delete** to delete the file.
+You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from the **File Management** page for Azure OpenAI Studio. Select the file to delete, and then select **Delete** to delete the file.
 
 ## Next steps
 

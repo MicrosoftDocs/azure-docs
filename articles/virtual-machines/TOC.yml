@@ -138,7 +138,7 @@
   - name: SAP on Azure
     href: ../sap/index.yml
   - name: Oracle
-    href: ./workloads/oracle/oracle-database-quick-create.md
+    href: ./workloads/oracle/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch
@@ -304,6 +304,8 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
+      - name: NGads V620-series (preview)
+        href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
       - name: NVv3-series
@@ -381,7 +383,13 @@
         - name: Performance
           href: hbv3-performance.md
       - name: HBv4-series
-        href: hbv4-series.md
+        items:
+        - name: Overview
+          href: hbv4-series-overview.md
+        - name: HBv4-series
+          href: hbv4-series.md
+        - name: Performance
+          href: hbv4-performance.md
       - name: HC-series
         items:
         - name: Overview
@@ -391,7 +399,13 @@
         - name: Performance
           href: hc-series-performance.md
       - name: HX-series
-        href: hx-series.md
+        items:
+        - name: Overview
+          href: hx-series-overview.md
+        - name: HX-series
+          href: hx-series.md
+        - name: Performance
+          href: hx-performance.md
       - name: HPC for HB-series and N-series VMs
         href: overview-hb-hc.md
       - name: Known issues with HB-series and N-series VMs
@@ -399,7 +413,7 @@
       - name: Setup MPI for HPC
         href: setup-mpi.md
       - name: Scaling HPC applications
-        href: compiling-scaling-applications.md        
+        href: compiling-scaling-applications.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -661,6 +675,9 @@
         - name: Windows
           displayName: Image builder, images, building, update
           href: ./windows/image-builder-gallery-update-image-version.md
+      - name: How to use AIB triggers to set up an automatic image build (preview)
+        displayName: Image builder, images, building, triggers
+        href: image-builder-triggers-how-to.md
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
@@ -673,6 +690,9 @@
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: image-builder-reliability.md
+      - name: Image Optimization
+        displayName: Image builder, images, building, boot, optimization, prefetch
+        href: image-builder-prefetch.md
     - name: Build image with Packer
       items:
       - name: Linux
@@ -1365,14 +1385,8 @@
         href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
-    - name: Convert disk to another disk type
-      items:
-      - name: CLI
-        displayName: Convert disk to another disk type
-        href: ./linux/convert-disk-storage.md
-      - name: PowerShell
-        displayName: Convert disk to another disk type
-        href: ./windows/convert-disk-storage.md
+    - name: Change disk types
+      href: disks-convert-types.md
     - name: Migrate to the same or different subscription
       items:
       - name: Copy a managed disk to the same or different subscription - CLI
@@ -1393,7 +1407,7 @@
         href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Migrate to Managed Disks
       href: ./windows/migrate-to-managed-disks.md
-    - name: Unmanaged Disks retirement starting November 18, 2022
+    - name: Unmanaged Disks retirement
       href: ./unmanaged-disks-deprecation.md
     - name: Unmanaged VM to Managed Disks
       items:
@@ -1568,14 +1582,6 @@
     - name: ARM template
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?toc=/azure/virtual-machines/toc.json
-  - name: Open ports and filter traffic
-    items:
-    - name: CLI
-      href: ../virtual-network/tutorial-filter-network-traffic-cli.md
-    - name: PowerShell
-      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
-    - name: Portal
-      href: ../virtual-network/tutorial-filter-network-traffic.md
   - name: Migrate a virtual machine public IP address
     href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
@@ -1603,6 +1609,8 @@
   - name: Overview
     displayName: Security Overview
     href: ../security/fundamentals/virtual-machines-overview.md?toc=/azure/virtual-machines/toc.json
+  - name: Zero trust principles
+    href: /security/zero-trust/azure-infrastructure-virtual-machines
   - name: Microsoft Defender for Cloud
     href: ../security-center/security-center-introduction.md
     maintainContext: true
@@ -1623,7 +1631,7 @@
       DisplayName: Trusted Launch, shielded VM
     - name: Deploy Trusted Launch VM
       href: trusted-launch-portal.md
-    - name: Boot integrity monitoring (guest attestation) overview
+    - name: Boot integrity monitoring overview
       href: boot-integrity-monitoring-overview.md
  
   - name: Just-in-time access

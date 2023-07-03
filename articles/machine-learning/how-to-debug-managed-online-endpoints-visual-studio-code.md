@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Visual Studio Code to test and debug online endpoints locally before deploying them to Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande

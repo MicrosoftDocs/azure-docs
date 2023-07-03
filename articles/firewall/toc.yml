@@ -40,11 +40,6 @@ items:
     href: tutorial-protect-firewall.md
   - name: Integrate NAT gateway with Azure Firewall
     href: ../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
-
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    href: sample-powershell.md
 - name: Concepts
   items:
     - name: Azure Firewall Basic features

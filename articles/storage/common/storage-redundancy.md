@@ -7,10 +7,10 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 06/15/2023
 ms.author: jammart
 ms.subservice: common
-ms.custom: references_regions
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Azure Storage redundancy
@@ -64,7 +64,7 @@ Zone-redundant storage (ZRS) replicates your storage account synchronously acros
 
 With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. If a zone becomes unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you access data before the updates have completed. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
 
-A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones.
+A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones. If an availability zone is temporarily unavailable, the operation returns successfully after the data is written to all available zones.
 
 Microsoft recommends using ZRS in the primary region for scenarios that require high availability. ZRS is also recommended for restricting replication of data to a particular country or region to meet data governance requirements.
 

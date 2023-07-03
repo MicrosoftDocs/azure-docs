@@ -42,7 +42,7 @@ ms.collection:
 
 ## 8.3 Strong authentication for users and administrators is established and managed.
 
-For more information about Azure AD authentication methods that meet PCI requirements, see: [Information Supplement: Multi-Factor Authentication](azure-ad-pci-dss-mfa.md).
+For more information about Azure AD authentication methods that meet PCI requirements, see: [Information Supplement: Multi-Factor Authentication](pci-dss-mfa.md).
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
@@ -87,7 +87,7 @@ PCI-DSS requirements **3**, **4**, **9**, and **12** aren't applicable to Azure 
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
-* [Azure AD PCI-DSS guidance](azure-ad-pci-dss-guidance.md) 
+* [Azure AD PCI-DSS guidance](pci-dss-guidance.md) 
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) 
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md) 
@@ -96,4 +96,4 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md) (You're here)
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
-* [Azure AD PCI-DSS Multi-Factor Authentication guidance](azure-ad-pci-dss-mfa.md)
+* [Azure AD PCI-DSS Multi-Factor Authentication guidance](pci-dss-mfa.md)

@@ -59,7 +59,7 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 1. In **Add access policies**, under **USER**, select the account you use to follow this tutorial.
 
-1. For **Key permissions**, verify that the following permissions are selected: **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
+1. For **Key permissions**, verify that the following permissions are selected: **Get**, **Create**, **Delete**, and **Sign**. By default, **Create** and **Delete** are already enabled. **Sign** should be the only key permission you need to update.
 
     :::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-admin-access-policy.png" alt-text="Screenshot that shows how to configure the admin access policy." border="false":::
 

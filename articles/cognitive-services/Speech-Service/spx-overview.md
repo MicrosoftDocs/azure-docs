@@ -1,5 +1,5 @@
 ---
-title: The Azure Speech CLI
+title: The Azure AI Speech CLI
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn about the Speech CLI, a command-line tool for using Speech service without having to write any code.
 services: cognitive-services
@@ -43,6 +43,6 @@ To get started with the Speech CLI, see the [quickstart](spx-basics.md). This ar
 
 ## Next steps
 
-- [Get started with the Azure Speech CLI](spx-basics.md)
+- [Get started with the Azure AI Speech CLI](spx-basics.md)
 - [Speech CLI configuration options](./spx-data-store-configuration.md)
 - [Speech CLI batch operations](./spx-batch-operations.md)

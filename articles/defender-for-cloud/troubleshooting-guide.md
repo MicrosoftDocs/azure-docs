@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 10/24/2022
+ms.date: 06/18/2023
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
 
@@ -182,4 +182,4 @@ In this page, you learned about troubleshooting steps for Defender for Cloud. To
 
 - Learn how to [manage and respond to security alerts](managing-and-responding-alerts.md) in Microsoft Defender for Cloud
 - [Alert validation](alert-validation.md) in Microsoft Defender for Cloud
-- Review [frequently asked questions](faq-general.yml) about using Microsoft Defender for Cloud
+- Review [common questions](faq-general.yml) about using Microsoft Defender for Cloud

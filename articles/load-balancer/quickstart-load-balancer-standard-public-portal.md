@@ -15,7 +15,6 @@ ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 
 Get started with Azure Load Balancer by using the Azure portal to create a public load balancer for a backend pool with two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
-
 :::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 ## Prerequisites
@@ -53,6 +52,11 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     |--------------------|----------------------------|
     | Azure Bastion name | Enter **myBastionHost** |
     
+    > [!IMPORTANT]
+
+    > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+    >
 
 1. Select the **IP addresses** tab or select the **Next: IP addresses** button at the bottom of the page.
 

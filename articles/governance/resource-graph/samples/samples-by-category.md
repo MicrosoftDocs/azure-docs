@@ -5,6 +5,7 @@ ms.date: 07/07/2022
 ms.topic: sample
 ms.custom: generated
 ---
+
 # Azure Resource Graph sample queries by category
 
 This page is a collection of Azure Resource Graph sample queries grouped by general and service
@@ -50,6 +51,16 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Azure Policy guest configuration
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../../../../includes/resource-graph/samples/bycat/azure-policy-guest-configuration.md)]
+
+## Azure RBAC
+
+[!INCLUDE [authorization-resources-role-assignments-key-properties](../../includes/resource-graph/query/authorization-resources-role-assignments-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-key-properties](../../includes/resource-graph/query/authorization-resources-role-definitions-key-properties.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-actions-list.md](../../includes/resource-graph/query/authorization-resources-role-definitions-actions-list.md)]
+
+[!INCLUDE [authorization-resources-role-definitions-permissions-list](../../includes/resource-graph/query/authorization-resources-role-definitions-permissions-list.md)]
 
 ## Azure Service Health
 

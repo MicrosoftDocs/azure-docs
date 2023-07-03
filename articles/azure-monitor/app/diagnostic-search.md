@@ -125,7 +125,7 @@ The first time you do this step, you're asked to configure a link to your Azure 
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-enable.md?tabs=java#logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-add-modify.md?tabs=java#logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
 
 * [Write code](./api-custom-events-metrics.md) to send custom events, page views, and exceptions.
 

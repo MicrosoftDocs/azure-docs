@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: whats-new
-ms.date: 05/23/2023
+ms.date: 06/23/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 ms.custom: references_regions
@@ -377,7 +377,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolves to the existing fields TotalTax and Line/Tax respectively.
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
-  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country, and zip code.
+  * [**prebuilt-businessCard**](concept-business-card.md). Address parse support to extract subfields for address components like address, city, state, country/region, and zip code.
 
 * **AI quality improvements**
 
@@ -612,7 +612,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## July 2021
 
-* System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
+* System-assigned managed identity support: You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). _See_ [Create and use managed identity for your Form Recognizer resource](managed-identities.md) to learn more.
 
 ---
 

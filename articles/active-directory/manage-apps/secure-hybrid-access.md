@@ -66,7 +66,7 @@ The following partners offer solutions to support [Conditional Access policies p
 |F5, Inc.|[Integrate F5 BIG-IP with Azure AD](f5-integration.md)</br>[Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-passwordless-vpn.md)|
 |Progress Software Corporation, Progress Kemp|[Tutorial: Azure AD SSO integration with Kemp LoadMaster Azure AD integration](../saas-apps/kemp-tutorial.md)|
 |Perimeter 81 Ltd.|[Tutorial: Azure AD SSO integration with Perimeter 81](../saas-apps/perimeter-81-tutorial.md)|
-|Silverfort|[Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](silverfort-azure-ad-integration.md)|
+|Silverfort|[Tutorial: Configure Secure Hybrid Access with Azure AD and Silverfort](silverfort-integration.md)|
 |Strata Identity, Inc.|[Integrate Azure AD SSO with Maverics Identity Orchestrator SAML Connector](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)|
 
 #### Partners with pre-built solutions and integration documentation

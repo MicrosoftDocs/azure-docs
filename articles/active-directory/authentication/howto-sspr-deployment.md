@@ -91,7 +91,7 @@ For a guided walkthrough of many of the recommendations in this article, see the
 |Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
 | |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
-| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
+| FAQ|[Password management frequently asked questions](./passwords-faq.yml) |
 
 ### Solution architecture
 
@@ -231,7 +231,7 @@ We recommend that you don't sync your on-prem Active Directory admin accounts wi
 
 ### Environments with multiple identity management systems
 
-Some environments have multiple identity management systems. On-premises identity managers like Oracle AM and SiteMinder, require synchronization with AD for passwords. You can do this using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Some environments have multiple identity management systems. On-premises identity managers like Oracle IAM and SiteMinder, require synchronization with AD for passwords. You can do this using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
 ## Plan Testing and Support
 
@@ -336,7 +336,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 * Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
-* Follow [Password management frequently asked questions](./active-directory-passwords-faq.yml) 
+* Follow [Password management frequently asked questions](./passwords-faq.yml) 
 
 ### Helpful documentation
 

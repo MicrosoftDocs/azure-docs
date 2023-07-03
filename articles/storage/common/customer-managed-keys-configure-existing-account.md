@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 06/07/2023
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -162,6 +162,18 @@ Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageacc
 ```azurepowershell
 $accountName = "<storage-account>"
 
+# Use this form of the command with a user-assigned managed identity.
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -IdentityType SystemAssignedUserAssigned `
+    -UserAssignedIdentityId $userIdentity.Id `
+    -KeyvaultEncryption `
+    -KeyVaultUri $keyVault.VaultUri `
+    -KeyName $key.Name `
+    -KeyVersion "" `
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id
+
+# Use this form of the command with a system-assigned managed identity.
 Set-AzStorageAccount -ResourceGroupName $rgName `
     -AccountName $accountName `
     -KeyvaultEncryption `
@@ -185,6 +197,19 @@ keyVaultUri=$(az keyvault show \
     --query properties.vaultUri \
     --output tsv)
 
+# Use this form of the command with a user-assigned managed identity.
+az storage account update \
+    --name $accountName \
+    --resource-group $rgName \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id $identityResourceId \
+    --encryption-key-name $keyName \
+    --encryption-key-version "" \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $keyVaultUri \
+    --key-vault-user-identity-id $identityResourceId
+
+# Use this form of the command with a system-assigned managed identity.
 az storage account update \
     --name $accountName \
     --resource-group $rgName \
@@ -227,12 +252,24 @@ Remember to replace the placeholder values in brackets with your own values and 
 ```azurepowershell
 $accountName = "<storage-account>"
 
+# Use this form of the command with a user-assigned managed identity.
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -IdentityType SystemAssignedUserAssigned `
+    -UserAssignedIdentityId $userIdentity.Id `
+    -KeyvaultEncryption `
+    -KeyVaultUri $keyVault.VaultUri `
+    -KeyName $key.Name `
+    -KeyVersion $key.Version `
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id
+
+# Use this form of the command with a system-assigned managed identity.
 Set-AzStorageAccount -ResourceGroupName $rgName `
     -AccountName $accountName `
     -KeyvaultEncryption `
+    -KeyVaultUri $keyVault.VaultUri `
     -KeyName $key.Name `
-    -KeyVersion $key.Version `
-    -KeyVaultUri $keyVault.VaultUri
+    -KeyVersion $key.Version
 ```
 
 When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, call [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) to get the latest version of the key. Then call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
@@ -258,6 +295,19 @@ keyVersion=$(az keyvault key list-versions \
     --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 
+# Use this form of the command with a user-assigned managed identity
+az storage account update \
+    --name $accountName \
+    --resource-group $rgName \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id $identityResourceId \
+    --encryption-key-name $keyName \
+    --encryption-key-version $keyVersion \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $keyVaultUri \
+    --key-vault-user-identity-id $identityResourceId
+
+# Use this form of the command with a system-assigned managed identity
 az storage account update \
     --name $accountName \
     --resource-group $rgName \

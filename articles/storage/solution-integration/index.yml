@@ -6,8 +6,8 @@ metadata:
   title: Azure Storage solutions from Microsoft partners
   description: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.
   services: storage
-  ms.service: storage
-  ms.subservice: partner
+  ms.service: azure-storage
+  ms.subservice: storage-partner-integration
   ms.topic: landing-page
   ms.collection: collection
   author: beber-msft

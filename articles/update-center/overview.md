@@ -90,6 +90,7 @@ You need the following permissions to create and manage update deployments. The 
 |Update assessment on Azure VMs |*Microsoft.Compute/virtualMachines/assessPatches/action* ||
 |Install update on Arc enabled server |*Microsoft.HybridCompute/machines/installPatches/action* ||
 |Update assessment on Arc enabled server |*Microsoft.HybridCompute/machines/assessPatches/action* ||
+|Register the subscription for the Microsoft.Maintenance resource provider| *Microsoft.Maintenance/register/action* | Subscription|
 |Create/modify maintenance configuration |*Microsoft.Maintenance/maintenanceConfigurations/write* |Subscription/resource group |
 |Create/modify configuration assignments |*Microsoft.Maintenance/configurationAssignments/write* |Machine |
 |Read permission for Maintenance updates resource |*Microsoft.Maintenance/updates/read* |Machine |

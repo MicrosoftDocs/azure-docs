@@ -196,8 +196,7 @@ fine_tune_headers = {'api-key': api_key}
 fine_tune_data = "{ \"model\": \"curie\", " + \
   "\"training_file\": \"" + training_id + "\", " + \
   "\"validation_file\": \"" + validation_id + "\", " + \
-  "\"hyperparams\": " + \
-  "{ \"batch_size\": 1, \"learning_rate_multiplier\": 0.1, \"n_epochs\": 4 } }"
+  "\"batch_size\": 1, \"learning_rate_multiplier\": 0.1, \"n_epochs\": 4 }"
 
 # Start the fine-tune job using the REST API
 r = requests.post(api_base + 'openai/fine-tunes', 
@@ -386,7 +385,7 @@ When you're done with your customized model, you can delete the deployment and m
 
 You can use various methods to delete the deployment for your customized model:
 
-- [Azure AI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-model-deployment)
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](/rest/api/cognitiveservices/azureopenaistable/deployments/delete)
 - Python SDK
@@ -404,7 +403,7 @@ r = requests.delete(api_base + 'openai/deployments/' + deployment_id,
 
 Similarly, you can use various methods to delete your customized model:
 
-- [Azure AI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-customized-model)
 - [REST APIs](/rest/api/cognitiveservices/azureopenaistable/fine-tunes/delete)
 - Python SDK
 
@@ -424,7 +423,7 @@ r = requests.delete(api_base + 'openai/fine-tunes/' + job_id,
 
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
-- [Azure AI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
+- [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
 - [REST APIs](/rest/api/cognitiveservices/azureopenaistable/files/delete)
 - Python SDK
 

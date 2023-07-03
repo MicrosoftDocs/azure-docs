@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using PowerShell.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 ms.custom: ignite-fall-2021, devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
@@ -24,6 +24,8 @@ In this article, you create a virtual network (if you don't already have one), d
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure CLI](create-host-cli.md)
 * [Quickstart - deploy with default settings](quickstart-host-portal.md)
+
+[!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 
 ## Before beginning
 
@@ -64,10 +66,6 @@ You can use the following example values when creating this configuration, or yo
 | Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |
 | Assignment  | Static |
-
-> [!NOTE]
-> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
->
 
 ## Deploy Bastion
 
