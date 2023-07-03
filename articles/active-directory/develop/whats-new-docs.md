@@ -5,7 +5,7 @@ services: active-directory
 author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 06/02/2023
+ms.date: 07/03/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -22,23 +22,21 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### New articles
 
-- [Configure app multi-instancing](configure-app-multi-instancing.md) - Appmultiinstancingupdate1
-- [Optional claims reference](optional-claims-reference.md) - Split of optional claims reference
-- [Migrate away from using email claims for user identification or authorization](migrate-off-email-claim-authorization.md) - Identity migration guidance for insecure authorization pattern
+- [Configure app multi-instancing](configure-app-multi-instancing.md) - Configuration of multiple instances of the same application within a tenant
+- [Migrate away from using email claims for user identification or authorization](migrate-off-email-claim-authorization.md) - Migration guidance for insecure authorization pattern
+- [Optional claims reference](optional-claims-reference.md) - v1.0 and v2.0 optional claims reference
 
 ### Updated articles
 
-- [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md) - Adding clarity : Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app
-- [Configure token lifetime policies (preview)](configure-token-lifetimes.md) - Adding service principal policy commands
 - [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md) - update nodejs web app tutorial, add nodejs sample to webapp how-to
 - [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Editorial review of claims mapping policy type
-- [Customize SAML token claims](saml-claims-customization.md) - Editorial review of claims mapping policy type
-- [What's new for authentication?](reference-breaking-changes.md)
-  - Email claim breaking change
-  - Identity breaking change: omission of unverified emails by default.
-- [Tokens and claims overview](security-tokens.md) - Editorial review of security tokens
-- [Refresh tokens in the Microsoft identity platform](refresh-tokens.md) - editorial review of refresh tokens
+- [Configure token lifetime policies (preview)](configure-token-lifetimes.md) - Adding service principal policy commands
+- [Customize SAML token claims](saml-claims-customization.md) - Review of claims mapping policy type
 - [Microsoft identity platform code samples](sample-v2-code.md) - Reworking code samples file to add extra tab
+- [Refresh tokens in the Microsoft identity platform](refresh-tokens.md) - Editorial review of refresh tokens
+- [Tokens and claims overview](security-tokens.md) - Editorial review of security tokens
+- [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md) - Editorial review
+- [What's new for authentication?](reference-breaking-changes.md) - Identity breaking change: omission of unverified emails by default.
 
 ## May 2023
 
@@ -94,27 +92,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Web app that signs in users: App registration](scenario-web-app-sign-user-app-registration.md)
 - [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
 - [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)
-
-## March 2023
-
-### New articles
-
-- [Configure a SAML app to receive tokens with claims from an external store (preview)](custom-extension-configure-saml-app.md)
-- [Configure a custom claim provider token issuance event (preview)](custom-extension-get-started.md)
-- [Custom claims provider (preview)](custom-claims-provider-overview.md)
-- [Custom claims providers](custom-claims-provider-reference.md)
-- [Custom authentication extensions (preview)](custom-extension-overview.md)
-- [Troubleshoot your custom claims provider API (preview)](custom-extension-troubleshoot.md)
-- [Understanding application-only access](app-only-access-primer.md)
-
-### Updated articles
-
-- [ADAL to MSAL migration guide for Python](migrate-python-adal-msal.md)
-- [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
-- [How to migrate a JavaScript app from ADAL.js to MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [Microsoft identity platform access tokens](access-tokens.md)
-- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
-- [Restrict your Azure AD app to a set of users in an Azure AD tenant](howto-restrict-your-app-to-a-set-of-users.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
-- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
-- [Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application](tutorial-v2-windows-uwp.md)
