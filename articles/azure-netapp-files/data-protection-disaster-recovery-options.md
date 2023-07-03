@@ -42,7 +42,7 @@ Azure NetApp Files supports a fully managed backup solution for long-term recove
 - Application-consistent backups with [AzAcSnap integration](azacsnap-introduction.md)
 - Retain daily, weekly, monthly backups for extended periods of time on cost-efficient cloud storage without media management 
 
-To learn more, see [How snapshots can be vaulted for long-term retention and cost savings](snapshots-introduction#how-snapshots-can-be-vaulted-for-long-term-retention-and-cost-savings.md). To get started with backups, see [Configure policy-based backups for Azure NetApp Files](backup-configure-policy-based.md).  
+To learn more, see [How snapshots can be vaulted for long-term retention and cost savings](snapshots-introduction.md#how-snapshots-can-be-vaulted-for-long-term-retention-and-cost-savings.md). To get started with backups, see [Configure policy-based backups for Azure NetApp Files](backup-configure-policy-based.md).  
 
 ## Cross-region replication 
 
