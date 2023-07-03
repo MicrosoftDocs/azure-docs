@@ -8,7 +8,7 @@ ms.custom: ignite-2022
 
 # Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud
 
-Cloud workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Azure, Amazon Web Services, Google Cloud Platform , GitHub, and Azure DevOps.
+Cloud workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Azure, Amazon Web Services, Google Cloud Platform, GitHub, and Azure DevOps.
 
 In this quickstart, you connect your Azure DevOps organizations on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience (including auto-discovery).
 

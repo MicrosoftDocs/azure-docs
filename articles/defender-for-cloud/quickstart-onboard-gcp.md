@@ -131,7 +131,7 @@ To configure the Defender for Servers plan:
 
     :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot that shows the link for configuring the Defender for Servers plan.":::
 
-1. On the **Auto provisioning configuration** pane, turn the toggles on or off depending on your need.
+1. On the **Auto provisioning configuration** pane, turn the toggles to **On** or **Off**, depending on your need.
 
     :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-screen.png" alt-text="Screenshot that shows the toggles for the Defender for Servers plan.":::
 
@@ -153,7 +153,7 @@ To configure the Defender for Databases plan:
 
     :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot that shows the link for configuring the Defender for Databases plan.":::
 
-1. On the **Auto-provisioning configuration** pane, turn the toggles on or off depending on your need.
+1. On the **Auto-provisioning configuration** pane, turn the toggles to **On** or **Off**, depending on your need.
 
     :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-databases-screen.png" alt-text="Screenshot that shows the toggles for the Defender for Databases plan.":::
 
@@ -184,7 +184,7 @@ To configure the Defender for Containers plan:
 
     :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot that shows the link for configuring the Defender for Containers plan.":::
 
-1. On the **Defender for Containers configuration** pane, turn the toggles on.
+1. On the **Defender for Containers configuration** pane, turn the toggles to **On**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/containers-configuration.png" alt-text="Screenshot that shows toggles for the Defender for Containers plan.":::
 
