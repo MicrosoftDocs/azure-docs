@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/17/2023
 ms.author: greglin
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Enable resource logging in Azure Traffic Manager

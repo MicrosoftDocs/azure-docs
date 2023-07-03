@@ -144,7 +144,7 @@ The following are important considerations to evaluate:
           csi:
             driver: disk.csi.azure.com
             volumeAttributes:
-              csi.storage.k8s.io/pv/name: $PV-csi
+              csi.storage.k8s.io/pv/name: $PV
               csi.storage.k8s.io/pvc/name: $PVC-csi
               csi.storage.k8s.io/pvc/namespace: $NAMESPACE
               requestedsizegib: "$STORAGE_SIZE"
@@ -511,8 +511,8 @@ Migration from in-tree to CSI is supported by creating a static volume:
 
 ## Next steps
 
-For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
-
+- For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
+- Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster

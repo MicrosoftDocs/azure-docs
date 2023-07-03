@@ -11,7 +11,7 @@ services: azure-maps
 
 # Add a drawing tools toolbar to a map
 
-This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) control adds the drawing toolbar on the map. You will learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
+This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [Drawing toolbar] control adds the drawing toolbar on the map. You learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
 
 ## Add drawing toolbar
 
@@ -66,7 +66,7 @@ The following screenshot shows a sample of an instance of the drawing manager th
 
 The style of the shapes that are drawn can be customized by retrieving the underlying layers of the drawing manager by using the `drawingManager.getLayers()` and `drawingManager.getPreviewLayers()` functions and then setting options on the individual layers. The drag handles that appear for coordinates when editing a shape are HTML markers. The style of the drag handles can be customized by passing HTML marker options into the `dragHandleStyle` and `secondaryDragHandleStyle` options of the drawing manager.  
 
-The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points will be rendered with a blue marker icon. Lines will be red and four pixels wide. Polygons will have a green fill color and an orange outline. It then changes the styles of the drag handles to be square icons.
+The following code gets the rendering layers from the drawing manager and modifies their options to change rendering style for drawing. In this case, points are rendered with a blue marker icon. Lines are red and four pixels wide. Polygons have a green fill color and an orange outline. It then changes the styles of the drag handles to be square icons.
 
 ```javascript
 //Get rendering layers of drawing manager.
@@ -134,27 +134,27 @@ For a complete working sample that demonstrates how to customize the rendering o
 
 ## Next steps
 
-Learn how to use additional features of the drawing tools module:
+Learn how to use more features of the drawing tools module:
 
 > [!div class="nextstepaction"]
-> [Get shape data](map-get-shape-data.md)
+> [Get shape data]
 
 > [!div class="nextstepaction"]
-> [React to drawing events](drawing-tools-events.md)
+> [React to drawing events]
 
 > [!div class="nextstepaction"]
-> [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Interaction types and keyboard shortcuts]
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](/javascript/api/azure-maps-control/atlas.map)
+> [Map]
 
 > [!div class="nextstepaction"]
-> [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Drawing toolbar]
 
 > [!div class="nextstepaction"]
-> [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Drawing manager]
 
 [Azure Maps Samples]: https://samples.azuremaps.com
 [Add drawing toolbar to map]: https://samples.azuremaps.com/drawing-tools-module/add-drawing-toolbar-to-map
@@ -162,3 +162,9 @@ Learn more about the classes and methods used in this article:
 
 [Add drawing toolbar to map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Add%20drawing%20toolbar%20to%20map/Add%20drawing%20toolbar%20to%20map.html
 [Change drawing rendering style source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Change%20drawing%20rendering%20style/Change%20drawing%20rendering%20style.html
+[Drawing toolbar]: /javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar
+[Get shape data]: map-get-shape-data.md
+[React to drawing events]: drawing-tools-events.md
+[Interaction types and keyboard shortcuts]: drawing-tools-interactions-keyboard-shortcuts.md
+[Map]: /javascript/api/azure-maps-control/atlas.map
+[Drawing manager]: /javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager
