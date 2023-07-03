@@ -1,6 +1,6 @@
 ---
 title: How to create snapshots (preview) in Azure App Configuration
-description: How to create and manage snapshots (preview) Azure App Configuration store.
+description: How to create and manage snapshots Azure App Configuration store.
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
@@ -16,6 +16,7 @@ In this article, learn how to create and manage snapshots (preview) in Azure App
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- "DataOwner" role in the App Configuration store. Details on required [role and permissions for snapshots](./concept-snapshots.md)
 
 ### Add key-values
 
@@ -38,9 +39,9 @@ Under **Operations** > **Snapshots (preview)**, select **Create a new snapshot**
 
 1. Enter a **snapshot name** and optionally also add **Tags**.
 1. Under  **Choose the composition type**, keep the default value **Key (default)**.
-   - With the *Key* composition type, if your store has identical keys with different labels, only the  key-value specified in the last applicable filter will be included in the snapshot. Identical key-values with other labels will be left out of the snapshot.
-   - With the *Key-Label* composition type, all key-values with different labels will be included in the snapshot depending on the filters.
-1. Select **Add filters** to select the key-values for your snapshot. Filtering is done by selecting filters: **Equals**, **Starts with**, **Any of** and **All** for keys and for labels. You can enter between 1 and 3 filters.
+   - With the *Key* composition type, if your store has identical keys with different labels, only the  key-value specified in the last applicable filter is included in the snapshot. Identical key-values with other labels are left out of the snapshot.
+   - With the *Key-Label* composition type, if your store has identical keys with different labels, all  key-values with identical keys but different labels are included in the snapshot depending on the specified filters.
+1. Select **Add filters** to select the key-values for your snapshot. Filtering is done by selecting filters: **Equals**, **Starts with**, **Any of** and **All** for keys and for labels. You can enter between one and three filters.
    1. Add the first filter:
       - Under **Key**, select **Starts with** and enter *app1*
       - Under **Label**, select **Equals** and select *label2* from the drop-down menu.
@@ -56,20 +57,20 @@ Under **Operations** > **Snapshots (preview)**, select **Create a new snapshot**
 1. Select **Create** to generate the snapshot. In this example, the created snapshot has **Key** composition type and below filters:
    - Keys that start with *app1*, with *label2* label
    - Keys that start with *app1*, with *label1* label.
-   
+  
     :::image type="content" source="./media/create-snapshot.png" alt-text="Screenshot of the Create form with data filled as above steps and Create button highlighted.":::
-   
-1. Please check the table below to understand which key-values from the configuration store will end up in the snapshot based on the provided parameters.  
+  
+1. Check the table to understand which key-values from the configuration store end up in the snapshot based on the provided parameters.  
 
     | Key            | Value          | Label    | Included in snapshot                                                                                              |
     |----------------|----------------|----------|-------------------------------------------------------------------------------------------------------------------|
     | *app2/bgcolor* | *Light Gray*   | *label2* | No: doesn't have the right prefix/starts with for key.
     | *app1/color*   | *Black*        | No label | No: doesn't have the label *label2* or *label1*.
     | *app1/color*   | *Blue*         | *label1* | Yes: Has the right label *label1* from the last of applicable filters.
-    | *app1/color*   | *Green*        | *label2* | No: Has the right label *label2* but is not the last  applicable filters.
+    | *app1/color*   | *Green*        | *label2* | No: Has the right label *label2* but isn't the last  applicable filters.
     | *app1/color*   | *Yellow*       | *label3* | No: doesn't have the label *label2* or *label1*.
     | *app1/message* | *Hello*        | *label1* | Yes: Has the right label *label1* from the last of applicable filters.
-    | *app1/message* | *Hi!*          | *label2* | No: Has the right label *label2* but is not the last  applicable filters.
+    | *app1/message* | *Hi!*          | *label2* | No: Has the right label *label2* but isn't the last  applicable filters.
     | *app2/message* | *Good morning!*| *label1* | No: doesn't have the right prefix/starts with for key.
 
 ## Create sample snapshots
@@ -83,7 +84,7 @@ To create sample snapshots and check how the snapshots feature work, use the sna
 
 ## Manage active snapshots
 
-The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Click on **Active snapshots** to view the list of all active snapshots in an App configuration store.
+The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App configuration store.
 
 ### View existing snapshots
 
@@ -95,10 +96,11 @@ In the **Active snapshots** tab, select the ellipsis **...** on the right of an 
 
 In the **Active snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **Archive** to archive a snapshot. Confirm archival by selecting **Yes** or cancel with **No**. Once a snapshot has been archived, a notification appears to confirm the operation and the list of active snapshots is updated.
 
-  :::image type="content" source="./media/archive-snapshot.png" alt-text="Screenshot of the list of active snapshots.":::
+  :::image type="content" source="./media/archive-snapshot.png" alt-text="Screenshot of the list of archived snapshots.":::
 
 ## Manage archived snapshots
-Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view the list of all archived snapshots in an App configuration store. Archived snapshots remain there for the duration that was selected during their creation, that is to say for 30 days (by default) or less.
+
+Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view the list of all archived snapshots in an App configuration store. Archived snapshots remain there for the duration that was selected during their creation, that is, for 30 days (by default) or less.
 
    :::image type="content" source="./media/archived-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
 
@@ -106,13 +108,13 @@ Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view 
 
 Detailed view of snapshot is available in the archive state as well. In the **Archived snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
-    :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the list of archived snapshots.":::
+   :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the list of archived snapshots.":::
 
 ### Recover an archived snapshot
 
 In the **Archived snapshots** tab, select the ellipsis **...** on the right of an archived snapshot and select **Recover** to recover a snapshot. Confirm App Configuration snapshot recovery by selecting **Yes** or cancel with **No**. Once a snapshot has been recovered, a notification appears to confirm the operation and the list of archived snapshots is updated.
 
-    :::image type="content" source="./media/recover-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
+   :::image type="content" source="./media/recover-snapshots.png" alt-text="Screenshot of the list of archived snapshots.":::
 
 ## Next steps
 
