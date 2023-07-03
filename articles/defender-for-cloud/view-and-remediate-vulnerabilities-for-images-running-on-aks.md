@@ -11,7 +11,7 @@ ms.date: 07/02/2023
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462ce) recommendation.
 
-To provide findings for the recommendation, Defender CSPM uses [agentless discovery and visibility](concept-agentless-containers.md#agentless-discovery-and-visibility-within-kubernetes-components) to create a full inventory of your K8s clusters and their workloads and correlates that inventory with the [agentless container registry vulnerability assessment] (concept-agentless-containers.md#agentless-container-registry-vulnerability-assessment). The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps. 
+To provide findings for the recommendation, Defender CSPM uses [agentless container registry vulnerability assessment](concept-agentless-containers.md#agentless-container-registry-vulnerability-assessment) to create a full inventory of your K8s clusters and their workloads and correlates that inventory with the [agentless container registry vulnerability assessment] (concept-agentless-containers.md#agentless-container-registry-vulnerability-assessment). The recommendation shows your running containers with the vulnerabilities associated with the images that are used by each container and provides vulnerability reports and remediation steps. 
 
 ## View findings for a specific cluster
 
@@ -62,9 +62,9 @@ For each vulnerability you want to remediate, do the following:
 
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/remediate-vulnerability.png" alt-text="Screenshot showing the open pane with remediation information." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/remediate-vulnerability.png":::
 
-1. When you've completed the steps required to remediate the security issue, replace the image in your cluster. 
-1. Push the updated image to trigger a scan.
-1. Use the new image across all workloads where it's currently being used, or on the specific cluster you're currently addressing vulnerabilities for.
+1. Build a new image that resolves the vulnerability according to the remediation details on the CVE.
+1. Push the new image to the registry and remove the vulnerable image.
+1. Use the new images across all vulnerable workloads.
 1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c) . 
 
     > [!NOTE]
