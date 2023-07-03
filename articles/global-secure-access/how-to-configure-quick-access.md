@@ -152,6 +152,9 @@ Once you have your Quick Access app configured, your private resources added, us
 
 ## Next steps
 
+The next step for getting started with Microsoft Entra Private Access is to [enable the Private Access traffic forwarding profile](how-to-manage-private-access-profile.md).
+
+For more information about Private Access, see the following articles:
+- [Learn about traffic profiles](concept-traffic-forwarding.md)
 - [Configure per-app access](how-to-configure-per-app-access.md)
-- [Manage the private access traffic management profile](how-to-manage-private-access-profile.md)
-- [Learn about traffic management profiles](concept-traffic-forwarding.md)
+

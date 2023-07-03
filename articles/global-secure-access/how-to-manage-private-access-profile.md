@@ -67,5 +67,8 @@ If you see "None" in the **Linked Conditional Access policies** section, there i
 
 ## Next steps
 
-- [Configure Quick Access](how-to-configure-quick-access.md)
+The next step for getting started with Microsoft Entra Internet Access is to [install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
+
+For more information about Private Access, see the following articles:
 - [Learn about traffic forwarding](concept-traffic-forwarding.md)
+- [Configure Quick Access](how-to-configure-quick-access.md)

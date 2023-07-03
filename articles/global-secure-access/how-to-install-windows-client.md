@@ -179,5 +179,4 @@ This list of IPv4 addresses is based on the [Office 365 URLs and IP address rang
 
 ## Next steps
 
-- [Enable source IP restoration](how-to-source-ip-restoration.md)
-- [Enable compliant network check with Conditional Access](how-to-compliant-network.md)
+The next step for getting started with Microsoft Entra Internet Access is to [enable universal tenant restrictions](how-to-universal-tenant-restrictions.md).

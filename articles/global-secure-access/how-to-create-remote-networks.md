@@ -162,6 +162,9 @@ Associating a traffic forwarding profile to your remote network using the Micros
 
 ## Next steps
 
+The next step for getting started with Microsoft Entra Internet Access is to [target the Microsoft 365 traffic profile with Conditional Access policy](how-to-target-resource-microsoft-365-profile.md).
+
+For more information about remote networks, see the following articles:
 - [List remote networks](how-to-list-remote-networks.md)
 - [Manage remote networks](how-to-manage-remote-networks.md)
 - [Learn how to add remote network device links](how-to-manage-remote-network-device-links.md)

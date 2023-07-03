@@ -52,5 +52,9 @@ After administrators confirm the policy settings using [report-only mode](../act
 
 ## Next steps
 
+The next step for getting started with Microsoft Entra Internet Access is to [review the Global Secure Access logs](concept-global-secure-access-logs-monitoring.md).
+
+For more information about traffic forwarding, see the following articles:
+
 - [Learn about traffic forwarding profiles](concept-traffic-forwarding.md)
 - [Manage the Microsoft 365 traffic profile](how-to-manage-microsoft-365-profile.md)

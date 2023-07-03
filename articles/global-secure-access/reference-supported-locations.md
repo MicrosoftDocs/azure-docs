@@ -5,19 +5,19 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: reference
-ms.date: 06/13/2023
+ms.date: 07/03/2023
 ms.service: network-access
 ms.custom: references_regions
 ---
 
 # Global Secure Access (preview) supported locations
 
-During the preview, Global Secure Access (preview) is available in limited points of presence. If you're not in one of these locations, you can still use the service routes through one of the nearby locations.
+During the preview, Global Secure Access (preview) is available in limited points of presence. The service routes through one of the following nearby locations, so even if you're not located in a listed location, you can still access the service.
 
 
 ## Microsoft Entra Internet Access
 
-The Microsoft 365 traffic forwarding profile that is part of Microsoft Entra Internet Access is currently supported in the following locations:
+Tunneling Microsoft 365 traffic, which is part of Microsoft Entra Internet Access, is currently supported in the following locations:
 
 | Europe | North America | South America | Africa | Middle East |
 |---|---|---|---|---|

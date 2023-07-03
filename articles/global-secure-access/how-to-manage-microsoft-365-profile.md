@@ -1,15 +1,15 @@
 ---
-title: How to manage and enable the Microsoft 365 profile
-description: Learn how to manage and enable the Microsoft 365 traffic forwarding profile for Global Secure Access (preview).
+title: How to enable and manage the Microsoft 365 profile
+description: Learn how to enable and manage the Microsoft 365 traffic forwarding profile for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 07/03/2023
 ms.service: network-access
 ms.custom: 
 ---
-# How to manage and enable the Microsoft 365 traffic forwarding profile
+# How to enable and manage the Microsoft 365 traffic forwarding profile
 
 With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires the traffic going to all Microsoft 365 services. The **Microsoft 365** profile manages the following policy groups:
 
@@ -90,5 +90,8 @@ Traffic profiles can be assigned to remote networks, so that the network traffic
 
 ## Next steps
 
-- [How to manage the Private access traffic profile](how-to-manage-private-access-profile.md)
-- [How to create remote networks](how-to-create-remote-networks.md)
+The next step for getting started with Microsoft Entra Internet Access is to [install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md)
+
+For more information about traffic forwarding, see the following article:
+
+- [Learn about traffic forwarding profiles](concept-traffic-forwarding.md)

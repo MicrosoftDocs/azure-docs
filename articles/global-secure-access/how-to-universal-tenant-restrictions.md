@@ -106,6 +106,10 @@ Outlook uses the QUIC protocol for some communications, we don't currently suppo
 
 ## Next steps
 
+The next step for getting started with Microsoft Entra Internet Access is to [Enable enhanced Global Secure Access signaling](how-to-source-ip-restoration.md#enable-global-secure-access-signaling-for-conditional-access).
+
+For more information on Conditional Access policies for Global Secure Access (preview), see the following articles:
+
 - [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md)
 - [Source IP restoration](how-to-source-ip-restoration.md)
 - [Enable compliant network check with Conditional Access](how-to-compliant-network.md)

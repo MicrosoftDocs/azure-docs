@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 07/03/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -89,5 +89,7 @@ Optionally:
 
 ## Next steps
 
-- [Learn about remote network connectivity](concept-remote-network-connectivity.md)
-- [Configure quick access](how-to-configure-quick-access.md)
+To get started with Microsoft Entra Internet Access, start by [enabling the Microsoft 365 traffic forwarding profile](how-to-manage-microsoft-365-profile.md).
+
+To get started with Microsoft Entra Private Access, start by [configuring an App Proxy connector group for the Quick Access app](how-to-configure-connectors.md).
+
