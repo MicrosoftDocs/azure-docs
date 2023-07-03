@@ -19,7 +19,7 @@ For many Microsoft Sentinel workspaces created before July 2023, there is a sepa
 ## Change pricing tier to simplified
 Classic pricing tiers are when Microsoft Sentinel and Log Analytics pricing tiers are configured separately and show up as different meters on your invoice. To move to the simplified pricing tier where Microsoft Sentinel and Log Analytics billing are combined for the same pricing meter, **Switch to new pricing**.
 
-# [Microsoft Sentinel portal](#tab/microsoft-sentinel-portal)
+# [Microsoft Sentinel](#tab/microsoft-sentinel)
 Use the following steps to change the pricing tier of your workspace using the Microsoft Sentinel portal. Once you've made the switch, reverting back to a classic pricing tier can't be performed using this interface.  
 
 1. From the **Settings** menu, select **Switch to new pricing**. 
