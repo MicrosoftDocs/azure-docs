@@ -8,11 +8,11 @@ ms.date: 06/29/2023
 
 # Protect servers with Defender for Servers
 
-Defender for Servers in Microsoft Defender for Cloud brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
+Defender for Servers in Microsoft Defender for Cloud brings threat detection and advanced defenses to your Windows and Linux machines that run in Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), and on-premises environments. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
 Microsoft Defender for Servers includes an automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md). With this integration enabled, you have access to the vulnerability findings from **Microsoft threat and vulnerability management**.
 
-Defender for Servers offers two plan options with that offer different levels of protection and their own cost. You can learn more about Defender for Clouds pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+Defender for Servers offers two plan options that offer different levels of protection and their own cost. You can learn more about Defender for Clouds pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ You can compare what's included in [each plan](plan-defender-for-servers-select-
 
 1. Select **Change plans**.
 
-    :::image type="content" source="media/tutorial-enable-servers-plan/servers-change-plan.png" alt-text="Screnshot that shows you where on the environment settings page to select change plans." lightbox="media/tutorial-enable-servers-plan/servers-change-plan.png":::
+    :::image type="content" source="media/tutorial-enable-servers-plan/servers-change-plan.png" alt-text="Screenshot that shows you where on the environment settings page to select change plans." lightbox="media/tutorial-enable-servers-plan/servers-change-plan.png":::
 
 1. In the popup window, select **Plan 2** or **Plan 1**.
 
