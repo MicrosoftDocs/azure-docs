@@ -343,9 +343,9 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 ### Configuring sampling overrides and fixed-rate sampling for Java applications
 
-By default no sampling is enabled in the Java auto-instrumentation and SDK. Currently the Java auto-instrumentation, [sampling overrides](./java-standalone-sampling-overrides.md) and fixed rate sampling are supported. Adaptive sampling isn't supported in Java.
+By default no sampling is enabled in the Java autoinstrumentation and SDK. Currently the Java autoinstrumentation, [sampling overrides](./java-standalone-sampling-overrides.md) and fixed rate sampling are supported. Adaptive sampling isn't supported in Java.
 
-#### Configuring Java auto-instrumentation
+#### Configuring Java autoinstrumentation
 
 * To configure sampling overrides that override the default sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
 * To configure fixed-rate sampling that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).

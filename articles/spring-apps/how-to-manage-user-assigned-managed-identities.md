@@ -1,7 +1,7 @@
 ---
 title: Manage user-assigned managed identities for an application in Azure Spring Apps
 description: How to manage user-assigned managed identities for applications.
-author: karlerickson
+author: KarlErickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to

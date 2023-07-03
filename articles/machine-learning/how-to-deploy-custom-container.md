@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use a custom container with an open-source server to deploy a model in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
