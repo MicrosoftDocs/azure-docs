@@ -106,8 +106,8 @@ In the **Interface configurations** tab, do the following to configure settings 
     |Name  |Description  |
     |---------|---------|
     |**Mode**     | Select **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  Select **ERSPAN** if you're using ERSPAN mirroring. For minformation, see [Choose a traffic mirroring method for OT sensors](../best-practices/traffic-mirroring-methods.md).       |
-    |**Description**     |  Enter an optional description for the interface. <!--where would i see this afterwards?-->       |
-    |**Auto negotiation**     | Relevant for physical machines only.  <!--what does this do?-->     
+    |**Description**     |  Enter an optional description for the interface. You'll see this later on in the **System settings > Interface configurations**, and these descriptions may be helpful in understanding the purpose of each interface. <!--this is a new page that we need to add-->  |
+    |**Auto negotiation**     | Relevant for physical machines only.  <!--what does this do? MIA TO SEND-->     
     
     Select **Save** to save your changes.
 
