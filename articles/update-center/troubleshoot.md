@@ -46,7 +46,7 @@ Azure machine has the patch orchestration option as AutomaticByOS/Windows automa
 
 If you don't want any patch installation to be orchestrated by Azure or aren't using custom patching solutions, you must change the patch orchestration option to **Customer Managed Schedules (Preview)** and don't associate a schedule/maintenance configuration to the machine. This will ensure that no patching is performed on the machine until you change it explicitly. For more information, see [User scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
 
-:::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Notification of failed update settings.":::
+:::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
 
 ## Machine shows as "Not assessed" and shows an HRESULT exception
 
