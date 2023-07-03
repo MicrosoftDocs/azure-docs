@@ -11,6 +11,8 @@
       href: concepts-resource-types.md
     - name: Compute overview
       href: concepts-compute.md
+    - name: Storage overview
+      href: concepts-storage.md
     - name: Observability
       href: concepts-observability.md
     - name: Nexus Kubernetes
@@ -117,5 +119,7 @@
       href: List-of-metrics-collected.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
+    - name: Near-edge storage
+      href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
