@@ -34,9 +34,11 @@ To use Start VM on Connect, make sure you follow these guidelines:
     - The [Android and Chrome OS client](./users/connect-android-chrome-os.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.0.10 or later)
     - The [Microsoft Store client](./users/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (version 10.2.2005.0 or later)
     - Thin clients listed in [Thin client support](./users/connect-thin-clients.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+      
 - If you want to configure Start VM on Connect using PowerShell, you'll need to have [the Az.DesktopVirtualization PowerShell module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization) (version 2.1.0 or later) installed on the device you use to run the commands.
 - You must grant Azure Virtual Desktop access to power on session host VMs, check their status, and report diagnostic information. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 - If you enable Start VM on Connect on a host pool, you must make sure that the host pool name, the names of the session hosts in that host pool, and the resource group name don't have non-ANSI characters. If their names contain non-ANSI characters, then Start VM on Connect won't work as expected.
+- Start VM on Connect feature does not support [RDP/MSTSC](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/connect-rdp) clients using the Public IP address.
 
 ## Assign the Desktop Virtualization Power On Contributor role with the Azure portal
 
