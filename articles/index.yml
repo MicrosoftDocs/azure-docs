@@ -174,7 +174,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/computer-vision/index-identity.yml
+      url: ai-services/computer-vision/overview-identity.md
     # Card
     - title: Document Intelligence
       summary: The AI-powered document extraction service that understands your forms
@@ -267,14 +267,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: ./ai-services/speech-service/index-speech-translation.yml
+      url: ./ai-services/speech-service/speech-translation/speech-translation.md
     # Card
     - title: Text Analytics
       summary: Easily evaluate sentiment and topics to understand what users want
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/text-analytics/index.yml
+      url: ai-services/language-service/index.yml
     # Card
     - title: Text to Speech
       summary: Convert text to speech to create more natural, accessible interfaces
@@ -292,7 +292,7 @@ productDirectory:
     # Card
     - title: Azure AI Video Indexer
       summary: Unlock video insights
-      imageSrc: ai-services/media/video-indexer.svg
+      imageSrc: azure-video-indexer/media/video-indexer.svg
       azureCategories:
         - ai-machine-learning
         - media
