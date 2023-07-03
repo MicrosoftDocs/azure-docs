@@ -29,7 +29,8 @@ To work with the code examples in this article, make sure you have:
 
 [!INCLUDE [storage-dev-guide-about-access-tiers](../../../includes/storage-dev-guides/storage-dev-guide-about-access-tiers.md)]
 
->[!NOTE]To set the access tier to `Cold` using .NET, you must use a minimum [client library](/dotnet/api/azure.storage.blobs) version of 12.15.0.
+>[!NOTE]
+>To set the access tier to `Cold` using .NET, you must use a minimum [client library](/dotnet/api/azure.storage.blobs) version of 12.15.0.
 
 ## Set a blob's access tier during upload
 
