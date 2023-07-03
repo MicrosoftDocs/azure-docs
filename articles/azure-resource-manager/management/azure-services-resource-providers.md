@@ -46,7 +46,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../../cdn/index.yml) |
-| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-certificate.md#import-certificate-into-app-service) |
+| Microsoft.CertificateRegistration | [App Service Certificates](../../app-service/configure-ssl-app-service-certificate.md) |
 | Microsoft.ChangeAnalysis | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |

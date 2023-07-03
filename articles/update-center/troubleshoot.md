@@ -36,6 +36,18 @@ To review the logs related to all actions performed by the extension, check for 
 * `WindowsUpdateExtension.log`: Contains details related to the patch actions, such as the patches assessed and installed on the machine, and any issues encountered in the process.
 * `CommandExecution.log`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For Auto-Patching, the log has details on whether the specific patch operation was invoked.
 
+## Unable to change the patch orchestration option to manual updates from automatic updates
+
+### Issue 
+
+Azure machine has the patch orchestration option as AutomaticByOS/Windows automatic updates and you are unable to change the patch orchestration to Manual Updates using Change update settings.
+
+### Resolution
+
+If you don't want any patch installation to be orchestrated by Azure or aren't using custom patching solutions, you must change the patch orchestration option to **Customer Managed Schedules (Preview)** and don't associate a schedule/maintenance configuration to the machine. This will ensure that no patching is performed on the machine until you change it explicitly. For more information, see [User scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
+
+:::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
+
 ## Machine shows as "Not assessed" and shows an HRESULT exception
 
 ### Issue
