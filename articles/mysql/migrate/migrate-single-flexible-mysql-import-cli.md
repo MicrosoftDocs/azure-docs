@@ -68,7 +68,11 @@ Trigger a MySQL Import operation with the `az mysql flexible-server import creat
 az mysql flexible-server import create --data-source-type
                                 --data-source
                                 --resource-group
-                                --server-name
+                                --name
+                                --sku-name
+                                --tier
+                                --version
+                                --storage-size
                                 [--subscription]
                                 [--mode]
                                 [--admin-password]
@@ -87,15 +91,11 @@ az mysql flexible-server import create --data-source-type
                                 [--private-dns-zone]
                                 [--public-access]
                                 [--resource-group]
-                                [--sku-name]
                                 [--standby-zone]
                                 [--storage-auto-grow {Disabled, Enabled}]
-                                [--storage-size]
                                 [--subnet]
                                 [--subnet-prefixes]
                                 [--tags]
-                                [--tier]
-                                [--version]
                                 [--vnet]
                                 [--zone]
 ```
@@ -103,7 +103,7 @@ az mysql flexible-server import create --data-source-type
  The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of source Single Server) and performs an import from source to target.
 
 ```azurecli-interactive
-az mysql flexible-server import create --data-source-type “mysql_single” --data-source “test-single-server” --subscription “test-subscription” --resource-group “test-rg” --location westus --server-name "test-flexible-server" --admin-user "username" --admin-password "password" --sku-name "Standard_B1ms" --tier "Burstable" --public-access 0.0.0.0 --storage-size 32 --tags "key=value" --version 5.7 --high-availability ZoneRedundant --zone 1 --standby-zone 3 --storage-auto-grow Enabled --iops 500 
+az mysql flexible-server import create --data-source-type “mysql_single” --data-source “test-single-server” --subscription “test-subscription” --resource-group “test-rg” --location westus --name "test-flexible-server" --admin-user "username" --admin-password "password" --sku-name "Standard_B1ms" --tier "Burstable" --public-access 0.0.0.0 --storage-size 32 --tags "key=value" --version 5.7 --high-availability ZoneRedundant --zone 1 --standby-zone 3 --storage-auto-grow Enabled --iops 500 
 ```
 
 Here are the details for arguments above:
@@ -116,7 +116,7 @@ subscription | test-subscription | The name or ID of subscription of the source 
 resource-group | test-rg | The name of the Azure resource group of the source Azure Database for MySQL Single Server.
 mode | Offline | The mode of MySQL import. Accepted values: [Offline]; Default value: Offline.
 location | westus | The Azure location for the source Azure Database for MySQL Single Server.
-server-name | test-flexible-server | Enter a unique name for your target Azure Database for MySQL Flexible Server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters. Note : This server is deployed in the same subscription, resource group and region as the source.
+name | test-flexible-server | Enter a unique name for your target Azure Database for MySQL Flexible Server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters. Note : This server is deployed in the same subscription, resource group and region as the source.
 admin-user | adminuser | The username for the administrator login for your target Azure Database for MySQL Flexible Server. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *password* | The password of the administrator user for your target Azure Database for MySQL Flexible Server. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration for your target Azure Database for MySQL Flexible Server. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See the [pricing tiers](../flexible-server/concepts-service-tiers-storage.md#service-tiers-size-and-server-types) for more information.
