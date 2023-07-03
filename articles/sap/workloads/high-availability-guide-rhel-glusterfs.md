@@ -35,6 +35,8 @@ ms.author: radeltch
 This article describes how to deploy the virtual machines, configure the virtual machines, and install a GlusterFS cluster that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up GlusterFS that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **glust**.
 
+As documented on <https://access.redhat.com/support/policy/updates/rhs> GlusterfS will only be supported by Red Hat until the end of 2024 and is no longer available for new deployments. Therefore it is recommended by Microsoft and Red Hat to use either Azure Files or Azure NetApp Files for managing the shared file systems required by SAP NetWeaver HA setups on RHEL.
+
 Read the following SAP Notes and papers first
 
 * SAP Note [1928533], which has:
