@@ -21300,7 +21300,7 @@
         },
         {
             "source_path_from_root": "/articles/communication-services/how-tos/calling-sdk/lobby-admit-and-reject.md",
-            "redirect_url": "/azure/communication-services/how-tos/calling-sdk/lobby.md",
+            "redirect_url": "/azure/communication-services/how-tos/calling-sdk/lobby",
             "redirect_document_id": false
         },
         {
