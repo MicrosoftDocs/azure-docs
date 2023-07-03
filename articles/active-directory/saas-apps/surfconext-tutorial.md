@@ -104,24 +104,21 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| urn:mace:dir:attribute-def:uid | user.userprincipalname |
 	| urn:mace:terena.org:attribute-def:schacHomeOrganization | user.userprincipalname |
 
-1. Please follow the below steps for **urn:mace:terena.org:attribute-def:schacHomeOrganization** claim:
+1. To perform Transform operation for **urn:mace:terena.org:attribute-def:schacHomeOrganization** claim, select **Transformation** button as a Source under **Manage claim** section.
 
-	1. Go to **Attributes & Claims** section and click on **urn:mace:terena.org:attribute-def:schacHomeOrganization** attribute under Required claim section.
-	
-	1. Select **Transformation** button as a Source under **Manage claim**.
+1. In the **Manage transformation** page, perform the following steps:
 
-	1. In the **Manage transformation** page, perform the following steps:
 	![Screenshot shows the Azure portal attributes.](media/surfconext-tutorial/transform.png "Admin")
 
-		1. Select **Extract()** from the dropdown in **Transformation** field and click **After matching** button.
+	1. Select **Extract()** from the dropdown in **Transformation** field and click **After matching** button.
 
-		1. Select **Attribute** as a **Parameter 1 (Input)**.
+	1. Select **Attribute** as a **Parameter 1 (Input)**.
 
-		1. In the **Attribute name** field, select **user.userprinciplename** from the dropdown.
+	1. In the **Attribute name** field, select **user.userprinciplename** from the dropdown.
 
-		1. Select **@** value from the dropdown.
+	1. Select **@** value from the dropdown.
 
-		1. Click **Add**.
+	1. Click **Add**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
