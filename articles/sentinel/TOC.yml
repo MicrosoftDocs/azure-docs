@@ -173,6 +173,8 @@
       href: sap/solution-overview.md
     - name: Working with the SAP solution across multiple workspaces
       href: sap/cross-workspace.md
+    - name: Respond to SAP incidents with playbooks
+      href: sap/sap-incident-response-playbooks.md
     - name: SAP BTP solution
       items:
       - name: Overview
@@ -998,8 +1000,6 @@
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
         href: sap/sap-solution-deploy-alternate.md
-      - name: Deploy incident response playbooks for SAP
-        href: sap/sap-incident-response-playbooks.md
       - name: Configure SAP audit log monitoring rules
         href: sap/configure-audit-log-rules.md
       - name: Select SAP ingestion profile
