@@ -173,7 +173,7 @@ The compute containers are shared among all materialized views within an Azure C
 
 ## Create a materialized view
 
-After your account and the materialized view builder is set up, you should be able to create materialized views by using the REST API.
+After your account and the materialized view builder are set up, you should be able to create materialized views by using the REST API.
 
 ### [Azure portal / Azure CLI](#tab/azure-portal+azure-cli)
 
