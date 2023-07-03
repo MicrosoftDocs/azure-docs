@@ -64,7 +64,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the Open 
         empty: none
     ```
 
-3. Run **sdutil** to see if it's working fine. Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`.
+3. Run **sdutil** to see if it's working fine. Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/home/-/tree/master). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`.
 
     > [!NOTE] 
     > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.

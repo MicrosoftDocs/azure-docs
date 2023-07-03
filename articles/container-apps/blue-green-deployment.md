@@ -324,12 +324,12 @@ The following example shows how the `traffic` section is configured after this s
 { 
   "traffic": [
     {
-      "revisionName": "<APP_NAME>--c6f1515",
+      "revisionName": "<APP_NAME>--fb699ef",
       "weight": 0,
       "label": "blue"
     },
     {
-      "revisionName": "<APP_NAME>--fb699ef",
+      "revisionName": "<APP_NAME>--c6f1515",
       "weight": 100,
       "label": "green"
     }

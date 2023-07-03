@@ -5,21 +5,21 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 06/30/2023
 ms.author: duau
 ---
 
 # About upgrading ExpressRoute circuit bandwidth
 
-ExpressRoute is a dedicated and private connection to Microsoft's global network. Connectivity is facilitated by an ExpressRoute partner's network, or a direct connection to the Microsoft Enterprise Edge (MSEE) devices. Once physical connectivity has been configured and tested, you can enable layer-2 and layer-3 connectivity by creating an ExpressRoute circuit and configuring peering.
+ExpressRoute is a dedicated and private connection to Microsoft's global network. Connectivity is facilitated through an ExpressRoute partner's network, or a direct connection to the Microsoft Enterprise Edge (MSEE) devices. Once physical connectivity has been configured and tested, you can enable layer-2 and layer-3 connectivity by creating an ExpressRoute circuit and configuring peering.
 
 ## <a name="considerations"></a>Capacity considerations
 
 ### Insufficient capacity for physical connection
 
-An ExpressRoute circuit is created on a physical connection between Microsoft and a ExpressRoute Partner. The physical connection has a fixed capacity. If you're unable to increase your circuit size that means that the underlying physical connection for your existing circuit doesn’t have capacity for the upgrade. You'll need to create a new circuit if you want to change the circuit size.
+An ExpressRoute circuit is created on a physical connection between Microsoft and a ExpressRoute Partner. The physical connection has a fixed capacity. If you're unable to increase your circuit size that means that the underlying physical connection for your existing circuit doesn’t have capacity for the upgrade. You need to create a new circuit if you want to change the circuit size.
 
-After you've successfully created the new ExpressRoute circuit you should link your existing virtual networks to this circuit. You can then test and validate the connectivity of the new ExpressRoute circuit before you deprovision the old circuit. These are the recommended migration steps to minimize down time and disruption to your production work load.
+After you've successfully created the new ExpressRoute circuit, you should link your existing virtual networks to this circuit. You can then test and validate the connectivity of the new ExpressRoute circuit before you deprovision the old circuit. These recommended migration steps minimize down time and disruption to your production work load.
 
 ### <a name="bandwidth"></a>Insufficient ExpressRoute partner bandwidth
 

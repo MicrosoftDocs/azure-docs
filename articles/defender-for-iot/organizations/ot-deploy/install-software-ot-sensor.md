@@ -54,6 +54,7 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 This procedure describes how to install OT monitoring software on an OT network sensor.
 
 > [!NOTE]
+> If your appliance has a RAID storage array, make sure to configure it before you continue installation.<br>
 > Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
 
 **To install your software**:
@@ -68,7 +69,7 @@ This procedure describes how to install OT monitoring software on an OT network 
         Your physical media must have a minimum of 4-GB storage.
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
-
+  
 1. When the installation boots, you're first prompted to select the hardware profile you want to use. For example:
 
     :::image type="content" source="../media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's hardware profile options." lightbox="../media/tutorial-install-components/sensor-architecture.png":::
