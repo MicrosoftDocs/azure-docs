@@ -37,6 +37,6 @@ NAS is a common protocol across many industries, including oil & gas, high perfo
 
 
 ## Next steps 
-* [Understand NAS protocols](understand-nas-protocols.md)
+* [Understand NAS protocols](network-attached-storage-protocols.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)
 * [Azure NetApp Files SMB FAQ](faq-smb.md)

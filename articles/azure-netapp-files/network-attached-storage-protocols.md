@@ -79,7 +79,7 @@ NFSv4.x has the following characteristics:
 
 For frequently asked questions regarding NFS in Azure NetApp Files, see the [Azure NetApp Files NFS FAQ](faq-nfs.md). 
 
-## Server Message Block 
+## Server Message Block (SMB)
 
 SMB is primarily used with Windows clients for NAS functionality. However, it can also be used on Linux-based operating systems such as AppleOS, RedHat, etc. This deployment is generally accomplished using an application called Samba. Azure NetApp Files has official support for SMB using Windows and macOS. SMB/Samba on Linux operating systems can work with Azure NetApp Files, but there is no official support. 
 
