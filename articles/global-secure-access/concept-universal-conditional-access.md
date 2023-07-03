@@ -28,6 +28,14 @@ This functionality allows administrators to consistently enforce Conditional Acc
 * A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running.
 * You must be routing your Microsoft 365 and private network traffic through the **Global Secure Access preview**.
 
+### Known limitations
+
+- Continuous access evaluation is not currently supported for Universal Conditional Access for Microsoft 365 traffic.
+- Applying Conditional Access policies to Private Access traffic is not currently supported. To model this behavior, you can apply a Conditional Access policy at the application level for Quick Access and Global Secure Access apps. For more information, see [Apply Conditional Access to Private Access apps](how-to-target-resource-private-access-apps.md).
+- Applying Conditional Access policies to Internet traffic is not currently supported. Internet traffic is in private preview. To request access to the private preview, complete [the private preview interest form](https://aka.ms/entra-ia-preview).
+- Microsoft 365 traffic can be accessed through remote network connectivity without the Global Secure Access Client; however the Conditional Access policy isn't enforced. In other words, Conditional Access policies for the Global Secure Access Microsoft 365 traffic are only enforced when a user has the Global Secure Access Client.
+
+
 ## Conditional Access policies
 
 With Conditional Access, you can enable access controls and security policies for the network traffic acquired by Microsoft Entra Internet Access and Microsoft Entra Private Access. 
@@ -39,7 +47,7 @@ With Conditional Access, you can enable access controls and security policies fo
 
 ## User experience
 
-When users sign in to a machine with the Global Secure Access Client installed, configured, and running for the first time they're prompted to sign in. When users attempt to access a resource protected by a policy. like the example above, the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access Client you see a red circle indicating it's signed out or not running.
+When users sign in to a machine with the Global Secure Access Client installed, configured, and running for the first time they're prompted to sign in. When users attempt to access a resource protected by a policy. like the previous example, the policy is enforced and they're prompted to sign in if they haven't already. Looking at the system tray icon for the Global Secure Access Client you see a red circle indicating it's signed out or not running.
 
 :::image type="content" source="media/how-to-target-resource-microsoft-365-profile/windows-client-pick-an-account.png" alt-text="Screenshot showing the pick an account window for the Global Secure Access Client.":::
 

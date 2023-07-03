@@ -18,15 +18,16 @@ With a cloud based network proxy between users and their resources, the IP addre
 
 Microsoft’s existing solutions such as Conditional Access and continuous access evaluation (CAE) enforcement for Microsoft 365 apps rely on source IP information. With the Global Secure Access preview and source IP restoration, organizations can continue using IP location-based Conditional Access policies, including CAE enforcement.
 
-Source IP restoration allows services to see the real source IP address, these services include: [Conditional Access](/azure/active-directory/conditional-access/overview), [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation), [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks), [sign-in logs](/azure/active-directory/reports-monitoring/concept-sign-ins), and [endpoint detection & response (EDR)](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response).
-
 ## Prerequisites
 
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing.
    * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
 * A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
+ 
+### Known limitations
 
+- When source IP restoration is enabled, you can only see the source IP. The IP address of the Global Secure Access service isn't visible. If you want to see the Global Secure Access service IP address, disable source IP restoration.
 ## Enable Global Secure Access signaling for Conditional Access
 
 To enable the required setting to allow source IP restoration, an administrator must take the following steps.
@@ -49,7 +50,7 @@ To see source IP restoration in action, administrators can take the following st
 1. Sign in to the **Microsoft Entra admin center** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
 1. Browse to **Identity** > **Users** > **All users** > select one of your test users > **Sign-in logs**.
 1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
-   1. If source IP restoration is disabled, you won't see their actual IP address.
+   - If source IP restoration is disabled, you can't see their actual IP address.
 
 Sign-in log data may take some time to appear, this delay is normal as there's some processing that must take place.
 

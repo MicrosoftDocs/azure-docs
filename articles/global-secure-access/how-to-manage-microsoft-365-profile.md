@@ -1,21 +1,21 @@
 ---
-title: How to manage and enable the Microsoft 365 profile
-description: Learn how to manage and enable the Microsoft 365 traffic forwarding profile for Global Secure Access (preview).
+title: How to enable and manage the Microsoft 365 profile
+description: Learn how to enable and manage the Microsoft 365 traffic forwarding profile for Global Secure Access (preview).
 author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 07/03/2023
 ms.service: network-access
 ms.custom: 
 ---
-# How to manage and enable the Microsoft 365 traffic forwarding profile
+# How to enable and manage the Microsoft 365 traffic forwarding profile
 
 With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires the traffic going to all Microsoft 365 services. The **Microsoft 365** profile manages the following policy groups:
 
 - Exchange Online
 - SharePoint Online and OneDrive for Business
-- Microsoft 365 Common and Office Online
+- Microsoft 365 Common and Office Online (only Microsoft Entra ID and Microsoft Graph)
 
 ## Prerequisites
 
@@ -23,6 +23,10 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
 
+### Known limitations
+
+- Teams is currently not supported as part of the Microsoft 365 Common endpoints. Only Microsoft Entra ID and Microsoft Graph are supported.
+- For details on limitations for the Microsoft 365 traffic profile, see [Windows Client known limitations](how-to-install-windows-client.md#known-limitations)
 ## Enable the Microsoft 365 traffic profile
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
@@ -49,11 +53,13 @@ The policy groups include the following details:
 - **Protocol**: TCP (Transmission Control Protocol) or UDP (User Datagram Protocol)
 - **Action**: Forward or Bypass
 
-You can choose to bypass certain traffic. Users can still access the site; however, the service doesn't process the traffic. You can bypass traffic to a specific FQDN or IP address, an entire policy group within the profile, or the entire Microsoft 365 profile itself. If you only need to forward some of the Microsoft 365 resources within the policy groups, enable the group then change the **Action** in the details accordingly.
+You can choose to bypass certain traffic. Users can still access the site; however, the service doesn't process the traffic. You can bypass traffic to a specific FQDN or IP address, an entire policy group within the profile, or the entire Microsoft 365 profile itself. If you only need to forward some of the Microsoft 365 resources within a policy group, enable the group then change the **Action** in the details accordingly.
 
 The following example shows setting the `*.sharepoint.com` FQDN to **Bypass** so the traffic won't be forwarded to the service.
 
 ![Screenshot of the Action dropdown menu.](media/how-to-manage-microsoft-365-profile/microsoft-365-policies-forward-bypass.png)
+
+If the Global Secure Access client isn't able to connect to the service (for example due to an authorization or Conditional Access failure), the service *bypasses* the traffic. Traffic is sent direct-and-local instead of being blocked. In this scenario, you can create a Conditional Access policy for the [compliant network check](how-to-compliant-network.md), to block traffic if the client isn't able to connect to the service.
 
 ## Linked Conditional Access policies
 
@@ -88,5 +94,8 @@ Traffic profiles can be assigned to remote networks, so that the network traffic
 
 ## Next steps
 
-- [How to manage the Private access traffic profile](how-to-manage-private-access-profile.md)
-- [How to create remote networks](how-to-create-remote-networks.md)
+The next step for getting started with Microsoft Entra Internet Access is to [install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md)
+
+For more information about traffic forwarding, see the following article:
+
+- [Learn about traffic forwarding profiles](concept-traffic-forwarding.md)

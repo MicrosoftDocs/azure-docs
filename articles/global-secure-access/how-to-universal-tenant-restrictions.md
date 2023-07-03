@@ -40,6 +40,27 @@ Universal tenant restrictions help to prevent data exfiltration across browsers,
 - Works with all Microsoft Entra ID integrated third-party apps at the auth plane during sign in.
 - Works with Exchange, SharePoint, and Microsoft Graph for data plane protection.
 
+## Prerequisites
+
+* Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
+   * The **Global Secure Access Administrator** role to manage the Global Secure Access preview features
+   * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
+* A Windows client machine with the [Global Secure Access Client installed](how-to-install-windows-client.md) and running or a [remote network configured](how-to-manage-remote-networks.md).
+* You must be routing your end-user Microsoft 365 network traffic through the **Global Secure Access preview** using the steps in [How to manage the Microsoft 365 profile](how-to-manage-microsoft-365-profile.md).
+
+### Known limitations
+
+- If you have enabled universal tenant restrictions and you are accessing the Microsoft Entra admin center for one of the allow listed tenants, you may see an "Access denied" error. Add the following feature flag to the Microsoft Entra admin center:
+    - `?feature.msaljs=true&exp.msaljsexp=true`
+    - For example, you work for Contoso and you have allow listed Fabrikam as a partner tenant. You may see the error message for the Fabrikam tenant's Microsoft Entra admin center.
+        - If you received the "access denied" error message for this URL: `https://entra.microsoft.com/#home` then add the feature flag as follows: `https://entra.microsoft.com/?feature.msaljs%253Dtrue%2526exp.msaljsexp%253Dtrue#home`
+
+
+Outlook uses the QUIC protocol for some communications. We don't currently support the QUIC protocol. Organizations can use a firewall policy to block QUIC and fallback to non-QUIC protocol. The following PowerShell command creates a firewall rule to block this protocol.
+
+```PowerShell
+@New-NetFirewallRule -DisplayName "Block QUIC for Exchange Online" -Direction Outbound -Action Block -Protocol UDP -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32,6.6.0.0/16 -RemotePort 443 
+```
 ## Configure tenant restrictions v2 policy 
 
 Before an organization can use universal tenant restrictions, they must configure both the default tenant restrictions and tenant restrictions for any specific partners.
@@ -67,7 +88,7 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
 ### Try the authentication path:
 
 1. With universal tenant restrictions turned off in Global Secure Access global settings.
-1. Go to SharePoint Online, [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
+1. Go to SharePoint Online, `https://yourcompanyname.sharepoint.com/`, with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be able to access SharePoint Online.
 1. Turn on universal tenant restrictions.
@@ -79,7 +100,7 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
 ### Try the data path  
 
 1. With universal tenant restrictions turned off in Global Secure Access global settings.
-1. Go to SharePoint Online, [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
+1. Go to SharePoint Online, `https://yourcompanyname.sharepoint.com/`, with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be able to access SharePoint Online.
 1. In the same browser with SharePoint Online open, go to Developer Tools, or press F12 on the keyboard. Start capturing the network logs. You should see Status 200, when everything is working as expected. 
@@ -94,17 +115,13 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
       1. `Restrict-Access-Confirm: 1`
       1. `x-ms-diagnostics: 2000020;reason="xms_trpid claim was not present but sec-tenant-restriction-access-policy header was in requres";error_category="insufficiant_claims"`
 
-## Known limitations
-
-Outlook uses the QUIC protocol for some communications, we don't currently support the QUIC protocol. Organizations can use a firewall policy to block QUIC and fallback to non-QUIC protocol. The following PowerShell command creates a firewall rule to block this protocol.
-
-```PowerShell
-@New-NetFirewallRule -DisplayName "Block QUIC for Exchange Online" -Direction Outbound -Action Block -Protocol UDP -RemoteAddress 13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,204.79.197.215/32,6.6.0.0/16 -RemotePort 443 
-```
-
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
 ## Next steps
+
+The next step for getting started with Microsoft Entra Internet Access is to [Enable enhanced Global Secure Access signaling](how-to-source-ip-restoration.md#enable-global-secure-access-signaling-for-conditional-access).
+
+For more information on Conditional Access policies for Global Secure Access (preview), see the following articles:
 
 - [Set up tenant restrictions V2 (Preview)](../active-directory/external-identities/tenant-restrictions-v2.md)
 - [Source IP restoration](how-to-source-ip-restoration.md)

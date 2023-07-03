@@ -140,4 +140,6 @@ To learn more about connector groups, see [Publish applications on separate netw
 
 ## Next steps
 
+The next step for getting started with Microsoft Entra Private Access is to configure the Quick Access or Global Secure Access application:
+- [Configure Quick Access to your private resources](how-to-configure-quick-access.md)
 - [Configure per-app access for Microsoft Entra Private Access](how-to-configure-per-app-access.md)

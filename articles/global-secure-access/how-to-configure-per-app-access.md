@@ -199,5 +199,9 @@ Once you have your app configured, your private resources added, users assigned 
 
 ## Next steps
 
-- [Manage the private access traffic management profile](how-to-manage-private-access-profile.md)
+The next step for getting started with Microsoft Entra Private Access is to [enable the Private Access traffic forwarding profile](how-to-manage-private-access-profile.md).
+
+For more information about Private Access, see the following articles:
 - [Learn about traffic management profiles](concept-traffic-forwarding.md)
+- [Manage the Private Access traffic profile](how-to-manage-private-access-profile.md)
+- [Apply Conditional Access policies to the Global Secure Access application](how-to-target-resource-private-access-apps.md)

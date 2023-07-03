@@ -15,8 +15,6 @@ The Global Secure Access Client allows organizations control over network traffi
 
 ## Prerequisites
 
-- Tenant must be onboarded to Global Secure Access.
-- [Traffic forwarding profiles](concept-traffic-forwarding.md) must be enabled for the traffic you wish to tunnel.
 - The Global Secure Access Client is supported on 64-bit versions of Windows 11 or Windows 10.
 - Devices must be either Azure AD joined or hybrid Azure AD joined. 
    - Azure AD registered devices aren't supported.
@@ -24,9 +22,11 @@ The Global Secure Access Client allows organizations control over network traffi
 
 ### Known limitations
 
-- Multiple user sessions on the same device, like those from a Remote Desktop Server (RDP) aren't supported.
-- Connecting to networks that use a captive portal, like some guest wireless network solutions, might fail. As a workaround [pause the Global Secure Access Client](#troubleshooting).
+- Multiple user sessions on the same device, like those from a Remote Desktop Server (RDP), aren't supported.
+- Connecting to networks that use a captive portal, like some guest wireless network solutions, might fail. As a workaround you can [pause the Global Secure Access Client](#troubleshooting).
 - Virtual machines where both the host and guest Operating Systems have the Global Secure Access Client installed aren't supported. Individual virtual machines with the client installed are supported.
+- If the Global Secure Access Client isn't able to connect to the service (for example due to an authorization or Conditional Access failure), the service *bypasses* the traffic. Traffic is sent direct-and-local instead of being blocked. In this scenario, you can create a Conditional Access policy for the [compliant network check](how-to-compliant-network.md), to block traffic if the client isn't able to connect to the service.
+
 
 There are several other limitations based on the traffic forwarding profile in use:
 
@@ -34,7 +34,7 @@ There are several other limitations based on the traffic forwarding profile in u
 | --- | --- |
 | [Microsoft 365](how-to-manage-microsoft-365-profile.md) | Tunneling [IPv6 traffic isn't currently supported](#disable-ipv6-and-secure-dns). |
 | [Microsoft 365](how-to-manage-microsoft-365-profile.md) and [Private access](how-to-manage-private-access-profile.md) | To tunnel network traffic based on rules of FQDNs (in the forwarding profile), [DNS over HTTPS (Secure DNS) needs to be disabled](#disable-ipv6-and-secure-dns). |
-| [Microsoft 365](how-to-manage-microsoft-365-profile.md) | The Global Secure Access Client currently only supports TCP traffic. Exchange Online uses the QUIC protocol for some traffic over UDP port 443 force this traffic to use HTTPS (443 TCP) by [blocking the QUIC traffic with a local firewall rule](#block-quic-when-tunneling-exchange-online-traffic). |
+| [Microsoft 365](how-to-manage-microsoft-365-profile.md) | The Global Secure Access Client currently only supports TCP traffic. Exchange Online uses the QUIC protocol for some traffic over UDP port 443 force this traffic to use HTTPS (443 TCP) by [blocking the QUIC traffic with a local firewall rule](#block-quic-when-tunneling-exchange-online-traffic). Non-HTTP protocols, such as POP3, IMAP, SMTP, are not acquired form the Client and are sent direct-and-local. |
 | [Microsoft 365](how-to-manage-microsoft-365-profile.md) and [Private access](how-to-manage-private-access-profile.md) | If the end-user device is configured to use a proxy server, locations that you wish to tunnel using the Global Secure Access Client must be excluded from that configuration. For examples, see [Proxy configuration example](#proxy-configuration-example). |
 | [Private access](how-to-manage-private-access-profile.md) | Single label domains, like `https://contosohome` for private apps aren't supported, instead use a fully qualified domain name (FQDN), like `https://contosohome.contoso.com`. Administrators can also choose to append DNS suffixes via Windows. |
 
@@ -179,5 +179,4 @@ This list of IPv4 addresses is based on the [Office 365 URLs and IP address rang
 
 ## Next steps
 
-- [Enable source IP restoration](how-to-source-ip-restoration.md)
-- [Enable compliant network check with Conditional Access](how-to-compliant-network.md)
+The next step for getting started with Microsoft Entra Internet Access is to [enable universal tenant restrictions](how-to-universal-tenant-restrictions.md).

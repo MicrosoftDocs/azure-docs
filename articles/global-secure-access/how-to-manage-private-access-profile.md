@@ -23,7 +23,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 ### Known limitations
 
-- At this time, Private access traffic can only be acquired with the Global Secure Access Client. Remote networks can't be assigned to the Private access traffic forwarding profile.
+- At this time, Private Access traffic can only be acquired with the Global Secure Access Client. Private Access traffic can't be acquired from remote networks.
 - Tunneling traffic to Private Access destinations by IP address is supported only for IP ranges outside of the end-user device local subnet. 
 - You must disable DNS over HTTPS (Secure DNS) to tunnel network traffic based on the rules of the fully qualified domain names (FQDNs) in the traffic forwarding profile. 
 
@@ -67,5 +67,8 @@ If you see "None" in the **Linked Conditional Access policies** section, there i
 
 ## Next steps
 
-- [Configure Quick Access](how-to-configure-quick-access.md)
+The next step for getting started with Microsoft Entra Internet Access is to [install and configure the Global Secure Access Client on end-user devices](how-to-install-windows-client.md).
+
+For more information about Private Access, see the following articles:
 - [Learn about traffic forwarding](concept-traffic-forwarding.md)
+- [Configure Quick Access](how-to-configure-quick-access.md)

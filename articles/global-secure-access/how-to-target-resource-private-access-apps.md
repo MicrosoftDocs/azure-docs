@@ -26,6 +26,10 @@ This article describes how to apply Conditional Access policies to your Quick Ac
 * You must be routing your private network traffic through the **Global Secure Access preview**.
 * You need to have configured Quick Access or Private Access.
 
+### Known limitations
+
+- At this time, connecting through the Global Secure Access Client is required to acquire Private Access traffic.
+
 ## Conditional Access and Global Secure Access
 
 You can create a Conditional Access policy for your Quick Access or Private Access apps from Global Secure Access. Starting the process from Global Secure Access automatically adds the selected app as the **Target resource** for the policy. All you need to do is configure the policy settings.
