@@ -50,7 +50,7 @@ To see source IP restoration in action, administrators can take the following st
 1. Sign in to the **Microsoft Entra admin center** as a [Security Reader](/azure/active-directory/roles/permissions-reference#security-reader).
 1. Browse to **Identity** > **Users** > **All users** > select one of your test users > **Sign-in logs**.
 1. With source IP restoration enabled, you see IP addresses that include their actual IP address. 
-   1. If source IP restoration is disabled, you won't see their actual IP address.
+   - If source IP restoration is disabled, you can't see their actual IP address.
 
 Sign-in log data may take some time to appear, this delay is normal as there's some processing that must take place.
 
