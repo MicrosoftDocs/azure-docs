@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 06/29/2023
 ---
 
-# Quickstart: Call preview REST APIs for vector search queries
+# Quickstart: Use preview REST APIs for vector search queries
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
@@ -23,7 +23,11 @@ Get started with vector search in Azure Cognitive Search using the **2023-07-01-
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search. The service can be in any region and any tier except free. However, to run the last two queries, S1 or higher is required, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search). The majority of existing services will support vector search. For a small subset of services created prior to January 2019, an index containing vector fields might fail on creation. In this situation, a new service must be created.
++ Azure Cognitive Search, in any region and on any tier.
+
+  To also use [semantic search](semantic-search-overview.md), as shown in the last two examples, you need to use the Standard tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
+
+  The majority of existing services will support vector search. For a small subset of services created prior to January 2019, an index containing vector fields might fail on creation. In this situation, a new service must be created.
 
 + [Sample Postman collection](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection), with requests targeting the **2023-07-01-preview** API version of Azure Cognitive Search.
 
@@ -37,7 +41,7 @@ Sample data consists of text and vector descriptions of 108 Azure services, gene
 
 + Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
 
-  For documents, we generated vector data using demo code that calls Azure Open for the embeddings. Demo code is currently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Demo code is currently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript), and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
 
   For queries, we used the "Create Query Embeddings" request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data of 108 Azure services, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, that embedding model is **text-embedding-ada-002**, API version **2023-05-15**.
 
@@ -166,9 +170,9 @@ You should get a status HTTP 201 success.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchConfiguration"` properties. See [this article](/rest/api/searchservice/preview-api/create-or-update-index) for property descriptions.
 
-+ The "vectorSearch" configuration is an array of algorithms, but only the "hnsw" algorithm is supported in this preview. Hierarchical Navigable Small World (HNSW) is part of the infrastructure that powers vector search support. It works well with [embedding models](/azure/cognitive-services/openai/concepts/models#embeddings-models) provided in Azure OpenAI.
++ The "vectorSearch" object is an array of algorithm configurations used by vector fields. Currently, only HNSW is supported. HNSW is a graph-based Approximate Nearest Neighbors (ANN) algorithm optimized for high-recall, low-latency applications.
 
-+ The "semanticSearch" configuration enables semantic reranking of search results. You can semantically rerank results in queries of type "semantic" for string fields that are specified in the configuration.
++ The "semanticSearch" configuration enables semantic reranking of search results. You can semantically rerank results in queries of type "semantic" for string fields that are specified in the configuration. See [Semantic Search overview](semantic-search-overview.md) to learn more.
 
 ## Upload documents
 
@@ -221,30 +225,24 @@ api-key: {{admin-api-key}}
 
 + Documents in the payload consist of fields defined in the index schema. 
 
-+ Vector fields contain floating point values. The dimensions attribute has a minimum of 2 and a maximum of 2048 floating point values each. Remember embedding model token limits when generating embeddings. This quickstart sets the dimensions attribute to 1536 because that was a working limit of the model we're using. We recommend chunking your data to ensure your embeddings get the best possible coverage of your data.
++ Vector fields contain floating point values. The dimensions attribute has a minimum of 2 and a maximum of 2048 floating point values each. This quickstart sets the dimensions attribute to 1536 because that's the size of embeddings generated by the Open AI's **text-embedding-ada-002** model.
 
 ## Run queries
 
-Use the [Search Documents](/rest/api/searchservice/preview-api/search-documents) REST API for this request. Public preview has several limitations:
-
-+ POST is required for this preview and the API version must be 2023-07-01-Preview
-+ Only one vector field per query at this time (for example, either "titleVector" or "contentVector", but not both)
-+ Multi-vector queries aren't supported. A search request can carry a single vector query.
-+ Sorting ($orderby) and pagination ($skip) aren't supported for hybrid queries.
-+ Facets ($facet) and count ($count) aren't supported for vector and hybrid queries.
+Use the [Search Documents](/rest/api/searchservice/preview-api/search-documents) REST API for this request. Public preview has several limitations. POST is required for this preview and the API version must be 2023-07-01-Preview.
 
 There are 6 queries to demonstrate the patterns. We use the same query string (*"what Azure services support full text search"*) across all of them so that you can compare results and relevance.
 
 + [Single vector search](#single-vector-search)
 + [Single vector search with filter](#single-vector-search-with-filter)
-+ [Simple hybrid search](#simple-hybrid-search)
-+ [Simple hybrid search with filter](#simple-hybrid-search-with-filter)
++ [Hybrid search](#hybrid-search)
++ [Hybrid search with filter](#hybrid-search-with-filter)
 + [Semantic hybrid search](#semantic-hybrid-search)
 + [Semantic hybrid search with filter](#semantic-hybrid-search-with-filter)
 
 ### Single vector search
 
-In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return as top hits.
+In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input, "fields" determines which vector fields are searched, and "k" specifies the number of nearest neighbors to return.
 
 Recall that the vector query was generated from this string: "what Azure services support full text search". The search targets the "contentVector" field.
 
@@ -268,7 +266,7 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response will always include "k" matches, although the search score will be quite low if the similarity is weak.
+The response includes 5 results, and each result provides a search score, title, content, and category. In a similarity search, the response will always include "k" results ordered by the value similarity score.
 
 ### Single vector search with filter
 
@@ -297,13 +295,11 @@ api-key: {{admin-api-key}}
 }
 ```
 
-### Simple hybrid search
+### Hybrid search
 
-Hybrid search instructs the search engine to search over both the vector indices and the inverted indices of your search index. Hybrid queries work when your index includes both vector fields and regular search fields (strings, numeric data, geo coordinates, and so forth).
+Hybrid search allows to compose keyword queries and vector queries in a single search request. 
 
-For best results, vector "value" and "search" should be equivalent (that is, vector "value" should be an embedding of whatever text is in "search"). If the queries are different, the queries are OR'd.
-
-The response includes the top 10 by search score. Both vector queries and free text queries are assigned a search score. The scores are merged using Reciprocal Rank Fusion (RRF) to weight each document with the inverse of its position on the rank. 
+The response includes the top 10 by search score. Both vector queries and free text queries are assigned a search score according to the similarity functions configured on the fields (BM25 for text fields). The scores are merged using Reciprocal Rank Fusion (RRF) to weight each document with the inverse of its position on the rank. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -329,7 +325,7 @@ api-key: {{admin-api-key}}
 
 Compare the responses between Single Vector Search and Simple Hybrid Search for the top result. The different ranking algorithms produce scores that have different magnitudes.
 
-**Single Vector Search**: Using Hierarchical Navigable Small Worlds (hnsw) for ranking
+**Single Vector Search**: Results ordered by cosine similarity (default vector similarity distance function)
 
 ```
 {
@@ -340,7 +336,7 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 },
 ```
 
-**Simple Hybrid Search**: Using Reciprocal Rank Fusion for ranking
+**Hybrid Search**: Combined keyword and vector search results using Reciprocal Rank Fusion.
 
 ```
 {
@@ -351,9 +347,9 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 },
 ```
 
-### Simple hybrid search with filter
+### Hybrid search with filter
 
-This example adds a filter, which is applied to the nonvector content of the search index.
+This example adds a filter, which is applied to the non-vector content of the search index.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}

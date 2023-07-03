@@ -41,7 +41,13 @@ For `Edm.Single`, the size of the data type is 4 bytes.
 
 Each approximate-nearest-neighbor algorithm creates other data structures in memory to enable efficient searching. These consume extra space within memory. 
 
-**For HNSW algorithm, this overhead is between 5% to 20%.** This overhead is lower for higher dimensionality values because the extra data structures consume relatively fixed size but the total size of each vector increased. This overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction.
+**For HNSW algorithm, this overhead is between 5% to 20%.** 
+
+This overhead is lower for higher dimensions because the raw size of the vectors are larger, but the extra data structures remain a fixed size since they store information on connectivity within the graph. As a result, the contribution of the extra data structures make up a smaller portion of the overall size. 
+
+This overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction. (The reason is because _m_ contributes roughly _m times 8 to 10_ bytes per document.)
+
+Based on internal tests, a model with _m=4_ and _dims=96_ has an overhead of ~17%, and a model with _m=4_ and _dims=768_ has an overhead of ~5%.
 
 ### Overhead from deleting or updating documents within the index
 
@@ -49,21 +55,23 @@ When a document with a vector field is either deleted or updated (updates are in
 
 We refer to this as the "deleted documents ratio". Since the deleted documents ratio depends on the indexing characteristics of your service, there's no universal heuristic to estimate this parameter, and there's no API or script that returns the ratio in effect for your service. We observe that half of our customers have a deleted documents ratio less than 10%. If you tend to perform high-frequency deletions or updates, then you may observe a higher deleted documents ratio.
 
-This is another factor impacting the size of your vector index.
+This is another factor impacting the size of your vector index. Unfortunately, we don't have a mechanism to surface your current deleted documents ratio.
 
-## Estimating the total size for your data
-
-Disk storage overhead of vector data is roughly three times the size of raw vector data. The following approach takes a closer look at disk storage requirements.
+## Estimating the total size for your data in memory
 
 To estimate the total size of your vector index, use the following calculation:
 
-**`(raw_size) * (1 + algorithm_overhead in percent) * (1 + deleted_docs_ratio in percent)`**
+**`(raw_size) * (1 + algorithm_overhead (in percent)) * (1 + deleted_docs_ratio (in percent))`**
 
 For example, to calculate the **raw_size**, let's assume you're using a popular Azure OpenAI model, `text-embedding-ada-002` with 1,536 dimensions. This means one document would consume 1,536 `Edm.Single` (floats), or 6,144 bytes since each `Edm.Single` is 4 bytes. 1,000 documents with a single, 1,536-dimensional vector field would consume in total 100 docs x 1536 floats/doc = 1,536,000 floats, or 6,144,000 bytes.
 
 If you have multiple vector fields, you need to perform this calculation for each vector field within your index and add them all together. For example, 1,000 documents with **two** 1,536-dimensional vector fields, consume 1000 docs x **2 fields** x 1536 floats/doc x 4 bytes/float = 12,288,000 bytes. 
 
 To obtain the **vector index size**, multiply this **raw_size** by the **algorithm overhead** and **deleted document ratio**. If your algorithm overhead for your chosen HNSW parameters is 10% and your deleted document ratio is 10%, then we get: `6.144 MB * (1 + 0.10) * (1 + 0.10) = 7.434 MB`.
+
+## Storage size on disk
+
+Disk storage overhead of vector data is roughly three times the size of raw vector data.
 
 ## Storage vs. vector index size quotas
 

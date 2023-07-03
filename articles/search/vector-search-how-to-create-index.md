@@ -35,6 +35,11 @@ The schema must include fields for the document key, vector fields, and any othe
 
 Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to add vector fields.
 
+> [!NOTE]
+> + You don't need a special "vector index" to use vector search. You'll only need to add one or more "vector fields" to a new or existing index.
+> + Both new and existing indexes support vector search. However, there is a small subset of very old services that do not support vector search. In this case, a new search service must be created to use it. 
+> + Updating an existing index to add vector fields requires `allowIndexDowntime` query parameter to be `true`.
+
 ```http
 PUT https://my-search-service.search.windows.net/indexes/my-index?api-version=2023-07-01-Preview
 Content-Type: application/json
@@ -153,9 +158,7 @@ Data sources provide the vectors in whatever format the data source supports (su
 
   Azure SQL doesn't provide a way to store a collection natively as a single SQL column. A workaround hasn't been identified at this time.
 
-+ It's worth noting that the dimensions of all vectors from the data source must be the same and match their index definition for the field they're mapping to. The indexer will error on any documents that don’t match.
-
----
++ The dimensions of all vectors from the data source must be the same and match their index definition for the field they're mapping to. The indexer throws an error on any documents that don’t match.
 
 ## Check your index for vector content
 
