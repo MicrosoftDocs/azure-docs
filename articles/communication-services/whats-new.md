@@ -123,7 +123,7 @@ Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create vi
 
 [Watch the video](https://youtu.be/IBCp_-dk_m0)
 
-[Learn how to set up the Microsoft Teams virtual appointments app](../microsoft-365/frontline/virtual-appointments-app.md)
+[Learn how to set up the Microsoft Teams virtual appointments app](https://learn.microsoft.com/microsoft-365/frontline/virtual-appointments-app)
 
 [Read more about Microsoft Teams Premium](https://www.microsoft.com/microsoft-teams/premium)
 
