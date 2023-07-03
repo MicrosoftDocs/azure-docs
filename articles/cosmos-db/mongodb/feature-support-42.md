@@ -21,7 +21,7 @@ By using Azure Cosmos DB for MongoDB, you can enjoy the benefits of MongoDB that
 
 ## Protocol support
 
-The supported operators and any limitations or exceptions are listed in this article. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for MongoDB. When you create Azure Cosmos DB for MongoDB accounts, the 3.6+ version of accounts have an endpoint in the format `*.mongo.cosmos.azure.com`. The 3.2 version of accounts have an endpoint in the format `*.documents.azure.com`.
+The supported operators and any limitations or exceptions are listed in this article. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for MongoDB. When you create Azure Cosmos DB for MongoDB accounts, the 3.6+ version of accounts has an endpoint in the format `*.mongo.cosmos.azure.com`. The 3.2 version of accounts has an endpoint in the format `*.documents.azure.com`.
 
 > [!NOTE]
 > This article lists only the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally use the `delete()` and `update()` server commands. Functions that use supported server commands are compatible with Azure Cosmos DB for MongoDB.
