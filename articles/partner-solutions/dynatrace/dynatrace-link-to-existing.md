@@ -115,4 +115,10 @@ When you've finished adding tags, select **Next: Review+Create.**
 ## Next steps
 
 - [Manage the Dynatrace resource](dynatrace-how-to-manage.md)
-- Get started with Azure Native Dynatrace Service on [Azure Portal](https://aka.ms/partners/Dynatrace/portal) or [Azure Marketplace](https://aka.ms/partners/Dynatrace/AMPOffer).
+- Get started with Azure Native Dynatrace Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure Portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)
