@@ -24,6 +24,9 @@ In this article, you'll learn how to integrate SURFconext with Azure Active Dire
 
 You'll configure and test Azure AD single sign-on for SURFconext in a test environment. SURFconext supports **SP** initiated single sign-on and **Just In Time** user provisioning.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Prerequisites
 
 To integrate Azure Active Directory with SURFconext, you need:
@@ -59,36 +62,33 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier** textbox, type one of the following URL/pattern:
+	a. In the **Identifier** textbox, type one of the following URLs:
 
-	| **Identifier** |
-	|----------|
-	| `https://engine.surfconext.nl/authentication/sp/metadata` |
-    | `https://engine.<ENVIRONMENT>.surfconext.nl/authentication/sp/metadata` |
+	| Environment | URL |
+	|-------|---------|
+	| Production |`https://engine.surfconext.nl/authentication/sp/metadata` | 
+	| Staging |`https://engine.test.surfconext.nl/authentication/sp/metadata` |
 
-    b. In the **Reply URL** textbox, type one of the following URL/pattern:
+    b. In the **Reply URL** textbox, type one of the following URLs:
 
-	| **Reply URL** |
-	|----------|
-    | `https://engine.surfconext.nl/authentication/sp/consume-assertion` |
-	| `https://engine.<ENVIRONMENT>.surfconext.nl/authentication/sp/consume-assertion` |
+	| Environment | URL |
+	|-------|---------|
+	| Production | `https://engine.surfconext.nl/authentication/sp/consume-assertion` |
+	| Staging | `https://engine.test.surfconext.nl/authentication/sp/consume-assertion` |
 
-	c. In the **Sign on URL** textbox, type one of the following URL/pattern:
+	c. In the **Sign on URL** textbox, type one of the following URLs:
 
-	| **Sign on URL** |
-	|--------------|
-    | `https://engine.surfconext.nl/authentication/sp/debug` |
-	| `https://engine.<ENVIRONMENT>.surfconext.nl/authentication/sp/debug` |
-
-	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [SURFconext support team](mailto:support@surfconext.nl) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	| Environment | URL |
+	|-------|---------|
+	| Production | `https://engine.surfconext.nl/authentication/sp/debug` |
+	| Staging | `https://engine.test.surfconext.nl/authentication/sp/debug` |
 
 1. SURFconext application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
 
 	> [!Note]
-	> You can remove this default attributes manually under additional claims section, if it is not required.
+	> You can remove or delete these default attributes manually under Additional claims section, if it is not required.
 
 1. In addition to above, SURFconext application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -104,8 +104,24 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	| urn:mace:dir:attribute-def:uid | user.userprincipalname |
 	| urn:mace:terena.org:attribute-def:schacHomeOrganization | user.userprincipalname |
 
-	> [!Note]
-	> One special claim that is required is “urn:mace:terena.org:attribute-def:schacHomeOrganization”. This needs to be the organization domain name, “example.org”. One way to configure is to use a “Transform” type claim with value “Extract (user.userprincipalname) with separator "@".
+1. Please follow the below steps for **urn:mace:terena.org:attribute-def:schacHomeOrganization** claim:
+
+	1. Go to **Attributes & Claims** section and click on **urn:mace:terena.org:attribute-def:schacHomeOrganization** attribute under Required claim section.
+	
+	1. Select **Transformation** button as a Source under **Manage claim**.
+
+	1. In the **Manage transformation** page, perform the following steps:
+	![Screenshot shows the Azure portal attributes.](media/surfconext-tutorial/transform.png "Admin")
+
+		1. Select **Extract()** from the dropdown in **Transformation** field and click **After matching** button.
+
+		1. Select **Attribute** as a **Parameter 1 (Input)**.
+
+		1. In the **Attribute name** field, select **user.userprinciplename** from the dropdown.
+
+		1. Select **@** value from the dropdown.
+
+		1. Click **Add**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
