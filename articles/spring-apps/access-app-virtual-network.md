@@ -1,12 +1,12 @@
 ---
 title: Access your application in a private network
 description: Access an app in Azure Spring Apps in a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/30/2021
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
