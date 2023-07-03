@@ -23,7 +23,7 @@ This article shows how to set or change the access tier for a block blob using t
 To work with the code examples in this article, make sure you have:
 
 - An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform an operation to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operations:
+- Permissions to perform an operation to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
     - [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 - The package **Azure.Storage.Blobs** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
@@ -37,6 +37,8 @@ To work with the code examples in this article, make sure you have:
 You can set a blob's access tier on upload by using the [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) class. The following code example shows how to set the access tier when uploading a blob:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithAccessTier":::
+
+To learn more about uploading a blob with .NET, see [Upload a blob with .NET](storage-blob-upload.md).
 
 ## Change a blob's access tier after upload
 
@@ -63,7 +65,7 @@ The following code example shows how to rehydrate an archived blob to the `Hot` 
 
 - [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/AccessTiers.cs)
 
-## Next steps
+## See also
 
 - [Access tiers best practices](access-tiers-best-practices.md)
 - [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
