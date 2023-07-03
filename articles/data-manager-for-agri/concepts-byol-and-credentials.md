@@ -13,10 +13,7 @@ ms.custom: template-concept
 
 Azure Data Manager for Agriculture supports a range of data ingress connectors to centralize your fragmented accounts. These connections require the customer to populate their credentials in a Bring Your Own License (BYOL) model, so that the data manager may retrieve data on behalf of the customer.
 
-
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Microsoft Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 ## Prerequisites
 
