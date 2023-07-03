@@ -36,7 +36,11 @@ To review the logs related to all actions performed by the extension, check for 
 * `WindowsUpdateExtension.log`: Contains details related to the patch actions, such as the patches assessed and installed on the machine, and any issues encountered in the process.
 * `CommandExecution.log`: There is a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains details about the wrapper. For Auto-Patching, the log has details on whether the specific patch operation was invoked.
 
-## Azure machine has the patch orchestration option as AutomaticByOS/Windows automatic updates and you are unable to change the patch orchestration to Manual Updates using Change update settings.
+## Unable to change the patch orchestration option to manual updates from automatic updates
+
+### Issue 
+
+Azure machine has the patch orchestration option as AutomaticByOS/Windows automatic updates and you are unable to change the patch orchestration to Manual Updates using Change update settings.
 
 ### Resolution
 
