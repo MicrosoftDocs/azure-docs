@@ -65,7 +65,7 @@ To list all snapshots, or get an individual snapshot by name the `Microsoft.AppC
 
 ## Billing considerations
 
-Snapshots have their own more storage quota in App Configuration instance. This quota is in addition to the “storage per resource” for key-values. Check the App Configuration pricing page for details.
+Snapshots have their own storage quota in the App Configuration store. This quota is in addition to the “storage per resource” for key-values. Check the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) for details.
 
 App Configuration has two tiers, Free and standard, check the details of snapshots quota and charge in each tier.
 

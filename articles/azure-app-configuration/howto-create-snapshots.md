@@ -18,7 +18,7 @@ In this article, learn how to create and manage snapshots (preview) in Azure App
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - "DataOwner" role in the App Configuration store. Details on required [role and permissions for snapshots](./concept-snapshots.md)
 
-### Add key-values
+### Add key-values to the App configuration store
 
 In your App Configuration store, go to **Operations** > **Configuration explorer** and add the following key-values. Leave **Content Type** with its default value. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
@@ -86,11 +86,13 @@ To create sample snapshots and check how the snapshots feature work, use the sna
 
 The page under **Operations** > **Snapshots (preview)** displays two tabs: **Active snapshots** and **Archived snapshots**. Select **Active snapshots** to view the list of all active snapshots in an App configuration store.
 
-### View existing snapshots
+   :::image type="content" source="./media/snapshots-view-list.png" alt-text="Screenshot of the list of active snapshots.":::
+
+### View existing snapshot
 
 In the **Active snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
-   :::image type="content" source="./media/snapshots-view-list.png" alt-text="Screenshot of the list of active snapshots.":::
+   :::image type="content" source="./media/snapshot-details-view.png" alt-text="Screenshot of the detailed view of an active snapshots.":::
 
 ### Archive a snapshot
 
@@ -108,7 +110,7 @@ Go to **Operations** > **Snapshots (preview)** > **Archived snapshots** to view 
 
 Detailed view of snapshot is available in the archive state as well. In the **Archived snapshots** tab, select the ellipsis **...** on the right of an existing snapshot and select **View** to view a snapshot This action opens a Snapshot details page that displays the snapshot's settings and the key-values included in the snapshot.
 
-   :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the  archived snapshot detailed view.":::
+   :::image type="content" source="./media/archived-snapshots-details.png" alt-text="Screenshot of the archived snapshot detailed view.":::
 
 ### Recover an archived snapshot
 
