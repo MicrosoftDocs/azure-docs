@@ -33,13 +33,13 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 ## Prerequisites
 
-You need to log in to your account using the [az login](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+You need to log in to your account using the [az login](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using [az account set](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using [az account set](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list&preserve-view=true).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
