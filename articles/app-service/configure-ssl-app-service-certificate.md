@@ -18,7 +18,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 - Handles the purchase process from GoDaddy.
 - Performs domain verification of the certificate.
 - Maintains the certificate in [Azure Key Vault](../key-vault/general/overview.md).
-- Manages [certificate renewal](#renew-app-service-certificate).
+- Manages [certificate renewal](#renew-an-app-service-certificate).
 - Synchronizes the certificate automatically with the imported copies in App Service apps.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the certificate menu, select **Certificate Configuration** > **Step 1: Store**.
 
-    :::image type="content" source="media/configure-ssl-certificate/configure-key-vault.png" alt-text="Screenshot of "Certificate Configuration" pane with "Step 1: Store" selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/configure-key-vault.png" alt-text="Screenshot of 'Certificate Configuration' pane with 'Step 1: Store' selected.":::
 
 1. On the **Key Vault Status** page, select **Select from Key Vault**.
 
@@ -86,7 +86,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
 1. From the same **Certificate Configuration** page in the previous section, select **Step 2: Verify**.
 
-    :::image type="content" source="media/configure-ssl-certificate/verify-domain.png" alt-text="Screenshot of "Certificate Configuration" pane with "Step 2: Verify" selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/verify-domain.png" alt-text="Screenshot of 'Certificate Configuration' pane with 'Step 2: Verify' selected.":::
 
 1. Select **App Service Verification**. However, because you previously mapped the domain to your web app per the [Prerequisites](#prerequisites), the domain is already verified. To finish this step, just select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
 
@@ -158,7 +158,7 @@ If you think your certificate's private key is compromised, you can rekey your c
 Because an App Service certificate is a [Key Vault secret](../key-vault/general/about-keys-secrets-certificates.md), you can export a copy as a PFX file, which you can use for other Azure services or outside of Azure.
 
 > [!IMPORTANT]
-> The exported certificate is an unmanaged artifact. App Service doesn't sync such artifacts when the App Service Certificate is [renewed](#renew-app-service-certificate). You must export and install the renewed certificate where necessary.
+> The exported certificate is an unmanaged artifact. App Service doesn't sync such artifacts when the App Service Certificate is [renewed](#renew-an-app-service-certificate). You must export and install the renewed certificate where necessary.
 
 #### [Azure portal](#tab/portal)
 
@@ -204,7 +204,7 @@ Set-Content -Path appservicecertificate.pfx -Value $CertBytes -AsByteStream
 
 ---
 
-The downloaded PFX file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as-is into App Service](#upload-a-private-certificate) because the file isn't [password protected](#private-certificate-requirements).
+The downloaded PFX file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as-is into App Service](configure-ssl-certificate.md#upload-a-private-certificate) because the file isn't [password protected](configure-ssl-certificate.md#private-certificate-requirements).
 
 ## Delete an App Service certificate
 
