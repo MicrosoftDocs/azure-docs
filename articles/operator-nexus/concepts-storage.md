@@ -31,20 +31,20 @@ In situations where a "shared filesystem" is required, the "nexus-shared" storag
 
 ## Storage Appliance status
 
-There are multiple properties, which reflect the operational state of Storage Appliance. Some of these include:
+There are multiple properties, which reflect the operational state of storage appliance. Some of these include:
 
 - Status
 - Provisioning state
 - Capacity total / used
 - Remote Vendor Management
 
-_`Status`_ field indicates the state as derived from the Storage ApplianceBareMetal. The state can be Available, Error or Provisioning.
+_`Status`_ field indicates the state as derived from the storage appliance. The state can be Available, Error or Provisioning.
 
-The _`Provisioning State`_ field provides the current provisioning state of the Storage Appliance. The provisioning state can be Succeeded, Failed, or InProgress.
+The _`Provisioning State`_ field provides the current provisioning state of the storage appliance. The provisioning state can be Succeeded, Failed, or InProgress.
 
-The _`Capacity`_ field provides the total and used capacity of the Storage Appliance.
+The _`Capacity`_ field provides the total and used capacity of the storage appliance.
 
-The _`Remote Vendor Management`_ field indicates whether the remote vendor management is enabled or disabled for the Storage Appliance.
+The _`Remote Vendor Management`_ field indicates whether the remote vendor management is enabled or disabled for the storage appliance.
 
 ## Storage Appliance operations
 - **List Storage Appliances** List storage appliances in the provided resource group or subscription.
@@ -53,4 +53,4 @@ The _`Remote Vendor Management`_ field indicates whether the remote vendor manag
 - **Enable/Disable Remote Vendor Management for Storage Appliance** Enable/Disable remote vendor management for the provided storage appliance.
 
 > [!NOTE]
-> - Customers cannot explicitly create or delete Storage Appliances directly. These resources are only created as the realization of the Cluster lifecycle. Implementation will block any creation or delete requests from any user, and only allow internal/application driven creates or deletes.
+> - Customers cannot explicitly create or delete storage appliances directly. These resources are only created as the realization of the Cluster lifecycle. Implementation will block any creation or delete requests from any user, and only allow internal/application driven creates or deletes.
