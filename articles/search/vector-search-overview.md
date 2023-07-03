@@ -19,7 +19,7 @@ This article is a high-level introduction to Vector search in Azure Cognitive Se
 
 ## What's vector search in Cognitive Search?
 
-Azure Cognitive Search allows to efficiently store and retrieve vector embeddings using Approximate Nearest Neighbor methods (ANN). Vector search can be used to power semantic search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401e).
+Azure Cognitive Search allows to efficiently store and retrieve vector embeddings using Approximate Nearest Neighbor methods (ANN). Vector search can be used to power semantic search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
 
 Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). To use vector search, you need to define a *vector field* in the index definition and index documents with vector data. Then you can issue search request with a query vector which will return documents with the requested k nearest neighbors (kNN) according to the selected vector similarity metric.
 
