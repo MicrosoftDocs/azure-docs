@@ -19,9 +19,9 @@ This article is a high-level introduction to Vector search in Azure Cognitive Se
 
 ## What's vector search in Cognitive Search?
 
-Azure Cognitive Search allows to efficiently store and retrieve vector embeddings using Approximate Nearest Neighbor methods (ANN). Vector search can be used to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
+Azure Cognitive Search can efficiently store and retrieve vector embeddings using Approximate Nearest Neighbor methods (ANN). Vector search can be used to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
 
-Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). To use vector search, you need to define a *vector field* in the index definition and index documents with vector data. Then you can issue search request with a query vector which will return documents with the requested `k` nearest neighbors (kNhttps://arxiv.org/abs/2005.11401pN) according to the selected vector similarity metric.
+Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). To use vector search, you need to define a *vector field* in the index definition and index documents with vector data. Then you can issue search request with a query vector, returning documents with the requested `k` nearest neighbors (kNhttps://arxiv.org/abs/2005.11401pN) according to the selected vector similarity metric.
 
 You can index vector data as fields in documents alongside textual and other types of content.  Vector queries can be issued independently or in combination with other query types, including term queries (hybrid search) and filters in the same search request.
 
@@ -45,7 +45,7 @@ Vector search is available as part of all Cognitive Search tiers in all regions 
 
 ## What scenarios can vector search support?
 
-Scenarios for vector search can support include:
+Scenarios for vector search include:
 
 + **Vector search for text**. You can encode text using embedding models such as OpenAI embeddings or open source models such as SBERT, and retrieve documents with queries that are also encoded as vectors to improve search quality.
 
@@ -65,7 +65,7 @@ Scenarios for vector search can support include:
 
 + [Image Retrieval REST API (Preview)](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) supports vectorization of image content. We recommend this API for image vector data in Azure Cognitive Search.
 
-+ Azure Cognitive Search allows to automatically index vector data from two data sources: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index.](vector-search-how-to-create-index.md)
++ Azure Cognitive Search can automatically index vector data from two data sources: [Azure blob indexers](search-howto-indexing-azure-blob-storage.md) and [Azure Cosmos DB for NoSQL indexers](search-howto-index-cosmosdb.md). For more information, see [Add vector fields to a search index.](vector-search-how-to-create-index.md)
 
 
 + [Semantic kernel](https://github.com/microsoft/semantic-kernel/blob/main/README.md) is a lightweight SDK enabling integration of AI Large Language Models (LLMs) with conventional programming languages.
@@ -79,7 +79,7 @@ Vector search is a method of information retrieval that aims to overcome the lim
 
 *Embeddings* are a specific type of vector representation created by machine learning models that capture the semantic meaning of text, or abstract representations of other content such as images. Natural language machine learning models are trained on large amounts of data to identify patterns and relationships between words. During training, they learn to represent any input as a vector of real numbers in an intermediary step called the *encoder*. After training is complete, these language models can be modified so the intermediary vector representation becomes the model's output. The resulting embeddings are high-dimensional vectors, where words with similar meanings are closer together in the vector space, as explained in [this Azure OpenAI Service article](/azure/cognitive-services/openai/concepts/understand-embeddings). The effectiveness of vector search in retrieving relevant information depends on the effectiveness of the embedding model in distilling the meaning of documents and queries into the resulting vector. The best models are well-trained on the types of data they're representing. This can be achieved by training directly on the problem space or fine-tuning a general-purpose model, such as GPT. Azure Cognitive Search today doesn't provide a way to vectorize documents and queries, leaving it up to you to pick the best embedding model for your data. The new vector search APIs allow you to store and retrieve vectors efficiently. 
 
-In order to create effective embeddings for vector search, it's important to take input size limitations into account. Therefore, we recommended follow [guidelines for chunking data](vector-search-how-to-chunk-documents.md) before generating embeddings. This ensures that the embeddings accurately capture the relevant information and enable more efficient vector search.
+In order to create effective embeddings for vector search, it's important to take input size limitations into account. Therefore, we recommend following the [guidelines for chunking data](vector-search-how-to-chunk-documents.md) before generating embeddings. This best practice ensures that the embeddings accurately capture the relevant information and enable more efficient vector search.
 
 ## What is the embedding space?
 
@@ -87,11 +87,11 @@ These machine learning models map individual words, phrases, or documents (for n
 
 For example, documents that talk about different species of dogs would be clustered close together in the embedding space. Documents about cats would be close together, but farther from the dogs cluster while still being in the neighborhood for animals. Dissimilar concepts such as cloud computing would be much farther away. In practice, these embedding spaces are very abstract and don't have well-defined, human-interpretable meanings, but the core idea stays the same.
 
-Popular vector similarity metric include: euclidean distance, cosine similarity, and dot product.
+Popular vector similarity metrics include: `euclidean distance`, `cosine similarity`, and `dot product`.
 
 ## Approximate Nearest Neighbors
 
-Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. The specific approach will depend on the algorithm. While sacrificing some precision, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
+Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. The specific approach depends on the algorithm. While sacrificing some precision, these algorithms offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy and efficiency in modern information retrieval applications. You may adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 
 Azure Cognitive Search uses Hierarchical Navigation Small Worlds (HNSW), which is a leading algorithm optimized for high-recall, low-latency applications where data distribution is unknown or can change frequently.
 
