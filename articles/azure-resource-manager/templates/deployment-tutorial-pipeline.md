@@ -117,8 +117,8 @@ A DevOps organization is needed before you can proceed to the next procedure. If
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
 
-    * **Project name**: enter a project name. You can use the project name you picked at the very beginning of the tutorial.
-    * **visibility**: Select **Private**.
+    * **Project name**: Enter a project name. You can use the project name you picked at the very beginning of the tutorial.
+    * **Visibility**: Select **Private**.
 
     Use the default value for the other properties.
 1. Select **Create**.
