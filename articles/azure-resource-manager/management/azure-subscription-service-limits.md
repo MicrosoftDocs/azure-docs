@@ -377,7 +377,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 ### Application Gateway for Containers limits
 
-[!INCLUDE [application-gateway-limits](../../../includes/application-gateway-for-containers-limits.md)]
+[!INCLUDE [application-gateway-for-containers-limits](../../../includes/application-gateway-for-containers-limits.md)]
 
 ### Azure Bastion limits
 
