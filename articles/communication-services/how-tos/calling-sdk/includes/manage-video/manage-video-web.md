@@ -208,14 +208,15 @@ const videoStreamRenderer = new VideoStreamRenderer(localScreenSharingStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
 
-// To stop viewing local screen share preview, dispose the screen share preview first, then stop screen sharing.
+// To stop viewing local screen share preview.
 await call.stopScreenSharing();
 view.dispose();
 htmlElement.removeChild(view.target);
 
 // Screen sharing can also be stoped by clicking on the native browser's "Stop sharing" button.
 // The isScreenSharingOnChanged event will be triggered where you can check the value of call.isScreenSharingOn.
-// If the value is false, then that means screen sharing is turned off and so we can go ahead and dispose the screen share preview. 
+// If the value is false, then that means screen sharing is turned off and so we can go ahead and dispose the screen share preview.
+// This event is also triggered for the case when stopping screen sharing via Call.stopScreenSharing() API.
 call.on('isScreenSharingOnChanged', () => {
     if (!call.isScreenSharingOn) {
         view.dispose();
