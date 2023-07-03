@@ -39,7 +39,7 @@ To update or check current meeting join & lobby policies in Teams admin center:
 | admit | ✔️ | ✔️ | ✔️ |  |
 | reject | ✔️ | ✔️ | ✔️ |  |
 | admitAll | ✔️ | ✔️ | ✔️ |  |
-| getLobbyParticipants | ✔️ | ✔️ | ✔️ | ✔️ |
+| getParticipants | ✔️ | ✔️ | ✔️ | ✔️ |
 | lobbyParticipantsUpdated | ✔️ | ✔️ | ✔️ | ✔️ |
 
 [!INCLUDE [Lobby Client-side JavaScript](./includes/lobby/lobby-web.md)]

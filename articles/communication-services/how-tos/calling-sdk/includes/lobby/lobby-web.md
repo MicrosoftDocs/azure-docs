@@ -12,20 +12,20 @@ ms.custom: template-how-to
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-Object `Lobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby information. It would be undefined if current call not the meeting scenario. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `lobbyParticipants` collection and subscribe the `lobbyParticipantsUpdated` event to receive notification.
+Object `Lobby` on `Call` or `TeamsCall` class allow users to access Teams meeting lobby information. It would be undefined if current call not the meeting scenario. It includes the APIs, `admit`, `reject` and `admitAll`, which allows user to admit and reject participants from Teams meeting lobby. User could also get the `participants` collection and subscribe the `lobbyParticipantsUpdated` event to receive notification.
 
 ### Get lobby object
 The first thing is to get the `Call` or `TeamsCall` object of admitter: [Learn how to join Teams meeting](./teams-interoperability.md). 
-You can get the `Lobby` object from `Call` or `TeamsCall` object, however `Lobby` object would only available in meeting scenario. You can subscribe to the `lobbyChanged` event, and you will be notified when the lobby object is available.
+You can get the `Lobby` object from `Call` or `TeamsCall` object.
 ```js
 const lobby = call.lobby;
 ```
 
 ### Get lobby participants properties
-To know who is in the lobby, you could get the `lobbyParticipants` collection from `Lobby` object. It's a collection of `RemoteParticipant` object with `InLobby` state. To get the `lobbyParticipants` collection:
+To know who is in the lobby, you could get the `participants` collection from `Lobby` object. It's a collection of `RemoteParticipant` object with `InLobby` state. To get the `participants` collection:
 
 ```js
-let lobbyParticipants = lobby.lobbyParticipants; // [remoteParticipant, remoteParticipant....]
+let lobbyParticipants = lobby.participants; // [remoteParticipant, remoteParticipant....]
 ```
 
 ### Get identifier for a remote participant
@@ -34,7 +34,7 @@ Before admit or reject participant from lobby, you could get the identifier for 
 if(lobbyParticipants.length !== 0){
     let remoteParticipant = lobbyParticipants[0];
 }
-//You could get the identifier from the lobbyParticipants collection
+//You could get the identifier from the Lobby.participants collection
 //You could also get the identifier from the lobbyParticipantsUpdated event
 const identifier = remoteParticipant.identifier;
 ```
@@ -61,15 +61,12 @@ await lobby.admitAll();
 ```
 
 ### Handle lobby updated event
-You could subscribe to the `lobbyParticipantsUpdated` event to handle the changes in the `lobbyParticipants` collection. This event will be triggered when the participants are added or removed from the lobby and it will provide the added or removed participants list.
+You could subscribe to the `lobbyParticipantsUpdated` event to handle the changes in the `participants` collection. This event will be triggered when the participants are added or removed from the lobby and it will provide the added or removed participants list.
 ```js
 subscribeToCall = (call) => {
     try {
-        //Subscribe to call's 'lobbyChanged' event to get notification when lobby is available.
-        call.on('lobbyChanged', () => {
-            //Subscribe to lobby's 'lobbyParticipantsUpdated' event for lobbyParticipants update.
-            call.lobby.on('lobbyParticipantsUpdated', lobbyParticipantsUpdatedHandler);
-        });
+        //Subscribe to lobby's 'lobbyParticipantsUpdated' event for lobbyParticipants update.
+        call.lobby.on('lobbyParticipantsUpdated', lobbyParticipantsUpdatedHandler);
     } catch (error) {
         console.error(error);
     }
