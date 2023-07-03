@@ -106,9 +106,9 @@ In the **Interface configurations** tab, do the following to configure settings 
     |Name  |Description  |
     |---------|---------|
     |**Mode**     | Select **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  Select **ERSPAN** if you're using ERSPAN mirroring. For minformation, see [Choose a traffic mirroring method for OT sensors](../best-practices/traffic-mirroring-methods.md).       |
-    |**Description**     |  Enter an optional description for the interface. You'll see this later on in the **System settings > Interface configurations**, and these descriptions may be helpful in understanding the purpose of each interface. <!--this is a new page that we need to add-->  |
-    |**Auto negotiation**     | Relevant for physical machines only.  <!--what does this do? MIA TO SEND-->     
-    
+    |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface. <!--this is a new page that we need to add-->  |
+    |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
+
     Select **Save** to save your changes.
 
 1. Select **Next: Reboot >** to continue, and then **Start reboot** to reboot your sensor machine. After the sensor starts again, you're automatically redirected to the IP address you'd [defined earlier as your sensor IP address](#ip).
@@ -138,14 +138,16 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
 
     Enter the certificate's name and passphrase, and then select **Upload** to upload your private key file, certificate file, and an optional certificate chain file.
 
-    You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors). <!--do we still need to?-->
+    You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors).
 
     > [!TIP]
     > If you're working on a testing environment, you can also use the self-signed certificate that's generated locally during installation. If you select to use a self-signed certificate, make sure to select the **Confirm** option about the recommendations.
     >
     > For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
-1. In the **Enable certificate validation** area, select **Mandatory** to validate the certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements). <!--in the current UI this actually reads Validation of on-premises management console certificate-->
+1. In the **Validation of on-premises management console certificate** area, select **Mandatory** to validate an on-premises management console's certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements). 
+
+    For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 
 1. Select **Finish** to complete the initial setup and open your sensor console.
 
@@ -178,11 +180,7 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
 
 1. In the wizard's `Select monitor interfaces` screen, select any of the interfaces you want to monitor with this sensor.
 
-    <!--this isn't available in the sample machine i used: By default, `eno1` is reserved for the management interface and we recommend that you leave this option unselected.
-
-    For example:
-
-    :::image type="content" source="../media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen."::: -->
+    The system selects the first interface it finds as the management interface, and we recommend that you leave the default selection. If you decide to use a different port as the management interface, the change is implemented only after the sensor restarts. In such cases, make sure that the sensor is connected as needed.
 
     For example:
 
@@ -193,23 +191,11 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
     >
     > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them later via the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
 
-<!--
-1. In the `Select erspan monitor interfaces` screen, select any ERSPAN monitoring ports that you have. The wizard lists available interfaces, even if you don't have any ERSPAN monitoring ports in your system. If you have no ERSPAN monitoring ports, leave all options unselected. <!--does this page still show? i don't see it
-
-    For example:
-
-    :::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
-
--->
 1. In the `Select management interface` screen, select the interface you want to use to connect to the Azure portal or an on-premises management console.
-
-    <!--not shown in my sample machine: we recommend keeping the default `eno1` value selected as the management interface.-->
 
     For example:
 
     :::image type="content" source="../media/install-software-ot-sensor/select-management-interface.png" alt-text="Screenshot of the Select management interface screen.":::
-
-    <!--:::image type="content" source="../media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::-->
 
 1. In the `Enter sensor IP address` screen, enter the IP address you want to use for this sensor. You'll use this IP address to connect to the sensor via CLI or the browser. For example:
 
@@ -244,6 +230,10 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
     :::image type="content" source="../media/install-software-ot-sensor/final-cli-sign-in.png" alt-text="Screenshot of the final sign-in prompt at the end of the initial CLI configuration.":::
 
 At this point, open a browser to the IP address you'd defined for your sensor and continue the setup in the browser. For more information, see [Activate your OT sensor](#activate-your-ot-sensor).
+
+> [!NOTE]
+> Defining ERSPAN monitoring ports is available only in the GUI during initial setup. If you are running the CLI process, and want to set up ERSPAN monitoring ports, do so afterwards via the sensor's **Settings > Interface connections** page or the CLI. For more information, see [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](../traffic-mirroring/configure-mirror-erspan.md).
+>
 
 ## Next steps
 

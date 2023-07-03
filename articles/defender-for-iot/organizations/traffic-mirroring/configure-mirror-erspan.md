@@ -1,11 +1,14 @@
 ---
 title: Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN) - Microsoft Defender for IoT
 description: This article describes traffic mirroring with ERSPAN for monitoring with Microsoft Defender for IoT.
-ms.date: 09/20/2022
+ms.date: 07/03/2023
 ms.topic: install-set-up-deploy
 ---
 
 # Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)
+
+
+<!--need to update for headless installation-->
 
 This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
@@ -29,7 +32,7 @@ ERSPAN support is configured in the **Select erspan monitor interfaces** screen,
 
 :::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
-To access this screen later on, sign in to your sensor via SSH as the *cyberx_host* user and run the following command: <!--is this now supported by the support user?-->
+To access this screen later on, sign in to your sensor via SSH as the *support* user and run the following command:
 
 ```console
 sudo dpkg-reconfigure iot-sensor

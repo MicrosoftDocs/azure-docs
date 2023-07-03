@@ -372,7 +372,7 @@ After clearing data on a cloud-connected sensor:
 
 **To clear system data**:
 
-1. Sign in to the OT sensor as the *cyberx* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). <!--should we indicate support here instead?-->
+1. Sign in to the OT sensor as the *support* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 1. Select **Support** > **Clear data**.
 
