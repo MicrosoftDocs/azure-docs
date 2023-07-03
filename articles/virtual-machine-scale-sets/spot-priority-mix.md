@@ -7,7 +7,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 06/29/2023
 ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---
@@ -178,7 +178,7 @@ Example walk-through:
     - The `sku.capacity` is variable and doesn't set a starting number of VMs. The Base VMs are set at 10, thus your total starting VMs are just 10 Base (standard) VMs.
 1. You then scale-out 5 times, with 50% standard VMs and 50% Spot VMs.
     - Note, because there's a 50/50 split, in the fourth scale-out, there's one more Spot VM than standard VM. Once it's scaled out again (5th scale-out), the 50/50 balance is restored with another standard VM.
-1. You then scale in your scale set with the eviction policy being delete, which deletes all the Spot VMs.
+1. You then scale in your scale set with the eviction policy being *evict-delete*, which deletes all the Spot VMs.
 1. With the scale-out operations mentioned in this scenario, you restore the 50/50 balance in your scale set by only creating Spot VMs.
 1. By the last scale-out, your scale set is already balanced, so one of each type of VM is created. 
 
@@ -197,7 +197,7 @@ The following scenario assumptions apply to this example:
 | Create                      | 20           | 10                  | 2                  | 8                                            |
 | Scale out                   | 50           | 10                  | 10                 | 30                                           |
 | Scale out                   | 110          | 10                  | 25                 | 75                                           |
-| Evict-Delete (10 instances) | 100          | 10                  | 25                 | 75 (65 running VMs, 10 Stop-Deallocated VMs) |
+| Scale In: Stop-Deallocate (10 instances) | 100          | 10                  | 25                 | 75 (65 running VMs, 10 Stop-Deallocated VMs) |
 | Scale out                   | 120          | 10                  | 27                 | 83 (73 running VMs, 10 Stop-Deallocated VMs) |
 
 
