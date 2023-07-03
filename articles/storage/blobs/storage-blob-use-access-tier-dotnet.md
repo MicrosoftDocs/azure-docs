@@ -24,7 +24,7 @@ To work with the code examples in this article, make sure you have:
 
 - An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 - Permissions to perform an operation to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
-    - [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
+    - [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
 - The package **Azure.Storage.Blobs** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
 [!INCLUDE [storage-dev-guide-about-access-tiers](../../../includes/storage-dev-guides/storage-dev-guide-about-access-tiers.md)]
@@ -60,12 +60,24 @@ You can change the access tier of an existing block blob by specifying an access
 The following code example shows how to rehydrate an archived blob to the `Hot` tier using a copy operation:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/AccessTiers.cs" id="Snippet_RehydrateUsingCopy":::
- 
-## Code samples
+
+## Resources
+
+To learn more about setting access tiers using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for setting access tiers use the following REST API operation:
+
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### Code samples
 
 - [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/AccessTiers.cs)
 
-## See also
+### See also
 
 - [Access tiers best practices](access-tiers-best-practices.md)
 - [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
