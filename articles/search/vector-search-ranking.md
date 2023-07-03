@@ -21,7 +21,8 @@ This article is for developers who need a deeper understanding of ranking of vec
 
 Vector queries are queries where the search query is a vector as opposed to text in full-text queries. Documents which matched the vector query are ranked using vector similarity configured on the vector field defined in the index. A vector query specifies the _k_ parameter which determines how many nearest neighbors of the query vector should be returned from the index. 
 
-> [!NOTE] Full-text search queries could return fewer than the requested number of results if there are fewer or no matches, but vector search will return up to `k` matches as long as there are enough documents in the index. This is because with vector search, similarity is relative to the input query vector, not absolute. This means less relevant results have a worse similarity score, but they can still be the "nearest" vectors if there aren't any closer vectors. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low.
+> [!NOTE]
+> Full-text search queries could return fewer than the requested number of results if there are fewer or no matches, but vector search will return up to `k` matches as long as there are enough documents in the index. This is because with vector search, similarity is relative to the input query vector, not absolute. This means less relevant results have a worse similarity score, but they can still be the "nearest" vectors if there aren't any closer vectors. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low.
 
 In a typical application, the input data within a query request would be fed into the same machine learning model that generated the embedding space for the vector index. This model would output a vector in the same embedding space. Since similar data are clustered close together, finding matches is equivalent to finding the nearest vectors and returning the associated documents as the search result.
 
@@ -61,8 +62,6 @@ Here's a simple explanation of the RRF process:
 1. Rank documents based on combined scores: Finally, we sort the documents based on their combined scores, and the resulting list is the fused ranking.
 
 By default, if you aren't using pagination, Cognitive Search returns the top 50 highest ranking matches for full text search, and it returns `k` matches for vector search. In a hybrid query, the top 50 highest ranked matches of the unified result set are returned. You can use `$top`, `$skip`, and `$next` for paginated results. For more information, see [How to work with search results](search-pagination-page-layout.md).
-
-
 
 ## Next steps
 
