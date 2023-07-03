@@ -30,7 +30,7 @@ Spot Priority Mix is not supported with `singlePlacementMode` enabled on the sca
 
 You can configure a custom percentage distribution across Spot and standard VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base standard VMs you would like to maintain in the Virtual Machine Scale Set during any scale operation.
 
-The eviction policy of your Spot VMs will follow what is set for the Spot VMs in your scale set. *Deallocate* is the default behavior, wherein evicted Spot VMs move to a stop-deallocated state. Alternatively, the Spot eviction policy can be set to *Delete*, wherein the VM and its underlying disks will be deleted.
+The eviction policy of your Spot VMs follows what is set for the Spot VMs in your scale set. *Deallocate* is the default behavior, wherein evicted Spot VMs move to a stop-deallocated state. Alternatively, the Spot eviction policy can be set to *Delete*, wherein the VM and its underlying disks are deleted.
 
 ### [Template]
 
@@ -168,7 +168,7 @@ The following scenario assumptions apply to this example:
 - **Eviction policy:** Delete
 
 | Action                            | sku.capacity | Base (standard) VMs | Extra standard VMs | Spot priority VMs |
-|-----------------------------------|--0-----------|---------------------|--------------------|-------------------|
+|-----------------------------------|-------------|---------------------|--------------------|-------------------|
 | Create                            | 10           | 10                  | 0                  | 0                 |
 | Scale out                         | 20           | 10                  | 5                  | 5                 |
 | Scale out                         | 30           | 10                  | 10                 | 10                |
@@ -212,17 +212,17 @@ Example walk-through:
 1. With the initial creation of the Virtual Machine Scale Set and Spot Priority Mix, you have 20 VMs.
     - 10 of those VMs are the Base (standard) VMs, 2 extra standard VMs, and 8 Spot priority VMs for your 25% *regularPriorityPercentageAboveBase*. 
     - Another way to look at this ratio is you have 1 standard VM for every 4 Spot VMs in the scale set. 
-1. You then scale-out twice to create 90 more VMs; 23 standard VMs and 67 Spot VMs.
+1. You then scale out twice to create 90 more VMs; 23 standard VMs and 67 Spot VMs.
 1. When you scale in by 10 VMs, 10 Spot VMs are *stop-deallocated*, creating an imbalance in your scale set.
-1. Your next scale-out operation creates another 2 standard VMs and 8 Spot VMs, bringing you closer to your 25% above base ratio.
+1. Your next scale out operation creates another 2 standard VMs and 8 Spot VMs, bringing you closer to your 25% above base ratio.
 
 ## Troubleshooting 
 
-If Spot Priority Mix is not available to you, be sure to configure the `priorityMixPolicy` to specify a *Spot* priority in the `virtualMachineProfile`. Without that configuration, you will not be able to access this Spot feature.
+If Spot Priority Mix isn't available to you, be sure to configure the `priorityMixPolicy` to specify a *Spot* priority in the `virtualMachineProfile`. Without enabling the `priorityMixPolicy` setting, you won't be able to access this Spot feature.
 
 ## FAQs
 ### Q: I changed the Spot Priority Mix settings, why aren't my existing VMs changing?
-Spot Priority Mix applies for scale actions on the scale set. Changing the percentage split of Spot and Standard VMs will not redeploy or rebalance your existing scale set. You will see the actual percentage split change as you scale the scale set.
+Spot Priority Mix applies for scale actions on the scale set. Changing the percentage split of Spot and Standard VMs won't rebalance existing scale set. You'll see the actual percentage split change as you scale the scale set.
 
 ### Q: Is Spot Priority Mix enabled for Uniform orchestration mode?
 Spot Priority Mix is only available on Virtual Machine Scale Sets with Flexible orchestration mode.
