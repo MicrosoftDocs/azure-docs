@@ -34,18 +34,6 @@ This page updates monthly, so revisit it regularly. If you're looking for items 
 
 ## June 2023
 
-### Public Preview - Availability of Exchange Hybrid in Azure AD Connect cloud sync
-
-**Type:** New feature   
-**Service category:** Directory Management                       
-**Product capability:** Azure Active Directory Connect Cloud Sync                
-
-
-
-Exchange hybrid capability allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Cloud Sync synchronizes a specific set of Exchange-related attributes from Azure AD back into your on-premises directory and to any forests that's disconnected (no network trust needed between them). With this capability, existing customers who have this feature enabled in Azure AD Connect sync can now migrate and leverage this feature with Azure AD cloud sync. For more information, see: ADD LINK
-
----
-
 ### Public Preview - New provisioning connectors in the Azure AD Application Gallery - June 2023
 
 **Type:** New feature   
