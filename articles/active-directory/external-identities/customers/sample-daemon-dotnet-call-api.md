@@ -1,5 +1,5 @@
 ---
-title: Call an API in a sample dotnet daemon application
+title: Call an API in a sample .NET daemon application
 description: Learn how to configure a sample dotnet daemon application that calls an API protected Azure Active Directory (Azure AD) for customers
 services: active-directory
 author: SHERMANOUKO
