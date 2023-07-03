@@ -336,7 +336,7 @@ Compare the responses between Single Vector Search and Simple Hybrid Search for 
 },
 ```
 
-**Hybrid Search**: Combined keyword and vector search results using Reciprocal Rank Fuction.
+**Hybrid Search**: Combined keyword and vector search results using Reciprocal Rank Fusion.
 
 ```
 {
