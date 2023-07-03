@@ -1,12 +1,12 @@
 ---
-title: Integrate Splunk with Microsoft Defender for IoT (legacy)
-description: This article describes how to integrate Splunk with Microsoft Defender for IoT  using Defender for IoT's legacy integration.
+title: Integrate Splunk with Microsoft Defender for IoT
+description: This article describes how to integrate Splunk with Microsoft Defender for IoT using Defender for IoT's integration.
 ms.topic: tutorial
 ms.date: 06/26/2023
 ms.custom: how-to
 ---
 
-# Integrate Splunk with Microsoft Defender for IoT (legacy)
+# Integrate Splunk with Microsoft Defender for IoT
 
 > [!IMPORTANT]
 > Defender for IoT plans to end support for the legacy Splunk integration with the upcoming version 23.1.
