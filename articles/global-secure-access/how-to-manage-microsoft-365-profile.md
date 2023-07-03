@@ -25,7 +25,7 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 
 ### Known limitations
 
-- Teams is currently not supported as part of the MIcrosoft 365 Common endpoints. Only Microsoft Entra ID and Microsoft Graph are supported.
+- Teams is currently not supported as part of the Microsoft 365 Common endpoints. Only Microsoft Entra ID and Microsoft Graph are supported.
 - For details on limitations for the Microsoft 365 traffic profile, see [Windows Client known limitations](how-to-install-windows-client.md#known-limitations)
 ## Enable the Microsoft 365 traffic profile
 
