@@ -19,9 +19,9 @@ This article is a high-level introduction to Vector search in Azure Cognitive Se
 
 ## What's vector search in Cognitive Search?
 
-Azure Cognitive Search allows to efficiently store and retrieve vector embeddings using Approximate Nearest Neighbor methods (ANN). Vector search can be used to power semantic search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
+Azure Cognitive Search allows to efficiently store and retrieve vector embeddings using Approximate Nearest Neighbor methods (ANN). Vector search can be used to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
 
-Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). To use vector search, you need to define a *vector field* in the index definition and index documents with vector data. Then you can issue search request with a query vector which will return documents with the requested k nearest neighbors (kNN) according to the selected vector similarity metric.
+Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview). To use vector search, you need to define a *vector field* in the index definition and index documents with vector data. Then you can issue search request with a query vector which will return documents with the requested `k` nearest neighbors (kNhttps://arxiv.org/abs/2005.11401pN) according to the selected vector similarity metric.
 
 You can index vector data as fields in documents alongside textual and other types of content.  Vector queries can be issued independently or in combination with other query types, including term queries (hybrid search) and filters in the same search request.
 
