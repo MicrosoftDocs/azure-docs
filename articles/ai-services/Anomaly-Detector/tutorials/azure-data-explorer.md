@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ## Introduction
 
-The [Anomaly Detector API](~/articles/ai-services/anomaly-detector/overview) enables you to check and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically finding and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API decides boundaries for anomaly detection, expected values, and which data points are anomalies.
+The [Anomaly Detector API](../overview.md) enables you to check and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically finding and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API decides boundaries for anomaly detection, expected values, and which data points are anomalies.
 
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data in near real-time. The Azure Data Explorer toolbox gives you an end-to-end solution for data ingestion, query, visualization, and management.
 
