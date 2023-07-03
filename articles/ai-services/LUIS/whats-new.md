@@ -102,8 +102,8 @@ Learn what's new in the service. These items include release notes, videos, blog
     * Japanese [prebuilt entities](luis-reference-prebuilt-entities.md#japanese-entity-support) - age, currency, number, and percentage are not supported in V3.
     * Italian [prebuilt entities](luis-reference-prebuilt-entities.md#italian-entity-support) - age, currency, dimension, number, and percentage resolution changed from V2.
 * Enhanced user experience in [preview.luis.ai portal](https://preview.luis.ai) - revamped labeling experience to enable building and debugging complex models. Try the preview portal tutorials:
-    * [Intents only](tutorial-intents-only.md)
-    * [Decomposable machine-learning entity](tutorial-machine-learned-entity.md)
+    * [Intents only](build-decomposable-application.md)
+    * [Decomposable machine-learning entity](build-decomposable-application.md)
 * Advance language understanding capabilities - [building sophisticated language models](concepts/entities.md) with less effort.
 * Define machine learning features at the model level and enable models to be used as signals to other models, for example using entities as features to intents and to other entities.
 * New, expanded [limits](luis-limits.md) - higher maximum for phrase lists and total phrases, new model as a feature limits
