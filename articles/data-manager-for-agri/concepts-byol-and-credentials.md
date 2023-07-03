@@ -61,9 +61,9 @@ Follow one of the following methods to enable:
 
     :::image type="content" source="./media/concepts-byol-and-credentials/enable-system-via-ui.png" alt-text="Screenshot showing usage of UI to enable key.":::
 
-2. Via Azure Resource Manager client
+2. Via Azure CLI
 
-    ```cmd
+    ```azurecli
     az rest --method patch --url /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{ADMA_instance_name}?api-version=2023-06-01-preview --body "{'identity': {'type': 'SystemAssigned'}}"
     ``` 
 
