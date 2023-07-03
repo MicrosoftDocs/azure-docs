@@ -17,31 +17,50 @@ You create an alert rule by combining:
  - The signal or data from the resource.
  - Conditions.
 
-You then define these elements for the resulting alert actions by using:
- - [Alert processing rules](alerts-action-rules.md)
+You then define these elements for the alert actions:
  - [Action groups](./action-groups.md)
+ - [Alert processing rules](alerts-action-rules.md)
 
 Alerts triggered by these alert rules contain a payload that uses the [common alert schema](alerts-common-schema.md).
-## Create a new alert rule in the Azure portal
+## Create or edit an alert rule in the Azure portal
 
-   :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
+There are several ways that you can create a new alert rule.
+
+To create a new alert rule from the portal home page:
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.
-1. Open the **+ Create** menu and select **Alert rule**.
+1. Open the **+ Create** menu, and select **Alert rule**.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
+
+To create a new alert rule from a specific resource:
+
+1. In the [portal](https://portal.azure.com/), navigate to the resource.
+1. Select **Alerts** from the left pane, and then select **+ Create** > **Alert rule**.
+
+     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule2.png" alt-text="Screenshot that shows steps to create a new alert rule from a selected resource.":::
+
+To edit an existing alert rule:
+1. In the [portal](https://portal.azure.com/), either from the home page or from a specific resource, select **Alerts** from the left pane.
+1. Select **Alert rules**.
+1. Select the alert rule you want to edit, and then select **Edit**.
+
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-edit-alert-rule.png" alt-text="Screenshot that shows steps to edit an existing alert rule.":::
+1. Select any of the tabs for the alert rule to edit the settings.
 
 ### Set the alert rule scope
-
-:::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
 1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 1. Select **Apply**.
 1. Select **Next: Condition** at the bottom of the page.
 
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 ### Set the alert rule conditions 
 
-:::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
+1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition.
 
-1. On the **Condition** tab, when you select the **Signal name** field, the most commonly used signals are displayed in the drop-down list. Select one of these popular signals, or select **See all signals** if you want to choose a different signal for the condition. 
+    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-popular-signals.png" alt-text="Screenshot that shows popular signals when creating an alert rule.":::
+
 1. (Optional) If you chose to **See all signals** in the previous step, use the **Select a signal** pane to search for the signal name or filter the list of signals. Filter by:
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) you're creating.
     - **Signal source**: The service sending the signal. The list is prepopulated based on the type of alert rule you selected.
