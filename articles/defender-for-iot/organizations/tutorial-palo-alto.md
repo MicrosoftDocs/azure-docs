@@ -8,7 +8,7 @@ ms.topic: how-to
 # Integrate Palo-Alto with Microsoft Defender for IoT
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Palo Alto integration with the upcoming version 23.1.
+> Defender for IoT plans to end support for the legacy Palo Alto Panorama integration with an upcoming patch version of 23.1.x.
 >
 > We recommend transitioning your integration connecting to [Microsoft Sentinel](concept-sentinel-integration.md), and installing one or more of the following solutions instead:
 >- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)

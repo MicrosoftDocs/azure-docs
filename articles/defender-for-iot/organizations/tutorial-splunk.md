@@ -9,7 +9,7 @@ ms.custom: how-to
 # Integrate Splunk with Microsoft Defender for IoT
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Splunk integration with the upcoming version 23.1.
+> Defender for IoT plans to end support for the legacy Splunk integration with an upcoming patch version of 23.1.x.
 >
 > We recommend transitioning any legacy integrations to the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151) instead. For more information, see:
 >

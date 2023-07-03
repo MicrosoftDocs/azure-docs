@@ -10,7 +10,7 @@ ms.custom: how-to
 
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with the upcoming version 23.1.
+> Defender for IoT plans to end support for the legacy Aruba ClearPass integration with an upcoming patch version of 23.1.x.
 >
 > We recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview) instead.
 >
