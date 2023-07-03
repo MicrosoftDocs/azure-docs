@@ -27,7 +27,7 @@ This table lists the SKUs available for the storage appliance in Near-edge Nexus
 
 This diagram shows the connectivity model followed by storage appliance in the Near Edge offering:
 
-:::image type="content" source="media/StorageConnectivity.png" alt-text="Nexus Storage Appliance Connectivity.":::
+:::image type="content" source="media/storage-connectivity.png" alt-text="Nexus Storage Appliance Connectivity.":::
 
 Figure: Azure Operator Nexus Storage connectivity diagram
 
