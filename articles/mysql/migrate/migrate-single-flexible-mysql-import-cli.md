@@ -32,17 +32,17 @@ The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive she
 
 To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Prerequisites
 
-You must sign in to your account using the [az sign-in](https://learn.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to your Azure account's **Subscription ID**.
+You must sign in to your account using the [az sign-in](/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to your Azure account's **Subscription ID**.
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using the [az account set](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) command. Note the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](https://learn.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription in which the source Azure Database for MySQL - Single Server resides under your account using the [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) command. Note the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the source Azure Database for MySQL - Single Server resides. To get all your subscriptions, use [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list).
 
 ```azurecli-interactive
 az account set --subscription <subscription id>
