@@ -21299,6 +21299,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/communication-services/how-tos/calling-sdk/lobby-admit-and-reject.md",
+            "redirect_url": "/articles/communication-services/how-tos/calling-sdk/lobby.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
             "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
             "redirect_document_id": false
