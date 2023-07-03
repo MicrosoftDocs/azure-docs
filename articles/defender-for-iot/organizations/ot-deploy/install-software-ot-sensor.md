@@ -26,7 +26,7 @@ Before installing, configuring, and activating your OT sensor, make sure that yo
 
 - Performed extra procedures per appliance type. Each appliance type also comes with its own set of instructions that are required before installing Defender for IoT software.
 
-    Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software.
+    Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. If your appliance has a RAID storage array, make sure to configure it before you continue installation.
 
     For more information, see:
 
