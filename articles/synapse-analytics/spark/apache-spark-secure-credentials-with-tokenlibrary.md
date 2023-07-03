@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 
-# Secure credentials with linked services using the TokenLibrary
+# Secure credentials with linked services using the mssparkutils
 
 Accessing data from external sources is a common pattern. Unless the external data source allows anonymous access, chances are you need to secure your connection with a credential, secret, or connection string.  
 
@@ -28,7 +28,7 @@ For more information, see [linked services](../../data-factory/concepts-linked-s
 
 ## Usage
 
-### Credentials help
+### mssparkutils help for tokens and secrets
 This function displays the help documentation for secrets and tokens management in Synapse.
 
 ::: zone pivot = "programming-language-scala"
@@ -71,11 +71,11 @@ Get result:
  putSecretWithLS(linkedService: String, secretName: String, secretValue: String): puts AKV secret for a given linked service, secretName
 ```
 
-## Configurations for accessing Azure Data Lake Storage Gen2
+## Accessing Azure Data Lake Storage Gen2
 
 #### ADLS Gen2 Primary Storage
 
-Accessing files from the primary Azure Data Lake Storage uses Azure Active Directory passthrough for authentication by default and doesn't require the explicit use of the TokenLibrary.
+Accessing files from the primary Azure Data Lake Storage uses Azure Active Directory passthrough for authentication by default and doesn't require the explicit use of the mssparkutils. The identity used in the passthrough authentication differs based on a few factors. By default, interactive notebooks are executed using the user's identity, but it can be changed to the workspace MSI. Batch jobs and non-interactive executions of the notebook use the Workspace MSI identity.
 
 ::: zone pivot = "programming-language-scala"
 
