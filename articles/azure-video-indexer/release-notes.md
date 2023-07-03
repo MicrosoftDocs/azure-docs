@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 05/24/2023
+ms.date: 07/03/2023
 ms.author: juliako
 ---
 
@@ -17,6 +17,16 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## July 2023
+
+### Redact faces with Azure Video Indexer API
+
+You can now redact faces with Azure Video Indexer API. For more information see [Redact faces with Azure Video Indexer API](face-redaction-with-api.md).
+
+### Upload a video API request limit increase  
+
+An upload a video API request limit was increased from 60 to 120 requests per minute.
 
 ## June 2023
 

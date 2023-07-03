@@ -3,7 +3,7 @@ title: Monitor operational issues logged in your Azure Monitor Log Analytics wor
 description: The article describes how to monitor the health of your Log Analytics workspace by using data in the Operation table.
 ms.topic: how-to
 ms.reviewer: MeirMen
-ms.date: 03/21/2022
+ms.date: 07/02/2023
 
 ---
 

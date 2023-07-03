@@ -50,11 +50,16 @@ The MySQL service doesn't allow direct access to the underlying file system. Som
 
 The following are unsupported:
 - DBA role: Restricted. Alternatively, you can use the administrator user (created during the new server creation), which allows you to perform most of DDL and DML statements.
-- Restricted privileges: [SUPER privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_super) and [FILE privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_file) are restricted.
+- Below [static privileges](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#privileges-provided-static) are restricted.
+    - [SUPER privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_super)
+    - [FILE privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_file)
+    - [CREATE TABLESPACE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-tablespace)
+    - [SHUTDOWN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_shutdown)
+- [BACKUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin) privilege: Granting BACKUP_ADMIN privilege isn't supported for taking backups using any [utility tools](../migrate/how-to-decide-on-right-migration-tools.md). Refer [Supported](././concepts-limitations.md#supported-1) section for list of supported [dynamic privileges](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#privileges-provided-dynamic).
 - DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, manually remove the `CREATE DEFINER` commands or use the `--skip-definer` command when performing a mysqldump.
 - System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionalities. You can't make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
-- [BACKUP_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_backup-admin) privilege: Granting BACKUP_ADMIN privilege isn't supported for taking backups using any [utility tools](../migrate/how-to-decide-on-right-migration-tools.md). Refer [Supported](././concepts-limitations.md#supported-1) section for list of supported [dynamic privileges](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#privileges-provided-dynamic).
+
 
 ### Supported
 
