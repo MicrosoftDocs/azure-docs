@@ -255,8 +255,29 @@ We recommend updating your AKS cluster to [AKS-managed Azure Active Directory][m
 3. Why do I still receive the notification email after manual migration?
 It takes several days to send the email. So your cluster may be Azure Active Directory Integration before the email is sent and it is collected by us as impacted. You migrate it during the email-sending process.
 
-4. How to check whether the cluster is impacted?
+4. How to check whether the cluster is migrated to AKS-managed Azure Active Directory?
+Confirm your AKS cluster is migrated to the AKS-managed Azure Active Directory using the [`az aks show`][az-aks-show] command.
 
+ ```azurecli-interactive
+az aks show -g <RGName> -n <ClusterName>  --query "aadProfile"
+```
+
+If your cluster is using the AKS-managed Azure Active Directory, the output shows `adminGroupObjectIDs` with a value, `clientAppId` is `null`, `managed` is `true`.  For example:
+
+```output
+{
+  "adminGroupObjectIDs": [
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  ],
+  "adminUsers": null,
+  "clientAppId": null,
+  "enableAzureRbac": null,
+  "managed": true,
+  "serverAppId": null,
+  "serverAppSecret": null,
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
+```
 
 
 ## Next steps
