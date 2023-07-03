@@ -20,7 +20,7 @@ We've created this page to keep you updated on new features, blog posts, and oth
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
 ### Call Automation and Call Recording
-:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A portion of a high-level architecture diagram showing how call automation is configured":::
+:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A portion of a high-level architecture diagram showing how call automation is configured.":::
 
 Use Azure Communication Services call automation to transform your customer experiences. Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. 
 
@@ -34,7 +34,7 @@ Use Azure Communication Services call automation to transform your customer expe
 
 
 ### Virtual Rooms
-:::image type="content" source="./media/whats-new-images/05-23/rooms.png" alt-text="A photograph of office towers":::
+:::image type="content" source="./media/whats-new-images/05-23/rooms.png" alt-text="A photograph of office towers.":::
 
  Azure Communication Services Virtual Rooms is a new set of APIs that allows developers to control who can join a call, when they meet, and how they collaborate during group meetings. Azure Communication Services Rooms is now Generally Available.
 
@@ -48,7 +48,7 @@ Use Azure Communication Services call automation to transform your customer expe
 
 
 ### Calling SDK for Windows
-:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="Graphic showing windows laptop integrating with Azure Communication Services":::
+:::image type="content" source="./media/whats-new-images/05-23/calling-windows.png" alt-text="Diagram showing windows laptop integrating with Azure Communication Services.":::
 
 Add first-class calling capabilities to your Windows applications. Use this SDK to natively create rich audio and video experiences in Windows for your customers, tailored to your specific needs and preferences. With the Calling SDK for Windows, you can implement real-time communication features such as voice and video calls, Microsoft Teams meeting integration, screen sharing, and raw media access. Azure Communication Services Calling SDK for Windows is now generally available.
 
@@ -66,8 +66,8 @@ Go deeper on common scenarios and learn more about how customers are using advan
 Services features.
 
 
-### Generate and send SMS and Email using Azure OpenAI Services and Azure Communication Services
-:::image type="content" source="./media/whats-new-images/05-23/contoso-school.gif" alt-text="Animated image showing what the final app will look like":::
+### Generate and send SMS and email using Azure OpenAI services and Azure Communication Services
+:::image type="content" source="./media/whats-new-images/05-23/contoso-school-anim.gif" alt-text="Animation showing what the final app will look like.":::
 
 Learn how to us openAI and Azure Communication Services to send automated alerts.
 
@@ -85,7 +85,7 @@ Learn how to us openAI and Azure Communication Services to send automated alerts
 
 
 ### Azure Communications Services at Microsoft Build
-:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Graphic of the Microsoft Build banner":::
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="The Microsoft Build banner.":::
 
 A recap of all of the Azure Communication Services sessions and discussions at Microsoft Build. 
 
@@ -117,7 +117,7 @@ Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk
 <br>
 
 ### Create custom virtual meetings apps with Azure Communication Services and Microsoft Teams
-:::image type="content" source="./media/whats-new-images/05-23/virtual-appts.png" alt-text="Diagram describing the extensibility layer of Azure Communication Services and Teams." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
+:::image type="content" source="./media/whats-new-images/05-23/virtual-appts.png" alt-text="A diagram describing the extensibility layer of Azure Communication Services and Teams." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
 
 Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create virtual meetings applications that use Azure Communication Services and interop seamlessly with Microsoft Teams
 
@@ -131,8 +131,8 @@ Join Microsoft PMs Tomas Chladek  and Ben Olson as they discuss how to create vi
 <br>
 <br>
 
-### Building a SMS generator with short URLs using Azure Functions, Storage, and Communication Services
-:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="Visual representation of the challenge of fitting a long URL into a short SMS." lightbox="./media/whats-new-images/05-23/sms-generator-blog-large.png":::
+### Building an SMS generator with short URLs using Azure Functions, Storage, and Communication Services
+:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="A visual representation of the challenge of fitting a long URL into a short SMS." lightbox="./media/whats-new-images/05-23/sms-generator-blog-large.png":::
 
 Learn how to convert a lengthy URL into a format that fits the format of SMS, and then send the SMS using Azure Communication Services.
 
@@ -147,7 +147,7 @@ Learn how to convert a lengthy URL into a format that fits the format of SMS, an
 <br>
 
 ### Building on the Microsoft Cloud: Audio/video calling from a custom app
-:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="Microsoft Build event banner.":::
+:::image type="content" source="./media/whats-new-images/05-23/build.png" alt-text="A graphic showing the Microsoft Build event banner.":::
 
 Join Microsoft Senior Cloud Advocate Ayca Bas and Principal Content Engineer Dan Wahlin as they share how Microsoft Cloud services can empower your apps with audio/video communication. 
 
