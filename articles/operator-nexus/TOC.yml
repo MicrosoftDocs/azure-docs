@@ -119,7 +119,7 @@
       href: List-of-metrics-collected.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
-    - name: Near-edge Storage
+    - name: Near-edge storage
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
