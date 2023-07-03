@@ -26,7 +26,7 @@ The foundation of data protection solutions including volume restores and clones
 ### Benefits 
 
 - Efficient and frequent primary data protection for fast recovery from data corruption or loss 
-- Revert an complete volume to a point-in-time snapshot in seconds 
+- Revert a complete volume to a point-in-time snapshot in seconds 
 - Restore a snapshot to new volume (clone) in seconds to test or develop with current data  
 - Application-consistent snapshots with [AzAcSnap integration](azacsnap-introduction.md) and third party backup tools 
 
@@ -58,7 +58,7 @@ To learn more, see [How volumes and snapshots are replicated cross-region for DR
 
 ## Cross-zone replication 
 
-Cross-zone replication leverages [availability zones](use-availability-zones.md), and the same replication engine as cross-region replication, creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.  
+Cross-zone replication leverages [availability zones](use-availability-zones.md) and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.  
 
 ### Benefits 
 
