@@ -107,7 +107,7 @@ With this release, the recommendation `Container registry images should have vul
 
 Customers with both Defender for Containers plan and Defender CSPM plan should [disable the Qualys recommendation](tutorial-security-policy.md#disable-a-security-recommendation), to avoid multiple reports for the same images with potential impact on secure score. If you're currently using the sub-assesment API or Azure Resource Graph or continuous export, you should also update your requests to the new schema used by the MDVM recommendation prior to disabling the Qualys recommendation and using MDVM results instead.
 
-If you are also using our public preview offering for Windows containers vulnerability assessment powered by Qualys, and you would like to continue using it, you need to [disable Linux findings](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure#disable-specific-findings) using disable rules rather than disable the registry recommendation.
+If you are also using our public preview offering for Windows containers vulnerability assessment powered by Qualys, and you would like to continue using it, you need to [disable Linux findings](defender-for-containers-vulnerability-assessment-azure.md#disable-specific-findings) using disable rules rather than disable the registry recommendation.
 
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
@@ -151,7 +151,7 @@ The recommendation `Running container images should have vulnerability findings 
 
 If you're currently using the sub-assesment API or Azure Resource Graph or continuous export, you should also update your requests to the new schema used by the MDVM recommendation prior to disabling the Qualys recommendation and use MDVM results instead.
 
-If you are also using our public preview offering for Windows containers vulnerability assessment powered by Qualys, and you would like to continue using it, you need to [disable Linux findings](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure#disable-specific-findings) using disable rules rather than disable the runtime recommendation.
+If you are also using our public preview offering for Windows containers vulnerability assessment powered by Qualys, and you would like to continue using it, you need to [disable Linux findings](defender-for-containers-vulnerability-assessment-azure.md#disable-specific-findings) using disable rules rather than disable the runtime recommendation.
 
 Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
