@@ -54,7 +54,7 @@ In Defender for IoT on the Azure portal, select **Getting started** > **Sensor**
 This procedure describes how to install OT monitoring software on an OT network sensor.
 
 > [!NOTE]
-> If your appliance has a RAID storage array, make sure to configure it before you continue installation.
+> If your appliance has a RAID storage array, make sure to configure it before you continue installation.<br>
 > Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
 
 **To install your software**:
