@@ -510,7 +510,7 @@ You can also create an activity log alert on future events similar to an activit
 
    If you want to make the alert rule more general, modify the scope and condition accordingly. See steps 3-9 in the section "Create a new alert rule in the Azure portal."
 
-1. Follow the rest of the steps from [Create a new alert rule in the Azure portal](#create-a-new-alert-rule-in-the-azure-portal).
+1. Follow the rest of the steps from [Create a new alert rule in the Azure portal](#create-or-edit-an-alert-rule-in-the-azure-portal).
 
 ## Next steps
  [View and manage your alert instances](alerts-manage-alert-instances.md)
