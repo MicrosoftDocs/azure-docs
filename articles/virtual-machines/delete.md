@@ -345,7 +345,7 @@ Use the `--force-deletion` parameter for [`az vmss delete`](/cli/azure/vmss#az-v
 az vmss delete \
     --resource-group myResourceGroup \
     --name myVMSS \
-    --force-deletion
+    --force-deletion true
 ```
 
 ### [PowerShell](#tab/powershell5)
