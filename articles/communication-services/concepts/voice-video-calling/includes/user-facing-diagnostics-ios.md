@@ -153,6 +153,9 @@ self.mediaDiagnostics?.delegate = self.callObserver
 self.networkDiagnostics?.delegate = self.callObserver
 ```
 
+>[!NOTE]
+> If you have [`CallKit`](./../../../how-tos/calling-sdk/callkit-integration) enabled via SDK or implement CallKit integration in your application, reporting mute state to CallKit can result in the OS making the application loose the hold to microphone due to privacy reasons which would cause the `didIsSpeakingWhileMicrophoneIsMuted` event not to work as expected because because we cannot capture input from microphone device to detect that the user is speaking.
+
 ## Get the latest User Facing Diagnostics
 
 - Get the latest diagnostic values that were raised. If we still didn't receive a value for the diagnostic, `nil` or `.unknown` is returned.
