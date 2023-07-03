@@ -55,7 +55,7 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
     Increase your commitment tier anytime to optimize costs as your data volume increases. Lowering the commitment tier is only allowed every 31 days. To see your current Microsoft Sentinel pricing tier, select **Settings** in Microsoft Sentinel, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
-    To set and change your Commitment Tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Workspaces older than July 2023 will have the option to enroll in the simplified pricing tier to unify billing meters, or continue to use the classic pricing tier which separates out the Log Analytics pricing tiers. For more information, see [simplified pricing tier](#simplified-pricing-tier).
+    To set and change your Commitment Tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Workspaces older than July 2023 will have the option to switch to the simplified pricing tiers experience to unify billing meters, or continue to use the classic pricing tiers which separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
 
 #### Basic logs
 
