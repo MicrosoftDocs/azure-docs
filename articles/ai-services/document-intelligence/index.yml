@@ -162,10 +162,10 @@ landingContent:
       - linkListType: reference
         links:
            - text: Transparency notes
-             url: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=~/articles/ai-services/document-intelligence/context/context
+             url: /legal/cognitive-services/document-intelligence/fr-transparency-note?context=~/articles/ai-services/document-intelligence/context/context
            - text: Characteristics and limitations
-             url: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=~/articles/ai-services/document-intelligence/context/context
+             url: /legal/cognitive-services/document-intelligence/fr-characteristics-and-limitations?context=~/articles/ai-services/document-intelligence/context/context
            - text: Guidance for integration and responsible use
-             url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=~/articles/ai-services/document-intelligence/context/context
+             url: /legal/cognitive-services/document-intelligence/fr-guidance-integration-responsible-use?context=~/articles/ai-services/document-intelligence/context/context
            - text: Data privacy, compliance, and security
-             url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=~/articles/ai-services/document-intelligence/context/context
+             url: /legal/cognitive-services/document-intelligence/fr-data-privacy-security?context=~/articles/ai-services/document-intelligence/context/context

@@ -110,7 +110,7 @@ items:
     items:
     - name: Set up Virtual Networks
       displayName: firewall, security, subdomain, VNet, virtual network, az, regions, cli
-      href: ../../ai-services/cognitive-services-virtual-networks.md?context=~/articles/ai-services/document-intelligence/context/context
+      href: ../../ai-services/cognitive-services-virtual-networks.md?context=/azure/ai-services/document-intelligence/context/context
     - name: Create and use managed identities
       displayName: azure RBAC, role based access control, sas, private, assigned, system assigned, role, blob
       href: managed-identities.md
@@ -122,7 +122,7 @@ items:
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
       displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
-      href: ../../ai-services/authentication.md?context=~/articles/ai-services/document-intelligence/context/context
+      href: ../../ai-services/authentication.md?context=/azure/ai-services/document-intelligence/context/context
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -138,13 +138,13 @@ items:
   - name: Transparency notes
     items:
     - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=~/articles/ai-services/document-intelligence/context/context
+      href: /legal/cognitive-services/document-intelligence/fr-transparency-note?context=/azure/ai-services/document-intelligence/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=~/articles/ai-services/document-intelligence/context/context
+      href: /legal/cognitive-services/document-intelligence/fr-characteristics-and-limitations?context=/azure/ai-services/document-intelligence/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=~/articles/ai-services/document-intelligence/context/context
+    href: /legal/cognitive-services/document-intelligence/fr-guidance-integration-responsible-use?context=/azure/ai-services/document-intelligence/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=~/articles/ai-services/document-intelligence/context/context
+    href: /legal/cognitive-services/document-intelligence/fr-data-privacy-security?context=/azure/ai-services/document-intelligence/context/context
 - name: Concepts
   items:
   - name: Model overview
@@ -259,6 +259,6 @@ items:
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../../ai-services/cognitive-services-support-options.md?context=~/articles/ai-services/document-intelligence/context/context
+    href: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/document-intelligence/context/context
   - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement
