@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Azure Operator Nexus Storage Appliance
 
-Azure Operator Nexus is built on some basic constructs like compute servers, storage appliance, and network fabric devices. These storage appliances, also referred to as Nexus Storage Appliances, represent the Persistent Storage Appliance in the rack. In each Nexus Storage Appliance, there are multiple storage devices, which are aggregated to provide a single storage pool. This storage pool is then carved out into multiple volumes, which are then presented to the compute servers as block storage devices. The compute servers can then use these block storage devices as persistent storage for their workloads. Each Nexus Cluster is provisioned with a single storage appliance that is shared across all the tenant workloads.
+Operator Nexus is built on some basic constructs like compute servers, storage appliance, and network fabric devices. These storage appliances, also referred to as Nexus storage appliances, represent the persistent storage appliance in the rack. In each Nexus storage appliance, there are multiple storage devices, which are aggregated to provide a single storage pool. This storage pool is then carved out into multiple volumes, which are then presented to the compute servers as block storage devices. The compute servers can then use these block storage devices as persistent storage for their workloads. Each Nexus cluster is provisioned with a single storage appliance that is shared across all the tenant workloads.
 
 The Storage Appliance within an Azure Operator Nexus instance is represented as an Azure resource and Operators (end users) get access to view its attributes like any other Azure resource.
 
