@@ -72,7 +72,7 @@ Here's a list of the current behavior characteristics of the point-in-time in-ac
 
 - Restoration of a database or container resource succeeds when the resource is present as of restore time in the current write region of the account.
 
-- Same-account restore can't be performed while any account-level operations, such as add region, remove region, or failover, is in progress.
+- Same-account restore can't be performed while any account-level operations, such as add region, remove region, or fail over, is in progress.
 
 ## Next steps
 
