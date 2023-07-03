@@ -6,6 +6,18 @@ ms.date: 03/16/2023
 ms.author: eur
 ---
 
+### 2023-June release
+Add support for the latest model versions:
+- Custom speech to text 4.0.0
+- Speech to text 4.0.0
+- Neural text to speech 2.14.0
+
+OnPrem STT images are now upgraded to dotnet 6.0
+Upgrade Display Post Processing to the latest versions and models for `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr` and etc
+Upgrade STT container component to address vulnerability issues
+
+Add new locale voices `de-DE-AmalaNeural`,`de-AT-IngridNeural`,`de-AT-JonasNeural` and `en-us-jennymultilingualneural`
+
 ### 2023-May release
 
 Add support for the latest model versions:
