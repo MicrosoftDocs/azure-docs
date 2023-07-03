@@ -33,7 +33,7 @@ This functionality allows administrators to consistently enforce Conditional Acc
 - Continuous access evaluation is not currently supported for Universal Conditional Access for Microsoft 365 traffic.
 - Applying Conditional Access policies to Private Access traffic is not currently supported. To model this behavior, you can apply a Conditional Access policy at the application level for Quick Access and Global Secure Access apps. For more information, see [Apply Conditional Access to Private Access apps](how-to-target-resource-private-access-apps.md).
 - Applying Conditional Access policies to Internet traffic is not currently supported. Internet traffic is in private preview. To request access to the private preview, complete [the private preview interest form](https://aka.ms/entra-ia-preview).
-- Microsoft 365 traffic can 
+- Microsoft 365 traffic can be accessed through remote network connectivity without the Global Secure Access Client; however the Conditional Access policy isn't applied.
 
 
 ## Conditional Access policies

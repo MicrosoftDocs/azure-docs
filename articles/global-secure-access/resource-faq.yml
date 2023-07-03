@@ -7,9 +7,9 @@ metadata:
   manager: amycolannino
   ms.service: network-access
   ms.topic: faq
-  ms.date: 06/30/2023
+  ms.date: 07/03/2023
   ms.custom: references_regions
-title: Global Secure Access Frequently Asked Question
+title: Global Secure Access Frequently asked questions
 summary: |
   Frequently asked questions related to Microsoft Entra Internet Access and Microsoft Entra Private Access, which are part of Global Secure Access.
 
@@ -23,7 +23,7 @@ sections:
       - question: | 
           Does Global Secure Access support IPv6?
         answer: |
-          At this time, IPv4 is preferred over IPv6. If you encounter issues, disable IPv6. For more information, see the [Disable IPv6 section of the [Install Windows client](how-to-install-windows-client.md#disable-ipv6-and-secure-dns) article.
+          At this time, IPv4 is preferred over IPv6. If you encounter issues, disable IPv6. For more information, see the Disable IPv6 section of the [Install Windows client](how-to-install-windows-client.md#disable-ipv6-and-secure-dns) article.
   - name: Private Access
     questions:
         - question: |
