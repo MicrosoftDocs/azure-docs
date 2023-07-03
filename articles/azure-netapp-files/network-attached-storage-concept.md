@@ -21,7 +21,7 @@ Network Attached Storage (NAS) is a way for a centralized storage system to pres
 
 :::image type="content" source="../media/azure-netapp-files/nas-diagram.png" alt-text="Diagram of NAS protocols with Azure NetApp Files." lightbox="../media/azure-netapp-files/nas-diagram.png":::
 
-Datasets in a NAS environment can be structured (data in a well-defined format, such as databases) or unstructured (data not stored in a structured database format, such as images, media files, logs, home directories, etc.). Regardless of the structure, the data is serve through a standard conversation between a NAS client and the Azure NetApp Files NAS services. The conversation happens following these basic steps:
+Datasets in a NAS environment can be structured (data in a well-defined format, such as databases) or unstructured (data not stored in a structured database format, such as images, media files, logs, home directories, etc.). Regardless of the structure, the data is served through a standard conversation between a NAS client and the Azure NetApp Files NAS services. The conversation happens following these basic steps:
 
 1. A client requests access to a NAS share in Azure NetApp Files using either SMB or NFS.
 1. Access controls can be as basic as a client hostname/IP address or more complex, such as username authentication and share-level permissions.
