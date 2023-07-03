@@ -51,7 +51,6 @@ As snapshots are immutable entities, snapshots can only be created and archived.
 
 To create a snapshot the `Microsoft.AppConfiguration/configurationStores/write` permission is needed. The built-in "DataOwner" role contain this permission by default. The permission can be assigned at the subscription or resource group scope.
 
-
 ## Permissions to archive and recover a snapshot
 
 - `Microsoft.AppConfiguration/configurationStores/action`

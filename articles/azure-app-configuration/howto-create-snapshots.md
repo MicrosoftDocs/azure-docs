@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/16/2023
 ---
 
-# How to create snapshots (preview) in Azure App Configuration
+# Create and manage snapshots (preview) in Azure App Configuration
 
 In this article, learn how to create and manage snapshots (preview) in Azure App Configuration. Snapshot is a set of App Configuration settings stored in an immutable state.
 
