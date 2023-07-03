@@ -68,6 +68,9 @@ This procedure describes how to install OT monitoring software on an OT network 
         Your physical media must have a minimum of 4-GB storage.
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
+  
+> [!IMPORTANT]
+> If your appliance has a RAID storage array, make sure to configure it before you continue installation.
 
 1. When the installation boots, you're first prompted to select the hardware profile you want to use. For example:
 
