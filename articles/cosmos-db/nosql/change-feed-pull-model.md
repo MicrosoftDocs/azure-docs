@@ -238,7 +238,7 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation), ChangeFeedMode.LatestVersion);
 ```
 
-When using latest version mode, the `FeedIterator` continuation token never expires as long as the Azure Cosmos DB container still exists. When using all versions and deletes mode, the `FeedIterator` continuation token is valid as long as the changes happened within the retention window for continuous backups.
+When you're using latest version mode, the `FeedIterator` continuation token never expires as long as the Azure Cosmos DB container still exists. When you're using all versions and deletes mode, the `FeedIterator` continuation token is valid as long as the changes happened within the retention window for continuous backups.
 
 ### [Java](#tab/java)
 
