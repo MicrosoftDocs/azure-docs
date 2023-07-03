@@ -1,3 +1,14 @@
+---
+title: Microsoft Azure Data Manager for Agriculture Public Preview Notice
+description: Public Preview Notice for using Microsoft Azure Data Manager for Agriculture service
+author: BlackRider97
+ms.author: ramithar
+ms.service: data-manager-for-agri
+ms.topic: how-to
+ms.date: 07/03/2023
+ms.custom: template-how-to
+---
+
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). See Azure Data Manager for Agriculture specific terms of use [**here**](../supplemental-terms-azure-data-manager-for-agriculture.md).
 >
