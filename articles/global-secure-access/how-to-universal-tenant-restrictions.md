@@ -67,7 +67,7 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
 ### Try the authentication path:
 
 1. With universal tenant restrictions turned off in Global Secure Access global settings.
-1. Go to SharePoint Online, [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
+1. Go to SharePoint Online, `https://yourcompanyname.sharepoint.com/`, with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be able to access SharePoint Online.
 1. Turn on universal tenant restrictions.
@@ -79,7 +79,7 @@ This capability works the same for Exchange Online and Microsoft Graph in the fo
 ### Try the data path  
 
 1. With universal tenant restrictions turned off in Global Secure Access global settings.
-1. Go to SharePoint Online, [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
+1. Go to SharePoint Online, `https://yourcompanyname.sharepoint.com/`, with an external identity that isn't allow-listed in a tenant restrictions v2 policy. 
    1. For example, a Fabrikam user in the Fabrikam tenant. 
    1. The Fabrikam user should be able to access SharePoint Online.
 1. In the same browser with SharePoint Online open, go to Developer Tools, or press F12 on the keyboard. Start capturing the network logs. You should see Status 200, when everything is working as expected. 

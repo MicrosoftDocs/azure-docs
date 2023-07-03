@@ -80,9 +80,9 @@ After administrators confirm the policy settings using [report-only mode](../act
 ## Try your compliant network policy
 
 1. On an end-user device with the [NaaS client installed and running](how-to-install-windows-client.md)
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), you have access to resources.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or `https://yourcompanyname.sharepoint.com/`, you have access to resources.
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
-1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [https://yourcompanyname.sharepoint.com/](https://yourcompanyname.sharepoint.com/), you're blocked from accessing resources with an error message that says **You cannot access this right now**.
+1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or`https://yourcompanyname.sharepoint.com/`, you're blocked from accessing resources with an error message that says **You cannot access this right now**.
 
 :::image type="content" source="media/how-to-compliant-network/you-cannot-access-this-right-now-error.png" alt-text="Screenshot showing error message in browser window You can't access this right now.":::
 
