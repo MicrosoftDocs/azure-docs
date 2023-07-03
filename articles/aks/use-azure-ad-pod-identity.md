@@ -305,7 +305,7 @@ metadata:
 
 ## Disable pod-managed identity on an existing cluster
 
-To disable pod-managed identity on an existing cluster, remove the pod-managed identity from the cluster. Then disable the feature on the cluster.
+To disable pod-managed identity on an existing cluster, remove the pod-managed identities from the cluster. Then disable the feature on the cluster.
 
 ```azurecli
 az aks pod-identity delete --name ${POD_IDENTITY_NAME} --namespace ${POD_IDENTITY_NAMESPACE} --resource-group myResourceGroup --cluster-name myAKSCluster
