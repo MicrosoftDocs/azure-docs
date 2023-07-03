@@ -176,16 +176,6 @@ Restricted Management Administrative Units allow you to restrict modification of
 
 ---
 
-### Public Preview - Real-Time Threat Intelligence Detections
-
-**Type:** New feature   
-**Service category:** Identity Protection                        
-**Product capability:** Identity Security & Protection              
-
-To address emerging attacks, Identity Protection now includes Real-Time Threat Intelligence Detections, also referred to as Rapid Response Detections. When emerging attacks occur, Identity Protection will now dynamically issue new detections in response to these attacks. These detections utilize Microsoft’s threat intelligence in real-time, meaning Identity Protection detects emerging patterns of compromise during sign-in and challenge the user accordingly. For more information, see: ADD LINK
-
----
-
 ### General Availability - Report suspicious activity integrated with Identity Protection
 
 **Type:** Changed feature   
