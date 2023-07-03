@@ -11,7 +11,7 @@ ms.date: 06/30/2023
 
 # Plan costs and understand Microsoft Sentinel pricing and billing
 
-As you plan your Microsoft Sentinel deployment, you typically want to understand its pricing and billing models to optimize your costs. Microsoft Sentinel's security analytics data is stored in an Azure Monitor Log Analytics workspace. Billing is based on the volume of data *analyzed* in Microsoft Sentinel and *stored* in the Log Analytics workspace. The cost of both is combined in a simplified pricing tier. Learn more about the [simplified pricing tier](#simplified-pricing-tier) or learn more about [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/) in general.
+As you plan your Microsoft Sentinel deployment, you typically want to understand its pricing and billing models to optimize your costs. Microsoft Sentinel's security analytics data is stored in an Azure Monitor Log Analytics workspace. Billing is based on the volume of data *analyzed* in Microsoft Sentinel and *stored* in the Log Analytics workspace. The cost of both is combined in a simplified pricing tier. Learn more about the [simplified pricing tiers](#simplified-pricing-tiers) or learn more about [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/) in general.
 
 Before you add any resources for Microsoft Sentinel, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate your costs.
 
