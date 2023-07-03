@@ -1643,14 +1643,14 @@ productDirectory:
       url: /azure/iot/
     # Card
     - title: Windows for IoT
-      summary: Windows for IoT, formerly Windows Embedded, is a family of operating systems from Microsoft designed for use in embedded systems.
+      summary: Windows for IoT, formerly Windows Embedded, is a family of operating systems from Microsoft designed for use in embedded systems
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
        - iot
       url: /windows/iot/   
     # Card
     - title: Azure Kubernetes Service Edge Essentials
-      summary:  An on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale.
+      summary:  An on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
        - hybrid
