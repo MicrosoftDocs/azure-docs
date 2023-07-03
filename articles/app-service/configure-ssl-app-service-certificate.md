@@ -1,6 +1,6 @@
 ---
 title: Add and manage App Service certificates
-description: Create a an App Service certificate and use it in Azure App Service.
+description: Create an App Service certificate and manage it (such as renew, sync, and delete).
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Create and manage an App Service certificate for your web app
 
-This article shows how to create an App Service certificate and manage it (such as renew, sync, and delete). An App Service certificate is a private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. 
+This article shows how to create an App Service certificate and manage it (such as renew, sync, and delete). Once you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. 
 
 If you purchase an App Service certificate from Azure, Azure manages the following tasks:
 
@@ -79,7 +79,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 1. Select **Next** and select **Vault access policy**. Currently, App Service certificates support only Key Vault access policies, not the RBAC model.
 1. Select **Review + create**, then select **Create**.
 1. After the key vault is created, don't select **Go to resource** but wait for the **Select key vault from Azure Key Vault page** to reload.
-1. Click **Select**.
+1. Select **Select**.
 1. After you select the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark to indicate success. Keep the page open for the next step.
 
 #### Confirm domain ownership
@@ -220,11 +220,11 @@ If you delete an App Service certificate, the delete operation is irreversible a
 
 #### My App Service certificate doesn't have any value in Key Vault
 
-Your App Service certificate is most likely still not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate is not ready for use. As a key vault secret, it maintains an `Initialize` tag, and its value and content-type remain empty. When domain ownership is confirmed, the key vault secret shows a value and a content-type, and the tag changes to `Ready`.
+Your App Service certificate is most likely still not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. As a key vault secret, it maintains an `Initialize` tag, and its value and content-type remain empty. When domain ownership is confirmed, the key vault secret shows a value and a content-type, and the tag changes to `Ready`.
 
 #### I can't export my App Service certificate with PowerShell
 
-Your App Service certificate is most likely still not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate is not ready for use. 
+Your App Service certificate is most likely still not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. 
 
 #### What changes does the App Service certificate creation process make to my existing Key Vault?
 

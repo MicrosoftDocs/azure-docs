@@ -56,7 +56,7 @@ To secure a custom domain in a TLS binding, the certificate has more requirement
 
 ## Create a free managed certificate
 
-The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. Without any action required from you, this TLS/SSL server certificate is fully managed by App Service and is automatically renewed continuously in six-month increments, 45 days before expiration, as long as the prerequisites that you set up stay the same. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and let App Service do the rest.
+The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. Without any action from you, this TLS/SSL server certificate is fully managed by App Service and is automatically renewed continuously in six-month increments, 45 days before expiration, as long as the prerequisites that you set up stay the same. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and let App Service do the rest.
 
 > [!IMPORTANT]
 > Before you create a free managed certificate, make sure you have [met the prerequisites](#prerequisites) for your app.
@@ -227,7 +227,7 @@ You're now ready upload the certificate to App Service.
 
 1. From your app's navigation menu, select **Certificates** > **Bring your own certificates (.pfx)** > **Upload Certificate**.
 
-    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot of "Certificates", "Bring your own certificates (.pfx)", "Upload Certificate" selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot of 'Certificates', 'Bring your own certificates (.pfx)', 'Upload Certificate' selected.":::
 
 1. To help you upload the .pfx certificate, use the following table:
 
@@ -241,7 +241,7 @@ You're now ready upload the certificate to App Service.
 
    When the operation completes, the certificate appears in the **Bring your own certificates** list.
 
-    :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot of "Bring your own certificates" pane with uploaded certificate listed.":::
+    :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot of 'Bring your own certificates' pane with uploaded certificate listed.":::
 
 1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
@@ -288,7 +288,8 @@ When you replace an expiring certificate, the way you update the certificate bin
 
 #### Renew a certificate imported from Key Vault
 
-> [!NOTE] To renew an App Service certificate, see [Renew an App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate).
+> [!NOTE]
+> To renew an App Service certificate, see [Renew an App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate).
 
 To renew a certificate that you imported into App Service from Key Vault, review [Renew your Azure Key Vault certificate](../key-vault/certificates/overview-renew-certificate.md).
 
