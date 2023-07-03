@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/28/2023
+ms.date: 07/03/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,7 +26,17 @@ Updates in July include:
 
 |Date |Update  |
 |---------|---------|
+|July 3 | [Support for disabling specific vulnerability findings](#support-for-disabling-specific-vulnerability-findings)
 | July 1 | [Data Aware Security Posture is now Generally Available](#data-aware-security-posture-is-now-generally-available) |
+
+### Support for disabling specific vulnerability findings
+
+July 3, 2023
+
+Release of support for disabling vulnerability findings for your container registry images or running images as part of Agentless Containers Posture. If you have an organizational need to ignore a vulnerability finding on your container registry image, rather than remediate it, you can optionally disable it. Disabled findings don't affect your secure score or generate unwanted noise. 
+
+Learn how to [disable vulnerability assessment findings on Container registry images](disable-vulnerability-findings-containers.md). 
+
 
 ### Data Aware Security Posture is now Generally Available
 

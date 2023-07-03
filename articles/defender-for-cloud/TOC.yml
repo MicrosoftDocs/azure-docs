@@ -305,6 +305,8 @@
       href: how-to-enable-agentless-containers.md
     - name: View and remediate vulnerability assessment findings for registry images 
       href: view-and-remediate-vulnerability-assessment-findings.md
+    - name: Disable vulnerability assessment findings on Container registry images
+      href: disable-vulnerability-findings-containers.md  
   - name: Security recommendations
     items:
     - name: Create custom Azure security initiatives and policies
