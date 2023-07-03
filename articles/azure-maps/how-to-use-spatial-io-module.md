@@ -1,5 +1,6 @@
 ---
-title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
+title: How to use the Azure Maps spatial IO module
+titleSuffix: Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web SDK.
 author: eriklindeman
 ms.author: eriklind
@@ -13,7 +14,7 @@ ms.custom:
 
 # How to use the Azure Maps Spatial IO module
 
-The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
+The Azure Maps Web SDK provides the [Spatial IO module], which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
 
 - [Read and write spatial data]. Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, GeoJSON and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).
 - Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK, and overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. For more information, see [Add a map layer from the Open Geospatial Consortium (OGC)].
@@ -253,16 +254,18 @@ Refer to the Azure Maps Spatial IO documentation:
 > [!div class="nextstepaction"]
 > [Azure Maps Spatial IO package]
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Read and write spatial data]: spatial-io-read-write-spatial-data.md
 [Add a map layer from the Open Geospatial Consortium (OGC)]: spatial-io-add-ogc-map-layer.md
 [Add a simple data layer]: spatial-io-add-simple-data-layer.md
-[Core IO operations]: spatial-io-core-operations.md
-[Connect to a WFS service]: spatial-io-connect-wfs-service.md
-[azure-maps-spatial-io]: https://www.npmjs.com/package/azure-maps-spatial-io
-[Azure Maps map control]: how-to-use-map-control.md
 [Add an OGC map layer]: spatial-io-add-ogc-map-layer.md
-[Leverage core operations]: spatial-io-core-operations.md
-[Supported data format details]: spatial-io-supported-data-format-details.md
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure Maps map control]: how-to-use-map-control.md
 [Azure Maps Spatial IO package]: /javascript/api/azure-maps-spatial-io
+[azure-maps-spatial-io]: https://www.npmjs.com/package/azure-maps-spatial-io
+[Connect to a WFS service]: spatial-io-connect-wfs-service.md
+[Core IO operations]: spatial-io-core-operations.md
+[Leverage core operations]: spatial-io-core-operations.md
+[Read and write spatial data]: spatial-io-read-write-spatial-data.md
+[Spatial IO module]: https://www.npmjs.com/package/azure-maps-spatial-io
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Supported data format details]: spatial-io-supported-data-format-details.md
+
