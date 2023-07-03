@@ -123,8 +123,8 @@ By default, App Service certificates have a one-year validity period. Before and
 
    If you turn on automatic renewal, certificates can start automatically renewing 32 days before expiration.
 
-  > [!div class="mx-imgBorder"]
-  > ![Screenshot of specified certificate's auto renewal settings.](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of specified certificate's auto renewal settings.](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
 1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
@@ -143,7 +143,7 @@ If you think your certificate's private key is compromised, you can rekey your c
 
 1. To start the process, select **Rekey**. This process can take 1-10 minutes to complete.
 
-  > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"]
    > ![Screenshot of rekeying an App Service certificate.](./media/configure-ssl-certificate/rekey-app-service-cert.png)
 
 1. You might also be required to [reconfirm domain ownership](#confirm-domain-ownership).
