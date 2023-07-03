@@ -43,7 +43,7 @@ Each approximate-nearest-neighbor algorithm creates other data structures in mem
 
 **For HNSW algorithm, this overhead is between 5% to 20%.** 
 
-This overhead is lower for higher dimensions because the raw size of the vectors are larger, but the extra data structures remain a fixed size since they store information on connectivity within the graph. As a result, the contribution of the extra data structures make up a smaller portion of the overall size. 
+This overhead is lower for higher dimensions because the raw size of the vectors is larger, but the extra data structures remain a fixed size since they store information on connectivity within the graph. As a result, the contribution of the extra data structures makes up a smaller portion of the overall size. 
 
 This overhead is higher for larger values of the HNSW parameter `m`, which sets the number of bi-directional links created for every new vector during index construction. (The reason is because _m_ contributes roughly _m times 8 to 10_ bytes per document.)
 
