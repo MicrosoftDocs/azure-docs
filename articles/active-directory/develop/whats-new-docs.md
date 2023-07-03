@@ -36,7 +36,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Refresh tokens in the Microsoft identity platform](refresh-tokens.md) - Editorial review of refresh tokens
 - [Tokens and claims overview](security-tokens.md) - Editorial review of security tokens
 - [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md) - Editorial review
-- [What's new for authentication?](reference-breaking-changes.md) - Identity breaking change: omission of unverified emails by default.
+- [What's new for authentication?](reference-breaking-changes.md) - Identity breaking change: omission of unverified emails by default
 
 ## May 2023
 
