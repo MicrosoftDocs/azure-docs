@@ -28,7 +28,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### Updated articles
 
-- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md) - update nodejs web app tutorial, add nodejs sample to webapp how-to
+- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md) - Editorial review of Node.js code snippet
 - [Claims mapping policy type](reference-claims-mapping-policy-type.md) - Editorial review of claims mapping policy type
 - [Configure token lifetime policies (preview)](configure-token-lifetimes.md) - Adding service principal policy commands
 - [Customize SAML token claims](saml-claims-customization.md) - Review of claims mapping policy type
