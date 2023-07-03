@@ -40,7 +40,7 @@ RFC standards for NFS protocols can be found here:
 
 NFSv3 is a basic offering of the protocol and has the following key attributes: 
 * NFSv3 is stateless, meaning that the NFS server does not keep track of the states of connections (including locks). 
-* Locking is handled outside of the NFS protocol, using Network Lock Manager (NLM). Because locks are integrated into the protocol, stale locks can sometimes occur. 
+* Locking is handled outside of the NFS protocol, using Network Lock Manager (NLM). Because locks are not integrated into the protocol, stale locks can sometimes occur. 
 * Since NFSv3 is stateless, performance with NFSv3 can be substantially better in some workloads (particularly workloads with high metadata operations such as OPEN, CLOSE, SETATTR, GETATTR), as there is less general work that needs to be done to process requests on the server and client. 
 * NFSv3 uses a basic file permission model where only the owner of the file, a group and everyone else can be assigned a combination of read/write/execute permissions.  
 * NFSv3 can use NFSv4.x ACLs, but an NFSv4.x management client would be required to configure and manage the ACLs. Azure NetApp Files does not support the use of nonstandard POSIX draft ACLs. 
@@ -53,6 +53,7 @@ NFSv3 is a basic offering of the protocol and has the following key attributes:
     * NSM (4046) 
     * Rquota (4049) 
 * NFSv3 can use security enhancements such as Kerberos, but Kerberos only affects the NFS portion of the packets; ancillary protocols (such as NLM, portmapper, mount) are not included in the Kerberos conversation. 
+    * Azure NetApp Files only supports NFSv4.1 Kerberos encryption
 * NFSv3 uses numeric IDs for its user and group authentication. Usernames and group names are not required for communication or permissions, which can make spoofing a user easier, but configuration and management are simpler. 
 * NFSv3 can use LDAP for user and group lookups. 
 
@@ -83,7 +84,7 @@ For frequently asked questions regarding NFS in Azure NetApp Files, see the [Azu
 
 SMB is primarily used with Windows clients for NAS functionality. However, it can also be used on Linux-based operating systems such as AppleOS, RedHat, etc. This deployment is generally accomplished using an application called Samba. Azure NetApp Files has official support for SMB using Windows and macOS. SMB/Samba on Linux operating systems can work with Azure NetApp Files, but there is no official support. 
 
-SMB does not have an official RFC standard, but NetApp partners closely with Microsoft to ensure the best possible SMB experience. Azure NetApp Files supports only SMB 2.1 and SMB 3.1 versions. 
+Azure NetApp Files supports only SMB 2.1 and SMB 3.1 versions. 
 
 SMB has the following characteristics: 
 
