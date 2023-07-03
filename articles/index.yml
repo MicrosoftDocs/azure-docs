@@ -1066,7 +1066,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/iot-windows10-core-services.svg
       azureCategories:
         - iot
-      url: /windows/iot-core/
+      url: /windows-hardware/manufacture/iot/iotcoreservicesoverview
     # Card
     - title: Automation
       summary: Simplify cloud management with process automation
@@ -1643,7 +1643,7 @@ productDirectory:
       url: /azure/iot/
     # Card
     - title: Windows for IoT
-      summary: Set up virtual labs for classes, training, hackathons, and other related scenarios
+      summary: Windows for IoT, formerly Windows Embedded, is a family of operating systems from Microsoft designed for use in embedded systems.
       imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
       azureCategories:
        - iot
