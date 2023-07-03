@@ -17,7 +17,7 @@ The storage appliance within an Operator Nexus instance is represented as an Azu
 
 ## Key capabilities offered in Azure Operator Nexus Storage software stack
 
-## Kubernetes Storage Classes
+## Kubernetes storage classes
 
 The Nexus Software Kubernetes stack offers two types of storage, selectable using the Kubernetes StorageClass mechanism.
 
