@@ -5,7 +5,6 @@ description: Use the List Management API to create custom lists of terms to use 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to

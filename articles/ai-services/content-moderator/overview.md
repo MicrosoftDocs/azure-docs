@@ -5,7 +5,6 @@ description: Learn how to use Content Moderator to track, flag, assess, and filt
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
@@ -30,7 +29,6 @@ This documentation contains the following article types:
 * [**Quickstarts**](client-libraries.md) are getting-started instructions to guide you through making requests to the service.  
 * [**How-to guides**](try-text-api.md) contain instructions for using the service in more specific or customized ways.  
 * [**Concepts**](text-moderation-api.md) provide in-depth explanations of the service functionality and features.  
-* [**Tutorials**](ecommerce-retail-catalog-moderation.md) are longer guides that show you how to use the service as a component in broader business solutions.
 
 For a more structured approach, follow a Training module for Content Moderator.
 * [Introduction to Content Moderator](/training/modules/intro-to-content-moderator/)
@@ -75,4 +73,4 @@ As with all of the Azure AI services, developers using the Content Moderator ser
 
 ## Next steps
 
-To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library or REST API quickstart](client-libraries.md) to implement the basic scenarios in code.
+* Complete a [client library or REST API quickstart](client-libraries.md) to implement the basic scenarios in code.

@@ -17,7 +17,7 @@ ms.author: pafarley
 In this example, you'll write your credentials to environment variables on the local machine running the application.
 
 > [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault). 
+> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features.md) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault.md). 
 
 To set the environment variable for your key and endpoint, open a console window and follow the instructions for your operating system and development environment.
 

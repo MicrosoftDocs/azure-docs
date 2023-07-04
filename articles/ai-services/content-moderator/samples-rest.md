@@ -5,7 +5,6 @@ description: Use Azure AI services Content Moderator feature based samples in yo
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample

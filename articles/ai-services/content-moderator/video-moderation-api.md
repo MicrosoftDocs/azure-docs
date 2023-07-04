@@ -5,7 +5,6 @@ description: How to analyze video content for various objectionable material usi
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to

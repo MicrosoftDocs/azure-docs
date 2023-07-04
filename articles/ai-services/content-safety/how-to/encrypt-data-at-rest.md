@@ -73,7 +73,7 @@ To specify a key as a URI, follow these steps:
 
 7. Paste the URI that you copied into the **Key URI** box.
 
-   ![Screenshot of the Encryption page for a Azure AI services resource. The Enter key URI option is selected, and the Key URI box contains a value.](../../media/cognitive-services-encryption/ssecmk2.png)
+   ![Screenshot of the Encryption page for an Azure AI services resource. The Enter key URI option is selected, and the Key URI box contains a value.](../../media/cognitive-services-encryption/ssecmk2.png)
 
 8. Under **Subscription**, select the subscription that contains the key vault.
 
@@ -118,7 +118,7 @@ To change the key that you use for encryption, follow these steps:
 
 ## Rotate customer-managed keys
 
-You can rotate a customer-managed key in Key Vault according to your compliance policies. When the key is rotated, you must update the Azure AI services resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see [Update the key version](/azure/ai-services/openai/encrypt-data-at-rest#update-the-key-version).
+You can rotate a customer-managed key in Key Vault according to your compliance policies. When the key is rotated, you must update the Azure AI services resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see [Update the key version](/azure/ai-services/openai/encrypt-data-at-rest.md#update-the-key-version).
 
 Rotating the key doesn't trigger re-encryption of data in the resource. No further action is required from the user.
 

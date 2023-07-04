@@ -5,7 +5,6 @@ description: How to moderate text with custom term lists using the Content Moder
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to

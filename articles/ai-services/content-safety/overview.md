@@ -5,7 +5,6 @@ description: Learn how to use Content Safety to track, flag, assess, and filter 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-safety
 ms.topic: overview

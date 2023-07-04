@@ -55,10 +55,6 @@ landingContent:
         links:
           - text: Using the API console
             url: try-image-api.md
-      - linkListType: tutorial
-        links:
-          - text: Moderate e-commerce product images
-            url: ecommerce-retail-catalog-moderation.md
 
   - title: Use custom image lists
     linkLists:

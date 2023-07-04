@@ -5,7 +5,6 @@ description: Learn about the content moderation APIs for Content Moderator.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: reference

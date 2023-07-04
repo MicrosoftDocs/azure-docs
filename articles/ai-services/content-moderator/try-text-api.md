@@ -6,7 +6,6 @@ services: cognitive-services
 author: PatrickFarley
 ms.author: pafarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to

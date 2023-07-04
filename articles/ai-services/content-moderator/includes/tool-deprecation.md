@@ -14,6 +14,6 @@ ms.author: pafarley
 
 > [!IMPORTANT]
 > 
-> Try out [Azure AI Content Safety](/azure/ai-services/content-safety/overview) for the latest in AI-powered content moderation.
+> Try out [Azure AI Content Safety](/azure/ai-services/content-safety/overview.md) for the latest in AI-powered content moderation.
 >
 > The Content Moderator Review APIs and online Review Tool were retired on 12/31/2021. The Moderation APIs are still available.

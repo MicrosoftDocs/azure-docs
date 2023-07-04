@@ -5,7 +5,6 @@ description: Use text moderation for possible unwanted text, personal data, and 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual

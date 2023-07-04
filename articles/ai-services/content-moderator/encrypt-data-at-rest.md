@@ -4,7 +4,6 @@ titleSuffix: Azure AI services
 description: Content Moderator encryption of data at rest.
 author: erindormier
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual

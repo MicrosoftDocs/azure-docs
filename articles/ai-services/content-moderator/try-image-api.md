@@ -5,7 +5,6 @@ description: Use the Image Moderation API in Azure AI Content Moderator to scan 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to

@@ -5,7 +5,6 @@ description: Use Content Moderator's machine-assisted image moderation to modera
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual

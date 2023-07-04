@@ -5,7 +5,6 @@ description: Learn how to use Azure AI services Content Moderator in your .NET a
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
