@@ -246,8 +246,8 @@ This because you're cloning a flow from others that is using compute instance as
 #### Compute instance behind vnet
 
 If your compute instance is behind a VNet, you need to make the following changes to ensure that your compute instance can be used in prompt flow:
-- Please follow [required-public-internet-access](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-secure-workspace-vnet?view=azureml-api-2&tabs=required%2Cpe%2Ccli#required-public-internet-access) to set your CI network configuration.
-- If your storage account also behind vnet, please follow [Secure Azure storage accounts](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-secure-workspace-vnet?view=azureml-api-2&tabs=required%2Cpe%2Ccli#secure-azure-storage-accounts) to create private endpoints for both table and blob.
+- Please follow [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your CI network configuration.
+- If your storage account also behind vnet, please follow [Secure Azure storage accounts](../how-to-secure-workspace-vnet#secure-azure-storage-accounts) to create private endpoints for both table and blob.
 - Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
 
 ### Managed endpoint runtime related
