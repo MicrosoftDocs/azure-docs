@@ -19,11 +19,19 @@ You can use [Azure Private Link](../private-link/private-link-overview.md) with 
 
 Azure Virtual Desktop has three workflows with three corresponding resource types of private endpoints:
 
-1. **Initial feed discovery**: lets the client discover all workspaces assigned to a user. To enable this process, you must create a single private endpoint to the global sub-resource of any workspace. However, you can only create one private endpoint in your entire Azure Virtual Desktop deployment. This endpoint creates Domain Name System (DNS) entries and private IP routes for the global fully-qualified domain name (FQDN) needed for initial feed discovery. This connection becomes a single, shared route for all clients to use.
+1. **Initial feed discovery**: lets the client discover all workspaces assigned to a user. To enable this process, you must create a single private endpoint to the *global* sub-resource to any workspace. However, you can only create one private endpoint in your entire Azure Virtual Desktop deployment. This endpoint creates Domain Name System (DNS) entries and private IP routes for the global fully-qualified domain name (FQDN) needed for initial feed discovery. This connection becomes a single, shared route for all clients to use.
 
-2. **Feed download**: when the client downloads all connection details for a specific user for the workspaces that host their application groups. To enable this feed download, you must create a private endpoint for each workspace you want to enable. This endpoint will be to the workspace sub-resource of the specific workspace you want to allow.
+2. **Feed download**: when the client downloads all connection details for a specific user for the workspaces that host their application groups. You create a private endpoint for the *feed* sub-resource for each workspace you want to use with Private Link.
 
-3. **Making connections to host pools**: every connection has two sides - clients and session host virtual machines (VMs). To enable connections, you need to create a private endpoint for the host pool sub-resource of any host pool you want to allow.
+3. **Connections to host pools**: every connection to a host pool has two sides - clients and session host virtual machines (VMs). To enable connections, you need to create a private endpoint for the *connection* sub-resource for each host pool you want to use with Private Link.
+
+The following table summarizes the private endpoints you need to create:
+
+| Resource type | Target sub-resource | Quantity |
+|--|--|--|
+| Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
+| Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
+| Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
 
 You can either share these private endpoints across your network topology or you can isolate your virtual networks so that each has their own private endpoint to the host pool or workspace.
 
@@ -31,13 +39,6 @@ The following high-level diagram shows how Private Link securely connects a loca
 
 :::image type="content" source="media/private-link-diagram.png" alt-text="A high-level diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
 
-During the setup process, you'll create private endpoints to the following resources:
-
-| Resource type | Target sub-resource | Quantity |
-|--|--|
-| Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
-| Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
-| Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
 
 ## Supported scenarios
 
