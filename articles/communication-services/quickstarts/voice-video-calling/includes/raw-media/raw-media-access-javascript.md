@@ -360,6 +360,7 @@ const blackAndWhiteMediaStream = applyBlackAndWhiteEffect(rawMediaStream);
 await localScreenSharingStream.setMediaStream(blackAndWhiteMediaStream);
 
 // Stop screen screen sharing and clean up the black and white video filter
+await call.stopScreenSharing();
 clearTimeout(bwTimeout);
 bwVideoElem.srcObject.getVideoTracks().forEach((track) => { track.stop(); });
 bwVideoElem.srcObject = null;
@@ -370,7 +371,8 @@ bwVideoElem.srcObject = null;
 Use the following code to stop sending a custom screen share stream after it has been set during a call.
 
 ```js
-await call.stopScreenSharing();
+// Stop sending raw screen sharing stream
+await call.stopScreenSharing(localScreenSharingStream);
 ```
 
 ### Access incoming screen share stream from a remote participant
