@@ -29,7 +29,7 @@ For details, see the [Java long-term support for Azure and Azure Stack](/azure/d
 
 Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version will be supported as soon as it's released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
 
-Apps with lower spring version can still run on Azure Spring Apps, as Azure Spring Apps will continously upgrade the managed component include config server, eureka server and matric collection, these features will out of support. Strongly recommend you to upgrade the supported version to the supported version.
+Apps with lower spring version can still run on Azure Spring Apps, as Azure Spring Apps will continously upgrade the managed components including: config server, eureka server for standard tier, Tanzu components (https://learn.microsoft.com/en-us/azure/spring-apps/vmware-tanzu-components) for enterprise tier, and matric collection, these features will out of support. Strongly recommend you to upgrade to the supported version.
 
 The following table lists current supported Spring Boot and Spring Cloud combinations:
 
