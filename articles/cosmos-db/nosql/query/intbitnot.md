@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntBitNot (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Returns the bitwise complement of the operand. For example, every `1` bit individually yields `0` for the corresponding bit in the result. For more information, see [bitwise complement operator](/cpp/cpp/one-s-complement-operator-tilde).
 
 ## Syntax

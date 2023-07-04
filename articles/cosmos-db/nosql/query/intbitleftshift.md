@@ -14,6 +14,8 @@ ms.custom: query-reference
 
 # IntBitLeftShift (NoSQL query)
 
+[!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
+
 Shifts the left-hand operator left by the number of bits defined by its right-hand operand. For more information, see [left shifts](/cpp/cpp/left-shift-and-right-shift-operators-input-and-output).
 
 ## Syntax
