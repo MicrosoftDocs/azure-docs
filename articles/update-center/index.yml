@@ -41,16 +41,16 @@ landingContent:
             url: quickstart-on-demand.md
 
   - title: Dynamic scoping (preview)
-    linkLists:
+    linkLists:     
       - linkListType: concept
         links:
           - text: About Dynamic scoping (preview)
-          - url:  dynamic-scope-overview.md
+            url: dynamic-scope-overview.md
       - linkListType: tutorial
         links:
           - text: Dynamically schedule updates at scale
-          - url: tutorial-dynamic-grouping-for-scheduled-patching
+            url: tutorial-dynamic-grouping-for-scheduled-patching.md
       - linkListType: how-to-guide
         links:
           - text: Manage dynamic scope (preview) operations
-          - url: manage-dynamic-scoping.md
+            url: manage-dynamic-scoping.md      
