@@ -42,11 +42,11 @@ To provide findings for the recommendation, Defender CSPM uses [agentless contai
 
 1. The recommendation details page opens with additional information. This information includes the list of vulnerabilities impacting the clusters. Select the specific vulnerability.
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-vulnerability.png" alt-text="Screenshot showing the list of vulnerabilities impacting the container clusters." lightbox="media/iew-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-vulnerability.png"::: 
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-vulnerability.png" alt-text="Screenshot showing the list of vulnerabilities impacting the container clusters." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-select-vulnerability.png"::: 
 
 1. The vulnerability finding details pane opens. This pane includes a detailed description of the vulnerability, images affected by that vulnerability, and links to external resources to help mitigate the threats, affected resources, and information on the software version that contributes to [resolving the vulnerability](#remediate-vulnerabilities).
 
-    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-containers-affected.png" alt-text="Screenshot showing the list of container images impacted by the vulnerability." lightbox="media/iew-and-remediate-vulnerabilities-for-images-running-on-aks/running-containers-affected.png"::: 
+    :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-containers-affected.png" alt-text="Screenshot showing the list of container images impacted by the vulnerability." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-containers-affected.png"::: 
 
 ## Remediate vulnerabilities
 
@@ -61,7 +61,7 @@ Use these steps to remediate each of the affected images found either in a speci
 1. If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again. 
 1. When you're sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from the cluster.
 
-> [!NOTE]
+    > [!NOTE]
     > Kubernetes deployments using the vulnerable images must be updated with the new patched images.
  
 ## Next Steps 
