@@ -42,6 +42,8 @@ Lab VMs can be in one of a few states.
 
 ## Change lab capacity
 
+When you synchronize the lab user list with an Azure AD group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership. When you add or remove a user, the lab capacity increases or decreases accordingly. Lab users are also automatically registered and assigned to their lab VM.
+
 If you manage the lab user list manually, you can modify the lab capacity to modify the number of lab VMs that are available for lab users.
 
 1. Go to the **Virtual machine pool** page for the lab.
@@ -51,8 +53,6 @@ If you manage the lab user list manually, you can modify the lab capacity to mod
 1. In the **Lab capacity** window, update the number of lab VMs.
 
     :::image type="content" source="./media/how-to-manage-vm-pool/virtual-machine-pool-update-lab-capacity.png" alt-text="Screenshot of Lab capacity window.":::
-
-When you synchronize the lab user list with an Azure AD group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership. When you add or remove a user, the lab capacity increases or decreases accordingly. Lab users are also automatically registered and assigned to their lab VM.
 
 ## Manually start lab VMs
 
