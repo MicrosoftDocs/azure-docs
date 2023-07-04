@@ -23,7 +23,7 @@ sections:
         answer: Application Gateway for Containers doesn't store customer data out of the region it's deployed in.
 
       - question: How does Application Gateway for Containers handle routine maintenance?
-        answer: Routine maintenance and updates are designed to be non-service impacting and require no customer intervention. Updates that may break existing configurations or cause existing product functionality change, notifications will be published via [Azure Service Health](../service-health/alerts-activity-log-service-notifications-portal.md) and sent via email to subscription service administrators.
+        answer: Routine maintenance and updates are designed to be non-service impacting and require no customer intervention. Updates that may break existing configurations or cause existing product functionality change, notifications will be published via [Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md) and sent via email to subscription service administrators.
 
   - name: Performance
     questions:
