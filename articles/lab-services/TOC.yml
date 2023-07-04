@@ -27,9 +27,9 @@
       href: tutorial-connect-lab-virtual-machine.md
   - name: Use labs from Teams/Canvas
     items:
-      - name: 1. Create a lab in Teams/Canvas
+      - name: 1. Create a lab in Teams & Canvas
         href: tutorial-setup-lab-teams-canvas.md
-      - name: 2. Access a lab from Teams/Canvas
+      - name: 2. Access a lab from Teams & Canvas
         href: tutorial-access-lab-virtual-machine-teams-canvas.md
   - name: Set up lab to lab communication
     href: tutorial-create-lab-with-advanced-networking.md
