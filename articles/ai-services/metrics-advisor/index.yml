@@ -23,7 +23,7 @@ landingContent:
         - text: What is Metrics Advisor?
           url: overview.md
         - text: What are Azure AI services?
-          url: ../../ai-services/what-are-applied-ai-services.md
+          url: ../../ai-services/what-are-cognitive-services.md
     - linkListType: quickstart
       links:  
         - text: Monitor your first metric on web
