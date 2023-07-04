@@ -169,7 +169,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	helm upgrade \
 		--install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
 		--create-namespace --namespace azure-alb-system \
-		--version '0.2.023621' \
+		--version '0.3.023706-pr' \
 		--set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
 	```
 
