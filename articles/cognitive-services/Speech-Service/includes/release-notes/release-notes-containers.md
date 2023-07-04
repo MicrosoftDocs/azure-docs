@@ -12,7 +12,7 @@ Add support for the latest model versions:
 - Speech to text 4.0.0
 - Neural text to speech 2.14.0
 
-OnPrem STT images are now upgraded to dotnet 6.0
+On-premises speech to text images are upgraded to .NET 6.0
 Upgrade Display Post Processing to the latest versions and models for `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr` and etc
 Upgrade STT container component to address vulnerability issues
 
