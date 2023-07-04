@@ -22,7 +22,7 @@ In an Azure Spring Apps instance, you can view metrics on the following pages:
 
 * The application overview page, which shows quick status charts. To view this page, select **Apps** from the navigation pane, and then select an app.
 
-* The common metrics page, which shows common metrics available to all apps in the Azure Spring Apps instance. To view this page, select **Metrics** from the navigation pane. You can build your own charts in the common metrics page and pin them to your Dashboard.
+* The common metrics page, which shows common metrics available to all apps in the Azure Spring Apps instance. And for Enterprise tier, it also shows common metrics for Tanzu Spring Cloud Gateway. To view this page, select **Metrics** from the navigation pane. You can build your own charts in the common metrics page and pin them to your Dashboard.
 
 :::image type="content" source="media/concept-metrics/navigation-pane.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Overview page with Apps and Metrics highlighted in the navigation pane." lightbox="media/concept-metrics/navigation-pane.png":::
 
@@ -189,6 +189,26 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| Response Time            | IngressResponseTime      | Seconds        | Http response time return by Azure Spring Apps                                                                                                                                  |
 >| Throughput In (bytes/s)  | IngressBytesReceivedRate | BytesPerSecond | Bytes received per second by Azure Spring Apps from the clients                                                                                                                 |
 >| Throughput Out (bytes/s) | IngressBytesSentRate     | BytesPerSecond | Bytes sent per second by Azure Spring Apps to the clients                                                                                                                       |
+
+### Gateway
+This is for Tanzu Spring Cloud Gateway in Enterprise tier only.
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Display Name             | Azure Metric Name                        | Unit         | Details |
+>| ------------------------ | ---------------------------------------- | ------------ | ------- |
+>| jvm.gc.live.data.size    | GatewayJvmGcLiveDataSizeBytes            | Bytes        | Size of old generation memory pool after a full GC. |
+>| jvm.gc.max.data.size     | GatewayJvmGcMaxDataSizeBytes             | Bytes        | Max size of old generation memory pool. |
+>| jvm.gc.memory.promoted   | GatewayJvmGcMemoryPromotedBytesTotal     | Bytes        | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
+>| jvm.gc.pause.max.time    | GatewayJvmGcPauseSecondsMax              | Seconds      | GC Pause Max Time. |
+>| jvm.gc.pause.total.count | GatewayJvmGcPauseSecondsCount            | Count        | GC Pause Count. |
+>| jvm.gc.pause.total.time  | GatewayJvmGcPauseSecondsSum              | Seconds      | GC Pause Total Time. |
+>| jvm.memory.committed     | GatewayJvmMemoryCommittedBytes           | Bytes        | Memory assigned to JVM in bytes. |
+>| jvm.memory.used          | GatewayJvmMemoryUsedBytes                | Bytes        | Memory Used in bytes. |
+>| Max time of requests     | GatewayHttpServerRequestsMilliSecondsMax | Milliseconds | The max time of requests. |
+>| process.cpu.usage        | GatewayProcessCpuUsage                   | Percent      | The recent CPU usage for the JVM process. |
+>| Request count            | GatewayHttpServerRequestsSecondsCount    | Count        | The number of requests. |
+>| system.cpu.usage         | GatewaySystemCpuUsage                    | Percent      | The recent CPU usage for the whole system. |
+>| Throttled requests count | GatewayRatelimitThrottledCount           | Count        | The count of the throttled requests. |
 
 ## Next steps
 

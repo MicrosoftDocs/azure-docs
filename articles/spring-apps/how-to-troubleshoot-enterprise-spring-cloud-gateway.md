@@ -90,6 +90,17 @@ Use the following steps to adjust the log levels:
 1. Select **Save** to save your changes.
 1. After the change is successful, you can find more detailed logs for troubleshooting, such as information about how requests are routed.
 
+## Check metrics
+
+### Diagnostic settings for Log Analytics
+TODO(jiec): What's the prerequisite of diagnostic settings in order to check metrics for SCG?
+
+### Check metrics
+See [Common metrics page section of Metrics for Azure Spring Apps](./concept-metrics.md#common-metrics-page) for how to check metrics in Azure Portal. And see [Gateway section of Metrics for Azure Spring Apps](./concept-metrics.md#gateway) for each supported metrics.
+
+## Monitor Gateway with application performance monitor
+See [Configure application performance monitoring](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) for supported application performance monitors and how to configure them.
+
 ## Restart Gateway
 
 For some errors, a restart might help solve the issue. For more information, see the [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-spring-cloud-gateway) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
