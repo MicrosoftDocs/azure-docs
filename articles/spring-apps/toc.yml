@@ -81,6 +81,10 @@ items:
       href: quickstart-set-request-rate-limits-enterprise.md
     - name: Automate deployments
       href: quickstart-automate-deployments-github-actions-enterprise.md
+  - name: "Production-ready"
+    items:
+     - name: Custom DNS name
+       href: how-to-custom-domain.md
 - name: Concepts
   items:
   - name: App and deployment
