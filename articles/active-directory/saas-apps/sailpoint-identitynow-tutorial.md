@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **Global -> Security Settings -> Service Provider** make the following configuration changes.
 
-    ![Screenshot of sailpoint sso configuration.](./media/sailpoint-identitynow-tutorial/configuration.png)
+    ![Screenshot of sailpoint sso configuration.](./media/sailpoint-identitynow-tutorial/configuration.png#lightbox)
 
     a. Enable Remote Identity Provider.
 
@@ -148,9 +148,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     * Exclude Requested Authentication Context - `checked`
 
     g. In the **Signing Certificate**, click on **Import** to upload the downloaded **Certificate (Base64)** from Azure portal.
-
-> [!NOTE]
-> To know more about SailPoint IdentityNow SSO configuration, please follow the support [guide](https://blog.darrenjrobinson.com/using-azure-ad-for-sso-into-sailpoint-identitynow/).
 
 ### Create SailPoint IdentityNow test user
 
