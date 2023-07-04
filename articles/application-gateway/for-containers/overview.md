@@ -76,7 +76,8 @@ ALB Controller supports a few custom CRDs, details on these can be found [here](
 
 ## Reporting Issues
 
-For feedback or to report incidents, use the alias [tcfeedback@microsoft.com](mailto:tcfeedback@microsoft.com). 
+For feedback, post a new idea in [feedback.azure.com](https://feedback.azure.com/)
+For issues, raise a support request via the Azure portal on your Application Gateway for Containers resource.
 
 ## Pricing and SLA
 
