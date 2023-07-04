@@ -139,7 +139,7 @@ You need to take an extra step to give your Vision resource access to read the c
 
 #### Option 1: Shared access signature (SAS)
 
-You can generate a SAS token with at least `read` permission on your Azure Blob Container. This is the option used in the code below. For instructions on acquiring a SAS token, see [Create SAS tokens](/azure/ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers).
+You can generate a SAS token with at least `read` permission on your Azure Blob Container. This is the option used in the code below. For instructions on acquiring a SAS token, see [Create SAS tokens](../../translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers).
 
 #### Option 2: Managed Identity or public accessible
 
