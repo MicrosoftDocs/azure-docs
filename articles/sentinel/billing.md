@@ -103,17 +103,13 @@ Here is some verbiage about classic.
 
 And now some more test.
 
-# [Commitment tiers](#commitment-tiers/simplified)
+# [Commitment tiers](#tab/commitment-tiers/simplified)
 
  Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Commitment Tier | `sentinel` | **`n` gb commitment tier** |
-| Microsoft Sentinel overage over the Commitment Tier| `sentinel` |**??**|
-| Pay-As-You-Go| `sentinel` |**Pay-as-You-Go ??**|
+| Microsoft Sentinel overage over the Commitment Tier| `sentinel` |**analysis**|
 | Basic logs| `sentinel` |**Basic Logs**|
-| Microsoft Sentinel Free Trial | `sentinel` |**Free trial ??**|
-| M365 Defender Benefit ??| `sentinel` |**Free Benefit - M365 Defender ??**|
-| Defender for Servers Benefit ?? | `sentinel` | **Free Benefit ??**|
 
 test
 
@@ -125,8 +121,8 @@ If you're billed at the commitment tier rate, this table shows how Microsoft Sen
 |--|--|--|
 | Microsoft Sentinel Commitment Tier | `sentinel` | **`n` gb commitment tier** |
 | Log Analytics Commitment Tier | `azure monitor` | **`n` gb commitment tier** |
-| Microsoft Sentinel overage over the Commitment Tier| `sentinel` |**Pay-as-You-Go analysis**|
-| Log Analytics overage over the Commitment Tier| `log analytics` |**Pay-as-You-Go data ingestion**|
+| Microsoft Sentinel overage over the Commitment Tier| `sentinel` |**analysis**|
+| Log Analytics overage over the Commitment Tier| `log analytics` |**data ingestion**|
 | Basic logs data ingestion| `azure monitor` |**Basic Logs Data Ingestion**|
 | Basic logs data analysis| `sentinel` |**Basic Logs Analysis**|
 
@@ -139,8 +135,6 @@ If you're billed at Pay-As-You-Go rate, this table shows how Microsoft Sentinel 
  Cost description | Service name | Meter |
 |--|--|--|
 | Pay-As-You-Go| `sentinel` |**Pay-as-You-Go analysis**|
-| Pay-As-You-Go| `log analytics` |**Pay-as-You-Go data ingestion**|
-| Basic logs data ingestion| `azure monitor` |**Basic Logs Data Ingestion**|
 | Basic logs data analysis| `sentinel` |**Basic Logs Analysis**|
 
 test
