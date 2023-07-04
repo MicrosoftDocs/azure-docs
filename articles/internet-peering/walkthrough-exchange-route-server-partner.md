@@ -106,11 +106,11 @@ Before prefixes can be optimized, your ASN must be registered.
 
 Open your Exchange Route Server peering in the Azure portal, and click on **Registered ASNs**:
 
-:::image type="content" source="..\..\articles\internet-peering\media\setup-exchange-registered-asn.png"" alt-text="Peering page in Azure portal with Registered ASNs button highlighted" :::
+:::image type="content" source="./media/setup-exchange-registered-asn.png" alt-text="Peering page in Azure portal with Registered ASNs button highlighted" :::
 
 Create a Registered ASN by entering a name, and your Autonomous System Number (ASN):
 
-:::image type="content" source="..\..\articles\internet-peering\media\setup-exchange-registered-new-asn.png"" alt-text="Configuration page for a new Registered ASN" :::
+:::image type="content" source="./media/setup-exchange-registered-new-asn.png" alt-text="Configuration page for a new Registered ASN" :::
 
 After your ASN is registered, a unique peering service prefix key will be generated. This prefix key must be used with ALL peering service prefixes created in the next section. 
 
