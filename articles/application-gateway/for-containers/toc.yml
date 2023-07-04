@@ -7,11 +7,11 @@
 - name: Quickstarts
   items:
   - name: Create Application Gateway for Containers
-    href: quickstart-create-traffic-controller.md
+    href: quickstart-create-application-gateway-for-containers-referenced.md
 - name: Concepts
   items:
   - name: How Application Gateway for Containers works
-    href: concepts-how-traffic-controller-works.md
+    href: concepts-how-application-gateway-for-containers-works.md
   - name: Diagnostic Logs
     href: diagnostics.md
   - name: Frequently Asked Questions (FAQ)
