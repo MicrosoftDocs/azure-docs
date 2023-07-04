@@ -177,7 +177,7 @@
             href: how-to-bring-custom-linux-image-vhd.md
     - name: Specify support information
       href: lab-account-owner-support-information.md
-    - name: Manage labs
+    - name: Manage labs in the Azure portal
       href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
@@ -187,10 +187,8 @@
       href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
   - name: Create & configure labs (educator)
     items:
-    - name: Create and manage labs
+    - name: Create labs (ARM/PowerShell/Bicep/Python)
       items:
-      - name: Create and manage labs (website)
-        href: how-to-manage-labs.md
       - name: Create a lab (ARM template)
         href: how-to-create-lab-template.md
       - name: Create a lab (PowerShell)
@@ -199,6 +197,8 @@
         href: how-to-create-lab-bicep.md
       - name: Create a lab (Python)
         href: how-to-create-lab-python.md
+    - name: Manage labs
+      href: how-to-manage-labs.md
     - name: Add and manage lab users
       href: how-to-manage-lab-users.md
     - name: Create and manage schedules
