@@ -16,7 +16,11 @@ ms.reviewer: mamkumar
 
 With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't match the actual source IP address. In place of the end-users’ source IP, the resource endpoints see the cloud proxy as the source IP address. Customers with these cloud proxy solutions can't use this source IP information. 
 
-Microsoft’s existing solutions such as Conditional Access and continuous access evaluation (CAE) enforcement for Microsoft 365 apps rely on source IP information. With the Global Secure Access preview and source IP restoration, organizations can continue using IP location-based Conditional Access policies, including CAE enforcement.
+Source IP restoration in Global Secure Access (preview) allows backward compatibility for Microsoft Entra ID customers to continue using original user Source IP. Administrators can benefit from the following capabilities:
+
+- Continue to enforce Source IP-based location policies across both [Conditional Access](../active-directory/conditional-access/overview.md) and [continuous access evaluation](../active-directory/conditional-access/concept-continuous-access-evaluation.md)
+- [Identity Protection risk detections](../active-directory/identity-protection/concept-identity-protection-risks.md) get a consistent view of original user Source IP address for assessing various risk scores.
+- Original user Source IP is also made available in [Microsoft Entra ID sign-in logs](../active-directory/reports-monitoring/concept-all-sign-ins.md).
 
 ## Prerequisites
 
