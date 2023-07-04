@@ -5,14 +5,14 @@ summary: Learn how to create Application Gateway for Containers. This documentat
 
 metadata:
   title: Azure Application Gateway for Containers documentation
-  description: Learn about Azure Application Gateway for Containers, a web traffic load balancer that enables you to manage traffic to your container workloads.
+  description: Learn about Azure Application Gateway for Containers, an application load balancer that enables you to manage traffic to your container workloads.
   services: application-gateway
   ms.service: application-gateway
   ms.subservice: traffic-controller
   ms.topic: landing-page
   author: greglin
   ms.author: greglin
-  ms.date: 6/20/2023
+  ms.date: 7/7/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -40,8 +40,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Direct web traffic with Azure Application Gateway for Containers
-            url: quickstart-create-traffic-controller.md
+          - text: Direct web traffic with Azure Application Gateway for Containers - Referenced deployment
+            url: quickstart-create-application-gateway-for-containers-referenced.md
+          - text: Direct web traffic with Azure Application Gateway for Containers - Managed deployment
+            url: quickstart-create-application-gateway-for-containers-managed.md
 
   # Card
   - title: Deploy with SSL termination
