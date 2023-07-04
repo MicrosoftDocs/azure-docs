@@ -2,7 +2,7 @@
 title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims.
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 06/20/2023
 
 ---
 
@@ -26,6 +26,34 @@ This article introduces the core concepts that provide storage to your applicati
 
 ![Storage options for applications in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/aks-storage-options.png)
 
+## Ephemeral OS disk
+
+By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss when the VM is relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks. These drawbacks include, but aren't limited to, slower node provisioning and higher read/write latency.
+
+By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. With this configuration, you get lower read/write latency, together with faster node scaling and cluster upgrades.
+
+> [!NOTE]
+> When you don't explicitly request [Azure managed disks][azure-managed-disks] for the OS, AKS defaults to ephemeral OS if possible for a given node pool configuration.
+
+Size requirements and recommendations for ephemeral OS disks are available in the [Azure VM documentation][azure-vm-ephemeral-os-disks]. The following are some general sizing considerations:
+
+* If you chose to use the AKS default VM size [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with the default OS disk size of 100 GB, the default VM size supports ephemeral OS, but only has 86 GiB of cache size. This configuration would default to managed disks if you don't explicitly specify it. If you do request an ephemeral OS, you receive a validation error.
+
+* If you request the same [Standard_DS2_v2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) SKU with a 60 GiB OS disk, this configuration would default to ephemeral OS. The requested size of 60 GiB is smaller than the maximum cache size of 86 GiB.
+
+* If you select the [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) SKU with 100 GB OS disk, this VM size supports ephemeral OS and has 200 GiB of cache space. If you don't specify the OS disk type, the node pool would receive ephemeral OS by default.
+
+The latest generation of VM series doesn't have a dedicated cache, but only temporary storage. For example, if you selected the [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with the default OS disk size of 100 GiB, it supports ephemeral OS disks, but only has 75 GB of temporary storage. This configuration would default to managed OS disks if you don't explicitly specify it. If you do request an ephemeral OS disk, you receive a validation error.
+
+* If you request the same [Standard_E2bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) VM size with a 60 GiB OS disk, this configuration defaults to ephemeral OS disks. The requested size of 60 GiB is smaller than the maximum temporary storage of 75 GiB.
+
+* If you select [Standard_E4bds_v5](../virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series) SKU with 100 GiB OS disk, this VM size supports ephemeral OS
+and has 150 GiB of temporary storage. If you don't specify the OS disk type, by default Azure provisions an ephemeral OS disk to the node pool.
+
+### Customer Managed key
+
+You can manage encryption for your ephemeral OS disk with your own keys on an AKS cluster. For more information, see [Azure ephemeral OS disks Customer Managed key][azure-disk-customer-managed-key].
+
 ## Volumes
 
 Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
@@ -33,7 +61,7 @@ Kubernetes typically treats individual pods as ephemeral, disposable resources. 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly or have Kubernetes automatically create them. Data volumes can use: [Azure Disk][disks-types], [Azure Files][storage-files-planning], [Azure NetApp Files][azure-netapp-files-service-levels], or [Azure Blobs][storage-account-overview].
 
 > [!NOTE]
-> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
+> Depending on the VM SKU you're using, the Azure Disk CSI driver might have a per-node volume limit. For some high perfomance VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 To help determine best fit for your workload between Azure Files and Azure NetApp Files, review the information provided in the article [Azure Files and Azure NetApp Files comparison][azure-files-azure-netapp-comparison].
 
@@ -245,6 +273,8 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 
 <!-- INTERNAL LINKS -->
 [disks-types]: ../virtual-machines/disks-types.md
+[azure-managed-disks]: ../virtual-machines/managed-disks-overview.md
+[azure-vm-ephemeral-os-disks]: ../virtual-machines/ephemeral-os-disks.md
 [storage-files-planning]: ../storage/files/storage-files-planning.md
 [azure-netapp-files-service-levels]: ../azure-netapp-files/azure-netapp-files-service-levels.md
 [storage-account-overview]: ../storage/common/storage-account-overview.md
@@ -263,3 +293,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [azure-blob-csi]: azure-blob-csi.md
 [general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
 [azure-files-azure-netapp-comparison]: ../storage/files/storage-files-netapp-comparison.md
+[azure-disk-customer-managed-key]: ../virtual-machines/ephemeral-os-disks.md#customer-managed-key

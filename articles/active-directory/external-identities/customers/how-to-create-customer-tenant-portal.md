@@ -41,7 +41,7 @@ In this article, you learn how to:
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::
 
-1. Select **Customer**, and then **Continue**. If you filtered the list of tenants by **Tenant type**: **Customer** in the previous step, this step will be skipped.
+1. Select **Customer**, and then **Continue**. 
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/select-tenant-type.png" alt-text="Screenshot of the select tenant type screen.":::
 

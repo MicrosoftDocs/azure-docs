@@ -1,13 +1,14 @@
 ---
-title: Azure Monitor OpenTelemetry configuration for .NET, Java, Node.js, and Python applications
+title: Configure Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides configuration guidance for .NET, Java, Node.js, and Python applications.
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 06/23/2023
 ms.devlang: csharp, javascript, typescript, python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 
-# Azure Monitor OpenTelemetry configuration
+# Configure Azure Monitor OpenTelemetry
 
 This article covers configuration settings for the Azure Monitor OpenTelemetry distro.
 
@@ -313,7 +314,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 ---
 
 > [!TIP]
-> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-enable.md#metrics), which are unaffected by sampling.
+> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
 
 ## Enable Azure AD authentication
 
