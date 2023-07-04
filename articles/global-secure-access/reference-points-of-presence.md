@@ -20,7 +20,7 @@ Tunneling Microsoft 365 traffic, which is part of Microsoft Entra Internet Acces
 
 | Europe | North America | South America | Africa | Asia |
 |---|---|---|---|---|
-| Amsterdam, Netherlands | Columbia, Washington, USA | Rio de Janeiro, Brazil | Johannesburg, South Africa | Dubaie, UAE|
+| Amsterdam, Netherlands | Columbia, Washington, USA | Rio de Janeiro, Brazil | Johannesburg, South Africa | Dubai, UAE|
 | Berlin, Germany | Des Moines, Iowa, USA | Sao Paulo, Brazil | | |
 | Dublin, Ireland | Manassas, Virginia, USA | | | |
 | Gavle, Sweden | Montreal, Quebec, Canada | | | |
