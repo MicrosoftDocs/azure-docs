@@ -68,7 +68,7 @@ The following are unsupported:
     - [REPLICATION_APPLIER](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-applier)
     - [ROLE_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_role-admin)
     - [SESSION_VARIABLES_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_session-variables-admin)
-    - [SET_USER_ID](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_set-user-id) 
+    - [SHOW ROUTINE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-routine) 
     - [XA_RECOVER_ADMIN](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_xa-recover-admin)
 
 ## Functional limitations
