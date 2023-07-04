@@ -143,40 +143,6 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-Wrap your component with the higher-order component function to enable Application Insights on it:
-
-```javascript
-import React from 'react';
-import { withAITracking } from '@microsoft/applicationinsights-react-js';
-import { reactPlugin, appInsights } from './AppInsights';
-
-// To instrument various React components usage tracking, apply the `withAITracking` higher-order
-// component function.
-
-class MyComponent extends React.Component {
-    ...
-}
-
-// withAITracking takes 4 parameters (reactPlugin, Component, ComponentName, className). 
-// The first two are required and the other two are optional.
-
-export default withAITracking(reactPlugin, MyComponent);
-```
-
-For `react-router v6` or other scenarios where router history isn't exposed, Application Insights configuration `enableAutoRouteTracking` can be used to auto-track router changes:
-
-```javascript
-var reactPlugin = new ReactPlugin();
-var appInsights = new ApplicationInsights({
-    config: {
-        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        enableAutoRouteTracking: true,
-        extensions: [reactPlugin]
-    }
-});
-appInsights.loadAppInsights();
-```
-
 > [!TIP]
 > If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
@@ -212,48 +178,6 @@ var appInsights = new ApplicationInsights({
 });
 appInsights.loadAppInsights();
 
-```
-
-#### Disabling automatic device info collection
-
-```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
-var RNPlugin = new ReactNativePlugin();
-var appInsights = new ApplicationInsights({
-    config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-        disableDeviceCollection: true,
-        extensions: [RNPlugin]
-    }
-});
-appInsights.loadAppInsights();
-```
-
-#### Using your own device info collection class
-
-```typescript
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-
-// Simple inline constant implementation
-const myDeviceInfoModule = {
-    getModel: () => "deviceModel",
-    getDeviceType: () => "deviceType",
-    // v5 returns a string while latest returns a promise
-    getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
-};
-
-var RNPlugin = new ReactNativePlugin();
-RNPlugin.setDeviceInfoModule(myDeviceInfoModule);
-
-var appInsights = new ApplicationInsights({
-    config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
-        extensions: [RNPlugin]
-    }
-});
-
-appInsights.loadAppInsights();
 ```
 
 > [!TIP]
@@ -311,50 +235,6 @@ export class AppComponent {
 }
 ```
 
-To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
-
-> [!IMPORTANT]
-> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
-
-```js
-import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
-
-@NgModule({
-  ...
-  providers: [
-    {
-      provide: ErrorHandler,
-      useClass: ApplicationinsightsAngularpluginErrorService
-    }
-  ]
-  ...
-})
-export class AppModule { }
-```
-
-To chain more custom error handlers, create custom error handlers that implement IErrorService:
-
-```javascript
-import { IErrorService } from '@microsoft/applicationinsights-angularplugin-js';
-
-export class CustomErrorHandler implements IErrorService {
-    handleError(error: any) {
-        ...
-    }
-}
-```
-
-And pass errorServices array through extensionConfig:
-
-```javascript
-extensionConfig: {
-        [angularPlugin.identifier]: {
-          router: this.router,
-          errorServices: [new CustomErrorHandler()]
-        }
-      }
-```
-
 > [!TIP]
 > If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
@@ -368,15 +248,49 @@ extensionConfig: {
 
 | Name    | Type   | Required? | Default | Description |
 |---------|--------|-----------|---------|------------------|
-| history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object. Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
+| history | object | Optional  | null    | Track router history. For more information, see the [React router package documentation](https://reactrouter.com/en/main).<br><br>To track router history, most users can use the `enableAutoRouteTracking` field in the [JavaScript SDK configuration](./javascript-sdk-configuration.md#sdk-configuration). This field collects the same data for page views as the `history` object.<br><br>Use the `history` object when you're using a router implementation that doesn't update the browser URL, which is what the configuration listens to. You shouldn't enable both the `enableAutoRouteTracking` field and `history` object, because you'll get multiple page view events. |
+
+The following code example shows how to enable the `enableAutoRouteTracking` field.
+
+```javascript
+var reactPlugin = new ReactPlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        enableAutoRouteTracking: true,
+        extensions: [reactPlugin]
+    }
+});
+appInsights.loadAppInsights();
+```
 
 ### React components usage tracking
 
-To instrument various React components usage tracking, apply the `withAITracking` higher-order component function.
+To instrument React components with usage tracking, apply the `withAITracking` higher-order component function. To enable Application Insights for a component, wrap `withAITracking` around the component:
 
-It measures time from the `ComponentDidMount` event through the `ComponentWillUnmount` event. To make the result more accurate, it subtracts the time in which the user was idle by using `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`.
+```javascript
+import React from 'react';
+import { withAITracking } from '@microsoft/applicationinsights-react-js';
+import { reactPlugin, appInsights } from './AppInsights';
 
-To see this metric in the Azure portal, go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation (for example, sum or avg) of your metric and split by `Component Name`.
+// To instrument various React components usage tracking, apply the `withAITracking` higher-order
+// component function.
+
+class MyComponent extends React.Component {
+    ...
+}
+
+// withAITracking takes 4 parameters (reactPlugin, Component, ComponentName, className). 
+// The first two are required and the other two are optional.
+
+export default withAITracking(reactPlugin, MyComponent);
+```
+
+It measures time from the [`ComponentDidMount`](https://react.dev/reference/react/Component#componentdidmount) event through the [`ComponentWillUnmount`](https://react.dev/reference/react/Component#componentwillunmount) event. To make the result more accurate, it subtracts the time in which the user was idle by using `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`.
+
+#### Explore your data
+
+To see the `React Component Engaged Time (seconds)` in [Metrics Explorer](../essentials/metrics-getting-started.md), go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation of your metric and [split](../essentials/metrics-getting-started.md#apply-dimension-filters-and-splitting) by `Component Name`.
 
 :::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
@@ -434,7 +348,10 @@ export default MyComponent;
 
 #### useTrackMetric
 
-The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding another component to the component structure. The Hook takes two arguments. First is the Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook. The second is an identifier for the component for tracking, such as its name.
+The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding another component to the component structure. The Hook takes two arguments:
+
+- The Application Insights instance, which can be obtained from the `useAppInsightsContext` Hook.
+- An identifier for the component for tracking, such as its name.
 
 ```javascript
 import React from "react";
@@ -451,7 +368,7 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-It operates like the higher-order component, but it responds to Hooks lifecycle events rather than a component lifecycle. The Hook needs to be explicitly provided to user events if there's a need to run on particular interactions.
+It operates like the higher-order component, but it responds to Hooks lifecycle events rather than a component lifecycle. If there's a need to run on particular interactions, the Hook needs to be explicitly provided to user events.
 
 #### useTrackEvent
 
@@ -500,7 +417,7 @@ When the Hook is used, a data payload can be provided to it to add more data to 
 
 ### React error boundaries
 
-[Error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
+[React error boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) provide a way to gracefully handle an exception when it occurs within a React application. When such an error occurs, it's likely that the exception needs to be logged. The React plug-in for Application Insights provides an error boundary component that automatically logs the error when it occurs.
 
 ```javascript
 import React from "react";
@@ -551,9 +468,103 @@ export interface IDeviceInfoModule {
 
 If events are getting "blocked" because the `Promise` returned via `getUniqueId` is never resolved / rejected, you can call `setDeviceId()` on the plugin to "unblock" this waiting state. There is also an automatic timeout configured via `uniqueIdPromiseTimeout` (defaults to 5 seconds), which will internally call `setDeviceId()` with any previously configured value.
 
+### Disable automatic device info collection
+
+If you don’t want to collect the device information, you can set `disableDeviceCollection` to `true`. 
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+var RNPlugin = new ReactNativePlugin();
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        disableDeviceCollection: true,
+        extensions: [RNPlugin]
+    }
+});
+appInsights.loadAppInsights();
+```
+
+### Use your own device info collection class
+
+If you want to override your own device’s information, you can use `myDeviceInfoModule` to collect your own device information. 
+
+```typescript
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+// Simple inline constant implementation
+const myDeviceInfoModule = {
+    getModel: () => "deviceModel",
+    getDeviceType: () => "deviceType",
+    // v5 returns a string while latest returns a promise
+    getUniqueId: () => "deviceId",         // This "may" also return a Promise<string>
+};
+
+var RNPlugin = new ReactNativePlugin();
+RNPlugin.setDeviceInfoModule(myDeviceInfoModule);
+
+var appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
+        extensions: [RNPlugin]
+    }
+});
+
+appInsights.loadAppInsights();
+```
+
 ### [Angular](#tab/angular)
 
-None.
+### Track uncaught exceptions
+
+To track uncaught exceptions, set up ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+
+> [!IMPORTANT]
+> When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled errors caught by the error service will not be sent.
+
+```js
+import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationinsightsAngularpluginErrorService
+    }
+  ]
+  ...
+})
+export class AppModule { }
+```
+
+### Chain more custom error handlers
+
+To chain more custom error handlers:
+
+1. Create custom error handlers that implement IErrorService.
+
+   ```javascript
+   import { IErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+   export class CustomErrorHandler implements IErrorService {
+       handleError(error: any) {
+           ...
+       }
+   }
+   ```
+
+1. Pass errorServices array through extensionConfig.
+
+   ```javascript
+   extensionConfig: {
+           [angularPlugin.identifier]: {
+             router: this.router,
+             errorServices: [new CustomErrorHandler()]
+           }
+         }
+   ```
 
 ---
 

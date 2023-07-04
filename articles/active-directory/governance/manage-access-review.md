@@ -26,7 +26,7 @@ With access reviews, you can easily ensure that users or guests have appropriate
  
 ## Prerequisites
  
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
  
