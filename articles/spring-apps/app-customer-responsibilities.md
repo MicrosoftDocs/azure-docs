@@ -75,6 +75,6 @@ There default LTS version of SDK will be possible changes during Build Package u
 ## Upgrade Process
 - Before a new LTS version is out of support, you need upgrade it to support version. Check above table for support policy for different SDK and stack image
 
-- A notification will be sent from Microsoft one month before an LTS version will be removed from Azure Spring Apps.
+- A notification email will be sent from Microsoft one month before an LTS version will be removed from Azure Spring Apps.
 
 - You can get the version upgrade notification from Azure activity log after it is finished.
