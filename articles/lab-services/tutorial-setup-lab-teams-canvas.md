@@ -82,8 +82,6 @@ In the next step, you use the Azure Lab Services app to create a lab.
 
     If you're authenticated in Canvas as an educator, you'll see a sign in screen before you can use the Azure Lab Services app. Sign in here with an Azure AD account or Microsoft account that was added as a lab creator.
 
-1. Open Canvas, and select your course.
-
 1. Select **Azure Lab Services** from the course navigation menu.
 
     If you don't have any labs, you should see the welcome page. Otherwise, you can see the list of labs you created earlier.
