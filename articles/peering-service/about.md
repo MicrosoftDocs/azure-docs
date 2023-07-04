@@ -111,8 +111,6 @@ Routing happens only via a preferred path that's defined when the customer is re
 
 Microsoft guarantees to route the traffic via preferred paths even if malicious activity is detected.
 
-BGP route anomalies are reported in the Azure portal, if any.
-
 ### Onboarding a Peering Service connection
 
 To onboard a Peering Service connection, do the following:

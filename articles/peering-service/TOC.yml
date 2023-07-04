@@ -26,6 +26,8 @@
         href: cli.md
   - name: Access connection telemetry
     href: connection-telemetry.md
+  - name: Azure Peering Service customer walkthrough
+    href: walkthrough-peering-service-customer.md
 - name: References
   items:
   - name: Azure PowerShell

@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 This section explains the steps to optimize your prefixes with an Internet Service Provider (ISP) or Internet Exchange Provider (IXP) who is a Peering Service partner.
 
-The complete list of Peering Service providers can be found here: [Peering Service partners](../peering-service/location-partners.md)
+The complete list of Peering Service providers can be found here: [Peering Service partners](./location-partners.md)
 
 ## Activate the prefix
 
@@ -24,22 +24,22 @@ In this section, you activate the prefix:
 
 1. In the search box at the top of the portal, enter *peering service*. Select **Peering Services** in the search results. 
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
+    :::image type="content" source="./media/customer-walkthrough/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal.":::
 
 1. Select **+ Create** to create a new Peering Service connection.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot shows the list of existing Peering Service connections in the Azure portal.":::
+    :::image type="content" source="./media/customer-walkthrough/peering-service-list.png" alt-text="Screenshot shows the list of existing Peering Service connections in the Azure portal.":::
 
 1. In the **Basics** tab, enter or select your subscription, resource group, and Peering Service connection name.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
+    :::image type="content" source="./media/customer-walkthrough/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
 1. In the **Configuration** tab, provide details on the location, provider and primary and backup interconnect locations. If the backup location is set to **None**, the traffic will fail over to the internet.
 
     > [!NOTE]
     > - The prefix key should be the same as the one obtained from your Peering Service provider. 
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-configuration.png" alt-text="Screenshot shows the Configuration tab of creating a Peering Service connection in the Azure portal."::: 
+    :::image type="content" source="./media/customer-walkthrough/peering-service-configuration.png" alt-text="Screenshot shows the Configuration tab of creating a Peering Service connection in the Azure portal."::: 
 
 1. Select **Review + create**.
 

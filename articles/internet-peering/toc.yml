@@ -6,6 +6,8 @@
     href: overview.md
   - name: Internet peering vs. Peering Service
     href: overview-peering-service.md
+  - name: Azure Peering Service Overview for Partners
+    href: maps-overview-for-partners.md
 - name: Concepts
   items:
   - name: Peering policy
@@ -18,12 +20,12 @@
     href: walkthrough-direct-all.md
   - name: Exchange peering walkthrough
     href: walkthrough-exchange-all.md
-  - name: Peering Service customer walkthrough
-    href: walkthrough-peering-service-customer.md
   - name: Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
   - name: Communications Services partner walkthrough
     href: walkthrough-communications-services-partner.md
+  - name: Exchange Route Server partner walkthrough
+    href: walkthrough-exchange-route-server-partner.md
   - name: Peering maintenance notification walkthrough
     href: walkthrough-device-maintenance-notification.md
   - name: Associate peer ASN to Azure subscription
