@@ -24,7 +24,7 @@ As per your requirements, you may need to offer your customers an easy way to re
 
 Click to call is a simple yet effective concept that facilitates instant interaction with, customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in making interactions with your customers just a click away.
 
-If you wish to try it out, you can download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/dmceachernmsft/c2c-tutorial/ui-library-calling-widget).
+If you wish to try it out, you can download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call).
 
 Following this tutorial will:
 
