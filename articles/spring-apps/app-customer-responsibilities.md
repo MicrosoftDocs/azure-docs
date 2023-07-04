@@ -77,4 +77,4 @@ There default LTS version of SDK will be possible changes during Build Package u
 
 - A notification will be sent from Microsoft one month before an LTS version will be removed from Azure Spring Apps.
 
-- You can get the version upgrade after it is finished.
+- You can get the version upgrade notification from Azure activity log after it is finished.
