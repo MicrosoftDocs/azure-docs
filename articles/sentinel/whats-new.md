@@ -24,7 +24,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## July 2023
 
-- [Simplified pricing tier](#simplified-pricing-tier) in [Announcements](#announcements) section below
+- [Simplified pricing tiers](#simplified-pricing-tiers) in [Announcements](#announcements) section below
 
 ## June 2023
 
