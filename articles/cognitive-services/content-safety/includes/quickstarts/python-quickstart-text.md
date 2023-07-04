@@ -56,10 +56,14 @@ The following section walks through a sample request with the Python SDK.
         # Analyze text
         try:
             response = client.analyze_text(request)
-        except Exception as e:
-            print("Error code: {}".format(e.error.code))
-            print("Error message: {}".format(e.error.message))
-            return
+        except HttpResponseError as e:
+            print("Analyze text failed.")
+            if e.error:
+                print(f"Error code: {e.error.code}")
+                print(f"Error message: {e.error.message}")
+                raise
+            print(e)
+            raise
     
         if response.hate_result is not None:
             print("Hate severity: {}".format(response.hate_result.severity))
