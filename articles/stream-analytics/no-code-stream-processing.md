@@ -29,6 +29,9 @@ Before you develop your Stream Analytics jobs by using the no-code editor, you m
 - You must have the required permissions to access the streaming input and output resources.
 - You must maintain permissions to create and modify Azure Stream Analytics resources.
 
+> [!NOTE]
+> The no-code editor is currently not available in the China region.
+
 ## Azure Stream Analytics job
 
 A Stream Analytics job is built on three main components: _streaming inputs_, _transformations_, and _outputs_. You can have as many components as you want, including multiple inputs, parallel branches with multiple transformations, and multiple outputs. For more information, see [Azure Stream Analytics documentation](index.yml).
