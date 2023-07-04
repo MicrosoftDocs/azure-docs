@@ -46,7 +46,7 @@ Select **Done**.
 
 ## Add prebuilt domain
 
-LUIS offers a set of prebuilt domains that can help you get started with your application. A prebuilt domain app is already populated with [intents](./luis-concept-intent.md), [entities](concepts/entities.md) and [utterances](concepts/utterances.md).
+LUIS offers a set of prebuilt domains that can help you get started with your application. A prebuilt domain app is already populated with [intents](./concepts/intents.md), [entities](concepts/entities.md) and [utterances](concepts/utterances.md).
 
 1. In the left navigation, select **Prebuilt domains**.
 2. Search for **HomeAutomation**.
@@ -261,5 +261,5 @@ Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 ## Next steps
 
-* [Iterative app design](./luis-concept-app-iteration.md)
-* [Best practices](./luis-concept-best-practices.md)
+* [Iterative app design](./concepts/application-design.md)
+* [Best practices](./faq.md)

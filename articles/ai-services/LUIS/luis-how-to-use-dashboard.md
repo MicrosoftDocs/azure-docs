@@ -31,7 +31,7 @@ The three problems addressed in the dashboard are:
 |Issue|Chart color|Explanation|
 |--|--|--|
 |Data imbalance|-|This occurs when the quantity of example utterances varies significantly. All intents need to have _roughly_ the same number of example utterances - except the None intent. It should only have 10%-15% of the total quantity of utterances in the app.<br><br> If the data is imbalanced but the intent accuracy is above certain threshold, this imbalance is not reported as an issue.<br><br>**Start with this issue - it may be the root cause of the other issues.**|
-|Unclear predictions|Orange|This occurs when the top intent and the next intent's scores are close enough that they may flip on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data) or more example utterances added to intent. |
+|Unclear predictions|Orange|This occurs when the top intent and the next intent's scores are close enough that they may flip on the next training, due to [negative sampling](how-to/train-test.md#train-with-all-data) or more example utterances added to intent. |
 |Incorrect predictions|Red|This occurs when an example utterance is not predicted for the labeled intent (the intent it is in).|
 
 Correct predictions are represented with the color blue.
@@ -82,7 +82,7 @@ Adding example utterances should be done by someone who:
 
 ### Patterns and phrase lists
 
-The analytics page doesn’t indicate when to use [patterns](luis-concept-patterns.md) or [phrase lists](concepts/patterns-features.md). If you do add them, it can help with incorrect or unclear predictions but won’t help with data imbalance.
+The analytics page doesn’t indicate when to use [patterns](concepts/patterns-features.md) or [phrase lists](concepts/patterns-features.md). If you do add them, it can help with incorrect or unclear predictions but won’t help with data imbalance.
 
 ### Review data imbalance
 
@@ -111,7 +111,7 @@ The **incorrect prediction** intent list shows intents that have utterances, whi
 
 ### Review unclear predictions
 
-The **unclear prediction** intent list shows intents with utterances with prediction scores that are not far enough way from their nearest rival, that the top intent for the utterance may change on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data).
+The **unclear prediction** intent list shows intents with utterances with prediction scores that are not far enough way from their nearest rival, that the top intent for the utterance may change on the next training, due to [negative sampling](how-to/train-test.md#train-with-all-data).
 
 **To fix this issue**;
 

@@ -2842,7 +2842,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-entities.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -2852,12 +2852,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-Features.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-features",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/patterns-features",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Add-intents.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-intents",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/intents",
             "redirect_document_id": false
         },
         {
@@ -2887,7 +2887,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Create-new-app.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-start-new-app",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/sign-in",
             "redirect_document_id": false
         },
         {
@@ -2997,7 +2997,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-roles.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/entities",
             "redirect_document_id": false
         },
         {
@@ -3017,7 +3017,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-version.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-concept-app-iteration",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/application-design",
             "redirect_document_id": false
         },
         {
@@ -3157,7 +3157,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3192,7 +3192,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-review-endpoint-utterances",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/improve-application",
             "redirect_document_id": false
         },
         {
@@ -3262,7 +3262,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3272,7 +3272,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3287,7 +3287,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3352,7 +3352,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3417,7 +3417,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/Plan-your-app.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-plan-your-app",
+            "redirect_url": "/azure/ai-services/LUIS/concepts/application-design",
             "redirect_document_id": false
         },
         {
@@ -3472,7 +3472,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-entity-roles.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3482,7 +3482,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-list-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {
@@ -3497,7 +3497,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-regex-entity.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-add-entities",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/entities",
             "redirect_document_id": ""
         },
         {

@@ -19,4 +19,4 @@ ms.date: 10/20/2020
 
 ## Next steps
 
-* Learn [enterprise design strategies](luis-concept-enterprise.md)
+* Learn [enterprise design strategies](how-to/improve-application.md)

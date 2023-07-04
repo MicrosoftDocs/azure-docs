@@ -25,9 +25,9 @@ The active version is the [version](luis-how-to-manage-versions.md) of your app 
 Active learning is a technique of machine learning in which the machine learned model is used to identify informative new examples to label. In LUIS, active learning refers to adding utterances from the endpoint traffic whose current predictions are unclear to improve your model. Click on "review endpoint utterances", to view utterances to label.
 
 See also:
-* [Conceptual information](luis-concept-review-endpoint-utterances.md)
+* [Conceptual information](how-to/improve-application.md)
 * [Tutorial reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)
-* How to improve the LUIS app by [reviewing endpoint utterances](luis-how-to-review-endpoint-utterances.md)
+* How to improve the LUIS app by [reviewing endpoint utterances](how-to/improve-application.md)
 
 ## Application (App)
 
@@ -180,7 +180,7 @@ Consider an example where you have a prebuilt-number feature that you have marke
 
 ## Intent
 
-An [intent](luis-concept-intent.md) represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, such as booking a flight, or paying a bill. In LUIS, an utterance as a whole is classified as an intent, but parts of the utterance are extracted as entities
+An [intent](concepts/intents.md) represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, such as booking a flight, or paying a bill. In LUIS, an utterance as a whole is classified as an intent, but parts of the utterance are extracted as entities
 
 ## Labeling examples
 
@@ -190,7 +190,7 @@ Labeling, or marking, is the process of associating a positive or negative examp
 In LUIS, intents within an app are mutually exclusive. This means when you add an utterance to an intent, it is considered a _positive_ example for that intent and a _negative_ example for all other intents. Negative examples should not be confused with the "None" intent, which represents utterances that are outside the scope of the app.
 
 ### Labeling for entities
-In LUIS, you [label](label-entity-example-utterance.md) a word or phrase in an intent's example utterance with an entity as a _positive_ example. Labeling shows the intent what it should predict for that utterance. The labeled utterances are used to train the intent.
+In LUIS, you [label](how-to/entities.md) a word or phrase in an intent's example utterance with an entity as a _positive_ example. Labeling shows the intent what it should predict for that utterance. The labeled utterances are used to train the intent.
 
 ## LUIS app
 
@@ -318,7 +318,7 @@ For **English**, a token is a continuous span (no spaces or punctuation) of lett
 
 ## Train
 
-[Training](luis-how-to-train.md) is the process of teaching LUIS about any changes to the active version since the last training.
+[Training](how-to/train-test.md) is the process of teaching LUIS about any changes to the active version since the last training.
 
 ### Training data
 

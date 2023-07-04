@@ -109,7 +109,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 1. [Run the container](#run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 1. [Querying the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
-1. Use LUIS portal's [active learning](luis-how-to-review-endpoint-utterances.md) on the **Review endpoint utterances** page to improve the app.
+1. Use LUIS portal's [active learning](how-to/improve-application.md) on the **Review endpoint utterances** page to improve the app.
 
 The app running in the container can't be altered. In order to change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
 
@@ -199,7 +199,7 @@ To download the published package, refer to the [API documentation here][downloa
 
 ### Export versioned app's package from API
 
-Use the following REST API method, to package a LUIS application that you've already [trained](luis-how-to-train.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
+Use the following REST API method, to package a LUIS application that you've already [trained](how-to/train-test.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
 GET /luis/api/v2.0/package/{APP_ID}/versions/{APP_VERSION}/gzip HTTP/1.1
@@ -278,7 +278,7 @@ The query parameters configure how and what is returned in the query response:
 |--|--|--|
 |`query`|string|The user's utterance.|
 |`verbose`|boolean|A boolean value indicating whether to return all the metadata for the predicted models. Default is false.|
-|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is false.|
+|`log`|boolean|Logs queries, which can be used later for [active learning](how-to/improve-application.md). Default is false.|
 |`show-all-intents`|boolean|A boolean value indicating whether to return all the intents or the top scoring intent only. Default is false.|
 
 # [V2 prediction endpoint](#tab/v2)
@@ -296,7 +296,7 @@ The query parameters configure how and what is returned in the query response:
 |`timezoneOffset`|number|The timezoneOffset allows you to [change the timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) used by the prebuilt entity datetimeV2.|
 |`verbose`|boolean|Returns all intents and their scores when set to true. Default is false, which returns only the top intent.|
 |`staging`|boolean|Returns query from staging environment results if set to true. |
-|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is true.|
+|`log`|boolean|Logs queries, which can be used later for [active learning](how-to/improve-application.md). Default is true.|
 
 ***
 
@@ -367,7 +367,7 @@ From the LUIS portal, select your app, then select **Import endpoint logs** to u
 
 ![Import container's log files for active learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
-After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-utterances.md) utterances in the LUIS portal.
+After the log is uploaded, [review the endpoint](./how-to/improve-application.md) utterances in the LUIS portal.
 
 <!--  ## Validate container is running -->
 

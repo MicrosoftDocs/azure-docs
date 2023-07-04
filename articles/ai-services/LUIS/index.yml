@@ -30,9 +30,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Plan your app
-            url: luis-how-plan-your-app.md
+            url: concepts/application-design.md
           - text: Iterative app design
-            url: luis-concept-app-iteration.md
+            url: concepts/application-design.md
           - text: DevOps practices
             url: luis-concept-devops-sourcecontrol.md
       - linkListType: whats-new
@@ -49,7 +49,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Intents
-            url: luis-concept-intent.md
+            url: concepts/intents.md
           - text: Entities
             url: concepts/entities.md
           - text: Utterances
@@ -68,20 +68,20 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a new LUIS app
-            url: luis-how-to-start-new-app.md
+            url: how-to/sign-in.md
           - text: Add intent with example utterances
-            url: luis-how-to-add-intents.md
+            url: how-to/intents.md
           - text: Add entities
             url: how-to/entities.md
           - text: Add phrase list feature
-            url: luis-how-to-add-features.md
+            url: concepts/patterns-features.md
 
   - title: Version, train, test, and publish
     linkLists:
       - linkListType: concept
         links:
           - text: Versioning
-            url: ./luis-concept-app-iteration.md
+            url: ./concepts/application-design.md
           - text: Interactive testing
             url: ./luis-interactive-test.md
           - text: Batch testing
@@ -101,7 +101,7 @@ landingContent:
           - text: Perform batch testing
             url: luis-how-to-batch-test.md
           - text: Train your app
-            url: luis-how-to-train.md
+            url: how-to/train-test.md
           - text: Publish prediction endpoint
             url: luis-how-to-publish-app.md
 
@@ -114,15 +114,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: With C# using REST
-            url: ./luis-get-started-get-intent-from-rest.md
+            url: ./how-to/intents.md
           - text: With Go using REST
-            url: ./luis-get-started-get-intent-from-rest.md
+            url: ./how-to/intents.md
           - text: With Java using REST
-            url: ./luis-get-started-get-intent-from-rest.md
+            url: ./how-to/intents.md
           - text: With Node.js using REST
-            url: ./luis-get-started-get-intent-from-rest.md
+            url: ./how-to/intents.md
           - text: With Python using REST
-            url: ./luis-get-started-get-intent-from-rest.md
+            url: ./how-to/intents.md
   - title: Reference
     linkLists:
       - linkListType: reference

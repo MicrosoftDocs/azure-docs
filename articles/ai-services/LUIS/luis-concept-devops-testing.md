@@ -110,7 +110,7 @@ The testing capabilities that are available in the LUIS portal don't require a p
 
 > [!TIP]
 > * If you're implementing your own testing solution and writing code to send test utterances to an endpoint, remember that if you are using the LUIS authoring key, the allowed transaction rate is limited to 5TPS. Either throttle the sending rate or use a prediction key instead.
-> * When sending test queries to an endpoint, remember to use `log=false` in the query string of your prediction request. This ensures that your test utterances do not get logged by LUIS and end up in the endpoint utterances review list presented by the LUIS [active learning](./luis-concept-review-endpoint-utterances.md) feature and, as a result, accidentally get added to the training utterances of your app.
+> * When sending test queries to an endpoint, remember to use `log=false` in the query string of your prediction request. This ensures that your test utterances do not get logged by LUIS and end up in the endpoint utterances review list presented by the LUIS [active learning](./how-to/improve-application.md) feature and, as a result, accidentally get added to the training utterances of your app.
 
 #### Running Unit tests at the command line and in CI/CD workflows
 

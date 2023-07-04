@@ -29,7 +29,7 @@ Customer content is stored encrypted in Microsoft regional Azure storage and inc
 
 - User account content collected at registration
 - Training data required to build the models
-- Logged user queries used by [active learning](luis-concept-review-endpoint-utterances.md) to help improve the model
+- Logged user queries used by [active learning](how-to/improve-application.md) to help improve the model
   - Users can turn off query logging by appending `&log=false` to the request, details [here](./troubleshooting.yml#how-can-i-disable-the-logging-of-utterances-)
 
 ## Deleting customer data
@@ -37,7 +37,7 @@ LUIS users have full control to delete any user content, either through the LUIS
 
 | | **User Account** | **Application** | **Example Utterance(s)** | **End-user queries** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Active learning utterances](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Logged Utterances](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](how-to/sign-in.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Active learning utterances](how-to/improve-application.md#disable-active-learning)<br>[Logged Utterances](luis-concept-data-storage.md#disable-logging-utterances) |
 | **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
@@ -50,7 +50,7 @@ LUIS users have full control to view the data on the portal, however it must be 
 
 ## Location of active learning
 
-To enable [active learning](luis-how-to-review-endpoint-utterances.md#log-user-queries-to-enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in the following Azure geographies:
+To enable [active learning](how-to/improve-application.md#log-user-queries-to-enable-active-learning), users' logged utterances, received at the published LUIS endpoints, are stored in the following Azure geographies:
 
 * [Europe](#europe)
 * [Australia](#australia)
@@ -97,7 +97,7 @@ When deploying to these Azure geographies, the utterances received by the endpoi
 
 ## Disable active learning
 
-To disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+To disable active learning, see [Disable active learning](how-to/improve-application.md#disable-active-learning). To manage stored utterances, see [Delete utterance](how-to/improve-application.md#delete-utterance).
 
 
 ## Next steps

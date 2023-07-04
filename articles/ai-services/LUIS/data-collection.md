@@ -19,7 +19,7 @@ A Language Understanding (LUIS) app needs data as part of app development.
 
 ## Data used in LUIS
 
-LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](concepts/entities.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
+LUIS uses text as data to train and test your LUIS app for classification for [intents](concepts/intents.md) and for extraction of [entities](concepts/entities.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
 
 ## Training data selection for example utterances
 
@@ -68,7 +68,7 @@ The following preprocessing steps will help build a better LUIS app:
 
 ### Data review after LUIS app is in production
 
-[Review endpoint utterances](luis-concept-review-endpoint-utterances.md) to monitor real utterance traffic once you have deployed an app to production.  This allows you to update your training utterances with real data, which will improve your app. Any app built with crowd-sourced or non-real scenario data will need to be improved based on its real use.
+[Review endpoint utterances](how-to/improve-application.md) to monitor real utterance traffic once you have deployed an app to production.  This allows you to update your training utterances with real data, which will improve your app. Any app built with crowd-sourced or non-real scenario data will need to be improved based on its real use.
 
 ## Test data selection for batch testing
 

@@ -32,7 +32,7 @@ A LUIS app learns and performs most efficiently when you iteratively develop it.
 4. Test for active learning by reviewing utterances sent to the prediction endpoint
 5. Gather data from endpoint queries
 
-:::image type="content" source="../media/luis-concept-app-iteration/iteration.png" alt-text="A screenshot showing the authoring cycle" lightbox="../media/luis-concept-app-iteration/iteration.png":::
+:::image type="content" source="../media/concepts/application-design/iteration.png" alt-text="A screenshot showing the authoring cycle" lightbox="../media/concepts/application-design/iteration.png":::
 
 ## Identify your domain
 
@@ -43,7 +43,7 @@ A LUIS app is centered around a subject domain. For example, you may have a trav
 
 ## Identify your intents
 
-Think about the [intents](../luis-concept-intent.md) that are important to your application's task.
+Think about the [intents](../concepts/intents.md) that are important to your application's task.
 
 Let's take the example of a travel app, with functions to book a flight and check the weather at the user's destination. You can define two intents,  BookFlight and GetWeather for these actions.
 
@@ -58,13 +58,13 @@ If you don't need to identify overall user intention, add all the example user u
 
 To start, avoid creating too many utterances for each intent. Once you have determined the intents you need for your app, create 15 to 30 example utterances per intent. Each utterance should be different from the previously provided utterances. Include a variety of word counts, word choices, verb tenses, and [punctuation](../luis-reference-application-settings.md#punctuation-normalization).
 
-For more information, see [understanding good utterances for LUIS apps](../luis-concept-utterance.md).
+For more information, see [understanding good utterances for LUIS apps](../concepts/utterances.md).
 
 ## Identify your entities
 
 In the example utterances, identify the entities you want extracted. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](entities.md) in the example utterances. Entities are important for accomplishing an intent.
 
-When determining which entities to use in your app, remember that there are different types of entities for capturing relationships between object types. See [Entities in LUIS](../luis-concept-entity-types.md) for more information about the different types.
+When determining which entities to use in your app, remember that there are different types of entities for capturing relationships between object types. See [Entities in LUIS](../concepts/entities.md) for more information about the different types.
 
 > [!TIP]
 > LUIS offers [prebuilt entities](../howto-add-prebuilt-models.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
@@ -130,7 +130,7 @@ LUIS is specific to a language model's domain. It isn't meant to work as a gener
 
 ### Build your app iteratively with versions
 
-Each authoring cycle should be contained within a new [version](../luis-concept-app-iteration.md), cloned from an existing version.
+Each authoring cycle should be contained within a new [version](../concepts/application-design.md), cloned from an existing version.
 
 ### Don't publish too quickly
 

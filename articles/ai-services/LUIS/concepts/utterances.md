@@ -29,7 +29,7 @@ Collect utterances that you think users will enter. Include utterances, which me
 
 ## Choose varied utterances
 
-When you start  [adding example utterances](/azure/ai-services/luis/luis-how-to-add-entities) to your LUIS model, there are several principles to keep in mind:
+When you start  [adding example utterances](../how-to/entities.md) to your LUIS model, there are several principles to keep in mind:
 
 ## Utterances aren't always well formed
 
@@ -58,11 +58,11 @@ Each intent needs to have example utterances - at least 15. If you have an inten
 
 ## Add small groups of utterances
 
-Each time you iterate on your model to improve it, don't add large quantities of utterances. Consider adding utterances in quantities of 15. Then [Train](/azure/ai-services/luis/luis-how-to-train), [publish](/azure/ai-services/luis/luis-how-to-publish-app), and [test](/azure/ai-services/luis/luis-interactive-test) again.
+Each time you iterate on your model to improve it, don't add large quantities of utterances. Consider adding utterances in quantities of 15. Then [Train](../how-to/train-test), [publish](../luis-how-to-publish-app), and [test](../luis-interactive-test) again.
 
 LUIS builds effective models with utterances that are carefully selected by the LUIS model author. Adding too many utterances isn't valuable because it introduces confusion.
 
-It is better to start with a few utterances, then [review the endpoint utterances](/azure/ai-services/luis/luis-how-to-review-endpoint-utterances) for correct intent prediction and entity extraction.
+It is better to start with a few utterances, then [review the endpoint utterances](../how-to/improve-application) for correct intent prediction and entity extraction.
 
 ## Utterance normalization
 
@@ -98,13 +98,13 @@ Punctuation is a separate token in LUIS. An utterance that contains a period at 
 
 If punctuation is not normalized, LUIS doesn't ignore punctuation marks by default because some client applications may place significance on these marks. Make sure to include example utterances that use punctuation, and ones that don't, for both styles to return the same relative scores.
 
-Make sure the model handles punctuation either in the example utterances (both having and not having punctuation) or in [patterns](/azure/ai-services/luis/luis-concept-patterns) where it is easier to ignore punctuation. For example: I am applying for the {Job} position[.]
+Make sure the model handles punctuation either in the example utterances (both having and not having punctuation) or in [patterns](../concepts/patterns-features) where it is easier to ignore punctuation. For example: I am applying for the {Job} position[.]
 
-If punctuation has no specific meaning in your client application, consider [ignoring punctuation](/azure/ai-services/luis/luis-concept-utterance#utterance-normalization) by normalizing punctuation.
+If punctuation has no specific meaning in your client application, consider [ignoring punctuation](../concepts/utterances#utterance-normalization) by normalizing punctuation.
 
 ## Ignoring words and punctuation
 
-If you want to ignore specific words or punctuation in patterns, use a [pattern](/azure/ai-services/luis/luis-concept-patterns#pattern-syntax) with the _ignore_ syntax of square brackets, `[]`.
+If you want to ignore specific words or punctuation in patterns, use a [pattern](../concepts/patterns-features#pattern-syntax) with the _ignore_ syntax of square brackets, `[]`.
 
 ## Training with all utterances
 
@@ -112,11 +112,11 @@ Training is generally non-deterministic: utterance prediction can vary slightly 
 
 ## Testing utterances
 
-Developers should start testing their LUIS application with real data by sending utterances to the [prediction endpoint](../luis-how-to-azure-subscription.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](/azure/ai-services/luis/luis-how-to-review-endpoint-utterances). Tests submitted using the testing pane in the LUIS portal are not sent through the endpoint, and don't contribute to active learning.
+Developers should start testing their LUIS application with real data by sending utterances to the [prediction endpoint](../luis-how-to-azure-subscription.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](../how-to/improve-application). Tests submitted using the testing pane in the LUIS portal are not sent through the endpoint, and don't contribute to active learning.
 
 ## Review utterances
 
-After your model is trained, published, and receiving [endpoint](../luis-glossary.md#endpoint) queries, [review the utterances](/azure/ai-services/luis/luis-how-to-review-endpoint-utterances) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity.
+After your model is trained, published, and receiving [endpoint](../luis-glossary.md#endpoint) queries, [review the utterances](../how-to/improve-application) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity.
 
 ## Best practices
 

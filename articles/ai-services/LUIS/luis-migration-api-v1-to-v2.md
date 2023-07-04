@@ -132,7 +132,7 @@ Several APIs that return LUIS metadata have new names.
 
 
 ## "Sample" renamed to "suggest"
-LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-endpoint-utterances.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** in the LUIS website.
+LUIS suggests utterances from existing [endpoint utterances](how-to/improve-application.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](how-to/improve-application.md)** in the LUIS website.
 
 | version | route |
 |--|--|

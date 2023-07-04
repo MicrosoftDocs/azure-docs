@@ -33,7 +33,7 @@ An entity is an item or an element that is relevant to the user's intent. Entiti
 Entities are optional but recommended. You don't need to create entities for every concept in your app, only when:
 
 * The client application needs the data, or
-* The entity acts as a hint or signal to another entity or intent. To learn more about entities as Features go to [Entities as features](../luis-concept-entity-types.md#entities-as-features).
+* The entity acts as a hint or signal to another entity or intent. To learn more about entities as Features go to [Entities as features](../concepts/entities.md#entities-as-features).
 
 ## Entity types
 
@@ -165,7 +165,7 @@ Machine learned entities are tailored to your app and require labeling to be suc
 
 Machine learned entities can use other entities as features. These other entities can be custom entities such as regular expression entities or list entities, or you can use prebuilt entities as features.
 
-Learn about [effective machine learned entities](../luis-concept-entity-types.md#machine-learned-ml-entity).
+Learn about [effective machine learned entities](../concepts/entities.md#machine-learned-ml-entity).
 
 ## Next steps
 
