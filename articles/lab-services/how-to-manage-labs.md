@@ -39,6 +39,18 @@ This article describes how to create and delete labs. It also shows you how to v
 > [!NOTE]
 > If you're granted access but are unable to view the labs from other people, you might select *All labs* instead of *My labs* in the **Show** filter.
 
+## Use a non-organizational account as a lab creator
+
+You can access the Azure Lab Services website to create and manage labs without an organizational account (a guest account). In this case, you need a Microsoft account, or a GitHub or non-Microsoft email acount that is linked to a Microsoft account.
+
+### Use a non-Microsoft email account
+
+[!INCLUDE [Use non-Microsoft account](./includes/lab-services-non-microsoft-account.md)]
+
+### Use a GitHub Account
+
+[!INCLUDE [Use GitHub account](./includes/lab-services-github-account.md)]
+
 ## Delete a lab
 
 1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
