@@ -50,7 +50,7 @@ To minimize issues related to rate limits, it's a good idea to use the following
 
 Quota increase requests can be submitted from the [Quotas](./how-to/quota.md) page of Azure OpenAI Studio. Please note that due to overwhelming demand, we are not currently approving new quota increase requests. Your request will be queued until it can be filled at a later time.
 
-For other rate limits, please [submit a service request](/azure/ai-services/cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context).
+For other rate limits, please [submit a service request](../cognitive-services-support-options.md?context=/azure/ai-services/openai/context/context).
 
 ## Next steps
 
