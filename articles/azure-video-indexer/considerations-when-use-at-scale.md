@@ -2,7 +2,7 @@
 title: Things to consider when using Azure Video Indexer at scale - Azure
 description: This topic explains what things to consider when using Azure Video Indexer at scale.
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 07/03/2023
 ms.author: juliako
 ---
 
@@ -43,11 +43,12 @@ To see an example of how to upload videos using URL, check out [this example](up
 
 ## Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Indexer enabled [Reserved Units](/azure/media-services/latest/concept-media-reserved-units)(MRUs) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Indexer. That will allow price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Indexer enabled [Reserved Units](/azure/media-services/latest/concept-media-reserved-units)(MRUs) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Indexer. That allows price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## Respect throttling
 
-Azure Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system's capabilities and design your integration accordingly. You don't want to send an upload request for a batch of videos just to discover that some of the movies didn't upload and you are receiving an HTTP 429 response code (too many requests). It can happen if the number of requests exceeds our API request limit of 10 requests per second or 60 requests per minute. Azure Video Indexer adds a `retry-after` header in the HTTP response, the header specifies when you should attempt your next retry. Make sure you respect it before trying your next request.
+Azure Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system's capabilities and design your integration accordingly. You don't want to send an upload request for a batch of videos just to discover that some of the movies didn't upload and you are receiving an HTTP 429 response code (too many requests). There is an API request limit of 120 requests per minute.
+ Azure Video Indexer adds a `retry-after` header in the HTTP response, the header specifies when you should attempt your next retry. Make sure you respect it before trying your next request.
 
 :::image type="content" source="./media/considerations-when-use-at-scale/respect-throttling.jpg" alt-text="Design your integration well, respect throttling":::
 
@@ -77,7 +78,7 @@ You might be asking, what video quality do you need for indexing your videos?
 
 In many cases, indexing performance has almost no difference between HD (720P) videos and 4K videos. Eventually, you’ll get almost the same insights with the same confidence. The higher the quality of the movie you upload means the higher the file size, and this leads to higher computing power and time needed to upload the video.
 
-For example, for the face detection feature, a higher resolution can help with the scenario where there are many small but contextually important faces. However, this will come with a quadratic increase in runtime and an increased risk of false positives.
+For example, for the face detection feature, a higher resolution can help with the scenario where there are many small but contextually important faces. However, this comes with a quadratic increase in runtime and an increased risk of false positives.
 
 Therefore, we recommend you to verify that you get the right results for your use case and to first test it locally. Upload the same video in 720P and in 4K and compare the insights you get.
 
