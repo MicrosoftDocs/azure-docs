@@ -79,7 +79,7 @@ In the peering connections section, click Create new to add a connection to your
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/create-maps-voice-bgp-session.png" alt-text="Configure a peering connection" :::
 
-Peerings configured for Communications Services MUST have **Microsoft** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically. Microsoft must be the IP provider for Communications Services, you cannot provide your own IPs.
+Peering connections configured for Communications Services MUST have **Microsoft** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically. Microsoft must be the IP provider for Communications Services, you cannot provide your own IPs.
 
 Before finalizing your Peering, make sure the peering has at least two connections. Local redundancy is a requirement for Peering Service, and creating a Peering with two sessions will achieve this.
 
@@ -118,6 +118,10 @@ Then click **Add registered prefix**
 Configure your prefix by giving it a name, and the IPv4 prefix string and click **Save**.
 
 :::image type="content" source="./media/walkthrough-communications-services-partner/register-prefix-configure.png" alt-text="Registered prefix configuration page" :::
+
+After prefix creation, you can see the generated peering service prefix key when viewing the Registered ASN resource:
+
+:::image type="content" source="./media/setup-direct-modify-registered-prefix-detail.png" alt-text="Screenshot of registered prefix blade with peering service prefix key highlighted." :::
 
 After you create a registered prefix, it will be queued for validation. The validation state of the prefix can be found in the Registered Prefixes page:
 

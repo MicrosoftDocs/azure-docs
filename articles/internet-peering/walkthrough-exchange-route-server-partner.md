@@ -78,7 +78,7 @@ In the peering connections section, click Create new to add a connection to your
 
 :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-maps-ixrs-bgp-session.png" alt-text="Configure a peering connection" :::
 
-Peerings configured for Exchange Route Server MUST have **Peer** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically.
+Peering connections for Exchange Route Server MUST have **Peer** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically.
 
 Before finalizing your Peering, make sure the peering has at least one connection.
 
