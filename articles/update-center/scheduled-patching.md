@@ -30,8 +30,8 @@ Update management center (preview) uses maintenance control schedule instead of 
 
 ## Schedule patching in an availability set
 
-1. All VMs in a common availability set aren't updated concurrently.
-1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently. For more information, see [Availability sets](../virtual-machines/availability-set-overview.md).
+1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
 
 ## Schedule recurring updates on single VM
 
