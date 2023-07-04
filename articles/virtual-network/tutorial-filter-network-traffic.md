@@ -100,7 +100,7 @@ An [application security group (ASGs)](application-security-groups.md) enables y
 
 A [network security group (NSG)](network-security-groups-overview.md) secures network traffic in your virtual network. 
 
-1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Network security group**, or search for *Network security group* in the portal search box.
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Network security group**, or search for *Network security group* in the portal search box. (Network Security Group and not Network Security Group (classic))
 
 1. Select **Create**.
 
