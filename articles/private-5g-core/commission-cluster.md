@@ -71,7 +71,7 @@ You now have a minishell session set up ready to enable your Azure Kubernetes Se
 Run the following commands at the PowerShell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). 
 
 ```powershell
-Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId *object ID*}
+Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId <object_ID>}
 
 Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f}
 ```
