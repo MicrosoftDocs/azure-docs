@@ -28,9 +28,9 @@
   - name: Use labs from Teams/Canvas
     items:
       - name: 1. Create a lab in Teams/Canvas
-        href: how-to-manage-labs-within-canvas.md
+        href: tutorial-setup-lab-teams-canvas.md
       - name: 2. Access a lab from Teams/Canvas
-        href: how-to-access-vm-for-students-within-canvas.md     
+        href: tutorial-access-lab-virtual-machine-teams-canvas.md
   - name: Set up lab to lab communication
     href: tutorial-create-lab-with-advanced-networking.md
   - name: Track usage of a lab

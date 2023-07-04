@@ -31,7 +31,7 @@ landingContent:
           - text: Lab Services concepts
             url: classroom-labs-concepts.md
   # Card
-  - title: Lab plans (Administrators)
+  - title: Lab plans
     linkLists:
     - linkListType: tutorial
       links:
@@ -39,14 +39,14 @@ landingContent:
           url: quick-create-resources.md
     - linkListType: how-to-guide
       links:
-        - text: Add a Lab Creator
+        - text: Add a lab Creator
           url: add-lab-creator.md
         - text: Configure auto-shutdown
           url: how-to-configure-auto-shutdown-lab-plans.md
         - text: Connect to a virtual network
           url: how-to-connect-vnet-injection.md
         
-  - title: Create & manage labs (Educators)
+  - title: Create & manage labs
     linkLists:
     - linkListType: tutorial
       links:
@@ -54,6 +54,8 @@ landingContent:
           url: quick-create-connect-lab.md
         - text: Set up a lab for classroom training
           url: tutorial-setup-lab.md
+        - text: Create a lab in Teams or Canvas
+          url: tutorial-setup-lab-teams-canvas.md
     - linkListType: how-to-guide
       links:
         - text: Manage labs
@@ -67,12 +69,14 @@ landingContent:
         - text: Create and manage schedules
           url: how-to-create-schedules.md
           
-  - title: Access labs (Students)
+  - title: Access labs
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Access a lab
             url: tutorial-connect-lab-virtual-machine.md
+          - text: Access a lab in Teams or Canvas
+            url: tutorial-access-lab-virtual-machine-teams-canvas.md
           - text: Connect to a lab VM
             url: connect-virtual-machine.md
           - text: Set or reset passwords
