@@ -129,7 +129,7 @@ Xcode takes a few seconds to build the application. After the build is complete,
 
 You can start customing map functionality by getting hold to `AzureMap` instance in a `mapView.onReady` handler. For a MapControl view added above, your sample `ViewController` may look the following way:
 
-``` 
+```swift
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
