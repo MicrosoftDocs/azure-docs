@@ -122,4 +122,4 @@ The value for `absolute_url` can be found in your blob container's properties:
 
 ### COCO file verification
 
-You can use our [Python sample code](/azure/ai-services/computer-vision/how-to/coco-verification) to check the format of a COCO file.
+You can use our [Python sample code](/azure/ai-services/computer-vision/how-to/coco-verification.md) to check the format of a COCO file.

@@ -32,7 +32,7 @@ The samples are written in C# by using the Azure AI Face client library.
 
 ## Step 1: Initialize the client object
 
-When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
 
 ## Step 2: Code migration
 

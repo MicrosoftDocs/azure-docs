@@ -5,7 +5,6 @@ description: This guide demonstrates how to add a large number of persons and fa
 services: cognitive-services
 author: nitinme
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
@@ -60,7 +59,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## Step 2: Authorize the API call
 
-When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
 
 
 ## Step 3: Create the PersonGroup

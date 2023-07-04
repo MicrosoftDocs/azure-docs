@@ -2012,7 +2012,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Face/index.md",
-            "redirect_url": "/azure/ai-services/computer-vision/index-identity",
+            "redirect_url": "/azure/ai-services/computer-vision/overview-identity",
             "redirect_document_id": false
         },
         {

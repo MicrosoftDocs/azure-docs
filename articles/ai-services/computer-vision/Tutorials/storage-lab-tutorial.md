@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, build-2023, build-2023-dataai
 
 # Tutorial: Use Azure AI Vision to generate image metadata in Azure Storage
 
-In this tutorial, you'll learn how to integrate the Azure AI Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../overview.md#computer-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
+In this tutorial, you'll learn how to integrate the Azure AI Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../overview.md#azure-ai-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
 
 You'll use Visual Studio to write an MVC Web app that accepts images uploaded by users and stores the images in Azure blob storage. You'll learn how to read and write blobs in C# and use blob metadata to attach additional information to the blobs you create. Then you'll submit each image uploaded by the user to the Azure AI Vision API to generate a caption and search metadata for the image. Finally, you can deploy the app to the cloud using Visual Studio.
 
