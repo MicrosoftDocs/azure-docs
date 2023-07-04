@@ -13,7 +13,7 @@ ms.date: 05/10/2022
 
 Azure Stream Analytics Cluster offers a single-tenant deployment for complex and demanding streaming scenarios. At full scale, Stream Analytics clusters can process more than 400 MB/second in real time. Stream Analytics jobs running on dedicated clusters can leverage all the features in the Standard offering and includes support for private link connectivity to your inputs and outputs.
 
-Stream Analytics clusters are billed by Streaming Units (SUs) which represent the amount of CPU and memory resources allocated to your cluster. A Streaming Unit is the same across Standard and Dedicated offerings and Azure Stream Analytics supports two streaming unit structures: SU V1(to be deprecated) and SU V2(recommended) [learn more](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-and-streaming-node).
+Stream Analytics clusters are billed by Streaming Units (SUs) which represent the amount of CPU and memory resources allocated to your cluster. A Streaming Unit is the same across Standard and Dedicated offerings and Azure Stream Analytics supports two streaming unit structures: SU V1(to be deprecated) and SU V2(recommended) [learn more](./stream-analytics-streaming-unit-consumption#understand-streaming-unit-and-streaming-node).
 
 When you create a cluster, you will created a **Dedicated V2 (recommended)** cluster by default.  In dedicated V2 clusters you can purchase 12 to 66 SU V2s for each cluster, by increments of 12 (12, 24, 48...). Dedicated V1 is ASA's original offering which requires a minimum of 36 SUs. In Dedicated V1, you can purchase 36 to 396 SUs. 
 
@@ -25,7 +25,7 @@ For more information on dedicated cluster offerings and pricing, visit the [Azur
 A Stream Analytics cluster can serve as the streaming platform for your organization and can be shared by different teams working on various use cases.
 
 > [!Note] 
-> Azure Stream Analytics also supports Virtual Network Integration available in Public Preview.  VNET integration permits network isolation which is accomplished by deploying dedicated instances of Azure Stream Analytics into your virtual network.  A minimum of 6 SU V2s is required for VNET jobs [learn more](https://learn.microsoft.com/azure/stream-analytics/run-job-in-virtual-network).
+> Azure Stream Analytics also supports Virtual Network Integration available in Public Preview.  VNET integration permits network isolation which is accomplished by deploying dedicated instances of Azure Stream Analytics into your virtual network.  A minimum of 6 SU V2s is required for VNET jobs [learn more](./run-job-in-virtual-network).
 
 ## What are Stream Analytics clusters
 
