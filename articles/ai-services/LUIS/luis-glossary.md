@@ -26,7 +26,7 @@ Active learning is a technique of machine learning in which the machine learned 
 
 See also:
 * [Conceptual information](how-to/improve-application.md)
-* [Tutorial reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)
+* [Tutorial reviewing endpoint utterances](how-to/improve-application.md)
 * How to improve the LUIS app by [reviewing endpoint utterances](how-to/improve-application.md)
 
 ## Application (App)
@@ -260,7 +260,7 @@ Renamed to [authoring key](#authoring-key).
 
 ## Publish
 
-[Publishing](luis-how-to-publish-app.md) means making a LUIS active version available on either the staging or production [endpoint](#endpoint).
+[Publishing](how-to/publish.md) means making a LUIS active version available on either the staging or production [endpoint](#endpoint).
 
 ## Quota
 
@@ -296,7 +296,7 @@ The model will return the normalized value for the entity when any of synonyms a
 
 ## Test
 
-[Testing](./luis-interactive-test.md) a LUIS app means viewing model predictions.
+[Testing](./how-to/train-test.md) a LUIS app means viewing model predictions.
 
 ## Timezone offset
 

@@ -25,7 +25,7 @@ LUIS stores data encrypted in an Azure data store corresponding to [the region](
 * Application authors can choose to [enable logging](how-to/improve-application.md#log-user-queries-to-enable-active-learning) on the utterances that are sent to a published application. If enabled, utterances will be saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data is not stored.
 
 ## Export and delete app
-Users have full control over [exporting](how-to/sign-in.md#export-app) and [deleting](how-to/sign-in.md#delete-app) the app. 
+Users have full control over [exporting](how-to/sign-in.md#export-app) and [deleting](how-to/sign-in.md) the app. 
 
 ## Utterances
 
@@ -46,10 +46,10 @@ Delete example utterances used for training [LUIS](luis-reference-regions.md). I
 
 You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](how-to/improve-application.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 
-If you don't want active learning utterances, you can [disable active learning](how-to/improve-application.md#disable-active-learning). Disabling active learning also disables logging.
+If you don't want active learning utterances, you can [disable active learning](how-to/improve-application.md). Disabling active learning also disables logging.
 
 ### Disable logging utterances
-[Disabling active learning](how-to/improve-application.md#disable-active-learning) is disables logging.
+[Disabling active learning](how-to/improve-application.md) is disables logging.
 
 
 <a name="accounts"></a>

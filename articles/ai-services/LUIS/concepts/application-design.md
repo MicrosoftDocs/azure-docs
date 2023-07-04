@@ -32,7 +32,7 @@ A LUIS app learns and performs most efficiently when you iteratively develop it.
 4. Test for active learning by reviewing utterances sent to the prediction endpoint
 5. Gather data from endpoint queries
 
-:::image type="content" source="../media/concepts/application-design/iteration.png" alt-text="A screenshot showing the authoring cycle" lightbox="../media/concepts/application-design/iteration.png":::
+:::image type="content" source="../media/luis-concept-app-iteration/iteration.png" alt-text="A screenshot showing the authoring cycle" lightbox="../media/luis-concept-app-iteration/iteration.png":::
 
 ## Identify your domain
 

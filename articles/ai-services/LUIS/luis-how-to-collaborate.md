@@ -29,7 +29,7 @@ In the Azure portal, find your Language Understanding (LUIS) authoring resource.
 
 ## View the app as a contributor
 
-After you have been added as a contributor, [sign in to the LUIS portal](sign-in-luis-portal.md).
+After you have been added as a contributor, [sign in to the LUIS portal](how-to/sign-in.md).
 
 [!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 

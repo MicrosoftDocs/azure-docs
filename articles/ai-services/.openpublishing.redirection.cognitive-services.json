@@ -2922,7 +2922,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/interactive-test.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-interactive-test",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/train-test",
             "redirect_document_id": false
         },
         {
@@ -3007,7 +3007,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-test.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-interactive-test",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/train-test",
             "redirect_document_id": false
         },
         {
@@ -3277,7 +3277,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-publish-app",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/publish",
             "redirect_document_id": false
         },
         {
@@ -3312,7 +3312,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
-            "redirect_url": "/azure/ai-services/LUIS/tutorial-machine-learned-entity",
+            "redirect_url": "/azure/ai-services/LUIS/build-decomposable-application",
             "redirect_document_id": false
         },
         {
@@ -3387,7 +3387,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
-            "redirect_url": "/azure/ai-services/LUIS/tutorial-machine-learned-entity",
+            "redirect_url": "/azure/ai-services/LUIS/build-decomposable-application",
             "redirect_document_id": false
         },
         {
@@ -3427,7 +3427,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/PublishApp.md",
-            "redirect_url": "/azure/ai-services/LUIS/luis-how-to-publish-app",
+            "redirect_url": "/azure/ai-services/LUIS/how-to/publish",
             "redirect_document_id": false
         },
         {
@@ -3492,7 +3492,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/LUIS/tutorial-publish-settings.md",
-            "redirect_url": "/azure/ai-services/LUIS/tutorial-machine-learned-entity#publish-the-app-to-access-it-from-the-http-endpoint",
+            "redirect_url": "/azure/ai-services/LUIS/build-decomposable-application",
             "redirect_document_id": ""
         },
         {

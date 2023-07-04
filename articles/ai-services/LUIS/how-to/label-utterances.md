@@ -32,7 +32,7 @@ To label examples of entities within the utterance, select the utterance's inten
 
 Two labeling techniques are supported on the Intent detail page.
 
-* Select entity or subentity from [Entity Palette](../how-to/entities.md#label-with-the-entity-palette-visible) then select within example utterance text. This is the recommended technique because you can visually verify you are working with the correct entity or subentity, according to your schema.
+* Select entity or subentity from [Entity Palette](../how-to/entities.md) then select within example utterance text. This is the recommended technique because you can visually verify you are working with the correct entity or subentity, according to your schema.
 * Select within the example utterance text first. A menu will appear with labeling choices.
 
 ### Label with the Entity Palette visible

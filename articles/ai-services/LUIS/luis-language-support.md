@@ -73,7 +73,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 See Speech [Supported languages](../speech-service/speech-to-text.md) for Speech dictation mode languages.
 
 ### Bing Spell Check supported languages
-See Bing Spell Check [Supported languages](../bing-spell-check/language-support.md) for a list of supported languages and status.
+See Bing Spell Check [Supported languages](../../cognitive-services/bing-spell-check/language-support.md) for a list of supported languages and status.
 
 ## Rare or foreign words in an application
 In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](concepts/patterns-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature.

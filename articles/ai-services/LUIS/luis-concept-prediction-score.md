@@ -51,7 +51,7 @@ If multiple intents have close prediction scores, based on the context of an utt
 
 The 2 intents, which are too-closely scored, may invert due to **non-deterministic training**. The top score could become the second top and the second top score could become the first top score. In order to prevent this situation, add example utterances to each of the top two intents for that utterance with word choice and context that differentiates the 2 intents. The two intents should have about the same number of example utterances. A rule of thumb for separation to prevent inversion due to training, is a 15% difference in scores.
 
-You can turn off the **non-deterministic training** by [training with all data](how-to/train-test.md#train-with-all-data).
+You can turn off the **non-deterministic training** by [training with all data](how-to/train-test.md).
 
 ## Differences with predictions between different training sessions
 
@@ -59,7 +59,7 @@ When you train the same model in a different app, and the scores are not the sam
 
 If your chat bot requires a specific LUIS score to indicate confidence in an intent, you should use the score difference between the top two intents. This situation provides flexibility for variations in training.
 
-You can turn off the **non-deterministic training** by [training with all data](how-to/train-test.md#train-with-all-data).
+You can turn off the **non-deterministic training** by [training with all data](how-to/train-test.md).
 
 ## E (exponent) notation
 

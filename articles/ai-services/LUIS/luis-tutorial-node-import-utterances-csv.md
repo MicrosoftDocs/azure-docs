@@ -189,7 +189,7 @@ Once the script completes, you can sign in to [LUIS](luis-reference-regions.md) 
 
 ## Next steps
 
-[Test and train your app in LUIS website](luis-interactive-test.md)
+[Test and train your app in LUIS website](how-to/train-test.md)
 
 ## Additional resources
 

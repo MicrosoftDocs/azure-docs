@@ -104,16 +104,16 @@ LUIS has a monthly quota and a per-second quota, based on the pricing tier of th
 
 If your LUIS app request rate exceeds the allowed [quota rate](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), you can:
 
-* Spread the load to more LUIS apps with the [same app definition](how-to/improve-application.md#use-multiple-apps-with-same-app-definition). This includes, optionally, running LUIS from a [container](./luis-container-howto.md).
-* Create and [assign multiple keys](how-to/improve-application.md#assign-multiple-luis-keys-to-same-app) to the app.
+* Spread the load to more LUIS apps with the [same app definition](how-to/improve-application.md). This includes, optionally, running LUIS from a [container](./luis-container-howto.md).
+* Create and [assign multiple keys](how-to/improve-application.md) to the app.
 
 ## Can I Use multiple apps with same app definition?
 
-Yes, export the original LUIS app and import the app back into separate apps. Each app has its own app ID. When you publish, instead of using the same key across all apps, create a separate key for each app. Balance the load across all apps so that no single app is overwhelmed. Add [Application Insights](/azure/bot-service/bot-builder-howto-v4-luis.md) to monitor usage.
+Yes, export the original LUIS app and import the app back into separate apps. Each app has its own app ID. When you publish, instead of using the same key across all apps, create a separate key for each app. Balance the load across all apps so that no single app is overwhelmed. Add [Application Insights](/azure/bot-service/bot-builder-howto-v4-luis) to monitor usage.
 
 To get the same top intent between all the apps, make sure the intent prediction between the first and second intent is wide enough that LUIS is not confused, giving different results between apps for minor variations in utterances.
 
-When training these apps, make sure to [train with all data](how-to/train-test.md#train-with-all-data).
+When training these apps, make sure to [train with all data](how-to/train-test.md).
 
 Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md) website or the authoring API for a [single utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) or for a [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
 
@@ -125,7 +125,7 @@ By default, your LUIS app logs utterances from users. To download a log of utter
 
 ## How can I disable the logging of utterances?
 
-You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on [active learning](how-to/improve-application.md#what-is-active-learning). If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
+You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on [active learning](how-to/improve-application.md). If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
 
 Logging is the only storage of utterances.
 

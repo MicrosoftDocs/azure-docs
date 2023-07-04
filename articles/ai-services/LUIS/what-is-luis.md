@@ -18,15 +18,15 @@ ms.manager: nitinme
 
 Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. LUIS provides access through its [custom portal](https://www.luis.ai), [APIs][endpoint-apis] and [SDK client libraries](client-libraries-rest-api.md).
 
-For first time users, follow these steps to [sign in to LUIS portal](sign-in-luis-portal.md "sign in to LUIS portal")
+For first time users, follow these steps to [sign in to LUIS portal](how-to/sign-in.md "sign in to LUIS portal")
 To get started, you can try a LUIS [prebuilt domain app](luis-get-started-create-app.md).
 
 This documentation contains the following article types:  
 
 * [**Quickstarts**](luis-get-started-create-app.md) are getting-started instructions to guide you through making requests to the service.  
 * [**How-to guides**](how-to/sign-in.md) contain instructions for using the service in more specific or customized ways.  
-* [**Concepts**](artificial-intelligence.md) provide in-depth explanations of the service functionality and features.  
-* [**Tutorials**](tutorial-intents-only.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+* [**Concepts**](concepts/application-design.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](build-decomposable-application.md) are longer guides that show you how to use the service as a component in broader business solutions.  
 
 ## What does LUIS Offer 
 
@@ -57,7 +57,7 @@ Learn more about planning and building your application [here](concepts/applicat
 ## Next steps
 
 * [What's new](whats-new.md "What's new") with the service and documentation
-* [Build a LUIS app](tutorial-intents-only.md)
+* [Build a LUIS app](build-decomposable-application.md)
 * [API reference][endpoint-apis]
 * [Best practices](faq.md)
 * [Developer resources](developer-reference-resource.md "Developer resources") for LUIS.

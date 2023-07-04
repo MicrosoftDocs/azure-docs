@@ -17,10 +17,10 @@ ms.date: 01/07/2022
 
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
-After a LUIS app receives endpoint utterances, use a [pattern](concepts/patterns-features.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](concepts/patterns-features.md#pattern-syntax) to indicate the location of: [entities](concepts/entities.md), entity [roles](./concepts/entities.md), and optional text.
+After a LUIS app receives endpoint utterances, use a [pattern](concepts/patterns-features.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](concepts/patterns-features.md) to indicate the location of: [entities](concepts/entities.md), entity [roles](./concepts/entities.md), and optional text.
 
 >[!Note] 
->* After you add, edit, remove, or reassign a pattern, [train](how-to/train-test.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries.
+>* After you add, edit, remove, or reassign a pattern, [train](how-to/train-test.md) and [publish](how-to/publish.md) your app for your changes to affect endpoint queries.
 >* Patterns only include machine-learning entity parents, not subentities.
 
 ## Add template utterance using correct syntax

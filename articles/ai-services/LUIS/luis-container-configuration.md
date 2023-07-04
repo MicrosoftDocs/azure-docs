@@ -165,5 +165,5 @@ Logging:Console:LogLevel:Default=Information
 ## Next steps
 
 * Review [How to install and run containers](luis-container-howto.md)
-* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](faq.md) to resolve issues related to LUIS functionality.
 * Use more [Azure AI containers](../cognitive-services-container-support.md)

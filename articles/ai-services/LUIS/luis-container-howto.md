@@ -180,7 +180,7 @@ The versioned app's package is available from the **Versions** list page.
 
 ### Export published app's package from API
 
-Use the following REST API method, to package a LUIS app that you've already [published](luis-how-to-publish-app.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
+Use the following REST API method, to package a LUIS app that you've already [published](how-to/publish.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
 GET /luis/api/v2.0/package/{APP_ID}/slot/{SLOT_NAME}/gzip HTTP/1.1
@@ -414,7 +414,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings.
 * See [LUIS container limitations](luis-container-limitations.md) for known capability restrictions.
-* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](faq.md) to resolve issues related to LUIS functionality.
 * Use more [Azure AI containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->

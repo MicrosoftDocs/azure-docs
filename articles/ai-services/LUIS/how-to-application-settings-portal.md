@@ -45,4 +45,4 @@ To change a setting, select the toggle on the page.
 ## Next steps
 
 * How to [collaborate](luis-how-to-collaborate.md) with other authors
-* [Publish settings](luis-how-to-publish-app.md#configuring-publish-settings)
+* [Publish settings](how-to/publish.md#configuring-publish-settings)
