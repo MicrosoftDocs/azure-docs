@@ -72,7 +72,7 @@ To view the list of Dynamic scopes (preview) associated to a given maintenance c
 1. Select **History** > **Browse maintenance configurations** > **Maintenance configurations** to view the patch history of a dynamic scope.
 
 
-## Provide consent
+## Provide consent to apply updates
 
 Obtaining consent to apply updates is an important step in the workflow of dynamic scoping and listed are the various ways to provide consent.
 

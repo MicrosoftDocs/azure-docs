@@ -48,22 +48,21 @@ To create a dynamic scope, follow the steps:
 1. Provide the tags in **Tags** tab.
 1. Select  **Review** and then **Review + Create**.
 
-## Provide consent
-Obtaining consent to apply updates is an important step in the workflow of scheduled patching and follow the steps on various ways to [provide consent](manage-dynamic-scoping.md#provide-consent).
+## Provide the consent
+Obtaining consent to apply updates is an important step in the workflow of scheduled patching and follow the steps on various ways to [provide the consent](manage-dynamic-scoping.md#provide-consent-to-apply-updates).
 
-## Create schedule
+## Create a schedule
 
->[!NOTE]
->You can use one schedule to link to a single machine or a multiple dynamic groups or a combination of dynamic and static groups. However, one dynamic group cannot have more than one schedule.
-
-To define a dynamic group, follow these steps:
-1. Follow the procedure from step 1 to 4 listed in [provide consent](manage-dynamic-scoping.md#provide-consent) > **From Schedule Updates** tab.
+To create a schedule, follow these steps:
+1. Follow the procedure from step 1 to 4 listed in [provide consent](manage-dynamic-scoping.md#provide-consent-to-apply-updates) > **From Schedule Updates** tab.
 1. In the **Create maintenance configuration** > **Machines** tab, review the list of machines to update and select **Next Updates**.
 1. In **Updates** tab, select the updates to include and select **Add**.
 1. In the **Define or select from dynamic group** > **Machines** tab, select the group.
 1. Complete the details   **Tags** tabs.
 1. Select  **Review + Create**.
 
+> [!NOTE]
+> You can use one schedule to link to a single machine or a multiple dynamic groups or a combination of dynamic and static groups. However, one dynamic group cannot have more than one schedule.
 
 ## Next steps
 Learn about [managing multiple machines](manage-multiple-machines.md).
