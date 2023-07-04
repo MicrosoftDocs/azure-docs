@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikehang
-manager: alexo
+author: mikehang-msft
+manager: alexokun
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 07/01/2023
 ms.topic: include
 ms.custom: include file, devx-track-azurecli
-ms.author: MikeHang
+ms.author: mikehang-msft
 ---
 
 ## Prerequisites
