@@ -13,7 +13,7 @@ Add support for the latest model versions:
 - Neural text to speech 2.14.0
 
 On-premises speech to text images are upgraded to .NET 6.0
-Upgrade Display Post Processing to the latest versions and models for `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr` and etc
+Upgrade display models for locales including `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr`, and more.
 Upgrade STT container component to address vulnerability issues
 
 Add new locale voices `de-DE-AmalaNeural`,`de-AT-IngridNeural`,`de-AT-JonasNeural` and `en-us-jennymultilingualneural`
