@@ -98,6 +98,7 @@ List of common errors:
     * `Timeout` - Image processing timed out.
     * `InternalServerError`
 -->
+---
 
 > [!TIP]
 > While working with Computer Vision, you might encounter transient failures caused by [rate limits](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern](/azure/architecture/patterns/retry) in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
