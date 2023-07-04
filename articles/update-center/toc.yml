@@ -14,8 +14,6 @@
   items:
   - name: Check and install on-demand updates
     href: quickstart-on-demand.md
-  - name: Schedule updates using dynamic scope (preview)
-    href: quickstart-dynamic-grouping.md
 - name: Tutorials
   items:
   - name: Schedule updates dynamically and at scale using dynamic scope (preview)
