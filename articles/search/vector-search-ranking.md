@@ -7,7 +7,7 @@ author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 07/07/2023
 ---
 
 # Vector query execution and scoring in Azure Cognitive Search
@@ -19,7 +19,7 @@ This article is for developers who need a deeper understanding of ranking of vec
 
 ## Vector similarity
 
-Vector queries are queries where the search query is a vector as opposed to text in full-text queries. Documents which matched the vector query are ranked using vector similarity configured on the vector field defined in the index. A vector query specifies the _k_ parameter which determines how many nearest neighbors of the query vector should be returned from the index. 
+In a vector query, the search query is a vector as opposed to text in full-text queries. Documents which matched the vector query are ranked using vector similarity configured on the vector field defined in the index. A vector query specifies the `k` parameter which determines how many nearest neighbors of the query vector should be returned from the index. 
 
 > [!NOTE]
 > Full-text search queries could return fewer than the requested number of results if there are fewer or no matches, but vector search will return up to `k` matches as long as there are enough documents in the index. This is because with vector search, similarity is relative to the input query vector, not absolute. This means less relevant results have a worse similarity score, but they can still be the "nearest" vectors if there aren't any closer vectors. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low.
