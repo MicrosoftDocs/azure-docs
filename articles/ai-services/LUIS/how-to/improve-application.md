@@ -19,7 +19,7 @@ Use this article to learn how you can improve your LUIS apps, such as reviewing 
 
 ## Active Learning
 
-The process of reviewing endpoint utterances for correct predictions is called Active learning. Active learning captures queries that are sent to the endpoint, and selects user utterances that it is unsure of. You review these utterances to select the intent and mark the entities for these real-world utterances. Then you can accept these changes into your app's example utterances, then [train](./train-test.md?branch=pr-en-us-181263) and [publish](./publish.md?branch=pr-en-us-181263) the app. This helps LUIS identify utterances more accurately.
+The process of reviewing endpoint utterances for correct predictions is called Active learning. Active learning captures queries that are sent to the endpoint, and selects user utterances that it is unsure of. You review these utterances to select the intent and mark the entities for these real-world utterances. Then you can accept these changes into your app's example utterances, then [train](./train-test.md) and [publish](./publish.md) the app. This helps LUIS identify utterances more accurately.
 
 ## Log user queries to enable active learning
 

@@ -54,7 +54,7 @@ Imagine a telecom LUIS application, what would a user need?
 
 They would probably need to perform some type of user action or ask for help. Another user might want to update their tier or **pay a bill**
 
-The resulting schema is as follows. For more information, see [best practices about planning the schema](../faq.md#do-plan-your-schema.md).
+The resulting schema is as follows. For more information, see [best practices about planning the schema](../faq.md).
 
 | **Intent** | **Purpose** |
 | --- | --- |

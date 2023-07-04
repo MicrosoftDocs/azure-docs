@@ -152,4 +152,4 @@ These users are the gatekeepers for LUIS applications in a production environmen
 
 ## Next steps
 
-* [Managing Azure resources](./luis-how-to-azure-subscription.md?branch=pr-en-us-171715&tabs=portal#authoring-resource)
+* [Managing Azure resources](./luis-how-to-azure-subscription.md?tabs=portal#authoring-resource)
