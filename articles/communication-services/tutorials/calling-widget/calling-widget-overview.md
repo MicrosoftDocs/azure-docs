@@ -63,9 +63,9 @@ cd ui-library-click-to-call-app
 
 Then you need to update the dependency array in the `package.json` to include some beta and alpha packages from Azure Communication Services for this to work:
 ```json
-"@azure/communication-calling": "1.13.2-beta.1",
+"@azure/communication-calling": "1.14.1-beta.1",
 "@azure/communication-chat": "1.3.2-beta.2",
-"@azure/communication-react": "1.6.1-beta.1",
+"@azure/communication-react": "1.7.0-beta.1",
 "@azure/communication-calling-effects": "1.0.1",
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
