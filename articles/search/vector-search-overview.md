@@ -15,12 +15,12 @@ ms.date: 07/07/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-This article is a high-level introduction to vector search in Azure Cognitive Search. It also explains integration with other Azure services for generating vector embeddings for various content types.
+This article is a high-level introduction to vector search in Azure Cognitive Search. It also explains integration with other Azure services and covers the core concepts you need to know for vector search development.
 
 We recommend this article for background, but if you'd rather get started, follow these steps:
 
 > [!div class="checklist"]
-> + [Generate vectors and provide them in a data source or payload](vector-search-how-to-generate-embeddings.md)
+> + [Generate vector embeddings](vector-search-how-to-generate-embeddings.md) before you start.
 > + [Add vector fields to an index](vector-search-how-to-create-index.md) using Azure portal or the [**2023-07-10-Preview REST APIs**](/rest/api/searchservice/index-preview).
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
 > + [Query vector data](vector-search-how-to-query.md) using Azure portal or the preview REST APIs.
