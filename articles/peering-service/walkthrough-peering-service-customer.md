@@ -53,4 +53,4 @@ In this section, you activate the prefix:
 
 **Q.** My peering service prefix has failed validation. How should I proceed?
 
-**A.** Review the [Peering Service Prefix Requirements](./peering-service-prefix-requirements.md) and follow the troubleshooting steps described.
+**A.** Review the [Peering Service Prefix Requirements](../internet-peering/peering-service-prefix-requirements.md) and follow the troubleshooting steps described.

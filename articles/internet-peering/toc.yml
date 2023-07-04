@@ -14,6 +14,10 @@
     href: policy.md
   - name: Prerequisites to set up peering with Microsoft
     href: prerequisites.md
+  - name: Peering registered prefix requirements
+    href: peering-registered-prefix-requirements.md
+  - name: Peering service prefix requirements
+    href: peering-service-prefix-requirements.md
 - name: How-to guides
   items:
   - name: Direct peering walkthrough
