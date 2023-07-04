@@ -44,6 +44,17 @@ After completing the installation and initial setup, analyze the traffic that th
 
 For more information, see [Analyze detected subnets](how-to-control-what-traffic-is-monitored.md#analyze-detected-subnets).
 
+### Monitored interface configuration
+
+If you want to modify the interfaces used to monitor your traffic after the initial sensor setup, now you can use the new **Sensor settings** > **Interface configurations** page to update your settings instead of the Linux wizard accessed by CLI:
+
+The **Interface configurations** page shows the same options as the **Interface configurations** tab in the [initial setup wizard](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor).
+
+For more information, see 
+
+
+
+For more information, see 
 ### Simplified privileged users
 
 In new sensor installations of version 23.1.x, only the privileged *support* user is available by default. The *cyberx* and *cyberx_host* users are available, but are disabled by default. If you need to use these users, such as for [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md) access, [change the user password](manage-users-sensor.md#change-a-sensor-users-password).

@@ -69,7 +69,7 @@ This procedure describes how to sign into the OT sensor console for the first ti
 
     For more information, see [Default privileged users](../manage-users-sensor.md#default-privileged-users).
 
-The **Defender for IoT | Overview** page opens to the **Management interface**. 
+The **Defender for IoT | Overview** page opens to the **Management interface** tab.
 
 ### Define sensor networking details
 
@@ -78,7 +78,7 @@ In the **Management interface** tab, use the following fields to define network 
 |Name  |Description  |
 |---------|---------|
 |**Management interface**     |  Select the interface you want to use as the management interface, to connect to either the Azure portal or an on-premises management console.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
-|<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team will use to connect to the sensor via the browser CLI. |
+|<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team will use to connect to the sensor via the browser or CLI. |
 |**Subnet Mask**     | Enter the address you want to use as the sensor's subnet mask.        |
 |**Default Gateway**     | Enter the address you want to use as the sensor's default gateway.        |
 |**DNS**     |   Enter the sensor's DNS server IP address.      |
@@ -105,8 +105,8 @@ In the **Interface configurations** tab, do the following to configure settings 
 
     |Name  |Description  |
     |---------|---------|
-    |**Mode**     | Select **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  Select **ERSPAN** if you're using ERSPAN mirroring. For minformation, see [Choose a traffic mirroring method for OT sensors](../best-practices/traffic-mirroring-methods.md).       |
-    |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface. <!--this is a new page that we need to add-->  |
+    |**Mode**     | Select **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  Select **ERSPAN** if you're using ERSPAN mirroring. For more information, see [Choose a traffic mirroring method for OT sensors](../best-practices/traffic-mirroring-methods.md).       |
+    |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
     |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 
     Select **Save** to save your changes.
@@ -232,7 +232,7 @@ You'll continue with [activating](#activate-your-ot-sensor) and [configuring SSL
 At this point, open a browser to the IP address you'd defined for your sensor and continue the setup in the browser. For more information, see [Activate your OT sensor](#activate-your-ot-sensor).
 
 > [!NOTE]
-> Defining ERSPAN monitoring ports is available only in the GUI during initial setup. If you are running the CLI process, and want to set up ERSPAN monitoring ports, do so afterwards via the sensor's **Settings > Interface connections** page or the CLI. For more information, see [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](../traffic-mirroring/configure-mirror-erspan.md).
+> Defining ERSPAN monitoring ports is available only in the GUI during initial setup. If you are running the CLI process, and want to set up ERSPAN monitoring ports, do so afterwards via the sensor's **Settings > Interface connections** page or the CLI. For more information, see [Update a sensor's monitoring interfaces](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces).
 >
 
 ## Next steps

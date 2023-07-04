@@ -400,13 +400,13 @@ For more information, see [Define maximum number of failed sign-ins](manage-user
 ## Network configuration
 
 ### Network settings
+
 #### Change networking configuration or reassign network interface roles
 
 Use the following command to rerun the OT monitoring software configuration wizard, which helps you define or reconfigure the following OT sensor settings:
 
 - Enable/disable SPAN monitoring interfaces
 - Configure network settings for the management interface (IP, subnet, default gateway, DNS)
-- Setting up for [ERSPAN monitoring](traffic-mirroring/configure-mirror-erspan.md)
 - Assigning a backup directory
 
 |User  |Command  |Full command syntax   |

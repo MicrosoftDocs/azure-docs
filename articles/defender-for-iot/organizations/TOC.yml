@@ -99,7 +99,7 @@
         - name: Configure active or passive aggregation (TAP)
           href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
         - name: Configure ERSPAN mirroring
-          href: traffic-mirroring/configure-mirror-erspan.md
+          href: how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces
         - name: Configure mirroring with an ESXi vSwitch
           href: traffic-mirroring/configure-mirror-esxi.md
         - name: Configure mirroring with a Hyper-V vSwitch
@@ -322,7 +322,7 @@
           href: configure-sensor-settings-portal.md
         - name: Maintain an OT sensor from the sensor console
           href: how-to-manage-individual-sensors.md
-          displayName: activation, time zone, SMTP, PCAP
+          displayName: activation, time zone, SMTP, PCAP, SSH, ERSPAN
         - name: Configure SNMP monitoring
           href: how-to-set-up-snmp-mib-monitoring.md
         - name: Add support for proprietary protocols

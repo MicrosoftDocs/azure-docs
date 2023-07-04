@@ -23,7 +23,7 @@ Use one of the following procedures to configure traffic mirroring in your netwo
 
 - [Configure mirroring with a switch SPAN port](configure-mirror-span.md)
 - [Configure traffic mirroring with a Remote SPAN (RSPAN) port](configure-mirror-rspan.md)
-- [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](configure-mirror-erspan.md)
+- [Update a sensor's monitoring interfaces](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces) (ERSPAN)
 
 **Virtual switches**:
 

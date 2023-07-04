@@ -234,6 +234,35 @@ This procedure describes how to turn off learning mode manually if you feel that
 
 1. In the confirmation message, select **OK**, and then select **Close** to save your changes.
 
+## Update a sensor's monitoring interfaces
+
+You may want to change the interfaces used by your sensor to monitor traffic. You'd originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance.
+
+**To update your sensor's monitoring interfaces**:
+
+1. Sign into your OT sensor and select **System settings** > **Basic** > **Interface connections**.
+
+1. In the grid, locate the interface you want to configure. Do any of the following:
+
+    - Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must have at least one interface enabled for each sensor.
+
+        If you're not sure which interface to use, select the :::image type="icon" source="../media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. 
+
+        > [!TIP]
+        > We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use. 
+
+    - For each interface you select to monitor, select the :::image type="icon" source="../media/install-software-ot-sensor/advanced-settings-icon.png" border="false"::: **Advanced settings**  button to modify any of the following settings:
+
+        |Name  |Description  |
+        |---------|---------|
+        |**Mode**     | Select **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring.  Select **ERSPAN** if you're using ERSPAN mirroring. For more information, see [Choose a traffic mirroring method for OT sensors](../best-practices/traffic-mirroring-methods.md).       |
+        |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
+        |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
+
+1. Select **Save** to save your changes.
+
+<!--do we need to reboot the sensor after changes?-->
+
 ## Synchronize time zones on an OT sensor
 
 You may want to configure your OT sensor with a specific time zone so that all users see the same times regardless of the user's location.
