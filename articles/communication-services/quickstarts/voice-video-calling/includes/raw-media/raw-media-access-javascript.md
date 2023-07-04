@@ -212,7 +212,8 @@ call.on('stateChanged', callStateChangedHandler);
 Use the following code to stop sending a custom video stream after it has been set during a call.
 
 ```js
-await call.stopVideo();
+// Stop video by passing the same `localVideoStream` instance that was used to start video
+await call.stopVideo(localVideoStream);
 ```
 
 When switching from a camera that has custom effects applied to another camera device, first stop the video, switch the source on the `LocalVideoStream`, and the start video again.
