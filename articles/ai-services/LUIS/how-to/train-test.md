@@ -101,7 +101,7 @@ If sentiment analysis is configured on the [**Publish**](publish.md) page, the t
 
 ## Correct matched pattern's intent
 
-If you are using [Patterns](/azure/ai-services/luis/concepts/patterns-features.md) and the utterance matched is a pattern, but the wrong intent was predicted, select the  **Edit**  link by the pattern and select the correct intent.
+If you are using [Patterns](patterns-features.md) and the utterance matched is a pattern, but the wrong intent was predicted, select the  **Edit**  link by the pattern and select the correct intent.
 
 ## Compare with published version
 

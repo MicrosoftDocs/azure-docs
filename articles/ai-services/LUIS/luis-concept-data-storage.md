@@ -25,7 +25,7 @@ LUIS stores data encrypted in an Azure data store corresponding to [the region](
 * Application authors can choose to [enable logging](how-to/improve-application.md#log-user-queries-to-enable-active-learning) on the utterances that are sent to a published application. If enabled, utterances will be saved for 30 days, and can be viewed by the application author. If logging isn't enabled when the application is published, this data is not stored.
 
 ## Export and delete app
-Users have full control over [exporting](how-to/sign-in.md#export-app) and [deleting](how-to/sign-in.md) the app. 
+Users have full control over [exporting](how-to/sign-in.md) and [deleting](how-to/sign-in.md) the app. 
 
 ## Utterances
 

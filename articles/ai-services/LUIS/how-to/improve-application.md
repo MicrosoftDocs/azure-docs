@@ -87,4 +87,4 @@ The optional square brackets syntax "*[ ]*" lets you add optional text to the te
 
 ### Next Steps:
 
-To test how performance improves, you can access the test console by selecting  **Test**  in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](/azure/ai-services/luis/how-to/train-test.md).
+To test how performance improves, you can access the test console by selecting  **Test**  in the top panel. For instructions on how to test your app using the test console, see [Train and test your app](train-test.md).

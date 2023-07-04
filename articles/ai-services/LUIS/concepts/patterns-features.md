@@ -24,7 +24,7 @@ Patterns are designed to improve accuracy when multiple utterances are very simi
 
 Consider a Human Resources app that reports on the organizational chart in relation to an employee. Given an employee's name and relationship, LUIS returns the employees involved. Consider an employee, Tom, with a manager named Alice, and a team of subordinates named: Michael, Rebecca, and Carl.
 
-:::image type="content" source="../media/patterns-features/chart.png" alt-text="A screenshot showing use of patterns" lightbox="../media/patterns-features/chart.png":::
+:::image type="content" source="../media/luis-concept-patterns/chart.png" alt-text="A screenshot showing use of patterns" lightbox="../media/luis-concept-patterns/chart.png":::
 
 
 | Utterances | Intent predicted | Intent score |
@@ -284,7 +284,7 @@ As a basic example, consider an app for booking a flight with a flight-reservati
 
 The machine-learning entity for ticket-book has two subentities to capture origin and destination. The features need to be added to each subentity, not the top-level entity.
 
-:::image type="content" source="../media/patterns-features/ticket-booking-example.png" alt-text="A screenshot showing example entities for a ticket booking application." lightbox="../media/patterns-features/ticket-booking-example.png":::
+:::image type="content" source="../media/luis-concept-patterns/ticket-booking-example.png" alt-text="A screenshot showing example entities for a ticket booking application." lightbox="../media/luis-concept-patterns/ticket-booking-example.png":::
 
 The ticket-booking entity is a machine-learning entity, with subentities including _Origin_ and _Destination_. These subentities both indicate a geographical location. To help extract the locations, and distinguish between _Origin_ and _Destination_, each subentity should have features.
 
@@ -306,7 +306,7 @@ After you create the machine-learning entity, you need to add example utterances
 
 For the ticket booking example, Label the example utterances in the intent with the TicketBooking entity and any subentities in the text.
 
-:::image type="content" source="../media/patterns-features/ticket-booking-labeling.png" alt-text="A screenshot showing labeling for an example utterance." lightbox="../media/patterns-features/ticket-booking-labeling.png":::
+:::image type="content" source="../media/luis-concept-patterns/ticket-booking-labeling.png" alt-text="A screenshot showing labeling for an example utterance." lightbox="../media/luis-concept-patterns/ticket-booking-labeling.png":::
 
 
 ## Example: pizza ordering app
@@ -315,13 +315,13 @@ For a second example, consider an app for a pizza restaurant, which receives piz
 
 The machine-learning entity in this example is more complex with nested subentities, phrase lists, prebuilt entities, and custom entities.
 
-:::image type="content" source="../media/patterns-features/pizza-example-machine-learning-entity.png" alt-text="A screenshot showing a machine learning entity with different subentities." lightbox="../media/patterns-features/pizza-example-machine-learning-entity.png":::
+:::image type="content" source="../media/luis-concept-patterns/pizza-example-machine-learning-entity.png" alt-text="A screenshot showing a machine learning entity with different subentities." lightbox="../media/luis-concept-patterns/pizza-example-machine-learning-entity.png":::
 
 This example uses features at the subentity level and child of subentity level. Which level gets what kind of phrase list or model as a feature is an important part of your entity design.
 
 While subentities can have many phrase lists as features that help detect the entity, each subentity has only one model as a feature. In this [pizza app](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), those models are primarily lists.
 
-:::image type="content" source="../media/patterns-features/pizza-example-example-phrase-lists.png" alt-text="A screenshot showing a machine learning entity many phrase lists as features." lightbox="../media/patterns-features/pizza-example-example-phrase-lists.png":::
+:::image type="content" source="../media/luis-concept-patterns/pizza-example-example-phrase-lists.png" alt-text="A screenshot showing a machine learning entity many phrase lists as features." lightbox="../media/luis-concept-patterns/pizza-example-example-phrase-lists.png":::
 
 The correctly labeled example utterances display in a way to show how the entities are nested.
 

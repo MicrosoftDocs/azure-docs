@@ -26,7 +26,7 @@ This documentation contains the following article types:
 * [**Quickstarts**](luis-get-started-create-app.md) are getting-started instructions to guide you through making requests to the service.  
 * [**How-to guides**](how-to/sign-in.md) contain instructions for using the service in more specific or customized ways.  
 * [**Concepts**](concepts/application-design.md) provide in-depth explanations of the service functionality and features.  
-* [**Tutorials**](build-decomposable-application.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+* [**Tutorials**](tutorial/build-decomposable-application.md) are longer guides that show you how to use the service as a component in broader business solutions.  
 
 ## What does LUIS Offer 
 
@@ -57,7 +57,7 @@ Learn more about planning and building your application [here](concepts/applicat
 ## Next steps
 
 * [What's new](whats-new.md "What's new") with the service and documentation
-* [Build a LUIS app](build-decomposable-application.md)
+* [Build a LUIS app](tutorial/build-decomposable-application.md)
 * [API reference][endpoint-apis]
 * [Best practices](faq.md)
 * [Developer resources](developer-reference-resource.md "Developer resources") for LUIS.

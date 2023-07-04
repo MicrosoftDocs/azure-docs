@@ -250,7 +250,7 @@ Some apps need to be able to find new and emerging names such as products or com
 [Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends. The entity used in the pattern must be found in order for the pattern to be applied.
 
 ## Sentiment analysis
-If Sentiment analysis is configured while [publishing](how-to/publish.md#sentiment-analysis), the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Language service](../language-service/sentiment-opinion-mining/overview.md) documentation.
+If sentiment analysis is configured while [publishing](how-to/publish.md), the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Language service](../language-service/sentiment-opinion-mining/overview.md) documentation.
 
 ## Key phrase extraction entity data
 The [key phrase extraction entity](luis-reference-prebuilt-keyphrase.md) returns key phrases in the utterance, provided by the [Language service](../language-service/key-phrase-extraction/overview.md).

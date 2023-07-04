@@ -93,7 +93,7 @@ Use the _kind_, `LUIS`, when filtering resources in the Azure portal.The LUIS qu
 
 ### Sentiment analysis
 
-[Sentiment analysis integration](how-to/publish.md#enable-sentiment-analysis), which provides sentiment information, is provided without requiring another Azure resource.
+[Sentiment analysis integration](how-to/publish.md), which provides sentiment information, is provided without requiring another Azure resource.
 
 ### Speech integration
 
@@ -111,8 +111,7 @@ Use the _kind_, `LUIS`, when filtering resources in the Azure portal.The LUIS qu
 
 Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to sign in again.
 
-<!-- TBD: fix this link -->
-[BATCH-TESTING]: ./how-to/train-test.md#batch-testing
+[BATCH-TESTING]: ./how-to/train-test.md
 [INTENTS]: ./concepts/intents.md
 [LUIS-GET-STARTED-CREATE-APP]: ./luis-get-started-create-app.md
 [LUIS-HOW-TO-MANAGE-VERSIONS]: ./luis-how-to-manage-versions.md
