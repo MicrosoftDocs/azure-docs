@@ -111,7 +111,7 @@ await client.CreateDocumentAsync(
 
 * `Microsoft.Azure.Documents.Document`
 
-Because the .NET v3 SDK allows users to configure a custom serialization engine, there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
+Because the .NET v3 SDK allows users to configure [a custom serialization engine](#customize-serialization), there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
 
 * `Microsoft.Azure.Documents.Resource`
 
@@ -145,7 +145,7 @@ The `FeedOptions` class in SDK v2 has now been renamed to `QueryRequestOptions` 
 |`FeedOptions.EnableCrossPartitionQuery`|Removed. Default behavior in SDK 3.0 is that cross-partition queries will be executed without the need to enable the property specifically. |
 |`FeedOptions.PopulateQueryMetrics`|Removed. It is now enabled by default and part of the [diagnostics](troubleshoot-dotnet-sdk.md#capture-diagnostics).|
 |`FeedOptions.RequestContinuation`|Removed. It is now promoted to the query methods themselves. |
-|`FeedOptions.JsonSerializerSettings`|Removed. Serialization can be customized through a [custom serializer](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) or [serializer options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions).|
+|`FeedOptions.JsonSerializerSettings`|Removed. Serialization can be customized through a [custom serializer](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) or [serializer options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions). See [Customize serialization](#customize-serialization) for addtional information.|
 |`FeedOptions.PartitionKeyRangeId`|Removed. Same outcome can be obtained from using [FeedRange](change-feed-pull-model.md#using-feedrange-for-parallelization) as input to the query method.|
 |`FeedOptions.DisableRUPerMinuteUsage`|Removed.|
 
@@ -273,13 +273,18 @@ The v3 SDK has built-in support for the bulk executor library, allowing you to u
 
 For more information, see [how to migrate from the bulk executor library to  bulk support in Azure Cosmos DB .NET V3 SDK](how-to-migrate-from-bulk-executor-library.md)
 
-### Custom serializer settings on operation levels
+### Customize serialization
 The .NET V2 SDK allows setting *JsonSerializerSettings* in *RequestOptions* at the operational level used to deserialize the result document:
+
 ```csharp
 // .NET V2 SDK
 var result = await container.ReplaceDocumentAsync(document, new RequestOptions { JsonSerializerSettings = customSerializerSettings })
 ```
-Instead of this use .NET V3 SDK Stream API and apply custom serialization on the operation result:
+
+The .NET SDK v3 provides a [serializer interface](https://learn.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) to fully customize the serialization engine, or more generic [serialization options](https://learn.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions) as part of the client construction.
+
+Customizing the serialization at the operation level can be achieved through the use of Stream APIs:
+
 ```csharp
 // .NET V3 SDK
 using(Response response = await this.container.ReplaceItemStreamAsync(stream, "itemId", new PartitionKey("itemPartitionKey"))
@@ -290,8 +295,6 @@ using(Response response = await this.container.ReplaceItemStreamAsync(stream, "i
         using (StreamReader streamReader = new StreamReader(stream))
         {
             // Read the stream and do dynamic deserialization based on type with a custom Serializer
-            string content =  streamReader.ReadToEndAsync();
-            SomeType result = CustomSerializer.Deserialize<SomeType>(content);
         }
     }
 }
