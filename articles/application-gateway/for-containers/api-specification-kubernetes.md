@@ -14,20 +14,12 @@ ms.author: greglin
 
 # Application Gateway for Containers API Specification for Kubernetes
 
-## networking.azure.io/v1alpha1 API
-This document defines each of the resource types for `networking.azure.io/v1alpha1`.
+## Packages
 
-<p>Packages:</p>
-<ul>
-<li>
-<a href="#alb.networking.azure.io%2fv1">alb.networking.azure.io/v1</a>
-</li>
-</ul>
-<h2 id="alb.networking.azure.io/v1">alb.networking.azure.io/v1</h2>
-<div>
-<p>Package v1 is the v1 version of the API.</p>
-</div>
-Resource Types:
+### alb.networking.azure.io/v1
+This document defines each of the resource types for `alb.networking.azure.io/v1`.
+
+### Resource Types:
 <ul></ul>
 <h3 id="alb.networking.azure.io/v1.AffinityType">AffinityType
 (<code>string</code> alias)</h3>
