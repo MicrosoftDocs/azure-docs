@@ -142,7 +142,7 @@ Though the goal of the experience is to merely simplify the pricing and cost man
 1. If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier could result in cost saving.
 
 ### Is there ever a reason NOT to switch?
-It's possible your Microsoft account team has applied a negotiated a discounted price for Log Analytics or Microsoft Sentinel charges on the classic tiers. You won't be able to tell if this is the case from the Microsoft Sentinel pricing interface alone. It might be possible to calculate the expected cost vs. actual charge in Microsoft Cost Management to see if there's a discount included. In such cases, we recommend contacting your Microsoft account team if you want to switch to the simplified pricing tiers or have any questions.
+It's possible your Microsoft account team has negotiated a discounted price for Log Analytics or Microsoft Sentinel charges on the classic tiers. You won't be able to tell if this is the case from the Microsoft Sentinel pricing interface alone. It might be possible to calculate the expected cost vs. actual charge in Microsoft Cost Management to see if there's a discount included. In such cases, we recommend contacting your Microsoft account team if you want to switch to the simplified pricing tiers or have any questions.
 
 ## Next steps
 
