@@ -14,7 +14,7 @@ ms.custom: template-overview, engagement-fy23
 
 Azure Peering Service is a networking service that enhances the connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft can partner with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from you to the Microsoft network.
 
-With Peering Service, customers can configure local and geo-redundancy with their links. This achieves optimal and reliable routing to the Microsoft cloud over the public network. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
+With Peering Service, partners can configure local and geo-redundancy with their links. This achieves optimal and reliable routing to the Microsoft cloud over the public network. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
 
 :::image type="content" source="./media/maps-partner-overview/peering-service-what.png" alt-text="Diagram showing distributed connectivity to Microsoft cloud."::: 
 
@@ -27,11 +27,6 @@ Peering Service is:
 
 - An IP service that uses the public internet. 
 - A value-added service that's intended to offer optimal and reliable routing to the Microsoft cloud over the public network.
-
-> [!NOTE]
-> Peering Service isn't a private connectivity product like Azure ExpressRoute or Azure VPN. For more information, see:
-> - [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md)
-> - [What is Azure VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ## Background
 
@@ -62,7 +57,6 @@ An **Exchange with Route Server** peering is enabled for Peering Service and is 
 Enterprises looking for internet-first access to the cloud or considering SD-WAN architecture or with high usage of Microsoft SaaS services need robust and high-performing internet connectivity. Some of the key customer features are listed here:
 
 - Best public routing over the internet to Microsoft Azure Cloud Services for optimal performance and reliability.
-- Ability to select the preferred service provider to connect to the Microsoft cloud.
 - Traffic insights such as latency reporting and prefix monitoring.
 - Optimum network hops (AS hops) from the Microsoft cloud.
 - Route analytics and statistics: Events for BGP route anomalies, and suboptimal routing.
@@ -73,15 +67,15 @@ Peering Service uses two types of redundancy:
 
 - **Local redundancy**
 
-   Microsoft and service providers interconnect across multiple Microsoft Edge PoP locations to deliver Peering Service. In each location, interconnection must support failover across two routers.
+   Microsoft interconnects across multiple Microsoft Edge PoP locations to deliver Peering Service. In each location, interconnection must support failover across two routers.
 
-   Each peering location is provisioned with redundant and diverse peering links.
+   Each peering location must be provisioned with redundant and diverse peering links.
 
 - **Geo-redundancy**
 
-   Microsoft has interconnected with service providers at multiple metro locations so that if one of the Edge nodes has degraded performance, the traffic routes to and from Microsoft via alternate sites. Microsoft routes traffic in its global network by using SDN-based routing policies for optimal performance.
+   Microsoft will provision two sessions so that if one of the Edge nodes has degraded performance, the traffic routes to and from Microsoft via alternate sites. Microsoft routes traffic in its global network by using SDN-based routing policies for optimal performance.
 
-    This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft Edge PoP to the end user and ensures that the customer is one network hop (AS hops) away from Microsoft​.
+    This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft Edge PoP to the end user and ensures that the user is one network hop (AS hops) away from Microsoft​.
 
     :::image type="content" source="./media/maps-partner-overview/peering-service-geo-shortest.png" alt-text="Diagram showing geo-redundancy.":::
 
@@ -99,13 +93,13 @@ The following routing technique is preferred:
 
 ### Monitoring platform
 
-   Service monitoring is offered to analyze customer traffic and routing, and it provides the following capabilities: 
+   Service monitoring is offered to analyze user traffic and routing, and it provides the following capabilities: 
 
--  **Customer latency**
+-  **Latency**
 
-   This service monitors the routing performance between the customer's location and Microsoft. 
+   This service monitors the routing performance between the user's location and Microsoft. 
    
-   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Customers can view the latency reports for different geographic locations.
+   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Users can view the latency reports for different geographic locations.
 
    Monitoring captures the events if there's any service degradation.
 
