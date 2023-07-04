@@ -116,5 +116,3 @@ Microsoft guarantees to route the traffic via preferred paths even if malicious 
 - To establish a Direct interconnect for Microsoft Azure Peering Service, see [Internet peering for Azure Peering Services walkthrough](./walkthrough-peering-service-all.md)
 - To establish a Direct interconnect for Communications Services enabled with Peering Service, see [Internet peering for Communications Services walkthrough](./walkthrough-communications-services-partner.md)
 - To establish a Direct interconnect for Exchange Route Server enabled with Peering Service, see [Internet peering for Exchange with Route Server walkthrough](./walkthrough-exchange-route-server-partner.md)
-- To learn about Peering Service connections, see [Peering Service connections](../peering-service/connection.md).
-- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](../peering-service/connection-telemetry.md).
