@@ -281,7 +281,7 @@ The .NET V2 SDK allows setting *JsonSerializerSettings* in *RequestOptions* at t
 var result = await container.ReplaceDocumentAsync(document, new RequestOptions { JsonSerializerSettings = customSerializerSettings })
 ```
 
-The .NET SDK v3 provides a [serializer interface](https://learn.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) to fully customize the serialization engine, or more generic [serialization options](https://learn.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions) as part of the client construction.
+The .NET SDK v3 provides a [serializer interface](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializer) to fully customize the serialization engine, or more generic [serialization options](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.serializeroptions) as part of the client construction.
 
 Customizing the serialization at the operation level can be achieved through the use of Stream APIs:
 
