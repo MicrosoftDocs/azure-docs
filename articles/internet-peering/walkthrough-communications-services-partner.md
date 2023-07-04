@@ -97,7 +97,7 @@ To get optimized routing for your prefixes with your Communications Services int
 
 ### 1. Register your prefixes
 
-For optimized routing for a Communication Services infrastructure prefixes, you must register them.
+For optimized routing for Communication Services infrastructure prefixes, you must register them.
 
 > [!NOTE] 
 > The Connection State of your peering connections must be **Active** before registering any prefixes.
