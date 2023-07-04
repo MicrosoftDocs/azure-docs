@@ -12,26 +12,31 @@ ms.date: 06/29/2023
 
 # Access a lab virtual machine in Azure Lab Services
 
-This article describes how you can access labs in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab virtual machine.
+This article describes how you can access you lab virtual machines in Azure Lab Services. Use Teams, Canvas, or the Azure Lab Services website to view, start, stop, and connect to a lab virtual machine.
 
 ## Prerequisites
 
 - To register for a lab, you need a lab registration link.
 - To view, start, stop, and connect to a lab VM, you need to register for the lab and have an assigned lab VM.
 
-## Access a lab
+## Access a lab virtual machine
 
 # [Lab Services website](#tab/als-website)
 
-You can access your labs by navigating to the Azure Lab Services website (https://labs.azure.com).
+In the Azure Lab Services website, you can view and manage your assigned lab virtual machines. To access the Azure Lab Services website:
 
-Depending on how the lab creator has assigned you to the lab, you might have to register for the lab with your email address before you can access your lab.
+1. Go to the Azure Lab Services website (https://labs.azure.com) in a web browser.
+
+1. Sign in with the email address that was granted access to the lab by the lab creator.
+
+> [!IMPORTANT]
+> If you have received a lab registration link from the lab creator, you first need to go through a one-time registration process before you can access your labs. The registration process depends on how the lab creator configured the lab.
 
 ### Register for the lab
 
 [!INCLUDE [Register for a lab](./includes/lab-services-register-for-lab.md)]
 
-1. After the registration finishes, confirm that you see the lab virtual machine in **My virtual machines**.
+After the registration finishes, confirm that you see the lab virtual machine in **My virtual machines**.
 
 ### User account types
 
