@@ -268,7 +268,7 @@ Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. Make the following API calls to manage assignments.
 
-For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#powershell-or-microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 
