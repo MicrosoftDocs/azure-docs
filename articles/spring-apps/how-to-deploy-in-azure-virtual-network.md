@@ -1,12 +1,12 @@
 ---
 title:  "Deploy Azure Spring Apps in a virtual network"
 description: Deploy Azure Spring Apps in a virtual network (VNet injection).
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, subject-rbac-steps, event-tier1-build-2022
 ---
 
 # Deploy Azure Spring Apps in a virtual network
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps, event-tier1
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
 This tutorial explains how to deploy an Azure Spring Apps instance in your virtual network. This deployment is sometimes called VNet injection.
 

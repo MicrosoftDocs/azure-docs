@@ -65,7 +65,7 @@ The workflow run failed in `Update_status_running_task` or `Update_status_finish
 
 ### Possible reasons
 
-* The data partition ID is incorrect.
+* Call to partition API wasn't authenticated as the data partition ID is incorrect.
 * A key name in the execution context of the request body is incorrect.
 * The workflow service isn't running or is throwing 5xx errors.
 

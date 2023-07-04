@@ -44,5 +44,5 @@ SBC logs also is a great source of data for troubleshooting. Reach out to your S
 
 ## Next steps
 
-[Troubleshoot direct routing connectivity](./troubleshoot-tls-certificate-sip-options.md)
-[Troubleshoot outbound calling](./troubleshoot-outbound-calls.md)
+- [Troubleshoot direct routing connectivity](./troubleshoot-tls-certificate-sip-options.md)
+- [Troubleshoot outbound calling](./troubleshoot-outbound-calls.md)
