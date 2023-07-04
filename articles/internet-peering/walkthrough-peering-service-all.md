@@ -79,7 +79,7 @@ In the peering connections section, click Create new to add a connection to your
 
 Peering connections configured for Peering Services MUST have **Use for Peering Service** enabled.
 
-Before finalizing your Peering, make sure the peering has at least two connections. Local redundancy is a requirement for Peering Service, and creating a Peering with two sessions will achieve this.
+Before finalizing your Peering, make sure the peering has at least two connections. Local redundancy is a requirement for Peering Services, and creating a Peering with two sessions will achieve this.
 
 When you have finished configuring your peering, move on to Review + create. If you have configured it correctly, the resource will pass validation. Click Create to deploy the resource.
 

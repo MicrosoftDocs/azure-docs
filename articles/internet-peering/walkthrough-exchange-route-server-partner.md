@@ -110,7 +110,7 @@ Open your Exchange Route Server peering in the Azure portal, and click on **Regi
 
 Create a Registered ASN by entering a name, and your Autonomous System Number (ASN):
 
-:::image type="content" source="./media/setup-exchange-registered-new-asn.png" alt-text="Configuration page for a new Registered ASN" :::
+:::image type="content" source="./media/setup-exchange-register-new-asn.png" alt-text="Configuration page for a new Registered ASN" :::
 
 After your ASN is registered, a unique peering service prefix key will be generated. This prefix key must be used with ALL peering service prefixes created in the next section. 
 
