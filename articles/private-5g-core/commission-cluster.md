@@ -26,21 +26,18 @@ The packet core instances in the Azure Private 5G Core service run on an Arc-ena
     > Make a note of the Azure Stack Edge's resource group. The AKS cluster and custom location, created in this procedure, must belong to this resource group.
 - Review [Azure Stack Edge virtual machine sizing](azure-stack-edge-virtual-machine-sizing.md#azure-stack-edge-virtual-machine-sizing) to ensure your ASE has enough space available to commission the cluster.
 
-## Enable Azure Kubernetes Service on the Azure Stack Edge device
+## Configure Kubernetes for Azure Private MEC on the Azure Stack Edge device
 
-Run the following commands at the PowerShell prompt, specifying the object ID you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). 
+These steps modify the Kubernetes cluster on the Azure Stack Edge device to optimize it for Azure Private MEC workloads.
 
-```powershell
-Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId <object_ID>}
+1. In the local UI, select **Kubernetes** in the left-hand menu.
+2. Under **Choose the option that best describes your scenario**, select **an Azure Private MEC solution in your environment**.
+3. On the **Workload confirmation** popup, select **I confirm I am running Azure Private MEC in my environment**, and click **Apply** to close the popup.
+4. Click **Apply** to save the changes.
 
-Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f}
-```
+:::image type="content" source="media/commission-cluster/commission-cluster-enable-aks.png" alt-text="Screenshot of ASE Kubernetes configuration menu. The Azure Private MEC radio button is selected. The Workload confirmation popup is overlaid.":::
 
-Once you've run these commands, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
-
-:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
-
-Additionally, if you go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
+If you now go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
 
@@ -290,7 +287,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 
-You should see the new **Custom location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
+You should see the new **Custom location** visible as a resource in the Azure portal within the specified resource group.
 
 ## Rollback
 
