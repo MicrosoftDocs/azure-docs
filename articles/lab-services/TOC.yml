@@ -251,12 +251,10 @@
       href: how-to-set-virtual-machine-passwords-student.md 
     - name: View support information
       href: lab-user-support-information.md
-  - name: Use labs within Canvas
+  - name: Use labs within Teams & Canvas
     items:
       - name: Configure Canvas to use the service
         href: how-to-configure-canvas-for-lab-plans.md
-  - name: Use labs within Teams
-    items:
       - name: Configure Teams to use the service
         href: how-to-configure-teams-for-lab-plans.md
   - name: Earlier releases
