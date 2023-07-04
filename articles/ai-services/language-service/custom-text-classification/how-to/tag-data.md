@@ -87,7 +87,7 @@ Use the following steps to label your data:
    * *Total instances* where you can view count of all labeled instances of a specific class.
    * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this class.
 
-9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
+9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, select **Save labels** button at the bottom of the page.
 
 ## Remove labels
 

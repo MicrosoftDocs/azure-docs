@@ -35,7 +35,7 @@ When you're ready to use Language Studio features on your own text data, you wil
 > [!IMPORTANT] 
 > The setup process and requirements for custom features are different. If you're using one of the following custom features, we recommend using the quickstart articles linked below to get started more easily.  
 > * [Conversational Language Understanding](./conversational-language-understanding/quickstart.md)
-> * [Custom Text Classification](./custom-classification/quickstart.md)
+> * [Custom Text Classification](./custom-text-classification/quickstart.md)
 > * [Custom Named Entity Recognition (NER)](./custom-named-entity-recognition/quickstart.md) 
 > * [Orchestration workflow](./orchestration-workflow/quickstart.md)
 

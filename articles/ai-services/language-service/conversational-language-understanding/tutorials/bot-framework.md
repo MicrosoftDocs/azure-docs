@@ -34,7 +34,7 @@ This tutorial will explain how to integrate your own conversational language und
     
     :::image type="content" source="../media/import.png" alt-text="A screenshot showing where to import a J son file." lightbox="../media/import.png":::
 
-4. Once the project is loaded, click on **Training jobs** on the left. Press on Start a training job, provide the model name **v1** and press Train. All other settings such as **Standard Training** and the evaluation settings can be left as is.
+4. Once the project is loaded, select **Training jobs** on the left. Press on Start a training job, provide the model name **v1** and press Train. All other settings such as **Standard Training** and the evaluation settings can be left as is.
     
     :::image type="content" source="../media/train-model.png" alt-text="A screenshot of the training page in C L U." lightbox="../media/train-model.png":::
     

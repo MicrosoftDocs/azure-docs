@@ -243,7 +243,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 ## March 2022
 
 * Expanded language support for:
-  * [Custom text classification](custom-classification/language-support.md)
+  * [Custom text classification](custom-text-classification/language-support.md)
   * [Custom Named Entity Recognition (NER)](custom-named-entity-recognition/language-support.md)
   * [Conversational language understanding](conversational-language-understanding/language-support.md)
 
@@ -273,7 +273,7 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
   * [Text Analytics for health](text-analytics-for-health/overview.md)
   * [Text summarization preview](summarization/overview.md)
   * [Custom Named Entity Recognition (Custom NER) preview](custom-named-entity-recognition/overview.md)
-  * [Custom Text Classification preview](custom-classification/overview.md)
+  * [Custom Text Classification preview](custom-text-classification/overview.md)
   * [Conversational Language Understanding preview](conversational-language-understanding/overview.md)
 
 * Preview model version `2021-10-01-preview` for [Sentiment Analysis and Opinion mining](sentiment-opinion-mining/overview.md), which provides:

@@ -34,7 +34,7 @@ In this tutorial you will categorize and triage incoming email using custom text
 
     :::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the flow creation screen." lightbox="../media/create-flow.png":::
 
-3. Name your flow `EmailTriage`. Below **Choose your flow's triggers**, search for *email* and select **When a new email arrives**. Then click **create**
+3. Name your flow `EmailTriage`. Below **Choose your flow's triggers**, search for *email* and select **When a new email arrives**. Then select **create**
 
     :::image type="content" source="../media/email-flow.png" alt-text="A screenshot of the email flow triggers." lightbox="../media/email-flow.png":::
 

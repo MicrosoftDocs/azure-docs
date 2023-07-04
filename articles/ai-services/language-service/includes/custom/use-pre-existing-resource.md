@@ -48,7 +48,7 @@ Make sure to enable this service's custom feature from Azure portal.
 2. From the left side menu, under **Resource Management** section, select **Features**
 3. Enable this service's custom feature
 4. Connect your storage account
-5. Click **Apply**
+5. Select **Apply**
 
 > [!IMPORTANT]
 > Make sure that your **Language resource** has **storage blob data contributor** role assigned on the storage account you are connecting.

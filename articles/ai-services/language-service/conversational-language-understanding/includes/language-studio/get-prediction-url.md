@@ -13,7 +13,7 @@ ms.custom: language-service-clu
 
 
 
-1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu click on **Get prediction URL**.
+1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu select **Get prediction URL**.
 
     :::image type="content" source="../../media/prediction-url.png" alt-text="A screenshot showing the prediction URL in Language Studio." lightbox="../../media/prediction-url.png":::
 

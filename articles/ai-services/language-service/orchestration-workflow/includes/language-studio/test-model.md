@@ -19,7 +19,7 @@ To test your model from Language Studio
 
 5. In the text box, enter an utterance to test.
 
-6. From the top menu, click on **Run the test**.
+6. From the top menu, select **Run the test**.
 
 7. After you run the test, you should see the response of the model in the result. You can view the results in entities cards view, or view it in JSON format.
 

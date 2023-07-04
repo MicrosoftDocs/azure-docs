@@ -78,7 +78,7 @@ conceptualContent:
           url: language-detection/overview.md       
         - itemType: overview
           text: Custom text classification
-          url: custom-classification/overview.md    
+          url: custom-text-classification/overview.md  
 
     - title: Answer questions
       summary: Provide answers to questions being asked in unstructured texts using our prebuilt capabilities, or customize your domain specific question-and-answer pairs over data you provide.

@@ -49,7 +49,7 @@ The Open dialog appears. Navigate to your Downloads folder, or to the folder whe
 
 ![The CSV Import dialog](../media/tutorials/power-bi/csv-import.png)
 
-The CSV import dialog lets you verify that Power BI Desktop has correctly detected the character set, delimiter, header rows, and column types. This information is all correct, so click **Load**.
+The CSV import dialog lets you verify that Power BI Desktop has correctly detected the character set, delimiter, header rows, and column types. This information is all correct, so select **Load**.
 
 To see the loaded data, click the **Data View** button on the left edge of the Power BI workspace. A table opens that contains the data, like in Microsoft Excel.
 
@@ -61,7 +61,7 @@ You may need to transform your data in Power BI Desktop before it's ready to be 
 
 The sample data contains a `subject` column and a `comment` column. With the Merge Columns function in Power BI Desktop, you can extract key phrases from the data in both these columns, rather than just the `comment` column.
 
-In Power BI Desktop, select the **Home** ribbon. In the **External data** group, click **Edit Queries**.
+In Power BI Desktop, select the **Home** ribbon. In the **External data** group, select **Edit Queries**.
 
 ![The External Data group in Home ribbon](../media/tutorials/power-bi/edit-queries.png)
 
@@ -71,11 +71,11 @@ Now select both the `subject` and `comment` columns in the table. You may need t
 
 ![Selecting fields to be merged](../media/tutorials/power-bi/select-columns.png)
 
-Select the **Transform** ribbon. In the **Text Columns** group of the ribbon, click **Merge Columns**. The Merge Columns dialog appears.
+Select the **Transform** ribbon. In the **Text Columns** group of the ribbon, select **Merge Columns**. The Merge Columns dialog appears.
 
 ![Merging fields using the Merge Columns dialog](../media/tutorials/power-bi/merge-columns.png)
 
-In the Merge Columns dialog, choose `Tab` as the separator, then click **OK.**
+In the Merge Columns dialog, choose `Tab` as the separator, then select **OK.**
 
 You might also consider filtering out blank messages using the Remove Empty filter, or removing unprintable characters using the Clean transformation. If your data contains a column like the `spamscore` column in the sample file, you can skip "spam" comments using a Number Filter.
 
@@ -96,13 +96,13 @@ Now you're ready to create the custom function that will integrate Power BI and 
 > [!NOTE]
 > Power BI Desktop custom functions are written in the [Power Query M formula language](/powerquery-m/power-query-m-reference), or just "M" for short. M is a functional programming language based on [F#](/dotnet/fsharp/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
 
-In Power BI Desktop, make sure you're still in the Query Editor window. If you aren't, select the **Home** ribbon, and in the **External data** group, click **Edit Queries**.
+In Power BI Desktop, make sure you're still in the Query Editor window. If you aren't, select the **Home** ribbon, and in the **External data** group, select **Edit Queries**.
 
 Now, in the **Home** ribbon, in the **New Query** group, open the **New Source** drop-down menu and select **Blank Query**. 
 
 A new query, initially named `Query1`, appears in the Queries list. Double-click this entry and name it `KeyPhrases`.
 
-Now, in the **Home** ribbon, in the **Query** group, click **Advanced Editor** to open the Advanced Editor window. Delete the code that's already in that window and paste in the following code. 
+Now, in the **Home** ribbon, in the **Query** group, select **Advanced Editor** to open the Advanced Editor window. Delete the code that's already in that window and paste in the following code. 
 
 > [!NOTE]
 > Replace the example endpoint below (containing `<your-custom-subdomain>`) with the endpoint generated for your Language resource. You can find this endpoint by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), navigating to your resource, and selecting **Key and endpoint**.
@@ -123,13 +123,13 @@ Now, in the **Home** ribbon, in the **Query** group, click **Advanced Editor** t
 in  keyphrases
 ```
 
-Replace `YOUR_API_KEY_HERE` with your Language resource key. You can also find this key by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), navigating to your Language resource, and selecting the **Key and endpoint** page. Be sure to leave the quotation marks before and after the key. Then click **Done.**
+Replace `YOUR_API_KEY_HERE` with your Language resource key. You can also find this key by signing in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/), navigating to your Language resource, and selecting the **Key and endpoint** page. Be sure to leave the quotation marks before and after the key. Then select **Done.**
 
 ## Use the custom function
 
 Now you can use the custom function to extract the key phrases from each of the customer comments and store them in a new column in the table. 
 
-In Power BI Desktop, in the Query Editor window, switch back to the `FabrikamComments` query. Select the **Add Column** ribbon. In the **General** group, click **Invoke Custom Function**.
+In Power BI Desktop, in the Query Editor window, switch back to the `FabrikamComments` query. Select the **Add Column** ribbon. In the **General** group, select **Invoke Custom Function**.
 
 ![Invoke Custom Function button](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
@@ -139,7 +139,7 @@ A new field appears in the dialog, **text (optional)**. This field is asking whi
 
 ![Invoking a custom function](../media/tutorials/power-bi/invoke-custom-function.png)
 
-Finally, click **OK.**
+Finally, select **OK.**
 
 If everything is ready, Power BI calls your custom function once for each row in the table. It sends the queries to the Key Phrases API and adds a new column to the table to store the results. But before that happens, you may need to specify authentication and privacy settings.
 
@@ -149,7 +149,7 @@ After you close the Invoke Custom Function dialog, a banner may appear asking yo
 
 ![credentials banner](../media/tutorials/power-bi/credentials-banner.png)
 
-Click **Edit Credentials,** make sure `Anonymous` is selected in the dialog, then click **Connect.** 
+Select **Edit Credentials,** make sure `Anonymous` is selected in the dialog, then select **Connect.** 
 
 > [!NOTE]
 > You select `Anonymous` because Key Phrase Extraction authenticates requests using your access key, so Power BI does not need to provide credentials for the HTTP request itself.
@@ -163,13 +163,13 @@ Next, a banner may appear asking you to provide information about your data sour
 
 ![privacy banner](../media/tutorials/power-bi/privacy-banner.png)
 
-Click **Continue** and choose `Public` for each of the data sources in the dialog. Then click **Save.**
+Select **Continue** and choose `Public` for each of the data sources in the dialog. Then select **Save.**
 
 ![setting data source privacy](../media/tutorials/power-bi/privacy-dialog.png)
 
 ## Create the word cloud
 
-Once you have dealt with any banners that appear, click **Close & Apply** in the Home ribbon to close the Query Editor.
+Once you have dealt with any banners that appear, select **Close & Apply** in the Home ribbon to close the Query Editor.
 
 Power BI Desktop takes a moment to make the necessary HTTP requests. For each row in the table, the new `keyphrases` column contains the key phrases detected in the text by the Key Phrases API. 
 
