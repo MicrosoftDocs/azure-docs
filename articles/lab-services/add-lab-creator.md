@@ -14,7 +14,7 @@ This article shows you how to add users as lab creators to a lab account or lab 
 
 ## Prerequisites
 
-- To add lab creators to a lab plan, your Azure account needs to have the [Owner](./concept-lab-services-role-based-access-control.md#owner-role) Azure RBAC role assigned on the resource group. Learn more about the [Azure Lab Services built-in roles](./reliability-in-azure-lab-services.md).
+- To add lab creators to a lab plan, your Azure account needs to have the [Owner](./concept-lab-services-role-based-access-control.md#owner-role) Azure RBAC role assigned on the resource group. Learn more about the [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md).
 
 ## Add Azure AD user account to Lab Creator role
 
