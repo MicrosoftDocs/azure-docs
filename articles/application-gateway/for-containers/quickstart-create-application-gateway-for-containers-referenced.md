@@ -110,6 +110,11 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
 
+	For linux users, the following command may be run
+	```bash
+ 	curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+	```
+
 ## Deploy Application Gateway for Containers
 
 1. The following commands deploy Application Gateway for Containers (along with the Association and Frontend resources) using an [ARM template](./templates/traffic-controller.template.json).
