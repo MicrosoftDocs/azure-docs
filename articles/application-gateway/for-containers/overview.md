@@ -50,7 +50,7 @@ Application Gateway for Containers supports the following features for traffic m
 There are two deployment strategies for management of Application Gateway for Containers:
 
 - **Referenced:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure Portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
-   - In Gateway API: Every time you wish to create a new Gateway object in Kuberenetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway object. Deletion of the Frontend resource is responsible by the Azure administrator and will not be deleted when the Gateway object in Kubernetes is deleted.
+   - **In Gateway API:** Every time you wish to create a new Gateway object in Kuberenetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway object. Deletion of the Frontend resource is responsible by the Azure administrator and will not be deleted when the Gateway object in Kubernetes is deleted.
 - **Managed:** In this deployment strategy ALB Controller deployed in Kubernetes will be responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller will create Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle will be based on the lifecycle of the custom resource.
   - **In Gateway API:** Every time a Gateway object is created referencing the ApplicationLoadBalancer resource, ALB Controller will provision a new Frontend resource and manage its lifecycle based on the lifecycle of the Gateway object.
 
