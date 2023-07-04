@@ -20,25 +20,25 @@ This article demonstrates how to call the Image Analysis 4.0 API to return infor
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# SDK](../includes/how-to-guides/image-analysis-40-csharp.md)]
+[!INCLUDE [C# SDK](../includes/how-to-guides/analyze-image-40-csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK](../includes/how-to-guides/image-analysis-40-python.md)]
+[!INCLUDE [Python SDK](../includes/how-to-guides/analyze-image-40-python.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
 
-[!INCLUDE [C++ SDK](../includes/how-to-guides/image-analysis-40-cpp.md)]
+[!INCLUDE [C++ SDK](../includes/how-to-guides/analyze-image-40-cpp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API](../includes/how-to-guides/image-analysis-40-rest.md)]
+[!INCLUDE [REST API](../includes/how-to-guides/analyze-image-40-rest.md)]
 
 ::: zone-end
 
