@@ -27,6 +27,14 @@ This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu
 
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or later. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 
+## Check Gateway metrics
+
+### Diagnostic settings for Log Analytics
+TODO(jiec): What's the prerequisite of diagnostic settings in order to check metrics for SCG?
+
+### View metrics
+See [Common metrics page section of Metrics for Azure Spring Apps](./concept-metrics.md#common-metrics-page) for how to check metrics in Azure Portal. And see [Gateway section of Metrics for Azure Spring Apps](./concept-metrics.md#gateway) for each supported metrics.
+
 ## Check Gateway logs
 
 There are two components that make up the Spring Cloud Gateway for VMware Tanzu: the Gateway itself and the Gateway operator. You can infer from the name that the Gateway operator is for managing the Gateway, while the Gateway itself fulfills the features. The logs of both components are available. The following sections describe how to check these logs.
@@ -90,13 +98,15 @@ Use the following steps to adjust the log levels:
 1. Select **Save** to save your changes.
 1. After the change is successful, you can find more detailed logs for troubleshooting, such as information about how requests are routed.
 
-## Check metrics
+## Setup alert rules
+See [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md) to create alert rules based on logs and metrics.
 
-### Diagnostic settings for Log Analytics
-TODO(jiec): What's the prerequisite of diagnostic settings in order to check metrics for SCG?
-
-### Check metrics
-See [Common metrics page section of Metrics for Azure Spring Apps](./concept-metrics.md#common-metrics-page) for how to check metrics in Azure Portal. And see [Gateway section of Metrics for Azure Spring Apps](./concept-metrics.md#gateway) for each supported metrics.
+You can also directly create alert rules from Portal blade in Azure Spring Apps.
+1. Go to Azure portal for Azure Spring Apps.
+1. Go to Logs or Metrics.
+1. Write the log query in Logs blade or add a metrics chart.
+1. Select the "New alert rule", it will jump to the alert rule creation blade, and fill the log query or metrics automatically.
+1. You can configure alert rule details according to above document.
 
 ## Monitor Gateway with application performance monitor
 See [Configure application performance monitoring](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) for supported application performance monitors and how to configure them.
