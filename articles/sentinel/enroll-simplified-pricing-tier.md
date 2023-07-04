@@ -79,7 +79,7 @@ The following sample template configures Microsoft Sentinel simplified pricing w
 }
 ```
 
-To revert back to a classic pricing tier, set the `Microsoft.OperationsManagement/solutions` `sku` name to `capacityreservation` and set the `capacityReservationLevel` for both sections to the appropriate pricing tier. Only tenants that had Microsoft Sentinel prior to July 2023 are able to revert back to classic pricing.
+Only tenants that had Microsoft Sentinel prior to July 2023 are able to revert back to classic pricing tiers. To make the switch back, set the `Microsoft.OperationsManagement/solutions` `sku` name to `capacityreservation` and set the `capacityReservationLevel` for both sections to the appropriate pricing tier. 
 
 The following sample template sets Microsoft Sentinel to the classic pricing tier of Pay-As-You-Go and sets the Log Analytic workspace to the 100 GB/day commitment tier.
 
