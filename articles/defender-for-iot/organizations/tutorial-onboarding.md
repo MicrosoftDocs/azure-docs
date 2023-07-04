@@ -2,7 +2,7 @@
 title: Onboard and activate a virtual OT sensor - Microsoft Defender for IoT.
 description: This tutorial describes how to set up a virtual OT network sensor to monitor your OT network traffic.
 ms.topic: tutorial
-ms.date: 05/23/2023
+ms.date: 07/04/2023
 ---
 
 # Tutorial: Onboard and activate a virtual OT sensor

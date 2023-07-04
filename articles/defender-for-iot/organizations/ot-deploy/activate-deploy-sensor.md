@@ -1,7 +1,7 @@
 ---
 title: Configure and activate your OT sensor - - Microsoft Defender for IoT
 description: Learn how to configure initial setup settings and activate your Microsoft Defender for IoT OT sensor.
-ms.date: 06/26/2023
+ms.date: 07/04/2023
 ms.topic: install-set-up-deploy
 ---
 

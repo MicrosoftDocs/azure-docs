@@ -1,7 +1,7 @@
 ---
 title: Control the OT traffic monitored by Microsoft Defender for IoT
 description: Learn how to control the OT network traffic monitored by Microsoft Defender for IoT.
-ms.date: 01/24/2023
+ms.date: 07/04/2023
 ms.topic: how-to
 ---
 

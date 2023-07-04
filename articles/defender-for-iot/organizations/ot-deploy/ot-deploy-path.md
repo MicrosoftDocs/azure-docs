@@ -2,7 +2,7 @@
 title: Deploy Defender for IoT for OT monitoring - Microsoft Defender for IoT
 description: Learn about the steps involved in deploying a Microsoft Defender for IoT system for OT monitoring.
 ms.topic: install-set-up-deploy
-ms.date: 02/13/2023
+ms.date: 07/04/2023
 ---
 
 # Deploy Defender for IoT for OT monitoring

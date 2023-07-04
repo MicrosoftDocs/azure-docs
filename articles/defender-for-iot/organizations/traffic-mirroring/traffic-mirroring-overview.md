@@ -1,7 +1,7 @@
 ---
 title: Configure traffic mirroring overview - Microsoft Defender for IoT
 description: This article serves as an overview for configuring traffic mirroring for Microsoft Defender for IoT.
-ms.date: 03/22/2023
+ms.date: 07/04/2023
 ms.topic: install-set-up-deploy
 ---
 
