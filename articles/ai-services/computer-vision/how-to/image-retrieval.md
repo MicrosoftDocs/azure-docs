@@ -24,7 +24,7 @@ The Image Retrieval APIs enable the _vectorization_ of images and text queries. 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create an Azure AI Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
 ## Try out Image Retrieval

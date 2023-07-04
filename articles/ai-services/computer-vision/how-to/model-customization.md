@@ -21,20 +21,18 @@ This guide shows you how to create and train a custom image classification model
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Azure AI Vision resource"  target="_blank">create a Azure AI Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. If you're using the Python library, you can create it in the East US, West US 2, or West Europe region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Vision resource"  target="_blank">create a Vision resource </a> in the Azure portal to get your key and endpoint. If you're following this guide using Vision Studio, you must create your resource in the East US region. If you're using the Python library, you can create it in the East US, West US 2, or West Europe region. After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 * An Azure Storage resource - [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * A set of images with which to train your classification model. You can use the set of [sample images on GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images). Or, you can use your own images. You only need about 3-5 images per class.
 
 > [!NOTE]
-> We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Azure AI Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
+> We do not recommend you use custom models for business critical environments due to potential high latency. When customers train custom models in Vision Studio, those custom models belong to the Vision resource that they were trained under and the customer is able to make calls to those models using the **Analyze Image** API. When they make these calls, the custom model is loaded in memory and the prediction infrastructure is initialized. While this happens, customers might experience longer than expected latency to receive prediction results.
 
 #### [Python](#tab/python)
 
 Train your own image classifier (IC) or object detector (OD) with your own data using Image Analysis model customization and Python.
 
 You can run through all of the model customization steps using a Python sample package. You can run the code in this section using a Python script, or you can download and run the Notebook on a compatible platform.
-
-<!-- nbstart https://raw.githubusercontent.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/main/docs/cognitive_service_vision_model_customization.ipynb -->
 
 > [!TIP]
 > Contents of _cognitive_service_vision_model_customization.ipynb_. **[Open in GitHub](https://github.com/Azure-Samples/cognitive-service-vision-model-customization-python-samples/blob/main/docs/cognitive_service_vision_model_customization.ipynb)**.
@@ -74,7 +72,7 @@ resource_key = '{specify_your_resource_key}'
 
 ## Prepare a dataset from Azure blob storage
 
-To train a model with your own dataset, the dataset should be arranged in the COCO format described below, hosted on Azure blob storage, and accessible from your Azure AI Vision resource.
+To train a model with your own dataset, the dataset should be arranged in the COCO format described below, hosted on Azure blob storage, and accessible from your Vision resource.
 
 ### Dataset annotation format
 
@@ -137,7 +135,7 @@ cat_dog/
 
 ### Grant Azure AI Vision access to your Azure data blob
 
-You need to take an extra step to give your Azure AI Vision resource access to read the contents of your Azure blog storage container. There are two ways to do this.
+You need to take an extra step to give your Vision resource access to read the contents of your Azure blog storage container. There are two ways to do this.
 
 #### Option 1: Shared access signature (SAS)
 
@@ -147,16 +145,16 @@ You can generate a SAS token with at least `read` permission on your Azure Blob 
 
 You can also use [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) to grant access.
 
-Below is a series of steps for allowing the system-assigned Managed Identity of your Azure AI Vision resource to access your blob storage. In the Azure portal:
+Below is a series of steps for allowing the system-assigned Managed Identity of your Vision resource to access your blob storage. In the Azure portal:
 
-1. Go to the **Identity / System assigned** tab of your Azure AI Vision resource, and change the **Status** to **On**.
+1. Go to the **Identity / System assigned** tab of your Vision resource, and change the **Status** to **On**.
 1. Go to the **Access Control (IAM) / Role assignment** tab of your blob storage resource, select **Add / Add role assignment**, and choose either **Storage Blob Data Contributor** or **Storage Blob Data Reader**.
 1. Select **Next**, and choose **Managed Identity** under **Assign access to**, and then select **Select members**.
-1. Choose your subscription, with the Managed Identity being Azure AI Vision, and look up the one that matches your Azure AI Vision resource name.
+1. Choose your subscription, with the Managed Identity being Azure AI Vision, and look up the one that matches your Vision resource name.
 
 ### Register the dataset
 
-Once your dataset has been prepared and hosted on your Azure blob storage container, with access granted to your Azure AI Vision resource, you can register it with the service.
+Once your dataset has been prepared and hosted on your Azure blob storage container, with access granted to your Vision resource, you can register it with the service.
 
 > [!NOTE]
 > The service only accesses your storage data during training. It doesn't keep copies of your data beyond the training cycle.
@@ -247,7 +245,7 @@ Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) an
 
 :::image type="content" source="../media/customization/customization-tile.png" alt-text="Screenshot of the Customize models tile.":::
 
-Then, sign in with your Azure account and select your Azure AI Vision resource. If you don't have one, you can create one from this screen.
+Then, sign in with your Azure account and select your Vision resource. If you don't have one, you can create one from this screen.
 
 > [!IMPORTANT]
 > To train a custom model in Vision Studio, your Azure subscription needs to be approved for access. Please request access using [this form](https://aka.ms/visionaipublicpreview).

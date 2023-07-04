@@ -97,7 +97,7 @@ If you're generating your own COCO file from scratch, make sure all the required
 | `width` | integer | Width of the image in pixels  | Yes |
 | `height` | integer | Height of the image in pixels | Yes |
 | `file_name`| string | A unique name for the image  | Yes |
-| `absolute_url` or `coco_url`| string | Image path as an absolute URI to a blob in a blob container. The Azure AI Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
+| `absolute_url` or `coco_url`| string | Image path as an absolute URI to a blob in a blob container. The Vision resource must have permission to read the annotation files and all referenced image files. | Yes |
 
 The value for `absolute_url` can be found in your blob container's properties: 
 

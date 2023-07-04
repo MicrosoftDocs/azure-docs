@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-vision
 
 # Use Azure AI Vision container with Kubernetes and Helm
 
-One option to manage your Azure AI Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define a Azure AI Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Azure AI Vision containers](computer-vision-how-to-install-containers.md).
+One option to manage your Azure AI Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define An Azure AI Vision container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Azure AI Vision containers](computer-vision-how-to-install-containers.md).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ The following prerequisites before using Azure AI Vision containers on-premises:
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
 | Helm CLI | Install the [Helm CLI][helm-install], which is used to install a helm chart (container package definition). |
-| Azure AI Vision resource |In order to use the container, you must have:<br><br>An Azure **Azure AI Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+| Computer Vision resource |In order to use the container, you must have:<br><br>A **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 

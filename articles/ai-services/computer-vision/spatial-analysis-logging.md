@@ -141,7 +141,7 @@ Once the telegraf module is deployed, the reported metrics can be accessed eithe
 | archon_graphCreationSuccess | Sent when the graph with the reported `graphId` starts successfully.                      |
 | archon_graphCleanup         | Sent when the graph with the reported `graphId` cleans up and exits.                      |
 | archon_graphHeartbeat       | Heartbeat sent every minute for every graph of a skill.                                   |
-| archon_apiKeyAuthFail       | Sent when the Azure AI Vision resource key fails to authenticate the container for more than 24 hours, due to the following reasons: Out of Quota, Invalid, Offline. |
+| archon_apiKeyAuthFail       | Sent when the Vision resource key fails to authenticate the container for more than 24 hours, due to the following reasons: Out of Quota, Invalid, Offline. |
 | VideoIngesterHeartbeat      | Sent every hour to indicate that video is streamed from the Video source, with the number of errors in that hour. Reported for each graph. |
 | VideoIngesterState          | Reports *Stopped* or *Started* for video streaming. Reported for each graph.              |
 
@@ -244,8 +244,8 @@ Logs are uploaded on-demand with the `getRTCVLogs` IoT Edge method, in the `diag
 1. Go to your IoT Hub portal page, select **Edge Devices**, then select your device and your diagnostics module. 
 2. Go to the details page of the module and click on the ***direct method*** tab.
 3. Type `getRTCVLogs` on Method Name, and a json format string in payload. You can enter `{}`, which is an empty payload. 
-4. Set the connection and method timeouts, and click **Invoke Method**.
-5. Select your target container, and build a payload json string using the parameters described in the **Logging syntax** section. Click **Invoke Method** to perform the request.
+4. Set the connection and method timeouts, and select **Invoke Method**.
+5. Select your target container, and build a payload json string using the parameters described in the **Logging syntax** section. Select **Invoke Method** to perform the request.
 
 >[!NOTE]
 > Invoking the `getRTCVLogs` method with an empty payload will return a list of all containers deployed on the device. The method name is case sensitive. You will get a 501 error if an incorrect method name is given.

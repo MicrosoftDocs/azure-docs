@@ -74,10 +74,10 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
     "value": "accept"
 },
 "BILLING":{ 
-    "value": "<Use the endpoint from your Azure AI Vision resource>"
+    "value": "<Use the endpoint from your Vision resource>"
 },
 "APIKEY":{
-    "value": "<Use a key from your Azure AI Vision resource>"
+    "value": "<Use a key from your Vision resource>"
 }
 ```
 
@@ -168,7 +168,7 @@ Wait for setup to complete, and navigate to your resource in the Azure portal. G
 * `IotHubConnectionString` – The connection string to your Azure IoT Hub, this can be retrieved from the keys section of your Azure IoT Hub resource 
 ![Configure Parameters](./media/spatial-analysis/solution-app-config-page.png)
 
-Once these 2 settings are added, click **Save**. Then click **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Directory (Azure AD) express. 
+Once these 2 settings are added, select **Save**. Then select **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Directory (Azure AD) express. 
 
 ### Test the app
 

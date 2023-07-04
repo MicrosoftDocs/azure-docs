@@ -5,7 +5,6 @@ description: This guide shows you how to migrate your stored face data from one 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
@@ -31,7 +30,7 @@ This same migration strategy also applies to LargePersonGroup and LargeFaceList 
 
 You need the following items:
 
-- Two Face keys, one with the existing data and one to migrate to. To subscribe to the Face service and get your key, follow the instructions in [Create a Azure AI services account](../../cognitive-services-apis-create-account.md).
+- Two Face keys, one with the existing data and one to migrate to. To subscribe to the Face service and get your key, follow the instructions in [Create an Azure AI services account](../../cognitive-services-apis-create-account.md).
 - The Face subscription ID string that corresponds to the target subscription. To find it, select **Overview** in the Azure portal. 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 

@@ -21,7 +21,7 @@ This article demonstrates how to call the Image Analysis 4.0 API to segment an i
 
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
-* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Azure AI Vision resource"  target="_blank">created a Azure AI Vision resource </a> and obtained a key and endpoint URL.
+* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Vision resource"  target="_blank">created a Vision resource </a> and obtained a key and endpoint URL.
 * If you're using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You modify this quickstart application based on code examples here.
 * If you're using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You modify the `curl.exe` call based on the examples here.
 
@@ -32,7 +32,7 @@ The quickstart shows you how to extract visual features from an image, however, 
 
 ## Authenticate against the service
 
-To authenticate against the Image Analysis service, you need a Azure AI Vision key and endpoint URL.
+To authenticate against the Image Analysis service, you need An Azure AI Vision key and endpoint URL.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault). 

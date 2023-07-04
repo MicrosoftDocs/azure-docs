@@ -4,7 +4,6 @@ titleSuffix: Azure AI services
 description: Use the stitching and rectification APIs to prepare organic photos of retail shelves for accurate image analysis.
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
@@ -23,7 +22,7 @@ This guide also shows you how to use the Rectification API to correct for perspe
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Azure AI Vision resource"  target="_blank">create a Azure AI Vision resource </a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
@@ -58,8 +57,8 @@ To run the image stitching operation on a set of images, follow these steps:
     }"
     ```
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your Azure AI Vision resource key.
-    1. Replace the value of `<endpoint>` with your Azure AI Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Replace the value of `<subscriptionKey>` with your Vision resource key.
+    1. Replace the value of `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
     1. Replace the `<your_url_string>` contents with the blob URLs of the images. The images should be ordered left to right and top to bottom, according to the physical spaces they show.
     1. Replace `<your_filename>` with the name and extension of the file where you'd like to get the result (for example, `download.jpg`).
 1. Open a command prompt window.
@@ -107,8 +106,8 @@ To correct the perspective distortion in the composite image, follow these steps
     }"
     ```
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your Azure AI Vision resource key.
-    1. Replace the value of `<endpoint>` with your Azure AI Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
+    1. Replace the value of `<subscriptionKey>` with your Vision resource key.
+    1. Replace the value of `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
     1. Replace `<your_url_string>` with the blob storage URL of the image.
     1. Replace the four control point coordinates in the request body. X is the horizontal coordinate and Y is vertical. The coordinates are normalized, so 0.5,0.5 indicates the center of the image, and 1,1 indicates the bottom right corner, for example. Set the coordinates to define the four corners of the shelf fixture as it appears in the image.
     

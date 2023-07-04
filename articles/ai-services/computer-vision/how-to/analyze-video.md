@@ -230,7 +230,7 @@ To get started with this sample, do the following:
 2. Create resources for Azure AI Vision and Face in the Azure portal to get your key and endpoint. Make sure to select the free tier (F0) during setup.
    - [Azure AI Vision](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
    - [Face](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace)
-   After the resources are deployed, click **Go to resource** to collect your key and endpoint for each resource. 
+   After the resources are deployed, select **Go to resource** to collect your key and endpoint for each resource. 
 3. Clone the [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo.
 4. Open the sample in Visual Studio 2015 or later, and then build and run the sample applications:
     - For BasicConsoleSample, the Face key is hard-coded directly in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
