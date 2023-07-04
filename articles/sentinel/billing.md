@@ -103,6 +103,8 @@ The following tabs show how Microsoft Sentinel and Log Analytics costs appear in
 
 # [Classic](#tab/classic)
 
+---
+
 # [Commitment tiers](#tab/commitment-tiers/simplified)
 
 If you're billed at the simplified commitment tier rate, this table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
@@ -126,7 +128,6 @@ If you're billed at the classic commitment tier rate, this table shows how Micro
 | Log Analytics over the Commitment Tier| `log analytics` |**data ingestion**|
 | Basic logs data analysis| `sentinel` |**Classic Basic Logs Analysis**|
 | Basic logs data ingestion| `azure monitor` |**Basic Logs Data Ingestion**|
-
 
 
 # [Pay-As-You-Go](#tab/pay-as-you-go/simplified)
@@ -173,7 +174,6 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 | M365 Defender Benefit – Data Ingestion| `azure monitor` |**Free Benefit - M365 Defender Data Ingestion**|
 | M365 Defender Benefit – Data Analysis| `sentinel` |**Free Benefit - M365 Defender Analysis**|
 
----
 ---
 
 Learn how to [view and download your Azure bill](../cost-management-billing/understand/download-azure-daily-usage.md).
