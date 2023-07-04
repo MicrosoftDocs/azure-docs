@@ -8,7 +8,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 07/04/2023
 
 ms.author: cmulligan 
 author: csmulligan 
@@ -116,3 +116,4 @@ For B2B direct connect users, data removal begins as soon as the user selects **
 
 - Learn more about [user deletion](/compliance/regulatory/gdpr-dsr-azure#step-5-delete) and about how to delete a user's data when there's [no account in the Azure tenant](/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant). 
 - For more information about GDPR, see the GDPR section of the [Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+- Learn more about [audit logs and access reviews](auditing-and-reporting.md).
