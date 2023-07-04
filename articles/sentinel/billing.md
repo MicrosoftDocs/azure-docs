@@ -36,7 +36,7 @@ Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pric
 For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
 - Azure Monitor data ingestion: Analytics logs and basic logs
-- Microsoft Sentinel data analytics: Analytics logs and basic logs
+- Microsoft Sentinel data analysis: Analytics logs and basic logs
 - Data retention
 - Data archive (archived logs)
 - Basic logs queries
@@ -112,7 +112,7 @@ If you're billed at the simplified commitment tier rate, this table shows how Mi
  Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Commitment Tier | `Sentinel` | **`n` GB Commitment Tier** |
-| Microsoft Sentinel over the Commitment Tier| `Sentinel` |**Analysis**|
+| Microsoft Sentinel Commitment Tier overage | `Sentinel` |**Analysis**|
 | Basic logs| `Sentinel` |**Basic Logs**|
 
 
@@ -124,10 +124,9 @@ If you're billed at the classic commitment tier rate, this table shows how Micro
 |--|--|--|
 | Microsoft Sentinel Commitment Tier | `Sentinel` | **Classic `n` GB commitment tier** |
 | Log Analytics Commitment Tier | `Azure Monitor` | **`n` GB commitment tier** |
-| Microsoft Sentinel over the Commitment Tier| `Sentinel` |**Classic Analysis**|
+| Microsoft Sentinel Commitment Tier overage | `Sentinel` |**Classic Analysis**|
 | Log Analytics over the Commitment Tier| `Log Analytics` |**Data Ingestion**|
 | Basic logs data analysis| `Sentinel` |**Classic Basic Logs Analysis**|
-| Basic logs data ingestion| `Azure Monitor` |**Basic Logs Data Ingestion**|
 
 
 # [Pay-As-You-Go](#tab/pay-as-you-go/simplified)

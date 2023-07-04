@@ -132,7 +132,7 @@ In classic pricing tiers, Microsoft Sentinel was always billed as a secondary me
 
 With simplified pricing tiers, the same Commitment Tier used by the cluster is set for the Microsoft Sentinel workspace. Microsoft Sentinel usage will be billed at the effective per GB price of that tier meter, and all usage is counted towards the total allocation for the dedicated cluster. This allocation is either at the cluster level or proportionately at the workspace level depending on the billing mode of the cluster. For more information, see [Cost details - Dedicated cluster](../azure-monitor/logs/cost-logs.md#dedicated-clusters).
 			
-## Offboard behavior
+## Offboarding behavior
 If Microsoft Sentinel is removed from a workspace while simplified pricing is enabled, the Log Analytics workspace defaults to the pricing tier that was configured. For example, if the simplified pricing was configured for 100 GB/day commitment tier in Microsoft Sentinel, the pricing tier of the Log Analytics workspace changes to 100 GB/day commitment tier once Microsoft Sentinel is removed from the workspace.
 
 ### Will switching reduce my costs?
