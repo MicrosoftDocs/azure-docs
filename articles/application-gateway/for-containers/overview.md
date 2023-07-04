@@ -8,7 +8,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: overview
-ms.date: 5/1/2023
+ms.date: 7/7/2023
 ms.author: greglin
 ---
 
@@ -45,6 +45,12 @@ Application Gateway for Containers supports the following features for traffic m
 - TLS Policies
 - Autoscaling
 - Availability zone resiliency
+
+### Deployment strategies
+There are two deployment strategies for management of Application Gateway for Containers:
+
+- **Bring your own:** In this deployment strategy you will be responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. Deployment of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure Portal, CLI, PowerShell, Terraform, etc. prior to the use of ALB Controller. Every time you wish to create a new Gateway object in Kuberenetes, a Frontend resource should be provisioned in Azure prior and reference of the Frontend resource should be referenced by the Gateway object. Deletion of the Frontend resource is responsible of you and will not be deleted when removed from the Gateway object in Kubernetes.
+- **Fully managed:** In this deployment strategy ALB Controller deployed in Kubernetes will be responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller will create Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle will be based on the lifecycle of the custom resource. Every time a Gateway object is created referencing the ApplicationLoadBalancer resource, ALB Controller will provision a new Frontend resource and manage its lifecycle based on the lifecycle of the Gateway object.
 
 ### Supported Regions
 Application Gateway for Containers is currently offered in the following regions:
