@@ -37,10 +37,12 @@ Application Gateway for Containers supports the following features for traffic m
 - HTTPS traffic management:
   - SSL termination
   - End to End SSL
+- Ingress and Gateway API support
 - Traffic Splitting / weighted round robin
 - Mutual Authentication (mTLS) to backend target
 - Health checks: Application Gateway for Containers determines the health of a backend before it registers it as healthy and capable of handling traffic
 - Automatic retries
+- TLS Policies
 - Autoscaling
 - Availability zone resiliency
 
