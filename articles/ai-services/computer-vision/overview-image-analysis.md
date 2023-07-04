@@ -115,5 +115,5 @@ As with all of the Azure AI services, developers using the Azure AI Vision servi
 
 Get started with Image Analysis by following the quickstart guide in your preferred development language:
 
-- [Quickstart (v4.0 preview): Azure AI Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md)
-- [Quickstart (v3.2): Azure AI Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)
+- [Quickstart (v4.0 preview): Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library-40.md)
+- [Quickstart (v3.2): Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md)

@@ -43,7 +43,7 @@ The container also has the following container-specific configuration settings:
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure `Azure AI services` resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Azure AI services_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Vision resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the Vision resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
@@ -107,14 +107,14 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-| **{API_KEY}** | The endpoint key of the `Azure AI Vision` resource on the Azure `Azure AI Vision` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Azure AI Vision` Overview page.| See [gather required parameters](computer-vision-how-to-install-containers.md#gather-required-parameters) for explicit examples. |
+| **{API_KEY}** | The endpoint key of the Vision resource on the resource keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the resource overview page.| See [gather required parameters](computer-vision-how-to-install-containers.md#gather-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure `Azure AI services` Resource keys page.
+> The ApiKey value is the **Key** from the Vision resource keys page.
 
 ## Container Docker examples
 
