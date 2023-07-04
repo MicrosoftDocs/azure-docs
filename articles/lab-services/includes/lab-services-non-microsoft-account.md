@@ -11,6 +11,6 @@ You might already have a Microsoft account that's linked to your non-Microsoft e
 
 When you use the lab registration link to sign into a lab, you're prompted for your email address and password. If you sign in with a non-Microsoft account that's not linked to a Microsoft account, you receive the following error message:
 
-:::image type="content" source="../media/lab-services-non-microsoft-account/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-access-lab-virtual-machine/cant-find-account.png":::
+:::image type="content" source="../media/lab-services-non-microsoft-account/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." :::
 
 Follow these steps to [sign up for a new Microsoft account](https://signup.live.com).
