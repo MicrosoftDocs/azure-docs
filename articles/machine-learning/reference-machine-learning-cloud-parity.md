@@ -76,7 +76,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
 | [Model profiling (SDK/CLI v1)](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
-| [The Azure Machine Learning CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [The Azure Machine Learning CLI v1](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
 | [FPGA-based Hardware Accelerated Models (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
@@ -102,7 +102,7 @@ The information in the rest of this document provides information on what featur
 | [Azure Stack Edge with FPGA (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
 | [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
-| [Custom Cognitive Search](./v1/how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
+| [Custom Cognitive Search (SDK v1)](./v1/how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
 
 
 ### Azure Government scenarios

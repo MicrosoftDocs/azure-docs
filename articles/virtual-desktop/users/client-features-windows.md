@@ -119,11 +119,11 @@ There are several keyboard shortcuts you can use to help use some of the feature
 | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>HOME</kbd> | Activates the connection bar when in full-screen mode and the connection bar isn't pinned. |
 | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>PAUSE</kbd> | Switches the client between full-screen mode and window mode. |
 
-Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
+Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. When you're using a remote desktop or app in windowed mode, there are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
 
 | Windows shortcut | Azure Virtual Desktop shortcut | Description |
 |--|--|--|
-| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> | Shows the Windows Security dialog box. |
+| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> | Shows the Windows Security dialog box. Also applicable in fullscreen mode. |
 | <kbd>ALT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE UP</kbd> | Switches between programs from left to right. |
 | <kbd>ALT</kbd>+<kbd>SHIFT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE DOWN</kbd> | Switches between programs from right to left. |
 | <kbd>WINDOWS</kbd> key, or <br /><kbd>CTRL</kbd>+<kbd>ESC</kbd> | <kbd>ALT</kbd>+<kbd>HOME</kbd> | Shows the Start menu. |

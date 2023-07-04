@@ -1,5 +1,5 @@
 ---
-title: Generate a Responsible AI insights in the studio UI
+title: Generate Responsible AI insights in the studio UI
 titleSuffix: Azure Machine Learning
 description: Learn how to generate a Responsible AI insights with no-code experience in the Azure Machine Learning studio UI.
 services: machine-learning

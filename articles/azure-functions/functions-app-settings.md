@@ -288,7 +288,7 @@ Requires that [`FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED`](#function
 
 ## ENABLE\_ORYX\_BUILD
 
-Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build on Linux](functions-deployment-technologies.md#remote-build-on-linux).
+Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 |Key|Sample value|
 |---|------------|
@@ -691,12 +691,12 @@ The previous command requires you to upgrade to version 2.40 of the Azure CLI.
 
 #### Custom images
 
-When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
+When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is instead in the format `DOCKER|<IMAGE_URI>`, as in the following example:
 
 ```
 linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
 ```
-For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+This indicates the registry source of the deployed container. For more information, see [Working with containers and Azure Functions](functions-how-to-custom-container.md).
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 

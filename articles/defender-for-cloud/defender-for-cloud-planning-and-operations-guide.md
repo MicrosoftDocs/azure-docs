@@ -24,7 +24,7 @@ This guide provides the background for how Defender for Cloud fits into your org
 In the next section, you'll learn how to plan for each one of those areas and apply those recommendations based on your requirements.
 
 > [!NOTE]
-> Read [Defender for Cloud frequently asked questions (FAQ)](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
+> Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
 
 ## Security roles and access controls
 
@@ -152,7 +152,7 @@ When automatic provisioning is enabled in the security policy, the [data collect
 If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Log Analytics agent may be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. You can manually uninstall the agent if needed.
 
 > [!NOTE]
-> To find a list of supported VMs, read the [Defender for Cloud frequently asked questions (FAQ)](faq-vms.yml).
+> To find a list of supported VMs, read the [Defender for Cloud common questions](faq-vms.yml).
 
 ### Workspace
 
@@ -244,5 +244,5 @@ In this document, you learned how to plan for Defender for Cloud adoption. Learn
 
 - [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
 - [Monitoring partner solutions with Defender for Cloud](./partner-integration.md) - Learn how to monitor the health status of your partner solutions.
-- [Defender for Cloud FAQ](faq-general.yml) - Find frequently asked questions about using the service.
+- [Defender for Cloud common questions](faq-general.yml) - Find frequently asked questions about using the service.
 - [Azure Security blog](/archive/blogs/azuresecurity/) - Read blog posts about Azure security and compliance.

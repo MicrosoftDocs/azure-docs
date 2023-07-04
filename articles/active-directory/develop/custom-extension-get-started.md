@@ -63,7 +63,7 @@ After the Azure Function app is created, create an HTTP trigger function. The HT
 1. Within your **Function App**, from the menu select **Functions**.
 1. From the top menu, select **+ Create**.
 1. In the **Create Function** window, leave the **Development environment** property as **Develop in portal**, and then select the **HTTP trigger** template.
-1. Under **Template details**, enter *CustomExtensionsAPI* for the **New Function** property.
+1. Under **Template details**, enter *CustomAuthenticationExtensionsAPI* for the **New Function** property.
 1. For the **Authorization level**, select **Function**.
 1. Select **Create**
 

@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/12/2023
+ms.date: 06/22/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -35,6 +35,12 @@ The following code example shows how to create a service SAS for a blob resource
 ## Use a service SAS to authorize a client object
 
 The following code example shows how to use the service SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
+
+First, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object signed with the account access key:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateServiceClientSharedKey":::
+
+Then, generate the service SAS as shown in the earlier example and use the SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseServiceSASBlob":::
 

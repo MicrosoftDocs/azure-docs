@@ -1,10 +1,10 @@
 ---
-author: ElazarK
+author: dcurwin
 ms.service: defender-for-cloud
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 01/24/2023
-ms.author: elkrieger
+ms.author: dacurwin
 ---
 
 ## DevOps recommendations

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text with large language models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia

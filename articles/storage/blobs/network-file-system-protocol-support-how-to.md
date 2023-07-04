@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 06/21/2023
 ms.author: normesta
 ms.reviewer: yzheng
 ---
@@ -96,6 +96,7 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
    > - Centos7, Centos8
    > - RedHat7, RedHat8, RedHat9
    > - Rocky8, Rocky9
+   > - SUSE (SLES 15)
 
 ## Step 6: Mount the container
 
@@ -132,8 +133,10 @@ Create a directory on your Linux system and then mount the container in the stor
      > [!TIP]
      > By using the `-t aznfs` mount option, you ensure that the NFS client always remains correctly connected to the storage endpoint even if the endpoint IP changes after the mount. NFS shares that are mounted by using the `-t nfs` mount option might become disconnected from the storage endpoint if the IP address of that endpoint changes.
 
-> [!NOTE]
-> Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
+     Other optional parameters are available with the mount command. Those parameters primarily affect client-side behavior. `sys` is the only value that is currently supported by the `sec` option.
+
+     > [!IMPORTANT]
+     > The `nconnect` mount option works only on clients that have **Azure nconnect support**. Using the `nconnect` option on an unsupported client will decrease throughput and cause commands to timeout or work incorrectly. To learn more about how to ensure that your client has Azure nconnect support, see [Increase the number of TCP connections](network-file-system-protocol-support-performance.md#increase-the-number-of-tcp-connections). 
 
 ## Resolve common errors
 

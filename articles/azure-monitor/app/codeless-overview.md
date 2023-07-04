@@ -41,11 +41,11 @@ Links are provided to more information for each supported scenario.
 - <a name="Agent">3</a>: An agent must be deployed and configured.
 
 > [!NOTE]
-> Auto-instrumentation was known as "codeless attach" before October 2021.
+> Autoinstrumentation was known as "codeless attach" before October 2021.
 
-## SDK Loader Script injection by configuration
+## JavaScript (Web) SDK Loader Script injection by configuration
 
-If you’re using the following supported SDKs, you can configure the SDK Loader Script to inject from the server-side SDK onto each page.
+If you’re using the following supported SDKs, you can configure the JavaScript (Web) SDK Loader Script to inject from the server-side SDK onto each page.
 
 > [!NOTE]
 > See the linked article for instructions on how to install the server-side SDK.
@@ -54,6 +54,9 @@ If you’re using the following supported SDKs, you can configure the SDK Loader
    |	:---	|	:---	|
    | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
    | Node.js | [Automatic web Instrumentation](./nodejs.md#automatic-web-instrumentationpreview) |
+   | Java | [Browser SDK Loader](./java-standalone-config.md#browser-sdk-loader-preview) |
+
+For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
 
 ## Next steps
 
