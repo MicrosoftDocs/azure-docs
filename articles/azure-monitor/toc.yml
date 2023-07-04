@@ -1393,8 +1393,6 @@ items:
         href: alerts/alerts-prepare-migration.md
       - name: Understand the migration tool
         href: alerts/alerts-understand-migration.md
-      - name: Use the migration tool
-        href: alerts/alerts-using-migration-tool.md
       - name: Automatic migration process
         href: alerts/alerts-automatic-migration.md
       - name: Manage classic metric alerts
