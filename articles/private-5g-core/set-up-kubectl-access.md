@@ -23,7 +23,7 @@ For running read-only *kubectl* commands such as to describe pods and view logs,
 
 The downloaded file is called *config.json*. This file has permission to describe pods and view logs, but not to access pods with *kubectl exec*.
 
-## Diagnostics access
+## Core namespace access
 
 The Azure Private 5G Core deployment uses the *core* namespace. If you need to collect diagnostics, you can download a *kubeconfig* file with full access to the *core* namespace. To do this set up a minishell session and run the necessary commands as directed below.
 
@@ -46,7 +46,7 @@ WinRM may already be enabled on your machine, as you only need to do it once. En
 
 #### Start the minishell session
 
-1. From a PowerShell window, enter the ASE management IP address (including quotation marks, for example `"10.10.5.90"`):
+1. From a PowerShell window in Administrator mode, enter the ASE management IP address (including quotation marks, for example `"10.10.5.90"`):
     ```powershell
    $ip = "<ASE_IP_address>"
    
