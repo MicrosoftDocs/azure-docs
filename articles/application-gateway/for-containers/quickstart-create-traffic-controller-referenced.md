@@ -1,20 +1,25 @@
 ---
 
-title: 'Quickstart: Create Application Gateway for Containers'
+title: 'Quickstart: Create Application Gateway for Containers - Referenced deployment'
 titlesuffix: Azure Application Load Balancer
-description: In this quickstart, you learn how to provision Application Gateway for Containers.
+description: In this quickstart, you learn how to provision Application Gateway for Containers in a referenced configuration.
 services: application-gateway
 author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: quickstart
-ms.date: 5/1/2023
+ms.date: 7/7/2023
 ms.author: greglin
 ---
 
-# Quickstart: Create an Application Gateway for Containers
+# Quickstart: Create an Application Gateway for Containers - Referenced deployment
 
 This document provides instructions on how to deploy the 3 types of resources (Application Gateway for Containers, Association, and Frontend) needed for Application Gateway for Containers to work with your AKS workload, and how to install ALB Controller on your AKS cluster to control the behavior of the Application Gateway for Containers.
+
+The guide assumes you are following a "Referenced" deployment strategy, which assumes lifecycle of the Azure resources are managed indepenently from the resources defined within Kubernetes and referenced at time of Gateway or Ingress configuration.
+
+In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association and Frontend resource is assumed via Azure Portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
+- In Gateway API: Every time you wish to create a new Gateway object in Kuberenetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway object. Deletion of the Frontend resource is responsible by the Azure administrator and will not be deleted when the Gateway object in Kubernetes is deleted.
 
 ## Prerequisites
 
@@ -34,10 +39,8 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	az provider register --namespace Microsoft.NetworkFunction
 	az provider register --namespace Microsoft.ServiceNetworking
 
-	# Register features to enable Workload Identity on AKS.
-	az feature register --name EnableWorkloadIdentityPreview --namespace Microsoft.ContainerService
-	az extension add --name aks-preview
-	az extension update --name aks-preview
+	# Install Azure CLI extensions.
+        az extension add --name alb
 	```
 
 1. **(Optional)** Create an AKS cluster for your workload.
@@ -51,7 +54,8 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	> - North Central US
 	> - North Europe
 	>
-	> Additionally, your AKS cluster must use the [Azure CNI](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md) instead of Kubenet.
+	> AKS cluster should use [Azure CNI](../aks/configure-azure-cni.md).
+        > AKS cluster should have workload identity feature enabled. [Learn how](../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable in use an existing AKS cluster section. 
 
 	```bash
 	AKS_NAME='<your cluster name>'
@@ -71,7 +75,7 @@ You need to complete the following tasks prior to deploying Application Gateway 
 
 2. Delegate a Subnet in the AKS Virtual Network to the Application Gateway for Containers Service.
 
-	Once you have an AKS cluster, identify the Virtual Network to which the agent pool is connected using the following commands:
+	Once you have an AKS cluster, identify the virtual network to which the agent pool is connected using the following commands:
 
 	```bash
 	AKS_NAME='<your cluster name>'
@@ -83,10 +87,10 @@ You need to complete the following tasks prior to deploying Application Gateway 
 	echo $vnetId
 	```
 
-	Once the Virtual Network has been identified, create a new Subnet with at least 120 available addresses and delegate it to the Application Gateway for Containers service with the following command:
+	Once the Virtual Network has been identified, create a new subnet with at least 120 available addresses and delegate it to the Application Gateway for Containers service with the following command (note, the minimum size a subnet should be for an Association should be /24):
 
 	```bash
-	subnetAddressPrefix='<an address space under the vnet that has at least 120 available addresses (/25 or smaller cidr prefix)>'
+	subnetAddressPrefix='<an address space under the vnet that has at least 120 available addresses (/24 or smaller cidr prefix for the subnet)>'
 	albSubnetName='alb-subnet' # subnet name can be any non-reserved subnet name (i.e. GatewaySubnet, AzureFirewallSubnet, AzureBastionSubnet would all be invalid)
 	az network vnet subnet create \
 		--resource-group $vnetResourceGroup \
@@ -172,8 +176,9 @@ You need to complete the following tasks prior to deploying Application Gateway 
     kubectl get pods -n azure-alb-system
     ```
     You should see the following:
-    - 1 alb-controller pod with status **Running** and 1/1 **Ready**
-    - 1 alb-controller-bootstrap pod with status **Running** and 1/1 **Ready**
+    | NAME                                     | READY | STATUS  | RESTARTS | AGE
+    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h
+    | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h
 
 2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
@@ -185,12 +190,6 @@ You need to complete the following tasks prior to deploying Application Gateway 
 ## Link your ALB Controller to Application Gateway for Containers
 
 Now that you have successfully installed a ALB Controller on your cluster you can link it to an existing Application Gateway For Containers resource by defining a gateway object. You can specify the Application Gateway For Containers resource you wish for the gateway to connect to by adding the Frontend resource ID in the spec.Address section of the gateway object.
-
-> **Note**
->
-> You may see the following warning, which may safely be ignored:
-> 
-> _Warning: resource applicationlbparams/default is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply._
 
 ## Test it out!
 
@@ -209,5 +208,5 @@ Congratulations, you have installed ALB Controller on your cluster!
 	```bash
 	 helm uninstall alb-controller -n azure-alb-system
 	 kubectl delete ns azure-alb-system
- 	 kubectl delete gatewayclass azure-alb-external
+	 kubectl delete gatewayclass azure-alb-external
 	```
