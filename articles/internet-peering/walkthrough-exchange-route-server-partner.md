@@ -1,6 +1,6 @@
 ---
-title: Internet peering for Exchange Route Server walkthrough
-description: Learn about Internet peering for Exchange Route Server, its requirements, the steps to establish direct interconnect, and how to register your ASN and activate a prefix with Microsoft Azure Peering Service.
+title: Internet peering for Exchange with Route Server walkthrough
+description: Learn about Internet peering for Exchange with Route Server, its requirements, the steps to establish direct interconnect, and how to register your ASN and activate a prefix with Microsoft Azure Peering Service.
 services: internet-peering
 author: jsaraco
 ms.service: internet-peering
@@ -10,19 +10,19 @@ ms.author: jsaraco
 ms.custom: template-how-to
 ---
 
-# Internet peering for Exchange Route Server walkthrough
+# Internet peering for Exchange with Route Server walkthrough
 
-In this article, you learn steps to establish a Direct interconnect between a Exchange Route Server Provider and Microsoft.
+In this article, you learn steps to establish a Direct interconnect between a Exchange with Route Server Provider and Microsoft.
 
-**Exchange Route Server Providers** are the organizations that offer... (need to fill in)
+**Exchange with Route Server Providers** are the organizations that offer... (need to fill in)
 
 Internet peering supports internet exchange partners (IXPs) to establish direct interconnect with Microsoft at any of its edge sites (POP locations). The list of all the public edges sites is available in [PeeringDB](https://www.peeringdb.com/net/694).
 
 Internet peering provides highly reliable and QoS (Quality of Service) enabled interconnect for IXPs to ensure high quality and performance centric services.
 
-The following flowchart summarizes the process to onboard to Exchange Route Server:
+The following flowchart summarizes the process to onboard to Exchange with Route Server:
 
-:::image type="content" source="media/walkthrough-peering-services-partner/peering-services-partner-onboarding-flowchart.png" alt-text="Flowchart summarizing the onboarding process for Exchange Route Server partners" :::
+:::image type="content" source="media/walkthrough-peering-services-partner/peering-services-partner-onboarding-flowchart.png" alt-text="Flowchart summarizing the onboarding process for Exchange with Route Server partners" :::
 
 ## Technical Requirements
 
@@ -39,7 +39,7 @@ To establish direct interconnect for Communication Services, follow these requir
 -	The Peer MUST NOT terminate peering on a device running a stateful firewall. 
 -	Microsoft configures all the interconnect links as LAG (link bundles) by default, so, peer MUST support LACP (Link Aggregation Control Protocol) on the interconnect links.
 
-## Establish Direct Interconnect with Microsoft for Exchange Route Server
+## Establish Direct Interconnect with Microsoft for Exchange with Route Server
 
 To establish a direct interconnect with Microsoft using Internet peering, follow the following steps:
 
@@ -47,9 +47,9 @@ To establish a direct interconnect with Microsoft using Internet peering, follow
 
 Follow the instructions here: [Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md). If the ASN has already been associated, proceed to the next step.
 
-### 2. Create a Exchange Route Server peering
+### 2. Create an Exchange with Route Server peering
 
-To create a peering resource for Exchange Route Server, search for **Peerings** in the Azure portal, and click on it:
+To create an Exchange with Route Server peering resource, search for **Peerings** in the Azure portal, and click on it:
 
 :::image type="content" source="./media/create-maps-peering-search.png" alt-text="Azure portal search for Peering resources" :::
 
@@ -70,20 +70,20 @@ In the Configuration form, you MUST choose:
 * **AS8075 (with exchange route server)** as the Microsoft network
 * **Premium Free** as the SKU
 
-These are mandatory configurations when creating a peering for Exchange Route Server.
+These are mandatory configurations when creating a peering for Exchange with Route Server.
 
-:::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-maps-ixrs-peering-config.png" alt-text="Configure the peering for Exchange Route Server" :::
+:::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-maps-ixrs-peering-config.png" alt-text="Configure the peering for Exchange with Route Server" :::
 
 In the peering connections section, click Create new to add a connection to your peering.
 
 :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-maps-ixrs-bgp-session.png" alt-text="Configure a peering connection" :::
 
-Peering connections for Exchange Route Server MUST have **Peer** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically.
+Peering connections for Exchange with Route Server MUST have **Peer** as the Session Address Provider, and **Use for Peering Service** enabled. These options are chosen for you automatically.
 
 Before finalizing your Peering, make sure the peering has at least one connection.
 
 > [!NOTE] 
-> A two-link BGP mesh is formed for an Exchange Route Server peering even if a single connection is configured. Do NOT create a second connection if a two-link mesh is what's desired.
+> A two-link BGP mesh is formed for an Exchange with Route Server peering even if a single connection is configured. Do NOT create a second connection if a two-link mesh is what's desired.
   
 When you have finished configuring your peering, move on to Review + create. If you have configured it correctly, the resource will pass validation. Click Create to deploy the resource.
 
@@ -95,7 +95,7 @@ Allow time for the resource to finish deploying. When deployment is successful, 
 
 ## Configure optimized routing for your prefixes
 
-To get optimized routing for your prefixes with your Exchange Route Server interconnects, follow these instructions:
+To get optimized routing for your prefixes with your Exchange with Route Server interconnects, follow these instructions:
 
 ### 1. Register your ASN
 
@@ -104,7 +104,7 @@ Before prefixes can be optimized, your ASN must be registered.
 > [!NOTE] 
 > The Connection State of your peering connections must be **Active** before registering your ASN.
 
-Open your Exchange Route Server peering in the Azure portal, and click on **Registered ASNs**:
+Open your Exchange with Route Server peering in the Azure portal, and click on **Registered ASNs**:
 
 :::image type="content" source="./media/setup-exchange-registered-asn.png" alt-text="Peering page in Azure portal with Registered ASNs button highlighted" :::
 
