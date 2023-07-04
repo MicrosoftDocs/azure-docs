@@ -43,7 +43,7 @@ To use Lab Services for your hackathon, ensure that both lab plan and your lab a
 
 - **Set VM capacity according to number of participants**.
 
-    Ensure that your lab virtual machine capacity is set based on the number of participants you expect at your hackathon. When you publish the template virtual machine, it can take several hours to create all of the lab virtual machines. It's recommended that you create the lab and lab VMs well in advance of the start of the hackathon. For more information, see [Set lab capacity](how-to-manage-vm-pool.md#set-lab-capacity).
+    Ensure that your lab virtual machine capacity is set based on the number of participants you expect at your hackathon. When you publish the template virtual machine, it can take several hours to create all of the lab virtual machines. It's recommended that you create the lab and lab VMs well in advance of the start of the hackathon. For more information, see [Set lab capacity](how-to-manage-vm-pool.md#change-lab-capacity).
 
 - **Decide whether to restrict lab access**.
 
