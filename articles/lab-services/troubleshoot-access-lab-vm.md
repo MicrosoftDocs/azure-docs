@@ -61,7 +61,7 @@ The lab VM might be malfunctioning as a result of installing a software componen
 
 1. If the lab VM uses Windows, you might use the Windows System Restore built-in functionality to undo a previous change to the operating system. Verify with an educator or IT admin how to use [System Restore](https://support.microsoft.com/windows/use-system-restore-a5ae3ed9-07c4-fd56-45ee-096777ecd14e).
 
-1. If the lab VM is still in an incorrect state, [reset the lab VM](./how-to-reset-and-redeploy-vm.mdreset-lab-vms).
+1. If the lab VM is still in an incorrect state, [reset the lab VM](./how-to-reset-and-redeploy-vm.md#reset-vms).
 
     > [!IMPORTANT]
     > Resetting a lab VM deletes the user data in the VM. Make sure to [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
