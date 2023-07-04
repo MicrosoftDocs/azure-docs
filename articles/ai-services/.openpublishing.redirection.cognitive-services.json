@@ -1416,11 +1416,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/Content-Moderator/facebook-post-moderation.md",
-            "redirect_url": "/azure/ai-services/Content-Moderator/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cognitive-services/Content-Moderator/FAQs.md",
             "redirect_url": "/azure/ai-services/content-moderator/overview",
             "redirect_document_id": false
