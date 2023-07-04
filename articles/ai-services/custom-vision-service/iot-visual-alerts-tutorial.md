@@ -73,7 +73,7 @@ Follow these steps to get the IoT Visual Alerts app running on your PC or IoT de
     1. Update the `targetCVSProjectGuid` variable with the corresponding ID of the Custom Vision project that you want to use. 
 1. Set up the IoT Hub resource:
     1. In the _IoTHub\IotHubWrapper.cs_ script, update the `s_connectionString` variable with the proper connection string for your device. 
-    1. On the Azure portal, load your IoT Hub instance, click on **IoT devices** under **Explorers**, select on your target device (or create one if needed), and find the connection string under **Primary Connection String**. The string will contain your IoT Hub name, device ID, and shared access key; it has the following format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`.
+    1. On the Azure portal, load your IoT Hub instance, select **IoT devices** under **Explorers**, select on your target device (or create one if needed), and find the connection string under **Primary Connection String**. The string will contain your IoT Hub name, device ID, and shared access key; it has the following format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`.
 
 ## Run the app
 

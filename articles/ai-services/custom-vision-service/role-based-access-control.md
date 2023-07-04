@@ -19,7 +19,7 @@ Custom Vision supports Azure role-based access control (Azure RBAC), an authoriz
 
 Azure RBAC can be assigned to a Custom Vision resource. To grant access to an Azure resource, you add a role assignment.
 1. In the [Azure portal](https://portal.azure.com/), select **All services**. 
-1. Then select the **Azure AI services**, and navigate to your specific Custom Vision training resource.
+1. Then select **Azure AI services**, and navigate to your specific Custom Vision training resource.
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item (for example, selecting **Resource groups** and then clicking through to your wanted resource group).
 1. Select **Access control (IAM)** on the left navigation pane.
@@ -36,8 +36,8 @@ Use the following table to determine access needs for your Custom Vision resourc
 
 |Role  |Permissions  |
 |---------|---------|
-|`Azure AI services Custom Vision Contributor`     | Full access to the projects, including the ability to create, edit, or delete a project.        |
-|`Azure AI services Custom Vision Trainer`     | Full access except the ability to create or delete a project. Trainers can view and edit projects and train, publish, unpublish, or export the models.        |
-|`Azure AI services Custom Vision Labeler`     | Ability to upload, edit, or delete training images and create, add, remove, or delete tags. Labelers can view projects but can't update anything other than training images and tags.         |
-|`Azure AI services Custom Vision Deployment`     | Ability to publish, unpublish, or export the models. Deployers can view projects but can't update a project, training images, or tags.        |
-|`Azure AI services Custom Vision Reader`     | Ability to view projects. Readers can't make any changes.        |
+|`Cognitive Services Custom Vision Contributor`     | Full access to the projects, including the ability to create, edit, or delete a project.        |
+|`Cognitive Services Custom Vision Trainer`     | Full access except the ability to create or delete a project. Trainers can view and edit projects and train, publish, unpublish, or export the models.        |
+|`Cognitive Services Custom Vision Labeler`     | Ability to upload, edit, or delete training images and create, add, remove, or delete tags. Labelers can view projects but can't update anything other than training images and tags.         |
+|`Cognitive Services Custom Vision Deployment`     | Ability to publish, unpublish, or export the models. Deployers can view projects but can't update a project, training images, or tags.        |
+|`Cognitive Services Custom Vision Reader`     | Ability to view projects. Readers can't make any changes.        |
