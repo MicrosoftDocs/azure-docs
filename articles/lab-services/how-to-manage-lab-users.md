@@ -170,11 +170,13 @@ To view the list of lab users that have already registered for the lab by using 
 
 # [Azure AD group](#tab/aad)
 
-You can sync a lab user list to an existing Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings.
+You can manage the lab user list by synchronizing the lab with an Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings. Add or remove users in Teams or Canvas to assign or remove access for a user to a lab VM.
 
 You can create an Azure AD group within your organization's Azure AD to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization already has admins who manage your Azure Active Directory.
 
-### Sync users with Azure AD group
+Lab users don't have to register for their lab and a lab VM is automatically assigned. Lab users can [access the lab directly from the Azure Lab Services website](./how-to-access-lab-virtual-machine.md).
+
+### Synchronize the lab user list with Azure AD group
 
 When you sync a lab with an Azure AD group, Azure Lab Services pulls all users inside the Azure AD group into the lab as lab users. Only people in the Azure AD group have access to the lab. The user list automatically refreshes every 24 hours to match the latest membership of the Azure AD group. You can also manually synchronize the list of lab users at any time.
 
@@ -202,8 +204,6 @@ To sync a lab with an existing Azure AD group:
     Azure Lab Services automatically pulls the list of users from Azure AD, and refreshes the list every 24 hours.
 
     Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Azure AD group.
-    
-Lab users are autoregistered to the lab and VMs are automatically assigned when the VM pool syncs with the Azure AD group. Educators don't need to send invitations and students don't need to register for the lab separately.    
 
 ### Automatic VM management based on Azure AD group
 
@@ -215,18 +215,20 @@ You can't manually add or remove lab users, or update the lab capacity when sync
 
 # [Teams/Canvas](#tab/teams-canvas)
 
-When you use Teams or Canvas, Azure Lab Services automatically grants users access to the lab based on their membership in Microsoft or Canvas. In this case, you can't update the lab user list manually. Add or remove users in Teams or Canvas to assign a lab VM to a user or remove access.
+When you create a lab in Teams or Canvas, Azure Lab Services automatically grants users access to the lab based on their membership in Teams or Canvas. When you use Teams or Canvas, you can't manually add or delete users in the lab settings. Add or remove users in Teams or Canvas to assign or remove access for a user to a lab VM.
 
-Lab users don't have to register for their lab and can [access the lab directly from within Teams or Canvas](./how-to-access-lab-virtual-machine.md).
-
-Azure Lab Services automatically synchronizes the membership information with the lab user list every 24 hours. Lab creators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
-
-:::image type="content" source="./media/how-to-manage-lab-users/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Canvas.":::
+Lab users don't have to register for their lab and a lab VM is automatically assigned. Lab users can [access the lab directly from within Teams or Canvas](./how-to-access-lab-virtual-machine.md).
 
 Before you can use labs in Teams or Canvas:
 
 - [Configure Teams for using Azure Lab Services](./how-to-configure-teams-for-lab-plans.md)
 - [Configure Canvas for using Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md)
+
+### Synchronize the lab user list with Teams/Canvas
+
+Azure Lab Services automatically synchronizes the membership information with the lab user list every 24 hours. Lab creators can select **Sync** in the **Users** tab to manually trigger a sync, for example when the team membership is updated.
+
+:::image type="content" source="./media/how-to-manage-lab-users/sync-users.png" alt-text="Screenshot that shows how to manually sync users with Azure Lab Services in Canvas.":::
 
 ### Automatic VM management based on Teams/Canvas membership
 
