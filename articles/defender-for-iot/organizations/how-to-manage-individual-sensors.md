@@ -238,6 +238,9 @@ This procedure describes how to turn off learning mode manually if you feel that
 
 You may want to change the interfaces used by your sensor to monitor traffic. You'd originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance.
 
+> [!NOTE]
+> This procedure restarts your sensor software to implement any changes made.
+
 **To update your sensor's monitoring interfaces**:
 
 1. Sign into your OT sensor and select **System settings** > **Basic** > **Interface connections**.
@@ -261,7 +264,10 @@ You may want to change the interfaces used by your sensor to monitor traffic. Yo
 
 1. Select **Save** to save your changes.
 
-<!--do we need to reboot the sensor after changes?-->
+1. When prompted select **Start reboot** to restart your sensor software and implement your changes.  Select **Cancel** if you want to wait for the restart, and restart manually later on. 
+
+    For more information, see [Restart an appliance](cli-ot-sensor.md#restart-an-appliance).
+
 
 ## Synchronize time zones on an OT sensor
 
