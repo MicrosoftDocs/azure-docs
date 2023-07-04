@@ -153,6 +153,7 @@ After you create a peering service prefix, it will be queued for validation. The
 For a peering service prefix to become validated, the following checks MUST pass:
 
 * The prefix can't be in a private range
+* The origin ASN must be registered in a major routing registry
 * The prefix key in the peering service prefix must match the prefix key of your registered ASN
 * All primary and backup sessions (if configured) must advertise routes for the prefix
 * Routes must be advertised with the MAPS community string 8075:8007

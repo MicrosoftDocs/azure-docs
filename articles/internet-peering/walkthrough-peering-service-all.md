@@ -128,6 +128,7 @@ After you create a registered prefix, it will be queued for validation. The vali
 For a registered prefix to become validated, the following checks must pass:
 
 * The prefix can't be in a private range
+* The origin ASN must be registered in a major routing registry
 * All connections in the parent peering must advertise routes for the prefix
 * Routes must be advertised with the MAPS community string 8075:8007
 * AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs
@@ -173,6 +174,7 @@ After you create a peering service prefix, it will be queued for validation. The
 For a peering service prefix to become validated, the following checks MUST pass:
 
 * The prefix can't be in a private range
+* The origin ASN must be registered in a major routing registry
 * The prefix must be registered, and the prefix key in the peering service prefix must match the prefix key of the corresponding registered prefix
 * All primary and backup sessions (if configured) must advertise routes for the prefix
 * Routes must be advertised with the MAPS community string 8075:8007

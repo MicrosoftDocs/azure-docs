@@ -19,6 +19,7 @@ Ensure the prerequisites in this document are met before you activate your prefi
 For a registered prefix to be validated after creation, the following checks must pass:
 
 * The prefix can't be in a private range
+* The origin ASN must be registered in a major routing registry
 * The peering service prefix key in the peering service prefix must match the prefix key received during registration
 * The primary and backup sessions (if configured) must advertise routes for the prefix
 * Routes must be advertised with the MAPS community string 8075:8007
