@@ -157,6 +157,14 @@ The creation of the Kubernetes cluster takes about 20 minutes. During creation, 
 
 Once deployed, the portal should show  **Kubernetes service is running** on the overview page.
 
+## Set up kubectl access
+
+You'll need *kubectl* access to verify that the cluster has deployed successfully. For read-only *kubectl* access to the cluster, you can download a *kubeconfig* file from the ASE local UI. Under **Device**, select **Download config**.
+
+:::image type="content" source="media/set-up-kubectl/commission-cluster-kubernetes-download-config.png" alt-text="Screenshot of Kubernetes dashboard showing link to download config.":::
+
+The downloaded file is called *config.json*. This file has permission to describe pods and view logs, but not to access pods with *kubectl exec*.
+
 ## Set up portal access
 
 Open your **Azure Stack Edge** resource in the Azure portal. Go to the Azure Kubernetes Service pane (shown in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc)) and select the **Manage** link to open the **Arc** pane.
@@ -287,7 +295,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 
-You should see the new **Custom location** visible as a resource in the Azure portal within the specified resource group.
+You should see the new **Custom location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
 
 ## Rollback
 
