@@ -1,13 +1,13 @@
 ---
 
-title: Bulk invite guest users for B2B collaboration tutorial
+title: Tutorial: Bulk invite guest users for B2B collaboration
 description: In this tutorial, you learn how to send bulk invitations using a CSV file to external Azure AD B2B collaboration users. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 07/04/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -29,13 +29,9 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 > * Upload the .csv file to Azure AD
 > * Verify the users were added to the directory
 
-If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-
 ## Prerequisites
-
-You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
-
+- If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
 
 ## Invite guest users in bulk
 
