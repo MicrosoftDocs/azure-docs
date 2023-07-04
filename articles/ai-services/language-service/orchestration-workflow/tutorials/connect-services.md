@@ -33,12 +33,12 @@ This tutorial will include creating a **chit chat** knowledge base and **email c
 
 1. Sign into the [Language Studio](https://language.cognitive.azure.com/) and select your Language resource. 
 2. Find and select the [Custom question answering](https://language.cognitive.azure.com/questionAnswering/projects/) card in the homepage.
-3. Click on **Create new project** and add the name **chitchat** with the language _English_ before clicking on **Create project**.
-4. When the project loads, click on **Add source** and select _Chit chat_. Select the professional personality for chit chat before
+3. Select **Create new project** and add the name **chitchat** with the language _English_ before clicking on **Create project**.
+4. When the project loads, select **Add source** and select _Chit chat_. Select the professional personality for chit chat before
     
     :::image type="content" source="../media/chit-chat.png" alt-text="A screenshot of the chit chat popup." lightbox="../media/chit-chat.png":::
     
-5. Go to **Deploy knowledge base** from the left navigation menu and click on **Deploy** and confirm the popup that shows up.
+5. Go to **Deploy knowledge base** from the left navigation menu and select **Deploy** and confirm the popup that shows up.
 
 You are now done with deploying your knowledge base for chit chat. You can explore the type of questions and answers to expect in the **Edit knowledge base** page.
 
@@ -50,7 +50,7 @@ You are now done with deploying your knowledge base for chit chat. You can explo
     
     :::image type="content" source="../media/import-export.png" alt-text="A screenshot showing where to import a J son file." lightbox="../media/import-export.png":::
     
-4. Once the project is loaded, click on **Training jobs** on the left. Press on Start a training job, provide the model name **v1** and press Train.
+4. Once the project is loaded, select **Training jobs** on the left. Press on Start a training job, provide the model name **v1** and press Train.
     
     :::image type="content" source="../media/train-model.png" alt-text="A screenshot of the training page." lightbox="../media/train-model.png":::
     
@@ -63,8 +63,8 @@ You are now done with deploying a conversational language understanding project 
 ## Create an Orchestration workflow project 
 
 1. In Language Studio, go to the [Orchestration workflow](https://language.cognitive.azure.com/orchestration/projects) service.
-2. Click on **Create new project**. Use the name **Orchestrator** and the language _English_ before clicking next then done.
-3. Once the project is created, click on **Add** in the **Schema definition** page. 
+2. Select **Create new project**. Use the name **Orchestrator** and the language _English_ before clicking next then done.
+3. Once the project is created, select **Add** in the **Schema definition** page. 
 4. Select _Yes, I want to connect it to an existing project_. Add the intent name **EmailIntent** and select **Conversational Language Understanding** as the connected service. Select the recently created **EmailProject** project for the project name before clicking on **Add Intent**. 
 
 :::image type="content" source="../media/connect-intent-tutorial.png" alt-text="A screenshot of the connect intent popup in orchestration workflow." lightbox="../media/connect-intent-tutorial.png":::

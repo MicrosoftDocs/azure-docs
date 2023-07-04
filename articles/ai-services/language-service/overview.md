@@ -218,7 +218,7 @@ This section will help you decide which Language service feature you should use 
 
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 
-Azure Cognitive Services for Language unifies three individual language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
+Azure Cognitive Services for Language unifies three individual Language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
 
 ## Tutorials
 
