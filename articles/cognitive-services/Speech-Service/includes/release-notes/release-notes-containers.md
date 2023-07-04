@@ -14,7 +14,7 @@ Add support for the latest model versions:
 
 On-premises speech to text images are upgraded to .NET 6.0
 Upgrade display models for locales including `en-us`, `ar-eg`, `ar-bh`, `ja-jp`, `ko-kr`, and more.
-Upgrade STT container component to address vulnerability issues
+Upgrade the speech to text container component to address vulnerability issues.
 
 Add support for locale voices `de-DE-AmalaNeural`,`de-AT-IngridNeural`,`de-AT-JonasNeural`, and `en-US-JennyMultilingualNeural`
 
