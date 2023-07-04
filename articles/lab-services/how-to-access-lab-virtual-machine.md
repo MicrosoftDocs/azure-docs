@@ -49,31 +49,11 @@ Azure Lab Services supports different email account types when registering for a
 
 #### Use a non-Microsoft email account
 
-You can use non-Microsoft email accounts to register and sign in to a lab.  However, the registration requires that you first create a Microsoft account that's linked to your non-Microsoft email address.
-
-You might already have a Microsoft account that's linked to your non-Microsoft email address. For example, users already have a Microsoft account if you've used this email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.
-
-When you use the lab registration link to sign into a lab, you're prompted for your email address and password. If you sign in with a non-Microsoft account that's not linked to a Microsoft account, you receive the following error message:
-
-:::image type="content" source="./media/how-to-access-lab-virtual-machine/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-access-lab-virtual-machine/cant-find-account.png":::
-
-Follow these steps to [sign up for a new Microsoft account](https://signup.live.com).
+[!INCLUDE [Use non-Microsoft account](./includes/lab-services-non-microsoft-account.md)]
 
 #### Use a GitHub account
 
-You can use an existing GitHub account to register and sign into a lab. If you already have a Microsoft account that's linked to your GitHub account, you can sign in and continue the lab registration process.
-
-To link your GitHub account to a Microsoft account:
-
-1. Select the **Sign-in options** link:
-
-    :::image type="content" source="./media/how-to-access-lab-virtual-machine/signin-options.png" alt-text="Screenshot that shows the Microsoft sign in window, highlighting the Sign-in options link.":::
-
-1. In the **Sign-in options** window, select **Sign in with GitHub**.
-
-    :::image type="content" source="./media/how-to-access-lab-virtual-machine/signin-github.png" alt-text="Screenshot that shows the Microsoft sign-in options window, highlighting the option to sign in with GitHub.":::
-
-    At the prompt, you then create a Microsoft account that's linked to your GitHub account. The linking happens automatically when you select **Next**. You're then immediately signed in and connected to the lab.
+[!INCLUDE [Use GitHub account](./includes/lab-services-github-account.md)]
 
 # [Teams](#tab/teams)
 
