@@ -239,11 +239,11 @@ You can use a CNAME record to map a custom DNS name to Azure Spring Apps.
 Go to your DNS provider and add a CNAME record to map your domain to the `<service-name>.azuremicroservices.io`. Here, `<service-name>` is the name of your Azure Spring Apps instance. We support wildcard domain and sub domain.
 After you add the CNAME, the DNS records page resembles the following example:
 
-:::image type="content" source="./media/how-to-custom-domain/dns-records.png" alt-text="Screenshot of a DNS records page.":::
+:::image type="content" source="./media/how-to-custom-domain/dns-records.png" alt-text="Screenshot of a DNS records page." lightbox="./media/how-to-custom-domain/dns-records.png":::
 
 ## Map your custom domain to Azure Spring Apps app
 
-If you don't have an application in Azure Spring Apps, follow the instructions in [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md).
+If you don't have an application in Azure Spring Apps, follow the instructions in [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 #### [Azure portal](#tab/Azure-portal)
 
