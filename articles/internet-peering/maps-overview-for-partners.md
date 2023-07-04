@@ -42,15 +42,13 @@ Microsoft ensures that the traffic for the prefixes registered with a Peering Se
 
 ## Types of Peering Service connections
 
-To become an Azure Peering Service partner, you must request a direct peering interconnect with Microsoft. They come in four types depending on your use case.
+To become an Azure Peering Service partner, you must request a direct peering interconnect with Microsoft. They come in three types depending on your use case.
 
 A **Peering Service** peering is a generic direct peering interconnect enabled for Peering Service.
 
 A **Communications Services** peering is enabled for Peering Service and optimized for communication services (messaging, conferencing, and other communications services). This type allows you to integrate your communications services infrastructure (SBC, SIP gateways, and other infrastructure device) with Azure Communication Services and Microsoft Teams.
 
-An **Exchange** peering is enabled for Peering Service and is made for Internet Exchange (IX) providers.
-
-An **Exchange with Route Server** peering is enabled for Peering Service and is made for Internet Exchange (IX) providers. It is similar to the Exchange type, but configured with a route server.
+An **Exchange with Route Server** peering is enabled for Peering Service and is made for Internet Exchange (IX) providers who require a route server configured.
 
 ## Why use Peering Service?
 
