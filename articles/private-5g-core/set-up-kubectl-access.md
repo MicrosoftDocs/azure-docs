@@ -66,7 +66,7 @@ WinRM may already be enabled on your machine, as you only need to do it once. En
    Support could result in an unsupported configuration.
     ```
 
-You now have a minishell session set up ready to enable your Azure Kubernetes Service in the next step.
+You now have a minishell session set up ready to obtain the *kubeconfig* file in the next step.
 
 > [!TIP]
 > If there is a network change, the session can break. Run `Get-PSSession` to view the state of the session.  If it is still connected, you should still be able to run minishell commands. If it is broken or disconnected, run `Remove-PSSession` to remove the session locally, then start a new session.
