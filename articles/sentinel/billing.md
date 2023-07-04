@@ -169,6 +169,7 @@ This table shows how Microsoft Sentinel and Log Analytics costs appear in the **
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `sentinel` |**Free trial Analysis**|
 | M365 Defender Benefit – Data Ingestion| `azure monitor` |**Free Benefit - M365 Defender Data Ingestion**|
 | M365 Defender Benefit – Data Analysis| `sentinel` |**Free Benefit - M365 Defender Analysis**|
+
 ---
 ---
 
