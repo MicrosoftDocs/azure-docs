@@ -2,7 +2,7 @@
 title: AKS-managed Azure Active Directory integration
 description: Learn how to configure Azure AD for your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
-ms.date: 06/09/2023
+ms.date: 07/0/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -29,6 +29,9 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 * This configuration requires you have an Azure AD group for your cluster. This group is registered as an admin group on the cluster to grant admin permissions. If you don't have an existing Azure AD group, you can create one using the [`az ad group create`](/cli/azure/ad/group#az_ad_group_create) command.
 
 ## Enable AKS-managed Azure AD integration on your AKS cluster
+
+> [!NOTE]
+> `--aad-admin-group-object-ids` is not required for AKS-managed Azure AD integration. On clusters with Azure AD integration enabled, users assigned to an Azure AD administrators group specified by `--aad-admin-group-object-ids` can still gain access using non-administrator credentials. On clusters with Azure AD integration enabled and `properties.disableLocalAccounts` set to `true`, any attempt to authenticate with user or admin credentials will fail.
 
 ### Create a new cluster
 
@@ -84,7 +87,11 @@ A successful activation of an AKS-managed Azure AD cluster has the following sec
 
 ### Upgrade a legacy Azure AD cluster to AKS-managed Azure AD integration
 
-If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration with no downtime using the [`az aks update`][az-aks-update] command.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD integration using the [`az aks update`][az-aks-update] command.
+
+> [!WARNING]
+> You may experience API server downtime during the upgrade. It's recommended to upgrade during your non-business hours 
+> After the upgrade, the kubeconfig file changes. You need to run `az aks get-credentials --resource-group <AKS resource group name> --name <AKS cluster name>` to get the new kubeconfig file.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
