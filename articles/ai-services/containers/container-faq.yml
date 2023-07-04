@@ -98,7 +98,7 @@ sections:
 
           * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#billing)
           * [Azure AI Vision](../computer-vision/computer-vision-how-to-install-containers.md) 
-          * [Face](../face/overview.md)
+          * [Face](../computer-vision/overview-identity.md)
           * [Document Intelligence](../../ai-services/document-intelligence/containers/form-recognizer-container-install-run.md#billing)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)
           * [Speech service](../speech-service/speech-container-overview.md#billing)
@@ -147,7 +147,7 @@ sections:
 
           * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations)
           * [Azure AI Vision](../computer-vision/computer-vision-how-to-install-containers.md)
-          * [Face](../face/overview.md)
+          * [Face](../computer-vision/overview-identity.md)
           * [Document Intelligence](../../ai-services/document-intelligence/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)
