@@ -262,11 +262,7 @@ You may want to change the interfaces used by your sensor to monitor traffic. Yo
         |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
         |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 
-1. Select **Save** to save your changes.
-
-1. When prompted select **Start reboot** to restart your sensor software and implement your changes.  Select **Cancel** if you want to wait for the restart, and restart manually later on. 
-
-    For more information, see [Restart an appliance](cli-ot-sensor.md#restart-an-appliance).
+1. Select **Save** to save your changes. Your sensor software restarts to implement your changes.
 
 
 ## Synchronize time zones on an OT sensor
