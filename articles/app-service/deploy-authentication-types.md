@@ -31,7 +31,7 @@ Azure App Service lets you deploy your web application code and configuration by
 |External Git repository|Publish profile |[Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps) |
 |Run directly from an uploaded ZIP file |Azure AD authentication |[Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md) |
 |Run directly from external URL |Storage Account Key, Managed Identity | [Run from external URL instead](deploy-run-package.md#run-from-external-url-instead) |
-|Publish Java web app with the Azure Web app plugin for Maven |Azure AD authentication |[Quickstart: Create a Java app on Azure App Service](quickstart-java.md) |
+|Publish Java web app with the Azure Web app plugin for Maven |Azure AD authentication |[Quickstart: Create a Java app on Azure App Service](quickstart-java.md)|
 |Publish Java web app with Azure WebApp Plugin for Gradle |Basic authentication |[Configure a Java app for Azure App Service](configure-language-java.md)|
 |Continuous deployments using webhooks |Publish profile |[Web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) |
 |App Service migration assistant |Basic authentication |[Azure App Service migration tools](https://azure.microsoft.com/products/app-service/migration-tools/) |
