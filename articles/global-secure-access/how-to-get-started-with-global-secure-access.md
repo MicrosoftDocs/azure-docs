@@ -24,6 +24,14 @@ A working Microsoft Entra ID tenant with the appropriate license is required. If
 
 There may be limitations with some features of the Global Secure Access preview, which are defined in the associated articles. 
 
+## Access the Microsoft Entra admin center
+
+Global Secure Access (preview) is part of the Microsoft Entra admin center. 
+
+- Go to [**https://entra.microsoft.com**](https://entra.microsoft.com/).
+
+If you encounter access issues, refer to this [FAQ regarding tenant restrictions](resource-faq.yml).
+
 ## Microsoft Entra Internet Access
 
 Microsoft Entra Internet Access isolates the traffic for Microsoft 365 applications and resources, such as Exchange Online and SharePoint Online. Users can access these resources by connecting to the Global Secure Access Client or through a remote network, such as in a branch office location.

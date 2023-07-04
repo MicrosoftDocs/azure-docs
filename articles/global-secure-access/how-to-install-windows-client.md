@@ -46,6 +46,8 @@ The most current version of the Global Secure Access Client can be downloaded fr
 1. Browse to **Global Secure Access (Preview)** > **Devices** > **Clients**.
 1. Select **Download**.
 
+    ![Screenshot of the download Windows client button.](media/how-to-install-windows-client/client-download-screen.png)
+    
 ## Install the client
 
 Organizations can install the client interactively, silently with the `/quiet` switch, or use mobile device management platforms like [Microsoft Intune to deploy it](/mem/intune/apps/apps-win32-app-management) to their devices.
