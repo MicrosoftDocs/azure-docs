@@ -23,7 +23,6 @@ Ensure that you have write permissions to create or modify a schedule for a dyna
 ## Key benefits
 
 - You can now have a simplified patching process for your VMs and reuse the schedule. [Learn more](dynamic-scope-overview.md#key-benefits).
-- 
 
 ## Prerequisites
 
