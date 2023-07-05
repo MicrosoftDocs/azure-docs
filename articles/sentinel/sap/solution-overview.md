@@ -82,7 +82,7 @@ The solution's data connector retrieves a wide variety of SAP Log Sources:
 
 ## Certification
 
-Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premise. 
+Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premises. 
 
 - The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4). 
 - Our certification includes S/4 and SAP Rise S/4 HANA® Cloud Private Edition running in any cloud and on-premises.  
