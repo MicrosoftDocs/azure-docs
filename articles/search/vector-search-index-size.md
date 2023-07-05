@@ -19,7 +19,7 @@ When you index documents with vector fields, Azure Cognitive Search constructs i
 
 ## Key points about vector size limits
 
-The size of vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+The size of vector indexes is measured in bytes. The size constraints are based on memory reserved for vector search, but also have implications for storage at the service level. Size constraints vary by service tier (or SKU).
 
 The service enforces a vector index size quota **for every partition** in your search service, where the quota varies by tier and also by service creation date (see [Vector index size limits](search-limits-quotas-capacity.md#vector-index-size-limits) in service limits). 
 
@@ -83,10 +83,10 @@ If you have multiple vector fields, you need to perform this calculation for eac
 
 To obtain the **vector index size**, multiply this **raw_size** by the **algorithm overhead** and **deleted document ratio**. If your algorithm overhead for your chosen HNSW parameters is 10% and your deleted document ratio is 10%, then we get: `6.144 MB * (1 + 0.10) * (1 + 0.10) = 7.434 MB`.
 
-## Storage size on disk
+## How vector fields affect disk storage
 
-Disk storage overhead of vector data is roughly three times the size of raw vector data in memory.
+Disk storage overhead of vector data is roughly three times the size of vector index size.
 
-## Storage vs. vector index size quotas
+### Storage vs. vector index size quotas
 
 The storage and vector index size quotas aren't separate quotas. Vector indexes contribute to the [storage quota for the search service](search-limits-quotas-capacity.md#storage-limits) as a whole. For example, if your storage quota is exhausted but there's remaining vector quota, you can't index any more documents, regardless if they're vector documents, until you scale up in partitions to increase storage quota or delete documents (either text or vector) to reduce storage usage. Similarly, if vector quota is exhausted but there's remaining storage quota, further indexing attempts fail until vector quota is freed, either by deleting some vector documents or by scaling up in partitions.
