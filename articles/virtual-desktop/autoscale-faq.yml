@@ -6,7 +6,7 @@ metadata:
   ms.topic: faq
   ms.date: 02/13/2023
   ms.author: helohr 
-  ms.custom: devx-track-azurepowershell
+  ms.custom:
   manager: femila
 title: Azure Virtual Desktop autoscale FAQ
 summary: This article answers frequently asked questions about how to use autoscale for Azure Virtual Desktop.

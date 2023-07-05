@@ -4,7 +4,7 @@ description: Learn how to provide Azure Blob storage input binding data to an Az
 ms.topic: reference
 ms.date: 03/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

@@ -7,6 +7,7 @@ ms.author: shaas
 ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ---
 

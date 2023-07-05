@@ -17,6 +17,12 @@
 # - name: Samples
 - name: Concepts
   items:
+  - name: NAS volumes as a service 
+    items: 
+      - name: Understand NAS
+        href: network-attached-storage-concept.md 
+      - name: Understand NAS protocols
+        href: network-attached-storage-protocols.md
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -61,8 +67,12 @@
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
+    - name: Oracle database performance on Azure NetApp Files multiple volumes
+      href: performance-oracle-multiple-volumes.md
     - name: Azure NetApp Files datastore performance benchmarks for AVS 
       href: performance-benchmarks-azure-vmware-solution.md
+    - name: AVS datastore performance considerations for Azure NetApp Files 
+      href: performance-azure-vmware-solution-datastore.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices
@@ -263,6 +273,8 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
+    - name: Delete a volume
+      href: volume-delete.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -359,6 +371,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Troubleshoot file locks
+      href: troubleshoot-file-locks.md
 - name: Reference
   items:
   - name: REST
@@ -369,6 +383,8 @@
     href: /cli/azure/netappfiles
   - name: Manage preview features with Terraform Cloud and AzAPI Provider
     href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-azure-netapp-files-preview-features-with-terraform/ba-p/3657714
+  - name: Automated NFS volume failover using automounter
+    href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/automated-nfs-volume-failover-using-automounter-with-azure/ba-p/3849750
   - name: AzAcSnap command reference 
     items: 
     - name: -c configure
@@ -391,6 +407,8 @@
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
+  - name: Feature availability
+    href: https://azure.github.io/azure-netapp-files/map/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

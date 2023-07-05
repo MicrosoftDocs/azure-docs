@@ -47,6 +47,11 @@ Before you start a search job, be aware of the following limitations:
 - Limited to 100 search results tables per workspace.
 - Limited to 100 search job executions per day per workspace.
 
+Search jobs aren't currently supported for the following workspaces:
+
+- Customer-managed key enabled workspaces
+- Workspaces in the China East 2 region
+
 To learn more, see [Search job in Azure Monitor](../azure-monitor/logs/search-jobs.md) in the Azure Monitor documentation.
 
 ## Restore historical data from archived logs

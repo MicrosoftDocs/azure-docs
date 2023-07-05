@@ -3,7 +3,7 @@ title: Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/30/2023
+ms.date: 04/12/2023
 ms.topic: conceptual 
 ---
 
@@ -212,7 +212,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
 ## Turn off signature validation
 
-By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see a `Signature validation failed` error. To turn off signature validation, run the following command. Replace the second parameter with your Log Analytics workspace ID.
+By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see a `Signature validation failed` error. To turn off signature validation, run the following command as root. Replace the second parameter with your Log Analytics workspace ID.
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
@@ -220,13 +220,13 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 
 ## <a name="remove-linux-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
-Run the following commands on agent-based Linux Hybrid Worker:
+Run the following commands as root on the agent-based Linux Hybrid Worker:
 
-1. ```python
+1. ```bash
       sudo bash
    ```
 
-1. ```python
+1. ```bash
       rm -r /home/nxautomation
    ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
@@ -261,8 +261,9 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 ## Check version of Hybrid Worker
 To check the version of agent-based Linux Hybrid Runbook Worker, go to the following path:
 
-`vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION`
-
+```bash
+   sudo cat /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION
+```
 The file *VERSION* has the version number of Hybrid Runbook Worker. 
 
 ## Next steps

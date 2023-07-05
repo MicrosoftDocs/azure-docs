@@ -26,7 +26,7 @@ To deliver this experience, you need to deploy the [Azure Arc resource bridge](.
 
 ## Supported VMware vSphere versions
 
-Azure Arc-enabled VMware vSphere (preview) works with vCenter Server versions 6.7 and 7.
+Azure Arc-enabled VMware vSphere (preview) works with vCenter Server versions 6.7, 7 and 8.
 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere  (preview)  supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, it is not recommended to use Arc-enabled VMware vSphere with it at this point.
@@ -64,6 +64,6 @@ Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the
 
 ## Next steps
 
-- [Connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md)
-
-- [Support matrix for Arc enabled VMware vSphere](support-matrix-for-arc-enabled-vmware-vsphere.md)
+- [Connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md).
+- View the [support matrix for Arc-enabled VMware vSphere](support-matrix-for-arc-enabled-vmware-vsphere.md).
+- Try out Arc-enabled VMware vSphere by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_vsphere/).

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create and manage an Azure Machine Learning compute instance. Use as your development environment, or as  compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: how-to
 author: jesscioffi
@@ -17,9 +17,6 @@ ms.date: 12/28/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-create-manage-compute-instance.md)
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
 
@@ -41,7 +38,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). In the storage account, the "Allow storage account key access" option must be enabled for compute instance creation to be successful.
 
 * The [Azure CLI extension for Machine Learning service (v2)](https://aka.ms/sdk-v2-install), [Azure Machine Learning Python SDK (v2)](https://aka.ms/sdk-v2-install), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
@@ -58,7 +55,7 @@ Creating a compute instance is a one time process for your workspace. You can re
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
 
-The fastest way to create a compute instance is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
+The fastest way to create a compute instance is to follow the [Create resources you need to get started](quickstart-create-resources.md). 
 
 Or use the following examples to create a compute instance with more options:
 
@@ -118,18 +115,23 @@ Where the file *create-instance.yml* is:
   
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-### Enable SSH access
+---
 
-SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+## Enable SSH access
+
+SSH access is disabled by default.  SSH access can't be enabled or disabled after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+### Set up an SSH key later
+
+Although SSH cannot be enabled or disabled after creation, you do have the option to set up an SSH key later on an SSH-enabled compute instance. This allows you to set up the SSH key post-creation. To do this, select to enable SSH on your compute instance, and select to "Set up an SSH key later" as the SSH public key source. After the compute instance is created, you can visit the Details page of your compute instance and click to edit your SSH keys. From there, you will be able to add your SSH key.
+
+An example of a common use case for this is when creating a compute instance on behalf of another user (see [Create on behalf of](#create-on-behalf-of)) When provisioning a compute instance on behalf of another user, you can enable SSH for the new compute instance owner by selecting "Set up an SSH key later". This allows for the new owner of the compute instance to set up their SSH key for their newly owned compute instance once it has been created and assigned to them following the steps above.
 
 ### Connect with SSH
 
 [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
-
-
----
 
 ## Create on behalf of
 
@@ -165,9 +167,10 @@ A compute instance is considered inactive if the below conditions are met:
 * No active Jupyter terminal sessions
 * No active Azure Machine Learning runs or experiments
 * No SSH connections
-* No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
+* No VS Code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS Code detects no activity for 3 hours. 
+* No custom applications are running on the compute
 
-Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
+A compute instance will not be considered idle if any custom application is running. There are also some basic bounds around inactivity time periods; compute instance must be inactive for a minimum of 15 mins and a maximum of three days. 
 
 Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock will be reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock will be reset to 0.
 
@@ -498,7 +501,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
-You can create compute instance with managed identity from Azure Machine Learning Studio:
+You can create compute instance with managed identity from Azure Machine Learning studio:
 
 1.    Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
 1.    Select **Next: Advanced Settings**.
@@ -506,7 +509,18 @@ You can create compute instance with managed identity from Azure Machine Learnin
 1.  Select **System-assigned** or **User-assigned** under **Identity type**.
 1.  If you selected **User-assigned**, select subscription and name of the identity.
 
-You can use V2 CLI to create compute instance with assign system-assigned managed identity:
+You can use SDK V2 to create a compute instance with assign system-assigned managed identity:
+
+```python
+from azure.ai.ml import MLClient
+from azure.identity import ManagedIdentityCredential
+client_id = os.environ.get("DEFAULT_IDENTITY_CLIENT_ID", None)
+credential = ManagedIdentityCredential(client_id=client_id)
+ml_client = MLClient(credential, sub_id, rg_name, ws_name)
+data = ml_client.data.get(name=data_name, version="1")
+```
+
+You can use V2 CLI to create a compute instance with assign system-assigned managed identity:
 
 ```azurecli
 az ml compute create --name myinstance --identity-type SystemAssigned --type ComputeInstance --resource-group my-resource-group --workspace-name my-workspace
@@ -633,6 +647,8 @@ Access the custom applications that you set up in studio:
 
 ## Manage
 
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 Start, stop, restart, and delete a compute instance. A compute instance doesn't automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you'll still be billed for disk, public IP, and standard load balancer. 
 
 You can [create a schedule](#schedule-automatic-start-and-stop) for the compute instance to automatically start and stop based on a time and day of week.
@@ -742,40 +758,43 @@ To create a compute instance, you'll need permissions for the following actions:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
-### Audit and observe compute instance version (preview)
+## Audit and observe compute instance version
 
 Once a compute instance is deployed, it does not get automatically updated. Microsoft [releases](azure-machine-learning-ci-image-release-notes.md) new VM images on a monthly basis. To understand options for keeping recent with the latest version, see [vulnerability management](concept-vulnerability-management.md#compute-instance). 
 
-To keep track of whether an instance's operating system version is current, you could query its version using the Studio UI. In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system. Enable 'audit and observe compute instance os version' under the previews management panel to see these preview properties.
+To keep track of whether an instance's operating system version is current, you could query its version using the CLI, SDK or Studio UI. 
 
-Administrators can use [Azure Policy](./../governance/policy/overview.md) definitions to audit instances that are running on outdated operating system versions across workspaces and subscriptions. The following is a sample policy:
+# [Studio UI](#tab/azure-studio)
 
-```json
-{
-    "mode": "All",
-    "policyRule": {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.MachineLearningServices/workspaces/computes"
-          },
-          {
-            "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
-            "equals": "ComputeInstance"
-          },
-          {
-            "field": "Microsoft.MachineLearningServices/workspaces/computes/osImageMetadata.isLatestOsImageVersion",
-            "equals": "false"
-          }
-        ]
-      },
-      "then": {
-        "effect": "Audit"
-      }
-    }
-}    
+In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system.
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml.entities import ComputeInstance, AmlCompute
+
+# Display operating system version
+instance = ml_client.compute.get("myci")
+print instance.os_image_metadata
 ```
+
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
+
+* [`AmlCompute` class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute)
+* [`ComputeInstance` class](/python/api/azure-ai-ml/azure.ai.ml.entities.computeinstance)
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```azurecli
+az ml compute show --name "myci"
+```
+---
+
+IT administrators can use [Azure Policy](./../governance/policy/overview.md) to monitor the inventory of instances across workspaces in Azure Policy compliance portal. Assign the built-in policy [Audit Azure Machine Learning Compute Instances with an outdated operating system](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff110a506-2dcb-422e-bcea-d533fc8c35e2) on an Azure subscription or Azure management group scope.
 
 ## Next steps
 

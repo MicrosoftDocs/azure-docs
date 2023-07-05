@@ -8,11 +8,14 @@ ms.date: 10/25/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
+ms.custom: devx-track-terraform
 ---
 
 # Create a Front Door Standard/Premium profile using Terraform
 
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
+
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 The steps in this article were tested with the following Terraform and Terraform provider versions:
 

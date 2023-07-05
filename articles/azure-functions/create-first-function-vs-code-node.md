@@ -8,7 +8,7 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
 ms.devlang: javascript
-ms.custom: mode-api, vscode-azure-extension-update-complete
+ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-js
 zone_pivot_groups: functions-nodejs-model
 ---
 
@@ -53,7 +53,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files). 
 ::: zone-end
@@ -66,9 +66,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a JavaScript programming model**|Choose `Model V4 (Preview)`|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
-    |**Select how you would like to open your project**|Choose `Add to workspace`|
+    |**Select how you would like to open your project**|Choose `Open in current window`|
 
-    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions JavaScript developer guide](functions-reference-node.md). 
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript). 
 ::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]

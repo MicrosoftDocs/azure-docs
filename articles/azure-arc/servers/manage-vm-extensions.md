@@ -45,7 +45,7 @@ In this release, we support the following VM extensions on Windows and Linux mac
 To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md).
 
 > [!NOTE]
-> The Desired State Configuration VM extension is no longer available for Azure Arc-enabled servers. Alternatively, we recommend [migrating to machine configuration](../../governance/machine-configuration/machine-configuration-azure-automation-migration.md) or using the Custom Script Extension to manage the post-deployment configuration of your server.
+> The Desired State Configuration VM extension is no longer available for Azure Arc-enabled servers. Alternatively, we recommend [migrating to machine configuration](../../governance/machine-configuration/migrate-from-azure-automation.md) or using the Custom Script Extension to manage the post-deployment configuration of your server.
 
 Arc-enabled servers support moving machines with one or more VM extensions installed between resource groups or another Azure subscription without experiencing any impact to their configuration. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md). This support is enabled starting with the Connected Machine agent version **1.8.21197.005**. For more information about moving resources and considerations before proceeding, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 

@@ -55,7 +55,8 @@ The branding elements are called out in the following example. Text descriptions
 
 1. **Favicon**: Small icon that appears on the left side of the browser tab.
 1. **Header logo**: Space across the top of the web page, below the web browser navigation area.
-1. **Background image** and **page background color**: The entire space behind the sign-in box.
+1. **Background image**: The entire space behind the sign-in box.
+1. **Page background color**: The entire space behind the sign-in box.
 1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
 1. **Username hint and text**: The text that appears before a user enters their information.
 1. **Sign-in page text**: Additional text you can add below the username field.

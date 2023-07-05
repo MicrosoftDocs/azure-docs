@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/30/2023
+ms.date: 04/17/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -23,7 +23,7 @@ Tag inheritance is available for the following billing account types:
 - Microsoft Customer Agreement (MCA)
 - Microsoft Partner Agreement (MPA) with Azure plan subscriptions
 
-Here's an example diagram showing how a tag is inherited.
+Here's an example diagram showing how a tag is inherited. *Note that inherited tags are applied to child resource usage records and not the resources themselves.*
 
 :::image type="content" source="./media/enable-tag-inheritance/tag-example-01.svg" alt-text="Example diagram showing how a tag is inherited." border="false" lightbox="./media/enable-tag-inheritance/tag-example-01.svg":::
 

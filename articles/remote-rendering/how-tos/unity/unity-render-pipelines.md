@@ -26,8 +26,13 @@ To use the **:::no-loc text="Universal render pipeline":::**, its package has to
         > [!NOTE]
         > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
 
+## Setup Standard Render Pipeline
+
+Unlike for the **:::no-loc text="Universal render pipeline":::**, there are no extra setup steps required for the  **:::no-loc text="Standard render pipeline":::** to work with ARR. Instead, the ARR runtime sets the required render hooks automatically.
+
 ## Next steps
 
 * [Install the Remote Rendering package for Unity](install-remote-rendering-unity-package.md)
+* [Set up Remote Rendering for Unity](unity-setup.md)
 * [Unity game objects and components](objects-components.md)
 * [Tutorial: View Remote Models](../../tutorials/unity/view-remote-models/view-remote-models.md)

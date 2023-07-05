@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
+ms.custom: devx-track-arm-template
 ---
 
 # Scalability and performance targets for the Azure Storage resource provider

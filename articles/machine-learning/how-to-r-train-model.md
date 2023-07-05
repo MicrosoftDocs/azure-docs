@@ -3,6 +3,7 @@ title: Train R models
 titleSuffix: Azure Machine Learning
 description: 'Learn how to train your machine learning model with R for use in Azure Machine Learning.'
 ms.service: machine-learning
+ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: how-to
 author: wahalulu
@@ -25,7 +26,7 @@ This article explains how to take the R script that you [adapted to run in produ
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
 - [A registered data asset](how-to-create-data-assets.md) that your training job will use.
 - Azure [CLI and ml extension installed](how-to-configure-cli.md).  Or use a [compute instance in your workspace](quickstart-create-resources.md), which has the CLI pre-installed.
-- [A compute cluster](how-to-create-attach-compute-cluster.md) or [compute instance](quickstart-create-resources.md#create-compute-instance) to run your training job.
+- [A compute cluster](how-to-create-attach-compute-cluster.md) or [compute instance](quickstart-create-resources.md#create-a-compute-instance) to run your training job.
 - [An R environment](how-to-r-modify-script-for-production.md#create-an-environment) for the compute cluster to use to run the job.
 
 ## Create a folder with this structure
@@ -113,7 +114,7 @@ To submit the job, run the following commands in a terminal window:
     cd r-job-azureml
     ```
 
-1. Sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
+1. Sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
 
     ```azurecli
     az login --identity
@@ -153,7 +154,7 @@ Once you've submitted the job, you can check the status and results in studio:
 Finally, once the training job is complete, register your model if you want to deploy it.  Start in the studio from the page showing your job details.
 
 1. On the toolbar at the top, select **+ Register model**.
-1. Select **MLflow** for the **Model type**.
+1. Select **Unspecified type** for the **Model type**.
 1. Select the folder which contains the model.
 1. Select **Next**.
 1. Supply the name you wish to use for your model.  Add **Description**, **Version**, and **Tags** if you wish.

@@ -10,7 +10,7 @@ ms.date: 12/12/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Get storage account configuration information

@@ -11,6 +11,7 @@ ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: rolyon
 zone_pivot_groups: enterprise-apps-all
+ms.custom: not-enterprise-apps
 
 ---
 
@@ -21,6 +22,8 @@ zone_pivot_groups: enterprise-apps-all
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your applications or to help determine who gets access. This article describes how to assign, update, list, or remove custom security attributes for Azure AD enterprise applications.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ## Prerequisites
 
@@ -265,7 +268,7 @@ Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. Make the following API calls to manage assignments.
 
-For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#powershell-or-microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 

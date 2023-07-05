@@ -4,7 +4,7 @@ description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 ms.topic: reference
 ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -137,11 +137,15 @@ namespace CosmosDBSamplesV2
 
 The following code defines a `MyDocument` type:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="40-49":::
 
-This document type is the type of the [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) used as the Azure Cosmos DB trigger binding parameter in the following example:
+An [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) is used as the Azure Cosmos DB trigger binding parameter in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example":::
+
+This example requires the following `using` statements:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-7":::
 
 
 # [Extension 4.x+](#tab/extensionv4/isolated-process)

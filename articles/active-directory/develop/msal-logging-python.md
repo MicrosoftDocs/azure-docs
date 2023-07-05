@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 01/25/2021
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-python
 ---
 # Logging in MSAL for Python
 
@@ -64,7 +64,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 APP_INSIGHTS_KEY = os.getenv('APP_INSIGHTS_KEY')
 
-logging.getLogger("msal").addHandler(AzureLogHandler(connection_string='InstrumentationKey={0}'.format(APP_INSIGHTS_KEY))
+logging.getLogger("msal").addHandler(AzureLogHandler(connection_string='InstrumentationKey={0}'.format(APP_INSIGHTS_KEY)))
 ```
 
 ### Personal and organizational data in Python

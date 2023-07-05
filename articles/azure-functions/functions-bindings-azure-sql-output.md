@@ -3,14 +3,14 @@ title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.custom: event-tier1-build-2022
-ms.date: 4/7/2023
+ms.custom: event-tier1-build-2022, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 4/17/2023
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure SQL output binding for Azure Functions (preview)
+# Azure SQL output binding for Azure Functions
 
 The Azure SQL output binding lets you write to a database.
 
@@ -208,7 +208,7 @@ namespace AzureSQL.ToDo
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "PostFunction")] HttpRequestData req,
                 FunctionContext executionContext)
         {
-            var logger = executionContext.GetLogger("HttpExample");
+            var logger = executionContext.GetLogger("PostToDo");
             logger.LogInformation("C# HTTP trigger function processed a request.");
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
@@ -329,13 +329,9 @@ namespace AzureSQL.ToDo
 }
 ```
 
-
-
-
 # [C# Script](#tab/csharp-script)
 
-
-More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharpscript).
+More samples for the Azure SQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csx).
 
 This section contains the following examples:
 
@@ -392,23 +388,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 
-public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem, out RequestLog requestLog)
+public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string requestBody = new StreamReader(req.Body).ReadToEnd();
     todoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
 
-    requestLog = new RequestLog();
-    requestLog.RequestTimeStamp = DateTime.Now;
-    requestLog.ItemCount = 1;
-
     return new OkObjectResult(todoItem);
-}
-
-public class RequestLog {
-    public DateTime RequestTimeStamp { get; set; }
-    public int ItemCount { get; set; }
 }
 ```
 
@@ -472,14 +459,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 
-public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem)
+public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem, out RequestLog requestLog)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string requestBody = new StreamReader(req.Body).ReadToEnd();
     todoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
 
+    requestLog = new RequestLog();
+    requestLog.RequestTimeStamp = DateTime.Now;
+    requestLog.ItemCount = 1;
+
     return new OkObjectResult(todoItem);
+}
+
+public class RequestLog {
+    public DateTime RequestTimeStamp { get; set; }
+    public int ItemCount { get; set; }
 }
 ```
 

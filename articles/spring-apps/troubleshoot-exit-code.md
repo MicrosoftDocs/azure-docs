@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 08/24/2022
 ms.author: kunsun
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Troubleshoot common exit code issues in Azure Spring Apps
@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes troubleshooting actions you can take when your application in Azure Spring Apps exits with an error code. You may receive an error code if your application deployment is unsuccessful, or if the application exits when it's running.
 

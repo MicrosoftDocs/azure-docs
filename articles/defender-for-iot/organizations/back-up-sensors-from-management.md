@@ -42,7 +42,7 @@ For more information, see [Set up backup and restore files](back-up-restore-sens
     |**E1800**     |Default storage is 40 GB; limit is 100 GB.        |
     |**L500**     |   Default storage is 20 GB; limit is 50 GB.     |
     |**L100**     |  Default storage is 10 GB; limit is 25 GB.       |
-    |**L60**     |    Default storage is 10 GB; limit is 25 GB.     |
+    |**L60** [*](ot-appliance-sizing.md#l60)        |    Default storage is 10 GB; limit is 25 GB.     |
 
     **If you're storing backup files on an external server**, there's no maximum storage. However, keep in mind:
 
@@ -109,7 +109,8 @@ We recommend saving your OT sensor backup files on your internal network. To do 
     ```bash
     sudo nano /etc/fstab
 
-    add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0
+    add - //<server_IP>/<folder_path> /opt/sensor/persist/backups cifs 
+    rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0
     ```
 
 1. Edit and create credentials to share for the SMB server. Run:
@@ -131,14 +132,7 @@ We recommend saving your OT sensor backup files on your internal network. To do 
     ```bash
     sudo mount -a
     ```
-
-1. Configure your backup directory on the SMB server to use the shared file on the OT sensor. Run:
-
-    ```bash
-    sudo nano /var/cyberx/properties/backup.properties 
-    ```
-
-    Set the `backup_directory_path` to the folder on your on-premises management console where you want to save your backup files.
+    Backups are stored in the remote location.
 
 ## Next steps
 

@@ -7,6 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: kengaderdus
@@ -44,14 +45,14 @@ This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https:/
 
     # [macOS](#tab/macos)
     
-    ```bash
+    ```zsh
     python3 -m venv .venv
     source .venv/bin/activate
     ```
     
     # [Windows](#tab/windows)
     
-    ```bash
+    ```cmd
     py -3 -m venv .venv
     .venv\scripts\activate
     ```
@@ -59,7 +60,7 @@ This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https:/
 
 1. Update pip in the virtual environment by running the following command in the terminal:
 
-    ```bash
+    ```
     python -m pip install --upgrade pip
     ``` 
 
@@ -73,13 +74,13 @@ This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https:/
 
     # [macOS](#tab/macos)
     
-    ```bash
+    ```zsh
     export FLASK_ENV=development
     ```
     
     # [Windows](#tab/windows)
     
-    ```bash
+    ```cmd
     set FLASK_ENV=development
     ```
     ---
@@ -111,13 +112,13 @@ python -m pip install -r requirements.txt
 
 # [macOS](#tab/macos)
 
-```bash
+```zsh
 python -m pip install -r requirements.txt
 ```
 
 # [Windows](#tab/windows)
 
-```bash
+```cmd
 py -m pip install -r requirements.txt
 ```
 
@@ -426,13 +427,13 @@ python -m flask run --host localhost --port 5000
 
 # [macOS](#tab/macos)
 
-```bash
+```zsh
 python -m flask run --host localhost --port 5000
 ```
 
 # [Windows](#tab/windows)
 
-```bash
+```cmd
 py -m flask run --host localhost --port 5000
 ```
 

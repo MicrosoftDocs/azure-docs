@@ -2,8 +2,8 @@
 title: Modify a service plan
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a service plan using the Azure portal. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 10/13/2022
@@ -17,19 +17,10 @@ The *service plan* determines an allowance for the throughput and the number of 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Verify pricing and charges associated with the service plan to which you want to move. See the [Azure Private 5G Core Pricing page](https://azure.microsoft.com/pricing/details/private-5g-core/) for pricing information.
 
-## Choose the new service plan
+## Choose a new service plan
 
-Use the following table to choose the new service plan that will best fit your requirements.
-
-| Service Plan | Licensed Throughput | Licensed Activated SIMs | Licensed RANs |
-|------|------|------|------|
-| G0 |  100 Mbps | 20 | 2 |
-| G1 |  1 Gbps | 100 | 5 |
-| G2 |  2 Gbps | 200 | 10 |
-| G5 |  5 Gbps | 500 | Unlimited |
-| G10 |  10 Gbps | 1000 | Unlimited |
+Choose the service plan that will best fit your requirements and verify pricing and charges. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/).
 
 ## View the current service plan
 
@@ -61,7 +52,7 @@ To modify your service plan:
 
     :::image type="content" source="media/modify-service-plan/service-plan.png" alt-text="Screenshot of the Azure portal showing a packet core control plane resource. The Service Plan field is highlighted.":::
 
-3. In **Service Plan** on the right, select the new service plan you collected in [Choose the new service plan](#choose-the-new-service-plan). Save your change with **Select**.
+3. In **Service Plan** on the right, select the new service plan you identified in [Choose a new service plan](#choose-a-new-service-plan). Save your change with **Select**.
 
     :::image type="content" source="media/modify-service-plan/service-plan-selection-tab.png" alt-text="Screenshot of the Azure portal showing the Service Plan screen.":::
 
@@ -70,4 +61,4 @@ To modify your service plan:
 
 ## Next steps
 
-Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify the service plan.
+Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify the service plan.

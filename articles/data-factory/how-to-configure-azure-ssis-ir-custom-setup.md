@@ -53,7 +53,7 @@ To customize your Azure-SSIS IR, you need the following items:
 
 ## Instructions
 
-You can provision or reconfigure your Azure-SSIS IR with custom setups on ADF UI. If you want to do the same using PowerShell, download and install [Azure PowerShell](/powershell/azure/install-az-ps).
+You can provision or reconfigure your Azure-SSIS IR with custom setups on ADF UI. If you want to do the same using PowerShell, download and install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ### Standard custom setup
 

@@ -42,8 +42,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 ### Hitachi
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
+|Hitachi Virtual Storage Software Block software-defined storage (VSSB)  | 1.24.12 | 1.20.0_2023-06-13 | 16.0.5100.7242 |  14.5 (Ubuntu 20.04)|
+|Hitachi Virtual Storage Platform (VSP) | 1.24.12 | 1.19.0_2023-05-09 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
 |[Hitachi UCP with RedHat OpenShift](https://www.hitachivantara.com/en-us/solutions/modernize-digital-core/infrastructure-modernization/hybrid-cloud-infrastructure.html) | 1.23.12 | 1.16.0_2023-02-14 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
 |[Hitachi UCP with VMware Tanzu](https://www.hitachivantara.com/en-us/solutions/modernize-digital-core/infrastructure-modernization/hybrid-cloud-infrastructure.html)  | 1.23.8 | 1.16.0_2023-02-14 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
+
+
 
 ### HPE
 
@@ -90,9 +94,10 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
-| TKG 2.1.0 | 1.24.9 | 1.15.0_2023-01-10	| 16.0.816.19223 | 	 14.5 (Ubuntu 20.04)
-| TKG-1.6.0 | 1.23.8 | 1.11.0_2022-09-13	| 16.0.312.4243 | 	 12.3 (Ubuntu 12.3-1)
-| TKGm v1.5.3 | 1.22.8 | 1.9.0_2022-07-12 | 16.0.312.4243 |  12.3 (Ubuntu 12.3-1)|
+| TKGm 2.2 | 1.25.7 | 1.19.0_2023-05-09	| 16.0.937.6223 | 	 14.5 (Ubuntu 20.04)
+| TKGm 2.1.0 | 1.24.9 | 1.15.0_2023-01-10	| 16.0.816.19223 | 	 14.5 (Ubuntu 20.04)
+| TKGm 1.6.0 | 1.23.8 | 1.11.0_2022-09-13	| 16.0.312.4243 | 	 12.3 (Ubuntu 12.3-1)
+| TKGm 1.5.3 | 1.22.8 | 1.9.0_2022-07-12 | 16.0.312.4243 |  12.3 (Ubuntu 12.3-1)|
 
 ### Wind River
 

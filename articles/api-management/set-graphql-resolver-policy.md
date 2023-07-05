@@ -1,23 +1,25 @@
 ---
 title: Azure API Management policy reference - set-graphql-resolver | Microsoft Docs
-description: Reference for the set-graphql-resolver policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+description: Reference for the set-graphql-resolver policy in Azure API Management. Provides policy usage, settings, and examples. This policy is retired.
 services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: article
-ms.date: 12/07/2022
+ms.topic: reference
+ms.date: 03/07/2023
 ms.author: danlep
 ---
 
-# Set GraphQL resolver
+# Set GraphQL resolver (retired)
+
+> [!IMPORTANT]
+> * The `set-graphql-resolver` policy is retired. Customers using the `set-graphql-resolver` policy must migrate to the [managed resolvers](configure-graphql-resolver.md) for GraphQL APIs, which provide enhanced functionality. 
+> * After you configure a managed resolver for a GraphQL field, the gateway skips the `set-graphql-resolver` policy in any policy definitions. You can't combine use of managed resolvers and the `set-graphql-resolver` policy in your API Management instance. 
+
 
 The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management. Currently the data must be resolved using an HTTP-based data source (REST or SOAP API). 
 
-[!INCLUDE [preview-callout-graphql.md](./includes/preview/preview-callout-graphql.md)]
-
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
-
 
 ## Policy statement
 
@@ -32,7 +34,7 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
             <authentication-certificate>...authentication-certificate policy configuration...</authentication-certificate>  
         </http-request> 
         <http-response>
-            <json-to-xml>...json-to-xml policy configuration...</json-to-xml>
+            <set-body>...set-body policy configuration...</set-body>
             <xml-to-json>...xml-to-json policy configuration...</xml-to-json>
             <find-and-replace>...find-and-replace policy configuration...</find-and-replace>
         </http-response>
@@ -55,28 +57,43 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 | http-data-source | Configures the HTTP request and optionally the HTTP response that are used to resolve data for the given `parent-type` and `field`.   | Yes |
-| http-request | Specifies a URL and child policies to configure the resolver's HTTP request. Each child element can be specified at most once. | Yes | 
-| set-method| Method of the resolver's HTTP request, configured using the [set-method](set-method-policy.md) policy.  |   Yes    | 
-| set-url  |  URL of the resolver's HTTP request. | Yes  | 
-| set-header  | Header set in the resolver's HTTP request, configured using the [set-header](set-header-policy.md) policy.  | No  | 
-| set-body  |  Body set in the resolver's HTTP request, configured using the [set-body](set-body-policy.md) policy. | No  | 
-| authentication-certificate  | Client certificate presented in the resolver's HTTP request, configured using the [authentication-certificate](authentication-certificate-policy.md) policy.  | No  | 
-| http-response |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string. Each child element can be specified at most once.  | 
-| json-to-xml   | Transforms the resolver's HTTP response using the [json-to-xml](json-to-xml-policy.md) policy. | No  | 
-| xml-to-json   | Transforms the resolver's HTTP response using the [xml-to-json](xml-to-json-policy.md) policy. | No  | 
-| find-and-replace   | Transforms the resolver's HTTP response using the [find-and-replace](find-and-replace-policy.md) policy. | No  | 
+| http-request | Specifies a URL and child policies to configure the resolver's HTTP request.  | Yes | 
+| http-response |  Optionally specifies child policies to configure the resolver's HTTP response. If not specified, the response is returned as a raw string.   | 
+
+### http-request elements
+
+> [!NOTE]
+> Except where noted, each child element may be specified at most once. Specify elements in the order listed.
+
+|Element|Description|Required|
+|----------|-----------------|--------------|
+| [set-method](set-method-policy.md) | Sets the method of the resolver's HTTP request.  |   Yes    | 
+| set-url  |  Sets the URL of the resolver's HTTP request. | Yes  | 
+| [set-header](set-header-policy.md)  | Sets a header in the resolver's HTTP request. If there are multiple headers, then add additional `header` elements.  | No  | 
+| [set-body](set-body-policy.md)  |  Sets the body in the resolver's HTTP request. | No  | 
+| [authentication-certificate](authentication-certificate-policy.md)  | Authenticates using a client certificate in the resolver's HTTP request.  | No  | 
+
+### http-response elements
+
+> [!NOTE]
+> Each child element may be specified at most once. Specify elements in the order listed.
+
+|Name|Description|Required|
+|----------|-----------------|--------------|
+| [set-body](set-body-policy.md)  |  Sets the body in the resolver's HTTP response. | No  |
+| [xml-to-json](xml-to-json-policy.md)   | Transforms the resolver's HTTP response from XML to JSON. | No  | 
+| [find-and-replace](find-and-replace-policy.md)   | Finds a substring in the resolver's HTTP response and replaces it with a different substring. | No  |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) backend
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated
 
 ### Usage notes
 
 * This policy is invoked only when a matching GraphQL query is executed. 
 * The policy resolves data for a single field. To resolve data for multiple fields, configure multiple occurrences of this policy in a policy definition.
-
 
 ## GraphQL context
 

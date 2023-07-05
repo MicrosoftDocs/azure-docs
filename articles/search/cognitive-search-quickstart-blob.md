@@ -1,22 +1,22 @@
 ---
 title: "Quickstart: Create a skillset in the Azure portal"
 titleSuffix: Azure Cognitive Search
-description: In this portal quickstart, use the Import Data wizard to add cognitive skills to an indexing pipeline to generate searchable text from images and unstructured documents. Skills in this quickstart include OCR, image analysis, and natural language processing.
+description: In this portal quickstart, use the Import Data wizard to generate searchable text from images and unstructured documents. Skills in this quickstart include OCR, image analysis, and natural language processing.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 06/29/2023
 ---
-# Quickstart: Create an Azure Cognitive Search skillset in the Azure portal
+# Quickstart: Create a skillset in the Azure portal
 
-In this quickstart, you'll learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create text-searchable content in a search index. 
+In this Azure Cognitive Search quickstart, you learn how a skillset in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create text-searchable content in a search index. 
 
-You'll run the **Import data** wizard in the Azure portal to apply skills that transform and enrich content during indexing. Output is a searchable index containing AI-generated image text, captions, and entities. Enriched content is queryable in the portal using [Search explorer](search-explorer.md).
+You can run the **Import data** wizard in the Azure portal to apply skills that create and transform textual content during indexing. Output is a searchable index containing AI-generated image text, captions, and entities. Generated content is queryable in the portal using [**Search explorer**](search-explorer.md).
 
-To prepare, you'll create a few resources and upload sample files before running the wizard.
+To prepare, you create a few resources and upload sample files before running the wizard.
 
 ## Prerequisites
 
@@ -70,6 +70,14 @@ You're now ready to move on the Import data wizard.
    :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Screenshot of the data source definition page." border="true":::
 
     Continue to the next page.
+
+If you get "Error detecting index schema from data source", the indexer that's powering the wizard can't connect to your data source. Most likely, the data source has security protections. Try the following solutions and then rerun the wizard.
+
+| Security feature | Solution |
+|--------------------|----------|
+| Resource requires Azure roles or its access keys are disabled | [Connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md) or [connect using a managed identity](search-howto-managed-identities-data-sources.md) |
+| Resource is behind an IP firewall | [Create an inbound rule for Search and for Azure portal](search-indexer-howto-access-ip-restricted.md) |
+| Resource requires a private endpoint connection | [Connect over a private endpoint](search-indexer-howto-access-private.md) |
 
 ### Step 2 - Add cognitive skills
 
@@ -125,9 +133,9 @@ Cognitive skills indexing takes longer to complete than typical text-based index
 
 To check details about execution status, select an indexer from the list, and then select **Success** (or **Failed**) to view execution details.
 
-In this demo, there's one  warning: `"Could not execute skill because one or more skill input was invalid." It tells you that a PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus couldn't provide a text input to the downstream Entity Recognition skill.
+In this demo, there's one  warning: `"Could not execute skill because one or more skill input was invalid."` It tells you that a PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus couldn't provide a text input to the downstream Entity Recognition skill.
 
-Warnings are common in skillset execution. As you become familiar with how skills iterate over your data, you'll begin to notice patterns and learn which warnings are safe to ignore.
+Warnings are common in skillset execution. As you become familiar with how skills iterate over your data, you might begin to notice patterns and learn which warnings are safe to ignore.
 
 ## Query in Search explorer
 
@@ -154,7 +162,7 @@ You've now created your first skillset and learned important concepts useful for
 
 Some key concepts that we hope you picked up include the dependency on Azure data sources. A skillset is bound to an indexer, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob Storage, other Azure data sources are possible. For more information, see [Indexers in Azure Cognitive Search](search-indexer-overview.md). 
 
-Another important concept is that skills operate over content types, and when working with heterogeneous content, some inputs will be skipped. Also, large files or fields might exceed the indexer limits of your service tier. It's normal to see warnings when these events occur. 
+Another important concept is that skills operate over content types, and when working with heterogeneous content, some inputs are skipped. Also, large files or fields might exceed the indexer limits of your service tier. It's normal to see warnings when these events occur. 
 
 Output is directed to a search index, and there's a mapping between name-value pairs created during indexing and individual fields in your index. Internally, the portal sets up [annotations](cognitive-search-concept-annotations-syntax.md) and defines a [skillset](cognitive-search-defining-skillset.md), establishing the order of operations and general flow. These steps are hidden in the portal, but when you start writing code, these concepts become important.
 

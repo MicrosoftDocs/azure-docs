@@ -46,6 +46,13 @@ The Azure Machine Learning CLI (v2), an extension to the Azure CLI, often uses a
 | - | - |
 | [Model](reference-yaml-model.md) | https://azuremlschemas.azureedge.net/latest/model.schema.json |
 
+## Schedule
+
+| Reference | URI |
+| - | - |
+| [CLI (v2) schedule YAML schema](reference-yaml-schedule.md) | https://azuremlschemas.azureedge.net/latest/schedule.schema.json |
+
+
 ## Compute
 
 | Reference | URI |

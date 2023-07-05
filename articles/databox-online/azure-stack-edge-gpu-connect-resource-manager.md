@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/09/2021
 ms.author: alkohli
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 

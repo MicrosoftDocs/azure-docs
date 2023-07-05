@@ -34,7 +34,7 @@ Before you begin, you must have the following:
 
     **Create Table1**
 
-    ```tsql
+    ```sql
     CREATE TABLE [dbo].[Table1](
     [ID] [int] NOT NULL,
     [FName] [nvarchar](50) NOT NULL,
@@ -49,7 +49,7 @@ Before you begin, you must have the following:
 
     **Create Table2**
 
-    ```tsql
+    ```sql
     CREATE TABLE [dbo].[Table2](
     [ID] [int] NOT NULL,
     [FName] [nvarchar](50) NOT NULL,
@@ -64,7 +64,7 @@ Before you begin, you must have the following:
 
 1. Run the following command to add some sample data to **Table1**. Leave **Table2** empty. Later, you'll import data from **Table1** into Data Lake Storage Gen1. Then, you'll export data from Data Lake Storage Gen1 into **Table2**.
 
-    ```tsql
+    ```sql
     INSERT INTO [dbo].[Table1] VALUES (1,'Neal','Kell'), (2,'Lila','Fulton'), (3, 'Erna','Myers'), (4,'Annette','Simpson');
     ```
 
@@ -134,7 +134,7 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
 
 1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms) or Visual Studio to connect to the Azure SQL Database and then run the following query.
 
-    ```tsql
+    ```sql
     SELECT * FROM TABLE2
     ```
 

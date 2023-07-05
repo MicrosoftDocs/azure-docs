@@ -4,6 +4,7 @@ description: In this Quickstart, learn how to create an Azure Database for Postg
 author: mumian
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-bicep
 ms.topic: quickstart
 ms.author: jgao
 ms.date: 09/21/2022

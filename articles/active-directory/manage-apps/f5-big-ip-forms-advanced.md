@@ -9,6 +9,7 @@ ms.workload: identity
 ms.date: 03/27/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Configure F5 BIG-IP Access Policy Manager for form-based SSO
@@ -24,7 +25,7 @@ Learn to configure F5 BIG-IP Access Policy Manager (APM) and Azure Active Direct
 
 Learn more:
 
-* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Integrate F5 BIG-IP with Azure AD](./f5-integration.md)
 * [Enable SSO for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
@@ -259,7 +260,7 @@ An access profile binds the APM elements that manage access to BIG-IP virtual se
 14. On **SAML authentication SP**, change the **Name** to **Azure AD Auth**.
 15. In the **AAA Server** dropdown, enter the SAML service provider object you created.
 
-   ![Screenshot showing the Azure AD Authentication server settings.](./media/f5-big-ip-forms-advanced/azure-ad-auth-server.png)
+   ![Screenshot showing the Azure AD Authentication server settings.](./media/f5-big-ip-forms-advanced/auth-server.png)
 
 16. On the **Successful** branch, select the **+** sign.
 17. In the pop-up, select **Authentication**.

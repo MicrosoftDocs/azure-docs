@@ -52,7 +52,7 @@ To configure the integration of Airstack into Azure AD, you need to add Airstack
 
 Configure and test Azure AD SSO with Airstack using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Airstack.
 
-To configure and test Azure AD SSO with Airstack, perfrom the following steps:
+To configure and test Azure AD SSO with Airstack, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.

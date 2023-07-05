@@ -3,7 +3,7 @@ title: Update Azure PowerShell modules in Azure Automation
 description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/24/2021
+ms.date: 07/03/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---

@@ -8,7 +8,6 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 02/14/2023
 ms.author: lajanuar
-recommendations: false
 ---
 
 <!-- markdownlint-disable MD024 -->

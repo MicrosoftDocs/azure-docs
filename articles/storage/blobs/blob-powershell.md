@@ -6,7 +6,7 @@ author: StevenMatthew
 ms.author: shaas
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 05/02/2023
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,7 +19,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell module `Az`, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- Azure PowerShell module `Az`, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ### Configure a context object to encapsulate credentials
 
@@ -34,7 +34,7 @@ Connect-AzAccount
 
 After the connection has been established, create the Azure context. Authenticating with Azure AD automatically creates an Azure context for your default subscription. In some cases, you may need to access resources in a different subscription after authenticating. You can change the subscription associated with your current Azure session by modifying the active session context.
 
-To use your default subscription, create the context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Azure AD credentials.
+To use your default subscription, create the context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations are performed using your Azure AD credentials.
 
 ```azurepowershell
 #Create a context object using Azure AD credentials
@@ -45,18 +45,18 @@ To change subscriptions, retrieve the context object with the [Get-AzSubscriptio
 
 ### Create a container
 
-All blob data is stored within containers, so you'll need at least one container resource before you can upload data. If needed, use the following example to create a storage container. For more information, see [Managing blob containers using PowerShell](blob-containers-powershell.md).
+All blob data is stored within containers, so you need at least one container resource before you can upload data. If needed, use the following example to create a storage container. For more information, see [Managing blob containers using PowerShell](blob-containers-powershell.md).
 
 ```azurepowershell
 #Create a container object
-$container = New-AzStorageContainer -Name "myContainer" -Context $ctx
+$container = New-AzStorageContainer -Name "mycontainer" -Context $ctx
 ```
 
-When you use the following examples, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+When you use the following examples, you need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## Upload a blob
 
-To upload a file to a block blob, pass the required parameter values to the `Set-AzStorageBlobContent` cmdlet. Supply the path and file name with the `-File` parameter, and the name of the container with the `-Container` parameter. You'll also need to provide a reference to the context object with the `-Context` parameter.
+To upload a file to a block blob, pass the required parameter values to the `Set-AzStorageBlobContent` cmdlet. Supply the path and file name with the `-File` parameter, and the name of the container with the `-Container` parameter. You also need to provide a reference to the context object with the `-Context` parameter.
 
 This command creates the blob if it doesn't exist, or prompts for overwrite confirmation if it exists. You can overwrite the file without confirmation if you pass the `-Force` parameter to the cmdlet.
 
@@ -65,7 +65,7 @@ The following example specifies a `-File` parameter value to upload a single, na
 ```azurepowershell
 #Set variables
 $path          = "C:\temp\" 
-$containerName = "myContainer"
+$containerName = "mycontainer"
 $filename      = "demo-file.txt"
 $imageFiles    = $path + "*.png"
 $file          = $path + $filename
@@ -103,7 +103,7 @@ The following example shows several approaches used to provide a list of blobs. 
 ```azurepowershell
 #Set variables
 $namedContainer  = "named-container"
-$demoContainer   = "myContainer"
+$demoContainer   = "mycontainer"
 $containerPrefix = "demo"
 
 $maxCount = 1000
@@ -182,7 +182,7 @@ Processed 5257 blobs in demo-container.
 
 Depending on your use case, the `Get-AzStorageBlobContent` cmdlet can be used to download either single or multiple blobs. As with most operations, both approaches require a context object.
 
-To download a single named blob, you can call the cmdlet directly and supply values for the `-Blob` and `-Container` parameters. The blob will be downloaded to the working PowerShell directory by default, but an alternate location can be specified. To change the target location, a valid, existing path must be passed with the `-Destination` parameter. Because the operation can't create a destination, it will fail with an error if your specified path doesn't exist.
+To download a single named blob, you can call the cmdlet directly and supply values for the `-Blob` and `-Container` parameters. The blob is downloaded to the working PowerShell directory by default, but an alternate location can be specified. To change the target location, a valid, existing path must be passed with the `-Destination` parameter. Because the operation can't create a destination, it fails with an error if your specified path doesn't exist.
 
 Multiple blobs can be downloaded by combining the `Get-AzStorageBlob` cmdlet and the PowerShell pipeline operator. First, create a list of blobs with the `Get-AzStorageBlob` cmdlet. Next, use the pipeline operator and the `Get-AzStorageBlobContent` cmdlet to retrieve the blobs from the container.
 
@@ -190,7 +190,7 @@ The following sample code provides an example of both single and multiple downlo
 
 ```azurepowershell
 #Set variables
-$containerName = "myContainer"
+$containerName = "mycontainer"
 $path          = "C:\temp\downloads\"
 $blobName      = "demo-file.txt"
 $fileList      = "*.png"
@@ -253,12 +253,12 @@ To read blob properties or metadata, you must first retrieve the blob from the s
 The following example retrieves a blob and lists its properties.
 
 ```azurepowershell
-$blob = Get-AzStorageBlob -Blob "blue-moon.mp3" -Container "myContainer" -Context $ctx
+$blob = Get-AzStorageBlob -Blob "blue-moon.mp3" -Container "mycontainer" -Context $ctx
 $properties = $blob.BlobClient.GetProperties()
 Echo $properties.Value
 ```
 
-The result displays a list of the blob's properties as shown below.
+The result displays a list of the blob's properties as shown in the following example.
 
 ```Result
 LastModified                         : 11/16/2021 3:42:07 PM +00:00
@@ -282,13 +282,13 @@ HasLegalHold                         : False
 
 ### Read and write blob metadata
 
-Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To update blob metadata, you'll use the `BlobClient.UpdateMetadata` method. This method only accepts key-value pairs stored in a generic `IDictionary` object. For more information, see the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) class definition.
+Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To update blob metadata, use the `BlobClient.UpdateMetadata` method. This method only accepts key-value pairs stored in a generic `IDictionary` object. For more information, see the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) class definition.
 
 The example below first updates and then commits a blob's metadata, and then retrieves it. The sample blob is flushed from memory to ensure the metadata isn't being read from the in-memory object.
 
 ```azurepowershell
 #Set variable
-$container = "myContainer"
+$container = "mycontainer"
 $blobName  = "blue-moon.mp3"
 
 #Retrieve blob
@@ -314,7 +314,7 @@ $properties = $blob.BlobClient.GetProperties()
 Echo $properties.Value.Metadata
 ```
 
-The result returns the blob's newly updated metadata as shown below.
+The result returns the blob's newly updated metadata as shown in the following example.
 
 ```Result
 Key          Value         
@@ -357,7 +357,7 @@ You can use the `-Force` parameter to overwrite an existing blob with the same n
 
 The resulting destination blob is a writeable blob and not a snapshot.
 
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob is overwritten.
 
 The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
 
@@ -386,7 +386,7 @@ $blob.BlobClient.CreateSnapshot()
 
 When you change a blob's tier, you move the blob and all of its data to the target tier. To make the change, retrieve a blob with the `Get-AzStorageBlob` cmdlet, and call the `BlobClient.SetAccessTier` method. This approach can be used to change the tier between **Hot**, **Cool**, and **Archive**.  
 
-Changing tiers from **Cool** or **Hot** to **Archive** take place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline, and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Changing tiers from **Cool** or **Hot** to **Archive** take place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline, and can't be read or modified. Before you can read or modify an archived blob's data, you need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
 
 The following sample code sets the tier to **Hot** for all blobs within the `archive` container.
 
@@ -401,7 +401,7 @@ Foreach($blob in $blobs) {
 
 Blob index tags make data management and discovery easier. Blob index tags are user-defined key-value index attributes that you can apply to your blobs. Once configured, you can categorize and find objects within an individual container or across all containers. Blob resources can be dynamically categorized by updating their index tags without requiring a change in container organization. Index tags offer a flexible way to cope with changing data requirements. You can use both metadata and index tags simultaneously. For more information on index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
-The following example illustrates how to add blob index tags to a series of blobs. The example reads data from an XML file and uses it to create index tags on several blobs. To use the sample code, create a local *blob-list.xml* file in your *C:\temp* directory. The XML data is provided below.
+The following example illustrates how to add blob index tags to a series of blobs. The example reads data from an XML file and uses it to create index tags on several blobs. To use the sample code, create a local *blob-list.xml* file in your *C:\temp* directory. The XML data is provided in the following example.
 
 ```xml
 <Venue Name="House of Prime Rib" Type="Restaurant">
@@ -439,14 +439,14 @@ $data.Venue.Files.ChildNodes | ForEach-Object {
 
 ## Delete blobs
 
-You can delete either a single blob or series of blobs with the `Remove-AzStorageBlob` cmdlet. When deleting multiple blobs, you can utilize conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
+You can delete either a single blob or series of blobs with the `Remove-AzStorageBlob` cmdlet. When deleting multiple blobs, you can utilize conditional operations, loops, or the PowerShell pipeline as shown in the following examples.
 
 > [!WARNING]
 > Running the following examples may permanently delete blobs. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see [Soft delete for containers](soft-delete-blob-overview.md).
 
 ```azurepowershell
 #Create variables
-$containerName  = "myContainer"
+$containerName  = "mycontainer"
 $blobName       = "demo-file.txt"
 $prefixName     = "file"
 
@@ -462,7 +462,7 @@ for ($i = 1; $i -le 3; $i++) {
 Get-AzStorageBlob -Prefix $prefixName -Container $containerName -Context $ctx | Remove-AzStorageBlob
 ```
 
-In some cases, it's possible to retrieve blobs that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` parameter will return blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
+In some cases, it's possible to retrieve blobs that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` parameter returns blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
 Use the following example to retrieve a list of blobs deleted within container's associated retention period. The result displays a list of recently deleted blobs.
 
@@ -484,7 +484,7 @@ file4.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:25Z  C
 
 As mentioned in the [List blobs](#list-blobs) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore blobs deleted within the associated retention period. You may also use versioning to maintain previous versions of your blobs for each recovery and restoration.
 
-If blob versioning and blob soft delete are both enabled, then modifying, overwriting, deleting, or restoring a blob automatically creates a new version. The method you'll use to restore a deleted blob will depend upon whether versioning is enabled on your storage account.
+If blob versioning and blob soft delete are both enabled, then modifying, overwriting, deleting, or restoring a blob automatically creates a new version. The method you use to restore a deleted blob depends upon whether versioning is enabled on your storage account.
 
 The following code sample restores all soft-deleted blobs or, if versioning is enabled, restores the latest version of a blob. It first determines whether versioning is enabled with the `Get-AzStorageBlobServiceProperty` cmdlet.
 
@@ -492,14 +492,19 @@ If versioning is enabled, the `Get-AzStorageBlob` cmdlet retrieves a list of all
 
 If versioning is disabled, the `BlobBaseClient.Undelete` method is used to restore each soft-deleted blob in the container.
 
-Before you can follow this example, you'll need to enable soft delete or versioning on at least one of your storage accounts.
+Before you can follow this example, you need to enable soft delete or versioning on at least one of your storage accounts.
+
+> [!IMPORTANT]
+> The following example enumerates a group of blobs and stores them in memory before processing them. If versioning is enabled, the blobs are also sorted. The use of the `-ContinuationToken` parameter with `$maxCount` variable limits the number of blobs within the group to conserve resources. If a container has millions of blobs, this will be extremely expensive. You can adjust the value of the `$maxCount` variable, though if a container has millions of blobs the script will process the blobs slowly.
 
 To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
 ```azurepowershell
 $accountName   ="myStorageAccount"
 $groupName     ="myResourceGroup"
-$containerName ="myContainer"
+$containerName ="mycontainer"
+$maxCount      = 1000
+$token         = $null
 
 
 $blobSvc = Get-AzStorageBlobServiceProperty `
@@ -516,46 +521,46 @@ if($blobSvc.DeleteRetentionPolicy.Enabled)
         $ctx = New-AzStorageContext `
             -StorageAccountName $accountName `
             -UseConnectedAccount
-
-        # Get all blobs and versions using -Unique 
-        # to avoid processing duplicates/versions
-        $blobs = Get-AzStorageBlob `
-            -Container $containerName `
-            -Context $ctx -IncludeVersion | `
-                Where-Object {$_.VersionId -ne $null} | `
-                Sort-Object -Property Name -Unique
-
-        # Iterate the collection
-        foreach ($blob in $blobs)
+        do
         {
+            # Get all blobs and versions using -Unique 
+            # to avoid processing duplicates/versions
+            $blobs = Get-AzStorageBlob `
+                -Container $containerName `
+                -Context $ctx -IncludeVersion | `
+                    Where-Object {$_.VersionId -ne $null} | `
+                    Sort-Object -Property Name -Unique
 
-            # Process versions
-            if($blob.VersionId -ne $null)
+            # Iterate the collection
+            foreach ($blob in $blobs)
             {
-            
-                # Get all versions of the blob, newest to oldest
-                $delBlob = Get-AzStorageBlob `
-                    -Container $containerName `
-                    -Context $ctx `
-                    -Prefix $blob.Name `
-                    -IncludeDeleted -IncludeVersion  | `
-                        Sort-Object -Property VersionId -Descending
-
-                # Verify that the newest version is NOT the latest (that the version is "deleted")
-                if (-Not $delBlob[0].IsLatestVersion)
+                # Process versions
+                if($blob.VersionId -ne $null)
                 {
-                    $delBlob[0] | Copy-AzStorageBlob `
-                        -DestContainer $containerName `
-                        -DestBlob $delBlob[0].Name
-                }
+            
+                    # Get all versions of the blob, newest to oldest
+                    $delBlob = Get-AzStorageBlob `
+                        -Container $containerName `
+                        -Context $ctx `
+                        -Prefix $blob.Name `
+                        -IncludeDeleted -IncludeVersion  | `
+                            Sort-Object -Property VersionId -Descending
+
+                    # Verify that the newest version is NOT the latest (that the version is "deleted")
+                    if (-Not $delBlob[0].IsLatestVersion)
+                    {
+                        $delBlob[0] | Copy-AzStorageBlob `
+                            -DestContainer $containerName `
+                            -DestBlob $delBlob[0].Name
+                    }
                 
-                #Dispose the temporary object
-                $delBlob = $null
-
+                    #Dispose the temporary object
+                    $delBlob = $null
+                }
             }
-
+            $token = $blobs[$blobs.Count -1].ContinuationToken;
         }
-
+        while ($null -ne $token)
     }
 
     # Otherwise (if versioning is disabled)

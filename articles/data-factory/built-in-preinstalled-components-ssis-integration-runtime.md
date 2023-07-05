@@ -6,8 +6,8 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+ms.custom: seo-lt-2019, devx-track-dotnet
+ms.date: 04/12/2023
 ---
 
 # Built-in and preinstalled components on Azure-SSIS Integration Runtime

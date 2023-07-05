@@ -7,11 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 05/23/2023
 ms.author: lajanuar
-recommendations: false
 ---
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 -->
 
 # Azure Form Recognizer business card model
 

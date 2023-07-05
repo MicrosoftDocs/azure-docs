@@ -9,4 +9,4 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-- Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
+- Install the latest [Azure PowerShell module](/powershell/azure/install-azure-powershell).

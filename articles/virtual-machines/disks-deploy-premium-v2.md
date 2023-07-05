@@ -26,7 +26,7 @@ Premium SSD v2 support a 4k physical sector size by default, but can be configur
 
 ## Prerequisites
 
-- Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-az-ps). 
+- Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 
 ## Determine region availability programmatically
 

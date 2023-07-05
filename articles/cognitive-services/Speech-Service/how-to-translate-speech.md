@@ -7,6 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 06/08/2022
 ms.author: eur
@@ -60,4 +61,3 @@ zone_pivot_groups: programming-languages-speech-services
 * [Try the speech to text quickstart](get-started-speech-to-text.md)
 * [Try the speech translation quickstart](get-started-speech-translation.md)
 * [Improve recognition accuracy with custom speech](custom-speech-overview.md)
-

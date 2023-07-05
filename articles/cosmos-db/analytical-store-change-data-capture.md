@@ -14,10 +14,7 @@ ms.date: 04/03/2023
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
-Change data capture (CDC) in [Azure Cosmos DB analytical store](analytical-store-introduction.md) allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store. The change data capture feature of the analytical store is seamlessly integrated with Azure Synapse and Azure Data Factory, providing you with a scalable no-code experience for high data volume. As the change data capture feature is based on analytical store, it [doesn't consume provisioned RUs, doesn't affect your transactional workloads](analytical-store-introduction.md#decoupled-performance-for-analytical-workloads), provides lower latency, and has lower TCO.
-
-> [!IMPORTANT]
-> This feature is currently in preview.
+Change data capture (CDC) in [Azure Cosmos DB analytical store](analytical-store-introduction.md) allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store. Seamlessly integrated with Azure Synapse and Azure Data Factory, it provides you with a scalable no-code experience for high data volume. As the change data capture feature is based on analytical store, it [doesn't consume provisioned RUs, doesn't affect your transactional workloads](analytical-store-introduction.md#decoupled-performance-for-analytical-workloads), provides lower latency, and has lower TCO.
 
 The change data capture feature in Azure Cosmos DB analytical store can write to various sinks using an Azure Synapse or Azure Data Factory data flow.
 
@@ -27,21 +24,36 @@ For more information on supported sink types in a mapping data flow, see [data f
 
 In addition to providing incremental data feed from analytical store to diverse targets, change data capture supports the following capabilities:
 
-- Supports applying filters, projections and transformations on the Change feed via source query
 - Supports capturing deletes and intermediate updates
 - Ability to filter the change feed for a specific type of operation (**Insert** | **Update** | **Delete** | **TTL**)
-- Each change in Container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
-- Changes can be synchronized from “the Beginning” or “from a given timestamp” or “from now”
-- There's no limitation around the fixed data retention period for which changes are available
+- Supports applying filters, projections and transformations on the Change feed via source query
 - Multiple change feeds on the same container can be consumed simultaneously
+- Each change in container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
+- Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
+- There's no limitation around the fixed data retention period for which changes are available
 
 ## Features
 
 Change data capture in Azure Cosmos DB analytical store supports the following key features.
 
-### Capturing deletes and intermediate updates
+### Capturing changes from the beginning
 
-The change data capture feature for the analytical store captures deleted records and the intermediate updates. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink.
+When the `Start from beginning` option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. This is limited by the `analytical TTL` property and documents TTL-removed from analytical store are not included in the change feed. Example: Imagine a container with `analytical TTL` set to 31536000 seconds, what is equivalent to 1 year. If you create a CDC process for this container, only documents newer than 1 year will be included in the initial load.
+
+### Capturing changes from a given timestamp
+
+When the `Start from timestamp` option is selected, the initial load processes the data from the given timestamp, and incremental or changed data is captured in subsequent runs. This process is also limited by the `analytical TTL` property.
+
+### Capturing changes from now
+
+When the `Start from timestamp` option is selected, all past operations of the container are not captured. 
+
+
+### Capturing deletes, intermediate updates, and TTLs
+
+The change data capture feature for the analytical store captures deletes, intermediate updates, and TTL operations. The captured deletes and updates can be applied on Sinks that support delete and update operations. The {_rid} value uniquely identifies the records and so by specifying {_rid} as key column on the Sink side, the update and delete operations would be reflected on the Sink. 
+
+Note that TTL operations are considered deletes. Check the [source settings](get-started-change-data-capture.md) section to check mode details and the support for intermediate updates and deletes in sinks.
 
 ### Filter the change feed for a specific type of operation
 
@@ -57,8 +69,11 @@ FROM c
 WHERE Category = 'Urban'
 ```
 
-> [!NOTE]
-> If you would like to enable source-query based change data capture on Azure Data Factory data flows during preview, please email [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) and share your **subscription Id** and **region**. This is not necessary to enable source-query based change data capture on an Azure Synapse data flow.
+
+### Multiple CDC processes
+
+You can create multiple processes to consume CDC in analytical store. This approach brings flexibility to support different scenarios and requirements. While one process may have no data transformations and multiple sinks, another one can have data flattening and one sink. And they can run in parallel.
+
 
 ### Throughput isolation, lower latency and lower TCO
 

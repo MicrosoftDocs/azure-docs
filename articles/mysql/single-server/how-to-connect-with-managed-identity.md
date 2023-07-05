@@ -7,7 +7,7 @@ ms.topic: how-to
 author: savjani
 ms.author: pariks
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.date: 06/20/2022
+ms.date: 05/03/2023
 ---
 
 # Connect with Managed Identity to Azure Database for MySQL
@@ -46,27 +46,27 @@ az identity create --resource-group myResourceGroup --name myManagedIdentity
 
 To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's resource ID and client ID in variables.
 
-```azurecli
+```azurecli-interactive
 # Get resource ID of the user-assigned identity
 
-resourceID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
+RESOURCE_ID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
 
 # Get client ID of the user-assigned identity
 
 
-clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
+CLIENT_ID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
 We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
-```azurecli
-az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID
+```azurecli-interactive
+az vm identity assign --resource-group myResourceGroup --name myVM --identities $RESOURCE_ID
 ```
 
 To finish setup, show the value of the Client ID, which you'll need in the next few steps:
 
 ```bash
-echo $clientID
+echo $CLIENT_ID
 ```
 
 ## Creating a MySQL user for your Managed Identity
@@ -98,7 +98,7 @@ For testing purposes, you can run the following commands in your shell. Note you
 # Retrieve the access token
 
 
-accessToken=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
+ACCESS_TOKEN=$(curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token)
 
 # Connect to the database
 
@@ -203,7 +203,7 @@ namespace Driver
 
 When run, this command will give an output like this:
 
-```
+```output
 Getting access token from Azure Instance Metadata service...
 Opening connection using access token...
 

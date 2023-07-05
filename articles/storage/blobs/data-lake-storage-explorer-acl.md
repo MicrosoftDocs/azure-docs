@@ -81,7 +81,10 @@ Use the check box controls to set access and default ACLs. To learn more about t
 
 You can apply ACL entries recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
-To apply ACL entries recursively, Right-click the container or a directory, and then select **Propagate Access Control Lists**.  The following screenshot shows the menu as it appears when you right-click a directory.[!NOTE].Propagate Access Control Lists option is only available for Storage Explorer version 1.28.1 and up.
+To apply ACL entries recursively, Right-click the container or a directory, and then select **Propagate Access Control Lists**.  The following screenshot shows the menu as it appears when you right-click a directory.
+
+> [!NOTE] 
+> The **Propagate Access Control** Lists option is available only in Storage Explorer 1.28.1 or later versions.
 
 > [!div class="mx-imgBorder"]
 > ![Right-clicking a directory and choosing the propagate access control setting](./media/data-lake-storage-explorer-acl/propagate-access-control-list-option.png)

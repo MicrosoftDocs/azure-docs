@@ -1,12 +1,12 @@
 ---
 title: How to use Logback to write logs to custom persistent storage in Azure Spring Apps | Microsoft Docs
 description: How to use Logback to write logs to custom persistent storage in Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/17/2021
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # How to use Logback to write logs to custom persistent storage
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to load Logback and write logs to custom persistent storage in Azure Spring Apps.
 

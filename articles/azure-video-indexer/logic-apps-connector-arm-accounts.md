@@ -157,9 +157,10 @@ The following image shows the first flow:
         |Key| Value|
         |----|----|
         | Connection name| <*Enter a name for the connection*>, in this case `aviconnection`.|
-        | API key| This is your personal API key, which is available under **Profile** in the [developer portal](https://api-portal.videoindexer.ai/profile)|
+        | API key| This is your personal API key, which is available under **Profile** in the [developer portal](https://api-portal.videoindexer.ai/profile) Because this Logic App is for ARM accounts we do not need the actual API key and you can fill in a dummy value like 12345 |
     
         Select **Create**.
+        
     1. Fill **Upload video and index** action parameters.
     
         > [!TIP]

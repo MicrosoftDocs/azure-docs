@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 01/05/2022
 ms.author: aahi
 ms.devlang: java
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, devx-track-extended-java
 ---
 # Quickstart: Search for images with the Bing Image Search API and Java 
 

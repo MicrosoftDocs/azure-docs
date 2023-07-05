@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/18/2022
+ms.date: 4/18/2023
 ms.author: wgries
 ms.subservice: files
 ---
@@ -21,11 +21,11 @@ The following Azure File Sync agent versions are supported:
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
 | V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported |
-| V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported |
-| V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported |
-| V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported |
-| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Agent version will expire on March 20, 2023 |
-| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Agent version will expire on March 20, 2023 |
+| V15.2 Release - [KB5013875](https://support.microsoft.com/topic/9159eee2-3d16-4523-ade4-1bac78469280)| 15.2.0.0 | November 21, 2022 | Supported - Agent version will expire on October 2, 2023 |
+| V15.1 Release - [KB5003883](https://support.microsoft.com/topic/45761295-d49a-431e-98ec-4fb3329b0544)| 15.1.0.0 | September 19, 2022 | Supported - Agent version will expire on October 2, 2023 |
+| V15 Release - [KB5003882](https://support.microsoft.com/topic/2f93053f-869b-4782-a832-e3c772a64a2d)| 15.0.0.0 | March 30, 2022 | Supported - Agent version will expire on October 2, 2023 |
+| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Agent version will expire on August 1, 2023 |
+| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Agent version will expire on August 1, 2023 |
 
 ## Unsupported versions
 The following Azure File Sync agent versions have expired and are no longer supported:
@@ -53,7 +53,7 @@ The following release notes are for version 16.0.0.0 of the Azure File Sync agen
 
 ### Improvements and issues that are fixed
 - Improved Azure File Sync service availability
-	- Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see: [Azure Storage redundancy](../common/storage-redundancy.md).
+	- Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](../files/files-redundancy.md).
 	> [!Note]
 	> Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
  
@@ -85,13 +85,13 @@ For more information on how to install and configure the Azure File Sync agent w
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](file-sync-troubleshoot.md).
+- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
 - File Server Resource Manager (FSRM) file screens can cause endless sync failures when files are blocked because of the file screen.
 - Running sysprep on a server that has the Azure File Sync agent installed is not supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
 
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
-- Files with unsupported characters. See [Troubleshooting guide](file-sync-troubleshoot-sync-errors.md#handling-unsupported-characters) for list of unsupported characters.
+- Files with unsupported characters. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for a list of unsupported characters.
 - Files or directories that end with a period.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
@@ -114,7 +114,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
@@ -206,13 +206,13 @@ For more information on how to install and configure the Azure File Sync agent w
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](file-sync-troubleshoot.md).
+- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
 - File Server Resource Manager (FSRM) file screens can cause endless sync failures when files are blocked because of the file screen.
 - Running sysprep on a server that has the Azure File Sync agent installed is not supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
 
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
-- Files with unsupported characters. See [Troubleshooting guide](file-sync-troubleshoot-sync-errors.md#handling-unsupported-characters) for list of unsupported characters.
+- Files with unsupported characters. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for a list of unsupported characters.
 - Files or directories that end with a period.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
@@ -235,7 +235,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
@@ -287,13 +287,13 @@ For more information on how to install and configure the Azure File Sync agent w
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
-- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](file-sync-troubleshoot.md).
+- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
 - File Server Resource Manager (FSRM) file screens can cause endless sync failures when files are blocked because of the file screen.
 - Running sysprep on a server that has the Azure File Sync agent installed is not supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
 
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
-- Files with unsupported characters. See [Troubleshooting guide](file-sync-troubleshoot-sync-errors.md#handling-unsupported-characters) for list of unsupported characters.
+- Files with unsupported characters. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for a list of unsupported characters.
 - Files or directories that end with a period.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
@@ -316,7 +316,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](file-sync-troubleshoot-sync-errors.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.

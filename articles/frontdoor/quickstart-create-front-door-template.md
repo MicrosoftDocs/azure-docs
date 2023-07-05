@@ -8,7 +8,7 @@ ms.date: 09/14/2020
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

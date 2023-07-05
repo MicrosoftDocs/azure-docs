@@ -24,7 +24,7 @@ Run the following command to start speech recognition from a microphone:
 spx recognize --microphone --source en-US
 ```
 
-Speak into the microphone, and you see transcription of your words into text in real time. The Speech CLI stops after a period of silence, 30 seconds, or when you press Ctrl+C.
+Speak into the microphone, and you see transcription of your words into text in real-time. The Speech CLI stops after a period of silence, 30 seconds, or when you press Ctrl+C.
 
 ```console
 Connection CONNECTED...

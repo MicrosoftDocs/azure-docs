@@ -4,8 +4,8 @@ description: Learn how Microsoft Defender for Azure SQL protects your Azure SQL 
 ms.date: 07/28/2022
 ms.topic: overview
 ms.custom: references_regions
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ---
 
 # Overview of Microsoft Defender for Azure SQL

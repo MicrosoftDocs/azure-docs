@@ -9,14 +9,17 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 04/18/2023
 ---
 
-# Make outbound connections through a private endpoint
+# Make outbound connections through a private link
 
-If you have an Azure PaaS resource that has a private connection enabled through [Azure Private Link](../private-link/private-link-overview.md), you'll need to create a *shared private link* to reach those resources from Azure Cognitive Search. This article walks you through the steps for creating, testing, and managing a private link.
+This article explains how to configure private, outbound calls from Azure Cognitive Search to Azure PaaS resources that run within a virtual network.
 
-If you're setting up a private connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
+Setting up a private connection allows Azure Cognitive Search to connect to Azure PaaS through a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, Search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary. 
+
+> [!NOTE]
+> If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
 
 ## When to use a shared private link
 
@@ -27,7 +30,7 @@ Cognitive Search makes outbound calls to other Azure PaaS resources in the follo
 + Encryption key requests to Azure Key Vault
 + Custom skill requests to Azure Functions or similar resource
 
-For those service-to-service communication scenarios, Search typically sends a request over a public internet connection. However, if your data, key vault, or function is accessed through a [private endpoint](../private-link/private-endpoint-overview.md), then your search service needs a way to reach that endpoint. The mechanism by which a search service connects to a private endpoint is called a *shared private link*.
+In service-to-service communications, Search typically sends a request over a public internet connection. However, if your data, key vault, or function should be accessed through a [private endpoint](../private-link/private-endpoint-overview.md), you can create a *shared private link*.
 
 A shared private link is:
 
@@ -54,9 +57,12 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + An Azure Cognitive Search at the Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
-+ An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
++ An Azure PaaS resource from the following list of supported resource types, configured to run in a virtual network.
 
 + You should have a minimum of Contributor permissions on both Azure Cognitive Search and the Azure PaaS resource for which you're creating the shared private link.
+
+> [!NOTE]
+> Azure Private Link is used internally, at no charge, to set up the shared private link.
 
 <a name="group-ids"></a>
 
@@ -82,22 +88,6 @@ You can create a shared private link for the following resources.
 
 <sup>4</sup> See [Create a shared private link for a SQL Managed Instance](search-indexer-how-to-access-private-sql.md) for instructions.
 
-### Private endpoint verification
-
-1. Sign in to [Azure portal](https://portal.azure.com/).
-
-1. Type "private link" in the top search bar, and then select **Private Link** to open the Private Link Center.
-
-1. Select **Private endpoints** to view existing endpoints. The Azure PaaS resource for which you're creating a shared private link must have a private endpoint in this list. See [Manage private endpoint connections](../private-link/manage-private-endpoint.md?tabs=manage-private-link-powershell#manage-private-endpoint-connections-on-azure-paas-resources) for details.
-
-These Private Link tutorials provide steps for creating a private endpoint for Azure PaaS:
-
-+ [Tutorial: Connect to a storage account using an Azure Private Endpoint](../private-link/tutorial-private-endpoint-storage-portal.md)
-
-+ [Tutorial: Connect to an Azure Cosmos DB account using an Azure Private Endpoint](../private-link/tutorial-private-endpoint-cosmosdb-portal.md)
-
-+ [Tutorial: Connect to a web app using an Azure Private Endpoint](../private-link/tutorial-private-endpoint-webapp-portal.md)
-
 ## 1 - Create a shared private link
 
 Use the Azure portal, Management REST API, the Azure CLI, or Azure PowerShell to create a shared private link.
@@ -106,9 +96,7 @@ Here are a few tips:
 
 + Give the private link a meaningful name. In the Azure PaaS resource, a shared private link appears alongside other private endpoints. A name like "shared-private-link-for-search" can remind you how it's used.
 
-+ Don't skip the [private link verification](#private-endpoint-verification) step. It's possible to create a shared private link for an Azure PaaS resource that doesn't have a private endpoint. The link won't work if the resource isn't registered.
-
-When you complete these steps, you have a shared private link that's provisioned in a pending state. **It takes several minutes to create the link**. Once it's created, the resource owner needs to approve the request before it's operational.
+When you complete the steps in this section, you have a shared private link that's provisioned in a pending state. **It takes several minutes to create the link**. Once it's created, the resource owner needs to approve the request before it's operational.
 
 ### [**Azure portal**](#tab/portal-create)
 
@@ -165,7 +153,7 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
    az account get-access-token
    ```
 
-1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
+1. Switch to a REST client and set up a [GET Shared Private Link Resource](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources/get). This step allows you to review existing shared private links to ensure you're not duplicating a link. There can be only one shared private link for each resource and sub-resource combination.
 
     ```http
     GET https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources?api-version={{api-version}}
@@ -177,7 +165,7 @@ Because it's easy and quick, this section uses Azure CLI steps for getting a bea
 
 1. Send the request. You should get a list of all shared private link resources that exist for your search service. Make sure there's no existing shared private link for the resource and sub-resource combination.
 
-1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
+1. Formulate a PUT request to [Create or Update Shared Private Link](/rest/api/searchmanagement/2022-09-01/shared-private-link-resources/create-or-update) for the Azure PaaS resource. Provide a URI and request body similar to the following example:
 
     ```http
     PUT https://https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{rg-name}}/providers/Microsoft.Search/searchServices/{{service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version={{api-version}}
@@ -257,12 +245,12 @@ A `202 Accepted` response is returned on success. The process of creating an out
 <!-- 
 1. Check the response. The `PUT` call to create the shared private endpoint returns an `Azure-AsyncOperation` header value that looks like the following:
 
-   `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
+   `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2022-09-01"`
 
    You can poll for the status by manually querying the `Azure-AsyncOperationHeader` value.
 
    ```azurecli
-   az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01
+   az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2022-09-01
    ```
  -->
 
@@ -291,7 +279,7 @@ On the Azure Cognitive Search side, you can confirm request approval by revisiti
 Alternatively, you can also obtain connection state by using the [GET Shared Private Link API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get).
 
 ```dotnetcli
-az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01
+az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2022-09-01
 ```
 
 This would return a JSON, where the connection state shows up as "status" under the "properties" section. Following is an example for a storage account.

@@ -1,13 +1,13 @@
 ---
 title: Data-aware security posture in Microsoft Defender for Cloud
 description: Learn how Defender for Cloud helps improve data security posture in a multicloud environment.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 06/27/2023
 ---
-# About data-aware security posture (preview)
+# About data-aware security posture
 
 As digital transformation accelerates, organizations move data to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. The dynamic and complex nature of the cloud has increased data threat surfaces and risks. This causes challenges for security teams around data visibility and protecting the cloud data estate.
 

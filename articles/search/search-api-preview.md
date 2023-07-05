@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 05/05/2023
 ---
 
 # Preview features in Azure Cognitive Search
@@ -23,7 +23,6 @@ Preview features that transition to general availability are removed from this l
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
 |  [**Azure Files indexer**](search-file-storage-integration.md) | Indexer data source | Adds REST API support for creating indexers for [Azure Files](https://azure.microsoft.com/services/storage/files/) | Public preview, [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview). Announced in November 2021.  |
-| [**Azure RBAC support (data plane)**](search-security-rbac.md) | Security | Use new built-in roles to control access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview. Use the Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication. Announced in July 2021. |
 | [**Search REST API 2021-04-30-Preview**](/rest/api/searchservice/index-preview) | Security | Modifies [Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) to support managed identities under Azure Active Directory, for indexers that connect to external data sources. | Public preview, [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview). Announced in May 2021.  |
 | [**Management REST API 2021-04-01-Preview**](/rest/api/searchmanagement/) | Security | Modifies [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview, [Management REST API](/rest/api/searchmanagement/), API version 2021-04-01-Preview. Announced in May 2021. |
 | [**Reset Documents**](search-howto-run-reset-indexers.md) | Indexer | Reprocesses individually selected search documents in indexer workloads. | Use the [Reset Documents REST API](/rest/api/searchservice/preview-api/reset-documents), API versions 2021-04-30-Preview or 2020-06-30-Preview. |

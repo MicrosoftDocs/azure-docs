@@ -10,6 +10,7 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Troubleshoot password-based single sign-on
@@ -81,6 +82,8 @@ There are two ways to capture sign-in fields for your custom apps:
 - **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Azure Active Directory (Azure AD) can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
 
 In general, if automatic sign-in field capture doesn't work, try the manual option.
+
+[!INCLUDE [portal updates](../includes/portal-update.md)]
 
 ### Automatically capture sign-in fields for an app
 

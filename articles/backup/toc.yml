@@ -26,6 +26,12 @@
     href: quick-backup-postgresql-database-portal.md
   - name: Enable Multi-user authorization on Recovery Services vault
     href: enable-multi-user-authorization-quickstart.md
+  - name: Backup SAP HANA System Replication database
+    items:
+    - name: Backup
+      href: quick-backup-hana-cli.md
+    - name: Restore
+      href: quick-restore-hana-cli.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -120,6 +126,12 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: Vaults
+    items:
+    - name: Recovery Services vault
+      href: backup-azure-recovery-services-vault-overview.md
+    - name: Backup vault
+      href: backup-vault-overview.md
   - name: Backup center
     href: backup-center-overview.md
   - name: Azure VM backup
@@ -166,8 +178,6 @@
     items:
     - name: Recovery Services vault
       items:
-      - name: Overview
-        href: backup-azure-recovery-services-vault-overview.md
       - name: Create
         href: backup-create-rs-vault.md
       - name: Delete
@@ -178,8 +188,8 @@
         href: backup-azure-manage-windows-server.md
     - name: Backup vault
       items:
-      - name: Overview
-        href: backup-vault-overview.md
+      - name: Create and manage
+        href: create-manage-backup-vault.md
   - name: Backup center
     items:
     - name: Monitor and Operate
@@ -300,12 +310,26 @@
         href: restore-postgresql-database-use-rest-api.md
   - name: Azure Kubernetes Service backup
     items:
-    - name: Backup
-      href: azure-kubernetes-service-cluster-backup.md
-    - name: Restore
-      href: azure-kubernetes-service-cluster-restore.md
-    - name: Manage
-      href: azure-kubernetes-service-cluster-manage-backups.md
+    - name: From the Azure portal
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore.md
+      - name: Manage
+        href: azure-kubernetes-service-cluster-manage-backups.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup-using-powershell.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore-using-powershell.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: azure-kubernetes-service-cluster-backup-using-cli.md
+      - name: Restore
+        href: azure-kubernetes-service-cluster-restore-using-cli.md      
   - name: Windows backup using MARS agent
     items:
     - name: Overview
@@ -452,8 +476,10 @@
     items:
     - name: Protection matrices
       items:
-      - name: MABS V3 UR1 (and later) protection matrix
+      - name: MABS V4 (and later) protection matrix
         href: backup-mabs-protection-matrix.md
+      - name: MABS V3 UR1 (and later)
+        href: microsoft-azure-backup-server-protection-v3-ur1.md
       - name: MABS V3 RTM protection matrix
         href: microsoft-azure-backup-server-protection-v3.md
     - name: Install or upgrade
@@ -675,6 +701,8 @@
       href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
+    - name: Azure Blob backup
+      href: backup-azure-troubleshoot-blob-backup.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server

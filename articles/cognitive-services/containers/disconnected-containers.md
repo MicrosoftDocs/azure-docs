@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/06/2023
+ms.date: 06/28/2023
 ms.author: aahi
 ---
 
@@ -15,11 +15,10 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
 
-* [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt)
-* [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
-* [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Speech to text](../speech-service/speech-container-howto.md?tabs=stt)
+* [Custom Speech to text](../speech-service/speech-container-howto.md?tabs=cstt)
+* [Neural Text to speech](../speech-service/speech-container-howto.md?tabs=ntts)
 * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
-* [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
@@ -62,27 +61,33 @@ Access is limited to customers that meet the following requirements:
     > * You will only see the option to purchase a commitment tier if you have been approved by Microsoft.
     > * Pricing details are for example only.
 
-3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
+1. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
 
-4. See the following documentation for steps on downloading and configuring the container for disconnected usage:
+### Configure container for disconnected usage
 
-    * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet) 
-    * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet)
-    * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
-    * [Form recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
+See the following documentation for steps on downloading and configuring the container for disconnected usage:
 
-    **Speech service**
+* [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet) 
+* [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet)
+* [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
+* [Form recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
 
-    * [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt#run-the-container-disconnected-from-the-internet)
-    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt#run-the-container-disconnected-from-the-internet-1)
-    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts#run-the-container-disconnected-from-the-internet-2)
+**Speech service**
 
-    **Language service**
+* [Speech to text](../speech-service/speech-container-stt.md?tabs=disconnected#run-the-container-with-docker-run)
+* [Custom Speech to text](../speech-service/speech-container-cstt.md?tabs=disconnected#run-the-container-with-docker-run)
+* [Neural Text to speech](../speech-service/speech-container-ntts.md?tabs=disconnected#run-the-container-with-docker-run)
 
-    * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
-    * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
-    * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
+**Language service**
+
+* [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
+* [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
+* [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
     
+
+## Container image and license updates
+
+[!INCLUDE [License update information](../../../includes/cognitive-services-containers-license-update.md)]
 
 ## Usage records
 
@@ -166,6 +171,11 @@ If you run the container with an output mount and logging enabled, the container
 ## Next steps
 
 [Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
+
+
+
+
+
 
 
 

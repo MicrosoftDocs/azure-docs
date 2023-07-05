@@ -27,7 +27,7 @@ Review the [prerequisites for connecting a cluster](quickstart-connect-cluster.m
 
 Make sure you [have the latest version installed](/cli/azure/install-azure-cli).
 
-If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-az-ps).
+If you connected your cluster by using Azure PowerShell, make sure you are [running the latest version](/powershell/azure/install-azure-powershell).
 
 ### Is the `connectedk8s` extension the latest version?
 

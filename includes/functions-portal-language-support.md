@@ -15,11 +15,11 @@ The following table shows which languages supported by Functions can run on Linu
 |:--- |:-- |:--|:--- |:--- |
 | [C# class library](../articles/azure-functions/functions-dotnet-class-library.md)<sup>1</sup> |.NET|✓ |✓ | | 
 | [C# script](../articles/azure-functions/functions-reference-csharp.md) | .NET | ✓ |✓ |✓ |
-| [JavaScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ | ✓ |
+| [JavaScript](../articles/azure-functions/functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |
 | [Python](../articles/azure-functions/functions-reference-python.md)<sup>2</sup> | Python |✓ | |✓ |
 | [Java](../articles/azure-functions/functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](../articles/azure-functions/functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
-| [TypeScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ |  |
+| [TypeScript](../articles/azure-functions/functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
 | [Go/Rust/other](../articles/azure-functions/functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
  
 <sup>1</sup> In the portal, you can't currently create function apps that run on .NET 7.0. For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).  

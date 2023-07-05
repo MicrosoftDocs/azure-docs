@@ -4,6 +4,7 @@ description: This reference describes the JavaScript SDK for the Azure Web PubSu
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-js
 ms.topic: conceptual 
 ms.date: 11/11/2021
 ---
@@ -379,6 +380,7 @@ For more detailed instructions on how to enable logs, see [@azure/logger package
 
 Use **Live Trace** from the Web PubSub service portal to view the live traffic.
 
+[aad_doc]: howto-authorize-from-application.md
 [azure_sub]: https://azure.microsoft.com/free/
 [samples_ref]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/
 

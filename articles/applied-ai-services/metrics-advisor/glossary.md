@@ -39,7 +39,7 @@ A metric is a quantifiable measure that is used to monitor and assess the status
 
 ## Dimension
 
-A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country, language, tenant, and so on.
+A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country/region, language, tenant, and so on.
 
 ## Multi-dimensional metric
 

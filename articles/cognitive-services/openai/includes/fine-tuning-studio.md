@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: how-to
+ms.topic: include
 ms.date: 06/30/2022
 author: ChrisHMSFT
 ms.author: chrhoder

@@ -73,18 +73,44 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 > To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
 
 #### [Python 2](#tab/python-2)                                                                                                                                                      
-- Red Hat, CentOS, Oracle: `yum install -y python2`
-- Ubuntu, Debian: `apt-get install -y python2`
-- SUSE: `zypper install -y python2`
+- Red Hat, CentOS, Oracle: 
+
+```bash
+   sudo yum install -y python2
+```
+- Ubuntu, Debian:
+ 
+```bash
+   sudo apt-get update
+   sudo apt-get install -y python2
+```
+- SUSE:
+ 
+```bash
+   sudo zypper install -y python2
+```
+
 > [!NOTE]
 > The Python 2 executable must be aliased to *python*.
 
 #### [Python 3](#tab/python-3)
 
-- Red Hat, CentOS, Oracle: `yum install -y python3`
-- Ubuntu, Debian: `apt-get install -y python3`
-- SUSE: `zypper install -y python3`
+- Red Hat, CentOS, Oracle:
 
+```bash
+   sudo yum install -y python3
+```
+- Ubuntu, Debian: 
+
+```bash
+   sudo apt-get update
+   sudo apt-get install -y python3
+```
+- SUSE: 
+ 
+```bash
+   sudo zypper install -y python3
+```
 --- 
 
 ## Network requirements

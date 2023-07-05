@@ -40,6 +40,11 @@ When adding Private Link, you can connect to Azure Virtual Desktop in the follow
 - The clients use public routes while session host VMs use private routes.
 - Both clients and session host VMs use private routes.
 
+> [!NOTE]
+> If you intend to restrict network ports from either the user client devices or your session host VMs to the private endpoints, you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the host pool resource using the *connection* sub-resource. The entire TCP dynamic port range is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource.
+>
+> If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
+
 ## Public preview limitations
 
 The public preview of using Private Link with Azure Virtual Desktop has the following limitations:

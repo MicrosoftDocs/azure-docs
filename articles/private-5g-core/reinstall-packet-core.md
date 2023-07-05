@@ -2,8 +2,8 @@
 title: Reinstall a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to reinstall a packet core instance using the Azure portal. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 11/03/2022
@@ -86,11 +86,11 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 ## Verify reinstall
 
 1. Navigate to the **Packet Core Control Plane** resource and check that the **Packet core installation state** field contains **Installed**, as described in [View the packet core instance's installation status](#view-the-packet-core-instances-installation-status).
-1. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
+1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
 
 ## Next steps
 
 You've finished reinstalling your packet core instance. You can now use Azure Monitor or the packet core dashboards to monitor your deployment.
 
-- [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
-- [Packet core dashboards](packet-core-dashboards.md)
+- [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)
+- [Monitor Azure Private 5G Core with packet core dashboards](packet-core-dashboards.md)

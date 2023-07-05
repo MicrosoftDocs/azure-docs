@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 robots: noindex
 ---
 # Move data From SAP HANA using Azure Data Factory

@@ -1,14 +1,14 @@
 ---
-title: "Google Workspace (G Suite) (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Google Workspace (G Suite) (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Google Workspace (G Suite) (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Google Workspace (G Suite) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Google Workspace (G Suite) (using Azure Function) connector for Microsoft Sentinel
+# Google Workspace (G Suite) (using Azure Functions) connector for Microsoft Sentinel
 
 The [Google Workspace](https://workspace.google.com/) data connector provides the capability to ingest Google Workspace Activity events into Microsoft Sentinel through the REST API. The connector provides ability to get [events](https://developers.google.com/admin-sdk/reports/v1/reference/activities) which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems, track who signs in and when, analyze administrator activity, understand how users create and share content, and more review events in your org.
 
@@ -83,9 +83,9 @@ GWorkspace_ReportsAPI_user_accounts_CL
 
 ## Prerequisites
 
-To integrate with Google Workspace (G Suite) (using Azure Function) make sure you have: 
+To integrate with Google Workspace (G Suite) (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **REST API Credentials/permissions**: **GooglePickleString** is required for REST API. [See the documentation to learn more about API](https://developers.google.com/admin-sdk/reports/v1/reference/activities). Please find the instructions to obtain the credentials in the configuration section below. You can check all [requirements and follow the instructions](https://developers.google.com/admin-sdk/reports/v1/quickstart/python) from here as well.
 
 
@@ -93,10 +93,10 @@ To integrate with Google Workspace (G Suite) (using Azure Function) make sure yo
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to the Google Reports API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details
+   >  This connector uses Azure Functions to connect to the Google Reports API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias GWorkspaceReports and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/GoogleWorkspaceReports/Parsers/GWorkspaceActivityReports), on the second line of the query, enter the hostname(s) of your GWorkspaceReports device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
@@ -159,7 +159,7 @@ Use the following step-by-step instructions to deploy the Google Workspace data 
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -194,8 +194,17 @@ If you're already signed in, go to the next step.
 		WorkspaceID
 		WorkspaceKey
 		logAnalyticsUri (optional)
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
-4. Once all application settings have been entered, click **Save**.
+4. (Optional) Change the default delays if required. 
+
+	> **NOTE:** The following default values for ingestion delays have been added for different set of logs from Google Workspace based on Google [documentation](https://support.google.com/a/answer/7061566). These can be modified based on environmental requirements. 
+		 Fetch Delay - 10 minutes 
+		 Calendar Fetch Delay - 6 hours 
+		 Chat Fetch Delay - 1 day 
+		 User Accounts Fetch Delay - 3 hours 
+		 Login Fetch Delay - 6 hours  
+
+5. Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
+6. Once all application settings have been entered, click **Save**.
 
 
 

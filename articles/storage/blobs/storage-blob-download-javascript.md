@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/30/2022
+ms.date: 04/21/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,14 +16,24 @@ ms.custom: devx-track-js, devguide-js
 
 # Download a blob with JavaScript
 
-This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download a blob by using any of the following methods:
+This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download blob data to various destinations, including a local file path, stream, or text string.
+
+## Prerequisites
+
+To work with the code examples in this article, make sure you have:
+
+- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operation:
+    - [Get Blob](/rest/api/storageservices/get-blob#authorization)
+- The package **@azure/storage-blob** installed to your project directory. To learn more about setting up your project, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+
+## Download a blob
+
+You can use any of the following methods to download a blob: 
 
 - [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download)
 - [BlobClient.downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1) (only available in Node.js runtime)
 - [BlobClient.downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile) (only available in Node.js runtime)
-
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
  
 ## Download to a file path
 

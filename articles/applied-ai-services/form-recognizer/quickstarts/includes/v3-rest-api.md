@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/14/2023
+ms.date: 06/02/2023
 ms.author: lajanuar
 ---
 
@@ -42,8 +42,8 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=prerequisites)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
 
 ## Analyze documents and get results
 
@@ -68,14 +68,15 @@ Before you run the cURL command, make the following changes to the [post request
     | **General Document** | prebuilt-document | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf` |
     | **Read** | prebuilt-read | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png` |
     | **Layout** | prebuilt-layout | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png` |
+    | 🆕 **Health insurance card** | healthInsuranceCard.us | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/insurance-card.png` |
     | **W-2**  | prebuilt-tax.us.w2 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png` |
-    | **Invoices**  | prebuilt-invoice | `https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf` |
-    | **Receipts**  | prebuilt-receipt | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png` |
-    | **ID Documents**  | prebuilt-idDocument | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png` |
-    | **Business Cards**  | prebuilt-businessCard | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg` |
+    | **Invoice**  | prebuilt-invoice | `https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf` |
+    | **Receipt**  | prebuilt-receipt | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png` |
+    | **ID document**  | prebuilt-idDocument | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png` |
+    | **Business card**  | prebuilt-businessCard | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg` |
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=post-request-analyze)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=post-request-analyze) -->
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
@@ -112,8 +113,8 @@ curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}"
 
 You receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` is `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=get-request-results)
+<!-- > [!div class="nextstepaction"]
+> [I &#8203;ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=get-request-results) -->
 
 #### Sample response for prebuilt-invoice
 
@@ -157,4 +158,4 @@ You receive a `200 (Success)` response with JSON output. The first field, `"stat
 
 #### Supported document fields
 
-The prebuilt models extract pre-defined sets of document fields. See [Model data extraction](../../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.
+The prebuilt models extract predefined sets of document fields. See [Model data extraction](../../concept-model-overview.md#model-data-extraction) for extracted field names, types, descriptions, and examples.

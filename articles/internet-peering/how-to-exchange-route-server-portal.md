@@ -61,7 +61,7 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
  
     * For Peering type, select **Direct**
     * For Microsoft network, select **AS8075 with exchange route server**. 
-    * Select SKU as **Basic Free**. Don't select premium free as it's reserved for special applications.
+    * For SKU, select **Premium Free**.
     * Select the **Metro** location where you want to set up peering.
 
 1. Under **Peering Connections**, select **Create new**
@@ -122,9 +122,6 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 
 ## Next steps
 
-* [Create or modify a Direct peering by using the portal](howto-direct-portal.md)
-* [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md)
-
-## Additional resources
-
-For more information, see [Internet peering FAQs](faqs.md).
+- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
+- [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

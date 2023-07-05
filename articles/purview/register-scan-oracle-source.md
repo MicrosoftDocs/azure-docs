@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,13 +16,13 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| [Yes*](#lineage)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No |No| [Yes*](#lineage)| No |
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
-The supported Oracle server versions are 6i to 19c. Proxy server isn't supported when scanning Oracle source.
+The supported Oracle server versions are 6i to 19c. Oracle proxy server isn't supported when scanning Oracle source.
 
 When scanning Oracle source, Microsoft Purview supports:
 
@@ -39,11 +39,14 @@ When scanning Oracle source, Microsoft Purview supports:
     - Synonyms
     - Types including the type attributes
 
-- Fetching static lineage on assets relationships among tables, views and stored procedures. Stored procedure lineage is supported for static SQL returning result set.
+- Fetching static lineage on assets relationships among tables and views.
 
 When setting up scan, you can choose to scan an entire Oracle server, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
-Currently, the Oracle service name isn't captured in the metadata or hierarchy.
+### Known limitations
+
+- Currently, the Oracle service name isn't captured in the metadata or hierarchy.
+- When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -57,7 +60,7 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
-    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure Visual C++ Redistributable (version Visual Studio 2012 Update 4 or newer) is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist).
 
     * Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on the machine where your self-hosted integration runtime is running. Note down the folder path that you'll use to set up the scan.
 

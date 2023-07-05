@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 04/05/2023
+ms.date: 05/10/2023
 ms.custom: references_regions
 ---
 
@@ -22,6 +22,11 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
 
+## May 2023
+
+### General Availability: Python 3.8 runbooks
+
+Azure Automation announces General Availability of Python 3.8 runbooks. Learn more about Azure Automation [Runbooks](automation-runbook-types.md) and [Python packages](python-3-packages.md).
 
 ## April 2023
 
