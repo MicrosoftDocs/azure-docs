@@ -18,13 +18,13 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-Observability is the ability to provide insights, analytics and actionable intelligence through the logs, metrics and traces and alerts.
-As a distributed application manager in production, you should focus on the following aspects to ensure that the state of all applications meets expectations, 
-and to ensure that problems in all applications can be discovered and predicted in time:
+Observability is the ability to provide insights, analytics and actionable intelligence through the logs, metrics, traces and alerts.
+As a distributed application manager in production, you should focus on the following aspects to ensure that the state of all applications meet expectations, 
+and to ensure that issues in all applications can be discovered and predicted in time:
 - **Availability**: Check that the application is available and accessible to the user.
 - **Reliability**: Check that the application is reliable and can be used normally.
 - **Failure**: Understand that the application is not working properly and further fixes are required.
-- **Performance**: Understand which performance problems the application encounters, need further attention, and find out the root cause of the problem.
+- **Performance**: Understand which performance issue the application encounters, need further attention, and find out the root cause of the problem.
 - **Alerts**: Know the current state of the application. Proactively notify managers and perform associated actionable actions when the application is abnormal.
 
 This article shows you how to observe your production applications deployed on Azure Spring Apps, 
@@ -44,11 +44,10 @@ and use Application Insights to investigate production issues.
 
 ## 4. Query logs to diagnose an application problem
 
-It is inevitable to encounter production issues, and then need to do root cause analysis. 
-Finding logs is an important part; for distributed applications, 
-their logs will be interspersed in multiple applications with different instances. 
-The trace data collected by Application Insight can help find the log information of all related links, 
-up to the abnormal stack information.
+It is inevitable to encounter production issues, and then need to do root cause analysis.
+Finding logs is an important part, especially for distributed applications whose logs are spread across multiple applications.
+The trace data collected by Application Insight can help find the log information of all related links,
+until the exception stack information.
 
 This section illustrates how to use Log Analytics to query the application logs, 
 and use Application Insights to investigate request failures, 
@@ -132,8 +131,8 @@ This section illustrates how to investigate request failures in the application 
 
 ## 5. Improve the application performance using Application Insights
 
-Performance issues are also common. The trace data collected by Application Insight can help find the log information of all related links, 
-including the link execution time of each link, up to the database SQL level, so that we can find out where the performance bottleneck is.
+Performance issues are also common. The trace data collected by Application Insight can help find the log information of all relevant links, 
+including the execution time of each link, up to the database SQL level, so that we can find out where the performance bottleneck is.
 
 This section illustrates how to use Application Insights to investigate the performance issues.
 

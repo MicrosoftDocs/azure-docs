@@ -16,7 +16,7 @@ For clarity of structure, a separate markdown file is used to describe how to ob
 ## 2. Monitor the application
 
 A metric is a measure of software characteristics that are quantifiable. 
-The metrics include application availability, performance, HTTP request, and database connection, and more.
+The metrics include availability, performance, HTTP request, and database connection, and more.
 These quantifiable data are important for helping managers clarify goals, find improvements, and formulate specific improvement measures.
 
 Azure Spring Apps provides several metrics by default, see [Metrics for Azure Spring Apps](../../concept-metrics.md) for more details.
@@ -191,7 +191,7 @@ save the **Response time** chart to the dashboard.
 
 #### Database performance monitoring
 
-Database performance is the cornerstone of normal service for all applications, actually. There are a lot of application performance downgrades caused by the slow database or exhausted database connection pool. 
+Database performance is the cornerstone of normal service for all applications. Actually, there are a lot of application performance downgrades caused by the slow database or exhausted database connection pool. 
 It is necessary to ensure that the performance at the database level meets expectations, otherwise, it will affect the business and cause chain issues.
 
 #### Pin the "Active MySQL connections" chart
@@ -229,7 +229,7 @@ Go to your private `PetClinic` dashboard page and edit the tiles in the dashboar
 Alerts help you detect and address issues before users notice them by proactively notifying you when the metrics or logs indicate there might be a problem with your infrastructure or application.
 This is a very necessary proactive warning to buy time to discover issues that may be faced or have occurred in the future.
 
-This section provides the steps to upset  action groups and alert rules to monitor your production application.
+This section provides the steps to set up action groups and alert rules to monitor your production application.
 The alert rules bind metric patterns with the action groups on the target resource,
 when the metric pattern matches the condition, the alert rule is triggered, and the associated action group is executed.
 
