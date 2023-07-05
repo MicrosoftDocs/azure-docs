@@ -29,7 +29,7 @@ Send a `POST` request to:
 POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
 ```
 
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md#find-your-custom-domain-name).
+Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
 
 > [!IMPORTANT]
 >
