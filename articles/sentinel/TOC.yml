@@ -23,6 +23,8 @@
     href: tutorial-enrich-ip-information.md
   - name: Respond to threats using automation 
     href: tutorial-respond-threats-playbook.md
+  - name: Extract incident entities with non-native actions
+    href: tutorial-extract-incident-entities.md  
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Build and monitor Zero Trust
