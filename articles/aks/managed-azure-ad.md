@@ -31,7 +31,7 @@ Learn more about the Azure AD integration flow in the [Azure AD documentation](c
 ## Enable AKS-managed Azure AD integration on your AKS cluster
 
 > [!NOTE]
-> `--aad-admin-group-object-ids` is not required for AKS-managed Azure AD integration. On clusters with Azure AD integration enabled, users assigned to an Azure AD administrators group specified by `--aad-admin-group-object-ids` can still gain access using non-administrator credentials. On clusters with Azure AD integration enabled and `properties.disableLocalAccounts` set to `true`, any attempt to authenticate with user or admin credentials will fail.
+> `--aad-admin-group-object-ids` is not required for AKS-managed Azure AD integration. But on clusters with Azure AD integration enabled and `properties.disableLocalAccounts` set to `true`, If you don't specify `--aad-admin-group-object-ids`, any attempt to authenticate with user or admin credentials will fail.
 
 ### Create a new cluster
 
