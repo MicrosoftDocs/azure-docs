@@ -11,7 +11,6 @@ ms.topic: how-to
 ms.date: 07/04/2023
 ms.author: jomondi
 ms.reviewer: phsignor
-zone_pivot_groups: enterprise-apps-all
 ms.collection: M365-identity-device-management
 ms.custom: enterprise-apps
 
@@ -22,7 +21,7 @@ ms.custom: enterprise-apps
 
 In this article, you learn how to restore previously revoked permissions that were granted to an application. You can restore permissions for an application that was granted permissions to access your organization's data. You can also restore permissions for an application that was granted permissions to act as a user.
 
-Currently, restoring permissions is only possible through PowerShell and Microsoft Graph API calls. You can't restore permissions through the Azure portal.
+Currently, restoring permissions is only possible through Microsoft Graph PowerShell and Microsoft Graph API calls. You can't restore permissions through the Azure portal. In this article, you learn how to restore permissions using PowerShell.
 
 ## Prerequisites
 
