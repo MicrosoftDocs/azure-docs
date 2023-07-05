@@ -97,4 +97,6 @@ status:
 ```
 
 #### Solution
-Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Application Gateway for Containers are configured in Azure. Instructions on how to configure federated credentials can be found in the [Quickstart guide](quickstart-create-traffic-controller.md#install-alb-controller).
+Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Application Gateway for Containers are configured in Azure. Instructions on how to configure federated credentials can be found in the quickstart guides:
+- [Quickstart for Managed deployment](quickstart-create-application-gateway-for-containers-managed-deployment.md#install-alb-controller)
+- [Quickstart for Referenced deployment](quickstart-create-application-gateway-for-containers-referenced-deployment.md#install-alb-controller)
