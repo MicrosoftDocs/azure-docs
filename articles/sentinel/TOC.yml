@@ -173,6 +173,8 @@
       href: sap/solution-overview.md
     - name: Working with the SAP solution across multiple workspaces
       href: sap/cross-workspace.md
+    - name: Respond to SAP incidents with playbooks
+      href: sap/sap-incident-response-playbooks.md
     - name: SAP BTP solution
       items:
       - name: Overview
