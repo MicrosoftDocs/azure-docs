@@ -1,6 +1,6 @@
 ---
 title: "Check my usage and estimate the cost"
-titleSuffix: Azure Applied AI Services
+titleSuffix: Azure AI services
 description: Learn how to use Azure portal to check how many pages are analyzed and estimate the total price.
 author: laujan
 manager: nitinme
@@ -12,11 +12,12 @@ ms.author: luzhan
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-# Check my Form Recognizer usage and estimate the price
+
+# Check my Document Intelligence usage and estimate the price
 
 [!INCLUDE [applies to v3.0 and v2.1](../includes/applies-to-v3-0-and-v2-1.md)]
 
- In this guide, you'll learn how to use the metrics dashboard in the Azure portal to view how many pages were processed by Azure Form Recognizer. You'll also learn how to estimate the cost of processing those pages using the Azure pricing calculator.
+ In this guide, you'll learn how to use the metrics dashboard in the Azure portal to view how many pages were processed by Azure AI Document Intelligence. You'll also learn how to estimate the cost of processing those pages using the Azure pricing calculator.
 
 ## Check how many pages were processed
 
@@ -24,7 +25,7 @@ We'll start by looking at the page processing data for a given time period:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your Form Recognizer resource.
+1. Navigate to your Document Intelligence resource.
 
 1. From the **Overview** page, select the **Monitoring** tab located near the middle of the page.
 
@@ -72,11 +73,11 @@ Now that we have the page processed data from the portal, we can use the Azure p
 
     > Press Ctrl + right-click to open in a new tab!
 
-1. Search for **Azure Form Recognizer** in the **Search products** search box.
+1. Search for **Azure AI Document Intelligence** in the **Search products** search box.
 
-1. Select **Azure Form Recognizer** and you'll see that it has been added to the page.
+1. Select **Azure AI Document Intelligence** and you'll see that it has been added to the page.
 
-1. Under **Your Estimate**, select the relevant **Region**, **Payment Option** and **Instance** for your Form Recognizer resource. For more information, *see* [Azure Form Recognizer pricing options](https://azure.microsoft.com/pricing/details/form-recognizer/#pricing).
+1. Under **Your Estimate**, select the relevant **Region**, **Payment Option** and **Instance** for your Document Intelligence resource. For more information, *see* [Azure AI Document Intelligence pricing options](https://azure.microsoft.com/pricing/details/form-recognizer/#pricing).
 
 1. Enter the number of pages processed from the Azure portal metrics dashboard. That data can be found using the steps in sections [Check how many pages are processed](#check-how-many-pages-were-processed) or [Examine analyzed pages](#examine-analyzed-pages), above.
 
@@ -84,10 +85,10 @@ Now that we have the page processed data from the portal, we can use the Azure p
 
     :::image type="content" source="../media/azure-portal-pricing.png" alt-text="Screenshot of how to estimate the price based on processed pages.":::
 
-That's it. You now know where to find how many pages you have processed using Form Recognizer and how to estimate the cost.
+That's it. You now know where to find how many pages you have processed using Document Intelligence and how to estimate the cost.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 >
-> [Learn more about Form Recognizer service quotas and limits](../service-limits.md)
+> [Learn more about Document Intelligence service quotas and limits](../service-limits.md)

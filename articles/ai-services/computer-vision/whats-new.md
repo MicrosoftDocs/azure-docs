@@ -334,7 +334,7 @@ See the [OCR overview](overview-ocr.md) to learn more.
 
 ## March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../security-features.md).
 
 ## January 2020
 
