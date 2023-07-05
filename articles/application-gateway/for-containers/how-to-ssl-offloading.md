@@ -115,6 +115,11 @@ EOF
 ---
 
 Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is ready. Verify an address has been assigned to the gateway.
+```bash
+kubectl get gateway gateway-01 -n test-infra -o yaml
+```
+
+Example output of successful gateway creation.
 ```yaml
 status:
   addresses:
