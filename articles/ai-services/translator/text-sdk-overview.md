@@ -302,7 +302,7 @@ The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](htt
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Text Translation quickstart**](quickstart-translator-sdk.md)
+> [**Text Translation quickstart**](quickstart-text-sdk.md)
 
 >[!div class="nextstepaction"]
 > [**Text Translation v3.0 reference guide**](reference/v3-0-reference.md)

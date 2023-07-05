@@ -6067,7 +6067,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-sdks.md",
-            "redirect_url": "/azure/ai-services/Translator/document-translation/how-to-guides/document-translation-sdk",
+            "redirect_url": "/azure/ai-services/Translator/document-translation/quickstarts/document-translation-sdk",
             "redirect_document_id": false
         },
         {

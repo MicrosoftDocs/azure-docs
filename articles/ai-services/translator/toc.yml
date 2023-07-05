@@ -246,7 +246,7 @@ items:
       displayName: phrase,sentence,recommendations
       href: custom-translator/concepts/dictionaries.md
     - name: Document formats
-      href: custom-translator/concepts/concepts/document-formats-naming-convention.md
+      href: custom-translator/concepts/document-formats-naming-convention.md
     - name: Sentence alignment
       href: custom-translator/concepts/sentence-alignment.md
     - name: Data filtering

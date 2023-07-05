@@ -38,14 +38,14 @@ You can add Document Translation to your applications using the REST API or a cl
 
 * The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
-* The [**client-library SDKs**](document-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
+* The [**client-library SDKs**](./quickstarts/document-translation-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
 
 ## Get started
 
 In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Start here](document-translation-rest-api.md "Learn how to use Document Translation with HTTP REST")
+> [Start here](./quickstarts/document-translation-rest-api.md "Learn how to use Document Translation with HTTP REST")
 
 ## Supported document formats
 
@@ -133,4 +133,4 @@ Document Translation data residency depends on the Azure region where your Trans
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](document-translation-rest-api.md)
+> [Get Started with Document Translation](./quickstarts/document-translation-rest-api.md)

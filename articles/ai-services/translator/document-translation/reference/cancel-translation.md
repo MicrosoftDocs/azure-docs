@@ -24,7 +24,7 @@ Send a `DELETE` request to:
 https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
-Learn how to find your [custom domain name](../document-translation-rest-api.md#find-your-custom-domain-name).
+Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md#find-your-custom-domain-name).
 
 > [!IMPORTANT]
 >
@@ -143,4 +143,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../document-translation-rest-api.md)
+> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)

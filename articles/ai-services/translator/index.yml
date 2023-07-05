@@ -86,7 +86,7 @@ landingContent:
       - linkListType: reference
         links:
          - text: Client-library SDKs
-           url: document-translation/how-to-guides/use-document-translation-sdk.md
+           url: document-translation/document-sdk-overview.md
          - text: Document Translation REST APIs
            url: document-translation/reference/rest-api-guide.md
          - text: Document Translation FAQ

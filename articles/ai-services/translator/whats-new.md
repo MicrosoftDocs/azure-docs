@@ -37,7 +37,7 @@ Translator service supports language translation for more than 100 languages. If
 
 * The Text translation SDKs are now available in public preview for C#/.NET, Java, JavaScript/TypeScript, and Python programming languages.
 * To learn more, see [Text translation SDK overview](text-sdk-overview.md).
-* To get started, try a [Text Translation SDK quickstart](quickstart-translator-sdk.md) using a programming language of your choice.
+* To get started, try a [Text Translation SDK quickstart](document-translation/document-sdk-overview.md) using a programming language of your choice.
 
 ### Microsoft Translator V3 Connector (preview)
 
@@ -157,7 +157,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ## June 2021
 
-### [Document Translation client libraries for C#/.NET and Python](document-translation/how-to-guides/use-document-translation-sdk.md)—now available in prerelease
+### [Document Translation client libraries for C#/.NET and Python](document-translation/document-sdk-overview.md)—now available in prerelease
 
 ## May 2021
 
