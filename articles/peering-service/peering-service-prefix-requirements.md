@@ -23,7 +23,7 @@ For a registered prefix to be validated after creation, the following checks mus
 * The peering service prefix key in the peering service prefix must match the prefix key received during registration
 * The prefix must be announced from all primary and backup peering sessions
 * Routes must be advertised with the MAPS community string 8075:8007
-`* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs or AS prepending`
+* AS paths in your routes can't exceed a path length of 3, and can't contain private ASNs or AS prepending
 
 ## Troubleshooting
 
@@ -51,7 +51,7 @@ If you're seeing this validation failure message, the prefix string that you've 
 
 ### Not receiving prefix advertisement from IP for prefix
 
-MAPS requires the provider to advertise routes for their peering service prefix. If you're seeing this validation failure message, it means the provider isn't advertising routes for the prefix that's being validated. Refer to this document and review the [MAPS technical requirements](./walkthrough-peering-service-all.md#technical-requirements) regarding route advertisement. Contact your networking team and confirm that they're advertising routes for the prefix being validated. Also confirm the advertisement adheres to MAPS requirements, such as advertising using the MAPS community string 8075:8007, and that the AS path of the route doesn't contain private ASNs. Use the IP address in the message to identify the MAPS connection that isn't advertising the prefix. All MAPS connections must advertise routes.
+MAPS requires the provider to advertise routes for their peering service prefix. If you're seeing this validation failure message, it means the provider isn't advertising routes for the prefix that's being validated. Refer to this document and review the [MAPS technical requirements](../internet-peering/walkthrough-peering-service-all.md#technical-requirements) regarding route advertisement. Contact your networking team and confirm that they're advertising routes for the prefix being validated. Also confirm the advertisement adheres to MAPS requirements, such as advertising using the MAPS community string 8075:8007, and that the AS path of the route doesn't contain private ASNs. Use the IP address in the message to identify the MAPS connection that isn't advertising the prefix. All MAPS connections must advertise routes.
 
 If you're a Peering Service customer, contact your Peering Service provider about this issue. If you're a Peering Service partner, you're advertising routes for your prefix and you're still seeing this validation failure, contact peeringservice@microsoft.com with your Azure subscription and prefix so we can assist you.
 
@@ -83,13 +83,10 @@ If you're a Peering Service customer, contact your Peering Service provider abou
 
 ## Frequently asked questions (FAQ):
 
-**Q.**   I am advertising a prefix from a different origin ASN than the ASN of the peering. Can this work with MAPS?
+**Q.**   I am advertising a prefix from a different origin ASN than the ASN of my peering. Can this work with MAPS?
 
-**A.**   To make this work with MAPS, you must create a peer ASN in the same subscription as the peering service resource, and give it the same name as the peer ASN associated with the peering: [[Associate peer ASN to Azure subscription using the Azure portal](./howto-subscription-association-portal.md)]. 
+**A.**   To make this work with MAPS, you must create a peer ASN in the same subscription as the peering service resource, and give it the same name as the peer ASN associated with the peering: [[Associate peer ASN to Azure subscription using the Azure portal](../internet-peering/howto-subscription-association-portal.md)]. 
 
 ## Next steps
 
-* [Azure Internet peering for Peering Service walkthrough](walkthrough-peering-service-all.md).
-* [Azure Internet peering for Communications Services walkthrough](walkthrough-communications-services-partner.md)
-* [Azure Internet peering for Exchage with Route Server walkthrough](walkthrough-exchange-route-server-partner.md)
-* [Peering Service customer walkthrough](../peering-service/walkthrough-peering-service-customer.md)
+* [Peering Service customer walkthrough](./walkthrough-peering-service-customer.md)
