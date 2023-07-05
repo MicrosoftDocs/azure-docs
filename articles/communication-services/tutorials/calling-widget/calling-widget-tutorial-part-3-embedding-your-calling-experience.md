@@ -1,5 +1,5 @@
 ---
-title: Part 3 (Optional) Embedding Your Calling Experience
+title: Part 3 (optional) embedding your calling experience
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to embed a calling experience inside your new widget - Part 3.
 author: dmceachern
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Part 3 (Optional) Embedding Your Calling Experience
+# Part 3 (optional) embedding your calling experience
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -299,9 +299,9 @@ That looks like this:
     </Stack>
 
 ```
-Now that we have made these changes we can start our app again if it's shut down with `npm run start`. If we go through the start call process like we did before we should see the following when starting the call: 
+Now that we have made these changes we can start our app again if it's shut down with `npm run start`. If we go through the start call process like we did before we should see the following when starting the call:
 
-<img src='../media/calling-widget/calling-widget-embedded-start.png' width='800' alt='click to call sample app home page with calling experience embedded in widget'>
+![Screenshot of click to call sample app home page with calling experience embedded in widget](../media/calling-widget/calling-widget-embedded-start.png)
 
 Like before, this is a call starting with the video controls enabled. 
 

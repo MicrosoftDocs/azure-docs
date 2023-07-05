@@ -1,5 +1,5 @@
 ---
-title: Part 1 Creating Your Widget
+title: Part 1 creating your widget
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to construct your own custom widget for your click to call experience - Part 1.
 author: dmceachern
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Part 1 Creating Your Widget
+# Part 1 creating Your widget
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -178,7 +178,7 @@ export const CallingWidgetComponent = (
 };
 ```
 
-### Time For Some Styles
+### Time for some styles
 
 Once you have your component, you need some styles to give it a visually appealing look. For this, we'll create a new folder named `src/styles`. Within this folder we'll create a new file called `CallingWidgetComponent.styles.ts` and add the following styles.
 
@@ -297,7 +297,7 @@ import {
 
 ```
 
-### Adding The Widget To The App
+### Adding the widget to the app
 
 Now we create a new folder `src/views` and add a new file for one of our pages `CallingWidgetScreen.tsx`. This screen acts as our home page for the app where the user can start a new call.
 
@@ -441,11 +441,11 @@ import { CallingWidgetScreen } from './views/CallingWidgetScreen';
 
 Once you have set the arguments defined in `App.tsx`, run the app with `npm run start` to see the changes:
 
-<img src='../media/calling-widget/Sample-app-splash.png' width='800' alt='calling Widget sample app home page widget closed'>
+![Screenshot of calling widget sample app home page widget closed](../media/calling-widget/sample-app-splash.png)
 
 Then when you action the widget button, you should see:
 
-<img src='../media/calling-widget/Sample-app-widget-open.png' width='800' alt='calling Widget sample app home page widget open'>
+![Screenshot of calling widget sample app home page widget open](../media/calling-widget/sample-app-widget-open.png)
 
 Yay! We have made the control surface for the widget! Next, we'll discuss what we need to add to make this widget start a call in a new window.
 

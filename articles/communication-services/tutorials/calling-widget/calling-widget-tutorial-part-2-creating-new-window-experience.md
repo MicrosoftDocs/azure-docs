@@ -1,5 +1,5 @@
 ---
-title: Part 2 Creating a New Window Calling Experience
+title: Part 2 creating a new window calling experience
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to deal with post messaging and React to create a new window calling experience with the CallComposite - Part 2.
 author: dmceachern
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Part 2 Creating a New Window Calling Experience
+# Part 2 creating a new window calling experience
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -125,7 +125,7 @@ To configure our `CallComposite` to fit in the Calling Widget, we need to make s
 
 To make sure we are passing around data correctly, let's create some handlers to send post messages between the parent window and child window to signal that we want some information. See diagram:
 
-<img src='../media/calling-widget/mermaid-charts-window-messaging.png' width='400' alt='disagram illustrating the flow of data between windows'>
+![Diagram illustrating the flow of data between windows](../media/calling-widget/mermaid-charts-window-messaging.png)
 
 This flow illustrates that if the child window has spawned, it needs to ask for the arguments. This behavior has to do with React and that if the parent window just sends a message right after creation, the call adapter arguments needed are lost before the application mounts. The adapter arguments are lost because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
 
@@ -386,7 +386,7 @@ Now, when the application runs in a new window, it sees that it's supposed to st
 
 Now when you pass in the arguments, set your `displayName`, and click `Start Call` you should see the following screens:
 
-<img src='../media/calling-widget/Calling-screen.png' width='800' alt='click to call sample app home page with calling experience in new window'>
+![Screenshot of click to call sample app home page with calling experience in new window](../media/calling-widget/calling-screen.png)
 
 With this new window experience, your users are able to:
 - continue using other tabs in their browser or other applications and still be able to see your call

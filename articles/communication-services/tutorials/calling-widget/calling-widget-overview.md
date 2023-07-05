@@ -1,5 +1,5 @@
 ---
-title: Creating a click to call Experience with Azure Communication Services
+title: Creating a click to call experience with Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate click to call.
 author: dmceachern
@@ -16,7 +16,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-<img src='../media/calling-widget/Sample-app-splash.png' width='1000' alt='Home page of Calling Widget sample app'>
+![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash.png)
 
 This project aims to guide developers on creating a seamless click to call experience using the Azure Communication UI Library.
 
@@ -46,7 +46,7 @@ This tutorial is broken down into three parts:
 
 ### Set up the project
 
-Only use this strp if you are creating a new application.
+Only use this step if you are creating a new application.
 
 To set up the react App, we use the `create-react-app` command line tool. This tool
 creates an easy to run TypeScript application powered by React. This command will create a simple react application using TypeScript.
@@ -74,7 +74,7 @@ Then you need to update the dependency array in the `package.json` to include so
 Once you run these commands, you’re all set to start working on your new project. In this tutorial, we are modifying the files in the `src` directory.
 
 
-## Initial App Setup
+## Initial app setup
 
 To get started, we replace the provided `App.tsx` content with a main page that will:
 
@@ -172,7 +172,7 @@ export default App;
 ```
 In this snippet we register two new icons `<Dismiss20Regular/>` and `<CallAdd20Regular>`. These new icons are used inside the widget component that we are creating later.
 
-### Running the App
+### Running the app
 
 We can then test to see that the basic application is working by running:
 
