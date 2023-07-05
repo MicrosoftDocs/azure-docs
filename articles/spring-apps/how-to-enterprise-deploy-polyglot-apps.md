@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 07/05/2023
 ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
@@ -146,21 +146,21 @@ az spring container-registry delete \
     --name <your-container-registry-name> 
 ```
 
-If the container registry is used by the build service, then you can't delete it.
+If the build service is using the container registry, then you can't delete it.
 
 ---
 
-A container registry can be used by Build Service, the Build Service can also change the referred container registry. If so, all the builder and build resources under the Build Service will be rebuilt and then push the final container images to the new container registry. It a time-costing operation.
+The build service can use a container registry, and can also change the associated container registry. This process is time consuming. When the change happens, all the builder and build resources under the build service are rebuilt, and then the final container images are pushed to the new container registry.
 
 #### [Azure portal](#tab/Portal)
 
-Use the following steps switch a referred container registry for the Build Service:
+Use the following steps to switch the container registry associated with the build service:
 
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service** in the navigation pane.
-1. Select **Referred container registry** to update a container registry for the Build Service.
+1. Select **Referred container registry** to update the container registry for the build service.
 
-   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png" alt-text="Screenshot of Azure portal showing the Build Service page with Update a referred container registry for the Build Service" lightbox="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png":::
+   :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png" alt-text="Screenshot of the Azure portal showing the Build Service page with Referred container registry highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/switch-build-service-container-registry.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -168,17 +168,17 @@ Use the following command to show the build service:
 
 ```azurecli
 az spring build-service show \
- --resource-group <resource-group-name> \
- --service <Azure-Spring-Apps-instance-name>
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name>
 ```
 
 Use the following command to update the build service with a specific container registry:
 
 ```azurecli
 az spring build-service update \
- --resource-group <resource-group-name> \
- --service <Azure-Spring-Apps-instance-name> \
- --registry-name <your-container-registry-name> 
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --registry-name <your-container-registry-name> 
 ```
 
 ---
@@ -187,15 +187,17 @@ az spring build-service update \
 
 You can build and deploy polyglot applications in the following ways using the container registry:
 
-- For the build service using the Azure Spring Apps managed container registry, you can build an application to an image and then deploy it to the current Azure Spring Apps service instance. The build and deployment are executed together using the `az spring app deploy` command.
+- For the build service using the Azure Spring Apps managed container registry, you can build an application to an image and then deploy it to the current Azure Spring Apps service instance. The build and deployment are executed together by using the `az spring app deploy` command.
 
-- For the build service using a user managed container registry, you can build an application into a container image and then deploy the image to the current Azure Spring Apps Enterprise instance and other instances. The build and deploy commands are separate. You can use the build command to create or update a build, then use the deploy command to deploy the container image to the service instance.
+- For the build service using a user-managed container registry, you can build an application into a container image and then deploy the image to the current Azure Spring Apps Enterprise instance and other instances. The build and deploy commands are separate. You can use the build command to create or update a build, then use the deploy command to deploy the container image to the service instance.
 
-For more information, see the [Build Service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+For more information, see the [Build service on demand](how-to-enterprise-build-service.md#build-service-on-demand) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
-The following examples show some helpful build commands to use. They assume that values for required `resource-group` and `service` parameters are in scope.
+The following examples show some helpful build commands to use.
 
 ```azurecli
+az configure --defaults group=<resource-group-name> spring=<service-name>
+
 az spring build-service build list
 az spring build-service build show --name <build-name>
 az spring build-service build create --name <build-name> --artifact-path <artifact-path>
@@ -206,7 +208,7 @@ az spring build-service build delete --name <build-name>
 The following Azure CLI examples show building and deploying an artifact file for two container registry scenarios:
 
 - Azure Spring Apps managed container registry.
-- User managed container registry.
+- User-managed container registry.
 
 #### [Azure Spring Apps managed container registry](#tab/asa-managed-container-registry)
 
@@ -223,9 +225,9 @@ az spring app deploy \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-#### [User managed container registry](#tab/user-managed-container-registry)
+#### [User-managed container registry](#tab/user-managed-container-registry)
 
-This example builds or updates and application and deploys it using two commands. With a user managed container registry, you can deploy an application only from a custom container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+This example builds or updates an application and deploys it using two commands. With a user-managed container registry, you can deploy an application only from a custom container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
 
 The following command builds an application:
 
@@ -281,7 +283,7 @@ az spring app deploy \
     --source-path <path-to-source-code>
 ```
 
-#### [User managed container registry](#tab/user-managed-container-registry)
+#### [User-managed container registry](#tab/user-managed-container-registry)
 
 The following command builds an application:
 
@@ -327,7 +329,7 @@ az spring app deploy \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-#### [User managed container registry](#tab/user-managed-container-registry)
+#### [User-managed container registry](#tab/user-managed-container-registry)
 
 The following command builds an application:
 
@@ -375,7 +377,7 @@ az spring app deploy \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-#### [User managed container registry](#tab/user-managed-container-registry)
+#### [User-managed container registry](#tab/user-managed-container-registry)
 
 The following command builds an application:
 
@@ -423,62 +425,64 @@ Your application must listen on port 8080. Spring Boot applications override the
 
 The following table indicates the features supported for each language.
 
-| Feature                                                         | Java | Python | Node | .NET Core | Go  | [Static Files](how-to-enterprise-deploy-static-file.md) | Java Native Image |
-|-----------------------------------------------------------------|------|--------|------|-----------|-----|---------------------------------------------------------|-------------------|
-| App lifecycle management                                        | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Assign endpoint                                                 | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Azure Monitor                                                   | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      |                   |
-| Out of box APM integration                                      | ✔️   |        |      |           |     |                                                         |
-| Blue/green deployment                                           | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Custom domain                                                   | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Scaling - auto scaling                                          | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      |                   |
-| Scaling - manual scaling (in/out, up/down)                      | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Managed Identity                                                | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ️                 |
-| API portal for VMware Tanzu®                                    | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Application Configuration Service for VMware Tanzu®             | ✔️   |        |      |           |     |                                                         | ✔️                |
-| VMware Tanzu® Service Registry                                  | ✔️   |        |      |           |     |                                                         | ✔️                |
-| App Live View for VMware Tanzu®                                 | ✔️   |        |      |           |     |                                                         | ✔️                |
-| Virtual network                                                 | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Outgoing IP Address                                             | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| E2E TLS                                                         | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   |        |      |           |     |                                                         |
-| Bring your own storage                                          | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Integrate service binding with Resource Connector               | ✔️   |        |      |           |     |                                                         |
-| Availability Zone                                               | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| App Lifecycle events                                            | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Automate app deployments with Terraform and Azure Pipeline Task | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Soft Deletion                                                   | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Interactive diagnostic experience (AppLens-based)               | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| SLA                                                             | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Customize health probes                                         | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ✔️                |
-| Web shell connect for troubleshooting                           | ✔️   | ✔️     | ✔️   | ✔️        | ✔️  | ✔️                                                      | ️   ✔️            |
-| Remote debugging                                                | ✔️   |        |      |           | ️   | ️                                                       | ️                 |
+| Feature                                                         | Java | Python | Node | .NET Core | Go | [Static Files](how-to-enterprise-deploy-static-file.md) | Java Native Image |
+|-----------------------------------------------------------------|------|--------|------|-----------|----|---------------------------------------------------------|-------------------|
+| App lifecycle management                                        | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Assign endpoint                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Azure Monitor                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   |
+| Out of box APM integration                                      | ✔️  |        |      |           |    |                                                         |                   |
+| Blue/green deployment                                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Custom domain                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Scaling - auto scaling                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      |                   |
+| Scaling - manual scaling (in/out, up/down)                      | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Managed Identity                                                | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️                 |
+| API portal for VMware Tanzu®                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |
+| Spring Cloud Gateway for VMware Tanzu®                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️                                                     | ✔️                |
+| Application Configuration Service for VMware Tanzu®            | ✔️   |        |      |           |    |                                                         | ✔️               |
+| VMware Tanzu® Service Registry                                 | ✔️   |        |      |           |    |                                                         | ✔️               |
+| App Live View for VMware Tanzu®                                | ✔️   |        |      |           |    |                                                         | ✔️               |
+| Virtual network                                                 | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Outgoing IP Address                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| E2E TLS                                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️  |        |      |           |    |                                                         |                   |
+| Bring your own storage                                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Integrate service binding with Resource Connector               | ✔️  |        |      |           |    |                                                         |                   |
+| Availability Zone                                               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| App Lifecycle events                                            | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Automate app deployments with Terraform and Azure Pipeline Task | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Soft Deletion                                                   | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Interactive diagnostic experience (AppLens-based)               | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| SLA                                                             | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Customize health probes                                         | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ✔️               |
+| Web shell connect for troubleshooting                           | ✔️  | ✔️     | ✔️  | ✔️        | ✔️ | ✔️                                                      | ️   ✔️           |
+| Remote debugging                                                | ✔️  |        |      |           | ️    | ️                                                        | ️                 |
 
 For more information about the supported configurations for different language apps, see the corresponding section later in this article.
 
-### Java Native Image Limitations
-[Native Image](https://www.graalvm.org/latest/reference-manual/native-image/) is a technology to compile Java code ahead-of-time to a native executable. Native images provide various advantages, like an instant startup and reduced memory consumption. They can be packaged into a lightweight container image for faster and more efficient deployment. Because of the Closed World Optimization, there are some [limitations](https://www.graalvm.org/22.1/reference-manual/native-image/Limitations/):
+### Java Native Image limitations
+
+[Native Image](https://www.graalvm.org/latest/reference-manual/native-image/) is a technology to compile Java code ahead of time to a native executable. Native images provide various advantages, like an instant startup and reduced memory consumption. You can package native images into a lightweight container image for faster and more efficient deployment. Because of the Closed World Optimization, the following [limitations](https://www.graalvm.org/22.1/reference-manual/native-image/Limitations/) apply:
+
 - The following Java features require configuration at executable build time:
   - Dynamic Class Loading
   - Reflection
   - Dynamic Proxy
   - JNI (Java Native Interface)
   - Serialization
-- Bytecode is not available at runtime anymore, so Debugging and Monitoring with tools targeted to the JVMTI is not possible.
+- Bytecode isn't available at runtime anymore, so debugging and monitoring with tools targeted to the JVMTI isn't possible.
 
-The following features are not support in Azure Spring Apps due to the limitation of Java Native Image. Azure Spring Apps will support them as long as the limitation is overcome by Java Native Image and the community.
+The following features aren't supported in Azure Spring Apps due to the limitation of Java Native Image. Azure Spring Apps will support them as long as Java Native Image and the community overcomes the limitation.
 
-| Feature                                           | Why it's not support                                         |
-|---------------------------------------------------|--------------------------------------------------------------|
-| Azure Monitor                                     | GraalVM built native images doesn't support JVM metrics |
-| Scaling – auto scaling                            | GraalVM built native images doesn't support JVM metrics |
-| Out of box APM integrations                       | APM Vendor & Buildpack doesn't support native image |
-| Managed identity                                  | Azure SDKs doesn't support native image |
-| Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump |
-| Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging |
-| Integrate service binding with Resource Connector | JDBC driver or resource SDK doesn't support native image |
+| Feature                                           | Why it isn't supported                                            |
+|---------------------------------------------------|-------------------------------------------------------------------|
+| Azure Monitor                                     | GraalVM built native images doesn't support JVM metrics.          |
+| Scaling – autoscaling                             | GraalVM built native images doesn't support JVM metrics.          |
+| Out-of-box APM integration                        | APM Vendor & Buildpack doesn't support native image.              |
+| Managed identity                                  | Azure SDKs doesn't support native image.                          |
+| Advanced troubleshooting – thread/heap/JFR dump   | GraalVM built native images doesn't support thread/heap/JFR dump. |
+| Remote debugging                                  | GraalVM Native Image doesn't support Remote Debugging.            |
+| Integrate service binding with Resource Connector | JDBC driver or resource SDK doesn't support native image.         |
 
 > [!NOTE]
 > In the following different language build and deploy configuration sections, `--build-env` means the environment is used in the build phase. `--env` means the environment is used in the runtime phase.
@@ -569,24 +573,25 @@ The buildpack for deploying WebServer applications is [tanzu-buildpacks/web-serv
 
 For more information, see [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
-### Deploy Java Native Image applications (Preview)
+### Deploy Java Native Image applications (preview)
+
 The buildpack for deploying Java Native Image applications is [tanzu-buildpacks/java-native-image](https://network.tanzu.vmware.com/products/tanzu-java-native-image-buildpack/).
 
-You can deploy Spring Boot native image applications using tanzu-buildpacks/java-native-image buildpack. [Spring Native](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) provides support for compiling Spring Boot applications into native executables. The buildpack uses [Liberica Native Image Kit (NIK)](https://tanzu.vmware.com/content/blog/vmware-tanzu-enterprise-support-spring-boot-native-applications-bellsoft-liberica-nik) to create native images of Spring Boot applications and these applications are fully supported.
+You can deploy Spring Boot native image applications using the `tanzu-buildpacks/java-native-image` buildpack. [Spring Native](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html) provides support for compiling Spring Boot applications into native executables. The buildpack uses [Liberica Native Image Kit (NIK)](https://tanzu.vmware.com/content/blog/vmware-tanzu-enterprise-support-spring-boot-native-applications-bellsoft-liberica-nik) to create native images of Spring Boot applications and these applications are fully supported.
 
-When build a Java Native Image, set build environment `BP_NATIVE_IMAGE` to `true` is necessary, and the build memory resource should not be less than 8Gi. So the [build service agent pool size](how-to-enterprise-build-service.md#build-agent-pool) should not less than `4 vCPU, 8 Gi`.
+When you build a Java Native Image, you must set the build environment `BP_NATIVE_IMAGE` to `true` and the build memory resource shouldn't be less than 8Gi. The build service agent pool size shouldn't be less than `4 vCPU, 8 Gi`. For more information, see the [Build agent pool](how-to-enterprise-build-service.md#build-agent-pool) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
-If you want to build the native image into a smaller size container image, then use builder with `Jammy Tiny` OS stack is a recommended way. See [OS Stack Recommendations](#os-stack-recommendations)
+If you want to build the native image into a smaller size container image, then we recommend using a builder with the `Jammy Tiny` OS stack. For more information, see the [OS stack recommendations](#os-stack-recommendations) section.
 
 The following table lists the features supported in Azure Spring Apps:
 
-| Feature description                                                 | Comment                                                                                                                                                                                                                                                    | Environment variable                                                                                                  | Usage                                                         |
-|---------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
-| Integrate with Bellsoft OpenJDK.                                    | Configures the JDK version. Currently supported: JDK 8, 11 and 17.                                                                                                                                                                                         | `BP_JVM_VERSION`                                                                                                      | `--build-env BP_JVM_VERSION=17`                               |
-| Configure argument for `native-image` command                       | Arguments to pass to directly to the native-image command. These arguments must be valid and correctly formed or the native-image command will fail.                                                                                                       | `BP_NATIVE_IMAGE_BUILD_ARGUMENTS`                                                                                     | `--build-env BP_NATIVE_IMAGE_BUILD_ARGUMENTS="--no-fallback"` |
-| Add CA certificates to the system trust store at build and runtime. | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | N/A                                                                                                                   | N/A                                                           |
-| Enable configuration of labels on the created image.                | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                           | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`                          |
-| Support building Maven-based applications from source.              | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty).                                                                                                                            | `BP_MAVEN_BUILT_MODULE`                                                                                               | `--build-env BP_MAVEN_BUILT_MODULE=./gateway`                 |
+| Feature description                                                 | Comment                                                                                                                                                                                                                                                            | Environment variable                                                                                                  | Usage                                                         |
+|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| Integrate with Bellsoft OpenJDK.                                    | Configures the JDK version. Currently supported: JDK 8, 11, and 17.                                                                                                                                                                                                | `BP_JVM_VERSION`                                                                                                      | `--build-env BP_JVM_VERSION=17`                               |
+| Configure arguments for the `native-image` command.                 | Arguments to pass directly to the native-image command. These arguments must be valid and correctly formed or the native-image command fails.                                                                                                                      | `BP_NATIVE_IMAGE_BUILD_ARGUMENTS`                                                                                     | `--build-env BP_NATIVE_IMAGE_BUILD_ARGUMENTS="--no-fallback"` |
+| Add CA certificates to the system trust store at build and runtime. | See the [Use CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md#use-ca-certificates) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-intergration-and-ca-certificates.md). | Not applicable.                                                                                                       | Not applicable.                                               |
+| Enable configuration of labels on the created image                 | Configures both OCI-specified labels with short environment variable names and arbitrary labels using a space-delimited syntax in a single environment variable.                                                                                                   | `BP_IMAGE_LABELS` <br> `BP_OCI_AUTHORS` <br> See more envs [here](https://github.com/paketo-buildpacks/image-labels). | `--build-env BP_OCI_AUTHORS=<value>`                          |
+| Support building Maven-based applications from source.              | Used for a multi-module project. Indicates the module to find the application artifact in. Defaults to the root module (empty).                                                                                                                                    | `BP_MAVEN_BUILT_MODULE`                                                                                               | `--build-env BP_MAVEN_BUILT_MODULE=./gateway`                 |
 
 ## Next steps
 
