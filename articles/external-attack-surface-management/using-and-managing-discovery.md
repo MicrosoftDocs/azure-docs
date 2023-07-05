@@ -1,6 +1,6 @@
 ---
 title: Use and manage discovery
-description: 'Use and manage discovery: Use Microsoft Defender External Attack Surface Management to discover and manage your organization's internet-exposed attack surface.'
+description: Learn how to use Microsoft Defender External Attack Surface Management to discover and manage your organization's internet-exposed attack surface.
 author: danielledennis
 ms.author: dandennis
 ms.service: defender-easm
