@@ -46,7 +46,7 @@ To learn more, see [How snapshots can be vaulted for long-term retention and cos
 
 ## Cross-region replication 
 
-Using Snapshot technology, you can replicate your Azure NetApp Files across designated Azure regions to protect your data from unforeseeable regional failures. Cross-region replication minimizes data transfer costs, replicating only changed blocks across regions while also enabling a lower restore point objective.   
+Using snapshot technology, you can replicate your Azure NetApp Files across designated Azure regions to protect your data from unforeseeable regional failures. Cross-region replication minimizes data transfer costs, replicating only changed blocks across regions while also enabling a lower restore point objective.   
 
 ### Benefits 
 
