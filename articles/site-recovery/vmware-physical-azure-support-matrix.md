@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 05/24/2023
+ms.date: 07/05/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23 
@@ -70,6 +70,7 @@ Site Recovery supports replication of any workload running on a supported machin
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](./site-recovery-workload.md).
 Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
+Azure Virtual Machines as Physical | Failover of virtual machines with Marketplace image disks is currently not supported.
 
 ### For Windows
 
