@@ -2,8 +2,8 @@
 title: Configure autoscale settings for a Stream Analytics job by using the CI/CD tool
 description: This article shows how to configure autoscale settings for a Stream Analytics job by using the CI/CD tool.
 services: stream-analytics
-author: alexlzx
-ms.author: zhenxilin
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/08/2023
