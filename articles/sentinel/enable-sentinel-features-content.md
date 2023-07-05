@@ -12,17 +12,13 @@ ms.author: lwainstein
 
 To begin your deployment, you need to enable Microsoft Sentinel, and set up key features and content. In this article, you learn how to enable Microsoft Sentinel, and then enable the health and audit feature, and the solutions and content you've identified according to your organization's needs.
 
-## Enable Microsoft Sentinel
+## Enable features and content
 
-First, [enable the Microsoft Sentinel service](quickstart-onboard.md#enable-microsoft-sentinel).
-
-## Enable health and audit
-
-[Enable health and audit](enable-monitoring.md) at this stage of your deployment to make sure that the service's many moving parts are always functioning as intended and that the service isn't being manipulated by unauthorized actions. Learn more about the [health and audit](health-audit.md) feature.
-
-## Enable solutions and content
-
-When you planned your deployment, you [identified which data sources you need to ingest into Microsoft Sentinel](prioritize-data-connectors.md). Now, you want to [enable the relevant solutions and content](sentinel-solutions-deploy.md) so that the data you need can start flowing into Microsoft Sentinel.
+|Step  |Description  |
+|---------|---------|
+|1. [Enable the Microsoft Sentinel service](quickstart-onboard.md#enable-microsoft-sentinel)     |         |
+|2. [Enable health and audit](enable-monitoring.md)     |Enable health and audit at this stage of your deployment to make sure that the service's many moving parts are always functioning as intended and that the service isn't being manipulated by unauthorized actions. Learn more about the [health and audit](health-audit.md) feature.         |
+|3. [Enable solutions and content](sentinel-solutions-deploy.md)     |When you planned your deployment, you [identified which data sources you need to ingest into Microsoft Sentinel](prioritize-data-connectors.md). Now, you want to [enable the relevant solutions and content](sentinel-solutions-deploy.md) so that the data you need can start flowing into Microsoft Sentinel.         |
 
 ## Next steps
 
