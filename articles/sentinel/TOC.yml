@@ -961,6 +961,8 @@
         href: mssp-protect-intellectual-property.md
     - name: Manage workspace access
       href: resource-context-rbac.md
+    - name: Switch to simplified pricing triggers
+      href: enroll-simplified-pricing-tier.md
     - name: Set up customer-managed keys
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
@@ -975,6 +977,8 @@
         href: monitor-data-connector-health.md
       - name: Monitor automation rules and playbooks health
         href: monitor-automation-health.md
+      - name: Monitor and optimize execution of analytics rules
+        href: monitor-optimize-analytics-rule-execution.md
       - name: Audit and monitor the health of analytics rules
         href: monitor-analytics-rule-integrity.md
       - name: Monitor SAP system health and role
@@ -1035,9 +1039,7 @@
   - name: Troubleshoot Jupyter notebooks
     href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
-    href: sap/sap-deploy-troubleshoot.md
-  - name: Configure SAP Transport Management System
-    href: sap/configure-transport.md  
+    href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
   - name: SAP solution

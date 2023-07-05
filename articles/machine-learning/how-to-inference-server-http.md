@@ -7,7 +7,7 @@ ms.author: shnagata
 ms.reviewer: mopeakande
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 11/29/2022
