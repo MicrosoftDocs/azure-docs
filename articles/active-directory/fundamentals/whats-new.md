@@ -357,7 +357,7 @@ The Azure AD on-premises application provisioning feature now supports both the 
 **Service category:** Identity Protection                          
 **Product capability:** Identity Security & Protection               
 
-Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins's by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
+Identity Protection has added a new detection, using the Microsoft Threat Intelligence database, to detect sign-ins performed from IP addresses of known nation state and cyber-crime actors and allow customers to block these sign-ins by using risk-based conditional access policies. For more information, see: [Sign-in risk](../identity-protection/concept-identity-protection-risks.md).
 
 ---
 
