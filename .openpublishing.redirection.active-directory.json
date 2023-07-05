@@ -4576,6 +4576,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-sign-in-diagnostics.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-sign-in-diagnostics",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-data-download.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reports-faq",
       "redirect_document_id": false
@@ -11217,6 +11222,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/user-manage-inactive.md",
+      "redirect_url": "/azure/active-directory-b2c/manage-users-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
       "redirect_url": "/azure/active-directory-b2c/troubleshoot",
       "redirect_document_id": false
@@ -12645,6 +12655,12 @@
       },
 
       {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/reference-connect-germany.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/whatis-azure-ad-connect",
+      "redirect_document_id": false
+      },
+
+      {
         "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow.md",
         "redirect_url": "/azure/active-directory/privileged-identity-management/pim-approval-workflow",
         "redirect_document_id": false
@@ -12881,7 +12897,94 @@
         "source_path_from_root": "/articles/active-directory/authentication/active-directory-certificate-based-authentication-get-started.md",
         "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-federation-get-started",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md",
+        "redirect_url": "/azure/active-directory/fundamentals/create-new-tenant",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-architecture.md",
+        "redirect_url": "/azure/active-directory/fundamentals/architecture",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-data-storage-australia.md",
+        "redirect_url": "/azure/active-directory/fundamentals/data-storage-australia",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-data-storage-australia-newzealand.md",
+        "redirect_url": "/azure/active-directory/fundamentals/data-storage-australia-newzealand",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-data-storage-eu.md",
+        "redirect_url": "/azure/active-directory/fundamentals/data-storage-eu",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-faq.yml",
+        "redirect_url": "/azure/active-directory/fundamentals/faq",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-data-storage-japan.md",
+        "redirect_url": "/azure/active-directory/fundamentals/data-storage-japan",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-get-started-premium.md",
+        "redirect_url": "/azure/active-directory/fundamentals/get-started-premium",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-groups-view-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/groups-view-azure-portal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md",
+        "redirect_url": "/azure/active-directory/fundamentals/how-subscriptions-associated-directory",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-how-to-find-tenant.md",
+        "redirect_url": "/azure/active-directory/fundamentals/how-to-find-tenant.md",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/how-subscriptions-associated-directory",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-properties-area.md",
+        "redirect_url": "/azure/active-directory/fundamentals/properties-area",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/licensing-whatis-azure-portal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md",
+        "redirect_url": "/azure/active-directory/fundamentals/users-reset-password-azure-portal",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-restore.md",
+        "redirect_url": "/azure/active-directory/fundamentals/users-restore",
+        "redirect_document_id": false
       }
+      
+      
+      
+      
+      
+      
+      
       
       ]
 } 

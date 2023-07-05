@@ -61,3 +61,4 @@ The route configuration override in a rules engine configuration action for Fron
 
 * Learn more about the [Azure Front Door migration process](tier-migration.md).
 * Learn how to [migrate from Azure Front Door (classic) to Azure Front Door Standard or Premium](migrate-tier.md) using the Azure portal.
+* Learn how to [migrate from Azure Front Door (classic) to Azure Front Door Standard or Premium](migrate-tier-powershell.md) using the Azure PowerShell.

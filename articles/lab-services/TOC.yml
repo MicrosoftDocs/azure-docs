@@ -42,9 +42,12 @@
   - name: Migrate lab account role assignments
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
     href: concept-migrate-from-lab-accounts-roles.md
+  - name: Supported networking topologies
+    displayName: advanced, networking, vnet, subnet, hybrid, connectivity, VPN, ExpressRoute, peering, NAT, gateway, firewall, proxy, load balancer, Azure Bastion, Azure Firewall, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer, Azure Bastion, Azure Application Gateway, Azure Front Door, Azure Traffic Manager, Azure Virtual WAN, Azure VPN Gateway, Azure ExpressRoute, Azure Private Link, Azure DNS, Azure DDoS Protection, Azure Firewall Manager, Azure Load Balancer
+    href: concept-lab-services-supported-networking-scenarios.md
   - name: Migrate from physical labs
     href: concept-migrating-physical-labs.md
-  - name: Nested virtualization on a template VM
+  - name: Nested virtualization
     href: concept-nested-virtualization-template-vm.md
   - name: Capacity limits
     href: capacity-limits.md  
@@ -119,10 +122,6 @@
     href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
-    - name: Request core limit increase
-      href: how-to-request-capacity-increase.md?tabs=Labplans
-    - name: Determine Usage and Quota
-      href: how-to-determine-your-quota-usage.md
     - name: Create and manage lab plans
       items:
       - name: Create & manage lab plans (Azure portal)
@@ -137,11 +136,15 @@
         href: how-to-create-lab-plan-python.md
     - name: Add a lab creator
       href: add-lab-creator.md
-    - name: Configure auto-shutdown settings
-      href: how-to-configure-auto-shutdown-lab-plans.md
-    - name: Connect to a virtual network
+    - name: Connect a lab plan to a virtual network
       displayName: VNET, injection, advanced, networking, hybrid, on-premise
       href: how-to-connect-vnet-injection.md
+    - name: Request core limit increase
+      href: how-to-request-capacity-increase.md?tabs=Labplans
+    - name: Determine Usage and Quota
+      href: how-to-determine-your-quota-usage.md
+    - name: Configure auto-shutdown settings
+      href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
     - name: Specify Marketplace images for labs 
@@ -175,7 +178,7 @@
     - name: Restrict VM sizes allowed for labs
       href: how-to-use-restrict-allowed-virtual-machine-sku-sizes-policy.md
   - name: Create & configure labs (educator)
-    items:        
+    items:
     - name: Create and manage labs
       items:
       - name: Create and manage labs (website)

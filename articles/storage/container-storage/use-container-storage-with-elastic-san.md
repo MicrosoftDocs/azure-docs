@@ -2,16 +2,15 @@
 title: Use Azure Container Storage Preview with Azure Elastic SAN Preview
 description: Configure Azure Container Storage Preview for use with Azure Elastic SAN Preview. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
-ms.service: storage
+ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 07/03/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.custom: references_regions
 ---
 
 # Use Azure Container Storage Preview with Azure Elastic SAN Preview
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN Preview as back-end storage for your Kubernetes workloads.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN Preview as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
 
 ## Prerequisites
 
@@ -34,7 +33,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code. The storage pool **name** value can be whatever you want.
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1alpha1
@@ -71,18 +70,21 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 ## Assign Contributor role to AKS managed identity on Azure Elastic SAN Preview subscription
 
-You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
+Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN Preview subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true).
 1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN Preview resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
-1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
+1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
+   
+   :::image type="content" source="media/container-storage-aks-quickstart/add-role-assignment.png" alt-text="Screenshot showing how to use the Azure portal to add Contributor role to the AKS managed identity." lightbox="media/container-storage-aks-quickstart/add-role-assignment.png":::
+   
 1. Under **Assign access to**, select **Managed identity**.
 1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
 1. Under **Managed identity**, select **User-assigned managed identity**.
 1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
-1. Select **Review + assign**.
+1. Click **Select**, then **Review + assign**.
 
 ## Display the available storage classes
 
@@ -99,7 +101,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc.yaml`.
 
-1. Paste in the following code. The PVC `name` value can be whatever you want.
+1. Paste in the following code and save the file. The PVC `name` value can be whatever you want.
 
    ```yml
    apiVersion: v1
@@ -141,7 +143,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
 
-1. Paste in the following code.
+1. Paste in the following code and save the file.
 
    ```yml
    kind: Pod

@@ -101,7 +101,7 @@ You can set up the authentication pipeline with cookie-based authentication by u
 
 ```powershell
 Install-Package Microsoft.Identity.Web.Owin
-Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Identity.Web.GraphServiceClient
 Install-Package Microsoft.Owin.Security.Cookies
 ```
 
@@ -167,7 +167,7 @@ You can call Microsoft Graph from the controller by getting the instance of Grap
 ```csharp
     try
     { 
-        var me = await this.GetGraphServiceClient().Me.Request().GetAsync();
+        var me = await this.GetGraphServiceClient().Me.GetAsync();
         ViewBag.Username = me.DisplayName;
     }
     catch (ServiceException graphEx) when (graphEx.InnerException is MicrosoftIdentityWebChallengeUserException)

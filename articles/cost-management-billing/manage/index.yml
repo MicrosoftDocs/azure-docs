@@ -1,0 +1,99 @@
+### YamlMime:Landing
+
+title: Billing and subscription documentation
+summary: Use billing and subscription management to manage your accounts, invoices, and payments.
+metadata:
+  title: Billing and subscription documentation
+  description: Use billing and subscription management to manage your accounts, invoices, and payments.
+  ms.service: cost-management-billing
+  ms.subservice: billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 06/09/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Manage your account
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Get started with your Microsoft Customer Agreement
+        url: ../understand/mca-overview.md
+    - linkListType: how-to-guide
+      links:
+      - text: View billing accounts
+        url: view-all-accounts.md
+      - text: Change credit card
+        url: change-credit-card.md
+
+
+  # Card (optional)
+  - title: Manage your subscription
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Create an additional subscription
+        url: create-subscription.md
+      - text: Change administrator
+        url: add-change-subscription-administrator.md
+
+  # Card (optional)
+  - title: Access and permissions
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Assign access to cost data
+        url: ../costs/assign-access-acm-data.md
+      - text: Microsoft Customer Agreement roles
+        url: understand-mca-roles.md
+      - text: Enterprise Agreement roles
+        url: understand-ea-roles.md
+
+  - title: Review your bill
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Review your individual account bill
+        url: ../understand/review-individual-bill.md
+      - text: Review your Microsoft Customer Agreement bill
+        url: ../understand/review-customer-agreement-bill.md
+      - text: Review your Enterprise Agreement bill
+        url: ../understand/review-enterprise-agreement-bill.md
+
+  - title: Downloads and payments
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Download your invoice
+        url: ../understand/download-azure-invoice.md
+      - text: Download your tax documents
+        url: ../understand/mca-download-tax-document.md
+      - text: Download your usage and charges
+        url: ../understand/download-azure-daily-usage.md
+      - text: Pay your bill
+        url: ../understand/pay-bill.md
+      - text: Pay by wire transfer
+        url: pay-by-invoice.md
+
+  - title: Learn more
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Usage terms explained
+        url: ../understand/understand-usage.md
+      - text: Microsoft Customer Agreement usage terms
+        url: ../understand/mca-understand-your-usage.md
+      - text: Invoice terms explained
+        url: ../understand/understand-invoice.md
+      - text: Microsoft Customer Agreement invoice terms
+        url: ../understand/mca-understand-your-invoice.md
+    - linkListType: learn
+      links:
+      - text: Learn at your own pace
+        url: /training/paths/control-spending-manage-bills

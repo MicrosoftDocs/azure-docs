@@ -2,7 +2,7 @@
 title: Microsoft Azure Monitor Application Insights JavaScript SDK
 description: Microsoft Azure Monitor Application Insights JavaScript SDK is a powerful tool for monitoring and analyzing web application performance.
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 06/23/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -23,10 +23,10 @@ The Microsoft Azure Monitor Application Insights JavaScript SDK allows you to mo
 Follow the steps in this section to instrument your application with the Application Insights JavaScript SDK.
 
 > [!TIP] 
-> Good news! We're making it even easier to enable JavaScript. Check out where [SDK Loader Script injection by configuration is available](./codeless-overview.md#sdk-loader-script-injection-by-configuration)!
+> Good news! We're making it even easier to enable JavaScript. Check out where [JavaScript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
 
 > [!NOTE]
-> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#5-optional-advanced-sdk-configuration).
+> If you have a React, React Native, or Angular application, you can [optionally add these plug-ins after you follow the steps to get started](#4-optional-add-advanced-sdk-configuration).
 
 ### 1. Add the JavaScript code
 
@@ -34,12 +34,12 @@ Two methods are available to add the code to enable Application Insights via the
 
 | Method | When would I use this method? |
 |:-------|:------------------------------|
-| SDK Loader Script | For most customers, we recommend the SDK Loader Script because you never have to update the SDK and you get the latest updates automatically. Also, you have control over which pages you add the Application Insights JavaScript SDK to. |
+| JavaScript (Web) SDK Loader Script | For most customers, we recommend the JavaScript (Web) SDK Loader Script because you never have to update the SDK and you get the latest updates automatically. Also, you have control over which pages you add the Application Insights JavaScript SDK to. |
 | npm package | You want to bring the SDK into your code and enable IntelliSense. This option is only needed for developers who require more custom events and configuration. |
 
-#### [SDK Loader Script](#tab/sdkloaderscript)
+#### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-1. Paste the SDK Loader Script at the top of each page for which you want to enable Application Insights. 
+1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights. 
 
    > [!NOTE]
    > Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
@@ -59,20 +59,20 @@ Two methods are available to add the code to enable Application Insights via the
    </script>
    ```
 
-1. (Optional) Add or update optional [SDK Loader Script configuration](#sdk-loader-script-configuration), depending on if you need to optimize the loading of your web page or resolve loading errors.
+1. (Optional) Add or update optional [JavaScript (Web) SDK Loader Script configuration](#javascript-web-sdk-loader-script-configuration), depending on if you need to optimize the loading of your web page or resolve loading errors.
 
-   :::image type="content" source="media/javascript-sdk/sdk-loader-script-configuration.png" alt-text="Screenshot of the SDK Loader Script. The parameters for configuring the SDK Loader Script are highlighted." lightbox="media/javascript-sdk/sdk-loader-script-configuration.png":::
+   :::image type="content" source="media/javascript-sdk/sdk-loader-script-configuration.png" alt-text="Screenshot of the JavaScript (Web) SDK Loader Script. The parameters for configuring the JavaScript (Web) SDK Loader Script are highlighted." lightbox="media/javascript-sdk/sdk-loader-script-configuration.png":::
 
-#### SDK Loader Script configuration
+#### JavaScript (Web) SDK Loader Script configuration
 
    | Name | Type | Required? | Description
    |------|------|-----------|------------
    | src | string | Required | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
-   | name | string | Optional | The global name for the initialized SDK. Use this setting if you need to initialize two different SDKs at the same time.<br><br>The default value is appInsights, so ```window.appInsights``` is a reference to the initialized instance.<br><br> Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct SDK Loader Script skeleton, and proxy methods are initialized and updated.
-   | ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. Use this setting when the HTML page is failing to load because the SDK Loader Script is loading at the wrong time.<br><br>The default value is 0ms after timeout. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
-   | useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. For example, this setting is useful when the SDK Loader Script is preventing the HTML page from loading, causing fetch() to be unavailable.<br><br>Reporting first attempts to use fetch() if available and then fallback to XHR. Set this setting to `true` to bypass the fetch check. This setting is only required if your application is being used in an environment where fetch would fail to send the failure events such as if the SDK Loader Script isn't loading successfully.
+   | name | string | Optional | The global name for the initialized SDK. Use this setting if you need to initialize two different SDKs at the same time.<br><br>The default value is appInsights, so ```window.appInsights``` is a reference to the initialized instance.<br><br> Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct JavaScript (Web) SDK Loader Script skeleton, and proxy methods are initialized and updated.
+   | ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. Use this setting when the HTML page is failing to load because the JavaScript (Web) SDK Loader Script is loading at the wrong time.<br><br>The default value is 0ms after timeout. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
+   | useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. For example, this setting is useful when the JavaScript (Web) SDK Loader Script is preventing the HTML page from loading, causing fetch() to be unavailable.<br><br>Reporting first attempts to use fetch() if available and then fallback to XHR. Set this setting to `true` to bypass the fetch check. This setting is only required if your application is being used in an environment where fetch would fail to send the failure events such as if the JavaScript (Web) SDK Loader Script isn't loading successfully.
    | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. Use this setting when you need to provide support for CORS. When not defined (the default), no crossOrigin attribute is added. Recommended values are not defined (the default), "", or "anonymous". For all valid values, see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation.
-   | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of SDK Loader Script version 5--the sv:"5" value within the script). |
+   | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of JavaScript (Web) SDK Loader Script version 5--the sv:"5" value within the script). |
 
 #### [npm package](#tab/npmpackage)
 
@@ -120,49 +120,51 @@ To paste the connection string in your environment, follow these steps:
 
 ### 3. (Optional) Add SDK configuration
 
-The optional [SDK configuration](./javascript-sdk-advanced.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
+The optional [SDK configuration](./javascript-sdk-configuration.md#sdk-configuration) is passed to the Application Insights JavaScript SDK during initialization.
 
 To add SDK configuration, add each configuration option directly under `connectionString`. For example:
 
 :::image type="content" source="media/javascript-sdk/example-sdk-configuration.png" alt-text="Screenshot of JavaScript code with SDK configuration options added and highlighted." lightbox="media/javascript-sdk/example-sdk-configuration.png":::
 
-### 4. Confirm data is flowing
+### 4. (Optional) Add advanced SDK configuration
 
-1. Go to your Application Insights resource that you've enabled the SDK for. 
-1. In the Application Insights resource menu on the left, under **Investigate**, select the **Transaction search** pane.
-1. Open the **Event types** dropdown menu and select **Select all** to clear the checkboxes in the menu. 
-1. From the **Event types** dropdown menu, select **Page View**.
-
-   It might take a few minutes for data to show up in the portal.
-
-   :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
-
-If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
-
-### 5. (Optional) Advanced SDK configuration
-
-If you want to use the extra features provided by plugins for specific frameworks, see:
+If you want to use the extra features provided by plugins for specific frameworks and optionally enable the Click Analytics plug-in, see:
 
 - [React plugin](javascript-framework-extensions.md?tabs=react)
 - [React native plugin](javascript-framework-extensions.md?tabs=reactnative)
 - [Angular plugin](javascript-framework-extensions.md?tabs=reactnative)
 
 > [!TIP]
-> We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics plug-in](javascript-feature-extensions.md).
+> We collect page views by default. But if you want to also collect clicks by default, consider adding the Click Analytics Auto-Collection plug-in. If you're adding a framework extension, you'll have the option to add Click Analytics when you add the framework extension. If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md).
+
+### 5. Confirm data is flowing
+
+1. Go to your Application Insights resource that you've enabled the SDK for. 
+1. In the Application Insights resource menu on the left, under **Investigate**, select the **Transaction search** pane.
+1. Open the **Event types** dropdown menu and select **Select all** to clear the checkboxes in the menu. 
+1. From the **Event types** dropdown menu, select:
+
+   - **Page View** for Azure Monitor Application Insights Real User Monitoring
+   - **Custom Event** for the Click Analytics Auto-Collection plug-in.
+
+   It might take a few minutes for data to show up in the portal.
+
+   :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
 
 ## Support
 
-- If you're having trouble with enabling Application Insights, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
+- If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
 - For common question about the JavaScript SDK, see the [FAQ](/azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For a list of open issues related to the Application Insights JavaScript SDK, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-JS/issues).
+- Use the [Telemetry Viewer extension](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/chrome-debug-extension) to list out the individual events in the network payload and monitor the internal calls within Application Insights.
 
 ## Next steps
 
-* [Track usage](usage-overview.md)
+* [Explore Application Insights usage experiences](usage-overview.md)
 * [Track page views](api-custom-events-metrics.md#page-views)
-* [Custom events and metrics](api-custom-events-metrics.md)
-* [JavaScript telemetry initializers](api-filtering-sampling.md#javascript-telemetry-initializers)
-* [Build-measure-learn](usage-overview.md)
-* [JavaScript SDK advanced topics](javascript-sdk-advanced.md)
+* [Track custom events and metrics](api-custom-events-metrics.md)
+* [Insert a JavaScript telemetry initializer](api-filtering-sampling.md#javascript-telemetry-initializers)
+* [Add JavaScript SDK configuration](javascript-sdk-configuration.md)
 * See the detailed [release notes](https://github.com/microsoft/ApplicationInsights-JS/releases) on GitHub for updates and bug fixes.
+* [Query data in Log Analytics](../../azure-monitor/logs/log-query-overview.md).

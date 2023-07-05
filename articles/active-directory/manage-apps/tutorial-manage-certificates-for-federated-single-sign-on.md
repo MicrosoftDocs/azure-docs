@@ -31,6 +31,8 @@ In this tutorial, an administrator of the application learns how to:
 > * Add email notification address for certificate expiration dates
 > * Renew certificates
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

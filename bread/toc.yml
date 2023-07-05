@@ -21,9 +21,6 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
-      - name: Cloud sync
-        tocHref: /azure/active-directory/cloud-sync/
-        topicHref: /azure/active-directory/cloud-sync/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -1062,7 +1059,7 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/workloads
+        topicHref: /azure/virtual-machines/workloads/workloads/
         items:
           - name: Azure VMs for SAP workloads
             tocHref: /azure/virtual-machines/workloads/sap/
@@ -1072,7 +1069,7 @@
             topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
           - name: Oracle
             tocHref: /azure/virtual-machines/workloads/oracle/
-            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+            topicHref: /azure/virtual-machines/workloads/oracle/index
           - name: Mainframe rehosting
             tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
             topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
@@ -1099,31 +1096,37 @@
   - name: Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
-  - name: Cost Management and Billing
-    tocHref: /azure/cost-management-billing/
-    topicHref: /azure/cost-management-billing/
+  - name: CM+B
+    tocHref: /azure/cost-management-billing
+    topicHref: /azure/cost-management-billing
     items:
-    - name: Get started
-      tocHref: /azure/cost-management-billing/understand/
-      topicHref: /azure/cost-management-billing/understand/
-    - name: Manage costs and usage
-      tocHref: /azure/cost-management-billing/costs/
-      topicHref: /azure/cost-management-billing/costs/
-    - name: Manage accounts and subscriptions
-      tocHref: /azure/cost-management-billing/manage/
-      topicHref: /azure/cost-management-billing/manage/
+    - name: Cost Management
+      tocHref: /azure/cost-management-billing/costs
+      topicHref: /azure/cost-management-billing/costs
     - name: Reservations
-      tocHref: /azure/cost-management-billing/reservations/
-      topicHref: /azure/cost-management-billing/reservations/
+      tocHref: /azure/cost-management-billing/reservations
+      topicHref: /azure/cost-management-billing/reservations
     - name: Microsoft Customer Agreement
-      tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
-      topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
+      tocHref: /azure/cost-management-billing/microsoft-customer-agreement
+      topicHref: /azure/cost-management-billing/microsoft-customer-agreement
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
     - name: Azure savings plans
       tocHref: /azure/cost-management-billing/savings-plan
       topicHref: /azure/cost-management-billing/savings-plan
+    - name: Billing and subscriptions
+      tocHref: /azure/cost-management-billing/manage
+      topicHref: /azure/cost-management-billing/manage/index
+    - name: Billing and subscriptions
+      tocHref: /azure/cost-management-billing/understand
+      topicHref: /azure/cost-management-billing/manage/index
+    - name: Cost Management
+      tocHref: /azure/cost-management-billing/automate
+      topicHref: /azure/cost-management-billing/costs/index
+    - name: FinOps
+      tocHref: /azure/cost-management-billing/finops
+      topicHref: /azure/cost-management-billing/finops/index
   - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/

@@ -646,7 +646,9 @@ items:
           - name: Create and manage snapshots
             href: snapshots-manage-dotnet.md
           - name: Create and list blob versions
-            href: versions-manage-dotnet.md  
+            href: versions-manage-dotnet.md
+          - name: Set or change a blob's access tier
+            href: storage-blob-use-access-tier-dotnet.md
           - name: Generate a shared access signature (SAS)
             items:
             - name: Create a user delegation SAS for a blob
@@ -701,6 +703,14 @@ items:
             href: storage-blob-container-lease-java.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-java.md
+          - name: Generate a shared access signature (SAS)
+            items:
+            - name: Create a user delegation SAS for a container
+              href: storage-blob-container-user-delegation-sas-create-java.md
+            - name: Create a service SAS for a container
+              href: sas-service-create-java-container.md
+            - name: Create an account SAS
+              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -725,6 +735,14 @@ items:
             href: storage-blob-lease-java.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-java.md
+          - name: Generate a shared access signature (SAS)
+            items:
+            - name: Create a user delegation SAS for a blob
+              href: storage-blob-user-delegation-sas-create-java.md
+            - name: Create a service SAS for a blob
+              href: sas-service-create-java.md
+            - name: Create an account SAS
+              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: JavaScript
         items:
         - name: Get started
@@ -791,7 +809,7 @@ items:
             href: storage-blob-properties-metadata-javascript.md
           - name: Get blob URL
             href: storage-blob-get-url-javascript.md
-          - name: Use access tiers
+          - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-javascript.md
       - name: TypeScript
         items: 
@@ -837,8 +855,6 @@ items:
           items:
           - name: Upload blobs
             href: storage-blob-upload-typescript.md
-          - name: Get blob URL
-            href: storage-blob-get-url-typescript.md
           - name: Download blobs
             href: storage-blob-download-typescript.md
           - name: Copy blobs
@@ -859,7 +875,9 @@ items:
             href: storage-blob-lease-typescript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-typescript.md
-          - name: Use access tiers
+          - name: Get blob URL
+            href: storage-blob-get-url-typescript.md
+          - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-typescript.md
       - name: Python
         items:

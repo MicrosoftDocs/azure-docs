@@ -128,10 +128,10 @@ items:
     items:
     - name: Get a phone number
       href: quickstarts/telephony/get-phone-number.md
+    - name: Make an outbound call
+      href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Add outbound phone calling to your app
       href: quickstarts/telephony/pstn-call.md
-    - name: Handle an inbound phone call
-      href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
     - name: Configure direct routing
       href: quickstarts/telephony/voice-routing-sdk-config.md
   - name: Email
@@ -240,7 +240,7 @@ items:
       - name: Manage Teams calling
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
-        href: how-tos/calling-sdk/lobby-admit-and-reject.md
+        href: how-tos/calling-sdk/lobby.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
@@ -343,6 +343,8 @@ items:
       - name: Query call logs
         href: concepts/analytics/query-call-logs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Rooms Insights
+        href: concepts/analytics/insights/rooms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Chat
@@ -393,8 +395,6 @@ items:
         href: quickstarts/telephony/port-phone-number.md
     - name: Call Automation
       items:
-      - name: Build a workflow for customer interactions 
-        href: quickstarts/call-automation/callflows-for-customer-interactions.md
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
       - name: Customize voice prompts to users with play action 
@@ -403,6 +403,8 @@ items:
         href: how-tos/call-automation/recognize-action.md
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
+      - name: Handling Call Automation Events with EventProcessor
+        href: how-tos/call-automation/handle-events-with-event-processor.md
     - name: Call recording
       items:
       - name: Record a call
@@ -471,10 +473,6 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
-  - name: Phone calling
-    items:
-    - name: Appointment reminder sample
-      href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
   - name: Identity
@@ -523,8 +521,8 @@ items:
       items:
       - name: SMS logs
         href: concepts/analytics/logs/sms-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: SMS metrics overview
+        href: concepts/analytics/sms-metrics.md
     - name: SMS FAQ
       href: concepts/sms/sms-faq.md
   - name: Voice and Video Calling
@@ -643,8 +641,12 @@ items:
         href: concepts/analytics/recording-logs.md
       - name: End of call survey logs
         href: concepts/analytics/logs/end-of-call-survey-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: Rooms logs
+        href: concepts/analytics/logs/rooms-logs.md
+      - name: Call automation metrics overview
+        href: concepts/analytics/logs/call-automation-metrics.md
+      - name: Rooms metrics overview
+        href: concepts/analytics/rooms-metrics.md
     - name: UI Library
       items:
       - name: UI Library overview
@@ -679,8 +681,8 @@ items:
       items:
       - name: Chat logs
         href: concepts/analytics/logs/chat-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: Chat metrics overview
+        href: concepts/analytics/chat-metrics.md
   - name: Phone calling
     items:
     - name: Telephony
@@ -707,6 +709,16 @@ items:
         href: concepts/telephony/outbound-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
+      - name: Troubleshooting
+        items:
+        - name: Monitor direct routing
+          href: concepts/telephony/monitoring-troubleshooting-telephony/monitor-direct-routing.md
+        - name: Troubleshoot TLS connectivity
+          href: concepts/telephony/monitoring-troubleshooting-telephony/troubleshoot-tls-certificate-sip-options.md
+        - name: Troubleshoot outbound calls
+          href: concepts/telephony/monitoring-troubleshooting-telephony/troubleshoot-outbound-calls.md
+        - name: SIP protocol details for direct routing
+          href: concepts/telephony/direct-routing-sip-specification.md
     - name: Call Automation
       items:
       - name: Overview
@@ -733,10 +745,14 @@ items:
         href: concepts/analytics/logs/voice-and-video-logs.md
       - name: Call Automation logs
         href: concepts/analytics/logs/call-automation-logs.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
       - name: Recording logs
         href: concepts/analytics/logs/recording-logs.md
-      - name: Metrics overview
-        href: concepts/metrics.md
+      - name: Call automation metrics overview
+        href: concepts/analytics/logs/call-automation-metrics.md
+      - name: Rooms metrics overview
+        href: concepts/analytics/rooms-metrics.md
   - name: Email
     items:
     - name: Overview
@@ -745,6 +761,8 @@ items:
       href: concepts/email/email-overview.md
     - name: SDK features
       href: concepts/email/sdk-features.md
+    - name: Allowed attachment types
+      href: concepts/email/email-attachment-allowed-mime-types.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
@@ -765,7 +783,7 @@ items:
       items:
       - name: Email logs
         href: concepts/analytics/logs/email-logs.md
-      - name: Metrics overview
+      - name: Email metrics overview
         href: concepts/metrics.md
   - name: Network Traversal
     items:
@@ -775,6 +793,8 @@ items:
       items:
       - name: Network Traversal logs
         href: concepts/analytics/logs/network-traversal-logs.md    
+      - name: Network Traversal metrics
+        href: concepts/analytics/turn-metrics.md  
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Azure Advisor
@@ -807,6 +827,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
     - name: Call Automation (Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
+    - name: Call Automation (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/callautomation.html
+    - name: Call Automation (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-callautomation
   - name: Chat 
     items:
     - name: Chat (JavaScript)

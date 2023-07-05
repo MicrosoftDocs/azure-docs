@@ -152,5 +152,4 @@ You can address the error by increasing the value of `memory_gb` in `deployment_
 Learn more about deployment:
 
 * [How to troubleshoot remote deployments](how-to-troubleshoot-deployment.md)
-* [Azure Machine Learning inference HTTP Server](../how-to-inference-server-http.md)
-* [How to run and debug experiments locally](../how-to-debug-visual-studio-code.md)
+* [How to run and debug experiments locally](how-to-debug-visual-studio-code.md)

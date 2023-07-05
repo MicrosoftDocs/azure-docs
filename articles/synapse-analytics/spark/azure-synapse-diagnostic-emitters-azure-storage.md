@@ -39,14 +39,16 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <storage-access-key>
 Fill in the following parameters in the configuration file: `<my-blob-storage>`, `<container-name>`, `<folder-name>`, `<storage-access-key>`.
 For more description of the parameters, you can refer to [Azure Storage configurations](#available-configurations)
 
-### Step 3: Upload the Apache Spark configuration file to Spark pool
+### Step 3: Upload the Apache Spark configuration file to Synapse Studio and use it in the Spark pool
 
-1. Navigate to your Apache Spark pool in Synapse Studio **(Manage -> Apache Spark pools)**
-1. Click the **"..."** button on the right of your Apache Spark pool and select **Apache Spark configuration**
-1. Click **Upload** and choose the ".txt" configuration file. And click **Apply**.
+1. Open the Apache Spark configurations page **(Manage -> Apache Spark configurations)**.
+2. Click on **Import** button to upload the Apache Spark configuration file to Synapse Studio.
+3. Navigate to your Apache Spark pool in Synapse Studio **(Manage -> Apache Spark pools)**.
+4. Click the **"..."** button on the right of your Apache Spark pool and select **Apache Spark configuration**.
+5. You can select the configuration file you just uploaded in the drop-down menu.
+6. Click **Apply** after selecting configuration file.
 
 ### Step 4: View the logs files in Azure storage account
-
 
 After you submit a job to the configured Apache Spark pool, you should be able to see the logs and metrics files in destination storage account.
 The logs will be placed in corresponding paths according to different applications by `<workspaceName>.<sparkPoolName>.<livySessionId>`.
@@ -103,6 +105,16 @@ Azure Synapse Analytics workspaces support enabling data exfiltration protection
 1. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Blob Storage** or **Azure Data Lake Storage Gen2** and **continue**.
    > [!div class="mx-imgBorder"]
    > ![Create managed private endpoint 1](./media/azure-synapse-diagnostic-emitters-azure-storage/create-private-endpoint-1.png)
+
+    > [!NOTE]
+    >
+    > We can support both Azure Blob Storage and Azure Data Lake Storage Gen2.
+    > But we were unable to parse the **abfss://** format. Azure Data Lake Storage Gen2 endpoints should be formatted as a blob URL:
+    >
+    > ```
+    > https://<my-blob-storage>.blob.core.windows.net/<container-name>/<folder-name> 
+    > ```
+
 2. Choose your Azure Storage account in the **Storage account name**, and click **Create** button.
    > [!div class="mx-imgBorder"]
    > ![Create managed private endpoint 2](./media/azure-synapse-diagnostic-emitters-azure-storage/create-private-endpoint-2.png)

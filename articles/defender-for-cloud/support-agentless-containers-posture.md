@@ -3,13 +3,14 @@ title: Support and prerequisites for agentless container posture - Microsoft Def
 description: Learn about the requirements for agentless container posture in Microsoft Defender for Cloud
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 06/14/2023
 ---
+
 # Support and prerequisites for agentless containers posture
 
 All of the agentless container capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan.
 
-Review the requirements on this page before setting up [agentless containers posture](concept-data-security-posture.md) in Microsoft Defender for Cloud.
+Review the requirements on this page before setting up [agentless containers posture](concept-agentless-containers.md) in Microsoft Defender for Cloud.
 
 > [!IMPORTANT]
 >  Agentless Posture is currently in Preview. Previews are provided "as is" and "as available" and are excluded from the service-level agreements and limited warranty.
@@ -41,6 +42,11 @@ This feature uses trusted access. Learn more about [AKS trusted access prerequis
 
 Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
+### Are attack paths triggered on workloads that are running on Azure Container Instances?
+
+Attack paths are currently not triggered for workloads running on[ Azure Container Instances](/azure/container-instances/).
+
 ## Next steps
 
 Learn how to [enable agentless containers](how-to-enable-agentless-containers.md).
+

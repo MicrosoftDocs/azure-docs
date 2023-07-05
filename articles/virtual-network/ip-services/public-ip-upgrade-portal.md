@@ -33,6 +33,9 @@ In order to upgrade a public IP, it must not be associated with any resource. Fo
 >[!IMPORTANT]
 >In the majority of cases, Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.  (In rare cases where the Basic Public IP has a specific zone assigned, it will retain this zone when upgraded to Standard.)
 
+> [!NOTE]
+> If you have multiple basic SKU public IP addresses attached to a virtual machine, it may be easier to use our [upgrade script](public-ip-upgrade-vm.md).
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Public IP**.

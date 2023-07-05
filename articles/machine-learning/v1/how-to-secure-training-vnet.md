@@ -70,26 +70,13 @@ In this article you learn how to secure the following training compute resources
 
 + If you have your own DNS server, we recommend using DNS forwarding to resolve the fully qualified domain names (FQDN) of compute instances and clusters. For more information, see [Use a custom DNS with Azure Machine Learning](../how-to-custom-dns.md).
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
-
-    - "Microsoft.Network/virtualNetworks/*/read" on the virtual network resource. This permission isn't needed for Azure Resource Manager (ARM) template deployments.
-    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
-
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../../role-based-access-control/built-in-roles.md#networking)
+[!INCLUDE [network-rbac](../includes/network-rbac.md)]
 
 ## Limitations
 
 ### Azure Machine Learning compute cluster/instance
 
-* __Compute clusters__ can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
-
-    * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
-    * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
-
-    Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
-
-    > [!WARNING]
-    > If you are using a __private endpoint-enabled workspace__, creating the cluster in a different region is __not supported__.
+* __Compute clusters__ can be created in a different region and VNet than your workspace. However, this functionality is only available using the SDK v2, CLI v2, or studio. For more information, see the [v2 version of secure training environments](../how-to-secure-training-vnet.md?view=azureml-api-2&preserve-view=true#compute-cluster-in-a-different-vnetregion-from-workspace).
 
 * Compute cluster/instance deployment in virtual network isn't supported with Azure Lighthouse.
 

@@ -18,7 +18,7 @@ keywords: on-premises, Docker, container
 By using containers, you can use a subset of the Speech service features in your own environment. In this article, you'll learn how to download, install, and run a Speech container.
 
 > [!NOTE]
-> Disconnected container pricing and commitment tiers vary from standard containers. For more information, see [Speech Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Disconnected container pricing and commitment tiers vary from standard containers. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## Prerequisites
 

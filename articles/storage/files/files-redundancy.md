@@ -4,7 +4,7 @@ description: Understand the data redundancy options available in Azure file shar
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2023
+ms.date: 06/19/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
@@ -57,6 +57,9 @@ A write request to a storage account that is using ZRS happens synchronously. Th
 
 An advantage of using ZRS for Azure Files workloads is that if a zone becomes unavailable, no remounting of Azure file shares from the connected clients is required. We recommend using ZRS in the primary region for scenarios that require high availability and low RPO/RTO. We also recommend ZRS for restricting replication of data to a particular country or region to meet data governance requirements.
 
+> [!NOTE]
+> Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia. In most cases, we recommend that Azure File Sync users configure storage accounts to use ZRS or GZRS.
+
 The following diagram shows how your data is replicated across availability zones in the primary region with ZRS:
 
 :::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagram showing how data is replicated in the primary region with ZRS.":::
@@ -86,7 +89,7 @@ For applications requiring high durability for SMB file shares, you can choose g
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
-Azure Files offers two options for copying your data to a secondary region. Currently, geo-redundant storage options are only available for standard SMB file shares that don't have the **large file shares** setting enabled on the storage account (up to 5 TiB):
+Azure Files offers two options for copying your data to a secondary region. Currently, geo-redundant storage options are only available for standard SMB file shares that don't have the **large file shares** setting enabled on the storage account (up to 5 TiB), unless you're using [Azure Files geo-redundancy for large file shares (preview)](geo-redundant-storage-for-large-file-shares.md).
 
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
@@ -119,22 +122,18 @@ For a list of regions that support GZRS, see [Azure regions that support geo-zon
 
 ### Disaster recovery and failover
 
-With GRS or GZRS, the file shares won't be accessible in the secondary region unless a failover occurs. If the primary region becomes unavailable, you can choose to fail over to the secondary region. The failover process updates the DNS entry provided by Azure Files so that the secondary endpoint becomes the new primary endpoint for your storage account. During the failover process, your data is inaccessible. After the failover is complete, you can read and write data to the new primary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information, see [How an account failover works](../common/storage-disaster-recovery-guidance.md).
+With GRS or GZRS, the file shares won't be accessible in the secondary region unless a failover occurs. If the primary region becomes unavailable, you can choose to fail over to the secondary region. The failover process updates the DNS entry provided by Azure Files so that the secondary endpoint becomes the new primary endpoint for your storage account. During the failover process, your data is inaccessible. After the failover is complete, you can read and write data to the new primary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information, see [Azure Files disaster recovery and failover](files-disaster-recovery.md).
 
 > [!IMPORTANT]
 > Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured and billed as GRS or GZRS.
 
-Because data is replicated to the secondary region asynchronously, a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. Azure Files typically has an RPO of 15 minutes or less, although there's currently no SLA on how long it takes to replicate data to the secondary region.
+### Geo-redundancy for premium file shares
 
-### Check the Last Sync Time property
+As previously mentioned, geo-redundancy options (GRS and GZRS) aren't supported for premium file shares. However, you can achieve geo-redundancy in other ways.
 
-To ensure file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state will be based on the latest system snapshot in the secondary region. If a failure happens in the primary region, the secondary region is likely behind the primary region, as all writes to the primary won't yet have been replicated to the secondary. Due to geo-lag or other issues, the latest system snapshot in the secondary region might be older than 15 minutes.
+For Azure File Sync scenarios, you can sync between your Azure file share (your cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure all data is present locally, and provision enough storage on the Azure VM to hold the entire dataset. To ensure changes will replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
-To determine which write operations have been replicated to the secondary region, your application can check the **Last Sync Time (LST)** property for your storage account. The LST indicates the last time that data from the primary region was written successfully to the secondary region, based on the latest system snapshot in the secondary region.
-
-All write operations written to the primary region prior to the LST have been successfully replicated to the secondary region, meaning that they're available to be read from the secondary. Any write operations written to the primary region after the last sync time might or might not have been replicated to the secondary region, meaning that they might not be available for read operations.
-
-You can query the value of the **Last Sync Time** property using Azure PowerShell, Azure CLI, or the client library. The **Last Sync Time** property is a GMT date/time value. For more information, see [Check the Last Sync Time property for a storage account](../common/last-sync-time-get.md).
+You can also create your own script to copy data to a storage account in a secondary region using tools such as AzCopy (use version 10.4 or later to preserve ACLs and timestamps).
 
 ## Summary of redundancy options
 
@@ -169,4 +168,5 @@ For pricing information for each redundancy option, see [Azure Files pricing](ht
 
 ## See also
 
-- [Change the redundancy option for a storage account](../common/redundancy-migration.md)
+- [Change the redundancy option for a storage account](../common/redundancy-migration.md?toc=/azure/storage/files/toc.json)
+- [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json)

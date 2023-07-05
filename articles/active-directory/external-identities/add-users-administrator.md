@@ -96,7 +96,7 @@ You can assign external users to a group, or Azure AD role when the account is c
 
 The final tab captures several key details from the user creation process. Review the details and select the **Invite** button if everything looks good. An email invitation is automatically sent to the user. After you send the invitation, the user account is automatically added to the directory as a guest.
 
- ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
+ ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator/guest-user-type.png)
 
 ### External user invitations
 <a name="resend-invitations-to-guest-users"></a>

@@ -41,7 +41,7 @@ The following table outlines the security considerations for the available authe
 | Microsoft Authenticator        | High     | High      | High         |
 | Authenticator Lite             | High     | High      | High         |
 | FIDO2 security key             | High     | High      | High         |
-| Certificate-based authentication (preview)| High | High | High       |
+| Certificate-based authentication | High | High | High       |
 | OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
 | SMS                            | Medium   | High      | Medium       |

@@ -71,7 +71,7 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 
 ## How does Azure Load Testing work?
 
-Azure Load Testing uses Apache JMeter version 5.5 for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, to load test a database connection or message queue.
+Azure Load Testing uses Apache JMeter for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, to load test a database connection or message queue. Learn more about the [supported Apache JMeter functionality](./resource-jmeter-support.md).
 
 The Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). Each test engine instance runs your JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL (*quick test*), Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
 

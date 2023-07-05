@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/09/2023
+ms.date: 06/12/2023
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -57,6 +57,7 @@ This section provides references for solutions for Linux OSS applications and da
 ### Product Lifecycle Management
 
 * [Use Teamcenter PLM with Azure NetApp Files](/azure/architecture/example-scenario/manufacturing/teamcenter-plm-netapp-files)
+* [Siemens Teamcenter baseline architecture](/azure/architecture/example-scenario/manufacturing/teamcenter-baseline)
 
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
@@ -142,6 +143,7 @@ This section provides references to SAP on Azure solutions.
 * [SAP Oracle 19c System Refresh Guide on Azure VMs using Azure NetApp Files Snapshots with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-oracle-19c-system-refresh-guide-on-azure-vms-using-azure/ba-p/3708172)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
 * [DB2 Installation Guide on Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/db2-installation-guide-on-anf/ba-p/3709437)
+* [SAP ASE 16.0 on Azure NetApp Files for SAP Workloads on SLES15](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/ba-p/3729496)
 
 ### SAP IQ-NLS
 
@@ -150,11 +152,6 @@ This section provides references to SAP on Azure solutions.
 
 ### SAP tech community and blog posts 
 
-* [Azure NetApp Files – SAP HANA backup in seconds](https://blog.netapp.com/azure-netapp-files-sap-hana-backup-in-seconds/)
-* [Azure NetApp Files – Restore your HANA database from a snapshot backup](https://blog.netapp.com/azure-netapp-files-backup-sap-hana)
-* [Azure NetApp Files – SAP HANA offloading backup with Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
-* [Speed up your SAP HANA system copies using Azure NetApp Files](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
-* [Cloud Volumes ONTAP and Azure NetApp Files: SAP HANA system migration made easy](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)

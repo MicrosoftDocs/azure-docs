@@ -7,14 +7,12 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: kpunjabi
-ms.custom: public_preview, devx-track-extended-java
+ms.custom: devx-track-extended-java
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Customize voice prompts to users with Play action
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This guide will help you get started with playing audio files to participants by using the play action provided through Azure Communication Services Call Automation SDK.
 
@@ -25,6 +23,22 @@ This guide will help you get started with playing audio files to participants by
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Play audio with Java](./includes/play-audio-quickstart-java.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Play audio with Java](./includes/play-audio-how-to-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Play audio with Java](./includes/play-audio-how-to-python.md)]
+::: zone-end
+
+## Event codes
+|Status|Code|Subcode|Message|
+|----|--|-----|-----|
+|PlayCompleted|200|0|Action completed successfully.|
+|PlayFailed|400|8535|Action failed, file format is invalid.|
+|PlayFailed|400|8536|Action failed, file could not be downloaded.|
+|PlayCanceled|400|8508|Action failed, the operation was canceled.|
 
 ## Clean up resources
 

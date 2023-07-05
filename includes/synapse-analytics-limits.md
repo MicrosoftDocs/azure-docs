@@ -5,7 +5,7 @@ services: synapse-analytics
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: include
-ms.date: 05/09/2022
+ms.date: 05/03/2023
 ms.author: jburchel
 ms.custom: include file
 ---
@@ -32,13 +32,15 @@ For Pay-As-You-Go, Free Trial, Azure Pass, and Azure for Students subscription o
 
 | Resource | Memory Optimized cores | GPU cores | 
 | -------- | ------------- | ------------- |
-| Spark cores in a Synapse workpsace | 12 | 48 |
+| Spark cores in a Synapse workspace | 12 | 48 |
 
 For other subscription offer types:
 
 | Resource | Memory Optimized cores | GPU cores | 
 | -------- | ------------- | ------------- |
-| Spark cores in a Synapse workpsace | 50 | 50 |
+| Spark cores in a Synapse workspace | 50 | 50 |
+
+For additional limits for Spark pools, see [Concurrency and API rate limits for Apache Spark pools in Azure Synapse Analytics](/rest/api/synapse/concurrency-limits-spark-pools).
 
 ### Azure Synapse limits for pipelines
 

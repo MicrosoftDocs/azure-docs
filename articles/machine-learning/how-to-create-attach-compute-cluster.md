@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create compute clusters in your Azure Machine Learning workspace. Use the compute cluster as a compute target for training or inference.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022, build-2023
+ms.custom: devx-track-azurecli, cliv2, sdkv2, event-tier1-build-2022, build-2023
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
@@ -16,7 +16,6 @@ ms.date: 10/19/2022
 # Create an Azure Machine Learning compute cluster
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -49,14 +48,10 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 ## Limitations
 
-* Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-* Compute clusters can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. This preview isn't available if you're using a private endpoint-enabled workspace. 
+* Compute clusters can be created in a different region than your workspace. This functionality is only available for __compute clusters__, not compute instances.
 
     > [!WARNING]
     > When using a compute cluster in a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
-
-* We currently support only creation (and not updating) of clusters through [ARM templates](/azure/templates/microsoft.machinelearningservices/workspaces/computes). For updating compute, we recommend using the SDK, Azure CLI or UX for now.
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
@@ -134,7 +129,7 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
     |Field  |Description  |
     |---------|---------|
-    | Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. Setting the location to a different region than the workspace is in __preview__, and is only available for __compute clusters__, not compute instances.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
+    | Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. If you don't have sufficient quota in the default region, switch to a different region for more options.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
     |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
     |Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
@@ -210,6 +205,8 @@ For information on how to configure a managed identity with your compute cluster
 ## Troubleshooting
 
 There's a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 ### Stuck at resizing
 

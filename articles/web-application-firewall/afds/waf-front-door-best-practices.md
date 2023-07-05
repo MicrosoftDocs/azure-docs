@@ -79,7 +79,7 @@ High rate limit thresholds avoid blocking legitimate traffic, while still provid
 
 ### Geo-filter traffic
 
-Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries you expect to receive traffic from.
+Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries/regions you expect to receive traffic from.
 
 For more information, see [What is geo-filtering on a domain for Azure Front Door Service?](waf-front-door-tutorial-geo-filtering.md).
 
