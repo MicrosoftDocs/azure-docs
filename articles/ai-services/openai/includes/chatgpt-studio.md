@@ -44,7 +44,7 @@ You can use the **Assistant setup** dropdown to select a few pre-loaded **System
 
 **System messages** give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, tell it what it should and shouldn't answer, and tell it how to format responses.
 
-**Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](../overview.md#in-context-learning).
+**Add few-shot examples** allows you to provide conversational examples that are used by the model for [in-context learning](../concepts/prompt-engineering.md#basics).
 
 At any time while using the Chat playground you can select **View code** to see Python, curl, and json code samples pre-populated based on your current chat session and settings selections. You can then take this code and write an application to complete the same task you're currently performing with the playground.
 
