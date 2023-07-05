@@ -152,7 +152,7 @@ except Exception:
 
 ## Create a job environment
 
-To run your Azure Machine Learning job on your compute resource, you need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your python environment on your local machine.
+To run your Azure Machine Learning job on your compute resource, you need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you'll be training. It's similar to your python environment on your local machine.
 
 Azure Machine Learning provides many curated or ready-made environments, which are useful for common training and inference scenarios. 
 
@@ -434,7 +434,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 
 ## Next Steps
