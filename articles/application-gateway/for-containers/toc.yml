@@ -7,9 +7,9 @@
 - name: Quickstarts
   items:
   - name: Create Application Gateway for Containers - Managed Deployment
-    href: quickstart-create-application-gateway-for-containers-managed.md
+    href: quickstart-create-application-gateway-for-containers-managed-deployment.md
   - name: Create Application Gateway for Containers - Referenced Deployment
-    href: quickstart-create-application-gateway-for-containers-referenced.md
+    href: quickstart-create-application-gateway-for-containers-referenced-deployment.md
 - name: Concepts
   items:
   - name: How Application Gateway for Containers works
