@@ -17,6 +17,14 @@
 # - name: Samples
 - name: Concepts
   items:
+  - name: NAS volumes as a service 
+    items: 
+      - name: Understand NAS
+        href: network-attached-storage-concept.md 
+      - name: Understand NAS protocols
+        href: network-attached-storage-protocols.md
+      - name: Understand file locking
+        href: understand-file-locks.md  
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -377,6 +385,8 @@
     href: /cli/azure/netappfiles
   - name: Manage preview features with Terraform Cloud and AzAPI Provider
     href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-azure-netapp-files-preview-features-with-terraform/ba-p/3657714
+  - name: Automated NFS volume failover using automounter
+    href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/automated-nfs-volume-failover-using-automounter-with-azure/ba-p/3849750
   - name: AzAcSnap command reference 
     items: 
     - name: -c configure
