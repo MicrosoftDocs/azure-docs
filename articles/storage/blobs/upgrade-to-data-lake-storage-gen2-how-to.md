@@ -5,13 +5,13 @@ author: normesta
 ms.service: storage
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 04/13/2023
+ms.date: 07/05/2023
 ms.author: normesta
 ---
 
-#  Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
+# Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
 
-This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. 
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2.
 
 To learn more about these capabilities and evaluate the impact of this upgrade on workloads, applications, costs, service integrations, tools, features, and documentation, see [Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2.md).
 
@@ -22,14 +22,16 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 1. Review feature support
 
-   Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any of those unsupported features in your account, make sure to disable them before you begin the upgrade.
+   Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any unsupported features in your account, you might need to disable them before you begin the upgrade, or manually migrate the account instead.
 
-   > [!NOTE]
-   > Blob soft delete is not yet supported by the upgrade process. Make sure to disable blob soft delete and then allow all soft-delete blobs to expire before you upgrade the account.
+   Some notable examples include:
+
+   - Blob soft delete is not yet supported by the upgrade process. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
+   - You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled. Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a [migration](../common/storage-account-move.md).
 
 2. Ensure that the segments of each blob path are named
 
-   The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements. 
+   The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.
 
 ## Perform the upgrade
 
