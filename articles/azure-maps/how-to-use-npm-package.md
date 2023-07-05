@@ -306,5 +306,5 @@ Learn best practices and see samples:
 [Webpack]: https://webpack.js.org/
 [style-loader]: https://webpack.js.org/loaders/style-loader/
 [azure-maps-drawing-tools]: ./set-drawing-options.md
-[azure-maps-indoor]: ./how-to-use-indoor-module
-[azure-maps-spatial-io]: ./how-to-use-spatial-io-module
+[azure-maps-indoor]: ./how-to-use-indoor-module.md
+[azure-maps-spatial-io]: ./how-to-use-spatial-io-module.md
