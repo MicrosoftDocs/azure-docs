@@ -20,18 +20,26 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 ## Prepare to upgrade
 
-1. Review feature support
+To prepare to upgrade your storage account to Data Lake Storage Gen2:
 
-   Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any unsupported features in your account, you might need to disable them before you begin the upgrade, or manually migrate the account instead.
+> [!div class="checklist"]
+> - [Review feature support](#review-feature-support)
+> - [Ensure the segments of each blob path are named](#ensure-the-segments-of-each-blob-path-are-named)
 
-   Some notable examples include:
+### Review feature support
 
-   - Blob soft delete is not yet supported by the upgrade process. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
-   - You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled. Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a [migration](../common/storage-account-move.md).
+Your account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts, or that must be temporarily disabled to perform the upgrade.
 
-2. Ensure that the segments of each blob path are named
+If your account is using a feature that isn't yet supported, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any unsupported features in your account, disable them before you begin the upgrade. One example is the blob soft delete feature. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
 
-   The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.
+You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled.
+
+> [!IMPORTANT]
+> Simply disabling change feed will not allow you to perform an upgrade. To convert such an account to Data Lake Storage Gen2, you must perform a manual migration. For more information about manually migrating a storage account, see [Move an Azure Storage account to another region](../common/storage-account-move.md).
+
+### Ensure the segments of each blob path are named
+
+The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.
 
 ## Perform the upgrade
 
