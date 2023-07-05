@@ -4,9 +4,9 @@ description: Learn how to configure a managed Spring Cloud Config Server in Azur
 ms.service: spring-apps
 ms.topic: how-to
 ms.author: karler
-author: karlerickson
+author: KarlErickson
 ms.date: 12/10/2021
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Configure a managed Spring Cloud Config Server in Azure Spring Apps

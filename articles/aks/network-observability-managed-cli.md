@@ -182,7 +182,7 @@ Use [az aks update](/cli/azure/aks#az-aks-update) to link the Azure Monitor and 
 az aks update \
     --name myAKSCluster \
     --resource-group myResourceGroup \
-    --enable-azuremonitormetrics \
+    --enable-azure-monitor-metrics \
     --azure-monitor-workspace-resource-id $azuremonitorId \
     --grafana-resource-id $grafanaId
 ```
@@ -192,7 +192,7 @@ az aks update \
 ## Get cluster credentials 
 
 ```azurecli-interactive
-az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 ```
 
 
@@ -227,36 +227,38 @@ az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
 
-1. Use the following example to create a yaml file named **`ama-cilium-configmap.yaml`**. Copy the code in the example into the file created.
+1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
 
     ```yaml
+    global:
+      scrape_interval: 30s
     scrape_configs:
-    - job_name: "cilium-pods"
+      - job_name: "cilium-pods"
         kubernetes_sd_configs:
-        - role: pod
+          - role: pod
         relabel_configs:
-        - source_labels: [__meta_kubernetes_pod_container_name]
+          - source_labels: [__meta_kubernetes_pod_container_name]
             action: keep
-            regex: cilium(.*)
-        - source_labels:
-            [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+            regex: cilium-agent
+          - source_labels:
+              [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
             separator: ":"
             regex: ([^:]+)(?::\d+)?
             target_label: __address__
             replacement: ${1}:${2}
             action: replace
-        - source_labels: [__meta_kubernetes_pod_node_name]
+          - source_labels: [__meta_kubernetes_pod_node_name]
             action: replace
             target_label: instance
-        - source_labels: [__meta_kubernetes_pod_label_k8s_app]
-            action: keep
-            regex: cilium
-        - source_labels: [__meta_kubernetes_pod_name]
+          - source_labels: [__meta_kubernetes_pod_label_k8s_app]
+            action: replace
+            target_label: k8s_app
+          - source_labels: [__meta_kubernetes_pod_name]
             action: replace
             regex: (.*)
             target_label: pod
         metric_relabel_configs:
-        - source_labels: [__name__]
+          - source_labels: [__name__]
             action: keep
             regex: (.*)
     ```
@@ -264,15 +266,20 @@ az aks get-credentials -name myAKSCluster --resource-group myResourceGroup
 1. To create the `configmap`, use the following example:
 
     ```azurecli-interactive
-    kubectl create configmap ama-metrics-prometheus-config-node \
-        --from-file=./ama-cilium-configmap.yaml \
-        --name kube-system
+    kubectl create configmap ama-metrics-prometheus-config \
+        --from-file=./prometheus-config \
+        --namespace kube-system
+    ```
+
+1. Azure Monitor pods should restart themselves, if they do not please rollout restart with following command:
+    ```azurecli-interactive
+    kubectl rollout restart deploy -n kube-system ama-metrics
     ```
 
 1. Once the Azure Monitor pods have been deployed on the cluster, port forward to the `ama` pod to verify the pods are being scraped. Use the following example to port forward to the pod:
 
     ```azurecli-interactive
-    k port-forward $(k get po -l dsName=ama-metrics-node -oname | head -n 1) 9090:9090
+    kubectl port-forward -n kube-system $(kubectl get po -n kube-system -l rsName=ama-metrics -oname | head -n 1) 9090:9090
     ```
 
 1. In **Targets** of prometheus, verify the **cilium-pods** are present.

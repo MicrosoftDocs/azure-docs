@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 06/22/2023
 ---
 
 # What's new in Microsoft Sentinel
@@ -22,21 +22,40 @@ See these [important announcements](#announcements) about recent changes to feat
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## July 2023
+
+- [Microsoft Sentinel solution for D365 Finance and Operations (Preview)](#microsoft-sentinel-solution-for-d365-finance-and-operations-preview)
+- [Monitor and optimize the execution of your scheduled analytics rules (Preview)](#monitor-and-optimize-the-execution-of-your-scheduled-analytics-rules-preview)
+
+### Microsoft Sentinel solution for D365 Finance and Operations (Preview)
+
+The Microsoft Sentinel Solution for D365 Finance and Operations monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
+
+The solution includes the **Dynamics 365 Finance and Operations** connector and [built-in analytics rules](dynamics-365/dynamics-365-finance-operations-security-content.md#built-in-analytics-rules) to detect suspicious activity in your Dynamics 365 Finance and Operations environment.
+
+[Learn more about the solution](dynamics-365/dynamics-365-finance-operations-solution-overview.md).
+
+### Monitor and optimize the execution of your scheduled analytics rules (Preview)
+
+To ensure that Microsoft Sentinel's threat detection provides complete coverage in your environment, take advantage of its execution management tools. These tools consist of [insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights) on your [scheduled analytics rules'](detect-threats-built-in.md#scheduled) execution, based on Microsoft Sentinel's [health and audit data](monitor-analytics-rule-integrity.md), and a facility to [manually rerun previous executions of rules](monitor-optimize-analytics-rule-execution.md#rerun-analytics-rules) on specific time windows, for testing and optimization purposes.
+
+[Learn more about monitoring and optimizing analytics rules](monitor-optimize-analytics-rule-execution.md).
+
 ## June 2023
 
-- [Microsoft Sentinel solution for D365 F&O (Preview)](#microsoft-sentinel-solution-for-d365-fo-preview)
+- [Content Hub general availability delayed](#content-hub-general-availability-delayed)
 - [Windows Forwarded Events connector is now generally available](#windows-forwarded-events-connector-is-now-generally-available)
 - [Connect multiple SAP System Identifiers via the UI](#connect-multiple-sap-system-identifiers-via-the-ui-preview)
 - [Classic alert automation due for deprecation](#classic-alert-automation-due-for-deprecation) (see Announcements)
 - [Microsoft Sentinel solution for SAP® applications: new systemconfig.json file](#microsoft-sentinel-solution-for-sap-applications-new-systemconfigjson-file)
 
-### Microsoft Sentinel solution for D365 F&O (Preview)
+### Content Hub general availability delayed
 
-The Microsoft Sentinel Solution for D365 F&O monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. 
+We had every intention of releasing content hub to general availability this week. Our engineering team recognized some problems just before launch and are taking the time to get it corrected. If you saw this announcement and were eagerly awaiting the updated experience to rollout to your tenant, we apologize for the mismatch here. So, here is the revised announcement in anticipation of general availability soon.
 
-The solution includes the **Dynamics 365 F&O** connector and [built-in analytics rules](dynamics-365/dynamics-365-finance-operations-security-content.md#built-in-analytics-rules) to detect suspicious activity in your Dynamics 365 Finance and Operations environment.
+When the general availability (GA) of content hub is released, the [content hub centralization changes announced in February](#out-of-the-box-content-centralization-changes) will also take effect. For more information on these changes and their impact, including more details about the tool provided to reinstate **IN USE** gallery templates, see [Out-of-the-box (OOTB) content centralization changes](sentinel-content-centralize.md). 
 
-[Learn more about the solution](dynamics-365/dynamics-365-finance-operations-solution-overview.md).
+As part of the deployment for GA, the default view of the content hub is now the **List view**. The install process is streamlined as well. When selecting **Install** or **Install/Update**, the experience behaves like bulk installation. 
 
 ### Windows Forwarded Events connector is now generally available
 

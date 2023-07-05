@@ -2,8 +2,8 @@
 title: Express configuration Azure Command Line Interface (CLI) commands reference
 description: In this article, you can review the Express configuration Azure Command Line Interface (CLI) commands reference and copy example scripts to use in your environments.
 ms.topic: sample
-author: ElazarK
-ms.author: elkrieger
+author: dcurwin
+ms.author: dacurwin
 ms.date: 06/04/2023
 ---
 
@@ -31,7 +31,10 @@ This article lists the Azure Command Line Interface (CLI) commands that can be u
 - [Set SQL vulnerability assessment server setting](#set-sql-vulnerability-assessment-server-setting)
 - [Remove SQL vulnerability assessment server setting](#remove-sql-vulnerability-assessment-server-setting)
 
-### Set SQL vulnerability assessment baseline on system database
+> [!NOTE]
+> For Azure CLI reference for the classic configuration, see [Manage findings in your Azure SQL databases](sql-azure-vulnerability-assessment-manage.md#azure-cli)
+
+## Set SQL vulnerability assessment baseline on system database
 
 **Example 1**:
 
@@ -853,7 +856,6 @@ az rest --method Get --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 }
 ```
 
-
 ### Get SQL vulnerability assessment scans on user database
 
 **Example 1**:
@@ -967,6 +969,7 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
   "type": "Microsoft.Sql/servers/sqlVulnerabilityAssessments"
 }
 ```
+
 **Example 2**:
 
 ```azurecli
@@ -987,6 +990,7 @@ az rest --method Put --uri /subscriptions/00000000-1111-2222-3333-444444444444/r
 ```azurecli
 az rest --method Delete --uri /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/sqlVulnerabilityAssessments/default?api-version=2022-02-01-preview
 ```
+
 ## Next steps
 
 [Find and remediate vulnerabilities in your Azure SQL databases](sql-azure-vulnerability-assessment-find.md)

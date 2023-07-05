@@ -80,7 +80,7 @@ There are many ways to implement an N-tier architecture. The following diagrams 
  In this architecture diagram DDoS IP Protection is enabled on the public IP address.
 
 > [!NOTE]
-> Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
+> Scenarios in which a single VM is running behind a public IP is not recommended. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
 
 ### PaaS web application
 
