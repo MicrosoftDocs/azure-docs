@@ -3,7 +3,7 @@ title: Azure Virtual Desktop scaling plans for host pools in Azure Virtual Deskt
 description: How to assign scaling plans to new or existing host pools in your deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 07/18/2023
 ms.author: helohr
 manager: femila
 ---

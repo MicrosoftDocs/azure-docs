@@ -3,7 +3,7 @@ title: Set up diagnostics for autoscale in Azure Virtual Desktop
 description: How to set up diagnostic reports for the scaling service in your Azure Virtual Desktop deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 07/18/2023
 ms.author: helohr
 manager: femila
 ---

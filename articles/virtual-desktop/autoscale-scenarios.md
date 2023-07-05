@@ -3,7 +3,7 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 07/18/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
