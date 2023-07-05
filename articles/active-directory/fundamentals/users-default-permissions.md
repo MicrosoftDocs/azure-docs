@@ -132,10 +132,10 @@ Users can perform the following actions on owned enterprise applications. An ent
 | microsoft.directory/servicePrincipals/permissions/update | Update the `servicePrincipals.permissions` property in Azure AD. |
 | microsoft.directory/servicePrincipals/policies/update | Update the `servicePrincipals.policies` property in Azure AD. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on sign-in reports in Azure AD. |
-| microsoft.directory/servicePrincipals/synchronizationCredentials/manage |	Manage application provisioning secrets and credentials
-| microsoft.directory/servicePrincipals/synchronizationJobs/manage |	Start, restart, and pause application provisioning synchronization jobs
-| microsoft.directory/servicePrincipals/synchronizationSchema/manage |	Create and manage application provisioning synchronization jobs and schema
-| microsoft.directory/servicePrincipals/synchronization/standard/read |	Read provisioning settings associated with your service principal
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage |	Manage application provisioning secrets and credentials |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage |	Start, restart, and pause application provisioning synchronization jobs |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage |	Create and manage application provisioning synchronization jobs and schema |
+| microsoft.directory/servicePrincipals/synchronization/standard/read |	Read provisioning settings associated with your service principal |
 
 #### Owned devices
 Users can perform the following actions on owned devices:
