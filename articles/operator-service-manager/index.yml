@@ -26,7 +26,7 @@ landingContent:
             url: ./operator/operator-workflow.md
       - linkListType: tutorial
         links:
-          - text: How to create a site
+          - text: Create a site
             url: ./operator/tutorial/create-site.md
           - text: Create a site network service
             url: ./operator/tutorial/create-site-network-service.md

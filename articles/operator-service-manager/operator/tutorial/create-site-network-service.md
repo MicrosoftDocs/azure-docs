@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-operator-service-manager
 ---
 # How to create a site network service
-In this tutorial, learn to create a site network service and deploy a Virtual Network based on ARM templates.
+In this tutorial, learn to create a site network service and deploy a virtual network based on ARM templates.
 
 ## About the site network service
 Site network services (SNS) represent the instantiation of a network service in a single site. Sites are scoped within a region, but may cover multiple NFVIs, such as Kubernetes clusters or on-premises Azure Stack Edge resources. Every SNS has a reference to precisely one version of a single network service design, but can reference different versions of that NSD over its lifetime.
