@@ -7,24 +7,24 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 03/31/2023
-ms.author: lajanuar
+ms.date: 07/05/2023
+ms.author: moelghaz 
 ms.topic: how-to
 ---
 
-# Use Custom Translator service through a Virtual Network service endpoint
+# Enable Custom Translator through Azure virtual network service endpoint
 
-[Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) [service endpoints](../../../../virtual-network/virtual-network-service-endpoints-overview.md) help to provide secure and direct connectivity to Azure services over an optimized route on the Azure backbone network. Endpoints help you secure your critical Azure service resources to only your virtual networks. Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
+[Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) (Azure VNet) [service endpoints](../../../../virtual-network/virtual-network-service-endpoints-overview.md) help to provide secure and direct connectivity to Azure services over an optimized route via the Azure backbone network. Endpoints help you secure your critical Azure service resources to your virtual networks. Service endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network.
 
-This article explains how to set up and use Virtual Network service endpoints with Custom Translator service in Azure Cognitive Services.
+This article explains how to set up and use VNet service endpoints with Custom Translator service.
 
 > [!NOTE]
 > Before you start, review [how to use virtual networks with Cognitive Services](../../../cognitive-services-virtual-networks.md).
 
-To set up a Translator resource for Virtual Network service endpoint scenarios, you need to:
-1. [Create a regional Translator resource - Global is not supported](../../create-translator-resource.md).
-1. [Configure virtual networks and networking settings for the Translator resource](#configure-virtual-networks-and-the-translator-resource-networking-settings).
+To set up a Translator resource for Virtual Network service endpoint scenarios, you need the following resources:
 
+1. [A regional Translator resource (global isn't supported)](../../create-translator-resource.md).
+1. [VNet and networking settings for the Translator resource](#configure-virtual-networks-and-the-translator-resource-networking-settings).
 
 ## Configure virtual networks and the Translator resource networking settings
 
@@ -43,7 +43,7 @@ You need to add all virtual networks that are allowed access via the service end
    > [!NOTE]
    > To use Virtual Network service endpoints, you need to select the **Selected Networks and Private Endpoints** network security option. No other options are supported.
 
-5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint will automatically be enabled for the selected subnets. This operation can take few minutes. Also, see the note at the beginning of this section.
+5. Select **Add existing virtual network** or **Add new virtual network** and provide the required parameters. Select **Add** for an existing virtual network or **Create** for a new one. If you add an existing virtual network, the `Microsoft.CognitiveServices` service endpoint is automatically enabled for the selected subnets. This operation can take few minutes. Also, see the note at the beginning of this section.
 
 ### Enabling service endpoint for an existing virtual network 
 
@@ -76,7 +76,8 @@ The following table describes Custom Translator project accessibility per Transl
 
 
 To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround: 
-* Create another Translator resource for development that can be used on a public network. Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) workspaces>copyauthorization and models>copy functions. 
+
+Create another Translator resource for development that can be used on a public network. Prepare your custom model in Custom Translator portal on the development resource, and then copy the model to your production resource using [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) `workspaces` → `copy authorization and models`  → `copy functions`.
 
 ## Learn more
 

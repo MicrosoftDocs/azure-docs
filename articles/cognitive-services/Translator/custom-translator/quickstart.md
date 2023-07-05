@@ -6,23 +6,23 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 11/04/2022
+ms.date: 07/05/2023
 ms.author: lajanuar
 ms.topic: quickstart
 ---
 # Quickstart: Build, publish, and translate with custom models
 
-Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../language-support.md).
+Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST API that can be used with any operating system.  Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, learn to build custom solutions for your applications across all [supported languages](../language-support.md).
 
 ## Prerequisites
 
- To use the [Custom Translator](https://portal.customtranslator.azure.ai/) portal, you'll need the following resources:
+ To use the [Custom Translator](https://portal.customtranslator.azure.ai/) portal, you need the following resources:
 
 * A [Microsoft account](https://signup.live.com).
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have an Azure subscription, [create a Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+  * You need the key and endpoint from the resource to connect your application to the Translator service. Paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
     :::image type="content" source="../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
@@ -38,11 +38,11 @@ You can read an overview of translation and custom translation, learn some tips,
 
 1. [**Create a workspace**](#create-a-workspace). A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. All the work you do in Custom Translator is done inside a specific workspace.
 
-1. [**Create a project**](#create-a-project). A project is a wrapper for models, documents, and tests. Each project includes all documents that are uploaded into that workspace with the correct language pair. For example, if you have both an English-to-Spanish project and a Spanish-to-English project, the same documents will be included in both projects.
+1. [**Create a project**](#create-a-project). A project is a wrapper for models, documents, and tests. Each project includes all documents that are uploaded into that workspace with the correct language pair. For example, if you have both an English-to-Spanish project and a Spanish-to-English project, the same documents are included in both projects.
 
 1. [**Upload parallel documents**](#upload-documents). Parallel documents are pairs of documents where one (target) is the translation of the other (source). One document in the pair contains sentences in the source language and the other document contains sentences translated into the target language. It doesn't matter which language is marked as "source" and which language is marked as "target"—a parallel document can be used to train a translation system in either direction.
 
-1. [**Train your model**](#train-your-model). A model is the system that provides translation for a specific language pair. The outcome of a successful training is a model. When you train a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A 10,000 parallel sentence is the minimum requirement to train a model.
+1. [**Train your model**](#train-your-model). A model is the system that provides translation for a specific language pair. The outcome of a successful training is a model. When you train a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator automatically assembles tuning and testing data. It uses a random subset of sentences from your training documents, and excludes these sentences from the training data itself. A 10,000 parallel sentence is the minimum requirement to train a model.
 
 1. [**Test (human evaluate) your model**](#test-your-model). The testing set is used to compute the [BLEU](beginners-guide.md#what-is-a-bleu-score) score. This score indicates the quality of your translation system.
 
@@ -79,9 +79,9 @@ You can read an overview of translation and custom translation, learn some tips,
 
 ## Create a project
 
-Once the workspace is created successfully, you'll be taken to the **Projects** page.
+Once the workspace is created successfully, you're taken to the **Projects** page.
 
-You'll create English-to-German project to train a custom model with only a [training](training-and-model.md#training-document-type-for-custom-translator) document type.
+You create English-to-German project to train a custom model with only a [training](training-and-model.md#training-document-type-for-custom-translator) document type.
 
 1. Select **Create project**.
 
@@ -99,9 +99,7 @@ You'll create English-to-German project to train a custom model with only a [tra
 
 ## Upload documents
 
-In order to create a custom model, you need to upload all or a combination of [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator), [testing](training-and-model.md#testing-dataset-for-custom-translator), and [dictionary](concepts/dictionaries.md) document types.
-
-In this quickstart, you'll upload [training](training-and-model.md#training-document-type-for-custom-translator) documents for customization.
+In order to create a custom model, you need to upload all or a combination of [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator), [testing](training-and-model.md#testing-dataset-for-custom-translator), and [dictionary](concepts/dictionaries.md) document types for customization.
 
 >[!Note]
 > You can use our sample training, phrase and sentence dictionaries dataset, [Customer sample English-to-German datasets](https://github.com/MicrosoftTranslator/CustomTranslatorSampleDatasets), for this quickstart. However, for production, it's better to upload your own training dataset.
@@ -150,9 +148,9 @@ Now you're ready to train your English-to-German model.
 
 1. After successful model training, select **Model details** from the left navigation menu.
 
-1. Select the model name *en-de with sample data*. Review training date/time, total training time, number of sentences used for training, tuning, testing, and dictionary. Check whether the system generated the test and tuning sets. You'll use the `Category ID` to make translation requests.
+1. Select the model name *en-de with sample data*. Review training date/time, total training time, number of sentences used for training, tuning, testing, and dictionary. Check whether the system generated the test and tuning sets. You use the `Category ID` to make translation requests.
 
-1. Evaluate the model [BLEU](beginners-guide.md#what-is-a-bleu-score) score. The test set **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
+1. Evaluate the model [BLEU](beginners-guide.md#what-is-a-bleu-score) score. The test set **BLEU score** is the custom model score and **Baseline BLEU** is the pretrained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
 
     >[!Note]
     >If you train with our shared customer sample datasets, BLEU score will be different than the image.
@@ -165,7 +163,7 @@ Once your training has completed successfully, inspect the test set translated s
 
 1. Select **Test model** from the left navigation menu.
 2. Select "en-de with sample data"
-3. Human evaluate translation from **New model** (custom model), and **Baseline model** (our pre-trained baseline used for customization) against **Reference** (target translation from the test set)
+3. Human evaluate translation from **New model** (custom model), and **Baseline model** (our pretrained baseline used for customization) against **Reference** (target translation from the test set)
 
 ## Publish your model
 
