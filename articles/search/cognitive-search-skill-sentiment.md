@@ -11,7 +11,7 @@ ms.date: 08/17/2022
 
 # Sentiment cognitive skill (v2)
 
-The **Sentiment** skill (v2) evaluates unstructured text along a positive-negative continuum, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment. This skill uses the machine learning models provided by [Text Analytics](../ai-services/text-analytics/overview.md) in Azure AI services.
+The **Sentiment** skill (v2) evaluates unstructured text along a positive-negative continuum, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment. This skill uses the machine learning models provided by [Text Analytics](../ai-services/language-service/overview.md) in Azure AI services.
 
 > [!IMPORTANT]
 > The Sentiment skill (v2) (**Microsoft.Skills.Text.SentimentSkill**) is now discontinued replaced by [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
@@ -35,14 +35,14 @@ Parameters are case-sensitive.
 
 | Parameter Name | Description |
 |----------------|----------------------|
-| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See the [full list of supported languages](../ai-services/text-analytics/language-support.md). |
+| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See the [full list of supported languages](../ai-services/language-service/language-detection/overview.md). |
 
 ## Skill inputs 
 
 | Input	Name | Description |
 |--------------------|-------------|
 | `text` | The text to be analyzed.|
-| `languageCode`	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See the [full list of supported languages](../ai-services/text-analytics/language-support.md).|
+| `languageCode`	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See the [full list of supported languages](../ai-services/language-service/language-detection/overview.md).|
 
 ## Skill outputs
 
