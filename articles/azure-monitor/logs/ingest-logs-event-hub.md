@@ -2,13 +2,12 @@
 title: Ingest events from Azure Event Hubs into Azure Monitor Logs
 description: Ingest logs from Event Hubs into Azure Monitor Logs 
 services: azure-monitor
-ms.custom: references_regions
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.topic: tutorial 
 ms.date: 09/20/2022
-ms.custom: template-tutorial 
+ms.custom: references_regions 
 
 # customer-intent: As a DevOps engineer, I want to ingest data from an event hub into a Log Analytics workspace so that I can monitor logs that I send to Azure Event Hubs.
 ---
