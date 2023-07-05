@@ -1,7 +1,7 @@
 ---
-title: Disaster recovery guidance for Azure Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: Learn how to use the copy model API to back up your Form Recognizer resources.
+title: Disaster recovery guidance for Azure AI Document Intelligence
+titleSuffix: Azure AI services
+description: Learn how to use the copy model API to back up your Document Intelligence resources.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,10 +10,11 @@ ms.topic: how-to
 ms.date: 10/14/2022
 ms.author: lajanuar
 ---
+
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD033 -->
 
-# Back up and recover your Form Recognizer models
+# Back up and recover your Document Intelligence models
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
@@ -25,18 +26,18 @@ ms.author: lajanuar
 
 ::: moniker range=">= form-recog-2.1.0"
 
-When you create a Form Recognizer resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Form Recognizer resources in different regions and the ability to sync custom models across regions.
+When you create a Document Intelligence resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Document Intelligence resources in different regions and the ability to sync custom models across regions.
 
-The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
+The Copy API enables this scenario by allowing you to copy custom models from one Document Intelligence account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
 ## Business scenarios
 
-If your app or business depends on the use of a Form Recognizer custom model, we recommend you copy your model to another Form Recognizer account in another region. If a regional outage occurs, you can then access your model in the region where it was copied.
+If your app or business depends on the use of a Document Intelligence custom model, we recommend you copy your model to another Document Intelligence account in another region. If a regional outage occurs, you can then access your model in the region where it was copied.
 
 ## Prerequisites
 
-1. Two Form Recognizer Azure resources in different Azure regions. If you don't have them, go to the Azure portal and [create a new Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer).
-1. The key, endpoint URL, and subscription ID for your Form Recognizer resource. You can find these values on the resource's **Overview** tab in the [Azure portal](https://portal.azure.com/#home).
+1. Two Document Intelligence Azure resources in different Azure regions. If you don't have them, go to the Azure portal and [create a new Document Intelligence resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer).
+1. The key, endpoint URL, and subscription ID for your Document Intelligence resource. You can find these values on the resource's **Overview** tab in the [Azure portal](https://portal.azure.com/#home).
 
 ::: moniker-end
 
@@ -195,7 +196,7 @@ Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formre
 
 ### Track copy operation progress
 
-You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetOperation) API to list all document model operations (succeeded, in-progress, or failed) associated with your Form Recognizer resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
+You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetOperation) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
 
 * documentModelBuild
 * documentModelCompose
@@ -339,14 +340,14 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 
 ::: moniker range="form-recog-3.0.0"
 
-In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
+In this guide, you learned how to use the Copy API to back up your custom models to a secondary Document Intelligence resource. Next, explore the API reference docs to see what else you can do with Document Intelligence.
 
 * [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
-In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
+In this guide, you learned how to use the Copy API to back up your custom models to a secondary Document Intelligence resource. Next, explore the API reference docs to see what else you can do with Document Intelligence.
 
 * [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
 

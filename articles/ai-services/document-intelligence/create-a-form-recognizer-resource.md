@@ -1,7 +1,7 @@
 ---
-title: How to create a Form Recognizer resource
-titleSuffix: Azure Applied AI Services
-description: Create a Form Recognizer resource in the Azure portal
+title: How to create a Document Intelligence resource
+titleSuffix: Azure AI services
+description: Create a Document Intelligence resource in the Azure portal
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,11 +12,12 @@ ms.author: bemabonsu
 monikerRange: '>=form-recog-2.1.0'
 ---
 
-# Create a Form Recognizer resource
+
+# Create a Document Intelligence resource
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. In this article, learn how to create a Form Recognizer resource in the Azure portal.
+Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. In this article, learn how to create a Document Intelligence resource in the Azure portal.
 
 ## Visit the Azure portal
 
@@ -28,15 +29,15 @@ Let's get started:
 
 1. Select **Create a resource** from the Azure home page.
 
-1. Search for and choose **Form Recognizer** from the search bar.
+1. Search for and choose **Document Intelligence** from the search bar.
 
 1. Select the **Create** button.
 
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-one.gif" alt-text="Gif showing how to create a Form Recognizer resource.":::
+    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-one.gif" alt-text="Gif showing how to create a Document Intelligence resource.":::
 
 ## Create a resource
 
-1. Next, you're going to fill out the **Create Form Recognizer** fields with the following values:
+1. Next, you're going to fill out the **Create Document Intelligence** fields with the following values:
 
     * **Subscription**. Select your current subscription.
     * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that contains your resource. You can create a new group or add it to a pre-existing group.
@@ -46,7 +47,7 @@ Let's get started:
 
 1. Select **Review + Create**.
 
-    :::image type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-two.png" alt-text="Still image showing the correct values for creating Form Recognizer resource.":::
+    :::image type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-two.png" alt-text="Still image showing the correct values for creating Document Intelligence resource.":::
 
 1. Azure will run a quick validation check, after a few seconds you should see a green banner that says **Validation Passed**.
 
@@ -60,19 +61,19 @@ Let's get started:
 
 1. Once you receive the *deployment is complete* message, select the **Go to resource** button.
 
-1. Copy the key and endpoint values from your Form Recognizer resource paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Form Recognizer API.
+1. Copy the key and endpoint values from your Document Intelligence resource paste them in a convenient location, such as *Microsoft Notepad*. You need the key and endpoint values to connect your application to the Document Intelligence API.
 
 1. If your overview page doesn't have the keys and endpoint visible, you can select the **Keys and Endpoint** button, on the left navigation bar, and retrieve them there.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL":::
 
-That's it! You're now ready to start automating data extraction using Azure Form Recognizer.
+That's it! You're now ready to start automating data extraction using Azure AI Document Intelligence.
 
 ## Next steps
 
-* Try the [Form Recognizer Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications.
+* Try the [Document Intelligence Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Document Intelligence service into your applications.
 
-* Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
+* Complete a Document Intelligence quickstart and get started creating a document processing app in the development language of your choice:
 
   * [C#](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
   * [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)

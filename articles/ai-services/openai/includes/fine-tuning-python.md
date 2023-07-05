@@ -118,7 +118,7 @@ For large data files, we recommend you import from an Azure Blob store. Large fi
 The following Python example locally creates sample training and validation dataset files, then uploads the local files using the Python SDK and retrieves the returned file IDs. Make sure to save the IDs returned by the example, because you'll need them for the fine-tuning training job creation.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../security-features.md) article for more information.
 
 ```python
 import openai

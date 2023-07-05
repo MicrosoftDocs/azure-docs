@@ -1,7 +1,7 @@
 ---
-title: Automated W-2 form processing - Form Recognizer
-titleSuffix: Azure Applied AI Services
-description: Use the Form Recognizer prebuilt W-2 model to automate extraction of W2 form data.
+title: Automated W-2 form processing - Document Intelligence
+titleSuffix: Azure AI services
+description: Use the Document Intelligence prebuilt W-2 model to automate extraction of W2 form data.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -12,53 +12,54 @@ ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 ---
 
-# Form Recognizer W-2 form model
 
-**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+# Document Intelligence W-2 form model
 
-The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported on [US Internal Revenue Service (IRS) tax forms](https://www.irs.gov/forms-pubs/about-form-w-2). A W-2 tax form is a multipart form divided into state and federal sections consisting of more than 14 boxes detailing an employee's income from the previous year. The W-2 tax form is a key document used in employees' federal and state tax filings, as well as other processes like mortgage loans and Social Security Administration (SSA) benefits. The Form Recognizer W-2 model supports both single and multiple standard and customized forms from 2018 to the present.
+**This article applies to:** ![Document Intelligence v3.0 checkmark](media/yes-icon.png) **Document Intelligence v3.0**.
+
+The Document Intelligence W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported on [US Internal Revenue Service (IRS) tax forms](https://www.irs.gov/forms-pubs/about-form-w-2). A W-2 tax form is a multipart form divided into state and federal sections consisting of more than 14 boxes detailing an employee's income from the previous year. The W-2 tax form is a key document used in employees' federal and state tax filings, as well as other processes like mortgage loans and Social Security Administration (SSA) benefits. The Document Intelligence W-2 model supports both single and multiple standard and customized forms from 2018 to the present.
 
 ## Automated W-2 form processing
 
 An employer sends form W-2, also known as the Wage and Tax Statement, to each employee and the Internal Revenue Service (IRS) at the end of the year. A W-2 form reports employees' annual wages and the amount of taxes withheld from their paychecks. The IRS also uses W-2 forms to track individuals' tax obligations. The Social Security Administration (SSA) uses the information on this and other forms to compute the Social Security benefits for all workers.
 
-***Sample W-2 tax form processed using Form Recognizer Studio***
+***Sample W-2 tax form processed using Document Intelligence Studio***
 
-:::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample W-2 processed in the Form Recognizer Studio.":::
+:::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample W-2 processed in the Document Intelligence Studio.":::
 
 ## Development options
 
-Form Recognizer v3.0 supports the following tools:
+Document Intelligence v3.0 supports the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**W-2 model**|<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
+|**W-2 model**|<ul><li> [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prebuilt-model)</li></ul>|**prebuilt-tax.us.w2**|
 
 ### Try W-2 data extraction
 
-Try extracting data from W-2 forms using the Form Recognizer Studio. You need the following resources:
+Try extracting data from W-2 forms using the Document Intelligence Studio. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio
+#### Document Intelligence Studio
 
 > [!NOTE]
-> Form Recognizer studio is available with v3.0 API.
+> Document Intelligence Studio is available with v3.0 API.
 
-1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2**.
+1. On the [Document Intelligence Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2**.
 
 1. You can analyze the sample W-2 document or select the **➕ Add** button to upload your own sample.
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot: analyze W-2 window in the Form Recognizer Studio.":::
+    :::image type="content" source="media/studio/w2-analyze.png" alt-text="Screenshot: analyze W-2 window in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
-    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
+    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
 
 ## Input requirements
 
@@ -116,12 +117,12 @@ Try extracting data from W-2 forms using the Form Recognizer Studio. You need th
 
 ### Migration guide and REST API v3.0
 
-* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
+* Follow our [**Document Intelligence v3.0 migration guide**](v3-migration-guide.md) to learn how to use the v3.0 version in your applications and workflows.
 
 * Explore our [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more about the v3.0 version and new capabilities.
 
 ## Next steps
 
-* Try processing your own forms and documents with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+* Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
