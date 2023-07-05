@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/06/2023
+ms.date: 07/05/2023
 ms.author: jasteppe
 ---
 
@@ -90,11 +90,11 @@ Follow these four steps to fill in the **Basics** tab configuration:
 
 2. Select the **Event Hubs Namespace**.
 
-   The **Event Hubs Namespace** is the name of the *Event Hubs namespace* that you previously deployed. For this example, we're using *eh-azuredocsdemo* for our MedTech service device messages.
+   The **Event Hubs Namespace** is the name of the *Event Hubs namespace* that you previously deployed. For this example, we're using the name *eh-azuredocsdemo*.
 
 3. Select the **Events Hubs name**.
 
-   The **Event Hubs name** is the name of the event hub that you previously deployed within the Event Hubs Namespace. For this example, we're using *devicedata* for our MedTech service device messages.  
+   The **Event Hubs name** is the name of the event hub that you previously deployed within the Event Hubs Namespace. For this example, we're using the name *devicedata*.  
 
 4. Select the **Consumer group**.
 
@@ -127,7 +127,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 * Next, enter the **Destination name**.
 
-  The **Destination name** is a friendly name for the destination. Enter a unique name for your destination. In this example, the **Destination name** is
+  The **Destination name** is a friendly name for the destination. Enter a unique name for your destination. In this example, the **Destination name** name is
   *fs-azuredocsdemo*.
 
 * Next, select the **Resolution type**.
