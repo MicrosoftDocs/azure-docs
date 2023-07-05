@@ -945,6 +945,8 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Microsoft Sentinel
         href: mssp-protect-intellectual-property.md
+    - name: Switch to simplified pricing triggers
+      href: enroll-simplified-pricing-tier.md
     - name: Set up customer-managed keys
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
@@ -1025,9 +1027,7 @@
   - name: Troubleshoot Jupyter notebooks
     href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
-    href: sap/sap-deploy-troubleshoot.md
-  - name: Configure SAP Transport Management System
-    href: sap/configure-transport.md  
+    href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
   - name: SAP solution
