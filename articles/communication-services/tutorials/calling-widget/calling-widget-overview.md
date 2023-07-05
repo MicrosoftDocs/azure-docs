@@ -1,5 +1,5 @@
 ---
-title: Creating a click to call experience with Azure Communication Services
+title: Get started with a click to call experience using Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate click to call.
 author: dmceachern
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Creating a click to call experience with Azure Communication Services 
+# Get started with a click to call experience using Azure Communication Services 
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash.png)
+![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
 This project aims to guide developers on creating a seamless click to call experience using the Azure Communication UI Library.
 

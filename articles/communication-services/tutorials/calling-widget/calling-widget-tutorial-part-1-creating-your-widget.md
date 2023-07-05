@@ -441,11 +441,11 @@ import { CallingWidgetScreen } from './views/CallingWidgetScreen';
 
 Once you have set the arguments defined in `App.tsx`, run the app with `npm run start` to see the changes:
 
-![Screenshot of calling widget sample app home page widget closed](../media/calling-widget/sample-app-splash.png)
+![Screenshot of calling widget sample app home page widget closed](../media/calling-widget/sample-app-splash-widget-closed.png)
 
 Then when you action the widget button, you should see:
 
-![Screenshot of calling widget sample app home page widget open](../media/calling-widget/sample-app-widget-open.png)
+![Screenshot of calling widget sample app home page widget open](../media/calling-widget/sample-app-splash-widget-open.png)
 
 Yay! We have made the control surface for the widget! Next, we'll discuss what we need to add to make this widget start a call in a new window.
 

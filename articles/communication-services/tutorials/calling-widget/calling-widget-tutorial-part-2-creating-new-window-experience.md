@@ -386,7 +386,7 @@ Now, when the application runs in a new window, it sees that it's supposed to st
 
 Now when you pass in the arguments, set your `displayName`, and click `Start Call` you should see the following screens:
 
-![Screenshot of click to call sample app home page with calling experience in new window](../media/calling-widget/calling-screen.png)
+![Screenshot of click to call sample app home page with calling experience in new window](../media/calling-widget/calling-screen-new-window.png)
 
 With this new window experience, your users are able to:
 - continue using other tabs in their browser or other applications and still be able to see your call
