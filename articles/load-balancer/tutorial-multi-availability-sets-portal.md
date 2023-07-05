@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 07/05/2023
-ms.custom: template-tutorial
+ms.custom: template-tutorial, engagement-fy24
 ---
 
 # Tutorial: Create a load balancer with more than one availability set in the backend pool using the Azure portal
