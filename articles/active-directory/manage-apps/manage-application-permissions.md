@@ -254,3 +254,4 @@ Run the following queries to remove appRoleAssignments of users or groups to the
 
 - [Configure user consent setting](configure-user-consent.md)
 - [Configure admin consent workflow](configure-admin-consent-workflow.md)
+- [Restore revoked permissions](restore-permissions.md)
