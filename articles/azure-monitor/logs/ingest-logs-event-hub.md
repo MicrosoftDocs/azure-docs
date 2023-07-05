@@ -1,5 +1,5 @@
 ---
-title: Ingest events from Azure Event Hubs to Azure Monitor Logs
+title: Ingest events from Azure Event Hubs into Azure Monitor Logs
 description: Ingest logs from Event Hubs into Azure Monitor Logs 
 services: azure-monitor
 author: guywi-ms
@@ -13,7 +13,7 @@ ms.custom: template-tutorial
 ---
 
 
-# Tutorial: Ingest events from Azure Event Hubs to Azure Monitor Logs   
+# Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs   
 
 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
@@ -61,7 +61,7 @@ Azure Monitor currently supports ingestion from Event Hubs in these regions:
 
 ## Collect required information
 
-You'll need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub resource ID in subsequent steps:
+You need your subscription ID, resource group name, workspace name, workspace resource ID, and event hub resource ID in subsequent steps:
 
 1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** and copy your **Subscription ID**, **Resource group**, and **Workspace name**. You'll need these details to create resources in this tutorial. 
 
@@ -121,8 +121,7 @@ To create a custom table into which to ingest events, in the Azure portal:
 > [!IMPORTANT]
 > - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
-> - Custom columns you add to an Azure table must have the suffix `_CF`.
-> - If you update the table schema in your Log Analytics workspace, you must also update the input stream definition in the data collection rule to ingest data into new or modified columns.
+> - Column names are case-sensitive. Make sure to use the correct case in your data collection rule. 
 
 ## Create a data collection endpoint
 
