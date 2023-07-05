@@ -51,9 +51,14 @@ These are explained in greater detail below. See [Microsoft 365 Defender integra
 
 ### Connect incidents and alerts
 
-Select the **Connect incidents & alerts** button to connect Microsoft 365 Defender incidents to your Microsoft Sentinel incidents queue.
+To ingest and synchronize Microsoft 365 Defender incidents, with all their alerts, to your Microsoft Sentinel incidents queue:
 
-If you see a check box labeled **Turn off all Microsoft incident creation rules for these products. Recommended**, mark it to avoid duplication of incidents.
+1. Mark the check box labeled **Turn off all Microsoft incident creation rules for these products. Recommended**, to avoid duplication of incidents.
+
+    (This check box will not appear once the Microsoft 365 Defender connector is connected.)
+
+1. Select the **Connect incidents & alerts** button.
+
 
 > [!NOTE]
 > When you enable the Microsoft 365 Defender connector, all of the Microsoft 365 Defender components’ connectors (the ones mentioned at the beginning of this article) are automatically connected in the background. In order to disconnect one of the components’ connectors, you must first disconnect the Microsoft 365 Defender connector.
@@ -65,7 +70,7 @@ SecurityIncident
 | where ProviderName == "Microsoft 365 Defender"
 ```
 
-### Connect entities
+### Connect entities from on-premises Active Directory
 
 Use Microsoft Defender for Identity to sync user entities from your on-premises Active Directory to Microsoft Sentinel.
 
@@ -79,7 +84,7 @@ Verify that you've satisfied the [prerequisites](#prerequisites-for-active-direc
 
     :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Sentinel.":::
 
-### Connect events
+### Connect raw events from Microsoft 365 Defender components
 
 1. If you want to collect advanced hunting events from Microsoft Defender for Endpoint or Microsoft Defender for Office 365, the following types of events can be collected from their corresponding advanced hunting tables.
 
@@ -182,3 +187,4 @@ In this document, you learned how to integrate Microsoft 365 Defender incidents,
 
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+
