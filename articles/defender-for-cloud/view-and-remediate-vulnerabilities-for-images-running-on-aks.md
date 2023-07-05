@@ -33,7 +33,7 @@ To provide findings for the recommendation, Defender CSPM uses [agentless contai
   
     :::image type="content" source="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png" alt-text="Screenshot showing the list of container vulnerabilities." lightbox="media/view-and-remediate-vulnerabilities-for-images-running-on-aks/running-list-vulnerabilities.png":::
 
-## View container clusters affected by a specific vulnerability
+## View container images affected by a specific vulnerability
 
 **To view findings for a specific vulnerability, do the following:**
 1. Open the **Recommendations** page, using the **>** arrow to open the sub-levels. If issues were found, you'll see the recommendation [Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c609cf0f-71ab-41e9-a3c6-9a1f7fe1b8d5). Select the recommendation. 
